@@ -15,6 +15,7 @@ DOM = (document.getElementById) ? 1 : 0;
 NS4 = (document.layers) ? 1 : 0;
 IE4 = (document.all) ? 1 : 0;
 OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
+MAC = navigator.userAgent.indexOf("Mac") > -1 ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
@@ -208,7 +209,7 @@ function chng_focus(phash)
 	window.location.hash = phash;
 }
 
-if (!OPERA && navigator.appName == "Microsoft Internet Explorer") {
+if (!OPERA && !MAC && navigator.appName == "Microsoft Internet Explorer") {
 	window.attachEvent("onload", ie_png_hack);
 }
 
