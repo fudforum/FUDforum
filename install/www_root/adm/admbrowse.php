@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.20 2004/08/09 14:26:25 hackie Exp $
+* $Id: admbrowse.php,v 1.21 2004/10/06 14:56:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -94,7 +94,7 @@ function fud_rmdir($dir)
 	return @rmdir($dir);
 }
 
-if (!function_exists('posix_getpwuid')) {
+if (!extension_loaded('posix')) {
 	function posix_getpwuid($id)
 	{
 		return array('name' => $id);

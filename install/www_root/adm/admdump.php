@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.44 2004/08/13 14:52:52 hackie Exp $
+* $Id: admdump.php,v 1.45 2004/10/06 14:56:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -249,7 +249,7 @@ function sql_is_null($r, $n, $tbl='')
 		echo "Backup Process is Complete<br>";
 		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
 	} else {
-		$gz = function_exists('gzopen');
+		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
 			$path = $TMP.'FUDforum_'.strftime('%d_%m_%Y_%I_%M', __request_timestamp__).'.fud';
 			if ($gz) {
