@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.24 2003/12/12 13:05:23 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.25 2003/12/19 10:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,6 +26,10 @@
 
 {SECTION: last_post last post link}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: r[2] %a, %d %B %Y %H:%M}</font><br /><a href="{TEMPLATE: last_post_lnk}" class="GenLink">{VAR: r[0]}</a></td></tr>
+{SECTION: END}
+
+{SECTION: last_visit last visit}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_visit}</td><td class="GenText"><font class="DateText">{DATE: u->last_visit %a, %d %B %Y %H:%M}</font></td></tr>
 {SECTION: END}
 
 {SECTION: user_image}
@@ -189,6 +193,7 @@
 {TEMPLATE-DATA: status}
 {TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}
+{TEMPLATE-DATA: last_visit}
 {TEMPLATE-DATA: polls}
 {TEMPLATE-DATA: user_image}
 {TEMPLATE-DATA: email_link}
