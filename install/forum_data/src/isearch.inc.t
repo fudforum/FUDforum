@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.26 2003/10/09 14:34:26 hackie Exp $
+* $Id: isearch.inc.t,v 1.27 2003/10/14 14:26:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,7 +24,7 @@ function index_text($subj, $body, $msg_id)
 		$body = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', '', $body);
 	}
 
-	$cs = array('\W', '!\s+!');
+	$cs = array('!\W!', '!\s+!');
 	$cd = array(' ', ' ');
 
 	reverse_fmt($subj);
