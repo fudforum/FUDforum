@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.134 2005/02/25 15:50:29 hackie Exp $
+* $Id: register.php.t,v 1.135 2005/02/26 22:55:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -677,13 +677,6 @@ function decode_uent(&$uent)
 
 /*{POST_HTML_PHP}*/
 
-	$reg_email_err	= draw_err('reg_email');
-	$reg_name_err	= draw_err('reg_name');
-	$reg_sig_err	= draw_err('reg_sig');
-	$reg_alias_err	= draw_err('reg_alias');
-
-	$reg_alias_t = $FUD_OPT_2 & 128 ? '{TEMPLATE: reg_alias}' : '';
-
 	if ($FUD_OPT_2 & 2048) {
 		$affero_domain = parse_url($WWW_ROOT);
 		$register_affero = '{TEMPLATE: register_affero}';
@@ -694,34 +687,12 @@ function decode_uent(&$uent)
 	/* Initialize avatar options */
 	$avatar = $avatar_type_sel = '';
 
-	if (!__fud_real_user__) {
-		$reg_login_err			= draw_err('reg_login');
-		$reg_plaintext_passwd_err	= draw_err('reg_plaintext_passwd');
-		$reg_time_limit_err		= draw_err('reg_time_limit');
-		$reg_turing_err			= draw_err('reg_turing');
-
-		/* turing stuff */
-		if (!($FUD_OPT_3 & 128)) {
-			$turing = '{TEMPLATE: register_turing_test}';
-		}
-
-		$user_info_heading = '{TEMPLATE: new_user}';
-		$submit_button = '{TEMPLATE: register_button}';
-	} else {
-		$reg_time_limit_err = '';
+	if (__fud_real_user__) {
 		if ($uent->users_opt & 131072 && $FUD_OPT_2 & 1 && !($uent->users_opt & 1048576)) {
 			$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 		} else {
 			$email_warning_msg = '';
 		}
-
-		$reg_confirm_passwd_err	= draw_err('reg_confirm_passwd');
-		$avatar_err = draw_err('avatar');
-
-		$user_login = htmlspecialchars($uent->login);
-		$change_passwd_link = !$mod_id ? '{TEMPLATE: change_passwd_link}' : '';
-		$user_info_heading = '{TEMPLATE: update_user}';
-		$submit_button = '{TEMPLATE: update_button}';
 
 		if ($FUD_OPT_1 & 28 && _uid) {
 			if ($FUD_OPT_1 == 28) {
@@ -822,8 +793,6 @@ function decode_uent(&$uent)
 		}
 	}
 
-	$post_options = tmpl_post_options('sig');
-
 	$theme_select = '';
 	$r = q("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
 	/* only display theme select if there is >1 theme */
@@ -866,11 +835,6 @@ function decode_uent(&$uent)
 	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "8192\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8192), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16384), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-
-	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
-	$sig_len_limit = $FORUM_SIG_ML ? '{TEMPLATE: register_sig_limit}' : '';
-
-	$auto_c = $GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
