@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.13 2003/04/08 14:14:27 hackie Exp $
+*   $Id: attach.inc.t,v 1.14 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,8 +170,8 @@ function attach_finalize($attach_list, $mid, $private='N')
 	
 	if (!empty($id_list)) {
 		$id_list = substr($id_list, 0, -1);
-		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."','id','.atch'), message_id=".$mid." WHERE id IN(".$id_list.") AND private='".$private."'");
-		$id_list = " AND id NOT IN(".$id_list.")";
+		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."', id, '.atch'), message_id=".$mid." WHERE id IN(".$id_list.") AND private='".$private."'");
+		$id_list = ' AND id NOT IN('.$id_list.')';
 	} else {
 		$id_list = '';
 	}	

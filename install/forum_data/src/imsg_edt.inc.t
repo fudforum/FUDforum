@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.29 2003/04/08 12:56:54 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.30 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,15 +35,11 @@ class fud_msg_edit extends fud_msg
 	
 	function add($forum_id, $message_threshold, $moderated, $sticky_perm, $lock_perm, $autoapprove=TRUE)
 	{
-		if (!$this->attachment_id) {
-			$this->attachment_id = 0;
-		}
-		
 		if (!$this->post_stamp) {
 			$this->post_stamp = __request_timestamp__;
 		}
 
-		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : "'0.0.0.0'";
+		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".$_SERVER['REMOTE_ADDR']."'" : "'0.0.0.0'";
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".get_host($this->ip_addr)."'" : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
@@ -59,7 +55,7 @@ class fud_msg_edit extends fud_msg
 		}
 		
 		poll_cache_rebuild($this->poll_id, $poll_cache);
-		$poll_cache = ($poll_cache ? @serialize($poll_cahce) : NULL);
+		$poll_cache = ($poll_cache ? @serialize($poll_cache) : NULL);
 
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
@@ -159,7 +155,7 @@ class fud_msg_edit extends fud_msg
 		}
 	
 		poll_cache_rebuild($this->poll_id, $poll_cache);
-		$poll_cache = ($poll_cache ? @serialize($poll_cahce) : NULL);
+		$poll_cache = ($poll_cache ? @serialize($poll_cache) : NULL);
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
 			file_id=".$file_id.", 

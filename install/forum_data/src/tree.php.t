@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.22 2003/03/05 13:46:36 hackie Exp $
+*   $Id: tree.php.t,v 1.23 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -264,7 +264,9 @@ if( @is_array($tree->kiddies) ) {
 	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));
 	un_register_fps();
 
-	if ( isset($usr) && $last_thread_read < $msg_obj->post_stamp ) $usr->register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
+	if ( isset($usr) && $last_thread_read < $msg_obj->post_stamp ) {
+		user_register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
+	}
 	
 	$prev_th = $prev_thread_link = $next_th = $next_thread_link = NULL;
 	get_prev_next_th_id($thread->forum_id, $thread->id, $prev_th, $next_th);

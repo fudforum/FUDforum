@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.27 2003/04/08 11:47:17 hackie Exp $
+*   $Id: th.inc.t,v 1.28 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ class fud_thread
 			{SQL_TABLE_PREFIX}thread
 				(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, locked, is_sticky, ordertype, orderexpiry)
 			VALUES
-				(".$forum_id.", ".$root.", ".$last_post_date.", 0, 0, 0, ".$root.", '".$locked."', '".$is_sticky."', ".$ordertype.", ".$orderexpiry.")");
+				(".$forum_id.", ".$root.", ".$last_post_date.", 0, 0, 0, ".$root.", '".$locked."', '".$is_sticky."', '".$ordertype."', ".$orderexpiry.")");
 	}
 	
 	function get_by_id($id)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.33 2003/04/08 14:14:27 hackie Exp $
+*   $Id: post.php.t,v 1.34 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -329,17 +329,17 @@
 		 	
 		 	if (!$th_id) {
 		 		$create_thread = 1;
-		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, $frm->p_sticky, $frm->p_locked, FALSE);
+		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, $perms['p_sticky'], $perms['p_lock'], FALSE);
 		 		$thr = new fud_thread;
 		 		$thr->get_by_id($msg_post->thread_id);
 		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
-		 		$msg_post->add_reply($reply_to, $th_id, $frm->p_sticky, $frm->p_locked, FALSE);
+		 		$msg_post->add_reply($reply_to, $th_id, $perms['p_sticky'], $perms['p_lock'], FALSE);
 			} else if ($msg_id) {
 				$msg_post->id = $msg_id;
 				$msg_post->thread_id = $th_id;
 				$msg_post->post_stamp = $msg->post_stamp;
-				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, $frm->p_sticky, $frm->p_locked);
+				$msg_post->sync(_uid, $frm->id, $frm->message_threshold, $perms['p_sticky'], $perms['p_lock']);
 				/* log moderator edit */
 			 	if (_uid && _uid != $msg->poster_id) {
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
@@ -369,7 +369,7 @@
 			
 			/* register a view, so the forum marked as read */
 			if (isset($frm) && _uid) {
-				register_forum_view($frm->id);
+				user_register_forum_view($frm->id);
 			}
 			
 			/* where to redirect, to the treeview or the flat view 

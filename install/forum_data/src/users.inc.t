@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.30 2003/04/08 12:56:54 hackie Exp $
+*   $Id: users.inc.t,v 1.31 2003/04/08 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -113,7 +113,7 @@ function user_register_forum_view($frm_id)
 	}
 }
 
-function register_thread_view($thread_id, $tm=0, $msg_id=0)
+function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
 {
 	if (!$tm) {
 		$tm = __request_timestamp__;
