@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: installation.xml,v 1.2 2002/07/01 21:22:35 hackie Exp $ -->
+<!-- $Id: installation.xml,v 1.3 2002/07/03 12:56:58 hackie Exp $ -->
 <chapter id="installation">
 	<title>Installation</title>
 	
@@ -94,12 +94,13 @@
 				<title>Downloading FUDforum from CVS</title>
 			        <programlisting>
 <![CDATA[
-cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 checkout fud2_install
+cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_install
 ]]>
 Once the files are retrieved, run the following commands to create the install script
 <![CDATA[
 cd fud2_install
 chmod 644 install.php
+chmod 755 create_file_list
 ./create_file_list install >> install.php
 ]]>
                                 </programlisting>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.4 2002/06/30 19:33:14 hackie Exp $
+*   $Id: core.inc,v 1.5 2002/07/03 12:56:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-$FORUM_VERSION = "2.1.3";
+$FORUM_VERSION = "2.1.4";
 
 error_reporting(E_ALL & ~E_NOTICE);
 ignore_user_abort(true);
