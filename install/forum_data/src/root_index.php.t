@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.34 2004/01/04 16:38:27 hackie Exp $
+* $Id: root_index.php.t,v 1.35 2004/04/02 17:46:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@
 		} else {
 			$t = $_GET['t'] = 'index';
 		}
-	} else if (preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
+	} else if (preg_match('/[^a-z_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
 		$t = 'index';
 	}
 
