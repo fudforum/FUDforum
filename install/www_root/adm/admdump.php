@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.13 2002/09/11 21:50:26 hackie Exp $
+*   $Id: admdump.php,v 1.14 2002/09/17 09:33:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -211,13 +211,15 @@ include('admpanel.php');
 			echo "Processing table: $tbl_name .... ";
 			flush();
 			
-			$r2 = q("SELECT * FROM ".$tbl_name);
-			$tbl_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
+			$num_entries = q_singleval("SELECT count(*) FROM ".$tbl_name);
+			$start = 0;
+			$limit = 100000;
+			$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
+			$field_data = array();
 			
-			if( db_count($r2) ) {
-				$field_data = array();
+			if( $num_entries ) {
+				$r2 = q("SELECT * FROM ".$tbl_name." LIMIT 1");
 				$nf = sql_num_fields($r2);
-				
 				for( $i=0; $i<$nf; $i++ ) {
 					$field_data[sql_field_name($r2, $i)] = array(
 						'name' => sql_field_name($r2, $i),
@@ -225,11 +227,15 @@ include('admpanel.php');
 						'not_null' => sql_is_null($r2, $i, $tbl_name)
 					);	
 				}
-				
-				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
-			}	
+			}
 			
-			qf($r2);
+			while ($start<$num_entries) {
+				$r2 = q("SELECT * FROM ".$tbl_name." LIMIT ".qry_limit($limit, $start));
+				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
+				qf($r2);
+				$start += $limit;
+			}			
+			
 			echo "DONE<br>\n";
 			flush();
 		}
