@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.43 2003/04/30 19:51:04 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.44 2003/05/01 19:38:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,11 +28,11 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	db_unlock();
 	
 	q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
-	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$opt_id);
+	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);
 	poll_cache_rebuild($opt_id, $options);
 	q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='.strnull(addslashes(@serialize($options))).' WHERE id='.$mid);
 
-	return;
+	return 1;
 }
 
 /* needed for message threshold & reveling messages */
@@ -247,9 +247,11 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	
 	/* handle poll votes */
 	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && $obj->locked == 'N' && $perms['p_vote'] == 'Y') {
-		register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id);
+		if (register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id)) {
+			$obj->total_votes += 1;
+			$obj->cant_vote = 1;
+		}
 		unset($_GET['poll_opt']);
-		$_POST['pl_view'] = $obj->poll_id;
 	}
 	
 	/* display poll if there is one */
@@ -258,7 +260,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		$show_res = 1;
 
 		/* various conditions that may prevent poll voting */		
-		if (!$hide_controls && !$obj->cant_vote && (!isset($_GET['pl_view']) || $_GET['pl_view'] != $obj->poll_id)) {
+		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
 			if ($perms['p_vote'] == 'Y' && ($obj->locked == 'N' || $perms['p_lock'] == 'Y')) {
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
 					/* check if the max # of poll votes was reached */

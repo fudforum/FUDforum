@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.8 2003/04/08 08:24:19 hackie Exp $
+*   $Id: poll.php.t,v 1.9 2003/05/01 19:38:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@
 		$pl_id = 0;
 	}
 
-	make_perms_query($fields, $join);
+	make_perms_query($fields, $join, $frm_id);
 
 	/* fetch forum, poll & moderator data */
 	if (!$pl_id) { /* new poll */

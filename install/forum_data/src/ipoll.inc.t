@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.12 2003/04/15 14:43:05 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.13 2003/05/01 19:38:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,10 +38,10 @@ function poll_fetch_opts($id)
 	return (isset($a) ? $a : NULL);
 }
 
-function poll_del_opt($poll_id, $id)
+function poll_del_opt($id, $poll_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE id='.$id);
-	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid.' AND poll_opt='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id.' AND id='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND poll_opt='.$id);
 	$ttl_votes = (int) q_singleval('SELECT SUM(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE id='.$id);
 	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes='.$ttl_votes.' WHERE id='.$poll_id);
 }
