@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.95 2003/10/30 21:38:45 hackie Exp $
+* $Id: register.php.t,v 1.96 2003/11/05 13:58:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -71,6 +71,14 @@ function sanitize_url($url)
 	return $url;
 }
 
+function sanitize_login($login)
+{
+	for ($i = 0; $i < 32; $i++) $list[] = chr($i);
+	for ($i = 127; $i < 160; $i++) $list[] = chr($i);
+
+	return str_replace($list, array_fill(0, count($list), ''), $login);
+}
+
 function register_form_check($user_id)
 {
 	/* new user specific checks */
@@ -91,7 +99,7 @@ function register_form_check($user_id)
 			set_err('reg_plaintext_passwd', '{TEMPLATE: register_err_passwdnomatch}');
 		}
 
-		$_POST['reg_login'] = trim($_POST['reg_login']);
+		$_POST['reg_login'] = trim(sanitize_login($_POST['reg_login']));
 
 		if (strlen($_POST['reg_login']) < 4) {
 			set_err('reg_login', '{TEMPLATE: register_err_short_login}');
@@ -153,7 +161,7 @@ function register_form_check($user_id)
 
 	/* Alias Check */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
-		if (($_POST['reg_alias'] = trim($_POST['reg_alias']))) {
+		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'])))) {
 			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
 				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
 			}
