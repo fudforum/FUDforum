@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.32 2004/01/13 14:11:32 hackie Exp $
+* $Id: isearch.inc.t,v 1.33 2004/06/10 16:47:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,17 @@ function index_text($subj, $body, $msg_id)
 	if (__dbtype__ == 'mysql') {
 		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2);
 	} else {
-		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text');
+		if (!defined('search_prep')) {
+			define('search_prep', 'PREPARE {SQL_TABLE_PREFIX}srch_ins (text) AS INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES($1)');
+			define('search_prep2', 'PREPARE {SQL_TABLE_PREFIX}srch_sel (text) AS SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=$1');
+			pg_query(fud_sql_lnk, search_prep);
+			pg_query(fud_sql_lnk, search_prep2);
+		}
+		foreach ($w2 as $w) {			
+			if (pg_num_rows(pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_sel (".$w.")")) < 1) {
+				pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_ins (".$w.")");
+			}
+		}
 	}
 
 	if (isset($w1)) {
