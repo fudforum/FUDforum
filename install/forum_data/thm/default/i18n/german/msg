@@ -192,9 +192,9 @@ homepage:			Homepage:
 icq_control_panel:		ICQ Online-Men&uuml;
 icq_message_form:		ICQ Nachricht erstellen:
 iemail_frm_bodyemail:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Um den Themen anzusehen, gehe zu:\n{VAR: goto_url['icq']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['icq']}
-iemail_frm_subject:		Neuer Themen in Forum {VAR: frm_name} mit den Namen {VAR: thr_subject} von {VAR: poster_login}
-iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehe zu {VAR: goto_url['email']}\n\nWenn Du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['email']}
+iemail_frm_bodyicq:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['icq']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['icq']}
+iemail_frm_subject:		Neues Thema im Forum {VAR: frm_name} mit den Namen {VAR: thr_subject} von {VAR: poster_login}
+iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['email']}\n\nWenn Du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['icq']}\n\nWenn Du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['icq']}
 iemail_thr_subject:		Neue Antwort an {VAR: thr_subject} von {VAR: poster_login}
 ignore_list_cantign_msg:	Du kannst diesen Benutzer nicht ignorieren
@@ -912,7 +912,7 @@ err_inc_query_err:		Ein SQL Fehler ist aufgetreten, bitte kontaktiere den <a hre
 spell_alts:			keine Alternativen
 insert_uploaded_image:		Ein Bild in den Beitrag einf&uuml;gen
 finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Deiner Anfrage hinzu. Um zum Bsp. alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
-back_to_top:			Back to Top
-iemail_participate:		To participate in the discussion, go here:
-pm_err_disabled_title:		Private Messaging Disabled
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
+back_to_top:			Zur&uuml;ck zum Anfang
+iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
+pm_err_disabled_title:		Private Messages deaktiviert
+pm_err_disabled_msg:		Du kannst keine privaten Messages verschicken, solange Du nicht die &#39;Private Messages erlauben&#39; Option in Deinem Profil aktivierst.
