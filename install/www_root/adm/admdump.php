@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.26 2003/07/18 17:59:17 hackie Exp $
+*   $Id: admdump.php,v 1.27 2003/07/18 20:28:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,7 +89,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 				}
 				break;
 			case 'dir':
-				if ($f != 'tmp') {
+				if ($f != 'tmp' && $f != 'theme') {
 					backup_dir($path . $f, $fp, $write_func, $keep_dir);
 				}
 				break;
@@ -202,6 +202,10 @@ function sql_is_null($r, $n, $tbl='')
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
 
 		foreach($sql_table_list as $tbl_name) {
+			/* not needed, will be rebuilt by consistency checker */
+			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view') {
+				continue;
+			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 		
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
