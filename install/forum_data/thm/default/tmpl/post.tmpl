@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.9 2002/08/23 03:32:42 hackie Exp $
+*   $Id: post.tmpl,v 1.10 2002/09/09 20:22:35 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -265,7 +265,7 @@
 <h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
 {SECTION: END}
 
-{SECTION: moderated_forum_post}
+{PAGE: moderated_forum_post}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <div align="center">
@@ -285,7 +285,7 @@
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
-{SECTION: END}
+{PAGE: END}
 
 {PAGE: POST_PAGE message posting form}
 {TEMPLATE: header}

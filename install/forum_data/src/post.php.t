@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.13 2002/09/02 20:04:36 hackie Exp $
+*   $Id: post.php.t,v 1.14 2002/09/09 20:22:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -433,8 +433,10 @@
 				fclose($fp);
 				$s = strpos($data, '<?php')+5;
 				eval(substr($data, $s, (strrpos($data, '?>')-$s)));
-				
-				exit('{TEMPLATE: moderated_forum_post}');
+				?>
+				{TEMPLATE: moderated_forum_post}
+				<?php
+				exit;
 			}
 			else
 				check_return();
