@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.30 2004/11/24 19:53:35 hackie Exp $
+* $Id: ignore_list.php.t,v 1.31 2005/02/27 02:41:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		WHERE ui.user_id='._uid);
 
 	$ignore_list = '';
-	if (($r = @db_rowarr($c))) {
+	if (($r = db_rowarr($c))) {
 		do {
 			$ignore_list .= $r[0] ? '{TEMPLATE: ignore_user}' : '{TEMPLATE: ignore_anon_user}';
 		} while (($r = db_rowarr($c)));
