@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.11 2004/10/26 21:08:01 hackie Exp $
+* $Id: uninstall.php,v 1.12 2005/03/05 18:47:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -94,9 +94,9 @@ function fud_rmdir($dir)
 		}
 
 		/* remove files on disk */
-		fud_rmdir($SERVER_DATA_ROOT);
+		fud_rmdir($SERVER_DATA_ROOT.'/');
 		if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
-			fud_rmdir($SERVER_ROOT);
+			fud_rmdir($SERVER_ROOT.'/');
 		}
 
 		/* remove database stuff if needed */
