@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.17 2003/10/27 11:01:28 hackie Exp $
+* $Id: forum.css.tmpl,v 1.18 2003/10/27 13:24:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,8 +22,8 @@ body {
 text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText, .GenLink, 
 	.GenTextRed, .ErrorText, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
 	a.thLnk:active, a.thLnk:visited, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg,
-	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, 
-	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, 
+	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText,
+	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, div.LegendH,
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, 
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .manvNoRes, font.lg, td.tt, table.tt,
@@ -363,5 +363,12 @@ div.ctags {
 div.LegendH {
 	border-bottom: 1px solid white;
 	padding: 1px;
+}
+th.SelTS, th.SelFS {
+	padding: 2px;
+}
+
+th.SelFS {
+	 border-bottom: 1px solid white;
 }
 {PAGE: END}
