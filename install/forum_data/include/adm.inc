@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.5 2002/08/01 18:32:54 hackie Exp $
+*   $Id: adm.inc,v 1.6 2002/08/06 15:00:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@ function initadm()
 function filetomem($fn)
 {
 	if ( !@is_file($fn) ) exit("FATAL ERROR: '<b>$fn</b>' is not a file in (<b>".getcwd()."</b>), can't open<br>\n");
-	$fp = fopen($fn, 'rb');
+	if( !($fp = fopen($fn, 'rb')) ) exit("FATAL ERROR: nop permission to open '$fn'<br>\n");
         $st = fstat($fp);
 	$sz = isset($st['size']) ? $st['size'] : $st[7];
         $str = fread($fp, $sz);
