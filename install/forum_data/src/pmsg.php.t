@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.4 2002/07/07 21:09:30 hackie Exp $
+*   $Id: pmsg.php.t,v 1.5 2002/07/07 22:14:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 			{SQL_TABLE_PREFIX}pmsg.*,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
 			{SQL_TABLE_PREFIX}users.login,
-			{SQL_TABLE_PREFIX}users.last_visit AS time_sec 
+			{SQL_TABLE_PREFIX}users.last_visit AS time_sec, 
 			{SQL_TABLE_PREFIX}users2.invisible_mode AS invisible_mode2,
 			{SQL_TABLE_PREFIX}users2.login AS login2,
 			{SQL_TABLE_PREFIX}users2.last_visit AS time_sec2 
@@ -84,14 +84,7 @@
 
 	if ( $folder_id == 'DRAFT' ) $lnk = '{ROOT}?t=pmsg&msg_id';
 	
-	if( $folder_id == 'SENT' ) {
-		$author_dest_col = '{TEMPLATE: pmsg_recepient}';
-		$obj->invisible_mode = $obj->invisible_mode2;
-		$obj->login = $obj->login2;
-		$obj->time_sec = $obj->time_sec2;
-	}
-	else
-		$author_dest_col = '{TEMPLATE: pmsg_author}';
+	$author_dest_col = $folder_id == 'SENT' ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
 	
 	$select_options_cur_folder = tmpl_draw_select_opt("INBOX\nDRAFT\nSENT\nTRASH", "{TEMPLATE: inbox}\n{TEMPLATE: draft}\n{TEMPLATE: sent}\n{TEMPLATE: trash}", $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
 	
@@ -123,6 +116,10 @@
 				$action = '{TEMPLATE: action_buttons_inbox}';
 				break;
 			case 'SENT':
+				$obj->invisible_mode = $obj->invisible_mode2;
+				$obj->login = $obj->login2;
+				$obj->time_sec = $obj->time_sec2;
+				$obj->ouser_id = $obj->pdest;
 			case 'TRASH':
 				$action = '{TEMPLATE: action_buttons_sent_trash}';
 				break;
