@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.23 2003/04/21 17:53:04 hackie Exp $
+*   $Id: login.php.t,v 1.24 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -121,7 +121,7 @@ function error_check()
 		} else { /* Perform check to ensure that the user is allowed to login */
 
 			/* Login & E-mail Filter & IP */
-			if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
+			if (is_login_blocked($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.47 2003/04/23 13:08:22 hackie Exp $
+*   $Id: post.php.t,v 1.48 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,10 +70,11 @@ function flood_check()
 	if ($reply_to || $msg_id) {
 		$msg = msg_get(($reply_to ? $reply_to : $msg_id));
 	 	$th_id = $msg->thread_id;
+	 	$msg->login = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 	}
 
 	if ($th_id) {
-		$thr = db_sab('SELECT t.forum_id, t.locked, t.root_msg_id, t.ordertype, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg ON t.root_msg_id=m.id WHERE t.id='.$th_id);
+		$thr = db_sab('SELECT t.forum_id, t.replies, t.locked, t.root_msg_id, t.ordertype, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
 		if (!$thr) {
 			invl_inp_err();
 		}
@@ -83,10 +84,10 @@ function flood_check()
 	} else {
 		std_error('systemerr');
 	}
-	$frm = db_sab('SELECT id, tag_style, max_file_attachments, passwd_posting, post_passwd, message_threshold, moderated FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
+	$frm = db_sab('SELECT id, name, max_attach_size, tag_style, max_file_attachments, passwd_posting, post_passwd, message_threshold, moderated FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	
 	/* fetch permissions & moderation status */
-	if (_uid) {
+	if (!_uid) {
 		$MOD = 0;
 		$perms = db_arr_assoc('SELECT p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_id='.$frm->id);
 	} else if ($usr->is_mod == 'A' || ($usr->is_mod == 'Y' && is_moderator($frm->id, _uid))) {
@@ -232,6 +233,7 @@ function flood_check()
 				$attach_count--;
 			}	
 			
+			$MAX_F_SIZE = $frm->max_attach_size;
 			/* newly uploaded files */
 			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
 				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE * 1024) {

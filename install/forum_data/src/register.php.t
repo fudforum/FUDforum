@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.43 2003/04/23 17:27:36 hackie Exp $
+*   $Id: register.php.t,v 1.44 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,7 +85,7 @@ function register_form_check($user_id)
 		
 		if (strlen($_POST['reg_login']) < 4) {
 			set_err('reg_login', '{TEMPLATE: register_err_short_login}');
-		} else if (is_blocked_login($_POST['reg_login'])) {
+		} else if (is_login_blocked($_POST['reg_login'])) {
 			set_err('reg_login', '{TEMPLATE: register_err_login_notallowed}');
 		} else if (get_id_by_login($_POST['reg_login'])) {
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');

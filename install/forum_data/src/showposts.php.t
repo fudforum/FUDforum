@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.9 2003/04/14 12:34:25 hackie Exp $
+*   $Id: showposts.php.t,v 1.10 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@
 	}
 	
 	$post_entry = '';
-	if ($fids || $usr->is_mod == 'A') {
+	if ($usr->is_mod == 'A' || $fids) {
 		$qry_limit = $usr->is_mod != 'A' ? 'f.id IN ('.$fids.') AND ' : '';
 	
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */

@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.17 2003/04/23 16:44:45 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.18 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,10 +56,14 @@ function &perms_from_obj(&$obj, $is_mod)
 	return $perms;
 }
 
-function make_perms_query(&$fields, &$join)
+function make_perms_query(&$fields, &$join, $fid='')
 {
+	if (!$fid) {
+		$fid = 'f.id';	
+	}
+
 	if (_uid) {
-		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id ';
+		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$fid.' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id='.$fid.' ';
 		$fields = ' (CASE WHEN g2.id IS NOT NULL THEN g2.p_VISIBLE ELSE g1.p_VISIBLE END) AS p_visible,
 			(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read,
 			(CASE WHEN g2.id IS NOT NULL THEN g2.p_POST ELSE g1.p_POST END) AS p_post,
@@ -77,7 +81,7 @@ function make_perms_query(&$fields, &$join)
 			(CASE WHEN g2.id IS NOT NULL THEN g2.p_SML ELSE g1.p_SML END) AS p_sml,
 			(CASE WHEN g2.id IS NOT NULL THEN g2.p_IMG ELSE g1.p_IMG END) AS p_img ';
 	} else {
-		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
+		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id='.$fid.' ';
 		$fields = ' p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img ';
 	}
 }

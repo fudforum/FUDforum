@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.8 2003/04/16 15:51:00 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.9 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
  * forum.
  */
 
-make_perms_query($fields, $join);
+make_perms_query($fields, $join, $frm_id);
 
 $frm = db_sab('SELECT 
 			f.id, f.name, f.thread_count,
@@ -42,8 +42,8 @@ $frm = db_sab('SELECT
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 		LEFT JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.user_id='._uid.' AND fn.forum_id='.$frm_id.'
 		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id.'
-		LEFT JOIN {SQL_TABLE_PREFIX}ann_forums a ON a.forum_id=f.id
 		'.$join.'
+		LEFT JOIN {SQL_TABLE_PREFIX}ann_forums a ON a.forum_id='.$frm_id.'
 		WHERE f.id='.$frm_id.' LIMIT 1');
 
 if (!$frm) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.19 2003/04/16 10:45:01 hackie Exp $
+*   $Id: thread.php.t,v 1.20 2003/04/30 19:51:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,8 @@
 	 */
 
 	if (!($r = @db_rowarr($result))) {
-		$no_messages = '{TEMPLATE: no_messages}';
+		$thread_list_table_data = '{TEMPLATE: no_messages}';
+		$threaded_view = $rating_heading = $admin_heading_row = '';
 	} else {
 		if ($MOD || $frm->p_move == 'Y' || $frm->p_del == 'Y') {
 			$admin_heading_row = '{TEMPLATE: admin_heading_row}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.42 2003/04/16 14:16:46 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.43 2003/04/30 19:51:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,21 +76,23 @@ if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
+$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
+
 function make_tmp_unignore_lnk($id)
 {
 	if (!isset($_GET['reveal'])) {
-		return $_SERVER['QUERY_STRING'] . '&amp;reveal='.$id;
+		return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
 	} else {
-		return str_replace('&reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING']);
+		return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 
 function make_reveal_link($id)
 {
 	if (!isset($GLOBALS['__FMDSP__'])) {
-		return $_SERVER['QUERY_STRING'] . '&amp;rev='.$id;
+		return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
 	} else {
-		return str_replace('&rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING']);
+		return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 
