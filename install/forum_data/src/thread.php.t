@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.36 2004/02/13 23:11:00 hackie Exp $
+* $Id: thread.php.t,v 1.37 2004/05/12 15:50:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,11 +95,7 @@
 					$mini_pager_data .= '{TEMPLATE: mini_pager_entry}';
 				}
 
-				if ($mini_pager_data) {
-					$mini_thread_pager = '{TEMPLATE: mini_thread_pager}';
-				} else {
-					$mini_thread_pager = '';
-				}
+				$mini_thread_pager = $mini_pager_data ? '{TEMPLATE: mini_thread_pager}' : '';
 			} else {
 				$mini_thread_pager = '';
 			}
@@ -122,11 +118,7 @@
 
 			$thread_read_status = $first_unread_msg_link = '';
 			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[20]) {
-				if ($r[18] & 1) {
-					$thread_read_status = '{TEMPLATE: thread_unread_locked}';
-				} else {
-					$thread_read_status = '{TEMPLATE: thread_unread}';
-				}
+				$thread_read_status = ($r[18] & 1) ? '{TEMPLATE: thread_unread_locked}' : '{TEMPLATE: thread_unread}';
 				/* do not show 1st unread message link if thread has no replies */
 				if ($r[16]) {
 					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
