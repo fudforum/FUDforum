@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.59 2003/10/02 21:44:05 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.60 2003/10/03 01:27:09 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -403,7 +403,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
 
-		if ($obj->reply_to && $obj->reply_to != $obj->id) {
+		if ($obj->reply_to && $obj->reply_to != $obj->id && $o2 & 536870912) {
 			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
 				$lnk = d_thread_view;
 			} else {
