@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.1 2002/07/29 11:58:50 hackie Exp $
+*   $Id: nntp.inc,v 1.2 2002/07/29 12:52:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -359,12 +359,13 @@ class fud_nntp
 			while ( bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE alias='".$user->alias."'") ) $user->alias = $alias.'['.$i++.']';
 		}
 	
+		$GLOBALS['EMAIL_CONFIRMATION'] = 'N';
+		
 		$user->email = addslashes($this->from_email);
 		$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
 		$user->display_email = 'N';
 		$user->notify = 'N';
 		$user->coppa = 'N';
-		$user->email_conf = 'Y';
 		$user->name = addslashes($this->from_name);
 		$user->time_zone = addslashes($GLOBALS['SERVER_TZ']);
 		$user->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
@@ -372,6 +373,7 @@ class fud_nntp
 		$user->gender = 'UNSPECIFIED';
 		
 		$this->user_id = $user->add_user();
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET email_conf='Y' WHERE id=".$this->user_id);
 		
 		db_unlock();
 		
