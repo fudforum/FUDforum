@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.47 2004/10/31 18:18:08 hackie Exp $
+* $Id: maillist.php,v 1.48 2004/11/24 18:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -481,6 +481,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 
 	if (!($mlist->mlist_opt & 1)) {
-		$msg_post->approve($msg_post->id, true);
+		$msg_post->approve($msg_post->id);
 	}
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.17 2004/10/22 21:14:49 hackie Exp $
+* $Id: forum_adm.inc,v 1.18 2004/11/24 18:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,6 +61,8 @@ class fud_forum
 			".(int)$this->forum_opt."
 		)");
 
+		q("CREATE TABLE ".$tbl."fl_".$this->id." (id INT)");
+	
 		if (($gid = group_add($this->id, $this->name, 2))) {
 			grp_rebuild_cache(array(0, 2147483647));
 		}
@@ -165,6 +167,7 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
 	$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
+	q("DROP TABLE ".$tbl."fl_".$this->id);
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	db_unlock();

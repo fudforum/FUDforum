@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.52 2004/10/11 19:06:35 hackie Exp $
+* $Id: nntp.inc,v 1.53 2004/11/24 18:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -458,7 +458,7 @@ class fud_nntp
 				}
 			}
 			if (!($nntp_adm->nntp_opt & 1)) {
-				fud_msg_edit::approve($msg_post->id, true);
+				fud_msg_edit::approve($msg_post->id);
 			}
 			unset($msg_post);
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.111 2004/10/25 16:54:07 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.112 2004/11/24 18:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,12 +46,12 @@ class fud_msg_edit extends fud_msg
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
-		$file_id = write_body($this->body, $length, $offset);
+		$file_id = write_body($this->body, $length, $offset, $forum_id);
 
 		/* determine if preview needs building */
 		if ($message_threshold && $message_threshold < strlen($this->body)) {
 			$thres_body = trim_html($this->body, $message_threshold);
-			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
+			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
 		} else {
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
@@ -119,7 +119,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($autoapprove && $forum_opt & 2) {
-			$this->approve($this->id, true);
+			$this->approve($this->id);
 		}
 
 		return $this->id;
@@ -127,16 +127,12 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm)
 	{
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
-			$ll=1;
-		}
-		$file_id = write_body($this->body, $length, $offset);
+		$file_id = write_body($this->body, $length, $offset, $forum_id);
 
 		/* determine if preview needs building */
 		if ($message_threshold && $message_threshold < strlen($this->body)) {
 			$thres_body = trim_html($this->body, $message_threshold);
-			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
+			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview, $forum_id);
 		} else {
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
@@ -204,10 +200,6 @@ class fud_msg_edit extends fud_msg
 					rebuild_forum_view($frm_id);
 				}
 			}
-		}
-
-		if (isset($ll)) {
-			db_unlock();
 		}
 
 		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
@@ -325,7 +317,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 
-	function approve($id, $unlock_safe=0)
+	function approve($id)
 	{
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT
@@ -356,11 +348,6 @@ class fud_msg_edit extends fud_msg
 			$mtf->alias = $GLOBALS['ANON_NICK'];
 		}
 
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-			$ll = 1;
-		}
-
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET apr=1 WHERE id=".$mtf->id);
 
 		if ($mtf->poster_id) {
@@ -384,10 +371,6 @@ class fud_msg_edit extends fud_msg
 
 		/* update forum thread & post count as well as last_post_id field */
 		frm_updt_counts($mtf->forum_id, 1, $threads, $last_post_id);
-
-		if ($unlock_safe || isset($ll)) {
-			db_unlock();
-		}
 
 		if ($mtf->poll_id) {
 			poll_activate($mtf->poll_id, $mtf->forum_id);
@@ -517,12 +500,17 @@ class fud_msg_edit extends fud_msg
 	}
 }
 
-function write_body($data, &$len, &$offset)
+function write_body($data, &$len, &$offset, $fid=0)
 {
 	$MAX_FILE_SIZE = 2147483647;
 
 	$len = strlen($data);
 	$i = 1;
+
+	if ($fid) {
+		db_lock('{SQL_TABLE_PREFIX}fl_'.$fid.' WRITE');
+	}
+
 	while ($i < 100) {
 		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$i, 'ab');
 		fseek($fp, 0, SEEK_END);
@@ -537,9 +525,16 @@ function write_body($data, &$len, &$offset)
 	}
 
 	if (fwrite($fp, $data) !== $len) {
+		if ($fid) {
+			db_unlock();
+		}
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
 	fclose($fp);
+
+	if ($fid) {
+		db_unlock();
+	}
 
 	if (!$off) {
 		@chmod('msg_'.$i, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));

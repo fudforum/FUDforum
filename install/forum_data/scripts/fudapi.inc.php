@@ -867,7 +867,7 @@ function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, 
 		attach_finalize($attach_list, $msg->id);
 	}
 
-	$msg->approve($msg->id, true);
+	$msg->approve($msg->id);
 
 	$_SERVER['REMOTE_ADDR'] = $bak;
 

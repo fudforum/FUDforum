@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.92 2004/10/26 21:08:02 hackie Exp $
+* $Id: consist.php,v 1.93 2004/11/24 18:11:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -262,6 +262,16 @@ forum will be disabled.
 		}
 	}
 	draw_stat('Done: Validating Forum Order');
+
+	draw_stat('Checking for presence of forum lock tables');
+	$tbl_k = array_keys($tbls);
+	$c = q('SELECT id FROM '.$tbl.'forum');
+	while ($f = db_rowarr($c)) {
+		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
+			q("CREATE TABLE ".$tbl."fl_".$f[0]." (id INT)");
+		}
+	}
+	draw_stat('Done: Checking for presence of forum lock tables');
 
 	draw_stat('Checking thread_exchange');
 	delete_zero($tbl.'thr_exchange', 'SELECT te.id FROM '.$tbl.'thr_exchange te LEFT JOIN '.$tbl.'thread t ON t.id=te.th LEFT JOIN '.$tbl.'forum f ON f.id=te.frm WHERE t.id IS NULL or f.id IS NULL');
