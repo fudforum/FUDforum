@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.13 2003/05/06 18:25:44 hackie Exp $
+*   $Id: nntp.php,v 1.14 2003/05/07 01:05:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,6 +61,7 @@
 	fud_use('smiley.inc');
 	fud_use('nntp.inc', true);
 	fud_use('nntp_adm.inc', true);
+	fud_use('scripts_common.inc', true);
 
 	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
 
