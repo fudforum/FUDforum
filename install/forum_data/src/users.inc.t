@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.44 2003/05/14 08:08:58 hackie Exp $
+*   $Id: users.inc.t,v 1.45 2003/05/16 07:13:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -71,10 +71,7 @@ function user_alias_by_id($id)
 
 function user_register_forum_view($frm_id)
 {
-	q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
-	if (!db_affected()) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES('.$frm_id.', '._uid.','.__request_timestamp__.')');
-	}
+	q('REPLACE INTO {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.', forum_id='.$frm_id.', user_id='._uid);
 }
 
 function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
@@ -82,10 +79,7 @@ function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
 	if (!$tm) {
 		$tm = __request_timestamp__;
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
-	if (!db_affected()) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES('.$thread_id.', '._uid.', '.$msg_id.', '.$tm.')');	
-	}
+	q('REPLACE INTO {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.', thread_id='.$thread_id.', user_id='._uid);
 }
 
 function user_set_post_count($uid)
