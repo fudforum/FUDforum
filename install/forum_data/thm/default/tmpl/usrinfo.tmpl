@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.5 2002/08/04 15:08:08 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.6 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,7 +28,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: m_obj->post_stamp %a, %d %B %Y %H:%M}</font><br><a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: m_obj->id}&{DEF: _rsid}" class="GenLink">{VAR: m_obj->subject}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: m_obj->post_stamp %a, %d %B %Y %H:%M}</font><br /><a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: m_obj->id}&{DEF: _rsid}" class="GenLink">{VAR: m_obj->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: user_image}
@@ -85,7 +85,7 @@
 
 {SECTION: im_icq ICQ control center}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
-		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br>
+		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
 			<table border="0">
 			<tr><td colspan=2>
 				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
@@ -93,21 +93,21 @@
 			</td></tr>
 			<tr>
 				<td>
-					<font face="Arial, Helvetica" size="1">{MSG: sender_name}</font><br>
+					<font face="Arial, Helvetica" size="1">{MSG: sender_name}</font><br />
 					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()">
 				</td>
 				<td>
-					<font face="Arial, Helvetica" size="1">{MSG: sender_email}</font><br>
+					<font face="Arial, Helvetica" size="1">{MSG: sender_email}</font><br />
 					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()">
 				</td>
 			</tr>
 			<tr>
 				<td colspan=2>
-					<font face="Arial, Helvetica" size="1">{MSG: subject}</font><br>
-					<input type="text" name="subject" value="" size="32"><br>
-					<font face="Arial, Helvetica" size="1">{MSG: message}</font><br>
+					<font face="Arial, Helvetica" size="1">{MSG: subject}</font><br />
+					<input type="text" name="subject" value="" size="32"><br />
+					<font face="Arial, Helvetica" size="1">{MSG: message}</font><br />
 					<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
-					<input type="hidden" name="to" value="{VAR: u->icq}"><br>
+					<input type="hidden" name="to" value="{VAR: u->icq}"><br />
 				</td>
 			</tr>
 			<tr><td colspan=2 align=right><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
@@ -133,15 +133,15 @@
 {SECTION: END}
 
 {SECTION: level_name user's level name as determined by post count}
-{VAR: obj->level_name}<br>
+{VAR: obj->level_name}<br />
 {SECTION: END}
 
 {SECTION: level_image user's level image if avaliable as determined by post count}
-<img src="images/{VAR: obj->level_img}" border=0 /><br>
+<img src="images/{VAR: obj->level_img}" border=0 /><br />
 {SECTION: END}
 
 {SECTION: custom_tags}
-{VAR: u->custom_status}<br>
+{VAR: u->custom_status}<br />
 {SECTION: END}
 
 {SECTION: no_custom_tags}
@@ -172,7 +172,7 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2 width="100%">{MSG: usrinfo_profile}</th></tr>
 <tr class="RowStyleA"><td nowrap class="GenText">{MSG: date_registered}</td><td width="100%" class="DateText">{DATE: u->join_date %B %d, %Y}</td></tr>
-<tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{VAR: show_all_posts}</a></td></tr>
+<tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{VAR: show_all_posts}</a></td></tr>
 {TEMPLATE-DATA: status}
 {TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}

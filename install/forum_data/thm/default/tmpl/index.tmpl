@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.7 2002/08/04 15:08:07 hackie Exp $
+*   $Id: index.tmpl,v 1.8 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -63,7 +63,7 @@
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: data->name}</a><br>{VAR: data->descr}</td>
+	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: data->name}</a><br />{VAR: data->descr}</td>
 	<td class="RowStyleB" align="center">{VAR: data->post_count}</td>
 	<td class="RowStyleB" align="center">{VAR: data->thread_count}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
@@ -75,7 +75,7 @@
 <tr>
 	<td class="RowStyleA" width=1>&nbsp;</td>
 	<td class="RowStyleB" width=1>&nbsp;</td>
-	<td class="RowStyleA" colspan=5>{VAR-HTML: data->name}<br>{VAR: data->descr}</td>
+	<td class="RowStyleA" colspan=5>{VAR-HTML: data->name}<br />{VAR: data->descr}</td>
 </tr>
 {SECTION: END}
 
@@ -92,7 +92,7 @@
 {SECTION: END}
 
 {SECTION: last_post}
-<font class="DateText">{DATE: data->msg_post_stamp %a, %d %B %Y}</font><br>{MSG: by} {VAR: last_poster_profile} {VAR: last_post_link}
+<font class="DateText">{DATE: data->msg_post_stamp %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} {VAR: last_post_link}
 {SECTION: END}
 
 {SECTION: profile_link_user}
@@ -128,9 +128,9 @@
 {SECTION: END}
 
 {SECTION: forum_icon_legend}
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br></td></tr>
+<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
 <tr><td align=left class="RowStyleB">
 <table border=0 cellspacing=0 cellpadding=0 align=left>
 <tr>
@@ -151,7 +151,7 @@
 {SECTION: END}
 
 {SECTION: welcome_message}
-<font class="GenText">{MSG: welcome_message}</font><br>
+<font class="GenText">{MSG: welcome_message}</font><br />
 {SECTION: END}
 
 {PAGE: INDEX_PAGE}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
+*   $Id: search.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,7 +32,7 @@
 {REF: allperms.tmpl}
 
 {SECTION: search_results}
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width="100%">{MSG: search_subject}</th><th>{MSG: search_forum}</th><th>{MSG: search_posted_on}</th></tr>
 {TEMPLATE-DATA: search_data}
@@ -40,7 +40,7 @@
 {SECTION: END}
 
 {SECTION: no_search_results}
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleA"><th colspan=2 width="100%" align="center">{MSG: search_no_results}</th></tr>
 </table>
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->subject}</a><br>{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->forum_id}&{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->forum_id}&{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}

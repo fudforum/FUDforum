@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.tmpl,v 1.2 2002/07/08 12:47:36 hackie Exp $
+*   $Id: modque.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,7 +35,7 @@
 <td class="GenText" colspan=2>
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 <tr>
-	<td align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br><b>{MSG: thread}</b> {VAR: obj->frm_name}</td>
+	<td align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br /><b>{MSG: thread}</b> {VAR: obj->frm_name}</td>
 	<td align="right">[<a class="GenLink" href="{ROOT}?t=modque&appr={VAR: obj->id}&{DEF: _rsid}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{ROOT}?t=modque&del={VAR: obj->id}&{DEF: _rsid}">{MSG: modque_delete}</a>]</td>
 </tr>
 </table>
@@ -55,7 +55,7 @@
 {PAGE: MODQUE_PAGE draws a list of all the messages that are pending approval by the moderator}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br>{TEMPLATE-DATA: admin_cp}
+<br />{TEMPLATE-DATA: admin_cp}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: modque_pending_approval}</th></tr>
 {TEMPLATE-DATA: modque_message}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: pre_reg.tmpl,v 1.2 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -29,7 +29,7 @@
 <tr><th>{MSG: prereg_info}</th></tr>
 <tr class="RowStyleA" align="center"><form method="post" action="{ROOT}?t=pre_reg" name="sub">{DEF: _hs}<td class="GenText">
 {VAR: msg_file}
-<br><input type="hidden" name="coppa" value="{VAR: coppa}"><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}"> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}"></td></form></tr>
+<br /><input type="hidden" name="coppa" value="{VAR: coppa}"><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}"> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}"></td></form></tr>
 </table>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

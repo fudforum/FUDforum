@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.6 2002/08/04 15:08:07 hackie Exp $
+*   $Id: logedin.tmpl,v 1.7 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -18,7 +18,7 @@
 
 
 {MAIN_SECTION: loged_in_list loggedin user list}
-<br><img src="blank.gif" alt="" height=2 width=1 />
+<br /><img src="blank.gif" alt="" height=2 width=1 />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: logedin}
 {TEMPLATE-DATA: forum_info}
@@ -28,7 +28,7 @@
 {SECTION: logedin}
 <tr><th width="100%">{MSG: logged_in_list} {VAR: astr}</th></tr>
 <tr><td class="RowStyleA">
-<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="admin_color">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="mods_color">[{MSG: moderator}]</font></font><br>
+<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="admin_color">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="mods_color">[{MSG: moderator}]</font></font><br />
 {VAR: loged_in_list}
 </td></tr>
 {SECTION: END}
@@ -54,13 +54,13 @@
 {SECTION: END}
 
 {SECTION: last_msg latest message on the forum}
-<br>{MSG: logedin_latest_post} <a href="{ROOT}?t={VAR: url}&goto={VAR: lmid}&{DEF: _rsid}"><b>{VAR: lsubj}</b></a>
+<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={VAR: url}&goto={VAR: lmid}&{DEF: _rsid}"><b>{VAR: lsubj}</b></a>
 {SECTION: END}
 
 {SECTION: forum_info}
 <tr><td class="RowStyleB"><font class="SmallText">
-{MSG: message_counter}<br>
-{MSG: user_counter}<br>
+{MSG: message_counter}<br />
+{MSG: user_counter}<br />
 {MSG: newest_user} <a href="{VAR: ulink}" class="GenLink"><b>{VAR: ulogin}</b></a>{TEMPLATE-DATA: last_msg}
 </font></td></tr>
 {SECTION: END}

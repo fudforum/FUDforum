@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.tmpl,v 1.3 2002/07/31 21:56:50 hackie Exp $
+*   $Id: reported.tmpl,v 1.4 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,13 +40,13 @@
 	<tr>
 		<td align=left nowrap valign=top>
 			<font class="SmallText">
-			<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login}<br>
+			<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login}<br />
 			<b>{MSG: reported_on}</b> {DATE: obj->report_stamp %a, %d %B %Y %H:%M}
 			</font>
 		</td>
 		<td align=center width="100%" valign=top>
 			<font class="SmallText">
-			<b>{MSG: reported_reason}</b><br>
+			<b>{MSG: reported_reason}</b><br />
 			<table border=1 cellspacing=1 cellpadding=0><tr><td align=left>&nbsp;{VAR: obj->report_reason} &nbsp;</td></tr></table>
 			</font>
 		</td>
@@ -68,7 +68,7 @@
 {PAGE: REPORTED_PAGE a list of the reported messages}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br>{TEMPLATE-DATA: admin_cp}
+<br />{TEMPLATE-DATA: admin_cp}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: reported_reported_msg}</th></tr>
 {TEMPLATE-DATA: reported_message}

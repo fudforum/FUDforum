@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.10 2002/08/04 15:08:07 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.11 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -112,30 +112,30 @@ Post by {VAR: user_login} is ignored&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_ip_address}
-IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" target="_blank">{VAR: obj->ip_addr}</a><br>
+IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" target="_blank">{VAR: obj->ip_addr}</a><br />
 {SECTION: END}
 
 {SECTION: dmsg_host_name}
-{MSG: from}<br><font class="SmallText">{VAR: host_name}</font><br>
+{MSG: from}<br /><font class="SmallText">{VAR: host_name}</font><br />
 {SECTION: END}
 
 {SECTION: dmsg_user_posts}
-{MSG: posts_c} {VAR: obj->posted_msg_count}<br>
+{MSG: posts_c} {VAR: obj->posted_msg_count}<br />
 {SECTION: END}
 
 {SECTION: dmsg_user_reg_date user registration date}
-{MSG: registered}<br><font class="DateText">{DATE: obj->join_date %B %Y}</font>
+{MSG: registered}<br /><font class="DateText">{DATE: obj->join_date %B %Y}</font>
 {SECTION: END}
 
 {SECTION: dmsg_location}
-{MSG: location} {VAR: location}<br>
+{MSG: location} {VAR: location}<br />
 {SECTION: END}
 
 {SECTION: dmsg_no_location}
 {SECTION: END}
 
 {SECTION: dmsg_custom_tags}
-{VAR: obj->custom_status}<br>
+{VAR: obj->custom_status}<br />
 {SECTION: END}
 
 {SECTION: dmsg_no_custom_tags}
@@ -149,23 +149,23 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link}
-<br>[<a href="{ROOT}?t=buddy_list&{VAR: ret_n_sid}&add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+<br />[<a href="{ROOT}?t=buddy_list&{VAR: ret_n_sid}&add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
-<br>[<a href="{ROOT}?t=ignore_list&{VAR: ret_n_sid}&del={VAR: GLOBALS['__IGNORE_LIST__'][$obj->poster_id]}" class="GenLink">{MSG: un_ignore_user}</a>]
+<br />[<a href="{ROOT}?t=ignore_list&{VAR: ret_n_sid}&del={VAR: GLOBALS['__IGNORE_LIST__'][$obj->poster_id]}" class="GenLink">{MSG: un_ignore_user}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
-<br>[<a href="{ROOT}?t=ignore_list&{VAR: ret_n_sid}&add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
+<br />[<a href="{ROOT}?t=ignore_list&{VAR: ret_n_sid}&add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_level_name}
-<font class="LevelText">{VAR: obj->level_name}</font><br>
+<font class="LevelText">{VAR: obj->level_name}</font><br />
 {SECTION: END}
 
 {SECTION: dmsg_level_image}
-<img src="images/{VAR: obj->level_img}" alt="" border=0 /><br>
+<img src="images/{VAR: obj->level_img}" alt="" border=0 /><br />
 {SECTION: END}
 
 {SECTION: dmsg_im_icq}
@@ -229,7 +229,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <tr>
 <td valign=middle><a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}"><img alt="" src="images/mime/{VAR: a_obj->icon}" border=0 /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}">{VAR: a_obj->original_name}</a><br>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}">{VAR: a_obj->original_name}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -242,7 +242,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br>{VAR: obj->sig}
+<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link}
@@ -302,7 +302,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: dmsg_short_message_body}
 {VAR: msg_body}
-<br>
+<br />
 <div align="center">[<a href="{ROOT}?t={GVAR: t}&reveal={VAR: reveal}&rev={VAR: rev}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
@@ -313,11 +313,11 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 <table cellspacing=0 cellpadding=0 border=0>
 <tr>
 	<td valign="middle">{TEMPLATE-DATA: online_indicator}</td>
-	<td valign="middle" class="GenText">{TEMPLATE-DATA: user_link}<br>{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}</td>
+	<td valign="middle" class="GenText">{TEMPLATE-DATA: user_link}<br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}</td>
 </tr>
 </table>
 
-<font class="GenText">{TEMPLATE-DATA: avatar}<br><br>
+<font class="GenText">{TEMPLATE-DATA: avatar}<br /><br />
 {TEMPLATE-DATA: custom_tag}
 {TEMPLATE-DATA: user_posts}
 {TEMPLATE-DATA: location}

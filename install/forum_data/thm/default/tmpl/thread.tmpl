@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.6 2002/08/04 15:08:08 hackie Exp $
+*   $Id: thread.tmpl,v 1.7 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,9 +33,9 @@
 {REF: is_perms.tmpl}
 
 {SECTION: thread_legend}
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br></td></tr>
+	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
 	<tr><td align=left class="RowStyleB">
 		<table border=0 cellspacing=0 cellpadding=0 align=left>
 			<tr>
@@ -214,8 +214,8 @@
 <td class="RowStyleB" align="center">{VAR: obj->replies}</td>
 <td class="RowStyleB" align="center">{VAR: obj->views}</td>
 <td class="RowStyleA" align="center">{TEMPLATE-DATA: rating}</td>
-<td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br>{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
-<td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br>{MSG: by} {TEMPLATE-DATA: first_post_login}</td>
+<td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
+<td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br />{MSG: by} {TEMPLATE-DATA: first_post_login}</td>
 {TEMPLATE-DATA: admin_control_row}
 </tr>
 {SECTION: END}
@@ -248,12 +248,12 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
-<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br>{TEMPLATE: show_links}<br>{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
+<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
 <td valign="bottom" align="right" class="GenText">{TEMPLATE: new_thread_link}</td>
 </tr></table><img src="blank.gif" alt="" height=2 border=0 />
 {TEMPLATE-DATA: announcements}
 {TEMPLATE: thread_list}
-<img src="blank.gif" alt="" width=1 height=2 /><br>
+<img src="blank.gif" alt="" width=1 height=2 /><br />
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
 <tr>
 <td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,7 +35,7 @@
 {REF: rev_fmt.tmpl}
 
 {SECTION: group_selection allows group manager to choose which group to edit}
-<br><br>
+<br /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form method="post" action="{ROOT}?t=groupmgr">
 <tr><th colspan=2>{MSG: group_mgr_heading}</th></tr>
@@ -51,9 +51,9 @@
 
 {SECTION: group_control_panel}
 {TEMPLATE-DATA: group_selection}
-<br>
+<br />
 {TEMPLATE-DATA: indicator}
-<br>
+<br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form method="post" action="{ROOT}?t=groupmgr" name="groupmgr">
 {TEMPLATE-DATA: member_input}
@@ -76,7 +76,7 @@
 {DEF: _hs}
 </form>
 </table>
-<br><br>
+<br /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: groupmgr_member}</th>{TEMPLATE: permission_header}<th align="center">{MSG: groupmgr_action}</th></tr>
 {TEMPLATE-DATA: group_members_list}
@@ -90,7 +90,7 @@
 {PAGE: GROUP_MANAGER group permissions manager}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br>{TEMPLATE-DATA: admin_cp}
+<br />{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: group_control_panel}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -137,11 +137,11 @@
 {SECTION: END}
 
 {SECTION: groupmgr_no_user no such user error}
-<font class="ErrorText">{MSG: groupmgr_no_user}</font><br>
+<font class="ErrorText">{MSG: groupmgr_no_user}</font><br />
 {SECTION: END}
 
 {SECTION: groupmgr_already_exists user is already in the group error}
-<font class="ErrorText">{MSG: groupmgr_already_exists}</font><br>
+<font class="ErrorText">{MSG: groupmgr_already_exists}</font><br />
 {SECTION: END}
 
 {SECTION: group_mgr_anon}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
+*   $Id: thr_exch.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,11 +35,11 @@
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 	<tr class="RowStyleB">
 		<td align=left nowrap valign=top>
-			<font class="SmallText"><b>{MSG: move_request_by}</b> <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->req_by}&{DEF: _rsid}">{VAR: obj->login}</a><br></font>
+			<font class="SmallText"><b>{MSG: move_request_by}</b> <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->req_by}&{DEF: _rsid}">{VAR: obj->login}</a><br /></font>
 		</td>
 		<td align=center width="100%" valign=top>
 			<font class="SmallText">
-			<b>{MSG: move_reason}</b><br>
+			<b>{MSG: move_reason}</b><br />
 			<table border=1 cellspacing=1 cellpadding=0><tr><td align=left>&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table>
 			</font>
 		</td>
@@ -48,7 +48,7 @@
 		<td colspan=2>
 			<table border=0 cellspacing=0 cellpadding=3 width="100%">
 			<tr>
-				<td align="left"><font size="-1"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->name}<br><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->name2}<br><b>{MSG: thread}</b> <a href="{ROOT}?t=msg&{DEF: _rsid}&th={VAR: obj->th}">{VAR: obj->subject}</a></font></td>
+				<td align="left"><font size="-1"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->name2}<br /><b>{MSG: thread}</b> <a href="{ROOT}?t=msg&{DEF: _rsid}&th={VAR: obj->th}">{VAR: obj->subject}</a></font></td>
 				<td align="right">[<a class="GenLink" href="{ROOT}?t=thr_exch&appr={VAR: obj->id}&{DEF: _rsid}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{ROOT}?t=thr_exch&decl={VAR: obj->id}&{DEF: _rsid}">{MSG: thr_exch_decline}</a>]</td>
 			</tr>
 			</table>
@@ -65,7 +65,7 @@
 {SECTION: thr_move_decline}
 <form method="post" action="{ROOT}?t=thr_exch" name="thr_exch">
 {DEF: _hs}<input type="hidden" name="decl" value="{VAR: decl}">
-<tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br><textarea name="reason" cols=60 rows=10></textarea><br><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
+<tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br /><textarea name="reason" cols=60 rows=10></textarea><br /><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
 </form>
 {SECTION: END}
 
@@ -76,7 +76,7 @@
 {PAGE: THR_EXCH_PAGE list of messages that moderators have put up for moving}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<br>{TEMPLATE-DATA: admin_cp}
+<br />{TEMPLATE-DATA: admin_cp}
 <table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
 <tr><th>{MSG: thread_exchange}</th></tr>
 {TEMPLATE-DATA: thr_exch_data}

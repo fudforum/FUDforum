@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.4 2002/08/04 15:08:08 hackie Exp $
+*   $Id: ppost.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -48,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br>{VAR: usr->sig}
+<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: usr->sig}
 {SECTION: END}
 
 {SECTION: preview_message}
@@ -57,7 +57,7 @@
 <tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
 <tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
 {TEMPLATE-DATA: apply_spell_changes}
-</table><br>
+</table><br />
 {SECTION: END}
 
 {SECTION: post_icon_entry}
@@ -89,7 +89,7 @@
 
 {SECTION: post_smilies}
 <tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
-	<br><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=smladd\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
+	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=smladd\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
 </td>
 <td valign=top><table border=0 cellspacing=5 cellpadding=0>{TEMPLATE-DATA: post_smiley_row}</table></td></tr>
 {SECTION: END}
@@ -197,7 +197,7 @@
 <tr class="RowStyleB"><td nowrap valign=top class="GenText">{MSG: file_attachments}</td><td>
 {TEMPLATE-DATA: attachment_list}
 {VAR: attach_control_error}
-<font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br><b>{MSG: max_file_size}</b> {VAR: MAX_F_SIZE}Kb<br><b>{MSG: max_files_per_msg}</b> {VAR: PRIVATE_ATTACHMENTS}
+<font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: MAX_F_SIZE}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: PRIVATE_ATTACHMENTS}
 {TEMPLATE-DATA: attached_status}
 <p></font>
 {TEMPLATE-DATA: upload_file}
@@ -217,15 +217,15 @@
 {SECTION: END}
 
 {SECTION: html_quote quote style for html enabled forums}
-<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>{MSG: ppost_quote_msg}</b></td></tr><tr><td class="quote"><br>{VAR: msg_body}<br></td></tr></table>
+<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>{MSG: ppost_quote_msg}</b></td></tr><tr><td class="quote"><br />{VAR: msg_body}<br /></td></tr></table>
 {SECTION: END}
 
 {SECTION: plain_quote quoting style for plain text forums}
-{MSG: ppost_quote} {MSG: ppost_quote_msg}<br>----------------------------------------------------<br>{VAR: msg_body}<br>----------------------------------------------------<br>
+{MSG: ppost_quote} {MSG: ppost_quote_msg}<br />----------------------------------------------------<br />{VAR: msg_body}<br />----------------------------------------------------<br />
 {SECTION: END}
 
 {SECTION: reference_msg displayes the message the user is replying to}
-<br><br>
+<br /><br />
 <div align="center">{MSG: ppost_original_msg}</div>
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr><td>
@@ -251,7 +251,7 @@
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br><br>{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" wrap="virtual" tabindex="2" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR-HTML: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" wrap="virtual" tabindex="2" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR-HTML: msg_body}</textarea></td></tr>
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB" valign="top">
 <td class="GenText">{MSG: post_options}</td>

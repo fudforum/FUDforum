@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.5 2002/08/04 15:08:07 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.6 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,18 +33,18 @@
 {SECTION: END}
 
 {SECTION: dpmsg_host_name}
-{MSG: from}<br><font class="SmallText">{VAR: host_name}</font><br>
+{MSG: from}<br /><font class="SmallText">{VAR: host_name}</font><br />
 {SECTION: END}
 
 {SECTION: dpmsg_location}
-{MSG: location} {VAR: location}<br>
+{MSG: location} {VAR: location}<br />
 {SECTION: END}
 
 {SECTION: dpmsg_no_location}
 {SECTION: END}
 
 {SECTION: dpmsg_custom_tags}
-{VAR: obj->custom_status}<br>
+{VAR: obj->custom_status}<br />
 {SECTION: END}
 
 {SECTION: dpmsg_no_custom_tags}
@@ -58,19 +58,19 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link}
-<br>[<a href="{ROOT}?t=buddy_list&{DEF: _rsid}&add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+<br />[<a href="{ROOT}?t=buddy_list&{DEF: _rsid}&add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
 {SECTION: END}
 
 {SECTION: dpmsg_add_user_ignore_list}
-<br>[<a href="{ROOT}?t=ignore_list&{DEF: _rsid}&add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
+<br />[<a href="{ROOT}?t=ignore_list&{DEF: _rsid}&add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
 {SECTION: END}
 
 {SECTION: dpmsg_level_name}
-<font class="LevelText">{VAR: obj->level_name}</font><br>
+<font class="LevelText">{VAR: obj->level_name}</font><br />
 {SECTION: END}
 
 {SECTION: dpmsg_level_image}
-<img src="images/{VAR: obj->level_img}" border=0 /><br>
+<img src="images/{VAR: obj->level_img}" border=0 /><br />
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq}
@@ -103,12 +103,12 @@
 {SECTION: dpmsg_file_attachment file attachment entry row}
 <tr>
 <td valign=middle><a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}&private=1"><img src="images/mime/{VAR: a_obj->icon}" border=0 /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}&private=1">{VAR: a_obj->original_name}</a><br>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&id={VAR: a_obj->id}&{DEF: _rsid}&private=1">{VAR: a_obj->original_name}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
 {SECTION: dpmsg_signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br>{VAR: obj->sig}
+<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile}
@@ -147,10 +147,10 @@
 
 <font class="GenText">{TEMPLATE-DATA: avatar}<p>
 {TEMPLATE-DATA: custom_tag}
-{MSG: posts_c} {VAR: obj->posted_msg_count}<br>
+{MSG: posts_c} {VAR: obj->posted_msg_count}<br />
 {TEMPLATE-DATA: host_name}
 {TEMPLATE-DATA: location}
-{MSG: registered}<br><font class="DateText">{DATE: obj->join_date %B %Y}</font>
+{MSG: registered}<br /><font class="DateText">{DATE: obj->join_date %B %Y}</font>
 {TEMPLATE-DATA: buddy_link}
 {TEMPLATE-DATA: ignore_link}
 </font><div align=center>
@@ -190,7 +190,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: obj->login}</a><br>{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: obj->login}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
 {SECTION: END}
 
 {SECTION: dpmsg_profile_no_link user's name without the link to the profile}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: stats.tmpl,v 1.2 2002/07/30 22:56:32 hackie Exp $
+*   $Id: stats.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,11 +17,11 @@
 {PHP_FILE: input: stats.inc.t; output: !stats.inc;}
 
 {MAIN_SECTION: admin_page_stats administrator page stats}
-<br><div align="left" class="SmallText">{VAR: q_time} {MSG: page_timings}</div>
+<br /><div align="left" class="SmallText">{VAR: q_time} {MSG: page_timings}</div>
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: public_page_stats page stats}
-<br><div align="left" class="SmallText">{VAR: q_time} {MSG: page_timings}</div>
+<br /><div align="left" class="SmallText">{VAR: q_time} {MSG: page_timings}</div>
 {MAIN_SECTION: END}
 
 {SECTION: fud_query_stats}
