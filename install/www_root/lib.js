@@ -14,13 +14,13 @@ JS_HELPOFF = false;
 DOM = (document.getElementById) ? 1 : 0;
 NS4 = (document.layers) ? 1 : 0;
 IE4 = (document.all) ? 1 : 0;
-OPERA = (navigator.userAgent.indexOf("Opera 5") > -1 || navigator.userAgent.indexOf("Opera/5") > -1 || navigator.userAgent.indexOf("Opera 6") > -1 || navigator.userAgent.indexOf("Opera/6") > -1) ? 1 : 0;
+OPERA = navigator.userAgent.indexOf("Opera") ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
 {
 
-	if ( navigator.userAgent.indexOf("MSIE") > -1 && !OPERA ) {
+	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
 	} else if (window.getSelection) {
 		insertTagMoz(obj, stag, etag);	
