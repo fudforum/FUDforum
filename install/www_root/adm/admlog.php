@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.15 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admlog.php,v 1.16 2003/05/13 00:14:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@ function return_forum_name($id)
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
-	$c = uq('SELECT u.is_mod, u.alias, al.* FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log al LEFT JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u ON al.user_id=u.id ORDER BY logtime DESC');
+	$c = q('SELECT u.is_mod, u.alias, al.* FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log al LEFT JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u ON al.user_id=u.id ORDER BY logtime DESC');
 
 	while ($obj = db_rowobj($c)) {
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
