@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.php.t,v 1.17 2004/03/08 15:28:59 hackie Exp $
+* $Id: report.php.t,v 1.18 2004/04/02 18:24:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@
 	if (!empty($_POST['reason']) && ($reason = trim($_POST['reason']))) {
 		q("INSERT INTO {SQL_TABLE_PREFIX}msg_report (user_id, msg_id, reason, stamp) VALUES("._uid.", ".$msg_id.", '".addslashes(htmlspecialchars($reason))."', ".__request_timestamp__.")");
 		check_return($usr->returnto);
-	} else if (count($_POST)) {
+	} else if ($GLOBALS['is_post']) {
 		$reason_error = '{TEMPLATE: report_empty_report}';
 	} else {
 		$reason_error = '';

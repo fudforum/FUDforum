@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.111 2004/04/01 15:58:07 hackie Exp $
+* $Id: register.php.t,v 1.112 2004/04/02 18:24:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -352,7 +352,7 @@ function decode_uent(&$uent)
 		}
 	}
 
-	if (count($_POST)) {
+	if ($GLOBALS['is_post']) {
 		$new_users_opt = 0;
 		foreach (array('display_email', 'notify', 'notify_method', 'ignore_admin', 'email_messages', 'pm_messages', 'pm_notify', 'default_view', 'gender', 'append_sig', 'show_sigs', 'show_avatars', 'show_im', 'invisible_mode') as $v) {
 			if (!empty($_POST['reg_'.$v])) {

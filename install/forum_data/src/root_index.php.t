@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: root_index.php.t,v 1.35 2004/04/02 17:46:01 hackie Exp $
+* $Id: root_index.php.t,v 1.36 2004/04/02 18:24:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,14 +25,6 @@
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 		fud_use('errmsg.inc');
 	        exit(__fud_e_install_script_present_error);
-	}
-
-	if (isset($_GET['t'])) {
-		$t = $_GET['t'];
-	} else if (isset($_POST['t'])) {
-		$t = $_POST['t'];
-	} else {
-		$t = 'index';
 	}
 
 	if ($FUD_OPT_2 & 16384 && $t != 'getfile') {
