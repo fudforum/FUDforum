@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.19 2003/04/22 00:28:10 hackie Exp $
+*   $Id: compact.php,v 1.20 2003/04/22 13:08:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,9 +28,7 @@
 	fud_use('adm.inc', true);
 	fud_use('private.inc');
 	fud_use('glob.inc', true);
-	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
-	fud_use('replace.inc');
 	
 	if ($usr->is_mod != 'A') {
 		header('Location: admloginuser.php?'._rsidl);
@@ -40,7 +38,7 @@
 		header('Location: admglobal.php?'._rsidl);
 		exit;
 	}
-	include(WWW_ROOT_DISK . 'adm/admpanel.php');
+	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf'])) {
 ?>		
@@ -67,15 +65,15 @@ function write_body_c($data, $i, &$len, &$offset)
 	if (!isset($GLOBALS['__FUD_TMP_F__'])) {
 		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
 		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$i][1] = filesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+		$GLOBALS['__FUD_TMP_F__'][$i][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
 	}
 	while ($GLOBALS['__FUD_TMP_F__'][$i][1] + $len > $MAX_FILE_SIZE) {
 		$i++;
 		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
 		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
-		$GLOBALS['__FUD_TMP_F__'][$i][1] = filesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+		$GLOBALS['__FUD_TMP_F__'][$i][1] = __ffilesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
 	}
-	if (fwrite($fp, $data) != $len || !fflush($fp)) {
+	if (fwrite($GLOBALS['__FUD_TMP_F__'][$i][0], $data) != $len || !fflush($GLOBALS['__FUD_TMP_F__'][$i][0])) {
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
 	$offset = $GLOBALS['__FUD_TMP_F__'][$i][1];
@@ -107,21 +105,22 @@ function fud_rename($from, $to)
 	flush();
 	
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	$magic_file_id = 10000001;
+	$base = $magic_file_id = 10000001;
+	$base -= 1;
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg') / 10);
 	$i = 0;
 	$stm = time();
 
-	db_lock($tbl.'msg WRITE, '.$tbl.'thread WRITE, '.$tbl.'forum WRITE');
-	$c = uq('SELECT m.id, m.foff, m.length m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
+	db_lock($tbl.'msg m WRITE, '.$tbl.'thread t WRITE, '.$tbl.'forum f WRITE, '.$tbl.'msg WRITE');
+	$c = q('SELECT m.id, m.foff, m.length, m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
 	while ($r = db_rowarr($c)) {
 		if ($r[4] && $r[2] > $r[4]) {
 			$m1 = $magic_file_id = write_body_c(($body = read_msg_body($r[1], $r[2], $r[3])), $magic_file_id, $len, $off);
 			$magic_file_id = write_body_c(trim_html($body, $r[4]), $magic_file_id, $len2, $off2);
-			q('UPDATE '.$tbl.'msg m SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
 		} else {
 			$magic_file_id = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $magic_file_id, $len, $off);
-			q('UPDATE '.$tbl.'msg m SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
+			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
 		}
 		if ($i && !($i % $pc)) {
 			$prg = $i / $pc;		
@@ -133,28 +132,21 @@ function fud_rename($from, $to)
 	qf($c);
 	un_register_fps();
 
-	if (!$i) {
-		/* remove any trash files */
-		$j = 1;
-		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
-			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
+	if (isset($GLOBALS['__FUD_TMP_F__'])) {
+		foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {
+			fclose($f[0]);
 		}
-	} else {
-		foreach ($GLOBALS['__FUD_TMP_F__'] as $c) {
-			fclose($v[0]);
-		}
-	
-		$lmt = (isset($fid2) ? (($fid > $fid2) ? $fid : $fid2) : $fid) + 1;
-		$j = $magic_file_id + 1;
-		/* rename our temporary files & update the database */
-		q('UPDATE '.$tbl.'msg m SET file_id=file_id-'.$magic_file_id.' WHERE file_id>'.$magic_file_id.' AND file_id<'.$lmt);
-		for ($j; $j < $lmt; $j++) {
-			rename('tmp_msg_'.$j, 'msg_'.($j - $magic_file_id));
-		}
-		$j = $lmt - $magic_file_id;
-		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
-			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
-		}
+	}
+	$magic_file_id++;
+	/* rename our temporary files & update the database */
+	q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
+	$j = $base + 1;
+	for ($j; $j < $magic_file_id; $j++) {
+		rename('tmp_msg_'.$j, 'msg_'.($j - $base));
+	}
+	$j = $magic_file_id - $base;
+	while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
+		@unlink($MSG_STORE_DIR . 'msg_' . $j++);
 	}
 	db_unlock();
 	
@@ -173,9 +165,9 @@ function fud_rename($from, $to)
 	$i = $off = $len = 0;
 	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'pmsg') / 10);
-	$c = uq('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
+	$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 
-	while ($r = db_rowarr($r)) {
+	while ($r = db_rowarr($c)) {
 		if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
 			exit("FATAL ERROR: system has ran out of disk space<br>\n");
 		}
