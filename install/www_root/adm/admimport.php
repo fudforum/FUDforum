@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.19 2003/07/18 20:30:40 hackie Exp $
+*   $Id: admimport.php,v 1.20 2003/07/18 21:43:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -169,6 +169,16 @@ function resolve_dest_path($path)
 				}
 			}
 			q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ses');
+
+			/* we need to restore sequence numbers for postgreSQL */
+			foreach($tbl_list as $v) {
+				if (q_singleval("SELECT a.attname FROM pg_class c, pg_attribute a WHERE c.relname = '{$v}' AND a.attnum > 0 AND a.attrelid = c.oid AND a.attname='id'")) {
+					if (!($m = q_singleval('SELECT MAX(id) FROM '.$v))) {
+						$m = 1;
+					}
+					q("SELECT setval('{$v}_id_seq', {$m})");
+				}
+			}
 
 			/* Try to restore the current admin's account by seeing if he exists in the imported database */
 			if (($uid = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.$usr->login.'\' AND is_mod=\'A\''))) {
