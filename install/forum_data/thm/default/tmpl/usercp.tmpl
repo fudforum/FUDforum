@@ -1,7 +1,7 @@
-
+/**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.tmpl,v 1.27 2004/11/24 19:53:40 hackie Exp $
+* $Id: usercp.tmpl,v 1.28 2004/12/01 19:33:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,7 @@
 {SECTION: END}
 
 {MAIN_SECTION: usercp user control panel}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="{MSG: faq}" /> {MSG: faq}</a> {TEMPLATE-DATA: register_n_profile} {TEMPLATE-DATA: login_n_logout}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="{MSG: home}" /> {MSG: home}</a> {TEMPLATE-DATA: admin_control_panel}</div>
+<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_search}{ENDIF} {IF: $FUD_OPT_1 & 16777216}{TEMPLATE: u_forum_search}{ENDIF} <a class="UserControlPanel" accesskey="h" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="{MSG: faq}" /> {MSG: faq}</a> {IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END} {IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="{MSG: home}" /> {MSG: home}</a> {IF: $is_a}{TEMPLATE: admin_control_panel}{ENDIF}</div>
 {MAIN_SECTION: END}
 
 {SECTION: login_lnk}
