@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.53 2003/11/19 17:17:29 hackie Exp $
+* $Id: cookies.inc.t,v 1.54 2003/11/21 11:50:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,13 +30,13 @@ function ses_make_sysid()
 	return md5($pfx);
 }
 
-function ses_get($id=0)
+function &ses_get($id=0)
 {
 	if (!$id) {
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."' AND sys_id='".ses_make_sysid()."'";
+			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
-			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."' AND sys_id='".ses_make_sysid()."'";
+			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."'";
 		} else {
 			return;
 		}
@@ -52,8 +52,8 @@ function ses_get($id=0)
 		$q_opt = "s.id='".$id."'";
 	}
 
-	return db_sab('SELECT
-		s.id AS sid, s.ses_id, s.data, s.returnto,
+	$u = db_sab('SELECT
+		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id,
 		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang, t.theme_opt,
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt,
 		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login
@@ -61,9 +61,28 @@ function ses_get($id=0)
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 1 ELSE s.user_id END)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme
 	WHERE '.$q_opt);
+
+	if (!$u || $u->id == 1 || $id || $u->sys_id == ses_make_sysid()) {
+		return $u;
+	}
+
+	/* if strict checks are enabled disallow sys_id mismatch */
+	if ($GLOBALS['FUD_OPT_3'] & 16) {
+		return;
+	}
+
+	/* try doing a strict SQ match in last-ditch effort to make things 'work' */
+	if (count($_POST)) {
+		if (isset($_POST['SQ']) && $_POST['SQ'] == $u->last_visit) {
+			return $u;
+		}
+	} else if (isset($_GET['SQ']) && $_GET['SQ'] == $u->last_visit) {
+		return $u;
+	}
+	return;
 }
 
-function ses_anon_make()
+function &ses_anon_make()
 {
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
