@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.39 2004/03/08 15:28:59 hackie Exp $
+* $Id: modque.php.t,v 1.40 2004/04/21 19:55:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,13 +31,13 @@
 				$del = $appr = 0;
 			}
 		}
-	}
 
-	if (sq_check(0, $usr->sq)) {
-		if ($appr) {
-			fud_msg_edit::approve($appr, true);
-		} else if ($del) {
-			fud_msg_edit::delete(false, $del);
+		if (sq_check(0, $usr->sq)) {
+			if ($appr) {
+				fud_msg_edit::approve($appr, true);
+			} else if ($del) {
+				fud_msg_edit::delete(false, $del);
+			}
 		}
 	}
 
