@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.7 2002/10/24 23:47:58 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.8 2003/01/22 15:06:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@ function check_post_form()
 {
 	global $msg_subject;
 	
-	if ( !strlen($msg_subject) ) {
+	if ( !strlen(trim($msg_subject)) ) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 	
@@ -68,7 +68,7 @@ function check_ppost_form()
 {
 	global $msg_subject;
 	
-	if ( !strlen($msg_subject) ) {
+	if ( !strlen(trim($msg_subject)) ) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 	
