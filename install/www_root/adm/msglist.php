@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.20 2003/10/16 21:59:05 hackie Exp $
+* $Id: msglist.php,v 1.21 2003/11/06 17:27:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -85,12 +85,12 @@ function makedeps()
 			$msglist_arr[] = $v;
 		}
 
-		$data = file_get_contents($msgfile);
+		$data = "\n" . file_get_contents($msgfile);
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v . ':')) === false) {
+			if (($s = strpos($data, "\n" . $v . ':')) === false) {
 				continue;
 			}
-			$s += 2 + strlen($v);
+			$s += 3 + strlen($v);
 			while ($data[$s] == "\t") {
 				++$s;
 			}
@@ -102,7 +102,7 @@ function makedeps()
 		if (!($fp = fopen($msgfile, 'wb'))) {
 			exit('unable to write to "'.$msgfile.'" message file');
 		}
-		fwrite($fp, $data);
+		fwrite($fp, ltrim($data));
 		fclose($fp);
 		fud_use('compiler.inc', true);
 
@@ -180,14 +180,14 @@ if (isset($warn)) {
 			$msglist_arr[] = trim($v);
 		}
 
-		$data = file_get_contents($msgfile);
+		$data = "\n" . file_get_contents($msgfile);
 
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v . ':')) === false) {
+			if (($s = strpos($data, "\n" . $v . ':')) === false) {
 				echo '<tr><td nowrap><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
 				continue;
 			}
-			$s += 2 + strlen($v);
+			$s += 3 + strlen($v);
 			if (($e = strpos($data, "\n", $s)) === false) {
 				$e = strlen($data);
 			}
