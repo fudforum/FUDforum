@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.9 2003/04/24 18:35:11 hackie Exp $
+*   $Id: admforum.php,v 1.10 2003/04/29 18:20:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,7 +197,7 @@ if (!isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' bgcolor="#ffb5b5"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'._rsid.'">Place Here</a></td></tr>';
+				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'._rsidl.'">Place Here</a></td></tr>';
 			} else {
 				$lp = $r->view_order;
 			}

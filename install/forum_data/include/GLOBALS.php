@@ -29,18 +29,19 @@
 	$FORUM_SETTINGS_PATH 	= "";
 
 	$MOGRIFY_BIN		= "";
-	
+
 	$CUSTOM_AVATARS		= "ALL";	/* enum(OFF, BUILT, URL, UPLOAD, BUILT_URL, BUILT_UPLOAD, URL_UPLOAD, ALL) */
 	$CUSTOM_AVATAR_MAX_SIZE = "10000";	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= "64x64";	/* width x height (pixels) */
 	$CUSTOM_AVATAR_APPOVAL  = "Y";		/* boolean */
+	$AVATAR_ALLOW_SWF	= "N";		/* boolean */
 
 	$COOKIE_PATH		= "";
 	$COOKIE_DOMAIN		= "";
 	$COOKIE_NAME		= "";
 	$COOKIE_TIMEOUT 	= "604800";	/* seconds */
 	$SESSION_TIMEOUT 	= "1800";	/* seconds */
-	
+	$SESSION_USE_URL	= "N";		/* boolean */
 
 	$DBHOST 		= "";
 	$DBHOST_USER		= "";
@@ -70,7 +71,7 @@
 	$FORUM_SML_SIG		= "Y";		/* boolean */
 	$FORUM_IMG_SIG		= "Y";		/* boolean */
 	$FORUM_IMG_CNT_SIG	= "2";		/* int */
-	
+
 	$FORUM_ENABLED		= "Y";		/* boolean */
 
 	$UNCONF_USER_EXPIRY	= "7";		/* days */
@@ -97,6 +98,7 @@
 	$SERVER_TZ		= "";
 	$MEMBER_SEARCH_ENABLED	= "Y";		/* boolean */
 	$FORUM_SEARCH		= "Y";		/* boolean */
+	$SEARCH_CACHE_EXPIRY	= "172800";	/* seconds */
 	$MEMBERS_PER_PAGE	= "40";
 	$POLLS_PER_PAGE		= "40";
 	$THREAD_MSG_PAGER	= "5";
@@ -108,6 +110,7 @@
 	$LOGEDIN_TIMEOUT	= "5";		/* minutes */
 	$MAX_IMAGE_COUNT	= "10";
 	$LOGEDIN_LIST		= "Y";		/* boolean */
+	$STATS_CACHE_AGE	= "600";	/* seconds */
 	$PUBLIC_STATS		= "Y";		/* boolean */
 	$FORUM_TITLE		= "";
 	$SITE_HOME_PAGE		= "";
@@ -116,23 +119,26 @@
 	$DEFAULT_THREAD_VIEW 	= "msg";    	/* toggle msg:tree:tree_msg:msg_tree */
 	$SHOW_N_MODS		= "2";
 	$ENABLE_AFFERO		= "N";		/* boolean */
-	
+
 	$TREE_THREADS_ENABLE	= "N";		/* boolean */
 	$TREE_THREADS_MAX_DEPTH	= "15";
 	$TREE_THREADS_MAX_SUBJ_LEN = "75";
-	
+
 	$FORUM_INFO		= "Y";		/* boolean */
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
 
 	$FILE_LOCK		= "N";		/* boolean */
-	
+
 	$MODERATE_USER_REGS	= "N";		/* boolean */
-	
+
 	$REG_TIME_LIMIT		= "60";		/* seconds */
+
+	$ENABLE_THREAD_RATING	= "Y";		/* boolean */
+
+	$TRACK_REFERRALS	= "Y";		/* boolean */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */
-	
-	$GLOBALS['__GLOBALS.INC__'] = $GLOBALS["INCLUDE"].'GLOBALS.php';
-	include_once $GLOBALS["INCLUDE"].'core.inc';
+
+	require($INCLUDE.'core.inc');
 ?>

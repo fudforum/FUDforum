@@ -12,35 +12,8 @@ This message will be shown to users when the forum is disabled.
 ALLOW_REGISTRATION
 Enable/disable new user registration.
 
-INCLUDE
-This is the directory path where all the include (*.inc) files can be found.
-
 WWW_ROOT
 This is the URL of your forum.
-
-ERROR_PATH
-This is the full directory path where forum errors will be stored.
-
-MSG_STORE_DIR
-This is the full directory path where the forum stores message bodies.
-The two basic options are:
-
-1.	chown the directory to the same account as the web server
-	runs as, and chmod it 700
-
-2.	chmod this directory 777.
-
-TMP
-This is a temporary directory on your system, usually /tmp, /var/tmp, or /usr/tmp on Unix systems.
-The webserver must be able to write to this directory.
-
-FILE_STORE
-This is the full directory path where the forum stores user-attached files.  
-The webserver must be able to write to this directory.
-
-FORUM_SETTINGS_PATH
-This is the full directory path where user settings will be stored.
-The webserver must be able to write to this directory.
 
 #CUSTOM AVATAR SETTINGS
 
@@ -48,13 +21,9 @@ CUSTOM_AVATARS
 Enable/disable to use of avatars.  Definitions of the options:
 
 URL - Users will need to give a URL to their avatar.
-
 Uploaded - The avatar will be uploaded to the server.
-
 Built In - A user can choose an avatar from the avatars available in the forum.
-
 ALL - A user can use a URL or an uploaded/built-in avatar.
-
 OFF - Avatars are disabled.
 
 CUSTOM_AVATAR_MAX_SIZE
@@ -344,4 +313,31 @@ value of this field to -1 if you do not wish to limit registrations.
 ENABLE_AFFERO
 Enable affero, this will result in an Affero button being shown beside each
 message, allowing users to give feedback via the Affero system.
+
+SESSION_USE_URL
+Allow session ids to be passed not only via cookies but, via URL variables.
+
+AVATAR_ALLOW_SWF
+Allow users to upload Macromedia Flash avatars, not recommended unless you
+trust your users implicitly, since Flash animation can potentially trigger
+various browser events.
+
+SEARCH_CACHE_EXPIRY
+Due to the complexity of the searching process the search results are being
+cached. This option allows you to define the maximum age of entries 
+(in seconds) stored inside this cache. By default the cache age is set to
+2 days.
+
+STATS_CACHE_AGE
+Generating forum statistics is somewhat expensive (CPU wise) therefor the 
+results are being cached for a small period of time, which should significantly
+reduce the front page load on popular forums. This option allows you to define
+(in seconds) the maximum time for which the forum stats will be cached.
+
+ENABLE_THREAD_RATING
+Whether or not to allow users to rate topics.
+
+TRACK_REFERRALS
+Whether or not to try to track forum referrals by setting a cookie with referral
+id to new incoming users.
 
