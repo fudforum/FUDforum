@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.51 2003/11/14 10:50:19 hackie Exp $
+* $Id: index.php.t,v 1.52 2003/11/30 19:44:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,26 +138,26 @@ function url_tog_collapse($id, $c)
 			$cat = $r[8];
 		}
 
+		if (!($r[19] & 2) && !($usr->users_opt & 1048576) && !$r[18]) { /* visible forum with no 'read' permission */
+			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
+			continue;
+		}
+
+		/* increase thread & post count */
+		$post_count += $r[15];
+		$thread_count += $r[16];
+
+		/* code to determine the last post id for 'latest' forum message */
+		if ($r[11] > $last_msg_id) {
+			$last_msg_id = $r[11];
+		}
+
 		if (!empty($GLOBALS['collapse'][$r[8]])) {
 			continue;
 		}
 
 		$forum_icon = $r[9] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
 		$forum_descr = $r[14] ? '{TEMPLATE: forum_descr}' : '';
-
-		/* increase thread & post count */
-		$post_count += $r[15];
-		$thread_count += $r[16];
-
-		if (!($r[19] & 2) && !($usr->users_opt & 1048576) && !$r[18]) { /* visible forum with no 'read' permission */
-			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
-			continue;
-		}
-
-		/* code to determine the last post id for 'latest' forum message */
-		if ($r[11] > $last_msg_id) {
-			$last_msg_id = $r[11];
-		}
 
 		if (_uid && $r[17] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
