@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.17 2004/10/20 20:09:10 hackie Exp $
+* $Id: forumsel.tmpl,v 1.18 2004/10/22 21:14:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: forum_option}
-<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
+<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR: r[1]}</option>
 {SECTION: END}
 
 {SECTION: forum_select_lnk3}
