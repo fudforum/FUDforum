@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ext.inc,v 1.3 2003/04/23 12:58:11 hackie Exp $
+*   $Id: ext.inc,v 1.4 2003/04/23 13:08:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@ function ext_cache_rebuild()
 {
 	$c = uq('SELECT ext FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ext_block');
 	while ($r = db_rowarr($c)) {
-		$a[] = addcslashes($r[0], '\'/\\');
+		$a[] = strtolower(addcslashes($r[0], '\'\\'));
 	}
 	qf($c);
 
