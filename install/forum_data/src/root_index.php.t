@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.19 2003/05/13 09:02:24 hackie Exp $
+*   $Id: root_index.php.t,v 1.20 2003/05/13 09:52:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,10 +20,12 @@
 	/* before we go on, we need to do some very basic activation checks */
 	if ($FORUM_ENABLED != 'Y') {
 		fud_use('cfg.inc', TRUE);
-		exit(cfg_dec($DISABLED_REASON) . '{TEMPLATE: core_adm_login_msg}');
+		fud_use('errmsg.inc');
+		exit(cfg_dec($DISABLED_REASON) . __fud_ecore_adm_login_msg);
 	}
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
-	        exit('{TEMPLATE: install_script_present_error}');
+		fud_use('errmsg.inc');
+	        exit(__fud_e_install_script_present_error);
 	}
 
 	fud_use('err.inc');

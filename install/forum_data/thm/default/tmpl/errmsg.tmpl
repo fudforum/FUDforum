@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.tmpl,v 1.9 2003/05/13 09:52:11 hackie Exp $
+*   $Id: errmsg.tmpl,v 1.1 2003/05/13 09:52:11 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -14,7 +14,12 @@
 *
 ***************************************************************************/
 
-{PHP_FILE: input: root_index.php.t; output: #index.php;}
-{REF: db.tmpl}
-{REF: cookies.tmpl}
-{REF: users.tmpl}
+{PHP_FILE: input: errmsg.inc.t; output: errmsg.inc;}
+
+{SECTION: core_adm_login_msg}
+{MSG: core_adm_login_msg}
+{SECTION: END}
+
+{SECTION: install_script_present_error}
+{MSG: install_script_present_error}
+{SECTION: END}
