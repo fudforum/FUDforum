@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.109 2004/02/17 15:24:33 hackie Exp $
+* $Id: register.php.t,v 1.110 2004/03/07 01:12:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,10 +71,12 @@ function sanitize_url($url)
 	return $url;
 }
 
-function sanitize_login($login)
+function sanitize_login($login, $is_alias=false)
 {
 	for ($i = 0; $i < 32; $i++) $list[] = chr($i);
-	for ($i = 127; $i < 160; $i++) $list[] = chr($i);
+	if (!$is_alias) {
+		for ($i = 127; $i < 160; $i++) $list[] = chr($i);
+	}
 
 	return str_replace($list, array_fill(0, count($list), ''), $login);
 }
@@ -161,7 +163,7 @@ function register_form_check($user_id)
 
 	/* Alias Check */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
-		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'])))) {
+		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'], true)))) {
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
