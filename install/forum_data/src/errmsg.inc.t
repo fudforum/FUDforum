@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: errmsg.inc.t,v 1.1 2003/05/13 09:52:11 hackie Exp $
+*   $Id: errmsg.inc.t,v 1.2 2003/05/26 12:09:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,6 +15,6 @@
 *
 ***************************************************************************/
 
-define(__fud_ecore_adm_login_msg, '{TEMPLATE: core_adm_login_msg}');
-define(__fud_e_install_script_present_error, '{TEMPLATE: install_script_present_error}');
+define('__fud_ecore_adm_login_msg', '{TEMPLATE: core_adm_login_msg}');
+define('__fud_e_install_script_present_error', '{TEMPLATE: install_script_present_error}');
 ?>
