@@ -339,7 +339,7 @@ buddy_status:			Durum
 my_buddies:			Arkadaþlarým
 add_buddy:			Arkadaþ Ekle
 add:				Ekle
-buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br>Veya <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Kullanýcý Bul</a> özelliðinden yararlanabilirsiniz.
+buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br>Veya <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Kullanýcý Bul</a> özelliðinden yararlanabilirsiniz.
 buddy_remove:			çýkar
 post_normal:			Olaðan
 post_sticky:			Yapýþkan

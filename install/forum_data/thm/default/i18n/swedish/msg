@@ -340,7 +340,7 @@ buddy_status:			Status
 my_buddies:			Mina kompisar
 add_buddy:			L&auml;gg till kompis
 add:				L&auml;gg till
-buddy_search:			Skriv in anv&auml;ndarnamnet p&aring; den medlem du vill l&auml;gga till din lista.<br>Eller anv&auml;nd <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">s&ouml;kfunktionen</a> f&ouml;r att hitta en medlem.
+buddy_search:			Skriv in anv&auml;ndarnamnet p&aring; den medlem du vill l&auml;gga till din lista.<br>Eller anv&auml;nd <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">s&ouml;kfunktionen</a> f&ouml;r att hitta en medlem.
 buddy_remove:			ta bort
 post_normal:			Normal
 post_sticky:			Klibbig

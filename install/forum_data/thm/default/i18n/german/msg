@@ -47,7 +47,7 @@ buddy_list_err_nouser:		Der Benutzer, den Du Deiner Buddyliste hinzuf&uuml;gen w
 buddy_list_err_nouser_title:	Kann Benutzer nicht hinzuf&uuml;gen
 buddy_list_update:		Durchsucht die eigene Buddyliste
 buddy_remove:			Entfernen
-buddy_search:			Den Login des Benutzers angeben, der hinzugef&uuml;gt werden soll.<br>Oder verwende die <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Benutzersuche</a> um eine Person aufzufinden.
+buddy_search:			Den Login des Benutzers angeben, der hinzugef&uuml;gt werden soll.<br>Oder verwende die <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Benutzersuche</a> um eine Person aufzufinden.
 buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator

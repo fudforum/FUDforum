@@ -339,7 +339,7 @@ buddy_status:			级别
 my_buddies:			我的好友
 add_buddy:			添加好友
 add:				添加
-buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="{ROOT}?t=#" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
+buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
 buddy_remove:			移动
 post_normal:			正常
 post_sticky:			在线

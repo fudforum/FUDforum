@@ -340,7 +340,7 @@ buddy_status:			Status
 my_buddies:			Moi Znajomi
 add_buddy:			Dodawanie Znajomych
 add:				Dodaj
-buddy_search:			Wprowad¼ nazwê u¿ytkownika, którego chcesz dodaæ.<br>Mo¿esz tak¿e skorzystaæ z funkcji <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Znajd¼ U¿ytkownika</a>, aby znale¼æ osobê.
+buddy_search:			Wprowad¼ nazwê u¿ytkownika, którego chcesz dodaæ.<br>Mo¿esz tak¿e skorzystaæ z funkcji <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Znajd¼ U¿ytkownika</a>, aby znale¼æ osobê.
 buddy_remove:			usuñ
 post_normal:			Normalna
 post_sticky:			Przyczepiona
