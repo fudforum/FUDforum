@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.48 2003/05/12 15:19:55 hackie Exp $
+*   $Id: register.php.t,v 1.49 2003/05/12 23:11:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -432,7 +432,7 @@ function remove_old_avatar($avatar_str)
 	}
 
 	/* populate form variables based on user's profile */
-	if (__fud_real_user__ && !isset($_POST['prev_loaded']) && empty($_REQUEST['forced_new_reg'])) {
+	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
 		}

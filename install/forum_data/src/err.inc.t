@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.24 2003/05/11 18:55:59 hackie Exp $
+*   $Id: err.inc.t,v 1.25 2003/05/12 23:11:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,7 +92,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	}
 
 	if (!isset($_SERVER['PATH_TRANSLATED'])) {
-		$_SERVER['PATH_TRANSLATED'] = __FILE__;
+		$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
 	}
 
 	$error_msg = "(".basename($_SERVER['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
