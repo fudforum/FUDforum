@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.12 2002/09/29 19:50:58 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.13 2002/10/16 07:33:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -168,8 +168,15 @@ function draw_tmpl_perm_table($perm_arr)
 				{SQL_TABLE_PREFIX}users.alias AS login 
 			FROM 
 				{SQL_TABLE_PREFIX}group_members 
-				LEFT JOIN {SQL_TABLE_PREFIX}users 
-					ON {SQL_TABLE_PREFIX}group_members.user_id={SQL_TABLE_PREFIX}users.id  INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE group_id=$grp->id AND {SQL_TABLE_PREFIX}group_members.group_leader='N' ORDER BY {SQL_TABLE_PREFIX}group_members.id");
+				LEFT JOIN {SQL_TABLE_PREFIX}users ON 
+					{SQL_TABLE_PREFIX}group_members.user_id={SQL_TABLE_PREFIX}users.id 
+				INNER JOIN {SQL_TABLE_PREFIX}groups ON 
+					{SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id 
+			WHERE 
+				group_id=".$grp->id." AND 
+				{SQL_TABLE_PREFIX}group_members.group_leader='N' 
+			ORDER BY 
+				{SQL_TABLE_PREFIX}group_members.id");
 	
 		$group_members_list = '';
 		while ( $obj = db_rowobj($r) ) {
