@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.26 2003/05/16 12:42:31 hackie Exp $
+*   $Id: register.tmpl,v 1.27 2003/07/20 13:48:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -183,6 +183,7 @@
 <tr><td class="RowStyleA">{MSG: register_invisible_mode}<br /><font class="SmallText">{MSG: register_invisible_mode_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_show_email}<br /><font class="SmallText">{MSG: register_show_email_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_email_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_notification}<br /><font class="SmallText">{MSG: register_notification_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: notify_default_radio}</td></tr>
+<tr><td class="RowStyleA">{MSG: register_pm_notification}<br /><font class="SmallText">{MSG: register_pm_notification_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_notify_method}<br /><font class="SmallText">{MSG: register_notify_method_desc}</font></td><td class="RowStyleA"><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
 <tr><td class="RowStyleA">{MSG: register_allow_email_msg}<br /><font class="SmallText">{MSG: register_allow_email_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_user_email}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_allow_pm_msg}<br /><font class="SmallText">{MSG: register_allow_pm_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_pm}</td></tr>

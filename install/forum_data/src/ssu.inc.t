@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ssu.inc.t,v 1.6 2003/05/16 06:07:25 hackie Exp $
+*   $Id: ssu.inc.t,v 1.7 2003/07/20 13:48:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,6 +20,8 @@ function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 	if ($GLOBALS['PM_ENABLED'] == 'Y') {
 		if (defined('no_inline')) {
 			fud_use('private.inc');
+			fud_use('iemail.inc');
+			fud_use('ref_fmt.inc');
 		}
 		$GLOBALS['recv_user_id'][] = $uid;
 		$pmsg = new fud_pmsg;
@@ -35,7 +37,6 @@ function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 		if (defined('no_inline')) {
 			fud_use('iemail.inc');
 		}
-		
 		send_email($GLOBALS['NOTIFY_FROM'], $uemail, $title, $msg);
 	}
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.61 2003/06/06 18:42:03 hackie Exp $
+*   $Id: register.php.t,v 1.62 2003/07/20 13:48:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -557,7 +557,7 @@ function decode_uent(&$uent)
 		$reg_coppa = isset($_GET['reg_coppa']) ? $_GET['reg_coppa'] : 'Y';
 
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
-		$reg_display_email = $reg_email_messages = $reg_pm_messages = $reg_append_sig = $reg_show_sigs = $reg_show_avatars = $reg_show_im = $reg_notify = 'Y';
+		$reg_display_email = $reg_email_messages = $reg_pm_messages = $reg_append_sig = $reg_show_sigs = $reg_show_avatars = $reg_show_im = $reg_notify = $reg_pm_notify = 'Y';
 		$reg_ignore_admin = $reg_invisible_mode = 'N';
 
 		$b_year = $b_month = $b_day = '';
@@ -731,6 +731,7 @@ function decode_uent(&$uent)
 	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_invisible_mode, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_email_radio	= tmpl_draw_radio_opt('reg_display_email', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_display_email, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$notify_default_radio	= tmpl_draw_radio_opt('reg_notify', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_notify, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$pm_notify_default_radio= tmpl_draw_radio_opt('reg_pm_notify', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_notify, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$accept_user_email	= tmpl_draw_radio_opt('reg_email_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_email_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$accept_pm		= tmpl_draw_radio_opt('reg_pm_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_sig_radio		= tmpl_draw_radio_opt('reg_show_sigs', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_sigs, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.18 2003/07/17 15:53:40 hackie Exp $
+*   $Id: private.inc.t,v 1.19 2003/07/20 13:48:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ class fud_pmsg
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock('{SQL_TABLE_PREFIX}pmsg WRITE');
+			db_lock('{SQL_TABLE_PREFIX}pmsg WRITE, {SQL_TABLE_PREFIX}users WRITE');
 		}
 
 		$this->post_stamp = __request_timestamp__;
@@ -138,7 +138,26 @@ class fud_pmsg
 			)
 			");
 			$GLOBALS['send_to_array'][] = array($v, $id);
-		}	
+			$um[$v] = $id;
+		}
+		$c =  uq('SELECT id, email, notify_method, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND pm_notify=\'Y\'');
+
+		$from = $GLOBALS['usr']->alias;
+		reverse_fmt($from);
+		$subject = $this->subject;
+		reverse_fmt($subject);
+
+		while ($r = db_rowarr($c)) {
+			/* do not send notifications about messages sent to self */
+			if ($r[0] == $this->ouser_id) {
+				continue;
+			}
+			if ($r[2] == 'ICQ') {
+				$r[1] = $r[3] . '@pager.icq.com';
+			}
+			send_pm_notification($r[1], $um[$r[0]], $subject, $from, $r[2]);
+		}
+		qf($c);
 	}
 
 	function sync()
@@ -241,5 +260,27 @@ function pmsg_del($mid, $fldr_id='')
 		qf($c);
 		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND private=\'Y\'');
 	}
+}
+
+function send_pm_notification($email, $pid, $subject, $from, $not_mthd)
+{
+	$sub = '{TEMPLATE: pm_notify_subject}';
+
+	if ($not_mthd == 'EMAIL') {
+		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+			$pfx = '';
+			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+				$pfx .= '0/';
+			}
+			if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+				$pfx .= '0/';
+			}
+		}
+		$body = '{TEMPLATE: pm_notify_body_email}';
+	} else {
+		$body = '{TEMPLATE: pm_notify_body_icq}';
+	}
+
+	send_email($GLOBALS['NOTIFY_FROM'], $email, $sub, $body);
 }
 ?>

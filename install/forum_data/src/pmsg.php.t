@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.23 2003/07/17 15:50:45 hackie Exp $
+*   $Id: pmsg.php.t,v 1.24 2003/07/20 13:48:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -110,8 +110,13 @@
 				$action = '{TEMPLATE: action_buttons_draft}';
 				break;
 		}
+		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+			$goto = $folder_id != 'DRAFT' ? '{ROOT}/pmv/'.$obj->id.'/'._rsid : '{ROOT}/pmm/msg_id/'.$obj->id.'/'._rsid;
+		} else {
+			$goto = $folder_id != 'DRAFT' ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
+		}
 		
-		$goto = $folder_id != 'DRAFT' ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
+		
 		$pmsg_status = $obj->read_stamp ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
 		if ($obj->track == 'Y' && $obj->mailed == 'Y' && $obj->duser_id == _uid && $obj->ouser_id != _uid) {
 			$deny_recipt = '{TEMPLATE: deny_recipt}';
