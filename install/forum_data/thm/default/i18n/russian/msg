@@ -557,7 +557,7 @@ core_adm_login_msg:		<br>Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm
 email_err_unabletoemail_title:	ОШИБКА: Невозможно отправить электронное сообщение
 email_err_unabletoemail_msg:	Система отправки email была выключена администратором.
 email_err_unabletoemailu_msg:	Система отправки email была выключена администратором.
-email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR-HTML: _POST['tx_name']} невозможно, так как неизвестен его адрес email
+email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
 email_error_body:		Текст сообщения обязателен
 email_error_subject:		Тема обязательна
 email_error_emailrequired:	Email-адрес обязателен
@@ -991,18 +991,18 @@ findu_unban:			Разрешить
 findu_ban:			Запретить
 findu_edit:			Править
 findu_delete:			Удалить
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
+dmsg_reply_to:			ответ на {VAR: obj->reply_to}
+merge_topics:			Объединить темы
+merge_topics_cp:		Панель управления объединением тем
+merge_topics_tpl:		Выберите темы для объединения <font class="SmallText">(необходимо выбрать более одной темы)</font>
+merge_merge:			Объединить выбранные темы
+merge_next:			Следующие темы
+merge_prev:			Предыдущие темы
+split_cp:			Панель управления разделением тем
+p_SEARCH:			Can Search
 groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
 register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
 adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
 adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
 adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
