@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.3 2002/07/05 14:09:22 hackie Exp $
+*   $Id: db.inc,v 1.4 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -230,10 +230,7 @@ function qobj($qry, &$obj)
 	$robj = db_singleobj($r);
 	if ( !$robj ) return;
 
-	reset($robj);
-	while ( list($k, $v) = each($robj) ) {
-		$obj->{$k} = $v;
-	}
+	foreach($robj as $k => $v) $obj->{$k} = $v;
 	
 	return $robj;
 }
@@ -300,6 +297,6 @@ function optimize_tables($tbl_list=NULL)
 {
 	if( !$tbl_list ) $tbl_list = get_fud_table_list();
 
-	while(list(,$v) = each($tbl_list) ) q("VACUUM ANALYZE ".$v);
+	foreach($tbl_list as $v) q("VACUUM ANALYZE ".$v);
 }
 ?>

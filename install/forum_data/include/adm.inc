@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.3 2002/07/08 23:15:29 hackie Exp $
+*   $Id: adm.inc,v 1.4 2002/07/22 14:53:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,8 +67,7 @@ function rebuildmodlist()
 	}
 	qf($r);
 	
-	reset($ar);
-	while( list($k,$v) = each($ar) ) {
+	foreach($ar as $k => $v) {
 		if( $k ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='".substr($v, 0, -1)."' WHERE id=".$k);	
 	}
 

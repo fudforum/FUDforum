@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: objutil.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: objutil.inc.t,v 1.2 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,23 +18,20 @@
 	
 function fetch_vars($pref, &$obj, $arr)
 {
-	reset($obj);
-	while ( list($k, $v) = each($obj) ) {
+	foreach($obj as $k => $v) {
 		if ( isset($arr[$pref.$k]) ) $obj->{$k} = $arr[$pref.$k];
 	}
 }
 	
 function export_vars($pref, &$obj)
 {
-	reset($obj);
-	while ( list($k, $v) = each($obj) ) {
+	foreach($obj as $k => $v) {
 		if ( isset($obj->{$k}) ) $GLOBALS[$pref.$k] = $v;
 	}
 }
 
 function empty_object(&$obj)
 {
-	reset($obj);
-	while ( list($k, $v) = each($obj) ) $obj->{$k} = NULL;
+	foreach($obj as $k => $v) $obj->{$k} = NULL;
 }
 ?>

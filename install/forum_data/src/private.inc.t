@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.6 2002/07/21 22:13:20 hackie Exp $
+*   $Id: private.inc.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,7 +108,7 @@ class fud_pmsg
 	
 	function send_pmsg()
 	{
-		while( list(, $v) = each($GLOBALS['recv_user_id']) ) {
+		foreach($GLOBALS['recv_user_id'] as $v) {
 			$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}pmsg 
 			(

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.6 2002/07/09 16:15:17 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,9 +59,8 @@
 
 function draw_tmpl_perm_table($perm_arr)
 {
-	reset($perm_arr);
 	$str = '';
-	while ( list($k, $v) = each($perm_arr) ) {
+	foreach($perm_arr as $k => $v) { 
 		if ( substr($k, 0, 3) != 'up_' ) continue;
 		if ( $v == 'Y' ) 
 			$str .= '{TEMPLATE: perm_yes}';
@@ -132,10 +131,7 @@ function draw_tmpl_perm_table($perm_arr)
 			$gr_member = htmlspecialchars($mbr->login);		
 		
 		$perms = perm_obj_to_arr($mbr, 'up_');
-		reset($perms);
-		while ( list($k, $v) = each($perms) ) {
-			$perms_new[substr($k, 1)] = $v;
-		}
+		foreach($perms as $k => $v) $perms_new[substr($k, 1)] = $v;
 		$perms = $perms_new;
 	}
 	else if( $grp->id>2 && ($luser_id = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id)) ) {
@@ -145,10 +141,7 @@ function draw_tmpl_perm_table($perm_arr)
 			$mbr = $perms_arr;
 				
 		$perms = perm_obj_to_arr($mbr, 'up_');
-		reset($perms);
-		while ( list($k, $v) = each($perms) ) {
-			$perms_new[substr($k, 1)] = $v;
-		}
+		foreach($perms as $k => $v) $perms_new[substr($k, 1)] = $v;
 		$perms = $perms_new;
 	}
 		

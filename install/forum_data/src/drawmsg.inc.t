@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.7 2002/07/12 19:43:01 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.8 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,20 +24,16 @@ function build_ignore_list()
 
 if( isset($GLOBALS['rev']) ) {
 	$drawmsg_inc_tmp = explode(':', $GLOBALS['rev']);
-	reset($drawmsg_inc_tmp);
-	while ( list($k, $v) = each($drawmsg_inc_tmp) ) {
-		if ( strlen($v) ) 
-			$GLOBALS['__REVEALED_POSTS__'][$v] = 1;
+	foreach($drawmsg_inc_tmp as $v) {
+		if ( strlen($v) ) $GLOBALS['__REVEALED_POSTS__'][$v] = 1;
 	}
 	unset($drawmsg_inc_tmp);
 }	
 
 if( isset($GLOBALS['reveal']) ) {
 	$drawmsg_inc_tmp = explode(':', $GLOBALS['reveal']);
-	reset($drawmsg_inc_tmp);
-	while ( list($k, $v) = each($drawmsg_inc_tmp) ) {
-		if ( strlen($v) ) 
-			$GLOBALS['__REVEALED_USERS__'][$v] = 1;
+	foreach($drawmsg_inc_tmp as $v) {	
+		if ( strlen($v) ) $GLOBALS['__REVEALED_USERS__'][$v] = 1;
 	}
 	unset($drawmsg_inc_tmp);
 }	

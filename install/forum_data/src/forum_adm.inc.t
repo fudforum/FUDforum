@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.5 2002/07/07 21:31:18 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,10 +82,7 @@ class fud_forum_adm extends fud_forum
 		
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}forum", $r);
 		$grp = new fud_group;
-		reset($GLOBALS['__GROUPS_INC']['permlist']);
-		while ( list($k,$v) = each($GLOBALS['__GROUPS_INC']['permlist']) ) {
-			$grp->{$k} = 'Y';
-		}
+		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k => $v) $grp->{$k} = 'Y';
 		$grp->add('forum', $this->id, $this->name);
 		$grp->add_resource('forum', $this->id);
 		$grp->rebuild_cache();

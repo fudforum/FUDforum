@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.10 2002/07/11 22:26:19 hackie Exp $
+*   $Id: pmsg.php.t,v 1.11 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 		$msg = new fud_pmsg;
 		
 		if( is_array($HTTP_POST_VARS['sel']) ) {
-			while ( list(,$msg->id) = each($HTTP_POST_VARS['sel']) ) {
+			foreach($HTTP_POST_VARS['sel'] as $msg->id) {
 				if( !is_numeric($msg->id) ) continue;
 				
 				if ( !empty($btn_delete) ) 
@@ -158,7 +158,7 @@
 	qf($r);
 	
 	$btn_action = ( $folder_id == 'TRASH' ) ? '{TEMPLATE: restore_to}' : '{TEMPLATE: move_to}';
-	while( list($k, $v) = each($folders) ) {
+	foreach($folders as $k => $v) {
 		if( $k == $folder_id ) continue;
 		$values .= $k."\n";
 		$names .= $v."\n";

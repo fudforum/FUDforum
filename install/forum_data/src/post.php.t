@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.5 2002/07/16 16:33:07 hackie Exp $
+*   $Id: post.php.t,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -179,7 +179,7 @@
 	}	
 	else { /* $HTTP_POST_VARS['prev_loaded'] */
 		/* remove slashes */
-		while( list($k,) = each($HTTP_POST_VARS) ) {
+		foreach($HTTP_POST_VARS as $k => $v) { 
 			if( !empty($HTTP_POST_VARS[$k]) ) $HTTP_POST_VARS[$k] = $GLOBALS[$k] = stripslashes($HTTP_POST_VARS[$k]);
 		}
 
@@ -199,8 +199,7 @@
 				
 				if ( strlen($file_array) ) {
 					$arr = explode("\n", $file_array);
-					reset($arr);
-					while ( list($k, $v) = each($arr) ) {
+					foreach($arr as $k => $v) {
 						if ( $v ) {
 							list($afile['tmp'], $afile['name'], $afile['size'], $afile['delque'], $afile['db_id']) = explode("\r", $v);
 							if ( strlen($afile['db_id']) ) 
@@ -366,8 +365,7 @@
 
 			/* write file attachments */
 			if( is_perms(_uid, $__RESOURCE_ID, 'FILE') && isset($attach_list) ) {
-				reset($attach_list);
-				while ( list($k, $v) = each($attach_list) ) {
+				foreach($attach_list as $k => $v) {
 					if( !$v ) continue;
 					if ( strlen($v['delque']) ) {
 						if ( $v['tmp'] ) {
@@ -585,10 +583,9 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	if ( is_perms(_uid, $__RESOURCE_ID, 'FILE') ) {	
 		/* check if there are any attached files, if so draw a table */
 		if ( isset($attach_list) ) {
-			reset($attach_list);
 			$file_array=NULL;
 			$attached_files='';
-			while ( list($k, $v) = each($attach_list) ) {
+			foreach($attach_list as $k => $v) {
 				$file_array .= $v['tmp']."\r".$v['name']."\r".$v['size']."\r".$v['delque']."\r".$v['db_id']."\n";
 				if ( empty($v['delque']) ) {
 					if( $v['size'] < 100000 )

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.8 2002/07/09 13:05:07 hackie Exp $
+*   $Id: consist.php,v 1.9 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -162,8 +162,7 @@ forum will be disabled.<br><br>
 	}
 	qf($r);
 	
-	reset($ar);
-	while( list($k,$v) = each($ar) ) {
+	foreach($ar as $k => $v) {
 		if( $k ) {
 			$v = substr($v, 0, -1);
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_globals.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: reg_globals.inc,v 1.2 2002/07/22 14:53:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,11 +29,9 @@ function mod_arr_val(&$val, $key, $fmt_func)
 		$GLOBALS[$key] = $val;
 	}
 	else {	
-		reset($val);
-		while( list($k,$v) = each($val) ) {
+		foreach($val as $k => $v) {
 			if( !isset($GLOBALS[$key]) ) $GLOBALS[$key][$k] = $fmt_func ? $fmt_func($v) : $v;
 		}
-		reset($val);
 	}
 }
 
@@ -47,11 +45,8 @@ function mod_arr_val(&$val, $key, $fmt_func)
 	array_walk($GLOBALS['HTTP_POST_VARS'], 'mod_arr_val', $fmt_func);
 	reset($GLOBALS['HTTP_POST_VARS']);
 	
-	reset($GLOBALS['HTTP_POST_FILES']);
-	while ( list($k, $v) = each($GLOBALS['HTTP_POST_FILES']) ) {
-		while ( list($k2, $v2) = each($v) ) {
-			$GLOBALS[$k.'_'.$k2] = !$fmt_func ? $v2 : $fmt_func($v2);
-		}
+	foreach($GLOBALS['HTTP_POST_FILES'] as $k => $v) { 
+		foreach($v as $k2 => $v2) $GLOBALS[$k.'_'.$k2] = !$fmt_func ? $v2 : $fmt_func($v2);
 		$GLOBALS[$k] = $v['tmp_name'];
 	}
 	reset($GLOBALS['HTTP_POST_FILES']);

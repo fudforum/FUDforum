@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.12 2002/07/05 12:15:24 hackie Exp $
+*   $Id: compiler.inc,v 1.13 2002/07/22 14:53:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -301,8 +301,7 @@ function generate_file($php_file)
 		$php_code_start = $php_code_end = $php_code_middle = '';
 	
 		if( is_array($GLOBALS['file_cache'][$php_file]['include']) ) {
-			reset($GLOBALS['file_cache'][$php_file]['include']);
-			while( list(,$v2) = each($GLOBALS['file_cache'][$php_file]['include']) ) {
+			foreach($GLOBALS['file_cache'][$php_file]['include'] as $v2) {
 				if( $v2 == $php_file ) continue;
 			
 				$k = $v2;
@@ -391,9 +390,8 @@ function build_msg($file)
 function resolve_inc_refs($file)
 {
 	if( is_array($GLOBALS['file_cache'][$file]['include']) ) {
-		reset($GLOBALS['file_cache'][$file]['include']);
 		$ar = array();
-		while( list($k,) = each($GLOBALS['file_cache'][$file]['include']) ) {
+		foreach($GLOBALS['file_cache'][$file]['include'] as $k => $v) {
 			if( !isset($GLOBALS['file_cache'][$k]['include']) ) 
 				$ar[$k] = $k;
 			else {
@@ -495,10 +493,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 		generate_file($file);
 		
 		if( is_array($GLOBALS['PHP_FILE_SEC']) ) { 
-			reset($GLOBALS['PHP_FILE_SEC']);
-			while( list($k,$v) = each($GLOBALS['PHP_FILE_SEC']) ) {
-				reset($v);
- 				while ( list($k2,) = each($v) ) unset($GLOBALS['TC'][$k][$k2]);
+			foreach($GLOBALS['PHP_FILE_SEC'] as $k => $v) {
+				foreach($v as $k2 => $v2) unset($GLOBALS['TC'][$k][$k2]);
 			}	
 			unset($GLOBALS['PHP_FILE_SEC']);
 		}	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: smiley.inc.t,v 1.4 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,8 +79,7 @@ class fud_smiley
 	
 	function fetch_vars($array, $prefix)
 	{
-		reset($array);
-		while ( list($key, $val) = each($array) ) {
+		foreach($array as $key => $val) { 
 			if ( substr($key, 0, strlen($prefix)) == $prefix ) {
 				$key = substr($key, strlen($prefix), strlen($key)-strlen($prefix));
 
@@ -171,8 +170,7 @@ function smiley_to_post($text)
 		else
 			$sml_codes[] = $obj->code;
                  
-                reset($sml_codes);                        
-		while( list(,$v) = each($sml_codes) ) {
+		foreach($sml_codes as $v) { 
 			$a=0;
 			$v = strtolower($v);
 			$v_len = strlen($v);

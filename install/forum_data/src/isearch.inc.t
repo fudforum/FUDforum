@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.7 2002/07/21 22:58:21 hackie Exp $
+*   $Id: isearch.inc.t,v 1.8 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -135,7 +135,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	$qr = '';
 	$qry_uniq = array();
 	
-	while( list(,$v) = each($w) ) {
+	foreach($w as $v) {
 		if( !$v ) continue;
 		$v = strtolower($v);
 		if ( isset($qry_uniq[$v]) ) continue;

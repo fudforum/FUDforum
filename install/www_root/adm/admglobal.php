@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.8 2002/07/21 21:52:13 hackie Exp $
+*   $Id: admglobal.php,v 1.9 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@
 	
 	$help_ar = read_help();
 	
-	while ( list($key, $val) = each($global_config_ar) ) $GLOBALS['CF_'.$key] = stripslashes($val);
+	foreach($global_config_ar as $key => $val) $GLOBALS['CF_'.$key] = stripslashes($val);
 	
 	$CF_DISABLED_REASON = cfg_dec($CF_DISABLED_REASON);
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: fileio.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: fileio.inc.t,v 1.2 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 define('_fileio_inc_', 1);
-
 
 function register_fp($id)
 {
@@ -29,8 +28,7 @@ function un_register_fps()
 {
 	if( !@is_array($GLOBALS['__MSG_FP__']) ) return;
 	
-	reset($GLOBALS['__MSG_FP__']);
-	while( list($k,$v) = each($GLOBALS['__MSG_FP__']) ) {
+	foreach($GLOBALS['__MSG_FP__'] as $k => $v) {
 		if( @is_resource($v) ) fclose($v);
 		$GLOBALS['__MSG_FP__'][$k] = NULL;
 	}	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.2 2002/06/26 19:41:20 hackie Exp $
+*   $Id: admbrowse.php,v 1.3 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -327,9 +327,8 @@ include('admpanel.php');
 	sort($file_list);
 	
 	$dir_data = array_merge($dir_list, $file_list);	
-	reset($dir_data);
 		
-	while( list(,$de) = each($dir_data) ) {	
+	foreach($dir_data as $de) { 
 		if( @is_file($de) ) {
 			$name = $de;
 			$st = stat($de);

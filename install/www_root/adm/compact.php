@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.5 2002/07/05 12:47:22 hackie Exp $
+*   $Id: compact.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,10 +155,10 @@ and the amount of messages your forum has.<br><br>
 	}
 	qf($r);
 	un_register_fps();
-	while( list($k,) = each($files) ) @unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$k);
+	foreach($files as $k => $v) @unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$k);
 	
 	if( @is_array($GLOBALS['__NEW_FILES__']) ) {
-		while( list(,$v) = each($GLOBALS['__NEW_FILES__']) ) {
+		foreach($GLOBALS['__NEW_FILES__'] as $v) {
 			rename($GLOBALS['MSG_STORE_DIR'].'tmp_msg_'.$v, $GLOBALS['MSG_STORE_DIR'].'msg_'.$v);
 			@chmod($GLOBALS['MSG_STORE_DIR'].'msg_'.$v,0600);
 		}	

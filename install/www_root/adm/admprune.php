@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.5 2002/06/26 22:39:34 hackie Exp $
+*   $Id: admprune.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,8 +116,7 @@
 			qf($r);
 
  			if ( isset($idlist) ) {
-				reset($idlist);
-				while ( list(,$v) = each($idlist) ) rebuild_forum_view($v);
+				foreach($idlist as $v) rebuild_forum_view($v);
 			}
 			db_unlock();
 		}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.2 2002/06/19 00:08:19 hackie Exp $
+*   $Id: spell.inc.t,v 1.3 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -182,7 +182,7 @@ function draw_spell_sug_select($v,$k,$type)
 	$data .= '<option value="'.htmlspecialchars($v['token']).'">'.htmlspecialchars($v['token']).'</option>';
 	$sug = get_spell_suggest($v['token']);
 	$i=0;
-	while ( list(,$va) = each($sug) ) 
+	foreach($sug as $va) 
 		$data .= '<option value="'.$va.'">'.++$i.') '.$va.'</option>';
 	
 	if( !count($sug) ) 
@@ -195,10 +195,9 @@ function draw_spell_sug_select($v,$k,$type)
 
 function spell_replace($wa,$type)
 {
-	reset($wa);
 	$data = '';
 
-	while( list($k,$v) = each($wa) ) {
+	foreach($wa as $k => $v) { 
 		if( $v['check']==1 && isset($GLOBALS["HTTP_POST_VARS"]["spell_chk_".$type."_".$k]) && strlen($GLOBALS["HTTP_POST_VARS"]["spell_chk_".$type."_".$k]) ) {
 			$data .= stripslashes($GLOBALS["HTTP_POST_VARS"]["spell_chk_".$type."_".$k]);	
 		}
@@ -212,24 +211,18 @@ function spell_replace($wa,$type)
 
 function spell_check_ar($wa,$type)
 {
-	reset($wa);
-	
-	while ( list($k, $v) = each($wa) ) {
-		if( $v['check']>0 && !spell_check_w($v['token']) ) {
+	foreach($wa as $k => $v) {
+		if( $v['check']>0 && !spell_check_w($v['token']) )
 			$wa[$k]['token'] = draw_spell_sug_select($v,$k,$type);
-			
-		}
 	}
 
-	reset($wa);
 	return $wa;
 }
 
 function reasemble_string($wa)
 {
 	$data = '';
-	while ( list(, $v) = each($wa) )
-		$data .= $v['token'];
+	foreach($wa as $v) $data .= $v['token'];
 	
 	return $data;	
 }

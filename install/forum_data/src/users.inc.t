@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.4 2002/07/17 17:04:52 hackie Exp $
+*   $Id: users.inc.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,10 +134,7 @@ class fud_user
 
 function user_copy_object($osrc, &$odst)
 {
-	reset($osrc);
-	while ( list($k, $v) = each($osrc) ) {
-		$odst->{$k} = $v;
-	}
+	foreach($osrc as $k => $v) $odst->{$k} = $v;
 }
 
 function init_user()

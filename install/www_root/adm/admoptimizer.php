@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.4 2002/06/28 20:25:07 hackie Exp $
+*   $Id: admoptimizer.php,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,8 +89,7 @@ function optimize_file($file)
 		
 		if ( !is_array($function ) ) break;
 		
-		reset($function);
-		while( list($k,$v) = each($function) ) {
+		foreach($function as $k => $v) {
 			$pos=$func_match=0;
 			while( ($pos = strpos($file_af, $k.'(', $pos)) ) {
 				if ( isset($arr[$file_af[$pos-1]]) )

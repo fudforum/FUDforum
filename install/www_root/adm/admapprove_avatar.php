@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@
 	
 	/* check for convert */
 	if ( !empty($fixit) && $MOGRIFY_BIN ) {
-		exec($MOGRIFY_BIN.' -geometry '.$GLOBALS['CUSTOM_AVATAR_MAX_DIM'].' +profile iptc +profile icm +comment '.$avatar_dir.$fixit);
+		exec($MOGRIFY_BIN.' -geometry '.$GLOBALS['CUSTOM_AVATAR_MAX_DIM'].' +profile iptc +profile icm +comment '.realpath($avatar_dir).$fixit);
 		header("Location: admapprove_avatar.php?"._rsid."&rand=".get_random_value());
 		exit();
 	}

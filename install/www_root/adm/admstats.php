@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.6 2002/06/26 22:26:34 hackie Exp $
+*   $Id: admstats.php,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -157,9 +157,8 @@ function get_sql_disk_usage()
 	
 		$tmp = $day_list;
 		rsort($tmp);
-		reset($tmp);
 		
-		while( list(,$max_value) = each($tmp) ) break;
+		foreach($tmp as $max_value) break;
 		$max_value = $max_value[0];
 		unset($tmp);
 		
@@ -167,7 +166,7 @@ function get_sql_disk_usage()
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
 		$ttl=0;
 		$unit = ceil($max_value/100);
-		while ( list($k, $v) = each($day_list) ) {
+		foreach($day_list as $k => $v) {
 			$len = round($v[0]/$unit)*3;
 			echo '<tr><td style="font-size: xx-small;">'.date("F d, Y", $v[1]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.$len.'></td><td style="font-size: xx-small;">('.$v[0].')</td></tr>';
 			$ttl += $v[0];

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: tmpllist.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,8 +60,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 {
 	global $deps;
 	
-	reset($refs);
-	while( list($k, $v) = each($refs) ) {
+	foreach($refs as $k => $v) {
 		if( is_array($deps[$k]) ) tmpllist_resolve_refernce($deps[$k], $file);
 		$file[$k] = $v;
 	}
@@ -76,7 +75,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 		$max_list = stripslashes($max_list);
 		$tmp = explode(':', $max_list);
 		$max_opts = '';
-		while( list(,$v) = each($tmp) ) 
+		foreach($tmp as $v) 
 			if( $v ) $max_opts[$v] = 1;
 	}
 	
@@ -128,7 +127,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 		
 		$msg_list = '';
 		if( preg_match_all('!{MSG: (.*?)}!is', $tmpl_data, $regs, PREG_SET_ORDER) ) {
-			while( list(,$v) = each($regs) ) $msg_list .= urlencode($v[1]).':';
+			foreach($regs as $v) $msg_list .= urlencode($v[1]).':';
 			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&NO_TREE_LIST=1&msglist='.substr($msg_list, 0, -1).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
@@ -190,15 +189,14 @@ function tmpllist_resolve_refernce($refs, &$file)
 			$file = str_replace(".inc", ".tmpl", $file);	
 
 			preg_match_all('!{REF: (.*?)}!s', $data, $matches, PREG_SET_ORDER);
-			while( list(,$v) = each($matches) ) $deps[$file][$v[1]] = 1;
+			foreach($matches as $v) $deps[$file][$v[1]] = 1;
 		}
 	}
 	
 	
 	$php_deps = array();
 	
-	reset($deps);
-	while( list($k, $v) = each($deps) ) {
+	foreach($deps as $k => $v) {
 		tmpllist_resolve_refernce($v, $deps[$k]);
 		$php_deps[str_replace('.php', '.tmpl', $k)] = $deps[$k];
 	}
@@ -219,7 +217,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 		
 		if( $max_all || $max_opts[$de] ) { 
 			$file_info_array[$de] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.minimize($de).'"><acronym title="minimize">[ - ]</acronym></a> <b>'.$de.'</b> <a name="'.$de.'">&nbsp;</a><br>';
-			while ( list(, $v) = each($regs) ) {
+			foreach($regs as $v) {
 				$file_info_array[$de] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&edit=1&fl='.$de.'&msec='.urlencode($v[2]).'&max_list='.$max_list.'">'.$v[2].'</a>';
 				if( empty($edit) && $v[3] ) $file_info_array[$de] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'.$v[3].'</font>';
 				$file_info_array[$de] .= '<br>';
@@ -228,7 +226,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			}
 		
 			if ( preg_match_all('!{SECTION: (.*?)( .*?)?}.*?{SECTION: END}!s', $data, $regs, PREG_SET_ORDER) ) {
-				while ( list(,$v) = each($regs) ) {
+				foreach($regs as $v) {
 					$file_info_array[$de] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&edit=1&fl='.$de.'&sec='.urlencode($v[1]).'&max_list='.$max_list.'">'.$v[1].'</a>';
 					if( empty($edit) && $v[2] ) $file_info_array[$de] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'.$v[2].'</font>';
 					$file_info_array[$de] .= '<br>';					
@@ -242,14 +240,10 @@ function tmpllist_resolve_refernce($refs, &$file)
 	}
 	closedir($dp);
 
-	reset($php_deps);
 	$deps_on = array();
-	while( list($k, $v) = each($php_deps) ) {
-		while( list($k2, ) = each($v) ) {
-			$deps_on[$k2][] = $k; 
-		}	
+	foreach($php_deps as $k => $v) { 
+		foreach($v as $k2 => $v2) $deps_on[$k2][] = $k; 
 	}
-	reset($php_deps);
 	reset($deps_on);
 
 	if( !empty($fl) ) {
@@ -261,14 +255,13 @@ function tmpllist_resolve_refernce($refs, &$file)
 	}
 
 	sort($file_info_array);
-	reset($file_info_array);
 
-	while( list($k,$v) = each($file_info_array) ) {
+	foreach($file_info_array as $k => $v) {
 		echo $v;
 		if( ($max_all || $max_opts[$k]) && ($php_deps[$k] || $deps_on[$k]) ) {
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
-				while( list($k2,) = each($php_deps[$k]) ) {
+				foreach($php_deps[$k] as $k2 => $v2) {
 					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
 				}
 			
@@ -277,7 +270,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
-				while( list(,$k2) = each($deps_on[$k]) ) {
+				foreach($deps_on[$k] as $k2) {
 					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
 				}	
 				

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.9 2002/07/17 17:04:52 hackie Exp $
+*   $Id: register.php.t,v 1.10 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -208,7 +208,7 @@ function draw_err($err_name)
 function clean_variables()
 {
 	$vars = array('reg_avatar_loc','reg_login','reg_alias','reg_email','reg_name','reg_location','reg_occupation','reg_interests','reg_user_image','reg_icq','reg_aim','reg_yahoo','reg_home_page','reg_msnm','reg_avatar','b_month','b_day','b_year','reg_gender','reg_bio','reg_sig','reg_invisible_mode','reg_notify','reg_notify_method','reg_posts_ppg','reg_theme', 'reg_jabber');
-	while( list(,$v) = each($vars) ) {
+	foreach($vars as $v) {
 		if( !isset($GLOBALS["HTTP_POST_VARS"][$v]) ) $GLOBALS[$v]=$GLOBALS["HTTP_POST_VARS"][$v]=NULL;		
 	}
 }
@@ -229,14 +229,10 @@ function is_avatar_upload_allowed()
 function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 {
 	if ( isset($leave_arr) ) {
-		reset($leave_arr);
-		while ( list(,$v) = each($leave_arr) ) {
-			$leave[$v] = 1;
-		}
+		foreach($leave_arr as $v) $leave[$v] = 1;
 	}
 	
-	reset($arr);
-	while( list($k,) = each($arr) ) {
+	foreach($arr as $k) {
 		if ( isset($leave[$k]) ) $GLOBALS['_BK_'][$k] = $arr[$k];
 		if ( $who == 'DB' ) 
 			$GLOBALS['MYSQL_DATA'][$k] = htmlspecialchars($arr[$k]);

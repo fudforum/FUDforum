@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: msglist.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,8 +40,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 {
 	global $deps;
 	
-	reset($refs);
-	while( list($k, $v) = each($refs) ) {
+	foreach($refs as $k => $v) { 
 		if( is_array($deps[$k]) ) tmpllist_resolve_refernce($deps[$k], $file);
 		$file[$k] = $v;
 	}
@@ -62,24 +61,20 @@ function makedeps()
 			/* check for msgs int the php code */
 			
 			if ( preg_match_all('!{MSG: (.*?)}!', $data, $regs, PREG_SET_ORDER) ) {
-				while ( list(,$v) = each($regs) ) {
+				foreach($regs as $v) { 
 					if ( !isset($tmplmsglist[$file][$v[1]]) ) $tmplmsglist[$file][$v[1]] = 1;
 				}
 			}
 			
 			preg_match_all('!{REF: (.*?)}!s', $data, $matches, PREG_SET_ORDER);
-			while( list(,$v) = each($matches) ) $deps[$file][$v[1]] = 1;
-			
-			
+			foreach($matches as $v) $deps[$file][$v[1]] = 1;
 		}
 	}
 	chdir($oldcwd);
 	
 	/* build reverse deps */
-	reset($deps);
-	while ( list($file, $reflist) = each($deps) ) {
-		reset($reflist);
-		while ( list($depfile) = each($reflist) ) $filedeps[$depfile][] = $file;
+	foreach($deps as $file => $reflist) {
+		foreach($reflist as $k => $depfile) $filedeps[$depfile][] = $file;
 	}
 	
 	reset($tmplmsglist);
@@ -94,8 +89,7 @@ function makedeps()
 		$data = filetomem($msgfile);
 		preg_match_all('/(.+?):(\s*)(.+?)\n/s', $data, $regs, PREG_SET_ORDER);
 		$fdata = '';
-		reset($regs);
-		while ( list(,$v) = each($regs) ) {
+		foreach($regs as $v) { 
 			$nval = str_replace("\n", '\n', stripslashes($HTTP_POST_VARS[$v[1]]));
 			if ( isset($HTTP_POST_VARS[$v[1]]) && $v[3] != $nval ) {
 				if ( !isset($clist[$v[1]]) ) $clist[$v[1]] = 1;
@@ -113,10 +107,8 @@ function makedeps()
 		
 		list($tmplmsglist, $filedeps) = makedeps();
 		/* build msg->file */
-		reset($tmplmsglist);
-		while ( list($k, $v) = each($tmplmsglist) ) {
-			reset($v);
-			while ( list($k2, $v2) = each($v) ) {
+		foreach($tmplmsglist as $k => $v) {
+			foreach($v as $k2 => $v2) {
 				if ( !isset($msgdeps[$k2][$k]) ) $msgdeps[$k2][$k] = 1;
 			}
 		}
@@ -159,16 +151,14 @@ if ( empty($NO_TREE_LIST) ) {
 <table border=0 cellspacing=0 cellpadding=3>
 <?php
 	ksort($tmplmsglist);
-	reset($tmplmsglist);
 
 if ( $warn ) {
 	echo '<div align="center"><font color="green" size="+2">WARNING: EDITING DEFAULT MESSAGE FILE, BECAUSE THIS TEMPLATE DOESN\'T HAVE ONE</font><br><br></div>';
 }
 
-	while ( list($file, $msg) = each($tmplmsglist) ) {		
-		reset($msg);
+	foreach($tmplmsglist as $file => $msg) { 
 		$list = $msgnamelist = '';
-		while ( list($msgname) = each($msg) ) {
+		foreach($msg as $k => $msgname) { 
 			$msgnamelist .= urlencode($msgname).':';
 			$list .='<tr><td><img src="blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname."</a></td></tr>\n";
 		}
@@ -177,8 +167,7 @@ if ( $warn ) {
 		echo $list;
 		if ( count($filedeps[$file]) ) {
 			echo '<tr><td class="depson"><img src="blank.gif" height=1 width=20><b>&raquo; Used By:</b></td></tr>'."\n";
-			reset($filedeps[$file]);
-			while ( list(,$v) = each($filedeps[$file]) ) {
+			foreach($filedeps[$file] as $v) { 
 				echo "\t\t".'<tr><td><img src="blank.gif" height=1 width=40><a href="#'.$v.'" class="depson">'.$v."</a></td></tr>\n";
 			}
 		}
@@ -195,16 +184,13 @@ if ( $MSG_LIST || !empty($msglist) ) {
 	if ( !$msglist ) $msglist = $HTTP_POST_VARS['msglist'];		
 	if ( $msglist ) {
 		$msglist_tmp = explode(':', $msglist);
-		reset($msglist_tmp);
-		while ( list(,$v) = each($msglist_tmp) ) {
-			$msglist_arr[$v] = 1;
-		}
+		foreach($msglist_tmp as $v) $msglist_arr[$v] = 1;
 	}
 
 	$data = filetomem($msgfile);
 
 	preg_match_all('/(.+?):(\s*?)(.+?)\n/s', $data, $regs, PREG_SET_ORDER);
-	while ( list(,$v) = each($regs) ) {
+	foreach($regs as $v) {
 		if ( isset($msglist_arr) && !isset($msglist_arr[$v[1]]) ) continue;
 		$v[2] = trim($v[3]);
 		if ( ($ln=strlen($v[2])) > 50 ) {

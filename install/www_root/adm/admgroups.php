@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.6 2002/07/12 15:41:28 hackie Exp $
+*   $Id: admgroups.php,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,8 +35,7 @@
 	/* check for errors */
 	$error = 0;
 	if ( $btn_submit ) {
-		reset($GLOBALS['__GROUPS_INC']['permlist']);
-		while ( list($k) = each($GLOBALS['__GROUPS_INC']['permlist']) ) {
+		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k => $v) { 
 			if ( $HTTP_POST_VARS[$k] == 'I' && !$HTTP_POST_VARS['gr_inherit_id'] ) { 
 				$error_reason = "One of your permissions is set to Inherit, however you have not selected a group to inherit from";
 				$error = 1; 
@@ -69,8 +68,7 @@
 		if ( !$grp->res ) $grp->res = 'NONE';
 		/* make rslist */
 		if ( $grp->res == 'NONE' && is_array($HTTP_POST_VARS['gr_resource']) ) {
-			@reset($HTTP_POST_VARS['gr_resource']);
-			while ( list($k, $v) = @each($HTTP_POST_VARS['gr_resource']) ) {
+			foreach($HTTP_POST_VARS['gr_resource'] as $k => $v) { 
 				list($type, $id) = explode(':', $v);
 				$gr_list[$type][$id] = $id;
 			}
@@ -119,8 +117,7 @@
 		
 		if ( $prevloaded ) {
 			$grp->inherit_id = $gr_inherit_id;
-			reset($HTTP_POST_VARS);
-			while ( list($k, $v) = each($HTTP_POST_VARS) ) {
+			foreach($HTTP_POST_VARS as $k => $v) {
 				if ( substr($k, 0, 2) != 'p_' ) continue;
 				$perms[$k] = $v;
 			}
@@ -175,11 +172,10 @@
 		}
 		else if ( $prevloaded ) {
 			 if ( $grp->res == 'NONE' && is_array($HTTP_POST_VARS['gr_resource']) ) {
-			 	@reset($HTTP_POST_VARS['gr_resource']);
-				 while ( list($k, $v) = @each($HTTP_POST_VARS['gr_resource']) ) {
-					 list($type, $id) = explode(':', $v);
-					 $rslist[$type][$id] = $id;
-				 }
+				foreach($HTTP_POST_VARS['gr_resource'] as $k => $v) {
+					list($type, $id) = explode(':', $v);
+					$rslist[$type][$id] = $id;
+				}
 			 }
 			                                                                                                                                                                           
 		}

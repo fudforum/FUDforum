@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.6 2002/07/16 16:33:07 hackie Exp $
+*   $Id: cookies.inc.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,11 +52,9 @@ class fud_session
 		if ( !empty($user_id) ) $this->user_id = $user_id;
 
 		if( is_array($this->data) && count($this->data) ) {
-			reset($this->data);
 			$db_str = '$this->data = array(';
-			while ( list($key, $val) = each($this->data) ) {
+			foreach($this->data as $key => $val)
 				$db_str .= "'".addcslashes($key,"'")."'=>'".addcslashes($val,"'")."',";;
-			}
 			$db_str = substr($db_str, 0, -1).');';
 		}
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.8 2002/07/18 03:54:00 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.9 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -307,8 +307,7 @@ class fud_msg_edit extends fud_msg
 		}
 		
 		if ( is_array($lip_update) ) {
-			reset($lip_update);
-			while ( list($k, $v) = each($lip_update) ) {
+			foreach($lip_update as $k => $v) { 
 				if( $v['msg_id'] == $this->id ) {
 					$mid = q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$v['forum_id']." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
 					if( !$mid ) $mid = 0;
@@ -494,8 +493,7 @@ function trim_html($str, $maxlen)
 	$data = substr($str, 0, $i);
 	if ( is_array($tree) ) {
 		$tree = array_reverse($tree);
-		reset($tree);	
-		while( list(,$v) = each($tree) ) $data .= '</'.$v.'>';
+		foreach($tree as $v) $data .= '</'.$v.'>';	
 	}
 
 	return $data;

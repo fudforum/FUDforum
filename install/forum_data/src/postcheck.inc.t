@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.4 2002/07/17 17:04:52 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,7 +82,7 @@ function check_ppost_form()
 	
 	$GLOBALS['msg_to_list'] = trim($GLOBALS['msg_to_list']);
 	$list = explode(";", $GLOBALS['msg_to_list']);
-	while ( list(, $v) = each($list) ) {
+	foreach($list as $v) {
 		$v = trim($v);
 		if( strlen($v) ) {
 			$r = q("SELECT {SQL_TABLE_PREFIX}users.pm_messages, {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.alias='".addslashes($v)."'");	

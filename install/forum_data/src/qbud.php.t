@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: qbud.php.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	
 	if( !empty($GLOBALS["HTTP_POST_VARS"]["S"]) && !$all ) {
 		$names = '';
-		while( list(,$v) = each($GLOBALS["HTTP_POST_VARS"]["names"]) ) $names .= $v.';';
+		foreach($GLOBALS["HTTP_POST_VARS"]["names"] as $v) $names .= $v.';';
 		echo '<html><body><script language="Javascript"><!--
 		
 		if( window.opener.document.post_form.msg_to_list.value.length>0 ) 

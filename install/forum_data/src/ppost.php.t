@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: ppost.php.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -163,7 +163,7 @@
 		}
 		
 		/* remove slashes */
-		while( list($k,) = each($HTTP_POST_VARS) ) {
+		foreach($HTTP_POST_VARS as $k => $v) { 
 			if( !empty($HTTP_POST_VARS[$k]) ) $HTTP_POST_VARS[$k] = $GLOBALS[$k] = stripslashes($HTTP_POST_VARS[$k]);
 		}
 	}
@@ -177,8 +177,7 @@
 			$file_array = base64_decode(stripslashes($HTTP_POST_VARS['file_array']));
 			if ( strlen($file_array) ) {
 				$arr = explode("\n", $file_array);
-				reset($arr);
-				while ( list($k, $v) = each($arr) ) {
+				foreach($arr as $k => $v) { 
 					if ( $v ) {
 						list($afile['tmp'], $afile['name'], $afile['size'], $afile['delque'], $afile['db_id']) = explode("\r", $v);
 						if ( strlen($afile['db_id']) ) 
@@ -275,8 +274,7 @@
 		}
 		
 		if( $PRIVATE_ATTACHMENTS>0 && isset($attach_list) ) {
-			reset($attach_list);
-			while ( list($k, $v) = each($attach_list) ) {
+			foreach($attach_list as $k => $v) { 			
 				if( empty($v) ) continue;
 				if ( strlen($v['delque']) ) {
 					if ( $v['tmp'] ) {
@@ -298,8 +296,7 @@
 					$at_obj->add($usr->id, $msg_p->id, addslashes($v['name']), $GLOBALS['TMP'].$v['tmp'], 'Y');
 					
 					if( count($GLOBALS["send_to_array"]) ) {
-						reset($GLOBALS["send_to_array"]);
-						while( list(,$va) = each($GLOBALS["send_to_array"]) ) {
+						foreach($GLOBALS["send_to_array"] as $va) { 
 							unset($at_obj);
 							$at_obj = new fud_attach();
 							$at_obj->add($va[0], $va[1], addslashes($v['name']), $GLOBALS['TMP'].$v['tmp'], 'Y');
@@ -316,8 +313,7 @@
 						$at_obj->add($usr->id, $msg_p->id, addslashes($v['name']), $GLOBALS['FILE_STORE'].$v['db_id'].'.atch', 'Y');
 					}
 				
-					reset($GLOBALS["send_to_array"]);
-					while( list(,$va) = each($GLOBALS["send_to_array"]) ) {
+					foreach($GLOBALS["send_to_array"] as $va) {
 						unset($at_obj);
 						$at_obj = new fud_attach();
 						$at_obj->add($va[0], $va[1], addslashes($v['name']), $GLOBALS['FILE_STORE'].$v['db_id'].'.atch', 'Y');
@@ -492,10 +488,9 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	if ( $PRIVATE_ATTACHMENTS > 0 ) {	
 		/* check if there are any attached files, if so draw a table */
 		if ( isset($attach_list) ) {
-			reset($attach_list);
 			$file_array=NULL;
 			$attached_files='';
-			while ( list($k, $v) = each($attach_list) ) {
+			foreach($attach_list as $k => $v) { 
 				$file_array .= $v['tmp']."\r".$v['name']."\r".$v['size']."\r".$v['delque']."\r".$v['db_id']."\n";
 				if ( empty($v['delque']) ) {
 					if( $v['size'] < 100000 )

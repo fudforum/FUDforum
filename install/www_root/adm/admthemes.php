@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.11 2002/07/09 14:19:05 hackie Exp $
+*   $Id: admthemes.php,v 1.12 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,9 +190,8 @@ function cleandir($dir)
 		closedir($dp);
 		chdir($oldpwd);
 		
-		reset($locales);
 		$cases = '';
-		while ( list($k, $v) = each($locales) ) {
+		foreach($locales as $k => $v) {
 			$cases .= "case '$k': document.admthm.thm_locale.value = '".$v['locale']."'; ";
 			$cases .= "document.admthm.thm_pspell_lang.value='".$v['pspell_lang']."'; ";
 			$cases .= "break;\n";

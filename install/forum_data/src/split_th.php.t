@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: split_th.php.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,10 +31,9 @@
 	
 	if( !empty($HTTP_POST_VARS['new_title']) && ($mc=count($HTTP_POST_VARS['sel_th'])) ) {
 		sort($HTTP_POST_VARS['sel_th']);
-		reset($HTTP_POST_VARS['sel_th']);
 		
 		$mids = '';
-		while( list(,$mid) = each($HTTP_POST_VARS['sel_th']) ) $mids .= $mid.',';
+		foreach($HTTP_POST_VARS['sel_th'] as $mid) $mids .= $mid.',';
 		$mids = substr($mids, 0, -1);	
 		
 		$src_frm = new fud_forum;
@@ -135,9 +134,8 @@
 	}
 	qf($fr);	
 
-	reset($fl);
 	$vl = $kl = '';
-	while( list(,$obj) = each($fl) ) {
+	foreach($fl as $obj) {
 		$vl .= $obj->id."\n";
 		$kl .= $obj->name."\n";
 	}

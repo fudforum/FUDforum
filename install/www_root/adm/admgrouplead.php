@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
+*   $Id: admgrouplead.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,9 +70,8 @@
 				<table border=0 cellspacing=0 cellpadding=0>
 			";
 			
-			while( list($k, $v) = each($conflist) ) {
-				echo "<tr><td>resource <b>$k</b> is used via <b>$v</b></td></tr>";
-			}
+			foreach($conflist as $k => $v) echo "<tr><td>resource <b>$k</b> is used via <b>$v</b></td></tr>";
+
 			echo '</table><a href="admgrouplead.php?group_id='.$grp->id.'&gr_leader='.$usr->alias.'&noconf=1&'._rsid.'">Override current permissions</a> <a href="admgrouplead.php?group_id='.$grp->id.'&rnd='.get_random_value().'&'._rsid.'">Cancel Action</a></html>';
 			exit();
 		}
@@ -104,9 +103,8 @@ include('admpanel.php');
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
 	$llist = $grp->get_leader_list();
-	while ( list(, $v) = @each($llist) ) {
+	foreach($llist as $v)
 		echo "<tr><td>$v->alias</td><td>[<a href=\"admgrouplead.php?group_id=$group_id&del=$v->user_id&"._rsid."\">Remove From Group</a>]</tr>\n";
-	}
 ?>
 </table>
 </form>

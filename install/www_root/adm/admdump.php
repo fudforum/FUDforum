@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.10 2002/07/09 19:13:38 hackie Exp $
+*   $Id: admdump.php,v 1.11 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ function make_insrt_qry($obj, $tbl, $field_data)
 {
 	$vl = $kv = '';
 	
-	while( list($k,$v) = each($obj) ) {
+	foreach($obj as $k => $v) {
 		if( !isset($field_data[$k]) ) continue;
 	
 		switch ( strtolower($field_data[$k]['type']) )
@@ -175,13 +175,11 @@ include('admpanel.php');
 		
 		$sql_table_list = get_fud_table_list();
 		
-		while ( list(,$tbl_name) = each($sql_table_list) ) $locklist .= $tbl_name.'+,';
+		foreach($sql_table_list as $tbl_name) $locklist .= $tbl_name.'+,';
 		$locklist = substr($locklist, 0, -1);
 		db_lock($locklist);
 
-		reset($sql_table_list);
-
-		while( list(,$tbl_name) = each($sql_table_list) ) {
+		foreach($sql_table_list as $tbl_name) {
 			echo "Processing table: $tbl_name .... ";
 			flush();
 			
@@ -200,7 +198,7 @@ include('admpanel.php');
 					);	
 				}
 				
-				while( $obj = DB_ROWOBJ($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
+				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
 			}	
 			
 			qf($r2);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.9 2002/07/13 00:11:57 hackie Exp $
+*   $Id: core.inc,v 1.10 2002/07/22 14:53:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,17 +104,10 @@ function get_pool($pool='default')
 function sum_pool($pool='default')
 {
 	$bp = &$GLOBALS['__BENCH_RESULT__'][$pool];
-	reset($bp);
 	
 	$bt = 0;
-	while ( list($k, $v) = each($bp) ) {
-		$bt += $v['runtime'];
-	}
-	
-	reset($bp);
-	while ( list($k, $v) = each($bp) ) {
-		$GLOBALS['__BENCH_RESULT__'][$pool][$k]['fract'] = round($v['runtime']/$bt*100).'%';
-	}
+	foreach($bp as $v) $bt += $v['runtime'];
+	foreach($bp as $k => $v) $GLOBALS['__BENCH_RESULT__'][$pool][$k]['fract'] = round($v['runtime']/$bt*100).'%';
 	
 	return $bt;
 }

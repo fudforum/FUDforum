@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.6 2002/07/09 13:05:07 hackie Exp $
+*   $Id: groups.inc.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,8 +65,7 @@ class fud_group
 		if ( $res || $ramasks ) {
 			$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=1"));
 			$perms = $this->resolve_perms();
-			reset($perms['perms']);
-			while ( list($k, $v) = each($perms['perms']) ) {
+			foreach($perms['perms'] as $k => $v ) {
 				if ( substr($k, 0, 2) != 'p_' ) continue;
 				if ( $v!='Y' ) $obj->{$k} = 'N';
 			}
@@ -76,8 +75,7 @@ class fud_group
 			$anon_id = db_lastid("{SQL_TABLE_PREFIX}group_members", $r);
 		
 			$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=2"));
-			reset($perms['perms']);
-			while ( list($k, $v) = each($perms['perms']) ) {		                  
+			foreach($perms['perms'] as $k => $v ) {
 				if ( substr($k, 0, 2) != 'p_' ) continue;
 				if ( $v!='Y' ) $obj->{$k} = 'N';
 			}
@@ -99,9 +97,8 @@ class fud_group
 	{
 		$fields = mk_perm_update_qry($this);
 		$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=".$this->id));
-		reset($obj);
 		$pf = '';
-		while ( list($k, $v) = each($obj) ) {
+		foreach($obj as $k => $v) {
 			if ( substr($k, 0, 2) != 'p_' ) continue;
 			if ( $v == 'Y' && $this->{$k} == 'N' ) $pf .= 'u'.$k."='N', ";
 		}
@@ -116,10 +113,7 @@ class fud_group
 	function get($id)
 	{
 		$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=".$id));
-		reset($obj);
-		while ( list($k, $v) = each($obj) ) {
-			$this->{$k} = $v;
-		}
+		foreach($obj as $k => $v) $this->{$k} = $v;
 
 		return $this->id;
 	}
@@ -149,17 +143,12 @@ class fud_group
 	function fetch_perms($prefix)
 	{	
 		$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-		reset($arr);
-		
-		while ( list($k) = each($arr) ) {
-			$this->{$k} = $GLOBALS['HTTP_POST_VARS'][$prefix.$k];
-		}
+		foreach($arr as $k => $v) $this->{$k} = $GLOBALS['HTTP_POST_VARS'][$prefix.$k];
 	}
 	
 	function get_perms()
 	{
-		reset($this);
-		while ( list($k, $v) = each($this) ) {
+		foreach($this as $k => $v) {
 			if ( substr($k, 0, 2) == 'p_' ) $arr[$k] = $v;
 		}
 		
@@ -169,28 +158,20 @@ class fud_group
 	function add_resource_list($rslist)
 	{
 		if ( !db_locked() ) { db_lock('{SQL_TABLE_PREFIX}groups+, {SQL_TABLE_PREFIX}group_resources+, {SQL_TABLE_PREFIX}group_members+'); $ll=1; }
-		@reset($rslist);
 		
 		$cur_rslist = $this->get_resources_by_rsid();
 		
 		/* add resources not present */
-		while ( list($type,$idlist) = @each($rslist) ) {
-			reset($idlist);
-			while ( list(,$id) = each($idlist) ) {
-				if ( !isset($cur_rslist[$type][$id]) ) {
-					$this->add_resource($type, $id);
-				}
+		foreach($rslist as $type => $idlist) { 
+			foreach($idlist as $id) {
+				if ( !isset($cur_rslist[$type][$id]) ) $this->add_resource($type, $id);
 			}
 		}
 		
-		@reset($cur_rslist);
 		/* delete 'em resources not present in the rslist */
-		while ( list($type,$idlist) = @each($cur_rslist) ) {
-			reset($idlist);
-			while ( list($id) = @each($idlist) ) {
-				if ( !isset($rslist[$type][$id]) ) {
-					$this->delete_resource($type, $id);
-				}
+		foreach($cur_rslist as $type => $idlist) {
+			foreach($idlist as $id) {
+				if ( !isset($rslist[$type][$id]) ) $this->delete_resource($type, $id);
 			}
 		}
 		
@@ -283,9 +264,7 @@ class fud_group
 					{SQL_TABLE_PREFIX}group_members.group_id=".$this->id." 
 					AND {SQL_TABLE_PREFIX}group_members.group_leader='Y'"
 		);
-		while ( $obj = db_rowobj($r) ) {
-			$llist[$obj->id] = $obj;
-		}
+		while ( $obj = db_rowobj($r) ) $llist[$obj->id] = $obj;
 		qf($r);
 		
 		if ( isset($llist) ) reset($llist);
@@ -298,9 +277,7 @@ class fud_group
 	{
 		$rslist = $this->get_resources_by_rsid();
 		$rs_str = '';
-		while ( list($k, $v) = @each($rslist) ) {
-			$rs_str .= "'".$k."', ";
-		}
+		foreach($rslist as $k => $v) $rs_str .= "'".$k."', ";
 		
 		if ( empty($rs_str) ) return;
 
@@ -348,11 +325,10 @@ class fud_group
 	function resolve_perms()
 	{
 		$permlist = $GLOBALS['__GROUPS_INC']['permlist'];
-		reset($permlist);
 		$perms = 0;
 		$parr = NULL;
 		/* this can be done faster, so, if you feel like contributing faster code, plz do so */
-		while ( list($k,$v) = each($permlist) ) {
+		foreach( $permlist as $k => $v ) {
 			$inherit_id = $this->id;
 			$inh_list = array();
 			$pval = '';
@@ -377,9 +353,8 @@ class fud_group
 		}
 		
 		$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=".$this->id));
-		while ( list($k, $v) = @each($obj) ) {
-			if ( substr($k, 0, 2) == 'p_' )
-				$ret['origperms'][$k] = $v;
+		foreach($obj as $k => $v) { 
+			if ( substr($k, 0, 2) == 'p_' ) $ret['origperms'][$k] = $v;
 		}
 		$ret['perms'] = $parr;
 		return $ret;
@@ -408,8 +383,7 @@ class fud_group
 								AND resource_type='$obj->resource_type' 
 								AND resource_id=$obj->resource_id"));
 				
-				reset($ret['perms']);
-				while ( list($k, $v) = each($ret['perms']) ) {
+				foreach($ret['perms'] as $k => $v) { 
 					if ( $c_obj->{$k} == 'Y' || $v == 'Y' ) 
 						$obj->{$k} = 'Y';
 					else
@@ -423,8 +397,7 @@ class fud_group
 				}
 			}
 			else {
-				reset($ret['perms']);
-				while ( list($k, $v) = each($ret['perms']) ) {
+				foreach($ret['perms'] as $k => $v) {
 					if ( $obj->{'u'.$k} != $v ) {
 						$obj->{'u'.$k} = 'N';
 						$obj->{$k} = 'N';
@@ -489,7 +462,7 @@ function mk_perm_insert_qry($data, $prefix='p_', $in_prefix='')
 	$fields = '';
 	$vals = '';
 	$plen = strlen($prefix);
-	while ( list($k) = each($data) ) {
+	foreach($data as $k => $v) { 
 		$s='';
 		if ( substr($k, 0, $plen) == $prefix ) {
 			$fields 	.= $in_prefix.$k.',';
@@ -514,7 +487,7 @@ function mk_perm_update_qry($data, $prefix='p_', $in_prefix='')
 {
 		$fields = '';
 		$plen = strlen($prefix);
-		while ( list($k) = each($data) ) {
+		foreach($data as $k => $v) { 
 			$s='';
 			if ( substr($k, 0, $plen) == $prefix ) {
 				
@@ -535,10 +508,9 @@ function mk_perm_update_qry($data, $prefix='p_', $in_prefix='')
 function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 {
 	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-	reset($arr);
 	
 	$perm_selection = '';
-	while ( list($k, $v) = each($arr) ) {
+	foreach($arr as $k => $v) { 
 		/* check if this permissions is allowed, depending on maxperms */
 		if ( is_array($maxperms_arr) ) {
 			if ( $maxperms_arr[$v] == 'N' ) {
@@ -584,10 +556,9 @@ function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 function draw_perm_table($perms_arr)
 {
 	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-	reset($arr);
 	$str = '';
 	
-	while ( list($k, $v) = each($arr) ) {
+	foreach($arr as $k => $v) {
 		$inherit = ($perms_arr['origperms'][$k]!='I') ? '' : '<font color="#00AA00">Inherit</font>';
 			
 		$perm_str = '';
@@ -612,9 +583,8 @@ function draw_perm_table($perms_arr)
 function mk_perms_arr($prefix, $maxperms_arr, $arr_prefix=NULL)
 {
 	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-	reset($arr);
 
-	while ( list($k, $v) = each($arr) ) {
+	foreach($arr as $k => $v) {
 		if ( $maxperms_arr[$k] == 'N' || $GLOBALS['HTTP_POST_VARS'][$prefix.$k] != 'Y' )
 			$parr[$arr_prefix.$k] = 'N';
 		else
@@ -626,9 +596,8 @@ function mk_perms_arr($prefix, $maxperms_arr, $arr_prefix=NULL)
 
 function perm_obj_to_arr($obj, $prefix='p_', $arr_prefix='')
 {
-	reset($obj);
 	$plen = strlen($prefix);
-	while ( list($k, $v) = each($obj) ) {
+	foreach($obj as $k => $v) { 
 		if ( substr($k, 0, $plen) == $prefix ) $arr[$arr_prefix.$k] = $v;
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.9 2002/07/09 19:52:18 hackie Exp $
+*   $Id: admimport.php,v 1.10 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@ include('admpanel.php');
 		// In the event of pgsql drop all exting tables & sequences
 		if( __dbtype__ == 'pgsql' ) {
 			$tbl_list = get_fud_table_list();
-			while( list(,$v) = each($tbl_list) ) q("DROP TABLE $v");
+			foreach($tbl_list as $v) q("DROP TABLE $v");
 			$r = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".$GLOBALS['DBHOST_TBL_PREFIX']."'");
 			while( list(,$v) = db_rowobj($r) ) q("drop sequence $v");
 			qf($r);
