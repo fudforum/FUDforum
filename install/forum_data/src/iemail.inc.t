@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.26 2004/01/04 16:38:26 hackie Exp $
+* $Id: iemail.inc.t,v 1.27 2004/03/07 21:01:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,12 +15,28 @@ function validate_email($email)
         return !preg_match('!([-_A-Za-z0-9\.]+)\@([-_A-Za-z0-9\.]+)\.([A-Za-z0-9]{2,4})$!', $email);
 }
 
+function encode_subject($text)
+{
+	if (preg_match('![\x7f-\xff]!', $text)) {
+		$charset = '{TEMPLATE: iemail_CHARSET}';
+		$text = base64_encode($text);
+
+		$len = strlen($charset) + strlen("=?{$charset}?B??=");
+		
+		$text = chunk_split($text, 73 - $len, "?=\r\n  =?{$charset}?B?");
+		$text = "=?{$charset}?B?" . substr($text, 0, strlen("=?{$charset}?B?") * -1);
+	}
+
+	return $text;
+}
+
 function send_email($from, $to, $subj, $body, $header='')
 {
 	if (empty($to) || !count($to)) {
 		return;
 	}
 	$body = str_replace('\n', "\n", $body);
+	$subj = encode_subject($subj);
 
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
 		if (!class_exists('fud_smtp')) {

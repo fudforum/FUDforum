@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.25 2004/02/26 21:20:45 hackie Exp $
+* $Id: admmassemail.php,v 1.26 2004/03/07 21:01:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -14,6 +14,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('smtp.inc');
+	fud_use('iemail.inc');
 
 	/* find groups with members */
 	$groups = array();
@@ -51,7 +52,7 @@
 					$email_block_stat = 0;
 					$send_to = array_pop($to);
 					$bcc = implode(', ', $to) . "\r\n";
-					mail($send_to, $_POST['subject'], $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
+					mail($send_to, encode_subject($_POST['subject']), $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
 					$to = array();
 				}
 				++$total;
@@ -59,7 +60,7 @@
 			if (count($to)) {
 				$send_to = array_pop($to);
 				$bcc = implode(', ', $to) . "\r\n";
-				mail($send_to, $_POST['subject'], $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
+				mail($send_to, encode_subject($_POST['subject']), $_POST['body'], "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
 			}
 		} else {
 			$smtp = new fud_smtp;
