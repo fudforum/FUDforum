@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: quicklogin.tmpl,v 1.11 2004/04/25 20:18:26 hackie Exp $
+* $Id: quicklogin.tmpl,v 1.12 2004/08/16 19:51:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 
 {MAIN_SECTION: quick_login_on}
 <table class="wa" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
-<form name="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}">{DEF: _hs}
+<form name="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}"{VAR: auto_c}>{DEF: _hs}
 <table border=0 cellspacing=0 cellpadding=3>
 <tr class="SmallText">
 	<td>{MSG: quicklogin_login}<br /><input class="SmallText" type="text" name="quick_login" size=18></td>
