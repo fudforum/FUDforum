@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.12 2002/09/29 19:50:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	}
 	
 	if( $usr->is_mod != 'A' ) { 
-		$r = q("SELECT group_id, name FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE user_id=".$usr->id." AND group_leader='Y'");
+		$r = q("SELECT group_id, name FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE user_id=".$usr->id." AND group_leader='Y' ORDER BY ltrim(name)");
 		if( !($group_count = db_count($r)) ) {
 			qf($r);
 			std_error('access');
@@ -31,7 +31,7 @@
 		}
 	}
 	else {
-		$r = q("SELECT id AS group_id, name FROM {SQL_TABLE_PREFIX}groups WHERE id>2");
+		$r = q("SELECT id AS group_id, name FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY ltrim(name)");
 		$group_count = db_count($r);
 	}	
 	
