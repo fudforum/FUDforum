@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.33 2003/04/09 18:04:02 hackie Exp $
+*   $Id: users.inc.t,v 1.34 2003/04/10 07:32:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,11 +49,11 @@ function init_user()
 	if (!($u = ses_get())) {
 		/* new anon user */
 		$u = ses_anon_make();
-	} else if ($u->id != 2147483647) { /* store the last visit date for registered user */
+	} else if ($u->id != 1) { /* store the last visit date for registered user */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
-		if ($u->data) {
-			$u->data = @unserialize($u->data);
-		}
+	}
+	if ($u->data) {
+		$u->data = @unserialize($u->data);
 	}
 
 	/* set timezone */
@@ -98,7 +98,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		return $ses_id;
 	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.' WHERE ses_id='.$cur_ses_id);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.' WHERE ses_id=\''.$cur_ses_id.'\'');
 		return $cur_ses_id;
 	}
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.33 2003/04/09 18:08:50 hackie Exp $
+*   $Id: register.php.t,v 1.34 2003/04/10 07:32:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -488,9 +488,9 @@ function remove_old_avatar($avatar_str)
 	
 	if (!$mod_id) {
 		if (_uid) {
-			ses_update_status($usr->sid, '{TEMPLATE: register_profile_update}');
+			ses_update_status($usr->sid, '{TEMPLATE: register_profile_update}', 0, 0);
 		} else {
-			ses_update_status($usr->sid, '{TEMPLATE: register_register_update}');
+			ses_update_status($usr->sid, '{TEMPLATE: register_register_update}', 0, 0);
 		}
 	}
 

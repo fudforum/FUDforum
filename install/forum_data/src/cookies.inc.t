@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.20 2003/04/09 16:37:07 hackie Exp $
+*   $Id: cookies.inc.t,v 1.21 2003/04/10 07:32:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -179,7 +179,7 @@ function ses_get($id=0)
 		u.ignore_list, u.acc_status, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.coppa,
 		u.blocked, u.email, u.login, u.notify
 	FROM {SQL_TABLE_PREFIX}ses s 
-		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 2147483647 ELSE s.user_id END)
+		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 1 ELSE s.user_id END)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme 
 	WHERE '.$q_opt);
 }
