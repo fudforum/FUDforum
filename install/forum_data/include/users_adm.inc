@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.9 2004/01/04 16:38:26 hackie Exp $
+* $Id: users_adm.inc,v 1.10 2004/01/27 17:57:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -36,7 +36,7 @@ function usr_delete($id)
 	q('DELETE FROM '.$tbl.'buddy WHERE bud_id='.$id);
 	q('DELETE FROM '.$tbl.'poll_opt_track WHERE user_id='.$id);
 	q('DELETE FROM '.$tbl.'group_members WHERE user_id='.$id);
-	q('DELETE FROM '.$tbl.'msg WHERE poster_id='.$id);
+	q('UPDATE '.$tbl.'msg SET poster_id=0 WHERE poster_id='.$id);
 
 	/* Delete the private messages of this user */
 	$c = uq('SELECT id FROM '.$tbl.'pmsg WHERE duser_id='.$id);
