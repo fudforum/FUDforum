@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.10 2003/06/02 17:19:47 hackie Exp $
+*   $Id: reset.php.t,v 1.11 2003/09/27 14:30:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,9 +20,7 @@
 function usr_reset_key($id)
 {
 	db_lock('{SQL_TABLE_PREFIX}users WRITE');
-	do {
-		$reset_key = md5(get_random_value(128));
-	} while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".$reset_key."'"));
+	while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".($reset_key = md5(get_random_value(128)))."'"));
 	q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".$reset_key."' WHERE id=".$id);
 	db_unlock();
 
@@ -71,8 +69,8 @@ function usr_reset_passwd($id)
 	}
 
 	if ($email) {
-		if ($uobj = db_sab('SELECT id, email_conf FROM {SQL_TABLE_PREFIX}users WHERE email=\''.addslashes($email).'\'')) {
-			if ($EMAIL_CONFIRMATION == 'Y' && $uobj->email_conf == 'N') {
+		if ($uobj = db_sab("SELECT id, users_opt FROM {SQL_TABLE_PREFIX}users WHERE email='".addslashes($email)."'")) {
+			if ($EMAIL_CONFIRMATION == 'Y' && !($uobj->users_opt & 131072)) {
 				$uent->conf_key= usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.php.t,v 1.7 2003/05/01 14:02:38 hackie Exp $
+*   $Id: rpasswd.php.t,v 1.8 2003/09/27 14:30:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,19 +19,19 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if (!_uid) {
+	if (!__fud_real_user__) {
 		std_error('login');
 	}
 
 	if (isset($_POST['btn_submit'])) {
-		if (_uid != q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($usr->login)."' AND passwd='".md5($_POST['cpasswd'])."'")) {
+		if (__fud_real_user__ != q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($usr->login)."' AND passwd='".md5($_POST['cpasswd'])."'")) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
 		} else if ($_POST['passwd1'] !== $_POST['passwd2']) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_nomatch}';
 		} else if (strlen($_POST['passwd1']) < 6 ) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_length}';
 		} else {
-			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($_POST['passwd1'])."' WHERE id="._uid);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($_POST['passwd1'])."' WHERE id=".__fud_real_user__);
 			exit('<html><script>window.close();</script></html>');
 		}
 
