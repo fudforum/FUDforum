@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.10 2002/08/23 09:51:55 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.11 2002/12/05 01:17:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -333,7 +333,7 @@ function tags_to_html($str, $allow_img='Y')
 			if ( 
 				( ord($ostr[$es]) >= ord('A') && ord($ostr[$es]) <= ord('z') ) ||
 				( ord($ostr[$es]) >= ord(0) && ord($ostr[$es]) <= ord(9) ) ||
-				( $ostr[$es] == '.' || $ostr[$es] == '-' )
+				( $ostr[$es] == '.' || $ostr[$es] == '-' || $ostr[$es] == '\'')
 			) continue;
 			++$es;
 			break;
