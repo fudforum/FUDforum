@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.66 2004/04/25 20:18:25 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.67 2004/04/27 00:15:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,8 +87,8 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_static used as ignore message row on the post form in the thread preview}
-<tr class="MsgR1">
-<td class="GenText"><a name="msg_num_{VAR: m_num}"></a> <a name="msg_{VAR: obj->id}"></a>Post by {VAR: user_login} is ignored&nbsp;</td>
+<tr class="MsgR1 GenText">
+<td><a name="msg_num_{VAR: m_num}"></a> <a name="msg_{VAR: obj->id}"></a>Post by {VAR: user_login} is ignored&nbsp;</td>
 </tr>
 {SECTION: END}
 
@@ -252,7 +252,7 @@
 
 {SECTION: mini_dmsg_poll}
 <p><table cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
 </table><p>
 {SECTION: END}
