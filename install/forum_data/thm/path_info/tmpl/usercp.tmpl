@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: usercp.tmpl,v 1.2 2003/05/28 20:34:48 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -20,46 +20,46 @@
 <table border=0 cellspacing=0 cellpadding=0 width="100%"><tr><td align="right">
 <table cellspacing=3 cellpadding=0 border=0>
 	<tr>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=help_index&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_help.gif" border=0 alt="{MSG: faq}" /></a></td>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=help_index&amp;{DEF: _rsid}">{MSG: faq}</a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/h/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_help.gif" border=0 alt="{MSG: faq}" /></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/h/{DEF: _rsid}">{MSG: faq}</a></td>
 		<td>&nbsp;&nbsp;</td>
 		{TEMPLATE-DATA: register_n_profile}
 		<td>&nbsp;&nbsp;</td>
 		{TEMPLATE-DATA: login_n_logout}
 		<td>&nbsp;&nbsp;</td>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=index&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_home.gif" border=0 alt="{MSG: home}" /></a></td>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=index&amp;{DEF: _rsid}">{MSG: home}</a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/i/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_home.gif" border=0 alt="{MSG: home}" /></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/i/{DEF: _rsid}">{MSG: home}</a></td>
 	</tr>
 </table>
 <table cellspacing=3 cellpadding=0 border=0>	
 	<tr>	
 		{TEMPLATE-DATA: private_msg}
 		{TEMPLATE-DATA: member_search}
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" border=0 alt="{MSG: search}" /></a></td>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&amp;{DEF: _rsid}">{MSG: search}</a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/s/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" border=0 alt="{MSG: search}" /></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}/s/{DEF: _rsid}">{MSG: search}</a></td>
 		{TEMPLATE-DATA: admin_control_panel}
 	</tr>
 </table></td></tr></table>
 {MAIN_SECTION: END}
 
 {SECTION: login login link}
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_login.gif" border=0 alt="{MSG: login}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}">{MSG: login}</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/l/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_login.gif" border=0 alt="{MSG: login}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/l/{DEF: _rsid}">{MSG: login}</a></td>
 {SECTION: END}
 
 {SECTION: logout logout link}
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" border=0 alt="{MSG: logout}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1">{MSG: logout} [ {VAR: usr->alias} ]</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/l/1/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" border=0 alt="{MSG: logout}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/l/1/{DEF: _rsid}">{MSG: logout} [ {VAR: usr->alias} ]</a></td>
 {SECTION: END}
 
 {SECTION: register register link}
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_register.gif" border=0 alt="{MSG: register}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&amp;{DEF: _rsid}">{MSG: register}</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_register.gif" border=0 alt="{MSG: register}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}">{MSG: register}</a></td>
 {SECTION: END}
 
 {SECTION: profile profile link}
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_profile.gif" border=0 title="{MSG: profile_desc}" alt="{MSG: profile}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&amp;{DEF: _rsid}" title="{MSG: profile_desc}">{MSG: profile}</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_profile.gif" border=0 title="{MSG: profile_desc}" alt="{MSG: profile}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}" title="{MSG: profile_desc}">{MSG: profile}</a></td>
 {SECTION: END}
 
 {SECTION: admin_control_panel admin control panel link}
@@ -69,20 +69,20 @@
 
 {SECTION: private_msg_empty link to private msg control panel}
 <td>&nbsp;&nbsp;</td>
-<td valign="middle"><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}" /></a></td>
-<td><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel">{MSG: pm}</a></td>
+<td valign="middle"><a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}" /></a></td>
+<td><a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel">{MSG: pm}</a></td>
 <td>&nbsp;&nbsp;</td>
 {SECTION: END}
 
 {SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
 <td>&nbsp;&nbsp;</td>
-<td valign="middle"><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}" /></a></td>
-<td><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel">{MSG: new_private_messages}</a></td>
+<td valign="middle"><a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}" /></a></td>
+<td><a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel">{MSG: new_private_messages}</a></td>
 <td>&nbsp;&nbsp;</td>
 {SECTION: END}
 
 {SECTION: member_search link to member search}
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" border=0 alt="{MSG: members}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: members}</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/ml/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" border=0 alt="{MSG: members}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}/ml/{DEF: _rsid}">{MSG: members}</a></td>
 <td>&nbsp;&nbsp;</td>
 {SECTION: END}
