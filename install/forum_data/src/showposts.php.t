@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.23 2004/05/07 16:14:38 hackie Exp $
+* $Id: showposts.php.t,v 1.24 2004/05/18 17:41:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,21 +47,23 @@
 	if ($usr->users_opt & 1048576 || $fids) {
 		$qry_limit = $usr->users_opt & 1048576 ? '' : 'f.id IN ('.$fids.') AND ';
 
-		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
-		$total = q_singleval("SELECT count(*)
-					FROM {SQL_TABLE_PREFIX}msg m
-					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
-					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
-
-		$c = uq("SELECT f.name, f.id, m.subject, m.id, m.post_stamp
+		$c = uq("SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 			WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid."
 			ORDER BY m.post_stamp ".$SORT_ORDER." LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
+
+		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
+		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
+			$total = q_singleval("SELECT count(*)
+					FROM {SQL_TABLE_PREFIX}msg m
+					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
+		}
 
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';
