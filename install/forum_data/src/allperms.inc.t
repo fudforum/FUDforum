@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allperms.inc.t,v 1.5 2002/07/09 15:50:16 hackie Exp $
+*   $Id: allperms.inc.t,v 1.6 2002/07/12 13:13:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@ function get_all_perms($usr_id)
 
 	if( empty($usr_id) ) {
 		$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_type='forum' AND p_READ='Y' AND p_VISIBLE='Y'");
-		while( list($resource_id) = db_rowarr($r) ) $fl .= $obj->resource_id.',';		
+		while( list($resource_id) = db_rowarr($r) ) $fl .= $resource_id.',';		
 	}
 	else {
 		$tmp_arr = array();
