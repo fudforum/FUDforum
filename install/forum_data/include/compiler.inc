@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.10 2002/07/02 23:34:07 hackie Exp $
+*   $Id: compiler.inc,v 1.11 2002/07/03 17:45:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -176,8 +176,6 @@ function resolve_sections($str)
 			case 'DATE':
 				$date_str = ltrim(substr($tag_entry, $pos2, ($pos1-$pos2)));
 				$ret .= (($name[0] != '!') ? '\'.strftime("'.$date_str.'", $'.$name.').\'' : '\'.strftime("'.$date_str.'", '.substr($name,1).').\'');
-				
-				//$ret .= '\'.strftime("'.$date_str.'", $'.$name.').\'';
 				break;	
 			case 'TEMPLATE':
 				if ( isset($GLOBALS['TC']['SECTION'][$name]) ) $sec = 'SECTION';
@@ -431,7 +429,11 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$oldmask = umask(0133);
 	$olddir = getcwd();
 	
-	$GLOBALS['__COMPILER__'] = array();
+	$GLOBALS['__COMPILER__'] 	= array();
+	$GLOBALS['MSG']                 = array();
+	$GLOBALS['MSG_FILES']           = array();
+	$GLOBALS['TC']                  = array();
+	$GLOBALS['file_cache']          = array();
 	
 	copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
 	$GLOBALS['__COMPILER__']['tset'] = $tset;
