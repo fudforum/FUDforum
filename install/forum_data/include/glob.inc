@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.4 2003/04/29 18:29:35 hackie Exp $
+*   $Id: glob.inc,v 1.5 2003/05/07 19:12:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,8 +46,8 @@ function change_global_settings($list)
 	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
 	foreach ($list as $k => $v) {
 		if (($p = strpos($settings, '$' . $k)) === FALSE) {
-			$p = strpos($data, '$ALLOW_REGISTRATION')-1;
-			$settings = substr_replace(settings, "\t\$$k\t= \"$v\";\n", $p, 0);
+			$p = strpos($settings, '$ALLOW_REGISTRATION')-1;
+			$settings = substr_replace($settings, "\t\$$k\t= \"$v\";\n", $p, 0);
 		} else {
 			$p = strpos($settings, '"', $p) + 1;
 			if ($v == 'Y' || $v == 'N') {
