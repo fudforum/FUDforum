@@ -912,3 +912,4 @@ mmod_delete_cofirm_ttl:		Потвърждение за Изтриване на Тема/Съобщение&nbsp;
 err_inc_query_err:		Станала е SQL Грешка, моля, обърни се към <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">Администратора</a> на форума и изчакай да видят записа на грешката на SQL заявката във форума.
 spell_alts:			няма други възможности
 insert_uploaded_image:		Insert image into message body
+finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.

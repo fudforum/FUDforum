@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.10 2002/08/12 08:03:14 hackie Exp $
+*   $Id: finduser.tmpl,v 1.11 2002/09/26 22:09:26 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,7 +38,7 @@
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR: user_login}"></td></tr>
 <tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR: user_email}"></td></tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
+<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><font class="SmallText">{MSG: finduser_help}</font> <input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
 </table></form>
 <img src="blank.gif" alt="" height=2 width=1 border=0 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
