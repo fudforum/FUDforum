@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.10 2002/10/06 23:35:41 hackie Exp $
+*   $Id: nntp.inc,v 1.11 2002/10/07 20:43:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -446,7 +446,7 @@ class fud_nntp
 			if( $frm->tag_style == 'ML' ) 
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
 			else 
-				$msg_post->body = nlb2r($msg_post->body);
+				$msg_post->body = nl2br($msg_post->body);
 			
 			fud_wordwrap($msg_post->body);		
 			
