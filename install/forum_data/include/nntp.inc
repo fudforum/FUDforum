@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.7 2002/09/12 21:56:27 hackie Exp $
+*   $Id: nntp.inc,v 1.8 2002/09/12 22:29:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -478,9 +478,10 @@ class fud_nntp
 					fclose($fp);
 					
 					fud_attach::full_add($msg_post->poster_id, $msg_post->id, addslashes($key), $tmpfname, strlen($val));
-		
+					$msg_post->attach_cnt++;
 					unlink($tmpfname);
-				}	
+				}
+				q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=".$msg_post->attach_cnt." WHERE id=".$msg_post->id);
 			}
 			if( $nntp_adm->nntp_post_apr == 'N' ) $msg_post->approve(NULL, TRUE);	
 			unset($msg_post);
