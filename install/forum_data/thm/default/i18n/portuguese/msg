@@ -333,7 +333,7 @@ register_show_email_desc:	Escolha esta opção se quiser que o seu endereço de e-m
 register_notification:		Selecionar a notificação como padrão:
 register_notification_desc:	Se a notificação estiver activa como padrão, poderá ser desactivada quando colocar um post.
 register_notify_method:		Escolher modo de notificação:
-register_notify_method_desc:	Se quiser receber notificações via ICQ certifique-se que tem o 'EmailExpress' activado na secção settings do seu ICQ 
+register_notify_method_desc:	Se quiser receber notificações via ICQ certifique-se que tem o &#39;EmailExpress&#39; activado na secção settings do seu ICQ 
 register_notify_js_error:	Escolheu notificação via ICQ, mas não especificou o n.º de ICQ. Será utilizado o Email por defeito;
 register_allow_email_msg:	Autorizar mensagens E-mail:
 register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via forum.
@@ -953,9 +953,9 @@ primary_group_prefix:		Grupo primário para o forum:
 group_resources:		Este grupo controla as permissões dos seguintes sub-forums
 register_email:			Email
 register_admin_newuser_title:	Registou-se um novo utilizador e a sua conta aguarda confirmacao
-register_admin_newuser_msg:	Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
+register_admin_newuser_msg:	Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta&#39; Activa, esta conta nao ficara&#39; activa ate&#39; que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste e&#39; um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
 post_mod_msg_notify_title:	Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
-post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num forum que voce modera. Para reve-la veja em: {ROOT}?t=modque\n\nEste e' um processo automatico, nao responda a esta mensagem.\n
+post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num forum que voce modera. Para reve-la veja em: {ROOT}?t=modque\n\nEste e&#39; um processo automatico, nao responda a esta mensagem.\n
 thread_printable_pdf:		Exportar para PDF
 thread_syndicate:		Adicione este forum (XML)
 reg_conf_title:			Confirmação do Registo
