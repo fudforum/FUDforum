@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.25 2003/05/26 06:49:51 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.26 2003/05/28 15:07:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -540,7 +540,7 @@ function html_to_tags($fudml)
 
 function filter_ext($file_name)
 {
-	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
 	if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
 		return;
 	}

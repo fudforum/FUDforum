@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.inc.t,v 1.5 2003/04/23 13:08:22 hackie Exp $
+*   $Id: post_common.inc.t,v 1.6 2003/05/28 15:07:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,7 +85,7 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error)
 
 	$upload_file = (($i + 1) <= $max_a) ? '{TEMPLATE: upload_file}' : '';
 
-	include_once $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
 	if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
 	} else {

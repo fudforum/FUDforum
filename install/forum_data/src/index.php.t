@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.32 2003/05/10 20:03:45 hackie Exp $
+*   $Id: index.php.t,v 1.33 2003/05/28 15:07:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,14 +58,6 @@ function url_tog_collapse($id, $c)
 	}	
 }
 
-function iscollapsed($id)
-{
-	if (!isset($GLOBALS['collapse'][$id])) {
-		return;
-	}
-	return $GLOBALS['collapse'][$id];
-}
-
 	if (isset($_GET['c'])) {
 		$cs = $_GET['c'];
 		if (_uid && $cs != $usr->cat_collapse_status) {
@@ -92,7 +84,7 @@ function iscollapsed($id)
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
 	$forum_list_table_data = '';
-	
+
 	/* List of fetched fields & their ids
 	  0	msg.subject, 
 	  1	msg.id AS msg_id, 
@@ -141,7 +133,7 @@ function iscollapsed($id)
 			if ($r[8] == 'Y') {
 				set_collapse($r[9], ($r[7] == 'COLLAPSED' ? 1 : 0));
 				
-				if (iscollapsed($r[9])) {
+				if (!empty($GLOBALS['collapse'][$r[9]])) {
 					$collapse_status = '{TEMPLATE: maximize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MAX}';
 				} else {
@@ -157,11 +149,11 @@ function iscollapsed($id)
 			}
 			$cat = $r[9];
 		}
-		
-		if (iscollapsed($r[9])) {
+
+		if (!empty($GLOBALS['collapse'][$r[9]])) {
 			continue;
 		}
-		
+
 		if ($r[10]) {
 			$forum_icon = '{TEMPLATE: forum_icon}';
 		} else {
