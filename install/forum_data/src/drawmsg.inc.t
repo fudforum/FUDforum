@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.67 2003/10/15 21:12:10 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.68 2003/10/15 22:47:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -431,7 +431,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	} else {
-		$dmsg_user_info = $msg_icon = $signature = $report_to_mod_link = $message_toolbar = '';
+		$host_name = $ip_address = $dmsg_user_info = $msg_icon = $signature = $report_to_mod_link = $message_toolbar = '';
 	}
 
 	return '{TEMPLATE: message_entry}';
