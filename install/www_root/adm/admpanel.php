@@ -38,7 +38,8 @@
 	<a style="font-size: x-small;" href="admcat.php?<?php echo _rsid; ?>">Category & Forum Management</a><br>
 	<a style="font-size: x-small;" href="admdelfrm.php?<?php echo _rsid; ?>">Deleted Forums</a><br>
 	<a style="font-size: x-small;" href="admannounce.php?<?php echo _rsid; ?>">Announcement Manager</a><br>
-	<a style="font-size: x-small;" href="admprune.php?<?php echo _rsid; ?>">Thread Pruning</a><br><br>
+	<a style="font-size: x-small;" href="admprune.php?<?php echo _rsid; ?>">Thread Pruning</a><br>
+	<a style="font-size: x-small;" href="admmlist.php?<?php echo _rsid; ?>">Mailing List Manager</a><br><br>
 	
 	<b>User Management</b><br>
 	<a style="font-size: x-small;" href="admuser.php?<?php echo _rsid; ?>">Moderator/User Manager</a><br>
