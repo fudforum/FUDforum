@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.12 2002/08/25 22:02:03 hackie Exp $
+*   $Id: selmsg.php.t,v 1.13 2002/08/27 13:23:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,12 +44,9 @@ function ifstr($opt1, $opt2, $str)
 	
 	/* figure out the query */
 
-	$tm = __request_timestamp__;
-	$day = date('d', $tm);
-	$month = date ('m', $tm);
-	$year = date('Y', $tm);
+	list($day, $month, $year) = explode(" ", strftime("%d %m %Y", __request_timestamp__));
 	$tm_today_start = mktime(0, 0, 0, $month, $day, $year);
-	$tm_today_end = mktime(24, 59, 59, $month, $day, $year);
+	$tm_today_end = $tm_today_start + 86400;
 	
 	$reply_lmt=$thread_lmt=$forum_lmt='';
 	
