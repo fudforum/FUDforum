@@ -1,15 +1,12 @@
 #!/usr/local/bin/php -q
 <?
-	if( !$HTTP_SERVER_VARS['argv'][1] ) 
-		exit("no args");
-	else if ( !is_dir($HTTP_SERVER_VARS['argv'][1]) )
-		exit("not a directory");
-		
-function filetomem($fn)
+	
+function filetomem($fn, &$size, &$perms)
 {
 	$fp = fopen($fn, 'rb');
 	$st = fstat($fp);
 	$size = isset($st['size']) ? $st['size'] : $st[7];
+	$perms = isset($st['node']) ? $st['node'] : $st[2];
 	$str = fread($fp, $size);
 	fclose($fp);
 	
@@ -20,17 +17,17 @@ function create_file_archive($dir, $pdir)
 {
 	global $__archive;
 	
-	if( !chdir($dir) ) exit("cannot chdir to ".getcwd()."/$dir\n");
+	if( !chdir($dir) ) w_err("cannot chdir to ".getcwd()."/$dir\n");
 	$rdir = getcwd();
 	
 	$pdir .= '/'.$dir;
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	while( $file = readdir($dp) ) {
-		if( !is_dir($file) && !is_link($file) ) {
-			$perms = fileperms($file);
-			$file_data = filetomem($file);
-			$file_size = strlen($file_data);
+		if( is_link($file) ) continue;
+		
+		if( !is_dir($file) ) {
+			$file_data = filetomem($file, $file_size, $perms);
 			
 			/* //file_name//file_perms//file_path//md5sum//file_size// */
 			$__archive .= '//'.$file.'//'.fileperms($file).'//'.$pdir.'//'.md5($file_data).'//'.$file_size."//\n";
@@ -47,9 +44,54 @@ function create_file_archive($dir, $pdir)
 	closedir($dp);
 }
 
+function init_err()
+{
+	$GLOBALS['__STD_ERR'] = fopen("php://stderr", "wb");
+}
+
+function w_err($msg, $exit=true)
+{
+	fputs($GLOBALS['__STD_ERR'], $msg."\n"); 
+	if( $exit ) exit(close_err());
+}
+
+function close_err()
+{
+	fclose($GLOBALS['__STD_ERR']);
+}
+
+function zlib_check()
+{
+	if( !extension_loaded('zlib') ) {
+		/* Handle situations where using dl() would result in E_ERROR, causing script termination */
+		if( ini_get('enable_dl') && !ini_get('safe_mode') ) {
+			if( !preg_match('!win!i', PHP_OS) ) {
+				dl("zlib.so");
+			} else {
+				dl("php_zlib.dll");
+			}
+		}	
+	}
+	
+	if( !extension_loaded('zlib') ) {
+		w_err("zlib extension required to decompress the archive is not loaded.<br>\nAttempts to load the extension, failed.\nPlease recompile your PHP with zlib support or load the zlib extension");
+	}
+}
+
+	init_err();
+
+	if( !isset($HTTP_SERVER_VARS['argv'][1]) ) 
+		w_err("No Arguments\n\tSyntax: ./create_file_list directory_name");
+	else if ( !is_dir($HTTP_SERVER_VARS['argv'][1]) )
+		w_err("Supplied Argument [".$HTTP_SERVER_VARS['argv'][1]."] is not a valid directory");
+
+	zlib_check();
+
 	$dir = $HTTP_SERVER_VARS['argv'][1];
 	$__archive='';
 	create_file_archive($dir, '');
 	
 	echo str_replace('<?', 'PHP_OPEN_TAG', gzcompress($__archive, 9));
+	
+	close_err();
 ?>
