@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.19 2004/11/24 19:53:34 hackie Exp $
+* $Id: scripts_common.inc,v 1.20 2004/12/10 19:45:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,7 +124,7 @@ function decode_string($str, $encoding, $charset='')
 
 	/* convert character set if possible */
 	if ($charset && $charset != $GLOBALS['CHARSET']) {
-		$str = charset_convert($charset, $charset, $GLOBALS['CHARSET']);
+		$str = charset_convert($str, $charset, $GLOBALS['CHARSET']);
 	}
 
 	return $str;
