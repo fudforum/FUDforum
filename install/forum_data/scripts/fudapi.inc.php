@@ -514,6 +514,84 @@ function &fud_fetch_top_poster()
 	return _fud_simple_fetch_query(0, "SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users ORDER BY posted_msg_count DESC LIMIT 1");
 }
 
+/* {{{ proto: int message_id fud_new_topic(string subject, string body, int mode *, mixed author, int forum 
+					    [, string icon [, array attachmet_list ** [, array poll ***]]]) }}}
+ * Create a new topic based on the provided information. (* denoted variables explained below)
+ *
+ * [mode] integer bitmask controlling the following message options, you can 
+ * OR (|) options if more then one is needed
+ * 1 - show signature
+ * 2 - convert emoticons to images
+ *
+ * [attachmet_list] a simple array with a list of files to attach to the message
+ * Ex. array("/vmlinuz", "/home/www/page.html");
+ *
+ * [poll] an array containing information about the poll to add
+ * array(
+ *	'title' => 'value' // (string containing the poll's title)
+ *	'options' => array("option1", "option2", "...") // (array of poll's options)
+ *	'expiry_date' => int // (unix timestamp when to stop allowing votes) **optional**
+ *	'max_votes' => int // (maximum number of votes to allow) **optional**
+ * )
+ */
+function fud_new_topic($subject, $body, $mode, $author, $forum, $icon=null, $attach=null, $poll=null)
+{
+	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, 0, $attach, $poll);
+}
+
+/* {{{ proto: int message_id fud_new_reply(string subject, string body, int mode *, mixed author, int reply_id 
+					    [, string icon [, array attachmet_list ** [, array poll ***]]]) }}}
+ * Post a reply to a message denoted by reply_id parameter. (* denoted variables explained below)
+ *
+ * [mode] integer bitmask controlling the following message options, you can 
+ * OR (|) options if more then one is needed
+ * 1 - show signature
+ * 2 - convert emoticons to images
+ *
+ * [attachmet_list] a simple array with a list of files to attach to the message
+ * Ex. array("/vmlinuz", "/home/www/page.html");
+ *
+ * [poll] an array containing information about the poll to add
+ * array(
+ *	'title' => 'value' // (string containing the poll's title)
+ *	'options' => array("option1", "option2", "...") // (array of poll's options)
+ *	'expiry_date' => int // (unix timestamp when to stop allowing votes) **optional**
+ *	'max_votes' => int // (maximum number of votes to allow) **optional**
+ * )
+ */
+function fud_new_reply($subject, $body, $mode, $author, $rep_id, $icon=null, $attach=null, $poll=null)
+{
+	$forum = q_singleval("SELECT t.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg m INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON t.id=m.thread_id WHERE m.id=".$rep_id);
+	return _fud_message_post($subject, $body, $mode, $author, $icon, 0, $forum, $rep_id, $attach, $poll);
+}
+
+/* {{{ proto: int message_id fud_update_message(string subject, string body, int mode *, mixed author, int message_id 
+					    [, string icon [, array attachmet_list ** [, array poll ***]]]) }}}
+ * Modify an existing message denoted by message_id parameter. (* denoted variables explained below)
+ *
+ * [mode] integer bitmask controlling the following message options, you can 
+ * OR (|) options if more then one is needed
+ * 1 - show signature
+ * 2 - convert emoticons to images
+ *
+ * [attachmet_list] a simple array with a list of files to attach to the message
+ * Ex. array("/vmlinuz", "/home/www/page.html");
+ *
+ * [poll] an array containing information about the poll to add
+ * array(
+ *	'title' => 'value' // (string containing the poll's title)
+ *	'options' => array("option1", "option2", "...") // (array of poll's options)
+ *	'expiry_date' => int // (unix timestamp when to stop allowing votes) **optional**
+ *	'max_votes' => int // (maximum number of votes to allow) **optional**
+ * )
+ */
+function fud_update_message($subject, $body, $mode, $author, $mid, $icon=null, $attach=null, $poll=null)
+{
+	$forum = q_singleval("SELECT t.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg m INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread t ON t.id=m.thread_id WHERE m.id=".$mid);
+	return _fud_message_post($subject, $body, $mode, $author, $icon, $mid, $forum, 0, $attach, $poll);
+}
+
+
 /* API FUNCTIONS END HERE */
 /* INTERNAL FUNCTIONS, DO NOT TOUCH */
 
@@ -569,10 +647,136 @@ function &_fud_decode_forum($data)
 	return $data;
 }
 
-if (!function_exists('error_dialog')) {
-	fud_use('err.inc');
+function &_fud_add_poll($poll, $forum_id, $forum_opt, $mode, $uid)
+{	
+	if (empty($poll['title']) || empty($poll['options']) || !is_array($poll['options'])) {
+		return;
+	}
+
+	$exp_date = !empty($poll['expiry_date']) ? (int) $poll['expiry_date'] : 0;
+	$max_v = !empty($poll['max_votes']) ? (int) $poll['max_votes'] : 0;
+
+	$pl_id =  poll_add($poll['title'], $max_v, $exp_date, $uid);
+
+	foreach ($poll['options'] as $opt) {
+		if ($forum_opt & 16) {
+			$opt = tags_to_html($opt, 1);
+		} else if ($forum_opt & 8) {
+			$opt = nl2br(htmlspecialchars($opt));
+		}
+		if ($mode & 2) {
+			$opt = smiley_to_post($opt);
+		}	
+
+		poll_opt_add($opt, $pl_id);
+	}
+
+	return $pl_id;
 }
-if (!function_exists('q_singleval')) {
-	fud_use('db.inc');
+
+function _fud_message_post($subject, $body, $mode, $author, $icon, $id, $forum, $rep_id=0, $attach=null, $poll=null)
+{
+	fud_use('imsg_edt.inc');
+	fud_use('imsg.inc');
+	fud_use('post_proc.inc');
+	fud_use('smiley.inc');
+	fud_use('th_adm.inc');
+	fud_use('iemail.inc');
+	fud_use('isearch.inc');
+	fud_use('replace.inc');
+	fud_use('rev_fmt.inc');
+	fud_use('wordwrap.inc');
+	fud_use('ipoll.inc');
+	fud_use('forum.inc');
+	fud_use('fileio.inc');
+	fud_use('th.inc');
+
+	$bak = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : NULL;
+	define('forum_debug', 1);
+	unset($_SERVER['REMOTE_ADDR']);
+
+	fud_use('users.inc');
+	
+	// do not resolve host
+	if ($GLOBALS['FUD_OPT_1'] & 268435456) {
+		$GLOBALS['FUD_OPT_1'] ^= 268435456;
+	}
+
+	list($forum_opt, $message_threshold) = db_saq("SELECT forum_opt, message_threshold FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forum);
+	if ($rep_id) {
+		$th_id = q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$rep_id);
+	}
+
+	$msg = new fud_msg_edit();
+	$msg->poster_id = is_numeric($author) ? (int) $author : (int) q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($author)."'");
+	$msg->subject = $subject;
+	$msg->body = apply_custom_replace($body);
+	$msg->icon = $icon;
+	$msg->thread_id = $id ? q_singleval("SELECT thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$id) : 0;
+	$msg->msg_opt = $mode;
+
+	if ($forum_opt & 16) {
+		$msg->body = tags_to_html($msg->body, 1);
+	} else if ($forum_opt & 8) {
+		$msg->body = nl2br(htmlspecialchars($msg->body));
+	}
+
+	if ($mode & 2) {
+		$msg->body = smiley_to_post($msg->body);
+	}
+
+	fud_wordwrap($msg->body);
+	$msg->subject = htmlspecialchars(apply_custom_replace($msg->subject));
+
+	if ($attach && is_array($attach)) {
+		fud_use('attach.inc');
+
+		foreach ($attach as $file) {
+			$file = realpath($file);
+
+			if (!@file_exists($file)) {
+				continue;
+			}			
+
+			$at['name'] = basename($file);
+			$at['size'] = filesize($file);
+			$at['tmp_name'] = tempnam($GLOBALS['TMP'], 'fuda_');
+			copy($file, $at['tmp_name']);
+
+			$val = attach_add($at, $msg->poster_id);
+			$attach_list[$val] = $val;
+		}
+
+		$msg->attach_cnt = (int) @count($attach_list);
+	}
+
+	if ($poll && is_array($poll)) {
+		$msg->poll_id = _fud_add_poll($poll, $forum, $forum_opt, $mode, $msg->poster_id);
+	}
+
+	if (!$rep_id && !$id) {
+		$create_thread = 1;
+		$msg->add($forum, $message_threshold, $forum_opt, 64|4096, false);
+	} else if ($rep_id && !$id) {
+		$msg->thread_id = $th_id;
+		$msg->add_reply($rep_id, $th_id, 64|4096, false);
+	} else if ($id) {
+		$msg->id = $id;
+		$msg->post_stamp = time();
+		$msg->sync($msg->poster_id, $forum, $message_threshold, 64|4096);
+	}
+
+	if (isset($attach_list)) {
+		attach_finalize($attach_list, $msg->id);
+	}
+
+	$msg->approve($msg->id, true);
+
+	$_SERVER['REMOTE_ADDR'] = $bak;
+
+	return $msg->id;
 }
+
+fud_use('err.inc');
+fud_use('db.inc');
 ?>
