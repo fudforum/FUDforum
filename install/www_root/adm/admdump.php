@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.39 2004/01/04 16:38:32 hackie Exp $
+* $Id: admdump.php,v 1.40 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -56,7 +56,6 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		return;
 	}
 	echo 'Processing directory: '.$dirp.'<br>';
-	flush();
 
 	readdir($d); readdir($d);
 	$path = $dirp . '/';
@@ -164,7 +163,6 @@ function sql_is_null($r, $n, $tbl='')
 		}
 
 		echo "Compressing forum datafiles<br>\n";
-		flush();
 		$write_func($fp, "\n----FILES_START----\n");
 		backup_dir(realpath($DATA_DIR), $fp, $write_func, 'DATA_DIR');
 		if ($DATA_DIR != $WWW_ROOT_DISK) {
@@ -204,7 +202,6 @@ function sql_is_null($r, $n, $tbl='')
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
 
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
-			flush();
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
 				// get field defenitions
@@ -220,7 +217,6 @@ function sql_is_null($r, $n, $tbl='')
 			}
 
 			echo "DONE<br>\n";
-			flush();
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: Yabb.php,v 1.9 2004/01/04 16:38:24 hackie Exp $
+* $Id: Yabb.php,v 1.10 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,7 +45,6 @@ function filetomem($fn)
 function print_status($str)
 {
 	echo $str."\n";
-	flush();
 }
 
 function parse_yabb_config($path)

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.35 2004/01/04 16:38:32 hackie Exp $
+* $Id: admimport.php,v 1.36 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -82,7 +82,6 @@ function resolve_dest_path($path)
 				$path = resolve_dest_path($path);
 				if (!($fd = fopen($path, 'wb'))) {
 					echo "WARNING: couldn't create '".$path."'<br>\n";
-					flush();
 					if ($readf == 'gzread') {
 						gzseek($fp, (gztell($fp) + $size));
 					} else {
@@ -171,7 +170,6 @@ function resolve_dest_path($path)
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 					if ($i && !($i % 10000)) {
 						echo 'Processed '.$i.' queries<br>';
-						flush();
 					}
 					++$i;
 				}
@@ -195,11 +193,9 @@ function resolve_dest_path($path)
 				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
 			} else {
 				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>Therefor you\'ll need to re-login once the import process is complete<br></font>';
-				flush();
 			}
 
 			echo "Recompiling Templates<br>\n";
-			flush();
 
 			fud_use('compiler.inc', true);
 			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');

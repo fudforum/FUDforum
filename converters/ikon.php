@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ikon.php,v 1.5 2004/01/04 16:38:24 hackie Exp $
+* $Id: ikon.php,v 1.6 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -68,7 +68,6 @@ function filetomem($fn)
 function print_status($str)
 {
 	echo $str."<br>\n";
-	flush();
 }
 
 function decode_ib3($str)

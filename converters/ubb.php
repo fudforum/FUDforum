@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.6 2004/02/19 03:54:29 hackie Exp $
+* $Id: ubb.php,v 1.7 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -452,7 +452,6 @@ while (1) {
 
 	$i += 100;
 	echo "pos: " . $i . "\n";
-	flush();
 }
 	umask($old_umask);
 	print_msg('Finished Importing Messages');

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.37 2004/01/04 16:38:33 hackie Exp $
+* $Id: compact.php,v 1.38 2004/03/10 16:40:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -87,7 +87,6 @@ function eta_calc($start, $pos, $pc)
 	} else {
 		echo ($prg * 10) . "% done<br>\nETA: " . $eta . " seconds<br>\n";
 	}
-	flush();
 }
 
 	if ($FUD_OPT_1 & 1) {
@@ -96,13 +95,11 @@ function eta_calc($start, $pos, $pc)
 	}
 
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
-	flush();
 
 	define('__file_perms__', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
-	flush();
 
 	$tbl =& $DBHOST_TBL_PREFIX;
 	$base = $magic_file_id = 10000001;
@@ -152,7 +149,6 @@ function eta_calc($start, $pos, $pc)
 	/* Private Messages */
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
-	flush();
 
 	if (__dbtype__ == 'mysql') {
 		q('ALTER TABLE '.$tbl.'pmsg ADD INDEX(foff)');
@@ -189,7 +185,6 @@ function eta_calc($start, $pos, $pc)
 	}
 
 	echo "100% Done<br>\n";
-	flush();
 
 	if (!$i) {
 		@unlink($MSG_STORE_DIR . 'private_tmp');
