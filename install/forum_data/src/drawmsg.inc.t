@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.14 2002/08/05 00:47:55 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.15 2002/08/07 11:47:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@ function register_vote($opt)
 }
 /* determine the source form */
 $GLOBALS['__DRAW_MSG_SCRIPT_NAME'] = basename($GLOBALS['HTTP_SERVER_VARS']['PATH_TRANSLATED']);
-$GLOBALS['__POLL_ACTION_URL'] = urlencode($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
+$GLOBALS['__POLL_ACTION_URL'] = htmlspecialchars($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
 $GLOBALS['__MSG_COUNT__']=-1;
 
 function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
