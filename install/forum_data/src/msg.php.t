@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.85 2004/12/21 17:02:00 hackie Exp $
+* $Id: msg.php.t,v 1.86 2005/02/24 00:54:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -177,18 +177,6 @@
 	}
 	unset($result);
 
-	if (!isset($_GET['prevloaded'])) {
-		th_inc_view_count($frm->id);
-		if (_uid && $obj2) {
-			if ($frm->last_forum_view < $obj2->post_stamp) {
-				user_register_forum_view($frm->forum_id);
-			}
-			if ($frm->last_view < $obj2->post_stamp) {
-				user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
-			}
-		}
-	}
-
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', '/' . reveal_lnk . unignore_tmp . _rsid);
 	} else {
@@ -200,3 +188,16 @@
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MSG_PAGE}
+<?php
+	if (!isset($_GET['prevloaded'])) {
+		th_inc_view_count($frm->id);
+		if (_uid && $obj2) {
+			if ($frm->last_forum_view < $obj2->post_stamp) {
+				user_register_forum_view($frm->forum_id);
+			}
+			if ($frm->last_view < $obj2->post_stamp) {
+				user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
+			}
+		}
+	}
+?>
