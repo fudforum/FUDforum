@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.90 2004/10/22 16:58:01 hackie Exp $
+* $Id: consist.php,v 1.91 2004/10/22 17:23:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -140,10 +140,10 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		if ($oldp != $r[2]) {
 			$i = 1;
-			$old_p = $r[2];
+			$oldp = $r[2];
 		}
 		if ($r[1] != $i) {
-			q('UPDATE '.$tbl.'cat SET view_order='.$i.' WHERE id='.$id);
+			q('UPDATE '.$tbl.'cat SET view_order='.$i.' WHERE id='.$r[0]);
 		}
 		++$i;
 	}
