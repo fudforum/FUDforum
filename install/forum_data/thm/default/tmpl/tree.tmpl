@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.52 2004/05/11 17:31:44 hackie Exp $
+* $Id: tree.tmpl,v 1.53 2004/05/30 17:44:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,7 +138,7 @@
 <option value="5">5 {MSG: rate_best}</option>
 </select>
 </td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: vote_for_thread}">
-<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">
+<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">{DEF: _hs}
 </td></form></tr></table>
 {SECTION: END}
 
