@@ -1,8 +1,8 @@
-/***************************************************************************
+***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.15 2003/04/17 13:20:31 hackie Exp $
+*   $Id: ppost.tmpl,v 1.16 2003/04/18 12:22:14 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,6 +38,8 @@
 {REF: allowed_user_lnk.tmpl}
 {REF: post_common.tmpl} 
 {REF: objutil.tmpl}
+{REF: attach.tmpl}
+{REF: rhost.tmpl}
 
 {SECTION: post_error}
 <h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
@@ -126,7 +128,7 @@
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="">
 <input type="hidden" name="msg_id" value="{VAR: msg_id}">
-<input type="hidden" name="reply_to" value="{VAR: reply_to}">
+<input type="hidden" name="reply" value="{VAR: reply}">
 <input type="hidden" name="forward" value="{VAR: forward}">
 <input type="hidden" name="old_subject" value="{VAR: old_subject}">
 <input type="hidden" name="msg_ref_msg_id" value="{VAR: msg_ref_msg_id}">

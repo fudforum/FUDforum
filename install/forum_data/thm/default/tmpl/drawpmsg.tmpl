@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.11 2003/04/17 13:20:31 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.12 2003/04/18 12:22:14 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -60,10 +60,6 @@
 <br />[<a href="{ROOT}?t=buddy_list&amp;{DEF: _rsid}&amp;add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
 {SECTION: END}
 
-{SECTION: dpmsg_add_user_ignore_list}
-<br />[<a href="{ROOT}?t=ignore_list&amp;{DEF: _rsid}&amp;add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
-{SECTION: END}
-
 {SECTION: dpmsg_level_name}
 <font class="LevelText">{VAR: obj->level_name}</font><br />
 {SECTION: END}
@@ -115,11 +111,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_email_link}
-<a class="GenLink" href="{ROOT}?t=email&amp;tx_name={VAR: encoded_login}&amp;{VAR: ret_n_sid}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}?t=email&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;msg_to_list={VAR: encoded_login}&amp;{VAR: ret_n_sid}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}?t=ppost&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_edit_link}
@@ -151,7 +147,6 @@
 {TEMPLATE-DATA: location}
 {MSG: registered}<br /><font class="DateText">{DATE: obj->join_date %B %Y}</font>
 {TEMPLATE-DATA: buddy_link}
-{TEMPLATE-DATA: ignore_link}
 </font><div align=center>
 {TEMPLATE-DATA: im_icq}
 {TEMPLATE-DATA: im_aim}
@@ -190,11 +185,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}">{VAR: obj->login}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}">{VAR: obj->alias}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
 {SECTION: END}
 
 {SECTION: dpmsg_profile_no_link user's name without the link to the profile}
-{VAR: obj->login}
+{VAR: obj->alias}
 {SECTION: END}
 
 {SECTION: dpmsg_prev_message link to the previous message}
@@ -211,4 +206,8 @@
 
 {SECTION: drawpmsg_affero_noreg}
 <a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" border=0 /></a>
+{SECTION: END}
+
+{SECTION: dpmsg_buddy_link_remove add this user to your buddy list link}
+<br />[<a href="{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
 {SECTION: END}
