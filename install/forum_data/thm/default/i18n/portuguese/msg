@@ -1022,3 +1022,4 @@ ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
 ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
 ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
+userinfo_real_name:		Real Name:

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.28 2004/01/12 21:09:46 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.29 2004/01/25 17:51:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -190,6 +190,7 @@
 <tr><th colspan=2 width="100%">{MSG: usrinfo_profile}</th></tr>
 <tr class="RowStyleA"><td nowrap class="GenText">{MSG: date_registered}</td><td width="100%" class="DateText">{DATE: u->join_date %B %d, %Y}</td></tr>
 <tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
+{TEMPLATE-DATA: real_name}
 {TEMPLATE-DATA: status}
 {TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}
@@ -258,4 +259,8 @@
 
 {SECTION: ui_buddy}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_buddy}</td><td class="GenText"><a href="{TEMPLATE: ui_buddy_lnk}">{MSG: add_to_buddy_list}</a></td></tr>
+{SECTION: END}
+
+{SECTION: usr_real_name}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_real_name}</td><td class="GenText">{VAR: u->name}</td></tr>
 {SECTION: END}
