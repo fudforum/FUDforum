@@ -1,0 +1,21 @@
+Ein System zum Herausfiltern von Beitr&auml;gen, was deren Betrachten nach 
+bestimmten Kriterien erm&ouml;glicht.
+
+Es gibt 3 M&ouml;glichkeiten zum Filtern von Beitr&auml;gen:<br>
+<ul>
+<li>Heutige Beitr&auml;ge
+<li>Ungelesene Beitr&auml;ge (nur bei registrierten Benutzern)
+<li>Unbantwortete Beitr&auml;ge
+</ul>
+
+Heutige Beitr&auml;ge zeigt nur die Beitr&auml;ge des laufenden Tages an, d.h zwischen heute 0.00 Uhr und 23:59 Uhr.
+<br><br>
+Ungelesense Beitr&auml;ge zeigt alle ungelesenen Beitr&auml;ge im gesamten Forum an
+<br><br>
+Unbeantwortete Beitr&auml;ge zeigt Beitr&auml;ge des gesamten Forums, auf die bisher nicht geantwortet worden ist.
+<br><br>
+All diese Optionen sind gemeinsam anw&auml;hlbar, weswegen Du darauf achten solltest, wie Du sie ausw&auml;hlst.
+Wenn Du Heutige Beitr&auml;ge und danach Ungelesene Beitr&auml;ge anklickst, kombinierst Du beide Filter. so da&szlig; Du nur 
+die heutigen Beitr&auml;ge sehen w&uuml;rdest, die von Dir noch nicht gelesen worden sind. 
+Wenn Du erneut auf Heutige Beitr&auml;ge klickst, deaktivierst Du diesen Teil des Filters und siehst wieder alle 
+Beitr&auml;ge, die von Dir noch nicht gelesen worden sind.

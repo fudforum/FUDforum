@@ -1,0 +1,17 @@
+L&auml;&szlig;t den Umfrageneditor erscheinen, mit dem in einem Beitrag 
+Umfragen erstellt werden k&ouml;nnen
+
+Umfragen erm&ouml;glichen es, "Stimmzettel" zu erzeugen:
+<br>
+Sie k&ouml;nnen folgenderma&szlig;en aussehen:
+<center>
+<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<form method="post"><input type="hidden" name="rid" value="2">
+<tr class="TableHeading">
+	<td nowrap colspan=3>Ja oder Nein?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 Stimmen ]</font></td></tr>
+	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Ja</td></tr>
+	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Nein</td></tr>
+	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Vielleicht</td></tr>
+	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="Abstimmen"> </td></tr>
+</table>
+</center>
