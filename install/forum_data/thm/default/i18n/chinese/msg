@@ -962,3 +962,20 @@ reg_conf_title:			论坛注册验证邮件
 reg_conf_email:			<b>电子邮件验证</b><br />一封特殊的邮件已经发往你填写的邮箱，邮件里包含了一个特殊的URL网址，你需要访问此网址以通过论坛的电子邮件验证步骤。如果几分钟后你没有收到这样的邮件，请登录论坛并检查邮件地址是否填写正确。在通过验证之前你将不能使用论坛的某些功能。
 reg_conf_account:		<b>帐号确认</b><br />在帐号被激活启用之前，必须通过管理员的审核和批复。帐号被管理员批复之后在你注册时填写的邮箱里会收到一封提示注册成功的邮件，在通过批复之前，你将不能使用论坛的某些功能。
 forum_banned_user:		由于此帐号上次在论坛的所作所为严重违反论坛规定，导致帐号被论坛管理员封闭，再见。
+mnav_description:		Message Navigator
+mnav_date_limit:		Date range:
+mnav_time_unit:			Date time unit:
+mnav_forum_limit:		Only search In:
+mnav_all_forums:		Search all forums
+mnav_submit:			Begin Search
+mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
+mnav_invalid_unit:		You must specify a valid time unit.
+mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
+mnav_no_results:		There are no messages matching query.
+mnav_posted_by:			Posted By:
+mnav_more:			More &raquo;&raquo;
+mnav_minute:			Minute(s)
+mnav_hour:			Hour(s)
+mnav_day:			Day(s)
+mnav_week:			Week(s)
+mnav_month:			Month(s)

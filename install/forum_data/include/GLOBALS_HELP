@@ -387,3 +387,11 @@ BUST_A_PUNK
 When a user is banned set a special cookie that will try to make sure that
 this user remains banned.
 
+MNAV_MAX_DATE
+The maximum amount of days the users may go back in history when using the
+message navigator. Set to -1 for unlimited.
+
+MNAV_MAX_LEN
+The maximum length of the message body to show during message preview in
+the message navigator.
+

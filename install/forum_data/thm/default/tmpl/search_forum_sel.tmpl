@@ -1,0 +1,25 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: search_forum_sel.tmpl,v 1.1 2003/07/15 03:34:38 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: search_forum_sel.inc.t; output: @search_forum_sel.inc;}
+
+{SECTION: forum_limit_cat_option limit by category option}
+<option value="c{VAR: r[2]}"{VAR: selected}>{VAR-HTML: r[3]}</option>
+{SECTION: END}
+
+{SECTION: forum_limit_frm_option limit by forum select option}
+<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
+{SECTION: END}

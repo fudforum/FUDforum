@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.2 2003/06/02 14:11:52 hackie Exp $
+*   $Id: search.tmpl,v 1.3 2003/07/15 03:34:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -29,6 +29,7 @@
 {REF: draw_radio_opt.tmpl}
 {REF: draw_select_opt.tmpl}
 {REF: fileio.tmpl}
+{REF: search_forum_sel.tmpl}
 
 {SECTION: search_results}
 <br />
@@ -65,14 +66,6 @@
 
 {SECTION: unregistered_poster}
 {GVAR: ANON_NICK}
-{SECTION: END}
-
-{SECTION: forum_limit_cat_option limit by category option}
-<option value="c{VAR: r[2]}"{VAR: selected}>{VAR-HTML: r[3]}</option>
-{SECTION: END}
-
-{SECTION: forum_limit_frm_option limit by forum select option}
-<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
 {SECTION: END}
 
 {PAGE: SEARCH_PAGE message search form}

@@ -1,0 +1,158 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: mnav.tmpl,v 1.1 2003/07/15 03:34:38 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: mnav.php.t; output: mnav.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: show.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: draw_pager.tmpl}
+{REF: draw_select_opt.tmpl}
+{REF: fileio.tmpl}
+{REF: search_forum_sel.tmpl}
+{REF: alt_var.tmpl}
+
+{PAGE: MNAV_PAGE message navigator}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+
+<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}<input type="hidden" name="t" value="mnav">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=3 width="100%">{MSG: mnav_description}</th></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
+	<td class="GenText" width="30%" nowrap>{MSG: mnav_date_limit}</td>
+	<td class="GenText"><input type="text" name="rng" value="{VAR: rng}" maxlength="10" size=11></td>
+	<td align="left" width="60%"><select name="u">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: mnav_forum_limit}</td>
+	<td colspan=2>
+		<select name="forum_limiter"><option value="">{MSG: mnav_all_forums}</option>
+		{TEMPLATE-DATA: forum_limit_data}
+		</select>
+	</td>
+</tr>
+<tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
+</table></form>
+<br />
+{TEMPLATE-DATA: mnav_data}
+<div align="left">{TEMPLATE-DATA: mnav_pager}</div>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: mnav_no_range invalid date range}
+<br />
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<tr>
+	<td class="GenText" style="color: red">{MSG: mnav_no_range}</td>
+</tr>
+</table>
+</div>
+{SECTION: END}
+
+{SECTION: mnav_invalid_unit invalid date unit}
+<br />
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<tr>
+	<td class="GenText" style="color: red">{MSG: mnav_invalid_unit}</td>
+</tr>
+</table>
+</div>
+{SECTION: END}
+
+{SECTION: mnav_invalid_date date range exceed allowed limit}
+<br />
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<tr>
+	<td class="GenText" style="color: red">{MSG: mnav_invalid_date}</td>
+</tr>
+</table>
+</div>
+{SECTION: END}
+
+{SECTION: mnav_no_results no results}
+<div align="center" class="GenText" style="border: 1px dashed blue">{MSG: mnav_no_results}</div>
+{SECTION: END}
+
+{SECTION: mnav_begin_results begin results header}
+<div align="center">
+<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+{SECTION: END}
+
+{SECTION: mnav_end_results}
+</table>
+</div>
+{SECTION: END}
+
+{SECTION: mnav_forum}
+<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
+{SECTION: END}
+
+{SECTION: mnav_thread}
+<tr><th class="RowStyleC">&nbsp;&nbsp;&nbsp;</th><th colspan="2"> {MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a></th></tr>
+{SECTION: END}
+
+{SECTION: mnav_msg}
+<tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
+<table cellspacing=0 cellpadding=2 border=0 width="100%" style="border-bottom: 1px solid black">
+<tr bgcolor="#eeeeee">
+	<td align="left" class="SmallText"><a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a></td>
+	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
+	<td align="right" class="SmallText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
+</tr>
+<tr bgcolor="#dee2e6">
+	<td colspan="3" class="SmallText">{VAR: body} <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{MSG: mnav_more}</a></td>
+</tr>
+</table>
+</td></tr>
+{SECTION: END}
+
+{SECTION: mnav_user}
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}">{VAR: r->alias}</a>
+{SECTION: END}
+
+{SECTION: mnav_anon}
+{GVAR: ANON_NICK}
+{SECTION: END}
+
+{SECTION: mnav_minute}
+{MSG: mnav_minute}
+{SECTION: END}
+
+{SECTION: mnav_hour}
+{MSG: mnav_hour}
+{SECTION: END}
+
+{SECTION: mnav_day}
+{MSG: mnav_day}
+{SECTION: END}
+
+{SECTION: mnav_week}
+{MSG: mnav_week}
+{SECTION: END}
+
+{SECTION: mnav_month}
+{MSG: mnav_month}
+{SECTION: END}

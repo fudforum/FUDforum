@@ -962,3 +962,20 @@ reg_conf_title:			Registration Confirmation
 reg_conf_email:			<b>E-mail Best&auml;tigung</b><br />An Dich wurde eine E-mail mit einer speziellen URL versendet, welche von Dir aufgesucht werden muﬂ, bevor Dein Konto aktiviert werden kann. Falls Du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest Du Dich mit deinem Konto anmelden und sicherstellen, da&szlig; die angegebene E-mail Adresse korrekt ist. Sobald Du Dein Konto best&auml;tigt hast wirst Du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
 reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert wird mu&szlig; es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst Du eine E-mail erhalten, die Dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst Du Dich zwar mit Deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, da&szlig; Du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
+mnav_description:		Message Navigator
+mnav_date_limit:		Date range:
+mnav_time_unit:			Date time unit:
+mnav_forum_limit:		Only search In:
+mnav_all_forums:		Search all forums
+mnav_submit:			Begin Search
+mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
+mnav_invalid_unit:		You must specify a valid time unit.
+mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
+mnav_no_results:		There are no messages matching query.
+mnav_posted_by:			Posted By:
+mnav_more:			More &raquo;&raquo;
+mnav_minute:			Minute(s)
+mnav_hour:			Hour(s)
+mnav_day:			Day(s)
+mnav_week:			Week(s)
+mnav_month:			Month(s)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.22 2003/07/14 19:49:55 hackie Exp $
+*   $Id: search.php.t,v 1.23 2003/07/15 03:34:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -136,35 +136,6 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 }
 
 /*{POST_HTML_PHP}*/
-
-	/* draw search engine selection boxes */
-	if ($usr->is_mod != 'A') {
-		$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name 
-				FROM {SQL_TABLE_PREFIX}forum f 
-				INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id 
-				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_VISIBLE ELSE g1.p_VISIBLE END)=\'Y\'
-				ORDER BY c.view_order, f.view_order');
-	} else {
-		$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
-	}
-	$old_cat = $forum_limit_data = '';
-	while ($r = db_rowarr($c)) {
-		if ($old_cat != $r[2]) {
-			$selected = ('c'.$r[2] == $forum_limiter) ? ' selected' : '';
-			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
-			$old_cat = $r[2];
-		}
-		$selected = $r[0] == $forum_limiter ? ' selected' : '';
-		$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
-	}
-	qf($c);
-	/* user has no permissions to any forum, so as far as they are concerned the search is disabled */
-	if (!$forum_limit_data) {
-		std_error('disabled');	
-	}
 
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic, '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');

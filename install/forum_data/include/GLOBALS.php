@@ -138,6 +138,8 @@
 	$ALLOW_PROFILE_IMAGE	= "Y";		/* boolean */
 	$MODERATED_POST_NOTIFY	= "Y";		/* boolean */
 	$BUST_A_PUNK		= "N";		/* boolean */
+	$MNAV_MAX_DATE		= "31";		/* days */
+	$MNAV_MAX_LEN		= "256";	/* characters */
 
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING

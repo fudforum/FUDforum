@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.63 2003/07/09 09:36:01 hackie Exp $
+*   $Id: users.inc.t,v 1.64 2003/07/15 03:34:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -573,6 +573,12 @@ function init_user()
 
 				case 'rc':
 					$_GET['t'] = 'reg_conf';
+					break;
+
+				case 'ma':
+					$_GET['t'] = 'mnav';
+					$_GET['u'] = isset($p[2]) ? $p[2] : 0;
+					$_GET['rng'] = isset($p[1]) ? $p[1] : 0;
 					break;
 
 				default:
