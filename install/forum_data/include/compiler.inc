@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.45 2003/10/24 19:52:20 hackie Exp $
+* $Id: compiler.inc,v 1.46 2003/10/27 20:54:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -398,7 +398,7 @@ function build_msg($file)
 
 	if (file_exists($file)) {
 		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
-			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '');
+			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '', 1);
 		}
 		parse_msgs($file);
 	}
