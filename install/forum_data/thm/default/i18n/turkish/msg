@@ -6,10 +6,10 @@ administrator:			Yönetici
 announcement:			Duyuru
 attachment:			Ek:
 avatar:				Avatar:
-average_post_count:		Ýleti Sayýsý: {VAR: u->posted_msg_count} Günlük ortalama ileti sayýsý: ({VAR: avg})
-biography:			Kiþisel Bilgiler:
-birth_date:			Doðum Tarihi:
-by:				By:
+average_post_count:		Ýleti sayýsý: {VAR: u->posted_msg_count} Günlük ortalama ileti sayýsý: ({VAR: avg})
+biography:			Kiþisel bilgiler:
+birth_date:			Doðum tarihi:
+by:				Gönderen:
 by_mod:				Onaycý tarafýndan
 current_time:			Tarih
 custom_avatar_queue:		Özel Avatar Kuyruðu
@@ -57,7 +57,7 @@ locked:				Kilitli
 locked_with_new_posts:		Kilitli (Okunmamýþ iletiler var)
 logged_in_list:			Giriþ yapmýþ kullanýcý listesi
 login:				Giriþ
-login_header:			Giriþ:
+login_header:			Kullanýcý ismi:
 logout:				Çýkýþ yap
 mark_all_read:			Tüm iletileri okundu olarak iþaretle
 mark_all_read_desc:		Tüm okumadýðýnýz iletiler okundu olarak iþaretlenecek
@@ -88,8 +88,8 @@ no_messages:			Bu forumda ileti yok
 no_msg_body:			Ýleti gövdesi yok
 no_new_posts:			Yeni ileti yok
 no_posts:			Ýleti yok.
-no_subscribed_forums:		Abone olunan forum yok. 
-no_subscribed_threads:		Abone olunan zincir yok.
+no_subscribed_forums:		Hiçbir foruma abone deðilsiniz. 
+no_subscribed_threads:		Hiçbir zincire abone deðilsiniz.
 no_unread_locked:		Bu zincir kilitlenmiþ durumda.
 no_unread_msg:			Bu zincirde okunmamýþ ileti yok. 
 no_unread_msg_unreg:		Ýletilerin durumu sadece kayýtlý kullanýcýlar tarafýndan izlenebilir.
@@ -111,13 +111,13 @@ usrinfo_private_message:	Özel Ýleti:
 profile:			Kiþisel Bilgiler
 profile_2:			Kiþisel Bilgiler:
 profile_desc:			Denetim masasýna eriþim için buraya týklayýn
-rate:				rate
+rate:				Deðerlendir
 rate_thread:			Zinciri deðerlendir
 rating:				Beðeni
 refresh_list:			Listeyi yenile
 register:			Kayýt ol
-registered:			Kayýt tarihi:
-registered_on:			Kayýt tarihi {DATE: u->join_date %d %B %Y %a}
+registered:			Kayýt tarihi
+registered_on:			Kayýt tarihi: {DATE: u->join_date %d %B %Y %a}
 replies:			Yanýtlar
 report_to_mod:			Ýletiyi onaycýya bildir
 reported_messages:		Bildirilen Ýletiler
@@ -135,12 +135,12 @@ send_pm_desc:			Bu kullanýcýya özel ileti gönder
 sender_email:			Gönderen E-mektup:
 sender_name:			Gönderen Ýsim:
 show_all_posts:			{VAR: user_login} kullanýcýsýnýn tüm gönderilerini göster
-show_posts_by:			{VAR-HTML: u->alias} kullanýcýsýnýn gönderilerini göster
+show_posts_by:			{VAR: user_login} kullanýcýsýnýn gönderilerini göster
 size:				Boyut:
-started_on:			Baþlangýç Tarihi:
+started_on:			Baþlangýç Tarihi
 status:				Durum:
 status_line:			Bu forumu þu anda <b>{VAR: reg_u}</b> üye, <b>{VAR: inv_u}</b> görünmez üye ve <b>{VAR: annon}</b> konuk ziyaret ediyor.
-sticky:				yapýþkan:	
+sticky:				Yapýþkan:	
 stop_ignoring:			bu kullanýcýyý gözardý etmeyi durdur
 sub_to_thread:			Zincire abone ol
 sub_to_thread_desc:		Bu zincire yeni bir ileti gönderildiðinde haberiniz olsun
@@ -153,20 +153,20 @@ subscribed_threads:		Abone olduðunuz zincirler
 subscribed_threads_desc:	Abone olduðunuz zincir süzgecini aç/kapa (sadece abone olduðunuz zincirleri gösterir)
 switch_to_thread_view:		Bu zincir için zincir görünümüne geç
 thread:				Zincir:
-thread_announcement:		duyuru:
+thread_announcement:		Duyuru:
 thread_first_unread_msg:	Bu zincirdeki ilk okunmamýþ iletiye gitmek için buraya týklayýn
 thread_thread:			Zincir
 threads:			Zincirler
 time:				Zaman
-todays_posts:			Bugünkü Ýletiler
+todays_posts:			Bugünkü iletiler
 todays_posts_desc:		Bugün gönderilen tüm iletileri göster
 un_ignore_user:			bu kullanýcýnýn gönderdiklerini gözardý etmeyi durdur
-unanswered_posts:		Yanýtlanmamýþ Ýletiler
+unanswered_posts:		Yanýtlanmamýþ iletiler
 unanswered_posts_desc:		Yanýtý olmayan tüm iletileri göster
 unlock_thread:			Zincirin kilidini aç
 unread_msg:			Bu zincirde henüz okumadýðýnýz iletiler var
 unread_msg_locked:		Okunmamýþ ileti bulunan kilitli zincir
-unread_posts:			Okunmamýþ Ýletiler
+unread_posts:			Okunmamýþ iletiler
 unread_posts_desc:		Okunmamýþ tüm iletileri göster
 unsub_from_thread:		Zincir aboneliðinden çýk
 unsub_from_thread_desc:		Bu zincirdeki yeni iletilerin haber verilmesini durdur
@@ -179,23 +179,23 @@ user_info:			Kullanýcý Bilgisi
 user_info_l:			Kullanýcý Bilgisi {VAR: user_info}
 user_offline:			{VAR: user_login}  þu anda baðlý deðil
 user_online:			{VAR: user_login} þu anda baðlý
-usrinfo_last_post:		Son Ýleti:
-view_forum:			Forumu Görüntüle
+usrinfo_last_post:		Son ileti:
+view_forum:			Forumu görüntüle
 view_last_msg:			Bu forumdaki en son iletiyi görüntüle
-view_results:			Sonuçlarý Görüntüle
-view_thread:			Zinciri Görüntüle
-views:				Görüntüleme<br>Sayýsý
+view_results:			Sonuçlarý görüntüle
+view_thread:			Zinciri görüntüle
+views:				Görüntülenme<br>sayýsý
 vote:				{VAR: thread->vote_count()} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Onaycý tarafýndan taþýndýðý yer: <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		Hoþ geldiniz <b>{VAR: user_login}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A günü saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
-reported_del_report:		Bildirimi Sil
+reported_del_report:		Bildirimi sil
 reported_reason:		Neden
 reported_on:			Bildirim tarihi:
 reported_reported_by:		Bildiren:
-reported_reported_msg:		Bildirilen Ýletiler
+reported_reported_msg:		Bildirilen iletiler
 modque_pending_approval:	Onay bekleyen iletiler
 modque_approve:			Onayla
 modque_delete:			Sil
@@ -217,16 +217,16 @@ referals_action:		Eylem
 pmsg_all:			tümü
 pmsg_none:			hiçbiri
 folder:				Klasör:
-pmsg_replied:			cevaplandý
+pmsg_replied:			yanýtlandý
 pmsg_forwarded:			yönlendirildi
 pmsg_subject:			Konu
 pmsg_author:			Gönderen
 pmsg_time:			Tarih
 pmsg_selected:			Seçilen
 pmsg_delete:			Sil
-cur_ppage_pm:			Özel Ýleti Sistemi
-writing_pm:			Özel Ýleti Yaz
-browsing_folder:		<b>{VAR: folder}</b> klasörünü dolaþýyor
+cur_ppage_pm:			Özel ileti sistemi
+writing_pm:			Özel ileti yaz
+browsing_folder:		<b>{VAR: folder}</b> klasörü
 inbox:				Gelen
 draft:				Taslak
 sent:				Giden
@@ -252,10 +252,10 @@ female:				Bayan
 register_tree_view:		Aðaç Görünümü
 register_flat_view:		Düz Görünüm
 use_forum_default:		Forum varsayýlanýný kullan
-finduser_user_info:		Kullanýcý Bilgisi
-finduser_by_login:		Kullanýcý Ýsmi Ýle:
-finduser_by_email:		E-mektup Adresi Ýle:
-finduser_submit:		Bul
+finduser_user_info:		Kullanýcý bilgisini görüntüle
+finduser_by_login:		Kullanýcý ismi ile:
+finduser_by_email:		E-mektup adresi ile:
+finduser_submit:		Kullanýcýyý bul
 finduser_no_such_user:		Böyle bir kullanýcý yok
 finduser_user:			Kullanýcý
 finduser_postcount:		Ýleti Sayýsý
@@ -268,13 +268,13 @@ edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b
 no_edit_time_limit:		<br><b>Düzeltme süre sýnýrý</b>: <b>Sýnýrsýz</b>
 pmuserloc_login:		Kullanýcý ismi:
 pmuserloc_email:		E-mektup:
-pmuserloc_submit:		Yolla
+pmuserloc_submit:		Bul
 pmuserloc_user:			Kullanýcý
-pmuserloc_no_result:		Sonuç Yok
+pmuserloc_no_result:		Bulunamadý
 register_builtin:		Kurulu
 register_specify_url:		URL Belirt
 register_uploaded:		Avatar Yükle
-register_login:			Kullanýcý Ýsmi:
+register_login:			Kullanýcý ismi:
 register_password:		Parola:
 register_conf_pass:		Parolayý Onayla:
 register_email_desc:		Lütfen geçerli bir e-mektup adresi girin. Ýsterseniz aþaðýda tercihler bölümünden gizleyebilirsiniz.
@@ -316,30 +316,30 @@ register_sig:			Ýmza:
 register_sig_desc:		Ýsteðe baðlý imzanýzýn iletilerinizin alt kýsmýna eklenmesini saðlayabilirsiniz.
 register_reset:			Sýfýrla
 register_style:			Biçem:
-register_def_thread_view:	Varsayýlan Zincir Görünümü:
-register_msg_per_page:		Sayfa Baþýna Ýleti Sayýsý:
-register_show_sig:		Ýmzalarý Göster:
+register_def_thread_view:	Varsayýlan zincir görünümü:
+register_msg_per_page:		Sayfa baþýna ileti sayýsý:
+register_show_sig:		Ýmzalarý göster:
 register_show_sig_desc:		Forum üyelerinin imzalarýný görünüp görünmeyeceðini belirlemenizi saðlar.
 register_use_sig_default:	Varsayýlan olarak imzayý göster:
 register_use_sig_default_desc:	Her iletinizin altýna imzanýzý otomatik olarak ekler.
-register_timezone:		Saat Dilimi:
-register_ignore_admin:		Yönetim Ýletilerini Gözardý Et:
-register_invisible_mode:	Görünmez Kip:
+register_timezone:		Saat dilimi:
+register_ignore_admin:		Yönetim iletilerini gözardý et:
+register_invisible_mode:	Görünmez kip:
 register_invisible_mode_desc:	Baðlý olup olmadýðýnýz bilgisini gizler.
 register_show_email:		E-mektup adresini göster:
 register_show_email_desc:	E-mektup adresinizin herkese açýk þekilde görüntülenmesini istiyorsanýz bu seçeneði kullanabilirsiniz.
 register_notification:		Varsayýlan olarak uyarý gönderilsin:
 register_notification_desc:	Uyarý almayý varsayýlan olarak seçseniz bile, ileti gönderirken kapatabilirsiniz.
-register_notify_method:		Uyarý Yöntemini Seç:
+register_notify_method:		Uyarý yöntemini seç:
 register_notify_method_desc:	Eðer ICQ yoluyla uyarýyý seçerseniz, lütfen ICQ ayarlarýnýzda \'EmailExpress\' seçeneðinin açýk olduðundan emin olun.
 register_notify_js_error:	ICQ yoluyla uyarý yöntemini seçtiniz, fakat bir ICQ numarasý belirtmediniz. Þu durumda e-mektup yöntemini seçtiðiniz varsayýlýyor&#46;
-register_allow_email_msg:	E-mektup Ýletilerine izin ver:
+register_allow_email_msg:	E-mektup iletilerine izin ver:
 register_allow_email_msg_desc:	Diðer kullanýcýlarýn forum yoluyla size e-mektup atabilmelerinize izin verin.
 buddy_status:			Durum
 my_buddies:			Arkadaþlarým
 add_buddy:			Arkadaþ Ekle
 add:				Ekle
-buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br>Veya <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Kullanýcý Bul</a> özelliðinden yararlanabilirsiniz.
+buddy_search:			Eklemek istediðiniz kullanýcýnýn kullanýcý ismini girin.<br><a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Kullanýcý bul</a> özelliðinden yararlanabilirsiniz.
 buddy_remove:			çýkar
 post_normal:			Olaðan
 post_sticky:			Yapýþkan
@@ -348,7 +348,7 @@ post_size:			Boyut
 post_color:			Renk
 post_font:			Yazýtipi
 create_thread:			Zincir Yarat
-submit_reply:			Yanýt Yolla
+submit_reply:			Yanýtý gönder
 edit_message:			Ýletiyi Düzelt
 apply_spell_changes:		Yazým Deðiþikliklerini Uygula
 post_preview:			Ýleti Önizleme
@@ -359,37 +359,37 @@ post_poll:			Anket:
 post_create_poll:		ANKET YARAT
 post_poll_delete:		SÝL
 post_poll_edit:			DÜZELT
-post_mod_opt:			Onaycý Seçenekleri:
-post_thread_type:		Zincir Tipi:
-post_thread_expiry:		Zincir Zaman Aþýmý:
-post_locked:			Zincir Kilitli
-post_icons:			Ýleti Simgesi:
-post_no_icon:			Simge Yok
-post_smiley:			Gülücük Kýsayollarý:
-post_format_tools:		Biçimlendirme Araçlarý:
-post_upload_file:		Dosya Yükle
+post_mod_opt:			Onaycý seçenekleri:
+post_thread_type:		Zincir tipi:
+post_thread_expiry:		Zincir zaman aþýmý:
+post_locked:			Zinciri kilitle
+post_icons:			Ýleti simgesi:
+post_no_icon:			Simge yok
+post_smiley:			Gülücük kýsayollarý:
+post_format_tools:		Biçimlendirme araçlarý:
+post_upload_file:		Dosya yükle
 post_file_del:			Sil
 post_file_name:			Ýsim
 post_file_size:			Boyut
-file_attachments:		Dosya Ekleri:
+file_attachments:		Dosya ekleri:
 allowed_files:			Ýzin verilen dosya uzantýlarý:
 max_file_size:			Dosya boyutu en fazla:
 max_files_per_msg:		Ýleti baþýna en fazla dosya:
-post_notification:		Ýleti Uyarýsý
+post_notification:		Ýleti uyarýsý
 include_sig:			Ýmzayý dahil et
-include_sig_desc:		Kiþisel Bilgilerinizdeki imzanýzý dahil eder.
+include_sig_desc:		Kiþisel bilgilerinizdeki imzanýzý dahil eder.
 disable_smilies:		Bu iletide gülücükleri kapat.
 spell_check_msg:		Ýletinin yazým hatalarýný sýna.
-post_form:			Formu Gödner
+post_form:			Formu Gönder
 post_forum:			Forum:
 post_title:			Baþlýk:
 post_body:			Gövde:
 post_options:			Seçenekler:
-post_preview_btn:		Ýleti Önizleme
+post_preview_btn:		Önizle
 post_processing_msg:		Gönderiniz iþleme alýndý, lütfen bekleyin
-ignore_users:			Gözardý Edilen Kullanýcýlar
-add_ignore:			Ignoramus Ekle
-forum_terms:			Forum Kurallarý
+ignore_users:			Gözardý edilen kullanýcýlar
+add_ignore:			Ignoramus ekle
+forum_terms:			Forum kurallarý
 forum_rules:			Bu foruma üyelik serbest ve ücretsizdir. Bununla birlikte aþaðýda ayrýntýlarý belirtilen kurallara uymanýz konusunda yaptýrýmlar mevcut. Eðer kurallarý kabul ediyorsanýz, sayfanýn sonundaki Kabul Ediyorum düðmesine basýn. Dikkat: Düðmeye basarak 13 yaþýndan büyük olduðunuzu belirtmiþ oluyorsunuz. 13 yaþýnda veya daha küçükseniz, lütfen bu kayýt formunu kullanýn. <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalýþacak, bununla birlikte, atýlan tüm iletileri gözden geçirmemiz imkansýzdýr. Tüm iletiler yazarýn görüþünü yansýtýr, ve ne forumun sahibi ne de geliþtiricileri herhangi bir iletinin içeriðinden sorumlu tutulamaz.<p>Kabul Ediyorum düðmesine týklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici, veya bir þekilde kanuna aykýrý ileti göndermeyeceðiniz konusunda garanti vermiþ oluyorsunuz.<p>Forumun sahipleri, herhangi bir zinciri, herhangi bir sebeple, kaldýrma, taþýma, düzeltme veya kapatma hakkýna sahiptir.<p>
 forum_rules_13:			13 yaþýn altýndaki tüm kullanýcýlar anne-babalarýndan veya sorumluluðu altýnda olduklarý kiþiden foruma üye olabilmek için izin almalýdýrlar. 13 yaþýn altýndaki kullanýcýlarýn üye olmasýnda bizce herhangi bir sakýnca olmamakla birlikte, üyelik vermeden önce anne-babalarýn veya sorumluluðu altýnda olduklarý kiþinin yazýlý olarak izin verdiðini faks veya e-mektup ile bize göndermelerini þart koþuyoruz. <p>Eðer izin formu bize ulaþmadan önce kayýt iþlemlerine baþlamak istiyorsanýz, aþaðýdaki Kabul Ediyorum düðmesine týklayýn. Kayýt iþlemini iptal etmek ve forum indeksine dönmek için aþaðýdaki Ýptal Et düðmesine basýn. <p>Ýzin formunun bir kopyasýný burdan indirebilirsiniz. Kayýt iþlemleri hakkýnda daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a> adresine bir e-mektup atýn.<p>
 coppa_conf:			COPPA Onayý
@@ -401,7 +401,7 @@ prereg_info:			Bilgi
 prereg_agree:			Kabul Ediyorum
 prereg_disagree:		Kabul Etmiyorum
 coppa_fax_instructions:		Anne-Baba veya Sorumluluk sahibi olanlarýn yapmasý gerekenler
-coppa_fax_instructions2:	Lütfen bu sayfayý yazdýrýn, imzalayýn ve bu faksa yollayýn: 
+coppa_fax_instructions2:	Lütfen bu sayfayý yazdýrýn, imzalayýn ve bu faksa gönderemiyoryollayýn: 
 coppa_fax_reg_form:		Kayýt Formu
 coppa_fax_sign:			Lütfen aþaðýdaki formu imzalayýp bize gönderin.
 coppa_fax_conf:			Çocuðumun saðladýðý bilgiyi gözden geçirdim ve sitenin Kiþisel Gizlilik Politikasýný okudum. Kiþisel Bilgilerin bir parola kullanýlarak deðiþtirilebileceðini anlýyorum. Bu kayýt kiþisel bilgilerinin tamamen kaldýrýlmasýný isteyebileceðimi anlýyorum.
@@ -413,31 +413,31 @@ coppa_fax_telephone:		Telefon:
 coppa_fax_email:		E-mektup adresi:
 coppa_fax_date:			Tarih:
 coppa_fax_questions:		Sorularýnýz için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> iletiþime geçin
-coppa_fax_login:		Kullanýcý Ýsmi
+coppa_fax_login:		Kullanýcý ismi
 coppa_fax_passwd:		Parola
 coppa_fax_remail:		E-mektup
 coppa_fax_name:			Ýsim
 login_not_logedin:		Giriþ yapmamýþ durumdasýnýz. Bu bir kaç sebepten dolayý olabilir: 
 login_cookie_expired:		Kurabiyeniz (cookie) zaman aþýmýna uðramýþ olabilir, kurabiyenizi yenilemek için yeniden giriþ yapmanýz gerekiyor.
 login_perm_denied:		Ýstenen kaynaða ulaþabilmek için isimsiz kullanýcý olarak izniniz olmayabilir, bu durumda söz konusu kaynaða eriþim izni saðlayabilmek için giriþ yapmak zorundasýnýz.
-login_want_to_register:		Kayýt olmak istiyor musunuz?
+login_want_to_register:		Kayýt olmak istiyorum
 login_forgot_passwd:		Parolamý unuttum
-login_use_cookie:		Kurabiye kullan<br><font class="SmallText">Eðer kütüphane, okul, veya Ýnternet Cafe gibi herkese açýk bir bilgisayar kullanarak baðlanýyorsanýz, güvenlik açýsýndan bu seçeneði kaldýrmanýz önerilir.
+login_use_cookie:		Kurabiye kullan<br><font class="SmallText">Eðer kütüphane, okul, veya internet cafe gibi herkese açýk bir bilgisayar kullanarak baðlanýyorsanýz, güvenlik açýsýndan bu seçeneði kaldýrmanýz önerilir.
 login_login:			Kullanýcý ismi
-login_login_btn:		Kullanýcý ismi
-login_name_required:		Kullanýcý ismi gerekli
-login_passwd_required:		Parola gerekli
-login_invalid_radius:		Geçersiz kullanýcý ismi veya parola.
+login_login_btn:		Giriþ yap
+login_name_required:		Lütfen kullanýcý isminizi belirtin
+login_passwd_required:		Lütfen parolanýzý belirtin
+login_invalid_radius:		Geçersiz kullanýcý ismi veya parola
 reset_confirmation:		Kayýt olduðunuz için teþekkürler,\n\nHesabýnýzý doðrulayarak etkin hale getirmek için aþaðýdaki URL\'ye gidin:\n\n{VAR: url}\n\nHesabýnýz etkinleþtiðinde foruma giriþ yapacak ve\nforumun ana sayfasýna yönlendirileceksiniz.\n
 reset_reset:			Selam,\n\nParolanýzýn yeniden belirlenmesini istediniz, bu iþlemi TAMAMLAMAK için\nlütfen bu URL\'ye gidin\n\n{VAR: url}\n\nNOT: Bu forum parolalarý tek-yönlü bir þifreleme mekanizmasý kullanarak saklýyor, bunun anlamý,\nparolanýz öyle bir þekilde kodlanýyor ki kaybettiðinizde tekrar bulunmasý MÜMKÜN DEÐÝL.\nParola doðrulama, basitçe girdiðiniz her parolanýn her seferinde tekrar kodlanýp daha önce kodlanmýþ olan parolayla karþýlýþtarýlmasý.\nve birbirini tutup tutmadýðýna bakmak þeklinde çalýþýyor. (Eðer bu mekanizmanýn nasýl çalýþtýðý ile ilgilenirseniz MD5 HASH algoritmasý hakkýnda araþtýrma yapabilirsiniz)
-rpasswd_invalid_passwd:		Geçersiz Parola
+rpasswd_invalid_passwd:		Geçersiz parola
 rpasswd_passwd_nomatch:		Parolalar birbirini tutmuyor
 rpasswd_passwd_length:		Parola en az 6 karakter uzunluðunda olmalý
 reset_remind_pass:		Parola Hatýrlatýcý
 reset_reset_conf:		Parolanýz yeniden belirlenip size gönderilecek, veya eðer e-mektubu onaylamamýþ durumdaysanýz, e-mektup onay isteði size tekrar gönderilecek.
 reset_error:			E-mektup veritabanýnda bulunamadý
 rpasswd_change_pass:		Parola deðiþtir
-rpasswd_login:			Kullanýcý Ýsmi
+rpasswd_login:			Kullanýcý ismi
 rpasswd_cur_pass:		Þu andaki Parola:
 rpasswd_new_pass:		Yeni Parola:
 rpasswd_conf_pass:		Yeni Parolayý Onayla:
@@ -450,16 +450,16 @@ report_subject:			Konu:
 report_by:			Gönderen:
 report_posted_on:		Gönderilme Tarihi:
 report_give_reason:		Bu iletiyi bildirme sebebiniz:
-report_submit_report:		Bildirimi Yolla
-search_entire_msg:		Tüm Ýleti
-search_subect_only:		Sadece Konu
+report_submit_report:		Bildirimi gönder
+search_entire_msg:		Tüm iletide
+search_subect_only:		Sadece baþlýkta
 search_forum:			Forum
 search_subject:			Konu
 search_posted_on:		Gönderilme Tarihi
-search_no_results:		Sonuç Yok
+search_no_results:		Bulunamadý
 search_search:			Ara
-search_all_forums:		Tüm forumlarý ara
-search_in_forum:		Bu forumda ara:
+search_all_forums:		Tüm forumlar
+search_in_forum:		Aranacak forum:
 search_for:			Aranacak sözcükler:
 search_forum_search:		Forum Arama
 move_thread_to:			<b>{VAR: thr->subject}</b> zincirini buraya taþý:
@@ -507,7 +507,7 @@ ppost_find_User:		Kullanýcý Bul
 ppost_track_msg:		Bu iletiyi izle
 ppost_track_msg_desc:		Bu ileti okunduðunda özel ileti atarak bana haber ver
 ppost_send:			Gönder
-ppost_save_draft:		Taslaðý Kaydet
+ppost_save_draft:		Taslak olarak kaydet
 poll_blank_option:		Boþ seçenek ekleyemezsiniz.
 poll_del_conf:			Bu seçeneði silmek istiyorsanýz, Tamam düðmesini týklayýn
 poll_name:			Anket Ýsmi:
@@ -618,7 +618,7 @@ post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen
 post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalýþtýðýnýz dosya tipi izin verilen tipler arasýnda yok.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ýzin verilenden daha fazla dosya yüklemeye çalýþýyorsunuz.</font><br>
 post_err_passwd:		Yanlýþ parola.
-post_reply_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye cevap veriyor. 
+post_reply_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
 post_edit_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
 post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a> forumunda yeni tartýþma açýyor.
 post_error_generic:		Bir hata oluþtu
@@ -627,7 +627,7 @@ postcheck_subj_needed:		Konu bölümü zorunlu
 postcheck_not_allowed_file:	Bu dosya tipine izin verilmiyor.
 postcheck_no_such_user:		Bu forumda "{VAR-HTML: v}" isminde bir kullanýcý yok.
 postcheck_ignored:		"{VAR-HTML: v}" kullanýcýsýna özel ileti gönderemezsiniz, çünkü bu kiþi sizi gözardý ediyor.
-postcheck_no_recepient:		Ýletiyi yollayamýyor, alýcý belirsiz.
+postcheck_no_recepient:		Ýletiyi gönderemiyor, alýcý belirsiz.
 postcheck_invalid_email:	Lütfen arkadýþýnýzýn geçerli bir e-mektup adresini girin.
 postcheck_email_subject:	Konu bölümü boþ olan bir e-mektup gönderemezsiniz.
 postcheck_email_body:		Gövde bölümü boþ olan bir ileti gönderemezsiniz.
@@ -698,16 +698,16 @@ ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		HATA: Sistem Hatasý
 ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster\'a</a> bildirin.
 ERR_systemerr_url:		{GVAR: returnto_d}
-email_title:			E-mektup Formu
-finduser_title:			Kullanýcý Bul
+email_title:			E-mektup formu
+finduser_title:			Kullanýcý bul
 help_title:			S.S.S.
-login_title:			Giriþ Formu
+login_title:			Giriþ formu
 msg_title:			{VAR: frm->name} => {VAR: thread->subject}
-poll_title:			Anket Düzenleyici
-register_title:			Kayýt Formu
-reset_title:			Parolayý Yeniden Belirle
-rpasswd_title:			Parola Deðiþtirme Formu
-error_title:			Hata Formu
+poll_title:			Anket düzenleyici
+register_title:			Kayýt formu
+reset_title:			Parolayý yeniden belirle
+rpasswd_title:			Parola deðiþtirme formu
+error_title:			Hata formu
 index_title:			Hoþgeldiniz
 search_title:			Aranacak sözcükler {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
@@ -732,12 +732,12 @@ unapproved_avatar_title:	Özel avatarýnýz reddedildi.
 unapproved_avatar_msg:		Özel avatarýnýz yönetici tarafýndan onaylanmadý. Çoðunlukla bu avatarýnýz çok büyük olduðu (dosya veya resim boyutu) veya uygun olmayan bir konu içerdiði içindir. Avatarýnýzýn neden kabul edilmediði hakkýnda daha fazla bilgi edinmek isterseniz, yöneticiyle iletiþime geçin.
 mvthread_request_move:		taþýma isteðinde bulun
 move_request_reason:		Neden zincirin taþýnmasýný istiyorsunuz?
-mvthread_submit_req:		Ýsteði Gönder
-thread_exchange:		Zincir Deðiþimi
-move_request_by:		Zincir Taþýma Ýsteði. Gönderen:
+mvthread_submit_req:		Ýsteði gönder
+thread_exchange:		Zincir deðiþimi
+move_request_by:		Zincir taþýma isteði. Gönderen:
 move_reason:			Zincir taþýnma sebebi:
-thr_exch_accept:		kabul et
-thr_exch_decline:		reddet
+thr_exch_accept:		Kabul et
+thr_exch_decline:		Reddet
 thr_exch_orig_forum:		Özgün Forum:
 thr_exch_dest_forum:		Hedef Forum:
 thr_exch_no_threads:		Onay bekleyen zincir yok.
@@ -761,8 +761,8 @@ groupmgr_delete:		Sil
 group_mgr_anon:			Ýsimsiz
 group_mgr_reged:		Tüm Kayýtlý Kullanýcýlar
 show_show:			Göster:
-group_mgr:			Grup Sorumlusu
-group_mgr_edit_btn:		Grup Düzelt
+group_mgr:			Grup Yöneticisi
+group_mgr_edit_btn:		Düzelt
 group_mgr_heading:		Grup Düzeltim Seçimi
 group_mgr_group:		Grup:
 permission_denied_title:	Eriþim Reddedildi!
@@ -782,7 +782,7 @@ p_LOCK:				Zinciri Kilitle
 p_MOVE:				Zinciri Taþý
 p_SML:				Gülücük kullan
 p_IMG:				Resim tag\'lerini kullan
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Kullanýcý Bul</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a>
 group_mgr_indicator:		Þu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
 rate_best:			Çok Ýyi
@@ -815,7 +815,7 @@ online_today_last_visit:	Son Ziyaret:
 online_today_update:		Bugün forumda olan insanlarýn listesini görüntülüyor.
 logedin_todays_visitors:	Bugünün ziyaretçileri
 logedin_latest_post:		Forumdaki son ileti: 
-register_show_avatar:		Avatarlarý Göster:
+register_show_avatar:		Avatarlarý göster:
 register_show_avatar_desc:	Kullanýcýlarýn iletilerini görüntülerken avatarlarýný gösterme/gizleme seçeneði.
 drawmsg_view_rest_post:		Ýletinin geri kalanýný göster
 post_re:			Ynt: 
@@ -831,11 +831,11 @@ split_th_split_unsel:		Seçilmeyen iletileri böl
 split_th_messages:		Ýletiler
 split_th_select:		Seç
 report_report_post:		Ýletiyi Bildir
-quicklogin_login:		Kullanýcý Ýsmi
+quicklogin_login:		Kullanýcý ismi
 quicklogin_password:		Parola
 quicklogin_use_cookies:		Kurabiye kullanýlsýn mý?
-quicklogin_login_btn:		Gir
-post_notification_desc:		Birisi bu iletiye cevap yazdýðýnda bana haber ver.
+quicklogin_login_btn:		Giriþ yap
+post_notification_desc:		Bu iletiye yanýt yazýldýðýnda bana haber ver.
 post_proc_all_ext_allowed:	(sýnýrlama yok)
 maximize_category:		Kategoriyi Aç
 no_view_perm:			Bu zinciri görmek için uygun eriþim iznine sahip deðilsiniz.
@@ -867,9 +867,6 @@ msg_err_nosuchmsg_title:	Hata
 imsg_err_message_title:		Geçersiz Ýleti
 imsg_err_message_msg:		Görüntülemeye çalýþtýðýnýz ileti yok.
 poll_edit: 			Düzelt
-unspecified:			UNSPECIFIED
-register_err_not_valid_img:	The specified url does not contain a valid image
-pmsg_recepient:			Recepient
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
-register_alias:			Alias
-register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
+unspecified:			Belirtilmemiþ
+register_err_not_valid_img:	Belirtilen adreste geçerli bir resim yok
+pmsg_recepient:			Alýcý
