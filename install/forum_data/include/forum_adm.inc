@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.7 2003/06/08 17:07:30 hackie Exp $
+*   $Id: forum_adm.inc,v 1.8 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,8 +17,8 @@
 
 class fud_forum 
 {
-	var	$id, $cat_id, $name, $descr, $passwd_posting, $post_passwd, $anon_forum, $forum_icon, $tag_style, $last_post_id, 
-		$allow_polls, $date_created, $thread_count, $view_order, $message_threshold, $moderated, $max_attach_size,
+	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $last_post_id, $forum_opt,
+		$allow_polls, $date_created, $thread_count, $view_order, $message_threshold, $max_attach_size,
 		$max_file_attachments, $forums, $cur_frm, $locked;
 
 	function fud_forum()
@@ -50,30 +50,26 @@ class fud_forum
 			cat_id, 
 			name, 
 			descr, 
-			passwd_posting, 
 			post_passwd, 
 			date_created, 
 			view_order, 
 			forum_icon, 
-			tag_style, 
-			moderated, 
 			max_attach_size,
 			max_file_attachments,
-			message_threshold
+			message_threshold,
+			forum_opt
 		) VALUES (
 			".$this->cat_id.",
 			'".addslashes($this->name)."',
 			".strnull(addslashes($this->descr)).",
-			'".yn($this->passwd_posting)."',
 			".strnull(addslashes($this->post_passwd)).",
 			".__request_timestamp__.",
 			".$this->view_order.",
 			".strnull(addslashes($this->forum_icon)).",
-			'".addslashes($this->tag_style)."',
-			'".yn($this->moderated)."',
 			".(int)$this->max_attach_size.",
 			".(int)$this->max_file_attachments.",
-			".(int)$this->message_threshold."
+			".(int)$this->message_threshold.",
+			".(int)$this->forum_opt."
 		)");
 
 		if (($gid = group_add($this->id, $this->name, 2))) {
@@ -102,15 +98,13 @@ class fud_forum
 			cat_id=".$cat_id.",
 			name='".addslashes($this->name)."',
 			descr=".strnull(addslashes($this->descr)).",
-			passwd_posting='".yn($this->passwd_posting)."',
 			post_passwd=".strnull(addslashes($this->post_passwd)).",
 			view_order=".(int)$this->view_order.",
 			forum_icon=".strnull(addslashes($this->forum_icon)).",
-			tag_style='".addslashes($this->tag_style)."',
-			moderated='".yn($this->moderated)."',
 			max_attach_size=".(int)$this->max_attach_size.", 
 			max_file_attachments=".(int)$this->max_file_attachments.",
-			message_threshold=".(int)$this->message_threshold."
+			message_threshold=".(int)$this->message_threshold.",
+			forum_opt=".(int)$this->forum_opt."
 		WHERE id=".$id);
 
 		q('UPDATE '.$tbl.'groups SET name=\''.addslashes($this->name).'\' WHERE id='.$gid);

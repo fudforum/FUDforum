@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc,v 1.2 2003/06/02 19:38:46 hackie Exp $
+*   $Id: users_adm.inc,v 1.3 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function usr_delete($id)
 	/* Delete the private messages of this user */
 	$c = uq('SELECT id FROM '.$tbl.'pmsg WHERE duser_id='.$id);
 	while ($r = db_rowarr($c)) {
-		pmsg_del($r[0], 'TRASH');
+		pmsg_del($r[0], 5);
 	}
 	qf($c);
 	q('DELETE FROM '.$tbl.'users WHERE id='.$id);

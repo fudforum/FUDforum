@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.3 2003/05/07 01:05:31 hackie Exp $
+*   $Id: scripts_common.inc,v 1.4 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id)
 	}	
 
 	if (empty($user_id)) {
-		$user_id = $create_users == 'Y' ? create_new_user($from_name, $from_email) : 0;
+		$user_id = $create_users ? create_new_user($from_name, $from_email) : 0;
 	} 
 
 	return $user_id;	
@@ -79,7 +79,7 @@ function create_new_user($from_name, $from_email)
 	$user->name = $from_name;
 	$user->time_zone = $GLOBALS['SERVER_TZ'];
 	$user->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
-	$user->theme = q_singleval("SELECT id FROM ".sql_p."themes WHERE t_default='Y' LIMIT 1");
+	$user->theme = q_singleval("SELECT id FROM ".sql_p."themes WHERE theme_opt=3 LIMIT 1");
 		
 	$id = $user->add_user();
 	q("UPDATE ".sql_p."users SET email_conf='Y' WHERE id=".$id);
@@ -102,7 +102,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 			}
 		}
 	}
-	if (empty($r) && $complex == 'Y') {
+	if (empty($r) && $complex) {
 		// This is slow, but only way to match 'rouge' replies in the event no reference fields are avaliable
 		if (preg_match('!(Re|Wa)\s*:(.*)$!i', $subject, $matches)) {
 			$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.strnull(addslashes(trim($matches[2]))));

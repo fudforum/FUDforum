@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc,v 1.3 2003/07/09 08:00:57 hackie Exp $
+*   $Id: cat.inc,v 1.4 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 class fud_cat
 {
-	var $id, $name, $description, $allow_collapse, $default_view, $view_order;
+	var $id, $name, $description, $view_order, $cat_opt;
 
 	function fud_cat()
 	{
@@ -42,7 +42,7 @@ class fud_cat
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1');
 		}
 
-		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, allow_collapse, default_view, view_order) VALUES ('".addslashes($this->name)."','".addslashes($this->description)."','".yn($this->allow_collapse)."','".addslashes($this->default_view)."',".$this->view_order.")");
+		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt) VALUES ('".addslashes($this->name)."', '".addslashes($this->description)."', ".$this->view_order.", ".$this->cat_opt.")");
 
 		if (isset($ll)) {
 			db_unlock();
@@ -53,7 +53,7 @@ class fud_cat
 
 	function sync($id)
 	{
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET name='".addslashes($this->name)."',description='".addslashes($this->description)."',allow_collapse='".yn($this->allow_collapse)."',default_view='".addslashes($this->default_view)."' WHERE id=".$id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET name='".addslashes($this->name)."',description='".addslashes($this->description)."', cat_opt=".$this->cat_opt." WHERE id=".$id);
 	}
 }
 

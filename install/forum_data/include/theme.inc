@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.4 2003/06/03 16:45:13 hackie Exp $
+*   $Id: theme.inc,v 1.5 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 	
 class fud_theme
 {
-	var $id, $name, $theme, $lang, $locale, $enabled, $pspell_lang, $t_default;
+	var $id, $name, $theme, $lang, $locale, $pspell_lang, $theme_opt;
 
 	function fud_theme()
 	{
@@ -25,7 +25,8 @@ class fud_theme
 			if (isset($_POST['thm_'.$k])) {
 				$this->{$k} = $_POST['thm_'.$k];
 			}
-		}	
+		}
+		$this->theme_opt = (int) $_POST['thm_enabled'] | (int) $_POST['thm_t_default'];
 	}
 
 	function add()
@@ -34,19 +35,19 @@ class fud_theme
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
 		}
-		$this->t_default = yn($this->t_default);
 
-		if ($this->t_default == 'Y') {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='N' WHERE t_default='Y'");
-			$this->enabled = 'Y';
+		if ($this->theme_opt & 2) {
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt=3");
+			$this->theme_opt =| 1;
 		}
 		
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
-				(name, theme, lang, locale, enabled, pspell_lang, t_default)
+				(name, theme, lang, locale, theme_opt, pspell_lang)
 			VALUES
-				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', '".yn($this->enabled)."', ".strnull(addslashes($this->pspell_lang)).",'".$this->t_default."')");
+				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', ".$this->theme_opt.", ".strnull(addslashes($this->pspell_lang)).")");
 
-		if ($this->t_default == 'Y') {
+		/* set anonymous user's theme to default */
+		if ($this->theme_opt & 2) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$this->id.' WHERE id=1');
 		}
 		if (isset($ll)) {
@@ -61,12 +62,11 @@ class fud_theme
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
 		}
-		$this->t_default = yn($this->t_default);
 
-		if ($this->t_default == 'Y') {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='N' WHERE t_default='Y'");
+		if ($this->theme_opt & 2) {
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt=3");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$id.' WHERE id=1');
-			$this->enabled = 'Y';
+			$this->theme_opt =| 2;
 		}
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET 
@@ -74,22 +74,21 @@ class fud_theme
 			theme='".addslashes($this->theme)."', 
 			lang='".addslashes($this->lang)."', 
 			locale='".addslashes($this->locale)."', 
-			enabled='".yn($this->enabled)."',
+			theme_opt=".$this->theme_opt.",
 			pspell_lang=".strnull(addslashes($this->pspell_lang)).",
-			t_default='".$this->t_default."'
 		WHERE id=".$id);
 
-		if ($this->enabled != 'Y' && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE enabled='Y'")) {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET enabled='Y' WHERE id=1");
+		if (!($this->theme_opt & 1) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt & 1")) {
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt|1 WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme='.$id);
 		}
-		if ($this->t_default != 'Y' && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'")) {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='Y' WHERE id=1");
+		if (!($this->theme_opt & 2) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt & 3")) {
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=3 WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
 		}
 		
-		if ($this->enabled != 'Y') {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'").' WHERE theme='.$id);
+		if (!($this->theme_opt & 1)) {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt=3").' WHERE theme='.$id);
 		}
 
 		if (isset($ll)) {
@@ -108,19 +107,19 @@ class fud_theme
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
 		}
-		if (!($data = db_saq('SELECT t_default, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id))) {
+		if (!($data = db_saq('SELECT theme_opt, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id))) {
 			db_unlock();
 			return;
 		}
 		
 		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id);
-		if ($data[0] == 'Y') {
-			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE enabled=\'Y\''))) {
+		if ($data[0] & 3) {
+			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt & 1'))) {
 				$new_default = 1;
 			}
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET enabled='Y', t_default='Y' WHERE id=".$new_default);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=3 WHERE id=".$new_default);
 		} else {
-			$new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE enabled=\'Y\'');
+			$new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=theme_opt|1');
 		}
 
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$new_default.' WHERE theme='.$id);

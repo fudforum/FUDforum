@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email_filter.inc,v 1.1 2003/04/23 00:53:15 hackie Exp $
+*   $Id: email_filter.inc,v 1.2 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,13 +18,13 @@
 function email_cache_rebuild()
 {
 	$data = '';
-	$c = uq('SELECT type, string FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'email_block');
+	$c = uq('SELECT email_block_opt, string FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'email_block');
 	while ($r = db_rowarr($c)) {
 		$r[1] = addcslashes($r[1], '\'/\\');
 		if ($r[0] != 'SIMPLE') {
-			$data .= '\'/'.$r[1].'/\' => \''.$r[0].'\',';
+			$data .= '\'/'.$r[1].'/\' => '.$r[0].',';
 		} else {
-			$data .= '\''.$r[1].'\' => \''.$r[0].'\',';
+			$data .= '\''.$r[1].'\' => '.$r[0].',';
 		}
 	}
 	qf($c);

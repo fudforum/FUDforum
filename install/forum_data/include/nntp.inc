@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.31 2003/06/06 20:56:40 hackie Exp $
+*   $Id: nntp.inc,v 1.32 2003/09/26 18:49:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,10 +17,10 @@
 
 class fud_nntp
 {
-	var $server, $port=119, $user, $pass, $timeout=25, $auth_mode, $newsgroup;
+	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup;
 	var $error, $lrc;
 	var $fs;
-	var $group_na, $group_first, $group_last, $create_users;
+	var $group_na, $group_first, $group_last, $nntp_opt;
 	// Per Message Varaibles
 	var $headers, $body;
 	var $raw_msg;
@@ -45,44 +45,37 @@ class fud_nntp
 	
 	function auth_cmd()
 	{
-		switch ($this->auth) {
-			case 'ORIGINAL':
-				switch ($this->cmd('AUTHINFO user '.$this->user, false)) {
-					case 281:
-						return true;
-						break 2;
-					case 381:
-						if ($this->cmd('AUTHINFO pass '.$this->pass, false) != 281) {
-							$this->error = "Authentication failed\n";
-							return false;
-						}
-						else
-							return true;	
-						break 2;
-					default:
+		if ($this-> nntp_opt & 128) {
+			switch ($this->cmd('AUTHINFO user '.$this->user, false)) {
+				case 281:
+					return true;
+					break 2;
+				case 381:
+					if ($this->cmd('AUTHINFO pass '.$this->pass, false) != 281) {
+						$this->error = "Authentication failed\n";
 						return false;
-						break 2;		
-				}
-				break;
-			case 'SIMPLE':
-				if ($this->cmd('AUTHINFO SIMPLE', false) != 350) {
-					$this->error = "Authentication failed\n";
-					return false;
-				} else {
-					if ($this->cmd($this->user." ".$this->pass, false) == 250) {
-						return true;
 					} else { 
-						return false;
+						return true;
 					}
-				}
-				break;
-			case 'GENERIC':
-				// Not Supported
-				break;
-			default:
-				$this->error = "NNTP Authentication required, but no authentication method specified\n";
+					break;
+				default:
+					return false;
+					break;		
+			}
+		} else (!($this->nntp_opt & 64)) {
+			if ($this->cmd('AUTHINFO SIMPLE', false) != 350) {
+				$this->error = "Authentication failed\n";
 				return false;
-				break;		
+			} else {
+				if ($this->cmd($this->user." ".$this->pass, false) == 250) {
+					return true;
+				} else { 
+					return false;
+				}
+			}
+		} else {
+			$this->error = "NNTP Authentication required, but no authentication method specified\n";
+			return false;
 		}
 
 		return false;
@@ -389,7 +382,7 @@ class fud_nntp
 				}
 			}
 			$msg_post->body = apply_custom_replace($this->body);
-			if ($frm->tag_style == 'ML') {
+			if ($frm->forum_opt & 16) {
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
 			} else {
 				$msg_post->body = nl2br($msg_post->body);
@@ -405,13 +398,12 @@ class fud_nntp
 			}
 			
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
-			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->create_users, $this->user_id);
+			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
 			$msg_post->ip_addr = $this->ip;
 			$msg_post->mlist_msg_id = addslashes($this->msg_id);
 			$msg_post->attach_cnt = 0;
-			$msg_post->smiley_disabled = 'Y';
+			$msg_post->msg_opt = 2;
 			$msg_post->poll_id = 0;
-			$msg_post->show_sig = 'N';
 
 			/* try to determine whether this message is a reply or a new thread */
 			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $this->reply_to_msg_id);
