@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.29 2003/04/02 01:46:35 hackie Exp $
+*   $Id: register.php.t,v 1.30 2003/04/02 12:11:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,13 +35,13 @@ function fetch_img($url, $user_id)
 {
 	$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 	list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-	if (!($im_info = @getimagesize($url)) || $img_info[0] > $max_w || $img_info[1] > $max_y || $img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
+	if (!($img_info = @getimagesize($url)) || $img_info[0] > $max_w || $img_info[1] > $max_y || $img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
 		return;
 	}
 	if (!($img_data = file_get_contents($url))) {
 		return;
 	}
-	$name = $user_id . '.' . $ext[$im_info[2]]. '_';
+	$name = $user_id . '.' . $ext[$img_info[2]]. '_';
 
 	while (($fp = fopen(($path = tempnam($GLOBALS['TMP'], $name)), 'ab'))) {
 		if (!ftell($fp)) {
@@ -53,13 +53,12 @@ function fetch_img($url, $user_id)
 	
 	return $path;
 }
+	/* intialize error status */
+	$GLOBALS['error'] = 0;
 
 function register_form_check($user_id)
 {
-	$GLOBALS['error'] = 0;
-
 	/* new user specific checks */
-
 	if (!$user_id) {
 		if (($reg_limit_reached = $GLOBALS['REG_TIME_LIMIT'] + q_singleval('SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id='.q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users')) - __request_timestamp__) > 0) {
 			set_err('reg_time_limit', '{TEMPLATE: register_err_time_limit}');
@@ -209,10 +208,19 @@ function make_avatar_loc($path, $disk, $web)
 	}
 }
 
+function remove_old_avatar($avatar_str)
+{
+	if (preg_match('!images/custom_avatars/(([0-9]+)\.([A-Za-z]+))" width=!', $avatar_str, $tmp)) {
+		@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/custom_avatars/' . basename($tmp[1]));
+	}
+}
+
 	if (!_uid && $ALLOW_REGISTRATION != 'Y') {
 		std_error('registration_disabled');
 		exit();
 	}
+
+	fud_use('login.inc', TRUE);
 
 	/* handle coppa passed to us by pre_reg form */
 	if (isset($_GET['reg_coppa']) && !isset($_POST['reg_coppa'])) {
@@ -240,64 +248,48 @@ function make_avatar_loc($path, $disk, $web)
 		$mod_id = '';
 	}
 	
-	/*
-	 * deal with attached files
-	 */		
 	$avatar_tmp = $avatar_arr = NULL;
-	if (is_avatar_upload_allowed()) {
-		if (isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) {
+	/* deal with avatars, only done for regged users */
+	if (_uid) {
+		if (!empty($_POST['avatar_tmp'])) {
+			list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = explode("\n", base64_decode($_POST['avatar_tmp']));
+		}
+		if (isset($_POST['btn_detach']) && isset($avatar_arr)) {
+			$avatar_arr['del'] = 1;
+		}
+		if (!is_avatar_upload_allowed() && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {
+			/* hack attempt for URL avatar */
+			$avatar_arr = NULL;
+		} else if (is_avatar_upload_allowed() && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
 			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
+			} else if (!($img_info = @getimagesize($_FILES['avatar_upload']['tmp_name']))) {
+				set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 			} else {
-				/* if any previous files exist, remove them */
-				if (!empty($_POST['avatar_tmp'])) {
-					list($fl,) = explode("\n", base64_decode($_POST['avatar_tmp']), 2);
-					if ($fl) {
-						@unlink($GLOBALS['TMP'] . $fl);
-					}
-				}
-				if (!($img_info = @getimagesize($_FILES['avatar_upload']['tmp_name']))) {
-					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
+				list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
+				if ($img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
+					set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
+				} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
+					set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
 				} else {
-					list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-					if ($img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
-						set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
-					} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
-						set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
-					} else {
-						$file_name = $usr->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
-
-						$avatar_arr['file'] = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
-						$avatar_arr['del'] = 0;
-						$avatar_arr['leave'] = 0;
+					/* remove old uploaded file, if one exists & is not in DB */
+					if (empty($avatar_arr['leave']) && @file_exists($avatar_arr['file'])) {
+						@unlink($TMP . $avatar_arr['file']);
 					}
+				
+					/* [user_id].[file_extension]_'random data' */
+					$file_name = $usr->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
+
+					$avatar_arr['file'] = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
+					$avatar_arr['del'] = 0;
+					$avatar_arr['leave'] = 0;
 				}
 			}
-		} else if (!empty($_POST['avatar_tmp'])) {
-			$avatar_tmp = base64_decode($_POST['avatar_tmp']);
-			if (strlen($avatar_tmp)) {
-				list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = explode("\n", $avatar_tmp);
-			}
-		}	
-	
-		if (!empty($_POST['btn_detach']) && $avatar_arr) {
-			if (strlen($avatar_arr['file'])) {
-				@unlink($GLOBALS['TMP'].$avatar_arr['file']);
-			}
-			$avatar_arr = NULL;
 		}
 	}
 	
-	/*
-	 * SUBMITTION CODE
-	 *
-	 * Here we submit the form, if it passes the error check
-	 * then we actually do it, what is done depends
-	 * wether we are registering as a new user
-	 * or updating a profile
-	 */
-	
-	if (!empty($_POST['prev_loaded']) && !register_form_check($usr->id) ) {
+	/* SUBMITTION CODE */
+	if (!empty($_POST['prev_loaded']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($usr->id)) {
 		if (!_uid) {
 			$usr = new fud_user_reg;
 		} else {
@@ -354,58 +346,62 @@ function make_avatar_loc($path, $disk, $web)
 			}
 			check_return();
 		} else if ($usr->id) { /* updating a user */
-			/* Avatar handling code 'yikes' */
-			$usr->avatar_approved = 'N';
-			$usr->avatar = 0;
-			$usr->avatar_loc = '';
+			/* Restore avatar values to their previous values */
+			$usr->avatar_approved = $old_avatar_approved;
+			$usr->avatar = $old_avatar;
+			$usr->avatar_loc = $old_avatar_loc;
 
 			if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
 				if ($_POST['avatar_type'] == 'b') { /* built-in avatar */
-					if (!$old_avatar) { /* if we had a non-built-in avatar before, remove it */
-						if (preg_match('!src="(.*)" width="!', $old_avatar_loc, $tmp)) {
-							@unlink($WWW_ROOT_DISK . 'images/custom_avatars/' . basename($tmp[1]));
-						}
+					if (!$old_avatar && $old_avatar_loc) {
+						remove_old_avatar($old_avatar_loc);
+						$usr->avatar_approved = 'N'; $usr->avatar_loc = '';
+					} else if (isset($avatar_arr['file'])) { 
+						@unlink($TMP . basename($avatar_arr['file']));
 					}
 					/* verify that the avatar exists and it is different from the one in DB */
 					if ($usr->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
 						$usr->avatar_approved = 'Y';
 						$usr->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$usr->avatar = $_POST['reg_avatar'];
-					} else {
-						$usr->avatar_approved = $old_avatar_approved;
-						$usr->avatar = $old_avatar;
-						$usr->avatar_loc = $old_avatar_loc;
 					}
 				} else {
-					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* URL avatar */
+					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* New URL avatar */
 						$common_av_name = $reg_avatar_loc_file;
-						/* check to see if we have any uploaded files & remove them */
+						
 						if (!empty($avatar_arr['file'])) {
-							@unlink($avatar_arr['file']);
+							$avatar_arr['del'] = 1;
 						}
-					} else if ($_POST['avatar_type'] == 'u' && !$avatar_arr['leave'] && !$avatar_arr['del']) { /* uploaded file */
+					} else if ($_POST['avatar_type'] == 'u' && empty($avatar_arr['del'])) { /* uploaded file */
 						$common_av_name = $avatar_arr['file'];
 					}
-					$av_path = basename($common_av_name);
-					$av_path = 'images/custom_avatars/' . substr($av_path, 0, strpos($av_path, '_'));
-					rename($TMP . $common_av_name, $WWW_ROOT_DISK . $av_path);
-				 	if ($CUSTOM_AVATAR_APPOVAL == 'Y' && $usr->is_mod != 'A') {
-				 		$usr->avatar_approved = 'N';
+
+					/* remove old avatar if need be */
+					if (!empty($avatar_arr['del'])) {
+						if (empty($avatar_arr['leave'])) {
+							@unlink($TMP . basename($avatar_arr['file']));
+						} else {
+							remove_old_avatar($old_avatar_loc);
+						}
+					}
+
+					/* add new avatar if needed */
+					if (isset($common_av_name)) {
+						$common_av_name = basename($common_av_name);
+						$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
+						rename($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
+					 	if ($CUSTOM_AVATAR_APPOVAL == 'Y' && $usr->is_mod != 'A') {
+					 		$usr->avatar_approved = 'N';
+					 	} else {
+					 		$usr->avatar_approved = 'Y';
+				 		}
+					 	if (!($usr->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
+					 		$usr->avatar_approved = 'N';
+					 	}
 				 	} else {
-				 		$usr->avatar_approved = 'Y';
-				 	}
-				 	if (!($usr->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
-				 		$usr->avatar_approved = 'N';
-				 	}
-					/* if we had a custom avatar before, remove it */
-				 	if ($usr->avatar_loc != $old_avatar_loc && !$old_avatar && preg_match('!src="(.*)" width="!', $old_avatar_loc, $tmp)) {
-						@unlink($WWW_ROOT_DISK . 'images/custom_avatars/' . basename($tmp[1]));
+				 		$usr->avatar_approved = 'N'; $usr->avatar_loc = '';
 				 	}
 				}			
-			} else { /* if avatars are off, we are going to leave avatar fields as they were */
-				$usr->avatar_approved = $old_avatar_approved;
-				$usr->avatar = $old_avatar;
-				$usr->avatar_loc = $old_avatar_loc;
 			}
 
 			$usr->sync_user();
@@ -627,9 +623,12 @@ function make_avatar_loc($path, $disk, $web)
 					$avatar = '{TEMPLATE: built_in_avatar}';
 					$del_built_in_avatar = $reg_avatar ? '{TEMPLATE: del_built_in_avatar}' : '';
 				} else if ($avatar_type == 'c') {
+					if (!isset($reg_avatar_loc)) {
+						$reg_avatar_loc = '';
+					}
 					$avatar = '{TEMPLATE: custom_url_avatar}';
 				} else if ($avatar_type == 'u') {
-					$avatar_tmp = $avatar_arr ? base64_encode(implode("\n", $avatar_arr)) : '';
+					$avatar_tmp = $avatar_arr ? base64_encode($avatar_arr['file'] . "\n" . $avatar_arr['del'] . "\n" . $avatar_arr['leave']) : '';
 					$buttons = (!empty($avatar_arr['file']) && empty($avatar_arr['del'])) ? '{TEMPLATE: delete_uploaded_avatar}' : '{TEMPLATE: upload_avatar}';
 					$avatar = '{TEMPLATE: custom_upload_avatar}';
 				}

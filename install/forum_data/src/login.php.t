@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.16 2003/04/02 01:46:35 hackie Exp $
+*   $Id: login.php.t,v 1.17 2003/04/02 12:11:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,6 @@
 ***************************************************************************/
 	
 /*{PRE_HTML_PHP}*/
-	$usr = fud_user_to_reg($usr);
 
 	/* clear old sessions */
 	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)');
@@ -103,8 +102,8 @@ function error_check()
 	if (isset($_POST['login']) && !error_check()) {
 		if (!($id = get_id_by_radius($_POST['login'], $_POST['password']))) {
 			/* If failed login attempt it for admin user we log it */
-			if (($aid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($login)."' AND is_mod='A'"))) {
-				logaction($aid, 'WRONGPASSWD', 0, $_SERVER['REMOTE_ADDR']);
+			if (($aid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."' AND is_mod='A'"))) {
+				logaction($aid, 'WRONGPASSWD', 0, (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0'));
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else {
@@ -145,6 +144,10 @@ function error_check()
 	
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');
+
+	if (!isset($_POST['adm'])) {
+		$_POST['adm'] = '';
+	}
 	
 /*{POST_PAGE_PHP_CODE}*/
 ?>
