@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.9 2003/05/26 06:49:51 hackie Exp $
+*   $Id: getfile.php.t,v 1.10 2003/06/17 14:59:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,5 +70,5 @@
 	}	
 
 	attach_inc_dl_count($id, $r[3]);
-	@fpassthru(@fopen($r[2], 'rb'));
+	fpassthru(fopen($r[2], 'rb'));
 ?>
