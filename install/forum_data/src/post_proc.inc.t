@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.47 2003/12/05 14:31:37 hackie Exp $
+* $Id: post_proc.inc.t,v 1.48 2003/12/10 10:10:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			$cpos = $cepos;
 		}
 
-		if ($rf && $str[$cpos] == '<') { /* left over [ handler */
+		if (!$cpos || ($rf && $str[$cpos] == '<')) { /* left over [ handler */
 			++$pos;
 			continue;
 		}
