@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.56 2005/03/15 22:01:05 hackie Exp $
+* $Id: admuser.php,v 1.57 2005/04/01 20:47:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -186,8 +186,8 @@ administration permissions to the forum. This individual will be able to do anyt
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 			logaction(_uid, 'ADM_SET_PASSWD', 0, addslashes(char_fix(htmlspecialchars($u->login))));
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
-			$alias = "'" . make_alias($login) . "'";
-			$login = "'" . addslashes($login) . "'";
+			$alias = "'" . make_alias($_POST['login_name']) . "'";
+			$login = "'" . addslashes($_POST['login_name']) . "'";
 
 			if ($FUD_OPT_2 & 128) {
 				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
