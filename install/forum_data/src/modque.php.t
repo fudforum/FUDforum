@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.6 2002/07/08 12:32:13 hackie Exp $
+*   $Id: modque.php.t,v 1.7 2002/07/08 13:13:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,10 +37,8 @@
 		$act_id = NULL;	
 
 	if( $usr->is_mod != 'A' && $act_id ) {
-		if( !bq("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid) ) 
+		if( !bq("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid." WHERE {SQL_TABLE_PREFIX}msg.id=".$act_id) ) 
 			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-			
-		exit(LAST_QUERY(1));	
 	}
 	
 	if ( is_numeric($appr) ) {
@@ -99,7 +97,8 @@
 	INNER JOIN {SQL_TABLE_PREFIX}forum 
 		ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
 	INNER JOIN {SQL_TABLE_PREFIX}mod 
-		ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid."
+		ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id 
+		".($usr->is_mod != 'A' ? "AND {SQL_TABLE_PREFIX}mod.user_id="._uid : '')."
 	INNER JOIN {SQL_TABLE_PREFIX}cat
 		ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id	
 	LEFT JOIN {SQL_TABLE_PREFIX}users

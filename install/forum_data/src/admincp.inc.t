@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.3 2002/07/08 12:04:28 hackie Exp $
+*   $Id: admincp.inc.t,v 1.4 2002/07/08 13:13:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ if( _uid ) {
 						ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
 					INNER JOIN {SQL_TABLE_PREFIX}mod 
 						ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id 
-						AND {SQL_TABLE_PREFIX}mod.user_id="._uid." 
+						".($GLOBALS["usr"]->is_mod != 'A' ? "AND {SQL_TABLE_PREFIX}mod.user_id="._uid : '')."  
 					WHERE 
 						{SQL_TABLE_PREFIX}msg.approved='N' 
 						AND {SQL_TABLE_PREFIX}forum.moderated='Y'") ) 
