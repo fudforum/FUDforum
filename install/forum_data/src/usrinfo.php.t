@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.9 2002/08/13 09:16:19 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.8 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,9 +104,7 @@ function convert_bdate($val, $month_fmt)
 					{SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id 
 				INNER JOIN {SQL_TABLE_PREFIX}thread ON
 					{SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id	
-				INNER JOIN {SQL_TABLE_PREFIX}forum ON	
-					{SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id	
-				WHERE {SQL_TABLE_PREFIX}poll.owner=".$u->id." ".$forum_limit." AND {SQL_TABLE_PREFIX}thread.locked='N' AND {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}forum.cat_id!=0")) )
+				WHERE {SQL_TABLE_PREFIX}poll.owner=".$u->id." ".$forum_limit." AND {SQL_TABLE_PREFIX}thread.locked='N'")) )
 		$polls = '{TEMPLATE: polls}';
 	else
 		$polls = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.5 2002/08/13 09:16:19 hackie Exp $
+*   $Id: polllist.php.t,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,14 +59,11 @@
 			{SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id	
 		INNER JOIN {SQL_TABLE_PREFIX}thread ON
 			{SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		INNER JOIN {SQL_TABLE_PREFIX}forum ON	
-			{SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users ON
 			{SQL_TABLE_PREFIX}poll.owner={SQL_TABLE_PREFIX}users.id
 		WHERE
 			{SQL_TABLE_PREFIX}msg.approved='Y'
 			".$allowed_forums.$uid_limit."
-			AND {SQL_TABLE_PREFIX}forum.cat_id!=0
 		ORDER BY {SQL_TABLE_PREFIX}poll.creation_date ".$oby." LIMIT ".qry_limit($GLOBALS['POLLS_PER_PAGE'], $start));
 		
 	$poll_entries = '';	

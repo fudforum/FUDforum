@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.7 2002/08/13 11:34:58 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.6 2002/07/22 14:53:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -259,10 +259,11 @@ class fud_forum_adm extends fud_forum
 		while ( $obj = db_rowobj($thr) ) {
 			$msg = new fud_msg_edit;
 			$msg->get_by_id($obj->root_msg_id);
-			$msg->delete(false);
+			$msg->delete();
 			unset($msg);
 		}
 		qf($thr);
+		
 		
 		q("DELETE FROM {SQL_TABLE_PREFIX}ann_forums WHERE forum_id=".$id);
 		q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$id);
@@ -275,15 +276,6 @@ class fud_forum_adm extends fud_forum
 		}
 		q("DELETE FROM {SQL_TABLE_PREFIX}forum WHERE id=".$id);
 		$this->move_down($view_order, $max, $cat_id); 
-		
-		$r = q("select {SQL_TABLE_PREFIX}users.id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}users.u_last_post_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}msg.id IS NULL");
-		while( list($uid) = db_rowarr($r) ) {
-			$u = new fud_user_reg;
-			$u->id = $uid;
-			$u->set_post_count(0);
-		}
-		qf($r);
-		
 		db_unlock();
 	}
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.15 2002/08/13 09:42:15 hackie Exp $
+*   $Id: consist.php,v 1.14 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -384,12 +384,12 @@ forum will be disabled.<br><br>
 	while ( $obj = db_rowobj($result) ) {
 		draw_stat('Forum: '.$obj->name);
 		if ( $obj->moderated == 'Y' ) {
-			$qth = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE forum_id=".$obj->id." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
-			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=$obj->id AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
+			$qth = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE forum_id=".$obj->id." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
+			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=$obj->id AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
 		}
 		else {
 			$qth = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE forum_id=".$obj->id;
-			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$obj->id;
+			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$obj->id;
 		}
 		
 		$th_count = q_singleval($qth);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.10 2002/08/13 16:17:26 hackie Exp $
+*   $Id: selmsg.php.t,v 1.9 2002/08/07 22:18:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -361,7 +361,7 @@ function ifstr($opt1, $opt2, $str)
 	else if ( $unread && $total ) {
 		/* nop */
 	}
-	else if ( !(empty($unread) && empty($total)) && isset($usr) && empty($th) && empty($frm_id) && empty($date) && $reply_count!=='0' ) 
+	else if ( !(empty($unread) && empty($total)) && isset($usr) && empty($sub_threads) && empty($sub_forums) && empty($date) && $reply_count!=='0' ) 
 		$usr->mark_all_read();
 
 	{POST_PAGE_PHP_CODE}

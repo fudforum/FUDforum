@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.10 2002/08/14 09:58:46 hackie Exp $
+*   $Id: compact.php,v 1.9 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,42 +119,40 @@ and the amount of messages your forum has.<br><br>
 	if( is_array($rvs_rpl_arr) && count($rvs_rpl_arr['pattern']) && count($rvs_rpl_arr['replace']) ) 
 		$do_rvs_replace = 1;	
 
-	if( db_count($r) ) {
-		$ten_percent = round(db_count($r)/10);
-		$i=0;
+	$ten_percent = round(db_count($r)/10);
+	$i=0;
 
-		while( $obj = db_rowobj($r) ) {
-			if( empty($files[$obj->file_id]) ) $files[$obj->file_id]=1;
+	while( $obj = db_rowobj($r) ) {
+		if( empty($files[$obj->file_id]) ) $files[$obj->file_id]=1;
 		
-			$msg = read_msg_body($obj->foff, $obj->length, $obj->file_id);
+		$msg = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 
-			if( $do_rvs_replace ) $msg = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $msg);
-			if( $do_replace ) $msg = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $msg);
+		if( $do_rvs_replace ) $msg = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $msg);
+		if( $do_replace ) $msg = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $msg);
 		
-			$file_id = write_body_c($msg, $len, $off);
+		$file_id = write_body_c($msg, $len, $off);
 		
-			if ( $obj->message_threshold && $obj->message_threshold < strlen($msg) ) {
-				$thres_body = trim_html($msg, $obj->message_threshold);
-				$file_id_preview = write_body_c($thres_body, $length_preview, $offset_preview);
-			}
-		
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET 
-				foff=".$off.", 
-				length=".$len.",
-				file_id=".$file_id.", 
-				file_id_preview=".intzero($file_id_preview).",
-				offset_preview=".intzero($offset_preview).",
-				length_preview=".intzero($length_preview)."
-			WHERE id=".$obj->id);
-		
-			if( !($i%$ten_percent) && $i ) {
-				echo ($i/$ten_percent*10)."% done<br>\n";
-				flush();
-			}	
-			$i++;
+		if ( $obj->message_threshold && $obj->message_threshold < strlen($msg) ) {
+			$thres_body = trim_html($msg, $obj->message_threshold);
+			$file_id_preview = write_body_c($thres_body, $length_preview, $offset_preview);
 		}
-	}
 		
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET 
+			foff=".$off.", 
+			length=".$len.",
+			file_id=".$file_id.", 
+			file_id_preview=".intzero($file_id_preview).",
+			offset_preview=".intzero($offset_preview).",
+			length_preview=".intzero($length_preview)."
+		WHERE id=".$obj->id);
+		
+		if( !($i%$ten_percent) && $i ) {
+			echo ($i/$ten_percent*10)."% done<br>\n";
+			flush();
+		}	
+		
+		$i++;
+	}
 	qf($r);
 	un_register_fps();
 	foreach($files as $k => $v) @unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$k);
@@ -180,29 +178,27 @@ and the amount of messages your forum has.<br><br>
 	
 	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
 	
-	if( db_count($r) ) {
-		$i=0;
-		$ten_percent = round(db_count($r)/10);
+	$i=0;
+	$ten_percent = round(db_count($r)/10);
 	
-		while ( $obj = db_rowobj($r) ) {
-			$b = read_pmsg_body($obj->foff, $obj->length); 
-		
-			if( $do_rvs_replace ) $b = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $b);
-			if( $do_replace ) $b = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $b);
+	while ( $obj = db_rowobj($r) ) {
+		$b = read_pmsg_body($obj->foff, $obj->length); 
 
-			$len = fwrite($fp, $b);
+		if( $do_rvs_replace ) $b = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $b);
+		if( $do_replace ) $b = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $b);
+
+		$len = fwrite($fp, $b);
 		
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->foff);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->foff);
 		
-			$off += $len;
+		$off += $len;
 		
-			if( !($i%$ten_percent) && $i ) {
-				echo ($i/$ten_percent*10)."% done<br>\n";
-				flush();
-			}	
-			
-			$i++;
-		}
+		if( !($i%$ten_percent) && $i ) {
+			echo ($i/$ten_percent*10)."% done<br>\n";
+			flush();
+		}	
+		
+		$i++;
 	}
 	
 	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg DROP index foff");
