@@ -1001,8 +1001,8 @@ merge_prev:			Предыдущие темы
 split_cp:			Панель управления разделением тем
 p_SEARCH:			Право поиска
 groups_perms_header:		Права доступа <font size="-1">(удерживайте курсор мыши над правом для получения информации о возможном действии)</font>
-register_err_sig_too_long:	Длина вашей подписи превышает допустимый максимум в {GVAR: FORUM_SIG_ML} символов.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Длина вашей подписи составляет \'+document.fud_register.reg_sig.value.length+\' символов. Максимально допустимая длина - {GVAR: FORUM_SIG_ML}.\');" class="SmallText">Проверить длину подписи</a>
+register_err_sig_too_long:	Длина вашей подписи превышает допустимый максимум в {GVAR: FORUM_SIG_ML} characters символов.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Длина вашей подписи составляет \'+document.fud_register.reg_sig.value.length+\' символов. Максимально допустимая длина - {GVAR: FORUM_SIG_ML}.\');" class="SmallText">Проверить длину подписи</a>
 adm_account_accepted:		Ваша учетная запись \'{VAR: GLOBALS['r']->login}\' была утверждена администратором и в дальнейшем вы можете участвовать в форумах \'{GVAR: FORUM_TITLE}\' как зарегистрированный пользователь.
 adm_account_accepted_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' был удовлетворен.
 adm_account_rejected:		Ваш запрос на регистрацию в форуме \'{VAR: GLOBALS['r']->login}\' был отклонен администратором. Узнать подробнее о причинах отказа в регистрации вы можете, связавшись с администратором форума по адресу \'{GVAR: ADMIN_EMAIL}\'.

@@ -1000,8 +1000,8 @@ merge_next:			下一页
 merge_prev:			上一页
 split_cp:			打散主题功能面板
 groups_perms_header:		权限列表<font size="-1">（将鼠标指针挪至相应权限位以查看相应权限）</font>
-register_err_sig_too_long:	你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} 个字符（一个汉子算两个字符）。
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'你的签名档共 \'+document.fud_register.reg_sig.value.length+\' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。\');" class="SmallText">检查签名档长度</a>
+register_err_sig_too_long:	你的签名超长了，最多只能 {GVAR: FORUM_SIG_ML} characters 个字符（一个汉子算两个字符）。
+register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'你的签名档共 \'+document.fud_register.reg_sig.value.length+\' 字符长。本论坛限制长度为 {GVAR: FORUM_SIG_ML} 个字符。\');" class="SmallText">检查签名档长度</a>
 p_SEARCH:			允许搜索
 adm_account_accepted:		你的帐号 \'{VAR: GLOBALS['r']->login}\' 已经通过审核且已被激活。恭喜你，你现在已经是 {GVAR: FORUM_TITLE}\' 论坛的正式注册用户了！
 adm_account_accepted_s:		你在论坛 \'{GVAR: FORUM_TITLE}\' 的注册已被接受！
