@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: search.tmpl,v 1.2 2002/07/21 22:58:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,6 +28,7 @@
 {REF: draw_pager.tmpl}
 {REF: alt_var.tmpl}
 {REF: draw_radio_opt.tmpl}
+{REF: draw_select_opt.tmpl}
 {REF: allperms.tmpl}
 
 {SECTION: search_results}
@@ -91,6 +92,8 @@
 		</select>
 	</td>
 </tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_logic}</td><td colspan=2><select name="search_logic">{TEMPLATE-DATA: logic_options}</select></td></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_sorting}</td><td colspan=2><select name="sort_order">{TEMPLATE-DATA: sort_options}</select></td></tr>
 <tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: search}"></td></tr>
 </form>
 </table>
@@ -115,4 +118,26 @@
 
 {SECTION: search_subect_only}
 {MSG: search_subect_only}
+{SECTION: END}
+
+{SECTION: search_and}
+{MSG: search_and}
+{SECTION: END}
+
+{SECTION: search_or}
+{MSG: search_or}
+{SECTION: END}
+
+{SECTION: search_asc_order}
+{MSG: search_asc_order}
+{SECTION: END}
+
+{SECTION: search_desc_order}
+{MSG: search_desc_order}
+{SECTION: END}
+
+{SECTION: search_normal_option}
+{SECTION: END}
+
+{SECTION: search_selected_option}
 {SECTION: END}

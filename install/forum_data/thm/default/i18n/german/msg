@@ -886,3 +886,9 @@ polllist_action:		Action
 polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
 userinfo_polls:			Polls:
 show_pollist:			Show Polls
+search_and:			AND
+search_or:			OR
+search_desc_order:		Descending Order		
+search_asc_order:		Ascending Order
+search_logic:			Search Logic:
+search_sorting:			Sort Results By Date In:

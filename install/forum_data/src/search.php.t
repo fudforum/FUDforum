@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
+*   $Id: search.php.t,v 1.6 2002/07/21 22:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,8 +30,12 @@
 	$TITLE_EXTRA = ': {TEMPLATE: search_title}';
 	if ( isset($ses) ) $ses->update('{TEMPLATE: search_update}');
 
+	$GLOBALS['LOGIC'] = ( $HTTP_POST_VARS['search_logic'] == 'OR' ? 'OR' : 'AND' );
+	$GLOBALS['SORT_ORDER'] = ( $HTTP_POST_VARS['sort_order'] == 'ASC' ? 'ASC' : 'DESC' );
+
 	if ( !empty($srch) ) {
 		$i = 0;
+		
 		$r = search($srch, $field, $start, $ppg, $forum_limiter);
 		
 		if ( !($total=db_count($r)) ) {
@@ -93,6 +97,8 @@
 	qf($r);	
 	
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $GLOBALS['LOGIC'], '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
+	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $GLOBALS['SORT_ORDER'], '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
 	
 	$srch = stripslashes($srch);
 	

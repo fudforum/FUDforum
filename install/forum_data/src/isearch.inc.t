@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.6 2002/07/08 23:15:19 hackie Exp $
+*   $Id: isearch.inc.t,v 1.7 2002/07/21 22:58:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -152,11 +152,13 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	$field = ( $fld != 'subject' ) ? '{SQL_TABLE_PREFIX}index' : '{SQL_TABLE_PREFIX}title_index';
 	
 	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word IN(".$qr.")");
+	
 	if( !db_count($r) ) return $r;
 	$qr='';
 	while( list($id) = DB_ROWARR($r) ) $qr .= $id.',';
 	QF($r);
-	$qr = substr($qr, 0, -1);
+	
+	$qr = $field.".word_id IN ( ".substr($qr, 0, -1).")";
 	
 	if( $GLOBALS['usr']->is_mod != 'A' ) {
 		if( is_numeric($forum_limiter) ) {
@@ -186,7 +188,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 		INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
 		INNER JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
 	WHERE 
-		".$field.".word_id IN ( ".$qr." ) AND
+		".$qr." AND
 		".$forum_limiter_sql."
 		{SQL_TABLE_PREFIX}msg.approved='Y'
 	GROUP BY 
@@ -196,12 +198,18 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	if ( !db_count($r) ) return $r;
 	
 	$idlist = '';
+	$wc = count($qry_uniq);
+	
 	while ( $obj = db_rowobj($r) ) {
+		if( $GLOBALS['LOGIC'] == 'AND' && $wc > $obj->rev_match ) continue;
 		$idlist .= $obj->msg_id.',';
 	}
-	
-	$idlist = substr($idlist, 0, -1);
 	qf($r);
+	
+	if( empty($idlist) ) 
+		return q("SELECT id FROM hyper_index WHERE id=0");
+	else
+		$idlist = substr($idlist, 0, -1);
 	
 	$r = q("SELECT
 			{SQL_TABLE_PREFIX}users.alias AS login,
@@ -215,7 +223,8 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 			{SQL_TABLE_PREFIX}msg.foff,
 			{SQL_TABLE_PREFIX}msg.length,
 			{SQL_TABLE_PREFIX}msg.post_stamp,
-			{SQL_TABLE_PREFIX}msg.file_id
+			{SQL_TABLE_PREFIX}msg.file_id,
+			{SQL_TABLE_PREFIX}msg.icon
 		FROM 
 			{SQL_TABLE_PREFIX}msg 
 			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
@@ -224,7 +233,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 			LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
 		WHERE 
 			{SQL_TABLE_PREFIX}msg.id IN ($idlist)
-		");
+		ORDER BY {SQL_TABLE_PREFIX}msg.post_stamp ".$GLOBALS['SORT_ORDER']);	
 
 	return $r;
 }
