@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.18 2003/09/27 16:05:58 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.19 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,15 +79,15 @@ function is_email_blocked($addr)
 
 function is_allowed_user(&$usr)
 {
-	if ($GLOBALS['COPPA'] == 'Y' && $usr->users_opt & 262144) {
+	if ($GLOBALS['FUD_OPT_1'] & 1048576 && $usr->users_opt & 262144) {
 		error_dialog('{TEMPLATE: err_coppa_title}', '{TEMPLATE: err_coppa_msg}');
 	}
 
-	if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && !($usr->users_opt & 131072)) {
+	if ($GLOBALS['FUD_OPT_2'] & 1 && !($usr->users_opt & 131072)) {
 		std_error('emailconf');
 	}	
 	
-	if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && $usr->users_opt & 2097152) {
+	if ($GLOBALS['FUD_OPT_2'] & 1024 && $usr->users_opt & 2097152) {
 		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}');
 	}
 			

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.29 2003/09/28 14:45:37 hackie Exp $
+*   $Id: root_index.php.t,v 1.30 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,10 +23,9 @@
 	fud_use('err.inc');
 
 	/* before we go on, we need to do some very basic activation checks */
-	if ($FORUM_ENABLED != 'Y') {
-		fud_use('cfg.inc', true);
+	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
-		exit(cfg_dec($DISABLED_REASON) . __fud_ecore_adm_login_msg);
+		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
 	}
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 		fud_use('errmsg.inc');
@@ -41,7 +40,7 @@
 		$t = 'index';
 	}
 
-	if ($PHP_COMPRESSION_ENABLE == 'Y' && $t != 'getfile') {
+	if ($FUD_OPT_2 & 16384 && $t != 'getfile') {
 		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 	}
 
@@ -57,7 +56,7 @@
 		$t = 'index';
 	}
 	
-	if ($BUST_A_PUNK == 'Y' && isset($_COOKIE[$COOKIE_NAME.'1']) && $t != 'error') {
+	if ($FUD_OPT_2 & 524288 && isset($_COOKIE[$COOKIE_NAME.'1']) && $t != 'error') {
 		setcookie($COOKIE_NAME.'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $COOKIE_PATH, $COOKIE_DOMAIN);
 		fud_use('errmsg.inc');
 		exit(__fud_banned__);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.6 2003/09/30 01:42:28 hackie Exp $
+*   $Id: admadduser.php,v 1.7 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	$error = NULL;
+	$error = null;
 
 function errorify($err)
 {
@@ -33,7 +33,7 @@ function validate_input()
 		return 1;
 	}
 	
-	if (q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_POST['login']).'\'')) {
+	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='".addslashes($_POST['login'])."'")) {
 		$GLOBALS['err_login'] = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
 		return 1;
 	}
@@ -48,7 +48,7 @@ function validate_input()
 		return 1;
 	}	
 	
-	if (q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE email=\''.addslashes($_POST['email']).'\'')) {
+	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE email='".addslashes($_POST['email'])."'")) {
 		$GLOBALS['err_email'] = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
 		return 1;
 	}
@@ -61,9 +61,9 @@ function validate_input()
 		$alias = addslashes(htmlspecialchars($_POST['login']));
 		db_lock($DBHOST_TBL_PREFIX.'users WRITE');
 	
-		if ($USE_ALIASES == 'Y') {
+		if ($FUD_OPT_2 & 128) {
 			$i = 0;
-			while (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE alias=\''.(!$i ? $alias : $alias . '_' . $i).'\'')) {
+			while (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".(!$i ? $alias : $alias . '_' . $i)."'")) {
 				++$i;
 			}
 			if ($i) {

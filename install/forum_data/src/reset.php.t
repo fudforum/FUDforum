@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.11 2003/09/27 14:30:41 hackie Exp $
+*   $Id: reset.php.t,v 1.12 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,10 +34,10 @@ function usr_reset_passwd($id)
 	return $randval;
 }
 	if (_uid) {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?t=index&' . _rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/i/' . _rsidl);
+		} else {
+			header('Location: {ROOT}?t=index&' . _rsidl);
 		}
 		exit;	
 	}
@@ -49,10 +49,10 @@ function usr_reset_passwd($id)
 			db_unlock();
 			send_email($GLOBALS['NOTIFY_FROM'], $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				header('Location: {ROOT}?t=login&'._rsidl);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/l/'._rsidl);
+			} else {
+				header('Location: {ROOT}?t=login&'._rsidl);
 			}
 			exit;
 		}
@@ -70,7 +70,7 @@ function usr_reset_passwd($id)
 
 	if ($email) {
 		if ($uobj = db_sab("SELECT id, users_opt FROM {SQL_TABLE_PREFIX}users WHERE email='".addslashes($email)."'")) {
-			if ($EMAIL_CONFIRMATION == 'Y' && !($uobj->users_opt & 131072)) {
+			if ($FUD_OPT_2 & 1 && !($uobj->users_opt & 131072)) {
 				$uent->conf_key= usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.80 2003/09/30 01:42:28 hackie Exp $
+*   $Id: register.php.t,v 1.81 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -240,7 +240,7 @@ function decode_uent(&$uent)
 	$uent->affero = urldecode($uent->affero);
 }
 
-	if (!__fud_real_user__ && $ALLOW_REGISTRATION != 'Y') {
+	if (!__fud_real_user__ && !($FUD_OPT_1 & 2)) {
 		std_error('registration_disabled');
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.29 2003/09/30 01:42:28 hackie Exp $
+*   $Id: admuser.php,v 1.30 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 	fud_use('iemail.inc');
 	fud_use('private.inc');
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$tbl =& $DBHOST_TBL_PREFIX;
 
 	if (isset($_GET['act'], $_GET['usr_id'])) {
 		$act = $_GET['act'];
@@ -44,7 +44,7 @@
 			$u->blocked = $u->blocked == 'Y' ? 'N' : 'Y';
 			q('UPDATE '.$tbl.'users SET blocked=\''.$u->blocked.'\' WHERE id='.$usr_id);
 			if (isset($_GET['f'])) {
-				header('Location: '.$WWW_ROOT.__fud_index_name__.$GLOBALS['usr']->returnto);
+				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
 				exit;
 			}
 			break;
@@ -62,11 +62,11 @@
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
-			if ($EMAIL_CONFIRMATION == 'Y' && $u->email_conf == 'N') {
+			if ($FUD_OPT_2 & 1 && $u->email_conf == 'N') {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				
-				send_email($GLOBALS['NOTIFY_FROM'], $u->email, $GLOBALS['register_conf_subject'], $GLOBALS['reset_confirmation'], "");
+				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
 			} else {
 				db_lock($tbl . 'users WRITE');
 				do {
@@ -76,8 +76,8 @@
 				db_unlock();
 
 				$url = '{ROOT}?t=reset&reset_key='.$reset_key;
-				include_once($GLOBALS['INCLUDE'] . 'theme/' . $user_theme_name . '/rst.inc');
-				send_email($GLOBALS['NOTIFY_FROM'], $u->email, $GLOBALS['reset_newpass_title'], $GLOBALS['reset_reset'], "");
+				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
+				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
 			}
 			break;
 		case 'del':
@@ -110,7 +110,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 				$usr_id = '';
 			}
 			if (isset($_POST['f']) || isset($_GET['f'])) {
-				header('Location: '.$WWW_ROOT.__fud_index_name__.$GLOBALS['usr']->returnto);
+				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
 				exit;
 			}
 			break;
@@ -183,18 +183,18 @@ administration permissions to the forum. This individual will be able to do anyt
 			q('UPDATE '.$tbl.'users SET passwd=\''.md5($_POST['login_passwd']).'\' WHERE id='.$usr_id);
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$login = addslashes($_POST['login_name']);
-			$alias = "'" . substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW']) . "'";
+			$alias = "'" . substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW) . "'";
 			$login = "'" . $login . "'";
 			db_lock($tbl.'users WRITE');
 			$rb = 0;
 			if (!q_singleval('SELECT id FROM '.$tbl.'users WHERE alias='.$alias) && !q_singleval('SELECT id FROM '.$tbl.'users WHERE login='.$login)) {
 				$u->login = $_POST['login_name'];
-				if ($GLOBALS['USE_ALIASES'] != 'Y') {
+				if ($FUD_OPT_2 & 128) {
+					q('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id);
+				} else {
 					$u->alias = substr(htmlspecialchars($u->login), 0, $GLOBALS['MAX_LOGIN_SHOW']);
 					q('UPDATE '.$tbl.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id);
 					$rb = 1;
-				} else {
-					q('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id);
 				}
 			} else {
 				$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
@@ -207,12 +207,12 @@ administration permissions to the forum. This individual will be able to do anyt
 	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
 		/* user searching logic */
 		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
-		$field = !empty($_POST['usr_email']) ? 'email' : ($GLOBALS['USE_ALIASES'] == 'Y' ? 'alias' : 'login');
+		$field = !empty($_POST['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
 		if (strpos($item, '*') !== FALSE) {
 			$like = 1;
 			$item = str_replace('*', '%', $item);
 			$item_s = str_replace('\\', '\\\\', $item);
-			if ($GLOBALS['USE_ALIASES'] == 'Y') {
+			if ($FUD_OPT_2 & 128) {
 				$item_s = htmlspecialchars($item_s);
 			}
 		} else {
@@ -254,7 +254,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	</tr>
 
 	<tr bgcolor="#bff8ff">
-		<td>By <?php echo ($GLOBALS['USE_ALIASES'] != 'Y' ? 'Login' : 'Alias'); ?>:</td>
+		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
 		<td><input type="text" name="usr_login"></td>
 	</tr>
 
@@ -272,14 +272,14 @@ administration permissions to the forum. This individual will be able to do anyt
 <table border=0 cellspacing=0 cellpadding=3>
 
 <form action="admuser.php" method="post"><?php echo _hs; ?>
-	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($u->login); ?>" maxLength="<?php echo $GLOBALS['MAX_LOGIN_SHOW'] ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
+	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($u->login); ?>" maxLength="<?php echo $MAX_LOGIN_SHOW; ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
 	<tr bgcolor="#f1f1f1"><td>Password:</td><td><input type="text" value="" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 	<input type="hidden" name="act" value="nada">
 
 </form>	
 <?php
-	if($GLOBALS['USE_ALIASES']=='Y') {
+	if($FUD_OPT_2 & 128) {
 		echo '<tr bgcolor="#f1f1f1"><td>Alias:</td><td>'.$u->alias.'</td></tr>';
 	}
 ?>
@@ -295,7 +295,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	echo '<tr bgcolor="#f1f1f1"><td>Blocked:</td><td>'.$u->blocked.' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.$u->email_conf.' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 
-	if ($GLOBALS['COPPA'] == 'Y') { 
+	if ($FUD_OPT_1 & 1048576) { 
 		echo '<tr bgcolor="#f1f1f1"><td>COPPA:</td><td>'.$u->coppa.' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 	}
 
@@ -351,7 +351,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($FUD_OPT_1 & 1024) {
 		echo '<a href="../'.__fud_index_name__.'?t=ppost&'._rsidl.'&toi='.$usr_id.'">Send Private Message</a> | ';
 	}
-	if ($GLOBALS['ALLOW_EMAIL'] == 'Y') {
+	if ($FUD_OPT_1 & 4194304) {
 		echo '<a href="../'.__fud_index_name__.'?t=email&toi='.$usr_id.'&'._rsidl.'">Send Email</a> | ';
 	} else {
 		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';

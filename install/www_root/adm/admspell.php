@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admspell.php,v 1.1 2003/09/19 00:03:49 hackie Exp $
+*   $Id: admspell.php,v 1.2 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	require('./GLOBALS.php');
-	if ($SPELL_CHECK_ENABLED != 'Y') {
+	if (!($FUD_OPT_1 & 2097152)) {
 		exit("Cannot use this control panel, your forum's spell checker is disabled.");
 	}
 
@@ -28,7 +28,7 @@
 		$wl = explode("\n", trim($_POST['words']));
 		if (count($wl)) {
 			$pspell_config = pspell_config_create($usr->pspell_lang);
-			pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH']."forum.pws");
+			pspell_config_personal($pspell_config, $FORUM_SETTINGS_PATH."forum.pws");
 			$pspell_link = pspell_new_config($pspell_config);
 
 			foreach ($wl as $w) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.10 2003/09/26 18:49:03 hackie Exp $
+*   $Id: indexdb.php,v 1.11 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,18 +42,18 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		exit;	
 	}
 	
-	if ($GLOBALS['FORUM_ENABLED'] == 'Y') {
+	if ($FUD_OPT_1 & 1) {
 		echo '<br>Disabling the forum for the duration of maintenance run<br>';
-		maintenance_status('Undergoing maintenance, please come back later.', 'N');
+		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 	
 	echo '<br>Please wait while index is being rebuilt.<br>This may take a while depending on the size of your forum.';
 	flush();
 	
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$tbl =& $DBHOST_TBL_PREFIX;
 	
 	db_lock($tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
-	if (!($sid = q_singleval('SELECT MIN(query_type) FROM '.$tbl.'search_cache WHERE srch_query=\'\' AND query_type<0'))) {
+	if (!($sid = q_singleval("SELECT MIN(query_type) FROM ".$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
 		q('DELETE FROM '.$tbl.'search');
 		q('DELETE FROM '.$tbl.'index');
 		q('DELETE FROM '.$tbl.'title_index');
@@ -78,9 +78,9 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	
 	echo 'Done<br>';
 	
-	if ($GLOBALS['FORUM_ENABLED'] == 'Y') {
+	if ($FUD_OPT_1 & 1) {
 		echo '<br>Re-enabling the forum.<br>';
-		maintenance_status($GLOBALS['DISABLED_REASON'], 'Y');
+		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
 		echo '<br><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsidl.'">Global Settings Manager</a> and re-enable it.</font>';
 	}

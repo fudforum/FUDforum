@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.21 2003/09/29 14:40:37 hackie Exp $
+*   $Id: rdf.php.t,v 1.22 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,14 +16,13 @@
 ***************************************************************************/
 
 	require('./GLOBALS.php');
-	require ($DATA_DIR . 'include/RDF.php');
+	require($DATA_DIR . 'include/RDF.php');
 	fud_use('err.inc');
 
 	/* before we go on, we need to do some very basic activation checks */
-	if ($FORUM_ENABLED != 'Y') {
-		fud_use('cfg.inc', TRUE);
+	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
-		exit(cfg_dec($DISABLED_REASON) . __fud_ecore_adm_login_msg);
+		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
 	}
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 		fud_use('errmsg.inc');
@@ -35,13 +34,13 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($RDF_ENABLED == 'N' || ($RDF_ALLOW_USER_DATA != 'Y' && $mode == 'u')) {
+	if (!($FUD_OPT_2 & 16777216) || (!($FUD_OPT_2 & 67108864) && $mode == 'u')) {
 		fud_use('cookies.inc');
 		fud_use('users.inc');
 		std_error('disabled');
 	}
 
-	if ($PHP_COMPRESSION_ENABLE == 'Y') {
+	if ($FUD_OPT_2 & 16384) {
 		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
 
@@ -129,7 +128,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 				$lmt .= ' AND m.post_stamp >= ' . (time() - 86400 * 5);
 			}
 	
-			if ($AUTH == 'Y') {
+			if ($FUD_OPT_2 & 33554432) {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
@@ -292,7 +291,7 @@ $basic_rss_data .= '
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND t.last_post_date <='.(int)$_GET['de'];
 			}
-			if ($AUTH == 'Y') {
+			if ($FUD_OPT_2 & 33554432) {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
@@ -378,7 +377,7 @@ $basic_rss_data .= '
 			if (isset($_GET['cl'])) {
 				$lmt .= ' AND u.last_visit>='.(__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
 			}
-			if ($AUTH == 'Y') {
+			if ($FUD_OPT_2 & 33554432) {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
@@ -392,7 +391,7 @@ $basic_rss_data .= '
 				$perms = ', 1 AS can_show_msg';
 			}
 			$c = uq('SELECT 
-						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.avatar_approved,
+						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
 						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.affero,
 						u.name, u.email,
 						m.id AS msg_id, m.subject, m.thread_id,
@@ -433,7 +432,7 @@ $basic_rss_data .= '
 					$r->last_visit = ($r->last_visit && $r->last_visit > 631155661) ? gmdate('r', $r->last_visit) : '';
 					$r->join_date = ($r->join_date && $r->join_date > 631155661) ? gmdate('r', $r->join_date) : '';
 
-					if ($r->avatar_approved == 'N') {
+					if ($r->users_opt >= 16777216) {
 						$r->avatar_loc = '';
 					}
 					

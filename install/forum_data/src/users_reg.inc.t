@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.42 2003/09/27 14:30:41 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.43 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,20 +35,8 @@ class fud_user_reg extends fud_user
 {
 	function add_user()
 	{	
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock('{SQL_TABLE_PREFIX}users WRITE');
-		}	
-
 		if (!$this->users_opt) {
 			$this->users_opt = 4488117;
-		}
-
-		if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
-			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
-		} else {
-			$this->conf_key = '';
-			$this->users_opt |= 131072;
 		}
 
 		if (isset($_COOKIES['frm_referer_id']) && (int)$_COOKIES['frm_referer_id']) {
@@ -59,10 +47,35 @@ class fud_user_reg extends fud_user
 
 		$md5pass = md5($this->plaintext_passwd);
 
-		$this->alias = make_alias(($GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias) ? $this->login : $this->alias);
+		$this->alias = make_alias((!($GLOBALS['FUD_OPT_2'] & 128) || !$this->alias) ? $this->login : $this->alias);
 
-		if ($GLOBALS['MODERATE_USER_REGS'] == 'Y') {
+		/* this used when utilities create users (aka nntp/mlist import) */
+		if ($GLOBALS['FUD_OPT_2'] & 1024) {
 			$this->users_opt |= 2097152;
+			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt=3 LIMIT 1");
+			$this->time_zone = $GLOBALS['SERVER_TZ'];
+			$this->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
+			if (!($GLOBALS['FUD_OPT_2'] & 4) {
+				$uent->users_opt ^= 128;
+			}
+			if (!($GLOBALS['FUD_OPT_2'] & 8) {
+				$uent->users_opt ^= 256;
+			}
+			if ($GLOBALS['FUD_OPT_2'] & 1) {
+				$GLOBALS['FUD_OPT_2'] ^= 1;
+			}
+		}
+
+		if (!db_locked()) {
+			$ll = 1;
+			db_lock('{SQL_TABLE_PREFIX}users WRITE');
+		}	
+
+		if ($GLOBALS['FUD_OPT_2'] & 1) {
+			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
+		} else {
+			$this->conf_key = '';
+			$this->users_opt |= 131072;
 		}
 
 		$this->id = db_qid("INSERT INTO 
@@ -137,7 +150,7 @@ class fud_user_reg extends fud_user
 	{
 		$passwd = !empty($this->plaintext_passwd) ? "passwd='".md5($this->plaintext_passwd)."'," : '';
 
-		$this->alias = make_alias(($GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias) ? $this->login : $this->alias);
+		$this->alias = make_alias((!($GLOBALS['FUD_OPT_2'] & 128) || !$this->alias) ? $this->login : $this->alias);
 
 		$rb_mod_list = (!($this->users_opt & 524288) && ($is_mod = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id={$this->id}")) && (q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id={$this->id}") == $this->alias));
 
@@ -218,14 +231,14 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		/* remove cookie so it does not confuse us */
 		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);	
 	}
-	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
+	if ($GLOBALS['FUD_OPT_2'] & 256 && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=0 WHERE ses_id=\''.$ses_id.'\'');
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=0 WHERE ses_id='".$ses_id."'");
 		return $ses_id;
 	} else {
 		/* if we can only have 1 login per account, 'remove' all other logins */
-		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id.' AND ses_id!=\''.$cur_ses_id.'\'');
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.($use_cookies ? ', sys_id=0' : '').' WHERE ses_id=\''.$cur_ses_id.'\'');
+		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.($use_cookies ? ", sys_id=0" : '')." WHERE ses_id='".$cur_ses_id."'");
 
 		return $cur_ses_id;
 	}
@@ -233,8 +246,8 @@ function user_login($id, $cur_ses_id, $use_cookies)
 
 function rebuildmodlist()
 {
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	$lmt = $GLOBALS['SHOW_N_MODS'];
+	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+	$lmt =& $GLOBALS['SHOW_N_MODS'];
 	$c = uq('SELECT u.id, u.alias, f.id FROM '.$tbl.'mod mm INNER JOIN '.$tbl.'users u ON mm.user_id=u.id INNER JOIN '.$tbl.'forum f ON f.id=mm.forum_id ORDER BY f.id,u.alias');
 	while ($r = db_rowarr($c)) {
 		$u[] = $r[0];

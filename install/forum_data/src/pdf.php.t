@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.12 2003/09/29 14:40:37 hackie Exp $
+*   $Id: pdf.php.t,v 1.13 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -274,10 +274,9 @@ function post_to_smiley($text, $re)
 	@set_time_limit($PDF_MAX_CPU);
 
 	/* before we go on, we need to do some very basic activation checks */
-	if ($FORUM_ENABLED != 'Y') {
-		fud_use('cfg.inc', TRUE);
+	if (!($FUD_OPT_1 & 1)) {
 		fud_use('errmsg.inc');
-		exit(cfg_dec($DISABLED_REASON) . __fud_ecore_adm_login_msg);
+		exit($DISABLED_REASON . __fud_ecore_adm_login_msg);
 	}
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 		fud_use('errmsg.inc');
@@ -287,11 +286,11 @@ function post_to_smiley($text, $re)
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if ($PDF_ENABLED == 'N' || !extension_loaded('pdf')) {
+	if (!($FUD_OPT_2 &134217728) || !extension_loaded('pdf')) {
 		std_error('disabled');
 	}
 
-	if ($PHP_COMPRESSION_ENABLE == 'Y') {
+	if ($FUD_OPT_2 & 16384) {
 		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
 
@@ -301,7 +300,7 @@ function post_to_smiley($text, $re)
 	$page	= isset($_GET['page']) ? (int)$_GET['page'] : 0;
 
 	if ($forum) {
-		if ($PDF_ALLOW_FULL != 'Y' && !$page) {
+		if (!($FUD_OPT_2 & 268435456) && !$page) {
 			$page = 1;
 		}
 
@@ -362,7 +361,7 @@ function post_to_smiley($text, $re)
 		}
 	} else {
 		$join .= ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-		$lmt .= " AND g1.p_READ='Y'";
+		$lmt .= " AND g1.group_cache_opt & 2";
 	}
 
 	if ($forum) {
@@ -387,7 +386,7 @@ function post_to_smiley($text, $re)
 		$subject = $o->subject;
 	}
 
-	$fpdf = new fud_pdf('FUDforum ' . $GLOBALS['FORUM_VERSION'], $FORUM_TITLE, $subject, $PDF_PAGE, $PDF_WMARGIN, $PDF_HMARGIN);
+	$fpdf = new fud_pdf('FUDforum ' . $FORUM_VERSION, $FORUM_TITLE, $subject, $PDF_PAGE, $PDF_WMARGIN, $PDF_HMARGIN);
 	$fpdf->begin_page($subject);
 	do {
 		/* write message header */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.31 2003/05/26 11:15:05 hackie Exp $
+*   $Id: compact.php,v 1.32 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,21 +95,21 @@ function eta_calc($start, $pos, $pc)
 	flush();
 }
 
-	if ($FORUM_ENABLED == 'Y') {
+	if ($FUD_OPT_1 & 1) {
 		echo '<br>Disabling the forum for the duration of maintenance run<br>';
-		maintenance_status('Undergoing maintenance, please come back later.', 'N');
+		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 	flush();
 
-	define('__file_perms__', (($FILE_LOCK == 'Y') ? 0600 : 0644));
+	define('__file_perms__', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
 	flush();
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$tbl =& $DBHOST_TBL_PREFIX;
 	$base = $magic_file_id = 10000001;
 	$base -= 1;
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE file_id<'.$magic_file_id) / 10);
@@ -208,9 +208,9 @@ function eta_calc($start, $pos, $pc)
 
 	printf("Done in %.2f minutes<br>\n", (time() - $stm) / 60);
 
-	if ($FORUM_ENABLED == 'Y') {
+	if ($FUD_OPT_1 & 1) {
 		echo '<br>Re-enabling the forum.<br>';
-		maintenance_status($DISABLED_REASON, 'Y');
+		maintenance_status($DISABLED_REASON, 0);
 	} else {
 		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}

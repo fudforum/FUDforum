@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.4 2003/09/26 18:49:14 hackie Exp $
+*   $Id: scripts_common.inc,v 1.5 2003/09/30 02:31:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,53 +37,38 @@ function create_new_user($from_name, $from_email)
 	/* Since we assume every user created from a mailing list is already 'confirmed' 
 	 * this disables sending of the email confirmation
 	 */
-	$GLOBALS['EMAIL_CONFIRMATION'] == 'Y';
-	
-	db_lock(sql_p.'users WRITE, '.sql_p.'themes WRITE');
 
 	$login = empty($from_name) ? $from_email : $from_name;
+	$i = 1;
+
+	$user = new fud_user_reg;
+	$user->login = $login;
+		
+	db_lock(sql_p.'users WRITE, '.sql_p.'themes WRITE');
 
 	/* 
 	 * This code ensures that creation of user does not fail in the event another user on the forum 
 	 * is already signed up under the same login name and/or alias
 	 */	
-
-	$i = 1;
-	
-	$user = new fud_user_reg;
-	$user->login = $login;
-
 	while (q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($user->login)."'")) {
 		$user->login = $login.'['.$i++.']';
 	}
 
 	$alias = $user->alias = htmlspecialchars($user->login);
-	
-	if ($GLOBALS['USE_ALIASES'] == 'Y') {
+
+	if ($GLOBALS['FUD_OPT_2'] & 128) {
 		while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias='".addslashes($user->alias)."'")) {
 			$user->alias = $alias.'['.$i++.']';
 		}
 	}
-	
-	$GLOBALS['EMAIL_CONFIRMATION'] = 'N';
-		
+
 	$user->email = $from_email;
 	$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
-	$user->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
-	$user->notify_method = 'EMAIL';
-	$user->gender = 'UNSPECIFIED';
-	$user->email_messages = 'Y';
-	$user->pm_messages = 'Y';
-	$user->show_avatars = 'Y';
-	$user->show_sigs = 'Y';
 	$user->name = $from_name;
-	$user->time_zone = $GLOBALS['SERVER_TZ'];
-	$user->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
-	$user->theme = q_singleval("SELECT id FROM ".sql_p."themes WHERE theme_opt=3 LIMIT 1");
-		
+
 	$id = $user->add_user();
-	q("UPDATE ".sql_p."users SET email_conf='Y' WHERE id=".$id);
-		
+	q("UPDATE ".sql_p."users SET users_opt=users_opt|131072 WHERE id=".$id);
+
 	db_unlock();
 		
 	return $id;

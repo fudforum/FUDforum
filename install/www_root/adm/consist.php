@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.53 2003/09/26 18:49:03 hackie Exp $
+*   $Id: consist.php,v 1.54 2003/09/30 02:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,18 +85,18 @@ forum will be disabled.<br><br>
 		exit;	
 	}
 
-	if ($FORUM_ENABLED == 'Y') {
+	if ($FUD_OPT_1 & 1) {
 		draw_stat('Disabling the forum for the duration of maintenance run');
-		maintenance_status('Undergoing maintenance, please come back later.', 'N');
+		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
 	if (isset($_GET['opt'])) {
 		draw_stat('Optimizing forum\'s SQL tables');
 		optimize_tables();
 		draw_stat('Done: Optimizing forum\'s SQL tables');
 
-		if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
+		if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 			draw_stat('Re-enabling the forum.');
-			maintenance_status($DISABLED_REASON, 'Y');
+			maintenance_status($DISABLED_REASON, 0);
 		} else {
 			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
 		}
@@ -657,9 +657,9 @@ forum will be disabled.<br><br>
 	$data = file($GLOBALS['INCLUDE'] . 'GLOBALS.php');
 	$olc = count($data);
 	foreach ($data as $k => $l) {
-		if (($p = strpos($l, '$')) !== FALSE) {
+		if (($p = strpos($l, '$')) !== false) {
 			++$p;
-			if (($e = strpos($l, '=', $p)) !== FALSE) {
+			if (($e = strpos($l, '=', $p)) !== false) {
 				$var = rtrim(substr($l, $p, ($e - $p)));
 				if (isset($gvars[$var])) {
 					unset($data[$k]);
@@ -674,16 +674,16 @@ forum will be disabled.<br><br>
 	if ($olc != count($data)) {
 		$fp = fopen($GLOBALS['INCLUDE'] . 'GLOBALS.php', 'w');
 		fwrite($fp, implode('', $data));
-		if (strpos(array_pop($data), '?>') === FALSE) {
+		if (strpos(array_pop($data), '?>') === false) {
 			fwrite($fp, "\n?>");
 		}
 		fclose($fp);
 	}
 	draw_stat('Done: Validate GLOBALS.php');
 	
-	if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
+	if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
-		maintenance_status($DISABLED_REASON, 'Y');
+		maintenance_status($DISABLED_REASON, 0);
 	} else {
 		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
 	}
