@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.32 2004/12/01 15:40:58 hackie Exp $
+* $Id: admmassemail.php,v 1.33 2005/02/20 18:41:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,6 @@
 	while (list($cnt, $gid, $gname) = db_rowarr($c)) {
 		$groups[$gid] = array($gname, $cnt);
 	}
-
 	$err = 0;
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
@@ -110,23 +109,20 @@
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 <?php
-	if ($groups) {
-		echo '<tr class="field"><td valign=top>Send E-mails To</td><td><select name="group">';
-		echo '<option value="0">All Forum Members</option>';
-		echo '<option value="'.$all_mod.'">All Forum Moderators</option>';
-		echo '<option value="'.$all_grp_lead.'">All Group Leaders</option>';
+	echo '<tr class="field"><td valign=top>Send E-mails To</td><td><select name="group">';
+	echo '<option value="0">All Forum Members</option>';
+	echo '<option value="'.$all_mod.'">All Forum Moderators</option>';
+	echo '<option value="'.$all_grp_lead.'">All Group Leaders</option>';
+	if ($groups) {	
 		foreach ($groups as $k => $v) {
 			echo '<option value="'.$k.'">'.$v[1].' member(s) of group '.htmlspecialchars($v[0]).'</option>';
 		}
-		$r = uq("SELECT id, name FROM ".$DBHOST_TBL_PREFIX."level");
-		while (($v = db_rowarr($r))) {
-			echo '<option value="'.$v[0].'">User Rank: '.$v[1].'</option>';
-		}
-
-		echo '</select></td></tr>';
-	} else {
-		echo '<input type="hidden" name="group" value="0">';
 	}
+	$r = uq("SELECT id, name FROM ".$DBHOST_TBL_PREFIX."level");
+	while (($v = db_rowarr($r))) {
+		echo '<option value="'.$v[0].'">User Rank: '.$v[1].'</option>';
+	}
+	echo '</select></td></tr>';
 ?>
 	<tr class="field">
 		<td valign=top>Subject</td>
