@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.5 2002/07/24 15:18:49 hackie Exp $
+*   $Id: maillist.php,v 1.6 2002/07/25 13:16:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -448,15 +448,16 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$error_log_path = $GLOBALS['ERROR_PATH'].'.mlist/error_log';
 	$err_msg_cpy = $GLOBALS['ERROR_PATH'].'.mlist/'.time().'_'.md5($msg_data);
 
-	if( !@is_writeable($error_log_path) ) return;
-	if( !@is_writeable($err_msg_cpy) ) return;
-
 	if( $level != 'LOG' ) {
-		$fp = fopen($err_msg_cpy, "wb");
+		if( !($fp = fopen($err_msg_cpy, "wb")) ) exit("no perms to write $err_msg_cpy\n");
 		fwrite($fp, $msg_data);
 		flose($fp);
 	}	
-	$fp = fopen($error_log_path, "ab");
+	else
+		$err_msg_cpy = '';
+	
+	if( !($fp = fopen($error_log_path, "ab")) ) exit("no perms to write $error_log_path\n");
+	
 	fwrite($fp, $level." :: ".date("r")." :: $error :: $err_msg_cpy\n");
 	fclose($fp);
 	
@@ -568,5 +569,5 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		}
 	}	
 	
-	if( $mlist->mlist_post_apr == 'Y' ) $msg_post->approve(NULL, TRUE);
+	if( $mlist->mlist_post_apr == 'N' ) $msg_post->approve(NULL, TRUE);
 ?>
