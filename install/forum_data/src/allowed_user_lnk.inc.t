@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.4 2003/02/01 20:18:06 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.5 2003/02/01 20:20:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,6 +30,6 @@ function is_allowed_user()
 		{ error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}', $returnto_d); exit(); }
 			
 	if ( $usr->blocked == 'Y' || is_email_blocked($usr->email) || is_blocked_login($usr->login) || (isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) && fud_ip_filter::is_blocked($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']))) 
-		{ error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}', ''); exit(); }
+		{ $GLOBALS['ses']->delete_session(); error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}', ''); exit(); }
 }
 ?>
