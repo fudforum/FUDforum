@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.48 2003/10/09 15:05:42 hackie Exp $
+* $Id: index.php.t,v 1.49 2003/10/16 21:14:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -140,11 +140,8 @@ function url_tog_collapse($id, $c)
 			continue;
 		}
 
-		if ($r[9]) {
-			$forum_icon = '{TEMPLATE: forum_icon}';
-		} else {
-			$forum_icon = '{TEMPLATE: no_forum_icon}';
-		}
+		$forum_icon = $r[9] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
+		$forum_descr = $r[14] ? '{TEMPLATE: forum_descr}' : '';
 
 		/* increase thread & post count */
 		$post_count += $r[15];
@@ -191,8 +188,6 @@ function url_tog_collapse($id, $c)
 
 		$forum_list_table_data .= '{TEMPLATE: index_forum_entry}';
 	}
-
-	qf($frmres);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

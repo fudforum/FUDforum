@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.22 2003/10/15 14:13:34 hackie Exp $
+* $Id: index.tmpl,v 1.23 2003/10/16 21:14:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,9 +38,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr class="CatDesc"><td colspan="7">
-* <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}
-</td></tr>
+<tr class="CatDesc"><td colspan="7">* <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
@@ -55,11 +53,15 @@
 <br /><font class="SmallText"><b>{MSG: moderators}:</b> {VAR: moderators}</font>
 {SECTION: END}
 
+{SECTION: forum_descr}
+<br />{VAR: r[14]}
+{SECTION: END}
+
 {SECTION: index_forum_entry forum entry row}
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}{VAR: moderators}</td>
+	<td class="RowStyleA" width="100%"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{TEMPLATE-DATA: forum_descr}{VAR: moderators}</td>
 	<td class="RowStyleB" align="center">{VAR: r[15]}</td>
 	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
