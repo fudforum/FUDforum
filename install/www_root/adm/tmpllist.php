@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.27 2003/11/04 23:29:22 hackie Exp $
+* $Id: tmpllist.php,v 1.28 2003/11/21 23:01:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -316,7 +316,7 @@ function goto_tmpl($tmpl)
 
 	foreach($file_info_array as $k => $v) {
 		echo $v;
-		if(isset($max_opts[$k]) && ($php_deps[$k] || $deps_on[$k]) ) {
+		if(isset($max_opts[$k]) && (isset($php_deps[$k]) || isset($deps_on[$k])) ) {
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
 				foreach($php_deps[$k] as $k2 => $v2) {
