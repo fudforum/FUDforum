@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.18 2004/04/21 21:17:46 hackie Exp $
+* $Id: admipfilter.php,v 1.19 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -55,20 +55,20 @@
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>IP Filter System</h2>
-<form method="post" action="admipfilter.php">
+<form name="ipf" method="post" action="admipfilter.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
 		<td>IP Address</td>
-		<td><input type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td>
+		<td><input tabindex="1" type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td>
 	</tr>
 	<tr class="fieldaction">
 		<td colspan=2 align=right>
 		<?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update" tabindex="2">';
 			} else {
-				echo '<input type="submit" name="btn_submit" value="Add mask">';
+				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add mask">';
 			}
 		?>
 		</td>
@@ -77,7 +77,11 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-
+<script>
+<!--
+document.ipf.ipaddr.focus();
+//-->
+</script>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>IP Mask</td>

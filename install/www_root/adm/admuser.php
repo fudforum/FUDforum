@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.50 2004/04/21 21:17:47 hackie Exp $
+* $Id: admuser.php,v 1.51 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -260,19 +260,24 @@ administration permissions to the forum. This individual will be able to do anyt
 
 	<tr class="field">
 		<td>By <?php echo ($FUD_OPT_2 & 128 ? 'Alias' : 'Login'); ?>:</td>
-		<td><input type="text" name="usr_login"></td>
+		<td><input tabindex="1" type="text" name="usr_login"></td>
 	</tr>
 
 	<tr class="field">
 		<td>By Email:</td>
-		<td><input type="text" name="usr_email"></td>
+		<td><input tabindex="2" type="text" name="usr_email"></td>
 	</tr>
 
 	<tr class="fieldaction">
-		<td colspan=2 align=right><input type="submit" value="Search" name="usr_search"></td>
+		<td colspan=2 align=right><input tabindex="3" type="submit" value="Search" name="usr_search"></td>
 	</tr>
 </table>
 </form>
+<script>
+<!--
+document.frm_usr.usr_login.focus();
+//-->
+</script>
 <?php if ($usr_id) { ?>
 <table class="datatable solidtable">
 

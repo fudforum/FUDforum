@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.22 2004/03/19 17:49:47 hackie Exp $
+* $Id: admprune.php,v 1.23 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -111,7 +111,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Topic Prunning</h2>
-<form method="post" action="admprune.php">
+<form name="adp" method="post" action="admprune.php">
 <table class="datatable">
 <?php
 	if ($usr_id) {
@@ -123,7 +123,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 ?>
 <tr class="field">
 	<td nowrap>Topics with last post made:</td>
-	<td ><input type="text" name="thread_age"></td>
+	<td ><input tabindex="1" type="text" name="thread_age"></td>
 	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
@@ -146,10 +146,15 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 </tr>
 
 <tr class="field">
-	<td align=right colspan=3><input type="submit" name="btn_prune" value="Prune"></td>
+	<td align=right colspan=3><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
 </tr>
 </table>
 <?php echo _hs; ?>
 <input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 </form>
+<script>
+<!--
+document.adp.thread_age.focus();
+//-->
+</script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

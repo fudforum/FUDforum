@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admemail.php,v 1.15 2004/04/21 21:17:46 hackie Exp $
+* $Id: admemail.php,v 1.16 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,7 +42,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Email Filter</h2>
-<form method="post" action="admemail.php">
+<form name="ef" method="post" action="admemail.php">
 <?php echo _hs; ?>
 <table class="datatable solidtable">
 	<tr class="field">
@@ -52,16 +52,16 @@
 
 	<tr class="field">
 		<td>String:</td>
-		<td><input type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>"></td>
+		<td><input tabindex="1" type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>"></td>
 	</tr>
 
 	<tr class="fieldaction">
 		<td colspan=2 align=right>
 		<?php
 			if ($edit) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" tabindex="2" name="btn_update" value="Update">';
 			} else {
-				echo '<input type="submit" name="btn_submit" value="Add">';
+				echo '<input tabindex="2" type="submit" name="btn_submit" value="Add">';
 			}
 		?>
 		</td>
@@ -69,7 +69,11 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-
+<script>
+<!--
+document.ef.e_string.focus();
+//-->
+</script>
 <table class="resulttable fulltable">
 <tr bgcolor="#e5ffe7">
 	<td>Address/Regex</td>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.17 2004/01/04 16:38:32 hackie Exp $
+* $Id: admadduser.php,v 1.18 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -130,23 +130,28 @@ function validate_input()
 
 	<tr class="field">
 		<td>Login:</td>
-		<td><?php if (isset($err_login)) { echo $err_login; } ?><input type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
+		<td><?php if (isset($err_login)) { echo $err_login; } ?><input tabindex="1" type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>Password:</td>
-		<td><?php if (isset($err_passwd)) { echo $err_passwd; } ?><input type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
+		<td><?php if (isset($err_passwd)) { echo $err_passwd; } ?><input tabindex="2" type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>E-mail:</td>
-		<td><?php if (isset($err_email)) { echo $err_email; } ?><input type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
+		<td><?php if (isset($err_email)) { echo $err_email; } ?><input tabindex="3" type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
 	</tr>
 	<tr class="field">
 		<td>Real Name:</td>
-		<td><input type="text" name="name" value="<?php echo $name; ?>" size="30"></td>
+		<td><input type="text" name="name" value="<?php echo $name; ?>" tabindex="4" size="30"></td>
 	</tr>
 	<tr class="fieldaction">
-		<td colspan=2 align=right><input type="submit" value="Add User" name="usr_add"></td>
+		<td colspan=2 align=right><input type="submit" value="Add User" tabindex="5" name="usr_add"></td>
 	</tr>
 </table>
 </form>
+<script>
+<!--
+document.frm_usr.login.focus();
+//-->
+</script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

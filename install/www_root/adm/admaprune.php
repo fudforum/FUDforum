@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.3 2004/01/04 16:38:32 hackie Exp $
+* $Id: admaprune.php,v 1.4 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -112,11 +112,11 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Attachment Topic Prunning</h2>
-<form method="post" action="admaprune.php">
+<form name="adpa" method="post" action="admaprune.php">
 <table class="datatable">
 <tr class="field">
 	<td nowrap>Attachments Older Then:</td>
-	<td ><input type="text" name="thread_age"></td>
+	<td ><input type="text" name="thread_age" tabindex="1"></td>
 	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
@@ -144,9 +144,14 @@
 </tr>
 
 <tr class="fieldaction">
-	<td align=right colspan=3><input type="submit" name="btn_prune" value="Prune"></td>
+	<td align=right colspan=3><input tabindex="2" type="submit" name="btn_prune" value="Prune"></td>
 </tr>
 </table>
 <?php echo _hs; ?>
 </form>
+<script>
+<!--
+document.adpa.thread_age.focus();
+//-->
+</script>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

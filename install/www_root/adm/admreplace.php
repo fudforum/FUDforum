@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.19 2004/04/21 21:17:46 hackie Exp $
+* $Id: admreplace.php,v 1.20 2004/04/24 22:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -81,15 +81,15 @@ function clean_rgx()
 	<tr class="field">
 		<td>Replace mask:</td>
 		<?php if (!$rpl_replace_opt) { ?>
-			<td>/<input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>"></td>
+			<td>/<input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>"></td>
 		<?php } else { ?>
-			<td> <input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>"></td>
+			<td> <input tabindex="1" type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>"></td>
 		<?php } ?>
 	</tr>
 
 	<tr class="field">
 		<td>Replace with:</td>
-		<td><input type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>"></td>
+		<td><input tabindex="2" type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>"></td>
 	</tr>
 
 <?php
@@ -120,9 +120,9 @@ function clean_rgx()
 		<td colspan=2>
 <?php
 			if ($edit) {
-				echo '<input type="submit" value="Cancel" name="btn_cancel"> <input type="submit" value="Update" name="btn_update">';
+				echo '<input type="submit" value="Cancel" name="btn_cancel"> <input tabindex="3" type="submit" value="Update" name="btn_update">';
 			} else {
-				echo '<input type="submit" value="Add" name="btn_submit">';
+				echo '<input tabindex="3" type="submit" value="Add" name="btn_submit">';
 			}
 ?>
 		</td>
@@ -193,6 +193,11 @@ function clean_rgx()
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
+<script>
+<!--
+document.frm_rpl.rpl_replace_str.focus();
+//-->
+</script>
 <table class="resulttable fulltable">
 <tr class="resulttopic">
 	<td>Replace Type</td>
