@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_filter.inc,v 1.4 2003/10/09 14:34:25 hackie Exp $
+* $Id: email_filter.inc,v 1.5 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,7 +22,6 @@ function email_cache_rebuild()
 			$data .= '\''.$r[1].'\' => '.$r[0].',';
 		}
 	}
-	qf($c);
 	if ($data) {
 		$data = substr($data, 0, -1);
 	}

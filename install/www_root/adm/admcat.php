@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.18 2003/10/09 14:34:31 hackie Exp $
+* $Id: admcat.php,v 1.19 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -171,7 +171,6 @@
 
 		}
 	}
-	qf($c);
 	if (isset($lp)) {
 		echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'._rsidl.'">Place Here</a></font></td></tr>';
 	}

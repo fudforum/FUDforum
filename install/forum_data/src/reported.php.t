@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.22 2003/10/09 14:34:26 hackie Exp $
+* $Id: reported.php.t,v 1.23 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -67,7 +67,7 @@
 
 		$reported_message .= '{TEMPLATE: reported_message}';
 	}
-	qf($r);
+	unset($r);
 	un_register_fps();
 
 	if (!$reported_message) {

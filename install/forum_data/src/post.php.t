@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.92 2003/10/16 15:28:52 hackie Exp $
+* $Id: post.php.t,v 1.93 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -145,7 +145,7 @@ function flood_check()
 	 			while ($fa_id = db_rowarr($r)) {
 	 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 			}
-	 			qf($r);
+	 			unset($r);
 	 			$attach_count = count($attach_list);
 		 	}
 		 	$pl_id = (int) $msg->poll_id;
@@ -400,7 +400,6 @@ function flood_check()
 					while ($r = db_rowarr($c)) {
 						$modl[] = $r[0];
 					}
-					qf($c);
 					if ($modl) {
 						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}

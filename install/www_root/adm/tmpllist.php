@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.25 2003/10/09 14:34:32 hackie Exp $
+* $Id: tmpllist.php,v 1.26 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -138,7 +138,7 @@ function goto_tmpl($tmpl)
 			while ($r = db_rowarr($c)) {
 				compile_all($tname, $tlang, $r[0]);
 			}
-			qf($c);
+			unset($c);
 			$update_ok = 1;
 		}
 		$p = 0;

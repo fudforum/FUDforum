@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdelfrm.php,v 1.14 2003/10/09 14:34:31 hackie Exp $
+* $Id: admdelfrm.php,v 1.15 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,6 @@
 		$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		echo '<tr '.$bgcolor.'><td>'.$r[1].'<br><font size="-2">'.$r[2].'</font></td><td valign="top" nowrap><a href="admdelfrm.php?del='.$r[0].'&'._rsidl.'">Delete</a></td><td valign="top" nowrap><form method="post" action="admdelfrm.php">'._hs.$cat_sel.' <input type="submit" name="frm_submit" value="Reassign"><input type="hidden" name="frm_id" value="'.$r[0].'"></form></td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

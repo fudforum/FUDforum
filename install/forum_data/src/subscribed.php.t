@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.15 2003/10/09 14:34:27 hackie Exp $
+* $Id: subscribed.php.t,v 1.16 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -58,7 +58,6 @@
 	if (!$subscribed_forum_data) {
 		$subscribed_forum_data = '{TEMPLATE: no_subscribed_forums}';
 	}
-	qf($c);
 
 	/* Since a person can have MANY subscribed threads, we need a pager & for the pager we need a entry count */
 	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread_notify tn LEFT JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt);
@@ -67,7 +66,7 @@
 	}
 
 	$subscribed_thread_data = '';
-	$c = q('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_notify tn INNER JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
+	$c = uq('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_notify tn INNER JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
 
 	while (($r = db_rowarr($c))) {
 		$subscribed_thread_data .= '{TEMPLATE: subscribed_thread_entry}';
@@ -76,7 +75,6 @@
 	if (!$subscribed_thread_data) {
 		$subscribed_thread_data = '{TEMPLATE: no_subscribed_threads}';
 	}
-	qf($c);
 
 	if ($FUD_OPT_2 & 32768) {
 		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sl/start/', '/'._rsid.'#fff');

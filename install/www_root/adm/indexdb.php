@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.13 2003/10/09 14:34:32 hackie Exp $
+* $Id: indexdb.php,v 1.14 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -66,7 +66,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		q('INSERT INTO '.$tbl.'search_cache (srch_query, query_type, expiry, msg_id, n_match) VALUES(\'\', -'.$r[0].', 0,0,0)');
 		index_text($subj, read_msg_body($r[3], $r[2], $r[4]), $r[0]);
 	}
-	qf($c);
+	unset($c);
 	un_register_fps();
 	q('DELETE FROM '.$tbl.'search_cache');
 	db_unlock();

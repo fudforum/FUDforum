@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.32 2003/10/09 15:41:20 hackie Exp $
+* $Id: thread.php.t,v 1.33 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -155,7 +155,6 @@
 			$thread_list_table_data .= '{TEMPLATE: thread_row}';
 		} while (($r = db_rowarr($result)));
 	}
-	qf($result);
 
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'.$frm_id.'/1/', '/' ._rsid);

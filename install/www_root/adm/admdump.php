@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.33 2003/10/09 14:34:31 hackie Exp $
+* $Id: admdump.php,v 1.34 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -217,7 +217,6 @@ function sql_is_null($r, $n, $tbl='')
 				while ($r = db_rowobj($c)) {
 					$write_func($fp, make_insrt_qry($r, $db_name, $field_data)."\n");
 				}
-				qf($c);
 			}
 
 			echo "DONE<br>\n";

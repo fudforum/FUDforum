@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.35 2003/10/14 14:27:03 hackie Exp $
+* $Id: search.php.t,v 1.36 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -144,7 +144,6 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
-			qf($c);
 			un_register_fps();
 			$search_data = '{TEMPLATE: search_results}';
 			if ($FUD_OPT_2 & 32768) {

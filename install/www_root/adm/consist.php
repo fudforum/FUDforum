@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.64 2003/10/14 15:44:01 hackie Exp $
+* $Id: consist.php,v 1.65 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -59,7 +59,7 @@ function delete_zero($tbl, $q)
 	if ($cnt) {
 		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
 	}
-	qf($c);
+	unset($c);
 	draw_info($cnt);
 }
 
@@ -137,7 +137,7 @@ forum will be disabled.<br><br>
 		}
 		++$i;
 	}
-	qf($r);
+	unset($r);
 	draw_stat('Done: Validating category order');
 
 	draw_stat('Checking if moderator and users table match');
@@ -152,12 +152,10 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];
 	}
-	qf($c);
-	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE ((pm.pmsg_opt & 16) > 0 AND pm.pmsg_opt>=16) AND u.id IS NULL');
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE ((pm.pmsg_opt & 16) > 0 AND pm.pmsg_opt>=16) AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];
 	}
-	qf($c);
 	if (isset($dpm)) {
 		$cnt = count($dpm);
 		foreach ($dpm as $v) {
@@ -176,7 +174,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking message approvals');
 	$m = array();
-	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) > 0');
+	$c = uq('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) > 0');
 	while ($r = db_rowarr($c)) {
 		$m[] = $r[0];
 	}
@@ -184,7 +182,6 @@ forum will be disabled.<br><br>
 		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
 		unset($m);
 	}
-	qf($c);
 	draw_stat('Done: Checking message approvals');
 
 	$cnt = 0;
@@ -200,7 +197,6 @@ forum will be disabled.<br><br>
 			$tr[$r[2] - 1][] = $r[1];
 		}
 	}
-	qf($c);
 	if (count($del)) {
 		q('DELETE FROM '.$tbl.'thread WHERE id='.implode(',', $del));
 	}
@@ -241,7 +237,7 @@ forum will be disabled.<br><br>
 			q('UPDATE '.$tbl.'forum SET thread_count='.$r[2].', post_count='.($r[1] + $r[2]).', last_post_id='.(int)$r[0].' WHERE id='.$f[0]);
 		}
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Checking forum & topic relations');
 
 	draw_stat('Validating Forum Order');
@@ -267,16 +263,14 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking file attachments against messages');
 	$arm = array();
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
+	$c = uq('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
-	qf($c);
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1');
+	$c = uq('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
-	qf($c);
 	if (($cnt = count($arm))) {
 		foreach ($arm as $a) {
 			@unlink($FILE_STORE . $a . 'atch');
@@ -301,7 +295,7 @@ forum will be disabled.<br><br>
 		unset($r[5]);
 		$atr[] = $r;
 	}
-	qf($c);
+	unset($c);
 	if (count($atr)) {
 		q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.strnull(addslashes(@serialize($atr))).' WHERE id='.$oldm);
 	}
@@ -313,7 +307,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'pmsg SET attach_cnt='.$r[0].' WHERE id='.$r[1]);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Rebuild attachment cache for private messages');
 
 	draw_stat('Checking message reports');
@@ -330,7 +324,7 @@ forum will be disabled.<br><br>
 			q('UPDATE '.$tbl.'msg SET poll_id=0, poll_cache=NULL WHERE id='.$r[1]);
 		}
 	}
-	qf($c);
+	unset($c);
 	draw_info($cnt);
 
 	draw_stat('Checking polls options against polls');
@@ -346,7 +340,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'poll_opt SET count='.(int)$r[1].' WHERE id='.$r[0]);
 	}
-	qf($c);
+	unset($c);
 
 	// now we rebuild the individual message poll cache
 	$oldp = '';
@@ -366,7 +360,7 @@ forum will be disabled.<br><br>
 		$opts[$r[0]] = array($r[1], $r[2]);
 		$vt += $r[2];
 	}
-	qf($c);
+	unset($c);
 	if (count($opts)) {
 		q('UPDATE '.$tbl.'msg SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
 		q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
@@ -378,7 +372,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'poll SET forum_id='.$r[0].' WHERE id='.$r[1]);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Validating poll activation');
 
 	draw_stat('Checking smilies against disk files');
@@ -392,7 +386,7 @@ forum will be disabled.<br><br>
 		$sml[$r[0]] = 1;
 		q('UPDATE '.$tbl.'smiley SET vieworder='.(++$i).' WHERE id='.$r[1]);
 	}
-	qf($c);
+	unset($c);
 	draw_info($cnt);
 
 	draw_stat('Checking disk files against smilies');
@@ -428,7 +422,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'thread SET rating='.round($r[2]).', n_rating='.(int)$r[1].' WHERE id='.$r[0]);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Rebuild topic rating cache');
 
 	draw_stat('Rebuilding Topic Views');
@@ -437,7 +431,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		rebuild_forum_view($r[0]);
 	}
-	qf($fr);
+	unset($fr);
 	draw_stat('Done: Rebuilding Topic Views');
 
 	draw_stat('Rebuilding user ranks, message counts & last post ids');
@@ -449,21 +443,21 @@ forum will be disabled.<br><br>
 			if (!$r[1]) { continue; }
 			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].' WHERE id='.$r[0]);
 		}
-		qf($c);
+		unset($c);
 	} else {
 		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
 			if (!$uid) { continue; }
 			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND apr=1 AND poster_id='.$uid.') WHERE id='.$uid);
 		}
-		qf($c);
+		unset($c);
 	}
 
 	$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'users SET level_id='.$r[0].' WHERE level_id=0 AND posted_msg_count>='.$r[1]);
 	}
-	qf($c);
+	unset($c);
 
 	draw_stat('Done: Rebuilding user levels, message counts & last post ids');
 
@@ -490,7 +484,7 @@ forum will be disabled.<br><br>
 		}
 		$br[$r[0]] = 1;
 	}
-	qf($c);
+	unset($c);
 	if (count($br)) {
 		q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$oldu);
 		unset($br);
@@ -511,7 +505,7 @@ forum will be disabled.<br><br>
 		}
 		$ir[$r[0]] = 1;
 	}
-	qf($c);
+	unset($c);
 	if (count($ir)) {
 		q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$oldu);
 		unset($ir);
@@ -539,7 +533,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		ctag_rebuild_cache($r[0]);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done Rebuilding custom tags for users');
 
 	draw_stat('Validating group resources');
@@ -561,7 +555,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		group_add($r[0], $r[1], 2);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Validating group/forum relations');
 
 	draw_stat('Validating group/forum names');
@@ -571,11 +565,11 @@ forum will be disabled.<br><br>
 		q("UPDATE ".$tbl."groups SET name='".addslashes($r[1])."' WHERE id=".$r[0]);
 		++$i;
 	}
-	qf($r);
+	unset($r);
 	draw_stat('Done: Validating group/forum names (fixed: '.$i.' relations)');
 
 	draw_stat('Validating group/primary user relations');
-	$c = q('SELECT g.id, gm1.id, gm2.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_members gm1 ON gm1.group_id=g.id AND gm1.user_id=0 LEFT JOIN '.$tbl.'group_members gm2 ON gm2.group_id=g.id AND gm2.user_id=2147483647 WHERE g.id>2 AND g.forum_id>0 AND (gm1.id IS NULL OR gm2.id IS NULL)');
+	$c = uq('SELECT g.id, gm1.id, gm2.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_members gm1 ON gm1.group_id=g.id AND gm1.user_id=0 LEFT JOIN '.$tbl.'group_members gm2 ON gm2.group_id=g.id AND gm2.user_id=2147483647 WHERE g.id>2 AND g.forum_id>0 AND (gm1.id IS NULL OR gm2.id IS NULL)');
 	while ($r = db_rowarr($c)) {
 		if (!$r[1]) {
 			$glm[$r[0]][] = 0;
@@ -584,7 +578,6 @@ forum will be disabled.<br><br>
 			$glm[$r[0]][] = 2147483647;
 		}
 	}
-	qf($c);
 	if (isset($glm)) {
 		// make group based on 'primary' 1st group
 		$fld_lst = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
@@ -604,7 +597,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		rebuild_group_ldr_cache($r[0]);
 	}
-	qf($c);
+	unset($c);
 	draw_stat('Done: Rebuilding group leader cache');
 
 	draw_stat('Rebuilding group cache');
@@ -617,7 +610,6 @@ forum will be disabled.<br><br>
 	while (list($uid) = db_rowarr($c)) {
 		$te[] = $uid;
 	}
-	qf($c);
 	if ($te) {
 		$tid = q_singleval('SELECT id FROM '.$tbl.'themes WHERE theme_opt=3');
 		q('UPDATE '.$tbl.'users SET theme='.$tid.' WHERE id IN('.implode(',', $te).')');

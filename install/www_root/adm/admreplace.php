@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.14 2003/10/09 14:34:32 hackie Exp $
+* $Id: admreplace.php,v 1.15 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -226,7 +226,6 @@ function clean_rgx()
 		}
 		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

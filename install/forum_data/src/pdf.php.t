@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.19 2003/10/14 14:47:54 hackie Exp $
+* $Id: pdf.php.t,v 1.20 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -341,7 +341,6 @@ function post_to_smiley($text, $re)
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
-	qf($c);
 	if (!isset($re)) {
 		$re = null;
 	}
@@ -421,7 +420,6 @@ function post_to_smiley($text, $re)
 		$fpdf->end_message();
 	} while (($o = db_rowobj($c)));
 	un_register_fps();
-	qf($c);
 
 	$fpdf->end_page();
 	pdf_close($fpdf->pdf);

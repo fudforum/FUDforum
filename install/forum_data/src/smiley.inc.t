@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smiley.inc.t,v 1.11 2003/10/09 14:34:27 hackie Exp $
+* $Id: smiley.inc.t,v 1.12 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,7 +35,6 @@ function smiley_to_post($text)
 			}
 		}
 	}
-        qf($c);
 
 	return $text;
 }
@@ -47,7 +46,6 @@ function post_to_smiley($text)
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
-	qf($c);
 
 	return (isset($re) ? strtr($text, $re) : $text);
 }

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.18 2003/10/09 14:34:27 hackie Exp $
+* $Id: showposts.php.t,v 1.19 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -66,7 +66,6 @@
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';
 		}
-		qf($c);
 
 		if ($FUD_OPT_2 & 32768) {
 			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'.$uid.'//', '/'._rsid);

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.25 2003/10/09 14:34:31 hackie Exp $
+* $Id: admimport.php,v 1.26 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -110,7 +110,7 @@ function resolve_dest_path($path)
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
-				qf($c);
+				unset($c);
 			}
 
 			/* It is possible that the database type in the dump != database type in the current forum.
@@ -191,7 +191,6 @@ function resolve_dest_path($path)
 			while ($r = db_rowarr($c)) {
 				compile_all($r[0], $r[1], $r[2]);
 			}
-			qf($c);
 
 			/* we now need to correct cached paths for file attachments and avatars */
 			echo "Correcting Avatar Paths<br>\n";

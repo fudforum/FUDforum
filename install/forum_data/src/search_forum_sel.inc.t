@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.8 2003/10/09 14:34:27 hackie Exp $
+* $Id: search_forum_sel.inc.t,v 1.9 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -34,7 +34,6 @@ while ($r = db_rowarr($c)) {
 	$selected = $r[0] == $forum_limiter ? ' selected' : '';
 	$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
 }
-qf($c);
 /* user has no permissions to any forum, so as far as they are concerned the search is disabled */
 if (!$forum_limit_data) {
 	std_error('disabled');

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.19 2003/10/09 14:34:32 hackie Exp $
+* $Id: msglist.php,v 1.20 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -110,7 +110,7 @@ function makedeps()
 		while ($r = db_rowarr($c)) {
 			compile_all($tname, $tlang, $r[0]);
 		}
-		qf($c);
+		unset($c);
 
 		if (isset($_POST['NO_TREE_LIST'])) {
 			exit('<html><script>window.close();</script></html>');

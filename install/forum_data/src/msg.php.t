@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.57 2003/10/15 17:13:24 hackie Exp $
+* $Id: msg.php.t,v 1.58 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -206,7 +206,7 @@
 		$message_data .= tmpl_drawmsg($obj, $usr, $perms, false, $m_num, array($_GET['start'], $count));
 		$obj2 = $obj;
 	}
-	qf($result);
+	unset($result);
 
 	un_register_fps();
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.7 2003/10/09 14:34:25 hackie Exp $
+* $Id: cat.inc,v 1.8 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -62,7 +62,7 @@ function cat_rebuild_order()
 		}
 		++$i;
 	}
-	qf($c);
+	unset($c);
 }
 
 function cat_change_pos($oldp, $newp)

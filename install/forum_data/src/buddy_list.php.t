@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.26 2003/10/09 14:34:26 hackie Exp $
+* $Id: buddy_list.php.t,v 1.27 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -96,7 +96,6 @@
 		} while (($r = db_rowarr($c)));
 		$buddies = '{TEMPLATE: buddy_list}';
 	}
-	qf($res);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

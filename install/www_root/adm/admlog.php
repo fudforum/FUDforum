@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.21 2003/10/09 14:34:32 hackie Exp $
+* $Id: admlog.php,v 1.22 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -125,7 +125,7 @@ function return_forum_name($id)
 
 		echo $logtime.'</tr>';
 	}
-	qf($c);
+	unset($c);
 ?>
 </table>
 <?php require('admclose.html'); ?>

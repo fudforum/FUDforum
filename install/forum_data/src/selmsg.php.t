@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.41 2003/10/09 14:34:27 hackie Exp $
+* $Id: selmsg.php.t,v 1.42 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -197,7 +197,7 @@ function path_info_lnk($var, $val)
 			$message_data .= tmpl_drawmsg($r, $usr, $perms, false, $n, '');
 		}
 		un_register_fps();
-		qf($c);
+		unset($c);
 	} else {
 		$message_data = '';
 	}

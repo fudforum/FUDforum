@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.85 2003/10/16 18:29:10 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.86 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -241,7 +241,7 @@ class fud_msg_edit extends fud_msg
 			while ($loc = db_rowarr($res)) {
 				@unlink($loc[0]);
 			}
-			qf($res);
+			unset$res);
 			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND attach_opt=0");
 		}
 
@@ -260,7 +260,7 @@ class fud_msg_edit extends fud_msg
 				while ($dim = db_rowarr($rmsg)) {
 					fud_msg_edit::delete(false, $dim[0], 1);
 				}
-				qf($rmsg);
+				unset($rmsg);
 			}
 
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$del->thread_id);
@@ -314,7 +314,7 @@ class fud_msg_edit extends fud_msg
 					}
 					rebuild_forum_view($res[0]);
 				}
-				qf($r);
+				unset($r);
 			}
 		}
 
@@ -439,7 +439,7 @@ class fud_msg_edit extends fud_msg
 				$tl[] = $r[4];
 			}
 		}
-		qf($c);
+		unset($c);
 		if (isset($tl)) {
 			/* this allows us to mark the message we are sending notification about as read, so that we do not re-notify the user
 			 * until this message is read.
@@ -478,7 +478,6 @@ class fud_msg_edit extends fud_msg
 						$attach_mime[$ent[1]] = $ent[2];
 					}
 				}
-				qf($r);
 			} else {
 				$attach_mime = $attach = null;
 			}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.12 2003/10/09 14:34:31 hackie Exp $
+* $Id: admannounce.php,v 1.13 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -41,7 +41,6 @@ function mk_date($y, $m, $d)
 		while ($r = db_rowarr($c)) {
 			$frm_list[$r[0]] = $r[0];
 		}
-		qf($c);
 	} else if (isset($_POST['btn_none']) || isset($_POST['btn_all'])) {
 		$vals = array('edit', 'a_subject', 'a_text', 'd_year', 'd_month', 'd_day', 'd2_year', 'd2_month', 'd2_day');
 		foreach ($vals as $v) {
@@ -52,7 +51,6 @@ function mk_date($y, $m, $d)
 			while ($r = db_rowarr($c)) {
 				$frm_list[$r[0]] = $r[0];
 			}
-			qf($c);
 		}
 	} else {
 		$edit = $a_subject = $a_text = '';
@@ -113,7 +111,6 @@ function mk_date($y, $m, $d)
 		}
 		echo '<td>'.create_checkbox('frm_list['.$r[1].']', $r[1], isset($frm_list[$r[1]])).' <font size=-2> '.$r[0].'</font></td>';
 	}
-	qf($c);
 ?>
 		</tr></table>
 		</td>
@@ -193,7 +190,6 @@ function mk_date($y, $m, $d)
 		$en_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $en_dt[1], $en_dt[2], $en_dt[0]));
 		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

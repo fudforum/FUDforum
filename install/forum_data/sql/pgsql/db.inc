@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.36 2003/10/09 14:34:25 hackie Exp $
+* $Id: db.inc,v 1.37 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -223,11 +223,6 @@ if (!defined('fud_query_stats')) {
 	}
 }
 
-function qf(&$result)
-{
-	unset($result);
-}
-
 function db_count($r)
 {
 	$r = @pg_num_rows($r);
@@ -271,7 +266,6 @@ function get_fud_table_list()
 {
 	$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
 	while (list($ret[]) = db_rowarr($r));
-	qf($r);
 	array_pop($ret);
 
 	return $ret;

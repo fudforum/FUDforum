@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.36 2003/10/09 14:34:31 hackie Exp $
+* $Id: admgroups.php,v 1.37 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -323,7 +323,6 @@
 		}
 		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$k.'&'._rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

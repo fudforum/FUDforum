@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.93 2003/10/16 15:30:05 hackie Exp $
+* $Id: register.php.t,v 1.94 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,6 @@ function create_theme_select($name, $def=null)
 		$selected = $t[0] == $def ? ' selected' : '';
 		$theme_select_values .= '{TEMPLATE: theme_select_value}';
 	}
-	qf($r);
 
 	return '{TEMPLATE: theme_select}';
 }
@@ -417,7 +416,6 @@ function decode_uent(&$uent)
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
 				}
-				qf($c);
 				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 

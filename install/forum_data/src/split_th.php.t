@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.28 2003/10/09 14:34:27 hackie Exp $
+* $Id: split_th.php.t,v 1.29 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,6 @@
 			while ($r = db_rowarr($c)) {
 				$a[] = $r[0];
 			}
-			qf($c);
 			/* sanity check */
 			if (!isset($a)) {
 				if ($FUD_OPT_2 & 32768) {
@@ -127,7 +126,7 @@
 				while ($r = db_rowarr($c)) {
 					$p[] = $r[0];
 				}
-				qf($c);
+				unset($c);
 				if (isset($p)) {
 					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$data->forum_id.' WHERE id IN('.implode(',', $p).')');
 				}
@@ -196,7 +195,6 @@
 		$vl .= $r[0] . "\n";
 		$kl .= $r[1] . "\n";
 	}
-	qf($c);
 
 	if (!$forum) {
 		$forum = q_singleval('SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
@@ -217,7 +215,6 @@
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}
 	un_register_fps();
-	qf($c);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

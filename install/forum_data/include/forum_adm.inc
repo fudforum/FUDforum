@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.12 2003/10/14 02:00:12 hackie Exp $
+* $Id: forum_adm.inc,v 1.13 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -97,7 +97,6 @@ function create_cat_select($name, $def, $blocked)
 	while ($r = db_rowarr($c)) {
 		$ret .= '<option value="'.$r[0].'"'.($r[0] == $def ? ' selected' : '').'>'.$r[1].'</option>';
 	}
-	qf($c);
 
 	return ($ret ? '<select name="'.$name.'">' . $ret . '</select>' : '');
 }
@@ -138,7 +137,7 @@ function frm_rebuild_order($cat_id)
 		}
 		++$i;
 	}
-	qf($c);
+	unset($c);
 }
 
 function frm_move_forum($id, $dest_cat, $src_cat)

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.12 2003/10/09 14:34:32 hackie Exp $
+* $Id: admmime.php,v 1.13 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -135,7 +135,6 @@
 		}
 		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&'._rsidl.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

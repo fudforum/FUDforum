@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.21 2003/10/09 14:34:32 hackie Exp $
+* $Id: admmassemail.php,v 1.22 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,6 @@
 	while (list($cnt, $gid, $gname) = db_rowarr($c)) {
 		$groups[$gid] = array($gname, $cnt);
 	}
-	qf($c);
 
 	$err = 0;
 
@@ -86,8 +85,6 @@
 				$smtp->send_smtp_email();
 			}
 		}
-
-		qf($r);
 
 		if (!$err) {
 			echo '<font size="+1" color="green">'.$total.' E-mails were sent</font><br />';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.11 2003/10/09 14:34:31 hackie Exp $
+* $Id: admext.php,v 1.12 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -89,6 +89,5 @@
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
-	qf($c);
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.8 2003/10/09 14:34:27 hackie Exp $
+* $Id: th_adm.inc.t,v 1.9 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,7 +52,7 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 	while ($r = db_rowarr($c)) {
 		$p[] = $r[0];
 	}
-	qf($c);
+	unset($c);
 	if (isset($p)) {
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$to_forum.' WHERE id IN('.implode(',', $p).')');
 	}
@@ -83,7 +83,7 @@ function rebuild_forum_view($forum_id, $page=0)
 	while ($tid = db_rowarr($r)) {
 		q("UPDATE {SQL_TABLE_PREFIX}thread SET orderexpiry=0, thread_opt=thread_opt & ~ (2|4) WHERE id=".$tid[0]);
 	}
-	qf($r);
+	unset($r);
 
 	if (__dbtype__ == 'pgsql') {
 		$tmp_tbl_name = "{SQL_TABLE_PREFIX}ftvt_".get_random_value();

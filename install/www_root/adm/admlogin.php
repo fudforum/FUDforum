@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.9 2003/10/09 14:34:32 hackie Exp $
+* $Id: admlogin.php,v 1.10 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -76,6 +76,5 @@
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
-	qf($c);
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.13 2003/10/09 14:34:26 hackie Exp $
+* $Id: qbud.php.t,v 1.14 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,7 +52,6 @@
 		$checked = $all ? ' checked' : '';
 		$buddies .= '{TEMPLATE: buddy_entry}';
 	}
-	qf($c);
 	$qbud_data = $buddies ? '{TEMPLATE: buddy_list}' : '{TEMPLATE: no_buddies}';
 
 /*{POST_PAGE_PHP_CODE}*/

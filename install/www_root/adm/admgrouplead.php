@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.23 2003/10/09 14:34:31 hackie Exp $
+* $Id: admgrouplead.php,v 1.24 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -36,7 +36,7 @@
 
 		$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
 		if (!db_count($c)) {
-			qf($c);
+			unset($c);
 			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%' LIMIT 50");
 		}
 		switch (($cnt = db_count($c))) {
@@ -63,11 +63,11 @@
 				while ($r = db_rowarr($c)) {
 					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&'._rsidl.'">'.$r[1].'</a></td></tr>';
 				}
-				qf($c);
+				unset($c);
 				echo '</table></body></html>';
 				exit;
 		}
-		qf($c);
+		unset($c);
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -90,7 +90,6 @@
 		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]
 		</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 </form>

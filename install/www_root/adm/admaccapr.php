@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.11 2003/10/09 14:34:31 hackie Exp $
+* $Id: admaccapr.php,v 1.12 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -66,7 +66,6 @@ function print_if_avail($descr, $value, $no_html=1)
 		'</td>
 		<td valign="top" style="border-bottom: 3px double black">[ <a href="admaccapr.php?apr='.$obj->id.'&'._rsidl.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&'._rsidl.'">Delete Account</a> ]</td></tr>';
 	}
-	qf($c);
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

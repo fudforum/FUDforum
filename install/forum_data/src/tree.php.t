@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.45 2003/10/15 17:13:24 hackie Exp $
+* $Id: tree.php.t,v 1.46 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -193,7 +193,6 @@
 			@$tree->kiddies[] = &$arr[$r->id];
 		}
 	}
-	qf($r);
 
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';

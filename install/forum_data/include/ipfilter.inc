@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipfilter.inc,v 1.3 2003/10/09 14:34:25 hackie Exp $
+* $Id: ipfilter.inc,v 1.4 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,7 +17,6 @@ function ip_cache_rebuild()
 	while ($r = db_rowarr($c)) {
 		$data .= '$GLOBALS[\'__FUD_IP_FILTER__\']['.$r[0].']['.$r[1].']['.$r[2].']['.$r[3].'] = 1;';
 	}
-	qf($c);
 	if (!$data) {
 		$data = '$GLOBALS[\'__FUD_IP_FILTER__\'] = array(); ';
 	}

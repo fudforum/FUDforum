@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.10 2003/10/16 15:28:52 hackie Exp $
+* $Id: post_common.inc.t,v 1.11 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,7 +18,6 @@ function draw_post_smiley_cntrl()
 		$r[0] = ($a = strpos($r[0], '~')) ? substr($r[0], 0, $a) : $r[0];
 		$data .= '{TEMPLATE: post_smiley_entry}';
 	}
-	qf($c);
 
 	return ($data ? '{TEMPLATE: post_smilies}' : '');
 }
@@ -68,7 +67,6 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 			$attached_files .= '{TEMPLATE: attached_file}';
 			$i++;
 		}
-		qf($c);
 	}
 
 	if ($i) {

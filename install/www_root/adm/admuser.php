@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.38 2003/10/09 14:34:32 hackie Exp $
+* $Id: admuser.php,v 1.39 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -224,19 +224,19 @@ administration permissions to the forum. This individual will be able to do anyt
 		switch (($cnt = db_count($c))) {
 			case 0:
 				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
-				qf($c);
+				unset($c);
 				break;
 			case 1:
 				list($usr_id) = db_rowarr($c);
 				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
-				qf($c);
+				unset($c);
 				break;
 			default:
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
 				while ($r = db_rowarr($c)) {
 					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'._rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
 				}
-				qf($c);
+				unset($c);
 				exit;
 				break;
 		}
@@ -309,7 +309,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	} else {
 		echo 'None<br>';
 	}
-	qf($c);
+	unset($c);
 ?>
 	<a name="mod_here"> </a>
 	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . _rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
@@ -319,7 +319,6 @@ administration permissions to the forum. This individual will be able to do anyt
 	while ($r = db_rowarr($c)) {
 		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . _rsidl . '">Delete</a>]<br>';
 	}
-	qf($c);
 ?>
 	<form name="extra_tags" action="admuser.php" method="post">
 	<?php echo _hs; ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.13 2003/10/09 14:34:32 hackie Exp $
+* $Id: admsmiley.php,v 1.14 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -182,7 +182,6 @@
 			<td nowrap>[<a href="admsmiley.php?edit='.$r->id.'&'._rsidl.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&'._rsidl.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&'._rsidl.'">Change Position</a>]</td>
 			</tr>';
 	}
-	qf($c);
 
 	if (isset($lp)) {
 		echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'._rsidl.'">Place Here</a></td></tr>';

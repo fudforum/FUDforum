@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.19 2003/10/09 14:34:26 hackie Exp $
+* $Id: polllist.php.t,v 1.20 2003/10/16 21:59:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -89,7 +89,6 @@
 			}
 			$poll_entries .= '{TEMPLATE: poll_entry}';
 		}
-		qf($c);
 
 		if ($ttl > $POLLS_PER_PAGE) {
 			if ($FUD_OPT_2 & 32768) {

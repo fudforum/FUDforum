@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.18 2003/10/09 14:34:32 hackie Exp $
+* $Id: admprune.php,v 1.19 2003/10/16 21:59:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,7 +31,6 @@
 			while ($r = db_rowarr($c)) {
 				$l[] = $r[0];
 			}
-			qf($c);
 			if ($lmt = implode(',', $l)) {
 				$lmt = ' AND forum_id IN('.$lmt.') ';
 			}
@@ -74,7 +73,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 				fud_msg_edit::delete(false, $r[0], 1);
 				$frm_list[$r[1]] = $r[1];
 			}
-			qf($r);
+			unset($r);
 			foreach ($frm_list as $v) {
 				rebuild_forum_view($v);
 			}
@@ -108,7 +107,6 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			}
 			echo '<option value="'.$r[0].'">&nbsp;&nbsp;-&nbsp;'.$r[1].'</option>';
 		}
-		qf($r);
 		echo '</select>';
 	?>
 </tr>
