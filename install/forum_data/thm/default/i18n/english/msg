@@ -125,8 +125,8 @@ reported_messages:		Reported Messages
 reveal_all_posts:		reveal all posts by {VAR: user_login}
 reveal_post:			reveal post
 search:				Search
-sel_todays_posts:		Today\'s Posts
-sel_todays_posts_desc:		Toggle today\'s posts filter (will only show posts made today)
+sel_todays_posts:		Today&#39;s Posts
+sel_todays_posts_desc:		Toggle today&#39;s posts filter (will only show posts made today)
 sel_unanswered_posts:		Unanswered Posts
 sel_unanswered_posts_desc:	Toggle the un-answered posts filter (will show only posts that have no replies)
 sel_unread_messages:		Unread Messages
@@ -204,7 +204,7 @@ modque_no_message:		There are no messages pending approval
 pmsg_new_messages:		Unread private message
 pmsg_old_messages:		Read private message
 deny_recipt:			deny receipt
-deny_recipt_desc:		Do not send a confirmation that you\'ve read this message
+deny_recipt_desc:		Do not send a confirmation that you&#39;ve read this message
 restore_to:			Restore To:
 move_to:			Move To:
 list_referes_referrals:		Referrals
@@ -468,8 +468,8 @@ move_thread_to:			Move topic <b>{VAR: thr->subject}</b> to:
 remail_email_topic:		Email This Topic To A Friend
 remail_your_name:		Your Name:
 remail_your_email:		Your Email:
-remail_friends_name:		Friend\'s Name:
-remail_friends_email:		Friend\'s Email:
+remail_friends_name:		Friend&#39;s Name:
+remail_friends_email:		Friend&#39;s Email:
 remail_required:		required
 remail_subject:			Subject:
 remail_message:			Message:
@@ -548,13 +548,13 @@ usrinfo_profile:		{VAR: u->alias}&#39;s Profile
 usrinfo_show_all_posts:		Show all posts by {VAR: u->alias}
 actions_update:			Snooping on other people, just like you
 err_info:			Info
-buddy_list_err_cantadd:		Can\'t add your self to the buddy list
+buddy_list_err_cantadd:		Can&#39;t add your self to the buddy list
 buddy_list_err_dup:		You already have this user on your buddy list
-buddy_list_err_nouser:		The user you\'ve tried to add to your buddy list was not found on the forum.
+buddy_list_err_nouser:		The user you&#39;ve tried to add to your buddy list was not found on the forum.
 buddy_list_err_nouser_title:	Unable to add user
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
-core_err_invinp_err:		You\'ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
 core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
@@ -579,17 +579,17 @@ iemail_frm_subject:		New topic in forum {VAR: frm_name} called {VAR: thr_subject
 iemail_frm_bodyemail:		To view the topic goto:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
 iemail_frm_bodyicq:		To view the topic goto:\n{VAR: goto_url['icq']}\n\nTo stop receiving notifications about new topics in this forum, please go here:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	You can\'t ignore this user
+ignore_list_err_noign_msg:	You can&#39;t ignore this user
 ignore_list_err_dup_msg:	You already have this user on your ignore list
 ignore_list_err_nu_title:	User not found
-ignore_list_err_nu_msg:		The user you\'ve tried to add to your ignore list was not found on the forum.
-ignore_list_cantign_msg:	You can\'t ignore this user
+ignore_list_err_nu_msg:		The user you&#39;ve tried to add to your ignore list was not found on the forum.
+ignore_list_cantign_msg:	You can&#39;t ignore this user
 ignore_list_update:		Browsing own ignore list
 index_update:			Browsing the <a href="{ROOT}?t=index" class="GenLink">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Login Form
 msg_err_onlyreg_title:		Only registered users may view this forum
-msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
+msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
 msg_err_ininfo_title:		Insufficient Information
 msg_err_ininfo_msg:		There was a problem generating this page
 msg_update:			Browsing topic <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
@@ -597,27 +597,27 @@ pm_err_nopm_title:		ERROR: Private Messaging Disabled
 pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
 pm_update:			Using private messaging
 post_err_notallowed_title:	Permission Denied
-post_err_notallowed_msg:	You aren\'t allowed to post
+post_err_notallowed_msg:	You aren&#39;t allowed to post
 post_err_lockedthread_title:	ERROR: Locked Topic
 post_err_lockedthread_msg:	This topic is locked, no more posting allowed
 err_coppa_title:		ERROR: Your account is not yet confirmed
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
-err_blockedaccnt_title:		ERROR: you aren\'t allowed to post
+err_blockedaccnt_title:		ERROR: you aren&#39;t allowed to post
 err_blockedaccnt_msg:		Your account has been blocked from posting
 post_err_notowner_title:	ERROR
 post_err_notowner_msg:		You are not the owner of this message
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
 post_err_noannontopics_title:	ERROR: Insufficient Privileges
-post_err_noannontopics_msg:	Anonymous users aren\'t allowed to create topics<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
+post_err_noannontopics_msg:	Anonymous users aren&#39;t allowed to create topics<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
 post_err_noannonposts_title:	ERROR: Insufficient Privileges
-post_err_noannonposts_msg:	Anonymous users aren\'t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
+post_err_noannonposts_msg:	Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	ERROR: Post flood triggered.
 post_err_floodtrig_msg:		Please try again in {VAR: tm} seconds
 post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</font><br>
-post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn\'t match the allowed file types.</font><br>
+post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn&#39;t match the allowed file types.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
@@ -626,7 +626,7 @@ post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=threa
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
-postcheck_not_allowed_file:	This file type isn\'t allowed
+postcheck_not_allowed_file:	This file type isn&#39;t allowed
 postcheck_no_such_user:		There is no user named "{VAR-HTML: v}" this forum
 postcheck_ignored:		You cannot send a private message to "{VAR-HTML: v}", because this person is ignoring you.
 postcheck_no_recepient:		Cannot send a message, missing recipient
@@ -660,7 +660,7 @@ register_register_update:	Registration Page
 report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	No Such Message
 report_err_cantreport_title:	ERROR
-report_err_cantreport_msg:	You aren\'t allowed to report to moderator
+report_err_cantreport_msg:	You aren&#39;t allowed to report to moderator
 reset_err_invalidkey_title:	ERROR
 reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Information
@@ -669,16 +669,16 @@ reset_newpass_title:		Reset Password
 reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: parr['usr']->login}\nPassword: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{ROOT}?t=register\n\n
 reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login
 search_update:			Searching posts
-selmsg_update:			Browsing <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Today\'s Posts</a>
+selmsg_update:			Browsing <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Today&#39;s Posts</a>
 showposts_update:		Viewing posts by: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
-th_err_invid_msg:		You\'ve followed an invalid link, the topic you are trying to view does not exist.
+th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
 thread_err_onlyregview_title:	Only registered users may view this forum
-thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
+thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
 thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}\'s</a> profile
+userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}&#39;s</a> profile
 ERR_login_ttl:			ERROR: You are not logged in			
 ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}">login form</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -815,7 +815,7 @@ thread_mod_delete:		Delete
 action_latest_post:		Last Post
 online_today_last_visit:	Last Visited
 online_today_update:		Viewing the list of people who were on the forum today.
-logedin_todays_visitors:	Today\'s Visitors
+logedin_todays_visitors:	Today&#39;s Visitors
 logedin_latest_post:		Last post on the forum: 
 register_show_avatar:		Show Avatars:
 register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages
@@ -843,7 +843,7 @@ maximize_category:		Maximize Category
 no_view_perm:			You do not have appropriate permissions needed to see this topic.
 report_empty_report:		You cannot send an empty report, please enter a reason for your report.
 report_already_reported_title:	Already Reported	
-report_already_reported_msg:	This message was already reported and the report is currently in moderation staff\'s review queue.
+report_already_reported_msg:	This message was already reported and the report is currently in moderation staff&#39;s review queue.
 register_err_toomanyimages:	You are trying to use more then the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
 pmsg_next_msg:			Next message
 pmsg_prev_msg:			Previous message

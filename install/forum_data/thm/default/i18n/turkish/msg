@@ -19,7 +19,7 @@ date_registered:		Kayýt Tarihi:
 download_counter:		{VAR: a_obj->dlcount} kez indirildi.
 email:				E-mektup:
 email_to_friend:		Arkadaþýnýza gönderin 
-email_to_friend_desc:		Bu sayfanýn URL\'sini arkadaþýnýza gönderin 
+email_to_friend_desc:		Bu sayfanýn URL&#39;sini arkadaþýnýza gönderin 
 email_user:			Kullanýcýya mektup atmak için buraya týklayýn.
 faq:				S.S.S.
 first_unread_msg:		Okunmayan iletilere git.
@@ -287,7 +287,7 @@ register_del_avatar:		Avatarý Sil
 register_avatar:		Avatar:
 register_sel_avatar:		Avatar Seçimi
 register_custom_avatar_rules:	Özel avatar yönetici tarafýndan onaylanýncaya dek görünmeyecek.<br><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalý ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalý.</font>
-register_custom_avatar_url:	Özel Avatar URL\'si:
+register_custom_avatar_url:	Özel Avatar URL&#39;si:
 register_preview:		Önizleme
 register_custom_avatar_upload:	Özel Avatar Dosyasý:
 register_register:		Kayýt Ol
@@ -332,7 +332,7 @@ register_show_email_desc:	E-mektup adresinizin herkese açýk þekilde görüntülenme
 register_notification:		Varsayýlan olarak uyarý gönderilsin:
 register_notification_desc:	Uyarý almayý varsayýlan olarak seçseniz bile, ileti gönderirken kapatabilirsiniz.
 register_notify_method:		Uyarý yöntemini seç:
-register_notify_method_desc:	Eðer ICQ yoluyla uyarýyý seçerseniz, lütfen ICQ ayarlarýnýzda \'EmailExpress\' seçeneðinin açýk olduðundan emin olun.
+register_notify_method_desc:	Eðer ICQ yoluyla uyarýyý seçerseniz, lütfen ICQ ayarlarýnýzda &#39;EmailExpress&#39; seçeneðinin açýk olduðundan emin olun.
 register_notify_js_error:	ICQ yoluyla uyarý yöntemini seçtiniz, fakat bir ICQ numarasý belirtmediniz. Þu durumda e-mektup yöntemini seçtiðiniz varsayýlýyor&#46;
 register_allow_email_msg:	E-mektup iletilerine izin ver:
 register_allow_email_msg_desc:	Diðer kullanýcýlarýn forum yoluyla size e-mektup atabilmelerinize izin verin.
@@ -566,7 +566,7 @@ email_error_invalidaddress:	Geçersiz e-mektup adresi.
 email_error_namerequired:	Ýsim bölümü zorunludur.
 email_error_invaliduser:	Geçersiz kullanýcý
 emailconf_err_invkey_title:	Hata
-emailconf_err_invkey_msg:	Geçersiz doðrulama anahtarý. Lütfen gönderilen e-mektubu gözden geçirerek doðru URL\'ye gittiðinizden emin olun.
+emailconf_err_invkey_msg:	Geçersiz doðrulama anahtarý. Lütfen gönderilen e-mektubu gözden geçirerek doðru URL&#39;ye gittiðinizden emin olun.
 err_inc_criticaltitle:		KRÝTÝK HATA
 err_inc_criticalmsg:		Bir hata oluþtu, fakat ne yazýk ki hata bildirim sisteminde de bir sorun var.
 finduser_update:		Kullanýcýlarý arýyor
@@ -671,7 +671,7 @@ search_update:			Ýletileri arýyor
 selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
 showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a> tarafýndan gönderilen iletileri görüntülüyor.
 subscribed_update:		Üyeliklerini dolaþýyor
-th_err_invid_title:		Geçersiz zincir ID\'si.
+th_err_invid_title:		Geçersiz zincir ID&#39;si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalýþtýðýnýz zincir yok.
 thread_err_onlyregview_title:	Sadece kayýtlý kullanýcýlar bu forumu görüntüleyebilir.
 thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, kayýt olduysanýz <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
@@ -697,7 +697,7 @@ ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		HATA: Sistem Hatasý
-ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster\'a</a> bildirin.
+ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster&#39;a</a> bildirin.
 ERR_systemerr_url:		{GVAR: returnto_d}
 email_title:			E-mektup formu
 finduser_title:			Kullanýcý bul
@@ -728,7 +728,7 @@ post_opt:			Forum Seçenekleri
 register_change_passwd:		parola deðiþtir
 install_script_present_error:	Güvenlik nedenleriyle, <b>{GVAR: WWW_ROOT_DISK}install.php</b> adresinde bulunan kurulum betiðini kaldýrmalýsýnýz. Aksi takdirde forumu kullanmaya baþlayamazsýnýz.
 approved_avatar_title:		Özel avatarýnýz onaylandý.
-approved_avatar_msg:		Özel avatarýnýz yönetici tarafýndan onaylandý. Bundan sonra tüm iletilerinizde avatarýnýz olarak görünmesi gerekiyor. Göremiyorsanýz, ya da eski avatarýnýz görüyorsanýz, tarayýcýnýz sayfayý cache\'e attýðý için olabilir. Sayfayý bir iki kez yenilemeyi deneyin, çoðunlukla bu sorunu giderecektir.
+approved_avatar_msg:		Özel avatarýnýz yönetici tarafýndan onaylandý. Bundan sonra tüm iletilerinizde avatarýnýz olarak görünmesi gerekiyor. Göremiyorsanýz, ya da eski avatarýnýz görüyorsanýz, tarayýcýnýz sayfayý cache&#39;e attýðý için olabilir. Sayfayý bir iki kez yenilemeyi deneyin, çoðunlukla bu sorunu giderecektir.
 unapproved_avatar_title:	Özel avatarýnýz reddedildi.
 unapproved_avatar_msg:		Özel avatarýnýz yönetici tarafýndan onaylanmadý. Çoðunlukla bu avatarýnýz çok büyük olduðu (dosya veya resim boyutu) veya uygun olmayan bir konu içerdiði içindir. Avatarýnýzýn neden kabul edilmediði hakkýnda daha fazla bilgi edinmek isterseniz, yöneticiyle iletiþime geçin.
 mvthread_request_move:		taþýma isteðinde bulun
@@ -782,7 +782,7 @@ p_SPLIT:			Zinciri Böl
 p_LOCK:				Zinciri Kilitle
 p_MOVE:				Zinciri Taþý
 p_SML:				Gülücük kullan
-p_IMG:				Resim tag\'lerini kullan
+p_IMG:				Resim tag&#39;lerini kullan
 group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Kullanýcý bul</a>
 group_mgr_indicator:		Þu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
