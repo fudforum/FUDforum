@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.tmpl,v 1.9 2004/04/13 21:24:04 hackie Exp $
+* $Id: minimsg.tmpl,v 1.10 2004/04/23 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,10 +18,10 @@
 
 {MAIN_SECTION: minimsg_form list of messages in the thread you're replying to}
 <br /><br />
-<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<table cellspacing=0 cellpadding=3 class="wa dashed">
 <tr><td class="miniMH">{MSG: minimsg_thread_view}</td></tr>
 <tr><td>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: message_data}
 </table>
 </td></tr>
@@ -32,7 +32,7 @@
 
 {MAIN_SECTION: minimsg_hidden display list of message in the thread you're replying to link}
 <br /><br />
-<table border=0 cellspacing=0 cellpadding=3 class="dashed wa">
+<table cellspacing=0 cellpadding=3 class="dashed wa">
 <tr><td class="ac">[<a href="javascript: document.post_form.submit();">Reveal Thread</a>]</td></tr>
 </table>
 <input type="hidden" name="minimsg_pager_switch" value="{VAR: start}">

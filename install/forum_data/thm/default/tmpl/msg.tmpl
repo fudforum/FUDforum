@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.38 2004/04/21 21:17:45 hackie Exp $
+* $Id: msg.tmpl,v 1.39 2004/04/23 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -99,21 +99,21 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
-<table cellspacing=0 cellpadding=0 border=0 width="100%">
+<table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
 <td class="vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
-<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
+<table border=0 cellspacing=0 cellpadding=0 class="wa">
 <tr>
 <td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
 <td class="GenText ar vb nw">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
 </table>
 
-<table border=0 cellspacing=1 cellpadding=1 align="right">
+<table border=0 cellspacing=1 cellpadding=1 class="ar">
 {TEMPLATE-DATA: prev_thread_link}
 {TEMPLATE-DATA: next_thread_link}
 </table>

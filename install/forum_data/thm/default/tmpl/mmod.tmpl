@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.tmpl,v 1.14 2004/04/05 18:30:17 hackie Exp $
+* $Id: mmod.tmpl,v 1.15 2004/04/23 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,10 +25,10 @@
 {PAGE: delete_confirm_pg delete confirmation message}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th>{MSG: mmod_delete_cofirm_ttl}</th></tr>
-<tr class="RowStyleA" align="center"><td class="GenText">
+<tr class="RowStyleA ac"><td class="GenText">
 <form method="post" action="{TEMPLATE: delete_confirm_pg_lnk3}">
 <input type="hidden" name="del" value="{VAR: del}">
 <input type="hidden" name="confirm" value="1">

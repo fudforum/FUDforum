@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.tmpl,v 1.4 2004/01/04 16:38:28 hackie Exp $
+* $Id: merge_th.tmpl,v 1.5 2004/04/23 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,25 +29,25 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <form name="merge_th" action="{TEMPLATE: MERGE_TH_PAGE_lnk3}" method="post">{DEF: _hs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%" colspan=2>{MSG: merge_topics_cp}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th class="wa" colspan=2>{MSG: merge_topics_cp}</th></tr>
 <tr class="RowStyleA">
-	<td align="left"><b>{MSG: split_th_new_thread_title}</b></td>
-	<td ><input type="text" name="new_title" value="" size=50></td>
+	<td class="al"><b>{MSG: split_th_new_thread_title}</b></td>
+	<td><input type="text" name="new_title" value="" size=50></td>
 </tr>
 <tr class="RowStyleA">
-	<td align="left"><b>{MSG: split_th_forum}</b></td>
-	<td align="left"><select name="forum">{VAR: forum_sel}</select></td>
+	<td class="al fb">{MSG: split_th_forum}</td>
+	<td class="al"><select name="forum">{VAR: forum_sel}</select></td>
 </tr>
 <tr class="RowStyleC">
-	<td colspan=2 align="center">
+	<td colspan=2 class="ac">
 		<table border="0" cellspacing="1" cellpadding="2">
-			<tr><td colspan=3 align="center">{MSG: merge_topics_tpl}</td></tr>
-			<tr><td colspan=3 align="center"><select name="sel_th[]" size=10 multiple>{VAR: thread_sel}</select></td></tr>
+			<tr><td colspan=3 class="ac">{MSG: merge_topics_tpl}</td></tr>
+			<tr><td colspan=3 class="ac"><select name="sel_th[]" size=10 multiple>{VAR: thread_sel}</select></td></tr>
 			<tr> 
-				<td align="left" width="100"><input type="submit" name="prev" value="{MSG: merge_prev}"></td>
-				<td align="center" width"200"><input type="submit" name="merge" value="{MSG: merge_merge}"></td>
-				<td align="right" width="100"><input type="submit" name="next" value="{MSG: merge_next}"></td>
+				<td class="al" width="100"><input type="submit" name="prev" value="{MSG: merge_prev}"></td>
+				<td class="ac" width="200"><input type="submit" name="merge" value="{MSG: merge_merge}"></td>
+				<td class="ar" width="100"><input type="submit" name="next" value="{MSG: merge_next}"></td>
 			</tr>
 		</table>
 	</td>

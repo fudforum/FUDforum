@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.11 2004/04/23 14:11:02 hackie Exp $
+* $Id: mnav.tmpl,v 1.12 2004/04/23 19:56:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,22 +31,22 @@
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 
 <form name="mnav" method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=4 width="100%">{MSG: mnav_description}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=4 class="wa">{MSG: mnav_description}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
-	<td class="GenText" width="30%" nowrap>{MSG: mnav_date_limit}</td>
-	<td class="GenText"><font class="SmallText">{MSG: mnav_newer}<br /></font><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11"></td>
-	<td class="GenText"><font class="SmallText">{MSG: mnav_older}<br /></font><input tabindex="2" type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11"></td>
-	<td align="left" valign="bottom" width="60%"><select name="u" tabindex="3">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
+	<td class="GenText nw" width="30%">{MSG: mnav_date_limit}</td>
+	<td class="GenText SmallText">{MSG: mnav_newer}<br /><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11"></td>
+	<td class="GenText SmallText">{MSG: mnav_older}<br /><input tabindex="2" type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11"></td>
+	<td class="al vb" width="60%"><select name="u" tabindex="3">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
-	<td class="GenText" nowrap>{MSG: mnav_forum_limit}</td>
-	<td colspan=3 valign="top">
+	<td class="GenText nw">{MSG: mnav_forum_limit}</td>
+	<td colspan=3 class="vt">
 		<select name="forum_limiter" tabindex="4"><option value="">{MSG: mnav_all_forums}</option>
 		{TEMPLATE-DATA: forum_limit_data}
 		</select>
 	</td>
 </tr>
-<tr class="RowStyleC"><td class="GenText" align="right" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
+<tr class="RowStyleC"><td class="GenText ar" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
 </table></form>
 <script>
 <!--
@@ -63,8 +63,8 @@ document.mnav.rng.focus();
 
 {SECTION: mnav_no_range invalid date range}
 <br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_no_range}</td>
 </tr>
@@ -74,8 +74,8 @@ document.mnav.rng.focus();
 
 {SECTION: mnav_invalid_unit invalid date unit}
 <br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_invalid_unit}</td>
 </tr>
@@ -85,8 +85,8 @@ document.mnav.rng.focus();
 
 {SECTION: mnav_invalid_date date range exceed allowed limit}
 <br />
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_invalid_date}</td>
 </tr>
@@ -95,12 +95,12 @@ document.mnav.rng.focus();
 {SECTION: END}
 
 {SECTION: mnav_no_results no results}
-<div align="center" class="GenText" class="manvNoRes">{MSG: mnav_no_results}</div>
+<div align="center" class="GenText manvNoRes">{MSG: mnav_no_results}</div>
 {SECTION: END}
 
 {SECTION: mnav_begin_results begin results header}
-<div align="center">
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<div class="ctb">
+<table cellspacing="0" cellpadding="0" class="ContentTable">
 {SECTION: END}
 
 {SECTION: mnav_end_results}
@@ -135,13 +135,13 @@ document.mnav.rng.focus();
 {SECTION: mnav_msg}
 <tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
 <table cellspacing=0 cellpadding=2 border=0 class="mnavMsg">
-<tr class="mnavH">
-	<td align="left" class="SmallText"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
-	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
-	<td align="right" class="SmallText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
+<tr class="mnavH SmallText">
+	<td class="nw al"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
+	<td class="wa ac">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
+	<td class="nw ar">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
 </tr>
-<tr class="mnavM">
-	<td colspan="3" class="SmallText">{VAR: body} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
+<tr class="mnavM SmallText">
+	<td colspan="3">{VAR: body} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
 </tr>
 </table>
 </td></tr>
