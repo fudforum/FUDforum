@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.70 2003/11/14 10:50:18 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.71 2003/11/18 16:19:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,58 +87,27 @@ if ($GLOBALS['FUD_OPT_2'] & 32768) {
 
 function make_tmp_unignore_lnk($id)
 {
-	if ($GLOBALS['FUD_OPT_2'] & 32768) {
-		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
-		$p[3] = $_GET['start'];
-		if (empty($_GET['reveal'])) {
-			if ($p[4] === 'prevloaded') {
-				$p[6] = $id;
-			} else {
-				$p[5] = $id;
-			}
-		} else {
-			if ($p[4] === 'prevloaded') {
-				$p[6] = unignore_tmp . ':' . $id;
-			} else {
-				$p[5] = unignore_tmp . ':' . $id;
-			}
-		}
-		return '/' . implode('/', $p) . '/';
+	if ($GLOBALS['FUD_OPT_2'] & 32768 && strpos($_SERVER['QUERY_STRING_ENC'], '?') === false) {
+		$_SERVER['QUERY_STRING_ENC'] .= '?1=1';
+	}
+
+	if (!isset($_GET['reveal'])) {
+		return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
 	} else {
-		if (!isset($_GET['reveal'])) {
-			return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
-		} else {
-			return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
-		}
+		return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 
 function make_reveal_link($id)
 {
-	if ($GLOBALS['FUD_OPT_2'] & 32768) {
-		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
-		$p[3] = $_GET['start'];
+	if ($GLOBALS['FUD_OPT_2'] & 32768 && strpos($_SERVER['QUERY_STRING_ENC'], '?') === false) {
+		$_SERVER['QUERY_STRING_ENC'] .= '?1=1';
+	}
 
-		if (!isset($GLOBALS['__FMDSP__'])) {
-			if ($p[4] === 'prevloaded') {
-				$p[5] = $id;
-			} else {
-				$p[4] = $id;
-			}
-		} else {
-			if ($p[4] === 'prevloaded') {
-				$p[5] = reveal_lnk . $id;
-			} else {
-				$p[4] = reveal_lnk . $id;
-			}
-		}
-		return '/' . implode('/', $p) . '/';
+	if (!isset($GLOBALS['__FMDSP__'])) {
+		return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
 	} else {
-		if (!isset($GLOBALS['__FMDSP__'])) {
-			return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
-		} else {
-			return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
-		}
+		return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
 	}
 }
 

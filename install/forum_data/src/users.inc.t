@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.89 2003/11/14 11:11:51 hackie Exp $
+* $Id: users.inc.t,v 1.90 2003/11/18 16:19:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@ function init_user()
 		if ($o2 & 8192) {
 			$_GET['rid'] = array_pop($p);
 		}
-		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'];
+		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'] . '?' . $_SERVER['QUERY_STRING'];
 	}
 
 	header("Expires: Mon, 21 Jan 1980 06:01:01 GMT");
@@ -144,7 +144,7 @@ function init_user()
 					$_GET['th'] = $p[1];
 					if (isset($p[2])) {
 						$_GET['start'] = $p[2];
-						if (isset($p[3])) {
+						if (!empty($p[3])) {
 							$_GET[$p[3]] = 1;
 						}
 					}
