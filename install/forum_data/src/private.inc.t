@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: private.inc.t,v 1.4 2002/07/07 21:09:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,6 +22,7 @@ class fud_pmsg
 	var $to_list='';
 	var $ouser_id='';
 	var $duser_id='';
+	var $pdest='';
 	var $ip_addr='';
 	var $host_name='';
 	var $post_stamp='';
@@ -44,7 +45,7 @@ class fud_pmsg
 	
 	function add($track='')
 	{
-		if ( db_locked() ) {
+		if ( !db_locked() ) {
 			$ll = 1;
 			db_lock("{SQL_TABLE_PREFIX}pmsg+");
 		}
@@ -59,6 +60,7 @@ class fud_pmsg
 		$r = q("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 			ouser_id,
 			duser_id,
+			pdest,
 			to_list,
 			ip_addr,
 			host_name,
@@ -77,6 +79,7 @@ class fud_pmsg
 			VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
+				".INTZERO($GLOBALS['recv_user_id'][0]).",
 				".strnull($this->to_list).",
 				".ifnull($this->ip_addr, "'0.0.0.0'").",
 				".strnull($this->host_name).",

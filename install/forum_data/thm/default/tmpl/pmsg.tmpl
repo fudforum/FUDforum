@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.2 2002/07/07 21:09:30 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -107,7 +107,7 @@
 <tr>
 	<th>&nbsp;</th>
 	<th width="100%">{MSG: pmsg_subject}</th>
-	<th align="center">{MSG: pmsg_author}</th>
+	<th align="center">{TEMPLATE-DATA: author_dest_col}</th>
 	<th align="center">{MSG: pmsg_time}</th>
 	<th align="center">{MSG: action}</th>
 	<th nowrap>{MSG: pmsg_selected} [<a href="{ROOT}?t=pmsg&folder_id={VAR: folder_id}&{DEF: _rsid}&all={VAR: all_v}" class="th_lnk">{VAR: desc}</a>]</th>
@@ -196,4 +196,12 @@
 
 {SECTION: full_full_indicator full indicator, the user has reached or surpassed the limit}
 <td bgcolor="#FF0000"><img src="blank.gif" width={VAR: full_indicator} height="8"></td>
+{SECTION: END}
+
+{SECTION: pmsg_author}
+{MSG: pmsg_author}
+{SECTION: END}
+
+{SECTION: pmsg_recepient}
+{MSG: pmsg_recepient}
 {SECTION: END}
