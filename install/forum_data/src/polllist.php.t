@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.24 2004/05/18 18:33:14 hackie Exp $
+* $Id: polllist.php.t,v 1.25 2004/05/27 16:26:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,6 +85,7 @@
 				WHERE '.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));	
 	}
 
+	$pager = '';
 	if ($ttl > $POLLS_PER_PAGE) {
 		if ($FUD_OPT_2 & 32768) {
 			$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);
@@ -93,7 +94,6 @@
 		}
 	} else if (!$ttl) {
 		$poll_entries = '{TEMPLATE: poll_no_polls}';
-		$pager = '';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
