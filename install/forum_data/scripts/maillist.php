@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.40 2004/03/09 19:37:35 hackie Exp $
+* $Id: maillist.php,v 1.41 2004/03/19 21:40:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -406,6 +406,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	} else {
 		$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
 	}
+
+	$msg_post->body = $emsg->body;
 
 	/* for anonymous users prefix 'contact' link */
 	if (!$msg_post->poster_id) {

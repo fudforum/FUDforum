@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.44 2004/03/09 19:37:35 hackie Exp $
+* $Id: nntp.inc,v 1.45 2004/03/19 21:40:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -384,6 +384,7 @@ class fud_nntp
 
 			$msg_post->subject = apply_custom_replace($this->subject);
 			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
+			$msg_post->body = $this->body;
 
 			/* for anonymous users prefix 'contact' link */
 			if (!$msg_post->poster_id) {
