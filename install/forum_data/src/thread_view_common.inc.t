@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.45 2004/11/30 16:31:39 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.46 2004/12/21 16:15:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,18 +40,13 @@ if (!isset($_GET['start']) || ($start = (int)$_GET['start']) < 1) {
 
 make_perms_query($fields, $join, $frm_id);
 
-$frm = db_sab('SELECT
-			f.id, f.name, f.thread_count, f.cat_id,
-			fn.forum_id AS subscribed,
-			m.forum_id AS md,
-			a.ann_id AS is_ann,
-			ms.post_stamp,
-			'.$fields.'
+$frm = db_sab('SELECT	f.id, f.name, f.thread_count, f.cat_id,'.
+			(_uid ? ' fn.forum_id AS subscribed, m.forum_id AS md, ' : ' 0 AS subscribed, 0 AS md, ').
+			'a.ann_id AS is_ann, ms.post_stamp, '.$fields.'
 		FROM {SQL_TABLE_PREFIX}forum f
-		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-		LEFT JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.user_id='._uid.' AND fn.forum_id='.$frm_id.'
-		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id.'
-		'.$join.'
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id '.
+		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.user_id='._uid.' AND fn.forum_id='.$frm_id.' LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id : ' ')
+		.$join.'
 		LEFT JOIN {SQL_TABLE_PREFIX}ann_forums a ON a.forum_id='.$frm_id.'
 		LEFT JOIN {SQL_TABLE_PREFIX}msg ms ON ms.id=f.last_post_id
 		WHERE f.id='.$frm_id.' LIMIT 1');
