@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.84 2003/09/30 04:10:53 hackie Exp $
+*   $Id: register.php.t,v 1.85 2003/09/30 13:39:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -158,7 +158,7 @@ function register_form_check($user_id)
 	}
 	
 	/* Alias Check */
-	if ($FUD_OPT_2 & 128 && isset($_POST['reg_alias'])) {
+	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
 		if (($_POST['reg_alias'] = trim($_POST['reg_alias']))) {
 			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
 				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
