@@ -877,3 +877,13 @@ register_alias_desc:		If you want a nick name other then your login to be displa
 register_allow_pm_msg:		Allow Private Messages	
 register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
 postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
+polllist_vote:			Vote
+polllist_view_results:		View Results
+polllist_name:			Poll Name
+polllist_date:			Created On
+polllist_owner:			Created By
+polllist_votes:			Total Votes
+polllist_action:		Action
+polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
+userinfo_polls:			Polls:
+show_pollist:			Show Polls
