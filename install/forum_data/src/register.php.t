@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.96 2003/11/05 13:58:53 hackie Exp $
+* $Id: register.php.t,v 1.97 2003/11/05 15:57:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -408,6 +408,11 @@ function decode_uent(&$uent)
 			/* handle coppa passed to us by pre_reg form */
 			if (!(int)$_POST['reg_coppa']) {
 				$uent->users_opt ^= 262144;
+			}
+
+			/* make the account un-validated, if admin wants to approve accounts manually */
+			if ($FUD_OPT_2 & 1024) {
+				$uent->users_opt |= 2097152;
 			}
 
 			$uent->add_user();
