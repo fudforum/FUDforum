@@ -1,4 +1,4 @@
-<?
+<?php
 	$cn = pg_connect("user=pgsql dbname=pgsql");
 	$r = pg_query($cn, "select relname from pg_class WHERE relkind='S'");
 	while ( $obj = pg_fetch_object($r) ) {

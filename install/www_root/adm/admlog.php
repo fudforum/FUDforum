@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admlog.php,v 1.9 2002/09/08 02:25:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,10 +40,10 @@
 	include('admpanel.php'); 
 ?>
 <h2>Admin Log</h2>
-<a href="admlog.php?clear=1&<? echo _rsid; ?>">Clear Log</a>
+<a href="admlog.php?clear=1&<?php echo _rsid; ?>">Clear Log</a>
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
-<?
+<?php
 	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias, ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.* FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY logtime DESC");
 	
 	while ( $obj = db_rowobj($r) ) {

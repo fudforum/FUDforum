@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.6 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admthemesel.php,v 1.7 2002/09/08 02:25:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,7 @@
 	closedir($dp);
 ?>
 </tr>
-<?
+<?php
 	echo '<tr bgcolor="#bff8ff" align=right><td colspan=2><input type="submit" name="btn_submit" value="Edit"></td></td>';
 ?>
 </tr>

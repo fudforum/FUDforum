@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.14 2002/08/09 10:18:58 hackie Exp $
+*   $Id: admthemes.php,v 1.15 2002/09/08 02:25:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,7 +151,7 @@ function cleandir($dir)
 	<td valign=top>Template Set:</td>
 	<td>
 	<select name="thm_theme">
-	<?
+	<?php
 		$oldpwd = getcwd();
 		chdir($DATA_DIR.'/thm');
 		$dp = opendir('.');
@@ -169,7 +169,7 @@ function cleandir($dir)
 <tr bgcolor="#bff8ff">
 	<td>Language</td>
 	<td>
-	<?
+	<?php
 		$oldpwd = getcwd();
 		chdir($DATA_DIR.'/thm/default/i18n');
 		$dp = opendir('.');
@@ -272,7 +272,7 @@ function update_locale()
 	<td>Action</td>
 </tr>
 	
-<?
+<?php
 	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
 		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';

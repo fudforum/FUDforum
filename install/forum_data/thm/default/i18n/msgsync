@@ -1,5 +1,5 @@
 #!/usr/local/bin/php -q
-<?
+<?php
 	$fp = fopen('english/msg', 'rb');
 	while ( $str = fgets($fp, 4096) ) {
 		if ( !trim($str) ) continue;
