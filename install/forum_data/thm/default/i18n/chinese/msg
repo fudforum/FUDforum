@@ -924,3 +924,5 @@ saved:				珍藏夹
 register_err_time_limit:	每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册.
 login_blocked_account_ttl:	您的账号已经被封掉.	
 login_blocked_account_msg:	您的账号已经被封掉, 如果您不知道原因，请联系系统管理员，或者版主.
+register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
+im_affero:			Affero Username
