@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.75 2003/09/28 17:23:43 hackie Exp $
+*   $Id: post.php.t,v 1.76 2003/09/28 19:19:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -558,7 +558,7 @@ function flood_check()
 			if (!isset($thr)) {
 				$thr_ordertype = $thr_orderexpiry = '';
 			} else {
-				$thr_ordertype = $thr->ordertype ^ 1;
+				$thr_ordertype = ($thr->thread_opt|1) ^ 1;
 				$thr_orderexpiry = $thr->orderexpiry;
 			}
 		} else {

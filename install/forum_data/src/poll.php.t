@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.12 2003/09/26 18:49:03 hackie Exp $
+*   $Id: poll.php.t,v 1.13 2003/09/28 19:19:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@
 	} else {
 		invl_inp_err();
 	}
-	
+
 	if (isset($_GET['pl_id'])) {
 		$pl_id = (int) $_GET['pl_id'];
 	} else if (isset($_POST['pl_id'])) {
@@ -54,7 +54,10 @@
 			WHERE f.id='.$frm_id);
 	}
 
-	if (!$frm || (empty($frm->md) && $usr->is_mod != 'A' && ($frm->p_poll != 'Y' || (!empty($frm->old_poll) && $frm->p_edit != 'Y' && $frm->owner != _uid) || (empty($frm->old_poll) && $frm->p_post != 'Y')))) {
+	$frm->group_cache_opt = (int) $frm->group_cache_opt;
+	$frm->forum_opt = (int) $frm->forum_opt;
+
+	if (!$frm || (empty($frm->md) && $usr->users_opt & 1048576 && (!($frm->group_cache_opt & 4096) || (!empty($frm->old_poll) && !($frm->group_cache_opt & 16) && $frm->owner != _uid) || (empty($frm->old_poll) && !($frm->group_cache_opt & 4))))) {
 		std_error('access');
 	}
 
@@ -80,21 +83,21 @@
 	if (isset($_GET['del_id'])) {
 		poll_del_opt((int)$_GET['del_id'], $pl_id);
 	}
-	
+
 	/* Adding or Updating poll options */	
 	if(!empty($_POST['pl_upd']) || !empty($_POST['pl_add'])) {
 		$pl_option = apply_custom_replace($_POST['pl_option']);
 		
 		if ($frm->forum_opt & 16) {
-			$pl_option = tags_to_html($pl_option, $frm->p_img);
+			$pl_option = tags_to_html($pl_option, $frm->group_cache_opt & 32768);
 		} else if ($frm->forum_opt & 8) {
 			$pl_option = nl2br(htmlspecialchars($pl_option));
 		}
 
-		if ($frm->p_sml == 'Y' && !isset($_POST['pl_smiley_disabled'])) {
+		if ($frm->group_cache_opt & 16384 && !isset($_POST['pl_smiley_disabled'])) {
 			$pl_option = smiley_to_post($pl_option);
 		}
-	
+
 		if (isset($_POST['pl_upd'], $_POST['pl_option_id'])) {
 			poll_opt_sync((int)$_POST['pl_option_id'], $pl_option);
 		} else {
@@ -102,7 +105,7 @@
 		}
 		$pl_option = '';
 	}
-		
+
 	/* if we have a poll, fetch poll options */
 	if ($pl_id) {
 		$poll_opts = poll_fetch_opts($pl_id);
@@ -121,7 +124,7 @@
 	$pl_expiry_date_data = tmpl_draw_select_opt("0\n3600\n21600\n43200\n86400\n259200\n604800\n2635200\n31536000", "{TEMPLATE: poll_unlimited}\n1 {TEMPLATE: poll_hour}\n6 {TEMPLATE: poll_hours}\n12 {TEMPLATE: poll_hours}\n1 {TEMPLATE: poll_day}\n3 {TEMPLATE: poll_days}\n1 {TEMPLATE: poll_week}\n1 {TEMPLATE: poll_month}\n1 {TEMPLATE: poll_year}", $pl_expiry_date, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$pl_max_votes_data = tmpl_draw_select_opt("0\n10\n50\n100\n200\n500\n1000\n10000\n100000", "{TEMPLATE: poll_unlimited}\n10\n50\n100\n200\n500\n1000\n10000\n100000", $pl_max_votes, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
-	if ($frm->p_sml == 'Y') {
+	if ($frm->group_cache_opt & 16384) {
 		$checked = isset($_POST['pl_smiley_disabled']) ? ' checked' : '';
 		$pl_smiley_disabled_chk = '{TEMPLATE: pl_smiley_disabled_chk}';
 	} else {
@@ -130,9 +133,7 @@
 
 	$pl_submit = !$pl_id ? '{TEMPLATE: pl_submit_create}' : '{TEMPLATE: pl_submit_update}';
 
-	/* 
-	 * this is only available on a created poll
-	 */
+	/* this is only available on a created poll */
 	if ($pl_id) { 
 		if (isset($pl_option)) {
 			$pl_option = post_to_smiley($pl_option);

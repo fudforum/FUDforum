@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.72 2003/09/28 17:23:43 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.73 2003/09/28 19:19:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -156,7 +156,6 @@ class fud_msg_edit extends fud_msg
 			offset_preview=".$offset_preview.",
 			length_preview=".$length_preview.",
 			updated_by=".$id.",
-			apr=".$this->apr.",
 			msg_opt=".$this->msg_opt.",
 			attach_cnt=".(int)$this->attach_cnt.", 
 			poll_id=".(int)$this->poll_id.", 
