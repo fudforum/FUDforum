@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.30 2004/01/04 16:38:27 hackie Exp $
+* $Id: threadt.php.t,v 1.31 2004/04/05 19:32:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,17 +51,17 @@
 				}
 
 				$arr[$obj->id] = $obj;
-				@$arr[$obj->reply_to]->kiddie_count++;
-				@$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
+				$arr[$obj->reply_to]->kiddie_count++;
+				$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
 
 				if (!$obj->reply_to) {
-					@$tree->kiddie_count++;
-					@$tree->kiddies[] = &$arr[$obj->id];
+					$tree->kiddie_count++;
+					$tree->kiddies[] = &$arr[$obj->id];
 				}
 				$p++;
 			}
 
-			if (@is_array($tree->kiddies)) {
+			if (is_array($tree->kiddies)) {
 				reset($tree->kiddies);
 				$stack[0] = &$tree;
 				$stack_cnt = $tree->kiddie_count;
