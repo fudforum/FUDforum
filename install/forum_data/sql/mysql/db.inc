@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.8 2002/08/09 11:59:43 hackie Exp $
+*   $Id: db.inc,v 1.9 2002/08/25 21:38:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -287,7 +287,7 @@ function get_fud_table_list()
 	$p_len = strlen($GLOBALS['DBHOST_TBL_PREFIX']);
 	
 	$r = mysql_list_tables($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK']);
-	while( list($name) = DB_ROWARR($r) ) {
+	while( list($name) = db_rowarr($r) ) {
 		if( substr($name, 0, $p_len) != $GLOBALS['DBHOST_TBL_PREFIX'] ) continue;
 		$ret[] = $name;
 	}	
