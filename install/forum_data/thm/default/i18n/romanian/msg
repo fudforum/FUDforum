@@ -1,0 +1,964 @@
+action:				Actiune
+add_to_buddy_list:		aduaga la lista cu prieteni
+admin:				Administrator 
+admin_control_panel:		Panou de Control Administrator
+administrator:			Administrator
+announcement:			Anunt
+attachment:			Atasament:
+avatar:				Imagime:
+average_post_count:		{VAR: u->posted_msg_count} mesaje ({VAR: avg} mesaje trimise pe zi)
+biography:			Biografie:
+birth_date:			Data nasterii:
+by:				De:
+by_mod:				de Moderator
+current_time:			Ora curenta
+custom_avatar_queue:		Alege imagine
+date:				Data
+date_posted:			Data trimiterii
+date_registered:		Data inregistrarii:
+download_counter:		Descarcat de {VAR: v[3]} ori
+email:				Email:
+email_to_friend:		Trimite un email pritenului(lor)
+email_to_friend_desc:		Trimite adresa acestei pagini unui prieten perin email
+email_user:			Apasati aici pentru a trimite
+faq:				Intrebari frecvente
+first_unread_msg:		Du-te la mesajele necitite
+first_unread_msg_desc:		Du-te la primul mesaj necitit din acest subiect
+flat_view:			Intoarcere la vizualizare normala
+forum:				Forum:
+forum_icon:			Iconita Forum
+forum_new_messages:		Mesaje noi
+forum_none_messages:		Doar membrii inregistrati pot citi mesajele necitite
+forum_old_messages:		Nici un mesaj nou
+from:				De la:
+gender:				Sex:
+go:				Du-te
+goto_next_msg:			Mesajul urmator
+goto_prev_msg:			Mesajul precedent
+home:				Acasa
+homepage:			Pagina personala:
+icq_control_panel:		Panoul de control mesaje ICQ
+icq_message_form:		Formularul de mesaje ICQ:
+ignore_user:			ignora toate mesajele trimise de acest utilizator
+im_aim:				AIM:
+im_msnm:			MSN Messenger:
+im_yahoo:			Yahoo Messenger:
+image:				Imagine:
+index_forum:			Forum
+index_new_posts:		Mesaje noi de la ultima citire
+index_no_new_posts:		Nici un mesaj nou de la ultima citire
+interests:			Interese:
+last_post:			Ultima trimitere
+last_thread_msg:		Du-te la ultimul mesaj din aceasta tema
+legend:				Legenda:
+location:			Locatie:
+lock_thread:			Blocheaza tema
+locked:				Blocata
+locked_with_new_posts:		Blocata (fara/ mesaje necitite)
+logged_in_list:			Logheaza in lista de utilizatori
+login:				Autentifica
+login_header:			Autentifica:
+logout:				Iesire
+mark_all_read:			marcheaza toate mesajele citite
+mark_all_read_desc:		Toate mesajele necitite vor fi marcate ca citite
+members:			Memberi
+message:			Mesaj
+message_counter:		Utilizatorii au trimis un numar de <b>{VAR: post_count}</b> mesaje in <b>{VAR: thread_count}</b> teme.
+message_index:			Indexul mesajului
+message_index_desc:		Vezi lista de mesaje
+minimize_category:		Minimizeaza categoria
+moderation_queue:		Moderator
+moderator:			Moderator
+moderator_of:			Moderator la:
+moderator_options:		Optiunile Moderatorului
+moderators:			Moderator(i)
+more_unread_messages:		mai multe mesaje necitite
+more_unread_messages_desc:	Arata mai multe mesaje necitite si marcheaza mesajele citite
+move_thread:			Muta
+moved:				Mutat in alt forum
+moved_thread_message:		Aceasta tema a fost mutata in alt forum
+na:				nedisponibil
+new_posts:			Mesaje noi
+new_private_messages:		Aveti <span class="GenText" style="color: #ff0000">({VAR: c})</span> mesaje personale necitite
+new_thread:			Creeaza o noua tema
+newest_user:			Cel mai nou utilizator este
+next_page:			Pagina urmatoare
+next_thread:			Urmatoarea tema:
+no_messages:			Nu sunt mesaje noi in acest forum.
+no_msg_body:			Mesajul nu are continut.
+no_new_posts:			Nici un mesaje nou
+no_posts:			Nici un mesaj
+no_subscribed_forums:		Nici un forum inregistrat
+no_subscribed_threads:		Nici o tema inregistrata
+no_unread_locked:		Aceasta tema a fost blocata
+no_unread_msg:			Aceasta tema nu are mesaje necitite
+no_unread_msg_unreg:		Mesajele necitite pot fi urmarite doar de utiliozatorii inregistrati
+num_pages:			Pagini ({VAR: ttl_pg}):
+num_votes:			{VAR: obj->total_votes} vot(uri)
+occupation:			Ocupatia:
+off:				OPRIT
+on:				PORNIT
+page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
+fud_query_stats:		{VAR: q_time} MySQL queries took {VAR: ttl_time} seconds<br>
+pm:				Mesaje personale
+poll:				Sondaj:
+post_count:			Mesaje trimise {VAR: u_pcount}
+post_count_l:			Mesaje trimise:
+poster:				Trimitator
+posts:				Trimise
+posts_c:			Trimise:
+prev_thread:			Tema precedenta:
+usrinfo_private_message:	Mesaje personale:
+profile:			Profil
+profile_2:			Profil:
+profile_desc:			Apasati aici pentru a accesa panoul de control
+rate:				voturi
+rate_thread:			Voteaza tema
+rating:				Rata
+refresh_list:			Lista de reimprospatare
+register:			Inregistreaza
+registered:			Inregistrat:
+registered_on:			Inregistrat la {DATE: u_reg_date %a, %d %B %Y}
+replies:			Raspunsuri
+report_to_mod:			Raporteaza mesajul la moderator
+reported_messages:		Mesaje raportate
+reveal_all_posts:		arata toate mesajele trimise de {VAR: user_login}
+reveal_post:			arata mesaje trimise
+search:				Cauta
+sel_todays_posts:		Mesaje trimise astazi
+sel_todays_posts_desc:		Schimba filtrul de mesaje trimise astazi
+sel_unanswered_posts:		Mesaje trimise astazi
+sel_unanswered_posts_desc:	Schimba filtrul de mesaje trimise fara raspuns
+sel_unread_messages:		Mesaje fara raspuns
+sel_unread_messages_desc:	Schimba filtrul de fesaje necitite
+send:				Trimite
+send_pm_desc:			Trimite un mesaj personal utilizatorului
+sender_email:			Email-ul trimitatorului:
+sender_name:			Numele trimitatorului:
+show_all_posts:			Arata toate mesajele trimise de {VAR: user_login}
+show_posts_by:			Arata mesaje trimise de: {VAR: u_alias}
+size:				Marimea:
+started_on:			Pornit la
+status:				Statut:
+status_line:			Sunt <b>{VAR: st_obj->online_users_reg}</b> memberi, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
+sticky:				sticky:
+stop_ignoring:			nu mai ignora acest utilizator
+sub_to_thread:			Inscriere la tema
+sub_to_thread_desc:		Primeste notificari despre mesaje noi in aceasta tema
+subject:			Subiect
+subscribe:			Inscriere
+subscribe_desc:			Primeste notificari cand vor fi create noi teme in acest forum
+subscribed_forums:		Forumuri la care sunteti inscris
+subscribed_forums_desc:		Schimba filtrul de forumuri la care sunteti inscris
+subscribed_threads:		Teme la care sunteti inscris
+subscribed_threads_desc:	Schimba filtrul de teme la care sunteti inscris
+switch_to_thread_view:		Schimba la vedere avansata a acestui forum
+thread:				Tema:
+thread_announcement:		Anunt:
+thread_first_unread_msg:	Apasati aici pentru a merge la primul mesaj din aceasta tema
+thread_thread:			Tema
+threads:			Teme
+time:				Ora
+todays_posts:			Mesaje trimise astazi
+todays_posts_desc:		Arata toate mesajele care au fost trimise astazi
+un_ignore_user:			Nu mai ignora mesajele trimise de acest utilizator
+unanswered_posts:		Mesaje fara raspuns
+unanswered_posts_desc:		Arata toate mesajele fara raspuns
+unlock_thread:			Deblocheaza tema
+unread_msg:			Aceasta tema contine mesaje care nu au fost citite inca
+unread_msg_locked:		Tema blocata cu mesaje necitite
+unread_posts:			Mesaje necitite
+unread_posts_desc:		Arata toate mesajele necitite
+unsub_from_thread:		Anuleaza inregisrarea la acest forum
+unsub_from_thread_desc:		Nu mai primi notificari despre mesaje noi in acasta tema
+unsubscribe:			Anuleaza inregistrarea
+unsubscribe_desc:		Nu mai primi notificari despre noi teme in forum
+updated_on:			Updatat la data de:
+user:				Utilizator
+user_counter:			Sunt <b>{VAR: st_obj->user_count}</b> utilizator(i) inregistrati.
+user_info:			Informatii utilizator
+user_info_l:			Informatii utilizator {VAR: u->alias}
+user_offline:			{VAR: obj->login}  este offline
+user_online:			{VAR: obj->login} este online
+usrinfo_last_post:		Ultimul mesaj trimis:
+view_forum:			Vezi forum
+view_results:			Vezi rezultate
+view_thread:			Vezi tema
+views:				Vizualizari
+vote:				{VAR: frm->n_rating} Vot(uri)
+vote_button:			Voteaza
+vote_for_thread:		Voteaza
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> a fost mutat la <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[12]}</a> de moderator
+welcome_message:		Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+what_ppl_doing:			Arata procesele utilizatorilor
+reported_del_report:		Sterge raport
+reported_reason:		Motivul
+reported_on:			Pe:
+reported_reported_by:		Raportat de:
+reported_reported_msg:		Mesaje raportate
+modque_pending_approval:	Mesaje care asteapta aprobare
+modque_approve:			Aproba
+modque_delete:			Sterge
+modque_no_message:		Nu este nici un mesaj care asteapta aprobare
+pmsg_new_messages:		Mesaj personal necitit
+pmsg_old_messages:		Mesaj personal citit
+deny_recipt:			blocheaza recipt
+deny_recipt_desc:		Nu trimite confirmare de citere a acestui mesaj
+restore_to:			Refa la:
+move_to:			Muta la:
+list_referes_referrals:		Referinte
+list_referes_members:		Membri cu referinte
+list_referes_member:		Membri
+referals_none:			Nici o referinta inca
+referals_refered_by:		Memebrii forumului au primit referinte de la: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:		Numar mesaje trimise
+referals_registered_on:		Inregistrat la
+referals_action:		Actiune
+pmsg_all:			toate
+pmsg_none:			niciuna
+folder:				Director:
+pmsg_replied:			raspuns
+pmsg_forwarded:			trimis
+pmsg_subject:			Subiect
+pmsg_author:			Autor
+pmsg_time:			Data
+pmsg_selected:			Selectat
+pmsg_delete:			Sterge
+cur_ppage_pm:			Mesaj personal
+writing_pm:			Scrierea unui mesaj personal
+browsing_folder:		Navigheaza in directorul <b>{VAR: folders[$folder_id]}</b>
+inbox:				Casuta postala
+draft:				Salvate
+sent:				Trimise
+trash:				Gunoi
+msg_author:			Autor
+msg_thread:			Tema
+avatar_sel_form:		Formular de selctie imagine
+no_avatars:			Nici o imagine disponibila
+month_1:			Ianuarie
+month_2:			Februarie
+month_3:			Martie
+month_4:			Aprilie
+month_5:			Mai
+month_6:			Junie
+month_7:			Julie
+month_8:			August
+month_9:			Septembrie
+month_10:			Octombrie
+month_11:			Noiembrie
+month_12:			Decembrie
+male:				Masculin
+female:				Feminin
+unspecified:			NESPECIFICAT
+register_tree_view:		Vedere arborescenta/Listare a mesajelor normala
+register_msg_tree_view:		Vedere a mesajelor normala/Listare arborescenta
+register_tree_msg_view:		Listare arborescenta/Listare normala
+register_flat_view:		Vizualizare normala
+use_forum_default:		Foloseste standardele forumului
+finduser_user_info:		Informatii utlizator
+finduser_by_login:		Dupa numele de utilizator:
+finduser_by_email:		Dupa adresa de email:
+finduser_submit:		Cauta
+finduser_no_such_user:		Nici un utilizator gasit
+finduser_user:			Utilizator
+finduser_postcount:		Numar mesaje trimise
+finduser_joindate:		Data inscriereii
+finduser_action:		Actiune
+yes:				Da
+no:				Nu
+register_email:			Email:
+edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minute
+no_edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>Nelimitata</b>
+pmuserloc_login:		Utilizator:
+pmuserloc_email:		Email:
+pmuserloc_submit:		OK
+pmuserloc_user:			Utilizator
+pmuserloc_no_result:		Nici un rezultat
+register_builtin:		Incorporat
+register_specify_url:		Specifica URL
+register_uploaded:		Incarac imagine
+register_login:			Utilizator:
+register_password:		Parola:
+register_conf_pass:		Confira Parola:
+register_email_desc:		Va rugam sa introduceti o adresa de email valida.
+register_name:			Nume:
+register_your_pass:		Parola:
+register_update:		Updateaza
+register_avatar_type:		Tipul imaginii:
+register_del_avatar:		Sterge imaginea
+register_avatar:		Imagine:
+register_sel_avatar:		Alege imaginea
+register_custom_avatar_rules:	Imaginea dumneavoastra nu va aparea fara aprobarea administratorului<br><font class="SmallText">Imagine nu trebuie sa fie mai mare de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixeli</b> si trebuie sa fie in format <b>jpg</b>, <b>gif</b> sau <b>png</b></font>
+register_custom_avatar_url:	Adresa URL a imaginii:
+register_preview:		Previzualizare
+register_custom_avatar_upload:	Fisier imagine:
+register_register:		Inregistrare
+register_required:		Informatii necesare
+register_required_desc:		Toate campurile 
+register_optional:		Informatii optionale
+register_optional_desc:		Este recomandat sa nu aratati toate informatii despre dumneavoastra.
+register_location:		Locatia:
+register_occupation:		Ocupatia:
+register_interests:		Interese:
+register_image:			Imagine:
+register_icq:			Numar ICQ:
+register_aim:			AIM:
+register_yahoo:			Yahoo Messenger:
+register_msnm:			MSN Messenger:
+register_homepage:		Pagina personala:
+register_bday:			Data nasterii:
+register_bday_desc:		Daca selectati data nasterii atunci ceilati membri o vor putea vedea.
+register_day:			Ziua
+register_month:			Luna
+register_year:			Anul
+register_gender:		Sex:
+register_bio:			Biografie:
+register_bio_desc:		Cateva detalii despre dumneavoastra:
+register_prefs:			Preferinte:
+register_sig:			Semnatura:
+register_sig_desc:		Semnatura este optiunala si va aparea la mesajele trimise de dumneavoastra.
+register_reset:			Reseteaza
+register_style:			Stil:
+register_def_thread_view:	Tipul vizualizarii temelor:
+register_msg_per_page:		Mesaje per pagina:
+register_show_sig:		Arata semnaturi:
+register_show_sig_desc:		Permite ca ceilalti sa-si ascunda sau sa arate semnetura.
+register_use_sig_default:	Foloseste semnatura ca predefinita:
+register_use_sig_default_desc:	Adauga automat semnatura la mesajele trimise
+register_timezone:		Zona:
+register_ignore_admin:		Ignora mesajele administrative:
+register_invisible_mode:	Mod invizibil:
+register_invisible_mode_desc:	Ascunde statutul online.
+register_show_email:		Arata adresa de email:
+register_show_email_desc:	Selectati aceasta optiune daca doriti sa fie afisata adresa de email.
+register_notification:		Alege notificari ca predefinite:
+register_notification_desc:	Daca notificarea este activata ca predefinita, aceasta poate fi dezactivata cand trimiteti mesaje.
+register_notify_method:		Alegeti metoda de notificare:
+register_notify_method_desc:	Daca doriti sa primiti notificari prin ICQ activati aceasta optiune.
+register_notify_js_error:	A-ti specificat notofocari prin ICQ dar nu a-ti introdus numarul ICQ. Predefinit ve-ti primi notificarile prin email.
+register_allow_email_msg:	Accepta mesaje pe adresa de email:
+register_allow_email_msg_desc:	Permite celorlalti utilizatori sa trimita adresa de email prin inermediul forumului.
+buddy_status:			Statut
+my_buddies:			Prietenii mei
+add_buddy:			Adauga prieteni
+add:				Adauga
+buddy_search:			Alegeti numele de utilizator.<br>Sau folositi <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">cautare utilizator</a> pentru a gasi o persoana.
+buddy_remove:			sterge
+post_normal:			Normal
+post_sticky:			Sticky
+post_annoncement:		Anunt
+post_size:			Marime
+post_color:			Culoare
+post_font:			Font
+create_thread:			Creeaza Tema
+submit_reply:			Trimite raspuns
+edit_message:			Aplica modificarile mesajului
+apply_spell_changes:		Aplica modificari limbaj
+post_preview:			Previzualizare mesaj
+post_logedin_user:		Inregistrat ca utilizator:
+post_logout:			iesire
+post_passwd:			Parola de trimitere:
+post_poll:			Sondaj:
+post_create_poll:		CREEAZA SONDAJ
+post_poll_delete:		STERGE
+post_poll_edit:			EDITEAZA
+post_mod_opt:			Optiuni Moderator:
+post_thread_type:		Tipul Temei:
+post_thread_expiry:		Data de expirare a Temei:
+post_locked:			Tema blocata
+post_icons:			Iconita de trimitere:
+post_no_icon:			Nici o iconita
+post_smiley:			Scurtaturi Smiley:
+post_format_tools:		Unelte de formatare:
+post_upload_file:		Incarca fisier
+post_file_del:			Sterge
+post_file_name:			Nume
+post_file_size:			Marime
+file_attachments:		Atasament fisier:
+allowed_files:			Extensii permise:
+max_file_size:			Dimensiunea maxima permisa:
+max_files_per_msg:		Numar maxim de fisiere per mesaj:
+post_notification:		Notificare de trimitere
+include_sig:			Include Semnatura
+include_sig_desc:		Include semnatura profilului meu
+disable_smilies:		Deactiveaza smilies
+spell_check_msg:		Verifica limba mesajului
+post_form:			Trimite Forum
+post_forum:			Forum:
+post_title:			Titlu:
+post_body:			Corpul mesajului:
+post_options:			Optiuni:
+post_preview_btn:		Previzualizeaza mesaj
+post_processing_msg:		Mesajul dumneavoastra este procesat, va rugam asteptai
+ignore_users:			Utilizatori ignorati
+add_ignore:			Adauga ingorare
+forum_terms:			Termenii Forumului
+forum_rules:			Inregistrare la acest forum este libera! Insistam insa sa respectati regulile si termenii specificati mai jos. Daca sunteti de acord apasati butonul DE ACORD de la sfarsitul paginii.<p>
+forum_rules_13:			Toti utilizatorii sub 13 ani trebuie sa primeasca acordul parintilor sau tutorilor pentru a putea fi membri ai acestui forum. Trebuie sa primim prim mail sau fax acorul semnat al parintilor sau tutorilor.<p>Daca doriti sa continuati cu inregistrarea apasati butonul DE ACORD de mai jos. Daca doriti sa renuntati apsati butonul RENUNTA din josul paginii <p>O copie a formularului de permisiune poate fi descarcata de aici. Pentru mai multe informatii trimiteti un email administratorului <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			Confirmare Parinti/Tutori
+coppa_before:			Inainte {DATE: coppa %B %e, %Y}
+coppa_after:			Dupa {DATE: coppa %B %e, %Y}
+coppa_link:			Apasati pe legatura care corespunde datei dumneavoastra de nastere
+coppa:				Un parinte/tutore trebuie sa trimita aprobarea pentru ca persoanele sub 13 ani sa poata fi inregistrati.<p>Pentru mai multe informatii contactati <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			Informatii
+prereg_agree:			DE ACORD
+prereg_disagree:		RENUNTA
+coppa_fax_instructions:		Instructiuni pentru parinte/tutore
+coppa_fax_instructions2:	Va rugam tipariti pagina, semati-o si trimite-ti-o prin fax la: 40.233.208.208
+coppa_fax_reg_form:		Formular de inregistrare
+coppa_fax_sign:			Va rugam semnati formularul inainte de a-l trimite
+coppa_fax_conf:			Am primit informatiile furnizate de copilul meu si am citit termenii de utilizare ai acestui forum. Am inteles ca profilul poate fi schimbat utilizand o parola. Am inteles ca pot cere ca contul sa fie sters definitiv.
+coppa_fax_permission:		Semnati aici daca doriti sa acordati permisiunea
+coppa_fax_no_permission:	Semnati aici daca doriti ca contul sa fie sters
+coppa_fax_parent_name:		Numele si prenumele parintelui/tutorelui:
+coppa_fax_relation:		Relatia cu copilul:
+coppa_fax_telephone:		Telefon:
+coppa_fax_email:		Adresa de email:
+coppa_fax_date:			Data:
+coppa_fax_questions:		Va rugam contactati <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> pentru orice nelamurire
+coppa_fax_login:		Utilizator
+coppa_fax_passwd:		Parola
+coppa_fax_remail:		Email
+coppa_fax_name:			Nume
+login_not_logedin:		Nu sunteti autentificat. Aceasta se poate intampla din mai multe motive:
+login_cookie_expired:		Variabilele cookie au expirat, va trebui sa va autentificati din nou.
+login_perm_denied:		Ca vizitator nu aveti permisiunea sa folositi acea resursa.
+login_want_to_register:		Doriti sa va inregistrati?
+login_forgot_passwd:		A-ti uitat parola?
+login_use_cookie:		Foloseste cookies <br><font class="SmallText">Daca folositi un calculator public nu ar trebui sa bifati aceasta optiune.
+login_login:			Utilizator
+login_login_btn:		Autentifica
+login_name_required:		Numele de utilizator este necesar
+login_passwd_required:		Parola este necesara
+login_invalid_radius:		Combinatie gresita utilizator/parola
+reset_confirmation:		Va multumim pentru ca v-ati inregistrat,\n\nPentru a va activa contul mergeti la agresa de mai jos:\n\n{VAR: url}\n\nOdata ce contul dumneavoastra va fi confirmat ve-ti fi automat autentificat si trimis la prima pagina a forumului.\n
+reset_reset:			Buna,\n\nA-ti cerut ca parola sa fie resetata, pentru a o reseta urmariti adresa URL\n\n{VAR: url}\n\n
+rpasswd_invalid_passwd:		Parola incorecta
+rpasswd_passwd_nomatch:		Parolele nu se potrivesc
+rpasswd_passwd_length:		Parola trebuie sa aiba minim 6 caractre
+reset_remind_pass:		Adu aminte parola
+reset_reset_conf:		Parola va fi resetata si trimisa prin email. Va rugam sa raspundeti la email pentru a confirma primirea parolei.
+reset_error:			Adresa de email nu a fost gasita in baza de date.
+rpasswd_change_pass:		Schimba parola
+rpasswd_login:			Utilizator
+rpasswd_cur_pass:		Parola curenta:
+rpasswd_new_pass:		Parola noua:
+rpasswd_conf_pass:		Confirma Parola:
+login_passwd:			Parola:
+reset_email:			Email:
+reset_reset_button:		Reseteaza Parola
+rate_this_thread:		Rata
+report_reporting_about:		Subectul raportului:
+report_subject:			Subiect:
+report_by:			De:
+report_posted_on:		Trimis la data de:
+report_give_reason:		Va rugam sa introduceti un motiv pentru care a-ti raportat acest mesaj:
+report_submit_report:		Trimite raport
+search_entire_msg:		Tot mesajul
+search_subect_only:		Doar subiectul
+search_forum:			Forum
+search_subject:			Subiect
+search_posted_on:		Trimis la data de
+search_no_results:		Nici un rezultat
+search_search:			Cauta
+search_all_forums:		Cauta in tote forumurile
+search_in_forum:		Cauta in forum:
+search_for:			Cauta :
+search_forum_search:		Cautare Forum
+move_thread_to:			Muta tema <b>{VAR: thr->subject}</b> la:
+remail_email_topic:		Trimite aceasta tema prin email unui prieten
+remail_your_name:		Numele dumneavoastra:
+remail_your_email:		Adresa de Email:
+remail_friends_name:		Numele pritenului:
+remail_friends_email:		Adresa de email a prietenului:
+remail_required:		obligatoriu
+remail_subject:			Subiect:
+remail_message:			Mesaj:
+remail_send_now:		Trimite Email
+remail_anon_opt:		Copie acest mesaj in clientul de mail pentru a putea sa-l retransmiteti si altor prieteni.
+remail_done:			Gata
+remail_sent_conf:		Email-ul pentru prietenul dumneavoastra {VAR-HTML: _POST['femail']} despre {VAR: data->subject} a fost trimis.
+remail_continue:		Continua
+remail_error:			Aveti o eroare
+mklist_type:			Tipul:
+mklist_option:			Optiuni:
+mklist_additem:			Adauga
+mklist_apply:			Aplica
+mklist_delete:			Sterge
+qbud_nick_name:			Porecla
+qbud_add_selected:		Adauga selecat
+qbud_selected:			Selecat
+qbud_no_buddies:		Nici un prieten
+mklist_numerical:		Numeric
+mklist_aplha:			Alfa
+mklist_square:			Patrat
+mklist_disc:			Disc
+mklist_circle:			Cerc
+mklist_close:			Inchide
+email_to:			La:
+email_name:			Nume:
+email_email:			Email:
+email_pg_title:			Email
+email_subject:			Subiect:
+email_body:			Corpul mesajului:
+email_submit:			Email
+ppost_quote_msg:		{VAR: msg_to_list} scris la data de {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote:			Citeaza:
+ppost_to:			La:
+ppost_from_buddy_list:		Alege din lista cu prieteni
+ppost_find_User:		Cauta utilizator
+ppost_track_msg:		Urmareste acest mesaj
+ppost_track_msg_desc:		Anunta-ma (prin mesaj personal) cand a fost citit acest mesaj.
+ppost_send:			Trimite
+ppost_save_draft:		Salveaza Copie
+poll_blank_option:		Nu puteti adauga o optiune nula
+poll_del_conf:			Daca doriti sa stergeti aceasta optiune apasati STERGE
+poll_name:			Numele Sondajului:
+poll_timelimit:			Limita de timp
+poll_maxiumvotes:		Numarul maxim de voturi accepat
+poll_create:			Creeaza
+poll_update:			Updateaza
+poll_disablesmilies:		Deactiveaza smilies
+poll_create_poll:		Creeaza sondaj
+poll_update_poll:		Updateaza Sondaj
+poll_delete:			Sterge
+poll_updateoption:		Updateaza Optiune
+poll_addoption:			Adauga optiune
+poll_unlimited:			nelimitat
+poll_day:			zi
+poll_days:			zile
+poll_hour:			ora
+poll_hours:			ore
+poll_month:			luna
+poll_year:			an
+poll_week:			saptamana
+tabs_register:			Setari
+tabs_subscriptions:		Inscrieri
+tabs_referrals:			Referinte
+tabs_buddy_list:		Lista prieteni
+tabs_ignore_list:		Lista ignonari
+tabs_private_messaging:		Mesaje personale
+single_msg_delete:		Sunteti gata sa <font color="#ff0000" size="4">STERGETI</font> mesajul numit: <b>{VAR: data[3]}</b><p>
+thread_delete:			Sunteti gata sa <font color="#ff0000" size="4">STERGETI</font> the <font color="#ff0000" size="4">TOATA TEMA</font> numita: <b>{VAR: data[3]}</b><p>
+delete_proceed:			<font size="3"><b>Doriti sa continuati?</b></font>
+delete_yes:			Da
+delete_no:			Nu
+error_invalidurl:		URL nedefinit
+error_error:			Eroare
+usrinfo_profile:		Profilul {VAR: u->alias}
+usrinfo_show_all_posts:		Arata toate mesajele trimise de {VAR: u->alias}
+actions_update:			Streseaza alti oameni, exact ca tine
+err_info:			Informatii
+buddy_list_err_cantadd:		Nu va puteti adauga in lista cu prieteni
+buddy_list_err_dup:		Utilizatorul deja exista in lista cu prieteni
+buddy_list_err_nouser:		Utilizatorul pe care a-ti incercat sa-l adaugati nu exista
+buddy_list_err_nouser_title:	Nu pot adauga utilizator
+buddy_list_update:		Navigare in lista cu prieteni
+core_err_invinp_title:		Introducere gresita
+core_err_invinp_err:		A-ti urmarit o adresa gresita
+core_adm_login_msg:		<br>Administratori se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
+email_err_unabletoemail_title:	EROARE: nu pot trimite email
+email_err_unabletoemail_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
+email_err_unabletoemailu_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
+email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR: usr_dst->alias} deoarece nu a putut fi gasit.
+email_error_body:		Continutul mesajului este camp obligatoriu
+email_error_subject:		Subiectul este obligatoriu
+email_error_emailrequired:	Adresa de email este obligatorie
+email_error_invalidaddress:	Adresa de email incorecta
+email_error_namerequired:	Numele este obligatoriu
+email_error_invaliduser:	Utilizator inexistent
+emailconf_err_invkey_title:	Eroare
+emailconf_err_invkey_msg:	Cheie de confirmare incorecta.  Va rugam sa va verificati adresa de email.
+err_inc_criticaltitle:		EROARE CRITICA
+err_inc_criticalmsg:		EROARE, dar din nefiericire a fost afectat si sistemul de administrare a erorilor.
+finduser_update:		Cauta utilizatori
+help_index_update:		Citire <a href="{ROOT}?t=help_index" class="GenLink">Intrebari frecvente</a>
+iemail_thr_subject:		Raspuns nou la {VAR: thr_subject} trimis de {VAR: poster_login}
+iemail_thr_bodyemail:		Pentru a vedea raspunsurile necitite mergeti la {VAR: goto_url['email']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici: {VAR: unsub_url['email']}
+iemail_thr_bodyicq:		Pentru a vedea raspunsurile necitite mergeti la\n{VAR: goto_url['icq']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici:\n{VAR: unsub_url['icq']}
+iemail_frm_subject:		Tema noua in Forumul {VAR: frm_name} numita {VAR: thr_subject} creata de {VAR: poster_login}
+iemail_frm_bodyemail:		Pentru a vedea tema mergeti la:\n{VAR: goto_url['email']}\n\nPentru a nu mai primi notificari despre subiecte noi, mergeti aici: {VAR: unsub_url['email']}
+iemail_frm_bodyicq:		Pentru a vedea tema mergeti la:\n{VAR: goto_url['icq']}\n\nPentru a nu mai primi notificari despre subiecte noi, mergeti aici::\n{VAR: unsub_url['icq']}
+iemail_participate:		Pentru a participa la discutie, mergeti aici:
+ignore_list_err_info_title:	Informatii
+ignore_list_err_noign_msg:	Nu puteti ignora caest utilizator
+ignore_list_err_dup_msg:	Utilizatorul deja exista in lista de ignorare
+ignore_list_err_nu_title:	Utilizatorul nu a fost gasit
+ignore_list_err_nu_msg:		Utilizatorul pe care incercati sa-l ignorati nu poate fi gasit pe forum
+ignore_list_cantign_msg:	Nu puteti ignora caest utilizator
+ignore_list_update:		Navigare in lista de ignorare
+index_update:			Navigare in <a href="{ROOT}?t=index" class="GenLink">lista cu forumuri</a>
+list_referers_update:		Navigare referinte
+login_update:			Formular de autentificare
+msg_err_onlyreg_title:		Doar utilizatorii autentificati pot vedea acest forum
+msg_err_onlyreg_msg:		Pentru a vedea acest forum <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">inregistrati-va</a>, daca sunteti inregistrat trebuie sa va <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">autentificati</a>.
+msg_err_ininfo_title:		Informatii insuficiente
+msg_err_ininfo_msg:		Este o problema cu generarea paginii
+msg_update:			Navigare in tema <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
+pm_err_nopm_title:		EROARE: Mesajle personale sunt dezactivate
+pm_err_nopm_msg:		YNu puteti folosi mesajele personale, acestea au fost dezactivate de administrator.
+pm_update:			Folosirea mesajelor personale
+post_err_notallowed_title:	Permisiune respinsa
+post_err_notallowed_msg:	Nu aveti voie sa trimiteti mesaje
+post_err_lockedthread_title:	EROARE: Tema blocata
+post_err_lockedthread_msg:	Aceasta tema a fost blocata, nu se mai pot trimite mesaje
+err_coppa_title:		EROARE: Contul dumneavoastra nu este inca confirmat
+err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca a-ti pierdut formularul <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">apasati aici</a> pentru a-l descarca
+err_blockedaccnt_title:		EROARE: nu aveti voie sa trimiteti mesaje
+err_blockedaccnt_msg:		Contul dumneavoastra a fost blocat. Nu mai puteti trimite mesaje.
+post_err_notowner_title:	EROARE
+post_err_notowner_msg:		Nu sunteti proprietarul mesajului
+post_err_edttimelimit_title:	EROARE
+post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
+post_err_noannontopics_title:	EROARE: Privilegii insuficiente
+post_err_noannontopics_msg:	Vizitatorilor nu li se permite sa creeze teme<br><br>Daca doriti sa va inregistrati mergeti <a href="{ROOT}?t=register&amp;{DEF: _rsid}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{ROOT}?t=login&amp;{DEF: _rsid}">aici</a>
+post_err_noannonposts_title:	EROARE: Privilegii insufuciente
+post_err_noannonposts_msg:	Vizitatorii nu pot sa raspunda la mesaje<br><br>Daca doriti sa va inregistrati mergeti <a href="{ROOT}?t=register&amp;{DEF: _rsid}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{ROOT}?t=login&amp;{DEF: _rsid}">aici</a>
+post_err_noreplying_title:	EROARE: Nu aveti voie sa raspundeti la mesaje
+post_err_noreplying_msg:	Nu puteti sa trimiteti raspunsuri la aceasta tema.
+post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
+post_err_floodtrig_msg:		Va rugam sa incercati din nou in {VAR: tm} secunde
+post_err_attach_size:		<font class="ErrorText">Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)</font><br>
+post_err_attach_ext:		<font class="ErrorText">Extensia fisierului pe care incercati sa-l incarcati nu se potriveste cu tipurile accepatate.</font><br>
+post_err_attach_filelimit:	<font class="ErrorText">Incercati sa incarcati mai multe fisiere decat este permis</font><br>
+post_err_passwd:		Parola incorecta.
+post_reply_update:		Raspunde la <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editeaza <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		Scrie tema noua in <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_error_generic:		Aveti o eroare
+postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
+postcheck_subj_needed:		Subictul este obligatoriu
+postcheck_not_allowed_file:	Acest tip de fisier nu este permis
+postcheck_no_such_user:		Nu este nici un utilizator numit "{VAR-HTML: v}" in acest forum
+postcheck_ignored:		Nu puteti trimite mesaje personale la "{VAR-HTML: v}", deoarece aceasta persoana va ignora.
+postcheck_no_recepient:		Nu pot trimite mesaj, lipseste destinatarul
+postcheck_invalid_email:	Va rugam sa introduceti o adresa de email valida.
+postcheck_email_subject:	Nu puteti trimite un email fara subiect.
+postcheck_email_body:		Nu puteti trimite un email fara continut
+private_msg_notify_subj:	Citeste anunt pentru: {VAR: m->subject}
+private_msg_notify_body:	Buna,<br>utilizatorul {VAR: usr->login} a citit mesajul dumneavoastra
+referals_update:		Navigare referinte
+register_err_short_login:	Numele de utilizator ales este prea scurt, trebuie sa aiba minimum 4 caractere.
+register_err_login_notallowed:	Acest nume de utilizator nu este permis
+register_err_loginunique:	Numele de utilizator trebuie sa fie unice
+register_err_emailexists:	Aceasta adresa de email deja exsita
+register_err_shortpasswd:	Parola trebuie sa aiba minumum 6 carcatere
+register_err_passwdnomatch:	Parolele dumneavoastra nu se potrivesc
+register_err_invalidemail:	Adresa de email nu este valida
+register_err_needname:		Pentru a completa cu succces inregisatrarea trebuie sa va introduceti numele
+register_err_enterpasswd:	Trebuie sa introduceti parola pentru a salva modificarile
+register_err_adminpasswd:	Trebuie sa introduceti parola de ADMINISTRATOR pentru a salva modificarile
+register_err_notyouremail:	Cineva este deja inregistrat cu aceasta adresa de email
+register_err_avatartobig:	Fisierul pe care incercati sa-l incarcati este prea mare, peste {GVAR: CUSTOM_AVATAR_MAX_SIZE}
+register_err_avatarnotallowed:	Imaginea pe care doriti sa o incarcati nu are extensia corecta
+register_conf_subject:		Confirmarea inregistrarii
+register_conf_msg:		VA multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
+register_welcome_subject:	Confirmarea inregistrarii la Forum
+register_welcome_msg:		Va multumim pentru ca v-ati inregistrat,\n\nAici sunt datele dumneavoastra de autentificare la acest forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nVa atentionam ca parola este sensibila la majuscule.
+register_err_cantreg_title:	EROARE: nu pot completa inregistrarea
+regsiter_err_cantreg_msg:	Nu pot crea contul, va rugam sa contactati adimistratorul la <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:	Vizualizare profil
+register_register_update:	Pagina de inregistrare
+report_err_nosuchmsg_title:	EROARE
+report_err_nosuchmsg_msg:	Nici un mesaj de acest tip
+report_err_cantreport_title:	EROARE
+report_err_cantreport_msg:	Nu puteti raporta la moderator
+reset_err_invalidkey_title:	EROARE
+reset_err_invalidkey_msg:	Cheia de resetare a parolei este gresita
+reset_err_rstconf_title:	Informatie
+reset_err_rstconf_msg:		Ve-ti primi instructiuni la adresa de email, in cateva momente
+reset_newpass_title:		Reseteaza Parola
+reset_newpass_msg:		Buna,\n\nLa cerere v-am trimis numele de utilizator.\nAici sunt informatiile dumneavoastra:\n\nUtilizator: {VAR: ui[1]}\nParola: {VAR: passwd}\n\n
+reset_login_notify:		Parola v-a fost trimisa la adresa de email. Va rugam sa verificati email-ul in urmatoarele momente.
+search_update:			Cautare mesaje trimise
+selmsg_update:			Navigeaza <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">mesaje trimise astazi</a>
+showposts_update:		Vizualizare mesaje trimise de: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
+subscribed_update:		Navigare in inscrieri
+th_err_invid_title:		Numarul de identificare a temei este incorect
+th_err_invid_msg:		A-ti urmarit o legatura inexistenta
+thread_err_onlyregview_title:	Doar utilizatorii inregistrati pot vedea acest forum
+thread_err_onlyregview_msg:	Pentru a vedea acest forum trebuie sa va  <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">inregistrati</a>, daca sunteti inregistrat trebuie sa va <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">autentificati</a>.
+thread_update:			Navigare in forumul <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+tree_update:			Navigare teme <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
+userinfo_update:		Vizualizati profilul utilizatorului <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a>
+ERR_login_ttl:			EROARE: Nu sunteti autentificat
+ERR_login_msg:			Daca nu sunteti autentificat va rugam s-o faceti
+ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_disabled_ttl:		Optiune dezactivata
+ERR_disabled_msg:		Optiune dezactivata de administratorul sistemului
+ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_ttl:			EROARE: Permisiune insuficienta
+ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
+ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
+ERR_registration_disabled_ttl:	Inregistrarea dezactivata
+ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
+ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
+ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
+ERR_user_ttl:			EROARE: Nici un asemenea utilizator
+ERR_user_msg:			Nici un asemenea utilizator
+ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
+ERR_systemerr_ttl:		EROARE: Eroare de sistem
+ERR_systemerr_msg:		Eroare de sistem, va rugam sa o raportati la <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_url:		{GVAR: returnto_d}
+email_title:			Formular de trimitere email
+finduser_title:			Cauta utilizator
+help_title:			Intrebari frecvente
+login_title:			Formular de autentificare
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+poll_title:			Editor de sondaje
+register_title:			Formular de inregistrare
+reset_title:			Reseteaza Parola
+rpasswd_title:			Formular schimbare parola
+error_title:			Formular erori
+index_title:			Bine a-ti venit la forum
+search_title:			Cauta {VAR-HTML: srch}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+remail_emailsent:		Emailul a fost trimis
+remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
+poll_add_option:		Adauga optiune:
+post_opt_html_on:		<b>HTML</b> este <b>PORNIT</b>
+post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>Codul HS</b> este <b>PORNIT</b></a>
+post_opt_images_on:		<b>Imaginile</b> sunt <b>ACTIVATE</b>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> sunt <b>PORNITE</b></a>
+post_opt_html_off:		Codul <b>HTML</b> este <b>OPRIT</b>
+post_opt_fud_off:		<b>Codul HS</b> este <b>OPRIT</b>
+post_opt_images_off:		<b>Imaginile</b> sunt <b>DEZACTIVATE</b>
+post_opt_smilies_off:		<b>Smilies</b> sunt <b>OPRITE</b>
+post_opt:			Optiunile Forumului
+register_change_passwd:		schimba parola
+install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
+approved_avatar_title:		Imaginea dumneavoastra a fost acceptata.
+approved_avatar_msg:		Imaginea dumneavoastra a fost acceptata de administrator.
+unapproved_avatar_title:	Imaginea dumneavoastra a fost respinsa.
+unapproved_avatar_msg:		Imaginea dumneavoastra a fost respinsa de administrator.
+mvthread_request_move:		cere o mutare
+move_request_reason:		De ce doriti sa fie mutata aceasta tema?
+mvthread_submit_req:		Trimite Cerere
+thread_exchange:		Schimb de Teme
+move_request_by:		Mutarea Temei a fost ceruta de:
+move_reason:			Motivul pentru care doriti sa fie mutata tema:
+thr_exch_accept:		accepta tema
+thr_exch_decline:		respinge tema
+thr_exch_orig_forum:		Forum original:
+thr_exch_dest_forum:		Forumul destinatie:
+thr_exch_no_threads:		Nici o tema care asteapta aprobare
+thr_exch_decl_reason:		Motivul respingerii mutarii temei <b>{VAR: data->subject}</b> in forumul <b>{VAR-HTML: data->f2_namename}</b>
+thr_exch_submit:		OK
+exch_decline_ttl:		Mutarea temei {VAR: data->subject} in forumul {VAR-HTML: data->f2_name} a fost respinsa.
+ppost_original_msg:		mesaj care il trimiteti mai departe sau la care raspundeti
+split_thread:			Imaprte Tema
+groupmgr_no_user:		Nu este nici un utilizator numit "{VAR-HTML: gr_member}"
+groupmgr_already_exists:	Utilizatorul "{VAR-HTML: gr_member}" deja exista in acest grup.
+groupmgr_yes:			Da
+groupmgr_no:			Nu
+groupmgr_inherit:		Mosteneste
+groupmgr_action:		Actiune
+groupmgr_member:		Membru
+groupmgr_cancel:		Renunta
+groupmgr_add_member:		Adauga Membru
+groupmgr_update_member:		Updateaza Membru
+groupmgr_edit:			Editare
+groupmgr_delete:		Stergere
+group_mgr_anon:			Vizitator
+group_mgr_reged:		Toti utilizatorii inregistrati
+show_show:			Arata:
+group_mgr:			Managerul de grupuri
+group_mgr_edit_btn:		Editare Grup
+group_mgr_heading:		Selectare grupuri pentru editare
+group_mgr_group:		Grup:
+permission_denied_title:	Permisiune respinsa!
+permission_denied_msg:		Permisiunile nu va permit sa executati aceasta actiune.
+p_READ:				Citeste
+p_POST:				Trimite
+p_REPLY:			Raspunde
+p_EDIT:				Editare
+p_DEL:				Stregere
+p_STICKY:			Trimite Sticky
+p_POLL:				Creeaza sondaj
+p_FILE:				Ataseaza fisier
+p_VOTE:				Voteaza
+p_RATE:				Voteaza Teme
+p_SPLIT:			Imparte Teme
+p_LOCK:				Blocheaza Tema
+p_MOVE:				Muta tema
+p_SML:				Foloseste smilies
+p_IMG:				Foloseste tag-uri de imagine
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Cauta utilizator</a>
+group_mgr_indicator:		Editati: <b>{VAR: grp->name}</b>
+rate_worst:			Slab
+rate_best:			Foarte Bun
+post_quote_msg:			{VAR: msg->login} scris la data de {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote:			Citare:
+userinfo_referals:		Informatii referinta:
+userinfo_referals_count:	{VAR: referals} Membri
+pm_no_space_title:		Nu mai este spatiu!
+pm_no_space_msg:		Directorul dumneavoastra cu mesaje personale a depasit <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, si contine <b>{VAR: fldr_size} bytes</b> mesaje.<br><br><font class="ErrorText">Stergeti din mesaje</font>.
+pm_space_indct_msg:		Directorul dumneavoastra este {VAR: percent_full}% plin.
+th_expr_never:			Niciodata
+th_expr_one_hr:			1 Ora
+th_expr_two_hr:			2 Ore
+th_expr_three_hr:		3 Ore
+th_expr_four_hr:		4 Ore
+th_expr_eight_hr:		8 Ore
+th_expr_sixteen_hr:		16 Ore
+th_expr_one_day:		1 Zi
+th_expr_two_day:		2 Zile
+th_expr_four_day:		4 Zile
+th_expr_one_week:		1 Saptamana
+th_expr_two_week:		2 Saptamani
+th_expr_one_month:		1 Luna
+th_expr_two_month:		2 Luni
+th_expr_four_month:		4 Luni
+th_expr_one_year:		1 An
+thread_mod_delete:		Sterge
+action_latest_post:		Ultimul mesaj trimis
+online_today_last_visit:	Ultima pagina vizitata
+online_today_update:		Lista cu persoane care au vizitat astazi forum-ul.
+logedin_todays_visitors:	Vizitatori
+logedin_latest_post:		Ultimiul mesaj trimis: 
+register_show_avatar:		Arata imagini:
+register_show_avatar_desc:	Permite ascunderea si afisarea mesajelor
+drawmsg_view_rest_post:		Arata restul mesajelor
+post_re:			Re: 
+forumsel_goto_forum:		Du-te la forum:
+minimsg_thread_view:		Vizualizare Forum
+split_th_post_by:		Trimis de:
+split_th_posted_on:		Trimis la:
+split_th_subject:		Subiect:
+split_th_new_thread_title:	Noul titlu al temei:
+split_th_forum:			Forum:
+split_th_split_sel:		Imparte mesajele selectate
+split_th_split_unsel:		Imparte mesajele ne-selectate
+split_th_messages:		Mesaje
+split_th_select:		Selecteaza
+report_report_post:		Trimite raport
+quicklogin_login:		Autentifica
+quicklogin_password:		Parola
+quicklogin_use_cookies:		Foloseste cookies?
+quicklogin_login_btn:		Autentifica
+post_notification_desc:		Anunta-ma cand cineva raspunde la acest mesaj.
+maximize_category:		Maximizeaza Categorie
+no_view_perm:			Nu aveti permisiune pentru a vedea aceasta tema
+report_empty_report:		Nu puteti trimite un raport gol, introduceti motivul trimiterii raportului
+report_already_reported_title:	Deja raportat
+report_already_reported_msg:	Acest mesaj a fost deja raportat
+register_err_toomanyimages:	Incercati sa folositi mai multe imagini {GVAR: FORUM_IMG_CNT_SIG}in semnatura.
+pmsg_next_msg:			Urmatorul mesaj
+pmsg_prev_msg:			Mesaj precedent
+post_proc_reveal_spoiler:	Arata spoiler
+register_jabber:		Jabber Handle:
+im_jabber:			Jabber: 
+forum_contact:			Contactare
+forum_home:			Prima Pagina
+post_cur_attached:		fisiere atasate {VAR: i}
+ppost_cur_attached:		fisiere atasate {VAR: attach_count}
+ignored_anon_post:		{VAR: user_login} este ignorat
+ignored_user_post:		Trimis de <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> este ignorat
+smladd_close_window:		inchide fereastra
+post_list_smilies:		arata toate smilies
+p_VISIBLE:			Visibil
+reported_in_thread:		In tema
+help_back_to_top:		Inceputul paginii
+help_return_to_index:		Intoarcere la ajutor
+forumsel_unread:		*(NECITIT)
+groupmgr_no_groups:		Nici un grup de editat
+msg_err_nosuchmsg_msg:		Nu exista asemena mesaj in tema
+msg_err_nosuchmsg_title:	Eroare
+imsg_err_message_title:		Mesaj incorect
+imsg_err_message_msg:		Mesajul nu exista
+poll_edit:		Editare
+register_err_not_valid_img:	Adresa specificata nu contine nici o imagine
+pmsg_recepient:			Destinatar
+register_err_taken_alias:	Porecla pe care doriti sa o folositi este deja folosita de alt utilizator al forumului
+register_alias:			Porecla
+register_alias_desc:		Daca doriti alt nume de utilizator decat cel ce apare in forum, introduceti-l aici.
+register_allow_pm_msg:		Accepta mesaje personale
+register_allow_pm_msg_desc:	Permite altor utilizatori sa trimita mesaje prin intremediul forumului
+postcheck_pm_disabled:		Nu puteti trimite mesajul personal "{VAR-HTML: v}", deoarece aceasta persona nu accepta mesaje personale
+polllist_vote:			Voteaza
+polllist_view_results:		Rezultate
+polllist_name:			Numele sondajului
+polllist_date:			Creat la data de:
+polllist_owner:			Creat de:
+polllist_votes:			Voturi totale
+polllist_action:		Actiune
+polllist_update:		<a href="{ROOT}?t=polllist">Vezi sondaje disponibile</a>
+userinfo_polls:			Sondaje:
+show_pollist:			Arata sondaje
+search_and:			SI
+search_or:			SAU
+search_desc_order:		Ordine descendenta
+search_asc_order:		Ordine ascendenta
+search_logic:			Cautare logica:
+search_sorting:			Sorteaza rezultatele dupa data:
+post_proceed:			OK
+post_moderated_forum:		A-ti trimis un mesaj intr-un forum moderat
+post_moderated_forum_ttl:	Atentionare Forum moderat
+buddy_list_bday:		Astazi {VAR: r[2]} impliniti {VAR: age}
+email_warning_msg:		Daca va schimbati adresa de email, contul dumneavoastra nu va fi confirmat pana nu raspundeti la email.
+register_show_im:		Arata indicatori
+register_show_im_desc:		Alegeti daca sa vedeti indicatori sau nu
+unread_message:			Mesaj necitit
+read_message:			Mesaj citit
+threadt_more:			&lt;mai multe&gt;
+threadt_disabled_ttl:		Vizualizarea arborescenta a fost dezactivata
+threadt_disabled_desc:		Vizualizarea arborescenta a fost dezactivata de administrator.
+threadt_update:			Navigare in forumul <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:		Confirmare de stergere forum/tema
+spell_alts:			nici o alternativa
+insert_uploaded_image:		Introduce imagine in corpul mesajului
+finduser_help:			Motorul de cautare va aduga automat masca * la inerogarea dumnavoastra. ex. pentru a cauta toti utlizatorii al caror nume de utilizator incepe cu &#39;a&#39;, introduceti &#39;a&#39; in campul de cautare.
+back_to_top:			Inceputul paginii
+pm_err_disabled_title:		Mesajele personale au fost dezactivate
+pm_err_disabled_msg:		Nu puteti trimite mesaje personale pana nu activati aceasta optiune din panoul de comanda
+err_mod_acc_ttl:		Cont neverificat
+err_mod_acc_msg:		Administratorul a ales vizualizarea tuturor utilizatorilor manual, de aceea unele optiuni vor fi dezactivate.
+accounts_pending_approval:	Conturi care asteapta aprobare
+saved:				Salvat
+register_err_time_limit:	Limita de 1 inregistrare la {GVAR: REG_TIME_LIMIT} secunde a fost atinsa. Va rugam asteptati {VAR: reg_limit_reached} secunde apoi incercati din nou.
+login_blocked_account_ttl:	Contul dumneavoastra a fost blocat.	
+login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, daca nu stiti motivul contactati administratorul.
+register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
+im_affero:			Nume utilizator optional
+pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
+member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+post_all_ext_allowed:		(unrestricted)
+register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:			{VAR: r[2]} is currently offline
+buddy_online:			{VAR: r[2]} is currently online
+sml_no_smilies:			No emoticons available.
+login_unapproved_account_ttl:	Unapproved Account
+login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
+remove_from_buddy_list:		remove from buddy list
+iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Reply
+iemail_msg_quote:		Quote
+iemail_msg_view:		View Topic/Message
+threadt_sticky:			sticky
+threadt_announce:		announcement
+reported_no_messages:		There are no reported messages.
+poll_no_polls:			There are no accessible polls.
+no_unread_messages:		There are no unread messages matching your query.
+thread_mark_all_read:		mark all unread forum messages read
+thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
+private_no_messages:		There are no messages inside this folder
+register_email_change_subject:	E-mail change confirmation
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+iemail_thread_unsub:		Unsubscribe from this thread		
+iemail_forum_unsub:		Unsubscribe from this forum
+primary_group_prefix:		Primary group for forum:
+group_resources:		This group controls permissions of the following forums
+register_admin_newuser_title:	A new user has registered and their account is pending confirmation
+register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
+post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+thread_printable_pdf:		Generate printable PDF
+thread_syndicate:		Syndicate this forum (XML)
+reg_conf_title:			Registration Confirmation
+reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
+reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
+forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
