@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.12 2003/09/18 23:16:53 hackie Exp $
+*   $Id: getfile.php.t,v 1.13 2003/09/25 00:58:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,13 +63,15 @@
 		$append = 'attachment; ';
 	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
-	} else {
+	} else if (strncmp($r[0], "image/", 6)) {
 		$append = 'attachment; ';
+	} else {
+		$append = '';
 	}
 
 	/* if we encounter a compressed file and PHP's output compression is enabled do not
-	 * try to compress that file again */
-	if ($PHP_COMPRESSION_ENABLE == 'Y') {
+	 * try to compress images & already compressed files */
+	if ($PHP_COMPRESSION_ENABLE == 'Y' && $append) {
 		$comp_ext = array('zip', 'gz', 'rar', 'tgz', 'bz2', 'tar');
 		$ext = strtolower(substr(strrchr($r[1], '.'), 1));
 		if (!in_array($ext, $comp_ext)) {
