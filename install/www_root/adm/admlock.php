@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.25 2004/06/07 15:24:53 hackie Exp $
+* $Id: admlock.php,v 1.26 2004/08/09 11:01:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,25 +13,6 @@
 	require ('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
-
-function chmoddir($dirn, $dirp, $filep, $rec=false)
-{
-	@chmod($dirn, $dirp);
-	if (!($d = opendir($dirn))) {
-		echo 'ERROR: Unable to open "'.$dirn.'" directory<br>';
-		return;
-	}
-	readdir($d); readdir($d);
-	while ($f = readdir($d)) {
-		$path = $dirn . '/' . $f;
-		if (@is_file($path) && !@chmod($path, $filep)) {
-			echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
-		} else if (@is_dir($path) && $rec === true) {
-			chmoddir($path, $dirp, $filep, true);
-		}
-	}
-	closedir($d);
-}
 
 	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['usr_login'])."' AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
 		$FUD_OPT_2 |= 8388608;
@@ -50,8 +31,37 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 			}
 		}
 
-		chmoddir(realpath($WWW_ROOT_DISK), $dirperms, $fileperms, true);
-		chmoddir(realpath($DATA_DIR), $dirperms, $fileperms, true);
+		$m1 = realpath($WWW_ROOT_DISK);
+		$m2 = realpath($DATA_DIR);
+		$m1l = strlen($m1);
+		$m2l = strlen($m2);
+
+		$dirs = array($m1, $m2);
+		while (list(,$v) = each($dirs)) {
+			@chmod($v, $dirperms);
+			if (!($d = opendir($v))) {
+				echo 'ERROR: Unable to open "'.$v.'" directory<br>';
+				continue;
+			}
+			while ($f = readdir($d)) {
+				$path = $v . '/' . $f;
+				if (@is_file($path) && !@chmod($path, $filep)) {
+					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
+				} else if (@is_dir($path)) {
+					if ($d == '.' || $d == '..') {
+						continue;
+					}
+					if (is_link($path) && ($path = readlink($path))) {
+						if (strncmp($path, $m1, $m1l) && strncmp($path, $m2, $m12)) {
+							/* skip symlinks to outside of base */
+							continue;
+						}
+					}
+					$dirs[] = $path;
+				}
+			}
+			closedir($d);
+		}
 
 		change_global_settings(array('FUD_OPT_2' => $FUD_OPT_2));
 	}
