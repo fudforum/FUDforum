@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.5 2002/09/12 08:33:47 hackie Exp $
+*   $Id: getfile.php.t,v 1.6 2002/09/12 21:47:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	if( empty($file->id) ) invl_inp_err();	
 	
 	if( $usr->is_mod != 'A' ) {
-		if ( ($file->private == 'Y' && $usr->id != $file->owner) ) {
+		if ( ($file->private == 'Y' && _uid != $file->owner) ) {
 			std_error('access');
 			exit;
 		}

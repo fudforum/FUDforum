@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.9 2002/08/23 07:02:42 hackie Exp $
+*   $Id: ppost.tmpl,v 1.10 2002/09/12 21:47:04 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -166,9 +166,9 @@
 
 {SECTION: attached_file}
 <tr>
-	<td class="RowStyleB">{VAR: v['name']}</td>
+	<td class="RowStyleB">{VAR: obj->original_name}</td>
 	<td class="RowStyleB">{VAR: sz}</td>
-	<td class="RowStyleB"><a class="GenLink" href="javascript: document.post_form.file_del_opt.value=\'{VAR: k}\'; document.post_form.submit();">{MSG: post_file_del}</a></td>
+	<td class="RowStyleB"><a class="GenLink" href="javascript: document.post_form.file_del_opt.value=\'{VAR: obj->id}\'; document.post_form.submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
 </tr>
 {SECTION: END}
 
@@ -329,4 +329,8 @@
 
 {SECTION: permission_denied_msg}
 {MSG: permission_denied_msg}
+{SECTION: END}
+
+{SECTION: insert_uploaded_image}
+&nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}?t=getfile&id={VAR: obj->id}&private=1\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
 {SECTION: END}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.18 2002/09/09 21:02:31 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.19 2002/09/12 21:47:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -242,12 +242,12 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	}
 
 	if ( $obj->attach_cnt ) {
-		$a_result = q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='N'");
+		$a_result = q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon,fsize FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='N'");
 		if ( db_count($a_result) ) {
 			$drawmsg_file_attachments='';
 			while ( $a_obj = db_rowobj($a_result) ) {
 				if( file_exists($GLOBALS["FILE_STORE"].$a_obj->id.".atch") ) {
-					$sz = filesize($GLOBALS["FILE_STORE"].$a_obj->id.".atch")/1024;
+					$sz = $a_obj->fsize/1024;
 					$sz = $sz<1000 ? number_format($sz,2).'KB' : number_format($sz/1024,2).'MB';
 					if( empty($a_obj->icon) ) $a_obj->icon = 'unknown.gif';
 					$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';	

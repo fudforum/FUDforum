@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.9 2002/08/24 12:16:36 hackie Exp $
+*   $Id: ppost.php.t,v 1.10 2002/09/12 21:47:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,17 +138,10 @@
 		}
 		
 		if ( !empty($msg_r->attach_cnt) && ( !empty($msg_id) || !empty($forward) ) ) {
-	 		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_r->id." AND private='Y'");
-	 		$attach_count=0;
-	 		while ( $obj = db_rowobj($r) ) {
-	 			$afile['name'] = $obj->original_name;
-	 			$afile['db_id'] = $obj->id;
-	 			$afile['size'] = filesize($obj->location);
-	 			$afile['tmp'] = $afile['delque'] = NULL;
-	 			$attach_list[$obj->id] = $afile;
-	 			$attach_count++;
-	 		}
+			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_r->id." AND private='Y'");
+	 		while ( list($fa_id) = db_rowarr($r) ) $attach_list[$fa_id] = $fa_id;
 	 		qf($r);
+	 		$attach_count = count($attach_list);
 		 }
 		 
 		 if( !empty($reply_to) ) 
@@ -174,32 +167,28 @@
 	$MAX_F_SIZE = round($PRIVATE_ATTACH_SIZE/1024);
 	
 	if( $PRIVATE_ATTACHMENTS > 0 ) {
-		/* restore the attachment array */
 		$attach_count=0;
-		if ( !empty($file_array) ) {
-			$file_array = base64_decode(stripslashes($HTTP_POST_VARS['file_array']));
-			if ( strlen($file_array) ) {
-				$arr = explode("\n", $file_array);
-				foreach($arr as $k => $v) { 
-					if ( $v ) {
-						list($afile['tmp'], $afile['name'], $afile['size'], $afile['delque'], $afile['db_id']) = explode("\r", $v);
-						if ( strlen($afile['db_id']) ) 
-							$k = $afile['db_id'];
-						else
-							$k = $afile['tmp'];
-							
-						$attach_list[$k] = $afile;
-						if( $afile['delque']<1 ) $attach_count++;
-					}
-				}
-			}
+	
+		/* restore the attachment array */
+		if( !empty($HTTP_POST_VARS['file_array']) ) {
+			$file_array = explode("\n", base64_decode(stripslashes($HTTP_POST_VARS['file_array'])));
 				
-			if ( $file_del_opt && isset($attach_list[$file_del_opt]) ) {
-				$attach_list[$file_del_opt]['delque'] = 1;
-				$attach_count--;
+			foreach( $file_array as $val ) {
+				list($fa_id,$fa_id2) = explode(":", $val);
+				$attach_list[$fa_id] = $fa_id2;
+				if( !empty($fa_id2) ) $attach_count++;
 			}
 		}
-
+		
+		if( !empty($HTTP_POST_VARS['file_del_opt']) ) {
+			$attach_list[$HTTP_POST_VARS['file_del_opt']] = 0;
+			/* Remove any reference to the image from the body to prevent broken images */
+			if ( strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]') ) 
+				$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]', '', $msg_body);
+					
+			if( !--$attach_count ) unset($attach_list);
+		}	
+			
 		if ( !empty($attach_control_size) ) {
 			if( $attach_control_size>$PRIVATE_ATTACH_SIZE ) {
 				$attach_control_error = '{TEMPLATE: post_err_attach_size}';
@@ -210,12 +199,14 @@
 				}
 				else {
 					if( ($attach_count+1) <= $PRIVATE_ATTACHMENTS ) { 
-						unset($afile);
-						$afile['tmp'] = safe_tmp_copy($attach_control);
-						$afile['name'] = htmlspecialchars(stripslashes($attach_control_name));
-						$afile['size'] = $attach_control_size;
-						$afile['db_id'] = $afile['delque'] = NULL;
-						$attach_list[$afile['tmp']] = $afile;
+						$at_obj = new fud_attach();
+							
+						$at_obj->original_name = $attach_control_name;
+						$at_obj->fsize = $attach_control_size;
+						$at_obj->owner = _uid;
+						$val = $at_obj->add($attach_control, 'Y');
+
+						$attach_list[$val] = $val;
 						$attach_count++;
 					}
 					else {
@@ -231,7 +222,7 @@
 		$msg_p = new fud_pmsg;
 		fetch_vars('msg_', $msg_p, $HTTP_POST_VARS);
 		$msg_p->smiley_disabled = yn($msg_smiley_disabled);
-		$msg_p->attach_cnt = isset($attach_cnt)?$attach_cnt:0;
+		$msg_p->attach_cnt = intval($attach_cnt);
 		$msg_p->body = $HTTP_POST_VARS['msg_body'];
 		$msg_p->folder_id = isset($HTTP_POST_VARS["btn_submit"])?'SENT':'DRAFT';
 		$msg_p->to_list = addslashes($msg_p->to_list);
@@ -251,7 +242,7 @@
 		if( $msg_p->smiley_disabled!='Y' ) $msg_p->body = smiley_to_post($msg_p->body);
 		fud_wordwrap($msg_p->body);
 		
-		$msg_p->attach_cnt = empty($attach_cnt)?0:$attach_cnt;
+		$msg_p->attach_cnt = intval($attach_cnt);
 		$msg_p->ouser_id = $usr->id;
 		
 		$msg_p->subject = apply_custom_replace($msg_p->subject);
@@ -274,55 +265,32 @@
 				
 			if( empty($HTTP_POST_VARS['btn_draft'])	&& !empty($msg_p->ref_msg_id) )
 				set_nrf(substr($msg_p->ref_msg_id, 0, 1), substr($msg_p->ref_msg_id, 1));
-		}
-		
-		if( $PRIVATE_ATTACHMENTS>0 && isset($attach_list) ) {
-			foreach($attach_list as $k => $v) { 			
-				if( empty($v) ) continue;
-				if ( strlen($v['delque']) ) {
-					if ( $v['tmp'] ) {
-						if( file_exists($GLOBALS['TMP'].$v['tmp']) ) 
-							unlink($GLOBALS['TMP'].$v['tmp']);
-					}		
-					else {
-						unset($at_obj);
-						$at_obj = new fud_attach();
-						if( is_numeric($v['db_id']) ) {
-							$at_obj->get($v['db_id'], 'Y');
-							if( $at_obj->owner == _uid ) $at_obj->delete();
-						}	
-					}
+				
+			if( $PRIVATE_ATTACHMENTS>0 && isset($attach_list) ) {
+				fud_attach::finalize($attach_list, $msg_p->id, 'Y');
+				
+				/* handle attachments for message copies */
+				$attachments = array();
+				foreach( $attach_list as $val ) {
+					if( $val ) $attachments[] = db_singleobj(q("SELECT original_name,owner,private,mime_type,fsize,location FROM {SQL_TABLE_PREFIX}attach WHERE id=".$val));
 				}
-				else if( empty($v['db_id']) ) {
-					unset($at_obj);
-					$at_obj = new fud_attach();
-					$at_obj->add($usr->id, $msg_p->id, addslashes($v['name']), $GLOBALS['TMP'].$v['tmp'], 'Y');
-					
-					if( count($GLOBALS["send_to_array"]) ) {
-						foreach($GLOBALS["send_to_array"] as $va) { 
-							unset($at_obj);
-							$at_obj = new fud_attach();
-							$at_obj->add($va[0], $va[1], addslashes($v['name']), $GLOBALS['TMP'].$v['tmp'], 'Y');
+				
+				if( count($attachments) ) {
+					$id_list = '';
+					foreach( $GLOBALS["send_to_array"] as $mid ) {
+						foreach( $attachments as $atch ) {
+							$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (original_name,owner,mime_type,fsize,private,message_id) VALUES('".addslashes($atch->original_name)."',".$mid[0].",".$atch->mime_type.",".$atch->fsize.",'Y',".$mid[1].")");
+						
+							$fa_id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);		
+
+							copy($atch->location, $GLOBALS['FILE_STORE'].$fa_id.'.atch');
+							@chmod($GLOBALS['FILE_STORE'].$fa_id.'.atch', ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
+							$id_list .= $fa_id.',';
 						}
 					}
-					
-					if( file_exists($GLOBALS['TMP'].$v['tmp']) )
-						unlink($GLOBALS['TMP'].$v['tmp']);	
+					q("UPDATE {SQL_TABLE_PREFIX}attach SET location=CONCAT('".$GLOBALS['FILE_STORE']."',id,'.atch') WHERE id IN(".substr($id_list,0,-1).")");	
 				}
-				else if( !empty($v['db_id']) && count($GLOBALS["send_to_array"]) ) {
-					if( $forward && !bq("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_p->id." AND id=".$v['db_id']) ) {
-						unset($at_obj);
-						$at_obj = new fud_attach();
-						$at_obj->add($usr->id, $msg_p->id, addslashes($v['name']), $GLOBALS['FILE_STORE'].$v['db_id'].'.atch', 'Y');
-					}
-				
-					foreach($GLOBALS["send_to_array"] as $va) {
-						unset($at_obj);
-						$at_obj = new fud_attach();
-						$at_obj->add($va[0], $va[1], addslashes($v['name']), $GLOBALS['FILE_STORE'].$v['db_id'].'.atch', 'Y');
-					}
-				}
-			}
+			}	
 		}
 		
 		if( empty($GLOBALS['__error__']) ) {
@@ -491,26 +459,31 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	if ( $PRIVATE_ATTACHMENTS > 0 ) {	
 		/* check if there are any attached files, if so draw a table */
 		if ( isset($attach_list) ) {
-			$file_array=NULL;
-			$attached_files='';
-			foreach($attach_list as $k => $v) { 
-				$file_array .= $v['tmp']."\r".$v['name']."\r".$v['size']."\r".$v['delque']."\r".$v['db_id']."\n";
-				if ( empty($v['delque']) ) {
-					if( $v['size'] < 100000 )
-						$sz = number_format($v['size']/1024,2).'KB';
-					else 
-						$sz = number_format($v['size']/1048576,2).'MB';
-						
+			$id_list = $file_array = $attached_files = $attachment_list = $attached_status = '';
+			foreach($attach_list as $k => $v) {
+				if( !empty($v) ) {
+					$id_list .= intval($v).',';
+				}
+				$file_array .= $k.':'.$v."\n";
+			}
+			
+			$file_array_be64 = base64_encode($file_array);
+		
+			if( !empty($id_list) ) {
+				$r = q("SELECT {SQL_TABLE_PREFIX}attach.id,{SQL_TABLE_PREFIX}attach.fsize,{SQL_TABLE_PREFIX}attach.original_name,{SQL_TABLE_PREFIX}mime.mime_hdr FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE {SQL_TABLE_PREFIX}attach.id IN(".substr($id_list,0,-1).")");
+				while( $obj = db_rowobj($r) ) {
+					$sz = ( $obj->fsize < 100000 ) ? number_format($obj->fsize/1024,2).'KB' : number_format($obj->fsize/1048576,2).'MB';
+					
+					$insert_uploaded_image = strncasecmp('image/', $obj->mime_hdr, 6) ? '' : '{TEMPLATE: insert_uploaded_image}';
+					
 					$attached_files .= '{TEMPLATE: attached_file}';
 				}
+				qf($r);
 			}
-			$file_array_be64 = base64_encode($file_array);
-			if( !empty($attached_files) ) $attachment_list = '{TEMPLATE: attachment_list}';
-		}
-		if( empty($attach_count) ) 
-			$attach_count=0;
-		else
+			
+			$attachment_list = '{TEMPLATE: attachment_list}';
 			$attached_status = '{TEMPLATE: attached_status}';
+		}
 		
 		if( ($attach_count+1) <= $PRIVATE_ATTACHMENTS ) $upload_file = '{TEMPLATE: upload_file}';
 		$allowed_extensions = tmpl_list_ext();
