@@ -962,32 +962,32 @@ reg_conf_title:			Confirmation d&#39;enregistrement
 reg_conf_email:			<b>E-mail de confirmation</b><br />Un e-mail vous a été envoyé, contenant une URL spéciale que vous devrez accéder avant que votre compte ne soit activé. Si vous ne recevez pas cet e-mail dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l&#39;adresse e-mail que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles aux utilisateurs ayant confirmé leur enregistrement.
 reg_conf_account:		<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s), une fois ceci fait, vous recevrez un e-mail indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités restreintes aux utilisateurs approuvés.
 forum_banned_user:		Vos actions antérieures ont entrainé votre bannissement permanent de ce forum. Au revoir.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
+mnav_description:		Navigateur de messages
+mnav_date_limit:		Intervalle de date :
+mnav_time_unit:			Unité de temps :
+mnav_forum_limit:		Ne chercher que dans :
+mnav_all_forums:		Chercher dans tous les forums
+mnav_submit:			Commencer la recherche
+mnav_no_range:			Vous devez entrer un intervalle de date valide. Cette valeur peut être décimale (0.12), mais elle doit être supérieure à zéro.
+mnav_invalid_unit:		Vous devez spécifier une unitée de temps valide.
+mnav_invalid_date:		L&#39;intervalle de date que vous avez spécifié est plus grande que celui autorisé par l&#39;administrateur, veuillez réduire l&#39;intervalle de date de votre recherche.
+mnav_no_results:		Il n&#39;y a aucun message correspondant à votre recherche.
+mnav_posted_by:			Envoyé par :
+mnav_more:			Plus &raquo;&raquo;
 mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
+mnav_hour:			Heure(s)
+mnav_day:			Jour(s)
+mnav_week:			Semaine(s)
+mnav_month:			Mois
+mnav_title:			Navigateur de messages
+mnav_update:			Parcours des messages en utilisant le <a class="GenLink" href="{ROOT}?t=mnav">Navigateur de messages</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Notification de nouveau message privé
+pm_notify_body_email:		Vous avez un nouveau message privé intitulé "{VAR: subject}" de "{VAR: from}" sur le forum "{GVAR: FORUM_TITLE}".\nPour voir le message, cliquez ici : {ROOT}?t=pmsg_view&id={VAR: pid}\n\nPour stopper les notifications futures, désactivez "Notification de nouveau message privé" dans votre profil.
+pm_notify_body_icq:		Vous avez un nouveau message privé intitulé "{VAR: subject}" de "{VAR: from}" sur le forum "{GVAR: FORUM_TITLE}".\n\nPour stopper les notifications futures, désactivez "Notification de message privé" dans votre profil.
+register_pm_notification:	Notification de message privé
+register_pm_notification_desc:	Si cette option est activée, vous serez notifié par une méthode de notification de votre choix à chaque fois qu&#39;un message privé vous sera envoyé.
+findu_admin_opts_header:	Options d&#39;admin.
+findu_unban:			Autoriser
+findu_ban:			Interdire
+findu_edit:			Éditer
+findu_delete:			Supprimer
