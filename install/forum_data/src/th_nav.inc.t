@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_nav.inc.t,v 1.3 2003/04/15 10:00:25 hackie Exp $
+*   $Id: th_nav.inc.t,v 1.4 2003/04/15 10:19:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,34 +21,30 @@ function get_prev_next_th_id(&$frm, &$prev, &$next)
 	if ($frm->th_page == 1 && $frm->th_pos == 1) {
 		$prev = '';
 	} else {
-		$cpg = ($frm->th_pos != 1) ? $frm->th_page : $frm->th_page - 1;
-		
-		$p = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv 
-				INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id
-				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
-			WHERE
-				tv.forum_id='.$frm->forum_id.' AND tv.page IN ('.$cpg.', '.($cpg - 1).') AND t.moved_to=0
-				AND (tv.page * '.$GLOBALS['THREADS_PER_PAGE'].' + tv.pos) < '.($frm->th_page * $GLOBALS['THREADS_PER_PAGE'] + $frm->th_pos).'
-			ORDER BY tv.page DESC, tv.pos DESC LIMIT 1');
+		if ($frm->th_pos - 1 == 0) { 
+			$page = $frm->th_page - 1;
+			$pos = $GLOBALS['THREADS_PER_PAGE'];
+		} else {
+			$page = $frm->th_page;
+			$pos = $frm->th_pos - 1;
+		}
+
+		$p = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.forum_id='.$frm->forum_id.' AND tv.page='.$page.' AND tv.pos='.$pos);
 
 		$prev = $p ? '{TEMPLATE: prev_thread_link}' : '';
 	}
 	
-	if ($frm->last_thread == $frm->id) { /* this is the last thread in the forum */
-		$next = '';
+	/* determine next thread */
+	if ($frm->th_pos + 1 > $GLOBALS['THREADS_PER_PAGE']) { 
+		$page = $frm->th_page + 1;
+		$pos = 1;
 	} else {
-		/* determine next thread */
-		$cpg = ($frm->th_pos != $GLOBALS['THREADS_PER_PAGE']) ? $frm->th_page : $frm->th_page + 1;
-	
-		$n = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv 
-				INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id
-				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
-			WHERE
-				tv.forum_id='.$frm->forum_id.' AND tv.page IN ('.$cpg.', '.($cpg - 1).') AND t.moved_to=0
-				AND (tv.page * '.$GLOBALS['THREADS_PER_PAGE'].' + tv.pos) > '.($frm->th_page * $GLOBALS['THREADS_PER_PAGE'] + $frm->th_pos).'
-			ORDER BY tv.page ASC, tv.pos ASC LIMIT 1');
-		
-		$next = $n ? '{TEMPLATE: next_thread_link}' : '';
+		$page = $frm->th_page;
+		$pos = $frm->th_pos + 1;
 	}
+
+	$n = db_saq('SELECT m.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tv.forum_id='.$frm->forum_id.' AND tv.page='.$page.' AND tv.pos='.$pos);
+
+	$next = $n ? '{TEMPLATE: next_thread_link}' : '';
 }
 ?>
