@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.18 2003/02/11 16:41:59 hackie Exp $
+*   $Id: compact.php,v 1.19 2003/04/22 00:28:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 	define('msg_edit', 1);
 	define('user_reg', 1);
 
-	include_once "GLOBALS.php";
+	require_once('GLOBALS.php');
 	
 	fud_use('db.inc');
 	fud_use('fileio.inc');
@@ -32,51 +32,17 @@
 	fud_use('imsg_edt.inc');
 	fud_use('replace.inc');
 	
-function write_body_c($data, &$len, &$offset)
-{
-	$MAX_FILE_SIZE = 2147483647;
-	$curdir = getcwd();
-	chdir($GLOBALS["MSG_STORE_DIR"]);
-
-	$len = strlen($data);
-	$i=1;
-	while( $i<100 ) {
-		$fp = fopen('tmp_msg_'.$i, 'ab');
-		if( !($off = ftell($fp)) ) $off = __ffilesize($fp);
-		if( !$off || sprintf("%u", $off+$len)<$MAX_FILE_SIZE ) break;
-		fclose($fp);
-		$i++;
-	}
-	
-	if( !is_array($GLOBALS['__NEW_FILES__']) || !in_array($i, $GLOBALS['__NEW_FILES__']) ) $GLOBALS['__NEW_FILES__'][] = $i;
-	
-	$len = fwrite($fp, $data);
-	fclose($fp);
-	
-	chdir($curdir);
-	
-	if( $len == -1 ) exit("FATAL ERROR: system has ran out of disk space<br>\n");
-	$offset = $off;
-	
-	return $i;
-}
-
-function fud_rename($from, $to)
-{
-	if( @file_exists($to) ) unlink($to);
-	copy($from, $to);
-	unlink($from);
-}
-	
-	list($ses, $usr) = initadm();
-	
-	if( !empty($HTTP_POST_VARS['cancel']) ) {
-		header("Location: admglobal.php?"._rsidl);
+	if ($usr->is_mod != 'A') {
+		header('Location: admloginuser.php?'._rsidl);
 		exit;
 	}
-	include('admpanel.php');
+	if (isset($_POST['cancel'])) {
+		header('Location: admglobal.php?'._rsidl);
+		exit;
+	}
+	include(WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	if( empty($HTTP_POST_VARS['conf']) ) {
+	if (!isset($_POST['conf'])) {
 ?>		
 <form method="post" action="compact.php">
 <div align="center">
@@ -92,8 +58,41 @@ and the amount of messages your forum has.<br><br>
 		readfile('admclose.html');
 		exit;	
 	}
+
+function write_body_c($data, $i, &$len, &$offset)
+{
+	$MAX_FILE_SIZE = 2147483647;
+	$len = strlen($data);
+
+	if (!isset($GLOBALS['__FUD_TMP_F__'])) {
+		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
+		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
+		$GLOBALS['__FUD_TMP_F__'][$i][1] = filesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+	}
+	while ($GLOBALS['__FUD_TMP_F__'][$i][1] + $len > $MAX_FILE_SIZE) {
+		$i++;
+		$GLOBALS['__FUD_TMP_F__'][$i][0] = fopen($GLOBALS['MSG_STORE_DIR'] . 'tmp_msg_'.$i, 'ab');
+		flock($GLOBALS['__FUD_TMP_F__'][$i][0], LOCK_EX);
+		$GLOBALS['__FUD_TMP_F__'][$i][1] = filesize($GLOBALS['__FUD_TMP_F__'][$i][0]);
+	}
+	if (fwrite($fp, $data) != $len || !fflush($fp)) {
+		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+	}
+	$offset = $GLOBALS['__FUD_TMP_F__'][$i][1];
+	$GLOBALS['__FUD_TMP_F__'][$i][1] += $len;
+
+	return $i;
+}
+
+function fud_rename($from, $to)
+{
+	if( @file_exists($to) ) unlink($to);
+	copy($from, $to);
+	unlink($from);
+}
+
 	
-	if( $GLOBALS['FORUM_ENABLED'] == 'Y' ) {
+	if ($FORUM_ENABLED == 'Y') {
 		echo '<br>Disabling the forum for the duration of maintenance run<br>';
 		maintenance_status('Undergoing maintenance, please come back later.', 'N');
 	}
@@ -101,88 +100,62 @@ and the amount of messages your forum has.<br><br>
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 	flush();
 	
-	define('__file_perms__', (($GLOBALS['FILE_LOCK']=='Y')?0600:0644));
+	define('__file_perms__', (($FILE_LOCK == 'Y') ? 0600 : 0644));
 	
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
 	flush();
+	
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$magic_file_id = 10000001;
+	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg') / 10);
+	$i = 0;
 	$stm = time();
-	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'msg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'thread+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
-	$files = array();
-	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id,foff,length,file_id,message_threshold
-			FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg 
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread
-				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum	
-				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
-			ORDER BY thread_id, id ASC");
 
-
-	$rpl_arr = make_replace_array();
-	$rvs_rpl_arr = make_reverse_replace_array();
-
-	$do_replace = $do_rvs_replace = 0;
-
-	if( is_array($rpl_arr) && count($rpl_arr['pattern']) && count($rpl_arr['replace']) ) 
-		$do_replace = 1;
-	if( is_array($rvs_rpl_arr) && count($rvs_rpl_arr['pattern']) && count($rvs_rpl_arr['replace']) ) 
-		$do_rvs_replace = 1;	
-
-	if( db_count($r) ) {
-		$ten_percent = round(db_count($r)/10);
-		$i=0;
-
-		while( $obj = db_rowobj($r) ) {
-			if( empty($files[$obj->file_id]) ) $files[$obj->file_id]=1;
-		
-			$msg = read_msg_body($obj->foff, $obj->length, $obj->file_id);
-
-			if( $do_rvs_replace ) $msg = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $msg);
-			if( $do_replace ) $msg = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $msg);
-		
-			$file_id = write_body_c($msg, $len, $off);
-		
-			if ( $obj->message_threshold && $obj->message_threshold < strlen($msg) ) {
-				$thres_body = trim_html($msg, $obj->message_threshold);
-				$file_id_preview = write_body_c($thres_body, $length_preview, $offset_preview);
-			}
-		
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET 
-				foff=".$off.", 
-				length=".$len.",
-				file_id=".$file_id.", 
-				file_id_preview=".intzero($file_id_preview).",
-				offset_preview=".intzero($offset_preview).",
-				length_preview=".intzero($length_preview)."
-			WHERE id=".$obj->id);
-		
-			if( $ten_percent && !($i%$ten_percent) && $i ) {
-				echo ($i/$ten_percent*10)."% done<br>\n";
-				flush();
-			}	
-			$i++;
+	db_lock($tbl.'msg WRITE, '.$tbl.'thread WRITE, '.$tbl.'forum WRITE');
+	$c = uq('SELECT m.id, m.foff, m.length m.file_id, f.message_threshold FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.file_id<'.$magic_file_id);
+	while ($r = db_rowarr($c)) {
+		if ($r[4] && $r[2] > $r[4]) {
+			$m1 = $magic_file_id = write_body_c(($body = read_msg_body($r[1], $r[2], $r[3])), $magic_file_id, $len, $off);
+			$magic_file_id = write_body_c(trim_html($body, $r[4]), $magic_file_id, $len2, $off2);
+			q('UPDATE '.$tbl.'msg m SET foff='.$off.', length='.$len.', file_id='.$m1.', file_id_preview='.$magic_file_id.', offset_preview='.$off2.', length_preview='.$len2.' WHERE id='.$r[0]);
+		} else {
+			$magic_file_id = write_body_c(read_msg_body($r[1], $r[2], $r[3]), $magic_file_id, $len, $off);
+			q('UPDATE '.$tbl.'msg m SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
 		}
-	} 
-	else { /* there are no messages in db, make sure that msg files are blank */
-		$i=0;
-		while (++$i<100) {
-			if( @file_exists($GLOBALS['MSG_STORE_DIR'].'msg_'.$i) )
-				@unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$i);
-			else 
-				break;
+		if ($i && !($i % $pc)) {
+			$prg = $i / $pc;		
+			echo ($prg * 10) . "% done ETA: '.((time()-$stm) / $prg * 10 - $stm).' seconds<br>\n";
+			flush();
+		}
+		$i++;
+	}
+	qf($c);
+	un_register_fps();
+
+	if (!$i) {
+		/* remove any trash files */
+		$j = 1;
+		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
+			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
+		}
+	} else {
+		foreach ($GLOBALS['__FUD_TMP_F__'] as $c) {
+			fclose($v[0]);
+		}
+	
+		$lmt = (isset($fid2) ? (($fid > $fid2) ? $fid : $fid2) : $fid) + 1;
+		$j = $magic_file_id + 1;
+		/* rename our temporary files & update the database */
+		q('UPDATE '.$tbl.'msg m SET file_id=file_id-'.$magic_file_id.' WHERE file_id>'.$magic_file_id.' AND file_id<'.$lmt);
+		for ($j; $j < $lmt; $j++) {
+			rename('tmp_msg_'.$j, 'msg_'.($j - $magic_file_id));
+		}
+		$j = $lmt - $magic_file_id;
+		while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
+			@unlink($MSG_STORE_DIR . 'msg_' . $j++);
 		}
 	}
-		
-	qf($r);
-	un_register_fps();
-	foreach($files as $k => $v) @unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$k);
-	
-	if( @is_array($GLOBALS['__NEW_FILES__']) ) {
-		foreach($GLOBALS['__NEW_FILES__'] as $v) {
-			fud_rename($GLOBALS['MSG_STORE_DIR'].'tmp_msg_'.$v, $GLOBALS['MSG_STORE_DIR'].'msg_'.$v);
-			@chmod($GLOBALS['MSG_STORE_DIR'].'msg_'.$v, __file_perms__);
-		}	
-	}	
 	db_unlock();
 	
 	/* Private Messages */
@@ -191,68 +164,59 @@ and the amount of messages your forum has.<br><br>
 	flush();
 	
 	if (__dbtype__ == 'mysql') { 
-		q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
+		q('ALTER TABLE '.$tbl.'pmsg ADD INDEX(foff)');
 	} else {
-		q("CREATE INDEX ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg_foff_idx ON ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg (foff)"); 
+		q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)'); 
 	}
 	
-	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'pmsg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
-	$off=$len=0;
-	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private_tmp', 'wb');
-	set_file_buffer($fp, 40960);
-	
-	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
-	
-	if( db_count($r) ) {
-		$i=0;
-		$ten_percent = ceil(db_count($r)/10);
-	
-		while ( $obj = db_rowobj($r) ) {
-			$b = read_pmsg_body($obj->foff, $obj->length); 
-		
-			if( $do_rvs_replace ) $b = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $b);
-			if( $do_replace ) $b = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $b);
+	db_lock($tbl.'pmsg WRITE');
+	$i = $off = $len = 0;
+	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
+	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'pmsg') / 10);
+	$c = uq('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
 
-			$len = fwrite($fp, $b);
-		
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->foff);
-		
-			$off += $len;
-		
-			if( !($i%$ten_percent) && $i ) {
-				echo ($i/$ten_percent*10)."% done<br>\n";
-				flush();
-			}	
-			
-			$i++;
+	while ($r = db_rowarr($r)) {
+		if (($len = fwrite($fp, read_pmsg_body($r[0], $r[1]))) != $r[1] || !fflush($fp)) {
+			exit("FATAL ERROR: system has ran out of disk space<br>\n");
 		}
+		q('UPDATE '.$tbl.'pmsg SET foff='.$off.', length='.$len.' WHERE foff='.$r[0]);
+		$off += $len;
+
+		if ($i && !($i % $pc)) {
+			$prg = $i / $pc;		
+			echo ($prg * 10) . '% done ETA: '.((time()-$stm) / $prg * 10 - $stm)." seconds<br>\n";
+		}	
+		$i++;
 	}
-	
+	qf($c);
+	fclose($fp);
+
 	if (__dbtype__ == 'mysql') { 
-		q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg DROP index foff");
+		q('ALTER TABLE '.$tbl.'pmsg DROP index foff');
 	} else {
-		q("DROP INDEX ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg_foff_idx"); 
+		q('DROP INDEX '.$tbl.'pmsg_foff_idx'); 
 	}
 	
 	echo "100% Done<br>\n";
 	flush();
 	
-	if( !empty($fp) ) { 
-		fclose($fp);
-		fud_rename($GLOBALS['MSG_STORE_DIR'].'private_tmp', $GLOBALS['MSG_STORE_DIR'].'private');
-		@chmod($GLOBALS['MSG_STORE_DIR'].'private', __file_perms__);
-	}	
-	
-	db_unlock();
-	$etm = time();
-	echo "Done (in ".(($etm-$stm)/60)." min)<br>\n";
-	
-	if( $GLOBALS['FORUM_ENABLED'] == 'Y' ) {
-		echo '<br>Re-enabling the forum.<br>';
-		maintenance_status($GLOBALS['DISABLED_REASON'], 'Y');
+	if (!$i) {
+		@unlink($MSG_STORE_DIR . 'private_tmp');
+		@unlink($MSG_STORE_DIR . 'private');
+	} else {
+		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
+		@chmod($MSG_STORE_DIR.'private', __file_perms__);
 	}
-	else 
-		echo '<br><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
+
+	db_unlock();
+	echo "Done (in ".((time()-$stm)/60)." min)<br>\n";
+	
+	if ($FORUM_ENABLED == 'Y') {
+		echo '<br>Re-enabling the forum.<br>';
+		maintenance_status($DISABLED_REASON, 'Y');
+	} else {
+		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
+	}
 
 	readfile('admclose.html');
 ?>
