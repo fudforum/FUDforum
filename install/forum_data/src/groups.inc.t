@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.22 2003/10/01 21:51:52 hackie Exp $
+*   $Id: groups.inc.t,v 1.23 2003/10/02 14:00:16 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -71,11 +71,13 @@ function grp_rebuild_cache($user_id=null)
 	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
 	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
 
+	$tmp = array();
 	foreach ($list as $k => $v) {
 		foreach ($v as $u => $p) {
-			db_qid("INSERT INTO ".$tmp_t." (a, b, c) VALUES(".$k.", ".$p.", ".$u.")");
+			$tmp[] = $k.", ".$p.", ".$u;
 		}
 	}
+	ins_m($tmp_t, "a,b,c", $tmp, 1);
 
 	if (!db_locked()) {
 		$ll = 1;
