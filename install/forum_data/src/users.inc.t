@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.55 2003/06/02 19:11:32 hackie Exp $
+*   $Id: users.inc.t,v 1.56 2003/06/02 19:15:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -171,7 +171,7 @@ function init_user()
 				case 'fa':
 					$_GET['t'] = 'getfile';
 					$_GET['id'] = $p[1];
-					if (isset($p[2])) {
+					if (!empty($p[2])) {
 						$_GET['private'] = 1;
 					}
 					break;
