@@ -552,7 +552,7 @@ buddy_list_err_nouser_title:	Unable to add user
 buddy_list_update:		Browsing own buddy list
 core_err_invinp_title:		Invalid Input
 core_err_invinp_err:		You\'ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
-core_adm_login_msg:		<br>Administrators can login <a href="{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">here</a>
+core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
 email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.

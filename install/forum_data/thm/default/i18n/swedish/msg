@@ -552,7 +552,7 @@ buddy_list_err_nouser_title:	Kan inte l&auml;gga till medlemmen
 buddy_list_update:  		Visar egen kompislista
 core_err_invinp_title:		Ogiltig input(??)
 core_err_invinp_err:		Du har f&ouml;ljt en felaktig l&auml;nk, v&auml;nligen meddela <a href="mailto:{GVAR: ADMIN_EMAIL}">webmastern</a>
-core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">h&auml;r</a>
+core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="adm/admloginuser.php">h&auml;r</a>
 email_err_unabletoemail_title:	FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:	E-postsystemet har st&auml;ngts av av administratorn.
 email_err_unabletoemailu_msg:	E-postsystemet har st&auml;ngts av av administratorn.

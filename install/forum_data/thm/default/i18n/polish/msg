@@ -553,7 +553,7 @@ buddy_list_err_nouser_title:	Nieudane dodanie u¿ytkownika
 buddy_list_update:		Przegl±danie swojej listy znajomych
 core_err_invinp_title:		Nieprawid³owe Dane
 core_err_invinp_err:		Odkry³e¶ nieprawid³owy odno¶nik, wiêc powiadom <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
-core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">tutaj</a>
+core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
 email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
 email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
 email_err_unabletoemailu_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.

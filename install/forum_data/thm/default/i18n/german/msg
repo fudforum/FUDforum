@@ -73,7 +73,7 @@ coppa_fax_remail:		Email:
 coppa_fax_sign:			Bitte unterschreiben sie das Formular und schicken es an uns
 coppa_fax_telephone:		Telefon:
 coppa_link:			Klicke auf den Link, der zu Deinem Geburtsdatum passt
-core_adm_login_msg:		<br>Administratoren k&ouml;nnen sich <a href="{ROOT}?t={GVAR: WWW_ROOT}adm/admloginuser">hier</a> einloggen
+core_adm_login_msg:		<br>Administratoren k&ouml;nnen sich <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> einloggen
 core_err_invinp_err:		Du bist einem toten Link gefolgt, bitte benachrichtige den <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> dar&uuml;ber
 core_err_invinp_title:		Ung&uuml;ltige Eingabe
 create_thread:			Thema erstellen

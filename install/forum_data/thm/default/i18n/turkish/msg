@@ -552,7 +552,7 @@ buddy_list_err_nouser_title:	Kullanýcý eklenemedi
 buddy_list_update:		Arkadaþ listesini dolaþýyor
 core_err_invinp_title:		Geçersiz girdi
 core_err_invinp_err:		Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">yöneticiyi</a> uyarýn.
-core_adm_login_msg:		<br>Yöneticiler <a href="{ROOT}?t={VAR: GLOBALS['WWW_ROOT']}adm/admloginuser">buradan</a> giriþ yapabilir
+core_adm_login_msg:		<br>Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriþ yapabilir
 email_err_unabletoemail_title:	HATA: E-mektup gönderilemedi
 email_err_unabletoemail_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
 email_err_unabletoemailu_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
