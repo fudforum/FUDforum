@@ -57,7 +57,7 @@ Eðer diðer üyelerin imzalarýný görmek istemiyorsanýz, kiþisel bilgilerinizdeki <
 
 TOPIC_TITLE: <a name="rstpasswd">Parolanýzý kaybettiyseniz ne yapmalýsýnýz?</a>
 TOPIC_HELP:
-Eðer FUDforum parolanýzý hatýrlayamýyorsanýz, <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">parola belirleme sayfasýna</a> giderek
+Eðer FUDforum parolanýzý hatýrlayamýyorsanýz, <a href="{ROOT}?t=reset&%_RSID%" class="GenLink">parola belirleme sayfasýna</a> giderek
 e-mektup adresinizi belirtip Gönder düðmesini týklatmallýsýnýz. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriþtiðinizde
 parolanýz yeniden belirlenecek ve yeni parolanýzý söyleyen bir e-mektup alacaksýnýz.<br>
 <br>

@@ -33,7 +33,7 @@ Je¶li nie chcesz widzieæ podpisów innych u¿ytkowników, mo¿esz ustawiæ opcjê <b>"
 
 TOPIC_TITLE: <a name="rstpasswd">Co zrobiæ je¶li zapomnia³em has³a?</a>
 TOPIC_HELP:
-Je¶li zapomnnia³e¶ has³a, powiniene¶ skorzystaæ ze <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">strony zerowania has³a</a>, gdzie musisz wpisaæ swój adres poczty elektronicznej, nastêpnie potwierd¼ klikaj±c przycisk "Go". Spowoduje to wys³anie do Ciebie listu z adresem strony. Po wej¶ciu pod podany adres zostanie wygenerowane nowe has³o i przes³ane na Twój e-mail.
+Je¶li zapomnnia³e¶ has³a, powiniene¶ skorzystaæ ze <a href="{ROOT}?t=reset&%_RSID%" class="GenLink">strony zerowania has³a</a>, gdzie musisz wpisaæ swój adres poczty elektronicznej, nastêpnie potwierd¼ klikaj±c przycisk "Go". Spowoduje to wys³anie do Ciebie listu z adresem strony. Po wej¶ciu pod podany adres zostanie wygenerowane nowe has³o i przes³ane na Twój e-mail.
 <br>
 <br>
 <b>Uwaga:</b> Twoje has³a s± zapisywane za pomoc± jednokierunkowej funkcji mieszaj±cej MD5. Jest to 128-bitowe szyfrowanie na poziomie zabezpieczeñ wojskowych. Nie ma mo¿liwo¶ci odtworzenia Twojego has³a. Za ka¿dym razem gdy wpisujesz, jest ono szyfrowane a nastêpnie porównywane z zapisan±, zaszyfrowan± wersj±. W zwi±zku z tym, je¶li zapomnisz has³a nie jest mo¿liwe jego odtworzenie, a tylko ustawienie ca³kiem nowego.

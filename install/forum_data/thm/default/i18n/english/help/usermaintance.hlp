@@ -50,7 +50,7 @@ If you do not wish to see the signatures of other people, you can turn them off 
 
 TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
 TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">reset password page</a>, 
+If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&%_RSID%" class="GenLink">reset password page</a>, 
 on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
 your password will be reset and you will receive a new email with your password.<br>
 <br>

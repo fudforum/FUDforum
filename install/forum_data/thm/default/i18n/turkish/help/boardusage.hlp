@@ -1,10 +1,10 @@
 TOPIC_TITLE: <a name="bsearch">Nasýl arama yapabilirim?</a>
-TOPIC_HELP: Yönetici tarafýndan engellenmediði sürece forumdaki <a href="search.php?%_RSID%" class="GenLink">iletilerde arama</a> yapabilirsiniz.
+TOPIC_HELP: Yönetici tarafýndan engellenmediði sürece forumdaki <a href="{ROOT}?t=search&%_RSID%" class="GenLink">iletilerde arama</a> yapabilirsiniz.
 Ýleti aramayý kullanýrken, aranmasýný istediðiniz anahtar sözcükleri belirttikten sonra, bu sözcüklerin nerede aranmasýný belirtmeniz
 de mümkün. Ýsterseniz iletinin sadece konu kýsmýnda, isterseniz iletinin hem konu hem de gövde bölümlerinde arama yapabilirsiniz.
 Aramanýzýn tüm forumlarda yapýlmasýný istemiyorsanýz, arama yapmak istediðiniz forumu da belirtebilirsiniz.
 <br>
-Ayrýca forumun diðer üyelerini kullanýcý isimleri veya e-mektup adreslerini ile <a href="finduser.php?%_RSID%" class="GenLink">kullanýcý arama formunu</a>
+Ayrýca forumun diðer üyelerini kullanýcý isimleri veya e-mektup adreslerini ile <a href="{ROOT}?t=finduser&%_RSID%" class="GenLink">kullanýcý arama formunu</a>
 kullanarak arayabilirsiniz.
 
 
@@ -23,7 +23,7 @@ linkini kullanarak gönderebilirsiniz. Bu link forumun zincir ve ileti görüntülem
 
 TOPIC_TITLE: <a name="pmsg">Özel ileti nedir ve nasýl özel ileti gönderebilirim?</a> 
 TOPIC_HELP: Eðer yönetici Özel Ýleti sistemini engellemediyse, forumdaki bir veya daha fazla kullanýcýya özel iletiler gönderebilirsiniz.
-Özel Ýleti sistemine eriþmek için, basitçe sayfanýn üst köþesinde bulunan <a href="pmsg.php?%_RSID%" class="GenLink">özel Ýletiler</a> linkine
+Özel Ýleti sistemine eriþmek için, basitçe sayfanýn üst köþesinde bulunan <a href="{ROOT}?t=pmsg&%_RSID%" class="GenLink">özel Ýletiler</a> linkine
 týklatabilirsiniz. Eðer okunmamýþ özel iletileriniz varsa, bu link size kaç tane okunmamýþ iletiniz olduðunu bildirecektir.
 <p>
 <b>Özel Ýleti Yollama</b><br>

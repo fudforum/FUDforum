@@ -50,7 +50,7 @@ Falls Du die Signaturen von anderen Leuten nicht sehen m&ouml;chtest, kannst sie
 
 TOPIC_TITLE: <a name="rstpasswd">Was beim Verlust des Passwortes zu tun ist</a>
 TOPIC_HELP:
-Falls Du Dich ans Passwort f&uuml;r das FUDforum nicht mehr erinnern kannst, solltest Du das <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">Passwort zur&uuml;cksetzen</a> lassen. 
+Falls Du Dich ans Passwort f&uuml;r das FUDforum nicht mehr erinnern kannst, solltest Du das <a href="{ROOT}?t=reset&%_RSID%" class="GenLink">Passwort zur&uuml;cksetzen</a> lassen. 
 Dort tr&auml;gst Du Deine Email Adresse ein und dr&uuml;ckst den LOS Knopf. Dir wird dann eine Email mit einer besonderen URL zugeschickt, mit der Dein Passwort zur&uuml;ckgesetzt wird und Du 
 anschlie&szlig;end eine weitere Mail mit Deinem neuen Passwort erh&auml;ltst.<br>
 <br>

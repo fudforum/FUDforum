@@ -1,34 +1,34 @@
 TOPIC_TITLE: Kullanýcý Yönetimi
 TOPIC_HELP:
-<a href="help_index.php?sect=usermaintance&%_RSID%#register" class="GenLink">Neden kayýt olunmalý?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#cookies" class="GenLink">FUDforum kurabiyeleri nasýl kullanýyor?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#clrcookie" class="GenLink">FUDforum kurabiyesi nasýl kaldýrýlabilir?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#updprofile" class="GenLink">Kiþisel Bilgiler nedir?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#sigs" class="GenLink">Ýmza nedir?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#rstpasswd" class="GenLink">Parolanýzý kaybettiyseniz ne yapmalýsýnýz</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#cstat" class="GenLink">Özel takýlar nedir & nasýl kullanabilirim?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#avatars" class="GenLink">Avatar nedir?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#blist" class="GenLink">Arkadaþ listesi nedir?</a><br>
-<a href="help_index.php?sect=usermaintance&%_RSID%#ignlist" class="GenLink">Gözardý listesi ne iþe yarar?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#register" class="GenLink">Neden kayýt olunmalý?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#cookies" class="GenLink">FUDforum kurabiyeleri nasýl kullanýyor?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#clrcookie" class="GenLink">FUDforum kurabiyesi nasýl kaldýrýlabilir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#updprofile" class="GenLink">Kiþisel Bilgiler nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#sigs" class="GenLink">Ýmza nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#rstpasswd" class="GenLink">Parolanýzý kaybettiyseniz ne yapmalýsýnýz</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#cstat" class="GenLink">Özel takýlar nedir & nasýl kullanabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#avatars" class="GenLink">Avatar nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#blist" class="GenLink">Arkadaþ listesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#ignlist" class="GenLink">Gözardý listesi ne iþe yarar?</a><br>
 
 TOPIC_TITLE: Genel Kullaným
 TOPIC_HELP:
-<a href="help_index.php?sect=boardusage&%_RSID%#bsearch" class="GenLink">Nasýl arama yapabilirim?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#email" class="GenLink">Diðer forum üyelerine e-mektup gönderebilir miyim?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#pmsg" class="GenLink">Özel ileti nedir ve nasýl özel ileti gönderebilirim?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#mlist" class="GenLink">Üye Listesi nedir?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#ann" class="GenLink">Duyurular ve Yapýþkan iletiler nedir?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#rate" class="GenLink">Zincirleri deðerlendirebilir miyim?</a><br>
-<a href="help_index.php?sect=boardusage&%_RSID%#ref" class="GenLink">Tanýtýmlar nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#bsearch" class="GenLink">Nasýl arama yapabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#email" class="GenLink">Diðer forum üyelerine e-mektup gönderebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#pmsg" class="GenLink">Özel ileti nedir ve nasýl özel ileti gönderebilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#mlist" class="GenLink">Üye Listesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#ann" class="GenLink">Duyurular ve Yapýþkan iletiler nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#rate" class="GenLink">Zincirleri deðerlendirebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#ref" class="GenLink">Tanýtýmlar nedir?</a><br>
 
 TOPIC_TITLE: Ýleti okuma ve gönderme
 TOPIC_HELP:
-<a href="help_index.php?sect=readingposting&%_RSID%#style" class="GenLink">Metin biçimlendirmesi nasýl yapýlýr?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#sml" class="GenLink">Gülücükler/Hissimgeler nedir?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#polls" class="GenLink">Anketleri nasýl kullanabilirim?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#attach" class="GenLink">Ýletilere dosya ekleyebilir miyim?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#msgico" class="GenLink">Gönderi simgesi nedir?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#edit" class="GenLink">Ýletilerimde düzeltme yapabilir miyim?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#mod" class="GenLink">Onaycýlar ve yöneticiler kimdir?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#cens" class="GenLink">Sansür?</a><br>
-<a href="help_index.php?sect=readingposting&%_RSID%#not" class="GenLink">Ýletilerime verilen cevaplardan haberdar edilebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#style" class="GenLink">Metin biçimlendirmesi nasýl yapýlýr?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#sml" class="GenLink">Gülücükler/Hissimgeler nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#polls" class="GenLink">Anketleri nasýl kullanabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#attach" class="GenLink">Ýletilere dosya ekleyebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#msgico" class="GenLink">Gönderi simgesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#edit" class="GenLink">Ýletilerimde düzeltme yapabilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#mod" class="GenLink">Onaycýlar ve yöneticiler kimdir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#cens" class="GenLink">Sansür?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#not" class="GenLink">Ýletilerime verilen cevaplardan haberdar edilebilir miyim?</a><br>

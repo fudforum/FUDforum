@@ -1,10 +1,10 @@
 TOPIC_TITLE: <a name="bsearch">How can I search?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you can <a href="search.php?%_RSID%" class="GenLink">search for messages</a> that were posted inside the forum. You can search for a message by 
+Unless disabled by the administrator, you can <a href="{ROOT}?t=search&%_RSID%" class="GenLink">search for messages</a> that were posted inside the forum. You can search for a message by 
 specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
 or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search 
 in all the forums.<br>
-You can also search for other forum members, by their login name or email address via the <a href="finduser.php?%_RSID%" class="GenLink">user search form</a>.
+You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&%_RSID%" class="GenLink">user search form</a>.
 
 
 TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
@@ -22,7 +22,7 @@ by sending them a URL with the description. This link can be found on the thread
 TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
 TOPIC_HELP:
 If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered 
-members of the forum. To access the PM system, simply click on the <a href="pmsg.php?%_RSID%" class="GenLink">Private Messaging</a> link 
+members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&%_RSID%" class="GenLink">Private Messaging</a> link 
 which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
 <p>
 <b>Sending a private message</b><br>
