@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.18 2003/07/18 19:00:31 hackie Exp $
+*   $Id: admimport.php,v 1.19 2003/07/18 20:30:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,12 +111,13 @@ function resolve_dest_path($path)
 			}
 			/* If we are dealing with pgSQL drop all sequences too */
 			if (__dbtype__ == 'pgsql') {
-				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".$GLOBALS['DBHOST_TBL_PREFIX']."'");
+				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."'");
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
 				qf($c);
 			}
+
 			/* It is possible that the database type in the dump != database type in the current forum.
 			 * No worries, we can handle that ;), but we need to get table defenitions else where
 			 */
@@ -126,7 +127,7 @@ function resolve_dest_path($path)
 				if (!($d = opendir($DATA_DIR.'sql/'.__dbtype__))) {
 					exit("Couldn't open ".$DATA_DIR.'sql/'.$tmp[1]." directory<br>\n");
 				}
-				readdir($dp); readdir($dp); 
+				readdir($d); readdir($d); 
 				while ($f = readdir($d)) {
 					if (substr($f, -4) != '.tbl') {
 						continue;
@@ -143,10 +144,17 @@ function resolve_dest_path($path)
 				}
 				closedir($d);
 
+				/* copy appropriate db.inc.t */
+				copy($DATA_DIR.'sql/'.__dbtype__.'/db.inc', $DATA_DIR . '/src/db.inc.t');
+
 				/* skip table defenitions inside the archive */
-				while (($line = $getf($fp, 1000000)) && !$feoff($fp) && (!strncmp($line, 'DROP TABLE', 10) || !strncmp($line, 'CREATE TABLE', 12)));
-				if ($line) {
-					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
+				while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
+					if (($line = trim($line))) {
+						if (strncmp($line, 'DROP TABLE', 10) && strncmp($line, 'CREATE TABLE', 12)) {
+							q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
+							break;
+						}
+					}
 				}
 			}
 
