@@ -42,6 +42,10 @@ are:<br>
          [/u]</b></font> produces <u>underlined</u> text</li>
   <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
          [/i]</b></font> produces <i>italicized</i> text</li>
+  <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
+         [/sub]</b></font> produces <sub>subscript</sub> text</li>
+  <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
+         [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
          It is also possible to control color/size and even font face.<br>
 <ul>
@@ -132,7 +136,7 @@ putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it.
 
 <table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
 <p>
-<b>Computer Code and Pre-formatted Text</b><br>
+<b>Program Code and Pre-formatted Text</b><br>
  The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
 text exactly as it is, maintaining relational formatting such as tabs and multiple 
 spaces. <br>
@@ -146,7 +150,58 @@ spaces. <br>
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
+<p>
+<b>PHP Code</b><br>
+The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
+and have the forum automatically syntax highlight the code for easier readability.<br>
+<br>it used like this: <br>
+<font color="#ff0000"><b>[code]</b></font>
+<pre>
+function hello()
+{
+	echo "Hello World!";
+}
+
+hello();
+</pre>
+<font color="#ff0000"><b>[/code]</b></font><br>
+<br>which produces:<br><br>
+<code><font color="#000000">
+<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+
+</font>
+</code>
+<p>
+
+<b>No Tag</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+and not have them converted to equivalent HTML.
+<p>
+
+<b>Spoiler</b><br>
+The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
+from being displayed. To see the hidden portion the users must click a link that will display the 
+hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
+reloaded, instead a hidden layer is made visible.<br>
 <br>
+Here is an example of this tag in action: <br>
+
+Visible part of the message
+<font color="#ff0000"><b>[spoiler]</b></font>
+<br>Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br>
+More visible text.
+
+<p>and the result:<p>
+
+Visible part of the message<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
+Hidden part of the message<br />
+</div></div><br />
+More visible text.
+
+<p>
 
 You may also find that the administrator has enabled smilies, which allow
 you to use small icons to convey emotion, and the [img] code, which allows

@@ -47,6 +47,10 @@ Istnieje kilka rodzajów znaczników, których mo¿na u¿yæ:<br>
         [/size]</b></font> tworzy <font size="4">du¿y tekst</font></li>
   <li><font color="#ff0000"><b>[font=courier]</b></font>tekst<font color="#ff0000"><b>
         [/font]</b></font> tworzy <font face="Courier New, Courier, monospace">tekst</font> podan± czcionk±</li>
+   <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
+          [/sub]</b></font> produces <sub>subscript</sub> text</li>
+   <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
+          [/sup]</b></font> produces <sup>superscript</sup> text</li>
 </ul>
 	Mo¿na tak¿e ³±czyæ ró¿ne znaczniki formatuj±ce:<br>
 <div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Sformatowany tekst<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
@@ -134,7 +138,58 @@ FUDcode pozwala wyrównywaæ tekst za pomoc± znacznika [align] na trzy sposoby:
 <br>
 <br>
 <pre>$fp = fopen('jaki¶plik', 'w');<br>if ( !$fp ) {<br>	exit('nie ma takiego pliku!');<br>}<br>else { <br>	fwrite($fp, 'witaj ¶wiecie');<br>	fclose($fp);<br>}<br><br><br></pre>
-<br>
+<p>
+<b>PHP Code</b><br>
+The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
+and have the forum automatically syntax highlight the code for easier readability.<br>
+<br>it used like this: <br>
+<font color="#ff0000"><b>[code]</b></font>
+<pre>
+function hello()
+{
+	echo "Hello World!";
+}
+
+hello();
+</pre>
+<font color="#ff0000"><b>[/code]</b></font><br>
+<br>which produces:<br><br>
+<code><font color="#000000">
+<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+
+</font>
+</code>
+<p>
+
+<b>No Tag</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
+the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
+and not have them converted to equivalent HTML.
+<p>
+
+<b>Spoiler</b><br>
+The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
+from being displayed. To see the hidden portion the users must click a link that will display the 
+hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
+reloaded, instead a hidden layer is made visible.<br>
+  <br>
+Here is an example of this tag in action: <br>
+
+Visible part of the message
+<font color="#ff0000"><b>[spoiler]</b></font>
+<br>Hidden part of the message</br>
+<font color="#ff0000"><b>[/spoiler]</b></font><br>
+More visible text.
+
+<p>and the result:<p>
+
+Visible part of the message<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
+Hidden part of the message<br />
+</div></div><br />
+More visible text.
+
+<p>
 
 Mo¿esz tak¿e sprawdziæ czy administrator zezwoli³ na u¶mieszki, które s±
 niewielkimi obrazkami symbolizuj±cymi Twój nastrój oraz znacznik [img]
