@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.49 2005/02/27 02:21:36 hackie Exp $
+* $Id: rdf.php.t,v 1.50 2005/03/03 15:00:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -244,7 +244,7 @@ $basic_rss_data .= '
 								foreach ($pc as $o) {
 									echo '<rdf:li>
 										<content:item rdf:about="poll_opt">
-											<opt_title>'.sp($o[0]).'></opt_title>
+											<opt_title>'.sp($o[0]).'</opt_title>
 											<opt_votes>'.$o[1].'</opt_votes>
 										</content:item></rdf:li>';
 								}
