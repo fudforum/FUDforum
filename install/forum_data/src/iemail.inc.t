@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.15 2003/03/05 13:46:36 hackie Exp $
+*   $Id: iemail.inc.t,v 1.16 2003/04/10 17:36:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -120,8 +120,7 @@ function send_email($from, $to, $subj, $body, $header='')
 		$smtp->from = $from;
 		$smtp->headers = $header;
 		$smtp->send_smtp_email();
-	}
-	else {
+	} else {
 		$bcc='';
 	
 		if( is_array($to) ) {
@@ -141,111 +140,104 @@ function send_email($from, $to, $subj, $body, $header='')
 	}		
 }
 
+function make_email_message(&$body, &$obj)
+{
+	$TITLE_EXTRA = $iemail_poll = $iemail_attach = '';
+	if ($obj->poll_cache) {
+		$pl = @unserialize($obj->poll_cache);
+		if (is_array($pl) && count($pl)) {
+			$n_votes = 0;
+			foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
+		
+			foreach ($pl as $k => $v) {
+				$length = ($v[1] && $n_votes) ? round($v[1] / $n_votes * 100) : 0;
+				$iemail_poll .= '{TEMPLATE: iemail_poll_result}';	
+			}
+			$iemail_poll = '{TEMPLATE: iemail_poll_tbl}';
+		}
+	}
+	if ($obj->attach_cnt && $obj->attach_cache) {
+		$atch = @unserialize($obj->attach_cache);
+		if (is_array($atch) && count($atch)) {
+			foreach ($atch as $v) {
+				$sz = $v[2] / 1024;
+				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
+				$iemail_attach .= '{TEMPLATE: iemail_attach_entry}';
+			}
+			$iemail_attach = '{TEMPLATE: iemail_attach}';
+		}
+	}
+
+	return '{TEMPLATE: iemail_body}';
+}
+
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name='')
 {
-	$icq = str_replace("http://", "http'+'://'+'", $GLOBALS['WWW_ROOT']);
-	$icq = str_replace("www.", "www'+'.", $icq);
-
-	$goto_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&goto=".$msg_id."';";
-	$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
-	
-	
-	if ( $GLOBALS['NOTIFY_WITH_BODY'] == 'Y' ) {
-		$r = q("SELECT 
-			{SQL_TABLE_PREFIX}msg.*, 
-			{SQL_TABLE_PREFIX}thread.locked,
-			{SQL_TABLE_PREFIX}thread.forum_id,
-			{SQL_TABLE_PREFIX}avatar.img AS avatar, 
-			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.alias AS login, 
-			{SQL_TABLE_PREFIX}users.display_email, 
-			{SQL_TABLE_PREFIX}users.avatar_approved,
-			{SQL_TABLE_PREFIX}users.avatar_loc,
-			{SQL_TABLE_PREFIX}users.email, 
-			{SQL_TABLE_PREFIX}users.posted_msg_count, 
-			{SQL_TABLE_PREFIX}users.join_date, 
-			{SQL_TABLE_PREFIX}users.location, 
-			{SQL_TABLE_PREFIX}users.sig,
-			{SQL_TABLE_PREFIX}users.icq,
-			{SQL_TABLE_PREFIX}users.jabber,
-			{SQL_TABLE_PREFIX}users.affero,
-			{SQL_TABLE_PREFIX}users.aim,
-			{SQL_TABLE_PREFIX}users.msnm,
-			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}users.email_messages,
-			{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
-			{SQL_TABLE_PREFIX}users.is_mod,
-			{SQL_TABLE_PREFIX}users.yahoo,
-			{SQL_TABLE_PREFIX}users.custom_status,
-			{SQL_TABLE_PREFIX}level.name AS level_name,
-			{SQL_TABLE_PREFIX}level.pri AS level_pri,
-			{SQL_TABLE_PREFIX}level.img AS level_img
-		FROM 
-			{SQL_TABLE_PREFIX}msg 
-			LEFT JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}avatar 
-				ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id 
-			INNER JOIN {SQL_TABLE_PREFIX}thread
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id	
-			LEFT JOIN {SQL_TABLE_PREFIX}ses
-				ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
-			LEFT JOIN {SQL_TABLE_PREFIX}level
-				ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
-		WHERE 
-			{SQL_TABLE_PREFIX}msg.id=".$msg_id." AND {SQL_TABLE_PREFIX}msg.approved='Y'");
+	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
+		$do_email = 1;
+		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
+		if ($GLOBALS['NOTIFY_WITH_BODY'] == 'Y') {
+			
+			$obj = db_sab("SELECT p.name AS poll_name, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
 		
-		$obj = db_singleobj($r);
-		unset($obj->ip_addr);
-		$headers  = "MIME-Version: 1.0\r\n";
-		$split = get_random_value(128);
-		$headers .= "Content-Type: multipart/alternative; boundary=\"------------$split\"\r\n";
-		$boundry = "\r\n--------------$split\r\n";
+			$headers  = "MIME-Version: 1.0\r\n";
+			$split = get_random_value(128)                                                                            ;
+			$headers .= "Content-Type: multipart/alternative; boundary=\"------------" . $split . "\"\r\n";
+			$boundry = "\r\n--------------" . $split . "\r\n";
 		
-		$CHARSET = '{TEMPLATE: CHARSET}';
+			$CHARSET = '{TEMPLATE: CHARSET}';
 		
-		$plain_text = read_msg_body($obj->foff,$obj->length, $obj->file_id);
-		$plain_text = $boundry."Content-Type: text/plain; charset=$CHARSET; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\n".'{TEMPLATE: iemail_participate}'." ".'{ROOT}?t=rview&th='.$id."&notify=1&opt=off\r\n";
+			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		
-		$mod = $GLOBALS['MOD'];
-		$GLOBALS['MOD'] = 1;
-		$GLOBALS['pl_view'] = $obj->poll_id;
-		$body_email = tmpl_drawmsg($obj,NULL,NULL,'');
-		$GLOBALS['MOD'] = $mod;
-		
-		$body_email = $boundry."Content-Type: text/html; charset=$CHARSET\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".'{TEMPLATE: iemail_body}'."\r\n";
-		$body_email = $plain_text.$body_email.substr($boundry, 0, -2)."--\r\n";
+			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" . 
+			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+		}
 	}
-	
+	if (isset($to['ICQ']) && (is_string($to['ICQ']) || (is_array($to['ICQ']) && count($to['ICQ'])))) {
+		$do_icq = 1;
+		$icq = str_replace('http://', "http'+'://'+'", $GLOBALS['WWW_ROOT']);
+		$icq = str_replace('www.', "www'+'.", $icq);
+		$goto_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&goto=".$msg_id."';";
+	} else if (!isset($do_email)) {
+		/* nothing to do */
+		return;
+	}
+
 	reverse_FMT($thr_subject);
 	reverse_FMT($poster_login);
 	
-	if( $id_type == 'thr' ) {
+	if ($id_type == 'thr') {
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 		
-		if( !$body_email ) {
+		if (!isset($body_email)) {
 			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}	
 		
-		$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
-		$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
-	}
-	else if ( $id_type == 'frm' ) {
+		if (isset($do_icq)) {
+			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
+		}
+	} else if ($id_type == 'frm') {
 		reverse_FMT($frm_name);
-		
+
 		$subj = '{TEMPLATE: iemail_frm_subject}';
-		
-		$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=thread&unsub=1&frm_id=".$id."';";
-		$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
-		
-		if( !$body_email ) {
+
+		if (isset($do_icq)) {
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=thread&unsub=1&frm_id=".$id."';";
+			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
+		}
+		if (!isset($body_email)) {
 			$unsub_url['email'] = '{ROOT}?t=thread&unsub=1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}	
 	}	
 	
-	send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, $headers);
-	send_email($GLOBALS['NOTIFY_FROM'], $to['ICQ'], $subj, $body_icq);
+	if (isset($do_email)) {
+		send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, (isset($headers) ? $headers : ''));
+	}
+	if (isset($do_icq)) {
+		send_email($GLOBALS['NOTIFY_FROM'], $to['ICQ'], $subj, $body_icq);
+	}
 }
 ?>

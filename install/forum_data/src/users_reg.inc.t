@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.20 2003/04/10 09:26:56 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.21 2003/04/10 17:37:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -335,7 +335,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		/* remove cookie so it does not confuse us */
 		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);	
 	}
-	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && !($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
+	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 		return $ses_id;

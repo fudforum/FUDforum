@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.34 2003/04/09 12:09:26 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.35 2003/04/10 17:36:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -316,7 +316,7 @@ class fud_msg_edit extends fud_msg
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT
 					m.id, m.poster_id, m.approved, m.subject, m.foff, m.length, m.file_id, m.thread_id, m.poll_id, m.attach_cnt,
-					m.post_stamp, m.show_sig, m.reply_to,
+					m.post_stamp, m.show_sig, m.reply_to, m.mlist_msg_id,
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
@@ -387,7 +387,7 @@ class fud_msg_edit extends fud_msg
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
-					fn.forum_id='.$mtf->thread_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
+					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
 					AND (CASE WHEN r.last_view IS NULL || r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
 			$notify_type = 'frm';

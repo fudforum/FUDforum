@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.22 2003/04/10 09:26:56 hackie Exp $
+*   $Id: cookies.inc.t,v 1.23 2003/04/10 17:36:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -206,10 +206,12 @@ function ses_update_status($ses_id, $str=NULL, $forum_id=0, $ret='')
 }
 function ses_putvar($ses_id, $data)
 {
+	$cond = is_int($ses_id) ? 'id='.$ses_id : "ses_id='".$ses_id."'";
+
 	if (empty($data)) {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE id='.$ses_id);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
 	} else {
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($data)).'\' WHERE id='.$ses_id);
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($data)).'\' WHERE '.$cond);
 	}	
 }
 

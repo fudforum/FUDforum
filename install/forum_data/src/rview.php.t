@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rview.php.t,v 1.6 2002/08/26 06:28:59 hackie Exp $
+*   $Id: rview.php.t,v 1.7 2003/04/10 17:37:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,29 +15,13 @@
 *
 ***************************************************************************/	
 
-	{PRE_HTML_PHP}	
-	{POST_HTML_PHP}
-	
-	if( preg_match('!&(goto|th|frm_id)=([0-9]+)!', $HTTP_SERVER_VARS["QUERY_STRING"], $m) ) {
-		switch( $m[1] )
-		{
-			case 'th':
-			case 'goto':
-				$page = 't='.d_thread_view;
-				break;
-			case 'frm_id':
-				$page = 't='.t_thread_view;
-				break;
-			default:
-				$page = 't=index';
-				break;
-		}
-		$HTTP_SERVER_VARS["QUERY_STRING"] = str_replace('t=rview', $page, $HTTP_SERVER_VARS["QUERY_STRING"]);
-		header("Location: {ROOT}?".$HTTP_SERVER_VARS["QUERY_STRING"]);
-		
-		exit;
+	if (isset($_GET['th']) || isset($_GET['goto'])) {
+		$_GET['t'] = d_thread_view;
+	} else if (isset($_GET['frm_id'])) {
+		$_GET['t'] = t_thread_view;
+	} else {
+		$_GET['t'] = 'index';
 	}
-	
-	header("Location: {ROOT}?t=index&"._rsid);	
-	exit;
+
+	require($GLOBALS['DATA_DIR'] . fud_theme . $_GET['t'] . '.php');
 ?>

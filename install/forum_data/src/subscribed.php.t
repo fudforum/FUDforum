@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.php.t,v 1.8 2003/04/10 11:00:43 hackie Exp $
+*   $Id: subscribed.php.t,v 1.9 2003/04/10 17:37:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,8 +34,27 @@
 	ses_update_status($usr->sid, '{TEMPLATE: subscribed_update}');
 	
 /*{POST_HTML_PHP}*/
+
+	/* fetch a list of all the accessible forums */
+	$lmt = '';
+	if ($usr->is_mod != 'A') {
+		$c = uq('SELECT g1.resource_id 
+				FROM {SQL_TABLE_PREFIX}group_cache g1 
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=g2.resource_id 
+				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='._uid.'
+				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'N\')');
+		while ($r = db_rowarr($c)) {
+			$lmt .= $r[0] . ',';
+		}
+		if ($lmt) {
+			$lmt[strlen($lmt) - 1] = ' ';
+			$lmt = ' AND forum_id NOT IN('.$lmt.') ';
+		} else {
+			$lmt = ' AND forum_id NOT IN(0) ';
+		}
+	}
 	
-	$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}forum_notify fn LEFT JOIN {SQL_TABLE_PREFIX}forum f ON fn.forum_id=f.id WHERE fn.user_id='._uid.' ORDER BY f.last_post_id DESC');
+	$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}forum_notify fn LEFT JOIN {SQL_TABLE_PREFIX}forum f ON fn.forum_id=f.id WHERE fn.user_id='._uid.' '.$lmt.' ORDER BY f.last_post_id DESC');
 
 	$subscribed_forum_data = '';
 	while (($r = db_rowarr($c))) {
@@ -47,13 +66,13 @@
 	qf($c);
 
 	/* Since a person can have MANY subscribed threads, we need a pager & for the pager we need a entry count */
-	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread_notify tn LEFT JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid);
+	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thread_notify tn LEFT JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt);
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
 	
 	$subscribed_thread_data = '';
-	$c = q('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_notify tn INNER JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
+	$c = q('SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_notify tn INNER JOIN {SQL_TABLE_PREFIX}thread t ON tn.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE tn.user_id='._uid.' '.$lmt.' ORDER BY t.last_post_id DESC LIMIT '.qry_limit($THREADS_PER_PAGE, $start));
 	
 	while (($r = db_rowarr($c))) {
 		$subscribed_thread_data .= '{TEMPLATE: subscribed_thread_entry}';

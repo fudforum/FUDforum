@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.19 2003/04/10 09:26:56 hackie Exp $
+*   $Id: login.php.t,v 1.20 2003/04/10 17:37:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -109,38 +109,37 @@ function error_check()
 	if (isset($_POST['login']) && !error_check()) {
 		if (!($usr_d = db_sab('SELECT id, passwd, login, email, blocked, acc_status, email_conf, is_mod FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		}
-		if ($usr_d->passwd != md5($_POST['password'])) {
+		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			if ($usr_d->is_mod == 'A') {
 				logaction(0, 'WRONGPASSWD', 0, (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0'));
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		}
-
-		fud_use('login.inc', true);
+		} else {
+			fud_use('login.inc', true);
 			
-		/* Perform check to ensure that the user is allowed to login */
+			/* Perform check to ensure that the user is allowed to login */
 			
-		/* Login & E-mail Filter & IP */
-		if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
-			error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', '');
-		}
+			/* Login & E-mail Filter & IP */
+			if (is_blocked_login($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
+				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', NULL);
+			}
 
-		$ses_id = user_login($usr_d->id, $usr->ses_id, ((!empty($_POST['use_cookie']) || $GLOBALS['SESSION_USE_URL'] != 'Y') ? TRUE : FALSE));
+			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $GLOBALS['SESSION_USE_URL'] == 'Y') ? FALSE : TRUE));
 
-		if ($usr_d->email_conf != 'Y') {
-			error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', '');
-		}
-		if ($usr_d->acc_status != 'A') {
-			error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', '');
-		}
+			if ($usr_d->email_conf != 'Y') {
+				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', NULL, $ses_id);
+			}
+			if ($usr_d->acc_status != 'A') {
+				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', NULL, $ses_id);
+			}
 
-		if (isset($_POST['adm']) && $usr_d->is_mod == 'A') {
-			header('Location: adm/admglobal.php?S='.$ses_id);
-			exit;
-		}
+			if (isset($_POST['adm']) && $usr_d->is_mod == 'A') {
+				header('Location: adm/admglobal.php?S='.$ses_id);
+				exit;
+			}
 
-		check_return(str_replace('S='.s, '', $usr->returnto) . 'S=' . $ses_id);
+			check_return(str_replace('S='.s, '', $usr->returnto) . 'S=' . $ses_id);
+		}
 	}
 	
 	ses_update_status($usr->sid, '{TEMPLATE: login_update}', 0, 0);
