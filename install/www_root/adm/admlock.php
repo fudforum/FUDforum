@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.13 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admlock.php,v 1.14 2003/04/28 18:34:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,84 +16,52 @@
 ***************************************************************************/
 
 	define('admin_form', 1);
-	include_once "GLOBALS.php";
-	include_once $GLOBALS['INCLUDE'].'theme/default/db.inc';
-	include_once $GLOBALS['INCLUDE'].'adm.inc';
-	include_once $GLOBALS['INCLUDE'].'glob.inc';
-	
-	define('S', ($HTTP_COOKIE_VARS['COOKIE_NAME']?$HTTP_COOKIE_VARS['COOKIE_NAME']:$HTTP_GET_VARS['S']));
-	define('_rsid', 'S='.S);
-	define('_hs', '<input type="hidden" name="S" value="'.S.'">');
+	require ('GLOBALS.php');
+	fud_use('adm.inc', true);
+	fud_use('glob.inc', true);
 
 function chmoddir($dirn, $dirp, $filep, $rec=false)
 {
-	$oldcwd = getcwd();
-	if ( !@chdir($dirn) ) {
-		echo "unable to chdir to $dirn in ".getcwd()."<br>";
+	@chmod($dirn, $dirp);
+	if (!($d = opendir($dirn))) {
+		echo 'ERROR: Unable to open "'.$dirn.'" directory<br>';
 		return;
 	}
-	
-	@chmod('.', $dirp);
-	$dp = opendir('.');
-	readdir($dp); readdir($dp);
-	while ( $de = readdir($dp) ) 
-	{
-		if ( !$de ) break;
-		if ( @is_dir($de) ) {
-			if ( !@chmod($de, $dirp) ) echo "ERROR: ".getcwd()."/$de -> d (".sprintf("%o", $dirp).")<br>";
-			if ( $rec==true ) chmoddir($de, $dirp, $filep, $rec);
-		}
-		else {
-			if( $de == 'maillist.php' || $de == 'nntp.php' ) continue;
-			if ( !@chmod($de, $filep) ) echo "ERROR: ".getcwd()."/$de -> f (".sprintf("%o", $dirp).")<br>";
+	readdir($d); readdir($d);
+	while ($f = readdir($d)) {
+		$path = $dirn . '/' . $f;
+		if (@is_file($path) && !@chmod($path, $filep)) {
+			echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
+		} else if (@is_dir($path) && $rec === true) {
+			chmoddir($path, $dirp, $filep, true);
 		}
 	}
-	chdir($oldcwd);
+	closedir($d);
 }
-	
-	if ( ($HTTP_POST_VARS['btn_lock'] || $HTTP_POST_VARS['btn_unlock']) && $HTTP_POST_VARS['usr_passwd'] && $HTTP_POST_VARS['usr_login'] ) {
-		$md5pass = md5($HTTP_POST_VARS['usr_passwd']);
-		
-		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
-		
-		if ( !db_count($r) ) {
-			$err = 1;
-		}
-		else {
-			if ( $HTTP_POST_VARS['btn_unlock'] ) {
-				$dirperms = 0777;
-				$fileperms = 0666;
-				$FILE_LOCK = "N";
-				
-				if( @file_exists($GLOBALS['ERROR_PATH'].'FILE_LOCK') ) unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
-			}
-			else {
-				$dirperms = 0700;
-				$fileperms = 0600;
-				$FILE_LOCK = "Y";
-			}
 
-			chmoddir($GLOBALS['WWW_ROOT_DISK'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['INCLUDE'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['DATA_DIR'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['ERROR_PATH'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['MSG_STORE_DIR'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['FILE_STORE'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, true);
-			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, true);
-			
-			$global_config = read_global_config();
-			change_global_val('FILE_LOCK', $FILE_LOCK, $global_config);
-			write_global_config($global_config);
-			unset($global_config);
+	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_POST['usr_login']).'\' AND passwd=\''.md5($_POST['usr_passwd']).'\' AND is_mod=\'A\'')) {
+		if (isset($_POST['btn_unlock'])) {
+			$dirperms = 0777;
+			$fileperms = 0666;
+			$FILE_LOCK = "N";
+			@unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
+		} else {
+			$dirperms = 0700;
+			$fileperms = 0600;
+			$FILE_LOCK = "Y";
 		}
-		qf($r);
+
+		chmoddir(realpath($GLOBALS['WWW_ROOT_DISK']), $dirperms, $fileperms, true);
+		chmoddir(realpath($GLOBALS['DATA_DIR']), $dirperms, $fileperms, true);
+			
+		$global_config = read_global_config();
+		change_global_val('FILE_LOCK', $FILE_LOCK, $global_config);
+		write_global_config($global_config);
 	}
 
-	clearstatcache();
-	$status = ($GLOBALS['FILE_LOCK'] == 'Y' ? 'LOCKED' : 'UNLOCKED');
+	$status = ($FILE_LOCK == 'Y' ? 'LOCKED' : 'UNLOCKED');
 
-	include('admpanel.php'); 	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
 ?>
 <div align="center" style="font-size: xx-large; color: #ff0000;">
 	The forum's files appear to be: <b><?php echo $status; ?></b>.<br>
@@ -102,11 +70,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 </div>
 <form method="post">
 <table border=0 cellspacing=0 cellpadding=3>
-<?php
-	if( $err ) 
-		echo '<tr><td colspan=2><font color="#ff0000">Invalid Login Information</font></td></tr>';
-?>
-<tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo stripslashes(htmlspecialchars($usr_login)); ?>"></td></tr>
+<tr><td>Login:</td><td><input type="text" name="usr_login" value="<?php echo $usr->alias; ?>"></td></tr>
 <tr><td>Password:</td><td><input type="password" name="usr_passwd"></td></tr>
 <tr><td colspan=2 algin=middle>
 	<input type="submit" name="btn_lock" value="Lock Files">
@@ -115,4 +79,4 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 </table>
 <?php echo _hs; ?>
 </form>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
