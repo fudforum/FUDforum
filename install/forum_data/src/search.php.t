@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.20 2003/06/02 18:43:24 hackie Exp $
+*   $Id: search.php.t,v 1.21 2003/06/10 17:28:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,7 +73,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			return;
 			db_unlock();
 		}
-		if (($word_list = implode(',', $wl))) {
+		if (isset($wl) && ($word_list = implode(',', $wl))) {
 			q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '.$qry_lck.', \''.$qt.'\', '.__request_timestamp__.', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}'.$tbl.' WHERE word_id IN('.$word_list.') GROUP BY msg_id ORDER BY word_count DESC LIMIT 500');
 			$total = db_affected();
 		} else {
