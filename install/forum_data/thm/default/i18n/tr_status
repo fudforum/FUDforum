@@ -1,44 +1,49 @@
 #!/usr/local/bin/php -q
 <?php
 
-function diff_lines($MAIN, $file)
+function make_lang_arr($path)
 {
-	$diff_lines = 0;
-	$tmp = file($file);
-	$tmp = array_reverse($tmp);
-	foreach($tmp as $line) {
-		list($key, $val) = explode(':', $line);
-		if ($MAIN[$key] == trim($val)) {
-			$diff_lines++;
-		} else {
-			break;
-		}
-	}	
-	
-	return $diff_lines;
+	$eng = file($path);
+	foreach ($eng as $v) {
+		$key = strtok($v, ':');
+		$p = strlen($key);
+		while ($v[++$p] == "\t");
+		$lang[$key] = substr($v, $p);
+	}
+
+	return $lang;
 }
 
-	$MAIN = array();
-
-	$tmp = file("english/msg");
-	$tmp = array_reverse($tmp);
-	foreach($tmp as $line) {
-		list($key, $val) = explode(':', $line);
-		$MAIN[$key] = trim($val);
+function make_lang_todo($list, $name)
+{
+	if (!count($list)) {
+		return;
 	}
+
+	if (!($fp = fopen($name . '.todo', 'w'))) {
+		exit("unable to open ".$name.".todo for writing\n");
+	}
+	foreach ($list as $k => $v) {
+		fwrite($fp, $k . ":\t\t\t" . $v);	
+	}
+	fclose($fp);
+}
+
+	$eng = make_lang_arr('english/msg');
 	
-	$dir = opendir('.');
-	readdir($dir); readdir($dir); 
-	while ($file = readdir($dir)) {
-		if (!is_dir($file) || is_link($file) || $file == 'english' || !@file_exists($file."/msg")) {
+	$dp = opendir('.');
+	readdir($dp); readdir($dp); 
+	while ($de = readdir($dp)) {
+		if (!is_dir($de) || $de == 'english' || !@file_exists($de . '/msg')) {
 			continue;
 		}
-		
-		if (($diff_ln = diff_lines($MAIN, $file."/msg"))) {
-			echo ucfirst($file) . " translation is:		" . $diff_ln . " line(s) behind\n";
-		} else {
-			echo ucfirst($file) . " translation is:		up to date\n";
+		$curl = make_lang_arr($de . '/msg');
+		$res = array_keys(array_diff_assoc($eng, $curl));
+		foreach ($res as $v) {
+			unset($curl[$v]);
 		}
+		printf("%-15s translation has %-4d untranslated strings\n", $de, count($curl));
+		make_lang_todo($curl, $de);
 	}
-	closedir($dir);
+	closedir($dp);
 ?>
