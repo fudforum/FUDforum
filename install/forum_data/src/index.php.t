@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.83 2004/12/21 16:03:10 hackie Exp $
+* $Id: index.php.t,v 1.84 2005/02/16 23:37:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,7 +124,9 @@ function url_tog_collapse($id, $c)
 
 		if ($cat != $cid) {
 			if ($cbuf) { /* if previous category was using compact view, print forum row */
-				$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';
+				if (empty($collapse[$i[4]])) { /* only show if parent is not collapsed as well */
+					$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';
+				}
 				$cbuf = '';
 			}
 
