@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.23 2004/01/04 16:38:26 hackie Exp $
+* $Id: minimsg.inc.t,v 1.24 2004/06/11 13:59:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,6 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 	$m_count = 0;
 	while ($obj = db_rowobj($c)) {
 		$message_data .= tmpl_drawmsg($obj, $usr, $perms, true, $m_count, '');
-		$mid = $obj->id;
 	}
 
 	un_register_fps();
