@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.36 2004/11/02 15:42:53 hackie Exp $
+* $Id: actions.php.t,v 1.37 2004/11/02 15:51:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 
-		if (!$r[2] || $admin || !empty($limit[$r[2]]) || $r[12])) {
+		if (!$r[2] || ($admin || !empty($limit[$r[2]]) || $r[12])) {
 			if ($FUD_OPT_2 & 32768) {
 				if (($s = strpos($r[0], 'href="')) !== false) {
 					$s += 6;
