@@ -1,7 +1,7 @@
 
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.32 2005/03/09 20:56:19 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.33 2005/03/15 21:50:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{IF: $edit}{TEMPLATE: member_edit}{ELSE}{TEMPLATE: member_add}{ENDI}
+{IF: $edit}{TEMPLATE: member_edit}{ELSE}{TEMPLATE: member_add}{END}
 <tr class="RowStyleB">
 	<td colspan=2>
 		<table cellspacing=1 cellpadding=3 width="100%" class="ContentTable">
@@ -86,12 +86,8 @@ if (document.groupmgr.gr_member) {
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: grp_find_user}
-&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]
-{SECTION: END}
-
 {SECTION: member_add add new member}
-<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}{TEMPLATE: grp_find_user}{ENDIF}</td></tr>
+<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>
 {SECTION: END}
 
 {SECTION: member_edit edit an existing member}
