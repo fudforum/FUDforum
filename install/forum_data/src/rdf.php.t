@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.33 2004/01/28 23:09:08 hackie Exp $
+* $Id: rdf.php.t,v 1.34 2004/01/29 18:51:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,7 +95,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 	$basic_rss_data = $basic_rss_header = $join = '';
 	switch ($mode) {
 		case 'm':
-			$lmt = " m.apr=1";
+			$lmt = " t.moved_to=0 AND m.apr=1";
 			/* check for various supported limits
 			 * cat		- category
 			 * frm		- forum
@@ -275,7 +275,7 @@ $basic_rss_data .= '
 			 * n		- number of rows to get
 			 * l		- latest
 			 */
-			$lmt = " m.apr=1";
+			$lmt = " t.moved_to=0 AND m.apr=1";
 			if (isset($_GET['cat'])) {
 				$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
 			}
