@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.23 2003/12/19 16:44:13 hackie Exp $
+* $Id: getfile.php.t,v 1.24 2003/12/29 18:28:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@
 			std_error('access');
 		}
 	} else {
-		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner
+		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner, a.fsize
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.attach_opt=1
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
@@ -77,7 +77,7 @@
 
 	header('Content-type: '.$r[0]);
 	header('Content-Disposition: '.$append.'filename="'.$r[1].'"');
-	header('Content-Length: '.$r[6]);
+	header('Content-Length: '.array_pop($r));
 
 	if (!$r[2]) {
 		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
