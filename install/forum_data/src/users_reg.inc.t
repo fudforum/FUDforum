@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.56 2003/10/18 20:59:52 hackie Exp $
+* $Id: users_reg.inc.t,v 1.57 2003/10/30 02:45:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -211,12 +211,11 @@ function user_login($id, $cur_ses_id, $use_cookies)
 	}
 	if ($GLOBALS['FUD_OPT_2'] & 256 && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=0 WHERE ses_id='".$ses_id."'");
 		return $ses_id;
 	} else {
 		/* if we can only have 1 login per account, 'remove' all other logins */
 		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.($use_cookies ? ", sys_id=0" : '')." WHERE ses_id='".$cur_ses_id."'");
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
 
 		return $cur_ses_id;
 	}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.40 2003/10/09 14:34:26 hackie Exp $
+* $Id: cookies.inc.t,v 1.41 2003/10/30 02:45:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,21 +12,23 @@
 
 function ses_make_sysid()
 {
-	if ($GLOBALS['FUD_OPT_1'] & 128) {
+	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
 		return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
 	}
-	return;
 }
 
 function ses_get($id=0)
 {
 	if (!$id) {
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
+			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."' AND sys_id='".ses_make_sysid()."'";
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."' AND sys_id='".ses_make_sysid()."'";
 		} else {
 			return;
+		}
+		if (isset($_SERVER['HTTP_REFERER']) && strncmp($_SERVER['HTTP_REFERER'], $GLOBALS['WWW_ROOT'], strlen($GLOBALS['WWW_ROOT']))) {
+			$q_opt .= " AND s.user_id > 2000000000 ";
 		}
 	} else {
 		$q_opt = "s.id='".$id."'";
