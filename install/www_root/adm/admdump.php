@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.15 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admdump.php,v 1.16 2002/09/29 21:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -231,7 +231,7 @@ include('admpanel.php');
 			
 			while ($start<$num_entries) {
 				$r2 = q("SELECT * FROM ".$tbl_name." LIMIT ".qry_limit($limit, $start));
-				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
+				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $db_name, $field_data)."\n");
 				qf($r2);
 				$start += $limit;
 			}			
