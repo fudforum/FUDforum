@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.46 2004/10/06 16:36:15 hackie Exp $
+* $Id: admdump.php,v 1.47 2004/10/06 17:43:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		}
 		echo 'Processing directory: '.$v.'<br>';
 
-		if (!($files = glob($v . '/*'))) {
+		if (!($files = glob($v . '/{.htaccess,*}', GLOB_BRACE))) {
 			continue;
 		}
 		
