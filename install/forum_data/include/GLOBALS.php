@@ -40,7 +40,7 @@
 	$DBHOST_USER		= "";
 	$DBHOST_PASSWORD	= "";
 	$DBHOST_DBNAME		= ""; 
-	$DBHOST_TBL_PREFIX	= "fud2_";		/* do not modify this */
+	$DBHOST_TBL_PREFIX	= "fud26_";		/* do not modify this */
 
 	$FUD_SMTP_SERVER	= "";
 	$FUD_SMTP_TIMEOUT	= 10;		/* seconds */

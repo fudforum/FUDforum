@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.14 2003/10/07 12:49:58 hackie Exp $
+*   $Id: glob.inc,v 1.15 2003/10/07 13:19:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -89,13 +89,8 @@ function change_global_settings($list)
 				$settings = substr_replace($settings, "\t{$k}\t= \"{$v}\";\n", $p, 0);
 			}
 		} else {
-			$e = $p = strpos($settings, '=', $p) + 1;
-			do {
-				++$e;
-				if (($e = strpos($settings, ';', $e)) === false) {
-					exit("Fatal Error: Cannot find argument end.");
-				}
-			} while ($settings[$e + 1] != "\r" && $settings[$e + 1] != "\n");
+			$p = strpos($settings, '=', $p) + 1;
+			$e = $p + strrpos(substr($settings, $p, (strpos($settings, "\n", $p) - $p)), ';');
 
 			if (is_int($v)) {
 				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
