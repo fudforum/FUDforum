@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.8 2002/07/08 17:12:17 hackie Exp $
+*   $Id: th.inc.t,v 1.9 2002/07/08 17:54:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -297,7 +297,10 @@ function rebuild_forum_view($forum_id, $page=0)
 	}
 	
 	/* De-announce expired announcments and sticky messages */
-	q("UPDATE {SQL_TABLE_PREFIX}thread SET ordertype='NONE', is_sticky='N' WHERE is_sticky='Y' AND orderexpiry<".$tm);
+	$r = q("SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.thread_id WHERE is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<".$tm);
+	while( list($tid) = db_rowarr($r) ) 
+		q("UPDATE {SQL_TABLE_PREFIX}thread SET ordertype='NONE', is_sticky='N' WHERE id=".$tid);
+	qf($r);
 
 	if ( __dbtype__ == 'pgsql' ) {
 		$tmp_tbl_name = "{SQL_TABLE_PREFIX}ftvt_".get_random_value();
