@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.27 2003/04/15 14:43:05 hackie Exp $
+*   $Id: index.php.t,v 1.28 2003/04/23 16:44:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -125,13 +125,13 @@ function iscollapsed($id)
 				'.(_uid ? 'CASE WHEN g2.p_READ IS NULL THEN g1.p_READ ELSE g2.p_READ END AS p_READ' : 'g1.p_READ').'
 		      FROM {SQL_TABLE_PREFIX}forum f
 		      INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-		      INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_type=\'forum\' AND g1.resource_id=f.id
+		      INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
 		      LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
 		      LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 		      LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
 		      LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
-		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_type=\'forum\' AND g2.resource_id=f.id' : '').'
-		      WHERE '.(_uid ? 'CASE WHEN g2.p_VISIBLE IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END' : 'g1.p_VISIBLE').'=\'Y\'
+		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
+		      '.($usr->is_mod != 'A' ? 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.p_VISIBLE IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END' : 'g1.p_VISIBLE').'=\'Y\'' : '').'
 		      ORDER BY c.view_order, f.view_order');
 		
 	$post_count = $thread_count = $last_msg_id = $cat = 0;	
