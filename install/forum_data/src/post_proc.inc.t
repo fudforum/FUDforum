@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.21 2003/05/07 01:43:00 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.22 2003/05/07 12:38:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,14 +190,14 @@ function tags_to_html($str, $allow_img='Y')
 						if (strncmp($param, '<?', 2)) {
 							$param = "<?php\n" . $param;
 						} else {
-							$param = "<?php\n" . substr($param, 2);
+							$param = "<?php\n" . substr($param, 3);
 						}
 					}
 					if (substr($param, -2) != '?>') {
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<span name="php">'.highlight_string($param, true).'</span>';
+					$ostr .= '<span name="php">'.trim(highlight_string($param, true)).'</span>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -461,7 +461,7 @@ function tags_to_html($str, $allow_img='Y')
 if (!function_exists('html_entity_decode')) {
 	function html_entity_decode($s)
 	{
-		return strtr ($s, array_flip(get_html_translation_table(HTML_ENTITIES)));
+		return strtr($s, array_flip(get_html_translation_table(HTML_ENTITIES)));
 	}
 }
 
@@ -472,9 +472,8 @@ function html_to_tags($fudml)
 
 	reverse_nl2br($fudml);
 
-	while ( preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res) ) {
-		$res[1] = html_entity_decode(strip_tags($res[1]));
-		$fudml = preg_replace('!<span name="php">.*?</span>!is', '[php]'.$res[1].'[/php]', $fudml);
+	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
+		$fudml = str_replace('<span name="php">' . $res[1] . '</span>', "[php]\n".trim(html_entity_decode(strip_tags($res[1]))) . "\n[/php]", $fudml);
 	}
 
 	if( preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml) ) {	
