@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.34 2003/09/30 01:42:28 hackie Exp $
+*   $Id: login.php.t,v 1.35 2003/09/30 03:46:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -179,7 +179,7 @@ function error_check()
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');
 
-	$login_use_cookies = FUD_OPT_1 & 128 ? '{TEMPLATE: login_use_cookies}' : '';
+	$login_use_cookies = $FUD_OPT_1 & 128 ? '{TEMPLATE: login_use_cookies}' : '';
 
 	if (!isset($_POST['adm'])) {
 		$_POST['adm'] = isset($_GET['adm']) ? '1' : '';
