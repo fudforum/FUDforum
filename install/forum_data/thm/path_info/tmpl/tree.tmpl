@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.12 2003/10/09 21:26:03 hackie Exp $
+* $Id: tree.tmpl,v 1.13 2003/10/10 12:43:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,23 +28,8 @@
 {REF: th_nav.tmpl}
 {REF: th.tmpl}
 
-{SECTION: tree_unread_message new message}
-<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
-{SECTION: END}
-
-{SECTION: tree_read_message read message}
-<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" alt="{MSG: read_message}" title="{MSG: read_message}" />
-{SECTION: END}
-
 {SECTION: msg_forum_path forum location forum>thread>}
 <font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}/i/{DEF: _rsid}">{VAR: frm->cat_name}</a> &raquo; <a href="{ROOT}/f/{VAR: frm->forum_id}/{DEF: _rsid}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
-{SECTION: END}
-
-{SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />) {MSG: vote}
-{SECTION: END}
-
-{SECTION: no_thread_rating}
 {SECTION: END}
 
 {SECTION: split_thread}
@@ -98,16 +83,8 @@
 </td></form></tr></table>
 {SECTION: END}
 
-{SECTION: tree_tab image used to show the position of each msg inside the tree}
-<img src="blank.gif" alt="" width="{VAR: width}" height=1 />
-{SECTION: END}
-
 {SECTION: reg_user_link}
 <a class="GenLink" href="{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}">{VAR: cur->alias}</a>
-{SECTION: END}
-
-{SECTION: anon_user}
-{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: tree_branch message with replies}
@@ -187,22 +164,10 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: tree_title}
-{MSG: tree_title}
-{SECTION: END}
-
-{SECTION: tree_update}
-{MSG: tree_update}
-{SECTION: END}
-
 {SECTION: tree_pdf_link}
 [ <a href="{GVAR: WWW_ROOT}pdf.php/p/mid/{VAR: mid}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]
 {SECTION: END}
 
 {SECTION: tree_xml_link}
 [ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]
-{SECTION: END}
-
-{SECTION: tree_tab_width the width of the tab beside each message in pixels}
-6
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,14 +44,6 @@
 </tr>
 {SECTION: END}
 
-
-{SECTION: ignore_list}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: ignore_users}</th><th nowrap align="center">{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
-{TEMPLATE-DATA: ignore_list}
-</table>
-{SECTION: END}
-
 {PAGE: IGNORELIST_PAGE ignore users control panel}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -69,35 +61,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: ignore_list_err_info_title}
-{MSG: ignore_list_err_info_title}
-{SECTION: END}
-
-{SECTION: ignore_list_err_noign_msg}
-{MSG: ignore_list_err_noign_msg}
-{SECTION: END}
-
-{SECTION: ignore_list_err_dup_msg}
-{MSG: ignore_list_err_dup_msg}
-{SECTION: END}
-
-{SECTION: ignore_list_err_nu_title}
-{MSG: ignore_list_err_nu_title}
-{SECTION: END}
-
-{SECTION: ignore_list_err_nu_msg}
-{MSG: ignore_list_err_nu_msg}
-{SECTION: END}
-
-{SECTION: ignore_list_cantign_msg}
-{MSG: ignore_list_cantign_msg}
-{SECTION: END}
-
-{SECTION: ignore_list_update}
-{MSG: ignore_list_update}
-{SECTION: END}
-
-{SECTION: ignore_member_search}
-{MSG: member_search}
-{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.31 2003/10/09 21:08:03 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.32 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,28 +13,52 @@
 {REF: fileio.tmpl}
 {REF: alt_var.tmpl}
 
+{SECTION: dmsg_prev_message_lnk}
+#msg_num_{VAR: msg_num}
+{SECTION: END}
+
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.gif" /></a>
+<a href="{TEMPLATE: dmsg_prev_message_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_prev_message_prev_page_lnk}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.gif" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.gif" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_tree_prev_message_prev_page_lnk}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[0]}
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[0]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.gif" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{TEMPLATE: dmsg_tree_prev_message_prev_page_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.gif" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_next_message_lnk}
+#msg_num_{VAR: msg_num}
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{TEMPLATE: dmsg_next_message_lnk}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_next_message_next_page_lnk}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_tree_next_message_next_page_lnk}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[1]}
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{TEMPLATE: dmsg_tree_next_message_next_page_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_regged}
@@ -43,6 +67,18 @@
 
 {SECTION: dmsg_ignored_user_message_anon}
 {MSG: ignored_anon_post}&nbsp;
+{SECTION: END}
+
+{SECTION: dmsg_ignored_user_message_lnk}
+{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: dmsg_ignored_user_message_lnk2}
+{ROOT}?{VAR: rev_url}
+{SECTION: END}
+
+{SECTION: dmsg_ignored_user_message_lnk3}
+{ROOT}?{VAR: un_ignore_url}
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message ignored message row (this gets draw if this message is ignored due to ignored user)}
@@ -54,9 +90,9 @@
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
-[<a href="{ROOT}?{VAR: rev_url}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
-[<a href="{ROOT}?{VAR: un_ignore_url}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
-[<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk2}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk3}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
 <td align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
 </table></td>
 </tr>
@@ -84,8 +120,12 @@
 <td width="1" valign="top">{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}</td>
 {SECTION: END}
 
+{SECTION: dmsg_reg_user_link_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_reg_user_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}">{VAR: user_login}</a>
+<a class="GenLink" href="{TEMPLATE: dmsg_reg_user_link_lnk}">{VAR: user_login}</a>
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_no_link}
@@ -113,7 +153,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_host_name}
-<b>{MSG: from}</b> {VAR: obj->host_name}</font>&nbsp;&nbsp;&nbsp;
+<b>{MSG: from}</b> {VAR: obj->host_name}&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_location}
@@ -141,24 +181,44 @@
 {SECTION: dmsg_no_msg_icon}
 {SECTION: END}
 
+{SECTION: dmsg_buddy_link_add_lnk}
+{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_buddy_link_add add this user to your buddy list link}
-&laquo;<a href="{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: add_to_buddy_list}</a>&raquo;
+&laquo;<a href="{TEMPLATE: dmsg_buddy_link_add_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a>&raquo;
+{SECTION: END}
+
+{SECTION: dmsg_buddy_link_remove_lnk}
+{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove add this user to your buddy list link}
-&laquo;<a href="{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>&raquo;
+&laquo;<a href="{TEMPLATE: dmsg_buddy_link_remove_lnk}" class="GenLink">{MSG: remove_from_buddy_list}</a>&raquo;
+{SECTION: END}
+
+{SECTION: dmsg_remove_user_ignore_list_lnk}
+{ROOT}?t=ignore_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
-&laquo;<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: un_ignore_user}</a>&raquo;
+&laquo;<a href="{TEMPLATE: dmsg_remove_user_ignore_list_lnk}" class="GenLink">{MSG: un_ignore_user}</a>&raquo;
+{SECTION: END}
+
+{SECTION: dmsg_add_user_ignore_list_lnk}
+{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
-&laquo;<a href="{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: ignore_user}</a>&raquo;
+&laquo;<a href="{TEMPLATE: dmsg_add_user_ignore_list_lnk}" class="GenLink">{MSG: ignore_user}</a>&raquo;
+{SECTION: END}
+
+{SECTION: dmsg_im_icq_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: obj->poster_id}&amp;{DEF: _rsid}#icq_msg
 {SECTION: END}
 
 {SECTION: dmsg_im_icq}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->poster_id}&amp;{DEF: _rsid}#icq_msg"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" alt="" /></a>
+<a href="{TEMPLATE: dmsg_im_icq_lnk}"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_im_aim}
@@ -204,9 +264,13 @@
 </table><p>
 {SECTION: END}
 
+{SECTION: dmsg_poll_lnk}
+{ROOT}?{VAR: _SERVER['QUERY_STRING']}
+{SECTION: END}
+
 {SECTION: dmsg_poll}
 <p>
-<form action="{ROOT}?{VAR: _SERVER['QUERY_STRING']}" method="post" style="padding: 0px; margin: 0px;">
+<form action="{TEMPLATE: dmsg_poll_lnk}" method="post" style="padding: 0px; margin: 0px;">
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
@@ -221,10 +285,14 @@
 </table>
 {SECTION: END}
 
+{SECTION: dmsg_drawmsg_file_attachment_lnk}
+ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <tr>
-<td valign="middle"><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}"><img alt="" src="images/mime/{VAR: v[4]}" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}">{VAR: v[1]}</a><br />
+<td valign="middle"><a class="GenLink" href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -240,44 +308,80 @@
 <p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
 {SECTION: END}
 
+{SECTION: dmsg_report_to_mod_link_lnk}
+{ROOT}?t=report&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_report_to_mod_link}
-<div align="right"><font class="SmallText">[<a class="SmallText" href="{ROOT}?t=report&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: report_to_mod}</a>]</font></div>
+<div align="right"><font class="SmallText">[<a class="SmallText" href="{TEMPLATE: dmsg_report_to_mod_link_lnk}">{MSG: report_to_mod}</a>]</font></div>
+{SECTION: END}
+
+{SECTION: dmsg_user_profile_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_user_profile}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>
+<a class="GenLink" href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_email_link_lnk}
+{ROOT}?t=email&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_email_link}
-<a class="GenLink" href="{ROOT}?t=email&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+<a class="GenLink" href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_private_msg_link_lnk}
+{ROOT}?t=ppost&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+<a class="GenLink" href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+{SECTION: END}
+
+{SECTION: dmsg_next_msg_page_lnk}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
+<a href="{TEMPLATE: dmsg_next_msg_page_lnk}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
 &nbsp;
 {SECTION: END}
 
+{SECTION: dmsg_delete_link_lnk}
+{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_delete_link}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;
+<a class="GenLink" href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;
 {SECTION: END} 
 
+{SECTION: dmsg_edit_link_lnk}
+{ROOT}?t=post&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: dmsg_edit_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="GenLink" href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: dmsg_reply_link_lnk}
+{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" /></a>&nbsp;
+<a class="GenLink" href="{TEMPLATE: dmsg_reply_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" /></a>&nbsp;
+{SECTION: END}
+
+{SECTION: dmsg_quote_link_lnk}
+{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;quote=true&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_quote_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;reply_to={VAR: obj->id}&amp;quote=true&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" /></a>
+<a class="GenLink" href="{TEMPLATE: dmsg_quote_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote.. type buttons}
@@ -295,9 +399,13 @@
 <font class="MsgBodyText">{VAR: msg_body}</font>
 {SECTION: END}
 
+{SECTION: dmsg_short_message_body_lnk}
+{ROOT}?{VAR: rev_url}
+{SECTION: END}
+
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
-<br /><div align="center">[<a href="{ROOT}?{VAR: rev_url}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
+<br /><div align="center">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {SECTION: dmsg_im_row a row displaying various instant messenger links}
@@ -342,6 +450,10 @@
 <a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll={VAR: obj->forum_id}.{VAR: GLOBALS['affero_domain']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" /></a>
 {SECTION: END}
 
+{SECTION: dmsg_reply_to_lnk}
+{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}
+{SECTION: END}
+
 {SECTION: dmsg_reply_to}
-<font class="SmallText"> [ <a href="{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}" class="SmallText">{MSG: dmsg_reply_to}</a> ]
+<font class="SmallText"> [ <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="SmallText">{MSG: dmsg_reply_to}</a> ]
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.6 2003/10/09 21:08:03 hackie Exp $
+* $Id: pmsg.tmpl,v 1.7 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,18 +22,6 @@
 {REF: tabs.tmpl}
 {REF: private.tmpl}
 
-{SECTION: cur_folder_opt folder select option style}
-{SECTION: END}
-
-{SECTION: cur_folder_opt_selected folder select option style}
-{SECTION: END}
-
-{SECTION: move_to_opt move select option style}
-{SECTION: END}
-
-{SECTION: move_to_opt_selected move select option style}
-{SECTION: END}
-
 {SECTION: action_buttons_inbox}
 <a href="{ROOT}/pmm/reply/{VAR: obj->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;<a href="{ROOT}/pmm/quote/{VAR: obj->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>&nbsp;<a href="{ROOT}/pmm/forward/{VAR: obj->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
 {SECTION: END}
@@ -46,35 +34,8 @@
 <a href="{ROOT}/pmm/msg_id/{VAR: obj->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>
 {SECTION: END}
 
-{SECTION: pmsg_read private message read}
-<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" alt="{MSG: pmsg_new_messages}" title="{MSG: pmsg_new_messages}" />
-{SECTION: END}
-
-{SECTION: pmsg_unread private message unread}
-<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" alt="{MSG: pmsg_old_messages}" title="{MSG: pmsg_old_messages}" />
-{SECTION: END}
-
 {SECTION: deny_recipt deny recipt link}
 <font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}/pmv/{VAR: obj->id}/1/{DEF: _rsid}" class="GenLink" title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</a>]</font>
-{SECTION: END}
-
-{SECTION: pmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" alt="{MSG: user_online}" title="{MSG: user_online}" />&nbsp;
-{SECTION: END}
-
-{SECTION: pmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" alt="{MSG: user_offline}" title="{MSG: user_offline}" />&nbsp;
-{SECTION: END}
-
-{SECTION: replied_msg replied message indicator}
-<font class="SmallText">({MSG: pmsg_replied})</font>&nbsp;
-{SECTION: END}
-
-{SECTION: forwarded_msg forwarded message indicator}
-<font class="SmallText">({MSG: pmsg_forwarded})</font>&nbsp;
-{SECTION: END}
-
-{SECTION: normal_msg normal message indicator}
 {SECTION: END}
 
 {SECTION: private_msg_entry}
@@ -116,78 +77,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: pm_err_nopm_title}
-{MSG: pm_err_nopm_title}
-{SECTION: END}
-
-{SECTION: pm_err_nopm_msg}
-{MSG: pm_err_nopm_msg}
-{SECTION: END}
-
-{SECTION: pm_update}
-{MSG: pm_update}
-{SECTION: END}
-
-{SECTION: pmsg_all}
-{MSG: pmsg_all}
-{SECTION: END}
-
-{SECTION: pmsg_none}
-{MSG: pmsg_none}
-{SECTION: END}
-
-{SECTION: restore_to}
-{MSG: restore_to}
-{SECTION: END}
-
-{SECTION: move_to}
-{MSG: move_to}
-{SECTION: END}
-
-{SECTION: pmsg_disk_usage indicator that shows how much of the allowed pmsg space the user uses}
-<table width="175" cellspacing="1" cellpadding="2" border="0" style="background-color: #FFFFFF; border: 1px #c2cdd6 solid;">
-<tr>
-	<td colspan="3" width="100%" class="RowStyleA" nowrap><span class="SmallText">{MSG: pm_space_indct_msg}</span></td>
-</tr>
-<tr>
-	<td colspan="3" width="100%" class="RowStyleB"><table cellspacing="0" cellpadding="1" border="0"><tr>{TEMPLATE-DATA: full_indicator}</tr></table></td>
-</tr>
-<tr class="RowStyleA">
-	<td class="SmallText" width="58" >0%</td>
-	<td class="SmallText" width="58" align="center">50%</td>
-	<td width="58" align="right"><table cellspacing=0 cellpadding=0 border=0><tr><td width=58 class="SmallText" align="right">100%</td></tr></table></td>
-</tr>
-</table>
-{SECTION: END}
-
-{SECTION: normal_full_indicator normal indicator of space in PM}
-<td bgcolor="#FFFFFF"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
-{SECTION: END}
-
-{SECTION: alert_full_indicator alert indicator, when user approaches limit}
-<td bgcolor="#fffa00"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
-{SECTION: END}
-
-{SECTION: full_full_indicator full indicator, the user has reached or surpassed the limit}
-<td bgcolor="#FF0000"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
-{SECTION: END}
-
-{SECTION: pmsg_author}
-{MSG: pmsg_author}
-{SECTION: END}
-
-{SECTION: pmsg_recepient}
-{MSG: pmsg_recepient}
-{SECTION: END}
-
-{SECTION: private_no_messages}
-<tr class="RowStyleC"><td colspan="6" align="center">{MSG: private_no_messages}</td></tr>
-{SECTION: END}
-
-{SECTION: private_tools}
-<tr class="RowStyleB"><td colspan=6 class="GenText" align=right>
-<input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
-<select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
-{SECTION: END}

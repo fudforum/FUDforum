@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.10 2003/10/09 21:27:37 hackie Exp $
+* $Id: msg.tmpl,v 1.11 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,13 +30,6 @@
 
 {SECTION: msg_forum_path forum location forum>thread>}
 <font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}/i/{DEF: _rsid}">{VAR: frm->cat_name}</a> &raquo; <a href="{ROOT}/f/{VAR: frm->forum_id}/{DEF: _rsid}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
-{SECTION: END}
-
-{SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />) {MSG: vote}
-{SECTION: END}
-
-{SECTION: no_thread_rating}
 {SECTION: END}
 
 {SECTION: split_thread}
@@ -135,34 +128,4 @@
 
 {SECTION: msg_xml_link}
 [ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]
-{SECTION: END}
-
-{SECTION: msg_err_ininfo_title}
-{MSG: msg_err_ininfo_title}
-{SECTION: END}
-
-{SECTION: msg_err_ininfo_msg}
-{MSG: msg_err_ininfo_msg}
-{SECTION: END}
-
-{SECTION: msg_update}
-{MSG: msg_update}
-{SECTION: END}
-
-{SECTION: msg_title}
-{MSG: msg_title}
-{SECTION: END}
-
-{SECTION: msg_err_nosuchmsg_msg}
-{MSG: msg_err_nosuchmsg_msg}
-{SECTION: END}
-
-{SECTION: msg_err_nosuchmsg_title}
-{MSG: msg_err_nosuchmsg_title}
-{SECTION: END}
-
-{SECTION: msg_page_focus}
-<script language="javascript" type="text/javascript">
-window.location.hash = "{VAR: mid}";
-</script>
 {SECTION: END}

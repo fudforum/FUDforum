@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
+* $Id: iemail.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,61 +37,11 @@
 {TEMPLATE: footer_plain}
 {SECTION: END}
 
-{SECTION: iemail_poll_tbl}
-<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
-{TEMPLATE-DATA: iemail_poll}
-</table><p>
-{SECTION: END}
-
-{SECTION: iemail_poll_result}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td>{VAR: v[0]}</td><td><img src="{THEME_IMAGE_ROOT}/poll_pix.gif" alt="" height="10" width="{VAR: length}" /> {VAR: v[1]} / {VAR: length}%</td></tr>
-{SECTION: END}
-
-{SECTION: iemail_attach the file attachments list}
-<p>
-<table border=0 cellspacing=0 cellpadding=2>
-{TEMPLATE-DATA: iemail_attach}
-</table>
-{SECTION: END}
-
 {SECTION: iemail_attach_entry file attachment entry row}
 <tr>
 <td valign="middle"><a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
 <td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
-{SECTION: END}
-
-{SECTION: iemail_thr_subject}
-{MSG: iemail_thr_subject}
-{SECTION: END}
-
-{SECTION: iemail_thr_bodyemail}
-{MSG: iemail_thr_bodyemail}
-{SECTION: END}
-
-{SECTION: iemail_thr_bodyicq}
-{MSG: iemail_thr_bodyicq}
-{SECTION: END}
-
-{SECTION: iemail_frm_subject}
-{MSG: iemail_frm_subject}
-{SECTION: END}
-
-{SECTION: iemail_frm_bodyemail}
-{MSG: iemail_frm_bodyemail}
-{SECTION: END}
-
-{SECTION: iemail_frm_bodyicq}
-{MSG: iemail_frm_bodyicq}
-{SECTION: END}
-
-{SECTION: CHARSET}
-{CHARSET}
-{SECTION: END}
-
-{SECTION: iemail_participate}
-{MSG: iemail_participate}
 {SECTION: END}
 
 {SECTION: iemail_thread_unsub}

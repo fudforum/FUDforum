@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.tmpl,v 1.6 2003/10/09 22:27:46 hackie Exp $
+* $Id: modque.tmpl,v 1.7 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,25 +37,3 @@
 </td>
 </tr>
 {SECTION: END}
-
-{SECTION: no_modque_msg}
-<tr><th>{MSG: modque_no_message}</th></tr>
-{SECTION: END}
-
-{SECTION: modque_message}
-{TEMPLATE: modque_msg_header}
-{TEMPLATE-DATA: message}
-{SECTION: END}
-
-{PAGE: MODQUE_PAGE draws a list of all the messages that are pending approval by the moderator}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: modque_pending_approval}</th></tr>
-{TEMPLATE-DATA: modque_message}
-</table>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}

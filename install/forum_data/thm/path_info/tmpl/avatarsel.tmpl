@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: avatarsel.tmpl,v 1.3 2003/10/09 21:08:03 hackie Exp $
+* $Id: avatarsel.tmpl,v 1.4 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -14,28 +14,3 @@
 {REF: header.tmpl}
 {REF: footer.tmpl}
 {REF: alt_var.tmpl}
-
-{SECTION: no_avatars}
-<td bgcolor="#f4f4f4" align="center">{MSG: no_avatars}</td>
-{SECTION: END}
-
-{SECTION: avatar_entry single avatar entry}
-<td style="{ALT-VAR: avatarsel_cl #f4f4f4 #fefefe}" nowrap valign="middle" align="center">
-<a class="GenLink" href="javascript: window.opener.document.fud_register.reg_avatar.value=\'{VAR: r[0]}\'; window.opener.document.reg_avatar_img.src=\'images/avatars/{VAR: r[2]}\'; window.close();"><img src="images/avatars/{VAR: r[2]}" alt="" /><br /><font class="SmallText">{VAR: r[1]}</font></a></td>
-{SECTION: END}
-
-{SECTION: row_separator}
-</tr><tr>
-{SECTION: END}
-
-{PAGE: AVATARSEL_PAGE Built In Avatar List}
-{TEMPLATE: header_plain}
-<table border=0 cellspacing=1 cellpadding=2><tr>
-{TEMPLATE-DATA: avatars_data}
-</tr></table>
-{TEMPLATE: footer_plain}
-{PAGE: END}
-
-{SECTION: avatar_sel_form}
-{MSG: avatar_sel_form}
-{SECTION: END}

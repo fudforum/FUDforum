@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.12 2003/10/09 22:16:58 hackie Exp $
+* $Id: thread.tmpl,v 1.13 2003/10/10 12:43:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,47 +24,16 @@
 {REF: forum_notify.tmpl}
 {REF: thread_view_common.tmpl}
 
-{SECTION: mini_thread_pager}
-<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
-{SECTION: END}
-
 {SECTION: mini_pager_entry}
 &nbsp;<a class="GenLink" href="{ROOT}/m/0/{VAR: r[13]}/{VAR: st_pos}/{DEF: _rsid}">{VAR: pg_num}</a> 
-{SECTION: END}
-
-{SECTION: mini_pager_limiter}
-&nbsp;...
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
 <a href="{ROOT}/t/{VAR: r[13]}/0/unread/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
 {SECTION: END}
 
-{SECTION: thread_icon}
-<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />
-{SECTION: END}
-
 {SECTION: rating}
 <img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />
-{SECTION: END}
-
-{SECTION: rating_none}
-{SECTION: END}
-
-{SECTION: sticky}
-<font class="SmallText"><b>{MSG: sticky}</b>&nbsp;</font>
-{SECTION: END}
-
-{SECTION: announcement}
-<font class="SmallText"><b>{MSG: thread_announcement}</b>&nbsp;</font>
-{SECTION: END}
-
-{SECTION: thread_last_post}
-<font class="DateText">{DATE: r[10] %a, %d %B %Y %H:%M}</font>
-{SECTION: END}
-
-{SECTION: unreg_user_link}
-{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: reg_user_link}
@@ -77,14 +46,6 @@
 
 {SECTION: last_msg_in_thread}
 <a href="{ROOT}/m/{VAR: r[9]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a>
-{SECTION: END}
-
-{SECTION: thread_first_post}
-<font class="DateText">{DATE: r[4] %a, %d %B %Y}</font>
-{SECTION: END}
-
-{SECTION: first_post_unreg_user_link if the thread stater was an anon user link}
-{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: first_post_reg_user_link if the thread stater was a registered user link}
@@ -159,7 +120,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: thread_update}
-{MSG: thread_update}
-{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.4 2003/10/09 22:27:46 hackie Exp $
+* $Id: reported.tmpl,v 1.5 2003/10/10 12:43:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,10 +23,6 @@
 
 {SECTION: reported_reg_user_link reportee profile link}
 <a class="GenLink" href="{ROOT}/u/{VAR: obj->report_user_id}/{DEF: _rsid}">{VAR: obj->report_user_login}</a>
-{SECTION: END}
-
-{SECTION: reported_anon_user if reportee is anon section}
-{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: reported_msg_header}
@@ -52,26 +48,4 @@
 	</tr>
 </table>
 </td></tr>
-{SECTION: END}
-
-{SECTION: reported_message}
-{TEMPLATE: reported_msg_header}
-{TEMPLATE-DATA: message}
-{SECTION: END}
-
-{PAGE: REPORTED_PAGE a list of the reported messages}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: reported_reported_msg}</th></tr>
-{TEMPLATE-DATA: reported_message}
-</table>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
-{SECTION: reported_no_messages}
-<tr><td>{MSG: reported_no_messages}</td></tr>
 {SECTION: END}

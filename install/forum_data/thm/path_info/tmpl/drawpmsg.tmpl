@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.4 2003/10/09 21:08:03 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.5 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,198 +11,62 @@
 
 {PHP_FILE: input: drawpmsg.inc.t; output: drawpmsg.inc;}
 
-{SECTION: dpmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" alt="{MSG: user_online}" title="{MSG: user_online}" />
+{SECTION: dpmsg_buddy_link_lnk}
+{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" alt="{MSG: user_offline}" title="{MSG: user_offline}" />
+{SECTION: dpmsg_im_icq_lnk}
+{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}#icq_msg
 {SECTION: END}
 
-{SECTION: dpmsg_avatar}
-{VAR: obj->avatar_loc}
+{SECTION: dpmsg_file_attachment_lnk}
+{ROOT}/fa/{VAR: r->id}/1/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_no_avatar}
+{SECTION: dpmsg_user_profile_lnk}
+{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_host_name}
-{MSG: from}<br /><font class="SmallText">{VAR: obj->host_name}</font><br />
+{SECTION: dpmsg_email_link_lnk}
+{ROOT}/em/{VAR: obj->user_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_location}
-{MSG: location} {VAR: location}<br />
+{SECTION: dpmsg_private_msg_link_lnk}
+{ROOT}/pmm/toi/{VAR: obj->user_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_no_location}
+{SECTION: dpmsg_edit_link_lnk}
+{ROOT}/pmm/msg_id/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_custom_tags}
-{VAR: obj->custom_status}<br />
+{SECTION: dpmsg_reply_link_lnk}
+{ROOT}/pmm/reply/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_no_custom_tags}
+{SECTION: dpmsg_quote_link_lnk}
+{ROOT}/pmm/quote/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_msg_icon}
-<img src="images/message_icons/{VAR: obj->icon}" alt="" />&nbsp;&nbsp;
+{SECTION: dpmsg_msg_toolbar_lnk}
+{ROOT}/pdm/btn_delete/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_no_msg_icon}
+{SECTION: dpmsg_msg_toolbar_lnk2}
+{ROOT}/pmm/forward/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_buddy_link}
-<br />[<a href="{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+{SECTION: dpmsg_profile_link_lnk}
+{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_level_name}
-<font class="LevelText">{VAR: obj->level_name}</font><br />
+{SECTION: dpmsg_prev_message_lnk}
+{ROOT}/pmv/{VAR: pid}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_level_image}
-<img src="images/{VAR: obj->level_img}" alt="" /><br />
+{SECTION: dpmsg_next_message_lnk}
+{ROOT}/pmv/{VAR: nid}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: dpmsg_im_icq}
-<a href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}#icq_msg"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" alt="" alt="" /></a>&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_im_aim}
-<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim.gif" alt="" /></a>&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_im_yahoo}
-<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo.gif" alt="" /></a>&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_im_msnm}
-<a href="mailto:{VAR: obj->msnm}"><img src="{THEME_IMAGE_ROOT}/msnm.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: dpmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR-UH: obj->jabber}" alt="{VAR-UH: obj->jabber}" />
-{SECTION: END}
-
-{SECTION: dpmsg_file_attachments the file attachments list}
-<p>
-<table border=0 cellspacing=0 cellpadding=2>
-{TEMPLATE-DATA: file_attachments}
-</table>
-{SECTION: END}
-
-{SECTION: dpmsg_file_attachment file attachment entry row}
-<tr>
-<td valign=middle><a class="GenLink" href="{ROOT}/fa/{VAR: r->id}/1/{DEF: _rsid}"><img src="images/mime/{VAR: r->icon}" alt="" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}/fa/{VAR: r->id}/1/{DEF: _rsid}">{VAR: r->original_name}</a><br />
-<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font></td></tr>
-{SECTION: END}
-
-{SECTION: dpmsg_signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: obj->sig}
-{SECTION: END}
-
-{SECTION: dpmsg_user_profile}
-<a class="GenLink" href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: dpmsg_email_link}
-<a class="GenLink" href="{ROOT}/em/{VAR: obj->user_id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: dpmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}/pmm/toi/{VAR: obj->user_id}/{DEF: _rsid}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: dpmsg_edit_link}
-<a class="GenLink" href="{ROOT}/pmm/msg_id/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_reply_link}
-<a class="GenLink" href="{ROOT}/pmm/reply/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;
-{SECTION: END}
-
-{SECTION: dpmsg_quote_link}
-<a class="GenLink" href="{ROOT}/pmm/quote/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>
-{SECTION: END}
-
-{MAIN_SECTION: private_message_entry draws a single private message}<tr>
-<td class="RowStyleA" valign=top nowrap>
-
-<table cellspacing=0 cellpadding=0 border=0>
-<tr>
-	<td valign="middle">{TEMPLATE-DATA: online_indicator}</td>
-	<td valign="middle" class="GenText">{TEMPLATE-DATA: profile_link}</td>
-</tr>
-</table>
-
-<font class="GenText">{TEMPLATE-DATA: avatar}<br /><br />
-{TEMPLATE-DATA: custom_tag}
-{MSG: posts_c} {VAR: obj->posted_msg_count}<br />
-{TEMPLATE-DATA: host_name}
-{TEMPLATE-DATA: location}
-{MSG: registered}<br /><font class="DateText">{DATE: obj->join_date %B %Y}</font>
-{TEMPLATE-DATA: buddy_link}
-</font><div align=center>
-{TEMPLATE-DATA: im_icq}
-{TEMPLATE-DATA: im_aim}
-{TEMPLATE-DATA: im_yahoo}
-{TEMPLATE-DATA: im_msnm}
-{TEMPLATE-DATA: im_jabber}
-{TEMPLATE-DATA: im_affero}
-</div></td>
-<td class="RowStyleA" valign="top" width="100%">
-<table border=0 cellspacing=0 cellpadding=0 width="100%">
-<tr>
-	<td valign="top" align="left" class="MsgSubText">{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}</td>
-	<td valign="top" align=right><img src="{THEME_IMAGE_ROOT}/posticon.gif" alt="" /><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font></td>
-</tr>
-<tr><td colspan=2 class="ContentTable"><img src="blank.gif" alt="" /></td></tr>
-<tr class="RowStyleA" valign="top">
-	<td colspan=2 valign="top" height="100%"><font class="MsgBodyText">{VAR: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</font></td></tr></table></td>
-</tr>
-{TEMPLATE-DATA: msg_toolbar}
-<tr><td colspan=2 align="right" bgcolor="#FFFFFF">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
-{MAIN_SECTION: END}
-
-{SECTION: dpmsg_no_msg_body}
-{MSG: no_msg_body}
-{SECTION: END}
-
-{SECTION: dpmsg_msg_toolbar buttons for replying,editing,deliting and forwarding the message}
-<tr class="MsgToolBar"><td colspan=2><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
-<td align="left" nowrap width="1%">
-{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}
-</td>
-<td align="right" nowrap width="1%">
-<a class="GenLink" href="{ROOT}/pdm/btn_delete/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}
-<a class="GenLink" href="{ROOT}/pmm/forward/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
-</td></tr></table></td></tr>
-{SECTION: END}
-
-{SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}">{VAR: obj->alias}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
-{SECTION: END}
-
-{SECTION: dpmsg_profile_no_link user's name without the link to the profile}
-{VAR: obj->alias}
-{SECTION: END}
-
-{SECTION: dpmsg_prev_message link to the previous message}
-<a href="{ROOT}/pmv/{VAR: pid}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goback.gif" alt="" /> {MSG: pmsg_prev_msg}</a>
-{SECTION: END}
-
-{SECTION: dpmsg_next_message link to the next message}
-<a href="{ROOT}/pmv/{VAR: nid}/{DEF: _rsid}" class="GenLink">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: drawpmsg_affero_reg}
-<a href="http://svcs.affero.net/rm.php?r={VAR-URL: obj->affero}&amp;ll=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" /></a>
-{SECTION: END}
-
-{SECTION: drawpmsg_affero_noreg}
-<a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp=0.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" /></a>
-{SECTION: END}
-
-{SECTION: dpmsg_buddy_link_remove add this user to your buddy list link}
-<br />[<a href="{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
+{SECTION: dpmsg_buddy_link_remove_lnk}
+{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}
 {SECTION: END}

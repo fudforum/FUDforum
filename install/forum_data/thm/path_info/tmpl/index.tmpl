@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
+* $Id: index.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,38 +21,11 @@
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
 
-{SECTION: index_table_heading}
-<tr>
-	<th colspan=3 width="100%">{MSG: index_forum}</th>
-	<th nowrap>{MSG: posts}</th>
-	<th nowrap>{MSG: threads}</th>
-	<th nowrap>{MSG: last_post}</th>
-</tr>
-{SECTION: END}
-
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr class="CatDesc"><td colspan="6">
 &nbsp;<a href="{ROOT}/i/{FUNC: url_tog_collapse($r[8], $cs)}/{DEF: _rsid}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
 {VAR: r[5]}
 </td></tr>
-{SECTION: END}
-
-{SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr class="CatDesc"><td colspan="6">
-* <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}
-</td></tr>
-{SECTION: END}
-
-{SECTION: forum_icon}
-<img src="{VAR: r[9]}" alt="{MSG: forum_icon}" />
-{SECTION: END}
-
-{SECTION: no_forum_icon}
-&nbsp;
-{SECTION: END}
-
-{SECTION: moderators moderator list}
-<br /><font class="SmallText"><b>{MSG: moderators}:</b> {VAR: moderators}</font>
 {SECTION: END}
 
 {SECTION: index_forum_entry forum entry row}
@@ -64,24 +37,6 @@
 	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
 </tr>
-{SECTION: END}
-
-{SECTION: forum_with_no_view_perms}
-<tr>
-	<td class="RowStyleA" colspan=6>{VAR-HTML: r[13]}<br />{VAR: r[14]}</td>
-</tr>
-{SECTION: END}
-
-{SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" />
-{SECTION: END}
-
-{SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" />
-{SECTION: END}
-
-{SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
 {SECTION: last_post}
@@ -96,87 +51,6 @@
 <a href="{ROOT}/u/{VAR: k}/{DEF: _rsid}" class="GenLink">{VAR: v}</a> &nbsp;
 {SECTION: END}
 
-{SECTION: no_mod}
-&nbsp;
-{SECTION: END}
-
-{SECTION: profile_link_anon}
-{GVAR: ANON_NICK}
-{SECTION: END}
-
-{SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
-+
-{SECTION: END}
-
-{SECTION: collapse_indicator_MIN an indicator showing that this category can be collapsed}
--
-{SECTION: END}
-
 {SECTION: mark_all_read}
 <div align=right><font class="SmallText">[<a href="{ROOT}/mar/{DEF: _rsid}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
-{SECTION: END}
-
-{SECTION: forum_icon_legend}
-<br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
-<tr><td align=left class="RowStyleB">
-<table border=0 cellspacing=0 cellpadding=0 align=left>
-<tr>
-<td>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: index_new_posts}" /></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
-</table>
-</td>
-<td>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" /></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
-</table>
-</td>
-</tr>
-</table>
-</td></tr>
-</table>
-{SECTION: END}
-
-{SECTION: welcome_message}
-<font class="GenText">{MSG: welcome_message}</font><br />
-{SECTION: END}
-
-{PAGE: INDEX_PAGE}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: welcome_message}
-{TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE: index_table_heading}
-{TEMPLATE-DATA: forum_list_table_data}
-</table>
-{TEMPLATE-DATA: mark_all_read}
-{TEMPLATE-DATA: quick_login}
-{TEMPLATE-DATA: loged_in_list}
-{TEMPLATE: forum_icon_legend}
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
-{SECTION: index_update}
-{MSG: index_update}
-{SECTION: END}
-
-{SECTION: index_title}
-{MSG: index_title}
-{SECTION: END}
-
-{SECTION: maximize_category}
-{MSG: maximize_category}
-{SECTION: END}
-
-{SECTION: minimize_category}
-{MSG: minimize_category}
-{SECTION: END}
-
-{SECTION: na}
-{MSG: na}
 {SECTION: END}

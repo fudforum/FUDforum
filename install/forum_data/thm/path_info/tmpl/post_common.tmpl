@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.7 2003/10/09 21:08:03 hackie Exp $
+* $Id: post_common.tmpl,v 1.8 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,10 +11,6 @@
 
 {PHP_FILE: input: post_common.inc.t; output: post_common.inc;}
 {REF: smiley.tmpl}
-
-{SECTION: post_smiley_entry}
-<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: r[0]} \');"><img title="{VAR: r[1]}" alt="{VAR: r[1]}" src="images/smiley_icons/{VAR: r[2]}" /></a>&nbsp;
-{SECTION: END}
 
 {SECTION: post_smilies}
 <tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
@@ -93,71 +89,6 @@
 </td></tr></table></td></tr>
 {SECTION: END}
 
-{SECTION: post_icon_entry}
-<td nowrap valign="middle"><input type="radio" name="msg_icon" value="{VAR: f}"{VAR: checked}><img src="images/message_icons/{VAR: f}" alt="" /></td>
-{SECTION: END}
-
-{SECTION: post_icon_row}
-<tr>{TEMPLATE-DATA: tmp}</tr>
-{SECTION: END}
-
-{SECTION: post_icons}
-<tr class="RowStyleA"><td valign=top class="GenText">{MSG: post_icons}</td><td>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{VAR: none_checked}>{MSG: post_no_icon}</td></tr>
-{TEMPLATE-DATA: data}
-</table>
-</td></tr>
-{SECTION: END}
-
 {SECTION: insert_uploaded_image}
 &nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}/fa/{VAR: r[0]}/{VAR: private}/\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
-{SECTION: END}
-
-{SECTION: attached_file}
-<tr>
-	<td class="RowStyleB">{VAR: r[2]}</td>
-	<td class="RowStyleB">{VAR: sz}</td>
-	<td class="RowStyleB"><a class="GenLink" href="javascript: document.post_form.file_del_opt.value=\'{VAR: r[0]}\'; document.post_form.submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
-</tr>
-{SECTION: END}
-
-{SECTION: upload_file}
-<input type="file" name="attach_control"> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}">
-{SECTION: END}
-
-{SECTION: attached_status count of already attached files}
-<font class="SmallText"> {MSG: post_cur_attached}
-{SECTION: END}
-
-{SECTION: attachment_list list of all the attached files}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th>{MSG: post_file_name}</th>
-	<th>{MSG: post_file_size}</th>
-	<th>{MSG: action}</th>
-</tr>
-{TEMPLATE-DATA: attached_files}
-</table>
-<input type="hidden" name="file_del_opt" value="">
-<input type="hidden" name="file_array" value="{VAR: enc}">
-{SECTION: END}
-
-{SECTION: file_attachments}
-<tr class="RowStyleB"><td nowrap valign=top class="GenText">{MSG: file_attachments}</td><td>
-{TEMPLATE-DATA: attachment_list}
-{VAR: attach_control_error}
-<font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
-{TEMPLATE-DATA: attached_status}
-</font><p>
-{TEMPLATE-DATA: upload_file}
-</td></tr>
-{SECTION: END}
-
-{MAIN_SECTION: post_allowed_extension allowed file extension entry}
-{VAR: r[0]}&nbsp;
-{MAIN_SECTION: END}
-
-{SECTION: post_proc_all_ext_allowed}
-{MSG: post_all_ext_allowed}
 {SECTION: END}

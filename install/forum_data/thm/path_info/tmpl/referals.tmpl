@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.4 2003/10/09 21:08:03 hackie Exp $
+* $Id: referals.tmpl,v 1.5 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,10 +23,6 @@
 &nbsp;<a href="{ROOT}/pmm/toi/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
 {SECTION: END}
 
-{SECTION: homepage_link}
-&nbsp;<a class="GenLink" href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
-{SECTION: END}
-
 {SECTION: email_link}
 &nbsp;<a href="{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
 {SECTION: END}
@@ -38,24 +34,4 @@
 	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
 	<td nowrap class="GenText"><a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
-{SECTION: END}
-
-{SECTION: no_refered no referrals in the system for this user}
-<tr><th colspan=4>{MSG: referals_none}</th></tr>
-{SECTION: END}
-
-{PAGE: REFERALS_PAGE show all referred users by a certain user}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: tabs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: referals_refered_by}</th><th align="center" nowrap>{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
-{TEMPLATE-DATA: refered_entry_data}
-</table>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-{SECTION: referals_update}
-{MSG: referals_update}
 {SECTION: END}

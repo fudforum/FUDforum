@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
+* $Id: finduser.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -46,10 +46,6 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: find_user_no_results}
-<tr class="RowStyleA"><td colspan=4 width="100%" class="GenText">{MSG: finduser_no_such_user}</td></tr>
-{SECTION: END}
-
 {SECTION: find_user_entry}
 <tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}/u/{VAR: r->id}/{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
@@ -65,34 +61,6 @@
 <a href="{ROOT}/pmm/toi/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
 {SECTION: END}
 
-{SECTION: homepage_link}
-<a class="GenLink" href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
-{SECTION: END}
-
 {SECTION: email_link}
 <a href="{ROOT}/em/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
-{SECTION: END}
-
-{SECTION: finduser_title}
-{MSG: finduser_title}
-{SECTION: END}
-
-{SECTION: finduser_update}
-{MSG: finduser_update}
-{SECTION: END}
-
-{SECTION: findu_admin_opts_header}
-<th>{MSG: findu_admin_opts_header}</th>
-{SECTION: END}
-
-{SECTION: findu_unban}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?f=1&act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_unban}</a>
-{SECTION: END}
-
-{SECTION: findu_ban}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?f=1&act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_ban}</a>
-{SECTION: END}
-
-{SECTION: findu_admin_opts}
-<td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?f=1&usr_id={VAR: r->id}&S={DEF: s}&act=1">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?f=1&usr_id={VAR: r->id}&S={DEF: s}&act=del">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
 {SECTION: END}

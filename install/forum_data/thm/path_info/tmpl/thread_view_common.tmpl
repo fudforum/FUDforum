@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.8 2003/10/09 22:16:58 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.9 2003/10/10 12:43:30 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,46 +38,6 @@
 <a class="GenLink" href="{ROOT}/{DEF: pinfo_page}/{VAR: frm->id}/{VAR: start}/0/{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
 {SECTION: END}
 
-{SECTION: no_messages}
-<font class="GenText">{MSG: no_messages}</font>
-{SECTION: END}
-
-{SECTION: thread_poll_indicator}
-{MSG: poll}&nbsp;
-{SECTION: END}
-
-{SECTION: thread_attach_indicator}
-<img src="{THEME_IMAGE_ROOT}/attachment.gif" alt="" />
-{SECTION: END}
-
-{SECTION: thread_read}
-<img src="{THEME_IMAGE_ROOT}/read.gif" title="{MSG: no_unread_msg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_read_unreg}
-<img src="{THEME_IMAGE_ROOT}/read.gif" title="{MSG: no_unread_msg_unreg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_read_locked}
-<img src="{THEME_IMAGE_ROOT}/readlocked.gif" title="{MSG: no_unread_locked}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_unread}
-<img src="{THEME_IMAGE_ROOT}/unread.gif" title="{MSG: unread_msg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_unread_locked}
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" title="{MSG: unread_msg_locked}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_icon_none}
-&nbsp;
-{SECTION: END}
-
-{SECTION: thread_title}
-{MSG: thread_title}
-{SECTION: END}
-
 {SECTION: thread_printable_pdf}
 &nbsp;[ <a href="{GVAR: WWW_ROOT}pdf.php/p/{VAR: frm->id}/{VAR: cur_frm_page}/{DEF: _rsid}" class="GenLink">{MSG: thread_printable_pdf}</a> ]
 {SECTION: END}
@@ -86,22 +46,6 @@
 &nbsp;[ <a href="{ROOT}/h/boardusage/#syndicate" class="GenLink">{MSG: thread_syndicate}</a> ]
 {SECTION: END}
 
-{SECTION: thread_pdf_rdf}
-<div align="right"><font class="SmallText">{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</font></div>
-{SECTION: END}
-
 {SECTION: thread_merge_t}
 &nbsp;<a href="{ROOT}/met/{VAR: frm->id}/{DEF: _rsid}" class="GenLink">{MSG: merge_topics}</a>
-{SECTION: END}
-
-{SECTION: thread_legend}
-<br />
-<div class="RowStyleB"><font class="SmallText">
-<b>{MSG: legend}</b><br />
-<img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" /> {MSG: new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/read.gif" alt="{MSG: no_new_posts}" /> {MSG: no_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" alt="{MSG: locked_with_new_posts}" /> {MSG: locked_with_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/readlocked.gif" alt="{MSG: locked}" /> {MSG: locked}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/moved.gif" alt="{MSG: moved}" /> {MSG: moved}
-</font></div>
 {SECTION: END}
