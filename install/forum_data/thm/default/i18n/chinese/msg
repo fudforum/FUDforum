@@ -6,7 +6,7 @@ administrator:			ÏµÍ³¹ÜÀíÔ±
 announcement:			¹«¸æ
 attachment:			¸½¼ş£º
 avatar:				Í·Ïñ£º
-average_post_count:		{VAR: u->posted_msg_count} Ìù×Ó(ÈÕ¾ù·¢ÌùÊı{VAR: avg} )
+average_post_count:		{VAR: u->posted_msg_count} Ìû×Ó(ÈÕ¾ù·¢ÌûÊı{VAR: avg} )
 biography:			¸öÈË¼ò½é£º
 birth_date:			ÉúÈÕ£º
 by:				·¢Ìû£º
@@ -63,7 +63,7 @@ mark_all_read:			±ê¼ÇËùÓĞĞÅÏ¢ÎªÒÑ¶Á
 mark_all_read_desc:		ËùÓĞÄãÃ»ÓĞ¶Á¹ıµÄĞÅÏ¢¶¼½«±»±êÎªÒÑ¶Á¡£
 members:			³ÉÔ±
 message:			ĞÅÏ¢
-message_counter:		ÓÃ»§ÒÑ¾­Ìá½» <b>{VAR: post_count}</b>¸öÌù×Ó£¬·Ö²¼ÔÚ<b>{VAR: thread_count}</b>¸öÖ÷ÌâÀï¡£
+message_counter:		ÓÃ»§ÒÑ¾­Ìá½» <b>{VAR: post_count}</b>¸öÌû×Ó£¬·Ö²¼ÔÚ<b>{VAR: thread_count}</b>¸öÖ÷ÌâÀï¡£
 message_index:			ĞÅÏ¢Ë÷Òı
 message_index_desc:		²é¿´ĞÅÏ¢ÁĞ±í
 minimize_category:		¼õÉÙÄ¿Â¼²ã´Î
@@ -105,8 +105,8 @@ poll:				µ÷²é£º
 post_count:			µã»÷Êı {VAR: u_pcount}
 post_count_l:			µã»÷Êı£º
 poster:				·¢ÌûÈË
-posts:				Ìù×Ó
-posts_c:			·¢ÌùÊı£º
+posts:				Ìû×Ó
+posts_c:			·¢ÌûÊı£º
 prev_thread:			ÏÂÒ»¸öÖ÷Ìâ£º
 usrinfo_private_message:	ÇÄÇÄ»°
 profile:			¸öÈËĞÅÏ¢
@@ -120,8 +120,8 @@ register:			×¢²á
 registered:			×¢²áÊ±¼ä£º
 registered_on:			×¢²áÈÕÆÚ{DATE: u->join_date %Y-%m-%d}
 replies:			»Ø¸´
-report_to_mod:			Î¥¹æÌù¾Ù±¨
-reported_messages:		ÒÑÏò°æÖ÷¾Ù±¨µÄÎ¥¹æÌù
+report_to_mod:			Î¥¹æÌû¾Ù±¨
+reported_messages:		ÒÑÏò°æÖ÷¾Ù±¨µÄÎ¥¹æÌû
 reveal_all_posts:		ÏÔÊ¾ËùÓĞ½á¹û {VAR: user_login}
 reveal_post:			ÏÔÊ¾½á¹û
 search:				ËÑË÷
@@ -211,7 +211,7 @@ list_referes_members:		±»ÌáÃûµÄÓÃ»§
 list_referes_member:		ÓÃ»§
 referals_none:			Ä¿Ç°»¹Ã»ÓĞ±»ÌáÃûµÄÈË¡£
 referals_refered_by:		±»ÍÆ¼öµÄÂÛÌ³³ÉÔ±ÊÇ£º<b><a class="TableHeading" href="{TEMPLATE: referals_refered_by_lnk}">{VAR: p_user[1]}</a></b>
-referals_post_count:		·¢ÌùÊı
+referals_post_count:		·¢ÌûÊı
 referals_registered_on:		µÇÂ¼
 referals_action:		²Ù×÷
 pmsg_all:			ËùÓĞ
@@ -258,7 +258,7 @@ finduser_by_email:		µç×ÓÓÊÏä£º
 finduser_submit:		²éÕÒ
 finduser_no_such_user:		Ã»ÓĞÕâ¸öÃ»§
 finduser_user:			ÓÃ»§Ãû
-finduser_postcount:		·¢ÌùÊı
+finduser_postcount:		·¢ÌûÊı
 finduser_joindate:		×¢²áÈÕÆÚ
 finduser_action:		²Ù×÷
 yes:				ÊÇ
@@ -316,9 +316,9 @@ register_sig_desc:		¸úÔÚÄãµÄ·¢ÑÔºóµÄ¸öĞÔ»¯Ç©Ãû¡£
 register_reset:			ÖØÌî
 register_style:			×ÖÌå£º
 register_def_thread_view:	Ä¬ÈÏÖ÷Ìâä¯ÀÀ·½Ê½£º
-register_msg_per_page:		Ã¿Ò³Ìù×ÓÊı£º
+register_msg_per_page:		Ã¿Ò³Ìû×ÓÊı£º
 register_show_sig:		ÏÔÊ¾Ç©Ãû£º
-register_show_sig_desc:		Ñ¡ÔñÊÇ·ñÔÚ·¢ÌùºóÏÔÊ¾ÄãµÄÇ©Ãûµµ¡£
+register_show_sig_desc:		Ñ¡ÔñÊÇ·ñÔÚ·¢ÌûºóÏÔÊ¾ÄãµÄÇ©Ãûµµ¡£
 register_use_sig_default:	ÏÔÊ¾ÆäËû³ÉÔ±Ç©Ãû£º
 register_use_sig_default_desc:	ÊÇ·ñÏÔÊ¾ÆäËûÂÛÌ³³ÉÔ±µÄÇ©Ãûµµ¡£
 register_timezone:		Ê±Çø£º
@@ -328,7 +328,7 @@ register_invisible_mode_desc:	µÇÂ¼ºóÊÇ·ñÏÔÊ¾ÔÚÔÚÏßÓÃ»§ÁĞ±íÖĞ¡£
 register_show_email:		ÏÔÊ¾µç×ÓÓÊ¼şµØÖ·£º
 register_show_email_desc:	Èç¹ûÄãÏë¹«¿ª×Ô¼ºµÄµç×ÓÓÊ¼şµØÖ·£¬ÇëÑ¡ÔñÕâ¸öÑ¡Ïî¡£
 register_notification:		ÊÇ·ñÄ¬ÈÏ´ò¿ªÌáĞÑ¹¦ÄÜ£º
-register_notification_desc:	Èç¹ûÑ¡Ôñ"ÊÇ"£¬ÔÚ·¢ÌùÊ±ÒÀÈ»¿ÉÒÔÑ¡ÔñÊÇ·ñÌáĞÑ¡£
+register_notification_desc:	Èç¹ûÑ¡Ôñ"ÊÇ"£¬ÔÚ·¢ÌûÊ±ÒÀÈ»¿ÉÒÔÑ¡ÔñÊÇ·ñÌáĞÑ¡£
 register_notify_method:		ÇëÑ¡ÔñÌáĞÑ·½Ê½£º
 register_notify_method_desc:	Èç¹ûÄãÏëÍ¨¹ıICQ½ÓÊÕÌáĞÑ£¬ÇëÈ·ÈÏÄãµÄICQÖĞµÄ¡°ÓÊ¼ş·¢ËÍ¡±ÉèÖÃÕıÈ·¡£
 register_notify_js_error:	ÄãÑ¡ÔñÁËÍ¨¹ıICQ½ÓÊÕÍ¨¸æ, µ«ÊÇÃ»ÓĞÌîÈëICQ #. Ä¬ÈÏµÄµç×ÓÓÊ¼şµØÖ·ÊÇEmail&#46;
@@ -708,11 +708,11 @@ remail_email:			Õâ¸öÒ³ÃæµÄÄÚÈİ{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) Äã¿ÉÄÜ»á¸
 poll_add_option:		Ìí¼ÓÑ¡Ïî£º
 post_opt_html_on:		<b>HTML</b><b>´úÂë£º¿ª·Å</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD´úÂë£º</b><b>¿ª·Å</a></b>
-post_opt_images_on:		<b>ÌùÍ¼¹¦ÄÜ£º</b><b>¿ª·Å</b>
+post_opt_images_on:		<b>ÌûÍ¼¹¦ÄÜ£º</b><b>¿ª·Å</b>
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>±íÇé·ûºÅ£º</b> <b>¿ª·Å</b></a>
 post_opt_html_off:		<b>HTML</b> ´úÂë£º <b>¹Ø±Õ</b>
 post_opt_fud_off:		<b>FUD´úÂë£º</b><b>¹Ø±Õ</b>
-post_opt_images_off:		<b>ÌùÍ¼¹¦ÄÜ£º</b><b>¹Ø±Õ</b>
+post_opt_images_off:		<b>ÌûÍ¼¹¦ÄÜ£º</b><b>¹Ø±Õ</b>
 post_opt_smilies_off:		<b>±íÇé·ûºÅ£º</b><b>¹Ø±Õ</b>
 post_opt:			ÂÛÌ³Ñ¡Ïî
 register_change_passwd:		¸Ä±äÃÜÂë
@@ -817,8 +817,8 @@ split_th_posted_on:		·¢±íÊ±¼ä£º
 split_th_subject:		Ö÷Ìâ£º
 split_th_new_thread_title:	ĞÂµÄÖ÷Ìâ£º
 split_th_forum:			ÂÛÌ³£º
-split_th_split_sel:		·Ö³öÑ¡ÖĞµÄÌù×Ó
-split_th_split_unsel:		·Ö³öÃ»ÓĞÑ¡ÖĞµÄÌù×Ó
+split_th_split_sel:		·Ö³öÑ¡ÖĞµÄÌû×Ó
+split_th_split_unsel:		·Ö³öÃ»ÓĞÑ¡ÖĞµÄÌû×Ó
 split_th_messages:		ĞÅÏ¢
 split_th_select:		Ñ¡Ôñ
 report_report_post:		±¨¸æ·¢²¼
@@ -840,8 +840,8 @@ register_jabber:		Jabber£º
 im_jabber:			Jabber£º
 forum_contact:			ÁªÏµ
 forum_home:			Ö÷Ò³
-post_cur_attached:		ÕıÔÚÕ³Ìù{VAR: i} ¸öÎÄ¼ş
-ppost_cur_attached:		ÕıÔÚÕ³Ìù {VAR: attach_count} ¸öÎÄ¼ş
+post_cur_attached:		ÕıÔÚÕ³Ìû{VAR: i} ¸öÎÄ¼ş
+ppost_cur_attached:		ÕıÔÚÕ³Ìû {VAR: attach_count} ¸öÎÄ¼ş
 ignored_anon_post:		{GVAR: ANON_NICK} ±»ºöÂÔ
 ignored_user_post:		ÉèÖÃºöÂÔĞÅÏ¢<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
 smladd_close_window:		¹Ø±Õ´°¿Ú
@@ -854,8 +854,8 @@ forumsel_unread:		*£¨º¬Î´¶Á£©
 groupmgr_no_groups:		Ã»ÓĞÒª±à¼­µÄ×é
 msg_err_nosuchmsg_msg:		Õâ¸öÖ÷ÌâÖĞÃ»ÓĞÕâĞ©ÄÚÈİ
 msg_err_nosuchmsg_title:	³ö´í
-imsg_err_message_title:		Ìù×Ó³ö´í
-imsg_err_message_msg:		ÄãÒª²é¿´µÄÌù×Ó²»´æÔÚ¡£
+imsg_err_message_title:		Ìû×Ó³ö´í
+imsg_err_message_msg:		ÄãÒª²é¿´µÄÌû×Ó²»´æÔÚ¡£
 poll_edit:			±à¼­
 unspecified:			±£ÃÜ
 register_err_not_valid_img:	Ö¸¶¨µÄÍ¼Æ¬Á¬½Ó²»ÕıÈ·
@@ -888,9 +888,9 @@ post_proceed:			·µ»ØÂÛÌ³
 buddy_list_bday:		½ñÌìÊÇ {VAR: r[2]} µÄ {VAR: age} ËêÉúÈÕ
 email_warning_msg:		Èç¹ûÄãĞŞ¸ÄÁËEmail£¬Ôò´ËÕËºÅ»á±»ÔİÊ±Òş²Ø£¬ÇëÄã²éÊÕÓÊ¼ş£¬µã»÷ÓÊ¼şÖĞµÄÁ¬½ÓÒÔÖØĞÂ¼¤»îÕËºÅ£¡
 register_show_im:		ÏÔÊ¾ IM Ö¸Ê¾Æ÷
-register_show_im_desc:		ÊÇ·ñÔÚÓÃ»§Ìù×ÓÅÔ±ßÏÔÊ¾IM¡£
-unread_message:			Î´¶ÁÌù×Ó
-read_message:			ÔÄ¶Á¸ü¶àÌù×Ó£º			&lt;¸ü¶à&gt;
+register_show_im_desc:		ÊÇ·ñÔÚÓÃ»§Ìû×ÓÅÔ±ßÏÔÊ¾IM¡£
+unread_message:			Î´¶ÁÌû×Ó
+read_message:			ÔÄ¶Á¸ü¶àÌû×Ó£º			&lt;¸ü¶à&gt;
 threadt_disabled_ttl:		Ê÷×´ä¯ÀÀÒÑ¾­±»¹Ø±Õ¡£
 threadt_disabled_desc:		¹ÜÀíÔ±ÒÑ¾­¹Ø±ÕÊ÷×´ä¯ÀÀ£¬ÇëÓÃÕ¹¿ªä¯ÀÀ·½Ê½¡£
 threadt_update:			ä¯ÀÀÂÛÌ³£¨Ê÷×´ä¯ÀÀ£©<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
@@ -947,8 +947,8 @@ group_resources:		´Ë×é¿ØÖÆÏÂÁĞ°å¿éµÄ·ÃÎÊÈ¨ÏŞ
 register_email:			µç×ÓÓÊ¼ş£º
 register_admin_newuser_title:	ÓĞĞÂÓÃ»§×¢²á²¢µÈºòÅú¸´
 register_admin_newuser_msg:	ĞÂÓÃ»§ ({VAR: uent->login}) ¸Õ¸Õ×¢²á£¬ÕıµÈ´ı¹ÜÀíÔ±µÄÉóºËÅú¸´¡£ÒªÅú¸´ÓÃ»§£¬Çë×ªµ½£º {GVAR: WWW_ROOT}adm/admaccapr.php\n\nÕâÊÇÒ»·â×Ô¶¯·¢³öµÄÓÊ¼ş£¬ÇëÎğ»Ø¸´´ËÓÊ¼ş¡£\nÈç¹ûÒªÈ¡Ïû´ËÌáĞÑ£¬ÇëÔÚ¹ÜÀí½çÃæµÄ "New Account Notification" ÖĞÉèÖÃ¡£
-post_mod_msg_notify_title:	ÓĞĞÂÌùÔÚ "{VAR: frm->name}" °åÉÏµÈ´ıÉóºË
-post_mod_msg_notify_msg:	ĞÂÌû×Ó "{VAR: msg_post->subject}" ¸Õ¸Õ·¢²¼£¬µÈºòÉóºË¡£ÒªÉóºË´ËÌù£¬Çëµ½£º{FULL_ROOT}{ROOT}?t=modque\n\nÕâÊÇÒ»·â×Ô¶¯·¢³öµÄÓÊ¼ş£¬ÇëÎğ»Ø¸´´ËÓÊ¼ş¡£\n
+post_mod_msg_notify_title:	ÓĞĞÂÌûÔÚ "{VAR: frm->name}" °åÉÏµÈ´ıÉóºË
+post_mod_msg_notify_msg:	ĞÂÌû×Ó "{VAR: msg_post->subject}" ¸Õ¸Õ·¢²¼£¬µÈºòÉóºË¡£ÒªÉóºË´ËÌû£¬Çëµ½£º{FULL_ROOT}{ROOT}?t=modque\n\nÕâÊÇÒ»·â×Ô¶¯·¢³öµÄÓÊ¼ş£¬ÇëÎğ»Ø¸´´ËÓÊ¼ş¡£\n
 thread_printable_pdf:		Éú³É¿É´òÓ¡µÄPDF¸ñÊ½
 thread_syndicate:		Í¬²½´Ë°å¿é£¨XML¸ñÊ½£©
 reg_conf_title:			ÂÛÌ³×¢²áÑéÖ¤ÓÊ¼ş
@@ -965,7 +965,7 @@ mnav_no_range:			ÇëÊäÈëºÏÀíµÄÈÕÆÚ·¶Î§¡£Äã¿ÉÒÔÊäÈë´Ó0µ½12ÖĞÈÎÒâÊı×Ö£¬×¢ÒâÊı×Ö±ØĞë
 mnav_invalid_unit:		ÇëÖ¸¶¨ºÏÀíµÄÊ±¼äµ¥Î»¡£
 mnav_invalid_date:		ÊäÈëµÄÈÕÆÚ·¶Î§³¬³öÂÛÌ³ÏŞÖÆ£¬Çë¸ÄĞ¡ºóÖØĞÂÊäÈë¡£
 mnav_no_results:		Ã»ÓĞ·ûºÏÌõ¼şµÄÌû×Ó¡£
-mnav_posted_by:			·¢ÌùÈË£º
+mnav_posted_by:			·¢ÌûÈË£º
 mnav_more:			¸ü¶à &raquo;&raquo;
 mnav_minute:			·ÖÖÓ
 mnav_hour:			Ğ¡Ê±
@@ -1016,11 +1016,11 @@ ip_users_using:			Ê¹ÓÃ IP µØÖ· &#39;{VAR: ip}&#39; µÄÓÃ»§
 ip_all_ips:			ÓÃ»§ &#39;{VAR: user}&#39; Ê¹ÓÃµÄËùÓĞ IP µØÖ·
 ip_title:			IP ä¯ÀÀÆ÷
 userinfo_real_name:		ÕæÊµĞÕÃû£º
-register_err_alias_notallowed:	This alias is not allowed
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
-dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
+register_err_alias_notallowed:	´ËêÇ³Æ±»½ûÓÃ
+post_err_noannontopics_msg2:	<fieldset><legend>´íÎó£ºÈ¨ÏŞ²»¹»</legend>ÄäÃûÓÃ»§²»ÔÊĞí·¢Ìû¡£</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>´íÎó£ºÈ¨ÏŞ²»¹»</legend>ÄäÃûÓÃ»§²»Ğí»ØÌû¡£</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>´íÎó£ºÎ´µÇÂ¼</legend>µÇÂ¼ºó²ÅÄÜ·ÃÎÊËùĞèÒ³Ãæ¡£</fieldset><br />
+post_err_mod_forum_edit_ttl:	´íÎó
+post_err_mod_forum_edit_msg:	ÔÚĞèÒªÉó²éµÄÂÛÌ³Àï²»¿É±à¼­Ìû×Ó¡£
+dmsg_num:			ÌûºÅ #{VAR: obj->id}
+post_opt_session_warn:		<font color=red><b>¾¯¸æ£¡</b><br />Èç¹ûÄãÍ¬Ê±ÕıÔÚÆäËû´°¿Úä¯ÀÀÂÛÌ³£¬<br />ÇëÎñ±Ø£º<br /><b>Ê±³£µã»÷ &#39;Ô¤ÀÀ&#39; °´Å¥</b><br />ÒÔ±£Ö¤·¢Ìû´°¿Ú²»»á³¬Ê±¡£<br /></font>
