@@ -127,7 +127,7 @@ POSTS_PER_PAGE
 The default number of posts per page.
 
 THREADS_PER_PAGE
-The default number of threads per page.  NOTE: If you change this value you
+The default number of topics per page.  NOTE: If you change this value you
 MUST run the consistency checker, otherwise the forum will not work properly.
 
 WORD_WRAP
@@ -161,7 +161,7 @@ MEMBERS_PER_PAGE
 The number of members to show per page in the search result.
 
 THREAD_MSG_PAGER
-The pager that appears near every thread.
+The pager that appears near every topic.
 
 GENERAL_PAGER_COUNT
 This is the number of direct links to pages that will be shown in the pager, excluding << < > >>.
@@ -222,7 +222,7 @@ Enable/disable the showing of how long it took the generate the page and how
 many SQL queries were run in the process.
 
 DEFAULT_THREAD_VIEW
-The default view of the thread's contents and thread listing.
+The default view of the topic's contents and topic listing.
 
 FORUM_INFO
 Enable/disable the showing of forum statistics on the front page.  Statistics
@@ -237,7 +237,7 @@ The number of days unconfirmed forum members are held in the database.
 They will be removed from database after this period of time.
 
 MOVED_THR_PTR_EXPIRY
-The number of days to show a pointer of a moved thread from the original forum to the new forum.
+The number of days to show a pointer of a moved topic from the original forum to the new forum.
 The pointer will be removed after this period of time.
 
 DATA_DIR
@@ -288,7 +288,7 @@ POLLS_PER_PAGE
 How many polls to display per page on the poll listing.
 
 TREE_THREADS_ENABLE
-Whether or not to allow the tree view of the thread listing. This is a fairly
+Whether or not to allow the tree view of the topic listing. This is a fairly
 CPU intensive page compared to all other forum pages, so use this option with 
 caution.
 
@@ -297,8 +297,8 @@ Maximum depth of the tree to allow, this option will prevent long trees from
 scrolling far of the users screen making the page unreadable.
 
 TREE_THREADS_MAX_SUBJ_LEN
-At which point to cutoff subjects of messages on thread listing in tree mode. 
-This options allows you to save on screen space if you want to show large thread
+At which point to cutoff subjects of messages on topic listing in tree mode. 
+This options allows you to save on screen space if you want to show large topic
 trees.
 
 MODERATE_USER_REGS
