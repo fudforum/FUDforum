@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.11 2002/09/18 21:49:36 hackie Exp $
+*   $Id: admlog.php,v 1.12 2002/09/18 21:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,16 +64,16 @@ function return_thread_subject($id)
 		switch( $obj->is_mod )
 		{
 			case 'A':
-				$user_info = '<a href="'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
+				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 				break;
 			case 'M':
-				$user_info = '<a href="'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
+				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 				break;
 			case NULL:
 				$user_info = 'User no longer exists';
 				break;	
 			default:
-				$user_info = '<a href="'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
+				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 				break;
 		}				
 		

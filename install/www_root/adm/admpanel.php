@@ -11,7 +11,7 @@
 				
 <table bgcolor="#000000" cellspacing=1 cellpadding=3><tr><td valign=top bgcolor="#ffffff">
 <table cellspacing=1 cellpadding=2 border=0 bgcolor="#000000" align="center" style="font-size: small; background: white;">
-<tr><td><a href="../index.php?<?php echo _rsid; ?>">Return To Forum</a></td></tr>
+<tr><td><a href="../<?php echo __fud_index_name__.'?'._rsid; ?>">Return To Forum</a></td></tr>
 <tr><td><font style="text-decoration: underline;"><b>Admin Control Panel</b></font></td></tr>
 <tr>
 	<td nowrap>
