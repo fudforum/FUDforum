@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.47 2003/10/09 14:34:26 hackie Exp $
+* $Id: index.php.t,v 1.48 2003/10/09 15:05:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -179,11 +179,12 @@ function url_tog_collapse($id, $c)
 			$last_post = '{TEMPLATE: na}';
 		}
 
-		$moderators = '';
 		if ($r[12] && ($mods = @unserialize($r[12]))) {
+			$moderators = '';
 			foreach($mods as $k => $v) {
 				$moderators .= '{TEMPLATE: profile_link_mod}';
 			}
+			$moderators = '{TEMPLATE: moderators}';
 		} else {
 			$moderators = '{TEMPLATE: no_mod}';
 		}

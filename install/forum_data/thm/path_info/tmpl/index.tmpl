@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: index.tmpl,v 1.4 2003/10/09 15:05:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,19 +27,18 @@
 	<th nowrap>{MSG: posts}</th>
 	<th nowrap>{MSG: threads}</th>
 	<th nowrap>{MSG: last_post}</th>
-	<th nowrap>{MSG: moderators}</th>
 </tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr class="CatDesc"><td colspan="7">
+<tr class="CatDesc"><td colspan="6">
 &nbsp;<a href="{ROOT}/i/{FUNC: url_tog_collapse($r[8], $cs)}/{DEF: _rsid}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
 {VAR: r[5]}
 </td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr class="CatDesc"><td colspan="7">
+<tr class="CatDesc"><td colspan="6">
 * <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}
 </td></tr>
 {SECTION: END}
@@ -52,23 +51,24 @@
 &nbsp;
 {SECTION: END}
 
+{SECTION: moderators moderator list}
+<br /><font class="SmallText"><b>{MSG: moderators}:</b> {VAR: moderators}</font>
+{SECTION: END}
+
 {SECTION: index_forum_entry forum entry row}
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{ROOT}/f/{VAR: r[10]}/{DEF: _rsid}" class="GenLink">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}</td>
+	<td class="RowStyleA" width="100%"><a href="{ROOT}/f/{VAR: r[10]}/{DEF: _rsid}" class="GenLink">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}{VAR: moderators}</td>
 	<td class="RowStyleB" align="center">{VAR: r[15]}</td>
 	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
-	<td class="RowStyleB" align="center"><font class="SmallText">{VAR: moderators}</font></td>
 </tr>
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
 <tr>
-	<td class="RowStyleA" width=1>&nbsp;</td>
-	<td class="RowStyleB" width=1>&nbsp;</td>
-	<td class="RowStyleA" colspan=5>{VAR-HTML: r[13]}<br />{VAR: r[14]}</td>
+	<td class="RowStyleA" colspan=6>{VAR-HTML: r[13]}<br />{VAR: r[14]}</td>
 </tr>
 {SECTION: END}
 
