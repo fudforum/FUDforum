@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.14 2003/07/24 03:23:11 hackie Exp $
+*   $Id: admmassemail.php,v 1.15 2003/09/18 14:37:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@
 		$to = array();
 		
 		if ($GLOBALS['USE_SMTP'] == 'N') {
-			if (version_compare("4.3.3RC2", phpversion(), ">")) {
+			if (version_compare("4.3.3RC2", PHP_VERSION, ">")) {
 				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
 			}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.11 2003/08/01 17:35:28 hackie Exp $
+*   $Id: admsysinfo.php,v 1.12 2003/09/18 14:37:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@ function get_server_software()
 </tr>
 <tr>
 	<td><b>PHP Version:</b></td>
-	<td><?php echo phpversion(); ?></td>
+	<td><?php echo PHP_VERSION; ?></td>
 </tr>
 <tr>
 	<td><b>Web Server:</b></td>
