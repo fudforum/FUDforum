@@ -1,8 +1,8 @@
-<?php
+ /work2/src/ezmlm/php-dev/676/34 ?!!<?php
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rhost.inc.t,v 1.6 2003/10/09 14:34:26 hackie Exp $
+* $Id: rhost.inc.t,v 1.7 2003/10/22 19:21:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,9 +19,9 @@ function get_host($ip)
 	$name = gethostbyaddr($ip);
 
 	if ($name == $ip) {
-		$name = substr($name, 0, strrpos($name, '.'));
+		$name = substr($name, 0, strrpos($name, '.')) . '*';
 	} else if (substr_count($name, '.') > 2) {
-		$name = substr($name, strpos($name, '.')+1);
+		$name = '*' . substr($name, strpos($name, '.')+1);
 	}
 
 	return $name;
