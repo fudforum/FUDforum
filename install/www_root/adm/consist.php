@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.94 2004/11/24 19:53:43 hackie Exp $
+* $Id: consist.php,v 1.95 2004/11/30 17:06:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -264,7 +264,7 @@ forum will be disabled.
 	draw_stat('Done: Validating Forum Order');
 
 	draw_stat('Checking for presence of forum lock tables');
-	$tbl_k = array_keys($tbls);
+	$tbl_k = array_flip($tbls);
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
