@@ -215,3 +215,51 @@ function ie_png_hack()
 		}
 	}
 }
+
+function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) 
+{
+	// find all occurences of the search term in the given text,
+	// and add some "highlight" tags to them (we're not using a
+	// regular expression search, because we want to filter out
+	// matches that occur within HTML tags and script blocks, so
+	// we have to do a little extra validation)
+	var newText = "";
+	var i = 0, j = 0;
+	var lcSearchTerm = searchTerm.toLowerCase();
+	var lcBodyText = bodyText.toLowerCase();
+
+	while ((i = lcBodyText.indexOf(lcSearchTerm, i)) > 0) {
+		if (lcBodyText.lastIndexOf(">", i) >= lcBodyText.lastIndexOf("<", i)) {
+			if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
+				newText += bodyText.substring(j, i) + highlightStartTag + bodyText.substr(i, searchTerm.length) + highlightEndTag;
+				i += searchTerm.length;
+				j = i;
+				continue;
+			}
+		}
+		i++;
+	}
+	newText += bodyText.substring(j, bodyText.length);
+
+	return newText;
+}
+
+function highlightSearchTerms(searchText)
+{
+	if (!document.body || typeof(document.body.innerHTML) == "undefined") {
+		return false;
+	}
+  
+	var bodyText = document.body.innerHTML;
+	searchArray = searchText.split(" ");
+
+	var j = 0;
+	for (var i = 0; i < searchArray.length; i++) {
+		if (j > 9) j = 0;
+		bodyText = doHighlight(bodyText, searchArray[i], '<span class="st'+j+'">', '</span>');
+		j++;
+	}
+
+	document.body.innerHTML = bodyText;
+	return true;
+}
