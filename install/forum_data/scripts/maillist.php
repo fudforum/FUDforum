@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.35 2003/10/22 18:10:42 hackie Exp $
+* $Id: maillist.php,v 1.36 2003/10/22 23:37:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -372,8 +372,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 
 	$CREATE_NEW_USERS = $mlist->mlist_opt & 64;
-	$FUD_OPT_2 |= 1024|8388608;
-	$FUD_OPT_2 ^= 1024|8388608;
+	$FUD_OPT_2 |= $FUD_OPT_2 &~ (1024|8388608);
+	$FUD_OPT_2 |= 128;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
 

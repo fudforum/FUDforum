@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.9 2003/10/09 14:34:25 hackie Exp $
+* $Id: scripts_common.inc,v 1.10 2003/10/22 23:37:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,7 +37,13 @@ function create_new_user($from_name, $from_email)
 	$i = 1;
 
 	$user = new fud_user_reg;
-	$user->login = $login;
+	if (strlen(htmlspecialchars($login)) + 4 > $GLOBALS['MAX_LOGIN_SHOW']) {
+		$login = substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW'] - 4);
+		reverse_fmt($login);
+		$user->login = $login;
+	} else {
+		$user->login = $login;
+	}
 
 	/*
 	 * This code ensures that creation of user does not fail in the event another user on the forum
@@ -49,10 +55,8 @@ function create_new_user($from_name, $from_email)
 
 	$alias = $user->alias = htmlspecialchars($user->login);
 
-	if ($GLOBALS['FUD_OPT_2'] & 128) {
-		while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias='".addslashes($user->alias)."'")) {
-			$user->alias = $alias.'['.$i++.']';
-		}
+	while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias='".addslashes($user->alias)."'")) {
+		$user->alias = $alias.'['.$i++.']';
 	}
 
 	$user->email =& $from_email;
