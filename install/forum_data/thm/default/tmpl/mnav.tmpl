@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.3 2003/10/09 14:34:27 hackie Exp $
+* $Id: mnav.tmpl,v 1.4 2003/10/10 13:45:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,7 +30,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 
-<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}<input type="hidden" name="t" value="mnav">
+<form method="get" action="{ROOT}">{DEF: _hs}<input type="hidden" name="t" value="mnav">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3 width="100%">{MSG: mnav_description}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
@@ -59,7 +59,7 @@
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
 <tr>
-	<td class="GenText" style="color: red">{MSG: mnav_no_range}</td>
+	<td class="GenTextRed">{MSG: mnav_no_range}</td>
 </tr>
 </table>
 </div>
@@ -70,7 +70,7 @@
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
 <tr>
-	<td class="GenText" style="color: red">{MSG: mnav_invalid_unit}</td>
+	<td class="GenTextRed">{MSG: mnav_invalid_unit}</td>
 </tr>
 </table>
 </div>
@@ -81,7 +81,7 @@
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
 <tr>
-	<td class="GenText" style="color: red">{MSG: mnav_invalid_date}</td>
+	<td class="GenTextRed">{MSG: mnav_invalid_date}</td>
 </tr>
 </table>
 </div>
@@ -101,31 +101,51 @@
 </div>
 {SECTION: END}
 
+{SECTION: mnav_forum_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: mnav_forum}
-<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
+<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{TEMPLATE: mnav_forum_lnk}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
+{SECTION: END}
+
+{SECTION: mnav_thread_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: mnav_thread}
-<tr><th class="RowStyleC">&nbsp;&nbsp;&nbsp;</th><th colspan="2"> {MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a></th></tr>
+<tr><th class="RowStyleC">&nbsp;&nbsp;&nbsp;</th><th colspan="2"> {MSG: thread} <a class="thLnk" href="{TEMPLATE: mnav_thread_lnk}">{VAR: r->subject}</a></th></tr>
+{SECTION: END}
+
+{SECTION: mnav_msg_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: mnav_msg_lnk2}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: mnav_msg}
 <tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
 <table cellspacing=0 cellpadding=2 border=0 width="100%" style="border-bottom: 1px solid black">
 <tr bgcolor="#eeeeee">
-	<td align="left" class="SmallText"><a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a></td>
+	<td align="left" class="SmallText"><a class="GenLink" href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
 	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
 	<td align="right" class="SmallText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
 </tr>
 <tr bgcolor="#dee2e6">
-	<td colspan="3" class="SmallText">{VAR: body} <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{MSG: mnav_more}</a></td>
+	<td colspan="3" class="SmallText">{VAR: body} <a class="GenLink" href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
 </tr>
 </table>
 </td></tr>
 {SECTION: END}
 
+{SECTION: mnav_user_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
 {SECTION: mnav_user}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}">{VAR: r->alias}</a>
+<a class="GenLink" href="{TEMPLATE: mnav_user_lnk}">{VAR: r->alias}</a>
 {SECTION: END}
 
 {SECTION: mnav_anon}

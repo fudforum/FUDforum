@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.6 2003/10/09 21:08:03 hackie Exp $
+* $Id: forum.css.tmpl,v 1.7 2003/10/10 13:45:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -101,6 +101,14 @@ a.UserControlPanel {
 {SECTION: gen_text default text style inside tables}
 .GenText {
 	color: #000000;
+	font-size: 11px;
+	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+}
+{SECTION: END}
+
+{SECTION: gen_text_red default text style w/red color}
+.GenTextRed {
+	color: red;
 	font-size: 11px;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 }
@@ -477,4 +485,5 @@ img {
 {TEMPLATE: form_controls}
 {TEMPLATE: user_control_panel}
 {TEMPLATE: img_controls}
+{TEMPLATE: gen_text_red}
 {PAGE: END}

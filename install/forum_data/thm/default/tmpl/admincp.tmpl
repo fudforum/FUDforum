@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.5 2003/10/09 14:34:27 hackie Exp $
+* $Id: admincp.tmpl,v 1.6 2003/10/10 13:45:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,25 +16,41 @@
 {MAIN_SECTION: END}
 
 {SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
-| <a class="GenLink" href="adm/admapprove_avatar.php?{DEF: _rsid}">{MSG: custom_avatar_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: avatar_count})</span> 
+| <a class="GenLink" href="adm/admapprove_avatar.php?{DEF: _rsid}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
+{SECTION: END}
+
+{SECTION: group_mgr_lnk}
+{ROOT}?t=groupmgr&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: group_mgr link to the group manager for admin & group managers}
-| <a class="GenLink" href="{ROOT}?t=groupmgr&amp;{DEF: _rsid}">{MSG: group_mgr}</a> 
+| <a class="GenLink" href="{TEMPLATE: group_mgr_lnk}">{MSG: group_mgr}</a> 
+{SECTION: END}
+
+{SECTION: reported_msgs_lnk}
+{ROOT}?t=reported&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: reported_msgs link to reported messages form, with an idicator that shows the # of reported messages}
-| <a class="GenLink" href="{ROOT}?t=reported&amp;{DEF: _rsid}">{MSG: reported_messages}</a> <span class="GenText" style="color: #ff0000">({VAR: report_count})</span>
+| <a class="GenLink" href="{TEMPLATE: reported_msgs_lnk}">{MSG: reported_messages}</a> <span class="GenTextRed">({VAR: report_count})</span>
+{SECTION: END}
+
+{SECTION: thr_exch_lnk}
+{ROOT}?t=thr_exch&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: thr_exch a link to thread exchange, with an idicator of the # of threads waiting approval}
-| <a class="GenLink" href="{ROOT}?t=thr_exch&amp;{DEF: _rsid}">{MSG: thread_exchange}</a> <span class="GenText" style="color: #ff0000">({VAR: thr_exchc})</span> 
+| <a class="GenLink" href="{TEMPLATE: thr_exch_lnk}">{MSG: thread_exchange}</a> <span class="GenTextRed">({VAR: thr_exchc})</span> 
+{SECTION: END}
+
+{SECTION: mod_que_lnk}
+{ROOT}?t=modque&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: mod_que link to form for approving messages in moderated forums}
-<a class="GenLink" href="{ROOT}?t=modque&amp;{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
+<a class="GenLink" href="{TEMPLATE: mod_que_lnk}">{MSG: moderation_queue}</a> <span class="GenTextRed">({VAR: approve_count})</span>
 {SECTION: END}
 
 {SECTION: accounts_pending_approval accounts pending administrator's approval}
-| <a class="GenLink" href="adm/admaccapr.php?{DEF: _rsid}">{MSG: accounts_pending_approval}</a> <span class="GenText" style="color: #ff0000">({VAR: accounts_pending_approval})</span> 
+| <a class="GenLink" href="adm/admaccapr.php?{DEF: _rsid}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}

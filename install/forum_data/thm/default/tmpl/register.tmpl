@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.30 2003/10/09 21:08:03 hackie Exp $
+* $Id: register.tmpl,v 1.31 2003/10/10 13:45:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -137,7 +137,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<form method="post" action="{ROOT}?t=register" name="fud_register" enctype="multipart/form-data" style="padding: 0px; margin: 0px;">
+<form method="post" action="{ROOT}?t=register" name="fud_register" enctype="multipart/form-data">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: register_required}<br /><font size="-2">{MSG: register_required_desc}</font></th></tr>
 {TEMPLATE-DATA: user_info_heading}
