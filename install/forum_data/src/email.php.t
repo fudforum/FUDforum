@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.4 2002/07/31 21:56:50 hackie Exp $
+*   $Id: email.php.t,v 1.5 2002/09/04 22:31:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,8 +72,7 @@ function mail_check()
 	if ( !empty($btn_submit) && !mail_check() ) {
 		if ( $HTTP_POST_VARS['email_open'] ) {
 			$tx_body = "\n\n".$tx_body;
-			reverse_FMT($tx_name);
-			$to = $tx_name.' <'.$tx_email.'>';
+			$to = $tx_email;
 		}
 		else {
 			$usr_dst = new fud_user;
@@ -82,8 +81,7 @@ function mail_check()
 				error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}', $GLOBALS['HTTP_REFERER'], 'FATAL');
 				exit();
 			}
-			reverse_FMT($usr_dst->alias);
-			$to = $usr_dst->alias.' <'.$usr_dst->email.'>';
+			$to = $usr_dst->email;
 		}
 		
 		send_email($usr->email, $to, $tx_subject, $tx_body, $to_str);

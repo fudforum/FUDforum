@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smtp.inc.t,v 1.2 2002/08/06 13:29:57 hackie Exp $
+*   $Id: smtp.inc.t,v 1.3 2002/09/04 22:31:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,8 +56,7 @@ class fud_smtp
 	
 	function send_from_hdr()
 	{
-		$from_name = $GLOBALS['FORUM_TITLE'] ? $GLOBALS['FORUM_TITLE'] : $GLOBALS['NOTIFY_FROM'];
-		$this->wts("MAIL FROM: ".$from_name." <".$GLOBALS['NOTIFY_FROM'].">");
+		$this->wts("MAIL FROM: <".$GLOBALS['NOTIFY_FROM'].">");
 		return $this->get_return_code();
 	}
 	
@@ -66,7 +65,7 @@ class fud_smtp
 		if( !@is_array($this->to) ) $this->to = array($this->to);
 	
 		foreach( $this->to as $to_addr ) {
-			$this->wts("RCPT TO: ".$to_addr);
+			$this->wts("RCPT TO: <".$to_addr.">");
 			if( !$this->get_return_code() ) return;
 		}
 		return 1;

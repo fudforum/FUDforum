@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.7 2002/09/04 20:49:13 hackie Exp $
+*   $Id: admmassemail.php,v 1.8 2002/09/04 22:31:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,7 +63,7 @@
 			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
 			
 			while ( $obj = db_rowobj($r) ) {
-				$to[] = $obj->name.' <'.$obj->email.'>';
+				$to[] = $obj->email;
 				if ( !(++$email_block_stat%$email_block) ) {
 					$email_block_stat=0;
 					

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.11 2002/09/04 02:24:56 hackie Exp $
+*   $Id: iemail.inc.t,v 1.12 2002/09/04 22:31:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -244,7 +244,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		}	
 	}	
 	
-	send_email($GLOBALS["FORUM_TITLE"].' <'.$GLOBALS['NOTIFY_FROM'].'>', $to['EMAIL'], $subj, $body_email, $headers);
-	send_email($GLOBALS["FORUM_TITLE"].' <'.$GLOBALS['NOTIFY_FROM'].'>', $to['ICQ'], $subj, $body_icq);
+	send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, $headers);
+	send_email($GLOBALS['NOTIFY_FROM'], $to['ICQ'], $subj, $body_icq);
 }
 ?>
