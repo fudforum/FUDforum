@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.8 2002/07/29 19:10:35 hackie Exp $
+*   $Id: maillist.php,v 1.9 2002/07/31 15:20:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -456,7 +456,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	if( $level != 'LOG' ) {
 		if( !($fp = fopen($err_msg_cpy, "wb")) ) exit("no perms to write $err_msg_cpy\n");
 		fwrite($fp, $msg_data);
-		flose($fp);
+		fclose($fp);
 	}	
 	else
 		$err_msg_cpy = '';
@@ -469,15 +469,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	if( $level == 'ERROR' ) exit;
 }
 	
-	/*
-		SQL Work
-			ALTER TABLE test_msg ADD mlist_login VARCHAR(100);
-			ALTER TABLE test_msg ADD mlist_email VARCHAR(100);
-			ALTER TABLE test_msg ADD mlist_msg_id VARCHAR(100);
-			ALTER TABLE test_msg ADD INDEX(mlist_msg_id);
-			ALTER TABLE test_msg ADD INDEX(subject);
-	*/
-
 	// To prevent init user from being called
 	define('forum_debug', 1);
 
@@ -543,6 +534,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		
 	fud_wordwrap($msg_post->body);
 	$msg_post->subject = addslashes(htmlspecialchars(apply_custom_replace($emsg->subject)));
+	if( !strlen($msg_post->subject) ) mlist_error_log("Blank Subject\n", $emsg->raw_msg, 'ERROR');
+	
 	$msg_post->poster_id = intzero($emsg->match_user_to_post());
 	
 	define('_uid', $msg_post->poster_id);
