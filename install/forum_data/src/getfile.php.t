@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.4 2002/07/30 14:34:37 hackie Exp $
+*   $Id: getfile.php.t,v 1.5 2002/09/12 08:33:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,12 +32,18 @@
 			std_error('access');
 			exit;
 		}
-		else if( $file->private != 'Y') {
-			$forum_id = q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$file->message_id);
-			if( !is_perms(_uid, $forum_id, 'READ') ) {
+		else if( $file->private != 'Y' ) {
+			if( $file->message_id ) {
+				$forum_id = q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$file->message_id);
+				if( !is_perms(_uid, $forum_id, 'READ') ) {
+					std_error('access');
+					exit;
+				}			
+			}
+			else if ( _uid != $file->owner ) {
 				std_error('access');
 				exit;
-			}			
+			}
 		}
 	}	
 
@@ -53,6 +59,8 @@
 	
 	header('Content-type: '.$header);
 	header("Content-Disposition: ".$append."filename=".$file->original_name);	
+		
+	if( empty($file->location) ) $file->location = $GLOBALS['FILE_STORE'].$file->id.'.atch';	
 		
 	if( !@file_exists($file->location) ) exit;
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.5 2002/08/24 12:16:36 hackie Exp $
+*   $Id: attach.inc.t,v 1.6 2002/09/12 08:33:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,9 +26,45 @@ class fud_attach
 	var $message_id=NULL;
 	var $dlcount=NULL;
 	var $mime_type=NULL;
+	var $fsize=NULL;
 	
 	var $a_list;
 	
+	function add($tmp_location, $private='N')
+	{
+		if( !($this->mime_type = get_mime_by_ext(substr(strrchr($this->original_name, '.'), 1))) ) $this->mime_type = 0;
+		
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto,original_name,owner,private,mime_type,fsize) VALUES('LOCAL','".$this->original_name."', ".$this->owner.", '".$private."',".$this->mime_type.",".intzero($this->fsize).")");
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
+		
+		safe_attachment_copy($tmp_location, $this->id);
+		
+		return $this->id;
+	}
+	
+	function finalize($attach_list, $mid, $private='N')
+	{
+		$id_list = '';
+		$attach_count = 0;
+	
+		$tbl = ($private == 'N' ? 'msg' : 'pmsg'); 
+	
+		foreach( $attach_list as $key => $val ) {
+			if( empty($val) ) {
+				q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id=".intval($key));
+				if( @file_exists($GLOBALS['FILE_STORE'].$key.'.atch') ) @unlink($GLOBALS['FILE_STORE'].$key.'.atch');
+			} else {
+				$attach_count++;
+				$id_list .= $key.',';
+			}
+		}
+	
+		if( !empty($id_list) ) 
+			q("UPDATE {SQL_TABLE_PREFIX}attach SET location=CONCAT('".$GLOBALS['FILE_STORE']."',id,'.atch'), message_id=".$mid." WHERE id IN(".substr($id_list,0,-1).")");
+	}
+	
+	
+	/*
 	function add($owner, $message_id, $original_name, $cur_location, $private='')
 	{
 		$proto = proto($cur_location);
@@ -57,7 +93,7 @@ class fud_attach
 		
 		return $id;
 	}
-		
+	*/	
 	function get($id,$private='')
 	{
 		$obj = qobj("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE id=".$id." AND private='".yn($private)."'", $this);
