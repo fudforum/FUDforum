@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.38 2004/06/07 17:10:35 hackie Exp $
+* $Id: groupmgr.php.t,v 1.39 2004/11/02 16:15:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,11 +87,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$maxperms = (int) $grp->groups_opt;
 	}
 
-	$indicator = '{TEMPLATE: indicator}';
-
 	$login_error = '';
-	$gr_member = isset($_POST['gr_member']) ? $_POST['gr_member'] : '';
-	$find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: grp_find_user}' : '';
 	$perm = 0;
 
 	if (isset($_POST['btn_submit'])) {
@@ -251,7 +247,6 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			}
 		}
 	}
-	$group_control_panel = '{TEMPLATE: group_control_panel}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
