@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.6 2002/09/17 01:29:06 hackie Exp $
+*   $Id: threadt.php.t,v 1.7 2002/10/29 00:16:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,9 +70,6 @@
 	$returnto = 'returnto='.urlencode("{ROOT}?t=threadt&amp;frm_id=".$frm_id.'&amp;'._rsid);
 
 	if ( isset($usr) ) {
-		if( !isset($start) ) $start='';
-		if( !isset($count) ) $count='';
-		
 		if ( is_forum_notified($usr->id, $frm->id) ) 
 			$subscribe = '{TEMPLATE: unsubscribe_link}';
 		else 
@@ -81,61 +78,42 @@
 
 	if ( empty($start) || !is_numeric($start) ) $start = 0;
 
-	$result = q('SELECT 
-			{SQL_TABLE_PREFIX}thread.id,
+	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}thread.moved_to,
 			{SQL_TABLE_PREFIX}thread.locked,
-			{SQL_TABLE_PREFIX}read.last_view
-		FROM 
-			{SQL_TABLE_PREFIX}thread_view 
-			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}read ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}read.thread_id AND {SQL_TABLE_PREFIX}read.user_id='._uid.'
-		WHERE 
-			{SQL_TABLE_PREFIX}thread_view.forum_id='.$frm->id.' ORDER BY {SQL_TABLE_PREFIX}thread_view.page ASC, {SQL_TABLE_PREFIX}thread_view.pos ASC LIMIT '.$start.', '.$TREE_THREADS_PER_PAGE);
-
-	if ( !db_count($result) ) 
+			{SQL_TABLE_PREFIX}thread.is_sticky,
+			{SQL_TABLE_PREFIX}thread.ordertype,
+			{SQL_TABLE_PREFIX}thread.root_msg_id,
+			{SQL_TABLE_PREFIX}read.last_view,
+			{SQL_TABLE_PREFIX}msg.*,
+			{SQL_TABLE_PREFIX}users.alias
+			FROM
+				{SQL_TABLE_PREFIX}thread_view
+			INNER JOIN mm_thread 
+				ON mm_thread_view.thread_id=mm_thread.id
+			INNER JOIN {SQL_TABLE_PREFIX}msg
+				ON mm_thread.id={SQL_TABLE_PREFIX}msg.thread_id AND {SQL_TABLE_PREFIX}msg.approved='Y'
+			LEFT JOIN {SQL_TABLE_PREFIX}users
+				 ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
+			LEFT JOIN mm_read 
+				ON mm_thread.id=mm_read.thread_id AND mm_read.user_id="._uid."
+			WHERE
+				mm_thread_view.forum_id=".$frm->id." AND mm_thread_view.page=".($start + 1)."
+			ORDER by pos ASC");
+	
+	if ( !db_count($r) ) {
 		$no_messages = '{TEMPLATE: no_messages}';
-	else {
+	} else {
 		$thread_list_table_data='';
-		$thread_arr = array();
-		$thread_list = '(';
-		while( $obj = db_rowobj($result) ) {
-			$thread_arr[$obj->id] = $obj;
-			$thread_list .= $obj->id.',';
-		}	
-		qf($r);	
-		reset($thread_arr);
-		$thread_list = substr($thread_list, 0, -1).')';
+		$p = $cur_th_id = 0;
 		
-		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}msg.*,
-				{SQL_TABLE_PREFIX}users.alias,
-				{SQL_TABLE_PREFIX}thread.root_msg_id
-			FROM 
-				{SQL_TABLE_PREFIX}msg 
-				INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-				LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-				INNER JOIN {SQL_TABLE_PREFIX}msg AS TMP_MSG_SORT ON {SQL_TABLE_PREFIX}thread.root_msg_id=TMP_MSG_SORT.id
-			WHERE 
-				{SQL_TABLE_PREFIX}msg.thread_id IN ".$thread_list." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY TMP_MSG_SORT.post_stamp DESC, {SQL_TABLE_PREFIX}msg.post_stamp");
-		
-		$p = 0;
 		while ( $obj = db_rowobj($r) ) {
-			$tobj = $thread_arr[$obj->thread_id];
-		
-			if( $tobj->moved_to ) {
-				list($name, $d_frm_id) = db_singlearr(q("SELECT name, id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$tobj->moved_to));
-				$thread_list_table_data .= '{TEMPLATE: thread_row_moved}';
-				$p++;
-				continue;
-			}	
-			
 			unset($stack, $tree, $arr, $cur);
-			
 			db_seek($r, $p);
 			
-			while ( $obj = db_rowobj($r) ) {
-				if( $obj->thread_id != $tobj->id ) {
+			$cur_th_id = $obj->thread_id;
+			while ($obj = db_rowobj($r)) {
+				if ($obj->thread_id != $cur_th_id) {
 					db_seek($r, $p);
 					break;
 				}	
@@ -168,11 +146,15 @@
 							$thread_poll_indicator = ( $cur->poll_id ) ? '{TEMPLATE: thread_poll_indicator}' : '';
 							$thread_attach_indicator = ( $cur->attach_cnt ) ? '{TEMPLATE: thread_attach_indicator}' : '';
 							$thread_icon = ( $cur->th_icon ) ? '{TEMPLATE: thread_icon}' : '{TEMPLATE: thread_icon_none}';
+							if ($lev == 1 && $cur->is_sticky == 'Y') {
+								$cur->subject .= ($cur->ordertype == 'STICKY' ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
+							} 
+							
 							if( _uid ) {
-								if( $usr->last_read < $cur->post_stamp && $cur->post_stamp>$tobj->last_view )
-									$thread_read_status = ( $tobj->locked == 'N' ) ? '{TEMPLATE: thread_unread}' : '{TEMPLATE: thread_unread_locked}';
+								if( $usr->last_read < $cur->post_stamp && $cur->post_stamp>$obj->last_view )
+									$thread_read_status = ( $obj->locked == 'N' ) ? '{TEMPLATE: thread_unread}' : '{TEMPLATE: thread_unread_locked}';
 								else
-									$thread_read_status = ( $tobj->locked == 'N' ) ? '{TEMPLATE: thread_read}' : '{TEMPLATE: thread_read_locked}';
+									$thread_read_status = ( $obj->locked == 'N' ) ? '{TEMPLATE: thread_read}' : '{TEMPLATE: thread_read_locked}';
 							} else {
 								$thread_read_status = '{TEMPLATE: thread_read_unreg}';
 							}
@@ -211,10 +193,10 @@
 		}
 	}
 	$thread_list_table_data = '{TEMPLATE: thread_list_wmsg}';
-	qf($result); 	
+	qf($r); 	
 }
 
-	$page_pager = tmpl_create_pager($start, $TREE_THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=threadt&amp;frm_id='.$frm_id.'&amp;'._rsid);
+	$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $GLOBALS['THREADS_PER_PAGE']), '{ROOT}?t=threadt&amp;frm_id='.$frm_id.'&amp;'._rsid);
 
 	{POST_PAGE_PHP_CODE}
 ?>	
