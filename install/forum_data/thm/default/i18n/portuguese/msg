@@ -871,7 +871,7 @@ poll_edit:			Editar
 register_err_not_valid_img:	O Url especificado não contém uma imagem valida
 pmsg_recepient:			Recipiente
 register_err_taken_alias:	O alias que está a tentar usar já está a ser utilizado por outro membro do forum, por favor escolha outro.
-register_alias:			Alias
+register_alias:			Alcunha/Apelido
 register_alias_desc:		Se quer utilizar a sua alcunha em vez do seu nome de utilizador seja mostrada no forum, coloque a alcunha que quer que seja mostrada aqui.
 register_allow_pm_msg:		Permitir mensagens Privadas
 register_allow_pm_msg_desc:	Permitir que outros utilizadores hee enviem mensagens privadas via FUDForum.
@@ -952,9 +952,9 @@ iemail_forum_unsub:		Remover subscrição deste forum
 primary_group_prefix:		Grupo primário para o forum:
 group_resources:		Este grupo controla as permissões dos seguintes sub-forums
 register_email:			Email
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
+register_admin_newuser_title:	Registou-se um novo utilizador e a sua conta aguarda confirmacao
+register_admin_newuser_msg:	Registou-se um novo utilizador ({VAR: uent->login}) no forum e como a Confirmacao de Conta esta' Activa, esta conta nao ficara' activa ate' que que seja confirmada por si ou outro administrador do forum. Para rever a conta clique: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nEste e' um processo automatico, nao responda a esta mensagem.\nSe desejar desligar futuras notificacoes por e-mail de novos registos de utilizadores/usuarios pode faze-lo via Painel de Controlo de Administracao, alterando o valor de "Notificação de Nova Conta".
+post_mod_msg_notify_title:	Nova mensagem no forum "{VAR: frm->name}" aguardando aprovacao
+post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num forum que voce modera. Para reve-la veja em: {ROOT}?t=modque\n\nEste e' um processo automatico, nao responda a esta mensagem.\n
+thread_printable_pdf:		Exportar para PDF
+thread_syndicate:		Adicione este forum (XML)
