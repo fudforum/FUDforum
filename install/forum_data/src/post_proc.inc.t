@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.9 2002/08/23 09:24:49 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.10 2002/08/23 09:51:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -399,7 +399,7 @@ function html_to_tags($fudml)
 		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', '[url]\1[/url]', $fudml);
 		
 	if( preg_match('!<a href=".+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )	
-		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
+		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
 
 	while ( preg_match('!<font color=".+?">.*?</font>!is', $fudml) ) 
 		$fudml = preg_replace('!<font color="(.+?)">(.*?)</font>!is', '[color=\1]\2[/color]', $fudml);
