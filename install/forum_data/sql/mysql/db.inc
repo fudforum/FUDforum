@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.42 2004/10/06 16:36:15 hackie Exp $
+* $Id: db.inc,v 1.43 2004/10/22 13:47:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -166,11 +166,9 @@ function &db_rowarr($result)
 	return mysql_fetch_row($result);
 }
 
-function &q_singleval($query)
+function q_singleval($query)
 {
-	if (($res = @mysql_fetch_row(q($query))) === false) {
-		return null;
-	} else {
+	if (($res = @mysql_fetch_row(q($query))) !== false) {
 		return $res[0];
 	}
 }
