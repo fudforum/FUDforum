@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.66 2003/10/17 15:49:14 hackie Exp $
+* $Id: consist.php,v 1.67 2003/11/13 19:09:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -544,6 +544,7 @@ forum will be disabled.<br><br>
 	# technically a group cannot exist without being assigned to at least 1 resource
 	# so when we encounter such as group, we do our patriotic duty and remove it.
 	delete_zero($tbl.'groups', 'SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id WHERE g.id > 2 AND gr.id IS NULL');
+	delete_zero($tbl.'groups', 'SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'forum f ON g.forum_id=f.id WHERE g.id > 2 AND f.id IS NULL');
 	draw_stat('Done: Validating group validity');
 
 	draw_stat('Validating group members');
