@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.43 2004/05/22 18:02:42 hackie Exp $
+* $Id: maillist.php,v 1.44 2004/05/31 13:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -402,10 +402,22 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		}
 	}
 
+	$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
+	if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
+		mlist_error_log("Invalid Date", $emsg->raw_msg);
+		if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
+			$p += 2;
+			$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
+		}
+		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
+			$msg_post->post_stamp = __request_timestamp__;
+		}
+	}
+
 	if (!$emsg->from_email || !$emsg->from_name) {
 		$msg_post->poster_id = 0;
 	} else {
-		$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
+		$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id, $msg_post->post_stamp);
 	}
 
 	$msg_post->body = $emsg->body;
@@ -439,17 +451,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$msg_post->attach_cnt = 0;
 	$msg_post->poll_id = 0;
 	$msg_post->msg_opt = 2;
-	$msg_post->post_stamp = !empty($emsg->headers['date']) ? strtotime($emsg->headers['date']) : 0;
-	if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-		mlist_error_log("Invalid Date", $emsg->raw_msg);
-		if (($p = strpos($emsg->headers['received'], '; ')) !== false) {
-			$p += 2;
-			$msg_post->post_stamp = strtotime(substr($emsg->headers['received'], $p, (strpos($emsg->headers['received'], '00 ', $p) + 2 - $p)));
-		}
-		if ($msg_post->post_stamp < 1 || $msg_post->post_stamp > __request_timestamp__) {
-			$msg_post->post_stamp = __request_timestamp__;
-		}
-	}
 
 	// try to determine whether this message is a reply or a new thread
 	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);

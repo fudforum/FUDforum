@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.70 2004/05/31 13:15:04 hackie Exp $
+* $Id: users_reg.inc.t,v 1.71 2004/05/31 13:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,6 +59,10 @@ class fud_user_reg extends fud_user
 			$reg_ip = "127.0.0.1";
 		} else {
 			$reg_ip = get_ip();
+		}
+
+		if (empty($this->join_date)) {
+			$this->join_date = __request_timestamp__;
 		}
 
 		if ($o2 & 1) {
@@ -118,7 +122,7 @@ class fud_user_reg extends fud_user
 				".__request_timestamp__.",
 				'".$this->conf_key."',
 				".ssn(htmlspecialchars($this->user_image)).",
-				".__request_timestamp__.",
+				".$this->join_date.",
 				".ssn(htmlspecialchars($this->location)).",
 				".(int)$this->theme.",
 				".ssn(htmlspecialchars($this->occupation)).",

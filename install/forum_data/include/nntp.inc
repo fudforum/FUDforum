@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.45 2004/03/19 21:40:05 hackie Exp $
+* $Id: nntp.inc,v 1.46 2004/05/31 13:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -382,8 +382,15 @@ class fud_nntp
 				}
 			}
 
+			if (isset($this->headers['date'])) {
+				$msg_post->post_stamp = strtotime($this->headers['date']);
+				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > __request_timestamp__) {
+					$msg_post->post_stamp = __request_timestamp__;
+				}
+			}				
+
 			$msg_post->subject = apply_custom_replace($this->subject);
-			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
+			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
 			$msg_post->body = $this->body;
 
 			/* for anonymous users prefix 'contact' link */
@@ -403,13 +410,6 @@ class fud_nntp
 			}
 
 			fud_wordwrap($msg_post->body);
-
-			if (isset($this->headers['date'])) {
-				$msg_post->post_stamp = strtotime($this->headers['date']);
-				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > time()) {
-					$msg_post->post_stamp = time();
-				}
-			}
 
 			$msg_post->ip_addr = $this->ip;
 			$msg_post->mlist_msg_id = addslashes($this->msg_id);

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.14 2004/01/12 21:09:45 hackie Exp $
+* $Id: scripts_common.inc,v 1.15 2004/05/31 13:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-function match_user_to_post($from_email, $from_name, $create_users, &$user_id)
+function match_user_to_post($from_email, $from_name, $create_users, &$user_id, $reg_date=0)
 {
 	/* Try to identify user by email */
 	$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE email='".addslashes($from_email)."'");
@@ -21,13 +21,13 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id)
 	}
 
 	if (empty($user_id)) {
-		$user_id = $create_users ? create_new_user($from_name, $from_email) : 0;
+		$user_id = $create_users ? create_new_user($from_name, $from_email, $reg_date) : 0;
 	}
 
 	return $user_id;
 }
 
-function create_new_user($from_name, $from_email)
+function create_new_user($from_name, $from_email, $reg_date=0)
 {
 	/* Since we assume every user created from a mailing list is already 'confirmed'
 	 * this disables sending of the email confirmation
@@ -63,6 +63,7 @@ function create_new_user($from_name, $from_email)
 	$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
 	$user->name =& $from_name;
 	$user->users_opt = -1;
+	$user->join_date = $reg_date;
 
 	$id = $user->add_user();
 
