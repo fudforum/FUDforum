@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.23 2003/10/01 18:43:27 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.24 2003/10/01 18:52:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,8 +101,8 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 
 	if (isset($_POST['btn_submit'])) {
 		foreach ($hdr as $k => $v) {
-			if ($_POST[$k] & $v[1]) {
-				$perm |= $v[1];
+			if ($_POST[$k] & $v[0]) {
+				$perm |= $v[0];
 			}
 		}
 
@@ -112,7 +112,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='.$usr_id)) {
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
 			} else {
-				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('.$perm.' '.$usr_id.', '.$group_id.')');
+				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('.$perm.', '.$usr_id.', '.$group_id.')');
 				grp_rebuild_cache(array($usr_id));
 			}
 		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit'])) !== null) {
@@ -123,7 +123,14 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id) {
+		$is_gl = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$del." AND group_members_opt>=131072 AND group_members_opt & 131072");
 		grp_delete_member($group_id, $del);
+
+		/* if the user was a group moderator, rebuild moderation cache */
+		if ($is_gl) {
+			fud_use('groups_adm.inc', true);
+			rebuild_group_ldr_cache($del);
+		}
 	}
 
 	$edit = 0;
