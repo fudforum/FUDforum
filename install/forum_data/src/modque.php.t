@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.36 2004/01/04 16:38:27 hackie Exp $
+* $Id: modque.php.t,v 1.37 2004/02/03 00:12:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 
 	/* we need to determine wether or not the message exists & if the user has access to approve/delete it */
 	if ($appr || $del) {
-		if (!q_singleval('SELECT CASE WHEN !('.$usr->users_opt.' & 1048576) THEN mm.id ELSE 1 END FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='._uid.' WHERE m.id='.($appr ? $appr : $del))) {
+		if (!q_singleval('SELECT CASE WHEN (('.$usr->users_opt.' & 1048576) == 0) THEN mm.id ELSE 1 END FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='._uid.' WHERE m.id='.($appr ? $appr : $del))) {
 			if (db_affected()) {
 				std_error('perms');
 			} else {
