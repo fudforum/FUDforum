@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.84 2003/10/09 14:34:26 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.85 2003/10/16 18:29:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -156,7 +156,8 @@ class fud_msg_edit extends fud_msg
 			poll_id=".(int)$this->poll_id.",
 			update_stamp=".__request_timestamp__.",
 			icon=".strnull(addslashes($this->icon))." ,
-			poll_cache=".strnull(addslashes($poll_cache))."
+			poll_cache=".strnull(addslashes($poll_cache)).",
+			subject=".strnull(addslashes($this->subject))."
 		WHERE id=".$this->id);
 
 		/* determine wether or not we should deal with locked & sticky stuff
