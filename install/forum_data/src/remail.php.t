@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: remail.php.t,v 1.3 2002/06/25 01:40:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@
 	$thread = new fud_thread;
 	$thread->get_by_id($th);
 
-	if( !is_perms(_uid, $thread->forum_id, 'p_READ') ) {
+	if( !is_perms(_uid, $thread->forum_id, 'READ') ) {
 		std_error('access');
 		exit;	
 	}
