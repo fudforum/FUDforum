@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.56 2003/11/26 19:20:36 hackie Exp $
+* $Id: cookies.inc.t,v 1.57 2003/11/27 23:44:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,10 +73,10 @@ function &ses_get($id=0)
 
 	/* try doing a strict SQ match in last-ditch effort to make things 'work' */
 	if (count($_POST)) {
-		if (isset($_POST['SQ']) && $_POST['SQ'] == $u->last_visit) {
+		if (isset($_POST['SQ']) && $_POST['SQ'] == $u->sq) {
 			return $u;
 		}
-	} else if (isset($_GET['SQ']) && $_GET['SQ'] == $u->last_visit) {
+	} else if (isset($_GET['SQ']) && $_GET['SQ'] == $u->sq) {
 		return $u;
 	}
 	return;
