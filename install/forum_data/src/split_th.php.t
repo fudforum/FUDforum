@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.32 2004/01/04 16:38:27 hackie Exp $
+* $Id: split_th.php.t,v 1.33 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,9 +47,9 @@
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/t/'.$th.'/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			}
 			exit;
 		}
@@ -67,9 +67,9 @@
 			/* sanity check */
 			if (!isset($a)) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/t/'.$th_id.'/'._rsidl);
 				} else {
-					header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
 				}
 				exit;
 			}
@@ -97,9 +97,9 @@
 		/* sanity check */
 		if (!$data->replies) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/t/'.$th_id.'/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
 			}
 			exit;
 		}
@@ -175,9 +175,9 @@
 			$th_id = $data->id;
 		}
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/t/'.$th_id.'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/t/'.$th_id.'/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
 		}
 		exit;
 	}

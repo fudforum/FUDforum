@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.53 2004/01/04 16:38:26 hackie Exp $
+* $Id: login.php.t,v 1.54 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,18 +84,18 @@
 
 		ses_delete($usr->sid);
 		if ($FUD_OPT_2 & 32768 && $returnto && $returnto[0] == '/') {
-			header('Location: {ROOT}'. $returnto);
+			header('Location: {FULL_ROOT}{ROOT}'. $returnto);
 		} else {
-			header('Location: {ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
+			header('Location: {FULL_ROOT}{ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
 		}
 		exit;
 	}
 
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/re/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/re/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t=register&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=register&'._rsidl);
 		}
 		exit();
 	}

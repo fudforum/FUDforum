@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: emailconf.php.t,v 1.18 2004/01/04 16:38:26 hackie Exp $
+* $Id: emailconf.php.t,v 1.19 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,7 +27,7 @@
 		}
 		q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt|131072, conf_key='0' WHERE id=".$uid);
 		if ($usr->users_opt & 2097152) {
-			header('Location: {ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+			header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 			return;
 		} else if (!__fud_real_user__) {
 			$usr->ses_id = user_login($uid, $usr->ses_id, true);

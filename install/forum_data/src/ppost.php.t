@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.62 2004/01/25 19:04:36 hackie Exp $
+* $Id: ppost.php.t,v 1.63 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -278,9 +278,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/pdm/1/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/pdm/1/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t=pmsg&'._rsidl.'&fldr=1');
+			header('Location: {FULL_ROOT}{ROOT}?t=pmsg&'._rsidl.'&fldr=1');
 		}
 		exit;
 	}

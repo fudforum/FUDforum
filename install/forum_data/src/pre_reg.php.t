@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pre_reg.php.t,v 1.14 2004/01/04 16:38:27 hackie Exp $
+* $Id: pre_reg.php.t,v 1.15 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,16 +14,16 @@
 
 	if (isset($_POST['disagree'])) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/i/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/i/'._rsidl);
 		} else {
-			header('Location: {ROOT}?'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?'._rsidl);
 		}
 		exit;
 	} else if (isset($_POST['agree'])) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/re/' . ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0) .'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/re/' . ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0) .'/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0));
+			header('Location: {FULL_ROOT}{ROOT}?t=register&'._rsidl.'&reg_coppa='.($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0));
 		}
 		exit;
 	}

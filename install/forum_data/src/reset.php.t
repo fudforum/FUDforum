@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.18 2004/01/04 16:38:27 hackie Exp $
+* $Id: reset.php.t,v 1.19 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,9 +27,9 @@ function usr_reset_passwd($id)
 }
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/i/' . _rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
 		} else {
-			header('Location: {ROOT}?t=index&' . _rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=index&' . _rsidl);
 		}
 		exit;
 	}
@@ -40,9 +40,9 @@ function usr_reset_passwd($id)
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/l/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/l/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t=login&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t=login&'._rsidl);
 			}
 			exit;
 		}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.26 2004/01/04 16:38:27 hackie Exp $
+* $Id: mmod.php.t,v 1.27 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,9 +67,9 @@
 
 				if (strpos($usr->returnto, 'selmsg') === false) {
 					if ($FUD_OPT_2 & 32768) {
-						header('Location: {ROOT}/f/'.$data[0].'/'._rsidl);
+						header('Location: {FULL_ROOT}{ROOT}/f/'.$data[0].'/'._rsidl);
 					} else {
-						header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
+						header('Location: {FULL_ROOT}{ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
 					}
 					exit;
 				} else {
@@ -88,22 +88,22 @@
 		if (d_thread_view == 'tree') {
 			if (!$data[5]) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}/mv/tree/'.$data[1].'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$data[1].'/'._rsidl);
 				} else {
-					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
+					header('Location: {FULL_ROOT}{ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
 				}
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}/mv/tree/'.$data[1].'/'.$data[5].'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$data[1].'/'.$data[5].'/'._rsidl);
 				} else {
-					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
+					header('Location: {FULL_ROOT}{ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
 				}
 			}
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/mv/msg/'.$data[1].'/end/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'.$data[1].'/end/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start=end');
+				header('Location: {FULL_ROOT}{ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start=end');
 			}
 		}
 		exit;

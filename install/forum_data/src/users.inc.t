@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.110 2004/01/09 04:17:16 hackie Exp $
+* $Id: users.inc.t,v 1.111 2004/01/29 22:58:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -705,7 +705,7 @@ function sq_check($post, $sq, $uid=__fud_real_user__, $ses=s)
 	}
 
 	if ($sq !== $s) {
-		header('Location: {ROOT}?S='.$ses);
+		header('Location: {FULL_ROOT}{ROOT}?S='.$ses);
 		exit;
 	}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.64 2004/01/04 16:38:27 hackie Exp $
+* $Id: msg.php.t,v 1.65 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -94,9 +94,9 @@
 	}
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {ROOT}/m/'.$frm->root_msg_id.'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/m/'.$frm->root_msg_id.'/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
 		}
 		exit();
 	}
@@ -109,9 +109,9 @@
 			std_error('perms');
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/i/' . _rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
 			} else {
-				header('Location: {ROOT}?' . _rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?' . _rsidl);
 			}
 			exit;
 		}

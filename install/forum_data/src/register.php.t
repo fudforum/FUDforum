@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.106 2004/01/12 21:09:45 hackie Exp $
+* $Id: register.php.t,v 1.107 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -253,15 +253,15 @@ function decode_uent(&$uent)
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($FUD_OPT_1 & 1048576) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/cp/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/cp/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t=coppa&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t=coppa&'._rsidl);
 			}
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/pr/0/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/pr/0/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t=pre_reg&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t=pre_reg&'._rsidl);
 			}
 		}
 		exit;
@@ -437,13 +437,13 @@ function decode_uent(&$uent)
 
 			if ($FUD_OPT_1 & 1048576 && $uent->users_opt & 262144) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}/cpf/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/cpf/'._rsidl);
 				} else {
-					header('Location: {ROOT}?t=coppa_fax&'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}?t=coppa_fax&'._rsidl);
 				}
 				exit();
 			} else if (!($uent->users_opt & 131072) || $FUD_OPT_2 & 1024) {
-				header('Location: {ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+				header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 				exit;
 			}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.15 2004/01/04 16:38:26 hackie Exp $
+* $Id: merge_th.php.t,v 1.16 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,9 +55,9 @@
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/t/'.$th.'/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 			} else {
-				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			}
 			exit;
 		} else if (count($_POST['sel_th']) > 1) {

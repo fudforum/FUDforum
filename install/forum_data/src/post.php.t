@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.104 2004/01/04 16:38:27 hackie Exp $
+* $Id: post.php.t,v 1.105 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -424,9 +424,9 @@ function flood_check()
 				}
 				/* redirect the user to their message */
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {ROOT}/m/'.$msg_post->id.'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/m/'.$msg_post->id.'/'._rsidl);
 				} else {
-					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
 				}
 				exit;
 			}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.35 2004/01/04 16:38:26 hackie Exp $
+* $Id: err.inc.t,v 1.36 2004/01/29 22:58:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,15 +33,15 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 
 	if (is_int($ses)) {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {ROOT}/e/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/e/'._rsidl);
 		} else {
-			header('Location: {ROOT}?t=error&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=error&'._rsidl);
 		}
 	} else {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {ROOT}/e//'.$ses);
+			header('Location: {FULL_ROOT}{ROOT}/e//'.$ses);
 		} else {
-			header('Location: {ROOT}?t=error&S='.$ses);
+			header('Location: {FULL_ROOT}{ROOT}?t=error&S='.$ses);
 		}
 	}
 	exit;
