@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.37 2003/05/20 12:12:51 hackie Exp $
+*   $Id: consist.php,v 1.38 2003/05/20 16:40:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@ function delete_zero($tbl, $q)
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	if (!isset($_POST['conf']) && !isset($_GET['enable_forum'])) {
+	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>		
 <form method="post" action="consist.php">
 <div align="center">
@@ -88,6 +88,13 @@ forum will be disabled.<br><br>
 	if ($FORUM_ENABLED == 'Y') {
 		draw_stat('Disabling the forum for the duration of maintenance run');
 		maintenance_status('Undergoing maintenance, please come back later.', 'N');
+	}
+	if (isset($_GET['opt'])) {
+		draw_stat('Optimizing forum\'s SQL tables');
+		optimize_tables();
+		draw_stat('Done: Optimizing forum\'s SQL tables');
+		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
+		exit;
 	}
 ?>	
 <script language="Javascript1.2">
@@ -600,11 +607,7 @@ forum will be disabled.<br><br>
 		fclose($fp);
 	}
 	draw_stat('Done: Validate GLOBALS.php');
-
-	draw_stat('Optimizing forum\'s SQL tables');
-	optimize_tables();
-	draw_stat('Done: Optimizing forum\'s SQL tables');
-
+	
 	if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 'Y');
@@ -613,6 +616,8 @@ forum will be disabled.<br><br>
 	}
 
 	draw_stat('DONE');
+	
+	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1">click here</a>, keep in mind that this process make take several minutes to perform.';
 	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
