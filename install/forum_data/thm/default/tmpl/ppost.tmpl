@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.43 2005/02/25 16:18:49 hackie Exp $
+* $Id: ppost.tmpl,v 1.44 2005/02/27 02:58:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 {SECTION: END}
 
 {SECTION: disable_smileys disable smilis checkbox}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y" {IF: $msg_smiley_disabled} checked{ENDIFI}></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}
@@ -79,7 +79,7 @@
 <table cellspacing=0 cellpadding=3 class="dashed wa">
 <tr><td>
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: reference_msg}
+{FUNC: tmpl_drawpmsg($mm, $usr, true)}
 </table>
 </td></tr>
 </table>
@@ -88,7 +88,7 @@
 {PAGE: PPOST_PAGE  form for writing private messages}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE-DATA: cur_ppage}
+{FUNC: tmpl_cur_ppage('', $folders)}
 {TEMPLATE-DATA: tabs}
 <form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
 {TEMPLATE-DATA: post_error}
@@ -96,22 +96,22 @@
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
 <tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR: usr->login} [<a href="{TEMPLATE: PPOST_PAGE_lnk}">{MSG: post_logout}</a>]</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {TEMPLATE-DATA: pm_find_user} [<a href="javascript://" onClick="javascript: window_open('{TEMPLATE: PPOST_PAGE_lnk2}', 'buddy_list',275,300);">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
-{TEMPLATE-DATA: post_icons}
-{TEMPLATE-DATA: post_smilies}
-{TEMPLATE-DATA: fud_code_icons}
-<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea id="txtb" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {TEMPLATE-DATA: pm_find_user} [<a href="javascript://" onClick="javascript: window_open('{TEMPLATE: PPOST_PAGE_lnk2}', 'buddy_list',275,300);">{MSG: ppost_from_buddy_list}</a>]{FUNC: get_err('msg_to_list')}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {FUNC: get_err('msg_subject')}</td></tr>
+{FUNC: draw_post_icons($msg_icon)}
+{IF: $FUD_OPT_1 & 8192}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
+{IF: $FUD_OPT_1 & 4096}{TEMPLATE: fud_code_icons}{ENDIF}
+<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options('private')}</td><td>{FUNC: get_err('msg_body',1)}<textarea id="txtb" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
 <table border=0 cellspacing=0 cellpadding=1>
-<tr><td><input type="checkbox" name="msg_track" value="Y"{VAR: msg_track_check}></td><td class="GenText fb">{MSG: ppost_track_msg}</td></tr>
+<tr><td><input type="checkbox" name="msg_track" value="Y"{IF: $msg_track} checked{ENDIF}></td><td class="GenText fb">{MSG: ppost_track_msg}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: ppost_track_msg_desc}</td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked{ENDIF}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
-{TEMPLATE-DATA: disable_smileys}
+{IF: $FUD_OPT_1 & 8192}{TEMPLATE: disable_smileys}{ENDIF}
 </table>
 </td>
 </tr>

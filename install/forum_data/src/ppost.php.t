@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.74 2005/02/06 20:56:38 hackie Exp $
+* $Id: ppost.php.t,v 1.75 2005/02/27 02:58:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -339,8 +339,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 /*{POST_HTML_PHP}*/
 
-	$cur_ppage = tmpl_cur_ppage('', $folders);
-
 	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('pspell') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
 
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
@@ -385,16 +383,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$post_error = $session_error;
 	}
 
-	$to_err = get_err('msg_to_list');
-	$msg_subect_err = get_err('msg_subject');
-	$message_err = get_err('msg_body',1);
-
-	$post_smilies = $FUD_OPT_1 & 8192 ? draw_post_smiley_cntrl() : '';
-	$post_icons = draw_post_icons($msg_icon);
-	$fud_code_icons = $FUD_OPT_1 & 4096? '{TEMPLATE: fud_code_icons}' : '';
-
-	$post_options = tmpl_post_options('private');
-
 	if ($FUD_OPT_2 & 32768) {
 		$private = '1';
 	} else {
@@ -407,20 +395,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$file_attachments = '';
 	}
 
-	$msg_track_check = $msg_track ? ' checked' : '';
-	$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
-
-	if ($FUD_OPT_1 & 8192) {
-		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
-		$disable_smileys = '{TEMPLATE: disable_smileys}';
-	} else {
-		$disable_smileys = '';
-	}
-
 	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');
 		$dpmsg_prev_message = $dpmsg_next_message = '';
-		$reference_msg = tmpl_drawpmsg($mm, $usr, true);
 		$reference_msg = '{TEMPLATE: reference_msg}';
 	} else {
 		$reference_msg = '';
