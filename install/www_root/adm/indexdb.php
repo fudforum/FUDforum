@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.6 2003/04/29 21:11:22 hackie Exp $
+*   $Id: indexdb.php,v 1.7 2003/05/12 14:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		} else {
 			$subj = '';
 		}
-		q('INSERT INTO '.$tbl.'search_cache (srch_query, query_type) VALUES(\'\', -'.$r[0].')');
+		q('INSERT INTO '.$tbl.'search_cache (srch_query, query_type, expiry, msg_id, n_match) VALUES(\'\', -'.$r[0].', 0,0,0)');
 		index_text($subj, read_msg_body($r[3], $r[2], $r[4]), $r[0]);
 	}
 	qf($c);
