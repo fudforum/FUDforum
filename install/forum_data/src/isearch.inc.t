@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.21 2003/10/01 23:54:10 hackie Exp $
+*   $Id: isearch.inc.t,v 1.22 2003/10/02 00:28:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -62,9 +62,17 @@ function index_text($subj, $body, $msg_id)
 	$w2 = array_unique($w2);
 	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2);
 
-	if (isset($w1)) {
-		db_li('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
+	/* This allows us to return right away, meaning we don't need to wait
+	 * for any locks to be released etc... */
+	if (__dbtype__ == 'mysql') {
+		$del = 'DELAYED';
+	} else {
+		$del = '';
 	}
-	db_li('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w2).')', $ef);
+
+	if (isset($w1)) {
+		db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
+	}
+	db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w2).')', $ef);
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ratethread.php.t,v 1.6 2003/10/01 21:51:52 hackie Exp $
+*   $Id: ratethread.php.t,v 1.7 2003/10/02 00:28:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,13 +32,10 @@
 			std_error('access');
 		}
 
-		db_lock('{SQL_TABLE_PREFIX}thread_rate_track WRITE, {SQL_TABLE_PREFIX}thread WRITE');
-		if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$th.' AND user_id='._uid)) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES('.$th.', '._uid.', '.__request_timestamp__.', '.$rt.')');
+		if (db_li('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES('.$th.', '._uid.', '.__request_timestamp__.', '.$rt.')', $ef)) {
 			$rt = db_saq('SELECT count(*), ROUND(AVG(rating)) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$th);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='.(int)$rt[1].', n_rating='.(int)$rt[0].' WHERE id='.$th);
 		}
-		db_unlock();
 	}
 	check_return($usr->returnto);
 ?>

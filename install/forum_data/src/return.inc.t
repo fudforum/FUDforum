@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
+*   $Id: return.inc.t,v 1.15 2003/10/02 00:28:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,13 +17,13 @@
 
 function check_return($returnto)
 {
-	if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
+	if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
 		if (!$returnto || !strncmp($returnto, '/er/', 4)) {
 			$pfx = '';
-			if ($FUD_OPT_2 & 8192) {
+			if ($GLOBALS['FUD_OPT_2'] & 8192) {
 				$pfx .= _uid . '/';
 			}
-			if ($FUD_OPT_1 & 128) {
+			if ($GLOBALS['FUD_OPT_1'] & 128) {
 				$pfx .= s . '/';
 			}
 			header('Location: {ROOT}/i/'.$pfx);
@@ -34,7 +34,7 @@ function check_return($returnto)
 		if (!$returnto || !strncmp($returnto, 't=error', 7)) {
 			header('Location: {ROOT}?t=index&'._rsidl);
 		} else {
-			if (strpos($returnto, 'S=') === false && $FUD_OPT_1 & 128) {
+			if (strpos($returnto, 'S=') === false && $GLOBALS['FUD_OPT_1'] & 128) {
 				header('Location: {ROOT}?'.$returnto.'&S='.s);
 			} else {
 				header('Location: {ROOT}?'.$returnto);
