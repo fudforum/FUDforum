@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.53 2004/11/02 14:56:01 hackie Exp $
+* $Id: index.tmpl,v 1.54 2004/11/08 15:28:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@
 
 {SECTION: forum_with_no_view_perms}
 <tr>
-	<td class="RowStyleA" colspan=6>{VAR: r[13]}<br />{VAR: r[14]}</td>
+	<td class="RowStyleA" colspan=6>{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
 </tr>
 {SECTION: END}
 
