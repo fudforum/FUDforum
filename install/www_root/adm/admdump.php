@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.12 2002/08/22 01:30:14 hackie Exp $
+*   $Id: admdump.php,v 1.13 2002/09/11 21:50:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,9 +22,33 @@
 	
 	include_once "GLOBALS.php";
 	fud_use('db.inc');
-	fud_use('adm.inc', TRUE);
 	
-	list($ses, $usr) = initadm();
+	/* 
+	 * Check for HTTP AUTH, before going for the usual cookie/session auth 
+	 * this is done to allow for easier running of this process via an 
+	 * automated cronjob.
+	 */
+
+	if( !empty($HTTP_GET_VARS['do_http_auth']) && empty($HTTP_SERVER_VARS['PHP_AUTH_USER']) ) {
+		header('WWW-Authenticate: Basic realm="Private"');
+		header('HTTP/1.0 401 Unauthorized');
+		exit('Authorization Required.');
+	}
+	
+	if( !empty($HTTP_SERVER_VARS['PHP_AUTH_USER']) && !empty($HTTP_SERVER_VARS['PHP_AUTH_PW']) ) {
+		if( !bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_SERVER_VARS['PHP_AUTH_USER']."' AND passwd='".md5($HTTP_SERVER_VARS['PHP_AUTH_PW'])."' AND is_mod='A'") ) {
+			header('WWW-Authenticate: Basic realm="Private"');
+			header('HTTP/1.0 401 Unauthorized');
+			exit('Authorization Required.');
+		}
+		define('shell_script', 1);
+		define('_hs', '');
+		fud_use('adm.inc', true);
+	}
+	else {
+		fud_use('adm.inc', true);
+		list($ses, $usr) = initadm();
+	}	
 
 function make_insrt_qry($obj, $tbl, $field_data)
 {
