@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.19 2003/07/20 13:48:31 hackie Exp $
+*   $Id: private.inc.t,v 1.20 2003/07/23 01:57:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -267,8 +267,8 @@ function send_pm_notification($email, $pid, $subject, $from, $not_mthd)
 	$sub = '{TEMPLATE: pm_notify_subject}';
 
 	if ($not_mthd == 'EMAIL') {
+		$pfx = '';
 		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
-			$pfx = '';
 			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
 				$pfx .= '0/';
 			}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.64 2003/07/17 15:53:40 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.65 2003/07/23 01:57:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -664,6 +664,16 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$boundry = "\r\n--------------" . $split . "\r\n";
 		
 			$CHARSET = '{TEMPLATE: CHARSET}';
+		
+			$pfx = '';
+			if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+				if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+					$pfx .= '0/';
+				}
+				if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+					$pfx .= '0/';
+				}
+			}
 		
 			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
