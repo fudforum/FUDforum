@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: widgets.inc,v 1.4 2003/04/25 20:22:25 hackie Exp $
+*   $Id: widgets.inc,v 1.5 2003/05/16 16:05:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,7 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	fud_use('db.inc');
 	fud_use('rev_fmt.inc');
 	
 function create_select($name, $options, $opt_val, $def_val, $js='', $extraval='')
