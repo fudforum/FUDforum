@@ -510,7 +510,7 @@ ppost_find_User:		Benutzer suchen
 ppost_from_buddy_list:		Aus der Buddyliste ausw&auml;hlen
 ppost_original_msg:		Nachricht, die Du weiterleitest oder beantwortest
 ppost_quote:			Zitat:
-ppost_quote_msg:		{VARHTML: msg_r->login} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_r->login} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_save_draft:		Entwurf speichern
 ppost_send:			Verschicken
 ppost_to:			An:
