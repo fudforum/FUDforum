@@ -814,7 +814,7 @@ thread_mod_delete:		Delete
 action_latest_post:		Last Post
 online_today_last_visit:	Last Visited
 online_today_update:		Viewing the list of people who were on the forum today.
-logedin_todays_visitors:	Today's Visitors
+logedin_todays_visitors:	Today\'s Visitors
 logedin_latest_post:		Last post on the forum: 
 register_show_avatar:		Show Avatars:
 register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages

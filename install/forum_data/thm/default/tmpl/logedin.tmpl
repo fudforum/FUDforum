@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: logedin.tmpl,v 1.2 2002/06/28 17:35:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,7 +19,7 @@
 
 {MAIN_SECTION: logedin  loggedin user list}<br><img src="blank.gif" height=2 width=1>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%">{MSG: logged_in_list} {VAR: astr} [<a href="{ROOT}?t=online_today&{DEF: _rsid}" class="th_lnk">{MSG: logedin_todays_visitors}</a>]</th></tr>
+<tr><th width="100%">{MSG: logged_in_list} {VAR: astr}</th></tr>
 <tr><td class="RowStyleA">
 <font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="admin_color">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="mods_color">[{MSG: moderator}]</font></font><br>
 {VAR: loged_in_list}
@@ -29,7 +29,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: i_spy logged in users list}
-[<a href="{ROOT}?t=actions&{DEF: _rsid}" class="th_lnk">{MSG: what_ppl_doing}</a>]
+[<a href="{ROOT}?t=actions&{DEF: _rsid}" class="th_lnk">{MSG: what_ppl_doing}</a>] [<a href="{ROOT}?t=online_today&{DEF: _rsid}" class="th_lnk">{MSG: logedin_todays_visitors}</a>]
 {SECTION: END}
 
 {SECTION: online_user_separator}
