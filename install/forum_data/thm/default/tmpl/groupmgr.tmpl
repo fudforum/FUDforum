@@ -1,7 +1,6 @@
-
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.35 2005/03/18 15:01:14 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.36 2005/03/18 15:24:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +49,7 @@
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{IF: $edit}{TEMPLATE: member_edit}{ELSE}{TEMPLATE: member_add}{END}
+{IF: $edit}<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: gr_member}</td></tr>{ELSE}<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>{END}
 <tr class="RowStyleB">
 	<td colspan=2>
 		<table cellspacing=1 cellpadding=3 width="100%" class="ContentTable">
@@ -60,7 +59,7 @@
 </tr>
 <tr>
 	<td colspan=2 class="RowStyleC ar">
-		{IF: $edit}{TEMPLATE: update_buttons}{ELSE}{TEMPLATE: submit_button}{END}
+		{IF: $edit}<input type="submit" tabindex="3" class="button" name="btn_cancel" value="{MSG: groupmgr_cancel}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_update_member}">{ELSE}<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_add_member}">{END}
 	</td>
 </tr>
 </table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
@@ -81,29 +80,12 @@ if (document.groupmgr.gr_member) {
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: member_add add new member}
-<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{IF: isset($_POST['gr_member'])}{FUNC: char_fix(htmlspecialchars($_POST['gr_member']))}{ENDIFI}">{IF: $FUD_OPT_1 & (8388608|4194304)}&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]{ENDIFI}</td></tr>
-{SECTION: END}
-
-{SECTION: member_edit edit an existing member}
-<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: gr_member}</td></tr>
-{SECTION: END}
-
 {SECTION: perm_yes permissions set to YES indicator}
 <td title="{VAR: names[$k]}" class="permYES">{MSG: groupmgr_yes}</td>
 {SECTION: END}
 
 {SECTION: perm_no permissions set to NO indicator}
 <td title="{VAR: names[$k]}" class="permNO">{MSG: groupmgr_no}</td>
-{SECTION: END}
-
-{SECTION: submit_button}
-<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_add_member}">
-{SECTION: END}
-
-{SECTION: update_buttons}
-<input type="submit" tabindex="3" class="button" name="btn_cancel" value="{MSG: groupmgr_cancel}">
-<input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: groupmgr_update_member}">
 {SECTION: END}
 
 {SECTION: group_member_entry permissions for a user in a group}
