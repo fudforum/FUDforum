@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.72 2004/11/24 19:53:33 hackie Exp $
+* $Id: compiler.inc,v 1.73 2004/12/02 00:31:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -589,8 +589,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	 */
 	build_msg($back_msg_file);
 
-	$list = glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl', GLOB_NOSORT);
-	foreach ($list as $fe) {
+	foreach (glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl') as $fe) {
 		$file = basename($fe);
 		if ($file == 'date_formats.tmpl') continue;
 
