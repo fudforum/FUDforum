@@ -187,7 +187,7 @@ views:				View
 vote:				{VAR: frm->n_rating} Voti
 vote_button:			Vota
 vote_for_thread:		Vota il topic
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> è stato spostato in <a href="{ROOT}?t=thread&frm_id={VAR: r[11]}&{DEF: _rsid}">{{VAR: r[12]}</a> dal moderatore
+was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> è stato spostato in <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: r[11]}&{DEF: _rsid}">{{VAR: r[12]}</a> dal moderatore
 welcome_message:		Benvenuto <b>{VAR: usr->alias}</b>, l&#39;ultima volta sei stato con noi {DATE: usr->last_visit %A, %d %B %Y alle %H:%M}
 what_ppl_doing:			mostra quello che fa la gente
 reported_del_report:		Cancella report
@@ -209,7 +209,7 @@ list_referes_referrals:		Segnalazioni
 list_referes_members:		Utenti segnalati
 list_referes_member:		Utente
 referals_none:			Nessuna segnalazione.
-referals_refered_by:		Utenti del forum segnalati da: <b><a href="{ROOT}?t=usrinfo&id={VAR: p_user[0]}&{DEF: _rsid}" class="th_lnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Utenti del forum segnalati da: <b><a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: p_user[0]}&{DEF: _rsid}" class="th_lnk">{VAR: p_user[1]}</a></b>
 referals_post_count:		Numero di messaggi
 referals_registered_on:		Registrato 
 referals_action:		Azione
@@ -586,10 +586,10 @@ index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}">elenco dei 
 list_referers_update:		Sfoglia i referral
 login_update:			Pagina di login
 msg_err_onlyreg_title:		Solo gli utenti registrati possono accedere a questo forum
-msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}">login</a>.
+msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">login</a>.
 msg_err_ininfo_title:		Informazioni non sufficienti
 msg_err_ininfo_msg:		C&#39;è stato un problema nella generazione di questa pagina
-msg_update:			Sfoglia il topic <a href="{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Sfoglia il topic <a href="{FULL_ROOT}{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRORE: Messaggi personali disabilitati
 pm_err_nopm_msg:		Non puoi usare i messaggi personali, sono stati disabilitati dall&#39;amministratore.
 pm_update:			Legge/Scrive i messagi personali
@@ -598,7 +598,7 @@ post_err_notallowed_msg:	Non sei autorizzato a postare messaggi
 post_err_lockedthread_title:	ERRORE: Topic chiuso
 post_err_lockedthread_msg:	Questo topic è chiuso, non è più possibile inserire messaggi
 err_coppa_title:		ERRORE: il tuo account non è stato ancora confermato
-err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
+err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
 err_blockedaccnt_title:		ERRORE: non sei autorizzato a postare messaggi
 err_blockedaccnt_msg:		A questo account è stata impedita la possibilità di scrivere messaggi
 post_err_notowner_title:	ERRORE
@@ -606,9 +606,9 @@ post_err_notowner_msg:		Non sei l&#39;autore di questo messaggio
 post_err_edttimelimit_title:	ERRORE
 post_err_edttimelimit_msg:	Non puoi più modificare questo messaggio
 post_err_noannontopics_title:	ERRORE: non si disponde dei privilegi necessari
-post_err_noannontopics_msg:	Gli utenti anonimi non possono creare nuovi topic.<br><br>Se vuoi registrarti, vai alla <a href="{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
+post_err_noannontopics_msg:	Gli utenti anonimi non possono creare nuovi topic.<br><br>Se vuoi registrarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
 post_err_noannonposts_title:	ERRORE: non si disponde dei privilegi necessari
-post_err_noannonposts_msg:	Gli utenti anonimi non possono rispondere a messaggi.<br><br>Se vuoi registrarti, vai alla <a href="{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
+post_err_noannonposts_msg:	Gli utenti anonimi non possono rispondere a messaggi.<br><br>Se vuoi registrarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
 post_err_noreplying_title:	ERRORE: non è permesso rispondere a messaggi
 post_err_noreplying_msg:	Non puoi rispondere a questo topic, perchè si tratta o di un announcement o di un messaggio al quale il moderatore ha bloccato la possibilità di inserire ulteriori risposte.
 post_err_floodtrig_title:	ERRORE: è attivo il controllo sui messaggi.
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Il file allegato è troppo grande 
 post_err_attach_ext:		<font class="ErrorText">Il file che stai cercando di spedire non appartiene ai tipi di file consentiti.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Stai cercando di spedire più file di quanti sia consentito spedire.</font><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Risponde a <a href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_edit_update:		Modifica <a href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
-post_topic_update:		Scrive un nuovo topic in <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Risponde a <a href="{FULL_ROOT}{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_edit_update:		Modifica <a href="{FULL_ROOT}{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
+post_topic_update:		Scrive un nuovo topic in <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 post_error_generic:		Si è verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario
@@ -647,9 +647,9 @@ register_err_notyouremail:	Qualcuno si è già registrato con questo indirizzo ema
 register_err_avatartobig:	Il file che stai cercando di spedite è troppo grande, oltre il limite di {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte 
 register_err_avatarnotallowed:	L&#39;avatar che stai cercando di spedire non è ammesso, controlla i tipi di file supportati.
 register_conf_subject:		Conferma della registrazione
-register_conf_msg:		Grazie per esserti registrato al forum di TGM Online,\nper attivare il tuo account vai alla pagina:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna volta che il tuo account sarà stato attivato, sarai autenticato e portato alla pagina principale del forum.
+register_conf_msg:		Grazie per esserti registrato al forum di TGM Online,\nper attivare il tuo account vai alla pagina:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nUna volta che il tuo account sarà stato attivato, sarai autenticato e portato alla pagina principale del forum.
 register_welcome_subject:	Conferma della registrazione al forum
-register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{ROOT}?t=register\n
+register_welcome_msg:		Grazie per esserti registrato,\n\necco i dettagli per effettuare il login al forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nRicordati che le password fanno distinzione tra MAIUSCOLE e minuscole!!\nPer modificare impostazioni e profilo utente, vai a questa pagina:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	ERRORE: impossibile registrarsi
 regsiter_err_cantreg_msg:	Impossibile creare l&#39;account utente, contatta l&#39;amministratore all&#39;indirizzo <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Guarda il suo profilo
@@ -663,22 +663,22 @@ reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Informazioni
 reset_err_rstconf_msg:		Dovresti ricevere istruzioni nella tua casella di posta elettronica nel giro di pochi minuti
 reset_newpass_title:		Resetta la password
-reset_newpass_msg:		Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata resettata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{ROOT}?t=register\n\n
+reset_newpass_msg:		Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata resettata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti. Controlla la tua casella di posta elettronica per i dati di login e password.<br>.<br>.<br>
 search_update:			Cerca nei topic
-selmsg_update:			Sfoglia <a href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
-showposts_update:		Visualizza messaggi per: <a href="{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
+selmsg_update:			Sfoglia <a href="{FULL_ROOT}{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
+showposts_update:		Visualizza messaggi per: <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
 subscribed_update:		Sfoglia le proprie sottoscrizioni
 th_err_invid_title:		Topic non valido
 th_err_invid_msg:		Hai seguito un link non valido; il topic che stai cercando di aprire non esiste
 thread_err_onlyregview_title:	Solo gli utenti registrati possono vedere il contenuto di questo forum
-thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}">login</a>.
-thread_update:			Legge il forum <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
-tree_update:			Legge il topic (vista ad albero) <a href="{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Guarda il profilo di <a href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
+thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato devi effettuare il <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">login</a>.
+thread_update:			Legge il forum <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+tree_update:			Legge il topic (vista ad albero) <a href="{FULL_ROOT}{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+userinfo_update:		Guarda il profilo di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			ERRORE: non ti sei autenticato
-ERR_login_msg:			Non sei autenticato.<br><br>Se desideri registrarti vai alla <a href="{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a><br>Se desideri autenticarti vai alla <a href="{ROOT}?t=login&{DEF: _rsid}">pagina di login</a>
-ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
+ERR_login_msg:			Non sei autenticato.<br><br>Se desideri registrarti vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a><br>Se desideri autenticarti vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">pagina di login</a>
+ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Opzione non attiva
 ERR_disabled_msg:		Questa opzione è stata disabilitata dall&#39;amministratore
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -689,7 +689,7 @@ ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova più tardi
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non è stato confermato
-ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
+ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{FULL_ROOT}{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -711,7 +711,7 @@ search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email è stata spedita
-remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
+remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
 post_opt_html_on:		L&#39;<b>HTML</b> è <b>ON</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: help_index_update_lnk}&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> è <b>ON</a></b>
@@ -780,7 +780,7 @@ p_LOCK:				Chiudi topic
 p_MOVE:				Sposta topic
 p_SML:				Usa smiley
 p_IMG:				Usa tag delle immagini
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Trova utente</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Trova utente</a>
 group_mgr_indicator:		Modifica: <b>{VAR: grp->name}</b>
 rate_worst:			Peggiore
 rate_best:			Migliore
@@ -850,7 +850,7 @@ forum_home:			Home
 post_cur_attached:		allegati {VAR: i} file 
 ppost_cur_attached:		allegati {VAR: attach_count} file
 ignored_anon_post:		{GVAR: ANON_NICK} è ignorato
-ignored_user_post:		Il messaggio di <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}">{VAR: obj->login}</a> viene ignorato
+ignored_user_post:		Il messaggio di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}">{VAR: obj->login}</a> viene ignorato
 smladd_close_window:		chiudi finestra
 post_list_smilies:		mostra tutti gli smiley
 p_VISIBLE:			Visibile
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -946,7 +946,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -955,7 +955,7 @@ register_email:			Email
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -982,7 +982,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

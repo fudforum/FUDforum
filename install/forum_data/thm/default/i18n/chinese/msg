@@ -188,7 +188,7 @@ views:				点击
 vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
+was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> 已经被版主移至<a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>，你上一次访问是 {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
@@ -647,9 +647,9 @@ register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
 register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:		注册确认
-register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
 register_welcome_subject:	论坛注册确认
-register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{ROOT}?t=register\n
+register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	错误：无法注册
 regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	查看个人信息
@@ -663,7 +663,7 @@ reset_err_invalidkey_msg:	密码提示错误
 reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会你将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
-reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{ROOT}?t=register\n\n
+reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>.<br>.<br>
 search_update:			搜索
 selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
@@ -674,11 +674,11 @@ th_err_invid_msg:		你输入的连接错误，相关主题并不存在。
 thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
 thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{TEMPLATE: msg_register_lnk}">注册</a>，如果已经注册，请<a href="{TEMPLATE: msg_login_lnk}">登录</a>。
 thread_update:			浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			浏览（以树状方式） <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			浏览（以树状方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
 ERR_login_ttl:			糟糕：你尚未注册
 ERR_login_msg:			你尚未登录，请登录<br><br>请<a href="{TEMPLATE: msg_register_lnk}">注册</a><br>请<a href="{TEMPLATE: msg_login_lnk}">登陆</a>
-ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
+ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
 ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
@@ -689,7 +689,7 @@ ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误：此账号无效
-ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: msg_register_lnk}">请点击这里</a></ol></td></tr></table>
+ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: msg_register_lnk}">请点击这里</a></ol></td></tr></table>
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
@@ -711,7 +711,7 @@ search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		邮件已经发送
-remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
+remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代码：</b><b>开放</a></b>
@@ -923,7 +923,7 @@ register_affero:		Affero用户名：<br /><font class="SmallText">如果你有<a href="h
 im_affero:			Affero用户名
 register_err_avatardimtobig:	头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		下载了 {VAR: r->dlcount} 次
-member_search:			<br>或者使用 <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">用户查找</a> 功能来找人。
+member_search:			<br>或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">用户查找</a> 功能来找人。
 post_all_ext_allowed:		（没有限制）
 buddy_offline:			{VAR: r[2]} 当前不在线
 buddy_online:			{VAR: r[2]} 当前在线
@@ -946,7 +946,7 @@ thread_mark_all_read:		标记所有帖子为已读
 thread_mark_all_read_desc:	论坛中所有的未读标记将被清除
 private_no_messages:		此板上没有帖子
 register_email_change_subject:	电子邮件更改确认
-register_email_change_msg:	请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
+register_email_change_msg:	请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
 iemail_thread_unsub:		取消对此主题的订阅
 iemail_forum_unsub:		取消对此板块的订阅
 primary_group_prefix:		中心组对于板块：
@@ -955,7 +955,7 @@ register_email:			电子邮件：
 register_admin_newuser_title:	有新用户注册并等候批复
 register_admin_newuser_msg:	新用户 ({VAR: uent->login}) 刚刚注册，正等待管理员的审核批复。要批复用户，请转到： {GVAR: WWW_ROOT}adm/admaccapr.php\n\n这是一封自动发出的邮件，请勿回复此邮件。\n如果要取消此提醒，请在管理界面的 "New Account Notification" 中设置。
 post_mod_msg_notify_title:	有新贴在 "{VAR: frm->name}" 板上等待审核
-post_mod_msg_notify_msg:	新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此贴，请到：{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。\n
+post_mod_msg_notify_msg:	新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此贴，请到：{FULL_ROOT}{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。\n
 thread_printable_pdf:		生成可打印的PDF格式
 thread_syndicate:		同步此板块（XML格式）
 reg_conf_title:			论坛注册验证邮件
@@ -982,8 +982,8 @@ mnav_month:			月
 mnav_title:			帖子浏览器
 mnav_update:			用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
-pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
-pm_notify_body_icq:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒，请在“个人信息”中禁止“新悄悄话提醒”。
+pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
+pm_notify_body_icq:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒，请在“个人信息”中禁止“新悄悄话提醒”。
 register_pm_notification:	新悄悄话提醒
 register_pm_notification_desc:	如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
 findu_admin_opts_header:	管理员选项

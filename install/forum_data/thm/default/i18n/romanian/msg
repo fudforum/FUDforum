@@ -652,7 +652,7 @@ register_err_notyouremail:	Cineva este deja inregistrat cu aceasta adresa de ema
 register_err_avatartobig:	Fisierul pe care incercati sa-l incarcati este prea mare, peste {GVAR: CUSTOM_AVATAR_MAX_SIZE}
 register_err_avatarnotallowed:	Imaginea pe care doriti sa o incarcati nu are extensia corecta
 register_conf_subject:		Confirmarea inregistrarii
-register_conf_msg:		VA multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
+register_conf_msg:		VA multumim pentru ca v-ati inregistrat,\nPentru a activa contul va rugam sa mergeti la adresa:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n
 register_welcome_subject:	Confirmarea inregistrarii la Forum
 register_welcome_msg:		Va multumim pentru ca v-ati inregistrat,\n\nAici sunt datele dumneavoastra de autentificare la acest forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nVa atentionam ca parola este sensibila la majuscule.
 register_err_cantreg_title:	EROARE: nu pot completa inregistrarea
@@ -694,7 +694,7 @@ ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
-ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
+ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
 ERR_user_msg:			Nici un asemenea utilizator
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -716,7 +716,7 @@ search_title:			Cauta {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Emailul a fost trimis
-remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
+remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adauga optiune:
 post_opt_html_on:		<b>HTML</b> este <b>PORNIT</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>Codul HS</b> este <b>PORNIT</b></a>
@@ -923,7 +923,7 @@ login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, da
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
 pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
-member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Cauata persoana</a> pentru a gasi o persoana.
+member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Cauata persoana</a> pentru a gasi o persoana.
 post_all_ext_allowed:		(nerestrictionat)
 register_err_avatardimtobig:	Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} este offline
@@ -947,7 +947,7 @@ thread_mark_all_read:		marcheaza toate mesajele ca citite
 thread_mark_all_read_desc:	Toate mesajele necitite din acest forum vor fi marcate ca citite
 private_no_messages:		nu sunt mesaje in acest director
 register_email_change_subject:	Confirmarea schimbarii adresei de email
-register_email_change_msg:	Va rugam sa confirmati noua adresa de email "{VAR: uent->email}" care inlocuieste vechea adresa de email "{VAR: old_email}" apasand pe legatura de mai jos:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOdata ce confirmati noua adresa, contul dumneavoastra va fi redisponibil.
+register_email_change_msg:	Va rugam sa confirmati noua adresa de email "{VAR: uent->email}" care inlocuieste vechea adresa de email "{VAR: old_email}" apasand pe legatura de mai jos:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOdata ce confirmati noua adresa, contul dumneavoastra va fi redisponibil.
 iemail_thread_unsub:		Anuleaza inregistrarea la aceasta discutie
 iemail_forum_unsub:		Anuleaza inregistrarea la acest forum
 primary_group_prefix:		Grupul primar al forumului:
@@ -955,7 +955,7 @@ group_resources:		Acest grup controleaza permisiunile forumului
 register_admin_newuser_title:	S-a inregistrat un nou utilizator si contul sau asteapta confirmare
 register_admin_newuser_msg:	Un nou utilizator ({VAR: uent->login}) abia s-a inregistrat.
 post_mod_msg_notify_title:	Mesaj nou care asteapta aprobare in forumul "{VAR: frm->name}" 
-post_mod_msg_notify_msg:	Un nou mesaj intitulat "{VAR: msg_post->subject}" au fost postati intr-un forum moderat. Pentru a revedea mesajul mergeti apsati aici: {ROOT}?t=modque\n\nAcesta este un proces automat, nu raspundeti la acest email.\n
+post_mod_msg_notify_msg:	Un nou mesaj intitulat "{VAR: msg_post->subject}" au fost postati intr-un forum moderat. Pentru a revedea mesajul mergeti apsati aici: {FULL_ROOT}{ROOT}?t=modque\n\nAcesta este un proces automat, nu raspundeti la acest email.\n
 thread_printable_pdf:		Genereaza fisier printabil
 thread_syndicate:		Sorteaza forumul (XML)
 reg_conf_title:			Confirmarea inregistrarii
@@ -982,7 +982,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

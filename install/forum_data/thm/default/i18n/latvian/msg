@@ -649,9 +649,9 @@ register_err_notyouremail:	Sistçmâ jau ir reìistrçts lietotâjs ar tâdu E-pasta a
 register_err_avatartobig:	Jûsu ielâdçtais nozîmîtes fails ir pârâk liels, maksimâli pieïaujamais nozîmîðu faila izmçrs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:	Ielâdçtais nozîmîtes fails neatbilst nevienam pieïaujamajam failu formâtam.
 register_conf_subject:		Reìistrâcijas apstiprinâjums
-register_conf_msg:		Jûs esat pereìistrçts,\nLai apstiprinâtu sava nika reìistrâciju sekojiet saitei:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklîdz reìistrâcija tiks aktivizçta, Jûs automâtiski ieiesiet foruma\ngalvenajâ lapâ.
+register_conf_msg:		Jûs esat pereìistrçts,\nLai apstiprinâtu sava nika reìistrâciju sekojiet saitei:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTiklîdz reìistrâcija tiks aktivizçta, Jûs automâtiski ieiesiet foruma\ngalvenajâ lapâ.
 register_welcome_subject:	Foruma reìistrâcijas apliecinâjums
-register_welcome_msg:		Paldies par reìistrâciju,\n\nZemâk informâcija par Jûsu reìistrâciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reìistra jûtîgas!\nSavus privâtos uzstâdîjumus jûs variet rediìçt ðeit:\n{ROOT}?t=register\n
+register_welcome_msg:		Paldies par reìistrâciju,\n\nZemâk informâcija par Jûsu reìistrâciju:\n\nforuma URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nParole: {VAR: _POST['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reìistra jûtîgas!\nSavus privâtos uzstâdîjumus jûs variet rediìçt ðeit:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	KÏÛDA! Reìistrâcija nav iespçjama
 regsiter_err_cantreg_msg:	Nevar piereìistrçt ðo lietotâju. Lûdzu paziòojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Personîgo uzstâdîjumu un datu pârskats
@@ -665,7 +665,7 @@ reset_err_invalidkey_msg:	Nepareiza paroles nomaiòas atslçga
 reset_err_rstconf_title:	Informâcija
 reset_err_rstconf_msg:		Instrukcijas nosûtîtas uz Jûsu E-pastu un tâs Jûs saòemsiet pçc daþâm minûtçm
 reset_newpass_title:		Paroles nomaiòa
-reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{ROOT}?t=register\n\n
+reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: ui[1]}\nParole: {VAR: passwd}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti..<br>.<br>.<br>
 search_update:			Publikâciju meklçðana
 selmsg_update:			Ðodienas <a href="{TEMPLATE: selmsg_update_lnk}">publikâciju pârskats</a>
@@ -691,7 +691,7 @@ ERR_registration_disabled_ttl:	Reìistrâcija atslçgta
 ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìiniet vçlreiz, bet vçlâk.
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
-ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: msg_register_lnk}">spediet ðeit</a></ol></td></tr></table>
+ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{TEMPLATE: msg_register_lnk}">spediet ðeit</a></ol></td></tr></table>
 ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
 ERR_user_msg:			Tâda lietotâja datu bâzç nav
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -713,7 +713,7 @@ search_title:			Meklçt {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-pasts nosûtîts
-remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: data->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieòu,\n\n{VAR: usr->alias}\n
+remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: data->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieòu,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pievienot variantu:
 post_opt_html_on:		<b>HTML</b> - <b>ieslçgts</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>ieslçgts</b></a>
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -946,7 +946,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -955,7 +955,7 @@ register_email:			Email
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -982,7 +982,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

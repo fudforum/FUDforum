@@ -651,9 +651,9 @@ register_err_notyouremail:	Nìkdo u¾ je zaregistrován s tímto emailem, a vy to NE
 register_err_avatartobig:	Soubor, který se sna¾íte nahrát je pøíli¹ velký, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytù
 register_err_avatarnotallowed:	Ikona u¾ivatele, kterou se sna¾íte nahrát není povolena. Prohlédnìte si seznam povolených typù.
 register_conf_subject:		Potvrzení registrace
-register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
+register_conf_msg:		Dìkujeme za va¹i registraci,\npro aktivaci va¹eho úètu, prosím, pøejdìte na následující URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPokud je vá¹ ú¹et ji¾ aktivován, budete pøihlá¹eni do fóra a\npøesmìrováni na hlavní stránku fóra.
 register_welcome_subject:	Potvrzení registrace do fóra
-register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{ROOT}?t=register\n
+register_welcome_msg:		Dìkujeme za va¹i registraci,\n\nzde jsou údaje nutné k pøihlá¹ení k fóru:\n\nAdresa fóra: {TEMPLATE: index_update_lnk}\nU¾ivatelské jméno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamatujte, prosím, ¾e jeslo je citlivé na velikost znakù!\nPro zmìnu va¹ich nastavení nebo profilu pøejdìte sem:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	CHYBA: nelze vás zaregistrovat
 regsiter_err_cantreg_msg:	Není mo¾né vytvoøit u¾ivatelský úèet, prosím, kontaktujte administrátora na <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Prohlí¾íte si vlastní profil
@@ -667,7 +667,7 @@ reset_err_invalidkey_msg:	Chybný klíè k vynulování hesla
 reset_err_rstconf_title:	Informace
 reset_err_rstconf_msg:		Bìhem pár minut by jste mìl(a) dostat pokyny emailem
 reset_newpass_title:		Vynulování hesla
-reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{ROOT}?t=register\n\n
+reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br>.<br>.<br>
 search_update:			Hledáte pøíspìvky
 selmsg_update:			Prohlí¾íte si <a href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
@@ -693,7 +693,7 @@ ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
-ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: msg_register_lnk}">kliknìte zde</a></ol></td></tr></table>
+ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: msg_register_lnk}">kliknìte zde</a></ol></td></tr></table>
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -715,7 +715,7 @@ search_title:			Hledat {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email byl odeslán
-remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
+remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pøidat volbu:
 post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -946,7 +946,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -955,7 +955,7 @@ register_email:			Email
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -982,7 +982,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

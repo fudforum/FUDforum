@@ -344,7 +344,7 @@ my_buddies:			My Buddies
 add_buddy:			Add Buddy
 add:				Add
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
 post_normal:			Normal
 post_sticky:			Sticky
@@ -654,9 +654,9 @@ register_err_notyouremail:	Some already is registered with this email, and that 
 register_err_avatartobig:	The file you are trying to upload is too big, over {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte limit
 register_err_avatarnotallowed:	The avatar you are trying to upload is not allowed, check allowed file types.
 register_conf_subject:		Registration Confirmation
-register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
+register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
 register_welcome_subject:	Forum Registration Confirmation
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{ROOT}?t=register\n
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: unable to register
 regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viewing own profile
@@ -670,7 +670,7 @@ reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Information
 reset_err_rstconf_msg:		You should receive instructions in your email in the next few minutes
 reset_newpass_title:		Reset Password
-reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{ROOT}?t=register\n\n
+reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login.<br>
 search_update:			Searching messages
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
@@ -718,7 +718,7 @@ search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email was sent
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
+remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> is <b>ON</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> is <b>ON</b></a>
@@ -948,7 +948,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this topic
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -956,7 +956,7 @@ group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -983,7 +983,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
