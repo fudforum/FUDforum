@@ -208,26 +208,16 @@ function chng_focus(phash)
 	window.location.hash = phash;
 }
 
-// This code below is used to make PNG's to work in IE.
-// The code comes from youngpup.net. Thanks youngpup!
-
-if (!OPERA && navigator.platform == "Win32" && navigator.appName == "Microsoft Internet Explorer" && window.attachEvent) {
-	rslt = navigator.appVersion.match(/MSIE (\d+\.\d+)/, '');
-	itsAllGood = (rslt != null && Number(rslt[1]) >= 6.0);
-
-	if (itsAllGood) {
-		document.writeln('<style type="text/css">img { visibility:hidden; } </style>');
-		window.attachEvent("onload", fnLoadPngs);
-	}
+if (!OPERA && navigator.appName == "Microsoft Internet Explorer") {
+	window.attachEvent("onload", ie_png_hack);
 }
 
-function fnLoadPngs() {
-	for (var i = document.images.length - 1, img = null; (img = document.images[i]); i--) {
-		if (img.src.match(/\.png$/i) != null) {
-			var src = img.src;
-			img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='image')"
-			img.src = "blank.gif";
+function ie_png_hack()
+{
+	var i = document.images.length - 1;
+	while ((img = document.images[i--])) {
+		if (img.src.indexOf(".png") > -1) {
+			img.src = img.src.replace(/\.png$/i, ".gif");
 		}
-		img.style.visibility = "visible";
 	}
 }
