@@ -534,7 +534,7 @@ buddy_list_err_nouser:		你要添加的用户不存在
 buddy_list_err_nouser_title:	无法添加
 buddy_list_update:		浏览我的好友列表
 core_err_invinp_title:		输入错误
-core_err_invinp_err:		你输入了一个错误的链接,请更正<a href="mailto:{VAR: ADMIN_EMAIL}">网管</a>
+core_err_invinp_err:		你输入了一个错误的链接，请更正
 core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理员登陆</a>
 email_err_unabletoemail_title:	错误：无法发送邮件
 email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
@@ -664,7 +664,7 @@ ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		系统错误
-ERR_systemerr_msg:		发生系统错误,请报告错误：<a href="mailto:{GVAR: ADMIN_EMAIL}">网管</a>.
+ERR_systemerr_msg:		发生系统错误，请报告错误给管理人员。
 ERR_systemerr_url:		
 email_title:			邮件格式
 finduser_title:			查找用户
@@ -1015,5 +1015,5 @@ uc_sub_topics:			包含新帖的已订阅话题
 uc_page_title:			查看个人控制面板
 search_options:			搜索选项
 search_user_filter:		仅限作者：
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
+register_none:			不要通知
+findu_no_conf:			未验证Email
