@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.6 2003/01/17 09:45:28 hackie Exp $
+*   $Id: tabs.inc.t,v 1.7 2003/03/13 12:48:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@ if( isset($usr) ) {
 		$mod_id_chk = NULL;	
 	}
 
-	if (!is_numeric($mod_id_chk) && $pg == 'register') {
+	if (!is_numeric($mod_id_chk)) {
 		if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
 	
 		$tabs='';
