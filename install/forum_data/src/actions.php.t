@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.19 2003/05/02 13:55:06 hackie Exp $
+*   $Id: actions.php.t,v 1.20 2003/06/03 15:46:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,12 +67,17 @@
 		}
 
 		if (!$r[2] || ($usr->is_mod == 'A' || !empty($limit[$r[2]]) || $r[13])) {
-			if (($p = strpos($r[0], '?')) !== FALSE) {
-				$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
-			} else if (($p = strpos($r[0], '.php')) !== FALSE) {
-				$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				if (($p = strpos($r[0], '?')) !== FALSE) {
+					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
+				} else if (($p = strpos($r[0], '.php')) !== FALSE) {
+					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
+				} else {
+					$action = $r[0];	
+				}
 			} else {
-				$action = $r[0];	
+				$s = strpos($r[0], '"', (strpos($r[0], 'href="') + 7));
+				$action = substr_replace($r[0], _rsid, $s, 0);
 			}
 		} else {
 			$action = '{TEMPLATE: no_view_perm}';
