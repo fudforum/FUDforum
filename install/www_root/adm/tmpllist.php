@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.13 2003/04/25 01:40:46 hackie Exp $
+*   $Id: tmpllist.php,v 1.14 2003/04/25 01:43:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -339,7 +339,15 @@ function goto_tmpl($tmpl)
 		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br><br>';
 	}	
 ?>
-<font color="#008800"><b>Explanation:</b> <?php if($file_info_help[$msec.$sec]) echo $file_info_help[$msec.$sec]; ?></font><br>
+<font color="#008800"><b>Explanation:</b> 
+<?php
+	if (isset($file_info_help[$msec.$sec])) {
+		echo $file_info_help[$msec.$sec];
+	} else if (isset($sdata['comment'])) {
+		echo $sdata['comment'];
+	}
+?>
+</font><br>
 <table cellspacing=2 cellpadding=1 border=0>
 <form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&tlang=<?php echo $tlang; ?>" name="tmpledit">
 <?php echo _hs; ?>
