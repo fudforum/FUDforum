@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.6 2002/07/08 11:56:41 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.7 2002/07/17 21:45:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -423,7 +423,7 @@ function write_body($data, &$len, &$offset)
 	
 	if( !$off ) @chmod('msg_'.$i, 0600);
 	
-	chdir($curdir);
+	@chdir($curdir);
 	
 	if( $len == -1 ) exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	$offset = $off;
