@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.4 2002/08/26 10:14:55 hackie Exp $
+*   $Id: threadt.php.t,v 1.5 2002/09/02 20:03:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -149,9 +149,8 @@
 	
 				if( $thread_list_table_data ) $thread_list_table_data .= '{TEMPLATE: thread_sep}';
 			
-				while (1) {
-					if ( $stack_cnt < 1 ) break;
-					if ( !isset($cur) ) $cur = &$stack[$stack_cnt-1];
+				while ($stack_cnt>0) {
+					$cur = &$stack[$stack_cnt-1];
 		
 					if( isset($cur->subject) && empty($cur->sub_shown) ) {
 						if( $TREE_THREADS_MAX_DEPTH > $lev ) {

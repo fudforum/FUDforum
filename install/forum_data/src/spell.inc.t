@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.3 2002/07/22 14:53:37 hackie Exp $
+*   $Id: spell.inc.t,v 1.4 2002/09/02 20:04:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,6 @@ function tokenize_string($data)
 	$wa = array();
 	
 	$i=$p=0;
-	$str = '';
 	while( $i<$len ) {
 		switch( $data[$i] ) 
 		{
@@ -69,9 +68,9 @@ function tokenize_string($data)
 			case ";":
 			case '=':
 			case ':':
-				if( strlen($str) ) {
+				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					$str ='';
+					unset($str)
 				}
 				
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
@@ -79,9 +78,9 @@ function tokenize_string($data)
 				break;
 			case '<':
 				if( ($p=strpos($data, '>', $i)) ) {
-					if( strlen($str) ) {
+					if( isset($str) ) {
 						$wa[] = array('token'=>$str, 'check'=>1);
-						$str ='';
+						unset($str)
 					}
 
 					$wrd = substr($data,$i,($p-$i)+1);
@@ -127,7 +126,7 @@ function tokenize_string($data)
 					$regs = array();
 					if( preg_match("!([A-Za-z0-9\-_\.\%\?\&=/]+)!is", $tmp_string, $regs) ) {
 						$wa[] = array('token'=>$str.'//'.$regs[1], 'check'=>0);
-						$str ='';
+						unset($str)
 						                                         
 						$i += 2+strlen($regs[1]);
 						break;
@@ -135,21 +134,21 @@ function tokenize_string($data)
 				}
 				else if ( $str == 'Re' ) {
 					$wa[] = array('token'=>$str.':', 'check'=>0);
-					$str ='';
+					unset($str)
 					break;                                        
 				}
 				
-				if( strlen($str) ) {
+				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					$str ='';
+					unset($str)
 				}
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
 			
 				break;
 			case '&':
-				if( strlen($str) ) {
+				if( isset($str) ) {
 					$wa[] = array('token'=>$str, 'check'=>1);
-					$str ='';
+					unset($str)
 				}
 				
 				$regs = array();
@@ -167,10 +166,8 @@ function tokenize_string($data)
 		$i++;
 	}
 	
-	if( strlen($str) ) 
+	if( isset($str) ) 
 		$wa[] = array('token'=>$str, 'check'=>1);
-	
-	reset($wa);
 	
 	return $wa;
 }
