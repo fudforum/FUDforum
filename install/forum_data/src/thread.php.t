@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.38 2004/09/23 19:21:42 hackie Exp $
+* $Id: thread.php.t,v 1.39 2004/10/22 22:44:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,9 +89,7 @@
 					$i = 0;
 				}
 
-				for ($i; $i < $pgcount; $i++) {
-					$st_pos = $i * $ppg;
-					$pg_num = $i + 1;
+				while ($i < $pgcount) {
 					$mini_pager_data .= '{TEMPLATE: mini_pager_entry}';
 				}
 
@@ -134,8 +132,6 @@
 					$thread_read_status = '{TEMPLATE: thread_read}';
 				}
 			}
-
-			$thread_first_post = '{TEMPLATE: thread_first_post}';
 
 			if ($admin_heading_row) {
 				if ($MOD || (($frm->group_cache_opt & 8224) == 8224)) {

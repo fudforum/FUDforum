@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.20 2004/07/02 16:54:28 hackie Exp $
+* $Id: thread.tmpl,v 1.21 2004/10/22 22:44:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,7 +25,7 @@
 {REF: thread_view_common.tmpl}
 
 {SECTION: mini_pager_entry_lnk}
-{ROOT}/m/0/{VAR: r[13]}/{VAR: st_pos}/{DEF: _rsid}
+{ROOT}/m/0/{VAR: r[13]}/{FUNC: ($i * $ppg)}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: first_unread_msg_link_lnk}
