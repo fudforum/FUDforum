@@ -96,8 +96,8 @@ no_unread_msg_unreg:		Pøeètené i nepøeètené zprávy jsou k nahlédnutí jen pro reg
 num_pages:			Stránek ({VAR: ttl_pg}):
 num_votes:			{VAR: total_votes} hlasù
 occupation:			Obsazení:
-off:				Zapnuto
-on:				Vypnuto
+off:				Vypnuto
+on:				Zapnuto
 page_timings:			Celkový èas potøebný k vygenerování této stránky: {VAR: page_gen_time} vteøin
 fud_query_stats:		MySQL dotazy zabraly {VAR: ttl_time} vteøin<br>
 pm:				Po¹ta
@@ -133,8 +133,8 @@ sel_unread_messages:		Nepøeètené zprávy
 sel_unread_messages_desc:	Zapnout/vypnout filtr nepøeètených zpráv (budou zobrazeny jen nepøeètené zprávy)
 send:				Odeslat
 send_pm_desc:			Odeslat po¹tu tomuto u¾ivateli
-sender_email:			Email odesilatele:
-sender_name:			Jméno odesliatele:
+sender_email:			Email odesílatele:
+sender_name:			Jméno odesílatele:
 show_all_posts:			Zobrazit v¹echny pøíspìvky od {VAR: user_login}
 show_posts_by:			Zobrazit pøíspìvky od: {VAR: u->alias}
 size:				Velikost:
@@ -332,7 +332,7 @@ register_invisible_mode_desc:	Aèkoliv budete online, ostatní to neuvidí.
 register_show_email:		Zobrazit emailovou adresu:
 register_show_email_desc:	Vyberte pokud chcete zveøejnit va¹i emailovou adresu.
 register_notification:		Výchozí nastavení oznámení:
-register_notification_desc:	Pkud je nastaveno, mù¾e by potlaèeno pøi posílíní pøíspevku.
+register_notification_desc:	Pokud je nastaveno, mù¾e by potlaèeno pøi posílíní pøíspevku.
 register_notify_method:		Vyberte zpùsob oznámení:
 register_notify_method_desc:	Pokud chcete dostávat oznámení pøes ICQ, prosím, nezapomeòte zapnout 'EmailExpress' ve va¹em ICQ nastavení
 register_notify_js_error:	Nastavil(a) jste oznámení pøes ICQ, ale nezadal(a) jste ICQ èíslo. Nastavení bude zmìnìno na email!
@@ -389,7 +389,7 @@ post_title:			Titulek:
 post_body:			Obsah:
 post_options:			Volby:
 post_preview_btn:		Náhled zprávy
-post_processing_msg:		Vá¹ úøíspìvek je zpracováván
+post_processing_msg:		Vá¹ pøíspìvek je zpracováván
 ignore_users:			Ignorovaní u¾ivatelé
 add_ignore:			Pøidat ignorovaného
 forum_terms:			Podmínky fóra
@@ -495,7 +495,7 @@ mklist_square:			Ètverec
 mklist_disc:			Ovál
 mklist_circle:			Kruh
 mklist_close:			Zavøít
-email_to:			Pro:
+email_to:			Pro (Komu):
 email_name:			Jméno:
 email_email:			Email:
 email_pg_title:			Email
@@ -529,7 +529,7 @@ poll_day:			den
 poll_days:			dní
 poll_hour:			hodina
 poll_hours:			hodin
-poll_month:			mesíc
+poll_month:			mìsíc
 poll_year:			rok
 poll_week:			týden
 tabs_register:			Nastavení
@@ -538,7 +538,7 @@ tabs_referrals:			Pøivedení
 tabs_buddy_list:		Seznam pøátel
 tabs_ignore_list:		Seznam ignorovaných
 tabs_private_messaging:		Po¹ta
-single_msg_delete:		Hodláte <font color="#ff0000" size="4">SMAZAT</font> zprávu navanou: <b>{VAR: msg->subject}</b><p>
+single_msg_delete:		Hodláte <font color="#ff0000" size="4">SMAZAT</font> zprávu nazvanou: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Hodláte <font color="#ff0000" size="4">SMAZAT CELÉ TÉMA</font> nazvané: <b>{VAR: msg->subject}</b><p>
 delete_proceed:			<font size="3"><b>Chcete pokraèovat?</b></font>
 delete_yes:			Ano
@@ -740,7 +740,7 @@ mvthread_submit_req:		Odeslat po¾adavek
 thread_exchange:		Výmìna tématu
 move_request_by:		Po¾adavek o pøesun od:
 move_reason:			Dùvod po¾adavku:
-thr_exch_accept:		prijmout téma
+thr_exch_accept:		pøijmout téma
 thr_exch_decline:		odmítnout téma
 thr_exch_orig_forum:		Pùvodní fórum:
 thr_exch_dest_forum:		Cílové fórum:
@@ -774,7 +774,7 @@ permission_denied_msg:		Va¹e práva vám nedovolují provést poadovanou akci.
 p_READ:				Èíst
 p_POST:				Poslat
 p_REPLY:			Odpovìdìt
-p_EDIT:				Zmìnít
+p_EDIT:				Zmìnit
 p_DEL:				Smazat
 p_STICKY:			Vývìsky
 p_POLL:				Vytvoø ankety
@@ -784,7 +784,7 @@ p_RATE:				Ohodnotit témata
 p_SPLIT:			Rozdìlit témata
 p_LOCK:				Uzamknout témata
 p_MOVE:				Pøesunout témata
-p_SML:				Po¾ívat smajlíky
+p_SML:				Pou¾ívat smajlíky
 p_IMG:				Pou¾ívat obrázkové tagy
 group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Hledat u¾ivatele</a>
 group_mgr_indicator:		Nyní mìníte: <b>{VAR: grp->name}</b>
@@ -820,7 +820,7 @@ online_today_update:		Prohlí¾íte si seznam lidí, kteøí dnes fórum nav¹tívili.
 logedin_todays_visitors:	seznam dne¹ních náv¹tìvníkù
 logedin_latest_post:		Poslední pøíspìvek na fóru: 
 register_show_avatar:		Ukázat ikony u¾ivatelù:
-register_show_avatar_desc:	Umo¾òuje vám skýt ikony u¾ivatelù, kdy¾ si prohlí¾íte jejich zprávy
+register_show_avatar_desc:	Umo¾òuje vám skrýt ikony u¾ivatelù, kdy¾ si prohlí¾íte jejich zprávy
 drawmsg_view_rest_post:		Ukázat zbytek zprávy
 post_re:			Re: 
 forumsel_goto_forum:		Jít na fórum:
@@ -848,7 +848,7 @@ report_already_reported_title:	Ji¾ nahlá¹eno
 report_already_reported_msg:	Tato zpráva byla ji¾ nahlá¹ena a hlá¹ení èeká na vyøízení.
 register_err_toomanyimages:	Sna¾íte se pou¾ít více obrázkù ve va¹em podpisu ne¾ povolených {GVAR: FORUM_IMG_CNT_SIG}.
 pmsg_next_msg:			Dal¹í zpráva
-pmsg_prev_msg:			Pøedchoz zpráva
+pmsg_prev_msg:			Pøedchozí zpráva
 post_proc_reveal_spoiler:	Odkrýt naru¹itele
 register_jabber:		Jabber identifikátor:
 im_jabber:			Jabber: 
@@ -920,3 +920,4 @@ err_mod_acc_ttl:		Neovìøený úèet
 err_mod_acc_msg:		Administrátor se rozhodl, ¾e bude prohlí¾et v¹echny úèty manuálnì pøed jejich aktivací. Dokud vá¹ úèet nebude opvìøen administrátorem, nebudete mít mo¾nost vyu¾ít v¹ech výhod úètu.
 accounts_pending_approval:	Úèty ke schválení
 saved:				Ulo¾ené
+
