@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.42 2003/10/09 14:34:25 hackie Exp $
+* $Id: compiler.inc,v 1.43 2003/10/10 18:39:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -34,7 +34,7 @@ function resolve_refs($file_name)
 	/* Fetch file definition */
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
-		$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
+		$file1 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
 		if (($str = @file_get_contents($file1)) === false) {
 			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
 		}
@@ -53,6 +53,12 @@ function resolve_refs($file_name)
 		parse_sections($str, '');
 	}
 
+	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
+		if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name)) !== false) {
+			parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
+		}
+	}
+
 	$p = 0;
 	while (($p = strpos($str, '{REF: ', $p)) !== false) {
 		$p += 6;
@@ -69,7 +75,7 @@ function resolve_refs($file_name)
 
 $GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
 
-function parse_sections($str, $file)
+function parse_sections($str, $file, $sl=0)
 {
 	$PHP_FILE = ($file && substr($file, -4) == '.php') ? 1 : 0;
 
@@ -90,7 +96,15 @@ function parse_sections($str, $file)
 			++$e;
 
 			if (isset($tr[$name])) {
-				exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
+				if (!$sl) {
+					exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
+				} else {
+					if (($e2 = strpos($str, $v .'END}', $e)) === false) {
+						exit('unterminated tag '.$k.' inside '.$file);
+					}
+					$p = $e2 + strlen($v) + 4;
+					continue;
+				}
 			}
 
 			if (($e2 = strpos($str, $v .'END}', $e)) === false) {
@@ -267,7 +281,6 @@ function compile_file($source)
 			exit('Undefined template: "'.$name.'" inside "'.$source.'"');
 		}
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
-
 		$ref = resolve_sections($ref);
 
 		if ($sec == 'PAGE') {
@@ -390,10 +403,18 @@ function build_msg($file)
 	 * files to be used inside themes
 	 */
 	$ts = substr(strstr(dirname($file), '/'), 1);
-	$ts = $GLOBALS['DATA_DIR'] . 'theme/default/i18n/' . $ts . '/msg';
+	$ts = $GLOBALS['DATA_DIR'] . 'thm/default/i18n/' . $ts . '/msg';
 
-	parse_msgs($file);
-	if (@file_exists($ts)) {
+	$GLOBALS['CURFILE'] = '';
+
+	if (file_exists($file)) {
+		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
+			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '');
+		}
+		parse_msgs($file);
+	}
+	if ($ts != $file && file_exists($ts)) {
+		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/messages'), '', 1);
 		parse_msgs($ts);
 	}
 }
@@ -519,6 +540,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 		if (substr($file, -5) != '.tmpl') {
 			continue;
 		}
+
 		resolve_compile($file);
 		if (isset($GLOBALS['file_cache'][$file]['inline'])) {
 			continue;
