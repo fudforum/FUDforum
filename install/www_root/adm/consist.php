@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.99 2004/12/20 14:44:12 hackie Exp $
+* $Id: consist.php,v 1.100 2004/12/20 15:02:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -166,20 +166,7 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding moderators');
 
 	draw_stat('Checking if all private messages have users');
-	$dpm = array();
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm
-		LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id
-		LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id
-		WHERE (pm.pmsg_opt & 16) > 0 AND (u.id IS NULL OR u2.id IS NULL)');
-	while ($r = db_rowarr($c)) {
-		$dpm[] = $r[0];
-	}
-	if (($cnt = count($dpm))) {
-		foreach ($dpm as $v) {
-			pmsg_del($v, 5);
-		}
-	}
-	draw_info($cnt);
+	delete_zero($tbl.'pmsg', 'SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id WHERE (pm.pmsg_opt & 16) > 0 AND (u.id IS NULL OR u2.id IS NULL)');
 
 	draw_stat('Checking messages against users & threads');
 	delete_zero($tbl.'msg', 'SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'users u ON u.id=m.poster_id LEFT JOIN '.$tbl.'thread t ON t.id=m.thread_id LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE (m.poster_id!=0 AND u.id IS NULL) OR t.id IS NULL OR f.id IS NULL');
@@ -642,14 +629,17 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding group cache');
 
 	draw_stat('Validating User/Theme Relations');
-	$te = array();
-	$c = uq('SELECT u.id FROM '.$tbl.'users u LEFT JOIN '.$tbl.'themes thm ON thm.id=u.theme WHERE thm.id IS NULL');
-	while (list($uid) = db_rowarr($c)) {
-		$te[] = $uid;
-	}
-	if ($te) {
-		$tid = q_singleval('SELECT id FROM '.$tbl.'themes WHERE theme_opt=3');
-		q('UPDATE '.$tbl.'users SET theme='.$tid.' WHERE id IN('.implode(',', $te).')');
+	if (__dbtype__ == 'pgsql' || $FUD_OPT_3 & 1024) {
+		q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 3) > 0 ) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0) )');
+	} else {
+		$te = array();
+		$c = uq('SELECT u.id FROM '.$tbl.'users u LEFT JOIN '.$tbl.'themes thm ON thm.id=u.theme WHERE thm.id IS NULL');
+		while (list($uid) = db_rowarr($c)) {
+			$te[] = $uid;
+		}
+		if ($te) {
+			q('UPDATE '.$tbl.'users SET theme='.q_singleval('SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 3) > 0').' WHERE id IN('.implode(',', $te).')');
+		}
 	}
 	draw_stat('Done: Validating User/Theme Relations');
 
@@ -658,7 +648,7 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding Forum/Category order cache');
 
 	draw_stat('Remove absolete entries inside sessions table');
-	q("DELETE FROM ".$tbl."ses WHERE user_id>2000000000 AND time_sec < ".__request_timestamp__." - ".$SESSION_TIMEOUT);
+	q("DELETE FROM ".$tbl."ses WHERE user_id>2000000000 AND time_sec < ".(__request_timestamp__ - $SESSION_TIMEOUT));
 	draw_stat('Done: Removing absolete entries inside sessions table');
 
 	draw_stat('Unlocking database');
