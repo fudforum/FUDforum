@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
+*   $Id: polllist.php.t,v 1.3 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,8 +79,6 @@
 			$vote_lnk = '';
 			
 		if( $obj->owner && ($obj->invisible_mode=='N' || $usr->is_mod == 'A') && $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' ) {
-			$user_login = htmlspecialchars($obj->login);
-		
 			if( ($obj->last_visit + $GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__ ) 
 				$online_indicator = '{TEMPLATE: polllist_online_indicator}';
 			else

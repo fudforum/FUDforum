@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.7 2002/07/30 14:34:37 hackie Exp $
+*   $Id: post.php.t,v 1.8 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,7 +155,8 @@
 				$msg_body = apply_reverse_replace($msg->body);
 				$msg_body = post_to_smiley(str_replace("\r", '', $msg_body));
 				
-				$msg->login = ( !empty($msg->login) ) ? htmlspecialchars($msg->login) : htmlspecialchars($GLOBALS['ANON_NICK']);
+				if( !strlen($msg->login) ) $msg->login = $GLOBALS['ANON_NICK'];
+				reverse_FMT($msg->login);
 				
 				switch ( $frm->tag_style )
 				{

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.8 2002/07/30 22:56:32 hackie Exp $
+*   $Id: tree.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -207,14 +207,10 @@ if( @is_array($tree->kiddies) ) {
 		if ( !isset($cur) ) $cur = &$stack[$stack_cnt-1];
 		
 		if( isset($cur->subject) && empty($cur->sub_shown) ) {
-			if( $cur->poster_id ) {
-				$user_login = htmlspecialchars(trim_show_len($cur->login,'LOGIN'));
+			if( $cur->poster_id )
 				$user_login = '{TEMPLATE: reg_user_link}';
-			}				
-			else {
-				$user_login = htmlspecialchars(trim_show_len($GLOBALS['ANON_NICK'], 'LOGIN'));
+			else
 				$user_login = '{TEMPLATE: anon_user}';
-			}	
 			
 			$width = 6*($lev-1);
 				

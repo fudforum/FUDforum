@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.3 2002/07/09 14:54:09 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,6 +32,7 @@
 {REF: groups.tmpl}
 {REF: is_perms.tmpl}
 {REF: draw_select_opt.tmpl}
+{REF: rev_fmt.tmpl}
 
 {SECTION: group_selection allows group manager to choose which group to edit}
 <br><br>
@@ -97,7 +98,7 @@
 {PAGE: END}
 
 {SECTION: member_add add new member}
-<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: login_error}<input type="text" name="gr_member" value="{VAR: gr_member}">&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]</td></tr>
+<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: login_error}<input type="text" name="gr_member" value="{VAR-HTML: gr_member}">&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]</td></tr>
 {SECTION: END}
 
 {SECTION: member_edit edit an existing member}

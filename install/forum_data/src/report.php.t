@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: report.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Post Editor Page */
 	{PRE_HTML_PHP}
 
 	$flt = new fud_ip_filter;
@@ -58,7 +57,7 @@
 	}
 
 	{POST_HTML_PHP}
-	$user_login = ( !empty($msg->login) ) ? htmlspecialchars($msg->login) : htmlspecialchars($GLOBALS['ANON_NICK']);
+	$user_login = ( strlen($msg->login) ) ? $msg->login : $GLOBALS['ANON_NICK'];
 	$return_field = create_return();
 	{POST_PAGE_PHP_CODE}
 ?>

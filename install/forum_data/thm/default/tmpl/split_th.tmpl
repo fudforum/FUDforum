@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: split_th.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -39,7 +39,7 @@
 <table cellspacing=1 cellpadding=2 border=0 class="ContentTable">
 <tr class="RowStyleB">
 	<td><font size="-1">
-	<b>{MSG: split_th_post_by}</b> {VAR-HTML: obj->login}<br>
+	<b>{MSG: split_th_post_by}</b> {VAR: obj->login}<br>
 	<b>{MSG: split_th_posted_on}</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}<br>
 	<b>{MSG: split_th_subject}</b> {VAR: obj->subject}
 	</font></td>

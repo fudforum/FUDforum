@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.12 2002/07/30 14:35:21 hackie Exp $
+*   $Id: register.php.t,v 1.13 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -173,7 +173,11 @@ function register_form_check($user_id)
 	
 	/* Alias Check */
 	if( $GLOBALS['USE_ALIASES'] == 'Y' && $GLOBALS['HTTP_POST_VARS']['reg_alias'] ) {
-		if( ($val=get_id_by_alias($GLOBALS['HTTP_POST_VARS']['reg_alias'])) && $val != $GLOBALS['usr']->id )
+		$alias = stripslashes($GLOBALS['HTTP_POST_VARS']['reg_alias']);
+		if( isset($alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $alias = substr($alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
+		$alias = addslashes(htmlspecialchars($alias));
+	
+		if( ($val=get_id_by_alias($alias)) && $val != $GLOBALS['usr']->id )
 			set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');	
 	}
 		
@@ -350,7 +354,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		$usr->alias = stripslashes($usr->alias);
 		reverse_FMT($usr->alias);
 		$usr->alias = addslashes($usr->alias);
-	
+
 		if( empty($usr->id) ) {
 
 			$usr->login = stripslashes($usr->login);
@@ -523,7 +527,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	$reg_sig_err = draw_err('reg_sig');
 	$reg_alias_err = draw_err('reg_alias');
 
-	if( $HTTP_POST_VARS['reg_alias'] ) reverse_FMT($reg_alias);
+	reverse_FMT($reg_alias);
 
 	$reg_alias_t = ($GLOBALS['USE_ALIASES'] != 'Y' ? '' : '{TEMPLATE: reg_alias}');
 

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.4 2002/07/30 00:25:51 hackie Exp $
+*   $Id: thread.tmpl,v 1.5 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -171,11 +171,11 @@
 {SECTION: END}
 
 {SECTION: unreg_user_link}
-{VAR: unreg_user_link}
+{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a href="{ROOT}?t=usrinfo&id={VAR: obj->last_poster_id}&{DEF: _rsid}">{VAR: reg_user_link}</a>
+<a href="{ROOT}?t=usrinfo&id={VAR: obj->last_poster_id}&{DEF: _rsid}">{VAR: obj->last_poster_login}</a>
 {SECTION: END}
 
 {SECTION: last_msg_in_thread}
@@ -187,11 +187,11 @@
 {SECTION: END}
 
 {SECTION: first_post_unreg_user_link if the thread stater was an anon user link}
-{VAR: first_post_login}
+{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: first_post_reg_user_link if the thread stater was a registered user link}
-<a href="{ROOT}?t=usrinfo&id={VAR: obj->starter_id}&{DEF: _rsid}">{VAR: first_post_login}</a>
+<a href="{ROOT}?t=usrinfo&id={VAR: obj->starter_id}&{DEF: _rsid}">{VAR: obj->login}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}

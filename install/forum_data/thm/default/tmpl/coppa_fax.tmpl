@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa_fax.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: coppa_fax.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@
 </pre>
 <table border=1 cellspacing=1 cellpadding=3>
 <tr><td colspan=2>{MSG: coppa_fax_reg_form}</td></tr>
-<tr><td>{MSG: coppa_fax_login}</td><td>{VAR-HTML: usr->login}</td></tr>
+<tr><td>{MSG: coppa_fax_login}</td><td>{VAR: usr->login}</td></tr>
 <tr><td>{MSG: coppa_fax_passwd}</td><td>&lt;HIDDEN&gt;</td></tr>
 <tr><td>{MSG: coppa_fax_remail}</td><td>{VAR: usr->email}</td></tr>
 <tr><td>{MSG: coppa_fax_name}</td><td>{VAR: usr->name}</td></tr>

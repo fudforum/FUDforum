@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.12 2002/07/30 14:34:37 hackie Exp $
+*   $Id: pmsg.php.t,v 1.13 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,8 +131,6 @@
 		$goto = ( $folder_id != 'DRAFT' ) ? '{ROOT}?t=pmsg_view&'._rsid.'&id='.$obj->id : '{ROOT}?t=ppost&'._rsid.'&msg_id='.$obj->id;
 		$pmsg_status = ( $obj->read_stamp ) ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
 		if( $obj->track=='Y' && $obj->mailed=='Y' && $obj->duser_id==$usr->id && $obj->ouser_id!=$usr->id ) $deny_recipt = '{TEMPLATE: deny_recipt}'; else $deny_recipt = '';
-		
-		$user_login = htmlspecialchars($obj->login);
 		
 		if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' && $usr->is_mod != 'A' ) {
 			if( ($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__ ) 

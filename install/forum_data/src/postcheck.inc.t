@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.5 2002/07/22 14:53:37 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,12 +80,13 @@ function check_ppost_form()
 		set_err('msg_file', '{TEMPLATE: postcheck_not_allowed_file}');
 	}
 	
-	$GLOBALS['msg_to_list'] = trim($GLOBALS['msg_to_list']);
-	$list = explode(";", $GLOBALS['msg_to_list']);
+	$GLOBALS['msg_to_list'] = $check = trim($GLOBALS['msg_to_list']);
+	reverse_FMT($check);
+	$list = explode(";", $check);
 	foreach($list as $v) {
 		$v = trim($v);
 		if( strlen($v) ) {
-			$r = q("SELECT {SQL_TABLE_PREFIX}users.pm_messages, {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.alias='".addslashes($v)."'");	
+			$r = q("SELECT {SQL_TABLE_PREFIX}users.pm_messages, {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.alias='".addslashes(htmlspecialchars($v))."'");	
 			if( !is_result($r) ) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;

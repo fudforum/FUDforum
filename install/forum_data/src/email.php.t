@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.3 2002/07/30 14:35:21 hackie Exp $
+*   $Id: email.php.t,v 1.4 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,52 +58,39 @@ function mail_check()
 		if ( !strlen(trim($GLOBALS['tx_name'])) )
 			set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
 			
-		$u_name = $GLOBALS['tx_name'];
-		reverse_FMT($u_name);
-
-		if ( !get_id_by_alias(addslashes($u_name)) ) {
+		if ( !get_id_by_alias($GLOBALS['tx_name']) )
 			set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
-		}
 	}
 	
 	return $GLOBALS['error'];
 }
 	
-	if( isset($email_open) ) {
-		$tx_body = stripslashes($tx_body);
-		$tx_subject = stripslashes($tx_subject);
-		$tx_name = stripslashes($tx_name);
-	}
-	
-	if( $HTTP_GET_VARS['tx_name'] ) $tx_name = stripslashes($HTTP_GET_VARS['tx_name']);
-	
-	if( empty($email_open) ) $email_open = '';
-	if( empty($tx_subject) ) $tx_subject = '';
-	if( empty($tx_body) ) $tx_body = '';
+	if( isset($HTTP_GET_VARS['tx_name']) )$tx_name = stripslashes($HTTP_GET_VARS['tx_name']);
+	if( isset($HTTP_POST_VARS['tx_subject']) ) $tx_subject = stripslashes($tx_subject);
+	if( isset($HTTP_POST_VARS['tx_body']) ) $tx_body = stripslashes($tx_body);
 	
 	if ( !empty($btn_submit) && !mail_check() ) {
-		if ( $email_open ) {
+		if ( $HTTP_POST_VARS['email_open'] ) {
 			$tx_body = "\n\n".$tx_body;
 			reverse_FMT($tx_name);
 			$to = $tx_name.' <'.$tx_email.'>';
 		}
 		else {
 			$usr_dst = new fud_user;
-			reverse_FMT($tx_name);
-			$usr_dst->get_user_by_id(get_id_by_alias(addslashes($tx_name)));
+			$usr_dst->get_user_by_id(get_id_by_alias($tx_name));
 			if ( !strlen($usr_dst->email) || $usr_dst->email_messages!='Y') {
 				error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}', $GLOBALS['HTTP_REFERER'], 'FATAL');
 				exit();
 			}
-			/* email here */
-			reverse_FMT($usr->login);
-			reverse_FMT($usr_dst->login);
-			$to = $usr_dst->login.' <'.$usr_dst->email.'>';
+			reverse_FMT($usr_dst->alias);
+			$to = $usr_dst->alias.' <'.$usr_dst->email.'>';
 		}
 		
 		send_email($usr->email, $to, $tx_subject, $tx_body, $to_str);
 		check_return();
 	}
+	else if( !empty($btn_submit) && isset($HTTP_POST_VARS['tx_name']) )
+		$tx_name = htmlspecialchars(stripslashes($HTTP_POST_VARS['tx_name']));
 	
 	/* start page */
 	$TITLE_EXTRA = ': {TEMPLATE: email_title}';

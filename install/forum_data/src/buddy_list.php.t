@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.9 2002/07/30 14:34:37 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.10 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,9 +86,8 @@
 		$buddies='';
 		while( $obj = db_rowobj($res) ) {
 			$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
-			$user_login = htmlspecialchars($obj->login);
 			
-			if( $obj->invisible_mode=='N' && $usr->is_mod != 'A' ) 
+			if( $obj->invisible_mode=='Y' && $usr->is_mod != 'A' ) 
 				$online_status = '';
 			else if( $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__ ) 
 				$online_status = '{TEMPLATE: online_indicator}';

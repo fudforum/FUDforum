@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.6 2002/07/30 14:35:21 hackie Exp $
+*   $Id: ppost.php.t,v 1.7 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,6 +87,9 @@
 				export_vars('msg_', $msg_r);
 				$msg_id=$msg_to_list=$msg_duser_id='';
 				$msg_body = post_to_smiley($msg_body);
+				
+				reverse_FMT($msg_r->login);
+				
 				switch ( $GLOBALS['PRIVATE_TAGS'] )
 				{
 					case 'ML':
@@ -160,11 +163,12 @@
 			else
 				$HTTP_POST_VARS["btn_submit"] = 1;
 		}
-		
 		/* remove slashes */
 		foreach($HTTP_POST_VARS as $k => $v) { 
 			if( !empty($HTTP_POST_VARS[$k]) ) $HTTP_POST_VARS[$k] = $GLOBALS[$k] = stripslashes($HTTP_POST_VARS[$k]);
 		}
+		
+		$msg_to_list = htmlspecialchars($msg_to_list);
 	}
 
 	$MAX_F_SIZE = round($PRIVATE_ATTACH_SIZE/1024);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: thread.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -156,23 +156,15 @@
 		else
 			$stick_status = '';	
 			
-		if( $obj->last_poster_id ) {
-			$reg_user_link = htmlspecialchars(trim_show_len($obj->last_poster_login,'LOGIN'));
+		if( $obj->last_poster_id )
 			$user_link = '{TEMPLATE: reg_user_link}';
-		}
-		else {
-			$unreg_user_link = htmlspecialchars(trim_show_len($GLOBALS["ANON_NICK"],'LOGIN'));
+		else
 			$user_link = '{TEMPLATE: unreg_user_link}'; 
-		}	
 
-		if( $obj->starter_id ) {
-			$first_post_login = htmlspecialchars(trim_show_len($obj->login,'LOGIN'));
+		if( $obj->starter_id )
 			$first_post_login = '{TEMPLATE: first_post_reg_user_link}';
-		}	
-		else {
-			$first_post_login = htmlspecialchars(trim_show_len($GLOBALS["ANON_NICK"],'LOGIN'));
+		else 
 			$first_post_login = '{TEMPLATE: first_post_unreg_user_link}';
-		}	
 
 		$thread_first_post = '{TEMPLATE: thread_first_post}';
 		

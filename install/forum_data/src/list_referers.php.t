@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: list_referers.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,12 +34,9 @@
 			$r_list='';		
 			$r = q("SELECT alias,id FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$obj->id);
 			$refered_entry_data = '';
-			while ( list($rf_login,$rf_id) = db_rowarr($r) ) {
-				$rf_login = htmlspecialchars($rf_login);
+			while ( list($rf_login,$rf_id) = db_rowarr($r) )
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
-			}
 			qf($r);
-			$user_login = htmlspecialchars($obj->login);
 			$referer_entry_data .= '{TEMPLATE: referer_entry}';
 
 			$i++;

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.5 2002/07/30 00:25:51 hackie Exp $
+*   $Id: index.tmpl,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -96,7 +96,7 @@
 {SECTION: END}
 
 {SECTION: profile_link_user}
-<a href="{VAR: profile_link}" class="GenLink">{VAR: user_name}</a>
+<a href="{VAR: profile_link}" class="GenLink">{VAR: data->user_login}</a>
 {SECTION: END}
 
 {SECTION: profile_link_mod}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.7 2002/07/30 14:34:37 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.8 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,6 @@ function convert_bdate($val, $month_fmt)
 	}
 	qf($r);
 	
-	$user_info = htmlspecialchars($u->alias);
 	{POST_HTML_PHP}
 	$TITLE_EXTRA = ': '.'{TEMPLATE: user_info_l}';
 	if ( isset($ses) ) $ses->update('{TEMPLATE: userinfo_update}');

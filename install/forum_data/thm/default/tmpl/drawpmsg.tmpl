@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -190,11 +190,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: user_login}</a><br>{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: obj->login}</a><br>{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
 {SECTION: END}
 
 {SECTION: dpmsg_profile_no_link user's name without the link to the profile}
-{VAR: user_login}
+{VAR: obj->login}
 {SECTION: END}
 
 {SECTION: dpmsg_prev_message link to the previous message}

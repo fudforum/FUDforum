@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.8 2002/07/30 22:56:32 hackie Exp $
+*   $Id: search.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,14 +48,10 @@
 				$body = strip_tags(read_msg_body($obj->foff, $obj->length, $obj->file_id));
 				if( strlen($body) > 80 ) $body = substr($body,0,80).'...';
 			
-				if ( !empty($obj->poster_id) ) {
-					$user_login = trim_show_len($obj->login,'LOGIN');
+				if ( !empty($obj->poster_id) )
 					$poster_info = '{TEMPLATE: registered_poster}';
-				}
-				else {
-					$user_login = trim_show_len($GLOBALS['ANON_NICK'],'LOGIN');
+				else
 					$poster_info = '{TEMPLATE: unregistered_poster}';
-				}
 			
 				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';

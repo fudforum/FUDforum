@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.tmpl,v 1.1 2002/07/21 22:13:28 hackie Exp $
+*   $Id: polllist.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -42,7 +42,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td width="100%">{VAR: obj->name}</td>
 	<td nowrap>{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
-	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&id={VAR: obj->owner}&{DEF: _rsid}">{VAR-HTML: obj->login}</a></td>
+	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&id={VAR: obj->owner}&{DEF: _rsid}">{VAR: obj->login}</a></td>
 	<td align="center" nowrap>{VAR: poll_vote_counts[$obj->id]}</td>
 	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->msg_id}&pl_view={VAR: obj->id}&{DEF: _rsid}">{MSG: polllist_view_results}</a></td>
 </tr>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: referals.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,6 @@
 			$i=0;
 			$refered_entry_data = '';
 			while ( $obj = db_rowobj($res) ) {
-				$user_login = htmlspecialchars($obj->login);
 				if( $GLOBALS['PM_ENABLED'] == 'Y' && isset($usr) ) 
 					$pm_link = '{TEMPLATE: pm_link}';
 				else  
@@ -60,8 +59,6 @@
 	if( empty($ttl) ) {
 		$refered_entry_data = '{TEMPLATE: no_refered}';
 	}
-	
-	$r_login = htmlspecialchars($r_login);
 	
 	{POST_PAGE_PHP_CODE}
 	

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: thr_exch.tmpl,v 1.2 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,7 +35,7 @@
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 	<tr class="RowStyleB">
 		<td align=left nowrap valign=top>
-			<font class="SmallText"><b>{MSG: move_request_by}</b> <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->req_by}&{DEF: _rsid}">{VAR-HTML: obj->login}</a><br></font>
+			<font class="SmallText"><b>{MSG: move_request_by}</b> <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->req_by}&{DEF: _rsid}">{VAR: obj->login}</a><br></font>
 		</td>
 		<td align=center width="100%" valign=top>
 			<font class="SmallText">

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,10 +35,8 @@
 		$ord = "id DESC";	
 	
 	if ( !empty($btn_submit) ) {
-		if( __dbtype__ == 'pgsql' ) {
-			$usr_login = str_replace('\\', '\\\\', $usr_login);
-			$usr_email = str_replace('\\', '\\\\', $usr_email);
-		}
+		$usr_login = str_replace('\\', '\\\\', $usr_login);
+		$usr_email = str_replace('\\', '\\\\', $usr_email);
 		
 		if ( $usr_login )
 			$qry = "WHERE LOWER(alias) LIKE '".strtolower(addslashes($usr_login))."%'";
@@ -47,13 +45,8 @@
 		else 
 			$qry = '';	
 		
-		if( __dbtype__ == 'pgsql' ) {
-		        $usr_login = str_replace('\\\\', '\\', $usr_login);
-			$usr_email = str_replace('\\\\', '\\', $usr_email);
-		}	
-			
-		$user_login = htmlspecialchars($usr_login);
-		$user_email = htmlspecialchars($usr_email);
+		$usr_login = str_replace('\\\\', '\\', $usr_login);
+		$usr_email = str_replace('\\\\', '\\', $usr_email);
 			
 		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
 		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord);
@@ -63,9 +56,9 @@
 			$i=0;
 			while ( $obj = db_rowobj($res) ) {
 				if ( $overwrite )
-					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addslashes(htmlspecialchars($obj->alias)).'\'; window.close();';
+					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addslashes($obj->alias).'\'; window.close();';
 				else 
-					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=window.opener.document.'.$js_redr.'.value+\''.addslashes(htmlspecialchars($obj->alias)).'; \'; window.close();';
+					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=window.opener.document.'.$js_redr.'.value+\''.addslashes($obj->alias).'; \'; window.close();';
 				
 				$find_user_data .= '{TEMPLATE: user_result_entry}';
 				$i++;

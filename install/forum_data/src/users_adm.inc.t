@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.5 2002/07/26 11:40:40 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ class fud_user_adm extends fud_user_reg
 	{
 		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+'); }
 		$this->de_moderate();
-		$u_entry = $this->id."\n".addslashes(htmlspecialchars(trim_show_len($this->login,'LOGIN')));
+		$u_entry = $this->id."\n".addslashes($this->login);
 		
 		if( __dbtype__ == 'mysql' ) 
 			q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
@@ -180,5 +180,4 @@ function fud_user_to_adm($obj)
 	user_copy_object($obj, $u);
 	return $u;
 }
-
 ?>

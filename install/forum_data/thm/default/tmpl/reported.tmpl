@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.tmpl,v 1.2 2002/07/18 03:01:51 hackie Exp $
+*   $Id: reported.tmpl,v 1.3 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,11 +27,11 @@
 {REF: logaction.tmpl}
 
 {SECTION: reported_reg_user_link reportee profile link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->report_user_id}&{DEF: _rsid}">{VAR: user_login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->report_user_id}&{DEF: _rsid}">{VAR: obj->report_user_login}</a>
 {SECTION: END}
 
 {SECTION: reported_anon_user if reportee is anon section}
-{VAR: user_login}
+{GVAR: ANON_NICK}
 {SECTION: END}
 
 {SECTION: reported_msg_header}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.5 2002/07/30 00:25:51 hackie Exp $
+*   $Id: finduser.tmpl,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,6 +26,8 @@
 {REF: imsg.tmpl}
 {REF: th.tmpl}
 {REF: forum.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: alt_var.tmpl}
 
 {PAGE: FINDUSER_PAGE user search form}
 {TEMPLATE: header}
@@ -57,7 +59,7 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{VAR: class}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR-HTML: obj->alias}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->alias}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
@@ -68,7 +70,7 @@
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0></a>
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
@@ -76,7 +78,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0></a>
+<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->alias}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0></a>
 {SECTION: END}
 {SECTION: finduser_title}
 {MSG: finduser_title}

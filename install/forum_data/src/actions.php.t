@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.12 2002/07/30 14:34:37 hackie Exp $
+*   $Id: actions.php.t,v 1.13 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,6 @@
 		if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) continue;
 
 		if ( strlen($obj->login) ) {
-			$user_login = htmlspecialchars($obj->login);
 			switch( $obj->is_mod )
 			{
 				case 'A':
@@ -89,7 +88,6 @@
 			}
 		}	
 		else {
-			$user_login= htmlspecialchars($GLOBALS['ANON_NICK']);
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}

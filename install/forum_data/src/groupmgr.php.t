@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.8 2002/07/30 14:34:37 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,15 +91,16 @@ function draw_tmpl_perm_table($perm_arr)
 		$mbr = new fud_user_reg;
 		$perms_arr = mk_perms_arr('', $perms, 'u');
 		if ( empty($edit) ) {
-			$mbr->get_user_by_login($gr_member);
+			$mbr->id = get_id_by_alias($gr_member);
+			if( $mbr->id ) $mbr->get_user_by_id($mbr->id);
+			
 			$gr_member = stripslashes($gr_member);
 			if( empty($mbr->id) ) 
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
 			else if( bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id." AND user_id=".$mbr->id) )
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
-			else {
+			else
 				$grp->add_member($mbr->id, $perms_arr);
-			}
 		}
 		else {
 			$usr_id = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=$group_id AND id=$edit");
@@ -126,8 +127,10 @@ function draw_tmpl_perm_table($perm_arr)
 			$gr_member = '{TEMPLATE: group_mgr_anon}';
 		else if ( $mbr->user_id == '2147483647' ) 
 			$gr_member = '{TEMPLATE: group_mgr_reged}';
-		else 
-			$gr_member = htmlspecialchars($mbr->login);		
+		else {
+			$gr_member = $mbr->alias;
+			reverse_FMT($gr_member);
+		}	
 		
 		$perms = perm_obj_to_arr($mbr, 'up_');
 		foreach($perms as $k => $v) $perms_new[substr($k, 1)] = $v;
@@ -177,7 +180,7 @@ function draw_tmpl_perm_table($perm_arr)
 				$member_name = '{TEMPLATE: group_mgr_anon}';
 			else if ( $obj->user_id == '2147483647' ) 
 				$member_name = '{TEMPLATE: group_mgr_reged}';
-			else { $member_name = htmlspecialchars($obj->login); $delete_allowed = 1; }
+			else { $member_name = $obj->login; $delete_allowed = 1; }
 		
 			if ( $delete_allowed ) 
 				$group_members_list .= '{TEMPLATE: group_member_entry}';

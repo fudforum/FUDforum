@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -84,7 +84,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB"><td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}" class="GenLink">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
-<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->ouser_id}" class="GenLink">{VAR: user_login}</a></td>
+<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->login}</a></td>
 <td nowrap class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td nowrap align="center" class="GenText">{TEMPLATE-DATA: action}</td>
 <td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td></tr>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.tmpl,v 1.2 2002/07/08 23:15:19 hackie Exp $
+*   $Id: pmuserloc.tmpl,v 1.3 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,12 +32,12 @@
 <form action="{ROOT}?t=pmuserloc" method="post">{DEF: _hs}
 <tr>
 	<td>{MSG: pmuserloc_login}</td>
-	<td><input type="text" name="usr_login" value="{VAR: usr_login}"></td>
+	<td><input type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td>
 	
 </tr>
 <tr>
 	<td>{MSG: pmuserloc_email}</td>
-	<td><input type="text" name="usr_email" value="{VAR: usr_email}"></td>
+	<td><input type="text" name="usr_email" value="{VAR-HTML: usr_email}"></td>
 </tr>
 <tr>
 <td colspan=2 align=right><input type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
@@ -56,7 +56,7 @@
 {PAGE: END}
 
 {SECTION: user_result_entry}
-<tr class="{ALT-VAR: pmuserloc_alt RowStyleA RowStyleB}"><td><a href="{VAR: retlink}">{VAR-HTML: obj->alias}</a></td></tr>
+<tr class="{ALT-VAR: pmuserloc_alt RowStyleA RowStyleB}"><td><a href="{VAR: retlink}">{VAR: obj->alias}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_result_entry}

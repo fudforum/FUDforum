@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.6 2002/07/12 19:43:01 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.7 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,8 +17,6 @@
 
 function tmpl_drawpmsg(&$obj)
 {
-	$user_login = htmlspecialchars($obj->login);
-
 	$disable_avatar = ( $obj->level_pri == 'L' ) ? 1 : 0;
 
 	if ( !$disable_avatar ) {

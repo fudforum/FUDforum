@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.3 2002/07/08 23:15:19 hackie Exp $
+*   $Id: usercp.inc.t,v 1.4 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,10 +24,8 @@
 	}
 	else {
 		if( $GLOBALS['usr']->is_mod == 'A' ) $admin_control_panel = '{TEMPLATE: admin_control_panel}';
-		$user_login = htmlspecialchars($usr->alias);
 		$login_n_logout = '{TEMPLATE: logout}';
 		$register_n_profile = '{TEMPLATE: profile}';
-		$rid = $GLOBALS["usr"]->id;
 		
 		if ( $GLOBALS['PM_ENABLED']=='Y' ) {
 			$c = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$GLOBALS["usr"]->id." AND folder_id='INBOX' AND read_stamp=0");

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -96,10 +96,8 @@
 				$email_link = ($GLOBALS["ALLOW_EMAIL"]=='Y') ? '{TEMPLATE: email_link}' : '';
 				$ignore_user .=	'{TEMPLATE: ignore_user}';
 			}
-			else {
-				$obj->login = $GLOBALS['ANON_NICK'];
+			else
 				$ignore_user .=	'{TEMPLATE: ignore_anon_user}';
-			}
 		}
 		
 		$ignore_list = '{TEMPLATE: ignore_list}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: reported.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Message Report  Page */
 	{PRE_HTML_PHP}
 	
 	if ( !empty($del) && is_numeric($del) ) {
@@ -96,14 +95,10 @@
 	$MOD = 1;
 	$reported_message='';
 	while ( $obj = db_rowobj($r) ) {
-		if( !empty($obj->report_user_id) ) {
-			$user_login = htmlspecialchars($obj->report_user_login);
+		if( !empty($obj->report_user_id) )
 			$user_login = '{TEMPLATE: reported_reg_user_link}';
-		}
-		else {
-			$user_login = htmlspecialchars($GLOBALS['ANON_NICK']);
+		else
 			$user_login = '{TEMPLATE: reported_anon_user}';
-		}
 	
 		$GLOBALS["returnto"] = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]);
 		if ( empty($prev_thread_id) || $prev_thread_id != $obj->thread_id ) {

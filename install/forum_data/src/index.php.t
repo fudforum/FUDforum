@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.11 2002/07/30 22:56:32 hackie Exp $
+*   $Id: index.php.t,v 1.12 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,9 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? The Forum Display Page*/
-
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 function set_collapse($id, $val)
@@ -192,7 +189,6 @@ function index_view_perms($usr_id)
 
 		if( $data->last_post_id ) {
 			if( !empty($data->user_id) ) {
-				$user_name =  htmlspecialchars(trim_show_len($data->user_login,'LOGIN'));
 				$profile_link = '{ROOT}?t=usrinfo&id='.$data->user_id.'&'._rsid;
 				$last_poster_profile = '{TEMPLATE: profile_link_user}';
 			}	

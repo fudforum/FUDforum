@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.6 2002/07/30 14:34:37 hackie Exp $
+*   $Id: qbud.php.t,v 1.7 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,15 +25,15 @@
 	
 	if( empty($all) ) $all=0;
 	
-	if( !empty($GLOBALS["HTTP_POST_VARS"]["S"]) && !$all ) {
+	if( !$all && is_array($GLOBALS["HTTP_POST_VARS"]["names"]) ) {
 		$names = '';
 		foreach($GLOBALS["HTTP_POST_VARS"]["names"] as $v) $names .= $v.';';
 		echo '<html><body><script language="Javascript"><!--
 		
 		if( window.opener.document.post_form.msg_to_list.value.length>0 ) 
-			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+\';\'+"'.$names.'";
+			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+\';\'+"'.addslashes($names).'";
 		else
-			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"'.$names.'";
+			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"'.addslashes($names).'";
 		
 		window.close();
 		
@@ -43,7 +43,7 @@
 	
 	{POST_HTML_PHP}
 	
-	$res = q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
+	$res = q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
 	
 	if( db_count($res) ) {
 		$buddies='';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.8 2002/07/24 14:30:18 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,6 +34,10 @@ class fud_user_reg extends fud_user
 		$tm = __request_timestamp__;
 		
 		if( $GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias ) $this->alias = $this->login;
+		
+		$this->alias = stripslashes($this->alias);
+		if( isset($this->alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $this->alias = substr($this->alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
+		$this->alias = addslashes(htmlspecialchars($this->alias));
 				
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}users (
@@ -142,7 +146,14 @@ class fud_user_reg extends fud_user
 	function sync_user()
 	{
 		if ( $plaintext_passwd ) $passwd = "'".md5($plaintext_passwd)."',";
-		$alias = ( $GLOBALS['USE_ALIASES'] == 'Y' && $this->alias ) ? "alias='".$this->alias."'," : "alias=login,";
+		
+		if( $GLOBALS['USE_ALIASES'] == 'Y' && $this->alias ) {
+			$this->alias = stripslashes($this->alias);
+			if( isset($this->alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $this->alias = substr($this->alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
+			$alias = "alias='".addslashes(htmlspecialchars($this->alias))."',";
+		}
+		else
+			$alias = '';
 		
 		q("UPDATE 
 				{SQL_TABLE_PREFIX}users 
@@ -239,6 +250,7 @@ function get_id_by_login($login)
 
 function get_id_by_alias($alias)
 {
+	$alias = addslashes(htmlspecialchars(stripslashes($alias)));
 	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".$alias."'");
 }
 
