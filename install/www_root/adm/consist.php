@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.6 2002/07/04 20:03:59 hackie Exp $
+*   $Id: consist.php,v 1.7 2002/07/08 12:46:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -641,14 +641,14 @@ forum will be disabled.<br><br>
 	qf($r);
 	draw_stat('Done: Rebuilding smilies vieworder');
 	
-	draw_stat('Optimizing forum's SQL tables');
-	optimize_tables();
-	draw_stat('Done: Optimizing forum's SQL tables');
-	
 	draw_stat('Unlocking database');
 	db_unlock();	
 	draw_stat('Database unlocked');
-
+	
+	draw_stat('Optimizing forum\'s SQL tables');
+	optimize_tables();
+	draw_stat('Done: Optimizing forum\'s SQL tables');
+	
 	if( $GLOBALS['FORUM_ENABLED'] == 'Y' || !empty($HTTP_GET_VARS['enable_forum']) ) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($GLOBALS['DISABLED_REASON'], 'Y');
