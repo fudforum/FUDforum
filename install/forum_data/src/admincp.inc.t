@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.12 2003/09/26 15:58:42 hackie Exp $
+*   $Id: admincp.inc.t,v 1.13 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@ if (_uid) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
 			
-			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND users_opt & 2097152"))) {
+			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND users_opt & 2097152"))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
 				

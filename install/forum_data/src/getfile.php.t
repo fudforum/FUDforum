@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.15 2003/09/29 14:56:42 hackie Exp $
+*   $Id: getfile.php.t,v 1.16 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@
 		}
 	}
 
-	if ($DWLND_REF_CHK == 'Y' && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
+	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
 		header("HTTP/1.0 404 Not Found");
 		exit;
 	}
@@ -71,7 +71,7 @@
 
 	/* if we encounter a compressed file and PHP's output compression is enabled do not
 	 * try to compress images & already compressed files */
-	if ($PHP_COMPRESSION_ENABLE == 'Y' && $append) {
+	if ($FUD_OPT_2 & 16384 && $append) {
 		$comp_ext = array('zip', 'gz', 'rar', 'tgz', 'bz2', 'tar');
 		$ext = strtolower(substr(strrchr($r[1], '.'), 1));
 		if (!in_array($ext, $comp_ext)) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.17 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admlock.php,v 1.18 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,25 +38,25 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 	closedir($d);
 }
 
-	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_POST['usr_login']).'\' AND passwd=\''.md5($_POST['usr_passwd']).'\' AND is_mod=\'A\'')) {
+	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['usr_login']).'" AND passwd='".md5($_POST['usr_passwd']).'" AND users_opt & 1048576')) {
+		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;
 			$fileperms = 0666;
-			$FILE_LOCK = "N";
-			@unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
+			@unlink($ERROR_PATH.'FILE_LOCK');
+			$FUD_OPT_2 ^= 8388608;
 		} else {
 			$dirperms = 0700;
 			$fileperms = 0600;
-			$FILE_LOCK = "Y";
 		}
 
-		chmoddir(realpath($GLOBALS['WWW_ROOT_DISK']), $dirperms, $fileperms, true);
-		chmoddir(realpath($GLOBALS['DATA_DIR']), $dirperms, $fileperms, true);
+		chmoddir(realpath($WWW_ROOT_DISK), $dirperms, $fileperms, true);
+		chmoddir(realpath($DATA_DIR), $dirperms, $fileperms, true);
 
-		change_global_settings(array('FILE_LOCK' => $FILE_LOCK));
+		change_global_settings(array('FUD_OPT_2' => $FUD_OPT_2));
 	}
 
-	$status = ($FILE_LOCK == 'Y' ? 'LOCKED' : 'UNLOCKED');
+	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
 ?>

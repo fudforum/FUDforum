@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.9 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admbrowse.php,v 1.10 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -126,7 +126,7 @@ if (!function_exists('posix_getpwuid')) {
 	/* Directory creation code */
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
 		$u = umask(0);
-		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($GLOBALS['FILE_LOCK'] == 'Y' ? 0700 : 0777))) {
+		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($FUD_OPT_2 & 8388608 ? 0700 : 0777))) {
 			echo '<h2 color="red">ERROR: failed to create '.$cur_dir . '/' . basename($_GET['mkdir']).'</h2>';
 		}
 		umask($u);
@@ -137,7 +137,7 @@ if (!function_exists('posix_getpwuid')) {
 		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
 		$fdest = $cur_dir . '/' . basename($fdest);
 		move_uploaded_file($_FILES['fname']['tmp_name'], $fdest);
-		@chmod($fdest, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+		@chmod($fdest, ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 	}
 
 	/* Download file code */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.26 2003/09/28 17:23:43 hackie Exp $
+*   $Id: attach.inc.t,v 1.27 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ function safe_attachment_copy($source, $id, $ext)
 	}
 	@unlink($source);
 
-	@chmod($loc, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+	@chmod($loc, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 
 	return $loc;
 }

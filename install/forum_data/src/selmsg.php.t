@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.35 2003/09/29 14:30:12 hackie Exp $
+*   $Id: selmsg.php.t,v 1.36 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@ function path_info_lnk($var, $val)
 			user_register_thread_view($ti, __request_timestamp__, $mi);
 		}
 	}
-	ses_putvar((int)$usr->sid, NULL);
+	ses_putvar((int)$usr->sid, null);
 
 	/* no other limiters are present, assume 'today' limit */
 	if (!$unread_limit && !isset($_GET['date']) && !isset($_GET['reply_count'])) {
@@ -94,12 +94,12 @@ function path_info_lnk($var, $val)
 	}
 
 	/* date limit */
-	if ($USE_PATH_INFO != 'Y') {
+	if ($FUD_OPT_2 & 32768) {
+		$dt_opt = path_info_lnk('date', '1');
+		$rp_opt = path_info_lnk('reply_count', '0');
+	} else {
 		$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
 		$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
-	} else {
-		$dt_opt = path_info_lnk('date', '1');
-		$rp_opt = path_info_lnk('reply_count', '0');	
 	}
 	
 	$s_today = valstat(isset($_GET['date']));
@@ -107,14 +107,14 @@ function path_info_lnk($var, $val)
 	$s_unu = valstat(isset($_GET['reply_count']));
 	
 	if (_uid) {
-		if ($USE_PATH_INFO != 'Y') {
-			$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
-			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
-			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			$un_opt = path_info_lnk('unread', '1');
 			$frm_opt = path_info_lnk('sub_forum_limit', '1');
 			$th_opt =path_info_lnk('sub_th_limit', '1');
+		} else {
+			$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
+			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
+			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
 		}
 
 		$s_unread = valstat(isset($_GET['unread']));
@@ -229,27 +229,27 @@ function path_info_lnk($var, $val)
 
 	if (!$unread_limit && $total > $count) {
 		if (!isset($_GET['mr'])) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				$_SERVER['QUERY_STRING'] .= '&mr=1';
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$_SERVER['QUERY_STRING'] = str_replace(_rsid, '', $_SERVER['QUERY_STRING']) . 'mr/1/' . _rsid;
+			} else {
+				$_SERVER['QUERY_STRING'] .= '&mr=1';
 			}
 		}
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			$p = str_replace(_rsid, '', $_SERVER['QUERY_STRING']);
 			if (strpos('start/', $p) !== FALSE) {
 				$p = preg_replace('!start/[0-9]+/!', '', $p);
 			}
 			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}' . $p . 'start/', '/' . _rsid);
+		} else {
+			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
 		}
 	} else if ($unread_limit) {
 		if (!isset($_GET['mark_page_read'])) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$_SERVER['QUERY_STRING'] = str_replace(_rsid, '', $_SERVER['QUERY_STRING']) . 'make_page_read/1/mr/1/' . _rsid;
+			} else {
+				$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
 			}
 		}
 		$pager = '{TEMPLATE: more_unread_messages}';

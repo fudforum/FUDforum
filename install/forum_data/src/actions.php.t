@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.26 2003/09/30 01:42:28 hackie Exp $
+*   $Id: actions.php.t,v 1.27 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,15 +64,7 @@
 		}
 
 		if (!$r[2] || ($usr->users_opt & 1048576 || !empty($limit[$r[2]]) || $r[12])) {
-			if ($USE_PATH_INFO == 'N') {
-				if (($p = strpos($r[0], '?')) !== false) {
-					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
-				} else if (($p = strpos($r[0], '.php')) !== false) {
-					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
-				} else {
-					$action = $r[0];	
-				}
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				if (($s = strpos($r[0], 'href="')) !== false) {
 					$s += 6;
 					$s = substr($r[0], $s, (strpos($r[0], '"', $s) - $s));
@@ -93,6 +85,15 @@
 					$action = str_replace($s, $sn, $r[0]);
 				} else {
 					$action = $r[0];
+				}
+			} else {
+				
+				if (($p = strpos($r[0], '?')) !== false) {
+					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
+				} else if (($p = strpos($r[0], '.php')) !== false) {
+					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
+				} else {
+					$action = $r[0];	
 				}
 			}
 		} else {

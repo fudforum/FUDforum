@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.29 2003/09/26 18:49:02 hackie Exp $
+*   $Id: maillist.php,v 1.30 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -338,6 +338,10 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		require (getcwd() . '/GLOBALS.php');
 	}
 
+	if (!($FUD_OPT_1 & 1)) {
+		exit("Forum is currently disabled.\n");
+	}
+
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('imsg.inc');
@@ -358,22 +362,23 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	fud_use('rhost.inc');
 	fud_use('smiley.inc');
 	fud_use('fileio.inc');
-	fud_use('mlist.inc', TRUE);
+	fud_use('mlist.inc', true);
 	fud_use('scripts_common.inc', true);
 
-	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
+	define('sql_p', $DBHOST_TBL_PREFIX);
 
 	if (is_numeric($_SERVER['argv'][1])) {
 		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE id='.$_SERVER['argv'][1]);
 	} else {
-		$mlist = db_sab('SELECT * FROM '.sql_p.'mlist WHERE name=\''.addslashes($_SERVER['argv'][1]).'\'');
+		$mlist = db_sab("SELECT * FROM ".sql_p."mlist WHERE name='".addslashes($_SERVER['argv'][1])."'");
 	}
 	if (!$mlist) {
 		exit('Invalid list identifier');
 	}
 
-	$GLOBALS['CREATE_NEW_USERS'] = $mlist->mlist_opt & 64;
-	$GLOBALS['MODERATE_USER_REGS'] = 'N';
+	$CREATE_NEW_USERS = $mlist->mlist_opt & 64;
+	$FUD_OPT_2 |= 1024|8388608;
+	$FUD_OPT_2 ^= 1024|8388608;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
 
@@ -404,7 +409,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$msg_post->body = apply_custom_replace($emsg->body);
 	if (!($mlist->mlist_opt & 16)) {
 		if ($frm->forum_opt & 16) { 
-			$msg_post->body = tags_to_html($msg_post->body, 'N');
+			$msg_post->body = tags_to_html($msg_post->body, 0);
 		} else {
 			$msg_post->body = nl2br($msg_post->body);
 		}
@@ -429,12 +434,12 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	// try to determine whether this message is a reply or a new thread
 	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
 
-	$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
+	$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 	
 	// Handle File Attachments
 	if ($mlist->mlist_opt & 8 && isset($emsg->attachments) && is_array($emsg->attachments)) {
 		foreach($emsg->attachments as $key => $val) {
-			$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
+			$tmpfname = tempnam($TMP, 'FUDf_');
 			$fp = fopen($tmpfname, 'wb');
 			fwrite($fp, $val);
 			fclose($fp);
@@ -449,6 +454,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}	
 
 	if (!($mlist->mlist_opt & 1)) {
-		$msg_post->approve($msg_post->id, TRUE);
+		$msg_post->approve($msg_post->id, true);
 	}
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.4 2003/09/28 12:27:37 hackie Exp $
+*   $Id: merge_th.php.t,v 1.5 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,10 +58,10 @@
 
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
-			if ($USE_PATH_INFO == 'N') {
-				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/t/'.$th.'/'._rsidl);
+			} else {
+				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			}
 			exit;
 		} else if (count($_POST['sel_th']) > 1) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.18 2003/09/28 11:38:50 hackie Exp $
+*   $Id: mmod.php.t,v 1.19 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -71,10 +71,10 @@
 				fud_msg_edit::delete(TRUE, $data[2], 1);
 
 				if (strpos($usr->returnto, 'selmsg') === false) {
-					if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-						header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
-					} else {
+					if ($FUD_OPT_2 & 32768) {
 						header('Location: {ROOT}/f/'.$data[0].'/'._rsidl);
+					} else {
+						header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
 					}
 					exit;
 				} else {
@@ -92,23 +92,23 @@
 
 		if (d_thread_view == 'tree') {
 			if (!$data[5]) {
-				if ($USE_PATH_INFO == 'N') {
-					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
-				} else {
+				if ($FUD_OPT_2 & 32768) {
 					header('Location: {ROOT}/mv/tree/'.$data[1].'/'._rsidl);
+				} else {
+					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
 				}
 			} else {
-				if ($USE_PATH_INFO == 'N') {
-					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
-				} else {
+				if ($FUD_OPT_2 & 32768) {
 					header('Location: {ROOT}/mv/tree/'.$data[1].'/'.$data[5].'/'._rsidl);
+				} else {
+					header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
 				}
 			}
 		} else {
-			if ($USE_PATH_INFO == 'N') {
-				header('Location: {ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start=end');
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/mv/msg/'.$data[1].'/end/'._rsidl);
+			} else {
+				header('Location: {ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start=end');
 			}
 		}
 		exit;

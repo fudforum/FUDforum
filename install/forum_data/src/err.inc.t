@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.28 2003/06/02 17:19:47 hackie Exp $
+*   $Id: err.inc.t,v 1.29 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-function error_dialog($title, $msg, $level='WARN', $ses=NULL)
+function error_dialog($title, $msg, $level='WARN', $ses=null)
 {
 	if (!$ses) {
 		$ses = (int) $GLOBALS['usr']->sid;
@@ -37,16 +37,16 @@ function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
 	if (is_int($ses)) {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') { 
-			header('Location: {ROOT}?t=error&'._rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/e/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=error&'._rsidl);
 		}
 	} else {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') { 
-			header('Location: {ROOT}?t=error&S='.$ses);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/e//'.$ses);
+		} else {
+			header('Location: {ROOT}?t=error&S='.$ses);
 		}
 	}
 	exit;
@@ -84,7 +84,7 @@ function std_out($text, $level='INFO')
 	$log_str .= str_replace("\n", ' ', str_replace("\r", ' ', $text))."\n";
 	fwrite($fp, $log_str);
 	fclose($fp);
-	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
+	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 }
 
 function invl_inp_err()

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.13 2003/09/27 17:53:51 hackie Exp $
+*   $Id: mvthread.php.t,v 1.14 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@
 		
 		logaction(_uid, 'THRMOVE', $th);
 		
-		if ($USE_PATH_INFO == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 			exit("<html><script>window.opener.location='{ROOT}/f/".$thr->forum_id."/"._rsid."'; window.close();</script></html>");
 		} else {
 			exit("<html><script>window.opener.location='{ROOT}?t=".t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");

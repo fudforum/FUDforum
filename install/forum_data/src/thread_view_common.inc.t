@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.22 2003/09/27 17:18:50 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.23 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,10 +57,10 @@ if (!($frm->group_cache_opt & 2) && !$MOD) {
 	if (!isset($_GET['logoff'])) {
 		std_error('perms');
 	} else {
-		if ($USE_PATH_INFO == 'N') {
-			header('Location: {ROOT}?' . _rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/i/' . _rsidl);
+		} else {
+			header('Location: {ROOT}?' . _rsidl);
 		}
 		exit;
 	}
@@ -70,13 +70,13 @@ if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';
 	$cur_frm_page = $start + 1;
 } else {
-	$ann_cols = ($ENABLE_THREAD_RATING == 'Y' ? 8 : 7) + $MOD;
+	$ann_cols = ($FUD_OPT_2 & 4096 ? 8 : 7) + $MOD;
 	$moved_cols = $ann_cols - 1;
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
 
-$thread_printable_pdf = $SHOW_PDF_LINK == 'Y' ? '{TEMPLATE: thread_printable_pdf}' : '';
-$thread_syndicate = $SHOW_XML_LINK == 'Y' ? '{TEMPLATE: thread_syndicate}' : '';
+$thread_printable_pdf = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: thread_printable_pdf}' : '';
+$thread_syndicate = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: thread_syndicate}' : '';
 
 /* do various things for registered users */
 if (_uid) {

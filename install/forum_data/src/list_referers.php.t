@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.php.t,v 1.11 2003/09/29 14:50:36 hackie Exp $
+*   $Id: list_referers.php.t,v 1.12 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,10 +45,10 @@
 		qf($c);
 
 		if ($ttl > $MEMBERS_PER_PAGE) {
-			if ($USE_PATH_INFO == 'N') {
-				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'._rsid);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}/lt/', '/' . _rsid);
+			} else {
+				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'._rsid);	
 			}
 		} else {
 			$page_pager = '';

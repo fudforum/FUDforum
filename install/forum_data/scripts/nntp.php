@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.15 2003/09/26 18:49:02 hackie Exp $
+*   $Id: nntp.php,v 1.16 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,8 +35,12 @@
 		require (getcwd() . '/GLOBALS.php');
 	}
 
-	$GLOBALS['FILE_LOCK'] = 'N';
-	$GLOBALS['MODERATE_USER_REGS'] = 'N';
+	if (!($FUD_OPT_1 & 1)) {
+		exit("Forum is currently disabled.\n");
+	}
+
+	$FUD_OPT_2 |= 1024|8388608;
+	$FUD_OPT_2 ^= 1024|8388608;
 
 	fud_use('err.inc');
 	fud_use('db.inc');

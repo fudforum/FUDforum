@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa_fax.php.t,v 1.6 2003/09/29 14:50:36 hackie Exp $
+*   $Id: coppa_fax.php.t,v 1.7 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,17 +19,17 @@
 	
 	/* this form is for printing, therefor it lacks any advanced layout */
 	if (!__fud_real_user__) {
-		if ($USE_PATH_INFO == 'N') {
-			header('Location: {ROOT}?t=index&'._rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/i/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=index&'._rsidl);
 		}
 		exit;
 	}
 
 	$name = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}users WHERE id='.__fud_real_user__);
-	
-	if (!($coppa_address = @file_get_contents($GLOBALS['FORUM_SETTINGS_PATH'].'coppa_maddress.msg'))) {
+
+	if (!($coppa_address = @file_get_contents($FORUM_SETTINGS_PATH.'coppa_maddress.msg'))) {
 		$coppa_address = '';
 	}
 

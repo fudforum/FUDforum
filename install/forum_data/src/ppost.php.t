@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.45 2003/09/30 01:53:25 hackie Exp $
+*   $Id: ppost.php.t,v 1.46 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -199,7 +199,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
 			} else {
 				if (($attach_count+1) <= $PRIVATE_ATTACHMENTS) {
-					$val = attach_add($_FILES['attach_control'], _uid, 'Y');
+					$val = attach_add($_FILES['attach_control'], _uid, 1);
 					$attach_list[$val] = $val;
 					$attach_count++;
 				} else {
@@ -256,7 +256,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 				
 		if (isset($attach_list)) {
-			attach_finalize($attach_list, $msg_p->id, 'Y');
+			attach_finalize($attach_list, $msg_p->id, 1);
 				
 			/* we need to add attachments to all copies of the message */
 			if (!isset($_POST['btn_draft'])) {
@@ -271,7 +271,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', 1, ' . $mid[1] . ', ' . $v .', \'\')');
 							$aidl[] = $aid;
 							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
-							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));
+							@chmod($FILE_STORE . $aid . '.atch', ($FUD_OPT_2 & 8388608 ? 0600 : 0666));
 						}
 					}
 					$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."', id), '.atch')";

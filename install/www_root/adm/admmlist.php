@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.18 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admmlist.php,v 1.19 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@ function format_regex(&$regex)
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 
-	if ($FILE_LOCK == 'Y') {
+	if ($FUD_OPT_2 & 8388608) {
 		echo '<font color="#ff0000" size="+3">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</font><p>';
 	}
 ?>

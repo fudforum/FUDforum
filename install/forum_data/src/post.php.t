@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.77 2003/09/30 01:53:25 hackie Exp $
+*   $Id: post.php.t,v 1.78 2003/09/30 03:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -404,7 +404,7 @@ function flood_check()
 			
 			/* where to redirect, to the treeview or the flat view and consider what to do for a moderated forum */
 			if ($frm->forum_opt & 2 && !$MOD) {
-				if ($MODERATED_POST_NOTIFY == 'Y') {
+				if ($FUD_OPT_2 & 262144) {
 					$c = uq('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
 					while ($r = db_rowarr($c)) {
 						$modl[] = $r[0];
@@ -433,10 +433,10 @@ function flood_check()
 					}
 				}
 				/* redirect the user to their message */
-				if ($USE_PATH_INFO == 'N') {
-					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
-				} else {
+				if ($FUD_OPT_2 & 32768) {
 					header('Location: {ROOT}/m/'.$msg_post->id.'/'._rsidl);
+				} else {
+					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
 				}
 				exit;
 			}
