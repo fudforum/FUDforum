@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.46 2004/12/09 19:04:25 hackie Exp $
+* $Id: isearch.inc.t,v 1.47 2005/01/17 14:56:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,7 @@ function index_text($subj, $body, $msg_id)
 	} else {
 		if (!defined('search_prep')) {
 			define('search_prep', 'PREPARE {SQL_TABLE_PREFIX}srch_ins (text) AS INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES($1)');
-			define('search_prep2', 'PREPARE {SQL_TABLE_PREFIX}srch_sel (text) AS SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=$1');
+			define('search_prep2', 'PREPARE {SQL_TABLE_PREFIX}srch_sel (text) AS SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word= $1');
 			pg_query(fud_sql_lnk, search_prep);
 			pg_query(fud_sql_lnk, search_prep2);
 		}

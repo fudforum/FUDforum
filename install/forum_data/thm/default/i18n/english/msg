@@ -602,8 +602,8 @@ post_err_attach_size:		<span class="ErrorText">File Attachment is too big (over 
 post_err_attach_ext:		<span class="ErrorText">The file you are trying to upload does not match the allowed file types.</span><br>
 post_err_attach_filelimit:	<span class="ErrorText">You are trying to upload more files than are allowed.</span><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:		There was an error
 postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
 postcheck_subj_needed:		Subject required
@@ -655,7 +655,7 @@ showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You have followed an invalid link. The topic you are trying to view does not exist.
-thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
 ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
@@ -680,7 +680,7 @@ email_title:			E-mail Form
 finduser_title:			Find User
 help_title:			FAQ
 login_title:			Login Form
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
 register_title:			Register Form
 reset_title:			Reset Password
@@ -688,8 +688,8 @@ rpasswd_title:			Change Password Form
 error_title:			Error Form
 index_title:			Welcome to the forum
 search_title:			Search For {VAR-HTML: srch}
-thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
+thread_title:			{VAR: frm->name}
+tree_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
@@ -719,9 +719,9 @@ thr_exch_decline:		decline topic
 thr_exch_orig_forum:		Original Forum:
 thr_exch_dest_forum:		Destination Forum:
 thr_exch_no_threads:		No topics waiting approval.
-thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> into forum <b>{VAR-HTML: data->f2_name}</b>
+thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> into forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:		Submit
-exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR-HTML: data->f2_name} was declined.
+exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR: data->f2_name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
 split_thread:			Split Topic
 groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
@@ -880,7 +880,7 @@ read_message:			Read Message
 threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the topic listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the topic listing. Please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:		Confirm Topic/Message Deletion
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
