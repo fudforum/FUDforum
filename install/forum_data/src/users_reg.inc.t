@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.59 2003/11/19 17:17:29 hackie Exp $
+* $Id: users_reg.inc.t,v 1.60 2003/11/19 18:04:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -209,11 +209,14 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		/* remove cookie so it does not confuse us */
 		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
-	if ($GLOBALS['FUD_OPT_2'] & 256 && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
+	if ($GLOBALS['FUD_OPT_2'] & 256 && ($s = db_saq('SELECT ses_id, sys_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		if ($use_cookies) {
-			setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+			setcookie($GLOBALS['COOKIE_NAME'], $s[0], __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
-		return $ses_id;
+		if ($s[1]) {
+			q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id='' WHERE ses_id='".$s[0]."'");
+		}
+		return $s[0];
 	} else {
 		/* if we can only have 1 login per account, 'remove' all other logins */
 		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
