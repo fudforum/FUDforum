@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smtp.inc.t,v 1.1 2002/07/16 23:57:18 hackie Exp $
+*   $Id: smtp.inc.t,v 1.2 2002/08/06 13:29:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ class fud_smtp
 
 	function wts($string)
 	{
-		echo nl2br($string."\r\n");
+		fwrite($this->fs, $string."\r\n");
 	}
 
 	function open_smtp_connex()
