@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.tmpl,v 1.6 2003/03/28 12:58:39 hackie Exp $
+*   $Id: usercp.tmpl,v 1.7 2003/04/08 14:14:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -49,7 +49,7 @@
 
 {SECTION: logout logout link}
 <td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}{VAR: ret_to}&amp;logout=1"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" border=0 alt="{MSG: logout}" /></a></td>
-<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}{VAR: ret_to}&amp;logout=1">{MSG: logout} [ {VAR: usr->login} ]</a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&amp;{DEF: _rsid}{VAR: ret_to}&amp;logout=1">{MSG: logout} [ {VAR: usr->alias} ]</a></td>
 {SECTION: END}
 
 {SECTION: register register link}

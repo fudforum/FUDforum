@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.11 2003/01/12 13:21:27 hackie Exp $
+*   $Id: logedin.tmpl,v 1.12 2003/04/08 14:14:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -14,7 +14,7 @@
 *
 ***************************************************************************/
 
-{PHP_FILE: input: logedin.inc.t; output: @logedin.inc;}
+{PHP_FILE: input: logedin.inc.t; output: !logedin.inc;}
 {REF: ulink.tmpl}
 
 {MAIN_SECTION: loged_in_list loggedin user list}
@@ -26,10 +26,10 @@
 {MAIN_SECTION: END}
 
 {SECTION: logedin}
-<tr><th width="100%">{MSG: logged_in_list} {VAR: astr}</th></tr>
+<tr><th width="100%">{MSG: logged_in_list} {TEMPLATE-DATA: i_spy}</th></tr>
 <tr><td class="RowStyleA">
 <font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="adminColor">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="modsColor">[{MSG: moderator}]</font></font><br />
-{VAR: loged_in_list}
+{VAR: logedin}
 </td></tr>
 {SECTION: END}
 
@@ -38,21 +38,21 @@
 {SECTION: END}
 
 {SECTION: online_user_separator}
-<font> </font>
+&nbsp;
 {SECTION: END}
 
 {SECTION: online_user_link}
-<a href="{VAR: profile_link}" class="GenLink">{VAR: ul}</a>
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}" class="GenLink">{VAR: v}</a>
 {SECTION: END}
 
 {SECTION: last_msg latest message on the forum}
-<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: lmid}&amp;{DEF: _rsid}"><b>{VAR: lsubj}</b></a>
+<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: last_msg_id}&amp;{DEF: _rsid}"><b>{VAR: st_obj->last_msg_subject}</b></a>
 {SECTION: END}
 
 {SECTION: forum_info}
 <tr><td class="RowStyleB"><font class="SmallText">
 {MSG: message_counter}<br />
 {MSG: user_counter}<br />
-{MSG: newest_user} <a href="{VAR: ulink}" class="GenLink"><b>{VAR: ulogin}</b></a>{TEMPLATE-DATA: last_msg}
+{MSG: newest_user} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
 </font></td></tr>
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.tmpl,v 1.2 2002/08/05 05:58:21 hackie Exp $
+*   $Id: poll.tmpl,v 1.3 2003/04/08 14:14:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -41,12 +41,11 @@ function check_submission()
 	
 	a = document.poll_submit.pl_option.value.replace('/[ \n\r]/g', '');
 
-	if( !a.length ) {
-		if( document.poll_submit.pl_add && document.poll_submit.pl_add.value.length ) {
+	if (!a.length) {
+		if (document.poll_submit.pl_add && document.poll_submit.pl_add.value.length) {
 			alert("{MSG: poll_blank_option}");
 			return false;
-		}
-		else if( document.poll_submit.pl_upd && document.poll_submit.pl_upd.value.length ) {
+		} else if (document.poll_submit.pl_upd && document.poll_submit.pl_upd.value.length) {
 			return confirm("{MSG: poll_del_conf}");
 		}
 	}
@@ -62,24 +61,14 @@ function check_submission()
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_timelimit}</td>
-		<td>
-			<select name="pl_expiry_date">
-			{TEMPLATE-DATA: pl_expiry_date_data}
-			</select>
-		</td>
+		<td><select name="pl_expiry_date">{TEMPLATE-DATA: pl_expiry_date_data}</select></td>
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_maxiumvotes}</td>
-		<td>
-			<select name="pl_max_votes">
-			{TEMPLATE-DATA: pl_max_votes_data}
-			</select>
-		</td>
+		<td><select name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
 	</tr>
 	
-	<tr><td colspan=2 align="right">
-		{TEMPLATE-DATA: pl_submit}
-	</td></tr>
+	<tr><td colspan=2 align="right">{TEMPLATE-DATA: pl_submit}</td></tr>
 </table>
 <p>
 {TEMPLATE-DATA: poll_editor}
@@ -124,10 +113,11 @@ function check_submission()
 {SECTION: END}
 
 {SECTION: poll_option_entry}
-<tr><td class="GenText">{VAR: obj->name}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&amp;pl_smiley_disabled={VAR: pl_smiley_disabled}&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}&amp;pl_id={VAR: pl_id}&amp;pl_optedit={VAR: obj->id}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&amp;pl_smiley_disabled={VAR: pl_smiley_disabled}&amp;frm_id={VAR: frm_id}&amp;pl_id={VAR: pl_id}&amp;del_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
+<tr><td class="GenText">{VAR: v}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}&amp;pl_id={VAR: pl_id}&amp;pl_optedit={VAR: k}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&amp;frm_id={VAR: frm_id}&amp;pl_id={VAR: pl_id}&amp;del_id={VAR: k}&amp;{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: pl_upd hidden field needed for the form to work}
+<input type="hidden" name="pl_option_id" value="{VAR: pl_option_id}">
 <input type="submit" class="button" name="pl_upd" onClick="javascript: return check_submission();" value="{MSG: poll_updateoption}">
 {SECTION: END}
 

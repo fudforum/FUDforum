@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: post_proc.tmpl,v 1.2 2003/04/08 14:14:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,14 +16,6 @@
 
 {PHP_FILE: input: post_proc.inc.t; output: post_proc.inc;}
 {REF: rev_fmt.tmpl}
-
-{MAIN_SECTION: allowed_extension allowed file extension entry}
-{VAR: obj->ext}&nbsp;
-{MAIN_SECTION: END}
-
-{SECTION: post_proc_all_ext_allowed}
-{MSG: post_proc_all_ext_allowed}
-{SECTION: END}
 
 {SECTION: post_proc_reveal_spoiler}
 {MSG: post_proc_reveal_spoiler}
