@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.14 2003/05/26 11:15:04 hackie Exp $
+*   $Id: rdf.php.t,v 1.15 2003/05/28 16:05:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@ function email_format($data)
 	 */
 	
 	if (@count($_GET) < 2) {
-		$_GET['ds'] = time() - 86400;
+		$_GET['ds'] = __request_timestamp__ - 86400;
 		$_GET['l'] = 1;
 		$_GET['n'] = 10;
 	}
@@ -358,7 +358,7 @@ $basic_rss_data .= '
 				$order_by = 'u.alias';
 			}
 			if (isset($_GET['cl'])) {
-				$lmt .= ' AND u.last_visit>='.(time() - $LOGEDIN_TIMEOUT * 60);
+				$lmt .= ' AND u.last_visit>='.(__request_timestamp__ - $LOGEDIN_TIMEOUT * 60);
 			}
 			if ($AUTH == 'Y') {
 				if ($AUTH_ID) {
