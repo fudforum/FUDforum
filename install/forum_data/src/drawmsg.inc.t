@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.19 2002/09/12 21:47:04 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.20 2003/02/11 15:53:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -144,11 +144,13 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		else $location = '{TEMPLATE: dmsg_no_location}';
 
 		$custom_tag = empty($obj->custom_status) ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
-	}
-	else 
+	} else {
 		$user_link = '{TEMPLATE: dmsg_anon_user}';
-		
-	if ( $GLOBALS["MOD"] || $GLOBALS["DISPLAY_IP"] == 'Y' ) $ip_address = '{TEMPLATE: dmsg_ip_address}';
+	}
+
+	if ((isset($GLOBALS["usr"]->is_mod) && $GLOBALS["usr"]->is_mod == 'A') || $GLOBALS["DISPLAY_IP"] == 'Y') {
+		$ip_address = '{TEMPLATE: dmsg_ip_address}';
+	}
 
 	if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && !empty($obj->host_name) ) {
 		$host_name = wordwrap($obj->host_name,30,'<br>',1);
