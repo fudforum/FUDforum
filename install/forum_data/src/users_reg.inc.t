@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.27 2003/05/07 23:58:44 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.28 2003/05/13 10:44:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -253,6 +253,18 @@ function usr_email_unconfirm($id)
 	db_unlock();
 		
 	return $conf_key;
+}
+
+if (!function_exists('aggregate_methods'))
+{
+	function aggregate_methods(&$obj, $class_name)
+	{
+		$o = new $class_name;
+		foreach ($obj as $k => $v) {
+			$o->{$k} = $v;
+		}
+		$obj = $o;
+	}
 }
 
 function &usr_reg_get_full($id)
