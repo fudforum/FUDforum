@@ -1,0 +1,103 @@
+{SECTION: was_moved_msg_lnk}
+{ROOT}/m/{VAR: r[15]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: was_moved_msg_lnk2}
+{ROOT}/f/{VAR: r[11]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: referals_refered_by_lnk}
+{ROOT}/u/{VAR: p_user[0]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: member_search_lnk}
+{ROOT}/pml/buddy_add.add_login/1/{DEF: _rsid}
+{SECTOIN: END}
+
+{SECTION: help_index_update_lnk}
+{ROOT}/h/
+{SECTION: END}
+
+{SECTION: index_update_lnk}
+{ROOT}/i/
+{SECTION: END}
+
+{SECTION: msg_register_lnk}
+{ROOT}/re/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: msg_login_lnk}
+{ROOT}/l/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: msg_update_lnk}
+{ROOT}/t/{VAR: frm->id}
+{SECTION: END}
+
+{SECTION: err_coppa_msg_lnk}
+{ROOT}/cpf/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: msg_post_lnk}
+{ROOT}/m/{VAR: thr->root_msg_id}
+{SECTION: END}
+
+{SECTION: post_topic_update_lnk}
+{ROOT}/f/{VAR: frm->id}
+{SECTION: END}
+
+{SECTION: selmsg_update_lnk}
+{ROOT}/sel/date/today
+{SECTION: END}
+
+{SECTION: showposts_update_lnk}
+{ROOT}/u/{VAR: uid}
+{SECTION: END}
+
+{SECTION: thread_update_lnk}
+{ROOT}/f/{VAR: frm->id}
+{SECTION: END}
+
+{SECTION: tree_update_lnk}
+{ROOT}/mv/tree/{VAR: frm->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: userinfo_update_lnk}
+{ROOT}/u/{VAR: u->id}
+{SECTION: END}
+
+{SECTION: ERR_emailconf_msg_lnk}
+{ROOT}/rst/{VAR: usr_d->email}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ERR_emailconf_msg_lnk2}
+{ROOT}/re/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: post_opt_fud_on_lnk}
+{ROOT}/h/readingposting/{DEF: _rsid}#style
+{SECTION: END}
+
+{SECTION: post_opt_smilies_on_lnk}
+{ROOT}/h/readingposting/{DEF: _rsid}#sml
+{SECTION: END}
+
+{SECTION: group_mgr_search_lnk}
+{ROOT}/pml/groupmgr.gr_member/1/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ignored_user_post_lnk}
+{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: polllist_update_lnk}
+{ROOT}/pl/
+{SECTION: END}
+
+{SECTION: threadt_update_lnk}
+{ROOT}/cv/threadt/{VAR: frm->id}
+{SECTION: END}
+
+{SECTION: mnav_update_lnk}
+{ROOT}/ma/{DEF: _rsid}
+{SECTION: END}
