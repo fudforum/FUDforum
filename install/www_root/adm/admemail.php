@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admemail.php,v 1.8 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admemail.php,v 1.9 2003/10/03 01:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,18 +20,16 @@
 	fud_use('email_filter.inc', true);
 	fud_use('adm.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
-		q('UPDATE '.$tbl.'email_block SET email_block_opt='.$e_email_block_opt.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'email_block SET email_block_opt='.$e_email_block_opt.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['e_string'])) {
 		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
-		q('INSERT INTO '.$tbl.'email_block (email_block_opt, string) VALUES('.$e_email_block_opt.', '.$e_string.')');
+		q('INSERT INTO '.$DBHOST_TBL_PREFIX.'email_block (email_block_opt, string) VALUES('.$e_email_block_opt.', '.$e_string.')');
 	} else if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'email_block WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'email_block WHERE id='.(int)$_GET['del']);
 	} else {
 		$nada = 1;
 	}
@@ -41,7 +39,7 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		list($edit, $e_email_block_opt, $e_string) = db_saq('SELECT id, email_block_opt, string FROM '.$tbl.'email_block WHERE id='.(int)$_GET['edit']);
+		list($edit, $e_email_block_opt, $e_string) = db_saq('SELECT id, email_block_opt, string FROM '.$DBHOST_TBL_PREFIX.'email_block WHERE id='.(int)$_GET['edit']);
 	} else {
 		$edit = $e_email_block_opt = $e_string = '';
 	}
@@ -54,7 +52,7 @@
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Type:</td>
-		<td><?php draw_select("e_email_block_opt", "Simple\nRegexp", "0\n1", $e_email_block_opt); ?></td>
+		<td><?php draw_select("e_email_block_opt", "Simple\nRegexp", "1\n0", $e_email_block_opt); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
@@ -84,7 +82,7 @@
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT id, email_block_opt, string FROM '.$tbl.'email_block');
+	$c = uq('SELECT id, email_block_opt, string FROM '.$DBHOST_TBL_PREFIX.'email_block');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {

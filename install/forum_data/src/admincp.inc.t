@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.15 2003/10/02 21:44:05 hackie Exp $
+*   $Id: admincp.inc.t,v 1.16 2003/10/03 01:45:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -20,7 +20,7 @@ if (_uid) {
 
 	if ($usr->users_opt & 524288 || $usr->users_opt & 1048576) {
 		if ($usr->users_opt & 1048576) {
-			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216")) {
+			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND users_opt & 16777216")) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
 			}
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
