@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.17 2002/09/26 20:55:36 hackie Exp $
+*   $Id: compact.php,v 1.18 2003/02/11 16:41:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,7 +190,11 @@ and the amount of messages your forum has.<br><br>
 	echo "Compacting private messages...<br>\n";
 	flush();
 	
-	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
+	if (__dbtype__ == 'mysql') { 
+		q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
+	} else {
+		q("CREATE INDEX ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg_foff_idx ON ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg (foff)"); 
+	}
 	
 	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'pmsg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
 	$off=$len=0;
@@ -224,7 +228,11 @@ and the amount of messages your forum has.<br><br>
 		}
 	}
 	
-	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg DROP index foff");
+	if (__dbtype__ == 'mysql') { 
+		q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg DROP index foff");
+	} else {
+		q("DROP INDEX ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg_foff_idx"); 
+	}
 	
 	echo "100% Done<br>\n";
 	flush();
