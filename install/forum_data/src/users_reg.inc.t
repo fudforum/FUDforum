@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.7 2002/07/17 17:04:52 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.8 2002/07/24 14:30:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,10 @@ class fud_user_reg extends fud_user
 {
 	function add_user()
 	{	
-		db_lock('{SQL_TABLE_PREFIX}users+');
+		if( !db_locked() ) {
+			$ll = 1;
+			db_lock('{SQL_TABLE_PREFIX}users+');
+		}	
 		
 		do {
 			$this->conf_key = md5(get_random_value(128));
@@ -125,7 +128,7 @@ class fud_user_reg extends fud_user
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}users", $r);
 		if( $GLOBALS['EMAIL_CONFIRMATION'] == 'N' ) $this->email_confirm();
 		
-		db_unlock();
+		if( $ll ) db_unlock();
 		return $this->id;
 	}
 	
