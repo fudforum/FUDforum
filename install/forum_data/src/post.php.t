@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.133 2005/03/18 01:58:51 hackie Exp $
+* $Id: post.php.t,v 1.134 2005/03/26 15:00:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,6 +72,9 @@ function flood_check()
 		std_error('systemerr');
 	}
 	$frm = db_sab('SELECT id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
+	if (!$frm) {
+		std_error('systemerr');
+	}
 	$frm->forum_opt = (int) $frm->forum_opt;
 
 	/* fetch permissions & moderation status */
