@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.5 2002/08/02 11:53:28 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.6 2002/08/02 23:02:59 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
@@ -26,7 +26,7 @@
 		
 		<para>
 			&FUDforum; contains a fully customizable templating system, that allows you to completely customize the the look
-			and feel of your forum. For optimal performance the templates are compiled, so you do loose any speed as you do 
+			and feel of your forum. For optimal performance the templates are compiled, so you do not lose any speed as you do 
 			in other forums by having a templating system.
 		</para>
 		
