@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.75 2004/11/19 14:09:04 hackie Exp $
+* $Id: index.php.t,v 1.76 2004/11/24 18:32:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@ function url_tog_collapse($id, $c)
 				fr.last_view,
 				mo.id,
 				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').',
-				(c.cat_opt & 4) > 0
+				c.cat_opt & 4
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
