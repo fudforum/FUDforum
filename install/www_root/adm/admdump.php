@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.18 2002/09/29 23:24:29 hackie Exp $
+*   $Id: admdump.php,v 1.19 2003/04/29 20:43:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,11 +16,103 @@
 ***************************************************************************/
 
 	@set_time_limit(6000);
-	@ini_set("memory_limit", "100M");
+
+function make_insrt_qry($obj, $tbl, $field_data)
+{
+	$vl = $kv = '';
+	
+	foreach($obj as $k => $v) {
+		if (!isset($field_data[$k])) {
+			continue;
+		}
+	
+		switch (strtolower($field_data[$k]['type'])) {
+			case 'string':
+			case 'blob':
+			case 'text':
+			case 'date':
+			case 'varchar':
+				if (empty($v) && !$field_data[$k]['not_null']) {
+					$vl .= 'NULL,';
+				} else {
+					$vl .= "'".str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v))))."',";
+				}
+				break;
+			default:
+				if (empty($v) && !$field_data[$k]['not_null']) {
+					$vl .= 'NULL,';
+				} else {
+					$vl .= $v.',';
+				}
+		}
+		
+		$kv .= $field_data[$k]['name'].',';
+	}	
+
+	return 'INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
+}
+
+function backup_dir($dirp, $key, $fp, $write_func, $keep_dir='')
+{
+	if (!($d = opendir($dirp))) {
+		echo 'Could not open "'.$dirp.'" for reading<br>';
+		return;
+	}
+	readdir($d); readdir($d);
+	$path = $dirp . '/';
+	$dpath = $keep_dir ? basename($dirp) . '/' . $key : $key;
+	while ($f = readdir($d)) {
+		switch (filetype($path . $f)) {
+			case 'file':
+				if ($f != 'GLOBALS.php') {
+					if (!@is_readable($file)) {
+						echo "WARNING: unable to open '".$path . $f."' for reading<br>\n";
+						break;
+					}
+					$fd = file_get_contents($path . $f);
+					$ln = strlen($fd);
+					
+					$write_func($fp, '//'.$f.'//'.$dpath.'//'.$ln."//\n".$fd."\n");
+				}
+				break;
+			case 'dir':
+				if ($f != 'tmp') {
+					backup_dir($path . $f, $key, $fp, $write_func, $dirp);
+				}
+				break;
+		}
+	}
+	closedir($d);	
+}
+
+function sql_num_fields($r)
+{
+	return __dbtype__ == 'pgsql' ? pg_num_fields($r['res']) : mysql_num_fields($r);
+}
+
+function sql_field_type($r,$n)
+{
+	return __dbtype__ == 'pgsql' ? pg_field_type($r['res'], $n) : mysql_field_type($r, $n);
+}
+
+function sql_field_name($r, $n)
+{
+	return __dbtype__ == 'pgsql' ? pg_field_name($r['res'], $n) : mysql_field_name($r, $n);
+}
+
+function sql_is_null($r, $n, $tbl='')
+{
+	if (__dbtype__ == 'pgsql') {
+		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = '".$tbl."' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
+		return ($res == 't' ? true : false);
+	} else {
+		return (strpos(mysql_field_flags($r, $n), 'not_null') !== FALSE) ? true : false;
+	}
+}
 
 	define('admin_form', 1);
 	
-	include_once "GLOBALS.php";
+	require('GLOBALS.php');
 	fud_use('db.inc');
 	
 	/* 
@@ -29,213 +121,85 @@
 	 * automated cronjob.
 	 */
 
-	if( !empty($HTTP_GET_VARS['do_http_auth']) && empty($HTTP_SERVER_VARS['PHP_AUTH_USER']) ) {
+	if (isset($_GET['do_http_auth']) && !isset($_SERVER['PHP_AUTH_USER'])) {
 		header('WWW-Authenticate: Basic realm="Private"');
 		header('HTTP/1.0 401 Unauthorized');
 		exit('Authorization Required.');
 	}
-	
-	if( !empty($HTTP_SERVER_VARS['PHP_AUTH_USER']) && !empty($HTTP_SERVER_VARS['PHP_AUTH_PW']) ) {
-		if( !bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_SERVER_VARS['PHP_AUTH_USER']."' AND passwd='".md5($HTTP_SERVER_VARS['PHP_AUTH_PW'])."' AND is_mod='A'") ) {
+	if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
+		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_SERVER['PHP_AUTH_USER']).'\' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND is_mod=\'A\'')) {
 			header('WWW-Authenticate: Basic realm="Private"');
 			header('HTTP/1.0 401 Unauthorized');
 			exit('Authorization Required.');
 		}
-		define('shell_script', 1);
-		define('_hs', '');
+	} else {
 		fud_use('adm.inc', true);
-	}
-	else {
-		fud_use('adm.inc', true);
-		list($ses, $usr) = initadm();
 	}	
 
-function make_insrt_qry($obj, $tbl, $field_data)
-{
-	$vl = $kv = '';
-	
-	foreach($obj as $k => $v) {
-		if( !isset($field_data[$k]) ) continue;
-	
-		switch ( strtolower($field_data[$k]['type']) )
-		{
-			case 'string':
-			case 'blob':
-			case 'text':
-			case 'date':
-			case 'varchar':
-				if( empty($v) && !$field_data[$k]['not_null'] ) 
-					$vl .= 'NULL,';
-				else
-					$vl .= "'".str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v))))."',";
-				break;
-			default:
-				if( empty($v) && !$field_data[$k]['not_null'] ) 
-					$vl .= 'NULL,';
-				else
-					$vl .= $v.',';
-		}
-		
-		$kv .= $field_data[$k]['name'].',';
-	}	
-	$vl = substr($vl, 0, -1);
-	$kv = substr($kv, 0, -1);
-	
-	return "INSERT INTO ".$tbl." (".$kv.") VALUES(".$vl.")";
-}
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 
-function backup_dir($dirp, $key, $keep_dir='')
-{
-	global $fp;
-	global $write_func;
-
-	$cur_dir = getcwd();
-	
-	$opendir = $dirp;
-	
-	if( !@chdir($opendir) ) {
-		echo "warning no perms to open '$opendir'<br>\n";
-		return;
-	}
-	
-	$dir = opendir('.');
-	readdir($dir); readdir($dir);
-	while( $file = readdir($dir) ) {
-		if( @is_dir($file) ) {
-			if( $file == 'tmp' ) continue;
-			backup_dir($file, $key, $dirp);
-		}	
-		
-		if( !@is_file($file) || $file == 'GLOBALS.php' ) continue;
-
-		if( !@is_readable($file) ) {
-			echo "WARNING: unable to open '".realpath($file)."' for reading<br>\n";
-			continue;
-		}
-		$file_data = filetomem($file);
-		$file_ln = strlen($file_data);
-		
-		$curdir = str_replace(realpath($GLOBALS[$key]), '', getcwd());
-		
-		if( empty($keep_dir) )
-			$write_func($fp, '//'.$file.'//'.$key.'//'.$file_ln."//\n".$file_data."\n");
-		else
-			$write_func($fp, '//'.$file.'//'.$key.$curdir.'//'.$file_ln."//\n".$file_data."\n");
-	}
-	closedir($dir);
-	chdir($cur_dir);
-}
-
-function sql_num_fields($r)
-{
-	if( __dbtype__ == 'pgsql' ) 
-		return pg_num_fields($r['res']);
-	else
-		return mysql_num_fields($r);
-}
-
-function sql_field_type($r,$n)
-{
-	if( __dbtype__ == 'pgsql' ) 
-		return pg_field_type($r['res'], $n);
-	else
-		return mysql_field_type($r, $n);
-}
-
-
-function sql_field_name($r, $n)
-{
-	if( __dbtype__ == 'pgsql' ) 
-		return pg_field_name($r['res'],$n);
-	else
-		return mysql_field_name($r, $n);
-}
-
-function sql_is_null($r, $n, $tbl='')
-{
-	if( __dbtype__ == 'pgsql' ) {
-		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = '".$tbl."' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
-		return ( $res == 't' ? true : false );
-	}
-	else 
-		return ( strstr(mysql_field_flags($r,$n), 'not_null') ? true : false );
-}
-
-include('admpanel.php'); 
-	
-	if( $HTTP_POST_VARS['submitted'] && !@fopen($HTTP_POST_VARS['path'], 'wb') ) {
-		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$HTTP_POST_VARS['path'].' for write.</font><br>';
-		$HTTP_POST_VARS['submitted'] = '';
+	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
+		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br>';
+		$_POST['submitted'] = NULL;
 	}
 
-	if( $HTTP_POST_VARS['submitted'] ) {
-		if( $HTTP_POST_VARS['compress'] ) {
-			if( !$fp = gzopen($HTTP_POST_VARS['path'], "wb9")) exit("cannot create file");
+	if (isset($_POST['submitted'])) {
+		if (isset($_POST['compress'])) {
+			if (!$fp = gzopen($_POST['path'], 'wb9')) {
+				exit('cannot create file');
+			}
 			$write_func = 'gzwrite';
-		}
-		else { 
-			if( !$fp = fopen($HTTP_POST_VARS['path'], "wb")) exit("cannot create file");
+		} else { 
+			if (!$fp = fopen($_POST['path'], 'wb')) {
+				exit('cannot create file');
+			}
 			$write_func = 'fwrite';
 		}	
 	
 		$write_func($fp, "\n----SQL_START----\n");
 	
-		$curdir = getcwd();
-		chdir(realpath($INCLUDE.'../sql/'.__dbtype__.'/'));
-		$dir = opendir('.');
-		readdir($dir); readdir($dir);
-		while( $file = readdir($dir) ) {
-			if( !@is_file($file) ) continue;
-		
-			if( substr($file,-4)=='.tbl' ) {
-				$sql_data = filetomem($file);
-				$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
-				$sql_data = preg_replace("!\s+!s", " ", $sql_data);
-				$sql_data = str_replace(";", "\n", $sql_data);
-				$sql_data = str_replace("\r", "", $sql_data);
-				$write_func($fp, $sql_data."\n");
-			}
-			else if ( substr($file,-5)=='.func' ) 
-				$write_func($fp, preg_replace("!(\n|\t)!", " ", filetomem($file))."\n");
+		/* read sql table defenitions */
+		$path = $DATA_DIR . 'sql/' . __dbtype__;
+		if (!($d = opendir($path))) {
+			exit('Failed to open SQL directory "'.$path.'"');
 		}
-		closedir($dir);
-		chdir($curdir);
+		readdir($d); readdir($d);
+		while ($f = readdir($d)) {
+			if (substr($f, -4) != '.tbl') {
+				continue;
+			}
+			$sql_data = file_get_contents($path . '/'. $f);
+			$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
+			$sql_data = preg_replace("!\s+!s", " ", $sql_data);
+			$sql_data = str_replace(";", "\n", $sql_data);
+			$sql_data = str_replace("\r", "", $sql_data);
+			$write_func($fp, $sql_data . "\n");
+		}
+		closedir($d);
 		
 		$sql_table_list = get_fud_table_list();
-		
-		foreach($sql_table_list as $tbl_name) $locklist .= $tbl_name.'+,';
-		$locklist = substr($locklist, 0, -1);
-		db_lock($locklist);
+		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
 
 		foreach($sql_table_list as $tbl_name) {
-			echo "Processing table: $tbl_name .... ";
+			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
+		
+			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
 			flush();
-			
-			$num_entries = q_singleval("SELECT count(*) FROM ".$tbl_name);
-			$start = 0;
-			$limit = 100000;
-			$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
-			$field_data = array();
-			
-			if( $num_entries ) {
-				$r2 = q("SELECT * FROM ".$tbl_name." LIMIT 1");
-				$nf = sql_num_fields($r2);
-				for( $i=0; $i<$nf; $i++ ) {
-					$field_data[sql_field_name($r2, $i)] = array(
-						'name' => sql_field_name($r2, $i),
-						'type' => sql_field_type($r2, $i),
-						'not_null' => sql_is_null($r2, $i, $tbl_name)
-					);	
+			if ($num_entries) {
+				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
+				/* get field defenitions */
+				$r = q('SELECT * FROM '.$tbl_name.' LIMIT 1');
+				$nf = sql_num_fields($r);
+				for ($i = 0; $i < $nf; $i++) {
+					$field_data[sql_field_name($r, $i)] = array('name' => sql_field_name($r, $i), 'type' => sql_field_type($r, $i), 'not_null' => sql_is_null($r, $i, $tbl_name));
 				}
+				$c = uq('SELECT * FROM '.$tbl_name);
+				while ($r = db_rowobj($c)) {
+					$write_func($fp, make_insrt_qry($r, $db_name, $field_data)."\n");
+				}
+				qf($c);
 			}
-			
-			while ($start<$num_entries) {
-				$r2 = q("SELECT * FROM ".$tbl_name." LIMIT ".qry_limit($limit, $start));
-				while( $obj = db_rowobj($r2) ) $write_func($fp, make_insrt_qry($obj, $db_name, $field_data)."\n");
-				qf($r2);
-				$start += $limit;
-			}			
-			
+
 			echo "DONE<br>\n";
 			flush();
 		}
@@ -245,28 +209,35 @@ include('admpanel.php');
 		echo "Compressing forum datafiles<br>\n";
 		flush();
 		backup_dir(realpath($DATA_DIR), 'DATA_DIR');
-		if( $DATA_DIR != $WWW_ROOT_DISK ) backup_dir(realpath($WWW_ROOT_DISK.'images/'), 'IMG_ROOT_DISK');
+		if ($DATA_DIR != $WWW_ROOT_DISK) {
+			backup_dir(realpath($WWW_ROOT_DISK.'images/'), 'IMG_ROOT_DISK');
+		}
 	
-		if( $HTTP_POST_VARS['compress'] ) 
+		if (isset($_POST['compress'])) {
 			gzclose($fp);
-		else
+		} else {
 			fclose($fp);
+		}
 		
 		db_unlock();
 		
-		@chmod($HTTP_POST_VARS['path'], 0600);
-			
 		echo "Backup Process is Complete<br>";
-		echo "Backup file can be found at: <b>".$HTTP_POST_VARS['path']."</b>, it is occupying ".filesize($HTTP_POST_VARS['path'])." bytes<br>\n";
-	}
-	else {
-		if( empty($path) ) {
-			$path = $GLOBALS['TMP'].'FUDforum_'.strftime("%d_%m_%Y-%I:%M", __request_timestamp__).'.fud';
-			if( function_exists("gzopen") ) $path .= '.gz';
+		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
+	} else {
+		$gz = function_exists('gzopen');
+		if (!isset($path_error)) {
+			$path = $TMP.'FUDforum_'.strftime('%d_%m_%Y-%I:%M', __request_timestamp__).'.fud';
+			if ($gz) {
+				$path .= '.gz';
+				$compress = ' checked';
+			} else {
+				$compress = '';
+			}
+			$path_error = '';
+		} else {
+			$compress = isset($_POST['compress']) ? ' checked' : '';
+			$path = $_POST['path'];
 		}
-		
-		if( !empty($checked) || (empty($checked) && empty($submitted) && function_exists("gzopen")) ) 
-			$checked = ' checked';
 ?>
 <h2>FUDforum Backup</h2>
 <table border=0 cellspacing=1 cellpadding=3>
@@ -276,10 +247,10 @@ include('admpanel.php');
 	<td>Backup Save Path<br><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
 	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
 </tr>
-<?php if( function_exists("gzopen") ) { ?>
+<?php if($gz) { ?>
 <tr bgcolor="#bff8ff">
 	<td>Use Gzip Compression<br><font size="-1">if you choose this option, the backup files will be compressed using Gzip compression. This may make the backup process a little slower, but will save a lot of harddrive space.</font></td>
-	<td><input type="checkbox" name="compress" value="1"<?php echo $checked; ?>> Yes</td>
+	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?>> Yes</td>
 </tr>
 <?php } ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>	
@@ -287,6 +258,7 @@ include('admpanel.php');
 </form>
 </table>
 <?php	
-	}
-readfile('admclose.html');		
+	} /* isset($_POST['submitted']) */
+
+	require($WWW_ROOT_DISK . 'adm/admclose.html');		
 ?>
