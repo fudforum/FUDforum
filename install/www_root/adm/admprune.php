@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admprune.php,v 1.7 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@
 	list($ses, $usr) = initadm();
 	
 	if ( $btn_prune && is_numeric($thread_age) ) {
-		/* count up threads */
+		/* count up topics */
 		$back = $units*$thread_age;
 		$back_t = __request_timestamp__-$back;
 				
@@ -70,7 +70,7 @@
 			$str_time = strftime("%Y-%m-%d %T", $back_t);
 			exit('
 			<html>
-			<div align=center>You are about to delete <font color="red">'.$v.'</font> threads which were posted before <font color="red">'.$str_time.'</font> '.$msg.'<br><br>
+			<div align=center>You are about to delete <font color="red">'.$v.'</font> topics which were posted before <font color="red">'.$str_time.'</font> '.$msg.'<br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
 			<input type="hidden" name="btn_prune" value="1">
@@ -125,11 +125,11 @@
 
 include('admpanel.php'); 
 ?>	
-<h2>Thread Prunning</h2>
+<h2>Topic Prunning</h2>
 <form method="post" action="admprune.php?rand=<?php echo get_random_value(); ?>">
 <table border=0 cellspacing=1 callpadding=3>
 <tr>
-	<td bgcolor="#bff8ff" nowrap>Threads with last post made:</td>
+	<td bgcolor="#bff8ff" nowrap>Topics with last post made:</td>
 	<td bgcolor="#bff8ff"><input type="text" name="thread_age"></td>
 	<td bgcolor="#bff8ff" nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", $units); ?> ago</td>
 </tr>

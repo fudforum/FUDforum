@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.7 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admstats.php,v 1.8 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -135,7 +135,7 @@ function get_sql_disk_usage()
 				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
 				break;
 			case 'thr':
-				$g_title = 'Threads created from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
+				$g_title = 'Topics created from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
 				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
 				break;
 			case 'usr':
@@ -204,7 +204,7 @@ function get_sql_disk_usage()
 </tr>
 <tr>
 	<td valign="top"><b>Graph Data: </b></td>
-	<td colspan=3><select name="type"><?php echo tmpl_draw_select_opt("msg\nthr\nusr", "Posted Messages\nCreated Threads\nRegistered users", $type, '', ''); ?></select></td>
+	<td colspan=3><select name="type"><?php echo tmpl_draw_select_opt("msg\nthr\nusr", "Posted Messages\nCreated Topics\nRegistered users", $type, '', ''); ?></select></td>
 </tr>
 <tr><td colspan=4 align="right"><input type="submit" name="submit" value="Submit"></td></tr>
 <?php echo _hs; ?>
@@ -254,11 +254,11 @@ function get_sql_disk_usage()
 </tr>
 
 <tr>	
-	<td valign="top"><b>Threads:</b></td>
+	<td valign="top"><b>Topics:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['THREADS']; ?></td>
 	<td width=100>&nbsp;</td>
-	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per thread</font></td>
+	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per topic</font></td>
 </tr>
 
 <tr>	
@@ -268,7 +268,7 @@ function get_sql_disk_usage()
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
 		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['FORUMS']); ?></b> messages per forum<br>
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['FORUMS']); ?></b> threads per forum
+		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['FORUMS']); ?></b> topics per forum
 	</font></td>
 </tr>
 
@@ -279,7 +279,7 @@ function get_sql_disk_usage()
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
 		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['CATEGORIES']); ?></b> messages per category<br>
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['CATEGORIES']); ?></b> threads per category<br>
+		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['CATEGORIES']); ?></b> topics per category<br>
 		<b><?php echo @sprintf("%.2f", $forum_stats['FORUMS']/$forum_stats['CATEGORIES']); ?></b> forums per category
 	</font></td>
 </tr>
@@ -298,7 +298,7 @@ function get_sql_disk_usage()
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
 		<b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['MEMBERS']); ?></b> messages per user<br>
-		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['MEMBERS']); ?></b> threads per user<br>
+		<b><?php echo @sprintf("%.2f", $forum_stats['THREADS']/$forum_stats['MEMBERS']); ?></b> topics per user<br>
 		<b><?php echo @sprintf("%.2f", $forum_stats['PRIVATE_MESSAGES']/$forum_stats['MEMBERS']); ?></b> private messages per user
 	</font></td>
 </tr>

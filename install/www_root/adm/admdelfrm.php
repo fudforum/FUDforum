@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.3 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admdelfrm.php,v 1.4 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@
 			<html><body bgcolor=\"#ffffff\">
 				<div align=center>
 				<h3>You have selected to delete this forum</h3><br>
-				\"$frm->name\" which contains $frm->thread_count threads with $frm->post_count posts<br><br>
+				\"$frm->name\" which contains $frm->thread_count topics with $frm->post_count posts<br><br>
 				<h3>Are you sure this is what you want to do?</h3> 
 				
 				<form method=\"post\" action=\"admdelfrm.php\">

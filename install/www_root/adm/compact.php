@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: compact.php,v 1.7 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -106,7 +106,7 @@ and the amount of messages your forum has.<br><br>
 				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id
 			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum	
 				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
-			ORDER BY thread_id, id ASC");
+			ORDER BY topic_id, id ASC");
 
 
 	$rpl_arr = make_replace_array();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.7 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admgroups.php,v 1.8 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -235,10 +235,10 @@ if ( !$edit ) {
 	    <td align=center>Create polls</td>
 	    <td align=center>Attach files</td>
 	    <td align=center>Vote</td>
-	    <td align=center>Rate threads</td>
-	    <td align=center>Split threads</td>
-	    <td align=center>Lock threads</td>
-	    <td align=center>Move threads</td>
+	    <td align=center>Rate topics</td>
+	    <td align=center>Split topics</td>
+	    <td align=center>Lock topics</td>
+	    <td align=center>Move topics</td>
 	    <td align=center>Use smilies</td>
 	    <td align=center>Use images tags</td>
 	    ';

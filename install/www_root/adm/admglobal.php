@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.9 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admglobal.php,v 1.10 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -166,13 +166,13 @@ else
 <tr bgcolor="#bff8ff"><td>Online/Offline Status Indicator:<?php draw_help('ONLINE_OFFLINE_STATUS'); ?></td><td><?php draw_select('CF_ONLINE_OFFLINE_STATUS', "Yes\nNo", "Y\nN", $CF_ONLINE_OFFLINE_STATUS); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>COPPA:<?php draw_help('COPPA'); ?></td><td><?php draw_select('CF_COPPA', "Off\nOn", "N\nY", $CF_COPPA); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Posts Per Page:<?php draw_help('POSTS_PER_PAGE'); ?></td><td><input type="text" name="CF_POSTS_PER_PAGE" value="<?php echo $CF_POSTS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Threads Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Topics Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Polls Per Page:<?php draw_help('POLLS_PER_PAGE'); ?></td><td><input type="text" name="CF_POLLS_PER_PAGE" value="<?php echo $CF_POLLS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Default Thread View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View\nTree View", "msg\ntree", $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Default Topic View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View\nTree View", "msg\ntree", $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Word Wrap:<?php draw_help('WORD_WRAP'); ?></td><td><input type="text" name="CF_WORD_WRAP" value="<?php echo $CF_WORD_WRAP; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Unconfirmed User Expiry:<?php draw_help('UNCONF_USER_EXPIRY'); ?></td><td><input type="text" name="CF_UNCONF_USER_EXPIRY" value="<?php echo $CF_UNCONF_USER_EXPIRY; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Flood Trigger (seconds):<?php draw_help('FLOOD_CHECK_TIME'); ?></td><td><input type="text" name="CF_FLOOD_CHECK_TIME" value="<?php echo $CF_FLOOD_CHECK_TIME; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Moved Thread Pointer Expiry:<?php draw_help('MOVED_THR_PTR_EXPIRY'); ?></td><td><input type="text" name="CF_MOVED_THR_PTR_EXPIRY" value="<?php echo $CF_MOVED_THR_PTR_EXPIRY; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Moved Topic Pointer Expiry:<?php draw_help('MOVED_THR_PTR_EXPIRY'); ?></td><td><input type="text" name="CF_MOVED_THR_PTR_EXPIRY" value="<?php echo $CF_MOVED_THR_PTR_EXPIRY; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Use Aliases:<?php draw_help('USE_ALIASES'); ?></td><td><?php draw_select('CF_USE_ALIASES', "Yes\nNo", "Y\nN", $CF_USE_ALIASES); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Multiple Host Login:<?php draw_help('MULTI_HOST_LOGIN'); ?></td><td><?php draw_select('CF_MULTI_HOST_LOGIN', "Yes\nNo", "Y\nN", $CF_MULTI_HOST_LOGIN); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $CF_SERVER_TZ, '', ''); ?></select></td></tr>

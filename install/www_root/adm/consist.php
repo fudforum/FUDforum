@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.9 2002/07/22 14:53:37 hackie Exp $
+*   $Id: consist.php,v 1.10 2002/07/22 17:01:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,10 +215,10 @@ forum will be disabled.<br><br>
 	qf($result);
 	draw_info($cnt);
 	
-	draw_stat('Checking read table against threads/messages');
+	draw_stat('Checking read table against topics/messages');
 	$cnt=0;
- 	/* read thread->thread/user */ 
-	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."read.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."read.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poster_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
+ 	/* read topic->thread/user */ 
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."read.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS topic_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."read.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poster_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->thread_id) ) {
 			++$cnt;
@@ -324,9 +324,9 @@ forum will be disabled.<br><br>
 	qf($result);
 	draw_info($cnt);
 	
-	draw_stat('Checking threads forum relations');
+	draw_stat('Checking topics forum relations');
 	$cnt = 0;
-	/* threads -> forum */
+	/* topics -> forum */
 	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
 		if ( empty($obj->id) ) continue;
@@ -339,7 +339,7 @@ forum will be disabled.<br><br>
 	qf($r);
 	draw_info($cnt);
 	
-	draw_stat('Checking message thread relations');
+	draw_stat('Checking message topic relations');
 	$cnt = 0;
 	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj=db_rowobj($r) ) {
@@ -393,13 +393,13 @@ forum will be disabled.<br><br>
 	draw_stat("Done: Checking Approvals");
 	
 	/* fixing counts */
-	draw_stat('Updating counts for threads');
+	draw_stat('Updating counts for topics');
 	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS th_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.moderated FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( $obj->moderated == 'Y' ) 
-			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id." AND approved='Y'";
+			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE topic_id=".$obj->th_id." AND approved='Y'";
 		else
-			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id;
+			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE topic_id=".$obj->th_id;
 			
 		$r = q($q);
 		list($post_count) = db_rowarr($r);
@@ -410,7 +410,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Updating forums');
 	$result = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
-	draw_stat('Updating thread counts for forums');
+	draw_stat('Updating topic counts for forums');
 	while ( $obj = db_rowobj($result) ) {
 		draw_stat('Forum: '.$obj->name);
 		if ( $obj->moderated == 'Y' ) {
@@ -427,14 +427,14 @@ forum will be disabled.<br><br>
 			
 		draw_stat('thread count:'.$th_count);
 		draw_stat('post count:'.$p_count);
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET thread_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET topic_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
 	}
 	qf($result);
 	draw_stat('Updating post counts');
 	draw_stat('finished forum counts');
 	
-	/* thread notif */
-	draw_stat('Checking thread notification entries against users');
+	/* topic notif */
+	draw_stat('Checking topic notification entries against users');
 	$cnt = 0;
 	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS reg_user_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
@@ -447,7 +447,7 @@ forum will be disabled.<br><br>
 	qf($result);
 	draw_info($cnt);
 
-	draw_stat('Checking thread notification entries against threads');
+	draw_stat('Checking topic notification entries against topics');
 	$cnt = 0;
 	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
@@ -479,7 +479,7 @@ forum will be disabled.<br><br>
 	qf($result);
 	draw_info($cnt);
 	
-	draw_stat('Updating Thread Last_Post_Id Field');
+	draw_stat('Updating Topic Last_Post_Id Field');
 	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id AS id,
 			MAX(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.post_stamp) AS post_stamp
 		FROM 
@@ -491,11 +491,11 @@ forum will be disabled.<br><br>
 
 	if( db_count($r) ) {
 		while ( $obj = db_rowobj($r) ) {
-			$mid = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp=$obj->post_stamp AND thread_id=$obj->id");
+			$mid = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp=$obj->post_stamp AND topic_id=$obj->id");
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET last_post_id=".$mid.",last_post_date=".$obj->post_stamp." WHERE id=".$obj->id);
 		}
 	}
-	draw_stat('Done: Updating Thread Last_Post_Id Field');
+	draw_stat('Done: Updating Topic Last_Post_Id Field');
 	
 	draw_stat('Updating Forum Last_Post_Id Field');
 	$r = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
@@ -507,7 +507,7 @@ forum will be disabled.<br><br>
 	qf($r);	
 	draw_stat('Done: Updating Forum Last_Post_Id Field');
 	
-	draw_stat('Checking email notification entries against threads');
+	draw_stat('Checking email notification entries against topics');
 	$cnt = 0;
 	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS th_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id");
 	while ( $obj = db_rowobj($result) ) {
@@ -519,7 +519,7 @@ forum will be disabled.<br><br>
 	qf($result);
 	draw_info($cnt);
 	
-	draw_stat('Checking thread votes against threads');
+	draw_stat('Checking topic votes against topics');
 	$cnt = 0;
 	$r=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
@@ -530,7 +530,7 @@ forum will be disabled.<br><br>
 	draw_info($cnt);
 	
 	
-	draw_stat('Checking thread votes against users');
+	draw_stat('Checking topic votes against users');
 	$cnt = 0;
 	$r=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
@@ -540,7 +540,7 @@ forum will be disabled.<br><br>
 	qf($r);
 	draw_info($cnt);
 	
-	draw_stat('Rebuilding Thread Views');
+	draw_stat('Rebuilding Topic Views');
 	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_view");
 	$tm=__request_timestamp__;
 	$fr = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
@@ -548,7 +548,7 @@ forum will be disabled.<br><br>
 		rebuild_forum_view($frm_id);
 	}
 	qf($fr);
-	draw_stat('Done Rebuilding Thread Views');
+	draw_stat('Done Rebuilding Topic Views');
 	
 	draw_stat('Rebuilding user levels & message counts');
 	$r = q(" SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id, count(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id) AS cnt FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poster_id AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y' GROUP BY ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
