@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.12 2003/09/26 18:49:03 hackie Exp $
+*   $Id: mvthread.php.t,v 1.13 2003/09/27 17:53:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@
 	
 	/* thread x-change */
 	if ($th && $thx) {
-		if ($usr->is_mod != 'A' && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='.$thx.' AND user_id='._uid)) {
+		if (!($usr->users_opt & 1048576) && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='.$thx.' AND user_id='._uid)) {
 			std_error('access');
 		}
 	
@@ -46,10 +46,9 @@
 		$thr = db_sab('SELECT 
 				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
 				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi, 
-				'.($usr->is_mod == 'A' ? ' 1 ' : ' mm1.id ').' AS mod1, 
-				'.($usr->is_mod == 'A' ? ' 1 ' : ' mm2.id ').' AS mod2,
-				(CASE WHEN gs2.id IS NOT NULL THEN gs2.p_MOVE ELSE gs1.p_MOVE END) AS smove,
-				(CASE WHEN gd2.id IS NOT NULL THEN gd2.p_MOVE ELSE gd1.p_MOVE END) AS dmove
+				'.($usr->users_opt & 1048576 ? ' 1 AS mod1, 1 AS mod2' : ' mm1.id AS mod1, mm2.id AS mod2').', 
+				(CASE WHEN gs2.id IS NOT NULL THEN gs2.group_cache_opt ELSE gs1.group_cache_opt END) AS sgco,
+				(CASE WHEN gd2.id IS NOT NULL THEN gd2.group_cache_opt ELSE gd1.group_cache_opt END) AS dgco
 			FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$to.'
@@ -64,7 +63,8 @@
 		if (!$thr) {
 			invl_inp_err();
 		}
-		if ((!$thr->mod1 && $thr->smove != 'Y') || (!$thr->mod2 && $thr->dmove != 'Y')) {
+
+		if ((!$thr->mod1 && !($thr->gco & 8192)) || (!$thr->mod2 && !($thr->gco & 8192))) {
 			std_error('access');
 		}
 	
@@ -86,7 +86,7 @@
 		
 		logaction(_uid, 'THRMOVE', $th);
 		
-		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+		if ($USE_PATH_INFO == 'Y' && !empty($_SERVER['PATH_INFO'])) {
 			exit("<html><script>window.opener.location='{ROOT}/f/".$thr->forum_id."/"._rsid."'; window.close();</script></html>");
 		} else {
 			exit("<html><script>window.opener.location='{ROOT}?t=".t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");
@@ -98,30 +98,24 @@
 	if (!$thx) {
 		$thr = db_sab('SELECT f.name AS frm_name, m.subject, t.forum_id, t.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th);
 
-		$r = uq('SELECT 
-				f.name, f.id, c.name, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.p_VISIBLE ELSE g1.p_VISIBLE END) AS p_visible,
-				(CASE WHEN g2.id IS NOT NULL THEN g2.p_MOVE ELSE g1.p_MOVE END) AS p_MOVE
+		$r = uq('SELECT f.name, f.id, c.name, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 			FROM {SQL_TABLE_PREFIX}cat c 
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON c.id=f.cat_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id 
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id 
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-			WHERE c.id!=0 AND f.id!='.$thr->forum_id.' ORDER BY c.view_order, f.view_order');
+			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($usr->users_opt & 1048576 ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR gco & 1 THEN 1 ELSE 0)=1').'
+			ORDER BY c.view_order, f.view_order');
 
 		$table_data = $prev_cat = '';
 
 		while ($ent = db_rowarr($r)) {
-			/* determine whether to show the forum or not */
-			if ($usr->is_mod != 'A' && !$ent[3] && $ent[4] != 'Y') {
-				continue;
-			}
-
 			if ($ent[2] !== $prev_cat) {
 				$table_data .= '{TEMPLATE: cat_entry}';
 				$prev_cat = $ent[2];
 			}
 
-			if ($ent[3] || $usr->is_mod == 'A' || $ent[5] == 'Y') {
+			if ($ent[3] || $usr->users_opt & 1048576 || $ent[4] & 8192) {
 				$table_data .= '{TEMPLATE: forum_entry}';
 			} else {
 				$table_data .= '{TEMPLATE: txc_forum_entry}';	
