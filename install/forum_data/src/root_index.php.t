@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.6 2002/06/26 20:02:55 hackie Exp $
+*   $Id: root_index.php.t,v 1.7 2002/07/30 14:41:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,27 +16,24 @@
 ***************************************************************************/
 
 	include_once "GLOBALS.php";
-	/* fud_use('db.inc'); */
-{PRE_HTML_PHP}
-{POST_HTML_PHP}
+	
+	{PRE_HTML_PHP}
+	{POST_HTML_PHP}
 
 	$pg = ( !empty($HTTP_POST_VARS['t']) ) ? $HTTP_POST_VARS['t'] : $HTTP_GET_VARS['t'];
 	if ( empty($pg) ) $pg = 'index';
-	
 
 	if ( !$usr->theme )
 		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
 	else
-		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=".$usr->theme);
 
 	$GLOBALS['FUD_THEME'] = db_singleobj($r);
-	fud_use('err.inc');
-	fud_use('init_errors.inc');
 	define('__fud_theme_id__', $GLOBALS['FUD_THEME']->id);
 	
 	setlocale(LC_ALL, $GLOBALS['FUD_THEME']->locale);
 	if ( preg_match('/[^A-Za-z0-9_]/', $pg) ) exit("<html>This is an invalid request</html>\n");
 	
-	define('__index_page_start__', TRUE);
+	define('__index_page_start__', true);
 	require('theme/'.$GLOBALS['FUD_THEME']->name.'/'.$pg.'.php');
 ?>
