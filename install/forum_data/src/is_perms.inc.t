@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: is_perms.inc.t,v 1.32 2004/06/04 16:05:36 hackie Exp $
+* $Id: is_perms.inc.t,v 1.33 2004/06/23 16:48:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -40,7 +40,7 @@ function &get_all_read_perms($uid, $mod)
 
 function perms_from_obj($obj, $adm)
 {
-	$perms = 1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|32768;
+	$perms = 1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|32768|262144;
 
 	if ($adm || $obj->md) {
 		return $perms;
