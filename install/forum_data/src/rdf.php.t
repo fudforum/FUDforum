@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.15 2003/05/28 16:05:53 hackie Exp $
+*   $Id: rdf.php.t,v 1.16 2003/05/28 16:49:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,6 +57,21 @@ function email_format($data)
 {
 	return strtr($data, $GLOBALS['email']);
 }
+
+/* build html encoding list */
+for ($i = 8; $i < 48; $i++) {
+	$e[chr($i)] = '&#' . $i . ';';
+}
+for ($i = 60; $i < 65; $i++) { 
+	$e[chr($i)] = '&#' . $i . ';';
+}
+for ($i = 92; $i < 97; $i++) {
+	$e[chr($i)] = '&#' . $i . ';';
+}
+for ($i = 123; $i < 256; $i++) {
+	$e[chr($i)] = '&#' . $i . ';';
+}
+unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['=']);
 
 /*{POST_HTML_PHP}*/
 
@@ -174,8 +189,7 @@ function email_format($data)
 				}
 
 				if ($basic) {
-					$body = read_msg_body($r->foff, $r->length, $r->file_id);
-					$body = preg_replace('!([^-A-Za-z0-9_:/=\s&;])!e', "'&#'.ord('\\1').';'", $body);
+					$body = strtr(read_msg_body($r->foff, $r->length, $r->file_id), $e);
 				
 $basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."\" />\n";
 
