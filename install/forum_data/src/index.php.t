@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.63 2004/10/21 23:21:20 hackie Exp $
+* $Id: index.php.t,v 1.64 2004/10/22 14:03:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,26 +90,22 @@ function url_tog_collapse($id, $c)
 	  2	msg.post_stamp,
 	  3	users.id AS user_id,
 	  4	users.alias
-	  5	cat.description,
-	  6	cat.name,
-	  7	cat.cat_opt,
-	  8	forum.cat_id,
-	  9	forum.forum_icon
-	  10	forum.id
-	  11	forum.last_post_id
-	  12	forum.moderators
-	  13	forum.name
-	  14	forum.descr
-	  15	forum.post_count
-	  16	forum.thread_count
-	  17	forum_read.last_view
-	  18	is_moderator
-	  19	read perm
+	  5	forum.cat_id,
+	  6	forum.forum_icon
+	  7	forum.id
+	  8	forum.last_post_id
+	  9	forum.moderators
+	  10	forum.name
+	  11	forum.descr
+	  12	forum.post_count
+	  13	forum.thread_count
+	  14	forum_read.last_view
+	  15	is_moderator
+	  16	read perm
 	*/
 	$c = uq('SELECT
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
-				c.description, c.name, c.cat_opt,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
 				mo.id AS md,
@@ -130,10 +126,10 @@ function url_tog_collapse($id, $c)
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($c)) {
 		/* increase thread & post count */
-		$post_count += $r[15];
-		$thread_count += $r[16];
+		$post_count += $r[12];
+		$thread_count += $r[13];
 
-		$cid = (int) $r[8];
+		$cid = (int) $r[5];
 
 		if ($cat != $cid) {
 			while (list($k, $i) = each($cidxc)) {
@@ -176,19 +172,19 @@ function url_tog_collapse($id, $c)
 			continue;
 		}
 
-		if (!($r[19] & 2) && !($usr->users_opt & 1048576) && !$r[18]) { /* visible forum with no 'read' permission */
+		if (!($r[16] & 2) && !($usr->users_opt & 1048576) && !$r[15]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
 
 		/* code to determine the last post id for 'latest' forum message */
-		if ($r[11] > $last_msg_id) {
-			$last_msg_id = $r[11];
+		if ($r[8] > $last_msg_id) {
+			$last_msg_id = $r[8];
 		}
 
-		$forum_icon = $r[9] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
+		$forum_icon = $r[6] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
 
-		if (_uid && $r[17] < $r[2] && $usr->last_read < $r[2]) {
+		if (_uid && $r[14] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
 		} else if (_uid) {
 			$forum_read_indicator = '{TEMPLATE: forum_read}';
@@ -196,14 +192,14 @@ function url_tog_collapse($id, $c)
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
 		}
 
-		if ($r[11]) {
+		if ($r[8]) {
 			$last_poster_profile = $r[3] ? '{TEMPLATE: profile_link_user}' : '{TEMPLATE: profile_link_anon}';
 			$last_post = '{TEMPLATE: last_post}';
 		} else {
 			$last_post = '{TEMPLATE: na}';
 		}
 
-		if ($r[12] && ($mods = @unserialize($r[12]))) {
+		if ($r[9] && ($mods = @unserialize($r[9]))) {
 			$moderators = '';
 			foreach($mods as $k => $v) {
 				$moderators .= '{TEMPLATE: profile_link_mod}';

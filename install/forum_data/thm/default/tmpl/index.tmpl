@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.46 2004/10/21 23:55:47 hackie Exp $
+* $Id: index.tmpl,v 1.47 2004/10/22 14:03:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 {SECTION: END}
 
 {SECTION: forum_icon}
-<img src="{VAR: r[9]}" alt="{MSG: forum_icon}" />
+<img src="{VAR: r[6]}" alt="{MSG: forum_icon}" />
 {SECTION: END}
 
 {SECTION: no_forum_icon}
@@ -54,9 +54,9 @@
 <tr>
 	<td class="RowStyleA wo">{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{FUNC: ($r[14] ? '<br />'.$r[14] : '')}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{VAR: r[15]}</td>
-	<td class="RowStyleB ac">{VAR: r[16]}</td>
+	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
+	<td class="RowStyleB ac">{VAR: r[12]}</td>
+	<td class="RowStyleB ac">{VAR: r[13]}</td>
 	<td class="RowStyleA ac nw">{VAR: last_post}</td>
 </tr>
 {SECTION: END}
@@ -163,7 +163,7 @@
 {SECTION: END}
 
 {SECTION: last_post_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[11]}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[8]}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: profile_link_user_lnk}
@@ -187,7 +187,7 @@
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: idx_forum_path}
