@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.3 2002/07/02 15:06:04 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.4 2002/07/02 15:08:37 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -2494,7 +2494,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			When you access the template editor you are presented with a form that allows you to choose
-			for which theme & language you are editing the templates for.
+			for which theme &amp; language you are editing the templates for.
 		</para>
 		
 		<para>
