@@ -152,7 +152,7 @@ subscribed_forums:		Subscribed Forums
 subscribed_forums_desc:		Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
 subscribed_threads:		Subscribed Topics
 subscribed_threads_desc:	Toggle the subscribed topics filter (will only show posts from the topics you are subscribed to)
-switch_to_thread_view:		Switch to topiced view of this topic
+switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
 thread_announcement:		announcement:
 thread_first_unread_msg:	Click here to go the first unread message in this topic
@@ -870,7 +870,7 @@ imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit: 			Edit
 register_err_not_valid_img:	The specified url does not contain a valid image
-pmsg_recepient:			Recepient
+pmsg_recepient:			Recipient
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
 register_alias:			Alias
 register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
