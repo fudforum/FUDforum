@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.tmpl,v 1.18 2004/07/02 16:54:27 hackie Exp $
+* $Id: actions.tmpl,v 1.16 2004/05/18 16:26:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: last_post last by a user}
-{TEMPLATE: last_post_date}<br />
+{DATE: r[9] %a, %d %B %Y %H:%M}<br />
 <a href="{TEMPLATE: last_post_lnk}">{VAR: r[8]}</a>
 {SECTION: END}
 
@@ -34,7 +34,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="GenText">{VAR: user_login}</td>
 	<td class="GenText">{VAR: action}</td>
-	<td class="DateText">{TEMPLATE: action_entry_date}</td>
+	<td class="DateText">{DATE: r[5] %H:%M:%S}</td>
 	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
 </tr>
 {SECTION: END}

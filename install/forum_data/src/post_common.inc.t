@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.19 2004/07/07 21:10:20 hackie Exp $
+* $Id: post_common.inc.t,v 1.16 2004/05/12 15:26:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,52 +12,45 @@
 
 function draw_post_smiley_cntrl()
 {
-	global $PS_SRC, $PS_DST; /* import from global scope, if possible */
-
-	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
-
-	/* nothing to do */
-	if ($GLOBALS['MAX_SMILIES_SHOWN'] < 1 || !$PS_SRC) {
-		return;
-	}
-	$limit = count($PS_SRC);
-	if ($limit > $GLOBALS['MAX_SMILIES_SHOWN']) {
-		$limit = $GLOBALS['MAX_SMILIES_SHOWN'];
-	}
-
+	$c = uq('SELECT code, descr, img FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder LIMIT '.$GLOBALS['MAX_SMILIES_SHOWN']);
 	$data = '';
-	for ($i = 0; $i < $limit; $i++) {
+	while ($r = db_rowarr($c)) {
+		$r[0] = ($a = strpos($r[0], '~')) ? substr($r[0], 0, $a) : $r[0];
 		$data .= '{TEMPLATE: post_smiley_entry}';
 	}
-	return '{TEMPLATE: post_smilies}';
+
+	return ($data ? '{TEMPLATE: post_smilies}' : '');
 }
 
 function draw_post_icons($msg_icon)
 {
-	include $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache';
-
-	/* nothing to do */
-	if (!$ICON_L) {
-		return;
-	}
-
 	$tmp = $data = '';
+	$allowed_ext = array('.jpg' => 1, '.png' => 1, '.jpeg' => 1, '.gif' => 1);
+	$p = -1;
 	$rl = (int) $GLOBALS['POST_ICONS_PER_ROW'];
+
 	$none_checked = !$msg_icon ? ' checked' : '';
 
-	foreach ($ICON_L as $k => $f) {
-		if ($k && !($k % $rl)) {
-			$data .= '{TEMPLATE: post_icon_row}';
-			$tmp = '';
+	if ($d = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons')) {
+		readdir($d); readdir($d);
+		while ($f = readdir($d)) {
+			if (strlen($f) < 4 || !isset($allowed_ext[strtolower(strrchr($f, '.'))])) {
+				continue;
+			}
+			if (++$p > $rl) {
+				$data .= '{TEMPLATE: post_icon_row}';
+				$tmp = ''; $p = 0;
+			}
+			$checked = $f == $msg_icon ? ' checked' : '';
+			$tmp .= '{TEMPLATE: post_icon_entry}';
 		}
-		$checked = $f == $msg_icon ? ' checked' : '';
-		$tmp .= '{TEMPLATE: post_icon_entry}';
-	}
-	if ($tmp) {
-		$data .= '{TEMPLATE: post_icon_row}';
+		closedir($d);
+		if ($tmp) {
+			$data .= '{TEMPLATE: post_icon_row}';
+		}
 	}
 
-	return '{TEMPLATE: post_icons}';
+	return ($data ? '{TEMPLATE: post_icons}' : '');
 }
 
 function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private=0, $msg_id)

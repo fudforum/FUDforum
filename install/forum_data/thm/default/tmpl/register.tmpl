@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.51 2004/09/23 19:13:44 hackie Exp $
+* $Id: register.tmpl,v 1.49 2004/05/26 20:02:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,15 +39,6 @@
 <tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size=25 maxlength=16></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{VAR: reg_email_err}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{VAR: reg_name_err}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
-{TEMPLATE-DATA: turing}
-{SECTION: END}
-
-{SECTION: register_err_turing}
-{MSG: register_err_turing}
-{SECTION: END}
-
-{SECTION: register_turing_test}
-<tr class="RowStyleA"><td>{MSG: register_turing}{VAR: reg_turing_err}<br /><div style="white-space: pre; font-family: Courier; color: black; background-color: #C0C0C0;">{FUNC: generate_turing_val($turing_res)}<input type="hidden" name="turing_res" value="{VAR: turing_res}"></div></td><td class="vt"><input type="text" name="turing_test" value=""></td></tr>
 {SECTION: END}
 
 {SECTION: theme_select}
@@ -145,7 +136,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<form method="post" action="{TEMPLATE: REGISTER_PAGE_lnk3}" name="fud_register" enctype="multipart/form-data"{VAR: auto_c}>
+<form method="post" action="{TEMPLATE: REGISTER_PAGE_lnk3}" name="fud_register" enctype="multipart/form-data">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: register_required}</th></tr>
 <tr><td colspan="2" class="RowStyleC">{MSG: register_required_desc}</td></tr>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.19 2004/07/02 16:54:28 hackie Exp $
+* $Id: polllist.tmpl,v 1.17 2004/04/25 20:18:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 {SECTION: poll_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="wa">{VAR: obj->name}</td>
-	<td class="nw">{TEMPLATE: poll_date}</td>
+	<td class="nw">{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
 	<td class="nw">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
 	<td class="nw ac">{VAR: obj->total_votes}</td>
 	<td class="nw ac"> <b>::</b> <a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a> {TEMPLATE-DATA: view_res_lnk} <b>::</b></td>

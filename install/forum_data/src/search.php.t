@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.47 2004/10/04 13:25:02 hackie Exp $
+* $Id: search.php.t,v 1.42 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,16 +34,36 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$wa = text_to_worda($qry);
-	$lang =& $GLOBALS['usr']->lang;
-	
-	if ($lang != 'chinese_big5' && $lang != 'chinese' && $lang != 'japanese') {
-		if (count($wa) > 10) {
-			$wa = array_slice($wa, 0, 10);
+	if (strncmp($GLOBALS['usr']->lang, 'chinese', 7)) {
+		$cs = array('!\W!', '!\s+!');
+		$cd = array(' ', ' ');
+		$qry = trim(preg_replace($cs, $cd, $qry));
+
+		$w = array_unique(explode(' ', strtolower($qry)));
+		$qr = ''; $i = 0;
+		foreach ($w as $v) {
+			$v = trim($v);
+			if (strlen($v) <= 2) {
+				continue;
+			} else if ($i++ == 10) { /* limit query length to 10 words */
+				break;
+			}
+			$qr .= " '".addslashes($v)."',";
 		}
+
+		if (!$qr) {
+			return;
+		} else {
+			$qr = substr($qr, 0, -1);
+		}
+	} else { /* handling for multibyte languages */
+		fud_use('isearch.inc');
+		if (!($w = mb_word_split($qry))) {
+			return;
+		}
+		$qr = implode(',', $w);
+		$i = count($w);
 	}
-	$qr = implode(',', $wa);
-	$i = count($wa);
 
 	if ($srch_type == 'all') {
 		$tbl = 'index';
@@ -51,10 +71,6 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	} else {
 		$tbl = 'title_index';
 		$qt = '1';
-	}
-
-	if (empty($qr)) {
-		return;
 	}
 
 	$qry_lck = md5($qr);

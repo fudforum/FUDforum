@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.36 2004/07/02 16:54:28 hackie Exp $
+* $Id: pmsg.tmpl,v 1.34 2004/05/14 16:27:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -84,7 +84,7 @@
 <td class="ac GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td>
 <td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
 <td class="nw GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" title="{VAR: obj->to_list}">{VAR: obj->alias}</a></td>
-<td class="nw DateText">{TEMPLATE: dmsg_post_date}</td>
+<td class="nw DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td class="nw ac GenText">{TEMPLATE-DATA: action}</td>
 </tr>
 {SECTION: END}

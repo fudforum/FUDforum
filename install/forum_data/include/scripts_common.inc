@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.18 2004/07/08 18:22:29 hackie Exp $
+* $Id: scripts_common.inc,v 1.16 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,29 +105,20 @@ function parse_ip($str)
 	}
 }
 
-if (extension_loaded("iconv")) {
-	function charset_convert($str, $from, $to) { return iconv($from, $to, $str); }
-} else if (extension_loaded("recode")) {
-	function charset_convert($str, $from, $to) { return recode_string($from."..".$to, $str); }
-} else {
-	function charset_convert($str, $from, $to) { return $str; }
-}	
-
-function decode_string($str, $encoding, $charset='')
+function decode_string($str, $encoding)
 {
-	if ($encoding == 'quoted-printable') {
-		// Remove soft line breaks & decode
-		$str = quoted_printable_decode(preg_replace("!=\r?\n!", '', $str));
-	} else if ($encoding == 'base64') {
-		$str = base64_decode($str);	
+	switch ($encoding) {
+		case 'quoted-printable':
+			// Remove soft line breaks & decode
+		        return quoted_printable_decode(preg_replace("!=\r?\n!", '', $str));
+			break;
+		case 'base64':
+			return base64_decode($str);
+			break;
+		default:
+			return $str;
+			break;
 	}
-
-	/* convert character set if possible */
-	if ($charset && $charset != $GLOBALS['CHARSET']) {
-		$str = charset_convert($charset, $charset, $GLOBALS['CHARSET']);
-	}
-
-	return $str;
 }
 
 function decode_header_value($val)
@@ -138,7 +129,7 @@ function decode_header_value($val)
 	}
 
 	// Decode String
-	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*([^=]*)!i', $val, $m)) {
+	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*(.*)!i', $val, $m)) {
 		$newval = '';
 
 		$c = count($m[4]);
@@ -152,7 +143,7 @@ function decode_header_value($val)
 			}
 
 			if (!empty($m[5][$i])) {
-				$newval .= $m[6][$i];
+				$newval .= ' '.$m[6][$i];
 			}
 			if (!empty($m[1][$i])) {
 				$newval = $m[1][$i].$newval;

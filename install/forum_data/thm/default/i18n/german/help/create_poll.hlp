@@ -1,4 +1,4 @@
-L&auml;sst den Umfrageneditor erscheinen, mit dem in einem Beitrag 
+L&auml;&szlig;t den Umfrageneditor erscheinen, mit dem in einem Beitrag 
 Umfragen erstellt werden k&ouml;nnen
 
 Umfragen erm&ouml;glichen es, "Stimmzettel" zu erzeugen:
@@ -15,4 +15,3 @@ Sie k&ouml;nnen folgenderma&szlig;en aussehen:
 	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="Abstimmen"> </td></tr>
 </table>
 </center>
-

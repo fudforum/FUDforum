@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.26 2004/07/02 16:54:28 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.24 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,7 +33,7 @@
 <tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
 	<td class="GenText wa"><a href="{TEMPLATE: ignore_user_lnk}">{VAR: r[3]}</a>&nbsp;<span class="SmallText">(<a href="{TEMPLATE: ignore_user_lnk1}">{MSG: buddy_remove}</a>)</span></td>
 	<td class="ac">{VAR: r[5]}</td>
-	<td class="ac nw">{TEMPLATE: ignore_list_date}</td>
+	<td class="ac nw">{DATE: r[4] %a, %d %B %Y %H:%M}</td>
 	<td class="GenText nw"><a href="{TEMPLATE: ignore_user_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}

@@ -616,7 +616,7 @@ function fud_delete_msg($arg)
 
 	foreach ($arg as $mid) {
 		$m = new fud_msg_edit;
-		$m->delete(true, $mid);
+		$m->delete(true, $mid->root_msg_id);
 	}
 
 	$_SERVER['REMOTE_ADDR'] = $bak;
@@ -627,18 +627,7 @@ function fud_delete_msg($arg)
  */
 function fud_delete_topic($arg)
 {
-	$ent = _fud_simple_fetch_query($arg, "SELECT root_msg_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id IN({ARG})");
-	if (!$ent) {
-		return;
-	} else if (is_object($ent)) {
-		fud_delete_msg($ent->root_msg_id);
-	} else if (is_array($ent)) {
-		$del = array();
-		foreach ($ent as $o) {
-			$del[] = $o->root_msg_id;
-		}
-		fud_delete_msg($del);
-	}
+	fud_delete_msg(_fud_simple_fetch_query($arg, "SELECT root_msg_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id IN({ARG})"));
 }
 
 /* {{{ proto: void fud_delete_poll(mixed arg) }}}

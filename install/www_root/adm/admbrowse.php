@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.20 2004/08/09 14:26:25 hackie Exp $
+* $Id: admbrowse.php,v 1.19 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,6 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
-	fud_use('tar.inc', true);
 
 function bit_test($val, $mask)
 {
@@ -138,15 +137,9 @@ if (!function_exists('posix_getpwuid')) {
 
 	/* Download file code */
 	if (isset($_GET['down']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
-		if (is_file($cur_dir . '/' . $dest)) {
-			header('Content-type: application/octet-stream');
-			header('Content-Disposition: attachment; filename='.$dest);
-			fpassthru(fopen($cur_dir . '/' . $dest, 'rb'));
-		} else {
-			header('Content-type: application/x-tar');
-			header('Content-Disposition: attachment; filename='.$dest.'.tar');
-			echo make_tar($cur_dir . '/' . $dest);
-		}
+		header('Content-type: application/octet-stream');
+		header('Content-Disposition: attachment; filename='.$dest);
+		fpassthru(fopen($cur_dir . '/' . $dest, 'rb'));
 		exit;
 	}
 
@@ -342,7 +335,11 @@ if (!function_exists('posix_getpwuid')) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 
-			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'">download</a></td>';
+			if (@is_file($fpath)) {
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'">download</a></td>';
+			} else {
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
+			}
 
 			if (@is_writeable($fpath)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&cur='.$cur_enc.'&dest='.$de_enc.'&'.__adm_rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';

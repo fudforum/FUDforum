@@ -113,7 +113,7 @@ rate_thread:			Evaluar Hilo de discusión
 refresh_list:			Recargar Lista
 register:			Registrar
 registered:			Registrado:
-registered_on:			Registrado El {TEMPLATE: registered_on_date}
+registered_on:			Registrado El {DATE: u_reg_date %a, %d %B %Y}
 replies:			Respuestas
 report_to_mod:			Reportar mensaje a un moderador
 reported_messages:		Mensajes reportados
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
 was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _RSID}">{VAR: r[2]}</a> ha sido movido a <a href="{FULL_ROOT}{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _RSID}">{{VAR: r[12]}</a> por el moderador
-welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {TEMPLATE: welcome_message_date}
+welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
 reported_reason:		Razón
@@ -378,8 +378,8 @@ forum_terms:			Términos del foro
 forum_rules:			Registrarse para este foro es gratis! Si insistimos en que respete las reglas y políticas detalladas a continuación. Si Ud esta de acuerdo con los términos, por favor presione el botón De Acuerdo al final de la página. Nota: Presionando el botón Ud declara tener más de 13 años de edad. Si Ud tiene 13 años o menos, por favor use este formulario de registro.<p>Aunque los administradores y moderadores de este foro tratarán de impedir la presencia de mensajes objetables en este foro, es imposible para nosotros revisar todos los mensajes. Todos los mensajes expresan la opinión de su autor, y ni los dueños del foro ni los desarrolladores se hacen responsables por el contenido de ningún mensaje.<p>Al hacer clic en el botón De Acuerdo, Ud se compromete a no publicar ningún mensaje obsceno, vulgar, con contenidos sexuales, contenidos de odio, amenazante, o que constituya una violación a las leyes. <p>Los dueños de este foro se reservan el derecho a eliminar, editar, mover, o cerrar cualquier hilo de discusión por cualquier motivo que consideren razonable.<p>
 forum_rules_13:			Todos los usuarios de menos de 13 años deben obtener permiso de su padre o tutor para poder ser miembros de los foros. Para esto requerimos que un padre o tutor envíe por fax o correo un formulario de autorización firmado para autorizar una membresía.<p>Si desea comenzar el proceso de registro antes de que recibamos un formulario de autorización, persione el botón De Acuerdo a continuación. Si desea cancelar el proceso de registro, persione Cancelar para volver al índice de foros. <p>Una copia del formulario de autorización puede ser descargada aquí. Para obtener más información acerca del proceso de registro, por favor envíe un e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmación COPPA
-coppa_before:			Antes de {TEMPLATE: coppa_date}
-coppa_after:			Después de {TEMPLATE: coppa_date}
+coppa_before:			Antes de {DATE: coppa %B %e, %Y}
+coppa_after:			Después de {DATE: coppa %B %e, %Y}
 coppa_link:			Haga clic en el enlace que corresponde a su fecha de nacimiento
 coppa:				Un padre o tutor debe enviar por correo o fax un formulario de autorización firmado al administrador de este foro para que un usuario de menos de 13 años pueda completar el proceso de registro.<p>Para mayor información contacte a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Información
@@ -481,7 +481,7 @@ email_pg_title:			E-mail
 email_subject:			Asunto:
 email_body:			Cuerpo de mensaje:
 email_submit:			E-mail
-ppost_quote_msg:		{VAR: msg_to_list} escribió el {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} escribió el {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Cita:
 ppost_to:			Para:
 ppost_from_buddy_list:		Seleccionar de lista de amigos
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Por favor ingrese una dirección de e-mail válida para s
 postcheck_email_subject:	No puede enviar un e-mail sin asunto.
 postcheck_email_body:		No puede enviar un e-mail sin el cuerpo del mensaje.
 private_msg_notify_subj:	Leer Aviso Para: {VAR: m->subject}
-private_msg_notify_body:	Hola,<br>{VAR: usr->login} ha leído su mensaje privado "{VAR: m->subject}", el {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hola,<br>{VAR: usr->login} ha leído su mensaje privado "{VAR: m->subject}", el {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Recorriendo referencias
 register_err_short_login:	El nombre de usuario que ha seleccionado es demasiado corto. Los nombres de usuario deben tener al menos 4 caracteres
 register_err_login_notallowed:	Este nombre de usuario no esta permitido
@@ -753,7 +753,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{F
 group_mgr_indicator:		Actualmente Editando: <b>{VAR: grp->name}</b>
 rate_worst:			Peor
 rate_best:			Mejor
-post_quote_msg:			{VAR: msg->login} escribió el {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} escribió el {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Cita:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Miembros
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1018,7 +1018,3 @@ search_user_filter:		Filter by user:
 register_none:			Don&#39;t Notify
 findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

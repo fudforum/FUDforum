@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.42 2004/06/10 16:42:58 hackie Exp $
+* $Id: modque.php.t,v 1.41 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,7 +72,7 @@
 	WHERE (f.forum_opt>=2 AND (f.forum_opt & 2) > 0) AND m.apr=0
 	ORDER BY v.id, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
 
-	$modque_message = '';
+	$prev_thread_id = $modque_message = '';
 	$m_num = 0;
 
 	/* quick cheat to give us full access to the messages ;) */
@@ -81,12 +81,16 @@
 
 	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
+		if (!$prev_thread_id || $prev_thread_id != $obj->thread_id) {
+			$prev_thread_id = $obj->thread_id;
+		}
+
 		$message = tmpl_drawmsg($obj, $usr, $perms, false, $m_num, null);
 		$modque_message .= '{TEMPLATE: modque_message}';
 	}
 	unset($r);
 
-	if (!$modque_message) {
+	if ($modque_message) {
 		$modque_message = '{TEMPLATE: no_modque_msg}';
 	}
 

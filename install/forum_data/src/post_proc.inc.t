@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.67 2004/09/17 02:00:12 hackie Exp $
+* $Id: post_proc.inc.t,v 1.62 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,7 +162,6 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 's':
 				case 'sub':
 				case 'sup':
-				case 'del':
 					$end_tag[$cpos] = '</'.$tag.'>';
 					$ostr .= '<'.$tag.'>';
 					break;
@@ -298,10 +297,9 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					}
 					break;
 				case 'spoiler':
-					$rnd = rand();
+					$rnd = get_random_value(64);
 					$end_tag[$cpos] = '</div></div>';
-					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">'
-						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="'.$rnd.'" style="display: none;">';
+					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id="'.$rnd.'" style="visibility: hidden;">';
 					break;
 				case 'acronym':
 					$end_tag[$cpos] = '</acronym>';
@@ -525,25 +523,15 @@ function html_to_tags($fudml)
 		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br>','<br></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
 	}
 
-	/* old format */
-	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="visibility: hidden;">!is', $fudml)) {
-		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler=\1]', $fudml);
-		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
-	}
-
-	/* new format */	
-	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="display: none;">!is', $fudml)) {
-		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="display: none;"\>!is', '[spoiler=\1]', $fudml);
+	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml)) {
+		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
 
 	$fudml = str_replace('<font face=', '<font font=', $fudml);
-	foreach (array('color', 'font', 'size') as $v) {
-		while (preg_match('!<font '.$v.'=".+?">.*?</font>!is', $fudml, $m)) {
-			$fudml = preg_replace('!<font '.$v.'="(.+?)">(.*?)</font>!is', '['.$v.'=\1]\2[/'.$v.']', $fudml);
-		}
+	while (preg_match('!<font (color|font|size)=".+?">.*?</font>!is', $fudml)) {
+		$fudml = preg_replace('!<font (color|font|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
 	}
-
 	while (preg_match('!<acronym title=".+?">.*?</acronym>!is', $fudml)) {
 		$fudml = preg_replace('!<acronym title="(.+?)">(.*?)</acronym>!is', '[acronym=\1]\2[/acronym]', $fudml);
 	}
@@ -553,12 +541,12 @@ function html_to_tags($fudml)
 
 	$fudml = str_replace(
 	array(
-		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
+		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>',
 		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
 		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
 	),
 	array(
-		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', '[del]', '[/del]', 
+		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]',
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
 		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]'
 	),

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.43 2004/07/02 16:54:28 hackie Exp $
+* $Id: thread.tmpl,v 1.41 2004/05/26 20:02:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: thread_last_post}
-<span class="DateText">{TEMPLATE: thread_last_post_date}</span>
+<span class="DateText">{DATE: r[10] %a, %d %B %Y %H:%M}</span>
 {SECTION: END}
 
 {SECTION: unreg_user_link}
@@ -80,7 +80,7 @@
 {SECTION: END}
 
 {SECTION: thread_first_post}
-<span class="DateText">{TEMPLATE: thread_first_post_date}</span>
+<span class="DateText">{DATE: r[4] %a, %d %B %Y}</span>
 {SECTION: END}
 
 {SECTION: first_post_unreg_user_link if the thread stater was an anon user link}

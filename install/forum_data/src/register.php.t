@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.127 2004/09/23 19:13:43 hackie Exp $
+* $Id: register.php.t,v 1.122 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,44 +11,6 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-
-function generate_turing_val(&$rt)
-{
-	$t = array(
-		array('....###....','.########..','..######..','.########.','.########.','..######...','.##.....##.','.####.','.......##.','.##....##.','.##.......','.##.....##.','.##....##.','.########..','..#######..','.########..','..######..','.########.','.##.....##.','.##.....##.','.##......##.','.##.....##.','.##....##.','.########.'),
-		array('...##.##...','.##.....##.','.##....##.','.##.......','.##.......','.##....##..','.##.....##.','..##..','.......##.','.##...##..','.##.......','.###...###.','.###...##.','.##.....##.','.##.....##.','.##.....##.','.##....##.','....##....','.##.....##.','.##.....##.','.##..##..##.','..##...##..','..##..##..','......##..'),
-		array('..##...##..','.##.....##.','.##.......','.##.......','.##.......','.##........','.##.....##.','..##..','.......##.','.##..##...','.##.......','.####.####.','.####..##.','.##.....##.','.##.....##.','.##.....##.','.##.......','....##....','.##.....##.','.##.....##.','.##..##..##.','...##.##...','...####...','.....##...'),
-		array('.##.....##.','.########..','.##.......','.######...','.######...','.##...####.','.#########.','..##..','.......##.','.#####....','.##.......','.##.###.##.','.##.##.##.','.########..','.##.....##.','.########..','..######..','....##....','.##.....##.','.##.....##.','.##..##..##.','....###....','....##....','....##....'),
-		array('.#########.','.##.....##.','.##.......','.##.......','.##.......','.##....##..','.##.....##.','..##..','.##....##.','.##..##...','.##.......','.##.....##.','.##..####.','.##........','.##..##.##.','.##...##...','.......##.','....##....','.##.....##.','..##...##..','.##..##..##.','...##.##...','....##....','...##.....'),
-		array('.##.....##.','.##.....##.','.##....##.','.##.......','.##.......','.##....##..','.##.....##.','..##..','.##....##.','.##...##..','.##.......','.##.....##.','.##...###.','.##........','.##....##..','.##....##..','.##....##.','....##....','.##.....##.','...##.##...','.##..##..##.','..##...##..','....##....','..##......'),
-		array('.##.....##.','.########..','..######..','.########.','.##.......','..######...','.##.....##.','.####.','..######..','.##....##.','.########.','.##.....##.','.##....##.','.##........','..#####.##.','.##.....##.','..######..','....##....','..#######..','....###....','..###..###..','.##.....##.','....##....','.########.')
-	);
-
-	$text = $rt = '';
-
-	// pick 4 random letters
-	for ($i = 0; $i < 4; $i++) {
-		$rv[] = $v = mt_rand(0, 23);
-		if ($v >= 11) {
-			$v += 2;
-		} else if ($v >= 3) {
-			$v += 1;
-		}
-		$rt .= chr(65 + $v); // upper case real letter
-	}
-
-	$rt = md5($rt); // generate turing hash
-
-	// generate turing text
-	for ($i = 0; $i < 7; $i++) {
-		foreach ($rv as $v) {
-			$text .= $t[$i][$v];	
-		}
-		$text .= "<br />";
-	}
-
-	return $text;
-}
 
 function fetch_img($url, $user_id)
 {
@@ -131,10 +93,6 @@ function register_form_check($user_id)
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');
 		}
 
-		if (!($GLOBALS['FUD_OPT_3'] & 128) && (empty($_POST['turing_test']) || empty($_POST['turing_res']) || md5(strtoupper(trim($_POST['turing_test']))) != $_POST['turing_res'])) {
-			set_err('reg_turing', '{TEMPLATE: register_err_turing}');
-		}
-
 		$_POST['reg_email'] = trim($_POST['reg_email']);
 
 		/* E-mail validity check */
@@ -183,6 +141,8 @@ function register_form_check($user_id)
 	/* Url Avatar check */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
+	} else {
+		$GLOBALS['reg_avatar_loc_file'] = '';
 	}
 
 	/* Alias Check */
@@ -312,11 +272,6 @@ function decode_uent(&$uent)
 		$reg_coppa = '';
 	}
 
-	/* ip filter */
-	if (is_ip_blocked(get_ip())) {
-		invl_inp_err();
-	}
-
 	/* allow the root to modify settings other lusers */
 	if (_uid && $usr->users_opt & 1048576 && $mod_id) {
 		if (!($uent =& usr_reg_get_full($mod_id))) {
@@ -334,7 +289,7 @@ function decode_uent(&$uent)
 		}
 	}
 
-	$reg_avatar_loc_file = $avatar_tmp = $avatar_arr = null;
+	$avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp'])) {
@@ -389,8 +344,8 @@ function decode_uent(&$uent)
 		}
 
 		/* security check, prevent haxors from passing values that shouldn't */
-		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864))) {
-			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864)) | $new_users_opt;
+		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216))) {
+			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216)) | $new_users_opt;
 		}
 	}
 
@@ -695,12 +650,6 @@ function decode_uent(&$uent)
 		$reg_login_err			= draw_err('reg_login');
 		$reg_plaintext_passwd_err	= draw_err('reg_plaintext_passwd');
 		$reg_time_limit_err		= draw_err('reg_time_limit');
-		$reg_turing_err			= draw_err('reg_turing');
-
-		/* turing stuff */
-		if (!($FUD_OPT_3 & 128)) {
-			$turing = '{TEMPLATE: register_turing_test}';
-		}
 
 		$user_info_heading = '{TEMPLATE: new_user}';
 		$submit_button = '{TEMPLATE: register_button}';
@@ -866,8 +815,6 @@ function decode_uent(&$uent)
 
 	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
 	$sig_len_limit = $FORUM_SIG_ML ? '{TEMPLATE: register_sig_limit}' : '';
-
-	$auto_c = $GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

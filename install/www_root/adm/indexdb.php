@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.22 2004/06/10 13:36:46 hackie Exp $
+* $Id: indexdb.php,v 1.21 2004/06/07 15:24:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,10 +51,10 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	$tbl =& $DBHOST_TBL_PREFIX;
 
 	db_lock($tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
-	q('DELETE FROM '.$tbl.'search');
-	q('DELETE FROM '.$tbl.'index');
-	q('DELETE FROM '.$tbl.'title_index');
 	if (!($sid = q_singleval("SELECT MIN(query_type) FROM ".$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
+		q('DELETE FROM '.$tbl.'search');
+		q('DELETE FROM '.$tbl.'index');
+		q('DELETE FROM '.$tbl.'title_index');
 		q('DELETE FROM '.$tbl.'search_cache');
 	}
 

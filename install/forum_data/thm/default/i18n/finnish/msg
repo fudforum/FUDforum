@@ -384,8 +384,8 @@ forum_terms:			Foorumin Ehdot
 forum_rules:			Rekisteröityminen on ilmaista! Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn nappia sivun alareunassa. HUOM! Hyväksyntä tarkoittaa myös että olet yli 13 vuotias. Jos olet 13 tai alle, käytä tätä rekisteröitymiskaavaketta.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuunottamatta heidän omia viestejään. <p>Klikkaamalla Hyväksyn nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br>
 forum_rules_13:			Kaikkien alle 13 vuotiaiden lasten täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.<p>Klikkaa Hyväksyn nappia, jos haluat aloittaa rekisteröitymisprosessin ennenkuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, klikkaa Peruuta palataksesi foorumi listaan.<p>Suostumuskaaveke löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Varmistus
-coppa_before:			Ennen {TEMPLATE: coppa_date}
-coppa_after:			Jälkeen {TEMPLATE: coppa_date}
+coppa_before:			Ennen {DATE: coppa %B %e, %Y}
+coppa_after:			Jälkeen {DATE: coppa %B %e, %Y}
 coppa_link:			Klikkaa linkkiä joka vastaa syntymäaikaasi
 coppa:				Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennenkuin alle 13 vuotias käyttäjä voi jatkaa rekisteröitymistä. <p>Lisätietoja: <ahref="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Foorumin käyttöehdot
@@ -903,7 +903,7 @@ login_unapproved_account_msg:	Ylläpitäjän täytyy hyväksyä kaikki käyttäjätilit e
 remove_from_buddy_list:		poista kavereista
 iemail_msg_author:		<b>Lähettäjä:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Otsikko:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Päiväys:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Päiväys:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Vastaa
 iemail_msg_quote:		Lainaa
 iemail_msg_view:		Näytä Aihe/Viesti
@@ -1018,7 +1018,3 @@ search_user_filter:		Filter by user:
 register_none:			Don&#39;t Notify
 findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

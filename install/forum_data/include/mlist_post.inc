@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist_post.inc,v 1.11 2004/08/09 10:46:06 hackie Exp $
+* $Id: mlist_post.inc,v 1.10 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,8 +45,6 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 
 	if (is_array($additional_headers)) {
 		$header .= implode("\n", $additional_headers);
-	} else {
-		$header .= trim($additional_headers) . "\n";
 	}
 
 	send_email($from, $list_email, $subject, $final_body, $header);

@@ -378,8 +378,8 @@ forum_terms:			Forum kurallarý
 forum_rules:			Bu foruma üyelik serbest ve ücretsizdir. Bununla birlikte aþaðýda ayrýntýlarý belirtilen kurallara uymanýz konusunda yaptýrýmlar mevcut. Eðer kurallarý kabul ediyorsanýz, sayfanýn sonundaki Kabul Ediyorum düðmesine basýn. Dikkat: Düðmeye basarak 13 yaþýndan büyük olduðunuzu belirtmiþ oluyorsunuz. 13 yaþýnda veya daha küçükseniz, lütfen bu kayýt formunu kullanýn. <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalýþacak, bununla birlikte, atýlan tüm iletileri gözden geçirmemiz imkansýzdýr. Tüm iletiler yazarýn görüþünü yansýtýr, ve ne forumun sahibi ne de geliþtiricileri herhangi bir iletinin içeriðinden sorumlu tutulamaz.<p>Kabul Ediyorum düðmesine týklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici, veya bir þekilde kanuna aykýrý ileti göndermeyeceðiniz konusunda garanti vermiþ oluyorsunuz.<p>Forumun sahipleri, herhangi bir zinciri, herhangi bir sebeple, kaldýrma, taþýma, düzeltme veya kapatma hakkýna sahiptir.<p>
 forum_rules_13:			13 yaþýn altýndaki tüm kullanýcýlar anne-babalarýndan veya sorumluluðu altýnda olduklarý kiþiden foruma üye olabilmek için izin almalýdýrlar. 13 yaþýn altýndaki kullanýcýlarýn üye olmasýnda bizce herhangi bir sakýnca olmamakla birlikte, üyelik vermeden önce anne-babalarýn veya sorumluluðu altýnda olduklarý kiþinin yazýlý olarak izin verdiðini faks veya e-mektup ile bize göndermelerini þart koþuyoruz. <p>Eðer izin formu bize ulaþmadan önce kayýt iþlemlerine baþlamak istiyorsanýz, aþaðýdaki Kabul Ediyorum düðmesine týklayýn. Kayýt iþlemini iptal etmek ve forum indeksine dönmek için aþaðýdaki Ýptal Et düðmesine basýn. <p>Ýzin formunun bir kopyasýný burdan indirebilirsiniz. Kayýt iþlemleri hakkýnda daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> adresine bir e-mektup atýn.<p>
 coppa_conf:			COPPA Onayý
-coppa_before:			{TEMPLATE: coppa_date} tarihinden önce
-coppa_after:			{TEMPLATE: coppa_date} tarihinden sonra
+coppa_before:			{DATE: coppa %B %e, %Y} tarihinden önce
+coppa_after:			{DATE: coppa %B %e, %Y} tarihinden sonra
 coppa_link:			Doðum tarihinize karþýlýk gelen linki týklayýn.
 coppa:				13 yaþýn altýnda olan bir kullanýcýnýn bu foruma kayýt olabilmesi için anne-babasý veya sorumluluðu altýnda olduguðu kiþinin yöneticiye imzalý izin formunu faks veya mektup atarak göndermesi gerekiyor.<p>Daha fazla bilgi için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ile iletiþime geçin.
 prereg_info:			Bilgi
@@ -481,7 +481,7 @@ email_pg_title:			E-mektup
 email_subject:			Konu:
 email_body:			Gövde:
 email_submit:			Gönder
-ppost_quote_msg:		{VAR: msg_to_list} kullanýcýsý , {TEMPLATE: ppost_quote_msg_date} tarihinde yazmýþtý:
+ppost_quote_msg:		{VAR: msg_to_list} kullanýcýsý , {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
 ppost_quote:			Alýntýla:
 ppost_to:			Kime:
 ppost_from_buddy_list:		Arkadaþ listesinden seç
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Lütfen arkadýþýnýzýn geçerli bir e-mektup adresini giri
 postcheck_email_subject:	Konu bölümü boþ olan bir e-mektup gönderemezsiniz.
 postcheck_email_body:		Gövde bölümü boþ olan bir ileti gönderemezsiniz.
 private_msg_notify_subj:	{VAR: m->subject} için okundu haberi
-private_msg_notify_body:	Selam,<br>{VAR: usr->login} kullanýcýsý, {TEMPLATE: private_msg_notify_body_date} tarihinde atmýþ olduðunuz "{VAR: m->subject}" konulu özel iletinizi okumuþ durumda.<br>
+private_msg_notify_body:	Selam,<br>{VAR: usr->login} kullanýcýsý, {DATE: m->post_stamp %a, %d %B %Y %H:%M} tarihinde atmýþ olduðunuz "{VAR: m->subject}" konulu özel iletinizi okumuþ durumda.<br>
 referals_update:		Tanýtýmlarý Dolaþýyor
 register_err_short_login:	Seçtiðiniz kullanýcý ismi çok kýsa. Kullanýcý isimleri en az 4 karakter uzunluðunda olmalý.
 register_err_login_notallowed:	Bu kullanýcý ismine izin verilmiyor.
@@ -753,7 +753,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Þu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
 rate_best:			Çok Ýyi
-post_quote_msg:			{VAR: msg->login} kullanýcýsý, {TEMPLATE: make_report_date} tarihinde yazmýþtý:
+post_quote_msg:			{VAR: msg->login} kullanýcýsý, {DATE: msg->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
 post_quote:			Aktarým:
 userinfo_referals:		Tanýtým Yapýlan Kullanýcýlar:
 userinfo_referals_count:	{VAR: referals} Üyeler
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	Forumun yöneticisi forumu yeni açýlan her hesabýn 
 remove_from_buddy_list:		arkadaþ listesinden çýkar
 iemail_msg_author:		<b>Yazar:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Konuz:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Tarih:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Tarih:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Yanýtla
 iemail_msg_quote:		Alýntýla
 iemail_msg_view:		Zinciri/Ýletiyi görüntüle
@@ -1018,7 +1018,3 @@ search_user_filter:		Kullanýcýya göre ara:
 register_none:			Haberdar etme
 findu_no_conf:			onaylanmamýþ kullanýcý
 register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

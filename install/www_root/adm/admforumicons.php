@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.16 2004/06/23 16:20:24 hackie Exp $
+* $Id: admforumicons.php,v 1.15 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,19 +30,9 @@
 
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
 		move_uploaded_file($_FILES['iconfile']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
-		/* rebuild message icon cache */
-		if ($which_dir) {
-			fud_use('msg_icon_cache.inc', true);
-			rebuild_icon_cache();
-		}
 	}
 	if (isset($_GET['del'])) {
 		@unlink($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . basename($_GET['del']));
-		/* rebuild message icon cache */
-		if ($which_dir) {
-			fud_use('msg_icon_cache.inc', true);
-			rebuild_icon_cache();
-		}
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');

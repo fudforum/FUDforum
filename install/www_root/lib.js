@@ -15,7 +15,6 @@ DOM = (document.getElementById) ? 1 : 0;
 NS4 = (document.layers) ? 1 : 0;
 IE4 = (document.all) ? 1 : 0;
 OPERA = navigator.userAgent.indexOf("Opera") > -1 ? 1 : 0;
-MAC = navigator.userAgent.indexOf("Mac") > -1 ? 1 : 0;
 
 /* edit box stuff */
 function insertTag(obj, stag, etag)
@@ -178,9 +177,23 @@ function window_open(url,winName,width,height)
 	window.open(url,winName,options);
 }
 
-function layerVis(layer, on)
+function layerVis(layer,on)
 {
-	document.getElementById(layer).style.display = on ? 'block' : 'none';
+        if (on) {
+		if (DOM)
+			document.getElementById(layer).style.visibility = "visible";
+		else if (NS4)
+			document.layers[layer].visibility = "show";
+		else if (IE4)
+			document.all[layer].style.visibility = "visible";
+	} else {
+		if (DOM)
+			document.getElementById(layer).style.visibility = "hidden";
+		else if (NS4)
+			document.layers[layer].visibility = "hide";
+		else if (IE4)
+			document.all[layer].style.visibility = "hidden";
+	}
 }
 
 function fud_msg_focus(mid_hash)
@@ -195,7 +208,7 @@ function chng_focus(phash)
 	window.location.hash = phash;
 }
 
-if (!OPERA && !MAC && navigator.appName == "Microsoft Internet Explorer") {
+if (!OPERA && navigator.appName == "Microsoft Internet Explorer") {
 	window.attachEvent("onload", ie_png_hack);
 }
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.25 2004/06/14 17:34:07 hackie Exp $
+* $Id: minimsg.inc.t,v 1.23 2004/01/04 16:38:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,9 @@
 ***************************************************************************/
 
 $start = '';
-if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
+if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
+	$GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS'] = 1;
+
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$total = $thr->replies + 1;
@@ -41,12 +43,15 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	$m_count = 0;
 	while ($obj = db_rowobj($c)) {
 		$message_data .= tmpl_drawmsg($obj, $usr, $perms, true, $m_count, '');
+		$mid = $obj->id;
 	}
 
 	un_register_fps();
 
 	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
 	$minimsg = '{TEMPLATE: minimsg_form}';
+
+	unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
 } else if ($th_id) {
 	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$minimsg = '{TEMPLATE: minimsg_hidden}';

@@ -114,7 +114,7 @@ rate_thread:			Vertinti temà
 refresh_list:			Atnaujinti sàraðà
 register:			Registruotis
 registered:			Uþsiregistravæs:
-registered_on:			Uþsiregistravæs {TEMPLATE: registered_on_date}
+registered_on:			Uþsiregistravæs {DATE: u_reg_date %a, %d %B %Y}
 replies:			Atsakymai
 report_to_mod:			Praneðti apie þinutë moderatoriui
 reported_messages:		Moderatoriui praneðtos þinutës
@@ -181,7 +181,7 @@ vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Balsuoti
 vote_for_thread:		Balsuoti
 was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}">{VAR: r[2]}</a> perkelta moderatoriaus á <a href="{FULL_ROOT}{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}">{VAR: r[12]}</a>.
-welcome_message:		Labas <b>{VAR: usr->alias}</b>, paskutiná kartà buvai {TEMPLATE: welcome_message_date}
+welcome_message:		Labas <b>{VAR: usr->alias}</b>, paskutiná kartà buvai {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			rodyti kà veikia prisijungæ þmonës
 reported_del_report:		Delete Report
 reported_reason:		Prieþastis
@@ -384,8 +384,8 @@ forum_terms:			Forum Terms
 forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p>
 forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Confirmation
-coppa_before:			Before {TEMPLATE: coppa_date}
-coppa_after:			After {TEMPLATE: coppa_date}
+coppa_before:			Before {DATE: coppa %B %e, %Y}
+coppa_after:			After {DATE: coppa %B %e, %Y}
 coppa_link:			Click the link that corresponds to your birth date
 coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			informacija
@@ -487,7 +487,7 @@ email_pg_title:			Email
 email_subject:			Tema:
 email_body:			Turinys:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} paraðyta {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} paraðyta {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Cituoti:
 ppost_to:			Kam:
 ppost_from_buddy_list:		Pasirinkti ið draugø sàraðo
@@ -613,7 +613,7 @@ postcheck_invalid_email:	Please enter a valid email address of your friend.
 postcheck_email_subject:	You cannot send an email without a subject.
 postcheck_email_body:		You cannot send an email without the message body.
 private_msg_notify_subj:	Read Notification For: {VAR: m->subject}
-private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hello,<br>{VAR: usr->login} has read your private message, "{VAR: m->subject}", on {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Browsing referrals
 register_err_short_login:	Login you have selected is too short. Login must be at least 4 characters long
 register_err_login_notallowed:	This login name is not allowed
@@ -760,7 +760,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{F
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Blogiausiai
 rate_best:			Geriausiai
-post_quote_msg:			{VAR: msg->login} paraðë {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} paraðë {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
@@ -902,7 +902,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		panaikinti ið draugø saraðo
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1018,7 +1018,3 @@ search_user_filter:		Filter by user:
 register_none:			Don&#39;t Notify
 findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

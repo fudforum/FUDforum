@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.17 2004/06/23 14:19:36 hackie Exp $
+* $Id: post_common.tmpl,v 1.16 2004/05/26 20:02:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 {REF: smiley.tmpl}
 
 {SECTION: post_smiley_entry}
-<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: PS_DST[$i]} \');">{VAR: PS_SRC[$i]}</a>&nbsp;
+<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: r[0]} \');"><img title="{VAR: r[1]}" alt="{VAR: r[1]}" src="images/smiley_icons/{VAR: r[2]}" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: post_smilies}

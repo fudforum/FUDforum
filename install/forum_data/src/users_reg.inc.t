@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.72 2004/06/14 16:46:49 hackie Exp $
+* $Id: users_reg.inc.t,v 1.71 2004/05/31 13:24:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -201,7 +201,7 @@ function usr_email_unconfirm($id)
 function &usr_reg_get_full($id)
 {
 	if (($r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id='.$id))) {
-		if (!extension_loaded("overload")) {
+		if (!function_exists('aggregate_methods')) {
 			$o = new fud_user_reg;
 			foreach ($r as $k => $v) {
 				$o->{$k} = $v;

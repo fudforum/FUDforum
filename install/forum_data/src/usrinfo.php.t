@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.42 2004/08/20 13:57:28 hackie Exp $
+* $Id: usrinfo.php.t,v 1.40 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,21 +14,9 @@
 
 function convert_bdate($val, $month_fmt)
 {
-	$ret['year'] = substr($val, 0, 4);
-	if (!(int)$ret['year']) {
-		$ret['year'] = '';
-	}
-
-	$ret['day'] = substr($val, 6, 2);
-	if (!(int)$ret['day']) {
-		$ret['day'] = '';
-	}
-
-	if (!($month = (int)substr($val, 4, 2))) {
-		$ret['month'] = '';
-	} else {
-		$ret['month'] = strftime($month_fmt, mktime(1, 1, 1, $month, 11, 2000));
-	}
+	$ret['year']	= substr($val, 0, 4);
+	$ret['day']	= substr($val, 6, 2);
+	$ret['month']	= strftime($month_fmt, mktime(1, 1, 1, substr($val, 4, 2), 11, 2000));
 
 	return $ret;
 }

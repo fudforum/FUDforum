@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smiley.inc.t,v 1.17 2004/07/07 21:10:20 hackie Exp $
+* $Id: smiley.inc.t,v 1.14 2004/01/04 16:38:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,18 +15,23 @@ $GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, " "=>1, "]"=>1, "
 function smiley_to_post($text)
 {
 	$text_l = strtolower($text);
-	include $GLOBALS['FORUM_SETTINGS_PATH'].'sp_cache';
 
-	foreach ($SML_REPL as $k => $v) {
-		$a = 0;
-		$len = strlen($k);
-		while (($a = strpos($text_l, $k, $a)) !== false) {
-			if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len]) == "" || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
-				$text_l = substr_replace($text_l, $v, $a, $len);
-				$text = substr_replace($text, $v, $a, $len);
-				$a += strlen($v) - $len;
-			} else {
-				$a += $len;
+        $c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
+        while ($r = db_rowarr($c)) {
+        	$codes = (strpos($r[0], '~') !== false) ? explode('~', strtolower($r[0])) : array(strtolower($r[0]));
+
+		foreach ($codes as $v) {
+			$a = 0;
+			$len = strlen($v);
+			while (($a = strpos($text_l, $v, $a)) !== false) {
+				if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len]) == "" || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
+					$rep = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
+					$text = substr_replace($text, $rep, $a, $len);
+					$text_l = substr_replace($text_l, $rep, $a, $len);
+					$a += strlen($rep);
+				} else {
+					$a += $len;
+				}
 			}
 		}
 	}
@@ -36,19 +41,12 @@ function smiley_to_post($text)
 
 function post_to_smiley($text)
 {
-	/* include once since draw_post_smiley_cntrl() may use it too */
-	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
-
-	$GLOBALS['PS_SRC'] = $PS_SRC;
-	$GLOBALS['PS_DST'] = $PS_DST;
-
-	/* check for emoticons */
-	foreach ($PS_SRC as $k => $v) {
-		if (strpos($text, $v) === false) {
-			unset($PS_SRC[$k], $PS_DST[$k]);
-		}
+	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
+	while ($r = db_rowarr($c)) {
+		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
+		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
 
-	return $PS_SRC ? str_replace($PS_SRC, $PS_DST, $text) : $text;
+	return (isset($re) ? strtr($text, $re) : $text);
 }
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.118 2004/06/14 17:34:07 hackie Exp $
+* $Id: post.php.t,v 1.117 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -186,7 +186,6 @@ function flood_check()
 				$msg_body .= "\n";
 			}
 		}
-		$GLOBALS['MINIMSG_OPT_DISABLED'] = 0;
 	} else { /* $_POST['prev_loaded'] */
 		if ($FLOOD_CHECK_TIME && !$MOD && !$msg_id && ($tm = flood_check())) {
 			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}');
@@ -268,7 +267,8 @@ function flood_check()
 
 		$no_spell_subject = ($reply_to && $old_subject == $msg_subject);
 
-		if (($GLOBALS['MINIMSG_OPT_DISABLED'] = isset($_POST['btn_spell']))) {
+		if (isset($_POST['btn_spell'])) {
+			$GLOBALS['MINIMSG_OPT']['DISABLED'] = 1;
 			$text = apply_custom_replace($msg_body);
 			$text_s = apply_custom_replace($msg_subject);
 
@@ -311,8 +311,6 @@ function flood_check()
 				reverse_fmt($text_s);
 				$msg_subject = apply_reverse_replace($text_s);
 			}
-		} else if (isset($_POST['spell'])) {
-			$GLOBALS['MINIMSG_OPT_DISABLED'] = 1;
 		}
 
 		if (!empty($_POST['submitted']) && !isset($_POST['spell']) && !isset($_POST['preview'])) {
@@ -446,6 +444,10 @@ function flood_check()
 		ses_update_status($usr->sid, '{TEMPLATE: post_reply_update}', $frm->id, 0);
 	} else  {
 		ses_update_status($usr->sid, '{TEMPLATE: post_topic_update}', $frm->id, 0);
+	}
+
+	if (isset($_POST['spell'])) {
+		$GLOBALS['MINIMSG_OPT']['DISABLED'] = true;
 	}
 
 /*{POST_HTML_PHP}*/

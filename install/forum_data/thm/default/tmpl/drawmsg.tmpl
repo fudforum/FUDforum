@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.71 2004/07/02 16:54:27 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.69 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@
 
 {SECTION: dmsg_user_info}
 <br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br />
-<b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date}
+<b>{MSG: registered}</b> {DATE: obj->join_date %B %Y}
 {TEMPLATE-DATA: location}
 {SECTION: END}
 
@@ -290,11 +290,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}
-<p>[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}] {MSG: by_mod}
+<p>[{MSG: updated_on} {DATE: obj->update_stamp %a, %d %B %Y %H:%M}] {MSG: by_mod}
 {SECTION: END}
 
 {SECTION: dmsg_modified_message modified by the moderator message}
-<p>[{MSG: updated_on} {TEMPLATE: dmsg_update_on_date}]
+<p>[{MSG: updated_on} {DATE: obj->update_stamp %a, %d %B %Y %H:%M}]
 {SECTION: END}
 
 {SECTION: dmsg_signature}
@@ -406,7 +406,7 @@
 <tr><td class="MsgSpacer"><table cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
 <td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
-<td class="MsgR1 vt ar"><span class="DateText">{TEMPLATE: dmsg_post_date}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
+<td class="MsgR1 vt ar"><span class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
 <tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">

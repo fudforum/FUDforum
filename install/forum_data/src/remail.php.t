@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.php.t,v 1.23 2004/07/21 13:06:49 hackie Exp $
+* $Id: remail.php.t,v 1.22 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,9 +19,7 @@
 	if (__fud_real_user__) {
 		is_allowed_user($usr);
 	} else {
-		if (is_ip_blocked(get_ip())) {
-			invl_inp_err();
-		}
+		is_ip_blocked(get_ip());
 	}
 
 	if ((isset($_GET['th']) && ($th = (int)$_GET['th'])) || (isset($_POST['th']) && ($th = (int)$_POST['th']))) {

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.37 2004/07/02 16:54:28 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.34 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,11 +26,11 @@
 {SECTION: END}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{TEMPLATE: uinfo_last_post_date}</span><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{DATE: r[2] %a, %d %B %Y %H:%M}</span><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: last_visit last visit}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{TEMPLATE: uinfo_last_visit_date}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_visit}</td><td class="GenText DateText">{DATE: u->last_visit %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
 
 {SECTION: user_image}
@@ -135,7 +135,7 @@
 {SECTION: END}
 
 {SECTION: im_msnm MSN Messagenger Link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: im_msnm}</td><td class="GenText">{VAR: u->msnm}</td></tr>
 {SECTION: END}
 
 {SECTION: im_jabber Jabber link}
@@ -189,7 +189,7 @@
 {TEMPLATE: usercp}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2 class="wa ">{MSG: usrinfo_profile}</th></tr>
-<tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
+<tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{DATE: u->join_date %B %d, %Y}</td></tr>
 <tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 {TEMPLATE-DATA: real_name}
 {TEMPLATE-DATA: status}
