@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.19 2004/04/01 14:53:24 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.20 2004/11/01 23:48:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,8 +30,8 @@
 	$overwrite = isset($_GET['overwrite']) ? (int)$_GET['overwrite'] : 0;
 	$js_redr = $_GET['js_redr'];
 
+	$find_user_data = '';
 	if ($usr_login) {
-		$find_user_data = '';
 		$c = uq("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '".addslashes(str_replace('\\', '\\\\', $usr_login))."%' AND id>1");
 		$i = 0;
 		while ($r = db_rowarr($c)) {
@@ -52,8 +52,6 @@
 		if (!$find_user_data) {
 			$find_user_data = '{TEMPLATE: no_result_entry}';
 		}
-	} else {
-		$find_user_data = '';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
