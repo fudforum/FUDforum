@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: xmb.php,v 1.1 2003/07/14 02:39:34 hackie Exp $
+*   $Id: xmb.php,v 1.2 2003/08/11 16:37:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,7 +151,7 @@ function html_clean($str)
 	$u->plaintext_passwd = 'a';
 	$u->gender = 'UNSPECIFIED';
 	$u->notify_method = 'EMAIL';
-	$u->notify = $u->email_messages = $u->pm_messages = $u->append_sig = 'Y';
+	$u->pm_notify = $u->notify = $u->email_messages = $u->pm_messages = $u->append_sig = 'Y';
 	$u->invisible_mode = $u->coppa = 'N';
 	$u->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
 	$u->time_zone = $GLOBALS['SERVER_TZ'];
