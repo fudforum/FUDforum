@@ -715,7 +715,7 @@ search_title:			Hledat {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email byl odeslán
-remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
+remail_email:			Ahoj,\n\nzde je zajímavé téma o "{VAR: data->subject}" na fóru {GVAR: FORUM_TITLE}, které by sis mohl(a) chtít pøeèíst. Téma mù¾e¹ vidìt na:\n {ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Tvùj pøítel,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pøidat volbu:
 post_opt_html_on:		<b>HTML tagy</b> jsou <b>ZAPNUTÉ</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> je <b>VYPNUT</b></a>

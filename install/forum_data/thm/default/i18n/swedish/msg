@@ -711,7 +711,7 @@ search_title:			S&ouml;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-posten skickad
-remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: data->subject} hittar du här: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
+remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: data->subject} hittar du här: {ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		L&auml;gg till alternativ:
 post_opt_html_on:		<b>HTML</b>-kod &auml;r <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kod</b> &auml;r <b>P&Aring;</b></a>

@@ -712,7 +712,7 @@ search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		郵件已經發送
-remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
+remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
 poll_add_option:		添加選項：
 post_opt_html_on:		<b>HTML</b><b>代碼：開放</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代碼：</b><b>開放</a></b>

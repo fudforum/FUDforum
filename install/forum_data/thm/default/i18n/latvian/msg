@@ -713,7 +713,7 @@ search_title:			Meklçt {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-pasts nosûtîts
-remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: data->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieòu,\n\n{VAR: usr->alias}\n
+remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: data->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ar cieòu,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pievienot variantu:
 post_opt_html_on:		<b>HTML</b> - <b>ieslçgts</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>ieslçgts</b></a>

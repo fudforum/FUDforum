@@ -711,7 +711,7 @@ search_title:			Aranacak sözcükler {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mektup gönderildi
-remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceğin bir WWW sayfası var.\nİlgileceğini düşündüğüm "{VAR: data->subject}" konulu zincire buradan ulaşabilirsin:\n{ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
+remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceğin bir WWW sayfası var.\nİlgileceğini düşündüğüm "{VAR: data->subject}" konulu zincire buradan ulaşabilirsin:\n{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode AÇIK</a></b>

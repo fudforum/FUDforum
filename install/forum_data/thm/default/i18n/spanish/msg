@@ -711,7 +711,7 @@ search_title:			Buscar {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail fue enviado
-remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
+remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: data->subject} puede encontrarlo aquí: {ROOT}?t=rview&th={VAR: data->id}&{DEF: _RSID}\nDe {VAR: usr->alias}\n
 poll_add_option:		Agregar Opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>HABILITADO</b>
 post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>

@@ -711,7 +711,7 @@ search_title:			Recherche de {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;e-mail a été envoyé
-remail_email:			Voici, sur la page {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) un sujet, intitulé {VAR: data->subject}, que je trouve intéressant. Il est accessible ici : {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\nDe {VAR: usr->alias}\n
+remail_email:			Voici, sur la page {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) un sujet, intitulé {VAR: data->subject}, que je trouve intéressant. Il est accessible ici : {ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDe {VAR: usr->alias}\n
 poll_add_option:		Ajouter une Option :
 post_opt_html_on:		Le code <b>HTML</b> est <b>ACTIVÉ</b>
 post_opt_fud_on:		Le <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode</b> est <b>ACTIVÉ</a></b>
