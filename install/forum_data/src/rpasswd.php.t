@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rpasswd.php.t,v 1.14 2004/11/24 19:53:36 hackie Exp $
+* $Id: rpasswd.php.t,v 1.15 2005/02/23 02:16:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_length}';
 		} else {
 			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($_POST['passwd1'])."' WHERE id=".__fud_real_user__);
+			logaction(__fud_real_user__, 'CHANGE_PASSWD', 0, get_ip());
 			exit('<html><script>window.close();</script></html>');
 		}
 
