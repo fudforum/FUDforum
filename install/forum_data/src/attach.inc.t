@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.23 2003/06/03 17:30:18 hackie Exp $
+*   $Id: attach.inc.t,v 1.24 2003/07/14 00:19:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,9 +32,9 @@ function safe_attachment_copy($source, $id, $ext)
 
 function attach_add($at, $owner, $private='N', $ext=0)
 {
-	$this->mime_type = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".addslashes(substr(strrchr($at['name'], '.'), 1))."'");
+	$mime_type = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".addslashes(substr(strrchr($at['name'], '.'), 1))."'");
 
-	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".addslashes($at['name'])."', ".$owner.", '".$private."',".$this->mime_type.",".$at['size'].")");
+	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".addslashes($at['name'])."', ".$owner.", '".$private."',".$mime_type.",".$at['size'].")");
 
 	safe_attachment_copy($at['tmp_name'], $id, $ext);
 		
