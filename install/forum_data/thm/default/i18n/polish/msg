@@ -1018,7 +1018,7 @@ search_user_filter:		Wy³±cznie wiadomo¶ci u¿ytkownika:
 register_none:			Nie powiadamiaj
 findu_no_conf:			niezatwierdzony u¿ytkownik
 register_max_sig_len:		Maksymalna d³ugo¶æ:
-register_turing:		Please enter the code shown below:
-register_err_turing:		Invalid validation code.
-modque_cat:			Category
+register_turing:		Wpisz kod widoczny poni¿ej:
+register_err_turing:		Kod sprawdzaj±cy jest nieprawid³owy.
+modque_cat:			Kategoria
 modque_forum:			Forum
