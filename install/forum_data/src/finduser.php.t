@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.30 2003/11/05 22:05:41 hackie Exp $
+* $Id: finduser.php.t,v 1.31 2003/11/11 11:05:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -41,8 +41,8 @@
 	} else {
 		$ord = 'id DESC';
 	}
-	$usr_login = !empty($_GET['usr_login']) ? trim($_GET['usr_login']) : 0;
-	$usr_email = !empty($_GET['usr_email']) ? trim($_GET['usr_email']) : 0;
+	$usr_login = !empty($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
+	$usr_email = !empty($_GET['usr_email']) ? trim($_GET['usr_email']) : '';
 
 	if ($usr_login) {
 		$qry = "alias LIKE '".addslashes(htmlspecialchars(str_replace('\\', '\\\\', $usr_login)))."%' AND";
@@ -93,9 +93,9 @@
 				$pg2 = '';
 
 				if ($usr_login) {
-					$pg2 .= urlencode($usr_login) . '/';
+					$pg2 .= ($usr_login ? urlencode($usr_login) : 0) . '/';
 				} else if ($usr_email) {
-					$pg2 .= '/' . urlencode($usr_email) . '/';
+					$pg2 .= '/' . ($usr_email ? urlencode($usr_email) : 0) . '/';
 				}
 				if (isset($_GET['js_redr'])) {
 					$pg2 .= '/';
