@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.18 2004/04/21 21:17:45 hackie Exp $
+* $Id: reported.tmpl,v 1.19 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,27 +30,11 @@
 {SECTION: END}
 
 {SECTION: reported_msg_header}
-<tr class="RowStyleC"><td>
-<table border=0 cellspacing=0 cellpadding=3 width="100%">
-	<tr>
-		<td align=left nowrap valign=top>
-			<font class="SmallText">
-			<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login}<br />
-			<b>{MSG: reported_on}</b> {DATE: obj->report_stamp %a, %d %B %Y %H:%M}
-			</font>
-		</td>
-		<td align=center width="100%" valign=top>
-			<font class="SmallText"><b>{MSG: reported_reason}</b><br /></font>
-			<table border=1 cellspacing=1 cellpadding=0><tr><td align="left">&nbsp;{VAR: obj->report_reason} &nbsp;</td></tr></table>
-			
-		</td>
-		<td nowrap>[<a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a>]</td>
-	</tr>
-	
-	<tr>
-		<td colspan=3><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{TEMPLATE: reported_msg_header_lnk1}" target="_blank">{VAR: obj->thread_subject}</a></td>
-	</tr>
-</table>
+<tr><td class="RowStyleC">
+<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login} <b>{MSG: reported_on}</b> {DATE: obj->report_stamp %a, %d %B %Y %H:%M}
+<b>{MSG: reported_in_thread}:</b> <a href="{TEMPLATE: reported_msg_header_lnk1}" target="_blank">{VAR: obj->thread_subject}</a>
+<br /><b>{MSG: reported_reason}</b> {VAR: obj->report_reason}
+<br />[<a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a>]
 </td></tr>
 {SECTION: END}
 
@@ -63,7 +47,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr><th>{MSG: reported_reported_msg}</th></tr>
 {TEMPLATE-DATA: reported_message}
 </table>

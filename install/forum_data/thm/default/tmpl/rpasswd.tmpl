@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rpasswd.tmpl,v 1.8 2004/01/04 16:38:28 hackie Exp $
+* $Id: rpasswd.tmpl,v 1.9 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,7 +17,7 @@
 {PAGE: RPASSWD_PAGE change password popup}
 {TEMPLATE: header_plain}
 <form method="post" action="{TEMPLATE: RPASSWD_PAGE_lnk3}"><div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+<table cellspacing="1" cellpadding="2" class="MiniTable">
 {TEMPLATE-DATA: rpasswd_error}
 <tr><th colspan=2>{MSG: rpasswd_change_pass}</th></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_login}</td><td>{VAR-HTML: usr->login}</td></tr>

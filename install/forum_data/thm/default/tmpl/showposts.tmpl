@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.tmpl,v 1.15 2004/01/04 16:38:28 hackie Exp $
+* $Id: showposts.tmpl,v 1.16 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,11 +29,11 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3>{MSG: user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText" width="100%">{MSG: login_header} <a href="{TEMPLATE: SHOWPOSTS_PAGE_lnk}">{VAR: u_alias}</a></td>
-<td class="GenText" nowrap>{MSG: registered_on}</td><td class="GenText" nowrap>{MSG: post_count}</td></tr>
-<tr><th width="100%">{MSG: subject}</th><th nowrap>{MSG: forum}</th><th nowrap><a class="thLnk" href="{TEMPLATE: SHOWPOSTS_PAGE_lnk1}">{MSG: date_posted}</a></th></tr>
+<tr class="RowStyleA"><td class="GenText wa">{MSG: login_header} <a href="{TEMPLATE: SHOWPOSTS_PAGE_lnk}">{VAR: u_alias}</a></td>
+<td class="GenText nw">{MSG: registered_on}</td><td class="GenText nw">{MSG: post_count}</td></tr>
+<tr><th class="wa">{MSG: subject}</th><th class="nw">{MSG: forum}</th><th class="nw"><a class="thLnk" href="{TEMPLATE: SHOWPOSTS_PAGE_lnk1}">{MSG: date_posted}</a></th></tr>
 {TEMPLATE-DATA: post_entry}
 </table>
 {TEMPLATE-DATA: pager}
@@ -49,6 +49,7 @@
 {SECTION: showposts_update}
 {MSG: showposts_update}
 {SECTION: END}
+
 {SECTION: post_entry_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[3]}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.8 2004/01/04 16:38:28 hackie Exp $
+* $Id: smladd.tmpl,v 1.9 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,9 +16,9 @@
 
 {PAGE: SMLLIST_PAGE}
 {TEMPLATE: header_plain}
-<table border=0 cellspacing=1 cellpadding=0 width="100%" class="dashed">
+<table cellspacing=1 cellpadding=0 width="100%" class="dashed">
 {TEMPLATE-DATA: sml_smiley_row}
-<tr><td align="center" colspan="{VAR: col_count}">[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
+<tr><td class="ac" colspan="{VAR: col_count}">[<a href="javascript://" onClick="javascript: window.close();">{MSG: smladd_close_window}</a>]</td></tr>
 </table>
 {TEMPLATE: footer_plain}
 {PAGE: END}
@@ -28,7 +28,7 @@
 {SECTION: END}
 
 {SECTION: sml_smiley_row}
-<tr valign="bottom"><td>{TEMPLATE-DATA: sml_smiley_entry}</td></tr>
+<tr class="vb"><td>{TEMPLATE-DATA: sml_smiley_entry}</td></tr>
 {SECTION: END}
 
 {SECTION: sml_no_smilies}

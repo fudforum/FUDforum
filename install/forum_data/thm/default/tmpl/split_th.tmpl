@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.tmpl,v 1.11 2004/01/04 16:38:28 hackie Exp $
+* $Id: split_th.tmpl,v 1.12 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,19 +26,17 @@
 
 {SECTION: msg_entry individual message entries}
 <tr>
-<td class="RowStyleC" valign="top" align="center"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}"></td>
+<td class="RowStyleC vt ac"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}"></td>
 <td class="RowStyleA">
-<table cellspacing=1 cellpadding=2 border=0 class="ContentTable">
+<table cellspacing=1 cellpadding=2 class="ContentTable">
 <tr class="RowStyleB">
-	<td><font size="-1">
+	<td class="SmallText">
 	<b>{MSG: split_th_post_by}</b> {VAR: r->alias}<br />
 	<b>{MSG: split_th_posted_on}</b> {DATE: r->post_stamp %a, %d %B %Y %H:%M}<br />
 	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
-	</font></td>
+	</td>
 </tr>
-<tr class="RowStyleA">
-	<td>{VAR: msg_body}</td>
-</tr>
+<tr class="RowStyleA"><td>{VAR: msg_body}</td></tr>
 </table>
 </td>
 </tr>
@@ -49,18 +47,18 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <form name="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%" colspan=2>{MSG: split_cp}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th class="wa" colspan=2>{MSG: split_cp}</th></tr>
 <tr class="RowStyleA">
-	<td align="left"><b>{MSG: split_th_new_thread_title}</b></td>
+	<td class="al fb">{MSG: split_th_new_thread_title}</td>
 	<td ><input type="text" name="new_title" value="" size=50></td>
 </tr>
 <tr class="RowStyleA">
-	<td align="left"><b>{MSG: split_th_forum}</b></td>
-	<td align="left"><select name="forum">{VAR: forum_sel}</select></td>
+	<td class="al fb">{MSG: split_th_forum}</td>
+	<td class="al"><select name="forum">{VAR: forum_sel}</select></td>
 </tr>
 <tr class="RowStyleC">
-	<td colspan=2 align="center">
+	<td colspan=2 class="ac">
 		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}">
@@ -68,14 +66,14 @@
 </tr>
 </table>
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th nowrap>{MSG: split_th_select}</th><th width="100%">{MSG: split_th_messages}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th class="nw">{MSG: split_th_select}</th><th width="100%">{MSG: split_th_messages}</th></tr>
 {TEMPLATE-DATA: msg_entry}
 </table>
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleC">
-	<td colspan=2 align="center">
+	<td colspan=2 class="ac">
 		<input type="submit" class="button" name="btn_selected" value="{MSG: split_th_split_sel}">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" class="button" name="btn_unselected" value="{MSG: split_th_split_unsel}">

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.18 2004/04/23 14:11:02 hackie Exp $
+* $Id: search.tmpl,v 1.19 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,16 +28,16 @@
 
 {SECTION: search_results}
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%">{MSG: search_subject}</th><th>{MSG: search_forum}</th><th nowrap>{MSG: search_posted_on}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th class="wa">{MSG: search_subject}</th><th>{MSG: search_forum}</th><th class="nw">{MSG: search_posted_on}</th></tr>
 {TEMPLATE-DATA: search_data}
 </table>
 {SECTION: END}
 
 {SECTION: no_search_results}
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr class="RowStyleA"><th colspan=2 width="100%" align="center">{MSG: search_no_results}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2 class="RowStyleA wa ca">{MSG: search_no_results}</th></tr>
 </table>
 {SECTION: END}
 
@@ -68,7 +68,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 <form name="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th></tr>
 <tr class="RowStyleA">
 	<td class="vt nw"><input type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}"><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>

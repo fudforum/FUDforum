@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.tmpl,v 1.14 2004/04/21 21:17:45 hackie Exp $
+* $Id: subscribed.tmpl,v 1.15 2004/04/23 22:30:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,7 +26,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: subscribed_forums}<a name="fff"></a></th></tr>
 {TEMPLATE-DATA: subscribed_forum_data}
 <tr><th colspan=2>{MSG: subscribed_threads}</th></tr>
@@ -39,7 +39,7 @@
 {PAGE: END}
 
 {SECTION: subscribed_forum_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap><a href="{TEMPLATE: subscribed_forum_entry_lnk1}">{MSG: unsubscribe}</a><td width="100%"><a href="{TEMPLATE: subscribed_forum_entry_lnk}">{VAR-HTML: r[1]}</a></td></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw"><a href="{TEMPLATE: subscribed_forum_entry_lnk1}">{MSG: unsubscribe}</a><td class="wa"><a href="{TEMPLATE: subscribed_forum_entry_lnk}">{VAR-HTML: r[1]}</a></td></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_forums}
@@ -47,7 +47,7 @@
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap><a href="{TEMPLATE: subscribed_thread_entry_lnk1}">{MSG: unsubscribe}</a></td><td width="100%">{VAR-HTML: r[2]} &raquo; <a href="{TEMPLATE: subscribed_thread_entry_lnk}">{VAR: r[1]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw"><a href="{TEMPLATE: subscribed_thread_entry_lnk1}">{MSG: unsubscribe}</a></td><td class="wa">{VAR-HTML: r[2]} &raquo; <a href="{TEMPLATE: subscribed_thread_entry_lnk}">{VAR: r[1]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_threads}
