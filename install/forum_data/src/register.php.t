@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.138 2005/03/08 15:20:24 hackie Exp $
+* $Id: register.php.t,v 1.139 2005/03/09 00:27:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -423,10 +423,6 @@ function decode_uent(&$uent)
 			$uent->sig = smiley_to_post($uent->sig);
 		}
 		fud_wordwrap($uent->sig);
-
-		if (!$uent->icq && !($uent->users_opt & 4)) {
-			$uent->users_opt |= 4;
-		}
 
 		if (!__fud_real_user__) { /* new user */
 			/* new users do not have avatars */
