@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.33 2003/06/05 23:07:59 hackie Exp $
+*   $Id: admglobal.php,v 1.34 2003/06/17 14:35:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,14 +95,22 @@ function get_max_upload_size()
 			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
 			}
-			if (isset($ch_list['POSTS_PER_PAGE']) || isset($ch_list['DEFAULT_THREAD_VIEW']) || isset($ch_list['ANON_NICK']) || isset($ch_list['SERVER_TZ'])) {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET 
-					posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'].',
-					default_view=\''.addslashes($ch_list['DEFAULT_THREAD_VIEW']).'\',
-					login=\''.addslashes($ch_list['ANON_NICK']).'\',
-					alias=\''.addslashes($ch_list['SERVER_TZ']).'\',
-					time_zone=\''.addslashes($ch_list['SERVER_TZ']).'\'
-					WHERE id=1');
+
+			$q_data = NULL;
+			if (isset($ch_list['POSTS_PER_PAGE'])) {
+				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
+			}
+			if (isset($ch_list['DEFAULT_THREAD_VIEW'])) {
+				$q_data[] = 'default_view=\''.addslashes($ch_list['DEFAULT_THREAD_VIEW']).'\'';
+			}
+			if (isset($ch_list['ANON_NICK'])) {
+				$q_data[] = 'login=\''.addslashes($ch_list['ANON_NICK']).'\', alias=\''.addslashes(htmlspecialchars($ch_list['ANON_NICK'])).'\'';
+			}
+			if (isset($ch_list['SERVER_TZ'])) {
+				$q_data[] = 'time_zone=\''.addslashes($ch_list['SERVER_TZ']).'\'';
+			}
+			if (isset($q_data)) {
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET '.implode(',', $q_data).' WHERE id=1');
 			}
 
 			/* put the settings 'live' so they can be seen on the form */
