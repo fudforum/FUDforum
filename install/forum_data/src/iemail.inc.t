@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.31 2004/05/12 15:26:08 hackie Exp $
+* $Id: iemail.inc.t,v 1.32 2004/05/12 15:37:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,9 +46,7 @@ function send_email($from, $to, $subj, $body, $header='')
 		$smtp->headers = $header;
 		$smtp->send_smtp_email();
 	} else {
-		if (!is_array($to)) {
-			$to = array($to);
-		}
+		$to = (array) $to;
 
 		if ($header) {
 			$header = "\n" . str_replace("\r", "", $header);

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smtp.inc.t,v 1.11 2004/01/12 21:09:45 hackie Exp $
+* $Id: smtp.inc.t,v 1.12 2004/05/12 15:37:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,9 +71,7 @@ class fud_smtp
 
 	function send_to_hdr()
 	{
-		if (!@is_array($this->to)) {
-			$this->to = array($this->to);
-		}
+		$this->to = (array) $this->to;
 
 		foreach ($this->to as $to_addr) {
 			$this->wts('RCPT TO: <'.$to_addr.'>');

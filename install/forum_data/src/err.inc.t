@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.38 2004/04/18 18:08:42 hackie Exp $
+* $Id: err.inc.t,v 1.39 2004/05/12 15:37:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,8 +74,8 @@ function std_error($type)
 'ERR_emailconf'=>array('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}')
 );
 
-	$err = $err_array['ERR_'.$type];
-	if (is_array($err)) {
+	if (isset($err_array['ERR_'.$type])) {
+		$err = $err_array['ERR_'.$type];
 		error_dialog($err[0], $err[1]);
 	} else {
 		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
