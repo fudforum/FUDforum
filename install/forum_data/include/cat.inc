@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.19 2004/10/21 15:52:35 hackie Exp $
+* $Id: cat.inc,v 1.20 2004/10/22 22:30:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,7 +109,7 @@ function rebuild_forum_cat_order()
 			$ol[$r[2]] = array();
 		}
 		$ol[$r[2]][] = $r;
-		$cat_par[$r[0]] = $r[2];
+		$cat_par[$r[0]] = (int) $r[2];
 	}
 	q("DELETE FROM ".$tbl."fc_view");
 	
@@ -167,7 +167,7 @@ function rebuild_forum_cat_order()
 	/* now we build a special cache specifically for the front page */
 	$c = uq("SELECT 0, name, description, cat_opt, parent, id FROM ".$tbl."cat c");
 	while ($r = db_rowarr($c)) {
-		$cid = array_pop($r);
+		$cid = (int) array_pop($r);
 
 		$ch = array($cid => $cid);
 		if (isset($cat_cache[$cid][2])) {
