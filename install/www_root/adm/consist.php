@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.54 2003/09/30 02:31:39 hackie Exp $
+*   $Id: consist.php,v 1.55 2003/10/03 19:16:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -604,7 +604,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Validating group/primary user relations');
 
 	draw_stat('Rebuilding group leader cache');
-	$c = q('SELECT DISTINCT(user_id) FROM '.$tbl.'group_members WHERE group_leader=\'Y\'');
+	$c = q('SELECT DISTINCT(user_id) FROM '.$tbl.'group_members WHERE group_members_opt>=131072 AND group_members_opt & 131072');
 	while ($r = db_rowarr($c)) {
 		rebuild_group_ldr_cache($r[0]);
 	}

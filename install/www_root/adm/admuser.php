@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.33 2003/09/30 15:36:49 hackie Exp $
+*   $Id: admuser.php,v 1.34 2003/10/03 19:16:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,7 @@
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.strnull(addslashes($u->custom_color)).' WHERE id='.$usr_id);
 			break;
 		case 'reset':
-			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
+			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "theme_opt>=2 AND theme_opt & 2" : 'id='.$u->theme));
 			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
