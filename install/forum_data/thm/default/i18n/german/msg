@@ -904,7 +904,6 @@ unread_message:			Ungelesene Nachricht
 read_message:			Gelesene Nachricht
 threadt_more:			&lt;mehr&gt;
 threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
-threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
 threadt_disabled_desc:		Der Administrator hat die Baumansicht für Themen deaktiviert, benutze daher bitte die flache Ansicht.
 threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
