@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.5 2004/10/16 18:34:35 hackie Exp $
+* $Id: install-cli.php,v 1.6 2004/10/18 12:57:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -561,6 +561,9 @@ function db_connect($settings)
 			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
 				/* for MySQL 4.1.2 we need to specify a default charset */
 				$q = substr($q, 0, -1) . "\nDEFAULT CHARACTER SET utf8 COLLATE utf8\n)";
+			} else if (version_compare($version, '4.1.5', '>=') && !strncmp($q, 'ALTER TABLE', strlen('ALTER TABLE'))) {
+				/* for MySQL 4.1.5+ we need to add an extra index to prevent a query failure */
+				dbquery("CREATE UNIQUE INDEX ".$prefix."_thread_view_idx ON fud26_thread_view (pos, page, forum_id)");
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
