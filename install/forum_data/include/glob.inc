@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.6 2003/05/15 18:22:40 hackie Exp $
+*   $Id: glob.inc,v 1.7 2003/05/20 12:13:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,8 +48,10 @@ function change_global_settings($list, $name='GLOBALS.php')
 		if (($p = strpos($settings, '$' . $k)) === FALSE) {
 			if ($name == 'GLOBALS.php') {
 				$p = strpos($settings, '$ALLOW_REGISTRATION')-1;
-			} else { /* RDF.php */
+			} else if ($name == 'RDF.php') { /* RDF.php */
 				$p = strpos($settings, '$AUTH')-1;
+			} else if ($name == 'PDF.php') { /* PDF.php */
+				$p = strpos($settings, '$PDF_ENABLED')-1;
 			}
 			$settings = substr_replace($settings, "\t\$$k\t= \"$v\";\n", $p, 0);
 		} else {

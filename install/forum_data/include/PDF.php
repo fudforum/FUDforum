@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: PDF.php,v 1.1 2003/05/20 11:09:58 hackie Exp $
+*   $Id: PDF.php,v 1.2 2003/05/20 12:13:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,8 +16,6 @@
 ***************************************************************************/
 
 	$PDF_ENABLED	= "Y";		/* boolean */
-	$PDF_AUTH 	= "N";		/* boolean */
-	$PDF_AUTH_ID	= "0";		/* 0 - treat as anon user, >0 treat like specific forum user */
 	$PDF_PAGE	= "letter";	/* string */
 	$PDF_WMARGIN	= "15";		/* int */
 	$PDF_HMARGIN	= "15";		/* int */

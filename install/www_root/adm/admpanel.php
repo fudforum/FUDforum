@@ -25,8 +25,13 @@
 	<a style="font-size: x-small;" href="admreplace.php?<?php echo _rsidl; ?>">Replacement & Censorship System</a><br>
 	<a style="font-size: x-small;" href="admmime.php?<?php echo _rsidl; ?>">MIME Managment System</a><br>
 	<a style="font-size: x-small;" href="admrdf.php?<?php echo _rsidl; ?>">RDF Feed Managment</a><br>
-	
 <?php
+	if (extension_loaded('pdf')) {
+?>
+	<a style="font-size: x-small;" href="admpdf.php?<?php echo _rsidl; ?>">PDF Generation Managment</a><br>
+<?php
+	}
+
 	if (strncasecmp('win', PHP_OS, 3)) {
 		echo '<a style="font-size: x-small;" href="admbrowse.php?'._rsidl.'">File Manager</a><br>';
 		echo '<a style="font-size: x-small;" href="admlock.php?'._rsidl.'">Lock/Unlock Forum\'s Files</a><br>';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.36 2003/05/13 10:51:39 hackie Exp $
+*   $Id: consist.php,v 1.37 2003/05/20 12:12:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -566,10 +566,6 @@ forum will be disabled.<br><br>
 	db_unlock();	
 	draw_stat('Database unlocked');
 
-	draw_stat('Optimizing forum\'s SQL tables');
-	optimize_tables();
-	draw_stat('Done: Optimizing forum\'s SQL tables');
-
 	draw_stat('Cleaning forum\'s tmp directory');
 	if (($d = opendir($TMP))) {
 		readdir($d); readdir($d);
@@ -604,6 +600,10 @@ forum will be disabled.<br><br>
 		fclose($fp);
 	}
 	draw_stat('Done: Validate GLOBALS.php');
+
+	draw_stat('Optimizing forum\'s SQL tables');
+	optimize_tables();
+	draw_stat('Done: Optimizing forum\'s SQL tables');
 
 	if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.2 2003/05/20 11:09:50 hackie Exp $
+*   $Id: pdf.php.t,v 1.3 2003/05/20 12:12:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-	
 
 class fud_pdf
 {
@@ -259,15 +257,6 @@ class fud_pdf
 	}
 }
 
-function fatal_error()
-{
-	fud_use('cookies.inc');
-	fud_use('users.inc');
-	invl_inp_err();
-}
-
-
-
 function post_to_smiley($text, $re)
 {
 	return ($re ? strtr($text, $re) : $text);
@@ -275,6 +264,8 @@ function post_to_smiley($text, $re)
 
 	require('GLOBALS.php');
 	require ($DATA_DIR . 'include/PDF.php');
+	fud_use('cookies.inc');
+	fud_use('users.inc');
 	fud_use('err.inc');
 
 	/* this potentially can be a longer form to generate */
@@ -305,7 +296,6 @@ function post_to_smiley($text, $re)
 
 /*{POST_HTML_PHP}*/
 
-	$offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 	$forum	= isset($_GET['frm']) ? (int)$_GET['frm'] : 0;
 	$thread	= isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$msg	= isset($_GET['msg']) ? (int)$_GET['msg'] : 0;
@@ -317,7 +307,7 @@ function post_to_smiley($text, $re)
 	} else if ($msg) {
 		$lmt = ' AND m.id='.$msg;
 	} else {
-		fatal_error();
+		invl_inp_err();
 	}
 
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
@@ -330,22 +320,25 @@ function post_to_smiley($text, $re)
 		$re = NULL;
 	}
 
-	if ($PDF_AUTH == 'Y') {
-		if ($PDF_AUTH_ID) {
+	if (_uid) {
+		if ($usr->is_mod != 'A') {
 			$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
-					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$PDF_AUTH_ID.' AND g2.resource_id=f.id
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$PDF_AUTH_ID.' ';
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' ';
 			$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y')";
 		} else {
-			$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-			$lmt .= " AND g1.p_READ='Y'";
+			$join = '';
 		}
 	} else {
-		$join = '';
+		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
+		$lmt .= " AND g1.p_READ='Y'";
 	}
 
 	if ($forum) {
 		$subject = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
+		if (isset($_GET['page'])) {
+			$join .= ' INNER JOIN {SQL_TABLE_PREFIX}thread_view tv ON tv.forum_id=f.id AND tv.page='.(int)$_GET['page'];
+		}
 	}
 
 	$c = uq('SELECT 
@@ -364,7 +357,7 @@ function post_to_smiley($text, $re)
 				m.approved=\'Y\' '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
 
 	if (!($o = db_rowobj($c))) {
-		fatal_error();
+		invl_inp_err();
 	}
 
 	if ($thread || $msg) {
