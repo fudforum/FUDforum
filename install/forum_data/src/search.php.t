@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.49 2004/10/21 00:24:28 hackie Exp $
+* $Id: search.php.t,v 1.50 2004/10/22 23:36:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -151,9 +151,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$i = 0;
 			$search_data = '';
 			while ($r = db_rowobj($c)) {
-				$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
 				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: registered_poster}' : '{TEMPLATE: unregistered_poster}';
-				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
 			un_register_fps();

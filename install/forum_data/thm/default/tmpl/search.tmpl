@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.25 2004/10/20 19:03:09 hackie Exp $
+* $Id: search.tmpl,v 1.26 2004/10/22 23:36:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText wa">{VAR: i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><span class="DateText">{TEMPLATE: search_post_date}</span> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText wa">{FUNC: ++$i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><span class="DateText">{TEMPLATE: search_post_date}</span> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
