@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.31 2004/01/04 16:38:26 hackie Exp $
+* $Id: groups.inc.t,v 1.32 2004/02/18 14:35:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,6 +45,9 @@ function grp_rebuild_cache($user_id=null)
 	/* generate an array of permissions, in the end we end up with 1ist of permissions */
 	$r = uq("SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND (gm.group_members_opt & 65536) > 0" . ($lmt ? ' AND '.$lmt : ''));
 	while ($o = db_rowobj($r)) {
+		foreach ($o as $k => $v) {
+			$o->{$k} = (int) $v;
+		}
 		if (isset($list[$o->rid][$o->uid])) {
 			if ($o->gco & 131072) {
 				$list[$o->rid][$o->uid] |= $o->gco;
