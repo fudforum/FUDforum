@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.php.t,v 1.21 2004/01/04 16:38:27 hackie Exp $
+* $Id: thr_exch.php.t,v 1.22 2004/02/09 22:36:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,12 +87,12 @@
 		$r = uq('SELECT
 				thx.*, m.subject, f1.name AS sf_name, f2.name AS df_name, u.alias
 			 FROM {SQL_TABLE_PREFIX}thr_exchange thx
-			 LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.'
 			 INNER JOIN {SQL_TABLE_PREFIX}thread t ON thx.th=t.id
 			 INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON thx.frm=f2.id
 			 INNER JOIN {SQL_TABLE_PREFIX}users u ON thx.req_by=u.id
+			 LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.'
 			 WHERE '.($usr->users_opt & 1048576 ? '1=1' : ' mm.id IS NOT NULL'));
 
 		while ($obj = db_rowobj($r)) {
