@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.41 2005/03/05 18:47:00 hackie Exp $
+* $Id: pmsg.tmpl,v 1.42 2005/03/12 18:08:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,7 +193,7 @@
 <tr class="RowStyleB"><td colspan=6 class="GenText ar">
 <input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}"></td></tr>
+&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}">{IF: $FUD_OPT_2 & 2097152}&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_pdf" value="{MSG: pmsg_pdf_btn}">{ENDIFI}</td></tr>
 {SECTION: END}
 
 {SECTION: action_buttons_inbox_lnk}

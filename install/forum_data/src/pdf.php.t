@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.36 2005/03/05 18:46:59 hackie Exp $
+* $Id: pdf.php.t,v 1.37 2005/03/12 18:08:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,7 +41,7 @@ class fud_pdf extends FPDF
 		$this->SetTextColor(0);
 	}
 
-	function add_attacments($attch)
+	function add_attacments($attch, $private)
 	{
 		$this->Ln(5);
 		$this->SetFont('courier', '', 16);
@@ -55,7 +55,7 @@ class fud_pdf extends FPDF
 		$i = 0;
 		foreach ($attch as $a) {
 			$this->Write(5, ++$i . ') ');
-			$this->add_link($GLOBALS['WWW_ROOT'] . 'index.php?t=getfile&id='.$a['id'], $a['name']);
+			$this->add_link($GLOBALS['WWW_ROOT'] . 'index.php?t=getfile&id='.$a['id'] . ($private ? '&private=1' : ''), $a['name']);
 			$this->Write(5, ', downloaded '.$a['nd'].' times');
 			$this->Ln(5);
 		}
@@ -102,10 +102,12 @@ class fud_pdf extends FPDF
 		$this->Write(5, 'Posted by ');
 		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=usrinfo&id='.$author[0], $author[1]);
 		$this->Write(5, ' on '.gmdate('D, d M Y H:i:s \G\M\T', $date));
-		$this->Ln(5);
-		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=rview&th='.$th.'&goto='.$id.'#msg_'.$id, 'View Forum Message');
-		$this->Write(5, ' <> ');
-		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=post&reply_to='.$id, 'Reply to Message');
+		if ($th) {
+			$this->Ln(5);
+			$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=rview&th='.$th.'&goto='.$id.'#msg_'.$id, 'View Forum Message');
+			$this->Write(5, ' <> ');
+			$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=post&reply_to='.$id, 'Reply to Message');
+		}
 		$this->Ln(5);
 		$this->draw_line();
 		$this->Ln(3);
@@ -133,7 +135,6 @@ class fud_pdf extends FPDF
 		$this->Write(5, ' by FUDforum '.$GLOBALS['FORUM_VERSION']);
 	}
 }
-
 
 	/* this potentially can be a longer form to generate */
 	@set_time_limit($PDF_MAX_CPU);
@@ -163,6 +164,7 @@ class fud_pdf extends FPDF
 	$thread	= isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$msg	= isset($_GET['msg']) ? (int)$_GET['msg'] : 0;
 	$page	= isset($_GET['page']) ? (int)$_GET['page'] : 0;
+	$sel	= isset($_GET['sel']) ? (array)$_GET['sel'] : 0;
 
 	if ($forum) {
 		if (!($FUD_OPT_2 & 268435456)) {
@@ -207,6 +209,18 @@ class fud_pdf extends FPDF
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			';
+	} else if ($sel) { /* PM handling */
+		foreach ($sel as $k => $v) {
+			if ($v = (int)$v) {
+				$sel[$k] = $v;
+			} else {
+				unset($sel[$k]);
+			}
+		}
+		if (!$sel || !q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE id IN(".implode(',', $sel).") AND duser_id="._uid)) {
+			invl_inp_err();
+		}
+		fud_use('private.inc');
 	} else {
 		invl_inp_err();
 	}
@@ -234,7 +248,8 @@ class fud_pdf extends FPDF
 		$subject = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
 	}
 
-	$c = uq('SELECT
+	if (!$sel) {
+		$c = uq('SELECT
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
 				m.foff, m.length, m.file_id, u.id AS uid,
@@ -243,6 +258,11 @@ class fud_pdf extends FPDF
 			'.$join.'
 			WHERE
 				t.moved_to=0 AND m.apr=1 '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
+	} else {
+		$c = q("SELECT p.*, u.alias, p.duser_id AS uid FROM {SQL_TABLE_PREFIX}pmsg p 
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
+				WHERE p.id IN(".implode(',', $sel).") AND p.duser_id="._uid);
+	}
 
 	if (!($o = db_rowobj($c))) {
 		invl_inp_err();
@@ -250,28 +270,47 @@ class fud_pdf extends FPDF
 
 	if ($thread || $msg) {
 		$subject = $o->subject;
+	} else if ($sel) {
+		$subject = 'Private Message Archive';
 	}
 
 	$fpdf = new fud_pdf('FUDforum ' . $FORUM_VERSION, $FORUM_TITLE, $subject, $PDF_PAGE, $PDF_WMARGIN, $PDF_HMARGIN);
 	$fpdf->begin_page($subject);
 	do {
 		/* write message header */
-		$fpdf->message_header(reverse_fmt($o->subject), array($o->uid, reverse_fmt($o->alias)), $o->post_stamp, $o->id, $o->thread_id);
+		$fpdf->message_header(reverse_fmt($o->subject), array($o->uid, reverse_fmt($o->alias)), $o->post_stamp, $o->id, (isset($o->thread_id) ? $o->thread_id : 0));
 
 		/* write message body */
-		$fpdf->input_text(reverse_fmt(strip_tags(post_to_smiley(read_msg_body($o->foff, $o->length, $o->file_id), $re))));
+		if (!$sel) {
+			$body = read_msg_body($o->foff, $o->length, $o->file_id);
+		} else {
+			$body = read_pmsg_body($o->foff, $o->length);
+		}
+
+		$fpdf->input_text(reverse_fmt(strip_tags(post_to_smiley($body, $re))));
 
 		/* handle attachments */
-		if ($o->attach_cnt && $o->attach_cache && ($a = unserialize($o->attach_cache))) {
-			$attch = array();
-			foreach ($a as $i) {
-				$attch[] = array('id' => $i[0], 'name' => $i[1], 'nd' => $i[3]);
+		if ($o->attach_cnt) {
+			if (!empty($o->attach_cache) && ($a = unserialize($o->attach_cache))) {
+				$attch = array();
+				foreach ($a as $i) {
+					$attch[] = array('id' => $i[0], 'name' => $i[1], 'nd' => $i[3]);
+				}
+				$fpdf->add_attacments($attch);
+			} else if ($sel) {
+				$attch = array();
+				$c2 = uq("SELECT id, original_name, dlcount FROM {SQL_TABLE_PREFIX}attach WHERE message_id={$o->id} AND attach_opt=1");
+				while ($r2 = db_rowarr($c2)) {
+					$attch[] = array('id' => $r2[0], 'name' => $r2[1], 'nd' => $r2[2]);
+				}
+				if ($attch) {
+					$fpdf->add_attacments($attch, 1);
+				}
 			}
-			$fpdf->add_attacments($attch);
 		}
 
 		/* handle polls */
-		if ($o->poll_name && $o->poll_cache && ($pc = unserialize($o->poll_cache))) {
+		if (!empty($o->poll_name) && $o->poll_cache && ($pc = unserialize($o->poll_cache))) {
 			$votes = array();
 			foreach ($pc as $opt) {
 				$votes[] = array('name' => reverse_fmt(strip_tags(post_to_smiley($opt[0], $re))), 'votes' => $opt[1]);

@@ -995,3 +995,5 @@ mmd_mov_title:			Move Topics
 mmd_move_threads_to:		Destination Forum:
 mmd_abort_move:			Cancel
 mmd_move:			Move Topics
+pmsg_pdf_btn:			Make PDF Archive
+search_results_hdr:		{VAR: total} Search Results Found
