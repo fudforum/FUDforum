@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.21 2003/03/30 18:26:52 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.22 2003/03/30 18:32:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -497,12 +497,15 @@ function write_body($data, &$len, &$offset)
 	$MAX_FILE_SIZE = 2147483647;
 
 	$len = strlen($data);
-	$i=1;
-	while( $i<100 ) {
-		$fp = fopen($GLOBALS["MSG_STORE_DIR"].'msg_'.$i, 'ab');
-		flock($fp, LOCK_EX);
-		if( !($off = ftell($fp)) ) $off = __ffilesize($fp);
-		if( !$off || sprintf("%u", $off+$len)<$MAX_FILE_SIZE ) break;
+	$i = 1;
+	while ($i < 100) {
+		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$i, 'ab');
+		if (!($off = ftell($fp))) {
+			$off = __ffilesize($fp);
+		}
+		if (!$off || ($off + $len) < $MAX_FILE_SIZE) {
+			break;
+		}
 		fclose($fp);
 		$i++;
 	}
@@ -510,9 +513,13 @@ function write_body($data, &$len, &$offset)
 	$len = fwrite($fp, $data);
 	fclose($fp);
 	
-	if( !$off ) @chmod('msg_'.$i, ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
+	if (!$off) {
+		@chmod('msg_'.$i, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+	}
 	
-	if( $len == -1 ) exit("FATAL ERROR: system has ran out of disk space<br>\n");
+	if ($len == -1) {
+		exit("FATAL ERROR: system has ran out of disk space<br>\n");
+	}
 	$offset = $off;
 	
 	return $i;
