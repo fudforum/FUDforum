@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.141 2004/11/24 19:53:37 hackie Exp $
+* $Id: users.inc.t,v 1.142 2004/12/02 19:50:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -709,11 +709,15 @@ function user_mark_all_read($id)
 function user_mark_forum_read($id, $fid, $last_view)
 {
 	if (__dbtype__ == 'mysql') {
-		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
+		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view);
 	} else {
-		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid, $ef)) {
-			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", msg_id=t.last_post_id, last_view=".__request_timestamp__." FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid.") t WHERE user_id=".$id." AND thread_id=t.id");
+		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date > '.$last_view, $ef)) {
+			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", msg_id=t.last_post_id, last_view=".__request_timestamp__." FROM (SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid." AND last_post_date > ".$last_view.") t WHERE user_id=".$id." AND thread_id=t.id");
 		}
+	}
+	q("UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view=".__request_timestamp__." where user_id=".$id." AND forum_id=".$fid);
+	if (!db_affected()) {
+		db_li("INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES(".$fid.",".$id.",".__request_timestamp__.")", $t);
 	}
 }
 
