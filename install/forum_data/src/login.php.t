@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.43 2003/11/09 23:54:24 hackie Exp $
+* $Id: login.php.t,v 1.44 2003/11/11 10:49:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 
 	/* clear old sessions */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT));
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__- ($FUD_OPT_3 & 1 ? $SESSION_TIMEOUT : $COOKIE_TIMEOUT)));
 
 	/* Remove old unconfirmed users */
 	if ($FUD_OPT_2 & 1) {
