@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.18 2003/04/03 10:11:39 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.19 2003/04/09 18:04:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -318,5 +318,14 @@ function check_user($id)
 function usr_ch_passwd($id, $pass)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($pass)."' WHERE id=".$id);
+}
+
+function &usr_reg_get_full($id)
+{
+	if (($r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id='.$id))) {
+		aggregate_methods($r, 'fud_user_reg');
+		return $r;
+	}
+	return;
 }
 ?>

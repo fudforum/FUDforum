@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.32 2003/04/09 10:55:57 hackie Exp $
+*   $Id: users.inc.t,v 1.33 2003/04/09 18:04:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,16 +23,6 @@ class fud_user
 	    $ignore_admin, $bday, $blocked, $home_page, $sig, $bio, $posted_msg_count, $last_visit, $last_event, $email_conf, $conf_key,
 	    $coppa, $user_image, $join_date, $theme, $last_read, $default_view, $mod_list, $mod_cur, $is_mod, $level_id, $u_last_post_id,
 	    $cat_collapse_status, $acc_status, $ignore_list, $buddy_list;
-	
-	function get_user_by_id($id) 
-	{
-		qobj('SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id='.$id, $this);
-		return $this->id;
-	}
-	
-	
-	
-	
 	
 	function mark_all_read()
 	{
