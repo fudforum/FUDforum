@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.12 2002/10/03 08:45:35 hackie Exp $
+*   $Id: post.tmpl,v 1.13 2002/10/06 22:57:20 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -321,7 +321,7 @@
 </table>
 </td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
-<input type="submit" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
 {DEF: _hs}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.10 2002/09/12 21:47:04 hackie Exp $
+*   $Id: ppost.tmpl,v 1.11 2002/10/06 22:57:20 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -265,7 +265,7 @@
 </table>
 </td>
 </tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" onClick="javascript: document.post_form.btn_action.value='send';"></td></tr>
+<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value='send';"></td></tr>
 </table>
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="">
