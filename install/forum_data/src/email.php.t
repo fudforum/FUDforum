@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.5 2002/09/04 22:31:28 hackie Exp $
+*   $Id: email.php.t,v 1.6 2003/04/15 18:42:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,16 +15,17 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
-	if ( empty($usr->id) ) std_error('login');
-	
-	if( $GLOBALS["ALLOW_EMAIL"]=='N' ) {
-		error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_err_unabletoemail_msg}', '{ROOT}?t=index&'._rsid);
-		exit;
+	if (!_uid) {
+		std_error('login');
 	}
 	
-	is_allowed_user();
+	if ($ALLOW_EMAIL == 'N') {
+		error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_err_unabletoemail_msg}');
+	}
+	
+	is_allowed_user($usr);
 	
 function set_err($type, $msg)
 {
@@ -34,79 +35,57 @@ function set_err($type, $msg)
 
 function get_err($type)
 {
-	if ( !isset($GLOBALS['_ERROR_'][$type]) ) return;
+	if (!isset($GLOBALS['_ERROR_'][$type])) {
+		return;
+	}
 	return '{TEMPLATE: email_error_text}';
 }
 
 function mail_check()
 {
-	$GLOBALS['error']=0;
+	$GLOBALS['error'] = 0;
 	
-	if ( !strlen(trim($GLOBALS['tx_body'])) )
+	if (!strlen(trim($_POST['tx_body']))) {
 		set_err('tx_body', '{TEMPLATE: email_error_body}');
-	
-	if ( !strlen(trim($GLOBALS['tx_subject'])) )
-		set_err('tx_subject', '{TEMPLATE: email_error_subject}');
-	
-	if ( strlen(trim($GLOBALS['email_open'])) ) {
-		if ( !strlen(trim($GLOBALS['tx_email'])) )
-			set_err('tx_email', '{TEMPLATE: email_error_emailrequired}');
-		else if ( validate_email($GLOBALS['tx_email']) )
-			set_err('tx_email', '{TEMPLATE: email_error_invalidaddress}');
 	}
-	else {
-		if ( !strlen(trim($GLOBALS['tx_name'])) )
-			set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
-			
-		if ( !get_id_by_alias($GLOBALS['tx_name']) )
-			set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
+	
+	if (!strlen(trim($_POST['tx_subject']))) {
+		set_err('tx_subject', '{TEMPLATE: email_error_subject}');
+	}
+	
+	if (!strlen(trim($_POST['tx_name']))) {
+		set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
+	} else if (!get_id_by_alias($_POST['tx_name'])) {
+		set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 	}
 	
 	return $GLOBALS['error'];
 }
-	
-	if( isset($HTTP_GET_VARS['tx_name']) )$tx_name = stripslashes($HTTP_GET_VARS['tx_name']);
-	if( isset($HTTP_POST_VARS['tx_subject']) ) $tx_subject = stripslashes($tx_subject);
-	if( isset($HTTP_POST_VARS['tx_body']) ) $tx_body = stripslashes($tx_body);
-	
-	if ( !empty($btn_submit) && !mail_check() ) {
-		if ( $HTTP_POST_VARS['email_open'] ) {
-			$tx_body = "\n\n".$tx_body;
-			$to = $tx_email;
+	if (isset($_GET['toi']) && (int)$_GET['toi']) {
+		$_POST['tx_name'] = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['toi']);
+	} else if (isset($_POST['btn_submit']) && !mail_check()) {
+		if (!($email = q_singleval('SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($_POST['tx_name'])).'\' AND email_messages=\'Y\''))) {
+			error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}');	
 		}
-		else {
-			$usr_dst = new fud_user;
-			$usr_dst->get_user_by_id(get_id_by_alias($tx_name));
-			if ( !strlen($usr_dst->email) || $usr_dst->email_messages!='Y') {
-				error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}', $GLOBALS['HTTP_REFERER'], 'FATAL');
-				exit();
-			}
-			$to = $usr_dst->email;
-		}
-		
-		send_email($usr->email, $to, $tx_subject, $tx_body, $to_str);
-		check_return();
-	}
-	else if( !empty($btn_submit) && isset($HTTP_POST_VARS['tx_name']) )
-		$tx_name = htmlspecialchars(stripslashes($HTTP_POST_VARS['tx_name']));
+		send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '.$usr->email);
+		check_return($usr->returnto);
+	} 
+
+	$tx_name = isset($_POST['tx_name']) ? $_POST['tx_name'] : '';
+	$tx_body = isset($_POST['tx_body']) ? $_POST['tx_body'] : '';
+	$tx_subject = isset($_POST['tx_subject']) ? $_POST['tx_subject'] : '';
 	
 	/* start page */
 	$TITLE_EXTRA = ': {TEMPLATE: email_title}';
-	{POST_HTML_PHP}
+
+/*{POST_HTML_PHP}*/
 	
 	$name_err = get_err('tx_name');
-	
-	if ( $email_open ) {
-		$email_err = get_err('tx_email');
-		$destination = '{TEMPLATE: dest_non_forum_user}';	
-	}
-	else 
-		$destination = '{TEMPLATE: dest_forum_user}';
-		
 	$sub_err = get_err('tx_subject');
 	$body_err = get_err('tx_body');
 	
-	$return = create_return();
-	{POST_PAGE_PHP_CODE}
+	$destination = '{TEMPLATE: dest_forum_user}';
+	
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: EMAIL_PAGE}
