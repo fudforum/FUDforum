@@ -22,8 +22,8 @@
  *				'id' 	- attachment id
  *				'nd' 	- number of times the file was downloaded
  *				'size'	- size of the file (in bytes)
- *	poll_name	- name of a poll inside the message, if one is avaliable
- *	total_votes	- total number of votes in the poll, if one is avaliable
+ *	poll_name	- name of a poll inside the message, if one is available
+ *	total_votes	- total number of votes in the poll, if one is available
  *	poll_opts	- an array containing the information about poll options
  *				'title'	- name of the option
  *				'votes'	- number of votes for this option
@@ -117,11 +117,11 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 		echo '<b>Real Name:</b> '.$this->user_name.'<br />';
 		echo '<b>E-mail:</b> <a href="mailto:'.$this->user_email.'">'.$this->user_email.'</a><br />';
 		echo '<b>Posted Messages:</b> '.$this->post_count.' <a href="'.$this->forum_url.'?t=showposts&id='.$this->user_id.'">view all messages by this user</a><br />';
-		/* draw last post by this user, if one is avaliable */
+		/* draw last post by this user, if one is available */
 		if ($this->m_id) {
 			echo '<b>Last post:</b> '.$this->m_cat_title.' &raquo; <a href="'.$this->forum_url.'?t=rview&amp;frm_id='.$this->m_forum_id.'">'.$this->m_forum_title.'</a> &raquo; <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->m_thread_id.'&amp;goto='.$this->m_id.'">'.$this->m_subject.'</a> <br />';
 		}
-		/* all of the following fields are optional, and therefor you should check if they exist before using them */
+		/* all of the following fields are optional, and therefore you should check if they exist before using them */
 		if ($this->homepage) {
 			echo '<b>Homepage: <a href="'.$this->homepage.'" target="_blank">'.$this->homepage.'</a><br />';
 		}
@@ -173,7 +173,7 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
  * author_id		- author id
  * replies		- number of replies to this topic
  * views		- number of times this topic has been viewed
- * 	-- Only avaliable if topic has replies --
+ * 	-- Only available if topic has replies --
  * last_post_id		- id of the last message in the topic
  * last_post_subj	- subject of the last message in the topic
  * last_post_date	- date when the last message in the topic was posted

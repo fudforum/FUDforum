@@ -285,7 +285,7 @@ Enable affero, this will result in an Affero button being shown beside each mess
 Due to the complexity of the searching process the search results are being cached. This option allows you to define the maximum age of entries (in seconds) stored inside this cache. By default the cache age is set to 2 days.}}}
 
 {{{STATS_CACHE_AGE
-Generating forum statistics is somewhat expensive (CPU wise) therefor the results are being cached for a small period of time, which should significantly reduce the front page load on popular forums. This option allows you to define (in seconds) the maximum time for which the forum stats will be cached.}}}
+Generating forum statistics is somewhat expensive (CPU wise) therefore the results are being cached for a small period of time, which should significantly reduce the front page load on popular forums. This option allows you to define (in seconds) the maximum time for which the forum stats will be cached.}}}
 
 {{{ENABLE_THREAD_RATING	FUD_OPT_2	4096
 Whether or not to allow users to rate topics.}}}

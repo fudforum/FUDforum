@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa_fax.php.t,v 1.11 2004/01/04 16:38:26 hackie Exp $
+* $Id: coppa_fax.php.t,v 1.12 2004/01/12 21:09:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* this form is for printing, therefor it lacks any advanced layout */
+	/* this form is for printing, therefore it lacks any advanced layout */
 	if (!__fud_real_user__) {
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/i/'._rsidl);

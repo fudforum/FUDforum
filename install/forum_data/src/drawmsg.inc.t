@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.73 2004/01/04 16:38:26 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.74 2004/01/12 21:09:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -379,7 +379,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$dmsg_user_info = ($host_name || $ip_address) ? '{TEMPLATE: dmsg_anon_info}' : '';
 		}
 
-		/* little trick, this variable will only be avaliable if we have a next link leading to another page */
+		/* little trick, this variable will only be available if we have a next link leading to another page */
 		if (isset($next_page)) {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}

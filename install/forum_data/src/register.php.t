@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.105 2004/01/04 16:38:27 hackie Exp $
+* $Id: register.php.t,v 1.106 2004/01/12 21:09:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-/* Create a list of avaliable themes */
+/* Create a list of available themes */
 function create_theme_select($name, $def=null)
 {
 	$theme_select_values = '';

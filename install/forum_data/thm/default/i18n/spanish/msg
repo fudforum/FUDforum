@@ -880,7 +880,7 @@ polllist_date:			Created On
 polllist_owner:			Created By
 polllist_votes:			Total Votes
 polllist_action:		Action
-polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Avaliable Polls</a>
+polllist_update:		<a href="{TEMPLATE: polllist_update_lnk}">Reviewing Available Polls</a>
 userinfo_polls:			Polls:
 show_pollist:			Show Polls
 search_and:			AND
@@ -929,7 +929,7 @@ buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
 sml_no_smilies:			No emoticons available.
 login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
+login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to registered members until your account is approved.
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
