@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.16 2002/09/29 21:52:08 hackie Exp $
+*   $Id: admdump.php,v 1.17 2002/09/29 22:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -244,8 +244,8 @@ include('admpanel.php');
 	
 		echo "Compressing forum datafiles<br>\n";
 		flush();
-		backup_dir($DATA_DIR, 'DATA_DIR');
-		if( $DATA_DIR != $WWW_ROOT_DISK ) backup_dir($WWW_ROOT_DISK.'images/', 'IMG_ROOT_DISK');
+		backup_dir(realpath($DATA_DIR), 'DATA_DIR');
+		if( $DATA_DIR != $WWW_ROOT_DISK ) backup_dir(realpath($WWW_ROOT_DISK.'images/'), 'IMG_ROOT_DISK');
 	
 		if( $HTTP_POST_VARS['compress'] ) 
 			gzclose($fp);
