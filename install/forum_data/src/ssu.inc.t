@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ssu.inc.t,v 1.5 2003/04/28 13:05:41 hackie Exp $
+*   $Id: ssu.inc.t,v 1.6 2003/05/16 06:07:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@ function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 		$pmsg->post_stamp = __request_timestamp__;
 		$pmsg->subject = addslashes($title);
 		$pmsg->host_name = 'NULL';
-		$pmsg->ip_addr = "'0.0.0.0'";
+		$pmsg->ip_addr = '0.0.0.0';
 		list($pmsg->foff, $pmsg->length) = write_pmsg_body(nl2br($msg));
 		$pmsg->send_pmsg();	
 	} else {
