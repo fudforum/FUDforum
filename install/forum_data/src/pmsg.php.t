@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.37 2004/04/10 21:16:20 hackie Exp $
+* $Id: pmsg.php.t,v 1.38 2004/04/19 21:03:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,6 +38,15 @@
 				pmsg_del((int)$m);
 			}
 		}
+	}
+	
+	/* empty trash */
+	if (isset($_POST['btn_trash'])) {
+		$c = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=5");
+		while ($r = db_rowarr($c)) {
+			pmsg_del((int)$r[0]);
+		}
+		unset($c);
 	}
 
 	if (isset($_GET['folder_id']) && isset($folders[$_GET['folder_id']])) {
@@ -149,7 +158,15 @@
 		$private_msg_entry = '{TEMPLATE: private_no_messages}';
 		$private_tools = '';
 	} else {
-		$btn_action = $folder_id == 5 ? '{TEMPLATE: restore_to}' : '{TEMPLATE: move_to}';
+		if ($folder_id == 5) {
+			$btn_action = '{TEMPLATE: restore_to}';
+			$btn_del_name = 'btn_trash';
+			$btn_del_title = '{TEMPLATE: pmsg_trash}';
+		} else {
+			$btn_action = '{TEMPLATE: move_to}';
+			$btn_del_name = 'btn_delete';
+			$btn_del_title = '{TEMPLATE: pmsg_delete}';
+		}
 		unset($folders[$folder_id]);
 		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
 		$private_tools = '{TEMPLATE: private_tools}';

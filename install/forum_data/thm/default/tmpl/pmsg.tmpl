@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.27 2004/04/19 20:44:03 hackie Exp $
+* $Id: pmsg.tmpl,v 1.28 2004/04/19 21:03:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -193,7 +193,7 @@
 <tr class="RowStyleB"><td colspan=6 class="GenText" align=right>
 <input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
-&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
+&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="{VAR: btn_del_name}" value="{VAR: btn_del_title}"></td></tr>
 {SECTION: END}
 
 {SECTION: action_buttons_inbox_lnk}
@@ -234,4 +234,12 @@
 
 {SECTION: PMSG_PAGE_lnk3}
 {ROOT}?t=pmsg
+{SECTION: END}
+
+{SECTION: pmsg_delete}
+{MSG: pmsg_delete}
+{SECTION: END}
+
+{SECTION: pmsg_trash}
+{MSG: pmsg_trash}
 {SECTION: END}
