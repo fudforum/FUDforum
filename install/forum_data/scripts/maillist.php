@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.41 2004/03/19 21:40:05 hackie Exp $
+* $Id: maillist.php,v 1.42 2004/04/25 15:34:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -270,6 +270,8 @@ class fud_emsg
 
 		if (isset($this->headers['message-id'])) {
 			$this->msg_id = substr(trim($this->headers['message-id']), 1, -1);
+		} else if (isset($this->headers['x-qmail-scanner-message-id'])) {
+			$this->msg_id = substr(trim($this->headers['x-qmail-scanner-message-id']), 1, -1);
 		} else {
 			mlist_error_log("No message id", $this->raw_msg);
 		}
