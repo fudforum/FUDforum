@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.23 2003/04/18 12:51:07 hackie Exp $
+*   $Id: ppost.php.t,v 1.24 2003/04/18 12:58:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,13 +141,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	 		
 		}
 	} else {
-		if (!isset($_POST['preview']) && !isset($_POST['file_del_opt']) && !isset($_POST['btn_spell']) && !isset($_POST['spell']) && isset($_POST['btn_action'])) {
-			if ($_POST['btn_action'] == 'draft') {
-				$_POST['btn_draft'] = 1;
-			} else {
-				$_POST['btn_submit'] = 1;
-			}
+		if (isset($_POST['btn_action']) && $_POST['btn_action'] == 'draft') {
+			$_POST['btn_draft'] = 1;
 		}
+
 		$msg_to_list = htmlspecialchars($_POST['msg_to_list']);
 		$msg_subject = $_POST['msg_subject'];
 		$msg_body = $_POST['msg_body'];
@@ -163,7 +160,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		/* restore file attachments */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
-			$attach_list = base64_decode(@unserialize($_POST['file_array']));
+			$attach_list = @unserialize(base64_decode($_POST['file_array']));
 		}			
 	}
 
@@ -275,7 +272,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				if (isset($atl)) {
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
-							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize) VALUES(' . $mid[0] . ', \'Y\',' . $mid[1] . $v .')');
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize) VALUES(' . $mid[0] . ', \'Y\', ' . $mid[1] . ', ' . $v .')');
 							$aidl[] = $aid;
 							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
 							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));
