@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.29 2003/04/09 09:55:05 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.30 2003/04/09 12:01:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -183,6 +183,8 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				} else {
 					$im_affero = '';
 				}	
+			} else {
+				$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
 			}
 		 } else {
 		 	$user_link = '{TEMPLATE: dmsg_reg_user_no_link}';
@@ -270,7 +272,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		$atch = @unserialize($obj->attach_cache);
 		if (is_array($atch) && count($atch)) {
 			foreach ($atch as $v) {
-				$sz = $atch[2] / 1024;
+				$sz = $v[2] / 1024;
 				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
 				$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';
 			}

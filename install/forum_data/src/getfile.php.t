@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.6 2002/09/12 21:47:04 hackie Exp $
+*   $Id: getfile.php.t,v 1.7 2003/04/09 12:01:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,55 +15,58 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}{POST_HTML_PHP}
-	$file = new fud_attach;
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
 
-	if( !is_numeric($id) ) invl_inp_err();
-
-	if( empty($private) )
-		$file->get($id);
-	else
-		$file->get($id,'Y');
-	
-	if( empty($file->id) ) invl_inp_err();	
-	
-	if( $usr->is_mod != 'A' ) {
-		if ( ($file->private == 'Y' && _uid != $file->owner) ) {
+	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
+		invl_inp_err();
+	}
+	if (!isset($_GET['private'])) { /* non-private upload */
+		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
+			'.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read' : 'g1.p_READ as p_read').'
+			FROM {SQL_TABLE_PREFIX}attach a
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.private=\'N\'
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mod ON mod.forum_id=t.forum_id AND mod.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
+			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : '').'
+			WHERE a.id='.$id);
+		if (!$r) {
+			invl_inp_err();
+		}
+		if ($usr->is_mod != 'A' && !$r[4] && $r[5] != 'Y') {
 			std_error('access');
-			exit;
 		}
-		else if( $file->private != 'Y' ) {
-			if( $file->message_id ) {
-				$forum_id = q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$file->message_id);
-				if( !is_perms(_uid, $forum_id, 'READ') ) {
-					std_error('access');
-					exit;
-				}			
-			}
-			else if ( _uid != $file->owner ) {
-				std_error('access');
-				exit;
-			}
+	} else {
+		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner
+			FROM {SQL_TABLE_PREFIX}attach a
+			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.private=\'N\'
+			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
+			WHERE a.id='.$id);
+		if (!$r) {
+			invl_inp_err();
 		}
+		if ($usr->is_mod != 'A' && $r[4] != _uid) {
+			std_error('access');
+		}
+	}
+
+	reverse_FMT($r[1]);
+	if (!$r[0]) {
+		$r[0] = 'application/ocet-stream';
+		$append = 'attachment; ';
+	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
+		$append = 'inline; ';
+	}
+
+	header('Content-type: '.$r[0]);
+	header('Content-Disposition: '.$append.'filename='.$r[1]);		
+	
+	if (!$r[2]) {
+		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
 	}	
 
-	reverse_FMT($file->original_name);
-
-	$header = q_singleval("SELECT mime_hdr FROM {SQL_TABLE_PREFIX}mime WHERE id=".$file->mime_type);
-	if( empty($header) ) $header = 'application/ocet-stream';
-	
-	if( preg_match('!^(audio|video|image)/!i', $header) && !strstr($HTTP_SERVER_VARS['HTTP_USER_AGENT'], 'MSIE') )
-		$append = 'inline; ';
-	else
-		$append = 'attachment; ';		
-	
-	header('Content-type: '.$header);
-	header("Content-Disposition: ".$append."filename=".$file->original_name);	
-		
-	if( empty($file->location) ) $file->location = $GLOBALS['FILE_STORE'].$file->id.'.atch';	
-		
-	if( !@file_exists($file->location) ) exit;
-	
-	$file->inc_dl_count();
-	fpassthru(fopen($file->location, 'rb'));
+	attach_inc_dl_count($id, $r[3]);
+	@fpassthru(@fopen($r[2], 'rb'));
 ?>

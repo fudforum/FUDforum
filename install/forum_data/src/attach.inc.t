@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.15 2003/04/08 17:39:36 hackie Exp $
+*   $Id: attach.inc.t,v 1.16 2003/04/09 12:01:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -198,5 +198,13 @@ function attach_rebuild_cache($id)
 	qf($c);
 
 	return (isset($ret) ? $ret : NULL);
+}
+
+function attach_inc_dl_count($id, $mid)
+{
+	q('UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id='.$id);
+	if (($a = attach_rebuild_cache($mid))) {
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(@serialize($a)).'\' WHERE id='.$mid);
+	}
 }
 ?>

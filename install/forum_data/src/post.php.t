@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.37 2003/04/09 09:55:05 hackie Exp $
+*   $Id: post.php.t,v 1.38 2003/04/09 12:01:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -196,6 +196,7 @@
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
 				$attach_list = @unserialize(base64_decode($_POST['file_array']));
+				$attach_count = count($attach_list);
 			}
 			
 			/* remove file attachment */
