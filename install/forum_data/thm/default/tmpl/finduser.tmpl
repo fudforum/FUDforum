@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.4 2002/07/24 12:46:22 hackie Exp $
+*   $Id: finduser.tmpl,v 1.5 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -42,7 +42,7 @@
 <img src="blank.gif" alt="" height=2 width=1 border=0><br>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-<th width="100%"><a class="th_lnk" href="{ROOT}?t=finduser&usr_login={VAR-URL: user_login}&usr_email={VAR-URL: usr_email}&us=1&btn_submit=Find&{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&pc=1&btn_submit=Find" class="th_lnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&btn_submit=Find" class="th_lnk">{MSG: finduser_joindate}</a></th><th align=middle>{MSG: finduser_action}</th>
+<th width="100%"><a class="th_lnk" href="{ROOT}?t=finduser&usr_login={VAR-URL: user_login}&usr_email={VAR-URL: usr_email}&us=1&btn_submit=Find&{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&pc=1&btn_submit=Find" class="th_lnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&btn_submit=Find" class="th_lnk">{MSG: finduser_joindate}</a></th><th align="center">{MSG: finduser_action}</th>
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -61,22 +61,22 @@
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}?t=showposts&id={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a>
+<a href="{ROOT}?t=showposts&id={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0></a>
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
+<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0></a>
+<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0></a>
 {SECTION: END}
 {SECTION: finduser_title}
 {MSG: finduser_title}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: forumsel.tmpl,v 1.2 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,9 +38,9 @@
 {SECTION: END}
 
 {SECTION: forum_option}
-<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{VAR: obj->name}</option>
+<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{VAR-HTML: obj->name}</option>
 {SECTION: END}
 
 {SECTION: unread_forum_option}
-<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{MSG: forumsel_unread} {VAR: obj->name}</option>
+<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{MSG: forumsel_unread} {VAR-HTML: obj->name}</option>
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.4 2002/07/24 12:46:22 hackie Exp $
+*   $Id: index.tmpl,v 1.5 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -63,7 +63,7 @@
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR: data->name}</a><br>{VAR: data->descr}</td>
+	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: data->name}</a><br>{VAR: data->descr}</td>
 	<td class="RowStyleB" align="center">{VAR: data->post_count}</td>
 	<td class="RowStyleB" align="center">{VAR: data->thread_count}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
@@ -75,7 +75,7 @@
 <tr>
 	<td class="RowStyleA" width=1>&nbsp;</td>
 	<td class="RowStyleB" width=1>&nbsp;</td>
-	<td class="RowStyleA" colspan=5>{VAR: data->name}<br>{VAR: data->descr}</td>
+	<td class="RowStyleA" colspan=5>{VAR-HTML: data->name}<br>{VAR: data->descr}</td>
 </tr>
 {SECTION: END}
 

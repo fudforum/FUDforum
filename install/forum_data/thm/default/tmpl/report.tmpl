@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: report.tmpl,v 1.2 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -30,15 +30,14 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <div align="center">
-<form method="post">
+<form method="post" action="{ROOT}?t=report">
 <table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th>{MSG: report_report_post}</th></tr>
 <tr class="RowStyleB"><td><font class="GenText"><b>{MSG: report_reporting_about}</b><br><blockquote><b>{MSG: report_subject}</b> {VAR: msg->subject} <br><b>{MSG: report_by}</b> {VAR: user_login} <br><b>{MSG: report_posted_on}</b> <font class="DateText">{DATE: msg->post_stamp %a, %d %B %Y %H:%M}</font></blockquote></font></td></tr>
 <tr class="RowStyleB"><td><font class="GenText">{MSG: report_give_reason}</font><br>{TEMPLATE-DATA: reason_error}<textarea name="reason" cols=80 rows=25></textarea></td></tr>
 <tr class="RowStyleB"><td align=right><input type="submit" class="button" name="btn_report" value="{MSG: report_submit_report}"></td></tr>
 </table>
-</div>
-<input type="hidden" name="msg_id" value="{VAR: msg_id}">{DEF: _hs}{VAR: return_field}</form>
+<input type="hidden" name="msg_id" value="{VAR: msg_id}">{DEF: _hs}{VAR: return_field}</form></div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}	

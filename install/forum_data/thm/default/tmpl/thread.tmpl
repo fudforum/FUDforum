@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
+*   $Id: thread.tmpl,v 1.4 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -75,7 +75,7 @@
 {SECTION: END}
 
 {SECTION: forum_path}
-<a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR: frm->name}</b></font>
+<a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
 {SECTION: END}
 
 {SECTION: unsubscribe_link}

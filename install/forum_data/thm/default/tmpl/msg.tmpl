@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
+*   $Id: msg.tmpl,v 1.4 2002/07/30 00:25:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,11 +36,11 @@
 {REF: is_perms.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}&{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" border=0>) {MSG: vote}
+&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" border=0 alt="{VAR: thread->rating}">) {MSG: vote}
 {SECTION: END}
 
 {SECTION: no_thread_rating}
@@ -75,15 +75,15 @@
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}?t=tree&th={VAR: th}&{DEF: _rsid}" class="GenLink"><acronym title="{MSG: switch_to_thread_view}"><img src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0></acronym></a>&nbsp;
+<a href="{ROOT}?t=tree&th={VAR: th}&{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0></a>&nbsp;
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0></a>
+<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0></a>
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0></a>
 {SECTION: END}
 
 {SECTION: next_thread_link}
