@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.128 2004/11/16 15:46:05 hackie Exp $
+* $Id: register.php.t,v 1.129 2004/11/17 14:09:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -330,7 +330,7 @@ function decode_uent(&$uent)
 		} else {
 			$uent = new fud_user_reg;
 			$uent->id = 0;
-			$uent->users_opt = 4488117;
+			$uent->users_opt = 4488183;
 		}
 	}
 
@@ -650,7 +650,7 @@ function decode_uent(&$uent)
 			 ${'reg_'.$v} = '';
 		}
 
-		$uent->users_opt = 4488116;
+		$uent->users_opt = 4488182;
 		if (!($FUD_OPT_2 & 4)) {
 			$uent->users_opt ^= 128;
 		}
