@@ -251,10 +251,10 @@ month_12:			December
 male:				Male
 female:				Female
 unspecified:			UNSPECIFIED
-register_tree_view:		Tree View message and thread listing 
-register_msg_tree_view:		Flat thread listing/Tree message listing
-register_tree_msg_view:		Tree thread listing/Flat message listing 
-register_flat_view:		Flat View message and thread listing 
+register_tree_view:		Tree View message and topic listing 
+register_msg_tree_view:		Flat topic listing/Tree message listing
+register_tree_msg_view:		Tree topic listing/Flat message listing 
+register_flat_view:		Flat View message and topic listing 
 use_forum_default:		Use forum default
 finduser_user_info:		User Information
 finduser_by_login:		By Login:
@@ -336,7 +336,7 @@ register_notification:		Select Notification By Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
 register_notify_method_desc:	If you would to receive notifications via ICQ please make sure to enable 'EmailExpress' in your ICQ settings
-register_notify_js_error:	You choose ICQ notification, but did not specify an ICQ #. Defaulting to Email&#46;
+register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to Email&#46;
 register_allow_email_msg:	Allow Email Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via FUDforum.
 buddy_status:			Status
@@ -907,8 +907,8 @@ register_show_im_desc:		Whether or not to show IM indicators of the author besid
 unread_message:			Unread Message
 read_message:			Read Message
 threadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
-threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
+threadt_disabled_ttl:		Tree view of the topic listing has been disabled.
+threadt_disabled_desc:		The administrator has disabled the tree view of the topic listing, please use the flat view instead.
 threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
 spell_alts:			no alternatives
@@ -949,7 +949,7 @@ thread_mark_all_read_desc:	All unread messages inside this forum will be marked 
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
 register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread
+iemail_thread_unsub:		Unsubscribe from this topic
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
