@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.44 2004/01/04 16:38:28 hackie Exp $
+* $Id: tree.tmpl,v 1.45 2004/03/19 22:18:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -203,14 +203,6 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
 {SECTION: END}
 
-{SECTION: TREE_PAGE_lnk}
-#tree_view
-{SECTION: END}
-
-{SECTION: TREE_PAGE_lnk2}
-#page_top
-{SECTION: END}
-
 {PAGE: TREE_PAGE a tree(thread) view of all the messages inside a thread}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -223,7 +215,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
-<div align=center class="GenText">[<a href="{TEMPLATE: TREE_PAGE_lnk}" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
+<div align=center class="GenText">[<a href="javascript://" onClick="chng_focus('tree_view');" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
 <table border="0" cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}
@@ -235,7 +227,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
 <div align="right"><font class="SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</font></div>
-<div align="center">-=] <a href="{TEMPLATE: TREE_PAGE_lnk2}">{MSG: back_to_top}</a> [=-</div>
+<div align="center">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
