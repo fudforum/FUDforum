@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.15 2002/10/27 02:34:06 hackie Exp $
+*   $Id: users.inc.t,v 1.16 2002/11/18 17:21:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -133,12 +133,8 @@ class fud_user
 			$tm = __request_timestamp__;
 	
 		q("UPDATE {SQL_TABLE_PREFIX}users SET last_read=".$tm." WHERE id=".$this->id);
-		
-		$r = q("SELECT {SQL_TABLE_PREFIX}read.id,{SQL_TABLE_PREFIX}thread.last_post_id FROM {SQL_TABLE_PREFIX}read INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}read.thread_id WHERE {SQL_TABLE_PREFIX}read.user_id=".$this->id." AND {SQL_TABLE_PREFIX}read.msg_id!={SQL_TABLE_PREFIX}thread.last_post_id");
-		while (list($rd, $lpi) = db_rowarr($r)) {
-			q("UPDATE {SQL_TABLE_PREFIX}read SET msg_id=".$lpi." WHERE id=".$rd);
-		}
-		qf($r);	
+		q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id=".$this->id);
+		q("INSERT INTO {SQL_TABLE_PREFIX}read (user_id,thread_id,msg_id,last_view) SELECT ".$this->id.",id,last_post_id,".$tm." FROM {SQL_TABLE_PREFIX}thread");
 	}
 }
 
