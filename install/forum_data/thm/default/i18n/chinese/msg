@@ -381,7 +381,7 @@ coppa_conf:			注册确认
 coppa_before:			之前 {DATE: coppa %Y-%m-%d}
 coppa_after:			之后{DATE: coppa %Y-%m-%d}
 coppa_link:			根据你的出生日期，请选择
-coppa:				对于13岁以下的用户，只有当论坛管理员收到了你的父母或者监护人的确认邮件或者传真以后才能完成注册。<p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				对于13岁以下的用户，只有当论坛管理员收到了你的父母或者监护人的确认邮件或者传真以后才能完成注册。p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			信息
 prereg_agree:			同意
 prereg_disagree:		不同意
@@ -1020,5 +1020,3 @@ findu_no_conf:			未验证Email
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

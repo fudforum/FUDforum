@@ -812,7 +812,7 @@ report_already_reported_msg:	Модератор уже был извещен об указанном сообщении и 
 register_err_toomanyimages:	Вы пытаетесь использовать большее количество картинок в подписи, чем максимально допустимое: {GVAR: FORUM_IMG_CNT_SIG}.
 pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
-post_proc_reveal_spoiler:	Показать скрытый текст
+post_proc_reveal_spoiler:	Укажите помеху
 register_jabber:		Псевдоним сети Jabber:
 im_jabber:			Jabber:
 forum_contact:			Обратная связь
@@ -1019,6 +1019,4 @@ register_none:			Не уведомлять
 findu_no_conf:			Неподтвержденный пользователь
 register_max_sig_len:		Максимальная длинна:
 register_turing:		Пожалуйста, введите код подтверждения, который вы видите ниже:
-register_err_turing:		Неверный код подтверждения.modque_cat:			Category
-modque_forum:			Forum
-modque_cat:			Category
+register_err_turing:		Неверный код подтверждения.

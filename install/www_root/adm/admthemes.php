@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.48 2004/09/15 05:16:33 hackie Exp $
+* $Id: admthemes.php,v 1.47 2004/08/09 11:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -176,7 +176,7 @@ function clean_code($path, $toks)
 		closedir($dir);
 
 		/* optimize *.inc files */
-		$path = $DATA_DIR . 'include/theme/' . $t_name;
+		$path = $WWW_ROOT_DISK . 'include/theme/' . $t_name;
 		$dir = opendir($path);
 		$path .= '/';
 		readdir($dir); readdir($dir);
