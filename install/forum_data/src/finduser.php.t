@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.17 2003/05/02 14:11:59 hackie Exp $
+*   $Id: finduser.php.t,v 1.18 2003/05/08 00:02:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,6 +68,7 @@
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}
 
+	$pager = '';
 	if (!$qry) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users ' . $qry);
 		if ($total > $count) {
@@ -89,8 +90,6 @@
 			}
 			$pager = tmpl_create_pager($start, $count, $total, $pg);
 		}
-	} else {
-		$pager = '';
 	}
 	
 /*{POST_PAGE_PHP_CODE}*/
