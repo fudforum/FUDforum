@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.21 2004/10/25 15:56:21 hackie Exp $
+* $Id: cat.inc,v 1.22 2004/11/17 18:12:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,7 +113,7 @@ function rebuild_forum_cat_order()
 	}
 	q("DELETE FROM ".$tbl."fc_view");
 	
-	$cat_cache = array();
+	$proc = $cat_cache = array();
 	$lvl = array(0);
 	$i = $l = 0;
 	while (1) {
@@ -130,10 +130,11 @@ function rebuild_forum_cat_order()
 			if ($v[1]) { // only insert when we have a category & forum
 				q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
 			}
-			if (isset($ol[$v[0]])) {
+			if (isset($ol[$v[0]]) && empty($proc[$v[0]])) {
 				$lvl[] = $l;
 				$l = $v[0];
 				$i++;
+				$proc[$l] = $l;
 			}
 		}
 		if ($i < 1) {
