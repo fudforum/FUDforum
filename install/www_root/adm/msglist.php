@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.11 2003/04/25 13:05:57 hackie Exp $
+*   $Id: msglist.php,v 1.12 2003/04/25 13:26:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,21 +181,23 @@ if (isset($warn)) {
 
 	if ($msglist) {
 		echo '<td valign=top><form method="post" action="msglist.php?tname='.$tname.'&tlang='.$tlang.'"><table border=0>'._hs;
-		$msglist_arr[] = strtok($msglist, ':');
+		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
-			$msglist_arr[] = $v;			
+			$msglist_arr[] = trim($v);			
 		}
 
 		$data = file_get_contents($msgfile);
-		
+
 		foreach ($msglist_arr as $v) {
 			if (($s = strpos($data, $v)) === FALSE) {
+				echo '<tr><td nowrap><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
 				continue;
 			}
 			$s += 2 + strlen($v);
 			if (($e = strpos($data, "\n", $s)) === FALSE) {
-				continue;
+				$e = strlen($data);
 			}
+
 			$txt = htmlspecialchars(trim(substr($data, $s, ($e - $s))));
 			if (strlen($txt) > 50) {
 				$rows = strlen($txt) / 50 + 2;
@@ -209,13 +211,15 @@ if (isset($warn)) {
 			}
 			echo '<tr><td valign=top nowrap><a name="'.$v.'"><b>'.$v.'</b></a>:</td><td valign=top>'.$inptd.'</td></tr>';
 		}
-?>
-	<tr><td align=right colspan=2><input type="submit" name="btn_submit" value="Edit"></td></tr>
-	<input type="hidden" name="msglist" value="<?php echo $msglist; ?>">
-	<input type="hidden" name="fl" value="<?php echo $fl; ?>">
-	</table></td>
-	</form>
-<?php
+		echo '<tr><td align=right colspan=2><input type="submit" name="btn_submit" value="Edit"></td></tr>';
+		echo '<input type="hidden" name="msglist" value="'.$msglist.'">';
+		if (isset($_GET['fl'])) {
+			echo '<input type="hidden" name="fl" value="'.$_GET['fl'].'">';
+		}
+		if (isset($_GET['NO_TREE_LIST'])) {
+			echo '<input type="hidden" name="NO_TREE_LIST" value="1">';
+		}
+		echo '</table></td></form>';
 	}
 ?>
 </tr></table>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.14 2003/04/25 01:43:02 hackie Exp $
+*   $Id: tmpllist.php,v 1.15 2003/04/25 13:26:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -353,7 +353,7 @@ function goto_tmpl($tmpl)
 <?php echo _hs; ?>
 <tr>
 	<td>
-		<b><?php echo $tmpl; ?></b>:<?php echo $msg_list; ?><br>
+		<b><?php echo $tmpl; ?></b>:<?php echo (isset($msg_list) ? $msg_list : ''); ?><br>
 		<textarea rows="20" cols="60" name="tmpl_data"><?php echo htmlspecialchars($tmpl_data); ?></textarea>
 	</td>
 </tr>
