@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.17 2003/05/07 12:20:40 hackie Exp $
+*   $Id: db.inc,v 1.18 2003/05/07 23:56:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,26 +24,20 @@ if (!defined('FUD_SQL_LNK')) {
 	
 	$connect_str = '';
 	if ($GLOBALS['DBHOST']) {
-		$connect_str .= 'host='.$GLOBALS['DBHOST'].' ';
-	}
-	if ($GLOBALS['DBHOST_PORT']) {
-		$connect_str .= 'port='.$GLOBALS['DBHOST_PORT'].' ';
+		$connect_str .= 'host='.$GLOBALS['DBHOST'];
 	}
 	if ($GLOBALS['DBHOST_USER']) {
-		$connect_str .= 'user='.$GLOBALS['DBHOST_USER'].' ';
+		$connect_str .= ' user='.$GLOBALS['DBHOST_USER'];
 	}
 	if ($GLOBALS['DBHOST_PASSWORD']) {
-		$connect_str .= 'password='.$GLOBALS['DBHOST_PASSWORD'].' ';
-	}
-	if ($GLOBALS['DBHOST_TTY']) {
-		$connect_str .= 'tty='.$GLOBALS['DBHOST_TTY'].' ';
+		$connect_str .= ' password='.$GLOBALS['DBHOST_PASSWORD'];
 	}
 	if ($GLOBALS['DBHOST_DBNAME']) {
-		$connect_str .= 'dbname='.$GLOBALS['DBHOST_DBNAME'].' ';
+		$connect_str .= ' dbname='.$GLOBALS['DBHOST_DBNAME'];
 	}
-	$conn = $connect_func(rtrim($connect_str)) or die (fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown'));
+	$conn = $connect_func(ltrim($connect_str)) or die (fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown'));
 	define('FUD_SQL_LNK', $conn);
-	define('__dbtype__', 'mysql');
+	define('__dbtype__', 'pgsql');
 	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 

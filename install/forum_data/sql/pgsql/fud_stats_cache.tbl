@@ -1,14 +1,12 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_stats_cache.tbl,v 1.1 2003/05/03 20:24:40 hackie Exp $
+#   $Id: fud_stats_cache.tbl,v 1.2 2003/05/07 23:56:41 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
 #       the Free Software Foundation; either version 2 of the License, or
 #       (at your option) any later version.
-
-DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}stats_cache;
 
 CREATE TABLE {SQL_TABLE_PREFIX}stats_cache
 (
@@ -18,7 +16,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}stats_cache
 	online_users_anon	INT NOT NULL,
 	online_users_hidden	INT NOT NULL,
 	online_users_text	TEXT,
-	cache_age		INT UNSIGNED NOT NULL
+	cache_age		INT8 NOT NULL
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}stats_cache_age ON {SQL_TABLE_PREFIX}stats_cache(cache_age);
