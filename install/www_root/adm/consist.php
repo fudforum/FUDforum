@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: consist.php,v 1.5 2002/06/29 17:35:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -482,7 +482,7 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Updating Thread Last_Post_Id Field');
 	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id AS id,
-			MAX(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id) AS mid
+			MAX(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.post_stamp) AS post_stamp
 		FROM 
 			".$GLOBALS['DBHOST_TBL_PREFIX']."msg 
 		WHERE 
@@ -492,11 +492,8 @@ forum will be disabled.<br><br>
 
 	if( db_count($r) ) {
 		while ( $obj = db_rowobj($r) ) {
-			$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=$obj->mid");
-			$obj2 = db_rowobj($r);
-			qf($r);
-			
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET last_post_id=".$obj->mid.",last_post_date=".$obj2->post_stamp." WHERE id=".$obj->id);
+			$mid = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp=$obj->post_stamp AND thread_id=$obj->id");
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET last_post_id=".$mid.",last_post_date=".$obj->post_stamp." WHERE id=".$obj->id);
 		}
 	}
 	draw_stat('Done: Updating Thread Last_Post_Id Field');
@@ -549,48 +546,7 @@ forum will be disabled.<br><br>
 	$tm=__request_timestamp__;
 	$fr = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
 	while ( list($frm_id) = db_rowarr($fr) ) {
-		$vlist = '';
-	
-		$r = q("SELECT 
-			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id, 
-			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id,
-			CASE WHEN
-				is_sticky='Y' 
-				AND 
-					(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.post_stamp
-						+".$GLOBALS['DBHOST_TBL_PREFIX']."thread.orderexpiry>".$tm." 
-						OR ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.orderexpiry=0
-					)
-			THEN
-				2147483647
-			ELSE
-				".$GLOBALS['DBHOST_TBL_PREFIX']."thread.last_post_id
-			END
-			AS sort_order_fld
-		FROM 
-			".$GLOBALS['DBHOST_TBL_PREFIX']."thread
-			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg
-				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id
-		WHERE 
-			forum_id=".$frm_id." AND
-			".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'
-		ORDER BY 
-			sort_order_fld DESC,
-			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.last_post_date DESC
-		");
-
-		$i = 0;
-		$cnt = 0;
-		$page = 1;
-		while ( $obj = db_rowobj($r) ) {
-			if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
-				$page++;
-				$cnt = 0;
-			}	
-			$i++;			
-			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
-		}
-		qf($r);	
+		rebuild_forum_view($frm_id);
 	}
 	qf($fr);
 	draw_stat('Done Rebuilding Thread Views');
