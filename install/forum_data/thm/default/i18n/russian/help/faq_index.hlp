@@ -1,0 +1,34 @@
+TOPIC_TITLE: Пользователи форума
+TOPIC_HELP:
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#register" class="GenLink">Для чего необходима регистрация?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cookies" class="GenLink">Как FUDforum использует переменные cookies?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#clrcookie" class="GenLink">Как удалить установленные FUDforum'ом cookie?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#updprofile" class="GenLink">Для чего служат настройки?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#sigs" class="GenLink">Что такое подпись?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#rstpasswd" class="GenLink">Что делать, если вы забыли пароль</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#cstat" class="GenLink">Как я могу создать и использовать нестандартный тег?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#avatars" class="GenLink">Что такое персональная картинка?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#blist" class="GenLink">Что такое список контактов?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=usermaintance&amp;%_rsid%#ignlist" class="GenLink">Какие функции выполняет список игнорируемых?</a><br>
+
+TOPIC_TITLE: Общие вопросы по использованию форума
+TOPIC_HELP:
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#bsearch" class="GenLink">Как использовать поисковую систему?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#email" class="GenLink">Могу ли я связаться с другими пользователями по email?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#pmsg" class="GenLink">Что такое личная почта и как ее использовать?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#mlist" class="GenLink">Список пользователей?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ann" class="GenLink">Что такое анонсы и стикеры?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#rate" class="GenLink">Могу ли я дать оценку теме?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=boardusage&amp;%_rsid%#ref" class="GenLink">Кто такие "приглашенные"?</a><br>
+
+TOPIC_TITLE: Чтение и отправка сообщений
+TOPIC_HELP:
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#style" class="GenLink">Как отформатировать текст сообщения?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#sml" class="GenLink">Что такое смайлики?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#polls" class="GenLink">Как я могу использовать голосования?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#attach" class="GenLink">Могу ли я прикрепить файлы к сообщению?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#msgico" class="GenLink">Для чего предназначены иконки сообщений?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#edit" class="GenLink">Могу ли я изменять свои сообщения?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#mod" class="GenLink">Кто такие модераторы и администраторы?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#cens" class="GenLink">Цензура?</a><br>
+<a href="{ROOT}?t=help_index&amp;section=readingposting&amp;%_rsid%#not" class="GenLink">Как я могу узнать о появлении ответов на мои сообщения?</a><br>
