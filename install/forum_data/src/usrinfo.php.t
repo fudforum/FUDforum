@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.26 2003/11/14 10:50:20 hackie Exp $
+* $Id: usrinfo.php.t,v 1.27 2003/11/14 10:57:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,7 @@ function convert_bdate($val, $month_fmt)
 	$last_post = '';
 	if ($u->u_last_post_id) {
 		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='.$u->u_last_post_id);
-		if (!empty($frm_perms[$r[3]])) {
+		if ($usr->users_opt & 1048576 || !empty($frm_perms[$r[3]])) {
 			$last_post = '{TEMPLATE: last_post}';
 		}
 	}
