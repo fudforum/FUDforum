@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.44 2003/12/03 21:38:35 hackie Exp $
+* $Id: post_proc.inc.t,v 1.45 2003/12/04 14:25:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -190,6 +190,14 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
+				case 'pre':
+					$param = substr($str, $epos+1, ($cpos-$epos)-1);
+					reverse_nl2br($param);
+
+					$ostr .= '<pre>'.$param.'</pre>';
+					$epos = $cepos;
+					$str[$cpos] = '<';
+					break;
 				case 'php':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 					reverse_fmt($param);
@@ -328,10 +336,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		}
 
 		// check if it's inside the pre tag
-		if (($ts = strpos($ostr, '<div class="pre"><pre>', $pos)) === false) {
+		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
-		if (($te = strpos($ostr, '</pre></div>', $pos)) == false) {
+		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
 			$te = strlen($ostr);
 		}
 		if ($te < $ts) {
@@ -385,7 +393,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$GLOBALS['seps']['='] = '=';
 
 		$url = substr($ostr, $us+1, $ue-$us-1);
-
+		if (!strncasecmp($url, 'javascript', strlen('javascript'))) {
+			$pos = $ue;
+			continue;
+		}
 		$html_url = '<a href="'.$url.'" target="_blank">'.$url.'</a>';
 		$html_url_l = strlen($html_url);
 		$ostr = fud_substr_replace($ostr, $html_url, $us+1, $ue-$us-1);
@@ -515,12 +526,12 @@ function html_to_tags($fudml)
 	array(
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>',
 		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
-		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />'
+		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
 	),
 	array(
 		'[b]', '[b]', '[i]', '[/i]', '[/u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
-		'[notag]', '[/notag]', '[*]', '@', '://', ''
+		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]'
 	), 
 	$fudml);
 
