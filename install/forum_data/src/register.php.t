@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.70 2003/09/26 21:35:21 hackie Exp $
+*   $Id: register.php.t,v 1.71 2003/09/26 21:43:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -727,23 +727,23 @@ function decode_uent(&$uent)
 
 	$day_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", $b_day, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$month_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", "\n{TEMPLATE: month_1}\n{TEMPLATE: month_2}\n{TEMPLATE: month_3}\n{TEMPLATE: month_4}\n{TEMPLATE: month_5}\n{TEMPLATE: month_6}\n{TEMPLATE: month_7}\n{TEMPLATE: month_8}\n{TEMPLATE: month_9}\n{TEMPLATE: month_10}\n{TEMPLATE: month_11}\n{TEMPLATE: month_12}", $b_month, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($uent->users_opt & 512 ? 512 : ($uent->users_opt & 1024 ? 1024 : 0)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($uent->users_opt & 512 ? 512 : ($uent->users_opt & 1024)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}'); 
-	$view_select		= tmpl_draw_select_opt("128\n256".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n384\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), ($uent->users_opt & 384 ? 384 : ($uent->users_opt & 256 ? 256 : ($uent->users_opt & 128 ? 128 : 128))), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$view_select		= tmpl_draw_select_opt("128\n256".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n384\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), ($uent->users_opt & 384 ? 384 : ($uent->users_opt & 256 ? 256 : ($uent->users_opt & 128))), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$notification_select	= tmpl_draw_select_opt("4\n0", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", ($uent->users_opt & 4 ? 4 : 0), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$notification_select	= tmpl_draw_select_opt("4\n0", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", ($uent->users_opt & 4), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
-	$ignore_admin_radio	= tmpl_draw_radio_opt('reg_ignore_admin', "8\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8 ? 8 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "32768\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 32768 ? 32768 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_email_radio	= tmpl_draw_radio_opt('reg_display_email', "1\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 1 ? 1 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$notify_default_radio	= tmpl_draw_radio_opt('reg_notify', "2\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2 ? 2 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$pm_notify_default_radio= tmpl_draw_radio_opt('reg_pm_notify', "64\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 64 ? 64 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$accept_user_email	= tmpl_draw_radio_opt('reg_email_messages', "16\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16 ? 16 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$accept_pm		= tmpl_draw_radio_opt('reg_pm_messages', "32\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 32 ? 32 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_sig_radio		= tmpl_draw_radio_opt('reg_show_sigs', "4096\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 4096 ? 4096 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "8192\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8192 ? 8192 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16384 ? 16384 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048 ? 2048 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$ignore_admin_radio	= tmpl_draw_radio_opt('reg_ignore_admin', "8\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "32768\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 32768), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_email_radio	= tmpl_draw_radio_opt('reg_display_email', "1\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 1), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$notify_default_radio	= tmpl_draw_radio_opt('reg_notify', "2\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$pm_notify_default_radio= tmpl_draw_radio_opt('reg_pm_notify', "64\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 64), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$accept_user_email	= tmpl_draw_radio_opt('reg_email_messages', "16\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$accept_pm		= tmpl_draw_radio_opt('reg_pm_messages', "32\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 32), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_sig_radio		= tmpl_draw_radio_opt('reg_show_sigs', "4096\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 4096), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "8192\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8192), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16384), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 
 	$reg_user_image_field = $GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' ? '{TEMPLATE: reg_user_image}' : '';
 
