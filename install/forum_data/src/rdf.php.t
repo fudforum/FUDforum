@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.1 2003/05/14 16:02:22 hackie Exp $
+*   $Id: rdf.php.t,v 1.2 2003/05/15 06:13:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,6 +32,13 @@
 		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
 
+	$GLOBALS['clean'] = array('[' => '&#91;', ']' => '&#93;');
+
+function sp($data)
+{
+	return '<![CDATA[' . strtr($data, $GLOBALS['clean']) . ']]>';
+}
+
 	require ($DATA_DIR . 'include/RDF.php');
 
 /*{PRE_HTML_PHP}*/
@@ -49,7 +56,9 @@
 		$_GET['n'] = 10;
 	}
 
-	$lmt = " approved='Y'";
+	define('__ROOT__', $WWW_ROOT . 'index.php');
+
+	$lmt = " m.approved='Y'";
 	/* check for various supported limits
 	 * cat		- category
 	 * frm		- forum
@@ -77,7 +86,7 @@
 		$lmt .= ' AND m.post_stamp >='.(int)$_GET['ds'];
 	}
 	if (isset($_GET['de'])) {
-		$lmt .= ' AND m.post_stamp =<'.(int)$_GET['de'];
+		$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 	}
 	if ($AUTH == 'Y') {
 		if ($AUTH_ID) {
@@ -95,9 +104,10 @@
 
 	switch ($mode) {
 		case 'm':
-			$result = uq('SELECT 
+			$c = uq('SELECT 
 					m.*,
 					u.alias,
+					t.forum_id,
 					p.name AS poll_name, p.total_votes,
 					m2.subject AS th_subject,
 					m3.subject AS reply_subject,
@@ -109,67 +119,74 @@
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.root_msg_id=m2.id
-					LEFT JOIN {SQL_TABLE_PREFIX}msg m3 ON m2.id=m.reply_to
+					LEFT JOIN {SQL_TABLE_PREFIX}msg m3 ON m3.id=m.reply_to
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 					'.$join.'
 				WHERE 
-					' . $lmt  . (isset($GET['l']) ? ' ORDER BY m.post_stamp DESC ' : ' ') . qry_limit($limit, $offset));
+					' . $lmt  . (isset($GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
 			$res = 0;
-			while ($r = db_rowarr($c)) {
+			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					echo '<?xml version="1.0" encoding="utf-8"?> 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
-<channel rdf:about="{ROOT}">
+<channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
-	<link>{ROOT}</link>
+	<link>'.__ROOT__.'</link>
 	<description>'.$FORUM_TITLE.' RDF feed</description>
 </channel>';
 					$res = 1;
 				}
+
 				echo '
 <item>
-	<title>'.$r->subject.'</title>
-	<link>{ROOT}?t=rview&amp;th='.$r->thread_id.'&amp;goto'.$r->id.'</link>
-	<description><![CDATA['.read_msg_body($r->foff, $r->length, $r->file_id).']]></description>
-	<forum>'.$r->frm_name.'</forum>
-	<forum_link>{ROOT}?t=rview&amp;frm_id='.$r->forum_id.'</forum>
-	<category>'.$r->cat_name.'</category>
-	<author>'.$r->alias.'</author>
-	<date>'.gmdate('r', $r->post_stamp).'</date>';
-				if ($r->poster_id) {
-					echo '<author_profile>{ROOT}t=usrinfo&amp;id='.$r->poster_id.'</author_profile>';
-				}
-				if ($r->reply_subject) {
-					echo '<reply_to_subject>'.$r->reply_subject.'</reply_to_subject>';
-					echo '<reply_to_link>{ROOT}?t=rview&amp;th='.$r->thread_id.'&amp;goto='.$r->reply_to.'</reply_to_link>';
-				}
-				if ($r->subject != $r->th_subject) {
-					echo '<topic_subject>'.$r->th_subject.'</topic_subject>';
-					echo '<topic_link>{ROOT}?t=rview&amp;th='.$r->thread_id.'</topic_link>';
-				}
+	<title>'.sp($r->subject).'</title>
+	<topic_id>'.$r->thread_id.'</topic_id>
+	<topic_title>'.sp($r->th_subject).'</topic_title>
+	<message_id>'.$r->id.'</message_id>
+	<reply_to_id>'.$r->reply_to.'</reply_to_id>
+	<reply_to_title>'.$r->reply_subject.'</reply_to_title>
+	<forum_id>'.$r->forum_id.'</forum_id>
+	<forum_title>'.sp($r->frm_name).'</forum_title>
+	<category_title>'.sp($r->cat_name).'</category_title>
+	<author>'.sp($r->alias).'</author>
+	<author_id>'.$r->poster_id.'</author_id>
+	<body>'.str_replace("\n", '', sp(read_msg_body($r->foff, $r->length, $r->file_id))).'</body>
+';
 				if ($r->attach_cnt && $r->attach_cache) {
 					$al = @unserialize($r->attach_cache);
 					if (is_array($al) && @count($al)) {
 						echo '<content:items><rdf:Bag>';
 						foreach ($al as $a) {
-							echo '<rdf:li><content:item rdf:about="attachments"><title>'.$r[1].'</title><link>{ROOT}?t=rview&amp;id='.$r[0].'</link><size>'.$r[2].'</size><number_of_downloads>'.$r[3].'</number_of_downloads></content:item></rdf:li>';
+							echo '<rdf:li>
+								<content:item rdf:about="attachments">
+									<a_title>'.sp($r[1]).'</a_title>
+									<a_id>'.$r[0].'</a_id>
+									<a_size>'.$r[2].'</a_size>
+									<a_nd>'.$r[3].'</a_nd>
+								</content:item>
+							</rdf:li>';
 						}
 						echo '</rdf:Bag></content:items>';
 					}
 				}
 				if ($r->poll_name) {
-					echo '<content:items><rdf:Bag><poll_name>'.$r->poll_name.'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
+					echo '<content:items><rdf:Bag><poll_name>'.sp($r->poll_name).'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
 					if ($r->poll_cache) {
 						$pc = @unserialize($r->poll_cache);
 						if (is_array($pc) && count($pc)) {
 							foreach ($pc as $o) {
-								echo '<rdf:li><content:item rdf:about="poll_opt"><title>'.$o[0].'</title><number_of_votes>'.$o[1].'</number_of_votes></content:item></rdf:li>';
+								echo '<rdf:li>
+									<content:item rdf:about="poll_opt">
+										<opt_title><'.sp($o[0]).'></opt_title>
+										<opt_votes>'.$o[1].'</opt_votes>
+									</content:item></rdf:li>';
 							}
 						}
 					}
 					echo '</rdf:Bag></content:items>';
 				}
+				echo '</item>';
 			}
 			qf($c);
 			if ($res) {
