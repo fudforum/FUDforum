@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.41 2004/05/18 18:33:14 hackie Exp $
+* $Id: finduser.php.t,v 1.42 2004/11/02 15:20:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,23 +50,9 @@
 	}
 	$lmt = ' LIMIT '.qry_limit($count, $start);
 
-	$admin_opts = $adm ? '{TEMPLATE: findu_admin_opts_header}' : '';
-
 	$find_user_data = '';
 	$c = uq('SELECT /*!40000 SQL_CALC_FOUND_ROWS */ home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
-		$pm_link = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: pm_link}' : '';
-		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
-		$email_link = ($FUD_OPT_2 & 1073741824 && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
-		$econf = $r->users_opt & 131072 ? '' : '{TEMPLATE: findu_no_conf}';
-
-		if ($adm) {
-			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
-			$admi = '{TEMPLATE: findu_admin_opts}';
-		} else {
-			$admi = '';
-		}
-
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
 	if (!$find_user_data) {
