@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.24 2004/11/24 19:53:42 hackie Exp $
+* $Id: admbrowse.php,v 1.25 2004/12/08 17:16:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -146,7 +146,7 @@ if (!extension_loaded('posix')) {
 		if (is_file($cur_dir . '/' . $dest)) {
 			header('Content-type: application/octet-stream');
 			header('Content-Disposition: attachment; filename='.$dest);
-			fpassthru(fopen($cur_dir . '/' . $dest, 'rb'));
+			readfile($cur_dir . '/' . $dest);
 		} else {
 			header('Content-type: application/x-tar');
 			header('Content-Disposition: attachment; filename='.$dest.'.tar');

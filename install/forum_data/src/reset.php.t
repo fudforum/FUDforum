@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.22 2004/11/24 19:53:36 hackie Exp $
+* $Id: reset.php.t,v 1.23 2004/12/08 17:20:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,17 +12,6 @@
 
 /*{PRE_HTML_PHP}*/
 
-function usr_reset_key($id)
-{
-	q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".($reset_key = md5(__request_timestamp__ . $id . get_random_value()))."' WHERE id=".$id);
-	return $reset_key;
-}
-
-function usr_reset_passwd($id)
-{
-	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5(($randval = dechex(get_random_value(32))))."', reset_key='0' WHERE id=".$id);
-	return $randval;
-}
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
@@ -34,7 +23,7 @@ function usr_reset_passwd($id)
 
 	if (isset($_GET['reset_key'])) {
 		if (($ui = db_saq("SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".addslashes($_GET['reset_key'])."'"))) {
-			$passwd = usr_reset_passwd($ui[2]);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5(($passwd = dechex(get_random_value(32))))."', reset_key='0' WHERE id=".$ui[2]);
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			if ($FUD_OPT_2 & 32768) {
@@ -61,7 +50,7 @@ function usr_reset_passwd($id)
 				$uent->conf_key= usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {
-				$key = usr_reset_key($uobj->id);
+				q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".($key = md5(__request_timestamp__ . $uobj->id . get_random_value()))."' WHERE id=".$uobj->id);
 				$url = '{FULL_ROOT}{ROOT}?t=reset&reset_key='.$key;
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_reset}');
 			}

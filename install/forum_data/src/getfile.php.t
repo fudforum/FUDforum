@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.34 2004/11/24 19:53:35 hackie Exp $
+* $Id: getfile.php.t,v 1.35 2004/12/08 17:15:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,5 +106,5 @@ function &get_preview_img($id)
 	}
 
 	attach_inc_dl_count($id, $r[3]);
-	@fpassthru(fopen($r[2], 'rb'));
+	@readfile($r[2]);
 ?>
