@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.18 2003/05/08 00:02:46 hackie Exp $
+*   $Id: finduser.php.t,v 1.19 2003/06/02 18:06:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,23 +72,52 @@
 	if (!$qry) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users ' . $qry);
 		if ($total > $count) {
-			$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
-			if ($usr_login) {
-				$pg .= urlencode($usr_login) . '&amp;';
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
+				if ($usr_login) {
+					$pg .= urlencode($usr_login) . '&amp;';
+				}
+				if ($usr_email) {
+					$pg .= urlencode($usr_email) . '&amp;';
+				}
+				if (isset($_GET['pc'])) {
+					$pg .= 'pc=1&amp;';
+				}
+				if (isset($_GET['us'])) {
+					$pg .= 'us=1&amp;';
+				}
+				if (isset($_GET['js_redr'])) {
+					$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
+				}
+				$pager = tmpl_create_pager($start, $count, $total, $pg);
+			} else {
+				$pg = '{ROOT}/ml/';
+				if (isset($_GET['pc'])) {
+					$pg .= '1/';
+				} else if (isset($_GET['us'])) {
+					$pg .= '2/';
+				} else {
+					$pg .= '/';
+				}
+				
+				$pg2 = '';
+				
+				if ($usr_login) {
+					$pg2 .= urlencode($usr_login) . '/';
+				} else if ($usr_email) {
+					$pg2 .= '/' . urlencode($usr_email) . '/';
+				}
+				if (isset($_GET['js_redr'])) {
+					$pg2 .= '/';
+				}
+				if ($pg2) {
+					$pg2 .= _rsid;
+				} else {
+					$pg2 = '/' . _rsid;
+				}
+
+				$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
 			}
-			if ($usr_email) {
-				$pg .= urlencode($usr_email) . '&amp;';
-			}
-			if (isset($_GET['pc'])) {
-				$pg .= 'pc=1&amp;';
-			}
-			if (isset($_GET['us'])) {
-				$pg .= 'us=1&amp;';
-			}
-			if (isset($_GET['js_redr'])) {
-				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
-			}
-			$pager = tmpl_create_pager($start, $count, $total, $pg);
 		}
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.42 2003/06/02 17:19:47 hackie Exp $
+*   $Id: msg.php.t,v 1.43 2003/06/02 18:06:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -224,7 +224,11 @@
 		}
 	}
 
-	$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);
+	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);
+	} else {
+		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', reveal_lnk . unignore_tmp . _rsid);	
+	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 		

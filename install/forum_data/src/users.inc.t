@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.51 2003/06/02 17:19:47 hackie Exp $
+*   $Id: users.inc.t,v 1.52 2003/06/02 18:06:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -256,7 +256,7 @@ function init_user()
 						if (isset($p[2])) {
 							$_GET['start'] = $p[2];
 							if (isset($p[3])) {
-								$_GET['oby'] = 'ASC';
+								$_GET['oby'] = $p[3];
 							}
 						}
 					}
@@ -276,6 +276,9 @@ function init_user()
 								$_GET['usr_login'] = urldecode($p[3]);
 								if (isset($p[4])) {
 									$_GET['usr_email'] = urldecode($p[4]);
+									if (isset($p[5])) {
+										$_GET['js_redr'] = $p[5];
+									}
 								}
 							}
 						}
@@ -298,7 +301,18 @@ function init_user()
 					$_GET['t'] = $p[1];
 					$_GET['th'] = $p[2];
 					if (isset($p[3])) {
-						$_GET['goto'] = $p[3];
+						if ($p[3] !== '0') {
+							$_GET['goto'] = $p[3];
+						} else {
+							$_GET['prevloaded'] = 1;
+							$_GET['start'] = $p[4];
+							if (isset($p[5])) {
+								$_GET['rev'] = $p[5];
+								if (isset($p[6])) {
+									$_GET['reveal'] = $p[6];
+								}
+							}
+						}
 					}
 					break;
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.11 2003/05/12 15:08:53 hackie Exp $
+*   $Id: polllist.php.t,v 1.12 2003/06/02 18:06:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,7 +98,11 @@
 		qf($c);
 		
 		if ($ttl > $POLLS_PER_PAGE) {
-			$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
+			} else {
+				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);
+			}
 		}
 	} else {
 		$poll_entries = '{TEMPLATE: poll_no_polls}';	
