@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.69 2003/11/24 13:43:22 hackie Exp $
+* $Id: consist.php,v 1.70 2003/11/26 13:26:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -234,7 +234,7 @@ forum will be disabled.<br><br>
 		if (!$r[1]) {
 			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
 		} else {
-			$lpi = q_singleval('SELECT MAX(root_msg_id) FROM '.$tbl.'thread WHERE forum_id='.$f[0].' AND moved_to=0');
+			$lpi = q_singleval('SELECT MAX(last_post_id) FROM '.$tbl.'thread WHERE forum_id='.$f[0].' AND moved_to=0');
 			q('UPDATE '.$tbl.'forum SET thread_count='.$r[1].', post_count='.($r[0] + $r[1]).', last_post_id='.(int)$lpi.' WHERE id='.$f[0]);
 		}
 	}
