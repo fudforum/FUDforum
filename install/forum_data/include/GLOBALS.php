@@ -119,6 +119,7 @@
 	$FORUM_INFO		= "Y";		/* boolean */
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
 
+	$FILE_LOCK		= "Y";		/* boolean */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */

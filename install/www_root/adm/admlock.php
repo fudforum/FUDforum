@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.6 2002/07/09 13:08:39 hackie Exp $
+*   $Id: admlock.php,v 1.7 2002/07/24 12:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,12 +60,14 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 			if ( $HTTP_POST_VARS['btn_unlock'] ) {
 				$dirperms = 0777;
 				$fileperms = 0666;
+				$FILE_LOCK = "N";
 				
 				unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
 			}
 			else {
 				$dirperms = 0700;
 				$fileperms = 0600;
+				$FILE_LOCK = "Y";
 				
 				touch($GLOBALS['ERROR_PATH'].'FILE_LOCK');
 			}
@@ -78,12 +80,17 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 			chmoddir($GLOBALS['FILE_STORE'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, TRUE);
 			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, TRUE);
+			
+			$global_config = read_global_config();
+			change_global_val('FILE_LOCK', $FILE_LOCK, $global_config);
+			write_global_config($global_config);
+			unset($global_config);
 		}
 		qf($r);
 	}
 
 	clearstatcache();
-	$status = file_exists($GLOBALS['ERROR_PATH'].'FILE_LOCK') ? 'LOCKED' : 'UNLOCKED';
+	$status = ($GLOBALS['FILE_LOCK'] == 'Y' ? 'LOCKED' : 'UNLOCKED');
 
 	include('admpanel.php'); 	
 ?>

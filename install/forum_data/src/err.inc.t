@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.2 2002/06/26 19:35:55 hackie Exp $
+*   $Id: err.inc.t,v 1.3 2002/07/24 12:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@ function error_handler($function_name, $error_message, $severity)
 	
 	fwrite($fp, $err);
 	fclose($fp);	
-	@chmod($GLOBALS['ERROR_PATH'].'errors.inc', 0600);
+	@chmod($GLOBALS['ERROR_PATH'].'errors.inc', ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
 
 	if( !$severity ) exit;
 }
@@ -60,7 +60,7 @@ function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 			fwrite($fp, $err_str);
 			fflush($fp);
 		fclose($fp);
-		@chmod($GLOBALS['ERROR_PATH'].'error_dialog.log',0600);
+		@chmod($GLOBALS['ERROR_PATH'].'error_dialog.log',($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
 	}
 
 	$err_id = md5(get_random_value(128).__request_timestamp__);
@@ -103,7 +103,7 @@ function std_out($text, $level='INFO')
 	$log_str .= str_replace("\n", ' ', str_replace("\r", ' ', $text))."\n";
 	fwrite($fp, $log_str);
 	fclose($fp);
-	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',0600);
+	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
 }
 
 function invl_inp_err()

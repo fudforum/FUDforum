@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.9 2002/07/22 14:53:37 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.10 2002/07/24 12:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,8 @@ class fud_msg_edit extends fud_msg
 			length,
 			file_id_preview,
 			offset_preview,
-			length_preview
+			length_preview,
+			mlist_msg_id
 		) 
 		VALUES(
 			".$this->thread_id.",
@@ -95,7 +96,8 @@ class fud_msg_edit extends fud_msg
 			".intzero($length).",
 			".intzero($file_id_preview).",
 			".intzero($offset_preview).",
-			".intzero($length_preview)."
+			".intzero($length_preview).",
+			".strnull($this->mlist_msg_id)."
 		)");
 
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}msg", $r);
@@ -148,7 +150,8 @@ class fud_msg_edit extends fud_msg
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
 			file_id=".$file_id.", 
 			foff=".intzero($offset).", 
-			length=".intzero($length).", 
+			length=".intzero($length).",
+			mlist_msg_id=".strnull($this->mlist_msg_id).",
 			file_id_preview=".intzero($file_id_preview).",
 			offset_preview=".intzero($offset_preview).",
 			length_preview=".intzero($length_preview).",
@@ -307,7 +310,8 @@ class fud_msg_edit extends fud_msg
 		}
 		
 		if ( is_array($lip_update) ) {
-			foreach($lip_update as $k => $v) { 
+			reset($lip_update);
+			while ( list($k, $v) = each($lip_update) ) {
 				if( $v['msg_id'] == $this->id ) {
 					$mid = q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$v['forum_id']." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
 					if( !$mid ) $mid = 0;
@@ -413,13 +417,11 @@ function flood_check()
 function write_body($data, &$len, &$offset)
 {
 	$MAX_FILE_SIZE = 2147483647;
-	$curdir = getcwd();
-	chdir($GLOBALS["MSG_STORE_DIR"]);
 
 	$len = strlen($data);
 	$i=1;
 	while( $i<100 ) {
-		$fp = fopen('msg_'.$i, 'ab');
+		$fp = fopen($GLOBALS["MSG_STORE_DIR"].'msg_'.$i, 'ab');
 		flock($fp, LOCK_EX);
 		if( !($off = ftell($fp)) ) $off = __ffilesize($fp);
 		if( !$off || sprintf("%u", $off+$len)<$MAX_FILE_SIZE ) break;
@@ -430,9 +432,7 @@ function write_body($data, &$len, &$offset)
 	$len = fwrite($fp, $data);
 	fclose($fp);
 	
-	if( !$off ) @chmod('msg_'.$i, 0600);
-	
-	@chdir($curdir);
+	if( !$off ) @chmod('msg_'.$i, ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
 	
 	if( $len == -1 ) exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	$offset = $off;
@@ -493,7 +493,8 @@ function trim_html($str, $maxlen)
 	$data = substr($str, 0, $i);
 	if ( is_array($tree) ) {
 		$tree = array_reverse($tree);
-		foreach($tree as $v) $data .= '</'.$v.'>';	
+		reset($tree);	
+		while( list(,$v) = each($tree) ) $data .= '</'.$v.'>';
 	}
 
 	return $data;

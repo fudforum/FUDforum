@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
+*   $Id: attach.inc.t,v 1.4 2002/07/24 12:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -126,7 +126,8 @@ function safe_attachment_copy($source, $id)
 	if( !@copy($source, $loc) ) {
 		std_out('unable to create source file ('.$loc.') check permissions on ('.$GLOBALS['FILE_STORE'].'), we suggest 1777', 'ERR');
 	}
-	@chmod($loc, 0600);
+	
+	@chmod($loc, ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
 	
 	return $loc;
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg.inc.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: imsg.inc.t,v 1.5 2002/07/24 12:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,8 +41,10 @@ class fud_msg
 	var $file_id_preview=NULL;
 	var $length_preview=NULL;
 	var $offset_preview=NULL;
-	
+		
 	var $body;
+	
+	var $mlist_msg_id;
 		
 	function get_by_id($id)
 	{

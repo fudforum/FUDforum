@@ -1,0 +1,36 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_mlist.tbl,v 1.1 2002/07/24 12:47:18 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+CREATE TABLE {SQL_TABLE_PREFIX}mlist
+(
+	id			SERIAL PRIMARY KEY,
+	forum_id		INT NOT NULL,
+	name			VARCHAR(255) NOT NULL,
+	mlist_post_apr		VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT              mlist_post_apr_cnt CHECK (mlist_post_apr='Y' OR mlist_post_apr='N'),
+	allow_frm_post		VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT              allow_frm_post_cnt CHECK (allow_frm_post='Y' OR allow_frm_post='N'),
+	frm_post_apr		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT              frm_post_apr_cnt CHECK (frm_post_apr='Y' OR frm_post_apr='N'),
+	allow_mlist_attch	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT              allow_mlist_attch_cnt CHECK (allow_mlist_attch='Y' OR allow_mlist_attch='N'),
+	allow_mlist_html	VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT              allow_mlist_html_cnt CHECK (allow_mlist_html='Y' OR allow_mlist_html='N'),
+	complex_reply_match	VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT              complex_reply_match_cnt CHECK (complex_reply_match='Y' OR complex_reply_match='N'),
+	
+	subject_regex_haystack	TEXT,
+	subject_regex_needle	TEXT,
+	
+	body_regex_haystack	TEXT,
+	body_regex_needle	TEXT
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}mlist_forum_id ON {SQL_TABLE_PREFIX}mlist (forum_id);
