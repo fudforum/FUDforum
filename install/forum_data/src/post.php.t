@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.83 2003/10/01 21:51:52 hackie Exp $
+*   $Id: post.php.t,v 1.84 2003/10/01 22:37:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -95,7 +95,7 @@ function flood_check()
 		/* if not moderator, validate user permissions */
 		if (!$reply_to && !$msg_id && !($perms & 4)) {
 			std_error('perms');
-		} else if (($th_id || $reply_to) && !($perms & 8)) {
+		} else if (!$msg_id && ($th_id || $reply_to) && !($perms & 8)) {
 			std_error('perms');
 		} else if ($msg_id && $msg->poster_id != $usr->id && !($perms & 16)) {
 			std_error('perms');
@@ -105,8 +105,10 @@ function flood_check()
 	} else {
 		if (!$th_id && !($perms & 4)) {
 			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}');
-		} else if (!($perms & 8)) {
+		} else if ($reply_to && !($perms & 8)) {
 			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}');
+		} else if ($msg_id && !($perms & 16)) {
+			invl_inp_err();
 		}
 	}
 
