@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.18 2003/04/20 10:45:19 hackie Exp $
+*   $Id: actions.php.t,v 1.19 2003/05/02 13:55:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,27 +31,20 @@
 		$limit = &get_all_read_perms(_uid);
 	}
 	
-	$c = q("SELECT 
-			{SQL_TABLE_PREFIX}ses.action,
-			{SQL_TABLE_PREFIX}ses.user_id,
-			{SQL_TABLE_PREFIX}ses.forum_id,
-			{SQL_TABLE_PREFIX}users.alias,
-			{SQL_TABLE_PREFIX}users.is_mod,
-			{SQL_TABLE_PREFIX}users.custom_color,
-			{SQL_TABLE_PREFIX}ses.time_sec,
-			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}msg.id,
-			{SQL_TABLE_PREFIX}msg.subject,
-			{SQL_TABLE_PREFIX}msg.post_stamp,
-			{SQL_TABLE_PREFIX}thread.forum_id
-		FROM {SQL_TABLE_PREFIX}ses 
-		LEFT JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}users.id
-		LEFT JOIN {SQL_TABLE_PREFIX}msg
-			ON {SQL_TABLE_PREFIX}users.u_last_post_id={SQL_TABLE_PREFIX}msg.id
-		LEFT JOIN {SQL_TABLE_PREFIX}thread
-			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($LOGEDIN_TIMEOUT*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}ses.time_sec DESC");
+	$c = uq('SELECT 
+			s.action, s.user_id, s.forum_id,
+			u.alias, u.is_mod, u.custom_color, s.time_sec,
+			u.invisible_mode,
+			m.id, m.subject, m.post_stamp,
+			t.forum_id,
+			mm1.id, mm2.id
+		FROM {SQL_TABLE_PREFIX}ses s
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON s.user_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}msg m ON u.u_last_post_id=m.id
+		LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=t.forum_id AND mm1.user_id='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=s.forum_id AND mm2.user_id='._uid.'
+		WHERE s.time_sec>'.(__request_timestamp__ - ($LOGEDIN_TIMEOUT * 60)).' AND s.user_id!='._uid.' ORDER BY u.alias, s.time_sec DESC');
 		
 	$action_data = '';
 	while ($r = db_rowarr($c)) {
@@ -66,14 +59,14 @@
 			if (!$r[10]) {
 				$last_post = '{TEMPLATE: last_post_na}';
 			} else {
-				$last_post = ($usr->is_mod != 'A' && !isset($limit[$r[11]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
+				$last_post = ($usr->is_mod != 'A' && !$r[12] && empty($limit[$r[11]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
 			}
 		} else {
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 
-		if (!$r[2] || $usr->is_mod == 'A' || isset($limit[$r[2]])) {
+		if (!$r[2] || ($usr->is_mod == 'A' || !empty($limit[$r[2]]) || $r[13])) {
 			if (($p = strpos($r[0], '?')) !== FALSE) {
 				$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
 			} else if (($p = strpos($r[0], '.php')) !== FALSE) {
