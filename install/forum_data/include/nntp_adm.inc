@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.3 2002/10/06 23:23:23 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.4 2003/05/05 14:52:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,12 +18,24 @@
 class fud_nntp_adm
 {
 	// NNTP Settings
-	var $server=NULL, $port=NULL, $login=NULL, $pass=NULL, $timeout=NULL, $newsgroup=NULL, $auth=NULL;
+	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth;
 	
 	// General Settings
-	var $forum_id=NULL, $id=NULL;
-	var $nntp_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_nttp_attch=NULL, $complex_reply_match=NULL, $create_users=NULL;
-	
+	var $forum_id, $id;
+	var $nntp_post_apr='N', $allow_frm_post='N', $frm_post_apr='Y', $allow_nntp_attch='N', $complex_reply_match='N', $create_users='Y';
+
+	function fud_nntp_adm()
+	{
+		if (isset($_POST) && count($_POST)) {
+			$el = array_keys(get_object_vars($this));
+			foreach ($el as $v) {
+				if (isset($_POST['nntp_' . $v])) {
+					$this->{$v} = $_POST['nntp_' . $v];
+				}
+			}
+		}	
+	}
+
 	function get($id)
 	{
 		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp WHERE id=".$id, $this);
@@ -32,7 +44,9 @@ class fud_nntp_adm
 	
 	function add()
 	{
-		if( $this->auth != 'ORIGINAL' && $this->auth != 'SIMPLE' ) $this->auth = 'NONE';
+		if ($this->auth != 'ORIGINAL' && $this->auth != 'SIMPLE') {
+			$this->auth = 'NONE';
+		}
 	
 		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp(
 			forum_id,
@@ -73,7 +87,7 @@ class fud_nntp_adm
 		return $this->id;
 	}
 	
-	function sync()
+	function sync($id)
 	{
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp SET
 			forum_id=".$this->forum_id.",
@@ -90,32 +104,47 @@ class fud_nntp_adm
 			newsgroup='".addslashes($this->newsgroup)."',
 			auth='".$this->auth."',
 			create_users='".yn($this->create_users)."'
-		WHERE id=".$this->id);
+		WHERE id=".$id);
 			
 		$this->Update_forum_settings();	
 	}
 	
-	function del($id='')
-	{
-		if( $id ) $this->get($id);
 	
-		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp WHERE id=".$this->id);
-		if( yn($this->frm_post_apr) ) {
-			$this->frm_post_apr = 'N';
-			$this->update_forum_settings();
-		}
-	}
 	
 	function update_forum_settings()
 	{
 		if( !db_locked() ) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX']."forum+");
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE');
 		}
 		
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderated='".yn($this->frm_post_apr)."' WHERE id=".$this->forum_id);
 		
-		if( $ll ) db_unlock();
+		if (isset($ll)) {
+			db_unlock();
+		}
 	}
 }	
+
+function nntp_del($id)
+{
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
+	}
+	if (!($d = db_saq('SELECT frm_post_apr, forum_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id))) {
+		if (isset($ll)) {
+			db_unlock();
+		}
+		return;
+	}
+	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
+	if ($d[0] == 'Y') {
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'N\' WHERE id='.$d[1]);
+	}
+
+	if (isset($ll)) {
+		db_unlock();
+	}
+}
 ?>
