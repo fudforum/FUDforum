@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.33 2004/11/24 19:53:35 hackie Exp $
+* $Id: groups.inc.t,v 1.34 2004/12/02 20:18:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,9 +59,6 @@ function grp_rebuild_cache($user_id=null)
 		}
 	}
 
-	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
-	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
-
 	$tmp = array();
 	foreach ($list as $k => $v) {
 		foreach ($v as $u => $p) {
@@ -69,23 +66,29 @@ function grp_rebuild_cache($user_id=null)
 		}
 	}
 
-	if ($tmp) {
-		if (__dbtype__ == 'mysql') {
-			ins_m($tmp_t, "a,b,c", $tmp, 1);
-		} else {
-			ins_m($tmp_t, "a,b,c", $tmp, "integer, integer, integer");
-		}
+	if (!$tmp) {
+		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
+		return;
 	}
 
-	if (!db_locked()) {
-		$ll = 1;
+	if (__dbtype__ == 'mysql') {
+		q("REPLACE INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) VALUES (".implode('),(', $tmp).")");
+		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE ".($lmt ? $lmt . ' AND ' : '')." id < LAST_INSERT_ID()");
+		return;
+	}
+	
+	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
+	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
+	ins_m($tmp_t, "a,b,c", $tmp, "integer, integer, integer");
+
+	if (($ll = !db_locked())) {
 		db_lock("{SQL_TABLE_PREFIX}group_cache WRITE");
 	}
 
 	q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
 	q("INSERT INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) SELECT a,b,c FROM ".$tmp_t);
 
-	if (isset($ll)) {
+	if ($ll) {
 		db_unlock();
 	}
 
