@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.25 2003/05/14 08:10:45 hackie Exp $
+*   $Id: maillist.php,v 1.26 2003/05/20 19:25:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,7 +197,9 @@ class fud_emsg
 
 					if (isset($final_id)) {
 						$this->body = $this->body_s[$final_id]->body;
-						$this->headers['__other_hdr__'] = $this->body_s[$final_id]->headers['__other_hdr__'];
+						if (isset($this->body_s[$final_id]->headers['__other_hdr__'])) {
+							$this->headers['__other_hdr__'] = $this->body_s[$final_id]->headers['__other_hdr__'];
+						}
 					} else {
 						$this->body = '';
 					}
