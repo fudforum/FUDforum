@@ -538,7 +538,7 @@ tabs_ignore_list:		Lista de ignorados
 tabs_private_messaging:		Mensajería privada
 single_msg_delete:		Ud va a <font color="#ff0000" size="4">BORRAR</font> un mensaje titulado: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Ud va a <font color="#ff0000" size="4">BORRAR</font> el <font color="#ff0000" size="4">HILO DE DISCUSION ENTERO</font> titulado: <b>{VAR: msg->subject}</b><p>
-delete_proceed:			Desea continuar?
+delete_proceed:			<font size="3"><b>Desea continuar?</b></font>
 delete_yes:			Si
 delete_no:			No
 error_invalidurl:		URL inválida
@@ -909,3 +909,4 @@ threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=t
 threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation

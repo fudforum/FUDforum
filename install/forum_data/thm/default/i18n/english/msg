@@ -540,8 +540,8 @@ tabs_buddy_list:		Buddy List
 tabs_ignore_list:		Ignore List
 tabs_private_messaging:		Private Messaging
 single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: msg->subject}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE THREAD</font> titled: <b>{VAR: msg->subject}</b><p>
-delete_proceed:			Do you wish to proceed?
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: msg->subject}</b><p>
+delete_proceed:			<font size="3"><b>Do you wish to proceed?</b></font>
 delete_yes:			Yes
 delete_no:			No
 error_invalidurl:		Invalid URL
@@ -908,3 +908,4 @@ threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
 threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation

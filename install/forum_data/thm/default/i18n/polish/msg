@@ -539,7 +539,7 @@ tabs_ignore_list:		Lista ignorowanych
 tabs_private_messaging:		Prywatne wiadomo¶ci
 single_msg_delete:		Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> wiadomo¶æ o temacie: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> <font color="#ff0000" size="4">CA£Y W¡TEK</font> o temacie: <b>{VAR: msg->subject}</b><p>
-delete_proceed:			Czy chcesz kontynuowaæ?
+delete_proceed:			<font size="3"><b>Czy chcesz kontynuowaæ?</b></font>
 delete_yes:			Tak
 delete_no:			Nie
 error_invalidurl:		Nieprawid³owy adres
@@ -909,3 +909,4 @@ threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=t
 threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation

@@ -84,7 +84,7 @@ date:				Datum
 date_posted:			Beitragsdatum
 date_registered:		Datum der Registrierung:
 delete_no:			Nein
-delete_proceed:			M&ouml;chtest Du weitermachen?
+delete_proceed:			<font size="3"><b>M&ouml;chtest Du weitermachen?</b></font>
 delete_yes:			Ja
 deny_recipt:			Empfangsbest&auml;tigung verweigern
 deny_recipt_desc:		Keine Best&auml;tigung verschicken, da&szlig; die Message gelesen wurde
@@ -908,3 +908,4 @@ threadt_disabled_desc:		The administrator has disabled the tree view of the thre
 threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation

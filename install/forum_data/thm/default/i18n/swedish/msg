@@ -538,7 +538,7 @@ tabs_ignore_list:		Ignorerade medlemmar
 tabs_private_messaging:		Privata meddelanden
 single_msg_delete:		Du h&aring;ller p&aring; att <font color="#ff0000" size="4">RADERA</font> ett meddelande med rubriken: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Du h&aring;ller p&aring; att <font color="#ff0000" size="4">RADERA HELA TR&Aring;DEN</font> med rubriken: <b>{VAR: msg->subject}</b><p>
-delete_proceed:			Vill du forts&auml;tta?
+delete_proceed:			<font size="3"><b>Vill du forts&auml;tta?</b></font>
 delete_yes:			Ja
 delete_no:			Nej
 error_invalidurl:		Ogiltig URL
@@ -908,3 +908,4 @@ threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=t
 threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation

@@ -539,7 +539,7 @@ tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
 single_msg_delete:		Вы собираетесь <font color="#ff0000" size="4">УДАЛИТЬ</font> сообщение на теме: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Вы собираетесь <font color="#ff0000" size="4">ПОЛНОСТЬЮ УДАЛИТЬ ТЕМУ</font>, озаглавленную: <b>{VAR: msg->subject}</b><p>
-delete_proceed:			Вы действительно хотите продолжить?
+delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b></font>
 delete_yes:			Да
 delete_no:			Нет
 error_invalidurl:		Недопустимый URL
@@ -908,3 +908,4 @@ threadt_disabled_desc:		The administrator has disabled the tree view of the thre
 threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
+mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
