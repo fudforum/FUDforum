@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.16 2004/01/04 16:38:27 hackie Exp $
+* $Id: tabs.inc.t,v 1.17 2004/01/25 19:28:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,8 +17,12 @@ if (_uid) {
 '{TEMPLATE: tabs_subscriptions}'=>'subscribed',
 '{TEMPLATE: tabs_referrals}'=>'referals',
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
-'{TEMPLATE: tabs_ignore_list}'=>'ignore_list'
-);
+'{TEMPLATE: tabs_ignore_list}'=>'ignore_list');
+
+	if (!($FUD_OPT_2 & 8192)) {
+		unset($tablist['{TEMPLATE: tabs_referrals}']);
+	}
+
 	if (isset($_POST['mod_id'])) {
 		$mod_id_chk = $_POST['mod_id'];
 	} else if (isset($_GET['mod_id'])) {

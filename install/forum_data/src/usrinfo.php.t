@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.33 2004/01/25 17:51:37 hackie Exp $
+* $Id: usrinfo.php.t,v 1.34 2004/01/25 19:28:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,7 +90,7 @@ function convert_bdate($val, $month_fmt)
 		$email_link = '';
 	}
 
-	if (($referals = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$u->id))) {
+	if ($FUD_OPT_2 & 8192 && ($referals = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$u->id))) {
 		$referals = '{TEMPLATE: referals}';
 	} else {
 		$referals = '';
