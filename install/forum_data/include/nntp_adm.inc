@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.5 2003/05/05 14:59:27 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.6 2003/05/05 15:00:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,8 +21,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth;
 	
 	// General Settings
-	var $forum_id, $id;
-	var $nntp_post_apr='N', $allow_frm_post='N', $frm_post_apr='Y', $allow_nntp_attch='N', $complex_reply_match='N', $create_users='Y';
+	var $forum_id, $id, $nntp_post_apr='N', $allow_frm_post='N', $frm_post_apr='Y', $allow_nntp_attch='N', $complex_reply_match='N', $create_users='Y';
 
 	function fud_nntp_adm()
 	{
@@ -36,12 +35,6 @@ class fud_nntp_adm
 		}	
 	}
 
-	function get($id)
-	{
-		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp WHERE id=".$id, $this);
-		if( empty($this->id) ) exit("Fatal Error, no newsgroup with id of $id\n");
-	}
-	
 	function add()
 	{
 		if ($this->auth != 'ORIGINAL' && $this->auth != 'SIMPLE') {
