@@ -22,10 +22,10 @@ function create_archives($dir, $version, $upgrade, $comp, $convs='')
 	shell_exec("{$TAR_BIN} zcvf {$OUT_DIR}{$name}.tar.gz {$dir} >/dev/null");
 	
 	/* bzip2 */
-	shell_exec("{$TAR_BIN} ycvf {$OUT_DIR}{$name}.tar.bz2 {$dir} >/dev/null");
+	shell_exec("{$TAR_BIN} jcvf {$OUT_DIR}{$name}.tar.bz2 {$dir} >/dev/null");
 	
 	/* zip */
-	shell_exec("{$ZIP_BIN} {$OUT_DIR}{$name}.zip {$dir}/* >/dev/null");
+	shell_exec("{$ZIP_BIN} {$OUT_DIR}{$name}.zip {$dir}* >/dev/null");
 
 	sqlite_query($db, "INSERT INTO fud_down_md5 (file_name, md5_checksum) VALUES('".sqlite_escape_string("{$name}.tar.gz")."', '".md5_file("{$OUT_DIR}{$name}.tar.gz")."')") or die(sqlite_error_string(sqlite_last_error($db)));
 	sqlite_query($db, "INSERT INTO fud_down_md5 (file_name, md5_checksum) VALUES('".sqlite_escape_string("{$name}.tar.bz2")."', '".md5_file("{$OUT_DIR}{$name}.tar.bz2")."')") or die(sqlite_error_string(sqlite_last_error($db)));
@@ -51,7 +51,7 @@ function tag_to_version($str)
 
 function version_to_name($str)
 {
-	preg_match('!([-0-9_]+)(RC([0-9])+)?([a-z]+)?!', $str, $res);
+	preg_match('!([-0-9_]+)(RC([0-9]+))?([a-z]+)?!', $str, $res);
 	$name = "FUDforum v" . str_replace('-', '.', $res[1]);
 	if (isset($res[3])) {
 		$name .= " Release Candidate #".$res[3];
@@ -70,7 +70,7 @@ function version_to_name($str)
 	return $name;		
 }
 
-	$CVS_BIN = "/usr/local/bin/cvs";
+	$CVS_BIN = "/usr/bin/cvs";
 	$TAR_BIN = "/bin/tar";
 	$ZIP_BIN = "/usr/bin/zip";
 	$PHP_BIN = "/usr/local/bin/php";
@@ -78,20 +78,24 @@ function version_to_name($str)
 
 	$CVS_PTH = ":pserver:anonymous@asuka.prohost.org:/forum21";
 
-	$OUT_DIR = "";
-	$DB_DIR  = "";
+	$OUT_DIR = "/database/static/fudforum/";
+	$DB_DIR  = "/home1/forum/cvs/";
 	$TMP_DIR = "/tmp/";
 
 	$CONV_SCRIPTS = array(
 'yabbTOfud2' 	=> array('Yabb', '2.3.X'),
 'yabbdcTOfud2' 	=> array('Yabb DC', '2.3.X'),
 'phorumTOfud2'	=> array('Phorum', '2.3.X'),
-'phpBB2TOfud2'	=> array('phpBB2', '2.3.X'),
+'phpBB2TOfud2'	=> array('phpBB2', '2.6.0+'),
 'openbbTOfud2'	=> array('OpenBB', '2.3.X'),
 'vb2TOfud2'	=> array('VBulletin 2', '2.3.X'),
 'ikonTOfud2'	=> array('IkonBoard (mysql)', '2.3.X'),
 'wbbTOfud2'	=> array('WoltLab Bulletin Board', '2.3.X'),
-'xmbTOfud2'	=> array('XMB 1.8+', '2.5.0+')
+'xmbTOfud2'	=> array('XMB 1.8+', '2.5.0+'),
+'ipbTOfud2'	=> array('Invision Board 1.1.X', '2.5.0+'),
+'wwwboardTOfud2'=> array('WWWBoard (Version 2.0 ALPHA 2.1)', '2.6.0+'),
+'spfTOfud2'	=> array('Sporum 1.X', '2.6.0+'),
+'ubbTOfud2'	=> array('UBB.threads 6.1 Conversion Script', '2.6.0+')
 );
 
 	/* parse tags */
@@ -113,7 +117,7 @@ function version_to_name($str)
 echo "TAG $tag\n";
 			/* create install script */
 			shell_exec("{$RM_BIN} -rf ./fud21_install");
-			shell_exec("{$CVS_BIN} -z9 -d {$CVS_PTH} co -r{$tag} fud21_install >/dev/null 2>&1");
+			shell_exec("{$CVS_BIN} -z9 -d {$CVS_PTH} co -r{$tag} -P fud21_install >/dev/null 2>&1");
 			chdir("./fud21_install");
 
 			/* get release date */
@@ -130,7 +134,7 @@ echo "TAG $tag\n";
 			$is_beta = (strpos($tag, 'RC') === FALSE) ? 0 : 1;
 
 			/* create distribution directory */
-			mkdir("FUDforum2", 0755);
+			mkdir("./FUDforum2", 0755);
 			rename("./COPYING", 		"./FUDforum2/COPYING");
 			rename("./CREDITS", 		"./FUDforum2/CREDITS");
 			rename("./README", 		"./FUDforum2/README");
@@ -141,11 +145,11 @@ echo "TAG $tag\n";
 			if ($is_zlib) {
 				copy("./install.php", "./FUDforum2/install.php");
 				shell_exec("{$PHP_BIN} -q create_file_list install 1 >> FUDforum2/install.php");
-				
+
 				create_archives("FUDforum2/", $version, 0, 1);
 				unlink("./FUDforum2/install.php");
 			}
-			rename("./install.php", 	"./FUDforum2/install.php");
+			copy("./install.php", 	"./FUDforum2/install.php");
 			shell_exec("{$PHP_BIN} -q create_file_list install >> FUDforum2/install.php");
 
 			$ar = create_archives("FUDforum2/", $version, 0, 0);
