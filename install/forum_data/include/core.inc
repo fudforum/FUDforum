@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.50 2003/02/12 09:40:58 hackie Exp $
+*   $Id: core.inc,v 1.51 2003/02/14 12:16:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,17 +42,18 @@ if( empty($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']) )
 if( !empty($GLOBALS['returnto']) ) $GLOBALS['returnto'] = stripslashes($GLOBALS['returnto']);
 
 
+$reg_globals = ini_get('register_globals');
+$magic_quotes = get_magic_quotes_gpc();
 
-if (!($reg_globals=ini_get('register_globals')) || !($magic_quotes=get_magic_quotes_gpc())) {
+if (!$reg_globals && !$magic_quotes) {
 	fud_use('reg_globals.inc', true);
-	
-	if (!$reg_globals && !$magic_quotes) {
-		fud_variable_register('fud_request_add_gns');
-	} else if (!$magic_quotes) {
-		fud_variable_register('fud_request_add_slashes');
-	} else if (!$reg_globals) {
-		fud_variable_register('fud_request_add_globals');
-	}
+	fud_variable_register('fud_request_add_gns');
+} else if (!$magic_quotes) {
+	fud_use('reg_globals.inc', true);
+	fud_variable_register('fud_request_add_slashes');
+} else if (!$reg_globals) {
+	fud_use('reg_globals.inc', true);
+	fud_variable_register('fud_request_add_globals');
 }
 
 define('__request_timestamp__', time());
