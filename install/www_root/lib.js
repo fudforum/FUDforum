@@ -208,7 +208,7 @@ function fud_msg_focus(mid_hash)
 
 if (!OPERA && navigator.platform == "Win32" && navigator.appName == "Microsoft Internet Explorer" && window.attachEvent) {
 	rslt = navigator.appVersion.match(/MSIE (\d+\.\d+)/, '');
-	itsAllGood = (rslt != null && Number(rslt[1]) >= 5.5);
+	itsAllGood = (rslt != null && Number(rslt[1]) >= 6.0);
 
 	if (itsAllGood) {
 		document.writeln('<style type="text/css">img { visibility:hidden; } </style>');
