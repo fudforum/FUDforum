@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.71 2004/11/24 19:53:37 hackie Exp $
+* $Id: tree.php.t,v 1.72 2004/12/21 16:58:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,13 +54,8 @@
 			c.id AS cat_id,
 			f.name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date,
-			tn.thread_id AS subscribed,
-			mo.forum_id AS md,
-			tr.thread_id AS cant_rate,
-			r.last_view,
-			r2.last_view AS last_forum_view,
-			r.msg_id,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date, '.
+			(_uid ? ' tn.thread_id AS subscribed, mo.forum_id AS md, tr.thread_id AS cant_rate, r.last_view, r2.last_view AS last_forum_view, ' : ' 0 AS md, 1 AS cant_rate, ').'
 			tv.pos AS th_pos, tv.page AS th_page,
 			m2.thread_id AS last_thread,
 			'.$fields.'
@@ -70,12 +65,12 @@
 			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
 			INNER JOIN {SQL_TABLE_PREFIX}thread_view	tv ON tv.forum_id=t.forum_id AND tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
-			LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
+			'.(_uid ? 'LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
-			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id=t.id AND tr.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid.'
-			'.$join.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid : '')
+			.$join.'
 		WHERE t.id='.$th);
 
 	if (!$frm) { /* bad thread, terminate request */
@@ -114,8 +109,10 @@
 				thread_notify_del(_uid, $_GET['th']);
 			}
 		}
+		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
+		$subscribe_status = '';
 	}
 
 	if (!$mid) {
@@ -152,9 +149,6 @@
 				user_register_forum_view($frm->forum_id);
 			}
 		}
-		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
-	} else {
-		$subscribe_status = '';
 	}
 	ses_update_status($usr->sid, '{TEMPLATE: tree_update}', $frm->id);
 
