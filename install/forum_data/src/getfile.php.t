@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.29 2004/04/28 16:36:58 hackie Exp $
+* $Id: getfile.php.t,v 1.30 2004/05/07 20:32:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,6 +12,12 @@
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
+
+function &get_preview_img($id)
+{
+	return db_saq('SELECT mm.mime_hdr, a.original_name, a.location, 0, 0, 0, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type WHERE a.message_id=0 AND a.id='.$id);
+}
+                
 
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		invl_inp_err();
@@ -29,9 +35,10 @@
 			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : '').'
 			WHERE a.id='.$id);
 		if (!$r) {
-			invl_inp_err();
-		}
-		if (!($usr->users_opt & 1048576) && !$r[4] && !$r[5]) {
+			if (!($r = get_preview_img($id))) {
+				invl_inp_err();
+			}
+		} else if (!($usr->users_opt & 1048576) && !$r[4] && !$r[5]) {
 			std_error('access');
 		}
 	} else {
@@ -41,9 +48,10 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
 			WHERE a.attach_opt=1 AND a.id='.$id);
 		if (!$r) {
-			invl_inp_err();
-		}
-		if (!($usr->users_opt & 1048576) && $r[4] != _uid) {
+			if (!($r = get_preview_img($id))) {
+				invl_inp_err();
+			}
+		} else if (!($usr->users_opt & 1048576) && $r[4] != _uid) {
 			std_error('access');
 		}
 	}
