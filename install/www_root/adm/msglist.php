@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.31 2004/10/06 18:59:10 hackie Exp $
+* $Id: msglist.php,v 1.32 2004/10/12 18:00:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,9 @@ function makedeps()
 			if (($e = strpos($data, "\n", $s)) === false) {
 				continue;
 			}
-			$data = substr_replace($data, trim($_POST[$v]), $s, ($e - $s));
+			$_POST[$v] = str_replace(array("\r", "\n"), array("", "\\n"), trim($_POST[$v]));
+
+			$data = substr_replace($data, $_POST[$v], $s, ($e - $s));
 		}
 		if (!($fp = fopen($msgfile, 'wb'))) {
 			exit('unable to write to "'.$msgfile.'" message file');
@@ -198,12 +200,7 @@ if (isset($warn)) {
 
 			$txt = htmlspecialchars(trim(substr($data, $s, ($e - $s))));
 			if (strlen($txt) > 50) {
-				$rows = strlen($txt) / 50 + 2;
-				if ($rows > 20) {
-					$rows = 20;
-				}
-
-				$inptd = '<textarea name="'.$v.'" rows='.$rows.' cols=50>'.$txt.'</textarea>';
+				$inptd = '<textarea name="'.$v.'" rows=20 cols=60>'.$txt.'</textarea>';
 			} else {
 				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size=50>';
 			}
