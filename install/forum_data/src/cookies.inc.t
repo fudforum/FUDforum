@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.64 2004/04/28 14:47:23 hackie Exp $
+* $Id: cookies.inc.t,v 1.65 2004/04/28 15:05:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@ function &ses_get($id=0)
 	}
 
 	$u = db_sab('SELECT
-		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id
+		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id,
 		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang, t.theme_opt,
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt,
 		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login, u.sq
