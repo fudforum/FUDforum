@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.59 2003/10/05 22:19:50 hackie Exp $
+*   $Id: consist.php,v 1.60 2003/10/06 18:32:47 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -124,7 +124,7 @@ forum will be disabled.<br><br>
 	$tbls = get_fud_table_list();
 	// add the various table aliases
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot',
-				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', '.$tbl.'fc_view,
+				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', $tbl.'fc_view',
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
 				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', $tbl.'themes thm');
