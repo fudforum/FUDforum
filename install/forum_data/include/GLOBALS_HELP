@@ -341,3 +341,9 @@ TRACK_REFERRALS
 Whether or not to try to track forum referrals by setting a cookie with referral
 id to new incoming users.
 
+POST_ICONS_PER_ROW
+Number of message icons to show per row on message posting form.
+
+MAX_LOGGEDIN_USERS
+Maximum number of currenty logged-in users to show on the front page.
+

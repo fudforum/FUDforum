@@ -95,7 +95,7 @@
 	$ANON_NICK		= "Anonymous Coward";
 	$FLOOD_CHECK_TIME	= "60";		/* seconds */
 	$ALLOW_EMAIL		= "Y";		/* boolean */
-	$SERVER_TZ		= "";
+	$SERVER_TZ		= "America/Montreal"; /* timezone code from tz.inc */
 	$MEMBER_SEARCH_ENABLED	= "Y";		/* boolean */
 	$FORUM_SEARCH		= "Y";		/* boolean */
 	$SEARCH_CACHE_EXPIRY	= "172800";	/* seconds */
@@ -126,16 +126,13 @@
 
 	$FORUM_INFO		= "Y";		/* boolean */
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
-
 	$FILE_LOCK		= "N";		/* boolean */
-
 	$MODERATE_USER_REGS	= "N";		/* boolean */
-
 	$REG_TIME_LIMIT		= "60";		/* seconds */
-
 	$ENABLE_THREAD_RATING	= "Y";		/* boolean */
-
 	$TRACK_REFERRALS	= "Y";		/* boolean */
+	$POST_ICONS_PER_ROW	= "9";		/* int */
+	$MAX_LOGGEDIN_USERS	= "25";		/* int */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */
