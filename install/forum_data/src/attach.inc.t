@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.7 2002/09/12 21:56:22 hackie Exp $
+*   $Id: attach.inc.t,v 1.8 2002/09/19 22:12:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,7 +34,7 @@ class fud_attach
 	{
 		if( !($this->mime_type = get_mime_by_ext(substr(strrchr($this->original_name, '.'), 1))) ) $this->mime_type = 0;
 		
-		$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto,original_name,owner,private,mime_type,fsize) VALUES('LOCAL','".$this->original_name."', ".$this->owner.", '".$private."',".$this->mime_type.",".intzero($this->fsize).")");
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".$this->original_name."', ".$this->owner.", '".$private."',".$this->mime_type.",".intzero($this->fsize).")");
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
 		
 		safe_attachment_copy($tmp_location, $this->id);
