@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.62 2004/10/06 16:36:15 hackie Exp $
+* $Id: compiler.inc,v 1.63 2004/10/06 18:37:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -591,7 +591,7 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 	
 		$d = $dest . '/' . basename($file);
 
-		if (!@copy($path, $d) && !@file_exists($d)) {
+		if (!@copy($file, $d) && !@file_exists($d)) {
 			echo 'cannot copy "'.$file.'" to "'.$d.'"<br>';
 		} else {
 			@chmod($d, $perms);
