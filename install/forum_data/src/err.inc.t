@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.42 2004/06/30 15:26:22 hackie Exp $
+* $Id: err.inc.t,v 1.43 2004/06/30 15:28:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,7 +45,7 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 		}
 	} else {
 		if ($GLOBALS['FUD_OPT_2'] & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/e//'.$ses);
+			header('Location: {FULL_ROOT}{ROOT}/e/0/'.$ses);
 		} else {
 			header('Location: {FULL_ROOT}{ROOT}?t=error&S='.$ses);
 		}
