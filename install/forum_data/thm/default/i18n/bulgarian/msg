@@ -608,10 +608,6 @@ post_err_notowner_title:	ГРЕШКА
 post_err_notowner_msg:		Ти не си автора на това съобщение
 post_err_edttimelimit_title:	ГРЕШКА
 post_err_edttimelimit_msg:	Повече не можеш да променяш това съобщение
-post_err_noannontopics_title:	ГРЕШКА: Недостатъчни права за достъп
-post_err_noannontopics_msg:	нонимните потребители нямат право да започват нова тема<br><br>Ако желаете да се регистрирате, отидете на <a href="{TEMPLATE: msg_register_lnk}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{TEMPLATE: msg_login_lnk}">формата за вход</a>
-post_err_noannonposts_title:	ГРЕШКА: Недостатъчни права за достъп
-post_err_noannonposts_msg:	Анонимните потребители нямат право да отговарят на съобщения<br><br>Ако желаете да се регистрирате, отидете на <a href="{TEMPLATE: msg_register_lnk}">регистрационната форма</a><br>Ако желаете да влезете във форума, отидете на <a href="{TEMPLATE: msg_login_lnk}">формата за вход</a>
 post_err_noreplying_title:	ГРЕШКА: Не се разрешава да отговаряш
 post_err_noreplying_msg:	Не можеш да публикуваш отговори по тази тема, защото е или официално съобщение, или бележка, на които Модераторът е забранил да се отговаря.
 post_err_floodtrig_title:	ГРЕШКА: Претоварено - прекалено много желаещи да публикуват.
@@ -679,9 +675,6 @@ thread_err_onlyregview_msg:	За да видиш този форум, трябва да <a href="{TEMPLATE
 thread_update:			Разглеждане на форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Разглеждане (в разгърнат изглед) на темата <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Преглед на личния профил на <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_login_ttl:			ГРЕШКА: Не си влязъл във форума
-ERR_login_msg:			Не си влязъл във форума, влез, моля<br><br>Ако желаеш да се регистрираш, отиди на <a href="{TEMPLATE: msg_register_lnk}">регистрационната бланка</a>.<br>Ако желаеш да влезеш, отиди на <a href="{TEMPLATE: msg_login_lnk}">формата за вход</a>.
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=Логин&amp;{DEF: _rsid}
 ERR_disabled_ttl:		Изключена опция
 ERR_disabled_msg:		Тази опция е изключена от системния администратор
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

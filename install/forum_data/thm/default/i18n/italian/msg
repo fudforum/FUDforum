@@ -605,10 +605,6 @@ post_err_notowner_title:	ERRORE
 post_err_notowner_msg:		Non sei l&#39;autore di questo messaggio
 post_err_edttimelimit_title:	ERRORE
 post_err_edttimelimit_msg:	Non puoi più modificare questo messaggio
-post_err_noannontopics_title:	ERRORE: non si disponde dei privilegi necessari
-post_err_noannontopics_msg:	Gli utenti anonimi non possono creare nuovi topic.<br><br>Se vuoi registrarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
-post_err_noannonposts_title:	ERRORE: non si disponde dei privilegi necessari
-post_err_noannonposts_msg:	Gli utenti anonimi non possono rispondere a messaggi.<br><br>Se vuoi registrarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a>.<br>Se vuoi collegarti, vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">schermata di login</a>
 post_err_noreplying_title:	ERRORE: non è permesso rispondere a messaggi
 post_err_noreplying_msg:	Non puoi rispondere a questo topic, perchè si tratta o di un announcement o di un messaggio al quale il moderatore ha bloccato la possibilità di inserire ulteriori risposte.
 post_err_floodtrig_title:	ERRORE: è attivo il controllo sui messaggi.
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{
 thread_update:			Legge il forum <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 tree_update:			Legge il topic (vista ad albero) <a href="{FULL_ROOT}{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Guarda il profilo di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
-ERR_login_ttl:			ERRORE: non ti sei autenticato
-ERR_login_msg:			Non sei autenticato.<br><br>Se desideri registrarti vai alla <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a><br>Se desideri autenticarti vai alla <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">pagina di login</a>
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Opzione non attiva
 ERR_disabled_msg:		Questa opzione è stata disabilitata dall&#39;amministratore
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

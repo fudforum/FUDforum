@@ -605,10 +605,6 @@ post_err_notowner_title:	HATA
 post_err_notowner_msg:		Bu iletinin sahibi siz değilsiniz
 post_err_edttimelimit_title:	HATA
 post_err_edttimelimit_msg:	Bu iletiyi artık düzeltemezsiniz
-post_err_noannontopics_title:	HATA: Yetersiz Yetki
-post_err_noannontopics_msg:	İsimsiz (Anonymous) kullanıcıların tartışma açmasına izin verilmiyor<br><br>Kayıt olmak isterseniz <a href="{TEMPLATE: msg_register_lnk}">kayıt formunu</a> kullanabilirsiniz.<br>Giriş yapmak istiyorsanız lütfen <a href="{TEMPLATE: msg_login_lnk}">giriş formunu</a> kullanın.
-post_err_noannonposts_title:	HATA: Yetersiz Yetki
-post_err_noannonposts_msg:	İsimsiz (Anonymous) kullanıcıların iletileri yanıtlamasına izin verilmiyor<br><br>Kayıt olmak isterseniz <a href="{TEMPLATE: msg_register_lnk}">kayıt formunu</a> kullanabilirsiniz. <br>Giriş yapmak istiyorsanız lütfen <a href="{TEMPLATE: msg_login_lnk}">giriş formunu</a> kullanın.
 post_err_noreplying_title:	HATA: Yanıtlamaya izin verilmiyor
 post_err_noreplying_msg:	Bu zincire yanıt gönderemiyorsunuz, çünkü bu bir duyuru veya yapışkan ileti, ve denetmen yanıt gönderilmesine izin vermemiş durumda.
 post_err_floodtrig_title:	HATA: Üstüste ileti gönderemezsiniz.
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{TEMPLATE: msg_
 thread_update:			<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaşıyor
 tree_update:			<a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaşıyor (ağaç görünümü)
 userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
-ERR_login_ttl:			HATA: Giriş yapmamış durumdasınız			
-ERR_login_msg:			Lütfen giriş yapın.<br><br>Kayıt olmak isterseniz <a href="{TEMPLATE: msg_register_lnk}">kayıt formunu</a> kullanabilirsiniz<br>Giriş yapmak istiyorsanız lütfen <a href="{TEMPLATE: msg_login_lnk}">giriş formunu</a> kullanın.
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Engellenmiş Özellik
 ERR_disabled_msg:		Bu özellik sistem yöneticisi tarafından engellenmiş durumda.
 ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -605,10 +605,6 @@ post_err_notowner_title:	FEIL
 post_err_notowner_msg:		Du er ikke denne meldingens forfatter
 post_err_edttimelimit_title:	FEIL
 post_err_edttimelimit_msg:	Du kan ikke redigere denne meldingen lenger
-post_err_noannontopics_title:	FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannontopics_msg:	Anonyme brukere har ikke rett til &aring; p&aring;begynne tr&aring;der<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringssiden</a><br>Vennligst g&aring; til <a href="{TEMPLATE: msg_login_lnk}">innlogginingssiden</a> dersom du vil logge inn
-post_err_noannonposts_title:	FEIL: Ikke tilstrekkelige rettigheter
-post_err_noannonposts_msg:	Anonyme brukere har ikke rett til &aring; besvare innlegg<br><br>Dersom du vil registrere deg skal du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringsformuleret</a><br>Vennligst g&aring; til <a href="{TEMPLATE: msg_login_lnk}">innlogginingssiden</a> dersom du vil logge inn
 post_err_noreplying_title:	FEIL: Det er ikke tillatt &aring; svare
 post_err_noreplying_msg:	Du har ikke rett til &aring; svare i denne tr&aring;den ettersom den er en kunngj&oslash;ring eller et klebrig innlegg, som moderatoren ikke gir tillatelse til &aring; svare p&aring;.
 post_err_floodtrig_title:	FEIL: 	Flood-beskyttelse sl&aring;tt p&aring;
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	For &aring; kunne lese dette forumet m&aring; du <a 
 thread_update:			Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
-ERR_login_ttl:			FEIL: Du er ikke inlogget
-ERR_login_msg:			Du er ikke inlogget, vennligst logg inn<br><br>Dersom du vil registrere deg kan du g&aring; til <a href="{TEMPLATE: msg_register_lnk}">registreringsformuleret</a><br>Hvis du vil logge inn kan du g&aring; til <a href="{TEMPLATE: msg_login_lnk}">inloggingssiden</a>
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Avstengt funksjon
 ERR_disabled_msg:		Denne funksjonen er lukket av administratoren
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

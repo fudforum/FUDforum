@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.35 2004/01/04 16:38:26 hackie Exp $
+* $Id: finduser.php.t,v 1.36 2004/03/08 15:28:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,7 @@
 	$adm = $usr->users_opt & 1048576;
 
 	if (!$adm && !($FUD_OPT_1 & 8388608) && (!($FUD_OPT_1 & 4194304) || !_uid)) {
-		std_error('disabled');
+		std_error((!_uid ? 'login' : 'disabled'));
 	}
 
 	if (isset($_GET['js_redr'])) {

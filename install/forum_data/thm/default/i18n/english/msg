@@ -612,10 +612,8 @@ post_err_notowner_title:	ERROR
 post_err_notowner_msg:		You are not the owner of this message
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
-post_err_noannontopics_title:	ERROR: Insufficient Privileges
-post_err_noannontopics_msg:	Anonymous users aren&#39;t allowed to create topics<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
-post_err_noannonposts_title:	ERROR: Insufficient Privileges
-post_err_noannonposts_msg:	Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	ERROR: Post flood triggered.
@@ -683,9 +681,7 @@ thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{TEM
 thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
-ERR_login_ttl:			ERROR: You are not logged in			
-ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
 ERR_disabled_ttl:		Disabled feature
 ERR_disabled_msg:		This feature has been disabled by the system administrator
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1026,4 +1022,3 @@ userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
- 

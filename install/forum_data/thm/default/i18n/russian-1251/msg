@@ -606,10 +606,6 @@ post_err_notowner_title:	ОШИБКА
 post_err_notowner_msg:		Вы не являетесь автором данного сообщения
 post_err_edttimelimit_title:	ОШИБКА
 post_err_edttimelimit_msg:	Вы более не можете редактировать данное сообщение
-post_err_noannontopics_title:	ОШИБКА: Недостаточен уровень доступа
-post_err_noannontopics_msg:	Анонимным пользователям не разрешено создавать новые темы<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{TEMPLATE: msg_register_lnk}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{TEMPLATE: msg_login_lnk}">странице регистрации</a>
-post_err_noannonposts_title:	ОШИБКА: Недостаточен уровень доступа
-post_err_noannonposts_msg:	Анонимным пользователям не разрешено отвечать на сообщения<br><br>Если вы хотите зарегистрироваться в форуме - заполните <a href="{TEMPLATE: msg_register_lnk}">регистрационную форму</a><br>Если вы уже зарегистрированы и желаете войти в форум - сделать это можно на <a href="{TEMPLATE: msg_login_lnk}">странице регистрации</a>
 post_err_noreplying_title:	ОШИБКА: Ответ не разрешен
 post_err_noreplying_msg:	Вы не можете отвечать по этой тема, поскольку это анонс или сообщение-стикер, ответы на которые запрещены модератором.
 post_err_floodtrig_title:	ОШИБКА: Обнаружен флуд - массовая отправка.
@@ -677,9 +673,6 @@ thread_err_onlyregview_msg:	Для того, чтобы просмотреть этот форум, вы должны <a
 thread_update:			Просмотр форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Просмотр в режиме дерева темы <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Просмотр персональной информации о <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_login_ttl:			ОШИБКА: Если вы не вошли на форум
-ERR_login_msg:			Вы не еще вошли на форум.<br><br>Если вы хотите зарегистрироваться - перейдите к <a href="{TEMPLATE: msg_register_lnk}">странице регистрации</a>.<br>Если вы хотите войди на форум - следуйте к <a href="{TEMPLATE: msg_login_lnk}">входной странице</a>.
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Действие невозможно
 ERR_disabled_msg:		Данная возможность была отключена системным администратором
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

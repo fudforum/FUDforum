@@ -605,10 +605,6 @@ post_err_notowner_title:	错误
 post_err_notowner_msg:		你不是这个帖子的作者
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
-post_err_noannontopics_title:	错误：你的权限不够
-post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{TEMPLATE: msg_register_lnk}">注册</a><br>登录请点击 <a href="{TEMPLATE: msg_login_lnk}">登录</a>
-post_err_noannonposts_title:	错误：你的权限不够
-post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{TEMPLATE: msg_register_lnk}">注册</a><br>登录，请点击<a href="{TEMPLATE: msg_login_lnk}">登录</a>
 post_err_noreplying_title:	错误：不允许回复
 post_err_noreplying_msg:	你不能回复这条信息，因为版主禁止在这里跟帖或发布通告。
 post_err_floodtrig_title:	错误：发布灌水帖子
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{TEMPLATE: msg_register
 thread_update:			浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			浏览（以树状方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
-ERR_login_ttl:			糟糕：你尚未注册
-ERR_login_msg:			你尚未登录，请登录<br><br>请<a href="{TEMPLATE: msg_register_lnk}">注册</a><br>请<a href="{TEMPLATE: msg_login_lnk}">登陆</a>
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
 ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			用户 &#39;{VAR: user}&#39; 使用的所有 IP 地址
 ip_title:			IP 浏览器
 userinfo_real_name:		真实姓名：
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

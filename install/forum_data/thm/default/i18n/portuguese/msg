@@ -609,10 +609,6 @@ post_err_notowner_title:	ERRO
 post_err_notowner_msg:		Não é o dono desta mensagem
 post_err_edttimelimit_title:	ERRO
 post_err_edttimelimit_msg:	Já não pode editar esta mensagem
-post_err_noannontopics_title:	ERRO: Não tem previlégios
-post_err_noannontopics_msg:	Utilizadores anónimos não tem permissão para criar topicos<br><br>Se se quiser registar vá ao <a href="{TEMPLATE: msg_register_lnk}">formulário de registo</a><br>se quiser fazer o login vá ao <a href="{TEMPLATE: msg_login_lnk}">pode fazê-lo aqui</a>
-post_err_noannonposts_title:	ERRO: Não tem previlégios
-post_err_noannonposts_msg:	Os utilizadores anónimos não têm permissões para responder <br><br>Se se quiseres registar vá ao <a href="{TEMPLATE: msg_register_lnk}">formulário de registo</a><br>Se quiser fazer o login vá ao<a href="{TEMPLATE: msg_login_lnk}">pode fazê-lo aqui</a>
 post_err_noreplying_title:	ERRO: Respostas não permitidas
 post_err_noreplying_msg:	Não pode colocar respostas neste forum, porque é um anuncio ou uma mensagem sem resposta, em que o moderador desabilitou a possibilidade de resposta.
 post_err_floodtrig_title:	ERRO: Segurança contra floods activada.
@@ -680,9 +676,6 @@ thread_err_onlyregview_msg:	Para ver este forum tem de <a href="{TEMPLATE: msg_r
 thread_update:			A visualisar forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			A visualisar tópico (vista de árvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> perfil
-ERR_login_ttl:			ERRO: Não fez o login			
-ERR_login_msg:			Não fez o login, por favor faça-o<br><br>Se se quiser registar vá ao <a href="{TEMPLATE: msg_register_lnk}">formumário de registo</a><br>se quer efectuar o seu login vá <a href="{TEMPLATE: msg_login_lnk}">aqui</a>
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Possibilidade desabilitada
 ERR_disabled_msg:		Esta possibilidade foi desabilitada pelo administrador de sistema
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.36 2004/01/29 22:58:32 hackie Exp $
+* $Id: err.inc.t,v 1.37 2004/03/08 15:28:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,8 +56,11 @@ function std_error($type)
 	$ses_id = s;
 	$usr_d->email = $GLOBALS['usr']->email;
 
+	if ($type == 'login') {
+		ses_anonuser_auth($GLOBALS['usr']->sid, '{TEMPLATE: ERR_login_msg}');
+	}
+
 	$err_array = array(
-'ERR_login'=>array('{TEMPLATE: ERR_login_ttl}', '{TEMPLATE: ERR_login_msg}'),
 'ERR_disabled'=>array('{TEMPLATE: ERR_disabled_ttl}', '{TEMPLATE: ERR_disabled_msg}'),
 'ERR_access'=>array('{TEMPLATE: ERR_access_ttl}', '{TEMPLATE: ERR_access_msg}'),
 'ERR_registration_disabled'=>array('{TEMPLATE: ERR_registration_disabled_ttl}', '{TEMPLATE: ERR_registration_disabled_msg}'),

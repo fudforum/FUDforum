@@ -6,9 +6,6 @@ ERR_disabled_ttl:		Deaktivierte Funktion
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht Deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
-ERR_login_msg:			Du bist nicht angemeldet, bitte hole das jetzt nach<br><br>Falls Du Dich registrieren willst, gehe bitte zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich anmelden willst, gehe bitte zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
-ERR_login_ttl:			FEHLER: Du bist nicht angemeldet
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
 ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
@@ -432,10 +429,6 @@ post_err_floodtrig_msg:		Bitte versuche es in {VAR: tm} Sekunden erneut
 post_err_floodtrig_title:	FEHLER: Schutz vor Flooding mit Beitr&auml;gen aktiviert.
 post_err_lockedthread_msg:	Das Thema ist gesperrt, und es sind keine weiteren Beitr&auml;ge erlaubt
 post_err_lockedthread_title:	FEHLER: gesperrtes Thema
-post_err_noannonposts_msg:	Anonymen Benutzern ist es nicht gestattet zu antworten<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
-post_err_noannonposts_title:	FEHLER: Nicht ausreichende Rechte
-post_err_noannontopics_msg:	Anonymen Benutzern ist es nicht gestattet Beitr&auml;ge zu erstellen<br><br>Falls Du Dich registrieren m&ouml;chtest, gehe zur <a href="{TEMPLATE: msg_register_lnk}">Registrierungsseite</a><br>Falls Du Dich am System anmelden willst, gehe zur <a href="{TEMPLATE: msg_login_lnk}">Anmeldeseite</a>
-post_err_noannontopics_title:	FEHLER: keine ausreichenden Rechte
 post_err_noreplying_msg:	Du kannst auf diesen Beitrag nicht antworten, weil es entweder eine Ank&uuml;ndigung oder ein angehefteter Beitrag ist, f&uuml; den der Moderator das Antworten nicht getattet hat.
 post_err_noreplying_title:	FEHLER: Antworten nicht erlaubt
 post_err_notallowed_msg:	Du hast keine Erlaubnis Beitr&auml;ge zu erstellen
@@ -1024,3 +1017,8 @@ ip_all_ips:			Alle IP(s), die von &#39;{VAR: user}&#39; verwendet worden sind
 ip_title:			IP Browser
 userinfo_real_name:		Tats&auml;chlicher Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

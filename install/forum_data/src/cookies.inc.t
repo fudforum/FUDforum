@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.60 2004/01/04 16:38:26 hackie Exp $
+* $Id: cookies.inc.t,v 1.61 2004/03/08 15:28:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,5 +122,16 @@ function ses_delete($ses_id)
 	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return 1;
+}
+
+function ses_anonuser_auth($id, $error)
+{
+	q("UPDATE {SQL_TABLE_PREFIX}ses SET data='".addslashes(serialize($error))."', returnto=".strnull(addslashes($_SERVER['QUERY_STRING']))." WHERE id=".$id);
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
+		header("Location: {FULL_ROOT}{ROOT}/l/"._rsidl);
+	} else {
+		header("Location: {FULL_ROOT}{ROOT}?t=login&"._rsidl);
+	}
+	exit;
 }
 ?>

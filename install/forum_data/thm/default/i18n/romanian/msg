@@ -610,10 +610,6 @@ post_err_notowner_title:	EROARE
 post_err_notowner_msg:		Nu sunteti proprietarul mesajului
 post_err_edttimelimit_title:	EROARE
 post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
-post_err_noannontopics_title:	EROARE: Privilegii insuficiente
-post_err_noannontopics_msg:	Vizitatorilor nu li se permite sa creeze teme<br><br>Daca doriti sa va inregistrati mergeti <a href="{TEMPLATE: msg_register_lnk}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{TEMPLATE: msg_login_lnk}">aici</a>
-post_err_noannonposts_title:	EROARE: Privilegii insufuciente
-post_err_noannonposts_msg:	Vizitatorii nu pot sa raspunda la mesaje<br><br>Daca doriti sa va inregistrati mergeti <a href="{TEMPLATE: msg_register_lnk}">aici</a><br>Daca doriti sa va autentificati mergeti <a href="{TEMPLATE: msg_login_lnk}">aici</a>
 post_err_noreplying_title:	EROARE: Nu aveti voie sa raspundeti la mesaje
 post_err_noreplying_msg:	Nu puteti sa trimiteti raspunsuri la aceasta tema.
 post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
@@ -681,9 +677,6 @@ thread_err_onlyregview_msg:	Pentru a vedea acest forum trebuie sa va  <a href="{
 thread_update:			Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
-ERR_login_ttl:			EROARE: Nu sunteti autentificat
-ERR_login_msg:			Daca nu sunteti autentificat va rugam s-o faceti
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Optiune dezactivata
 ERR_disabled_msg:		Optiune dezactivata de administratorul sistemului
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -605,10 +605,6 @@ post_err_notowner_title:	FEL
 post_err_notowner_msg:		Du &auml;r inte detta meddelandets skribent
 post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
-post_err_noannontopics_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
-post_err_noannontopics_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att p&aring;b&ouml;rja diskussioner<br><br>Om du vill registrera dig skall du g&aring; till <a href="{TEMPLATE: msg_register_lnk}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{TEMPLATE: msg_login_lnk}">inloggningssidan</a> om du vill logga in
-post_err_noannonposts_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
-post_err_noannonposts_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att besvara inl&auml;gg<br><br>Om du vill registrera dig skall du g&aring; till <a href="{TEMPLATE: msg_register_lnk}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{TEMPLATE: msg_login_lnk}">inloggningssidan</a> om du vill logga in
 post_err_noreplying_title:	FEL: Det &auml;r inte till&aring;tet att svara
 post_err_noreplying_msg:	Du har inte r&auml;tt att svara i den h&auml;r diskussionen eftersom den &auml;r antingen ett meddelande eller ett klibbigt inl&auml;gg, som moderatorn har f&ouml;rbjudit svar till.
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&
 thread_update:			L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
-ERR_login_ttl:			FEL: Du &auml;r inte inloggad
-ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{TEMPLATE: msg_register_lnk}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{TEMPLATE: msg_login_lnk}">inloggningsformul&auml;ret</a>
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Avst&auml;ngd funktion
 ERR_disabled_msg:		Den h&auml;r funktionen &auml;r avst&auml;ngd av administratorn
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -608,10 +608,6 @@ post_err_notowner_title:	FOUT
 post_err_notowner_msg:		U bent niet de auteur van dit bericht
 post_err_edttimelimit_title:	FOUT
 post_err_edttimelimit_msg:	U can dit bericht niet langer wijzigen
-post_err_noannontopics_title:	FOUT: Onvoldoende privileges
-post_err_noannontopics_msg:	Anonieme gebruikers hebben niet de toestemming om topics aan te maken<br><br>indien u zich wil registreren ga naar het <a href="{TEMPLATE: msg_register_lnk}">registratie formulier</a><br>Indien u wenst in te loggen ga dan naar het <a href="{TEMPLATE: msg_login_lnk}">inlog formulier</a>
-post_err_noannonposts_title:	FOUT: Onvoldoende Privileges
-post_err_noannonposts_msg:	Anonieme gebruikers hebben niet de toestemming om te reacties te verzenden <br><br>indien u zich wil registreren ga naar het<a href="{TEMPLATE: msg_register_lnk}">registratie formulier</a><br>Indien u wenst in te loggen ga dan naar het <a href="{TEMPLATE: msg_login_lnk}">inlog formulier</a>
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
 post_err_floodtrig_msg:		probeer opnieuw binnen {VAR: tm} seconden
 post_err_attach_size:		<font class="ErrorText">Bestand bijvoegsel is te groot (over toegelaten limiet van {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -677,9 +673,6 @@ thread_err_onlyregview_msg:	Indien u dit forum wenst te bekijken moet u zich <a 
 thread_update:			Browsing door forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
-ERR_login_ttl:			FOUT: u bent niet ingelogd
-ERR_login_msg:			u bent niet ingelogd, logged u aub in<br><br>indien u zich wenst te registreren ga dan naar het <a href="{TEMPLATE: msg_register_lnk}">registratie formulier</a><br>indien u wenst in te loggen ga dan naar het <a href="{TEMPLATE: msg_login_lnk}">login formulier</a>
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		uitgeschakeld feature
 ERR_disabled_msg:		dit feature is uitgeschakeld door de administrator
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

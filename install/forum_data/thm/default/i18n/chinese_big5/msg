@@ -606,10 +606,6 @@ post_err_notowner_title:	錯誤
 post_err_notowner_msg:		你不是這個帖子的作者
 post_err_edttimelimit_title:	錯誤
 post_err_edttimelimit_msg:	你不能再編輯這條信息
-post_err_noannontopics_title:	錯誤：你的權限不夠
-post_err_noannontopics_msg:	匿名用戶不允許發布主題<br><br>注冊，請點擊 <a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>登錄請點擊 <a href="{TEMPLATE: msg_login_lnk}">登錄</a>
-post_err_noannonposts_title:	錯誤：你的權限不夠
-post_err_noannonposts_msg:	匿名用戶不允許回復<br><br>注冊，請點擊 <a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>登錄，請點擊<a href="{TEMPLATE: msg_login_lnk}">登錄</a>
 post_err_noreplying_title:	錯誤：不允許回復
 post_err_noreplying_msg:	您不能回復這條信息，因為版主禁止在這里跟帖或發布通告。
 post_err_floodtrig_title:	錯誤：發布灌水帖子
@@ -677,9 +673,6 @@ thread_err_onlyregview_msg:	要查看本論壇，你必須<a href="{TEMPLATE: msg_register
 thread_update:			瀏覽論壇<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			瀏覽（以樹狀方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 個人信息
-ERR_login_ttl:			錯誤：您尚未注冊
-ERR_login_msg:			您尚未登錄，請登錄<br><br>請<a href="{TEMPLATE: msg_register_lnk}">注冊</a><br>請<a href="{TEMPLATE: msg_login_lnk}">登陸</a>
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此項功能已經被系統管理員關閉。
 ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -607,10 +607,6 @@ post_err_notowner_title:	KÏÛDA
 post_err_notowner_msg:		Jûs neesat ðîs publikâcijas autors
 post_err_edttimelimit_title:	KÏÛDA
 post_err_edttimelimit_msg:	Jûs vairs nedrîkstat rediìçt ðo publikâciju
-post_err_noannontopics_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
-post_err_noannontopics_msg:	Anonîmajiem lietotâjiem nav atïauts izveidot jaunas tçmas<br><br>Lai reìistrçtos aizpildiet <a href="{TEMPLATE: msg_register_lnk}">reìistrâcijas formu</a><br>Ja esat reìitrçts lietotâjs, ieiet forumâ var arî <a href="{TEMPLATE: msg_login_lnk}">reìistrâcijas lapâ</a>
-post_err_noannonposts_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
-post_err_noannonposts_msg:	Anonîmajiem lietotâjiem nav dotas tiesîbas iesûtît atbildes<br><br>Lai reìistrçtos aizpildiet <a href="{TEMPLATE: msg_register_lnk}">reìistrâcijas formu</a><br>Ja esat reìistrçtais lietotâjs ieiet forumâ var <a href="{TEMPLATE: msg_login_lnk}">reìistrâcijas lapâ</a>
 post_err_noreplying_title:	KÏÛDA: Atbilde nav atïauta
 post_err_noreplying_msg:	Uz ðo publikâciju atbildçt nav iespçjams, jo tas ir apzîmets kâ sludinâjums vai sticker un atbildes ir liedzis moderâtors.
 post_err_floodtrig_title:	KÏÛDA: Konstatçts masîvs nosûtîðanas mçìinâjums.
@@ -678,9 +674,6 @@ thread_err_onlyregview_msg:	Lai piekïûtu ðim forumam Jums nepiecieðams reìistrçt
 thread_update:			Foruma <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>apskate
 tree_update:			Foruma <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>apskate hierarhija koka veidâ
 userinfo_update:		Peronîgâs informâcijas <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>apskats
-ERR_login_ttl:			KÏÛDA: Ja netikât ielaists forumâ
-ERR_login_msg:			Jûs vçl neesat forumâ.<br><br>Lai ieietu forumâ ir jâreìistrçjas <a href="{TEMPLATE: msg_register_lnk}">reìistrâcijas lapâ</a>.<br>Ja vçlatie ieiet forumâ ejiet uz <a href="{TEMPLATE: msg_login_lnk}">ielogoðanâs lapu</a>.
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Darbîba nav iespçjama
 ERR_disabled_msg:		Ðî darbîba ir atslçgta un paðreiz nav pieejama
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

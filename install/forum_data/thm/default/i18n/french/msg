@@ -605,10 +605,6 @@ post_err_notowner_title:	ERREUR
 post_err_notowner_msg:		Ce message ne vous appartient pas
 post_err_edttimelimit_title:	ERREUR
 post_err_edttimelimit_msg:	Vous n&#39;avez plus la possibilité de modifier ce message
-post_err_noannontopics_title:	ERREUR : Privilèges insuffisants
-post_err_noannontopics_msg:	Les utilisateurs anonymes ne sont pas autorisés à créer des fils.<br><br>Si vous désirez vous inscrire, rendez-vous à la <a href="{TEMPLATE: msg_register_lnk}">page d&#39;inscription</a>.<br>Si vous voulez vous connecter, veuillez vous rendre à la <a href="{TEMPLATE: msg_login_lnk}">page de connexion</a>
-post_err_noannonposts_title:	ERREUR : Privilèges insuffisants
-post_err_noannonposts_msg:	Les utilisateurs anonymes ne sont pas autorisés à répondre.<br><br>Si vous désirez vous inscrire, rendez-vous à la <a href="{TEMPLATE: msg_register_lnk}">page d&#39;inscription</a>.<br>Si vous désirez vous connecter, veuillez vous rendre à la <a href="{TEMPLATE: msg_login_lnk}">page de connexion</a>
 post_err_noreplying_title:	ERREUR : Vous n&#39;êtes pas autorisé à répondre
 post_err_noreplying_msg:	Vous ne pouvez pas poster de réponse à ce fil car il s&#39;agit soit d&#39;une annonce, soit d&#39;un message épinglé pour lequel le modérateur a désactivé la possibilité de répondre.
 post_err_floodtrig_title:	ERREUR : Tentative d&#39;inondation détectée
@@ -676,9 +672,6 @@ thread_err_onlyregview_msg:	Pour voir ce forum, vous devez vous <a href="{TEMPLA
 thread_update:			Parcourt le forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Parcourt le fil (vue arborescente) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
-ERR_login_ttl:			ERREUR : Vous n&#39;êtes pas connecté
-ERR_login_msg:			Vous n&#39;êtes pas connecté, veuillez le faire.<br><br>Si vous voulez vous inscrire, rendez-vous à la <a href="{TEMPLATE: msg_register_lnk}">page d&#39;inscription</a>.<br>Si vous voulez vous connecter, veuillez vous rendre à la <a href="{TEMPLATE: msg_login_lnk}">page de connexion</a>.
-ERR_login_url:			{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Fonctionnalité désactivée
 ERR_disabled_msg:		Cette fonctionnalité a été désactivée par l&#39;administrateur du forum
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			Toutes les IP utilisées par &#39;{VAR: user}&#39;
 ip_title:			Navigateur IP
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.

@@ -609,10 +609,6 @@ post_err_notowner_title:	CHYBA
 post_err_notowner_msg:		Nejste vlastník této zprávy
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
-post_err_noannontopics_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannontopics_msg:	Anonymní u¾ivatelé nemají právo vytváøet nová témata<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
-post_err_noannonposts_title:	CHYBA: Nedostateèné pravomoce
-post_err_noannonposts_msg:	Anonymní u¾ivatelé nemají právo odpovídat<br><br>Pokud se chcete zaregistrovat, jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, prosím, jdìte na <a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
 post_err_noreplying_title:	CHYBA: Odpovìï není povolena
 post_err_noreplying_msg:	Nemù¾ete zasílat odpovìdi na toto téma, proto¾e to je buï oznámení nebo vývìska, na kteru moderátor zakázal odpovìdi.
 post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
@@ -680,9 +676,6 @@ thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se 
 thread_update:			Prohlí¾íte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
-ERR_login_ttl:			CHYBA: Nejste pøihlá¹en(a)
-ERR_login_msg:			Nejste pøihlá¹ena(a), udìlejte tak<br><br>Pokud se chcete zaregistrovat jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, jdìte na<a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
-ERR_login_url:			{TEMPLATE: msg_login_lnk}
 ERR_disabled_ttl:		Vypnutá vlastnost
 ERR_disabled_msg:		Tato vlastnost byla vypnuta administrátorem
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -1024,3 +1017,8 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
