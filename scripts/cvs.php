@@ -1,5 +1,5 @@
 <?php
-  
+
 function create_archives($dir, $version, $upgrade, $comp, $convs='')
 {
 	global $TAR_BIN, $ZIP_BIN, $OUT_DIR;
