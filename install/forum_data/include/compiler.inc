@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.5 2002/06/26 22:01:57 hackie Exp $
+*   $Id: compiler.inc,v 1.6 2002/06/27 16:13:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -578,5 +578,6 @@ function copyhelp($thm)
 	}
 	closedir($dp);
 	umask($u);
+	chdir($oldpwd);
 }
 ?>
