@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.3 2003/06/03 17:26:21 hackie Exp $
+*   $Id: tree.tmpl,v 1.4 2003/07/19 03:17:02 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -121,7 +121,7 @@
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}//{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
+<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -132,7 +132,7 @@
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}//{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
+<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -143,7 +143,7 @@
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}//{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
+<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -154,7 +154,7 @@
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}//{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
+<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}

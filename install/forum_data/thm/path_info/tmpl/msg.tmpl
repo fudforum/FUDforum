@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.3 2003/05/30 12:34:33 hackie Exp $
+*   $Id: msg.tmpl,v 1.4 2003/07/19 03:17:02 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -61,7 +61,7 @@
 {SECTION: END}
 
 {SECTION: first_unread_message_link}
-| <a class="GenLink" href="{ROOT}/t/{VAR: _GET['th']}//unread/{DEF: _rsid}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
+| <a class="GenLink" href="{ROOT}/t/{VAR: _GET['th']}/0/unread/{DEF: _rsid}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
@@ -81,7 +81,7 @@
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}/r/th_id/{VAR: _GET['th']}/{VAR: frm->root_msg_id}//{VAR: _GET['start']}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0 /></a>
+&nbsp;<a class="GenLink" href="{ROOT}/r/th_id/{VAR: _GET['th']}/{VAR: frm->root_msg_id}/0/{VAR: _GET['start']}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0 /></a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}

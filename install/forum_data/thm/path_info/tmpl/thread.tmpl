@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.4 2003/06/02 14:11:52 hackie Exp $
+*   $Id: thread.tmpl,v 1.5 2003/07/19 03:17:02 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -80,7 +80,7 @@
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
-&nbsp;<a class="GenLink" href="{ROOT}/m//{VAR: r[13]}/{VAR: st_pos}/{DEF: _rsid}">{VAR: pg_num}</a> 
+&nbsp;<a class="GenLink" href="{ROOT}/m/0/{VAR: r[13]}/{VAR: st_pos}/{DEF: _rsid}">{VAR: pg_num}</a> 
 {SECTION: END}
 
 {SECTION: mini_pager_limiter}
@@ -88,7 +88,7 @@
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
-<a href="{ROOT}/t/{VAR: r[13]}//unread/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
+<a href="{ROOT}/t/{VAR: r[13]}/0/unread/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: thread_icon}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.2 2003/05/30 17:12:50 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.3 2003/07/19 03:17:02 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}/m//{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/DEF: _rsid}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}/m/0/{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/{DEF: _rsid}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}/m//{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/DEF: _rsid}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}/m/0/{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/{DEF: _rsid}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
@@ -269,7 +269,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}/m//{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/{DEF: _rsid}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
+<a href="{ROOT}/m/0/{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/{DEF: _rsid}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
