@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.68 2004/04/20 03:47:28 hackie Exp $
+* $Id: msg.php.t,v 1.69 2004/04/20 13:00:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 		}
 	}
 
-	if (isset($_GET['goto'])) {
+	if (!empty($_GET['goto'])) {
 		if ($_GET['goto'] === 'end' && isset($_GET['th'])) {
 			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_GET['th']);
 			$mid = '#msg_'.$mid;
