@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.13 2003/04/23 16:56:50 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.14 2003/05/02 16:25:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,7 +92,8 @@ function is_allowed_user(&$usr)
 	}
 			
 	if ($usr->blocked == 'Y' || is_email_blocked($usr->email) || is_login_blocked($usr->login) || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
-		ses_delete($usr);
+		ses_delete($usr->sid);
+		$usr = ses_anon_make();
 		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}'); 
 	}
 }
