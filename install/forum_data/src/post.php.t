@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.101 2003/11/24 13:45:02 hackie Exp $
+* $Id: post.php.t,v 1.102 2003/12/15 11:01:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@ function flood_check()
 			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}');
 		} else if ($reply_to && !($perms & 8)) {
 			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}');
-		} else if ($msg_id && !($perms & 16)) {
+		} else if (($msg_id && !($perms & 16)) || is_ip_blocked(get_ip())) {
 			invl_inp_err();
 		}
 	}
