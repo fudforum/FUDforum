@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.27 2003/05/13 19:46:02 hackie Exp $
+*   $Id: selmsg.php.t,v 1.28 2003/05/14 07:33:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,14 +26,7 @@ function valstat($a)
 	return ($a ? '{TEMPLATE: status_indicator_on}' : '{TEMPLATE: status_indicator_off}');
 }
 	
-	$old_qs = $_SERVER['QUERY_STRING'];
-	if ($_SERVER['QUERY_STRING'][0] != '/') {
-		$_SERVER['QUERY_STRING'] .= '&nm=1';
-	} else {
-		$_SERVER['QUERY_STRING'] .= 'n/';
-	}
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
-	$_SERVER['QUERY_STRING'] = $old_qs;
 
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
@@ -59,7 +52,7 @@ function valstat($a)
 	$perm_limit = $usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)' : 'g1.p_READ') . '=\'Y\')': '';
 
 	/* mark messages read for registered users */
-	if (_uid && empty($_GET['nm']) && !empty($usr->data) && count($usr->data)) {
+	if (_uid && isset($_GET['mr']) && !empty($usr->data) && count($usr->data)) {
 		foreach ($usr->data as $ti => $mi) {
 			if (!(int)$ti || !(int)$mi) {
 				break;
@@ -168,10 +161,10 @@ function valstat($a)
 				$prev_th = $r->thread_id;
 				$message_data .= '{TEMPLATE: thread_row}';
 			}
-			if (_uid && $r->last_view < $r->post_stamp && !isset($mark_read[$r->thread_id])) {
+			if (_uid && $r->last_view < $r->post_stamp && $r->post_stamp > $usr->last_read && !isset($mark_read[$r->thread_id])) {
 				$mark_read[$r->thread_id] = $r->id;
 			}
-		
+
 			$message_data .= tmpl_drawmsg($r, $usr, $perms, FALSE, $n, '');
 		}
 		un_register_fps();
@@ -201,10 +194,13 @@ function valstat($a)
 	}
 
 	if (!$unread_limit && $total > $count) {
+		if (!isset($_GET['mr'])) {
+			$_SERVER['QUERY_STRING'] .= '&mr=1';
+		}
 		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
 	} else if ($unread_limit) {
 		if (!isset($_GET['mark_page_read'])) {
-			$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1';
+			$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
 		}
 		$pager = '{TEMPLATE: more_unread_messages}';
 	} else {
