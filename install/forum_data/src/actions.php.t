@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.33 2004/01/09 13:49:40 hackie Exp $
+* $Id: actions.php.t,v 1.34 2004/05/07 16:14:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -82,7 +82,6 @@
 					$action = $r[0];
 				}
 			} else {
-
 				if (($p = strpos($r[0], '?')) !== false) {
 					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
 				} else if (($p = strpos($r[0], '.php')) !== false) {

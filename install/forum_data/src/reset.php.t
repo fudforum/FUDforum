@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.20 2004/01/29 23:14:55 hackie Exp $
+* $Id: reset.php.t,v 1.21 2004/05/07 16:14:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,15 +14,13 @@
 
 function usr_reset_key($id)
 {
-	$reset_key = md5(__request_timestamp__ . $id . get_random_value());
-	q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".$reset_key."' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".($reset_key = md5(__request_timestamp__ . $id . get_random_value()))."' WHERE id=".$id);
 	return $reset_key;
 }
 
 function usr_reset_passwd($id)
 {
-	$randval = dechex(get_random_value(32));
-	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($randval)."', reset_key='0' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5(($randval = dechex(get_random_value(32))))."', reset_key='0' WHERE id=".$id);
 	return $randval;
 }
 	if (_uid) {
