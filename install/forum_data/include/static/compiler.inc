@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.3 2002/06/18 14:20:38 hackie Exp $
+*   $Id: compiler.inc,v 1.4 2002/06/21 16:41:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -445,7 +445,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	/*
 	 * build the message array 
 	 */
-	build_msg($prim_msg_file);
+	if( @file_exists($prim_msg_file) ) build_msg($prim_msg_file);
 	/*
 	 * append any missing entries from the default language file
 	 */
