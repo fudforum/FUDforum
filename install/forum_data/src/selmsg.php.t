@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.58 2005/01/28 17:15:46 hackie Exp $
+* $Id: selmsg.php.t,v 1.59 2005/01/28 17:31:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,12 +101,6 @@ function path_info_lnk($var, $val)
 			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
 			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
 		}
-
-		$subscribed_thr = '{TEMPLATE: subscribed_thr}';
-		$subscribed_frm = '{TEMPLATE: subscribed_frm}';
-		$unread_messages = '{TEMPLATE: unread_messages}';
-	} else {
-		$subscribed_thr = $subscribed_frm = $unread_messages = '';
 	}
 
 	make_perms_query($fields, $join);
