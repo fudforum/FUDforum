@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.38 2004/11/24 19:53:43 hackie Exp $
+* $Id: tmpllist.php,v 1.39 2004/11/26 14:23:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -216,7 +216,7 @@ function goto_tmpl($tmpl)
 		} else {
 			/* fetch file name */
 			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
-				$file = $f;
+				$file = $n;
 			} else {
 				$p = strpos($data, '; output: ', $p) + 10;
 				if ($data[$p] == '@' || $data[$p] == '!') {
