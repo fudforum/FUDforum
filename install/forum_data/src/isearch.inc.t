@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.14 2003/04/14 19:37:52 hackie Exp $
+*   $Id: isearch.inc.t,v 1.15 2003/04/29 15:26:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,35 +74,6 @@ function index_text($subj, $body, $msg_id)
 		q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE id IN('.implode(',', $w1d).')');
 	}
 
-	if (isset($ll)) {
-		db_unlock();
-	}
-}
-
-function re_build_index()
-{
-	if (!db_locked()) {
-		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}search_cache WRITE, {SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-	}
-	q('DELETE FROM {SQL_TABLE_PREFIX}search');
-	q('DELETE FROM {SQL_TABLE_PREFIX}index');
-	q('DELETE FROM {SQL_TABLE_PREFIX}title_index');
-	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache');
-
-	$c = uq('SELECT id, subject, length, foff, file_id FROM {SQL_TABLE_PREFIX}msg WHERE approved=\'Y\' ORDER BY subject');
-	$old_subject = '';
-	while ($r = db_rowarr($c)) {
-		$body = read_msg_body($r[3], $r[2], $r[4]);
-		if ($old_subject != $r[1]) {
-			$subj = $old_subject = $r[1];
-		} else {
-			$subj = '';
-		}
-		index_text($subj, $body, $r[0]);
-	}
-	qf($c);
-	un_register_fps();
 	if (isset($ll)) {
 		db_unlock();
 	}
