@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.4 2002/08/13 09:21:07 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.5 2002/11/03 19:40:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,12 @@ class fud_poll
 	
 	function regvote($user_id)
 	{
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}poll_opt_track+");
+		}
 		q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id) VALUES(".$this->id.", ".$user_id.")");
+		if ( $ll ) db_unlock();
 	}
 	
 	function voted($user_id)
