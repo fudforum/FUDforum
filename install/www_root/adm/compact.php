@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.13 2002/08/28 01:53:16 hackie Exp $
+*   $Id: compact.php,v 1.14 2002/08/28 02:23:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -180,12 +180,13 @@ and the amount of messages your forum has.<br><br>
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
 	flush();
+	
+	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
+	
 	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'pmsg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
 	$off=$len=0;
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private_tmp', 'wb');
 	set_file_buffer($fp, 40960);
-	
-	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
 	
 	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
 	
