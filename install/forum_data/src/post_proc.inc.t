@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.65 2004/07/09 12:50:50 hackie Exp $
+* $Id: post_proc.inc.t,v 1.66 2004/09/15 05:43:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -300,7 +300,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'spoiler':
 					$rnd = get_random_value(64);
 					$end_tag[$cpos] = '</div></div>';
-					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id="'.$rnd.'" style="visibility: hidden;">';
+					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">'
+						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}').'</a><div align="left" id="'.$rnd.'" style="visibility: hidden;">';
 					break;
 				case 'acronym':
 					$end_tag[$cpos] = '</acronym>';
@@ -524,8 +525,8 @@ function html_to_tags($fudml)
 		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br>','<br></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
 	}
 
-	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml)) {
-		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler]', $fudml);
+	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">.*?</a><div align="left" id="(.*?)" style="visibility: hidden;">!is', $fudml)) {
+		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">(.*?)\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler=\1]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
 
