@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.68 2003/06/08 16:35:51 hackie Exp $
+*   $Id: post.php.t,v 1.69 2003/06/11 14:38:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -454,14 +454,15 @@ function flood_check()
 				<?php
 				exit;
 			} else {
+				$t = d_thread_view;
+
 				if ($usr->returnto) {
-					if (!strncmp('t=selmsg', $usr->returnto, 8) || !strncmp('/slm/', $usr->returnto, 5)) {
+					if (!strncmp('t=selmsg', $usr->returnto, 8) || !strncmp('/sel/', $usr->returnto, 5)) {
 						check_return($usr->returnto);
 					}
-					preg_match('!t=([A-Za-z_]+)!', $usr->returnto, $tmp);
-					$t = ($tmp[1] == 'tree' || $tmp[1] == 'msg') ? $tmp[1] : d_thread_view;
-				} else {
-					$t = d_thread_view;
+					if (preg_match('!t=(tree|msg)!', $usr->returnto, $tmp)) {
+						$t = $tmp[1];
+					}
 				}
 				/* redirect the user to their message */
 				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
