@@ -1032,3 +1032,4 @@ delete_msg_pm_body:		Original message
 delete_msg_pm_subject:		Subject: {VAR: data[15]}
 ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
 ip_whois_title:			<b>ISP Information</b><br />
+register_theme:			Theme:

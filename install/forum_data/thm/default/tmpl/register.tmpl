@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.40 2004/04/07 16:30:09 hackie Exp $
+* $Id: register.tmpl,v 1.41 2004/04/07 18:19:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,9 +42,9 @@
 {SECTION: END}
 
 {SECTION: theme_select}
-<select name="{VAR: name}">
+<tr><td class="RowStyleA">{MSG: register_theme}</td><td class="RowStyleA"><select name="reg_theme">
 {TEMPLATE-DATA: theme_select}
-</select>
+</select></td></tr>
 {SECTION: END}
 
 {SECTION: theme_select_value}
@@ -188,7 +188,8 @@
 <tr><td class="RowStyleA">{MSG: register_show_im}<br /><font class="SmallText">{MSG: register_show_im_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_im_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_msg_per_page}</td><td class="RowStyleA"><select name="reg_posts_ppg">{TEMPLATE-DATA: mppg_select}</select></td></tr>
 <tr><td class="RowStyleA">{MSG: register_def_thread_view}</td><td class="RowStyleA"><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
-<tr><td class="RowStyleA">Theme:</td><td class="RowStyleA">{TEMPLATE-DATA: theme_select}</td></tr>
+{TEMPLATE-DATA: theme_select}
+
 <tr class="RowStyleC"><td colspan=2 align="center">{TEMPLATE-DATA: submit_button}&nbsp;<INPUT TYPE="reset" class="button" NAME="Reset" VALUE="{MSG: register_reset}"></td></tr>
 </table>
 {DEF: _hs}

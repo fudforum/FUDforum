@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.113 2004/04/05 21:03:44 hackie Exp $
+* $Id: register.php.t,v 1.114 2004/04/07 18:19:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -360,6 +360,11 @@ function decode_uent(&$uent)
 			if (isset($_POST['reg_'.$v])) {
 				$uent->{$v} = $_POST['reg_'.$v];
 			}
+		}
+
+		/* only one theme avaliable, so no select */
+		if (!$uent->theme) {
+			$uent->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
 		}
 
 		$uent->bday = fmt_year($_POST['b_year']) . str_pad((int)$_POST['b_month'], 2, '0', STR_PAD_LEFT) . str_pad((int)$_POST['b_day'], 2, '0', STR_PAD_LEFT);
@@ -761,12 +766,16 @@ function decode_uent(&$uent)
 	$post_options = tmpl_post_options('sig');
 
 	$theme_select = '';
-	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
-	while ($t = db_rowarr($r)) {
-		$selected = $t[0] == $reg_theme ? ' selected' : '';
-		$theme_select .= '{TEMPLATE: theme_select_value}';
+	$r = q("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
+	/* only display theme select if there is >1 theme */
+	if (db_count($r) > 1) {
+		while ($t = db_rowarr($r)) {
+			$selected = $t[0] == $reg_theme ? ' selected' : '';
+			$theme_select .= '{TEMPLATE: theme_select_value}';
+		}
+		$theme_select = '{TEMPLATE: theme_select}';
 	}
-	$theme_select = '{TEMPLATE: theme_select}';
+	unset($r);
 
 	$views[384] = '{TEMPLATE: register_flat_view}';
 	if (!($FUD_OPT_3 & 2)) {
