@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admannounce.php,v 1.5 2003/04/29 13:19:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,184 +17,110 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('widgets.inc', true);
-	fud_use('util.inc');
-	fud_use('announce_adm.inc', true);
-	fud_use('forum.inc');
-	fud_use('cat.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	
 function raw_date($dt)
 {
 	return array(substr($dt, 0, 4), substr($dt, 4, 2), substr($dt, -2));
 }
 
+function mk_date($y, $m, $d)
+{
+	return str_pad((int)$y, 4, '0', STR_PAD_LEFT) . str_pad((int)$m, 2, '0', STR_PAD_LEFT) . str_pad((int)$d, 2, '0', STR_PAD_LEFT);
+}
 
-	list($ses, $usr) = initadm();
-	
-	if ( !empty($btn_cancel) ) {
-		header("Location: admannounce.php");
-		exit();
+	if (isset($_GET['del'])) {
+		q('DELETE FROM '.$tbl.'announce WHERE id='.(int)$_GET['del']);
+		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.(int)$_GET['del']);
 	}
-	
-	if ( !empty($del) ) {
-		$a_d = new fud_announce_adm;
-		$a_d->get($del);
-		$a_d->delete();
-		
-		header("Location: admannounce.php?"._rsidl);
-		exit();
-	}
-	
-	if ( !empty($edit) && empty($prev_l) ) {
-		$a_r = new fud_announce_adm;
-		$a_r->get($edit);
-		$a_r->export_vars('a_');
-		
-		list($d_year, $d_month, $d_day) = raw_date($a_r->date_started);
-		list($d2_year, $d2_month, $d2_day) = raw_date($a_r->date_ended);
-		
-		$a_r->get_frm_list();
-		$a_r->reset_forums();
-		while ( $obj = $a_r->each_forum() ) $GLOBALS['frm_'.$obj->forum_id] = 1;
-	}
-	
-	if ( !empty($btn_submit) ) {
-		$a_s = new fud_announce_adm;
-		$a_s->fetch_vars($HTTP_POST_VARS, 'a_');
-		
-		$d_year = prepad($d_year, 2, '0');
-		$d2_year = prepad($d2_year, 2, '0');
-		
-		$d_month = prepad($d_month, 2, '0');
-		$d2_month = prepad($d2_month, 2, '0');
-		
-		$d_day = prepad($d_day, 2, '0');
-		$d2_day = prepad($d2_day, 2, '0');
-		
-		$y = strftime("%Y", __request_timestamp__);
-		$c = substr($y, 0, strlen($y)-2);
-		
-		if ( strlen($d_year) < 4 ) $d_year = $c.$d_year;
-		if ( strlen($d2_year) < 4 ) $d2_year = $c.$d2_year;
-				
-		$a_s->date_stared = $d_year.$d_month.$d_day;
-		$a_s->date_ended = $d2_year.$d2_month.$d2_day;
-		
-		$a_s->add();
-		
-		$f = new fud_forum_adm;
-		$f->get_all_forums();
-		$a_s->rm_all_forums();
-		
-		while ( $obj = $f->nextfrm() ) {
-			if ( $HTTP_POST_VARS['frm_'.$f->id] ) {
-				$a_s->add_forum($f->id);
-			} 
+
+	if (isset($_GET['edit']) && ($an_d = db_sab('SELECT * FROM '.$tbl.'announce WHERE id='.(int)$_GET['edit']))) {
+		list($d_year, $d_month, $d_day) = raw_date($an_d->date_started);
+		list($d2_year, $d2_month, $d2_day) = raw_date($an_d->date_ended);
+		$a_subject = $an_d->subject;
+		$a_text = $an_d->text;
+		$edit = (int)$_GET['edit'];
+		$c = uq('SELECT forum_id FROM '.$tbl.'ann_forums WHERE ann_id='.(int)$_GET['edit']);
+		while ($r = db_rowarr($c)) {
+			$frm_list[$r[0]] = $r[0];
 		}
-		
-		header("Location: admannounce.php?"._rsidl);
-		exit();
-	}
-	
-	if ( !empty($btn_update) && !empty($edit) ) {
-		$a_s = new fud_announce_adm;
-		
-		$a_s->get($edit);
-		
-		$a_s->fetch_vars($HTTP_POST_VARS, 'a_');
-		
-		$d_year = prepad($d_year, 2, '0');
-		$d2_year = prepad($d2_year, 2, '0');
-		
-		$d_month = prepad($d_month, 2, '0');
-		$d2_month = prepad($d2_month, 2, '0');
-		
-		$d_day = prepad($d_day, 2, '0');
-		$d2_day = prepad($d2_day, 2, '0');
-		
-		$y = strftime("%Y", __request_timestamp__);
-		$c = substr($y, 0, strlen($y)-2);
-		
-		if ( strlen($d_year) < 4 ) $d_year = $c.$d_year;
-		if ( strlen($d2_year) < 4 ) $d2_year = $c.$d2_year;
-				
-		$a_s->date_stared = $d_year.$d_month.$d_day;
-		$a_s->date_ended = $d2_year.$d2_month.$d2_day;
-		
-		$a_s->sync();
-		
-		$f = new fud_forum_adm;
-		$f->get_all_forums();
-		$a_s->rm_all_forums();
-		
-		while ( $obj = $f->nextfrm() ) {
-			if ( $HTTP_POST_VARS['frm_'.$f->id] ) {
-				$a_s->add_forum($f->id);
-			} 
+		qf($c);
+	} else if (isset($_POST['btn_none']) || isset($_POST['btn_all'])) {
+		$vals = array('edit', 'a_subject', 'a_text', 'd_year', 'd_month', 'd_day', 'd2_year', 'd2_month', 'd2_day');
+		foreach ($vals as $v) {
+			${$v} = $_POST[$v];
 		}
-		
-		header("Location: admannounce.php?"._rsidl);
-		exit();                                                                                                            
-	} 
-	
-	if ( empty($edit) && empty($prev_l) ) {
-		$tm_now = __request_timestamp__;
-		$tm_exp = $tm_now+86400;
-		list($d_day, $d_month, $d_year) = explode(" ", strftime("%d %m %Y", $tm_now));
-		list($d2_day, $d2_month, $d2_year) = explode(" ", strftime("%d %m %Y", $tm_exp));
+		if (isset($_POST['btn_all'])) {
+			$c = uq('SELECT id FROM '.$tbl.'forum');
+			while ($r = db_rowarr($c)) {
+				$frm_list[$r[0]] = $r[0];
+			}
+			qf($c);
+		}
+	} else {
+		$edit = $a_subject = $a_text = '';
+		list($d_year, $d_month, $d_day) = explode(' ', strftime('%Y %m %d', __request_timestamp__));
+		list($d2_year, $d2_month, $d2_day) =  explode(' ', strftime('%Y %m %d', (__request_timestamp__ + 86400)));
 	}
 	
-	cache_buster();
+	if (isset($_POST['btn_submit'])) {
+		$id = db_qid('INSERT INTO '.$tbl.'announce (date_started, date_ended, subject, text) VALUES ('.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).', '.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).', \''.addslashes($_POST['a_subject']).'\', \''.addslashes($_POST['a_text']).'\')');
+	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
+		$id = (int)$_POST['edit'];
+		q('UPDATE '.$tbl.'announce SET
+			date_started='.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).',
+			date_ended='.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).',
+			subject=\''.addslashes($_POST['a_subject']).'\',
+			text=\''.addslashes($_POST['a_text']).'\'
+			WHERE id='.$id);
+		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.$id);
+	}
+
+	if (isset($_POST['frm_list'], $id)) {
+		foreach ($_POST['frm_list'] as $v) {
+			q('INSERT INTO '.$tbl.'ann_forums (forum_id, ann_id) VALUES('.(int)$v.','.$id.')');
+		}
+	}
 	
-	$a_subject = ( isset($a_subject) ) ? htmlspecialchars($a_subject) : '';
-	$a_text = ( isset($a_text) ) ? htmlspecialchars($a_text) : '';
-	
-	include('admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Announcement System</h2>
-<form method="post" name="a_frm">
+<form method="post" name="a_frm" action="admannounce.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Forums</td>
-		<td>
-		<?php
-			/* draw forums */			
-			$frm = new fud_forum_adm;
-			$frm->get_all_forums();
-			
-			$frm->resetfrm();
-			
-			$rows = 6;
-			$tbl =  "<table border=0 cellspacing=1 cellpadding=2>\n";
-			$cat = new fud_cat;
-			$cat_id=$js_none=$js_all=NULL;
-			while ( $frm->nextfrm() ) {
-				if ( $cat_id != $frm->cat_id ) {
-					$cat->get_cat($frm->cat_id);
-					$tbl .= "<tr><td bgcolor=\"#eeeeee\" colspan=$rows><font size=-2>$cat->name</font></td></tr>\n<tr bgcolor=\"#ffffff\">";
-					$row = 0;
-				}
-				$cat_id = $frm->cat_id;
-				
-				if ( $row++ >= $rows ) {
-					$row = 0;
-					$tbl .= "</tr><tr bgcolor=\"#ffffff\">";
-				}
-				
-				$tbl .= "<td>".create_checkbox('frm_'.$frm->id, 1, empty($GLOBALS['frm_'.$frm->id])?'':$GLOBALS['frm_'.$frm->id])."<font size=-2> $frm->name</font></td>";
-				$js_none .= 'document.a_frm.frm_'.$frm->id.'.checked=false; ';
-				$js_all .= 'document.a_frm.frm_'.$frm->id.'.checked=true; ';
+		<td><table border=0 cellspacing=1 cellpadding=2>
+			<tr><td colspan=5"><input type="submit" name="btn_none" value="None"> <input type="submit" name="btn_all" value="All"></td></tr>
+<?php
+	$c = uq('SELECT f.name, f.id, c.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+	$old_c = '';
+	$rows = 6;
+	$row = 0;
+	while ($r = db_rowarr($c)) {
+		if ($old_c != $r[2]) {
+			if ($row < $rows) {
+				echo '<td colspan="'.($rows - $row).'"> </td></tr>';
 			}
-			
-			$tbl .=  "</tr>\n</table>\n";
-			echo '<input type="button" onClick="javascript: '.$js_none.'" value="None"> ';
-			echo '<input type="button" onClick="javascript: '.$js_all.'" value="All">';
-			echo $tbl;
-		?>
+			echo '<tr><td bgcolor="#eeeeee" colspan='.$rows.'><font size=-2>'.$r[2].'</font></td></tr><tr bgcolor="#ffffff">';
+			$row = 1;
+			$old_c = $r[2];
+		}
+		if ($row >= $rows) {
+			$row = 2;
+			echo '</tr><tr bgcolor="#ffffff">';
+		} else {
+			++$row;
+		}
+		echo '<td>'.create_checkbox('frm_list['.$r[1].']', $r[1], isset($frm_list[$r[1]])).' <font size=-2> '.$r[0].'</font></td>';
+	}
+	qf($c);
+?>
+		</tr></table>
 		</td>
 	</tr>
 	
@@ -203,7 +129,7 @@ function raw_date($dt)
 		<td>
 			<table border=0 cellspacing=1 cellpadding=0>
 				<tr><td><font size=-2>Month</font></td><td><font size=-2>Day</font></td><td><font size=-2>Year</td></tr>
-				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo ($d_year?$d_year:strftime("%Y", __request_timestamp__)); ?>" size=5></td></tr>
+				<tr><td><?php draw_month_select('d_month', 0, $d_month); ?></td><td><?php draw_day_select('d_day', 0, $d_day); ?></td><td><input type="text" name="d_year" value="<?php echo $d_year; ?>" size=5></td></tr>
 			</table>
 		</td>
 	</tr>
@@ -213,38 +139,35 @@ function raw_date($dt)
 		<td>
 			<table border=0 cellspacing=1 cellpadding=0>
 				<tr><td><font size=-2>Month</font></td><td><font size=-2>Day</font></td><td><font size=-2>Year</td></tr>
-				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo ($d2_year?$d2_year:strftime("%Y", __request_timestamp__)); ?>" size=5></td></tr>
+				<tr><td><?php draw_month_select('d2_month', 0, $d2_month); ?></td><td><?php draw_day_select('d2_day', 0, $d2_day); ?></td><td><input type="text" name="d2_year" value="<?php echo $d2_year; ?>" size=5></td></tr>
 			</table>
 		</td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Subject:</td>
-		<td><input type="text" name="a_subject" value="<?php echo $a_subject; ?>">
+		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>">
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Message:</td>
-		<td><textarea cols=40 rows=10 name="a_text"><?php echo $a_text; ?></textarea></td>
+		<td><textarea cols=40 rows=10 name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-		<?php
-			if ( !empty($edit) ) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
-				echo '<input type="submit" name="btn_update" value="Update">';
-			}
-			else {
+<?php
+			if ($edit) {
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+			} else {
 				echo '<input type="submit" name="btn_submit" value="Add">';
 			}
-		?>
+?>
 		</td>
 	</tr>
 	
 </table>
-<input type="hidden" name="edit" value="<?php echo (empty($edit)?'':$edit); ?>">
-<input type="hidden" name="prev_l" value="1">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 
 <table border=0 cellspacing=3 cellpadding=2>
@@ -256,29 +179,22 @@ function raw_date($dt)
 	<td>Action</td>
 </tr>
 <?php
-
-	$a_l = new fud_announce_adm;
-	$a_l->getall();
-	$a_l->reseta();
-	
-	$i=1;
-	while ( $obj = $a_l->eacha() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		
-		if ( strlen($obj->text) > 25 ) 
-			$b = substr($obj->text, 0, 25).'...';
-		else 
-			$b = $obj->text;
-		
-		$st_dt = raw_date($obj->date_started);
-		$st_dt = gmdate("F j, Y", mktime(0,0,0,$st_dt[1], $st_dt[2], $st_dt[0]));
-		$en_dt = raw_date($obj->date_ended);
-		$en_dt = gmdate("F j, Y", mktime(0,0,0,$en_dt[1], $en_dt[2], $en_dt[0]));
-		
-		$ctl = "<td>[<a href=\"admannounce.php?edit=".$obj->id."&"._rsid."\">Edit</a>] [<a href=\"admannounce.php?del=".$obj->id."&"._rsid."\">Delete</a>]</td>";
-		echo "<tr".$bgcolor."><td>".$obj->subject."&nbsp;</td><td>".$b."&nbsp;</td><td>".$st_dt."</td><td>".$en_dt."</td>".$ctl."</tr>\n";
+	$c = uq('SELECT * FROM '.$tbl.'announce ORDER BY date_started');
+	$i = 1;
+	while ($r = db_rowobj($c)) {
+		if ($edit == $r->id) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		$b = (strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text;
+		$st_dt = raw_date($r->date_started);
+		$st_dt = gmdate('F j, Y', mktime(0, 0, 0, $st_dt[1], $st_dt[2], $st_dt[0]));
+		$en_dt = raw_date($r->date_ended);
+		$en_dt = gmdate('F j, Y', mktime(0, 0, 0, $en_dt[1], $en_dt[2], $en_dt[0]));
+		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
+	qf($c);
 ?>
 </table>
-<?php readfile('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
