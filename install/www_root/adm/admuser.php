@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.17 2003/04/23 15:11:31 hackie Exp $
+*   $Id: admuser.php,v 1.18 2003/04/23 15:18:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -169,10 +169,10 @@ administration permissions to the forum. This individual will be able to do anyt
 		if (!empty($_POST['login_passwd'])) {
 			q('UPDATE '.$tbl.'users SET passwd=\''.md5($_POST['login_passwd']).'\' WHERE id='.$usr_id);
 		}
-	} else if (isset($_POST['usr_email']) || isset($_POST['usr_login'])) {
+	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
 		/* user searching logic */
-		$item = isset($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
-		$field = isset($_POST['usr_email']) ? 'email' : ($GLOBALS['USE_ALIASES'] == 'Y' ? 'alias' : 'login');
+		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
+		$field = !empty($_POST['usr_email']) ? 'email' : ($GLOBALS['USE_ALIASES'] == 'Y' ? 'alias' : 'login');
 		if (strpos($item, '*') !== FALSE) {
 			$like = 1;
 			$item = str_replace('*', '%', $item);
@@ -213,7 +213,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>User Adminstration System</h2>
-<form name="frm_usr" method="get" action="admuser.php">
+<form name="frm_usr" method="post" action="admuser.php">
 <?php echo _hs . $search_error; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
@@ -239,7 +239,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <table border=0 cellspacing=0 cellpadding=3>
 
 <form action="admuser.php" method="post"><?php echo _hs; ?>
-	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($usr->login); ?>" maxLength="<?php echo $GLOBALS['MAX_LOGIN_SHOW'] ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
+	<tr bgcolor="#f1f1f1"><td>Login:</td><td><?php echo $login_error; ?><input type="text" value="<?php echo htmlspecialchars($u->login); ?>" maxLength="<?php echo $GLOBALS['MAX_LOGIN_SHOW'] ?>" name="login_name"> <input type="submit" name="submit" value="Change Login Name"></td></tr>
 	<tr bgcolor="#f1f1f1"><td>Password:</td><td><input type="text" value="" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 	<input type="hidden" name="act" value="nada">
@@ -256,10 +256,9 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($u->bday) {
 		echo '<tr bgcolor="#f1f1f1"><td>Birthday:</td><td>' . strftime('%B, %d, %Y', strtotime($u->bday)) . '</td></tr>';
 	}
-?>
-	<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../<?php echo __fud_index_name__; ?>?t=register&mod_id=<?php echo $usr->id; ?>&<?php echo _rsid; ?>&returnto=<?php echo $returnto.'&'._rsid; ?>">Change User's Profile</a> &lt;&lt;</font></td></tr>
-<?php
-	echo '<tr bgcolor="#f1f1f1"><td><font size="+1"><b>Forum Administrator:</b></td><td>'.($usr->is_mod != 'A' ? 'N' : '<b><font size="+2" color="red">Y</font>').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
+
+	echo '<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
+	echo '<tr bgcolor="#f1f1f1"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->is_mod != 'A' ? 'N' : '<b><font size="+2" color="red">Y</font>').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Blocked:</td><td>'.$u->blocked.' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.$u->email_conf.' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 
@@ -267,7 +266,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr bgcolor="#f1f1f1"><td>COPPA:</td><td>'.$u->coppa.' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 	}
 
-	echo '<tr bgcolor="#f1f1f1"><td valign="top">Moderating Forums:</td><td valign="top">';
+	echo '<tr bgcolor="#f1f1f1"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
 	$c = q('SELECT f.name FROM '.$tbl.'mod mm INNER JOIN '.$tbl.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
 	if (db_count($c)) {
 		echo '<table border=0 cellspacing=1 cellpadding=3>';
@@ -325,7 +324,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';
 	}
 
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="admuser.php?act=reset&usr_id='.$usr_id.'&'._rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'._rsidl.'">Delete User</a></td></tr>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'._rsid.'">See Posts</a> | <a href="admuser.php?act=reset&usr_id='.$usr_id.'&'._rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'._rsidl.'">Delete User</a></td></tr>';
 }
 ?>
 </table>
