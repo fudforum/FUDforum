@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.7 2003/09/30 02:31:39 hackie Exp $
+*   $Id: admadduser.php,v 1.8 2003/09/30 04:26:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@ function validate_input()
 		return 1;
 	}
 	
-	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login='".addslashes($_POST['login'])."'")) {
+	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($_POST['login'])."'")) {
 		$GLOBALS['err_login'] = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
 		return 1;
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.11 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admlevel.php,v 1.12 2003/09/30 04:26:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,17 +19,12 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$tbl =& $DBHOST_TBL_PREFIX;
 
 	if (isset($_POST['lev_submit'])) {
-		q('INSERT INTO '.$tbl.'level (name, img, level_opt, post_count) VALUES (\''.addslashes($_POST['lev_name']).'\', '.strnull(addslashes($_POST['lev_img'])).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
+		q("INSERT INTO ".$tbl."level (name, img, level_opt, post_count) VALUES ('".addslashes($_POST['lev_name'])."', ".strnull(addslashes($_POST['lev_img'])).", ".(int)$_POST['lev_level_opt'].", ".(int)$_POST['lev_post_count'].")");
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
-		q('UPDATE '.$tbl.'level SET 
-			name=\''.addslashes($_POST['lev_name']).'\',
-			img='.strnull(addslashes($_POST['lev_img'])).',
-			level_opt='.(int)$_POST['lev_level_opt']).',
-			post_count='.(int)$_POST['lev_post_count'].'
-		WHERE id='.(int)$_POST['edit']);	
+		q("UPDATE ".$tbl."level SET name='".addslashes($_POST['lev_name'])."', img=".strnull(addslashes($_POST['lev_img'])).", level_opt=".(int)$_POST['lev_level_opt'].", post_count=".(int)$_POST['lev_post_count']." WHERE id=".(int)$_POST['edit']);
 	}
 
 	if (isset($_GET['edit'])) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.13 2003/09/30 03:27:52 hackie Exp $
+*   $Id: admnntp.php,v 1.14 2003/09/30 04:26:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,7 +81,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Authentication Method:<br><font size="-1">The authentication method to use when connecting to nntp server.</font></td>
-		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "64\n128\n0", ($nntp_opt & 128 ? 128 : ($nntp_opt & 64 ? 64 : 0)); ?></td>
+		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "64\n128\n0", ($nntp_opt & 128 ? 128 : ($nntp_opt & 64 ? 64 : 0))); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
