@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.23 2003/10/09 14:34:26 hackie Exp $
+* $Id: iemail.inc.t,v 1.24 2003/11/06 16:35:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,6 +23,9 @@ function send_email($from, $to, $subj, $body, $header='')
 	$body = str_replace('\n', "\n", $body);
 
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
+		if (!class_exists('fud_smtp')) {
+			fud_use('smtp.inc');
+		}
 		$smtp = new fud_smtp;
 		$smtp->msg = str_replace("\n.", "\n..", $body);
 		$smtp->subject = $subj;
