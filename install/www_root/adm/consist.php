@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.32 2003/05/11 18:36:22 hackie Exp $
+*   $Id: consist.php,v 1.33 2003/05/11 18:46:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -545,6 +545,14 @@ forum will be disabled.<br><br>
 		}
 	}
 	draw_stat('Done: Validating group/primary user relations');
+
+	draw_stat('Rebuilding group leader cache');
+	$c = q('SELECT DISTINCT(user_id) FROM '.$tbl.'group_members WHERE group_leader=\'Y\'');
+	while ($r = db_rowarr($c)) {
+		rebuild_group_ldr_cache($r[0]);
+	}
+	qf($c);
+	draw_stat('Done: Rebuilding group leader cache');
 
 	draw_stat('Rebuilding group cache');
 	q('DELETE FROM '.$tbl.'group_cache');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.6 2003/05/02 17:23:39 hackie Exp $
+*   $Id: groups_adm.inc,v 1.7 2003/05/11 18:47:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,5 +155,19 @@ function draw_perm_table($obj)
 	}
 
 	return $str;
+}
+
+function rebuild_group_ldr_cache($id)
+{
+	$c = uq('SELECT group_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'group_members WHERE user_id='.$id.' AND group_leader=\'Y\'');
+	while ($r = db_rowarr($c)) {
+		$g[] = $r[0];
+	}
+	qf($c);
+	if (isset($g)) {
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET group_leader_list='.strnull(addslashes(@serialize($g))).' WHERE id='.$id);
+	} else {
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET group_leader_list=NULL WHERE id='.$id);
+	}
 }
 ?>

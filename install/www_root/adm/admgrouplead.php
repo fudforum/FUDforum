@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.10 2003/04/25 20:15:33 hackie Exp $
+*   $Id: admgrouplead.php,v 1.11 2003/05/11 18:46:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,6 +35,7 @@
 	if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'group_members WHERE user_id='.(int)$_GET['del']);
 		q('DELETE FROM '.$tbl.'group_cache WHERE user_id='.(int)$_GET['del']);
+		rebuild_group_ldr_cache((int)$_GET['del']);
 	} else if ($gr_leader) {
 		$srch = addslashes(str_replace('\\', '\\\\', htmlspecialchars($gr_leader)));
 
@@ -47,6 +48,7 @@
 				$r = db_rowarr($c);
 				$flds = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
 				q('INSERT INTO '.$tbl.'group_members ('.str_replace('p_', 'up_', $flds).', group_leader, group_id, user_id) SELECT '.$flds.', \'Y\', id, '.$r[0].' FROM '.$tbl.'groups WHERE id='.$group_id);
+				rebuild_group_ldr_cache($r[0]);
 				grp_rebuild_cache($group_id, $r[0]);
 				$gr_leader = '';
 				break;
