@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.13 2003/04/25 17:24:59 hackie Exp $
+*   $Id: groups.inc.t,v 1.14 2003/04/25 18:57:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -166,6 +166,7 @@ function grp_resolve_perms(&$grp)
 			return;
 		}
 		$inh_list[$r['id']] = 1;
+		$inherit_id = $r['inherit_id'];
 	}
 }
 
