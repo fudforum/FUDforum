@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.29 2003/10/15 14:19:56 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.30 2003/10/15 15:07:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,7 +25,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 
 		if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 			if (!($c & 1)) {
-				$level_name =& $obj->level_name;
+				$level_name = $obj->level_name . ',';
 				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 			} else {
 				$level_name = $level_image = '';
@@ -33,7 +33,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 			$obj->avatar_loc = '';
-			$level_name =& $obj->level_name;
+			$level_name = $obj->level_name . ',';
 		}
 		$avatar = ($obj->avatar_loc || $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
 		$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';	
