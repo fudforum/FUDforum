@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.22 2003/09/30 02:50:45 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.23 2003/10/01 18:43:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,57 +15,13 @@
 *
 ***************************************************************************/
 
-function draw_tmpl_perm_table($perm_arr)
+function draw_tmpl_perm_table($perm, $perms, $names)
 {
 	$str = '';
-	foreach($perm_arr as $k => $v) { 
-		if (strncmp($k, 'up_', 3)) {
-			continue;
-		}
-		$str .= $v == 'Y' ? '{TEMPLATE: perm_yes}' : '{TEMPLATE: perm_no}';
+	foreach ($perms as $k => $v) {
+		$str .= ($perm & $v[0]) ? '{TEMPLATE: perm_yes}' : '{TEMPLATE: perm_no}';
 	}
 	return $str;
-}
-
-/* type == 0 -> update ;; type == 1 -> insert */
-function make_perm_str(&$max_perms, &$cur_perms, $type)
-{
-	$s1 = $s2 = '';
-	foreach ($max_perms as $k => $v) {
-		if ($type) {
-			$s1 .= 'u' . $k . ','; 
-			$s2 .= "'".(($v == 'Y' && isset($cur_perms[$k]) && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
-		} else {
-			$s1 .= 'u' . $k . "='".(($v == 'Y' && isset($cur_perms[$k]) && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
-		}
-	}
-	if ($type) {
-		return array($s1, $s2);
-	} else {
-		return substr($s1, 0, -1);
-	}
-}
-
-function make_perms_ob(&$obj)
-{
-	foreach ($obj as $k => $v) {
-		if (strncmp($k, 'p_', 2)) {
-			continue;
-		}
-		$perms[$k] = $v;
-	}
-	return $perms;
-}
-
-function make_perms_uob(&$obj)
-{
-	foreach ($obj as $k => $v) {
-		if (strncmp($k, 'up_', 3)) {
-			continue;
-		}
-		$perms[substr($k, 1)] = $v;
-	}
-	return $perms;
 }
 
 /*{PRE_HTML_PHP}*/
@@ -75,15 +31,18 @@ function make_perms_uob(&$obj)
 	}
 	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
 
-	if ($group_id && $usr->is_mod != 'A' && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_leader=\'Y\'')) {
+	if ($group_id && !($usr->users_opt & 1048576) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072')) {
 		std_error('access');	
 	}
 
-	if ($usr->is_mod != 'A') { 
-		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND gm.group_leader=\'Y\' ORDER BY ltrim(g.name)');
-	} else {
+	$hdr = group_perm_array();
+	/* fetch all the groups user has access to */
+	if ($usr->users_opt & 1048576) {
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
+	} else {
+		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072 ORDER BY g.name');
 	}	
+
 	/* make a group selection form */
 	$n = 0;
 	$vl = $kl = '';
@@ -92,7 +51,6 @@ function make_perms_uob(&$obj)
 	        $kl .= ($e[2] ? '* ' : '') . htmlspecialchars($e[1]) . "\n";
 		$n++;
 	}
-	qf($r);
 
 	if (!$n) {
 		std_error('access');
@@ -115,6 +73,7 @@ function make_perms_uob(&$obj)
 	if (!($grp = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id='.$group_id))) {
 		invl_inp_err();
 	}
+
 	/* fetch controlled resources */
 	if (!$grp->forum_id) {
 		$group_resources = '{TEMPLATE: group_resources}';
@@ -122,33 +81,43 @@ function make_perms_uob(&$obj)
 		while ($r = db_rowarr($c)) {
 			$group_resources .= '{TEMPLATE: group_resource_ent}';
 		}
-		qf($c);
 	} else {
 		$fname = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$grp->forum_id);
 		$group_resources = '{TEMPLATE: primary_group_resource}';
 	}
 
-	$maxperms = make_perms_ob($grp);
+	if ($usr->users_opt & 1048576) {
+		$maxperms = 2147483647;
+	} else {
+		$maxperms = (int) $grp->groups_opt;
+	}
+
 	$indicator = '{TEMPLATE: indicator}';
 
 	$login_error = '';
 	$gr_member = isset($_POST['gr_member']) ? $_POST['gr_member'] : '';
 	$find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: grp_find_user}' : '';
+	$perm = 0;
 
 	if (isset($_POST['btn_submit'])) {
+		foreach ($hdr as $k => $v) {
+			if ($_POST[$k] & $v[1]) {
+				$perm |= $v[1];
+			}
+		}
+
 		if (empty($_POST['edit'])) {
 			if (!($usr_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($gr_member))."'"))) {
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
 			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='.$usr_id)) {
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
 			} else {
-				$p = make_perm_str($maxperms, $_POST, 1);
-				q('INSERT INTO {SQL_TABLE_PREFIX}group_members ('.$p[0].' user_id, group_id) VALUES ('.$p[1].' '.$usr_id.', '.$group_id.')');
-				grp_rebuild_cache($group_id, $usr_id);
+				q('INSERT INTO {SQL_TABLE_PREFIX}group_members (group_members_opt, user_id, group_id) VALUES ('.$perm.' '.$usr_id.', '.$group_id.')');
+				grp_rebuild_cache(array($usr_id));
 			}
-		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit'])) !== NULL) {
-			q('UPDATE {SQL_TABLE_PREFIX}group_members SET '.make_perm_str($maxperms, $_POST, 0).' WHERE id='.(int)$_POST['edit']);
-			grp_rebuild_cache($group_id, $usr_id);
+		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit'])) !== null) {
+			q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE id='.(int)$_POST['edit']);
+			grp_rebuild_cache(array($usr_id));
 		}
 		unset($_POST['btn_submit']);
 	}
@@ -157,37 +126,86 @@ function make_perms_uob(&$obj)
 		grp_delete_member($group_id, $del);
 	}
 
-	$edit = '0';
+	$edit = 0;
 	if (isset($_GET['edit']) && ($edit = (int)$_GET['edit'])) {
 		if (!($mbr = db_sab('SELECT gm.*, u.alias FROM {SQL_TABLE_PREFIX}group_members gm LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.id='.$edit))) {
 			invl_inp_err();
 		}
-		
 		if ($mbr->user_id == 0) {
 			$gr_member = '{TEMPLATE: group_mgr_anon}';
 		} else if ($mbr->user_id == '2147483647') {
 			$gr_member = '{TEMPLATE: group_mgr_reged}';
 		} else {
 			$gr_member = $mbr->alias;
-		}	
-		$perms = make_perms_uob($mbr);
+		}
+		$perm = $mbr->group_members_opt;	
 	} else if ($group_id > 2 && !isset($_POST['btn_submit']) && ($luser_id = q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id))) {
 		/* help trick, we fetch the last user added to the group */
-		if (!($mbr = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}group_members WHERE id='.$luser_id))) {
+		if (!($mbr = db_sab('SELECT 1 AS user_id, group_members_opt FROM {SQL_TABLE_PREFIX}group_members WHERE id='.$luser_id))) {
 			invl_inp_err();
 		}
-		$perms = make_perms_uob($mbr);
-		unset($mbr);
+		$perm = $mbr->group_members_opt;
 	}
 
 	/* anon users cannot vote or rate */
 	if (isset($mbr) && !$mbr->user_id) {
-		$maxperms['p_VOTE'] = $maxperms['p_RATE'] = 'N';
+		$maxperms = $maxperms &~ (512|1024);
 	}
-	if (!isset($perms)) { /* no members inside the group */
-		$perms = $maxperms;	
+
+	/* no members inside the group */
+	if (!$perm && !isset($mbr)) { 
+		$perm = $maxperms;
 	}
-	$perm_select = draw_permissions('', $perms, $maxperms);
+
+	/* translated permission names */
+	$ts_list = array(
+'p_VISIBLE'=>'{TEMPLATE: p_VISIBLE}', 
+'p_READ'=>'{TEMPLATE: p_READ}',
+'p_POST'=>'{TEMPLATE: p_POST}', 
+'p_REPLY'=>'{TEMPLATE: p_REPLY}', 
+'p_EDIT'=>'{TEMPLATE: p_EDIT}',
+'p_DEL'=>'{TEMPLATE: p_DEL}', 
+'p_STICKY'=>'{TEMPLATE: p_STICKY}', 
+'p_POLL'=>'{TEMPLATE: p_POLL}',
+'p_FILE'=>'{TEMPLATE: p_FILE}',
+'p_VOTE'=>'{TEMPLATE: p_VOTE}',
+'p_RATE'=>'{TEMPLATE: p_RATE}', 
+'p_SPLIT'=>'{TEMPLATE: p_SPLIT}', 
+'p_LOCK'=>'{TEMPLATE: p_LOCK}',
+'p_MOVE'=>'{TEMPLATE: p_MOVE}',
+'p_SML'=>'{TEMPLATE: p_SML}',
+'p_IMG'=>'{TEMPLATE: p_IMG}');
+
+	$perm_sel_hdr = $perm_select = $tmp = '';
+	$i = 0;
+	foreach ($hdr as $k => $v) {
+		$selyes = '';
+		if ($maxperms & $v[0]) {
+			if ($perm & $v[0]) {
+				$selyes = ' selected';
+			}
+			$perm_select .= '{TEMPLATE: groups_perm_selection}';
+		} else {
+			$perm_select .= '{TEMPLATE: groups_na_perms}';
+		}
+		$tmp .= '{TEMPLATE: groups_header_entry}';
+
+		if (++$i == '{TEMPLATE: groups_perm_per_row}') {
+			$perm_sel_hdr .= '{TEMPLATE: groups_header_entry_row}';
+			$perm_select = $tmp = '';
+			$i = 0;
+		}
+	}
+
+	if ($tmp) {
+		while (++$i < '{TEMPLATE: groups_perm_per_row}' + 1) {
+			$tmp .= '{TEMPLATE: groups_hdr_sp}';
+			$perm_select .= '{TEMPLATE: groups_col_sp}';
+		}
+		$perm_sel_hdr .= '{TEMPLATE: groups_header_entry_row}';
+	}
+
+	$n_perms = count($hdr);
 
 	if (!$edit) {
 		$member_input = '{TEMPLATE: member_add}';
@@ -199,19 +217,11 @@ function make_perms_uob(&$obj)
 
 	/* draw list of group members */
 	$group_members_list = '';
-	$r = uq('SELECT gm.id AS mmid, gm.*, g.*, u.alias
-			FROM 
-				{SQL_TABLE_PREFIX}group_members gm
-				LEFT JOIN {SQL_TABLE_PREFIX}users u ON gm.user_id=u.id 
-				INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id 
-			WHERE 
-				gm.group_id='.$group_id.' AND gm.group_leader=\'N\'
-			ORDER BY gm.id');
-
+	$r = uq('SELECT gm.id AS mmid, gm.*, g.*, u.alias FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON gm.user_id=u.id WHERE gm.group_id='.$group_id.' ORDER BY gm.id');
 	while ($obj = db_rowobj($r)) {
-		$perm_table = draw_tmpl_perm_table($obj);
+		$perm_table = draw_tmpl_perm_table($obj->group_members_opt, $hdr, $ts_list);
 
-		if ($obj->user_id == 0) {
+		if ($obj->user_id == '0') {
 			$member_name = '{TEMPLATE: group_mgr_anon}';
 			$group_members_list .= '{TEMPLATE: group_const_entry}';
 		} else if ($obj->user_id == '2147483647')  {
@@ -222,7 +232,6 @@ function make_perms_uob(&$obj)
 			$group_members_list .= '{TEMPLATE: group_member_entry}';
 		}
 	}
-	qf($r);
 	$group_control_panel = '{TEMPLATE: group_control_panel}';
 
 /*{POST_PAGE_PHP_CODE}*/
