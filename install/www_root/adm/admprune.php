@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admprune.php,v 1.5 2002/06/26 22:39:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,15 +59,13 @@
 					".$GLOBALS['DBHOST_TBL_PREFIX']."thread 
 					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
 						ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
-					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$forumsel;
+					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$forumsel.' AND '.$GLOBALS['DBHOST_TBL_PREFIX']."thread.moved_to=0";
 			$frm_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forumsel);
 			$msg = '<font color="red"> from '.$frm_name.'</font>';
 		}
 		
 		if ( !$btn_conf && !$btn_cancel ) { /* confirmation dialog */
 			$v = q_singleval("SELECT count(*) ".$QRY_TAIL);
-			
-			echo LAST_QUERY(1);
 			
 			$str_time = strftime("%Y-%m-%d %T", $back_t);
 			exit('

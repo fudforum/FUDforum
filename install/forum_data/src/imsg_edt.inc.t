@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.4 2002/06/26 22:39:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -239,6 +239,7 @@ class fud_msg_edit extends fud_msg
 		if ( !is_result($res) ) exit("no such message");
 		$del = db_singleobj($res);
 		
+		/* attachments */
 		if ( $del->attach_cnt ) {
 			$res = q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='N'");
 			if( db_count($res) ) {
@@ -257,7 +258,8 @@ class fud_msg_edit extends fud_msg
 			$poll->get($del->poll_id);
 			$poll->delete();
 		}
-
+		
+		/* check if thread */
 		if( $del->root_msg_id==$del->id ) {
 			$rmsg = q("SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$del->thread_id." AND id!=".$del->id);
 			$d_msg = new fud_msg_edit;

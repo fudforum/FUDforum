@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.3 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admlock.php,v 1.4 2002/06/26 22:39:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,8 @@
 
 	define('admin_form', 1);
 	include_once "GLOBALS.php";
-
+	include_once $GLOBALS['DATA_DIR'].'include/theme/default/db.inc';
+	
 	define('S', ($HTTP_COOKIE_VARS['COOKIE_NAME']?$HTTP_COOKIE_VARS['COOKIE_NAME']:$HTTP_GET_VARS['S']));
 	define('_rsid', 'S='.S);
 	define('_hs', '<input type="hidden" name="S" value="'.S.'">');
