@@ -1,10 +1,10 @@
-#!/usr/local/bin/php -q -d register_argc_argv=1
+#!/usr/local/bin/php -d register_argc_argv=1 -q
 <?php
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.8 2002/10/07 20:45:29 hackie Exp $
+*   $Id: nntp.php,v 1.9 2002/10/07 20:49:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
