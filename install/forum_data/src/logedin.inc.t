@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.14 2003/03/17 21:14:00 hackie Exp $
+*   $Id: logedin.inc.t,v 1.15 2003/03/17 22:28:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,7 @@
 			if ($GLOBALS['usr']->is_mod != 'A') {
 				$lp_lmt = get_all_perms(_uid);
 				if ($lp_lmt) {
-					$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE id IN(".$lp_lmt.") cat_id!=0");
+					$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE id IN(".$lp_lmt.") AND cat_id!=0");
 				} else {
 					$lmid = 0;
 				}
