@@ -140,7 +140,7 @@ echo "TAG $tag\n";
 
 			if ($is_zlib) {
 				copy("./install.php", "./FUDforum2/install.php");
-				shell_exec("{$PHP_BIN} -q create_file_list install >> FUDforum2/install.php");
+				shell_exec("{$PHP_BIN} -q create_file_list install 1 >> FUDforum2/install.php");
 				
 				create_archives("FUDforum2/", $version, 0, 1);
 				unlink("./FUDforum2/install.php");
@@ -170,7 +170,7 @@ echo "TAG $tag\n";
 
 			if ($is_zlib) {
 				copy("./upgrade.php", "./FUDforum2/upgrade.php");
-				shell_exec("{$PHP_BIN} -q create_file_list install >> FUDforum2/upgrade.php");
+				shell_exec("{$PHP_BIN} -q create_file_list install 1 >> FUDforum2/upgrade.php");
 				
 				create_archives("FUDforum2/", $version, 1, 1);
 				unlink("./FUDforum2/upgrade.php");
