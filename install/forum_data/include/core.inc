@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.58 2003/05/12 16:50:00 hackie Exp $
+*   $Id: core.inc,v 1.59 2003/05/12 23:11:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,15 +29,7 @@ function rls_db_lck()
 
 register_shutdown_function('rls_db_lck');
 
-$GLOBALS['TITLE_EXTRA']=NULL;
-
-if (!isset($_SERVER['PATH_TRANSLATED']) && isset($_SERVER['SCRIPT_FILENAME'])) {
-	$_SERVER['PATH_TRANSLATED'] = $_SERVER['SCRIPT_FILENAME'];
-}
-
-if (!isset($_SERVER['REQUEST_URI']) && isset($_SERVER['SCRIPT_NAME'], $_SERVER['QUERY_STRING'])) {
-	$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'];
-}
+$GLOBALS['TITLE_EXTRA'] = '';
 
 if (get_magic_quotes_gpc()) {
 	function strip_quotes(&$var) 
@@ -69,11 +61,9 @@ function fud_use($file, $static=false)
 {
 	if ($static) {
 		include_once $GLOBALS['INCLUDE'] . $file;
-	} else if (!defined('fud_theme')) {
-		include_once $GLOBALS['INCLUDE'] . 'theme/default/' . $file;
-	} else {
-		include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
+		return;
 	}
+	include_once $GLOBALS['INCLUDE'] . (defined('fud_theme') ? fud_theme : 'theme/default/') . $file;
 }
 
 function make_seed() 
