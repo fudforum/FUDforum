@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.42 2003/11/09 19:32:21 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.43 2003/11/18 13:15:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -269,7 +269,7 @@
 
 {SECTION: dmsg_poll}
 <p>
-<form action="{TEMPLATE: dmsg_poll_lnk}" method="post">
+<form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
