@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.tmpl,v 1.4 2003/04/02 16:06:24 hackie Exp $
+*   $Id: mvthread.tmpl,v 1.5 2003/04/11 14:54:07 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,15 +16,9 @@
 
 {PHP_FILE: input: mvthread.php.t; output: mvthread.php;}
 {REF: security.tmpl}
-{REF: users_reg.tmpl}
-{REF: users_adm.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
-{REF: forum_adm.tmpl}
-{REF: forum.tmpl}
 {REF: th.tmpl}
-{REF: cat.tmpl}
-{REF: cat_adm.tmpl}
 {REF: logaction.tmpl}
 
 {PAGE: MVTHREAD_PAGE  move thread to another forum form}
@@ -34,7 +28,7 @@
 <tr><td><font size="-1">{MSG: move_thread_to}</font></td></tr>
 {TEMPLATE-DATA: table_data}
 </table>
-{DEF: _hs}<input type="hidden" name="th" value="{VAR: _REQUEST['th']}"><input type="hidden" name="thx" value="{VAR: _REQUEST['thx']}"></form>
+{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}"><input type="hidden" name="thx" value="{VAR: thx}"></form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
@@ -51,7 +45,7 @@
 {SECTION: END}
 
 {SECTION: move_thread_request form for giving a reason why the thread should be moved}
-<tr><td><font size="-1"><b>{VAR-HTML: frm_dst->name}</b></font></td></tr>
+<tr><td><font size="-1"><b>{VAR-HTML: thr->frm_name}</b></font></td></tr>
 <tr><td><font size="-1">{MSG: move_request_reason}</font><br /><textarea name="reason_msg" rows=7 cols=30></textarea><td></tr>
 <tr><td align="right"><input type="submit" class="button" name="submit" value="{MSG: mvthread_submit_req}"></td></tr>
 {SECTION: END}

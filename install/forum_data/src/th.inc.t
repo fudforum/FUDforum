@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.32 2003/04/11 11:29:12 hackie Exp $
+*   $Id: th.inc.t,v 1.33 2003/04/11 14:53:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,38 +73,28 @@ class fud_thread
 	}
 	
 	
-	function move($to_forum)
+	function move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id)
 	{
 		if (!db_locked()) {
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
-		$msg_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}thread.id=".$this->id);
+		$msg_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}thread.id=".$id);
 		
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET forum_id='.$to_forum.' WHERE id='.$this->id);
-		q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$msg_count.' WHERE id='.$this->forum_id);
+		q('UPDATE {SQL_TABLE_PREFIX}thread SET forum_id='.$to_forum.' WHERE id='.$id);
+		q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$msg_count.' WHERE id='.$forum_id);
 		q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+1,post_count=post_count+'.$msg_count.' WHERE id='.$to_forum);
-		if (($aff_rows = db_affected(q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$to_forum.' AND root_msg_id='.$this->root_msg_id.' AND moved_to='.$this->forum_id)))) {
+		if (($aff_rows = db_affected(q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$to_forum.' AND root_msg_id='.$root_msg_id.' AND moved_to='.$forum_id)))) {
 			q('UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-'.$aff_rows.' WHERE id='.$to_forum);
 		}
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET moved_to='.$to_forum.' WHERE id!='.$this->id.' AND root_msg_id='.$this->root_msg_id);
+		q('UPDATE {SQL_TABLE_PREFIX}thread SET moved_to='.$to_forum.' WHERE id!='.$id.' AND root_msg_id='.$root_msg_id);
 		
-		q('INSERT INTO {SQL_TABLE_PREFIX}thread(
-			forum_id,
-			root_msg_id,
-			last_post_date,
-			last_post_id,
-			moved_to
-		)
-		VALUES(
-			'.$this->forum_id.',
-			'.$this->root_msg_id.',
-			'.$this->last_post_date.',
-			'.$this->last_post_id.',
-			'.$to_forum.'
-		)');
+		q('INSERT INTO {SQL_TABLE_PREFIX}thread 
+			(forum_id, root_msg_id, last_post_date, last_post_id, moved_to) 
+		VALUES 
+			('.$forum_id.', '.$root_msg_id.', '.$last_post_date.', '.$last_post_id.', '.$to_forum.')');
 		
-		rebuild_forum_view($this->forum_id);
+		rebuild_forum_view($forum_id);
 		rebuild_forum_view($to_forum);
 		
 		if (isset($ll)) {
@@ -116,10 +106,6 @@ class fud_thread
 	{
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$val.' WHERE id='.$this->id);
 	}
-	
-	
-
-	
 	
 	function update_vote_count()
 	{

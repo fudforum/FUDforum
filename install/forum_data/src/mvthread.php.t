@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.6 2003/03/31 13:21:21 hackie Exp $
+*   $Id: mvthread.php.t,v 1.7 2003/04/11 14:53:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,105 +17,91 @@
 
 	define('plain_form', 1);
 	
-	{PRE_HTML_PHP}
-	fud_user_to_adm($usr);
+/*{PRE_HTML_PHP}*/
+
+	$th = isset($_POST['th']) ? (int)$_POST['th'] : (isset($_GET['th']) ? (int)$_GET['th'] : 0);
+	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : 0;
+	$to = isset($_GET['to']) ? (int)$_GET['to'] : 0;
 	
-	if (isset($_POST['th'], $_POST['thx']) && (int)$_POST['th'] && (int)$_POST['thx']) {
-		if ($usr->is_mod != 'A' && !is_moderator($_POST['thx'], _uid)) {
+	/* thread x-change */
+	if ($th && $thx) {
+		if ($usr->is_mod != 'A' && !is_moderator($thx, _uid)) {
 			std_error('access');
-			exit();
 		}
 	
 		if (isset($_POST['reason_msg'])) {
 			fud_use('thrx_adm.inc', TRUE);
-			if (fud_thr_exchange::add($_POST['reason_msg'], $_POST['th'], $_POST['thx'], _uid)) {
-				logaction(_uid, 'THRXREQUEST', $_POST['th']);
+			if (fud_thr_exchange::add($_POST['reason_msg'], $th, $thx, _uid)) {
+				logaction(_uid, 'THRXREQUEST', $th);
 			}
 			exit('<html><script>window.close();</script></html>');
 		} else {
-			$thr = new fud_thread;
-			$frm_dst = new fud_forum_adm;
-		
-			$thr->get_by_id((int)$_POST['th']);
-			$frm_dst->get((int)$_POST['thx']);
+			$thr = db_sab('SELECT f.name AS frm_name, m.subject FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id='.$th.' INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE f.id='.$thx);
 			$table_data .= '{TEMPLATE: move_thread_request}';		
 		}
 	}
-	 
-	if (isset($_GET['th'], $_GET['to'])) {
-		if (!db_locked()) { 
-			db_lock('{SQL_TABLE_PREFIX}mod WRITE, {SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-			$ll = 1; 
-		}
 
-		$thr = new fud_thread;
-		$thr->get_by_id((int) $_REQUEST['th']);
+	/* moving a thread */
+	if ($th && $to) {
+		$thr = db_sab('SELECT 
+				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
+				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi, 
+				'.($usr->is_mod == 'A' ? ' 1 ' : ' mm1.id ').' AS mod1, 
+				'.($usr->is_mod == 'A' ? ' 1 ' : ' mm2.id ').' AS mod2 
+			FROM {SQL_TABLE_PREFIX}thread t
+			INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
+			INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$to.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm1 ON mm1.forum_id=f1.id AND mm1.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm2 ON mm2.forum_id=f2.id AND mm2.user_id='._uid.'
+			WHERE t.id='.$th);
 
-		/* fetch data about source thread & forum */
-		$src_frm_lpi = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id='.$thr->forum_id);
-		/* fetch data about dest forum */
-		$dst_frm_lpi = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}forum WHERE id='.(int)$_REQUEST['to']);
-		
-		if (!$src_frm_lpi || !$dst_frm_lpi) {
-			db_unlock();
+		if (!$thr) {
 			invl_inp_err();
 		}
-		
-		if ($usr->is_mod != 'A' && (!is_moderator($_REQUEST['to'], _uid) || !is_moderator($thr->forum_id, _uid))) {
-			db_unlock();
+		if (!$thr->mod1 || !$thr->mod2) {
 			std_error('access');
-			exit();
 		}
+	
+		/* fetch data about source thread & forum */
+		$src_frm_lpi = (int) $thr->f1_lpi;
+		/* fetch data about dest forum */
+		$dst_frm_lpi = (int) $thr->f2_lpi;
 		
-		$thr->move($_REQUEST['to']);
+		fud_thread::move($thr->id, $to, $thr->root_msg_id, $thr->forum_id, $thr->last_post_date, $thr->last_post_id);
 		
 		if ($src_frm_lpi == $thr->last_post_id) {
-			$mid = intzero(q_singleval("SELECT MAX({SQL_TABLE_PREFIX}msg.id) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$thr->forum_id." AND moved_to=0 AND approved='Y'"));
+			$mid = (int) q_singleval('SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.forum_id='.$thr->forum_id.' AND t.moved_to=0 AND m.approved=\'Y\'');
 			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.' WHERE id='.$thr->forum_id);
 		}
 		
-		if (dst_frm_lpi < $thr->last_post_id) {
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$thr->last_post_id.' WHERE id='.$_REQUEST['to']);
+		if ($dst_frm_lpi < $thr->last_post_id) {
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$thr->last_post_id.' WHERE id='.$to);
 		}
 		
-		if (isset($ll)) {
-			db_unlock();
-		}
-		
-		logaction(_uid, 'THRMOVE', $_REQUEST['th']);
+		logaction(_uid, 'THRMOVE', $th);
 		
 		exit("<html><script>window.opener.location='{ROOT}?t=".t_thread_view."&"._rsid."&frm_id=".$thr->forum_id."'; window.close();</script></html>");
 	}
 
- 	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 
-	if (!isset($_POST['thx'])) {
-		$thr = new fud_thread;
-		$thr->get_by_id((int)$_REQUEST['th']);
-	
-		/* get permissions for all forums, so a user won't see forums they don't need to see */
-		if ($usr->is_mod != 'A') {
-			$perms = array();
-			$r = q('SELECT p_VISIBLE,resource_id FROM mm_group_cache WHERE user_id='._uid.' AND resource_type=\'forum\'');
-			while ($d = db_rowarr($r)) {
-				$perms[$d[1]] = $d[0];
-			}
-			qf($r);
-			$r = q('SELECT p_VISIBLE,resource_id FROM mm_group_cache WHERE user_id=2147483647 AND resource_type=\'forum\'');
-			while ($d = db_rowarr($r)) {
-				if (!isset($perms[$d[1]])) { 
-					$perms[$d[1]] = $d[0];
-				}
-			}
-			qf($r);
-		}
+	if (!$thx) {
+		$thr = db_sab('SELECT f.name AS frm_name, m.subject, t.forum_id, t.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th);
 
-		$r = q('SELECT {SQL_TABLE_PREFIX}forum.name, {SQL_TABLE_PREFIX}forum.id, {SQL_TABLE_PREFIX}cat.name, {SQL_TABLE_PREFIX}mod.user_id FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id='._uid.' AND {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}cat.id!=0 AND {SQL_TABLE_PREFIX}forum.id!='.$thr->forum_id.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
+		$r = uq('SELECT 
+				f.name, f.id, c.name, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.p_VISIBLE ELSE g1.p_VISIBLE END) AS p_visible
+			FROM {SQL_TABLE_PREFIX}cat c 
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON c.id=f.cat_id 
+			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id 
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id 
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+			WHERE c.id!=0 AND f.id!='.$thr->forum_id.' ORDER BY c.view_order, f.view_order');
+
 		$table_data = $prev_cat = '';
 
 		while ($ent = db_rowarr($r)) {
 			/* determine whether to show the forum or not */
-			if ($usr->is_mod != 'A' && !$ent[3] && $perms[$ent[1]] !== 'Y') {
+			if ($usr->is_mod != 'A' && !$ent[3] && $ent[4] != 'Y') {
 				continue;
 			}
 
@@ -130,7 +116,8 @@
 				$table_data .= '{TEMPLATE: txc_forum_entry}';	
 			}
 		}
+		qf($r);
 	}
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MVTHREAD_PAGE}
