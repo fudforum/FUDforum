@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.28 2003/09/19 19:31:19 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.29 2003/09/23 15:36:34 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -387,5 +387,5 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
-<font class="SmallText"> [ <a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}" class="SmallText">{MSG: dmsg_reply_to}</a> ]
+<font class="SmallText"> [ <a href="{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}" class="SmallText">{MSG: dmsg_reply_to}</a> ]
 {SECTION: END}

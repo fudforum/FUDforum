@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.52 2003/09/19 19:31:18 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.53 2003/09/23 15:36:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -375,6 +375,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$modified_message = '';
 	}
 	
+	$rpl = '';
 	if (!$hide_controls) {
 		if ($usr->is_mod != 'N' || $GLOBALS['DISPLAY_IP'] == 'Y') {
 			$ip_address = '{TEMPLATE: dmsg_ip_address}';
@@ -402,9 +403,12 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
 
 		if ($obj->reply_to && $obj->reply_to != $obj->id) {
+			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
+				$lnk = d_thread_view;
+			} else {
+				$lnk = $_GET['t'];
+			}
 			$rpl = '{TEMPLATE: dmsg_reply_to}';
-		} else {
-			$rpl = '';
 		}
 
 		if ($obj->user_id) {
