@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.11 2002/10/07 20:43:01 hackie Exp $
+*   $Id: nntp.inc,v 1.12 2002/10/09 21:48:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -217,7 +217,7 @@ class fud_nntp
 			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 		}
 		
-		$this->subject = trim($this->headers['subject']);	
+		$this->subject = trim(decode_header_value($this->headers['subject']));	
 		
 		// Attempt to Get Poster's IP from fields commonly used to store it
 		if( isset($this->headers['x-trace']) ) 
@@ -530,6 +530,33 @@ class fud_nntp
 		fwrite($fp, $val);
 		fclose($fp);
 		umask($u);
+	}
+
+	function decode_header_value($val)
+	{
+		// check if string needs to be decoded
+		if( !strpos($val, '?') ) return trim($val);	
+		
+		// Decode String
+		if( preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*(.*)!i', $val, $m) ) {
+			$newval = '';
+			
+			$c = count($m[4]);
+			for( $i=0; $i<$c; $i++ ) {
+				$ec_type = strtolower($m[4][$i]);
+			
+				if( $ec_type == 'q' )
+					$newval .= $this->decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable');	
+				else if( $ec_type == 'b' )
+					$newval .= $this->decode_string($m[5][$i], 'base64');	
+
+				if( !empty($m[5][$i]) ) $newval .= ' '.$m[6][$i];
+				if( !empty($m[1][$i]) ) $newval = $m[1][$i].$newval;
+			}
+			$val = trim($newval);
+		}
+			
+		return trim($val);
 	}
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
