@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.22 2003/04/22 16:36:29 hackie Exp $
+*   $Id: compact.php,v 1.23 2003/04/22 20:34:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,6 +56,16 @@ and the amount of messages your forum has.<br><br>
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;	
 	}
+?>
+<script language="Javascript1.2">
+	var intervalID;
+	function scrolldown()
+	{
+		window.scroll(0, 30000);
+	}
+	intervalID = setInterval('scrolldown()', 100);
+</script>
+<?php
 
 function write_body_c($data, $i, &$len, &$offset)
 {
@@ -80,6 +90,19 @@ function write_body_c($data, $i, &$len, &$offset)
 	$GLOBALS['__FUD_TMP_F__'][$i][1] += $len;
 
 	return $i;
+}
+
+function eta_calc($start, $pos, $pc)
+{
+	$cur = time();
+	$prg = $pos / $pc;
+	$eta = ($cur - $start) / $prg * (10 - $prg);
+	if ($eta > 60) {
+		echo ($prg * 10) . "% done<br>\nETA: ".sprintf('%.2f', $eta/60)." minutes<br>\n";
+	} else {
+		echo ($prg * 10) . "% done<br>\nETA: " . $eta . " seconds<br>\n";
+	}
+	flush();
 }
 
 	if ($FORUM_ENABLED == 'Y') {
@@ -115,10 +138,7 @@ function write_body_c($data, $i, &$len, &$offset)
 			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
 		}
 		if ($i && !($i % $pc)) {
-			$prg = $i / $pc;
-			$t = time();
-			echo ($prg * 10) . '% done ETA: '.round((($t-$stm) / $prg * 10 - $stm + $t))." seconds<br>\n";
-			flush();
+			eta_calc($stm, $i, $pc);
 		}
 		$i++;
 	}
@@ -156,6 +176,7 @@ function write_body_c($data, $i, &$len, &$offset)
 
 	db_lock($tbl.'pmsg WRITE');
 	$i = $off = $len = 0;
+	$stm2 = time();
 	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
 	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'pmsg') / 10);
 	$c = q('SELECT distinct(foff), length FROM '.$tbl.'pmsg');
@@ -168,9 +189,7 @@ function write_body_c($data, $i, &$len, &$offset)
 		$off += $len;
 
 		if ($i && !($i % $pc)) {
-			$prg = $i / $pc;
-			$t = time();
-			echo ($prg * 10) . '% done ETA: '.round((($t-$stm) / $prg * 10 - $stm + $t))." seconds<br>\n";
+			eta_calc($stm2, $i, $pc);
 		}	
 		$i++;
 	}
@@ -195,7 +214,8 @@ function write_body_c($data, $i, &$len, &$offset)
 	}
 
 	db_unlock();
-	echo "Done (in ".((time()-$stm)/60)." min)<br>\n";
+
+	printf("Done in %.2f minutes<br>\n", (time() - $stm) / 60));
 
 	if ($FORUM_ENABLED == 'Y') {
 		echo '<br>Re-enabling the forum.<br>';
@@ -204,5 +224,6 @@ function write_body_c($data, $i, &$len, &$offset)
 		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
+	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
