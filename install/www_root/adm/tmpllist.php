@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.33 2004/06/07 15:24:55 hackie Exp $
+* $Id: tmpllist.php,v 1.35 2004/10/06 18:59:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -144,7 +144,7 @@ function goto_tmpl($tmpl)
 			fwrite($fp, $data);
 			fclose($fp);
 			fud_use('compiler.inc', true);
-			$c = q("SELECT theme FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
+			$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
 			while ($r = db_rowarr($c)) {
 				compile_all($tname, $tlang, $r[0]);
 			}
@@ -204,18 +204,15 @@ function goto_tmpl($tmpl)
 	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
 	$pathl = $path . '/';
 
-	if (!($dp = opendir($path))) {
+	if (!($files = glob($pathl . '*.tmpl'))) {
 		exit('Unable to open template directory at: "'.$path.'"<br>');
 	}
-	readdir($dp); readdir($dp);
-	while ($f = readdir($dp)) {
-		if (substr($f, -5) != '.tmpl') {
-			continue;
-		}
-		$data = file_get_contents($pathl . $f);
+	foreach ($files as $f) {
+		$data = file_get_contents($f);
+		$n = basename($f);
 
-		if ($f == 'footer.tmpl' || $f == 'header.tmpl') {
-			$file = $f;
+		if ($n == 'footer.tmpl' || $n == 'header.tmpl') {
+			$file = $n;
 		} else {
 			/* fetch file name */
 			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
@@ -287,7 +284,6 @@ function goto_tmpl($tmpl)
 			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
 	}
-	closedir($dp);
 
 	foreach($deps as $k => $v) {
 		foreach ($v as $k2 => $v2) {

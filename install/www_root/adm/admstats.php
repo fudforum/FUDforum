@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.26 2004/06/07 15:24:55 hackie Exp $
+* $Id: admstats.php,v 1.27 2004/10/06 16:36:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,23 +19,23 @@
 function dir_space_usage($dirp)
 {
 	$disk_space = 0;
-
-	if (!($dir = @opendir($dirp))) {
-		return;
-	}
-	readdir($dir); readdir($dir);
-
-	while ($f = readdir($dir)) {
-		$file = $dirp . '/' . $f;
-		if (@is_link($file)) {
-			continue;
-		} else if (@is_dir($file)) {
-			$disk_space += dir_space_usage($file);
-		} else if (@is_file($file)) {
-			$disk_space += filesize($file);
+	$dirs = array(realpath($dirp));
+	
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*'))) {
+			continue;	
+		}
+		foreach ($files as $f) {
+			if (is_link($f)) {
+				continue;
+			}
+			if (is_dir($f)) {
+				$dirs[] = $f;
+				continue;
+			}
+			$disk_space += filesize($f);
 		}
 	}
-	closedir($dir);
 
 	return $disk_space;
 }

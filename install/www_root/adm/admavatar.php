@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.19 2004/06/07 15:24:53 hackie Exp $
+* $Id: admavatar.php,v 1.20 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,22 +24,19 @@ function import_avatars($path)
 	$list = array(realpath($path));
 	$files = array();
 
+	/* no proper directory detection in early 4.3.X releases */
+	$ver = version_compare(PHP_VERSION, '4.3.3', '>=');
+
 	while (list(,$v) = each($list)) {
-		$dir = realpath($v);
-
-		$d = opendir($dir);
-		readdir($d); readdir($d);
-		while ($f = readdir($d)) {
-			$type = filetype($dir . '/' .$f);
-
-			if ($type == 'file' && preg_match('!\.(jpg|gif|jpeg|png)$!i', $f)) {
-				$files[] = $dir . '/' . $f;
-			} else if ($type == 'dir') {
-				$list[] = $dir . '/' . $f;
+		$files = array_merge($files, glob($v . "/{*.jpg,*.gif,*.png,*.jpeg}", GLOB_BRACE));
+	
+		if (($dirs = glob($v . "/*", GLOB_BRACE))) {
+			foreach ($dirs as $dir) {
+				if ($ver || is_dir($dir)) {
+					$list[] = $dir;
+				}
 			}
 		}
-
-		closedir($d);
 	}
 
 	$base = basename($list[0]);

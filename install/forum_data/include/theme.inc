@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.18 2004/06/07 15:24:53 hackie Exp $
+* $Id: theme.inc,v 1.19 2004/10/06 16:36:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -146,21 +146,31 @@ function cleandir($dir)
 		return;
 	}
 
-	$dp = opendir($dir);
-	readdir($dp); readdir($dp);
-	while ($f = readdir($dp)) {
-		if ($f == 'GLOBALS.php' || $f == 'oldfrm_upgrade.php' || @is_link($dir . '/' .$f)) {
+	$dirs = array(realpath($dir));
+
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*'))) {
 			continue;
 		}
-
-		if (@is_dir($dir . '/' . $f)) {
-			cleandir($dir . '/' . $f);
-		} else if (!@unlink($dir . '/' . $f)) {
-			echo 'Couldn\'t remove (<b>'.$dir . '/' . $f.'</b>)<br>';
+		foreach ($files as $file) {
+			if (strpos($file, 'GLOBALS.php') !== false || strpos($file, 'oldfrm_upgrade.php') !== false) {
+				continue;
+			}
+		
+			if (is_dir($file) && !is_link($file)) {
+				$dirs[] = $file;
+			} else if (!unlink($file)) {
+				echo '<b>Could not delete file "'.$file.'"<br>';
+			}
 		}
 	}
-
-	closedir($dp);
-	rmdir($dir);
+	
+	$dirs = array_reverse($dirs);
+	
+	foreach ($dirs as $dir) {
+		if (!rmdir($dir)) {
+			echo '<b>Could not delete directory "'.$dir.'"<br>';
+		}
+	}
 }
 ?>

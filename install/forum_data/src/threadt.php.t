@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.31 2004/04/05 19:32:17 hackie Exp $
+* $Id: threadt.php.t,v 1.32 2004/10/05 14:56:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@
 
 							$thread_list_table_data .= '{TEMPLATE: thread_row}';
 						} else if ($TREE_THREADS_MAX_DEPTH == $lev) {
-							$width += 20;
+							$width += '{TEMPLATE: threadt_tab_width}';
 							$thread_list_table_data .= '{TEMPLATE: max_depth_reached}';
 						}
 
