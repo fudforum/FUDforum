@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.7 2003/06/06 17:55:55 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.8 2003/06/08 16:40:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,8 +43,14 @@ function fud_wrap_tok($data)
 						$j=0;
 						$str ='';
 					}
+					$s = substr($data, $i, ($p - $i) + 1);
+					if ($s == '<pre>') {
+						$s = substr($data, $i, ($p = (strpos($data, '</pre>', $p) + 5)));
+					} else if ($s = '<span name="php">') {
+						$s = substr($data, $i, ($p = (strpos($data, '</span>', $p) + 5)));
+					}
 
-					$wa[] = array('word'=>substr($data,$i,($p-$i)+1));
+					$wa[] = array('word' => $s);
 					
 					$i=$p;
 				} else {
