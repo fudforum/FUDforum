@@ -952,9 +952,9 @@ iemail_forum_unsub:		Se désabonner de ce forum
 primary_group_prefix:		Groupe primaire pour le forum:
 group_resources:		Ce groupe controle les permissions des forums suivants
 register_email:			E-mail
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
+register_admin_newuser_title:	Un nouvel utilisateur a été enregistré et son compte est en attente de confirmation
+register_admin_newuser_msg:	Un nouvel utilisateur ({VAR: uent->login}) vient juste de s&#39;enregistrer sur le forum et comme la confirmation des comptes est activée, son compte ne deviendra actif que quand il sera confirmé par vous ou par un des administrateurs du forum. Pour décider du compte, veuillez aller à : {GVAR: WWW_ROOT}adm/admaccapr.php\n\nCeci est un processus automatique, ne répondez pas à ce message.\nSi vous désirez désactiver les futures notifications par courrier de l&#39;enregistrement des nouveaux utilisateurs, vous pouvez le faire par le Panneau de Contrôle Admin en changeant la valeur du paramètre "New Account Notification".
+post_mod_msg_notify_title:	Nouveau message dans le forum "{VAR: frm->name}" en attente d&#39;approbation
+post_mod_msg_notify_msg:	Un nouveau message intitulé "{VAR: msg_post->subject}" vient juste d&#39;être posté dans un forum que vous modérez. Pour décider de ce message, allez à : {ROOT}?t=modque\n\nCeci est un processus automatique, ne répondez pas à ce message.\n
+thread_printable_pdf:		Générer du PDF imprimable
+thread_syndicate:		Publier ce forum (XML)
