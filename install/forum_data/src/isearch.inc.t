@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.30 2004/01/04 16:38:26 hackie Exp $
+* $Id: isearch.inc.t,v 1.31 2004/01/10 20:03:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,7 +66,7 @@ function index_text($subj, $body, $msg_id)
 		$t2 = array_unique(explode(' ', $body));
 
 		foreach ($t1 as $v) {
-			if (isset($v[51]) || !isset($v[3])) continue;
+			if (isset($v[51]) || !isset($v[2])) continue;
 			$w1[] = "'".addslashes($v)."'";
 		}
 
@@ -75,7 +75,7 @@ function index_text($subj, $body, $msg_id)
 		}
 
 		foreach ($t2 as $v) {
-			if (isset($v[51]) || !isset($v[3])) continue;
+			if (isset($v[51]) || !isset($v[2])) continue;
 			$w2[] = "'".addslashes($v)."'";
 		}
 	} else { /* handling for multibyte languages */
