@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.2 2002/07/12 16:14:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -104,7 +104,7 @@ Post by {VAR: user_login} is ignored&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_ip_address}
-IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" target=_blank">{VAR: obj->ip_addr}</a><br>
+IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" target="_blank">{VAR: obj->ip_addr}</a><br>
 {SECTION: END}
 
 {SECTION: dmsg_host_name}
