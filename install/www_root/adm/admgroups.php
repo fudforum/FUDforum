@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admgroups.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -291,11 +291,11 @@ if ( !$edit ) {
 		$pret = $grp_p->resolve_perms();
 		$str = draw_perm_table($pret);
 		
-		$ur = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
+		$ur = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
 		if ( $cnt=db_count($ur) ) {
 			$sel =  "<font size=-1>(total: $cnt)</font><br><select>";
 			while ( $uobj = db_rowobj($ur) ) {
-				$sel .= '<option>'.$uobj->login.'</option>';
+				$sel .= '<option>'.$uobj->alias.'</option>';
 			}
 			$sel .= '</select>';
 		}

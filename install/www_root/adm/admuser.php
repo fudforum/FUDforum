@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admuser.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@ if( !empty($act) ) {
 			else
 				$usr->block_user();
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
+			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;
 		case 'del':
@@ -55,7 +55,7 @@ if( !empty($act) ) {
 			$val = (strtoupper($usr->coppa)=='Y') ? 'N' : 'Y';
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
+			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;
 		case 'econf':
@@ -66,7 +66,7 @@ if( !empty($act) ) {
 			else
 				$eusr->email_unconfirm();
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
+			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
 			exit();	
 			break;	
 		case 'admin':
@@ -79,7 +79,7 @@ if( !empty($act) ) {
 							<input type="hidden" name="usr_email" value="'.$GLOBALS['usr_email'].'">
 							<input type="hidden" name="act" value="admin">
 							<input type="hidden" name="adm_confirm" value="1">
-							<div align="center">You are taking away administration privileges from <font color="red"><b>'.htmlspecialchars($usr->login).'</b></font>!<br><br>
+							<div align="center">You are taking away administration privileges from <font color="red"><b>'.htmlspecialchars($usr->alias).'</b></font>!<br><br>
 							Are you sure you want to do this?<br>
 							<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
 							<div>
@@ -98,7 +98,7 @@ if( !empty($act) ) {
 							<input type="hidden" name="usr_email" value="'.$GLOBALS['usr_email'].'">
 							<input type="hidden" name="act" value="admin">
 							<input type="hidden" name="adm_confirm" value="1">
-							<div align="center">WARNING: Making <font color="red"><b>'.htmlspecialchars($usr->login).'</b></font> an <font color="red"><b>administrator</b></font> will give this person full
+							<div align="center">WARNING: Making <font color="red"><b>'.htmlspecialchars($usr->alias).'</b></font> an <font color="red"><b>administrator</b></font> will give this person full
 							administration permissions to the forum. This individual will be able to do anything with the forum, including taking away your own administration permissions.
 							<br><br>Are you sure you want to do this?<br>
 							<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
@@ -110,7 +110,7 @@ if( !empty($act) ) {
 				if ( $btn_yes ) $usr->mk_admin();
 			}
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
+			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;								
 	}
@@ -132,8 +132,11 @@ if( !empty($act) ) {
 	}
 	
 	if ( !empty($usr_email) ) {
+		$LIKE = strstr($usr_login, '*') ? 1 : 0;
 		$usr_email = str_replace("*","%",$usr_email);
-		$r = q("SELECT id, email, login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
+		if( __dbtype__ == 'pgsql' && $LIKE ) $usr_login = addslashes(str_replace('\\', '\\\\', stripslashes($usr_login)));
+		$r = q("SELECT id, email, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(email) LIKE '".strtolower($usr_email)."'");
+		if( __dbtype__ == 'pgsql' && $LIKE ) $gr_leader = str_replace('\\\\', '\\', $gr_leader);
 		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
@@ -141,41 +144,52 @@ if( !empty($act) ) {
 				echo "There are ".db_count($r)." users that match this email mask:<br>\n";
 				echo "<table border=0 cellspacing=0 cellpadding=3><tr><td>email</td><td>User</td></tr>";
 				while ( $obj = db_rowobj($r) ) {
-					echo "<tr><td><a href=\"admuser.php?"._rsid."&usr_email=$obj->email\">$obj->email</a></td><td>$obj->login</td></tr>";
+					echo "<tr><td><a href=\"admuser.php?"._rsid."&usr_email=$obj->email\">$obj->email</a></td><td>$obj->alias</td></tr>";
 				}
 				echo "</table>";
+				qf($r);
 				exit();
 			}
 			else {
-				list($usr->id) = db_rowarr($r);
+				list($usr->id) = db_singlearr($r);
 				$usr->get_user_by_id($usr->id);
 			}
 		}	
 	}
 	
 	if( !empty($usr_login) ) {
+		$LIKE = strstr($usr_login, '*') ? 1 : 0;
 		$usr_login = str_replace("*","%",$usr_login);
-		$r = q("SELECT id, login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."'");
+		if( __dbtype__ == 'pgsql' && $LIKE ) $usr_login = addslashes(str_replace('\\', '\\\\', stripslashes($usr_login)));
+		$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias) LIKE '".strtolower($usr_login)."'");
+		
+		if( __dbtype__ == 'pgsql' && $LIKE ) $gr_leader = str_replace('\\\\', '\\', $gr_leader);
 		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
 			if ( db_count($r) > 1 ) {
 				echo "There are ".db_count($r)." users that match this mask:<br>\n";
-				while ( $obj = db_rowobj($r) ) {
-					echo "<a href=\"admuser.php?"._rsid."&usr_login=$obj->login\">$obj->login</a><br>";
-				}
+				while ( $obj = db_rowobj($r) )
+					echo '<a href="admuser.php?'._rsid.'&usr_login='.$obj->alias.'">'.$obj->alias.'</a> (login: '.$obj->login.')<br>';
+				qf($r);
 				exit();
 			}
 			else {
-				list($usr->id) = db_rowarr($r);
+				list($usr->id) = db_singlearr($r);
 				$usr->get_user_by_id($usr->id);
 			}
 		}	
 	}
 	
 	if( !empty($user_id) && !empty($login_name) ) {
-		if( !($id = get_id_by_login($login_name)) ) 
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET login='".$login_name."' WHERE id=".$user_id);
+		if( !($id = get_id_by_login($login_name)) ) {
+			if( $GLOBALS['USE_ALIASES'] != 'Y' ) 
+				$alias = ", alias='".$login_name."'";
+			else
+				$alias = '';	
+			
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET login='".$login_name."'".$alias." WHERE id=".$user_id);
+		}	
 		else if( $id != $user_id )
 			$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
 			
@@ -275,7 +289,7 @@ if( !empty($act) ) {
 				if ( is_array($usr->get_custom_tags()) ) {
 					reset($usr->custom_tags);
 					while ( $obj = each($usr->custom_tags) ) {
-						echo $obj[1]->name." [<a href=\"admuser.php?deltag=".$obj[1]->id."&usr_login=".urlencode($usr->login)."&"._rsid."\">Delete</a>]<br>";
+						echo $obj[1]->name." [<a href=\"admuser.php?deltag=".$obj[1]->id."&usr_login=".urlencode($usr->alias)."&"._rsid."\">Delete</a>]<br>";
 					}
 				}
 			?>
@@ -284,7 +298,7 @@ if( !empty($act) ) {
 			<input type="text" name="c_tag">
 			<input type="submit" value="Add">
 			<input type="hidden" name="user_id" value="<?php echo $usr->id; ?>"> 
-			<input type="hidden" name="user_login" value="<?php echo htmlspecialchars($usr->login); ?>"> 
+			<input type="hidden" name="user_login" value="<?php echo htmlspecialchars($usr->alias); ?>"> 
 			</form>
 		</td>
 	</tr>
@@ -297,13 +311,13 @@ if( !empty($act) ) {
 <?php
 	echo '<td colspan=2>';
 
-	if( $PM_ENABLED == 'Y' ) echo '<a href="../index.php?t=ppost&returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->login).'">Send Private Message</a> | ';
+	if( $PM_ENABLED == 'Y' ) echo '<a href="../index.php?t=ppost&returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->alias).'">Send Private Message</a> | ';
 	if( $ALLOW_EMAIL == 'Y' ) 
-		echo '<a href="../index.php?t=email&tx_name='.urlencode($usr->login).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Send Email</a> | ';
+		echo '<a href="../index.php?t=email&tx_name='.urlencode($usr->alias).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Send Email</a> | ';
 	else
 		echo '<a href="mailto:'.$usr->email.'">Send Email</a> | ';
 	
-	echo '	<a href="../index.php?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../index.php?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->login).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
+	echo '	<a href="../index.php?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../index.php?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
 	
 	} else if ( !empty($usr_login) || !empty($usr_email) ) { ?>
 	<tr>

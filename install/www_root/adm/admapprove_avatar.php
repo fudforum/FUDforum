@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,7 +77,7 @@
 		echo '<tr bgcolor="#bff8ff"><td>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
 		<tr><td align=left>
-		'.$obj->login.'
+		'.$obj->alias.'
 		</td>
 		<td align=right>
 			[<a href="admapprove_avatar.php?usr_id='.$obj->id.'&'._rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$obj->id.'&'._rsid.'">Delete</a>]'.$fix_it.'
@@ -96,7 +96,7 @@
 		echo '<tr bgcolor="#bff8ff"><td>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
 		<tr><td align=left>
-		'.$obj->login.'
+		'.$obj->alias.'
 		</td>
 		<td align=right>
 			[<a href="admapprove_avatar.php?usr_id='.$obj->id.'&'._rsid.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$obj->id.'&'._rsid.'">Delete</a>]

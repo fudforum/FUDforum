@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.5 2002/06/26 22:25:26 hackie Exp $
+*   $Id: admlog.php,v 1.6 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?
-	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.login, ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.* FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY logtime DESC");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias, ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.* FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY logtime DESC");
 	
 	while ( $obj = db_rowobj($r) ) {
 		$logtime = "<td>".gmdate("Y M d G:m:i (g A)", $obj->logtime)."</td>";
@@ -53,71 +53,71 @@
 			case "THRMOVE":
 				$thr = new fud_thread;
 				$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Moved Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Moved Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "DELREPORT":
 				$msg = new fud_msg;
 				$msg->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Deleted Report</td><td>msg: $msg->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Deleted Report</td><td>msg: $msg->subject</td>$logtime</tr>";
 				break;
 			case "THRLOCK":
 				$thr = new fud_thread;
 				@$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Locked Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Locked Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "THRUNLOCK":
 				$thr = new fud_thread;
 				@$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Unlocked Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Unlocked Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "THRXAPPROVE":
 				$thr = new fud_thread;
 				$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Approved Thread-X-Change</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Approved Thread-X-Change</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "THRXDECLINE":
 				$thr = new fud_thread;
 				$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Declined Thread-X-Change</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Declined Thread-X-Change</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "THRSPLIT":
 				$thr = new fud_thread;
 				$thr->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Split Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Split Thread</td><td>thread: $thr->subject</td>$logtime</tr>";
 				break;
 			case "MSGEDIT":
 				$msg = new fud_msg;
 				@$msg->get_by_id($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Edited Message</td><td>msg: $msg->subject</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Edited Message</td><td>msg: $msg->subject</td>$logtime</tr>";
 				break;
 			case "DELMSG":
-				echo "<tr><td>$obj->login</td><td>Deleted Message</td><td>$obj->logaction</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Deleted Message</td><td>$obj->logaction</td>$logtime</tr>";
 				break;
 			case "DELTHR":
-				echo "<tr><td>$obj->login</td><td>Deleted Thread</td><td>$obj->logaction</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Deleted Thread</td><td>$obj->logaction</td>$logtime</tr>";
 				break;	
 			case "ADDFORUM":
 				$frm = new fud_forum;
 				$frm->get($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Created Forum</td><td>forum: $frm->name</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Created Forum</td><td>forum: $frm->name</td>$logtime</tr>";
 				break;
 			case "SYNCFORUM":
 				$frm = new fud_forum;
 				$frm->get($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Updated Forum</td><td>forum: $frm->name</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Updated Forum</td><td>forum: $frm->name</td>$logtime</tr>";
 				break;
 			case "DELFORUM":
 				$frm = new fud_forum;
 				$frm->get($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Updated Forum</td><td>forum: $frm->name</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Updated Forum</td><td>forum: $frm->name</td>$logtime</tr>";
 				break;
 			case "CHCATFORUM":
 				$frm = new fud_forum;
 				$frm->get($obj->a_res_id);
-				echo "<tr><td>$obj->login</td><td>Changed Forum Category</td><td>forum: $frm->name</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Changed Forum Category</td><td>forum: $frm->name</td>$logtime</tr>";
 				break;
 			case "WRONGPASSWD":
-				echo "<tr><td>$obj->login</td><td>Failed login attempt for admin</td><td>From $obj->logaction</td>$logtime</tr>";
+				echo "<tr><td>$obj->alias</td><td>Failed login attempt for admin</td><td>From $obj->logaction</td>$logtime</tr>";
 				break;
 		}
 	}

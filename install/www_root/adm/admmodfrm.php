@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admmodfrm.php,v 1.6 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,13 +54,13 @@
 		/* mod rebuild */	
 		rebuildmodlist();
 
-		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=$usr->login&"._rsid."'; window.close();\n</script></html>");
+		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=$usr->alias&"._rsid."'; window.close();\n</script></html>");
 	}
 	
 ?>
 <html>
 <body bgcolor="#ffffff">
-<h3>Allowing <?php echo $usr->login; ?> to moderate</h3>
+<h3>Allowing <?php echo $usr->alias; ?> to moderate</h3>
 <form name="frm_mod" method="post">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=2>

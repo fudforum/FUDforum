@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.5 2002/07/08 23:15:18 hackie Exp $
+*   $Id: finduser.php.t,v 1.6 2002/07/09 13:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,6 @@
 
 	$usr_login = ( !empty($usr_login) ) ? trim(stripslashes($usr_login)) : '';
 	$usr_email = ( !empty($usr_email) ) ? trim(stripslashes($usr_email)) : '';
-	
 	
 	if ( empty($start) ) $start = 0;
 	if ( empty($count) ) $count = $GLOBALS['MEMBERS_PER_PAGE'];
