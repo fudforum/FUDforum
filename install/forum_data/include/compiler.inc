@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.25 2003/05/05 13:11:54 hackie Exp $
+*   $Id: compiler.inc,v 1.26 2003/05/06 15:14:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -528,7 +528,7 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 			if (!@copy($path, $nd) && !@file_exists($nd)) {
 				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
 			} else {
-				@chmod($dest.$de, 0666);
+				@chmod($nd, 0666);
 			}
 		}
 	}
@@ -543,7 +543,6 @@ function copyimages($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}	
-
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
 	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
