@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.60 2003/06/05 20:16:02 hackie Exp $
+*   $Id: register.php.t,v 1.61 2003/06/06 18:42:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,6 +59,22 @@ function fetch_img($url, $user_id)
 function check_passwd($id, $passwd)
 {
 	return q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$id." AND passwd='".md5($passwd)."'");
+}
+
+function sanitize_url($url)
+{
+	if (!$url) {
+		return;
+	}
+
+	if (strncasecmp($url, 'http://', strlen('http://')) && strncasecmp($url, 'https://', strlen('https://')) && strncasecmp($url, 'ftp://', strlen('ftp://'))) {
+		if (stristr($url, 'javascript:')) {
+			return '';
+		} else {
+			return 'http://' . $url;
+		}
+	}
+	return $url;
 }
 
 function register_form_check($user_id)
@@ -118,7 +134,9 @@ function register_form_check($user_id)
 	}
 
 	$_POST['reg_name'] = trim($_POST['reg_name']);
-	$_POST['reg_home_page'] = trim($_POST['reg_home_page']);
+	$_POST['reg_home_page'] = sanitize_url(trim($_POST['reg_home_page']));
+	$_POST['reg_user_image'] = isset($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : NULL;
+
 	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer */
 		$_POST['reg_icq'] = '';
 	}
