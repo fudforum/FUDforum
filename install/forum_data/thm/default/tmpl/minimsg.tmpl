@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.tmpl,v 1.2 2002/08/04 15:09:12 hackie Exp $
+*   $Id: minimsg.tmpl,v 1.3 2003/04/09 12:03:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,15 +16,12 @@
 
 {PHP_FILE: input: minimsg.inc.t; output: @minimsg.inc;}
 
-
 {REF: fileio.tmpl}
 {REF: forum.tmpl}
-
 {REF: th.tmpl}
 {REF: imsg.tmpl}
 {REF: draw_pager.tmpl}
 {REF: drawmsg.tmpl}
-
 
 {MAIN_SECTION: minimsg_form list of messages in the thread you're replying to}
 <br /><br />
@@ -37,7 +34,7 @@
 </td></tr>
 <tr><td>{TEMPLATE-DATA: minimsg_pager}</td></tr>
 </table>
-<input type="hidden" name="minimsg_pager_switch" value="{VAR: minimsg_pager_switch}">
+<input type="hidden" name="minimsg_pager_switch" value="{VAR: start}">
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: minimsg_hidden display list of message in the thread you're replying to link}
@@ -45,5 +42,5 @@
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr><td align=middle>[<a href="javascript: document.post_form.submit();">Reveal Thread</a>]</td></tr>
 </table>
-<input type="hidden" name="minimsg_pager_switch" value="{VAR: minimsg_pager_switch}">
+<input type="hidden" name="minimsg_pager_switch" value="{VAR: start}">
 {MAIN_SECTION: END}
