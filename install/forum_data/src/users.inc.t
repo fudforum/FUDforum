@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.6 2002/08/05 00:47:55 hackie Exp $
+*   $Id: users.inc.t,v 1.7 2002/08/07 12:11:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -172,6 +172,7 @@ function init_user()
 
 	define('s', $s->ses_id);
 	define('_rsid', 'rid='.$u->id.'&amp;S='.s);
+	define('_rsidl', 'rid='.$u->id.'&S='.s);
 	define('_hs', '<input type="hidden" name="S" value="'.s.'">');
 	define('_uid', (($u->email_conf == 'Y')?$u->id:0));
 
