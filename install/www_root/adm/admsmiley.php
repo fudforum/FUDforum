@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admsmiley.php,v 1.5 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -176,7 +176,7 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <input type="hidden" name="prl" value="1">
 </form>
-<? } /*if empty($chpos) */ ?>
+<?php } /*if empty($chpos) */ ?>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr bgcolor="#e5ffe7">
 	<td>Smiley</td>

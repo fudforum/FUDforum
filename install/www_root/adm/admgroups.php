@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.11 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admgroups.php,v 1.12 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -219,7 +219,7 @@ if ( !$edit ) {
 ?>
 <tr>
 	<td>Anonymous and Registered Masks</td>
-	<td><? draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks); ?></td>
+	<td><?php draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks); ?></td>
 </tr>
 <?php
 } /* !$edit */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admreplace.php,v 1.5 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -128,11 +128,11 @@ function frm_to_reg($reg, $opt)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<? if ( $rpl_type == 'PERL' ) { ?>
-			<td>/<input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars(stripslashes($rpl_replace_str)); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<? echo htmlspecialchars(stripslashes($rpl_preg_opt)); ?>"></td>
-		<? } else { ?>
+		<?php if ( $rpl_type == 'PERL' ) { ?>
+			<td>/<input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars(stripslashes($rpl_replace_str)); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($rpl_preg_opt)); ?>"></td>
+		<?php } else { ?>
 			<td> <input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars(stripslashes($rpl_replace_str)); ?>"></td>
-		<? } ?>
+		<?php } ?>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -151,7 +151,7 @@ function frm_to_reg($reg, $opt)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars(stripslashes($rpl_from_post)); ?>">/<input type="text" name="rpl_from_post_opt" size=3 value="<? echo htmlspecialchars(stripslashes($rpl_from_post_opt)); ?>"></td></td>
+		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars(stripslashes($rpl_from_post)); ?>">/<input type="text" name="rpl_from_post_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($rpl_from_post_opt)); ?>"></td></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -186,7 +186,7 @@ function frm_to_reg($reg, $opt)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars(stripslashes($regex_str)); ?>">/<input type="text" name="regex_str_opt" size=3 value="<? echo htmlspecialchars(stripslashes($regex_str_opt)); ?>"></td>
+		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars(stripslashes($regex_str)); ?>">/<input type="text" name="regex_str_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($regex_str_opt)); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -196,7 +196,7 @@ function frm_to_reg($reg, $opt)
 	
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Test text:</td>
-		<td><textarea name="regex_src"><? echo htmlspecialchars(stripslashes($HTTP_POST_VARS['regex_src'])); ?></textarea></td>
+		<td><textarea name="regex_src"><?php echo htmlspecialchars(stripslashes($HTTP_POST_VARS['regex_src'])); ?></textarea></td>
 	</tr>
 	
 	<?php
@@ -234,7 +234,7 @@ function frm_to_reg($reg, $opt)
 			<input type="submit" name="btn_regex" value="Run">
 		</td>
 	</tr>
-<? } ?>
+<?php } ?>
 
 </table>
 <input type="hidden" name="edit" value="<?php echo (empty($edit)?'':$edit); ?>">

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.7 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admoptimizer.php,v 1.8 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -218,7 +218,7 @@ function optimize_file($file)
 <table border=0 cellspacing=1 cellpadding=3>
 <form method="post" action="admoptimizer.php">
 <?php echo _hs; ?>
-<input type="hidden" name="tname" value="<? echo $tname; ?>">
+<input type="hidden" name="tname" value="<?php echo $tname; ?>">
 <tr bgcolor="#bff8ff"><td>
 	The optimization process removes unneeded functions, comments and formatting from the php files compiled from the templates.
 	This makes the PHP files smaller, hence have smaller memory foot print and result in faster file parsing by the PHP's parser.

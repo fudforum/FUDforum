@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.18 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admthemes.php,v 1.19 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,11 +138,11 @@ function cleandir($dir)
 <table border=0 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff">
 	<td>Name:</td>
-	<? if ( isset($edit) && $edit == 1 ) { ?>
+	<?php if ( isset($edit) && $edit == 1 ) { ?>
 	<td><?php echo htmlspecialchars($thm_name); ?></td>
-	<? } else { ?>
+	<?php } else { ?>
 	<td><input type="text" name="thm_name" value="<?php echo htmlspecialchars($thm_name); ?>"></td>
-	<? } ?>
+	<?php } ?>
 </tr>
 
 <tr bgcolor="#bff8ff">
@@ -206,14 +206,14 @@ function update_locale()
 </script>
 
 	<select name="thm_lang" onChange="javascript: update_locale();">
-	<? echo $selopt; ?>
+	<?php echo $selopt; ?>
 	</select>
 	</td>
 </tr>
 
 <tr bgcolor="#bff8ff">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<? echo htmlspecialchars($thm_locale?$thm_locale:'english'); ?>" size=7></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale?$thm_locale:'english'); ?>" size=7></td>
 </tr>
 
 <tr bgcolor="#bff8ff">
@@ -226,18 +226,18 @@ function update_locale()
 
 <tr bgcolor="#bff8ff">
 	<td colspan=2>
-	<?php draw_checkbox('thm_t_default', 'Y', $thm_t_default);?> Default <? draw_checkbox('thm_enabled', 'Y', $thm_enabled); ?> Enabled
+	<?php draw_checkbox('thm_t_default', 'Y', $thm_t_default);?> Default <?php draw_checkbox('thm_enabled', 'Y', $thm_enabled); ?> Enabled
 	</td>
 </tr>
 <tr bgcolor="#bff8ff">
-<? if ( !$edit ) { ?>
+<?php if ( !$edit ) { ?>
 		<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add"></td>
-<? } else { ?>
+<?php } else { ?>
 	<td colspan=2 align=right>
 		<input type="submit" name="btn_cancel" value="Cancel">
 		<input type="submit" name="btn_update" value="Update">
 	</td>
-<? } ?>
+<?php } ?>
 </tr>
 </table>
 <input type="hidden" name="prevloaded" value="1">
@@ -255,7 +255,7 @@ function update_locale()
 	<td colspan=2 align=right><input type="submit" name="btn_submit" value="Create"></td>
 </tr>
 </table>
-<? echo _hs; ?>
+<?php echo _hs; ?>
 </form>
 
 <table border=0 cellspacing=0 cellpadding=3>

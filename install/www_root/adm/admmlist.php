@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.11 2002/10/06 23:23:16 hackie Exp $
+*   $Id: admmlist.php,v 1.12 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -213,7 +213,7 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack)); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<? echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
+		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack)); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -235,7 +235,7 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack)); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<? echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
+		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack)); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admthemesel.php,v 1.9 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@
 </tr>
 
 <tr bgcolor="#bff8ff">
-<?	
+<?php	
 	
 	chdir($GLOBALS['DATA_DIR'].'/thm/default/i18n');
 	$dp = opendir('.');
@@ -72,7 +72,7 @@
 </tr>
 </table>
 </form>
-<?	
+<?php	
 	chdir($oldpwd);
 	readfile('admclose.html');
 ?>

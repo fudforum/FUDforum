@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
+*   $Id: tmpllist.php,v 1.9 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -285,7 +285,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 <td width="100%" valign="top">
 <font color="#008800"><b>Explanation:</b> <?php if($file_info_help[$msec.$sec]) echo $file_info_help[$msec.$sec]; ?></font><br>
 <table cellspacing=2 cellpadding=1 border=0>
-<form method="post" action="tmpllist.php?tname=<? echo $tname; ?>&tlang=<? echo $tlang; ?>" name="tmpledit">
+<form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&tlang=<?php echo $tlang; ?>" name="tmpledit">
 <?php echo _hs; ?>
 <tr>
 	<td>

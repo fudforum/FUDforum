@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admext.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admext.php,v 1.5 2002/10/14 23:40:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,7 +97,7 @@ include('admpanel.php'); ?>
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <input type="hidden" name="prev_l" value="1">
-<? echo _hs; ?>
+<?php echo _hs; ?>
 </form>
 
 <table border=0 cellspacing=3 cellpadding=2>
