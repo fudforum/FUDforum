@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.4 2004/02/18 15:31:53 hackie Exp $
+* $Id: ubb.php,v 1.5 2004/02/18 16:07:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -401,10 +401,16 @@ function bbq($q, $err=0)
 			} while (($row = db_rowobj($r2)));
 			
 			/* handle poll voters */
-			
+			$r2 = bbq("select count(*) AS cnt, P_Number FROM {$ubb}PollData WHERE P_Name='".addslashes($obj->B_Poll)."' GROUP BY P_Number");
+			while ($row = db_rowobj($r2)) {
+				q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt_track 
+					(poll_id, poll_opt, user_id) SELECT ".$pid.", ".$opts[$row->P_Number].", id 
+					FROM ".$DBHOST_TBL_PREFIX."users ORDER BY RAND() LIMIT ".$row->cnt);
+			}
+			unset($r2, $opts);
 		}
 	}	
-	unset($r);
+	unset($r, $r2);
 	umask($old_umask);
 	print_msg('Finished Importing Messages');
 
@@ -412,7 +418,8 @@ function bbq($q, $err=0)
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_rate_track");
 	$r = bb("SELECT r.R_What, r.R_Rating, u.U_Number
 			FROM {$ubb}Ratings r,
-			INNER JOIN {$ubb}Users u ON u.U_Username=r.R_Rater");
+			INNER JOIN {$ubb}Users u ON u.U_Username=r.R_Rater
+			WHERE R_Type='t'");
 	print_msg('Importing Topic Ratings '.db_count($r));
 	while ($obj = db_rowobj($r)) {
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_rate_track 
