@@ -1,34 +1,34 @@
-TOPIC_TITLE: User Maintenance
+rTOPIC_TITLE: 用户使用手册
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Why Register?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">How FUDforum uses cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">How to remove FUDforum cookie?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">What's a profile?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">What's a signature?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">What to do if you lost your password</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Custom Tags, what are they & how can I get one?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">What's an avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">What's a buddy list?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">What does the ignore list do?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">为什么要注册?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">FUD论坛如何使用cookies功能？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">如何清除FUD论坛的cookie？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">什么是个人信息？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">什么是个人签名？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">忘记了密码怎么办？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">什么是定制标签？我该如何定制？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">什么是头像？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">什么是好友列表？</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">黑名单的功能是什么？</a><br>
 
-TOPIC_TITLE: General Board Usage
+TOPIC_TITLE: 论坛的一般功能
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">How can I search?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Can I email other forum members?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">What are private messages and how do I send them?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Member List?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">What are announcements & sticky messages?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Can I rate topics?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">What are referrals?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">我如何搜索？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">我可以向别的论坛成员发送邮件么？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">什么是悄悄话，我该如何发送悄悄话？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">什么是用户列表？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">什么是公告和临时公告？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">我能评价帖子么？</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">什么是被推荐者？</a><br>
 
-TOPIC_TITLE: Reading and Posting Messages
+TOPIC_TITLE: 查看和发布信息
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">How to format text?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">What are Smilies/Emoticons?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">How do I use Polls?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Can I attach files to messages?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">What's a post icon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Can I edit my message?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Who are the moderators & administrators?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Censorship?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Can I be notified of replies to my messages?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">如何编辑要发布的信息？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">什么是表情符号？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">我该如何使用“调查”功能？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">我能否在提交的信息中添加附件？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">提交信息时添加的图标是什么？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">我能编辑我要发布的信息么？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">谁是版主和系统管理员？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">什么是审查制度？</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">当有人回复时能否通知我？</a><br>

@@ -1,89 +1,65 @@
-TOPIC_TITLE: <a name="register">Why Register?</a>
+TOPIC_TITLE:<a name="register">为什么注册？</a>
 TOPIC_HELP:
-On most forums you will find it impossible to post new topics or reply to existing ones, unless the Admin 
-allows this explicitly. So, in order for you to be able to participate in the discussion, you would likely be 
-required to register. By registering you will also obtain access to many other features of the forum such as:
+在大多数论坛，你都会发现你无法发帖或者回帖，除非系统管理员做了特殊的设置。因此为了能够参与论坛的讨论，你需要注册。注册后，你将有权使用论坛的很多功能，比如：
 <ul>
-	<li>Email/ICQ Notification, when someone replies to your messages
-	<li>Customized signature, avatar, personal tag etc...
-	<li>Ability to send private messages to one or more members of the forum
-	<li>You'll be able to choose a time zone so that forum's time is equivalent to that of the region you live in 
+	<li>电子邮件/ICQ通知，当有人回复你的时候
+	<li>定制签名，头像，个人标签等……
+	<li>有权给一个或者多个论坛成员发送悄悄话
+	<li>你可以选择一个时区，使得论坛的时间和你所在地区的时间一致。
 </ul>
-Unless otherwise specified, the registration for the forum is completely free and requires only minimal information such as 
-your email address and a nick name of your choice.<br>
-If COPPA is enabled and you are under 13 years of age, you will need to have your legal guardian provide consent before your 
-account can be used to post messages. Upon completion of the registration process on COPPA enabled forums, members younger then 13 years of age 
-will be taken to a form, which their legal guardian will need to fill out and send to the appropriate address shown on that page.
+除了特殊限制，论坛注册是完全自由的，只要提交最少的信息，比如你的电子邮件地址和昵称。<br>
+如果系统管理员允许，而你又是13岁以下的话，那么你只有在经过你的法定监护人的允许后才能拥有一个能够发布信息的账号。一注册完毕，请点击系统管理员指定的论坛，你将看到一个表格，你的法定监护人必须填写这个表格并且把它发往该页面的指定地址。
 
-TOPIC_TITLE: <a name="cookies">How FUDforum uses cookies?</a>
+TOPIC_TITLE:<a name="cookies">FUD论坛如何使用cookies功能？</a>
 TOPIC_HELP:
-Normally FUDforum uses cookies to store a small bit of information that allows the forum to see if you are logged in or not. 
-If for some reason your browser does not support cookies, FUDforum will instead use sessions, which do not store any information 
-on your computer. During the login process you can choose to bypass the cookie system and opt for the session system, this is recommended 
-if you are using a public terminal. Doing so will prevent the possible identity theft, which may occur if you do not logout after using the forum. 
-In most cases however, you probably should leave cookies enabled as it is much more convenient in the long run. 
-For example, you will not need to login each time you visit the forum.
+通常FUD论坛使用cookies储存少量的信息以方便查看你是否已经登录。 
+如果你的浏览器因为某些原因不支持cookies，FUD论坛将用sessions代替cookies，不在你的计算机上储存任何信息。在你注册过程中，如果你是使用公共计算机，那么你可以选择不使用cookie而是使用session系统。当你使用以后未注销账号，那么这样做可以避免账号丢失。 
+在大多数情况下，你可能还是会使用cookies,因为这可以为你以后长期使用带来很大的方便，比如你访问论坛时就不用每次都登录了。
 
 
-TOPIC_TITLE: <a name="clrcookie">How to remove FUDforum cookie?</a>
+TOPIC_TITLE:<a name="clrcookie">如何删除FUD论坛的cookie？</a>
 TOPIC_HELP:
-To remove the cookie set by FUDforum, simply click the logout link and it will automatically delete the cookie.
+要删除FUD论坛留下的cookie只需要点击“注销”，那么所有的cookie将自动清除。
 
-TOPIC_TITLE: <a name="updprofile">What's a profile?</a>
-TOPIC_HELP: As a forum member you have a personal profile inside which you can store various information about yourself, such as IM client ids, signature, 
-biography, etc... Your profile also stores various settings, which deal with the forum. Any time you are logged in you may change your profile settings, 
-you should be aware that most data inside your profile can be viewed by other forum members. So, you should try to not store any sensitive information 
-that you do not wish other people to see.<br>
-Your profile has an option <b>"Show Email Address"</b>, which if set to <b>NO</b> will hide your email address from view. You may want to use this option 
-if you do not want other people to see your email address.
+TOPIC_TITLE:<a name="updprofile">什么是个人信息？</a>
+TOPIC_HELP:  作为论坛成员，你可以设置和存储你的一些个人信息，比如身份证件号码、个人签名、简介等等……此外还可以进行一些和论坛访问有关的设置。每次登录以后你可以更改你的个人信息。你应该注意的是，你的大部分个人信息都能被论坛其他成员看到,所以，尽量不要填那些你不愿意别人看到的信息。<br>
+在你的个人信息中有一个选项<b>“显示电子邮箱地址”</b>, 如果你不想让别人看到你的电子邮件地址，你可以选择 <b>否</b>，这样人将看不到你的电子邮件地址。
 
-TOPIC_TITLE: <a name="sigs">What's a signature?</a>
+TOPIC_TITLE:<a name="sigs">什么是个人签名？</a>
 TOPIC_HELP:
-Signature is a string of text that you may automatically append to the end of every message you post. In your profile you have an option, 
-<b>"Use Signature by default"</b> that will enable or disable this feature by default. However, on every post form you can change this option for 
-that particular post.<br>
-In addition to plain text, this string can contain (if allowed by administrator) various tidbits such as links to favorite URLs, 
-personal photos, etc...
+个人签名是一段文字，这段文字将自动加在你在论坛上提交的发言后面。在你的个人信息中，通过选项In your profile you have an option, 
+<b>“使用默认的个人签名”</b> 你可以缺省使用这个功能。但是，在每一次提交发言的时候，你还可以临时改变这个设置。<br>
+在系统管理员允许的情况下，除了纯文本，你的个人签名还可以包括各种小花絮：自己最喜欢的网址链接，个人相片等等。
 <br>
-If you do not wish to see the signatures of other people, you can turn them off by setting the <b>"Show Signature"</b> to <b>NO</b> in your profile.
+如果你不想看到别人的个人签名，你可以在你的个人信息设置中，在<b>“显示个人签名”</b>这一项中选择<b>否</b>。
 
-
-TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
+TOPIC_TITLE:<a name="rstpasswd">如果忘了密码怎么办？</a>
 TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">reset password page</a>, 
-on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
-your password will be reset and you will receive a new email with your password.<br>
+如果忘了密码，你可以到<a href="{ROOT}?t=reset&%_rsid%" class="GenLink">重新设置密码</a>页面，在文本框中输入你的电子邮件地址后点击“提交”按钮。然后系统将给你的邮箱发送一个特殊的URL地址，当你访问这个地址时，你的密码就被重新设置了，你将通过电子邮件收到你的新密码。<br>
 <br>
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 HASH.
-This is military grade 128-bit encryption, there is no way to restore your password.
-It works by encrypting the data every time you enter it and then comparing against
-encrypted version.
-Therefor if you forget your password it can not be restored back, so, upon a restore
-password request the forum will randomly generate you a new password.
+<b>注意：</b> 你的密码是以“ MD5 HASH”这种单项加密的格式存储的。
+这是一种军用级别的128-bit的加密方式，你无法找回密码。它的工作原理是：每次输入的数据都将被译成密码并和已加密的版本相比较。
+因此如果你忘了密码将不可能找回。系统一接到找回密码的请求以后，将自动地生成一个随意的新密码。
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they & how can I get one?</a>
+TOPIC_TITLE:<a name="cstat">什么是自定义标签，我如何能得到它？</a>
 TOPIC_HELP:
-Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
+自定义标签是由论坛管理员分派的，如果你需要，可以向管理员申请。
 
-TOPIC_TITLE: <a name="avatars">What's an avatar?</a>
+TOPIC_TITLE:<a name="avatars">什么是头像？</a>
 TOPIC_HELP:
-Avatars are images that appear below your user name on the messages that you've posted as well as your user information page. 
-FUDforum supports 3 types of avatars, some of which may or may not be enabled by the forum's administrator. You may choose an avatar for yourself 
-from your profile page.
+头像是显示在你提交的信息页面或者你的个人信息页面的用户名下面的图像.
+FUD论坛支持3种头像。论坛可能允许使用一种或者几种头像。你可以在你的个人信息页面为自己选择一个头像。
 <ul>
-	<li><b>Built In</b> - These are the avatars the Admin has made available, you can choose one of those avatars and it will become your avatar as soon as 
-	you submit the change to your profile page.
-	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
-	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
+	<li><b>建立</b> - 这是一些管理员提供的头像，在你的个人信息页面上，你可以选择一个，然后提交，这样这个图像就成了你的头像了。
+	<li><b>上传头像</b> - 如果管理员提供了这种功能，那么你就可以把头像传到服务器上，等系统管理员批准以后，它就成了你的头像。
+	<li><b>指定URL地址</b> - 如果管理员提供了这种功能，你将可以提供头像图片的URL地址，等系统管理员批准以后，它就成了你的头像。
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
+<b>注意：</b>你可以随时改变你的头像，但是如果是自己上传或者提供URL地址的头像则必须先经过批准才能生效。
 
-TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
+TOPIC_TITLE:<a name="blist">什么是好友列表？</a>
 TOPIC_HELP:
-A buddy list is your own little list of forum members with whom you wish to converse more frequently. By putting a person on your buddy list, 
-you will be able to see their birthday (if they entered one) as well as easily choose them as recipients of your Private Messages.
+好友列表是你的一些愿意更方便地进行更多交流的论坛用户名单。当一个论坛用户被加入你的好友列表以后，你将能够看到他的生日（如果他们填了生日的话），同时你还可以很方便的给他们发送悄悄话。
 
-TOPIC_TITLE: <a name="ignlist">What does the ignore list do?</a>
+TOPIC_TITLE:<a name="ignlist">黑名单的作用是什么？</a>
 TOPIC_HELP:
-Ignore List is a database of forum members who's messages you do not wish to see as well as not allow these members to send you 
-private messages. On every message there is a quick link that would give you an opportunity to add the author of that message to your ignore list.
+黑名单是一些论坛用户名单，你不想看到他们的发言，同时不希望收到他们的悄悄话。在每一条信息上，都有一个快捷链接，点击它你就能够很轻易地把这条信息的作者加入黑名单。

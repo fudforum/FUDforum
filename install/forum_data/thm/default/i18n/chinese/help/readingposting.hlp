@@ -1,230 +1,202 @@
-TOPIC_TITLE: <a name="style">How to format text?</a>
+TOPIC_TITLE: <a name="style">如何编辑要发布的信息？</a>
 TOPIC_HELP:
-Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold,italics,etc...
+一般而言，论坛中发布的信息都是纯文本，但是，你也可以根据需要进行一些简单的编辑，比如加入粗体、斜体等。
 <p>
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
+因为在大多数情况下，系统管理员都不会允许你提交信息时使用HTML代码。你可以使用FUD代码对提交的信息进行一些编辑， 这种代码很容易使用，而且比HTML语言安全。
 <p>
-<b>Here is a list of the supported FUDcode tags & short examples on it's usage</b>
+<b>这里是可以使用的FUD代码功能和一些简单的实例</b>
 
-<b>URL Hyperlinking</b><br><br>
+<b>网址超链接</b><br><br>
 
-The forum can automatically pick up on many forms of URLs, for example:<br>
+这个论坛可以自动识别网址超链接，比如：网址<br>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
-will be automatically picked up as a URL and converted to a valid URL, which will look like this:
+将被作为URL识别并指向正确的网址，其功能类似于：
 	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
 	
 	
-You can create a URL yourself by using FUD code also, this can be done in 2 ways, a simple way works like this:
+你自己可以用下面2种方法通过FUD代码创建URL超链接：一种是输入下列代码：
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
-this will result in a generation fo the following link:
+其效果等同于：
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-You can add a description to your URL by using a different syntax inside the <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> this code will result in the following:<br>
+其次你还可以在<font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> 中使用不同的句法对你的URL进行描述，其效果如下：<br>
 	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
 <p>
-<b>Email Hyperlinking</b><br><br>
-         To create an email link simply type the email address as it would
- normally    appear, for example:<br>
+<b>电子邮件超链接</b><br><br>
+         要创建电子邮件超链只需按照一般的方法输入电子邮件地址，比如：<br>
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       the forum will automatically understand this create a link.  In addition
-   it is also possible to create a real email hyperlink using this  format<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Click here to email our tech support<font color="#ff0000"><b>[/email]</b></font><br></div>
+       论坛将自动识别并创建链接。此外还可以用下列方法创建电子邮件超链：<br>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>点击这里给我们的技术支持发送电子邮件。<font color="#ff0000"><b>[/email]</b></font><br></div>
 <br>
 <b>Text Styling</b><br>
-         There are a number of tags which you can use to style text, they 
-are:<br>
+         下面是可以编辑文本的代码标签：<br>
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
-         [/b]</b></font> produces <b>bold</b> text</li>
-  <li><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b>
-         [/u]</b></font> produces <u>underlined</u> text</li>
-  <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
-         [/i]</b></font> produces <i>italicized</i> text</li>
+  <li><font color="#ff0000"><b>[b]</b></font>粗体<font color="#ff0000"><b>
+         [/b]</b></font> 生成 <b>粗体</b> 文本</li>
+  <li><font color="#ff0000"><b>[u]</b></font>下划线<font color="#ff0000"><b>
+         [/u]</b></font> 生成 <u>下划线</u> 文本</li>
+  <li><font color="#ff0000"><b>[i]</b></font>斜体<font color="#ff0000"><b>
+         [/i]</b></font> 生成 <i>斜体</i> 文本</li>
 </ul>
-         It is also possible to control color/size and even font face.<br>
+         此外还可以选择颜色、外观、字体、字号等等.<br>
 <ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>
-         [/color]</b></font> produces <font color="#ff0000">red text</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>
-        [/size]</b></font> produces text in the specified <font size="4">
-size</font></li>
-  <li><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>
-        [/font]</b></font> produces text using the named <font face="Courier New, Courier, monospace">
-        type face</font></li>
+  <li><font color="#ff0000"><b>[color=red]</b></font>红色文本<font color="#ff0000"><b>
+         [/color]</b></font> 生成 <font color="#ff0000">红色文本</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>更大一号的文本<font color="#ff0000"><b>
+        [/size]</b></font>生成指定大小的文本<font size="4">
+</font></li>
+  <li><font color="#ff0000"><b>[font=courier]</b></font>文本<font color="#ff0000"><b>
+        [/font]</b></font> 使用指定的<font face="Courier New, Courier, monospace">
+        字体样式生成文件</font></li>
 </ul>
-        It is also possible to combine various formatting tags:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatted Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       this example produces:<br>
+        还可以同时使用不同的格式标签<br>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>格式化文本<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+       这个例子：<br>
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
 <br>
 <br>
-<b>Text Alignment</b><br>
-FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
+<b>文本排列</b><br>
+FUD代码支持文本通过使用[align]标签以下列3种方式排列：
 <ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="center">centered text</div>
-	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="left">left aligned</div>
-	<li><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="right">right aligned</div>	
+	<li><font color="#ff0000"><b>[align=center]</b></font>文本居中<font color="#ff0000"><b>[/align]</b></font> produces：</li>
+		<div align="center">文本居中</div>
+	<li><font color="#ff0000"><b>[align=left]</b></font>文本居左<font color="#ff0000"><b>[/align]</b></font> produces：</li>
+		<div align="left">文本居左</div>
+	<li><font color="#ff0000"><b>[align=right]</b></font>文本居右<font color="#ff0000"><b>[/align]</b></font> produces：</li>
+		<div align="right">文本居右</div>	
 </ul>
 <br>
 <br>
-<b>Various Lists</b><br>
-      You can create various kinds of lists using Form Code:<br>
+<b>不同的查看方式</b><br>
+      你可以通过使用形式代码按不同的方式查看：<br>
 <br>
-      Un-ordered bulleted list:<br>
+      不规则的公告版方式：<br>
 <font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>第一条<br>
+<font color="#ff0000"><b>[*]</b></font>第二条<br>
 <font color="#ff0000"><b>[/list]<br>
 </b></font><br>
-      would produce<br>
+      生成<br>
 <ul>
-  <li>first item</li>
-  <li>second item</li>
+  <li>第一条</li>
+  <li>第二条</li>
 </ul>
-      It is possible to use various kinds of lists, for example to create 
-an  numerical  ordered list:<br>
+      按照不同的排列方式可以生成按不同查看的帖子列表：<br>
 <font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>第一条<br>
+<font color="#ff0000"><b>[*]</b></font>第二条<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
-     which produces<br>
+     生成<br>
 <ol>
-  <li>first item</li>
-  <li>second item<br>
+  <li>第一条</li>
+  <li>第二条<br>
   </li>
 </ol>
-     to create an A-Z list:<br>
+     按A-Z的字母顺序排列：<br>
 <font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font第一条<br>
+<font color="#ff0000"><b>[*]</b></font>第二条<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
 <br>
-     which produces:<br>
+     生成：<br>
 <ol type="a">
-  <li>first item</li>
-  <li>second item</li>
+  <li>第一条</li>
+  <li>第二条</li>
 </ol>
 <b>Adding Images</b><br>
-    It is possible to include in-line images with the message. using the <font color="#ff0000"><b>
-    [img][/img]</b></font> tags. <br>
+    使用<font color="#ff0000"><b>
+    [img][/img]</b></font> 标签，可以嵌入带有图片说明的图片。 <br>
 <br>
-    so, for example,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    will insert an image in the message as such:<br>
+    比如<br>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http：//www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
+    将生成带有如下说明的图片：<br>
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-    in addition you can create links to images by enclosing them inside a
-<font color="#ff0000"><b>    [url][/url]</b></font> tags such as<br>
+    此外，在下列标签
+<font color="#ff0000"><b>    [url][/url]</b></font>比如<br>
 <div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    which will create a linked image such as<br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+    中加入图片链接，就能生成带链接的图片，如<br>
+<div align="Center"><a href="http：//www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
 
-<br><b>Quoting other messages</b><br>
-  It is possible to quote something that has already been posted, by just 
-putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it. 
+<br><b>引用别的信息</b><br>
+  引用已经提交的信息，只需要加入下列标签：<font color="#ff0000"><b>[quote][/quote]</b></font> 
 <br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  would appear such as:<br>
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>你好，世界！<font color="#ff0000"><b>[/quote]</b></font><br></div>
+  将显示为：<br>
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote：</b></td></tr><tr><td class="quote">你好，世界！<br></td></tr></table>
 <p>
-<b>Computer Code and Pre-formatted Text</b><br>
- The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
-text exactly as it is, maintaining relational formatting such as tabs and multiple 
-spaces. <br>
+<b>计算机代码和前格式化文本</b><br>
+ 该代码 <font color="#ff0000"><b>[code][/code]</b></font> 允许提交的文件保留相关的格式，比如制表符或者更多的空间。<br>
 <br>
- it used like this: <br>
+ 具体用法是： <br>
 <font color="#ff0000"><b>[code]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
 <font color="#ff0000"><b>[/code]</b></font><br>
 <br>
- which produces the text exactly as it was typed maintaining the formatting. 
+ 保留了所有格式的文件，就像被打印的效果一样。
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <br>
 
-You may also find that the administrator has enabled smilies, which allow
-you to use small icons to convey emotion, and the [img] code, which allows
-you to add pictures to your message.
+你还可以发现系统管理员开通了表情符号功能，即你可以使用表情符号表达自己的情绪，同时使用[img]代码添加图片。
 
 
-TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_TITLE:<a name="sml">什么是表情符号？</a> 
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions & feelings.
-If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
-Clicking on a smiley, will insert that smiley into your message.<br>
-Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable Smilies</b> checkbox.<p>
+表情符号是一些小的按钮，你可以在你提交的文本中加入这些按钮表达你的不同的情绪和感受。
+如果开通了表情符号功能，那么在输入发言的文本框上方将出现论坛系统支持的一些表情符号。点击哪个符号就在你的文本输入这个表情符号。<br>
+一般的表情符号将被同样意义的图片代替。如果你不需要，点击
+<b>关闭表情符号</b> 前的方框即可。<p>
 
-TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
+TOPIC_TITLE: <a name="polls">如何使用调查？</a>
 TOPIC_HELP:
-In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
-provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
-their votes.<br>
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
-and then poll you've created will be attached to the message.<br>
-You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
+在某些论坛，你在发帖时还能发起调查。在调查中，你可以问一个问题，并且提供一些供论坛成员选择的选项。为了保证选票的精确性，只有注册成员才能参与调查。<br>
+当你点击 <b>发起调查</b> 链接, 在页面出现的弹出框中输入可以生成包含多重选项的调查。当填完调查后，只需点击<b>编辑</b>按钮，你将回到发帖页面，刚刚生成的调查将和帖子一起提交<br>
+你可以点击<b>编辑</b>链接编辑调查，或者点击<b>删除</b>链接，删除该调查。
 <p>
-You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
+一次调查你只有一次机会参与，因此请认真考虑再做决定，而且一旦填了答案将不能改变。
 
-TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
+TOPIC_TITLE: <a name="attach">我能否在提交的信息中添加附件？</a>
 TOPIC_HELP:
-If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
-determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+经过系统管理员允许后，你可以在发布信息或者发送“悄悄话”时添加一个或者多个附件。这个功能是在不同的论坛有不同的规定，所以当你在一个论坛有这个权限时并不意味着你在别的论坛也有此权限。
 <br>
-The post form will list 3 rules which apply to your file attachments:<p>
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br>
-<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br>
-<b>Maximum Files per Message</b> - the number of files you can attach to your message.
+对于添加附件，有下列3个规定：<p>
+<b>允许的文件类型</b> —— 能够作为附件添加的文件类型：ex. jpg, gif. png<br>
+<b>文件最大限制</b> ——允许添加的文件的最大限制<br>
+<b>每条信息能够添加的文件数量限制</b>—— 你能够添加到你的发言中的最多的附件数
 <p>
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
-open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
-<b>Upload File</b> button to attach the file to your message.<br>
-If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
+要添加附件，点击提交信息页面最下面的<b>浏览</b>按钮， 出现一个对话窗口要求从你的硬盘上查找需要上传的文件。选定一个文件，点击
+<b>上传文件</b>按钮，你就能把文件添加到你的信息当中。<br>
+如果需要删除添加的附件，点击位于文件右侧的<b>删除</b>按钮即可。
 
 
-TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
+TOPIC_TITLE: <a name="msgico">提交信息时添加的图标是什么？</a>
 TOPIC_HELP:
-Post icons are small images that you can choose to show beside your messages. They are most 
-commonly used to indicate the nature of your message or the feeling your are trying to convey.
-If you do not see those icons on the post form, it means the administrator has disabled this feature.
+提交信息时添加的图标是一些可以放在你发布的信息旁边的小的图片。他们一般用来表示你发布的信息的主旨或者你向表达的感情。如果你在提交信息的页面上没有看到这些图标，那说明系统管理员封闭了相关功能。
 
-TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
+TOPIC_TITLE: <a name="edit">我能否编辑提交的信息？</a>
 TOPIC_HELP:
-If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
-time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br>
-If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date 
-of editing.<br>
-If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
-that this message was edited.
+如果你是注册用户，你将可以编辑以前发布的信息，但是这是有时间限制的，即你可以编辑近期发布的信息，但是不能编辑很久以前发布的信息。<br>
+如果你编辑了一条信息，那么这条信息后面就会出现一段说明，表明这条信息被作者编辑过以及编辑的具体时间。<br>
+如果版主或者系统管理员已经编辑过你的信息，那么根据不同的论坛设置，你有可能能够看见相关关于此条信息被编辑过的说明文字，也有可能不能看见相关说明。
 
-TOPIC_TITLE: <a name="mod">Who are the moderators & administrators?</a> 
+TOPIC_TITLE: <a name="mod">什么是论坛版主和系统管理员？</a> 
 TOPIC_HELP:
-Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
-as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p>
-Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions.
-If you encounter any bugs with the forum, Administrator is the person to contact.
+版主是总体管理一个或者几个论坛的“超级用户”，他们有权力编辑、删除帖子，批准或者发布论坛通告。如果你在论坛中看到违犯论坛管理规定的帖子，可以直接和他们联系。
+如果你对论坛管理有意见和建议也可以向版主反应。<p>
+系统管理员论坛的总管，他有权利做任何事情。所以和他说话时客气点;-)。系统管理员除了拥有版主的权利以外，还可以批准头像、分配和删除定制的标签、封用户账号以及回答各种各样的关于论坛的问题。
+如果你发现了论坛的bug，请和系统管理员联系。
 
-TOPIC_TITLE: <a name="cens">Censorship?</a>
+TOPIC_TITLE: <a name="cens">什么是审查制度？</a>
 TOPIC_HELP:
-The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
-so the same things you cannot see, other people will also not be able to see.
+系统管理员可以选择审查某些词，这些词将自动地被系统管理员提供的词替换掉。而所有这一切论坛用户都是不能看到的。
 
-TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
+TOPIC_TITLE: <a name="not">当我发布的信息有回复时能得到通知么？</a> 
 TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email or ICQ (select via your profile) 
-of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
-want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
+当你发布一个新的主题或者回复一个主题时，你可以选择（在你填写个人信息时选择）当有新的回复时是否通过电子邮件或者ICQ接收通知。你还可以选择预定没有回复的主题，如果想预定某个论坛的帖子，请点击页面顶端的<b>预定</b>链接，此后该论坛一有新的帖子你就能收到相关通知。
 <p>
-If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
-Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
+如果你不想收到相关回复，那么在查看相关论坛或者主题时，请点击<b>退订</b>链接。
+或者直接到个人信息的<b>预定</b>中，从预定论坛和主题列表中删除相关链接。
 <p>
-The ability to receive notifications is limited to registered users.
+只有注册用户才有收取相关通知的权限。
