@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admrdf.php,v 1.3 2003/05/16 18:59:04 hackie Exp $
+*   $Id: admrdf.php,v 1.4 2003/05/20 15:16:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 
 function print_yn_field($descr, $help, $field)
 {
-$str = !isset($GLOBALS[$field]) ? 'Y' : $GLOBALS[$field];
+	$str = !isset($GLOBALS[$field]) ? 'N' : $GLOBALS[$field];
 	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$help.'</font></td><td valign="top">'.create_select('CF_'.$field, "Yes\nNo", "Y\nN", $str).'</td></tr>';
 }
 	
@@ -70,6 +70,7 @@ function print_string_field($descr, $help, $field, $is_int=0)
 	print_yn_field('RDF Authentication', 'Whether or not to perform permission checks to determine if the user has access the requested data.', 'AUTH');
 	print_string_field('User id', 'By default when perform authentication, the forum will treat validate the user as anonymous, however of increased or lowered permission you can specify exactly which user will the RDF feed be authenticated as. This field allows you to enter the id of that user.', 'AUTH_ID');
 	print_string_field('Maximum number of result', 'The maximum number of results that can be fetched within a single request through the RDF feed', 'MAX_N_RESULTS');
+	print_yn_field('Allow user data retrieval', 'Whether or not to allow user profile data to be fetched via RDF', 'RDF_ALLOW_USER_DATA');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
 </table>
@@ -115,7 +116,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>l</i></td><td>Order topics from newest to oldest.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'u' mode (topics)</b></u></h4>
+<h4><u><b>'u' mode (users)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
 		<tr><td><i>pc</i></td><td>Order users by number of messages posted, from largest to smallest.</td></tr>

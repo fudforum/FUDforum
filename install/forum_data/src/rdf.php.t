@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.8 2003/05/20 08:56:46 hackie Exp $
+*   $Id: rdf.php.t,v 1.9 2003/05/20 15:16:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($RDF_ENABLED == 'N') {
+	if ($RDF_ENABLED == 'N' || ($RDF_ALLOW_USER_DATA != 'Y' && $mode = 'u')) {
 		fud_use('cookies.inc');
 		fud_use('users.inc');
 		std_error('disabled');

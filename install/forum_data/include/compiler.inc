@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.29 2003/05/13 13:44:04 hackie Exp $
+*   $Id: compiler.inc,v 1.30 2003/05/20 15:16:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -578,15 +578,16 @@ function copyhelp($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
-		
+	$path .= '/';
 	$dp = opendir($src);
+	$src .= '/';
 	readdir($dp); readdir($dp);
 	while ($de = readdir($dp)) {
-		if (!@is_file($de) || substr($de, -4) != '.hlp') {
+		if (!@is_file($src . $de) || substr($de, -4) != '.hlp') {
 			continue;
 		}
 		if (!($fp = fopen($path . $de, 'wb'))) {
-			exit('Failed to write to: '.$path . $de.'<br>');
+			exit('Failed to write to: '.$path . '/' . $de.'<br>');
 		}
 		fwrite($fp, str_replace('{ROOT}', $rp, file_get_contents($src . $de)));
 		fclose($fp);
