@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.25 2004/01/04 16:38:26 hackie Exp $
+* $Id: ignore_list.php.t,v 1.26 2004/01/16 16:43:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,6 +57,11 @@ function ignore_alias_fetch($al, &$is_mod)
 			ignore_add(_uid, $ignore_id);
 		}
 		check_return($usr->returnto);
+	}
+
+	/* anon user hack */
+	if (isset($_GET['del']) && $_GET['del'] === "0") {
+		$_GET['del'] = 1;	
 	}
 
 	if (isset($_GET['del']) && ($_GET['del'] = (int)$_GET['del'])) {
