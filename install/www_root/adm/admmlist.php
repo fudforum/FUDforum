@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.13 2003/01/15 13:09:46 hackie Exp $
+*   $Id: admmlist.php,v 1.14 2003/05/06 19:16:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,83 +15,58 @@
 *
 ***************************************************************************/
 
-	define('admin_form', 1);
-
-	include_once "GLOBALS.php";
-	
-	fud_use("widgets.inc", true);
-	fud_use("util.inc");
-	fud_use('cookies.inc');
-	fud_use('adm.inc', true);
-	fud_use('objutil.inc');	
-	fud_use('logaction.inc');
-	fud_use('mlist.inc', true);
-
-function format_regex(&$regex, &$opts)
+function format_regex(&$regex)
 {
-	if( empty($regex) ) return;
+	if (empty($regex)) {
+		return;
+	}
 
 	$s = strpos($regex, '/');
 	$e = strrpos($regex, '/');
 	
-	$opts = substr($regex, $e+1);
-	$regex = addslashes(substr($regex, $s, ($e-$s)));
-}
-	
-	list($ses, $usr) = initadm();
-	
-	if( $HTTP_POST_VARS['ml_edit_cancel'] ) {
-		header("Location: admmlist.php?"._rsidl);
-		exit;
-	}
-	
-	$mlist = new fud_mlist;
-	
-	if( $edit) 
-		$mlist->get($edit);
-	else if ( $del )
-		$mlist->get($del);
-	
-	if( $HTTP_POST_VARS['ml_forum_id'] ) {
-		fetch_vars('ml_', $mlist, $HTTP_POST_VARS);
-		
-		if( $mlist->subject_regex_haystack ) 
-			$mlist->subject_regex_haystack = '/'.$mlist->subject_regex_haystack.'/'.$HTTP_POST_VARS['ml_subject_regex_haystack_opt'];
-	
-		if( $mlist->body_regex_haystack ) 	
-			$mlist->body_regex_haystack = '/'.$mlist->body_regex_haystack.'/'.$HTTP_POST_VARS['ml_body_regex_haystack_opt'];
-		
-		if( $HTTP_POST_VARS['edit'] )
-			$mlist->sync();
-		else
-			$mlist->add();
-		
-		header("Location: admmlist.php?"._rsidl);	
-		exit;			
-	}
-	else if( is_numeric($HTTP_GET_VARS['edit']) ) {
-		export_vars('ml_', $mlist);
-		format_regex($ml_subject_regex_haystack, $ml_subject_regex_haystack_opt);
-		format_regex($ml_body_regex_haystack, $ml_body_regex_haystack_opt);
-		
-		$ml_body_regex_needle = addslashes($ml_body_regex_needle);
-		$ml_subject_regex_needle = addslashes($ml_subject_regex_needle);
-	}
-	else if( is_numeric($HTTP_GET_VARS['del']) ) {
-		$mlist->del();
-		
-		header("Location: admmlist.php?"._rsidl);
-		exit;	
-	}
-	else { /* Set the some default values */
-		$ml_mlist_post_apr = $ml_allow_mlist_html = $ml_complex_reply_match = 'N';
-		$ml_frm_post_apr = $ml_create_users = $ml_allow_mlist_attch = 'Y';
-	}
-	
-	cache_buster();
-	include('admpanel.php'); 
+	$regex = substr($regex, $s, ($e - $s));
 
-	if( $GLOBALS['FILE_LOCK'] == 'Y' ) {
+	return substr($regex, $e + 1);
+}
+	define('admin_form', 1);
+
+	require('GLOBALS.php');
+	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
+	fud_use('mlist.inc', true);
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
+
+	if (isset($_POST['ml_forum_id'])) {
+		$mlist = new fud_mlist;
+		if ($edit) {
+			$mlist->sync($edit);
+			$edit = '';
+		} else {
+			$mlist->add();
+		}
+	} else if (isset($_GET['del'])) {
+		mlist_del((int)$_GET['del']);
+	}
+
+	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
+		foreach ($o as $k => $v) {
+			${'ml_' . $k} = $v;
+		}
+		$ml_subject_regex_haystack_opt = format_regex($ml_subject_regex_haystack);
+		$ml_body_regex_haystack_opt = format_regex($ml_body_regex_haystack);
+	} else {
+		$c = get_class_vars('fud_mlist');
+		foreach ($c as $k => $v) {
+			${'ml_' . $k} = $v;
+		}
+		$ml_subject_regex_haystack_opt = $ml_body_regex_haystack_opt = '';
+	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	if ($FILE_LOCK == 'Y') {
 		echo '<font color="#ff0000" size="+3">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</font><p>';
 	}
 ?>
@@ -111,23 +86,16 @@ function format_regex(&$regex, &$opts)
 		</td>
 		<td><select name="ml_forum_id">
 		<?php
-			$r = q("SELECT 
-					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id,
-					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name 
-				FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
-				INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat 
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id 
-				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.forum_id 
-				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.forum_id 	
-				WHERE
-					".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.id IS NULL AND 
-					(".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.id IS NULL OR ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.id=".intzero($edit).")
-				ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
-			
-			while( list($fid,$fname) = db_rowarr($r) )
-				echo '<option value="'.$fid.'"'.($fid!=$ml_forum_id?'':' selected').'>'.$fname.'</option>';
+			$c = uq('SELECT f.id, f.name 
+				FROM '.$tbl.'forum f
+				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id 
+				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id 
+				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id 	
+				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='.(int)$edit.')
+				ORDER BY c.view_order, f.view_order');
+			while ($r = db_rowarr($c)) {			
+				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
+			}
 			qf($r);
 		?>
 		</select></td>
@@ -213,12 +181,12 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack)); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
+		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:</td>
-		<td><input type="text" name="ml_subject_regex_needle" value="<?php echo (empty($ml_subject_regex_needle)?'':htmlspecialchars(stripslashes($ml_subject_regex_needle))); ?>"></td>
+		<td><input type="text" name="ml_subject_regex_needle" value="<?php htmlspecialchars($ml_subject_regex_needle); ?>"></td>
 	</tr>
 	
 	<tr>
@@ -235,12 +203,12 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack)); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
+		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:</td>
-		<td><input type="text" name="ml_body_regex_needle" value="<?php echo (empty($ml_body_regex_needle)?'':htmlspecialchars(stripslashes($ml_body_regex_needle))); ?>"></td>
+		<td><input type="text" name="ml_body_regex_needle" value="<?php echo htmlspecialchars($ml_body_regex_needle); ?>"></td>
 	</tr>
 	
 	<tr>
@@ -255,7 +223,7 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td valign="top">Custom Headers:</td>
-		<td nowrap><textarea nowrap cols=50 rows=5><?php echo htmlspecialchars(stripslashes($ml_additional_headers)); ?></textarea></td>
+		<td nowrap><textarea nowrap cols=50 rows=5><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
 	
 	<tr>
@@ -264,14 +232,12 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-			<?php if ( !empty($edit) ) echo '<input type="submit" value="Cancel" name="ml_edit_cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo (( !empty($edit) ) ? 'Update Mailing List Rule':'Add Mailing List Rule'); ?>" name="ml_submit">
+			<?php if ($edit) { echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; } ?>
+			<input type="submit" value="<?php echo ($edit ? 'Update Mailing List Rule' : 'Add Mailing List Rule'); ?>" name="ml_submit">
 		</td>
 	</tr>
 </table>
-<?php
-	if ( !empty($edit) ) echo '<input type="hidden" name="edit" value="'.$edit.'">';
-?>
+<input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 <br><br>
 <table border=0 cellspacing=3 cellpadding=2 width="100%">
@@ -281,22 +247,21 @@ function format_regex(&$regex, &$opts)
 		<td>Exec Line</td>
 		<td align="center">Action</td>
 	</tr>
-	
-	<?php
-		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.*, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name AS frm_name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id");
-		$i=0;
-		while( $obj = db_rowobj($r) ) {
-			if( $obj->id != $edit ) 
-				$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-			else
-				$bgcolor = ' bgcolor="#ffb5b5"';
-				
-			echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($obj->name).'</td><td>'.$obj->frm_name.'</td>
-			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$obj->id.'</font></td>
-			<td>[<a href="admmlist.php?edit='.$obj->id.'&'._rsid.'">Edit</a>] [<a href="admmlist.php?del='.$obj->id.'&'._rsid.'">Delete</a>]</td></tr>';
+<?php
+	$c = uq('SELECT ml.id, ml.name, f.name FROM '.$tbl.'mlist ml INNER JOIN '.$tbl.'forum f ON f.id=ml.forum_id');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		if ($edit == $r[0]) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		qf($r);
-	?>
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
+		<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
+		<td>[<a href="admmlist.php?edit='.$r[0].'&'._rsidl.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';
+	}
+	qf($c);
+?>
 </table>
 <p>
 <b>***Notes***</b><br>
@@ -307,4 +272,4 @@ the mailing list messages to.<br> Procmail example:
 * ^TO_.*php-general@lists.php.net 
 | /home/forum/F/test/maillist.php 1
 </pre>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
