@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.9 2003/05/27 18:07:21 hackie Exp $
+*   $Id: pdf.php.t,v 1.10 2003/07/22 01:19:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -271,7 +271,7 @@ function post_to_smiley($text, $re)
 	fud_use('err.inc');
 
 	/* this potentially can be a longer form to generate */
-	set_time_limit($PDF_MAX_CPU);
+	@set_time_limit($PDF_MAX_CPU);
 
 	/* before we go on, we need to do some very basic activation checks */
 	if ($FORUM_ENABLED != 'Y') {
