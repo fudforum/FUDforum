@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.29 2004/01/04 16:38:28 hackie Exp $
+* $Id: finduser.tmpl,v 1.30 2004/04/01 14:53:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,7 +30,6 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td></tr>
-<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR-HTML: usr_email}"></td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><font class="SmallText">{MSG: finduser_help}</font> <input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
 </table><input type="hidden" name="t" value="finduser"></form>
 <img src="blank.gif" alt="" height=2 width=1 /><br />
@@ -110,15 +109,15 @@
 {SECTION: END}
 
 {SECTION: FINDUSER_PAGE_lnk}
-{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: FINDUSER_PAGE_lnk1}
-{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;pc=1&amp;btn_submit=Find
 {SECTION: END}
 
 {SECTION: FINDUSER_PAGE_lnk2}
-{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;btn_submit=Find
 {SECTION: END}
 
 {SECTION: action_field_lnk}

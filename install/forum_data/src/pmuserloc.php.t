@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.18 2004/03/08 15:28:59 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.19 2004/04/01 14:53:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,18 +27,12 @@
 /*{POST_HTML_PHP}*/
 
 	$usr_login = isset($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
-	$usr_email = isset($_GET['usr_email']) ? trim($_GET['usr_email']) : '';
 	$overwrite = isset($_GET['overwrite']) ? (int)$_GET['overwrite'] : 0;
 	$js_redr = $_GET['js_redr'];
 
-	if ($usr_login || $usr_email) {
-		if ($usr_login) {
-			$qry = "WHERE alias LIKE '".addslashes(str_replace('\\', '\\\\', $usr_login))."%'";
-		} else {
-			$qry = "WHERE email LIKE '".addslashes(str_replace('\\', '\\\\', $usr_email))."%'";
-		}
+	if ($usr_login) {
 		$find_user_data = '';
-		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users '.$qry.' AND id>1');
+		$c = uq("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE alias LIKE '".addslashes(str_replace('\\', '\\\\', $usr_login))."%' AND id>1");
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {

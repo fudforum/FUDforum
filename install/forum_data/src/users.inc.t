@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.114 2004/03/21 18:10:56 hackie Exp $
+* $Id: users.inc.t,v 1.115 2004/04/01 14:53:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -322,10 +322,7 @@ function init_user()
 						if (isset($p[3])) {
 							$_GET['usr_login'] = urldecode($p[3]);
 							if (isset($p[4])) {
-								$_GET['usr_email'] = urldecode($p[4]);
-								if (isset($p[5])) {
-									$_GET['js_redr'] = $p[5];
-								}
+								$_GET['js_redr'] = $p[5];
 							}
 						}
 					}

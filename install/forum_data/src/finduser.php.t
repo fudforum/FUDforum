@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.36 2004/03/08 15:28:59 hackie Exp $
+* $Id: finduser.php.t,v 1.37 2004/04/01 14:53:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,12 +42,9 @@
 		$ord = 'id DESC';
 	}
 	$usr_login = !empty($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
-	$usr_email = !empty($_GET['usr_email']) ? trim($_GET['usr_email']) : '';
 
 	if ($usr_login) {
 		$qry = "alias LIKE '".addslashes(htmlspecialchars(str_replace('\\', '\\\\', $usr_login)))."%' AND";
-	} else if ($usr_email) {
-		$qry = "email LIKE '".addslashes($usr_email)."%' AND";
 	} else {
 		$qry = '';
 	}
@@ -81,54 +78,44 @@
 
 	if ($FUD_OPT_2 & 32768) {
 		$ul = $usr_login ? urlencode($usr_login) : 0;
-		$ue = $usr_email ? urlencode($usr_email) : 0;
 	}
 
 	$pager = '';
-	if (!$qry) {
-		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users ' . $qry);
-		if ($total > $count) {
-			if ($FUD_OPT_2 & 32768) {
-				$pg = '{ROOT}/ml/';
-				if (isset($_GET['pc'])) {
-					$pg .= '1/';
-				} else if (isset($_GET['us'])) {
-					$pg .= '2/';
-				} else {
-					$pg .= '0/';
-				}
-
-				$pg2 = '';
-
-				$pg2 .= ($usr_login ? urlencode($usr_login) : 0) . '/';
-				$pg2 .= ($usr_email ? urlencode($usr_email) : 0) . '/';
-
-				if (isset($_GET['js_redr'])) {
-					$pg2 .= '1/';
-				}
-				$pg2 .= _rsid;
-
-				$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
+	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' 1=1');
+	if ($total > $count) {
+		if ($FUD_OPT_2 & 32768) {
+			$pg = '{ROOT}/ml/';
+			if (isset($_GET['pc'])) {
+				$pg .= '1/';
+			} else if (isset($_GET['us'])) {
+				$pg .= '2/';
 			} else {
-
-				$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
-				if ($usr_login) {
-					$pg .= urlencode($usr_login) . '&amp;';
-				}
-				if ($usr_email) {
-					$pg .= urlencode($usr_email) . '&amp;';
-				}
-				if (isset($_GET['pc'])) {
-					$pg .= 'pc=1&amp;';
-				}
-				if (isset($_GET['us'])) {
-					$pg .= 'us=1&amp;';
-				}
-				if (isset($_GET['js_redr'])) {
-					$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
-				}
-				$pager = tmpl_create_pager($start, $count, $total, $pg);
+				$pg .= '0/';
 			}
+
+			$pg2 = '/' . ($usr_login ? urlencode($usr_login) : 0) . '/';
+
+			if (isset($_GET['js_redr'])) {
+				$pg2 .= '1/';
+			}
+			$pg2 .= _rsid;
+
+			$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
+		} else {
+			$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
+			if ($usr_login) {
+				$pg .= 'usr_login='.urlencode($usr_login) . '&amp;';
+			}
+			if (isset($_GET['pc'])) {
+				$pg .= 'pc=1&amp;';
+			}
+			if (isset($_GET['us'])) {
+				$pg .= 'us=1&amp;';
+			}
+			if (isset($_GET['js_redr'])) {
+				$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
+			}
+			$pager = tmpl_create_pager($start, $count, $total, $pg);
 		}
 	}
 
