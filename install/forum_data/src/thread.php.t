@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.41 2004/10/30 17:11:03 hackie Exp $
+* $Id: thread.php.t,v 1.42 2004/11/03 15:07:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,16 +104,12 @@
 				if ($r[16]) {
 					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
 				}
-			}
-
-			if (!$thread_read_status) {
-				if ($r[18] & 1) {
-					$thread_read_status = '{TEMPLATE: thread_read_locked}';
-				} else if (!_uid) {
-					$thread_read_status = '{TEMPLATE: thread_read_unreg}';
-				} else {
-					$thread_read_status = '{TEMPLATE: thread_read}';
-				}
+			} else if ($r[18] & 1) {
+				$thread_read_status = '{TEMPLATE: thread_read_locked}';
+			} else if (!_uid) {
+				$thread_read_status = '{TEMPLATE: thread_read_unreg}';
+			} else {
+				$thread_read_status = '{TEMPLATE: thread_read}';
 			}
 
 			if ($admin_heading_row) {
