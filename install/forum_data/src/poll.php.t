@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
+*   $Id: poll.php.t,v 1.7 2003/01/20 10:36:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,13 +98,14 @@
 	
 		if ( !empty($pl_upd) ) {
 			$a_opt->get($ses->getvar('pl_optedit'));
-			if( strlen(trim($pl_option)) ) { 
-				$a_opt->name = $pl_option;
-				$a_opt->sync();
+			if (!$a_opt->id) { 
+				if( strlen(trim($pl_option)) ) { 
+					$a_opt->name = $pl_option;
+					$a_opt->sync();
+				} else {
+					$a_opt->delete();
+				}
 			}
-			else {
-				$a_opt->delete();
-			}	
 		}
 		else if ( !empty($pl_add) ) {
 			if( strlen(trim($pl_option)) ) { 
