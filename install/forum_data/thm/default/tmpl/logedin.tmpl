@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.tmpl,v 1.19 2004/01/04 16:38:28 hackie Exp $
+* $Id: logedin.tmpl,v 1.20 2004/04/23 19:29:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,15 +13,15 @@
 {REF: ulink.tmpl}
 
 {MAIN_SECTION: loged_in_list loggedin user list}
-<br /><img src="blank.gif" alt="" height=2 width=1 />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<br />
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: logedin}
 {TEMPLATE-DATA: forum_info}
 </table>
 {MAIN_SECTION: END}
 
 {SECTION: logedin}
-<tr><th width="100%">{MSG: logged_in_list} {TEMPLATE-DATA: i_spy}</th></tr>
+<tr><th class="wa">{MSG: logged_in_list} {TEMPLATE-DATA: i_spy}</th></tr>
 <tr><td class="RowStyleA">
 <font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="adminColor">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="modsColor">[{MSG: moderator}]</font></font><br />
 {VAR: logedin}
@@ -41,12 +41,13 @@
 {SECTION: END}
 
 {SECTION: forum_info}
-<tr><td class="RowStyleB"><font class="SmallText">
+<tr><td class="RowStyleB SmallText">
 {MSG: message_counter}<br />
 {MSG: user_counter}<br />
 {MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
-</font></td></tr>
+</td></tr>
 {SECTION: END}
+
 {SECTION: i_spy_lnk}
 {ROOT}?t=actions&amp;{DEF: _rsid}
 {SECTION: END}

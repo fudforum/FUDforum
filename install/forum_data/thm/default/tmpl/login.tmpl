@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.17 2004/01/04 16:38:28 hackie Exp $
+* $Id: login.tmpl,v 1.18 2004/04/23 19:29:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,11 +23,11 @@
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{TEMPLATE: LOGIN_PAGE_lnk3}">
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
+<form name="login" method="post" action="{TEMPLATE: LOGIN_PAGE_lnk3}">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=3>{MSG: login_title}</th></tr>
-<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}</font>
+<tr><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}</font>
 <ol>
 <li><font class="GenText">{MSG: login_cookie_expired}</font>
 <li><font class="GenText">{MSG: login_perm_denied}</font>
@@ -35,18 +35,23 @@
 <tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a href="{TEMPLATE: LOGIN_PAGE_lnk}">{MSG: login_want_to_register}</a></td></tr>
 <tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a href="{TEMPLATE: LOGIN_PAGE_lnk1}">{MSG: login_forgot_passwd}</a></td></tr>
 {TEMPLATE-DATA: login_use_cookies}
-<tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
+<tr><td colspan=3 class="RowStyleA ar"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
 </table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: _POST['adm']}"></form>
+<script>
+<!--
+document.login.login.focus();
+//-->
+</script>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: login_use_cookies}
-<tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
+<tr class="RowStyleB"><td colspan=3 class="al"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
 {SECTION: END}
 
 {SECTION: login_error_msg}
-<p align="center" class="ErrorText">{VAR: _GET['msg']}</div></p>
+<p class="ac ErrorText">{VAR: _GET['msg']}</div></p>
 {SECTION: END}
 
 {SECTION: login_error_text}
