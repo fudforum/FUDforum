@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.56 2003/10/09 14:34:26 hackie Exp $
+* $Id: msg.php.t,v 1.57 2003/10/15 17:13:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,6 +26,9 @@
 	 */
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
 		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.apr=1 AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
+		if (!$_GET['goto']) {
+			$_GET['goto'] = 'end';
+		}
 	}
 
 	if (isset($_GET['goto'])) {

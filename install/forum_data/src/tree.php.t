@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.44 2003/10/09 14:34:27 hackie Exp $
+* $Id: tree.php.t,v 1.45 2003/10/15 17:13:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,6 +35,9 @@
 	}
 	if (!$mid && isset($_GET['unread']) && _uid) {
 		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp DESC LIMIT 1');
+		if (!$mid) {
+			$mid = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);		
+		}
 	}
 
 	/* we create a BIG object frm, which contains data about forum,
