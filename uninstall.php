@@ -1,14 +1,9 @@
-<html>
-<head>
-	<title>FUDforum Un-installer</title>
-</head>
-<body bgcolor="white">
 <?php
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: uninstall.php,v 1.1 2003/05/12 19:00:08 hackie Exp $
+*   $Id: uninstall.php,v 1.2 2003/05/23 08:54:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,6 +14,29 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
+	define('SAFE_MODE', ini_get('safe_mode'));
+
+	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
+		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
+			$c = getcwd();
+			copy($c . '/uninstall.php', $c . '/uninstall_safe.php');
+			header('Location: '.dirname($_SERVER['SCRIPT_NAME']).'/uninstall_safe.php?SERVER_DATA_ROOT='.urlencode($_POST['SERVER_DATA_ROOT']).'&SERVER_ROOT='.urlencode($_POST['SERVER_ROOT']));
+			exit;
+		}
+		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
+		$SERVER_ROOT = rtrim($_POST['SERVER_ROOT'], '\\/ ');
+	} else if (SAFE_MODE && !empty($_GET['SERVER_DATA_ROOT'])) {
+		$SERVER_DATA_ROOT = rtrim($_GET['SERVER_DATA_ROOT'], '\\/ ');
+		$SERVER_ROOT = rtrim($_GET['SERVER_ROOT'], '\\/ ');
+	}
+?>
+<html>
+<head>
+	<title>FUDforum Un-installer</title>
+</head>
+<body bgcolor="white">
+<?php
 
 function print_error($msg)
 {
@@ -51,9 +69,7 @@ function fud_rmdir($dir)
 	}
 }
 
-	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
-		$SERVER_DATA_ROOT = rtrim($_POST['SERVER_DATA_ROOT'], '\\/ ');
-		$SERVER_ROOT = rtrim($_POST['SERVER_ROOT'], '\\/ ');
+	if (isset($SERVER_DATA_ROOT)) {
 		if (!is_dir($SERVER_DATA_ROOT)) {
 			print_error('Directory "'.$SERVER_DATA_ROOT.'" does not exist');
 		}
