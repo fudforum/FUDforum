@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.83 2003/11/05 01:22:17 hackie Exp $
+* $Id: users.inc.t,v 1.84 2003/11/06 01:33:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -263,8 +263,8 @@ function init_user()
 					$_GET['t'] = 'pmsg';
 					if (isset($p[1])) {
 						if ($p[1] !== 'btn_delete') {
-							$_GET['fldr'] = $p[1];
-							if (isset($p[2]) && $p[2] == 'all') {
+							$_GET['folder_id'] = $p[1];
+							if (isset($p[2]) && (int) $p[2]) {
 								$_GET['all'] = 1;
 							}
 						} else {
