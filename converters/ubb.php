@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.3 2004/02/18 15:25:18 hackie Exp $
+* $Id: ubb.php,v 1.4 2004/02/18 15:31:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -407,6 +407,20 @@ function bbq($q, $err=0)
 	unset($r);
 	umask($old_umask);
 	print_msg('Finished Importing Messages');
+
+/* import ubb ratings */
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_rate_track");
+	$r = bb("SELECT r.R_What, r.R_Rating, u.U_Number
+			FROM {$ubb}Ratings r,
+			INNER JOIN {$ubb}Users u ON u.U_Username=r.R_Rater");
+	print_msg('Importing Topic Ratings '.db_count($r));
+	while ($obj = db_rowobj($r)) {
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_rate_track 
+			(thread_id, user_id, rating) 
+			VALUES (".(int)$obj->R_What.", ".(int)$obj->U_Number.", ".(int)$obj->R_Rating.")");
+	}
+	unset($r);
+	print_msg('Finished Importing Topic Ratings');
 
 /* Import ubb forum Subscriptions */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum_notify");
