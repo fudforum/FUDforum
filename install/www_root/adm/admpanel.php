@@ -46,6 +46,7 @@
 	
 	<b>User Management</b><br>
 	<a style="font-size: x-small;" href="admuser.php?<?php echo _rsid; ?>">Moderator/User Manager</a><br>
+	<a style="font-size: x-small;" href="admadduser.php?<?php echo _rsid; ?>">Add User</a><br>
 	<a style="font-size: x-small;" href="admgroups.php?<?php echo _rsid; ?>">Groups Manager</a><br>
 	<a style="font-size: x-small;" href="admmassemail.php?<?php echo _rsid; ?>">Mass Email</a><br>
 	<a style="font-size: x-small;" href="admlevel.php?<?php echo _rsid; ?>">Rank Manager</a><br><br>
