@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.21 2003/06/11 14:26:44 hackie Exp $
+*   $Id: actions.php.t,v 1.22 2003/07/09 14:40:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,8 +76,23 @@
 					$action = $r[0];	
 				}
 			} else {
-				$s = strpos($r[0], '"', (strpos($r[0], 'href="') + 7));
-				$action = substr_replace($r[0], '/' . _rsid, $s, 0);
+				$s = strpos($r[0], 'href="') + 6;
+				$s = substr($r[0], $s, (strpos($r[0], '"', $s) - $s));
+
+				if ($s{strlen($s) - 1} == '/') {
+					$tmp = explode('/', substr(str_replace('{ROOT}', '', $s), 1, -1));
+					if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+						array_pop($tmp);
+					}
+					if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+						array_pop($tmp);
+					}
+					$tmp[] = _rsid;
+					$sn = '{ROOT}/' . implode('/', $tmp);
+				} else {
+					$sn = $s . '/' . _rsid;
+				}
+				$action = str_replace($s, $sn, $r[0]);
 			}
 		} else {
 			$action = '{TEMPLATE: no_view_perm}';
