@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.12 2002/08/22 13:50:24 hackie Exp $
+*   $Id: compact.php,v 1.13 2002/08/28 01:53:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,6 +59,13 @@ function write_body_c($data, &$len, &$offset)
 	$offset = $off;
 	
 	return $i;
+}
+
+function fud_rename($from, $to)
+{
+	if( @file_exists($to) ) unlink($to);
+	copy($from, $to);
+	unlink($from);
 }
 	
 	list($ses, $usr) = initadm();
@@ -163,7 +170,7 @@ and the amount of messages your forum has.<br><br>
 	
 	if( @is_array($GLOBALS['__NEW_FILES__']) ) {
 		foreach($GLOBALS['__NEW_FILES__'] as $v) {
-			rename($GLOBALS['MSG_STORE_DIR'].'tmp_msg_'.$v, $GLOBALS['MSG_STORE_DIR'].'msg_'.$v);
+			fud_rename($GLOBALS['MSG_STORE_DIR'].'tmp_msg_'.$v, $GLOBALS['MSG_STORE_DIR'].'msg_'.$v);
 			@chmod($GLOBALS['MSG_STORE_DIR'].'msg_'.$v, __file_perms__);
 		}	
 	}	
@@ -184,7 +191,7 @@ and the amount of messages your forum has.<br><br>
 	
 	if( db_count($r) ) {
 		$i=0;
-		$ten_percent = round(db_count($r)/10);
+		$ten_percent = ceil(db_count($r)/10);
 	
 		while ( $obj = db_rowobj($r) ) {
 			$b = read_pmsg_body($obj->foff, $obj->length); 
@@ -214,7 +221,7 @@ and the amount of messages your forum has.<br><br>
 	
 	if( !empty($fp) ) { 
 		fclose($fp);
-		rename($GLOBALS['MSG_STORE_DIR'].'private_tmp', $GLOBALS['MSG_STORE_DIR'].'private');
+		fud_rename($GLOBALS['MSG_STORE_DIR'].'private_tmp', $GLOBALS['MSG_STORE_DIR'].'private');
 		@chmod($GLOBALS['MSG_STORE_DIR'].'private', __file_perms__);
 	}	
 	
