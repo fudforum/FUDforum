@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.42 2004/06/10 16:42:58 hackie Exp $
+* $Id: modque.php.t,v 1.43 2004/10/29 18:49:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,6 @@
 
 	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
-		$message = tmpl_drawmsg($obj, $usr, $perms, false, $m_num, null);
 		$modque_message .= '{TEMPLATE: modque_message}';
 	}
 	unset($r);

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.tmpl,v 1.20 2004/09/17 17:36:10 hackie Exp $
+* $Id: modque.tmpl,v 1.21 2004/10/29 18:49:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 
 {SECTION: modque_message}
 {TEMPLATE: modque_msg_header}
-{TEMPLATE-DATA: message}
+{FUNC: tmpl_drawmsg($obj, $usr, $perms, false, $m_num, null)}
 {SECTION: END}
 
 {PAGE: MODQUE_PAGE draws a list of all the messages that are pending approval by the moderator}
