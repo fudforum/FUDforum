@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.tmpl,v 1.4 2002/08/05 05:58:21 hackie Exp $
+*   $Id: split_th.tmpl,v 1.5 2003/04/14 19:37:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -22,26 +22,23 @@
 {REF: curtime.tmpl}
 {REF: usercp.tmpl}
 {REF: stats.tmpl}
-{REF: imsg.tmpl}
-{REF: imsg_edt.tmpl}
 {REF: th.tmpl}
 {REF: fileio.tmpl}
 {REF: draw_select_opt.tmpl}
-{REF: forum_adm.tmpl}
-{REF: forum.tmpl}
 {REF: is_perms.tmpl}
 {REF: logaction.tmpl}
+{REF: replace.tmpl}
 
 {SECTION: msg_entry individual message entries}
 <tr>
-<td class="RowStyleC" valign="top" align="center"><input type="checkbox" name="sel_th[]" value="{VAR: obj->id}"></td>
+<td class="RowStyleC" valign="top" align="center"><input type="checkbox" name="sel_th[]" value="{VAR: r->id}"></td>
 <td class="RowStyleA">
 <table cellspacing=1 cellpadding=2 border=0 class="ContentTable">
 <tr class="RowStyleB">
 	<td><font size="-1">
-	<b>{MSG: split_th_post_by}</b> {VAR: obj->login}<br />
-	<b>{MSG: split_th_posted_on}</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}<br />
-	<b>{MSG: split_th_subject}</b> {VAR: obj->subject}
+	<b>{MSG: split_th_post_by}</b> {VAR: r->alias}<br />
+	<b>{MSG: split_th_posted_on}</b> {DATE: r->post_stamp %a, %d %B %Y %H:%M}<br />
+	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
 	</font></td>
 </tr>
 <tr class="RowStyleA">
@@ -61,7 +58,7 @@
 <tr><th width="100%" colspan=2>Thread Split Control Panel</th></tr>
 <tr class="RowStyleA">
 	<td align="left"><b>{MSG: split_th_new_thread_title}</b></td>
-	<td ><input type="text" name="new_title" value="{VAR: new_title}" size=50></td>
+	<td ><input type="text" name="new_title" value="" size=50></td>
 </tr>
 <tr class="RowStyleA">
 	<td align="left"><b>{MSG: split_th_forum}</b></td>
@@ -77,7 +74,7 @@
 </table>
 <br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th nowrap>{MSG: split_th_messages}</th><th width="100%">{MSG: split_th_select}</th></tr>
+<tr><th nowrap>{MSG: split_th_select}</th><th width="100%">{MSG: split_th_messages}</th></tr>
 {TEMPLATE-DATA: msg_entry}
 </table>
 <br />

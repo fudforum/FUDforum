@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.11 2002/09/26 22:09:26 hackie Exp $
+*   $Id: finduser.tmpl,v 1.12 2003/04/14 19:37:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,13 +33,13 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form method="post" action="{ROOT}?t=finduser" style="padding: 0px; margin: 0px;">{DEF: _hs}
+<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR: user_login}"></td></tr>
-<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR: user_email}"></td></tr>
+<tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR: usr_login}"></td></tr>
+<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR: usr_email}"></td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><font class="SmallText">{MSG: finduser_help}</font> <input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
-</table></form>
+</table><input type="hidden" name="t" value="finduser"></form>
 <img src="blank.gif" alt="" height=2 width=1 border=0 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
@@ -58,26 +58,26 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->alias}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}?t=showposts&amp;id={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a>
+<a href="{ROOT}?t=showposts&amp;id={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR-URL: obj->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR: r->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
+<a class="GenLink" href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: obj->alias}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t=email&amp;tx_name={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
 {SECTION: END}
 {SECTION: finduser_title}
 {MSG: finduser_title}

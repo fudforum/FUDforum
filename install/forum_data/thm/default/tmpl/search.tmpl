@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.8 2002/08/23 00:11:37 hackie Exp $
+*   $Id: search.tmpl,v 1.9 2003/04/14 19:37:46 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -24,12 +24,12 @@
 {REF: stats.tmpl}
 {REF: show.tmpl}
 {REF: rev_fmt.tmpl}
-{REF: isearch.tmpl}
 {REF: draw_pager.tmpl}
 {REF: alt_var.tmpl}
 {REF: draw_radio_opt.tmpl}
 {REF: draw_select_opt.tmpl}
 {REF: allperms.tmpl}
+{REF: fileio.tmpl}
 
 {SECTION: search_results}
 <br />
@@ -57,11 +57,11 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: obj->forum_id}&amp;{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->poster_id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}">{VAR: r->alias}</a>
 {SECTION: END}
 
 {SECTION: unregistered_poster}
@@ -69,18 +69,18 @@
 {SECTION: END}
 
 {SECTION: forum_limit_cat_option limit by category option}
-<option value="c{VAR: obj->cat_id}"{VAR: selected}>{VAR-HTML: obj->cat_name}</option>
+<option value="c{VAR: r[2]}"{VAR: selected}>{VAR-HTML: r[3]}</option>
 {SECTION: END}
 
 {SECTION: forum_limit_frm_option limit by forum select option}
-<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;{VAR-HTML: obj->name}</option>
+<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
 {SECTION: END}
 
 {PAGE: SEARCH_PAGE message search form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<form method="post" action="{ROOT}?t=search" style="padding: 0px; margin: 0px;">{DEF: _hs}
+<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}<input type="hidden" name="t" value="search">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3 width="100%">{MSG: search_forum_search}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_for}</td><td colspan=2><input type="text" name="srch" value="{VAR-HTML: srch}"></td></tr>
