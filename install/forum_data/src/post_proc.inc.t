@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.75 2005/03/09 00:24:14 hackie Exp $
+* $Id: post_proc.inc.t,v 1.76 2005/03/10 16:56:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -612,7 +612,7 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 
 function reverse_nl2br(&$data)
 {
-	if (strpos('<br />', $data) !== false) {
+	if (strpos($data, '<br />') !== false) {
 		return str_replace('<br />', '', $data);
 	}
 	return $data;
