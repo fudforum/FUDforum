@@ -192,8 +192,8 @@ function layerVis(layer, on)
 
 function fud_msg_focus(mid_hash)
 {
-	if (!window.location.hash && !OPERA) {
-		window.location.hash = mid_hash;
+	if (!window.location.hash) {
+		self.location.replace(window.location+"#"+mid_hash);
 	}
 }
 
