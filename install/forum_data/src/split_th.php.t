@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.12 2003/04/14 11:06:04 hackie Exp $
+*   $Id: split_th.php.t,v 1.13 2003/04/14 11:35:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,20 +116,18 @@
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);
 		
 			if ($forum != $data->forum_id) {
-				/* deal with the 'source' forum */
-				if ($data->src_lpi == $data->last_post_id) {
-					if ($data->last_post_date >= $lpd) {
-						q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$mc.' WHERE id='.$data->forum_id);
-					} else {
-						q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$mc.", last_post_id='.th_frm_last_post_id($data->forum_id, $data->id).' WHERE id='.$data->forum_id);
-					}
+				/* deal with the source forum */
+				if ($data->src_lpi != $data->last_post_id || $data->last_post_date <= $lpd) {
+					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$mc.' WHERE id='.$data->forum_id);
+				} else {
+					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$mc.', last_post_id='.th_frm_last_post_id($data->forum_id, $data->id).' WHERE id='.$data->forum_id);
 				}
 
 				/* deal with destination forum */
-				if ($data->old_fm_lpd < $data->new_th_lps) {
-					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$mc.', thread_count=thread_count+1 WHERE id='.$data->forum_id);
+				if ($data->old_fm_lpd > $data->new_th_lps) {
+					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$mc.', thread_count=thread_count+1 WHERE id='.$forum);
 				} else {
-					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$mc.', thread_count=thread_count+1, last_post_id='.$data->new_th_lpi.' WHERE id='.$data->forum_id);
+					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$mc.', thread_count=thread_count+1, last_post_id='.$data->new_th_lpi.' WHERE id='.$forum);
 				}
 
 				rebuild_forum_view($forum);

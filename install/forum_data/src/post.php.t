@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.40 2003/04/11 09:52:56 hackie Exp $
+*   $Id: post.php.t,v 1.41 2003/04/14 11:35:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -226,6 +226,8 @@
 				}	
 			}
 			$attach_cnt = $attach_count;
+		} else {
+			$attach_cnt = 0;
 		}
 		
 		/* removal of a poll */
