@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.63 2004/04/21 21:35:20 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.64 2004/04/23 18:46:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -254,7 +254,7 @@
 {SECTION: END}
 
 {SECTION: mini_dmsg_poll}
-<p><table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<p><table cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th class="nw" colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 </table><p>
@@ -267,7 +267,7 @@
 {SECTION: dmsg_poll}
 <p>
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
-<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<table cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th class="nw" colspan=3>{VAR: obj->poll_name}<font class="ptp">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
@@ -381,7 +381,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
-<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
+<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 class="wa"><tr>
 <td class="al nw">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
 <td class="GenText wa ac">{TEMPLATE-DATA: next_page}</td>
 <td class="nw ar">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
@@ -411,7 +411,7 @@
 <td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
 <td class="MsgR1 vt ar"><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan=2><table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 
 {TEMPLATE-DATA: avatar}
