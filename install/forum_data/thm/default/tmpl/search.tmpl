@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
+*   $Id: search.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,11 +57,11 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->forum_id}&{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: obj->forum_id}&amp;{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->poster_id}&{DEF: _rsid}">{VAR: obj->login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->poster_id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
 {SECTION: END}
 
 {SECTION: unregistered_poster}
@@ -80,8 +80,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+<form method="post" action="{ROOT}?t=search" style="padding: 0px; margin: 0px;">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<form method="post" action="{ROOT}?t=search">{DEF: _hs}
 <tr><th colspan=3 width="100%">{MSG: search_forum_search}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_for}</td><td colspan=2><input type="text" name="srch" value="{VAR-HTML: srch}"></td></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">&nbsp;</td><td colspan=2>{TEMPLATE-DATA: search_options}</td></tr>
@@ -95,8 +95,7 @@
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_logic}</td><td colspan=2><select name="search_logic">{TEMPLATE-DATA: logic_options}</select></td></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_sorting}</td><td colspan=2><select name="sort_order">{TEMPLATE-DATA: sort_options}</select></td></tr>
 <tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: search}"></td></tr>
-</form>
-</table>
+</table></form>
 {TEMPLATE-DATA: search_data}
 <div align="left">{TEMPLATE-DATA: page_pager}</div>
 {TEMPLATE: curtime}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.tmpl,v 1.3 2002/08/04 15:08:08 hackie Exp $
+*   $Id: tabs.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,15 +17,15 @@
 {PHP_FILE: input: tabs.inc.t; output: @tabs.inc;}
 
 {SECTION: active_tab}
-<td class="brdr_selected" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 /></td>
-<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#dee2e6" class="brdr_selected"><img src="blank.gif" alt="" width=10 height=1 /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
-<td class="brdr_selected" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 /></td>
+<td class="brdrSelected" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
+<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#dee2e6" class="brdrSelected"><img src="blank.gif" alt="" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
+<td class="brdrSelected" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
 {SECTION: END}
 
 {SECTION: inactive_tab}
-<td class="brdr_normal" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 /></td>
-<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#c2cdd6" class="brdr_normal"><img src="blank.gif" alt="" width=10 height=1 /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
-<td class="brdr_normal" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 /></td>
+<td class="brdrNormal" valign="top" background="{THEME_IMAGE_ROOT}/tab_start.gif"><img src="{THEME_IMAGE_ROOT}/tab_start_top.gif" border=0 alt="" /></td>
+<td background="{THEME_IMAGE_ROOT}/tab_top.gif" nowrap bgcolor="#c2cdd6" class="brdrNormal"><img src="blank.gif" alt="" width=10 height=1 alt="" /><a href="{VAR: tab_url}">{VAR: tab_name}</a><img src="blank.gif" alt="" width=10 height=1 /></td>
+<td class="brdrNormal" valign="top" background="{THEME_IMAGE_ROOT}/tab_end.gif"><img src="{THEME_IMAGE_ROOT}/tab_end_top.gif" border=0 alt="" /></td>
 {SECTION: END}
 
 {MAIN_SECTION: tablist tablist used in the profile control panels}
@@ -34,9 +34,9 @@
 <td bgcolor="#dee2e6">
 	<table border=0 cellspacing=0 cellpadding=0 width="100%">
 		<tr bgcolor="#dee2e6" align="left">
-			<td bgcolor="#dee2e6" class="brdr_normal">&nbsp;</td>
+			<td bgcolor="#dee2e6" class="brdrNormal">&nbsp;</td>
 			{TEMPLATE-DATA: tabs}
-			<td width="100%" bgcolor="#dee2e6" class="brdr_normal">&nbsp;</td>
+			<td width="100%" bgcolor="#dee2e6" class="brdrNormal">&nbsp;</td>
 		</tr>
 	</table>
 </td>

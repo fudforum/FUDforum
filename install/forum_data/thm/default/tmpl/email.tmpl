@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
+*   $Id: email.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -44,17 +44,15 @@
 
 {PAGE: EMAIL_PAGE }{TEMPLATE: header}
 {TEMPLATE: usercp}
+<form method="post" action="{ROOT}?t=email" style="padding: 0px; margin: 0px;">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<form method="post" action="{ROOT}?t=email">
 <tr><th colspan=2>{MSG: email_pg_title}</th></tr>
 {TEMPLATE-DATA: destination}
 <tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA" width="100%"><input type="text" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
 <tr class="RowStyleB"><td nowrap class="GenText" valign="top">{MSG: email_body} {VAR: body_err}</td><td width="100%" class="RowStyleA"><textarea name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
 <tr class="RowStyleC"><td align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: email_submit}"></td></tr>
 <input type="hidden" name="email_open" value="{VAR: email_open}">
-{DEF: _hs}{VAR: return}
-</form>
-</table>
+</table>{DEF: _hs}{VAR: return}</form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.6 2002/08/04 15:09:12 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.7 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,7 +28,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: m_obj->post_stamp %a, %d %B %Y %H:%M}</font><br /><a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: m_obj->id}&{DEF: _rsid}" class="GenLink">{VAR: m_obj->subject}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: m_obj->post_stamp %a, %d %B %Y %H:%M}</font><br /><a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: m_obj->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: m_obj->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: user_image}
@@ -44,11 +44,11 @@
 {SECTION: END}
 
 {SECTION: email_form_link link to the email form}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email}</td><td class="GenText">[<a href="{ROOT}?t=email&tx_name={VAR: encoded_login}&returnto={VAR: returnto}&{DEF: _rsid}">{MSG: email_user}</a>]</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email}</td><td class="GenText">[<a href="{ROOT}?t=email&amp;tx_name={VAR: encoded_login}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}">{MSG: email_user}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: usrinfo_private_msg private message link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR: u->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR: u->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a></td></tr>
 {SECTION: END}
 
 {SECTION: home_page}
@@ -72,7 +72,7 @@
 {SECTION: END}
 
 {SECTION: referals an indicator of how many people this user has referred}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_referals}</td><td class="GenText"><a href="{ROOT}?t=list_referers&{DEF: _rsid}">{MSG: userinfo_referals_count}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_referals}</td><td class="GenText"><a href="{ROOT}?t=list_referers&amp;{DEF: _rsid}">{MSG: userinfo_referals_count}</a></td></tr>
 {SECTION: END}
 
 {SECTION: bio biography}
@@ -152,7 +152,7 @@
 {SECTION: END}
 
 {SECTION: moderation_entry link to forum moderated by user}
-<a href="{ROOT}?t=thread&frm_id={VAR: ar->id}&{DEF: _rsid}" class="GenLink">{VAR: ar->name}</a>&nbsp;
+<a href="{ROOT}?t=thread&amp;frm_id={VAR: ar->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: ar->name}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: status various forum related tags assigned to user}
@@ -172,7 +172,7 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2 width="100%">{MSG: usrinfo_profile}</th></tr>
 <tr class="RowStyleA"><td nowrap class="GenText">{MSG: date_registered}</td><td width="100%" class="DateText">{DATE: u->join_date %B %d, %Y}</td></tr>
-<tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{VAR: show_all_posts}</a></td></tr>
+<tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a class="GenLink" href="{ROOT}?t=showposts&amp;id={VAR: u->id}&amp;{DEF: _rsid}">{VAR: show_all_posts}</a></td></tr>
 {TEMPLATE-DATA: status}
 {TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}
@@ -193,7 +193,7 @@
 {TEMPLATE-DATA: im_yahoo}
 {TEMPLATE-DATA: im_msnm}
 {TEMPLATE-DATA: im_jabber}
-<tr class="RowStyleC"><td nowrap align="right" class="GenText" colspan=2><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{MSG: usrinfo_show_all_posts}</a></td></tr>
+<tr class="RowStyleC"><td nowrap align="right" class="GenText" colspan=2><a class="GenLink" href="{ROOT}?t=showposts&amp;id={VAR: u->id}&amp;{DEF: _rsid}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -221,5 +221,5 @@
 {SECTION: END}
 
 {SECTION: polls an indicator of how many polls this user has created}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_polls}</td><td class="GenText"><a href="{ROOT}?t=polllist&uid={VAR: u->id}&{DEF: _rsid}">{VAR: polls}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_polls}</td><td class="GenText"><a href="{ROOT}?t=polllist&amp;uid={VAR: u->id}&amp;{DEF: _rsid}">{VAR: polls}</a></td></tr>
 {SECTION: END}

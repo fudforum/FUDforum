@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.6 2002/07/30 14:34:37 hackie Exp $
+*   $Id: showposts.php.t,v 1.7 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -84,7 +84,7 @@
 		while ( $obj = db_rowobj($r) ) $post_entry .= '{TEMPLATE: post_entry}';
 		qf($r);
 	
-		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=showposts&id='.$id.'&start='.$start.'&'._rsid);
+		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=showposts&amp;id='.$id.'&amp;start='.$start.'&amp;'._rsid);
 	}
 	{POST_PAGE_PHP_CODE}
 ?>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.9 2002/08/04 15:09:12 hackie Exp $
+*   $Id: register.tmpl,v 1.10 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -136,8 +136,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
+<form method="post" action="{ROOT}?t=register" name="fud_register" enctype="multipart/form-data" style="padding: 0px; margin: 0px;">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<form method="post" action="{ROOT}?t=register" name="fud_register" enctype="multipart/form-data">
 <tr><th colspan=2>{MSG: register_required}<br /><font size="-2">{MSG: register_required_desc}</font></th></tr>
 {TEMPLATE-DATA: user_info_heading}
 <tr><th colspan=2>{MSG: register_optional}<br /><font size="-2">{MSG: register_optional_desc}</font></th></tr>
@@ -168,9 +168,9 @@
  </tr>
 </table></td></tr>
 <tr><td class="RowStyleA">{MSG: register_gender}</td><td class="RowStyleA"><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
-<tr><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><font class="SmallText">{MSG: register_bio_desc}</font></td><td class="RowStyleA"><textarea nowrap name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
+<tr><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><font class="SmallText">{MSG: register_bio_desc}</font></td><td class="RowStyleA"><textarea name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
 <tr><th colspan=2>{MSG: register_prefs}</th></tr>
-<tr><td valign="top" class="RowStyleA">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}</td><td class="RowStyleA">{VAR: reg_sig_err}<textarea nowrap name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
+<tr><td valign="top" class="RowStyleA">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}</td><td class="RowStyleA">{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
 <tr><td class="RowStyleA">{MSG: register_timezone}</td><td class="RowStyleA"><select name="reg_time_zone" class="SmallText">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr><td class="RowStyleA">{MSG: register_ignore_admin}</td><td class="RowStyleA">{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_invisible_mode}<br /><font class="SmallText">{MSG: register_invisible_mode_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
@@ -186,13 +186,13 @@
 <tr><td class="RowStyleA">{MSG: register_def_thread_view}</td><td class="RowStyleA"><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
 <tr><td class="RowStyleA">Theme:</td><td class="RowStyleA">{TEMPLATE-DATA: theme_select}</td></tr>
 <tr class="RowStyleC"><td colspan=2 align="center">{TEMPLATE-DATA: submit_button}&nbsp;<INPUT TYPE="reset" class="button" NAME="Reset" VALUE="{MSG: register_reset}"></td></tr>
+</table>
 {DEF: _hs}
 <input type="hidden" name="prev_loaded" value="1">
 <input type="hidden" name="mod_id" value="{VAR: mod_id}">
 <input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}">
 {VAR: return}
 </form>
-</table>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

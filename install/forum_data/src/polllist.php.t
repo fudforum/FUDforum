@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.3 2002/07/31 21:56:50 hackie Exp $
+*   $Id: polllist.php.t,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,7 +91,7 @@
 	}
 	qf($r);
 	
-	$pager = tmpl_create_pager($start, $GLOBALS['POLLS_PER_PAGE'], $ttl, '{ROOT}?t=polllist&oby='.$oby);
+	$pager = tmpl_create_pager($start, $GLOBALS['POLLS_PER_PAGE'], $ttl, '{ROOT}?t=polllist&amp;oby='.$oby);
 	
 	{POST_PAGE_PHP_CODE}
 ?>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,17 +36,15 @@
 
 {SECTION: group_selection allows group manager to choose which group to edit}
 <br /><br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form method="post" action="{ROOT}?t=groupmgr">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: group_mgr_heading}</th></tr>
 <tr class="RowStyleA">
 	<td nowrap><b>{MSG: group_mgr_group}</b></td>
 	<td width="100%"><select name="group_id">{TEMPLATE-DATA: group_selection}</select></td>
 </tr>
 <tr class="RowStyleC"><td colspan=2 align="left"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}"></td></tr>
-{DEF: _hs}
-</form>
-</table>
+</table>{DEF: _hs}</form>
 {SECTION: END}
 
 {SECTION: group_control_panel}
@@ -54,8 +52,8 @@
 <br />
 {TEMPLATE-DATA: indicator}
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form method="post" action="{ROOT}?t=groupmgr" name="groupmgr">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: member_input}
 <tr class="RowStyleB">
 	<td colspan=2>
@@ -71,11 +69,7 @@
 		{TEMPLATE-DATA: submit_button}
 	</td>
 </tr>
-<input type="hidden" name="group_id" value="{VAR: group_id}">
-<input type="hidden" name="edit" value="{VAR: edit}">
-{DEF: _hs}
-</form>
-</table>
+</table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
 <br /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: groupmgr_member}</th>{TEMPLATE: permission_header}<th align="center">{MSG: groupmgr_action}</th></tr>
@@ -126,14 +120,14 @@
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
 <td nowrap>{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->mmid}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>] [<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&del={VAR: obj->user_id}&group_id={VAR: obj->group_id}">{MSG: groupmgr_delete}</a>]</td></tr>
+<td nowrap>[<a href="{ROOT}?t=groupmgr&amp;{DEF: _rsid}&amp;edit={VAR: obj->mmid}&amp;group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>] [<a href="{ROOT}?t=groupmgr&amp;{DEF: _rsid}&amp;del={VAR: obj->user_id}&amp;group_id={VAR: obj->group_id}">{MSG: groupmgr_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: group_const_entry permissions for a constant (hardcoded) in a group}
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
 <td nowrap>{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{ROOT}?t=groupmgr&{DEF: _rsid}&edit={VAR: obj->mmid}&group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>]</td></tr>
+<td nowrap>[<a href="{ROOT}?t=groupmgr&amp;{DEF: _rsid}&amp;edit={VAR: obj->mmid}&amp;group_id={VAR: obj->group_id}">{MSG: groupmgr_edit}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: groupmgr_no_user no such user error}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: help_index.tmpl,v 1.2 2002/08/04 15:09:12 hackie Exp $
+*   $Id: help_index.tmpl,v 1.3 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,7 +33,7 @@
 
 {SECTION: help_section individual help section}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{VAR: topic_title} <a href="#top" class="th_lnk">{MSG: help_back_to_top}</a></th></tr>
+<tr><th>{VAR: topic_title} <a href="#top" class="thLnk">{MSG: help_back_to_top}</a></th></tr>
 <tr><td class="ForumBackground">
 	<table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
 	{TEMPLATE-DATA: topic_help}
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: return_top return to top link}
-<div align="center" class="GenText">[ <a href="{ROOT}?t=help_index&{DEF: _rsid}" class="GenLink">{MSG: help_return_to_index}</a> ]</div>
+<div align="center" class="GenText">[ <a href="{ROOT}?t=help_index&amp;{DEF: _rsid}" class="GenLink">{MSG: help_return_to_index}</a> ]</div>
 {SECTION: END}
 {SECTION: help_index_update}
 {MSG: help_index_update}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: logedin.inc.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@
 			
 			$reg_u++;
 			
-			$profile_link = '{ROOT}?t=usrinfo&id='.$obj->id.'&'._rsid;
+			$profile_link = '{ROOT}?t=usrinfo&amp;id='.$obj->id.'&amp;'._rsid;
 					
 			if( $obj->is_mod == 'A' ) 
 				$loged_in_list .= '{TEMPLATE: online_user_link_admin}';
@@ -56,7 +56,7 @@
 		
 		$uid = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users");
 		$ulogin = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$uid);
-		$ulink = '{ROOT}?t=usrinfo&id='.$uid.'&'._rsid;
+		$ulink = '{ROOT}?t=usrinfo&amp;id='.$uid.'&amp;'._rsid;
 		$reg_users = q_singleval("select count(*) FROM {SQL_TABLE_PREFIX}users");
 		
 		if( !_uid )

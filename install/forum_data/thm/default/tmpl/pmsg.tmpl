@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.5 2002/08/04 15:08:08 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,15 +40,15 @@
 {SECTION: END}
 
 {SECTION: action_buttons_inbox}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&quote={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&forward={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_sent_trash}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_draft}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: pmsg_read private message read}
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
-<font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}?t=pmsg_view&{DEF: _rsid}&dr=1&id={VAR: obj->id}" class="GenLink"><acronym title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</acronym></a>]</font>
+<font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;dr=1&amp;id={VAR: obj->id}" class="GenLink"><acronym title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</acronym></a>]</font>
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
@@ -84,7 +84,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB"><td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}" class="GenLink">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
-<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->login}</a></td>
+<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->login}</a></td>
 <td nowrap class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td nowrap align="center" class="GenText">{TEMPLATE-DATA: action}</td>
 <td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td></tr>
@@ -95,10 +95,10 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE: pmsg_disk_usage}
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 /></a></div><img src="blank.gif" alt="" width=1 height=2 border=0 />
+<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 alt="" /></a></div><img src="blank.gif" alt="" width=1 height=2 border=0 />
 {TEMPLATE-DATA: tabs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB"><td align=right colspan=6 class="GenText" align="right">
 {MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">
 {TEMPLATE-DATA: select_options_cur_folder}
@@ -110,17 +110,16 @@
 	<th align="center">{TEMPLATE-DATA: author_dest_col}</th>
 	<th align="center">{MSG: pmsg_time}</th>
 	<th align="center">{MSG: action}</th>
-	<th nowrap>{MSG: pmsg_selected} [<a href="{ROOT}?t=pmsg&folder_id={VAR: folder_id}&{DEF: _rsid}&all={VAR: all_v}" class="th_lnk">{VAR: desc}</a>]</th>
+	<th nowrap>{MSG: pmsg_selected} [<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}" class="thLnk">{VAR: desc}</a>]</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
 <tr class="RowStyleB"><td colspan=6 class="GenText" align=right>
 <input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
 &nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
-</form>
-</table>
+</table></form>
 <img src="blank.gif" alt="" width=1 height=2 border=0 />
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 /></a></div>
+<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 alt="" /></a></div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

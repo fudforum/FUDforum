@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: search.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@
 			$search_data = '{TEMPLATE: search_results}';
 		}
 	}
-	$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&btn_submit=1&srch='.urlencode($srch).'&field='.urlencode($field).'&'._rsid.'&forum_limiter='.$forum_limiter);
+	$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;btn_submit=1&amp;srch='.urlencode($srch).'&amp;field='.urlencode($field).'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter);
 
 	if( $usr->is_mod != 'A' ) {
 		$fids = get_all_perms(_uid);

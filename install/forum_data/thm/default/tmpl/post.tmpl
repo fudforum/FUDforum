@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.5 2002/08/04 15:09:12 hackie Exp $
+*   $Id: post.tmpl,v 1.6 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,16 +57,17 @@
 {SECTION: END}
 
 {SECTION: preview_message}
-<table align="center" border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
 <tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
 {TEMPLATE-DATA: apply_spell_changes}
-</table><br />
+</table><br /></div>
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&{DEF: _rsid}&logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&amp;amp;{DEF: _rsid}&amp;amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
@@ -74,11 +75,11 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&{DEF: _rsid}&frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;amp;{DEF: _rsid}&amp;amp;frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll->name} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&{DEF: _rsid}&pl_id={VAR: pl_id}&frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll->name} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;amp;{DEF: _rsid}&amp;amp;pl_id={VAR: pl_id}&amp;amp;frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
@@ -97,7 +98,7 @@
 {SECTION: END}
 
 {SECTION: post_icon_entry}
-<td nowrap valign=middle><input type="radio" name="msg_icon" value="{VAR: de}"{VAR: checked}><img src="{VAR: icon_path_www}{VAR: de}" /></td>
+<td nowrap valign=middle><input type="radio" name="msg_icon" value="{VAR: de}"{VAR: checked}><img src="{VAR: icon_path_www}{VAR: de}" border=0 alt="" /></td>
 {SECTION: END}
 
 {SECTION: post_icon_row}
@@ -114,7 +115,7 @@
 {SECTION: END}
 
 {SECTION: post_smiley_entry}
-<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: obj->code} \');"><img title="{VAR: obj->descr}" src="{VAR: smiley_www}{VAR: obj->img}" border=0 /></a>&nbsp;
+<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: obj->code} \');"><img title="{VAR: obj->descr}" alt="{VAR: obj->descr}" src="{VAR: smiley_www}{VAR: obj->img}" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: post_smiley_row}
@@ -136,19 +137,19 @@
 <tr><td>
 <table border=0 cellspacing=1 cellpadding=2 class="FormattingToolsBG">
 <tr>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img id="bold_anc" name="bold_anc" src="{THEME_IMAGE_ROOT}/b_bold.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');""><img id="italic_anc" name="italic_anc" src="{THEME_IMAGE_ROOT}/b_italic.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img id="underline_anc" name="underline_anc" src="{THEME_IMAGE_ROOT}/b_underline.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img id="left_anc" name="left_anc" src="{THEME_IMAGE_ROOT}/b_aleft.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img id="center_anc" name="center_anc" src="{THEME_IMAGE_ROOT}/b_acenter.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img id="right_anc" name="right_anc" src="{THEME_IMAGE_ROOT}/b_aright.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img id="url_anc" name="url_anc" src="{THEME_IMAGE_ROOT}/b_url.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img id="email_anc" name="email_anc" src="{THEME_IMAGE_ROOT}/b_email.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img id="image_anc" name="image_anc" src="{THEME_IMAGE_ROOT}/b_image.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=OL:1\', \'listmaker\', 350, 350);"><img id="nlist_anc" name="nlist_anc" src="{THEME_IMAGE_ROOT}/b_numlist.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=UL:square\', \'listmaker\', 350, 350);"><img id="blist_anc" name="blist_anc" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img id="quote_anc" name="quote_anc" src="{THEME_IMAGE_ROOT}/b_quote.gif" border=0 /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img id="code_anc" name="code_anc" src="{THEME_IMAGE_ROOT}/b_code.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" border=0 /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" border=0 /></a></td>
 </tr>
 </table>
 </td>
@@ -235,7 +236,7 @@
 {VAR: attach_control_error}
 <font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: MAX_F_SIZE}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: frm->max_file_attachments}
 {TEMPLATE-DATA: attached_status}
-<p></font>
+</font><p>
 {TEMPLATE-DATA: upload_file}
 </td></tr>
 {SECTION: END}
@@ -315,6 +316,8 @@
 </td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
 <input type="submit" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+</table>
+{TEMPLATE-DATA: minimsg}
 {DEF: _hs}
 <input type="hidden" name="submitted" value="">
 <input type="hidden" name="reply_to" value="{VAR: reply_to}">
@@ -328,8 +331,6 @@
 <input type="hidden" name="prev_loaded" value="1">
 <input type="hidden" name="attach_enabled" value="{VAR: attach_enabled}">
 {VAR: ret}
-</table>
-{TEMPLATE-DATA: minimsg}
 </form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

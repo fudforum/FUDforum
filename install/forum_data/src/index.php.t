@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.12 2002/07/31 21:56:50 hackie Exp $
+*   $Id: index.php.t,v 1.13 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -154,7 +154,7 @@ function index_view_perms($usr_id)
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MIN}';
 				}
 				
-				$collapse_url = '{ROOT}?t=index&c='.url_tog_collapse($data->cat_id).'&'._rsid;
+				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($data->cat_id).'&amp;'._rsid;
 				
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 			}
@@ -172,7 +172,7 @@ function index_view_perms($usr_id)
 		else
 			$forum_icon = '{TEMPLATE: no_forum_icon}';
 		
-		$forum_link = '{ROOT}?t=thread&frm_id='.$data->id.'&'._rsid;
+		$forum_link = '{ROOT}?t=thread&amp;frm_id='.$data->id.'&amp;'._rsid;
 
 		if( isset($GLOBALS['NO_VIEW_PERMS'][$data->id]) ) {
 			
@@ -189,13 +189,13 @@ function index_view_perms($usr_id)
 
 		if( $data->last_post_id ) {
 			if( !empty($data->user_id) ) {
-				$profile_link = '{ROOT}?t=usrinfo&id='.$data->user_id.'&'._rsid;
+				$profile_link = '{ROOT}?t=usrinfo&amp;id='.$data->user_id.'&amp;'._rsid;
 				$last_poster_profile = '{TEMPLATE: profile_link_user}';
 			}	
 			else
 				$last_poster_profile = '{TEMPLATE: profile_link_anon}';
 				
-			$last_post_link	= '{ROOT}?t='.d_thread_view.'&goto='.$data->last_post_id.'&'._rsid;
+			$last_post_link	= '{ROOT}?t='.d_thread_view.'&amp;goto='.$data->last_post_id.'&amp;'._rsid;
 			$last_post_link = '{TEMPLATE: last_post_link}';
 			
 			$last_post = '{TEMPLATE: last_post}';
@@ -209,7 +209,7 @@ function index_view_perms($usr_id)
 			$moderators = '';
 			foreach($ma as $v) { 
 				list($mod_id,$mod_name) = explode("\n", $v);
-				$mod_link = '{ROOT}?t=usrinfo&id='.$mod_id.'&'._rsid;
+				$mod_link = '{ROOT}?t=usrinfo&amp;id='.$mod_id.'&amp;'._rsid;
 				$moderators .= '{TEMPLATE: profile_link_mod}';
 			}
 		}
@@ -221,7 +221,7 @@ function index_view_perms($usr_id)
 	qf($frmres);
 
 	if( isset($usr) ) {
-		$mark_read_link = '{ROOT}?t=markread&'._rsid.'&returnto='.urlencode('{ROOT}?t=index&'._rsid.'&c='.(isset($c)?$c:''));
+		$mark_read_link = '{ROOT}?t=markread&amp;'._rsid.'&amp;returnto='.urlencode('{ROOT}?t=index&amp;'._rsid.'&amp;c='.(isset($c)?$c:''));
 		$mark_all_read = '{TEMPLATE: mark_all_read}';
 	}
 	else $mark_all_read = '';		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.2 2002/07/27 05:52:09 hackie Exp $
+*   $Id: return.inc.t,v 1.3 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 function create_return()
 {
-	return '<input type="hidden" name="returnto" value="'.urldecode($GLOBALS['returnto']).'">';
+	return '<input type="hidden" name="returnto" value="'.htmlspecialchars(urldecode($GLOBALS['returnto'])).'">';
 }
         
 function check_return()

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.8 2002/08/04 15:09:12 hackie Exp $
+*   $Id: finduser.tmpl,v 1.9 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,18 +33,17 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
+<form method="post" action="{ROOT}?t=finduser" style="padding: 0px; margin: 0px;">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
-<form method="post" action="{ROOT}?t=finduser">{DEF: _hs}
 <tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR: user_login}"></td></tr>
 <tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR: user_email}"></td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
-</form>
-</table>
+</table></form>
 <img src="blank.gif" alt="" height=2 width=1 border=0 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-<th width="100%"><a class="th_lnk" href="{ROOT}?t=finduser&usr_login={VAR-URL: user_login}&usr_email={VAR-URL: usr_email}&us=1&btn_submit=Find&{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&pc=1&btn_submit=Find" class="th_lnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&btn_submit=Find" class="th_lnk">{MSG: finduser_joindate}</a></th><th align="center">{MSG: finduser_action}</th>
+<th width="100%"><a class="thLnk" href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: user_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find" class="thLnk">{MSG: finduser_joindate}</a></th><th align="center">{MSG: finduser_action}</th>
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -59,18 +58,18 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->alias}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->alias}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}?t=showposts&id={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a>
+<a href="{ROOT}?t=showposts&amp;id={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR-URL: obj->alias}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
@@ -78,7 +77,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->alias}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: obj->alias}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
 {SECTION: END}
 {SECTION: finduser_title}
 {MSG: finduser_title}

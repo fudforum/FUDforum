@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: remail.php.t,v 1.6 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@
 		$from = $usr->alias. '<'.$usr->email.'>';
 		send_email(stripslashes($from), stripslashes($to), stripslashes($subj), stripslashes($body));
 	
-		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}', '{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsid);
+		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}', '{ROOT}?t='.d_thread_view.'&amp;th='.$th.'&amp;'._rsid);
 		exit;
 	}
 	

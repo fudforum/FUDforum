@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: finduser.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 			
 		if ( $start || $count ) $lim = "LIMIT ".qry_limit($count, $start);
 		
-		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
+		$returnto = urlencode('{ROOT}?t=finduser&amp;btn_submit=Find&start='.$start.'&amp;'._rsid.'&amp;count='.$count);
 		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord." ".$lim);
 		$find_user_data = '';
 		if ( !db_count($res) ){
@@ -81,7 +81,7 @@
 
 	if ( empty($np) ) {
 		$total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users ".(isset($qry)?$qry:''));
-		if ( $total && !empty($btn_submit) ) $pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=finduser&usr_login='.urlencode($usr_login).'&'._rsid.'&usr_email='.$usr_email.'&pc='.(empty($pc)?'':$pc).'&us='.(empty($us)?'':$us).'&btn_submit=Find&js_redr='.(empty($js_redr)?'':$js_redr).'&append='.(empty($append)?'':$append));
+		if ( $total && !empty($btn_submit) ) $pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=finduser&amp;usr_login='.urlencode($usr_login).'&amp;'._rsid.'&amp;usr_email='.$usr_email.'&amp;pc='.(empty($pc)?'':$pc).'&amp;us='.(empty($us)?'':$us).'&amp;btn_submit=Find&amp;js_redr='.(empty($js_redr)?'':$js_redr).'&amp;append='.(empty($append)?'':$append));
 	}
 	
 	{POST_PAGE_PHP_CODE}

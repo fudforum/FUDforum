@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 		$vl = $kl = '';
 		while( list($gid,$gname) = db_rowarr($r) ) {
 			$vl .= $gid."\n";
-			$kl .= $gname."\n";
+			$kl .= htmlspecialchars($gname)."\n";
 		}
 		$vl = substr($vl, 0, -1);
 		$kl = substr($kl, 0, -1);

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
+*   $Id: login.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,22 +27,20 @@
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable" align="center">
 <form method="post" action="{ROOT}?t=login">
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=3>{MSG: login_title}</th></tr>
-<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}
+<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}</font>
 <ol>
-<li>{MSG: login_cookie_expired}
-<li>{MSG: login_perm_denied}
-</ol></font></td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{ROOT}?t=register&{DEF: _rsid}">{MSG: login_want_to_register}</a></td></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&returnto={VAR-URL: returnto}&{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
+<li><font class="GenText">{MSG: login_cookie_expired}</font>
+<li><font class="GenText">{MSG: login_perm_denied}</font>
+</ol></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{ROOT}?t=register&amp;{DEF: _rsid}">{MSG: login_want_to_register}</a></td></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&amp;returnto={VAR-URL: returnto}&amp;{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
 <tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
 <tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
-{DEF: _hs}
-<input type="hidden" name="adm" value="{VAR: adm}">
-</form>
-</table>
+</table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: adm}"></form>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}

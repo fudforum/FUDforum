@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.8 2002/07/30 14:34:37 hackie Exp $
+*   $Id: msg.php.t,v 1.9 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -212,7 +212,7 @@
 
 	if ( isset($usr) ) $usr->register_thread_view($thread->id, $mid);
 
-	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&th=".$th."&prevloaded=1&"._rsid.'&rev='.$rev.'&reveal='.$reveal);
+	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&amp;th=".$th."&amp;prevloaded=1&amp;"._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
 
 	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
 

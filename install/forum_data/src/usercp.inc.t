@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.4 2002/07/31 21:56:50 hackie Exp $
+*   $Id: usercp.inc.t,v 1.5 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 		
 	$adm_str = $rid = $pm = '';
-	$ret_to = '&returnto='.urlencode(!empty($GLOBALS['returnto'])?urldecode($GLOBALS['returnto']):$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
+	$ret_to = '&amp;returnto='.urlencode(!empty($GLOBALS['returnto'])?urldecode($GLOBALS['returnto']):$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
 
 	if ( empty($GLOBALS['usr']) ) {
 		$login_n_logout = '{TEMPLATE: login}';

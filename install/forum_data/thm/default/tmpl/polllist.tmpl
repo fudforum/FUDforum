@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.tmpl,v 1.4 2002/08/04 15:09:12 hackie Exp $
+*   $Id: polllist.tmpl,v 1.5 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,24 +27,24 @@
 {REF: allperms.tmpl}
 
 {SECTION: vote_lnk}
-<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->msg_id}&{DEF: _rsid}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->msg_id}&amp;{DEF: _rsid}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}" alt="{MSG: user_online}" />&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}" />&nbsp;
+<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}" alt="{MSG: user_offline}" />&nbsp;
 {SECTION: END}
 
 {SECTION: poll_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td width="100%">{VAR: obj->name}</td>
 	<td nowrap>{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
-	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&id={VAR: obj->owner}&{DEF: _rsid}">{VAR: obj->login}</a></td>
+	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->owner}&amp;{DEF: _rsid}">{VAR: obj->login}</a></td>
 	<td align="center" nowrap>{VAR: poll_vote_counts[$obj->id]}</td>
-	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->msg_id}&pl_view={VAR: obj->id}&{DEF: _rsid}">{MSG: polllist_view_results}</a></td>
+	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->msg_id}&amp;pl_view={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: polllist_view_results}</a></td>
 </tr>
 {SECTION: END}
 
@@ -59,7 +59,7 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: polllist_name}</th>
-	<th nowrap><a class="th_lnk" href="{ROOT}?t=polllist&start={VAR: start}&oby={VAR: oby_rev_val}&{DEF: _rsid}">{MSG: polllist_date}</a></th>
+	<th nowrap><a class="thLnk" href="{ROOT}?t=polllist&amp;start={VAR: start}&amp;oby={VAR: oby_rev_val}&amp;{DEF: _rsid}">{MSG: polllist_date}</a></th>
 	<th nowrap>{MSG: polllist_owner}</th>
 	<th nowrap align="center">{MSG: polllist_votes}</th>
 	<th nowrap><div align="center">{MSG: polllist_action}</div></th>

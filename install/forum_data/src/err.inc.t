@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.3 2002/07/24 12:47:18 hackie Exp $
+*   $Id: err.inc.t,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@ function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 	$ses->putvar('err_t', $title);
 	$ses->putvar('ret_to', base64_encode($returnto));
 	$ses->save_session();
-	header('Location: {ROOT}?t=error&'._rsid.'&err_id='.$err_id);
+	header('Location: {ROOT}?t=error&'.str_replace("&amp;", "&", _rsid).'&err_id='.$err_id);
 	exit;
 }
 

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.tmpl,v 1.3 2002/08/04 15:09:12 hackie Exp $
+*   $Id: forumsel.tmpl,v 1.4 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,7 +19,8 @@
 {REF: allperms.tmpl}
 
 {MAIN_SECTION: forum_select a drop down select of all the categories & forums}
-<table border=0 cellspacing=0 cellpadding=1><form name="frmquicksel" method="post"><tr><td class="GenText" valign=bottom>
+<form action="{ROOT}?t={GVAR: t}" name="frmquicksel" method="post" style="padding: 0px; margin: 0px;">
+<table border=0 cellspacing=0 cellpadding=1><tr><td class="GenText" valign="bottom">
 <font class="SmallText"><b>{MSG: forumsel_goto_forum}</b><br /></font>
 <select class="SmallText" name="dst_frm_id" onChange="javascript: if ( this.value==0 ) return false; document.frmquicksel.submit();">
 {TEMPLATE-DATA: selection_options}
@@ -30,7 +31,7 @@
 <input name="th_id" type="hidden" value="{VAR: th_id}">
 <input name="rid" type="hidden" value="{VAR: rid}">
 {DEF: _hs}<input name="th" type="hidden" value="{VAR: th}">
-</td><td valign=bottom><input type="submit" class="button" name="frm_goto" value="{MSG: go}"></td></tr></form></table>
+</td><td valign="bottom"><input type="submit" class="button" name="frm_goto" value="{MSG: go}"></td></tr></table></form>
 {MAIN_SECTION: END}
 
 {SECTION: category_option}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.6 2002/08/04 15:09:12 hackie Exp $
+*   $Id: msg.tmpl,v 1.7 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,7 +36,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}&{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
@@ -47,51 +47,51 @@
 {SECTION: END}
 
 {SECTION: split_thread}
-<a class="GenLink" href="{ROOT}?t=split_th&{DEF: _rsid}&th={VAR: th}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}?t=split_th&amp;{DEF: _rsid}&amp;th={VAR: th}">{MSG: split_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_lock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&{DEF: _rsid}&th={VAR: th}&lock=1&{VAR: returnto}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1&amp;{VAR: returnto}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_unlock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&{DEF: _rsid}&th={VAR: th}&unlock=1&{VAR: returnto}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;unlock=1&amp;{VAR: returnto}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: email_page_to_friend}
-<a class="GenLink" href="{ROOT}?t=remail&th={VAR: th}&{DEF: _rsid}&{VAR: returnto}"><acronym title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</acronym></a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=remail&amp;th={VAR: th}&amp;{DEF: _rsid}&amp;{VAR: returnto}"><acronym title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</acronym></a>&nbsp;
 {SECTION: END}
 
 {SECTION: first_unread_message_link}
-| <a class="GenLink" href="{ROOT}?t=msg&unread=1&th={VAR: th}&{DEF: _rsid}"><acronym title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</acronym></a>&nbsp;
+| <a class="GenLink" href="{ROOT}?t=msg&amp;unread=1&amp;th={VAR: th}&amp;{DEF: _rsid}"><acronym title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</acronym></a>&nbsp;
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{ROOT}?t=msg&th={VAR: th}&notify={VAR: usr->id}&{DEF: _rsid}&opt=on&start={VAR: start}"><acronym title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</acronym></a>&nbsp;
+| <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: start}"><acronym title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</acronym></a>&nbsp;
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{ROOT}?t=msg&th={VAR: th}&notify={VAR: usr->id}&{DEF: _rsid}&opt=off&start={VAR: start}"><acronym title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</acronym></a>&nbsp;
+| <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: th}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: start}"><acronym title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</acronym></a>&nbsp;
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}?t=tree&th={VAR: th}&{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
+<a href="{ROOT}?t=tree&amp;th={VAR: th}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;{VAR: returnto}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0 /></a>
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: th}&amp;reply_to={VAR: thread->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: start}&amp;{VAR: returnto}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0 /></a>
 {SECTION: END}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=msg&goto={VAR: next_th->msg_id}&{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
+<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: next_th->msg_id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=msg&goto={VAR: prev_th->msg_id}&{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
+<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=msg&amp;goto={VAR: prev_th->msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}

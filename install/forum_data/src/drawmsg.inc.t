@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.13 2002/08/01 18:37:27 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.14 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@ function register_vote($opt)
 }
 /* determine the source form */
 $GLOBALS['__DRAW_MSG_SCRIPT_NAME'] = basename($GLOBALS['HTTP_SERVER_VARS']['PATH_TRANSLATED']);
-
+$GLOBALS['__POLL_ACTION_URL'] = urlencode($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
 $GLOBALS['__MSG_COUNT__']=-1;
 
 function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
@@ -67,7 +67,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 
 	if ( !empty($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']) ) $hide_controls = 1;
 	if( isset($GLOBALS['usr']) && !isset($GLOBALS['__IGNORE_LIST__']) ) build_ignore_list();
-	$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"].'#msg_'.$obj->id).'&'.$_rsid;
+	$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"].'#msg_'.$obj->id).'&amp;'.$_rsid;
 	
 	$GLOBALS['__MSG_COUNT__']++;
 	
@@ -109,7 +109,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_regged}';
 	}
 	
-	$link_args = '&mid='.$GLOBALS['mid'].'&'.$_rsid.'&frm_id='.$GLOBALS['frm_id'].'&th='.$GLOBALS['th'].'&start='.$GLOBALS['start'].'&count='.$GLOBALS['count'].'&unread='.$GLOBALS['unread'].'&reply_count='.$GLOBALS['reply_count'].'&date='.$GLOBALS['date'].'#msg_'.$obj->id;
+	$link_args = '&amp;mid='.$GLOBALS['mid'].'&amp;'.$_rsid.'&amp;frm_id='.$GLOBALS['frm_id'].'&amp;th='.$GLOBALS['th'].'&amp;start='.$GLOBALS['start'].'&amp;count='.$GLOBALS['count'].'&amp;unread='.$GLOBALS['unread'].'&amp;reply_count='.$GLOBALS['reply_count'].'&amp;date='.$GLOBALS['date'].'#msg_'.$obj->id;
 	if ( !empty($GLOBALS['__IGNORE_LIST__'][$obj->poster_id]) && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && empty($GLOBALS['__REVEALED_USERS__'][$obj->poster_id]) ) {
 		if ( empty($hide_controls) )	
 			return '{TEMPLATE: dmsg_ignored_user_message}';

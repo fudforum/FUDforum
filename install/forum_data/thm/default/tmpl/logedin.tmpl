@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.7 2002/08/04 15:09:12 hackie Exp $
+*   $Id: logedin.tmpl,v 1.8 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,13 +28,13 @@
 {SECTION: logedin}
 <tr><th width="100%">{MSG: logged_in_list} {VAR: astr}</th></tr>
 <tr><td class="RowStyleA">
-<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="admin_color">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="mods_color">[{MSG: moderator}]</font></font><br />
+<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="adminColor">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="modsColor">[{MSG: moderator}]</font></font><br />
 {VAR: loged_in_list}
 </td></tr>
 {SECTION: END}
 
 {SECTION: i_spy logged in users list}
-[<a href="{ROOT}?t=actions&{DEF: _rsid}" class="th_lnk">{MSG: what_ppl_doing}</a>] [<a href="{ROOT}?t=online_today&{DEF: _rsid}" class="th_lnk">{MSG: logedin_todays_visitors}</a>]
+[<a href="{ROOT}?t=actions&amp;{DEF: _rsid}" class="thLnk">{MSG: what_ppl_doing}</a>] [<a href="{ROOT}?t=online_today&amp;{DEF: _rsid}" class="thLnk">{MSG: logedin_todays_visitors}</a>]
 {SECTION: END}
 
 {SECTION: online_user_separator}
@@ -46,15 +46,15 @@
 {SECTION: END}
 
 {SECTION: online_user_link_mod}
-<a href="{VAR: profile_link}" class="GenLink"><font class="mods_color">{VAR: obj->alias}</font></a>
+<a href="{VAR: profile_link}" class="GenLink"><font class="modsColor">{VAR: obj->alias}</font></a>
 {SECTION: END}
 
 {SECTION: online_user_link_admin}
-<a href="{VAR: profile_link}" class="GenLink"><font class="admin_color">{VAR: obj->alias}</font></a>
+<a href="{VAR: profile_link}" class="GenLink"><font class="adminColor">{VAR: obj->alias}</font></a>
 {SECTION: END}
 
 {SECTION: last_msg latest message on the forum}
-<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={VAR: url}&goto={VAR: lmid}&{DEF: _rsid}"><b>{VAR: lsubj}</b></a>
+<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={VAR: url}&amp;goto={VAR: lmid}&amp;{DEF: _rsid}"><b>{VAR: lsubj}</b></a>
 {SECTION: END}
 
 {SECTION: forum_info}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.tmpl,v 1.4 2002/08/04 15:09:12 hackie Exp $
+*   $Id: remail.tmpl,v 1.5 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,14 +33,12 @@
 {TEMPLATE: usercp}
 <div align=center>
 {TEMPLATE-DATA: remail_error}
+<form action="{ROOT}?t=remail" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: remail_email_topic}</th></tr>
-<form action="{ROOT}?t=remail" name="remail" method="post"><input type="hidden" name="posted" value="1">
 {TEMPLATE-DATA: form_data}
-{DEF: _hs}
-<input type="hidden" name="th" value="{VAR: th}"></form>
-</form>
 </table>
+{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}"></form>
 </div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
@@ -61,7 +59,7 @@
 {SECTION: END}
 
 {SECTION: anon_user}
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top">{VAR: remail_message}<br /><font class="SmallText">{MSG: remail_anon_opt}</font></td><td valign="top"><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea></td></tr><tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" colspan=2 align="right"><input type="submit" class="button" name="done" value="{MSG: remail_done}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top">{VAR: remail_message}<br /><font class="SmallText">{MSG: remail_anon_opt}</font></td><td valign="top"><textarea name="body" rows="19" cols="78">{VAR: body}</textarea></td></tr><tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" colspan=2 align="right"><input type="submit" class="button" name="done" value="{MSG: remail_done}"></td></tr>
 {SECTION: END}
 
 {SECTION: remail_error}

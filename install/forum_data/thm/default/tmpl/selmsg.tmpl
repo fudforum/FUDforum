@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.tmpl,v 1.4 2002/08/04 15:09:12 hackie Exp $
+*   $Id: selmsg.tmpl,v 1.5 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -65,11 +65,11 @@
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th colspan=2>{MSG: forum} <a class="th_lnk" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}"><font style="font-size: 12px;">{VAR: obj->frm_name}</font></a></th></tr>
+<tr><th colspan=2>{MSG: forum} <a class="thLnk" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}"><font style="font-size: 12px;">{VAR: obj->frm_name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th colspan=2>&nbsp;{MSG: thread} <a class="th_lnk" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->thr_subject}</a></th></tr>
+<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->thr_subject}</a></th></tr>
 {SECTION: END}
 
 {SECTION: no_result}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_pager.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: draw_pager.inc.t,v 1.2 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,8 +34,8 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 	if ( $start-$count > -1 ) {
 		$page_start = $start-$count;
 		if ( $append ) {
-			$page_first_url = $arg.'&start=0&count='.$count.$suf;
-			$page_prev_url = $arg.'&start='.$page_start.'&count='.$count.$suf;
+			$page_first_url = $arg.'&amp;start=0&amp;count='.$count.$suf;
+			$page_prev_url = $arg.'&amp;start='.$page_start.'&amp;count='.$count.$suf;
 		}
 		else {
 			$page_first_url = $arg;
@@ -79,7 +79,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 			$page_start = $st*$count;
 			$st++;
 			if ( $append ) {
-				$page_page_url = $arg.'&start='.$page_start.'&count='.$count.$suf;
+				$page_page_url = $arg.'&amp;start='.$page_start.'&amp;count='.$count.$suf;
 			}
 			else {
 				$page_page_url = $arg;
@@ -102,8 +102,8 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		$page_start = $start+$count;
 		$page_start_2 = ($st-1)*$count;
 		if ( $append ) {
-			$page_next_url = $arg.'&start='.$page_start.'&count='.$count.$suf;
-			$page_last_url = $arg.'&start='.$page_start_2.'&count='.$count.$suf;
+			$page_next_url = $arg.'&amp;start='.$page_start.'&amp;count='.$count.$suf;
+			$page_last_url = $arg.'&amp;start='.$page_start_2.'&amp;count='.$count.$suf;
 		}
 		else {
 			$page_next_url = $arg;

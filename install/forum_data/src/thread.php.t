@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: thread.php.t,v 1.7 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 		$cat->get_cat($frm->cat_id);
 	}
 	
-	$returnto = 'returnto='.urlencode("{ROOT}?t=thread&frm_id=".$frm_id.'&'._rsid);
+	$returnto = 'returnto='.urlencode("{ROOT}?t=thread&amp;frm_id=".$frm_id.'&amp;'._rsid);
 
 	if ( isset($usr) ) {
 		if( !isset($start) ) $start='';
@@ -181,7 +181,7 @@
 	qf($result); 	
 }
 
-	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&frm_id='.$frm_id.'&'._rsid);
+	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
 
 	{POST_PAGE_PHP_CODE}
 ?>	

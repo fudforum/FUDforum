@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.tmpl,v 1.2 2002/08/04 15:09:12 hackie Exp $
+*   $Id: admincp.tmpl,v 1.3 2002/08/05 00:47:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,17 +25,17 @@
 {SECTION: END}
 
 {SECTION: group_mgr link to the group manager for admin & group managers}
-| <a class="GenLink" href="{ROOT}?t=groupmgr&{DEF: _rsid}">{MSG: group_mgr}</a> 
+| <a class="GenLink" href="{ROOT}?t=groupmgr&amp;{DEF: _rsid}">{MSG: group_mgr}</a> 
 {SECTION: END}
 
 {SECTION: reported_msgs link to reported messages form, with an idicator that shows the # of reported messages}
-| <a class="GenLink" href="{ROOT}?t=reported&{DEF: _rsid}">{MSG: reported_messages}</a> <span class="GenText" style="color: #ff0000">({VAR: report_count})</span>
+| <a class="GenLink" href="{ROOT}?t=reported&amp;{DEF: _rsid}">{MSG: reported_messages}</a> <span class="GenText" style="color: #ff0000">({VAR: report_count})</span>
 {SECTION: END}
 
 {SECTION: thr_exch a link to thread exchange, with an idicator of the # of threads waiting approval}
-| <a class="GenLink" href="{ROOT}?t=thr_exch&{DEF: _rsid}">{MSG: thread_exchange}</a> <span class="GenText" style="color: #ff0000">({VAR: thr_exchc})</span> 
+| <a class="GenLink" href="{ROOT}?t=thr_exch&amp;{DEF: _rsid}">{MSG: thread_exchange}</a> <span class="GenText" style="color: #ff0000">({VAR: thr_exchc})</span> 
 {SECTION: END}
 
 {SECTION: mod_que link to form for approving messages in moderated forums}
-<a class="GenLink" href="{ROOT}?t=modque&{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
+<a class="GenLink" href="{ROOT}?t=modque&amp;{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
 {SECTION: END}
