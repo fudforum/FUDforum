@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.17 2004/05/07 16:14:19 hackie Exp $
+* $Id: qbud.php.t,v 1.18 2004/10/29 18:45:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,7 +49,6 @@ window.close();
 	}
 	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid.' AND b.user_id>1');
 	while ($r = db_rowarr($c)) {
-		$checked = $all ? ' checked' : '';
 		$buddies .= '{TEMPLATE: buddy_entry}';
 	}
 	$qbud_data = $buddies ? '{TEMPLATE: buddy_list}' : '{TEMPLATE: no_buddies}';
