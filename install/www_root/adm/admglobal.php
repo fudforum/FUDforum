@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.37 2003/09/18 16:49:24 hackie Exp $
+*   $Id: admglobal.php,v 1.38 2003/09/18 20:46:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,6 +95,7 @@ function get_max_upload_size()
 			}
 			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
+				rebuildmodlist();
 			}
 
 			$q_data = NULL;
