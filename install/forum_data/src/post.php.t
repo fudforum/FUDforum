@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.130 2005/03/05 18:46:59 hackie Exp $
+* $Id: post.php.t,v 1.131 2005/03/06 18:51:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -268,13 +268,9 @@ function flood_check()
 			$text_s = apply_custom_replace($msg_subject);
 
 			if ($frm->forum_opt & 16) {
-				$text = tags_to_html($text, $perms & 32768);
+				$text = char_fix(tags_to_html($text, $perms & 32768));
 			} else if ($frm->forum_opt & 8) {
-				$text = htmlspecialchars($text);
-			}
-
-			if ($frm->forum_opt & 24) {
-				$text = char_fix($text);
+				$text = char_fix(htmlspecialchars($text));
 			}
 
 			if ($perms & 16384 && !$msg_smiley_disabled) {
@@ -332,13 +328,9 @@ function flood_check()
 			$msg_post->body = apply_custom_replace($msg_post->body);
 
 			if ($frm->forum_opt & 16) {
-				$msg_post->body = tags_to_html($msg_post->body, $perms & 32768);
+				$msg_post->body = char_fix(tags_to_html($msg_post->body, $perms & 32768));
 			} else if ($frm->forum_opt & 8) {
-				$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
-			}
-
-			if ($frm->forum_opt & 24) {
-				$msg_post->body = char_fix($msg_post->body);
+				$msg_post->body = char_fix(nl2br(htmlspecialchars($msg_post->body)));
 			}
 
 	 		if ($perms & 16384 && !($msg_post->msg_opt & 2)) {
@@ -457,13 +449,9 @@ function flood_check()
 		$text_s = apply_custom_replace($msg_subject);
 
 		if ($frm->forum_opt & 16) {
-			$text = tags_to_html($text, $perms & 32768);
+			$text = char_fix(tags_to_html($text, $perms & 32768));
 		} else if ($frm->forum_opt & 8) {
-			$text = nl2br(htmlspecialchars($text));
-		}
-
-		if ($frm->forum_opt & 24) {
-			$text = char_fix($text);
+			$text = char_fix(nl2br(htmlspecialchars($text)));
 		}
 
 		if ($perms & 16384 && !$msg_smiley_disabled) {

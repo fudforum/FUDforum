@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.76 2005/03/05 18:46:59 hackie Exp $
+* $Id: ppost.php.t,v 1.77 2005/03/06 18:51:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,6 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 	}
 
 	$attach_control_error = '';
-	$pm_find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: pm_find_user}' : '';
 
 	$attach_count = 0;
 	$attach_list = array();
@@ -215,13 +214,9 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 
 		$msg_p->body = apply_custom_replace($msg_p->body);
 		if ($FUD_OPT_1 & 4096) {
-			$msg_p->body = tags_to_html($msg_p->body, $FUD_OPT_1 & 16384);
+			$msg_p->body = char_fix(tags_to_html($msg_p->body, $FUD_OPT_1 & 16384));
 		} else if ($FUD_OPT_1 & 2048) {
-			$msg_p->body = nl2br(htmlspecialchars($msg_p->body));
-		}
-
-		if ($FUD_OPT_1 & 6144) {
-			$msg_p->body = char_fix($msg_p->body);
+			$msg_p->body = char_fix(nl2br(htmlspecialchars($msg_p->body)));
 		}
 
 		if (!($msg_p->pmsg_opt & 2)) {
@@ -286,20 +281,16 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		exit;
 	}
 
-	$no_spell_subject = ($reply && $old_subject == $msg_subject) ? 1 : 0;
+	$no_spell_subject = ($reply && $old_subject == $msg_subject);
 
 	if (isset($_POST['btn_spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
 
 		if ($FUD_OPT_1 & 4096) {
-			$text = tags_to_html($text, $FUD_OPT_1 & 16384);
+			$text = char_fix(tags_to_html($text, $FUD_OPT_1 & 16384));
 		} else if ($FUD_OPT_1 & 2048) {
-			$text = htmlspecialchars($text);
-		}
-
-		if ($FUD_OPT_1 & 6144) {
-			$text = char_fix($text);
+			$text = char_fix(htmlspecialchars($text));
 		}
 
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
@@ -339,13 +330,9 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$text_s = apply_custom_replace($_POST['msg_subject']);
 
 		if ($FUD_OPT_1 & 4096) {
-			$text = tags_to_html($text, $FUD_OPT_1 & 16384);
+			$text = char_fix(tags_to_html($text, $FUD_OPT_1 & 16384));
 		} else if ($FUD_OPT_1 & 2048) {
-			$text = nl2br(htmlspecialchars($text));
-		}
-
-		if ($FUD_OPT_1 & 6144) {
-			$text = char_fix($text);
+			$text = char_fix(nl2br(htmlspecialchars($text)));
 		}
 
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
@@ -375,14 +362,8 @@ function export_msg_data(&$m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smile
 		$post_error = $session_error;
 	}
 
-	if ($FUD_OPT_2 & 32768) {
-		$private = '1';
-	} else {
-		$private = '&amp;private=1';
-	}
-
 	if ($PRIVATE_ATTACHMENTS > 0) {
-		$file_attachments = draw_post_attachments($attach_list, round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private, $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
+		$file_attachments = draw_post_attachments($attach_list, round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, ($FUD_OPT_2 & 32768 ? '1' : '&amp;private=1'), $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
 	} else {
 		$file_attachments = '';
 	}
