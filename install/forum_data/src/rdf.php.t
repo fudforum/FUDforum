@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.6 2003/05/15 18:37:20 hackie Exp $
+*   $Id: rdf.php.t,v 1.7 2003/05/16 14:28:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -304,6 +304,7 @@ function email_format($data)
 			 * rd	-	order by registration date
 			 * cl	-	show only currently online users
 			 * l	-	limit to 'l' rows
+			 * o	- 	offset
 			 * n	-	max rows to fetch
 			 */
 			$lmt .= ' u.id>1 ';
