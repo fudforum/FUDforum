@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.82 2004/04/27 13:59:36 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.83 2004/04/28 17:20:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$o2 =& $GLOBALS['FUD_OPT_2'];
 	$a = (int) $obj->users_opt;
 	$b =& $usr->users_opt;
-	$c = (int) $obj->level_opt;
 
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
@@ -185,6 +184,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	if ($obj->user_id) {
 		if (!$hide_controls) {
 			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
+			$c = (int) $obj->level_opt;
 
 			if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 				if (!($c & 1)) {
