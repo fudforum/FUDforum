@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.51 2003/05/16 12:00:57 hackie Exp $
+*   $Id: register.php.t,v 1.52 2003/05/16 15:29:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -587,14 +587,14 @@ function remove_old_avatar($avatar_str)
 					$a_type = 'b';
 					$sel_val .= "b\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS']. 'UPLOAD') !== FALSE) {
+				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'UPLOAD') !== FALSE) {
 					$sel_opt .= "{TEMPLATE: register_uploaded}\n";
 					if (!isset($a_type)) {
 						$a_type = 'u';
 					}
 					$sel_val .= "u\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS']. 'URL') !== FALSE) {
+				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'URL') !== FALSE) {
 					$sel_opt .= "{TEMPLATE: register_specify_url}\n";
 					if (!isset($a_type)) {
 						$a_type = 'c';
