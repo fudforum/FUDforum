@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.12 2003/04/24 18:35:22 hackie Exp $
+*   $Id: groups.inc.t,v 1.13 2003/04/25 17:24:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,11 +91,7 @@ function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 		/* check if this permissions is allowed, depending on maxperms */
 		if ( is_array($maxperms_arr) ) {
 			if ( $maxperms_arr[$v] == 'N' ) {
-				if ( defined('admin_form') ) 
-					$perm_selection .= '<td align="center"><font size=-1>n/a</font></td>';
-				else
-					$perm_selection .= '{TEMPLATE: groups_na_perms}';
-
+				$perm_selection .= '{TEMPLATE: groups_na_perms}';
 				continue;
 			}
 		}
@@ -107,54 +103,15 @@ function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 		$sel_name = $name.$v;
 		
 		if ( !is_array($maxperms_arr) ) {
-			if ( defined('admin_form') ) 
-				$perm_selection_inherit_row = '<option value="I">Inherit</option>';
-			else
-				$perm_selection_inherit_row = '{TEMPLATE: groups_perm_selection_inherit_row}';
+			$perm_selection_inherit_row = '{TEMPLATE: groups_perm_selection_inherit_row}';
 		}
 		else
 			$perm_selection_inherit_row = '';
 		
-		if ( defined('admin_form') ) {
-			$perm_selection .= '<td align="center"><font size=-1>
-			<select name="'.$sel_name.'" style="font-size: x-small">
-			'.$perm_selection_inherit_row.'
-			<option value="Y"'.$selyes.'>Yes</option>
-			<option value="N"'.$selno.'>No</option>
-			</select>
-			</font></td>';
-		}
-		else $perm_selection .= '{TEMPLATE: groups_perm_selection}';
+		$perm_selection .= '{TEMPLATE: groups_perm_selection}';
 	}
 
 	return $perm_selection;
-}
-
-function draw_perm_table($perms_arr)
-{
-	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-	$str = '';
-	
-	foreach($arr as $k => $v) {
-		$inherit = ($perms_arr['origperms'][$k]!='I') ? '' : '<font color="#00AA00">Inherit</font>';
-			
-		$perm_str = '';
-		if ( $perms_arr['perms'][$k] == 'Y' )
-			$perm_str .= '<font color="#FF0000"> <b>(Yes)</b></font>';
-		else if ( $perms_arr['perms'][$k] == 'N' )
-			$perm_str .= '<font color="#0000FF"> <b>(No)</b></font>';
-		else
-			$perm_str .= '<font color="#00AA00">Inherit</font>';
-		
-		if ( $perms_arr['origperms'][$k] != $perms_arr['perms'][$k] && $perms_arr['perm_groups'][$k] )
-			$val = '<b>from:</b><br>('.$perms_arr['perm_groups'][$k].')';
-		else
-			$val = '';
-		
-		$str .= '<td><font size=-1>'.$inherit.$perm_str.'<br>'.$val.'</font></td>';
-	}
-	
-	return $str;
 }
 
 function mk_perms_arr($prefix, $maxperms_arr, $arr_prefix=NULL)
@@ -186,33 +143,30 @@ function grp_resolve_perms(&$grp)
 	if (!$grp->inherit_id) {
 		return;	
 	}
-	$permlist = $GLOBALS['__GROUPS_INC']['permlist'];
-	foreach ($permlist as $v){
-		$permlist[$v] = 'p_'.$v;
-		$ret['origperms'][$v] = $ret['perms'][$v] = $grp->{$v};
+	$permlist =& $GLOBALS['__GROUPS_INC']['permlist'];
+	foreach ($permlist as $v) {
+		if ($grp->{$v} == 'I') {
+			$todo[] = $v;
+		}
+	}
+	if (!isset($todo)) {
+		return;
 	}
 	$inherit_id = $grp->inherit_id;
 	$inh_list[$grp->id] = $grp->id;
-	$todo = 0;
-	do {
-		$obj = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id='.$inherit_id);
-		foreach ($permlist as $v) {
-			if ($perms['perms'][$v] == 'I') {
-				if ($obj->{$v} != 'I') {
-					$perms['perms'][$v] = $obj->{$v};
-				} else {
-					$todo = 1;
-				}
+
+	while (($r = db_arr_assoc('SELECT id, inherit_id, '.implode(',', $todo).' FROM {SQL_TABLE_PREFIX}groups WHERE id='.$inherit_id))) {
+		foreach ($todo as $k => $v) {
+			if ($r[$v] != 'I') {
+				$grp->{$v} = $r[$v];
+				unset($todo[$k]);
 			}
 		}
-		if (isset($inh_list[$obj->inherit_id])) {
-			break; /* circular inheritence */
+		if (!count($todo) || !$r['inherit_id'] || isset($inh_list[$r['inherit_id']])) {
+			return;
 		}
-		$inherit_id = $obj->inherit_id;
-		$inh_list[$obj->id] = $obj->id;
-	} while ($inherit_id && $todo);
-
-	return $ret;
+		$inh_list[$r['id']] = 1;
+	}
 }
 
 function grp_delete_member($id, $user_id)
