@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.39 2003/11/10 14:12:24 hackie Exp $
+* $Id: nntp.inc,v 1.40 2003/11/11 13:52:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -481,6 +481,10 @@ class fud_nntp
 		if ($this->cmd("POST") != 340) {
 	        	$this->error = "Failed to recieve proper response to POST command, NNTP server replied: ".$this->lrc."\n";
 			$this->exit_handler();
+		}
+
+		if ($GLOBALS['FUD_OPT_3'] & 8) {
+			$from = str_replace(array('.', '@'), array('[dot]','[at]'), $from);
 		}
 
 		fputs($this->fs, "From: $from\r\n");

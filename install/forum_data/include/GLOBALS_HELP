@@ -385,3 +385,6 @@ Disable the threaded view of the contents for a single topic.}}}
 
 {{{ENABLE_REFERRER_CHECK	FUD_OPT_3	4
 Always check to make sure that the referring URL is on the same domain as the forum.}}}
+
+{{{NNTP_OBFUSCATE_EMAIL	FUD_OPT_3	8
+Whether or not to obfuscate user e-mails when sending e-mails from FUDforum to newsgroups.}}}

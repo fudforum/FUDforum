@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.49 2003/11/10 00:36:08 hackie Exp $
+* $Id: admglobal.php,v 1.50 2003/11/11 13:52:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -299,6 +299,7 @@ function get_max_upload_size()
 	print_bit_field('Show Syndication Link', 'SHOW_XML_LINK');
 	print_bit_field('Attachment Referrer Check', 'DWLND_REF_CHK');
 	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
+	print_bit_field('Obfuscate e-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
 
 	if (function_exists('ob_gzhandler')) {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
