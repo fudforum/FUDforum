@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.10 2002/11/21 15:14:11 hackie Exp $
+*   $Id: admprune.php,v 1.11 2003/04/29 13:53:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,133 +18,102 @@
 	define('admin_form', 1);
 	@set_time_limit(6000);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('widgets.inc', true);
-	fud_use('util.inc');
-	fud_use('forum.inc');
-	fud_use('cat.inc');
-	fud_use('fileio.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('imsg.inc');
+	fud_use('widgets.inc', true);
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
 	fud_use('ipoll.inc');
 	fud_use('attach.inc');
-	
-	list($ses, $usr) = initadm();
-	
-	if ( $btn_prune && is_numeric($thread_age) ) {
-		/* count up topics */
-		$back = $units*$thread_age;
-		$back_t = __request_timestamp__-$back;
-				
-		if ( $forumsel == '0' ) {
-			$QRY_TAIL = "FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE last_post_date<".$back_t;
+	fud_use('th_adm.inc');
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];	
+
+	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
+		/* figure out our limit if any */
+		if ($_POST['forumsel'] == '0') {
+			$lmt = '';
 			$msg = '<font color="red">from all forums</font>';
+		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
+			$c = uq('SELECT id FROM '.$tbl.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
+			while ($r = db_rowarr($c)) {
+				$l[] = $r[0];
+			}
+			qf($c);
+			if ($lmt = implode(',', $l)) {
+				$lmt = ' AND forum_id IN('.$lmt.') ';
+			}
+			$msg = '<font color="red">from all forums in category "'.q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.(int)substr($_POST['forumsel'], 4)).'"</font>';
+		} else {
+			$lmt = ' AND forum_id='.(int)$_POST['forumsel'].' ';
+			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
 		}
-		else if ( strstr($forumsel, 'cat_') ) {
-			$cat_id = substr($forumsel, 4);
-			$QRY_TAIL = "FROM 
-					".$GLOBALS['DBHOST_TBL_PREFIX']."thread 
-					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
-						ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
-					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id
-					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id=".$cat_id;
-			$cat_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat WHERE id=".$cat_id);					
-			$msg = '<font color="red"> from all forums in category '.$cat_name.'</font>';
-		}
-		else if ( $forumsel ) {
-			$QRY_TAIL = "FROM 
-					".$GLOBALS['DBHOST_TBL_PREFIX']."thread 
-					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
-						ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
-					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$forumsel.' AND '.$GLOBALS['DBHOST_TBL_PREFIX']."thread.moved_to=0";
-			$frm_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forumsel);
-			$msg = '<font color="red"> from '.$frm_name.'</font>';
-		}
-		
-		if ( !$btn_conf && !$btn_cancel ) { /* confirmation dialog */
-			$v = q_singleval("SELECT count(*) ".$QRY_TAIL);
-			
-			$str_time = strftime("%Y-%m-%d %T", $back_t);
-			exit('
-			<html>
-			<div align=center>You are about to delete <font color="red">'.$v.'</font> topics which were posted before <font color="red">'.$str_time.'</font> '.$msg.'<br><br>
+		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
+	
+		if (!isset($_POST['btn_conf'])) {
+			/* count the number of messages & topics that will be affected */
+			$topic_cnt = q_singleval('SELECT count(*) FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt);
+			$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
+?>
+<html>
+<body bgcolor="white">
+<div align=center>You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages, 
+which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
 			<input type="hidden" name="btn_prune" value="1">
-			'._hs.'
-			<input type="hidden" name="thread_age" value="'.$thread_age.'">
-			<input type="hidden" name="units" value="'.$units.'">
-			<input type="hidden" name="forumsel" value="'.$forumsel.'">
+			<?php echo _hs; ?>
+			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>">
+			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>">
+			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>">
 			<input type="submit" name="btn_conf" value="Yes">
 			<input type="submit" name="btn_cancel" value="No">
 			</form>
-			</div>
-			</html>
-			');
-		}
-		else if ( $btn_cancel ) {
-			header("Location: admprune.php?"._rsidl."&rand=".get_random_value());
-		}
-		else if ( $btn_conf ) { /* prune here */
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thread_view+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'cat+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'level+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum_read+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'attach+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt_track+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'users+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_notify+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg_report+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_rate_track+,
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange+');
-			
-			$r = q("SELECT root_msg_id, forum_id ".$QRY_TAIL);
-			while ( $obj = db_rowobj($r) ) {
-				if ( !isset($idlist[$obj->forum_id]) ) $idlist[$obj->forum_id] = $obj->forum_id;
-				$msg = new fud_msg_edit;
-				$msg->get_by_id($obj->root_msg_id);
-				$msg->delete(false);
-				unset($msg);
+</div>
+</body>
+</html>
+<?php			
+			exit;
+		} else {
+			db_lock($tbl.'thr_exchange WRITE, '.$tbl.'thread_view WRITE, '.$tbl.'level WRITE, '.$tbl.'forum WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread WRITE, '.$tbl.'msg WRITE, '.$tbl.'attach WRITE, '.$tbl.'poll WRITE, '.$tbl.'poll_opt WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'msg_report WRITE, '.$tbl.'thread_rate_track WRITE');
+
+			$c = q('SELECT root_msg_id, forum_id FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt);
+			while ($r = db_rowarr($c)) {
+				fud_msg_edit::delete(FALSE, $r[0], 1);
+				$frm_list[$r[1]] = $r[1];
 			}
 			qf($r);
-
- 			if ( isset($idlist) ) {
-				foreach($idlist as $v) rebuild_forum_view($v);
+			foreach ($frm_list as $v) {
+				rebuild_forum_view($v);
 			}
 			db_unlock();
 		}
-		header("Location: admprune.php?"._rsidl."&rand=".get_random_value());
 	}
 
-include('admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>	
 <h2>Topic Prunning</h2>
-<form method="post" action="admprune.php?rand=<?php echo get_random_value(); ?>">
+<form method="post" action="admprune.php">
 <table border=0 cellspacing=1 callpadding=3>
 <tr>
 	<td bgcolor="#bff8ff" nowrap>Topics with last post made:</td>
 	<td bgcolor="#bff8ff"><input type="text" name="thread_age"></td>
-	<td bgcolor="#bff8ff" nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", $units); ?> ago</td>
+	<td bgcolor="#bff8ff" nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
 <tr>
 	<td bgcolor="#bff8ff">Limit to forum:</td>
 	<td colspan=2 bgcolor="#bff8ff" nowrap>
 	<?php 
-		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name, ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.name as cat_name, ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id as cat_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
-		echo '<select name="forumsel">';
-		echo '<option value="0">- All Forums -';
-		while ( $obj = db_rowobj($r) ) {
-			if ( $cat_name != $obj->cat_name ) { echo '<option value="cat_'.$obj->cat_id.'">'.$obj->cat_name; $cat_name = $obj->cat_name; }
-			echo '<option value="'.$obj->id.'">&nbsp;&nbsp;-&nbsp;'.$obj->name.'</option>';
+		$oldc = '';
+		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+		echo '<select name="forumsel"><option value="0">- All Forums -</option>';
+		while ($r = db_rowarr($c)) {
+			if ($oldc != $r[3]) {
+				echo '<option value="cat_'.$r[3].'">'.$r[2].'</option>';
+				$oldc = $r[3];
+			}
+			echo '<option value="'.$r[0].'">&nbsp;&nbsp;-&nbsp;'.$r[1].'</option>';
 		}
 		qf($r);
 		echo '</select>';
@@ -157,4 +126,4 @@ include('admpanel.php');
 </table>
 <?php echo _hs; ?>
 </form>
-<?php readfile('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
