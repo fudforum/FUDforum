@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.20 2002/10/26 23:32:12 hackie Exp $
+*   $Id: admthemes.php,v 1.21 2003/02/22 15:22:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -274,7 +274,6 @@ function update_locale()
 		
 		$act = '[<a href="admthemes.php?'._rsid.'&edit='.$obj->id.'&rand='.get_random_value().'">Edit</a>]';
 		$act .= '[<a href="admthemes.php?'._rsid.'&rebuild='.$obj->id.'">Rebuild Theme</a>]';
-		$act .= '[<a href="admoptimizer.php?'._rsid.'&tname='.$obj->name.'">Optimize Theme</a>]';
 		
 		if ( $obj->id != 1 ) $act .= '[<a href="admthemes.php?'._rsid.'&del='.$obj->id.'&rand='.get_random_value().'">Delete</a>]';
 		
