@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.13 2002/12/05 21:04:18 hackie Exp $
+*   $Id: admlog.php,v 1.14 2003/04/28 18:56:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,53 +16,53 @@
 ***************************************************************************/
 	
 	define('admin_form', 1);
-	
-	include_once "GLOBALS.php";
-	
-	fud_use('db.inc');
+
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
-	
-	fud_use('fileio.inc');
-	fud_use('err.inc');
-	fud_use('logaction.inc');
-	
-	if ( $clear ) {
-		clear_action_log();
-		header("Location: admlog.php?"._rsidl."&rand=".get_random_value());
-		exit();
+
+	if (isset($_GET['clear'])) {
+		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log');
 	}
 
 function check_data_avl($data)
 {
 	$data = trim($data);
-	if( empty($data) && !strlen($data) ) 
+	if (empty($data) && !strlen($data)) {
 		return 'no longer in the system';
+	}
 
 	return $data;
 }
 
 function return_thread_subject($id)
 {
-	$res = q_singleval("SELECT subject FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id=".$id);
+	$res = q_singleval('SELECT m.subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thread t INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg m ON t.root_msg_id=m.id WHERE t.id='.$id);
 	return check_data_avl($res);
+}
+
+function return_msg_subject($id)
+{
+	return check_data_avl(q_singleval('SELECT subject FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'msg WHERE id='.$id));
+}
+
+function return_forum_name($id)
+{
+	return check_data_avl(q_singleval('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE id='.$id));
 }
 	
 	include('admpanel.php'); 
 ?>
 <h2>Admin Log</h2>
-<a href="admlog.php?clear=1&<?php echo _rsid; ?>">Clear Log</a>
+<a href="admlog.php?clear=1&<?php echo _rsidl; ?>">Clear Log</a>
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
-	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.is_mod, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias, ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.* FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY logtime DESC");
-	
-	while ( $obj = db_rowobj($r) ) {
+	$c = uq('SELECT u.is_mod, u.alias, al.* FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log al LEFT JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u ON al.user_id=u.id ORDER BY logtime DESC');
+
+	while ($obj = db_rowobj($c)) {
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
 		
-		switch( $obj->is_mod )
-		{
+		switch ($obj->is_mod) {
 			case 'A':
 				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 				break;
@@ -70,70 +70,74 @@ function return_thread_subject($id)
 				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 				break;
 			case NULL:
-				$user_info = 'User no longer exists';
+				$user_info = 'User is no longer in the system.';
 				break;	
 			default:
 				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 				break;
-		}				
-		
-		switch ( $obj->a_res ) {
+		}
+		echo '<tr><td>'.$user_info.'</td>';
+
+		switch ($obj->a_res) {
 			case "THRMOVE":
-				echo '<tr><td>'.$user_info.'</td><td>Moved Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Moved Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "DELREPORT":
-				$subject = check_data_avl(q_singleval("SELECT subject FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$obj->a_res_id));
-				echo '<tr><td>'.$user_info.'</td><td>Deleted Report</td><td>msg: '.$subject.'</td>'.$logtime.'</tr>';
+				echo '<td>Deleted Report</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';
 				break;
 			case "THRLOCK":
-				echo '<tr><td>'.$user_info.'</td><td>Locked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Locked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "THRUNLOCK":
-				echo '<tr><td>'.$user_info.'</td><td>Unlocked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Unlocked Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
+				break;
+			case "THRXREQUEST":
+				echo '<td>Requested Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "THRXAPPROVE":
-				echo '<tr><td>'.$user_info.'</td><td>Approved Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Approved Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "THRXDECLINE":
-				echo '<tr><td>'.$user_info.'</td><td>Declined Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Declined Topic-X-Change</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "THRSPLIT":
-				echo '<tr><td>'.$user_info.'</td><td>Split Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>'.$logtime.'</tr>';
+				echo '<td>Split Topic</td><td>thread: '.return_thread_subject($obj->a_res_id).'</td>';
 				break;
 			case "MSGEDIT":
-				$subject = check_data_avl(q_singleval("SELECT subject FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$obj->a_res_id));
-				echo '<tr><td>'.$user_info.'</td><td>Edited Message</td><td>msg: '.$subject.'</td>'.$logtime.'</tr>';
+				echo '<td>Edited Message</td><td>msg: '.return_msg_subject($obj->a_res_id).'</td>';
 				break;
 			case "DELMSG":
-				echo '<tr><td>'.$user_info.'</td><td>Deleted Message</td><td>'.$obj->logaction.'</td>'.$logtime.'</tr>';
+				echo '<td>Deleted Message</td><td>'.$obj->logaction.'</td>';
 				break;
 			case "DELTHR":
-				echo '<tr><td>'.$user_info.'</td><td>Deleted Topic</td><td>'.$obj->logaction.'</td>'.$logtime.'</tr>';
+				echo '<td>Deleted Topic</td><td>'.$obj->logaction.'</td>';
 				break;	
 			case "ADDFORUM":
-				$frm_name = check_data_avl(q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$obj->a_res_id));
-				echo '<tr><td>'.$user_info.'</td><td>Created Forum</td><td>forum: '.$frm_name.'</td>'.$logtime.'</tr>';
+				echo '<td>Created Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
 			case "SYNCFORUM":
-				$frm_name = check_data_avl(q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$obj->a_res_id));
-				echo '<tr><td>'.$user_info.'</td><td>Updated Forum</td><td>forum: '.$frm_name.'</td>'.$logtime.'</tr>';
+				echo '<td>Updated Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
-			case "DELFORUM":
-				echo '<tr><td>'.$user_info.'</td><td>Deleted Forum</td><td>forum: '.$obj->logaction.'</td>'.$logtime.'</tr>';
+			case "FRMMARKDEL":
+				echo '<td>Deleted Forum</td><td>forum: '.$obj->logaction.'</td>';
 				break;
 			case "CHCATFORUM":
-				$frm_name = check_data_avl(q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$obj->a_res_id));
-				echo '<tr><td>'.$user_info.'</td><td>Changed Forum Category</td><td>forum: '.$frm_name.'</td>'.$logtime.'</tr>';
+				echo '<td>Changed Forum Category</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
 			case "WRONGPASSWD":
-				echo '<tr><td>'.$user_info.'</td><td>Failed login attempt for admin</td><td>From '.$obj->logaction.'</td>'.$logtime.'</tr>';
+				echo '<td>Failed login attempt for admin</td><td>From '.$obj->logaction.'</td>';
 				break;
 			case "DELETE_USER":
-				echo '<tr><td>'.$user_info.'</td><td>Removed user account</td><td>'.$obj->logaction.'</td>'.$logtime.'</tr>';
+				echo '<td>Removed user account</td><td>'.$obj->logaction.'</td>';
+				break;
+			default:
+				echo '<td colspan=2>Unknown</td>';
 				break;
 		}
+
+		echo $logtime.'</tr>';
 	}
-	qf($r);
+	qf($c);
 ?>
 </table>
 <?php require('admclose.html'); ?>
