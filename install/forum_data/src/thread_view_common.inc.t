@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.7 2003/04/16 10:45:01 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.8 2003/04/16 15:51:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,9 +70,10 @@ if (_uid) {
 		$frm->subscribed = 0;
 	}
 	$subscribe = $frm->subscribed ? '{TEMPLATE: unsubscribe_link}' : '{TEMPLATE: subscribe_link}';
+	$mark_all_read = '{TEMPLATE: thread_mark_all_read}';
 	$MOD = ($usr->is_mod == 'A' || $frm->mod) ? 1 : 0;
 } else {
-	$subscribe = '';
+	$mark_all_read = $subscribe = '';
 	$MOD = 0;
 }
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;

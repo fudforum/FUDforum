@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.22 2003/04/16 14:25:13 hackie Exp $
+*   $Id: selmsg.php.t,v 1.23 2003/04/16 15:51:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -186,7 +186,7 @@ function valstat($a)
 			if (!$frm_id && !$th) {
 				user_mark_all_read(_uid);
 			} else if ($frm_id) {
-				user_mark_forum_read(_uid, $frm_id);
+				user_mark_forum_read(_uid, $frm_id, $usr->last_read);
 			}
 		} else {
 			$message_data = '{TEMPLATE: no_result}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.37 2003/04/15 08:32:53 hackie Exp $
+*   $Id: users.inc.t,v 1.38 2003/04/16 15:51:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,19 +116,23 @@ function user_mark_all_read($id)
 	if (!($tm = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg'))) {
 		$tm = __request_timestamp__;
 	}
-
 	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id='.$id);
 }
 
-function user_mark_forum_read($id, $fid)
+function user_mark_forum_read($id, $fid, $last_view)
 {
 	if (!($tm = q_singleval('SELECT MAX(last_post_date) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid))) {
 		$tm = __request_timestamp__;
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$id);
+	$c = uq('SELECT r.id, t.last_post_id FROM {SQL_TABLE_PREFIX}read r INNER JOIN {SQL_TABLE_PREFIX}thread t ON r.thread_id=t.id AND r.last_view < t.last_post_date WHERE r.user_id='.$id); 
+	while ($r = db_rowarr($c)) {
+		q('UPDATE {SQL_TABLE_PREFIX}read SET last_post_date='.$tm.', last_post_id='.$r[1].' WHERE id='.$r[0]);
+	}
+	qf($c);
 
 	db_lock('{SQL_TABLE_PREFIX}read WRITE, {SQL_TABLE_PREFIX}thread WRITE');
-	q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id,thread_id,msg_id,last_view) SELECT '.$id.',id,last_post_id,'.$tm.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
+	q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.$tm.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid.' AND last_post_date < '.$last_view);
 	db_unlock();
 }
 
