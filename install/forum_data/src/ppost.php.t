@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.73 2004/12/09 18:43:02 hackie Exp $
+* $Id: ppost.php.t,v 1.74 2005/02/06 20:56:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,7 +96,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					if ($FUD_OPT_1 & 4096) {
 						$msg_body = '{TEMPLATE: fud_quote}';
 					} else if ($FUD_OPT_1 & 2048) {
-						$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+						$msg_body = "> ".str_replace("\n", "\n> ", $msg_body);
+						$msg_body = str_replace('<br />', "\n", '{TEMPLATE: plain_quote}');
 					} else {
 						$msg_body = '{TEMPLATE: html_quote}';
 					}

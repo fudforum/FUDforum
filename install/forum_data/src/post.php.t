@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.125 2005/01/31 19:32:10 hackie Exp $
+* $Id: post.php.t,v 1.126 2005/02/06 20:56:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -179,7 +179,8 @@ function flood_check()
 				} else if ($frm->forum_opt & 8) {
 					reverse_fmt($msg_body);
 					reverse_nl2br($msg_body);
-					$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+					$msg_body = "> ".str_replace("\n", "\n> ", $msg_body);
+					$msg_body = str_replace('<br />', "\n", '{TEMPLATE: plain_quote}');
 				} else {
 					$msg_body = '{TEMPLATE: html_quote}';
 				}
