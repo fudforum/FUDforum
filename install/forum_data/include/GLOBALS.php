@@ -39,7 +39,7 @@
 	$COOKIE_NAME		= "";
 	$COOKIE_TIMEOUT 	= "604800";	/* seconds */
 	$SESSION_TIMEOUT 	= "1800";	/* seconds */
-	$SESSION_USE_URL	= "N";		/* boolean */
+	$SESSION_USE_URL	= "Y";		/* boolean */
 
 	$DBHOST 		= "";
 	$DBHOST_USER		= "";
