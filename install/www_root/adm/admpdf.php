@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admpdf.php,v 1.13 2004/11/24 19:53:42 hackie Exp $
+* $Id: admpdf.php,v 1.14 2004/11/29 16:05:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,13 +58,6 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	/* bail out if pdf extension is not avaliable */
-	if (!extension_loaded('pdf')) {
-		echo 'Your PHP was not compiled with PDF extension support, therefor this feature is not avaliable.';
-		require($WWW_ROOT_DISK . 'adm/admclose.html');
-		exit;
-	}
-
 	$rdf_url = $WWW_ROOT . 'pdf.php';
 ?>
 <h2>PDF Output Configuration</h2>
@@ -74,8 +67,8 @@
 	print_bit_field('PDF Output Enabled', 'PDF_ENABLED');
 	print_bit_field('Complete Forum Output', 'PDF_ALLOW_FULL');
 
-	$opts = "A0\nA1\nA2\nA3\nA4\nA5\nA6\nB5\nletter\nlegal\nledger";
-	$names = "A0: 2380 x 3368\nA1: 1684 x 2380\nA2: 1190 x 1684\nA3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nA6: 297 x 421\nB5: 501 x 709\nletter: 612 x 792\nlegal: 612 x 1008\nledger: 1224 x 792";
+	$opts = "A3\nA4\nA5\nletter\nlegal";
+	$names = "A3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nletter: 612 x 792\nlegal: 612 x 1008";
 
 	$sel = create_select('CF_PDF_PAGE', $names, $opts, $PDF_PAGE);
 	echo '<tr class="field"><td>Page Dimensions: <br><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
