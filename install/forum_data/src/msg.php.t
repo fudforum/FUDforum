@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.14 2002/08/28 12:07:28 hackie Exp $
+*   $Id: msg.php.t,v 1.15 2002/09/07 04:28:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,14 +82,16 @@
 		}
 	
 		if ( !empty($unread) ) {
-			if( ($msg_id = q_singleval("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id)) ) {
-				if( ($new_msg_id = q_singleval("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." AND approved='Y' ORDER BY id LIMIT 1")) ) {
-					header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsidl);
+			if( ($lv = q_singleval("SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id)) ) {
+				if( $usr->last_read > $lv ) $lv = $usr->last_read;
+				if( ($new_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND approved='Y' AND post_stamp>".$lv." ORDER BY id LIMIT 1")) ) {
+					header("Location: {ROOT}?t=msg&goto=".$new_msg_id.'&'._rsidl);
 					exit();
 				}
 			}
-			header("Location: {ROOT}?t=msg&th=".$th.'&goto=end&'._rsidl);
-			exit();
+		
+			header("Location: {ROOT}?t=msg&th=".$th.'&'._rsidl);
+			exit;
 		}
 	}	
 
