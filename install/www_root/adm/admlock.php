@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.33 2004/10/26 21:08:02 hackie Exp $
+* $Id: admlock.php,v 1.34 2004/11/01 04:59:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,7 +44,9 @@
 				echo 'ERROR: Unable to open "'.$v.'" directory<br>';
 				continue;
 			}
-			$files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT);
+			if (!($files = glob($v . '/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+				continue;
+			}
 			foreach ($files as $path) {
 				if (@is_file($path) && !@chmod($path, $fileperms)) {
 					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
