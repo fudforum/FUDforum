@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.19 2003/04/09 10:55:57 hackie Exp $
+*   $Id: cookies.inc.t,v 1.20 2003/04/09 16:37:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -158,6 +158,8 @@ function ses_get($id=0)
 	if (!$id) {
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
+			/* renew cookie */
+			setcookie($GLOBALS['COOKIE_NAME'], $_COOKIE[$GLOBALS['COOKIE_NAME']], __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		} else if (isset($_REQUEST['S']) && $GLOBALS['SESSION_USE_URL'] == 'Y') {
 			$q_opt = "s.ses_id='".addslashes($_REQUEST['S'])."' AND sys_id='".ses_make_sysid()."'";
 		} else {
@@ -194,6 +196,7 @@ function ses_anon_make()
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['TRACK_REFERRALS'] == 'Y') {
 		setcookie($GLOBALS['COOKIE_NAME'].'_referer_id', $_GET['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
+	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 
 	return ses_get($id);
 }
