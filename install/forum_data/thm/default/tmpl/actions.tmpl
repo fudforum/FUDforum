@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.tmpl,v 1.10 2003/10/10 13:58:18 hackie Exp $
+* $Id: actions.tmpl,v 1.11 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,7 +23,7 @@
 
 {SECTION: last_post last by a user}
 {DATE: r[9] %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[7]}&{DEF: _rsid}">{VAR: r[8]}</a>
+<a href="{TEMPLATE: last_post_lnk}">{VAR: r[8]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -51,7 +51,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<div align="center" class="GenText">[<a href="{ROOT}?t=actions&rand={VAR: rand_val}&{DEF: _rsid}" class="GenLink">{MSG: refresh_list}</a>]</div>
+<div align="center" class="GenText">[<a href="{TEMPLATE: ACTION_PAGE_lnk}" class="GenLink">{MSG: refresh_list}</a>]</div>
 <p>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: user}</th><th>{MSG: action}</th><th>{MSG: time}</th><th>{MSG: action_latest_post}</th></tr>
@@ -72,4 +72,12 @@
 
 {SECTION: reg_user_link_lnk}
 {ROOT}?t=usrinfo&id={VAR: r[1]}&{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: last_post_lnk}
+{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[7]}&{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ACTION_PAGE_lnk}
+{ROOT}?t=actions&rand={VAR: rand_val}&{DEF: _rsid}
 {SECTION: END}

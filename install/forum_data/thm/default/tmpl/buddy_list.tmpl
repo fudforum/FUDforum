@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.16 2003/10/10 13:58:18 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.17 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,10 +48,10 @@
 {SECTION: buddy buddy row entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td align="center">{TEMPLATE-DATA: online_status}</td>
-	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{ROOT}?t=buddy_list&amp;{DEF: _rsid}&amp;del={VAR: r[0]}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
+	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{TEMPLATE: buddy_lnk}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
 	<td align="center">{VAR: r[6]}</td>
 	<td align="center" nowrap>{DATE: r[3] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[1]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText" nowrap><a class="GenLink" href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
@@ -114,4 +114,16 @@
 
 {SECTION: email_link_lnk}
 {ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: buddy_lnk}
+{ROOT}?t=buddy_list&amp;{DEF: _rsid}&amp;del={VAR: r[0]}
+{SECTION: END}
+
+{SECTION: buddy_lnk1}
+{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: buddy_lnk2}
+{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[1]}
 {SECTION: END}

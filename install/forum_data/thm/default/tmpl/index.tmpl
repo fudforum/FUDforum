@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.20 2003/10/10 13:58:18 hackie Exp $
+* $Id: index.tmpl,v 1.21 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,7 +32,7 @@
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr class="CatDesc"><td colspan="7">
-&nbsp;<a href="{ROOT}?t=index&amp;c={FUNC: url_tog_collapse($r[8], $cs)}&amp;{DEF: _rsid}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
+&nbsp;<a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
 {VAR: r[5]}
 </td></tr>
 {SECTION: END}
@@ -59,7 +59,7 @@
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}" class="GenLink">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}{VAR: moderators}</td>
+	<td class="RowStyleA" width="100%"><a href="{TEMPLATE: index_forum_entry_lnk}" class="GenLink">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}{VAR: moderators}</td>
 	<td class="RowStyleB" align="center">{VAR: r[15]}</td>
 	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
@@ -195,4 +195,12 @@
 
 {SECTION: mark_all_read_lnk}
 {ROOT}?t=markread&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: index_category_allow_collapse_Y_lnk}
+{ROOT}?t=index&amp;c={FUNC: url_tog_collapse($r[8], $cs)}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: index_forum_entry_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.25 2003/10/10 13:58:18 hackie Exp $
+* $Id: thread.tmpl,v 1.26 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -107,7 +107,7 @@
 <tr>		
 <td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start=0&amp;{DEF: _rsid}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
+<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
 <font class="SmallText"><br />{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}{TEMPLATE-DATA: admin_control_row}</font></td>
 <td class="RowStyleB" align="center">{VAR: r[16]}</td>
 <td class="RowStyleB" align="center">{VAR: r[19]}</td>
@@ -194,4 +194,8 @@
 
 {SECTION: admin_control_row_del_lnk}
 {ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r[13]}&amp;del={VAR: r[15]}
+{SECTION: END}
+
+{SECTION: thread_row_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start=0&amp;{DEF: _rsid}
 {SECTION: END}

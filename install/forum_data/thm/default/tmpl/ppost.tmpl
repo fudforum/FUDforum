@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.22 2003/07/19 18:13:06 hackie Exp $
+*   $Id: ppost.tmpl,v 1.23 2003/10/10 14:21:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -90,7 +90,8 @@
 </table>
 {SECTION: END}
 
-{PAGE: PPOST_PAGE  form for writing private messages}{TEMPLATE: header}
+{PAGE: PPOST_PAGE  form for writing private messages}
+{TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE-DATA: tabs}
@@ -99,7 +100,7 @@
 {TEMPLATE-DATA: preview_message}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{TEMPLATE: PPOST_PAGE_lnk}" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {TEMPLATE-DATA: pm_find_user} [<a href="javascript://" onClick="javascript: window_open('{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;1=1', 'buddy_list',275,300);" class="GenLink">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: post_icons}
@@ -187,3 +188,7 @@
 [<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=post_form.msg_to_list\',\'user_list\',250,250);">{MSG: ppost_find_User}</a>]
 {SECTION: END}
 
+
+{SECTION: PPOST_PAGE_lnk}
+{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1
+{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.10 2003/10/10 13:58:18 hackie Exp $
+* $Id: polllist.tmpl,v 1.11 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -36,7 +36,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td width="100%">{VAR: obj->name}</td>
 	<td nowrap>{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
-	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->owner}&amp;{DEF: _rsid}">{VAR: obj->alias}</a></td>
+	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
 	<td align="center" nowrap>{VAR: obj->total_votes}</td>
 	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}{TEMPLATE-DATA: view_res_lnk}</td>
 </tr>
@@ -57,7 +57,7 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: polllist_name}</th>
-	<th nowrap><a class="thLnk" href="{ROOT}?t=polllist&amp;start={VAR: start}&amp;oby={VAR: oby_rev_val}&amp;{DEF: _rsid}">{MSG: polllist_date}</a></th>
+	<th nowrap><a class="thLnk" href="{TEMPLATE: POLLLIST_PAGE_lnk}">{MSG: polllist_date}</a></th>
 	<th nowrap>{MSG: polllist_owner}</th>
 	<th nowrap align="center">{MSG: polllist_votes}</th>
 	<th nowrap><div align="center">{MSG: polllist_action}</div></th>
@@ -80,4 +80,12 @@
 
 {SECTION: poll_view_res_lnk_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: poll_entry_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: obj->owner}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: POLLLIST_PAGE_lnk}
+{ROOT}?t=polllist&amp;start={VAR: start}&amp;oby={VAR: oby_rev_val}&amp;{DEF: _rsid}
 {SECTION: END}

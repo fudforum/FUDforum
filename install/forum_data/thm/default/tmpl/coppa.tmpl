@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa.tmpl,v 1.5 2003/10/09 14:34:27 hackie Exp $
+* $Id: coppa.tmpl,v 1.6 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,8 +22,8 @@
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr align="center" class="RowStyleA"><td class="GenText">
 <div align="center">{MSG: coppa_link}</div><br />
-[<a class="GenLink" href="{ROOT}?t=pre_reg&amp;coppa=&amp;{DEF: _rsid}">{MSG: coppa_before}</a>]&nbsp;
-[<a class="GenLink" href="{ROOT}?t=pre_reg&amp;coppa=1&amp;{DEF: _rsid}">{MSG: coppa_after}</a>]
+[<a class="GenLink" href="{TEMPLATE: COPPA_PAGE_lnk}">{MSG: coppa_before}</a>]&nbsp;
+[<a class="GenLink" href="{TEMPLATE: COPPA_PAGE_lnk1}">{MSG: coppa_after}</a>]
 <hr>
 {MSG: coppa}
 </td></tr>
@@ -33,4 +33,12 @@
 {PAGE: END}
 {SECTION: coppa_conf}
 {MSG: coppa_conf}
+{SECTION: END}
+
+{SECTION: COPPA_PAGE_lnk}
+{ROOT}?t=pre_reg&amp;coppa=&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: COPPA_PAGE_lnk1}
+{ROOT}?t=pre_reg&amp;coppa=1&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.6 2003/10/09 14:34:28 hackie Exp $
+* $Id: qbud.tmpl,v 1.7 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: buddy_list}
-<tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="thLnk" href="{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={VAR: all_v}">{VAR: all_d}</a>]</th></tr>
+<tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{VAR: all_d}</a>]</th></tr>
 {TEMPLATE-DATA: buddies}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText" align="right"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
 {SECTION: END}
@@ -44,4 +44,8 @@
 
 {SECTION: pmsg_all}
 {MSG: pmsg_all}
+{SECTION: END}
+
+{SECTION: buddy_list_lnk}
+{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={VAR: all_v}
 {SECTION: END}

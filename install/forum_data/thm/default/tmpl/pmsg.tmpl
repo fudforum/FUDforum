@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.13 2003/10/10 13:58:18 hackie Exp $
+* $Id: pmsg.tmpl,v 1.14 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -79,7 +79,7 @@
 
 {SECTION: private_msg_entry}
 <tr class="RowStyleB"><td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}" class="GenLink">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
-<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->ouser_id}" class="GenLink">{VAR: obj->alias}</a></td>
+<td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}" class="GenLink">{VAR: obj->alias}</a></td>
 <td nowrap class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td nowrap align="center" class="GenText">{TEMPLATE-DATA: action}</td>
 <td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td></tr>
@@ -90,7 +90,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE: pmsg_disk_usage}
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div><img src="blank.gif" alt="" width=1 height=2 />
+<div align="right"><a class="GenLink" href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div><img src="blank.gif" alt="" width=1 height=2 />
 {TEMPLATE-DATA: tabs}
 <form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
@@ -105,13 +105,13 @@
 	<th align="center">{TEMPLATE-DATA: author_dest_col}</th>
 	<th align="center">{MSG: pmsg_time}</th>
 	<th align="center">{MSG: action}</th>
-	<th nowrap>{MSG: pmsg_selected} [<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}" class="thLnk">{VAR: desc}</a>]</th>
+	<th nowrap>{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{VAR: desc}</a>]</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
 {TEMPLATE-DATA: private_tools}
 </table></form>
 <img src="blank.gif" alt="" width=1 height=2 />
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
+<div align="right"><a class="GenLink" href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
@@ -214,4 +214,16 @@
 
 {SECTION: deny_recipt_lnk}
 {ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;dr=1&amp;id={VAR: obj->id}
+{SECTION: END}
+
+{SECTION: normal_msg_lnk}
+{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->ouser_id}
+{SECTION: END}
+
+{SECTION: PMSG_PAGE_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: PMSG_PAGE_lnk1}
+{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}
 {SECTION: END}

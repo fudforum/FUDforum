@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.tmpl,v 1.15 2003/10/10 13:58:18 hackie Exp $
+* $Id: logedin.tmpl,v 1.16 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,7 +48,7 @@
 <tr><td class="RowStyleB"><font class="SmallText">
 {MSG: message_counter}<br />
 {MSG: user_counter}<br />
-{MSG: newest_user} <a href="{ROOT}?t=usrinfo&amp;id={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
+{MSG: newest_user} <a href="{TEMPLATE: forum_info_lnk}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
 </font></td></tr>
 {SECTION: END}
 {SECTION: i_spy_lnk}
@@ -65,4 +65,8 @@
 
 {SECTION: last_msg_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: last_msg_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: forum_info_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.23 2003/10/10 13:58:18 hackie Exp $
+* $Id: finduser.tmpl,v 1.24 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -36,7 +36,7 @@
 <img src="blank.gif" alt="" height=2 width=1 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-<th width="100%"><a class="thLnk" href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
+<th width="100%"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -55,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}?t=showposts&amp;id={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
+<a href="{TEMPLATE: action_field_lnk}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
@@ -107,4 +107,20 @@
 
 {SECTION: email_link_lnk}
 {ROOT}?t=email&amp;toi={VAR: r->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: FINDUSER_PAGE_lnk}
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: FINDUSER_PAGE_lnk1}
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find
+{SECTION: END}
+
+{SECTION: FINDUSER_PAGE_lnk2}
+{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find
+{SECTION: END}
+
+{SECTION: action_field_lnk}
+{ROOT}?t=showposts&amp;id={VAR: r->id}&amp;{DEF: _rsid}
 {SECTION: END}

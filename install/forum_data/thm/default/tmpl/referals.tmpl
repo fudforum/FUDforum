@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.12 2003/10/10 13:58:18 hackie Exp $
+* $Id: referals.tmpl,v 1.13 2003/10/10 14:20:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,10 +33,10 @@
 
 {SECTION: refered_entry info about a single referred user}
 <tr class="{ALT-VAR: ref_alt RowStyleA RowStyleB}">
-	<td width="100%" nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}">{VAR: r[0]}</a></td>
+	<td width="100%" nowrap class="GenText"><a class="GenLink" href="{TEMPLATE: refered_entry_lnk}">{VAR: r[0]}</a></td>
 	<td nowrap align="center" nowrap class="Gentext">{VAR: r[3]}</td>
 	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{ROOT}?t=showposts&amp;id={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+	<td nowrap class="GenText"><a href="{TEMPLATE: refered_entry_lnk1}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
@@ -66,4 +66,12 @@
 
 {SECTION: email_link_lnk}
 {ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: refered_entry_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: refered_entry_lnk1}
+{ROOT}?t=showposts&amp;id={VAR: r[1]}&amp;{DEF: _rsid}
 {SECTION: END}
