@@ -156,7 +156,7 @@ todays_posts_desc:		Mostra tutti i messaggi postati oggi
 un_ignore_user:			Cessa di ignorare i messaggi di questo utente
 unanswered_posts:		Messaggi senza risposta
 unanswered_posts_desc:		Mostra tutti i messaggi che non hanno risposta
-unlock_thread:			Riapri l'argomento
+unlock_thread:			Riapri l\'argomento
 unread_msg:			Questo argomento contiene messaggi che non hai ancora letto
 unread_msg_locked:		Argomento chiuso con messaggi non letti
 unread_posts:			Messaggi non letti
@@ -844,9 +844,9 @@ finduser_help:			Il motore di ricerca aggiungerà automaticamente la maschera * n
 back_to_top:			Torna sopra
 iemail_participate:		Per partecipare alla discussione, vai qui:
 pm_err_disabled_title:		Messaggi privati Disabilitati
-pm_err_disabled_msg:		Non puoi inviare messaggi privati finch&egrave; non abiliti l'opzione &#39;Abilita Messaggi Privati&#39; nel tuo profilo.
+pm_err_disabled_msg:		Non puoi inviare messaggi privati finch&egrave; non abiliti l\'opzione &#39;Abilita Messaggi Privati&#39; nel tuo profilo.
 err_mod_acc_ttl:		Account non verificato
-err_mod_acc_msg:		L'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finch&egrave; il tuo account non sar&agrave; validato dall&#39;amministratore, non potrai utilizzare tutte le funzioni del tuo account.
+err_mod_acc_msg:		L\'amministratore ha scelto di controllare tutti gli account manualmente prima della loro attivazione. Finch&egrave; il tuo account non sar&agrave; validato dall&#39;amministratore, non potrai utilizzare tutte le funzioni del tuo account.
 accounts_pending_approval:	Account in attesa di Approvazione
 saved:				Salvato
 register_err_time_limit:	Il limite di registrazione di 1 registrazione per {GVAR: REG_TIME_LIMIT} secondo &egrave; stato raggiunto. Aspetta {VAR: reg_limit_reached} secondi e poi riprova nuovamente a registrarti.
@@ -862,7 +862,7 @@ buddy_offline:			{VAR: r[2]} al momento &egrave; fuori linea
 buddy_online:			{VAR: r[2]} al momento &egrave; in linea
 sml_no_smilies:			Non ci sono emoticon disponibili.
 login_unapproved_account_ttl:	Account non approvato
-login_unapproved_account_msg:	L'amministratore del forum ha sceltp di confermare ogni nuovo account manualmente prima dell&#39;attivazione. Il tuo account non &egrave; stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalit&agrave; disponibili per i membri del forum registrati, fino a quando il tuo account non verr&agrave; approvato.
+login_unapproved_account_msg:	L\'amministratore del forum ha sceltp di confermare ogni nuovo account manualmente prima dell&#39;attivazione. Il tuo account non &egrave; stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalit&agrave; disponibili per i membri del forum registrati, fino a quando il tuo account non verr&agrave; approvato.
 remove_from_buddy_list:		rimuovi dalla lista degli amici
 iemail_msg_author:		<b>Autore:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Oggetto:</b> {VAR: obj->subject}
