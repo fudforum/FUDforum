@@ -1,0 +1,23 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_search_cache.tbl,v 1.1 2003/05/04 20:40:42 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}search_cache;
+
+CREATE TABLE {SQL_TABLE_PREFIX}search_cache
+(
+	srch_query	VARCHAR(255) NOT NULL,
+	query_type	INT NOT NULL DEFAULT 0,
+	expiry		INT UNSIGNED NOT NULL,
+	msg_id		INT UNSIGNED NOT NULL,
+	n_match		INT NOT NULL,
+	
+	INDEX(srch_query, query_type),
+	INDEX(expiry)
+)
