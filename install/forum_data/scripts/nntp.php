@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.4 2002/10/02 20:35:35 hackie Exp $
+*   $Id: nntp.php,v 1.5 2002/10/03 07:30:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,6 +47,7 @@
 	fud_use('is_perms.inc');
 	fud_use('users.inc');
 	fud_use('users_reg.inc');
+	fud_use('rhost.inc');
 	fud_use('attach.inc');
 	fud_use('mime.inc');
 	fud_use('nntp.inc', true);

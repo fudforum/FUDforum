@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.15 2002/10/02 20:35:35 hackie Exp $
+*   $Id: maillist.php,v 1.16 2002/10/03 07:30:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -501,6 +501,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	fud_use('users_reg.inc');
 	fud_use('attach.inc');
 	fud_use('mime.inc');
+	fud_use('rhost.inc');
 	fud_use('mlist.inc', TRUE);
 	
 	$mlist = new fud_mlist;
