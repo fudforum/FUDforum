@@ -204,7 +204,7 @@ function hello()
 
 hello();
 </pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
+<font color="#ff0000"><b>[/php]</b></font><br>
 <br>which produces:<br><br>
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
