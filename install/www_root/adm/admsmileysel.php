@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmileysel.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admsmileysel.php,v 1.2 2003/04/28 15:24:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,39 +17,33 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('util.inc');
-
-	cache_buster();
-	
-	$smiley_dir  = '../images/smiley_icons/';
+	require('GLOBALS.php');
+	fud_use('adm.inc', true);
 	
 	echo '<html><body bgcolor="#ffffff">';
-	
-	if ( !@is_readable($smiley_dir) ) {
-		echo '<br><font color="#ff0000">Can\'t read "'.$smiley_dir.'"</font></br>';
-	}
-	else {
-		$icons_per_row = 7;
-		$olddir = getcwd();
-		chdir($smiley_dir);
-		$dp = opendir('.');
-		readdir($dp); readdir($dp); 
-		
-		echo "<table border=0 cellspacing=1 cellpadding=2><tr>";
+
+	if ($dp = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) {
+		readdir($dp); readdir($dp);
+		$icons_per_row = 6;
 		$col = $i = 0;
-		while ( $de = readdir($dp) ) {
-			if( @is_dir($de) ) continue;
+		echo '<table border=0 cellspacing=1 cellpadding=2><tr>';
+		while ($de = readdir($dp)) {
 			$ext = strtolower(substr($de, -4));
-			if ( $ext != 'jpeg' && $ext != '.gif' && $ext != '.jpg' && $ext != '.png' ) continue;
-			if ( !($col++%$icons_per_row) ) echo '</tr><tr>';
-			$bgcolor = ( !($i++%2) ) ? ' bgcolor="#f4f4f4"':'';
-				
-			echo '<td'.$bgcolor.' nowrap valign=center align=center><a href="javascript: window.opener.document.prev_icon.src=\''.$smiley_dir.$de.'\'; window.opener.document.frm_sml.sml_img.value=\''.$de.'\'; window.close();"><img src="'.$smiley_dir.$de.'" border=0><br><font size=-2>'.$de.'</font></a></td>';
+			if ($ext != '.gif' && $ext != '.jpg' && $ext != '.png' && $ext != 'jpeg') {
+				continue;
+			}
+			if (!($col++%$icons_per_row)) {
+				echo '</tr><tr>';
+			}
+			$bgcolor = (!($i++%2)) ? ' bgcolor="#f4f4f4"' : '';
+
+			echo '<td '.$bgcolor.' nowrap valign=center align=center><a href="javascript: window.opener.document.prev_icon.src=\'../images/smiley_icons/'.$de.'\'; window.opener.document.frm_sml.sml_img.value=\''.$de.'\'; window.close();"><img src="../images/smiley_icons/'.$de.'" border=0><br><font size=-2>'.$de.'</font></a></td>';
 		}
 		closedir($dp);
 		echo '</tr></table>';
+	}
+	if (!$i) {
+		echo 'There are no smilies';	
 	}
 	echo '</body></html>'; 
 ?>
