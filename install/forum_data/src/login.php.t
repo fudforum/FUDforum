@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.9 2002/09/17 02:00:32 hackie Exp $
+*   $Id: login.php.t,v 1.10 2002/09/30 20:38:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,16 +14,16 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-/*#? Login Page */
-
 	
 	{PRE_HTML_PHP}	
 	$usr = fud_user_to_reg($usr);
 	clear_old_sessions();
 
 	/* Remove old unconfirmed users */
-	if( $EMAIL_CONFIRMATION == 'Y' ) 
-		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".(__request_timestamp__-86400*$UNCONF_USER_EXPIRY)." AND posted_msg_count=0 AND is_mod!='A'");
+	if( $EMAIL_CONFIRMATION == 'Y' ) {
+		$account_expiry_date = __request_timestamp__(-86400*$UNCONF_USER_EXPIRY);
+		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND is_mod!='A'");
+	}	
 
 	if ( !empty($HTTP_GET_VARS['logout']) && isset($ses) ) {
 		preg_match('/\?t=([A-Z0-9a-z_]+)(\&|$)/', $returnto, $regs);
@@ -41,6 +41,7 @@
 			case 'groupmgr':
 			case 'post':
 			case 'ppost':
+			case 'error':
 				$returnto = $GLOBALS['returnto'] = '';
 				break;
 			default:
