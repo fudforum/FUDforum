@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.45 2003/10/01 21:51:53 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.46 2003/10/02 13:53:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -46,32 +46,36 @@ class fud_user_reg extends fud_user
 		}
 
 		$md5pass = md5($this->plaintext_passwd);
+		$o2 =& $GLOBALS['FUD_OPT_2'];
 
-		$this->alias = make_alias((!($GLOBALS['FUD_OPT_2'] & 128) || !$this->alias) ? $this->login : $this->alias);
+		$this->alias = make_alias((!($o2 & 128) || !$this->alias) ? $this->login : $this->alias);
 
 		/* this used when utilities create users (aka nntp/mlist import) */
-		if ($GLOBALS['FUD_OPT_2'] & 1024) {
+		if ($o2 & 1024) {
 			$this->users_opt |= 2097152;
 			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt=3 LIMIT 1");
 			$this->time_zone =& $GLOBALS['SERVER_TZ'];
 			$this->posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
-			if (!($GLOBALS['FUD_OPT_2'] & 4)) {
+			if (!($o2 & 4)) {
 				$uent->users_opt ^= 128;
 			}
-			if (!($GLOBALS['FUD_OPT_2'] & 8)) {
+			if (!($o2 & 8)) {
 				$uent->users_opt ^= 256;
 			}
-			if ($GLOBALS['FUD_OPT_2'] & 1) {
-				$GLOBALS['FUD_OPT_2'] ^= 1;
+			if ($o2 & 1) {
+				$o2 ^= 1;
 			}
 		}
 
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock('{SQL_TABLE_PREFIX}users WRITE');
-		}
+		if ($o2 & 1) {
+			$pfx = md5(__request_timestamp__);
 
-		if ($GLOBALS['FUD_OPT_2'] & 1) {
+			if (__dbtype__ == 'mysql') {
+				$this->conf_key = "md5(CONCAT(LAST_INSERT_ID(), '".$pfx."')";
+			} else {
+				$this->conf_key = "length(substring(textcat(translate(currval('{SQL_TABLE_PREFIX}ses_id_seq'), '1234567890', 'AbCDeFgHiJ'), '".$pfx."')";
+			}
+
 			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
 		} else {
 			$this->conf_key = '';
@@ -124,7 +128,7 @@ class fud_user_reg extends fud_user
 				".ssn($this->time_zone).",
 				".iz($this->bday).",
 				".__request_timestamp__.",
-				'".$this->conf_key."',
+				".$this->conf_key.",
 				".ssn(htmlspecialchars($this->user_image)).",
 				".__request_timestamp__.",
 				".ssn(htmlspecialchars($this->location)).",
@@ -140,9 +144,15 @@ class fud_user_reg extends fud_user
 			)
 		");
 
-		if (isset($ll)) {
-			db_unlock();
+		if ($this->conf_key) {
+			if (__dbtype__ == 'mysql') {
+				$this->conf_key = md5($this->id . $pfx);
+			} else {
+				$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>'i','0'=>'J');
+				$this->conf_key = substr(strtr((string)$this->id, $tr).$pfx, 0, 32);
+			}
 		}
+
 		return $this->id;
 	}
 
@@ -198,14 +208,8 @@ function get_id_by_login($login)
 
 function usr_email_unconfirm($id)
 {
-	db_lock('{SQL_TABLE_PREFIX}users WRITE');
-	do {
-		$conf_key = md5(get_random_value(128));
-	} while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'"));
-
-	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=((users_opt|131072) &~ 131072), conf_key='".$conf_key."' WHERE id=".$id);
-	db_unlock();
-
+	$conf_key = md5(__request_timestamp__ . $id . get_random_value());
+	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt &~ 131072, conf_key='".$conf_key."' WHERE id=".$id);
 	return $conf_key;
 }
 

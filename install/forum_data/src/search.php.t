@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.26 2003/10/01 21:51:52 hackie Exp $
+*   $Id: search.php.t,v 1.27 2003/10/02 13:53:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,18 +33,18 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$w = explode(' ', strtolower($qry));
+	$w = array_unique(explode(' ', strtolower($qry)));
 	$qr = ''; $i = 0;
 	foreach ($w as $v) {
 		$v = trim($v);
-		if (!$v || isset($qu[$v]) || strlen($v) <= 2) {
+		if (strlen($v) <= 2) {
 			continue;
 		} else if ($i++ == 10) { /* limit query length to 10 words */
 			break;
 		}
-		$qu[$v] = $v;
 		$qr .= " '".addslashes($v)."',";
 	}
+
 	if (!$qr) {
 		return;
 	} else {
@@ -58,36 +58,21 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$tbl = 'title_index';
 		$qt = '1';
 	}
-	$qry_lck = "'".addslashes(implode(' ', $qu))."'";
 
-	db_lock('{SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}search_cache WRITE, {SQL_TABLE_PREFIX}'.$tbl.' WRITE');
+	$qry_lck = md5($qr);
+
+	/* remove expired cache */
 	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'.(__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
+	$it = (__dbtype__ == 'mysql') ? 'INSERT INGORE' : 'REPLACE INTO'; 
+
 	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE query_type='.$qt.' AND srch_query='.$qry_lck))) {
-		/* nothing in the cache, let's cache */
-		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word IN('.$qr.')');
-		while ($r = db_rowarr($c)) {
-			$wl[] = $r[0];
-		}
-		qf($c);
-		if ($logic == 'AND' && (!isset($wl) || count($wl) != count($qu))) {
-			return;
-			db_unlock();
-		}
-		if (isset($wl) && ($word_list = implode(',', $wl))) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '.$qry_lck.', \''.$qt.'\', '.__request_timestamp__.', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}'.$tbl.' WHERE word_id IN('.$word_list.') GROUP BY msg_id ORDER BY word_count DESC LIMIT 500');
-			$total = db_affected();
-		} else {
-			$total = 0;
-		}
+		q($it." {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500");
 
-		db_unlock();
-
-		if (!$total) {
+		if (!($total = (int) db_affected())) {
 			return;
 		}
-	} else {
-		db_unlock();
 	}
+
 	if ($forum_limiter) {
 		if ($forum_limiter[0] != 'c') {
 			$qry_lmt = ' AND f.id=' . (int)$forum_limiter . ' ';
@@ -109,7 +94,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
-			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
+			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
 			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 	if (!$total) {
 		return;
@@ -128,7 +113,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
-			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
+			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
 			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').'
 		ORDER BY sc.n_match DESC, m.post_stamp '.$order.' LIMIT '.qry_limit($count, $start));
 }

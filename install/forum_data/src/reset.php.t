@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
+*   $Id: reset.php.t,v 1.15 2003/10/02 13:53:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,11 +19,8 @@
 
 function usr_reset_key($id)
 {
-	db_lock('{SQL_TABLE_PREFIX}users WRITE');
-	while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".($reset_key = md5(get_random_value(128)))."'"));
+	$reset_key = md5(__request_timestamp__ . $id . get_random_value());
 	q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".$reset_key."' WHERE id=".$id);
-	db_unlock();
-
 	return $reset_key;
 }
 
@@ -43,10 +40,8 @@ function usr_reset_passwd($id)
 	}
 
 	if (isset($_GET['reset_key'])) {
-		db_lock('{SQL_TABLE_PREFIX}users WRITE');
 		if (($ui = db_saq("SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".addslashes($_GET['reset_key'])."'"))) {
 			$passwd = usr_reset_passwd($ui[2]);
-			db_unlock();
 			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			if ($FUD_OPT_2 & 32768) {
@@ -56,7 +51,6 @@ function usr_reset_passwd($id)
 			}
 			exit;
 		}
-		db_unlock();
 		error_dialog('{TEMPLATE: reset_err_invalidkey_title}', '{TEMPLATE: reset_err_invalidkey_msg}');
 	}
 

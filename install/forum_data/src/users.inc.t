@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.74 2003/10/02 13:18:23 hackie Exp $
+*   $Id: users.inc.t,v 1.75 2003/10/02 13:53:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -647,18 +647,7 @@ function user_mark_all_read($id)
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
-	$c = uq('SELECT r.id FROM {SQL_TABLE_PREFIX}read r INNER JOIN {SQL_TABLE_PREFIX}thread t ON r.thread_id=t.id WHERE r.user_id='.$id);
-	while ($r = db_rowarr($c)) {
-		$ids[] = $r[0];
-	}
-	qf($c);
-
-	db_lock('{SQL_TABLE_PREFIX}read WRITE, {SQL_TABLE_PREFIX}thread WRITE');
-	if (isset($ids)) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE id IN('.implode(',', $ids).')');
-	}
-	q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
-	db_unlock();
+	q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
 }
 
 if (!defined('forum_debug')) {
