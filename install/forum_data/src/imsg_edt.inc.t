@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.100 2004/04/24 21:41:24 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.101 2004/04/26 19:13:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -406,9 +406,9 @@ class fud_msg_edit extends fud_msg
 			/* send new thread notifications to forum subscribers */
 			$c = uq('SELECT u.email, u.icq, u.users_opt
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
-					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id
-					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
+					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id 
 				WHERE
@@ -420,9 +420,9 @@ class fud_msg_edit extends fud_msg
 			/* send new reply notifications to thread subscribers */
 			$c = uq('SELECT u.email, u.icq, u.users_opt, r.msg_id, u.id
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
-					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id
-					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
+					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id='.$mtf->forum_id.' AND mm.user_id=u.id 
 				WHERE
