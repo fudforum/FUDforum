@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.php.t,v 1.30 2004/11/24 19:53:35 hackie Exp $
+* $Id: polllist.php.t,v 1.31 2004/11/24 19:59:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 		$start = 0;
 	}
 	if (isset($_GET['uid']) && ($uid = (int)$_GET['uid'])) {
-		$usr_lmt = 'WHERE p.owner='.$uid;
+		$usr_lmt = ' WHERE p.owner='.$uid;
 	} else {
 		$uid = $usr_lmt = '';
 	}
