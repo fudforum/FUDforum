@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.47 2005/01/17 14:56:29 hackie Exp $
+* $Id: isearch.inc.t,v 1.48 2005/02/03 00:09:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,6 +123,11 @@ function index_text($subj, $body, $msg_id)
 			if (pg_num_rows(pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_sel (".$w.")")) < 1) {
 				pg_query(fud_sql_lnk, "EXECUTE {SQL_TABLE_PREFIX}srch_ins (".$w.")");
 			}
+		}
+		/* if persistent connections are used de-allocte the prepared statement to prevent query failures */
+		if ($GLOBALS['FUD_OPT_1'] & 256) {
+			pg_query(fud_sql_lnk, 'DEALLOCATE {SQL_TABLE_PREFIX}srch_sel');
+			pg_query(fud_sql_lnk, 'DEALLOCATE {SQL_TABLE_PREFIX}srch_ins');
 		}
 	}
 
