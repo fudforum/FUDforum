@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: split_th.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,7 +108,7 @@
 	
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}msg.*,
-			{SQL_TABLE_PREFIX}users.login 
+			{SQL_TABLE_PREFIX}users.alias AS login 
 		FROM 
 			{SQL_TABLE_PREFIX}msg 
 		LEFT JOIN {SQL_TABLE_PREFIX}users

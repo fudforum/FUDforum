@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.4 2002/06/27 22:19:40 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@ function convert_bdate($val, $month_fmt)
 	}
 	qf($r);
 	
-	$user_info = htmlspecialchars($u->login);
+	$user_info = htmlspecialchars($u->alias);
 	{POST_HTML_PHP}
 	$TITLE_EXTRA = ': '.'{TEMPLATE: user_info_l}';
 	if ( isset($ses) ) $ses->update('{TEMPLATE: userinfo_update}');
@@ -90,7 +90,7 @@ function convert_bdate($val, $month_fmt)
 	if ( $u->display_email == 'Y' ) 
 		$email_link = '{TEMPLATE: email_link}';
 	else if( $GLOBALS["ALLOW_EMAIL"] == 'Y' ) {
-		$encoded_login = urlencode($u->login);
+		$encoded_login = urlencode($u->alias);
 		$email_link = '{TEMPLATE: email_form_link}';
 	}	
 	

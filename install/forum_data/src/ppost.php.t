@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.3 2002/06/19 00:08:19 hackie Exp $
+*   $Id: ppost.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -113,7 +113,7 @@
 				if( !empty($forward) && !preg_match("!^Fwd: !", $msg_subject) )
 					$msg_subject = 'Fwd: '.$msg_subject;	
 			
-				if( !empty($quote) ) $msg_to_list = q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
+				if( !empty($quote) ) $msg_to_list = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
 			}	
 		}
 		else if( !empty($reply) && is_numeric($reply) ) {
@@ -123,7 +123,7 @@
 			if( !empty($msg_r->id) ) {
 				$msg_subject = $msg_r->subject;
 			
-				$msg_to_list = q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
+				$msg_to_list = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
 			
 				unset($msg_r);
 			
@@ -538,7 +538,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		$r = q("SELECT 
 			{SQL_TABLE_PREFIX}pmsg.*,
 			{SQL_TABLE_PREFIX}users.id AS user_id,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
 			{SQL_TABLE_PREFIX}users.posted_msg_count,
 			{SQL_TABLE_PREFIX}users.join_date,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: groups.inc.t,v 1.5 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -271,7 +271,7 @@ class fud_group
 	{
 		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}group_members.*, 
-				{SQL_TABLE_PREFIX}users.login, 
+				{SQL_TABLE_PREFIX}users.alias AS login, 
 				{SQL_TABLE_PREFIX}groups.name
 			FROM 
 				{SQL_TABLE_PREFIX}group_members 
@@ -305,7 +305,7 @@ class fud_group
 		if ( empty($rs_str) ) return;
 
 		$rs_str = substr($rs_str, 0, -2);
-		$r=q("SELECT {SQL_TABLE_PREFIX}group_members.group_id, {SQL_TABLE_PREFIX}group_members.user_id, {SQL_TABLE_PREFIX}groups.name, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}users.login FROM 
+		$r=q("SELECT {SQL_TABLE_PREFIX}group_members.group_id, {SQL_TABLE_PREFIX}group_members.user_id, {SQL_TABLE_PREFIX}groups.name, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}users.alias AS login FROM 
 				{SQL_TABLE_PREFIX}group_members
 				INNER JOIN {SQL_TABLE_PREFIX}group_resources 
 					ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}group_resources.group_id 

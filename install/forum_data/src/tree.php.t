@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: tree.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@
 		{SQL_TABLE_PREFIX}thread.forum_id,
 		{SQL_TABLE_PREFIX}avatar.img AS avatar, 
 		{SQL_TABLE_PREFIX}users.id AS user_id, 
-		{SQL_TABLE_PREFIX}users.login, 
+		{SQL_TABLE_PREFIX}users.alias AS login, 
 		{SQL_TABLE_PREFIX}users.display_email, 
 		{SQL_TABLE_PREFIX}users.avatar_approved,
 		{SQL_TABLE_PREFIX}users.avatar_loc,
@@ -139,7 +139,7 @@
 
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}msg.*,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}thread.root_msg_id,
 			{SQL_TABLE_PREFIX}ses.time_sec
 		FROM 

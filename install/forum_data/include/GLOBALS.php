@@ -70,6 +70,7 @@
 	$UNCONF_USER_EXPIRY	= "7";		/* days */
 	$MOVED_THR_PTR_EXPIRY	= "3";		/* days */
 
+	$USE_ALIASES		= "N";		/* boolean */
 	$MAX_SMILIES_SHOWN	= "15"; 	/* int */
 	$ALLOW_REGISTRATION	= "Y";		/* boolean */
 	$EMAIL_CONFIRMATION	= "Y";		/* boolean */

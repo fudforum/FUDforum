@@ -136,7 +136,7 @@ send_pm_desc:			Wy¶lij prywatn± wiadomo¶æ u¿ytkownikowi
 sender_email:			E-mail nadawcy:
 sender_name:			Nazwa nadawcy:
 show_all_posts:			Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: user_login}
-show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR-HTML: u->login}
+show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR-HTML: u->alias}
 size:				Rozmiar:
 started_on:			Rozpoczêty
 status:				Status:
@@ -871,3 +871,6 @@ poll_edit: 			Edit
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.5 2002/07/07 21:08:30 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.6 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	$bud = new fud_buddy;
 	
 	if( isset($add_login) && strlen($add_login) ) {
-		$buddy_id = get_id_by_login($add_login);
+		$buddy_id = get_id_by_alias($add_login);
 		
 		if ( $buddy_id == $usr->id ) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}', '{ROOT}?t=buddy_list&'._rsid);
@@ -70,7 +70,7 @@
 	$res = q("SELECT 
 			{SQL_TABLE_PREFIX}buddy.id as bud_id,
 			{SQL_TABLE_PREFIX}users.id,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.join_date,
 			{SQL_TABLE_PREFIX}users.bday,
 			{SQL_TABLE_PREFIX}users.invisible_mode,

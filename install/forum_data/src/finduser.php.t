@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: finduser.php.t,v 1.5 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,27 +33,38 @@
 	$usr_login = ( !empty($usr_login) ) ? trim(stripslashes($usr_login)) : '';
 	$usr_email = ( !empty($usr_email) ) ? trim(stripslashes($usr_email)) : '';
 	
-	$user_login = htmlspecialchars($usr_login);
-	$user_email = htmlspecialchars($usr_email);
-
+	
 	if ( empty($start) ) $start = 0;
 	if ( empty($count) ) $count = $GLOBALS['MEMBERS_PER_PAGE'];
 	
 	if( !empty($pc) ) 
 		$ord = "posted_msg_count DESC";
 	else if( !empty($us) ) 
-		$ord = "login";
+		$ord = "alias";
 	else
 		$ord = "id DESC";	
 	
 	$np = 1;
 	if ( !empty($btn_submit) ) {
+		if( __dbtype__ == 'pgsql' ) {
+			$usr_login = str_replace('\\', '\\\\', $usr_login);
+			$usr_email = str_replace('\\', '\\\\', $usr_email);
+		}
+	
 		if ( $usr_login )
-			$qry = "WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."%'";
+			$qry = "WHERE LOWER(alias) LIKE '".strtolower(addslashes($usr_login))."%'";
 		else if ( $usr_email ) 
 			$qry = "WHERE LOWER(email) LIKE '".strtolower(addslashes($usr_email))."%'";
 		else 
 			$qry = '';	
+			
+		if( __dbtype__ == 'pgsql' ) {
+		        $usr_login = str_replace('\\\\', '\\', $usr_login);
+			$usr_email = str_replace('\\\\', '\\', $usr_email);
+		}	
+			
+		$user_login = htmlspecialchars($usr_login);
+		$user_email = htmlspecialchars($usr_email);
 			
 		if ( $start || $count ) $lim = "LIMIT ".qry_limit($count, $start);
 		

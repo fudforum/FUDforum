@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: email.php.t,v 1.2 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,7 +63,7 @@ function mail_check()
 		$u_name = $GLOBALS['tx_name'];
 		reverse_FMT($u_name);
 
-		if ( !get_id_by_login(addslashes($u_name)) ) {
+		if ( !get_id_by_alias(addslashes($u_name)) ) {
 			set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 		}
 	}
@@ -92,7 +92,7 @@ function mail_check()
 		else {
 			$usr_dst = new fud_user;
 			reverse_FMT($tx_name);
-			$usr_dst->get_user_by_id(get_id_by_login(addslashes($tx_name)));
+			$usr_dst->get_user_by_id(get_id_by_alias(addslashes($tx_name)));
 			if ( !strlen($usr_dst->email) || $usr_dst->email_messages!='Y') {
 				error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}', $GLOBALS['HTTP_REFERER'], 'FATAL');
 				exit();

@@ -735,7 +735,7 @@ sender_email:			Email des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
 show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
-show_posts_by:			Beitr&auml;ge von {VAR-HTML: u->login} anzeigen
+show_posts_by:			Beitr&auml;ge von {VAR-HTML: u->alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
 single_msg_delete:		Du bist gerade dabei, den Beitrag mit dem Titel: <b>{VAR: msg->subject}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
@@ -870,3 +870,6 @@ poll_edit: 			Bearbeiten
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

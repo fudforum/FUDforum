@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.6 2002/06/28 00:21:37 hackie Exp $
+*   $Id: register.php.t,v 1.7 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -172,7 +172,14 @@ function register_form_check($user_id)
 		if( !($GLOBALS['reg_avatar_loc_file']=fetch_img($GLOBALS['HTTP_POST_VARS']['reg_avatar_loc'])) ) {
 			set_err('reg_avatar_loc', '{TEMPLATE: register_err_not_valid_img}');
 		}		
-	}	
+	}
+	
+	/* Alias Check */
+	if( $GLOBALS['USE_ALIASES'] == 'Y' && $GLOBALS['HTTP_POST_VARS']['reg_alias'] ) {
+		if( get_id_by_alias($GLOBALS['HTTP_POST_VARS']['reg_alias']) != $GLOBALS['usr']->id )
+			set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');	
+	}
+		
 	return $GLOBALS['error'];
 }
 
@@ -200,7 +207,7 @@ function draw_err($err_name)
 
 function clean_variables()
 {
-	$vars = array('reg_avatar_loc','reg_login','reg_email','reg_name','reg_location','reg_occupation','reg_interests','reg_user_image','reg_icq','reg_aim','reg_yahoo','reg_home_page','reg_msnm','reg_avatar','b_month','b_day','b_year','reg_gender','reg_bio','reg_sig','reg_invisible_mode','reg_notify','reg_notify_method','reg_posts_ppg','reg_theme', 'reg_jabber');
+	$vars = array('reg_avatar_loc','reg_login','reg_alias','reg_email','reg_name','reg_location','reg_occupation','reg_interests','reg_user_image','reg_icq','reg_aim','reg_yahoo','reg_home_page','reg_msnm','reg_avatar','b_month','b_day','b_year','reg_gender','reg_bio','reg_sig','reg_invisible_mode','reg_notify','reg_notify_method','reg_posts_ppg','reg_theme', 'reg_jabber');
 	while( list(,$v) = each($vars) ) {
 		if( !isset($GLOBALS["HTTP_POST_VARS"][$v]) ) $GLOBALS[$v]=$GLOBALS["HTTP_POST_VARS"][$v]=NULL;		
 	}
@@ -346,6 +353,10 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		$usr->home_page = stripslashes($usr->home_page);
 	
 		if( !$usr->icq && $usr->notify_method == 'ICQ' ) $usr->notify_method = 'EMAIL';
+	
+		$usr->alias = stripslashes($usr->alias);
+		reverse_FMT($usr->alias);
+		$usr->alias = addslashes($usr->alias);
 	
 		if( empty($usr->id) ) {
 
@@ -517,6 +528,11 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	$reg_email_err = draw_err('reg_email');
 	$reg_name_err = draw_err('reg_name');
 	$reg_sig_err = draw_err('reg_sig');
+	$reg_alias_err = draw_err('reg_alias');
+
+	if( $HTTP_POST_VARS['reg_alias'] ) reverse_FMT($reg_alias);
+
+	$reg_alias_t = ($GLOBALS['USE_ALIASES'] != 'Y' ? '' : '{TEMPLATE: reg_alias}');
 
 if( empty($usr->id) ) {
 	$reg_login_err = draw_err('reg_login');
@@ -630,7 +646,6 @@ else {
 	$view_select = tmpl_draw_select_opt("msg\ntree", "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_tree_view}", $reg_default_view, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$mppg_select = tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
-	/* here */
 	$theme_select = create_theme_select('reg_theme', $reg_theme);
 	$style_select = tmpl_draw_select_opt($style_opts, $style_names, $reg_style, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select = tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');

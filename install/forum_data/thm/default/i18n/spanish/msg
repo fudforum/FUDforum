@@ -135,7 +135,7 @@ send_pm_desc:			Enviar un mensaje privado a este usuario
 sender_email:			E-mail del remitente:
 sender_name:			Nombre del remitente:
 show_all_posts:			Mostrar todos los mensajes de {VAR: user_login}
-show_posts_by:			Mostrar mensajes de: {VAR-HTML: u->login}
+show_posts_by:			Mostrar mensajes de: {VAR-HTML: u->alias}
 size:				Tamaño:
 started_on:			Comenzado El
 status:				Estado:
@@ -871,3 +871,6 @@ poll_edit: 			Edit
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

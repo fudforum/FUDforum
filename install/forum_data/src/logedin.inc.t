@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.4 2002/06/28 17:54:26 hackie Exp $
+*   $Id: logedin.inc.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 		$tm_expire = __request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60);
 		
 		$annon = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}ses WHERE {SQL_TABLE_PREFIX}ses.time_sec>".$tm_expire." AND user_id>2000000000");
-		$r = q("SELECT id,login,is_mod,invisible_mode FROM {SQL_TABLE_PREFIX}users WHERE last_visit>".$tm_expire);
+		$r = q("SELECT id,alias,is_mod,invisible_mode FROM {SQL_TABLE_PREFIX}users WHERE last_visit>".$tm_expire);
 		if( empty($annon) ) $annon = 0;
 
 		$reg_u=$inv_u=0;
@@ -36,7 +36,7 @@
 			
 			$reg_u++;
 			
-			$user_nick = htmlspecialchars($obj->login);
+			$user_nick = htmlspecialchars($obj->alias);
 			$profile_link = '{ROOT}?t=usrinfo&id='.$obj->id.'&'._rsid;
 					
 			if( $obj->is_mod == 'A' ) 
@@ -56,7 +56,7 @@
 		list($post_count, $thread_count) = db_singlearr($r);
 		
 		$uid = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users");
-		$ulogin = htmlspecialchars(q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$uid));
+		$ulogin = htmlspecialchars(q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$uid));
 		$ulink = '{ROOT}?t=usrinfo&id='.$uid.'&'._rsid;
 		$reg_users = q_singleval("select count(*) FROM {SQL_TABLE_PREFIX}users");
 		

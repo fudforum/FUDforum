@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: referals.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,10 +25,10 @@
 	$returnto = urlencode($GLOBALS["REQUEST_URI"]);
 
 	if( $id ) {
-		$r = q("SELECT id,login, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
+		$r = q("SELECT id,alias, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
 		if( ($ttl=db_count($r)) ) {
 			list($r_id,$r_login) = db_singlearr($r);
-			$res = q("SELECT login,id,join_date,posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$id);
+			$res = q("SELECT alias AS login,id,join_date,posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$id);
 			$i=0;
 			$refered_entry_data = '';
 			while ( $obj = db_rowobj($res) ) {

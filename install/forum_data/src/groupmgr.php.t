@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.4 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -165,7 +165,7 @@ function draw_tmpl_perm_table($perm_arr)
 				{SQL_TABLE_PREFIX}group_members.id AS MMID, 
 				{SQL_TABLE_PREFIX}group_members.*, 
 				{SQL_TABLE_PREFIX}groups.*, 
-				{SQL_TABLE_PREFIX}users.login 
+				{SQL_TABLE_PREFIX}users.alias AS login 
 			FROM 
 				{SQL_TABLE_PREFIX}group_members 
 				LEFT JOIN {SQL_TABLE_PREFIX}users 

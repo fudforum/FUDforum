@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: usercp.inc.t,v 1.3 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 	}
 	else {
 		if( $GLOBALS['usr']->is_mod == 'A' ) $admin_control_panel = '{TEMPLATE: admin_control_panel}';
-		$user_login = htmlspecialchars($usr->login);
+		$user_login = htmlspecialchars($usr->alias);
 		$login_n_logout = '{TEMPLATE: logout}';
 		$register_n_profile = '{TEMPLATE: profile}';
 		$rid = $GLOBALS["usr"]->id;

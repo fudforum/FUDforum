@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.4 2002/06/26 19:35:54 hackie Exp $
+*   $Id: actions.php.t,v 1.5 2002/07/08 23:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}ses.action,
 			{SQL_TABLE_PREFIX}ses.user_id,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}ses.time_sec,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
@@ -57,7 +57,7 @@
 			ON {SQL_TABLE_PREFIX}users.u_last_post_id={SQL_TABLE_PREFIX}msg.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread
 			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}ses.time_sec DESC");
+		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}ses.time_sec DESC");
 		
 	$action_data='';
 	while ( $obj = db_rowobj($r) ) {

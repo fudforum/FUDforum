@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,23 +28,33 @@
 	$usr_login = ( !empty($usr_login) ) ? trim(stripslashes($usr_login)) : '';
 	$usr_email = ( !empty($usr_email) ) ? trim(stripslashes($usr_email)) : '';
 	
-	$user_login = htmlspecialchars($usr_login);
-	$user_email = htmlspecialchars($usr_email);
-	
 	if( !empty($pc) ) 
 		$ord = "posted_msg_count DESC";
 	else if( !empty($us) ) 
-		$ord = "login";
+		$ord = "alias";
 	else
 		$ord = "id DESC";	
 	
 	if ( !empty($btn_submit) ) {
+		if( __dbtype__ == 'pgsql' ) {
+			$usr_login = str_replace('\\', '\\\\', $usr_login);
+			$usr_email = str_replace('\\', '\\\\', $usr_email);
+		}
+		
 		if ( $usr_login )
-			$qry = "WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."%'";
+			$qry = "WHERE LOWER(alias) LIKE '".strtolower(addslashes($usr_login))."%'";
 		else if ( $usr_email ) 
 			$qry = "WHERE LOWER(email) LIKE '".strtolower(addslashes($usr_email))."%'";
 		else 
 			$qry = '';	
+		
+		if( __dbtype__ == 'pgsql' ) {
+		        $usr_login = str_replace('\\\\', '\\', $usr_login);
+			$usr_email = str_replace('\\\\', '\\', $usr_email);
+		}	
+			
+		$user_login = htmlspecialchars($usr_login);
+		$user_email = htmlspecialchars($usr_email);
 			
 		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
 		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord);
@@ -54,9 +64,9 @@
 			$i=0;
 			while ( $obj = db_rowobj($res) ) {
 				if ( $overwrite )
-					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addslashes(htmlspecialchars($obj->login)).'\'; window.close();';
+					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addslashes(htmlspecialchars($obj->alias)).'\'; window.close();';
 				else 
-					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=window.opener.document.'.$js_redr.'.value+\''.addslashes(htmlspecialchars($obj->login)).'; \'; window.close();';
+					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=window.opener.document.'.$js_redr.'.value+\''.addslashes(htmlspecialchars($obj->alias)).'; \'; window.close();';
 				
 				$find_user_data .= '{TEMPLATE: user_result_entry}';
 				$i++;

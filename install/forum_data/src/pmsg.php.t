@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.6 2002/07/07 22:21:11 hackie Exp $
+*   $Id: pmsg.php.t,v 1.7 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,10 +57,10 @@
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}pmsg.*,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.last_visit AS time_sec, 
 			{SQL_TABLE_PREFIX}users2.invisible_mode AS invisible_mode2,
-			{SQL_TABLE_PREFIX}users2.login AS login2,
+			{SQL_TABLE_PREFIX}users2.alias AS login2,
 			{SQL_TABLE_PREFIX}users2.last_visit AS time_sec2 
 		FROM 
 			{SQL_TABLE_PREFIX}pmsg 

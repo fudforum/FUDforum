@@ -135,7 +135,7 @@ send_pm_desc:			Bu kullanýcýya özel ileti gönder
 sender_email:			Gönderen E-mektup:
 sender_name:			Gönderen Ýsim:
 show_all_posts:			{VAR: user_login} kullanýcýsýnýn tüm gönderilerini göster
-show_posts_by:			{VAR: user_login} kullanýcýsýnýn gönderilerini göster
+show_posts_by:			{VAR-HTML: u->alias} kullanýcýsýnýn gönderilerini göster
 size:				Boyut:
 started_on:			Baþlangýç Tarihi:
 status:				Durum:
@@ -870,3 +870,6 @@ poll_edit: 			Düzelt
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

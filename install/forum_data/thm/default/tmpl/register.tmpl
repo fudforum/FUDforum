@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.3 2002/06/28 00:19:50 hackie Exp $
+*   $Id: register.tmpl,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -41,6 +41,7 @@
 
 {SECTION: new_user new user section is shown to a new user tring to register}
 <tr><td class="RowStyleA">{MSG: register_login}{VAR: reg_login_err}</td><td class="RowStyleA"><input type="text" size=25 name="reg_login" value="{VAR: reg_login}" maxLength=50></td></tr>
+{TEMPLATE-DATA: reg_alias_t}
 <tr><td class="RowStyleA">{MSG: register_password}{VAR: reg_plaintext_passwd_err}</td><td class="RowStyleA"><input type="password" name="reg_plaintext_passwd" size=25 maxlength=16></td></tr>
 <tr><td class="RowStyleA">{MSG: register_conf_pass}</td><td class="RowStyleA"><input type="password" name="reg_plaintext_passwd_conf" size=25 maxlength=16></td></tr>
 <tr><td class="RowStyleA">{MSG: register_email}{VAR: reg_email_err}<br><font class="SmallText">{MSG: register_email_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
@@ -63,6 +64,7 @@
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
 <tr><td class="RowStyleA">{MSG: register_login}</td><td class="RowStyleA"><b>{VAR: user_login}</b></td></tr>
+{TEMPLATE-DATA: reg_alias_t}
 <tr><td class="RowStyleA">{MSG: register_your_pass}{VAR: reg_confirm_passwd_err}</td><td class="RowStyleA"><input type="password" name="reg_confirm_passwd" size=25 maxlength=16>{TEMPLATE-DATA: change_passwd_link}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_email}{VAR: reg_email_err}<br><font class="SmallText">{MSG: register_email_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr><td class="RowStyleA">{MSG: register_name}{VAR: reg_name_err}</td><td class="RowStyleA"><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
@@ -393,4 +395,12 @@
 
 {SECTION: register_err_not_valid_img}
 {MSG: register_err_not_valid_img}
+{SECTION: END}
+
+{SECTION: register_err_taken_alias}
+{MSG: register_err_taken_alias}
+{SECTION: END}
+
+{SECTION: reg_alias}
+<tr><td class="RowStyleA">{MSG: register_alias}{VAR: reg_alias_err}<br><font class="SmallText">{MSG: register_alias_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}"></td></tr>
 {SECTION: END}

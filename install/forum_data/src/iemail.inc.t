@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: iemail.inc.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -153,7 +153,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			{SQL_TABLE_PREFIX}thread.forum_id,
 			{SQL_TABLE_PREFIX}avatar.img AS avatar, 
 			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.login, 
+			{SQL_TABLE_PREFIX}users.alias AS login, 
 			{SQL_TABLE_PREFIX}users.display_email, 
 			{SQL_TABLE_PREFIX}users.avatar_approved,
 			{SQL_TABLE_PREFIX}users.avatar_loc,

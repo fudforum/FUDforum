@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,10 +28,14 @@ class fud_user_reg extends fud_user
 		if( empty($this->avatar_loc) ) $this->avatar_loc = NULL;
 		
 		$md5pass = md5($this->plaintext_passwd);
-		$tm = __request_timestamp__;		
+		$tm = __request_timestamp__;
+		
+		if( $GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias ) $this->alias = $this->login;
+				
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}users (
-				login, 
+				login,
+				alias,
 				passwd, 
 				name, 
 				email, 
@@ -74,6 +78,7 @@ class fud_user_reg extends fud_user
 			)
 			VALUES (
 				'".$this->login."',
+				'".$this->alias."',
 				'".$md5pass."',
 				'".$this->name."',
 				'".$this->email."',
@@ -132,10 +137,12 @@ class fud_user_reg extends fud_user
 	function sync_user()
 	{
 		if ( $plaintext_passwd ) $passwd = "'".md5($plaintext_passwd)."',";
+		if( $GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias ) $this->alias = $this->login;
 		q("UPDATE 
 				{SQL_TABLE_PREFIX}users 
 			SET 
 				$passwd name='".$this->name."',
+				alias='".$this->alias."',
 				email='".$this->email."',
 				display_email='".yn($this->display_email)."',
 				notify='".yn($this->notify)."',
@@ -221,6 +228,11 @@ function get_id_by_email($email)
 function get_id_by_login($login)
 {
 	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(login)='".strtolower($login)."'");
+}
+
+function get_id_by_alias($alias)
+{
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(alias)='".strtolower($alias)."'");
 }
 
 function get_id_by_radius($login, $passwd)

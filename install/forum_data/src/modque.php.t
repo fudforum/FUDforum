@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.7 2002/07/08 13:13:11 hackie Exp $
+*   $Id: modque.php.t,v 1.8 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@
 		{SQL_TABLE_PREFIX}thread.forum_id,
 		{SQL_TABLE_PREFIX}avatar.img AS avatar, 
 		{SQL_TABLE_PREFIX}users.id AS user_id, 
-		{SQL_TABLE_PREFIX}users.login, 
+		{SQL_TABLE_PREFIX}users.alias AS login, 
 		{SQL_TABLE_PREFIX}users.custom_status,
 		{SQL_TABLE_PREFIX}users.display_email, 
 		{SQL_TABLE_PREFIX}users.email, 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.4 2002/07/07 21:09:30 hackie Exp $
+*   $Id: private.inc.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -226,7 +226,7 @@ class fud_pmsg
 	
 	function get($id, $re='')
 	{
-		qobj("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}pmsg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}pmsg.duser_id="._uid." AND {SQL_TABLE_PREFIX}pmsg.id=".$id, $this);
+		qobj("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}pmsg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}pmsg.duser_id="._uid." AND {SQL_TABLE_PREFIX}pmsg.id=".$id, $this);
 		if( !empty($this->id) && empty($re) ) 
 			$this->body = read_pmsg_body($this->foff, $this->length);
 	}

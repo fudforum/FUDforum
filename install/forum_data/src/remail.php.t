@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.3 2002/06/25 01:40:22 hackie Exp $
+*   $Id: remail.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@
 	}
 
 	if( empty($body) ) {
-		$u = isset($usr) ? $usr->login : $GLOBALS["ANON_NICK"];
+		$u = isset($usr) ? $usr->alias : $GLOBALS["ANON_NICK"];
 		$rid = isset($usr) ? $usr->id : '';
 		$bd = '{TEMPLATE: email_message}';
 	}	
@@ -41,7 +41,7 @@
 	{POST_HTML_PHP}
 	if( !empty($GLOBALS["HTTP_POST_VARS"]["posted"]) && isset($usr) && !check_femail_form() ) {
 		$to = empty($fname) ? $femail : $fname.' <'.$femail.'>';
-		$from = $usr->login. '<'.$usr->email.'>';
+		$from = $usr->alias. '<'.$usr->email.'>';
 		send_email(stripslashes($from), stripslashes($to), stripslashes($subj), stripslashes($body));
 	
 		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}', '{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsid);

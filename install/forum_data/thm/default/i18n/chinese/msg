@@ -135,7 +135,7 @@ send_pm_desc:			发悄悄话给这个用户
 sender_email:			发送者邮件：
 sender_name:			发送者姓名：
 show_all_posts:			显示所有由用户{VAR: user_login}发布的主题
-show_posts_by:			显示用户 {VAR: user_login}发布的主题
+show_posts_by:			显示用户 {VAR_HTML: u->alias}发布的主题
 size:				大小:
 started_on:			发起
 status:				级别：
@@ -871,3 +871,6 @@ unspecified:			UNSPECIFIED
 
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

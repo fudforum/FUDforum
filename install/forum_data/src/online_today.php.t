@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: online_today.php.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@
 	}
 
 	$r = q("SELECT 
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}users.id,
 			{SQL_TABLE_PREFIX}users.last_visit,
@@ -57,7 +57,7 @@
 			{SQL_TABLE_PREFIX}users.id!="._uid."
 			
 		ORDER BY
-			{SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}users.last_visit");
+			{SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}users.last_visit");
 		
 	$user_entries='';
 	while ( $obj = db_rowobj($r) ) {

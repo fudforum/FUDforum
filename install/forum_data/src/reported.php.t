@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: reported.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 			{SQL_TABLE_PREFIX}thread.forum_id,
 			{SQL_TABLE_PREFIX}avatar.img AS avatar, 
 			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.login, 
+			{SQL_TABLE_PREFIX}users.alias AS login, 
 			{SQL_TABLE_PREFIX}users.custom_status,
 			{SQL_TABLE_PREFIX}users.display_email, 
 			{SQL_TABLE_PREFIX}users.email, 
@@ -61,7 +61,7 @@
 			{SQL_TABLE_PREFIX}msg_report.stamp AS report_stamp,
 			{SQL_TABLE_PREFIX}msg_report.reason AS report_reason,
 			fud_users_r.id AS report_user_id,
-			fud_users_r.login AS report_user_login,
+			fud_users_r.alias AS report_user_login,
 			{SQL_TABLE_PREFIX}ses.time_sec AS time_sec,
 			{SQL_TABLE_PREFIX}level.name AS level_name,
 			{SQL_TABLE_PREFIX}level.pri AS level_pri,

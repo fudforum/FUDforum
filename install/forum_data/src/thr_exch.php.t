@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,7 +90,7 @@
 				{SQL_TABLE_PREFIX}msg.subject,
 				{SQL_TABLE_PREFIX}forum.name,
 				fud_forum2.name AS name2,
-				{SQL_TABLE_PREFIX}users.login
+				{SQL_TABLE_PREFIX}users.alias AS login
 			 FROM 
 			 	{SQL_TABLE_PREFIX}thr_exchange 
 			 	".$limit."

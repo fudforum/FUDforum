@@ -136,7 +136,7 @@ send_pm_desc:			S&auml;nd ett privat meddelande till den h&auml;r medlemmen
 sender_email:			Avs&auml;ndarens e-postadress:
 sender_name:			Avs&auml;ndarens namn:
 show_all_posts:			Visa alla inl&auml;gg av {VAR: user_login}
-show_posts_by:			Visa inl&auml;gg av: {VAR-HTML: u->login}
+show_posts_by:			Visa inl&auml;gg av: {VAR-HTML: u->alias}
 size:				Storlek:
 started_on:			P&aring;b&ouml;rjad
 status:				Status:
@@ -870,3 +870,6 @@ poll_edit: 			Edit
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

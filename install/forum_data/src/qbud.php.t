@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: qbud.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 	
 	{POST_HTML_PHP}
 	
-	$res = q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
+	$res = q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
 	
 	if( db_count($res) ) {
 		$buddies='';

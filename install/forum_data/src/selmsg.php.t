@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
+*   $Id: selmsg.php.t,v 1.6 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,7 +170,7 @@ function ifstr($opt1, $opt2, $str)
 			{SQL_TABLE_PREFIX}thread.forum_id,
 			{SQL_TABLE_PREFIX}thread.replies,
 			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.login AS login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.display_email,
 			{SQL_TABLE_PREFIX}users.custom_status,
 			{SQL_TABLE_PREFIX}users.email, 

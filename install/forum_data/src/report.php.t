@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.3 2002/06/25 01:40:22 hackie Exp $
+*   $Id: report.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@
 	}
 	unset($flt);
 	
-	$r = q("SELECT {SQL_TABLE_PREFIX}thread.forum_id, {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$msg_id);
+	$r = q("SELECT {SQL_TABLE_PREFIX}thread.forum_id, {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$msg_id);
 	if( !db_count($r) ) { qf($r); invl_inp_err(); }
 
 	$msg = db_singleobj($r);

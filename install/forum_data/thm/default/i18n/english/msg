@@ -135,7 +135,7 @@ send_pm_desc:			Send a private message to this user
 sender_email:			Sender Email:
 sender_name:			Sender Name:
 show_all_posts:			Show all posts by {VAR: user_login}
-show_posts_by:			Show Posts by: {VAR-HTML: u->login}
+show_posts_by:			Show Posts by: {VAR-HTML: u->alias}
 size:				Size:
 started_on:			Started On
 status:				Status:
@@ -870,3 +870,6 @@ imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit: 			Edit
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
+register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+register_alias:			Alias
+register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.

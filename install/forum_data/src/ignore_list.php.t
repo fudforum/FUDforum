@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@
 	$ign = new fud_ignore;
 	
 	if( isset($add_login) && strlen($add_login) ) {
-		$ignore_id = get_id_by_login($add_login);
+		$ignore_id = get_id_by_alias($add_login);
 		if ( $ignore_id && !($ignore=check_ignore($usr->id, $ignore_id)) ) {
 			$ign->add($usr->id, $ignore_id);
 			$done=1;
@@ -76,7 +76,7 @@
 			{SQL_TABLE_PREFIX}user_ignore.ignore_id,
 			{SQL_TABLE_PREFIX}user_ignore.id as ignoreent_id,
 			{SQL_TABLE_PREFIX}users.id,
-			{SQL_TABLE_PREFIX}users.login,
+			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.join_date,
 			{SQL_TABLE_PREFIX}users.posted_msg_count 
 		FROM 

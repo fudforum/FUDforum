@@ -163,7 +163,7 @@ The default number of threads per page.  NOTE: If you change this value you
 MUST run the consistency checker, otherwise the forum will not work properly.
 
 WORD_WRAP
-This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a seperator.
+This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator.
 Set this to 0 to disable word wrapping.
 
 FLOOD_CHECK_TIME
@@ -290,4 +290,8 @@ Maximum number of smilies to display on the post forms.
 
 NOTIFY_WITH_BODY
 Include the message body and subject inside the email notification.
+
+USE_ALIASES
+Allow users to specify a nick name, that will be used instead of a login name to identify
+those users on the forum.
 
