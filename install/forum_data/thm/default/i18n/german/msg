@@ -556,7 +556,7 @@ register_bio:			Werdegang:
 register_bio_desc:		Ein paar Details &uuml;ber Dich, wie zum Beispiel Deine Interessen, Beruf usw...
 register_builtin:		Eingebaut
 register_change_passwd:		passwort &auml;ndern
-register_conf_msg:		Vielen Dank für Deine Registrierung,\nUm Dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{ROOT}t=emailconf&conf_key={VAR: usr->conf_key}\n\nSobald Dein Konto aktiviert ist, wirst Du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:		Vielen Dank für Deine Registrierung,\nUm Dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nSobald Dein Konto aktiviert ist, wirst Du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
 register_conf_subject:		Registrierungsbestätigung
 register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br><font class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und mu&szlig; das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</font>

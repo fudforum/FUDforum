@@ -648,7 +648,7 @@ register_err_notyouremail:	Alguien ya se ha registrado con este e-mail, y ese al
 register_err_avatartobig:	El archivo que Ud está tratando de subir es demasiado grande, mayor que el límite de {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:	El Avatar que Ud está tratando de subir no está permitido, revise los tipos de archivo permitidos.
 register_conf_subject:		Confirmación de Registro
-register_conf_msg:		Gracias por registrarse,\nPara activar su cuenta por favor vaya a la siguiente URL:\n\n{ROOT}t=emailconf&conf_key={VAR: usr->conf_key}\n\nUna vez activada su cuenta, Ud será ingresado en el foro y\nredirigido a la página principal del foro.
+register_conf_msg:		Gracias por registrarse,\nPara activar su cuenta por favor vaya a la siguiente URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nUna vez activada su cuenta, Ud será ingresado en el foro y\nredirigido a la página principal del foro.
 register_welcome_subject:	Confirmación de Registro del Foro
 register_welcome_msg:		Gracias por registrarse,\n\nAquí estan sus detalles de ingreso para el foro:\n\nURL del foro: {ROOT}?t=index\nNombre de usuario: {VAR: usr->login}\nClave: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nRecuerde que las claves distinguen entre mayúsculas y minúsculas!\nPara modificar su configuración y perfil, vaya a esta página:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: no se puede registrar

@@ -428,7 +428,7 @@ login_login:			Zaloguj siê
 login_name_required:		Nazwa u¿ytkownika jest wymagana
 login_passwd_required:		Has³o jest wymagane
 login_invalid_radius:		Nieprawid³owa kombinacja nazwy u¿ytkownika/has³a
-reset_confirmation:		Dziêkujemy za zarejestrowanie siê.\n\nAby aktywowaæ swoje konto, przejd¼ do adresu wskazanego poni¿ej:\n\n{ROOT}t=emailconf&conf_key={VAR: usr->conf_key}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na g³ówna stronê forum.\n
+reset_confirmation:		Dziêkujemy za zarejestrowanie siê.\n\nAby aktywowaæ swoje konto, przejd¼ do adresu wskazanego poni¿ej:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na g³ówna stronê forum.\n
 reset_reset:			Witaj,\n\nPoprosi³es o wyzerowanie swojego has³a, ale aby faktycznie WYZEROWAÆ Twoje has³o\nprzejd¼ do tego adresu\n\n{VAR: url}\n\nUWAGA: To forum zapisuje has³a za pomoc± jednokierunkowej funkcji szyfruj±cej,\ndlatego nie mo¿na odczytaæ raz wczytanego has³a.\nSprawdzanie has³a polega na tym, ¿e podczas logowania Twoje has³o jest szyfrowane i porównywane\n z zapisan± wersj± zaszyfrowan±. (Je¶li chcesz wiedzieæ wiêcej poczytaj o algorytmie mieszaj±cym MD5)
 rpasswd_invalid_passwd:		Nieprawid³owe Has³o
 rpasswd_passwd_nomatch:		Has³a nie pokrywaj± siê

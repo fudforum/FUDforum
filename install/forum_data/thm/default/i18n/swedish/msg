@@ -647,7 +647,7 @@ register_err_notyouremail:	N&aring;gon har redan registrerat sig med den h&auml;
 register_err_avatartobig:	Filen du f&ouml;rs&ouml;ker skicka &auml;r f&ouml;r stor, &ouml;ver gr&auml;nsen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du f&ouml;rs&ouml;ker skicka &auml;r inte till&aring;ten. Kontrollera att den &auml;r av godk&auml;nd filtyp.
 register_conf_subject:		Bekräftelse av forumregistrering
-register_conf_msg:		Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{ROOT}t=emailconf&conf_key={VAR: usr->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
+register_conf_msg:		Tack för din registrering!\nGå till adressen nedan för att aktivera ditt medlemskonto:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nEfter att ditt konto blivit aktiverat blir du inloggad på forumet och \nvidareskickad till huvudsidan.
 register_welcome_subject:	V&auml;lkommen till forumet
 register_welcome_msg:		Tack f&ouml;r din registrering!\n\nH&auml;r &auml;r dina inloggnignsuppgifter f&ouml;r forumet:\n\nForumets URL: {ROOT}?t=index\nAnv&auml;ndarnamn: {VAR: usr->login}\nL&ouml;senord: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nNotera att det &auml;r skillnad p&aring; sm&aring; och stora bokst&auml;ver i l&ouml;senordet!\nVill du &auml;ndra inst&auml;llningarna och din profil skall du g&aring; till den h&auml;r sidan:\n{ROOT}?t=register\n
 register_err_cantreg_title:	FEL: kan inte registrera
