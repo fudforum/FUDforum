@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.37 2003/04/10 18:33:43 hackie Exp $
+*   $Id: register.php.t,v 1.38 2003/04/10 19:08:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -214,12 +214,7 @@ function remove_old_avatar($avatar_str)
 
 	fud_use('login.inc', TRUE);
 
-	/* handle coppa passed to us by pre_reg form */
-	if (isset($_GET['reg_coppa']) && !isset($_POST['reg_coppa'])) {
-		$_POST['reg_coppa'] = strtoupper($_GET['reg_coppa']);
-	}
-
-	if (!__fud_real_user__ && !isset($_POST['reg_coppa'])) {
+	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($GLOBALS['COPPA'] == 'Y') {
 			header('Location: {ROOT}?t=coppa&'._rsidl);
 		} else if ($GLOBALS['COPPA'] != 'Y') {
@@ -446,7 +441,9 @@ function remove_old_avatar($avatar_str)
 			$b_year = substr($uent->bday, 0, 4);
 			$b_month = substr($uent->bday, 4, 2);
 			$b_day = substr($uent->bday, 6, 8);
-		}	
+		} else {
+			$b_year = $b_month = $b_day = '';
+		}
 		if (!$reg_avatar && $reg_avatar_loc) { /* custom avatar */
 			reverse_FMT($reg_avatar_loc);
 			if (preg_match('!src="([^"]+)" width="!', $reg_avatar_loc, $tmp)) {
@@ -477,6 +474,9 @@ function remove_old_avatar($avatar_str)
 		foreach ($vars as $v) {
 			 ${'reg_'.$v} = '';
 		}
+
+		/* handle coppa passed to us by pre_reg form */
+		$reg_coppa = isset($_GET['reg_coppa']) ? $_GET['reg_coppa'] : 'Y';
 
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
 		$reg_display_email = $reg_email_messages = $reg_pm_messages = $reg_append_sig = $reg_show_sigs = $reg_show_avatars = $reg_show_im = $reg_notify = 'Y';
