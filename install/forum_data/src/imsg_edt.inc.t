@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.58 2003/05/18 08:52:28 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.59 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -365,7 +365,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($mtf->alias) {
-			reverse_FMT($mtf->alias);
+			reverse_fmt($mtf->alias);
 		} else {
 			$mtf->alias = $GLOBALS['ANON_NICK'];
 		}
@@ -673,8 +673,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		return;
 	}
 
-	reverse_FMT($thr_subject);
-	reverse_FMT($poster_login);
+	reverse_fmt($thr_subject);
+	reverse_fmt($poster_login);
 	
 	if ($id_type == 'thr') {
 		$subj = '{TEMPLATE: iemail_thr_subject}';
@@ -689,7 +689,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
 		}
 	} else if ($id_type == 'frm') {
-		reverse_FMT($frm_name);
+		reverse_fmt($frm_name);
 
 		$subj = '{TEMPLATE: iemail_frm_subject}';
 

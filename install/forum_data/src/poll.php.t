@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.9 2003/05/01 19:38:54 hackie Exp $
+*   $Id: poll.php.t,v 1.10 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@
 		$pl_expiry_date = $_POST['pl_expiry_date'];
 	} else if (!empty($frm->poll_id)) {
 		$pl_name = $frm->name;
-		reverse_FMT($pl_name);
+		reverse_fmt($pl_name);
 		$pl_max_votes = $frm->max_votes;
 		$pl_expiry_date = $frm->expiry_date;
 	} else {

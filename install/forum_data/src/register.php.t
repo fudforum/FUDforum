@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.54 2003/05/18 09:04:30 hackie Exp $
+*   $Id: register.php.t,v 1.55 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -446,7 +446,7 @@ function remove_old_avatar($avatar_str)
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
 		}
-		reverse_FMT($reg_sig);
+		reverse_fmt($reg_sig);
 		$reg_sig = apply_reverse_replace($reg_sig);
 
 		if ($GLOBALS['FORUM_SML_SIG'] == 'Y') {
@@ -471,7 +471,7 @@ function remove_old_avatar($avatar_str)
 			$b_year = $b_month = $b_day = '';
 		}
 		if (!$reg_avatar && $reg_avatar_loc) { /* custom avatar */
-			reverse_FMT($reg_avatar_loc);
+			reverse_fmt($reg_avatar_loc);
 			if (preg_match('!src="([^"]+)" width="!', $reg_avatar_loc, $tmp)) {
 				$avatar_arr['file'] = $tmp[1];
 				$avatar_arr['del'] = 0;
@@ -479,7 +479,7 @@ function remove_old_avatar($avatar_str)
 				$avatar_type = 'u';
 			}
 		}
-		reverse_FMT($reg_alias);
+		reverse_fmt($reg_alias);
 	} else if (isset($_POST['prev_loaded'])) { /* import data from POST data */
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'reg_', 4)) {
@@ -641,7 +641,7 @@ function remove_old_avatar($avatar_str)
 						$reg_avatar = '0';
 						$reg_avatar_img = 'blank.gif';
 					} else if (!empty($reg_avatar_loc)) {
-						reverse_FMT($reg_avatar_loc);
+						reverse_fmt($reg_avatar_loc);
 						preg_match('!images/avatars/([^"]+)"!', $reg_avatar_loc, $tmp);
 						$reg_avatar_img = 'images/avatars/' . $tmp[1];
 					} else {

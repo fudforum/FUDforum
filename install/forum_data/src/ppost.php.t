@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.33 2003/05/13 15:49:05 hackie Exp $
+*   $Id: ppost.php.t,v 1.34 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_track = $m->track == 'Y' ? 1 : NULL;
 	$msg_to_list = $m->to_list;
 
-	reverse_FMT($msg_subject);
+	reverse_fmt($msg_subject);
 	/* we do not revert replacment for forward/quote */
 	if ($repl) {
 		$msg_subject = apply_reverse_replace($msg_subject);
@@ -43,7 +43,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		case 'HTML':
 			break;
 		default:
-			reverse_FMT($msg_body);
+			reverse_fmt($msg_body);
 			reverse_nl2br($msg_body);
 	}
 }
@@ -124,7 +124,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.id='.$reply.' AND p.duser_id='._uid))) {
 				$msg_subject = $msg_r[0];
 				$msg_to_list = $msg_r[1];
-				reverse_FMT($msg_subject);
+				reverse_fmt($msg_subject);
 
 				if (!preg_match('!^Re:!', $msg_subject)) {
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
@@ -330,7 +330,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				case 'HTML':
 					break;
 				default:
-					reverse_FMT($msg_body);		
+					reverse_fmt($msg_body);		
 			}
 			
 			$msg_body = apply_reverse_replace($msg_body);
@@ -339,7 +339,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		if ($text_s && !$no_spell_subject) {
 			$text_s = htmlspecialchars($text_s);
 			$text_s = spell_replace(tokenize_string($text_s), 'subject');
-			reverse_FMT($text_s);
+			reverse_fmt($text_s);
 			$msg_subject = apply_reverse_replace($text_s);
 		}
 	}

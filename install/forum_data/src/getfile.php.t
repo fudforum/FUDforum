@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.8 2003/05/01 20:36:41 hackie Exp $
+*   $Id: getfile.php.t,v 1.9 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@
 	} else {
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner
 			FROM {SQL_TABLE_PREFIX}attach a
-			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.private=\'N\'
+			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.private=\'Y\'
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
 			WHERE a.id='.$id);
 		if (!$r) {
@@ -52,7 +52,7 @@
 		}
 	}
 
-	reverse_FMT($r[1]);
+	reverse_fmt($r[1]);
 	if (!$r[0]) {
 		$r[0] = 'application/ocet-stream';
 		$append = 'attachment; ';

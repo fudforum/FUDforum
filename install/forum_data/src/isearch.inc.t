@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.16 2003/05/06 03:55:06 hackie Exp $
+*   $Id: isearch.inc.t,v 1.17 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,9 +29,9 @@ function index_text($subj, $body, $msg_id)
 		$body = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', '', $body);
 	}
 		
-	reverse_FMT($subj);
+	reverse_fmt($subj);
 	$subj = trim(preg_replace('!\s+!', ' ', strtolower($subj)));
-	reverse_FMT($body);
+	reverse_fmt($body);
 	$body = trim(preg_replace('!\s+!', ' ', strip_tags(strtolower($body))));
 
 	/* build full text index */

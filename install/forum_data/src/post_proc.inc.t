@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.24 2003/05/13 07:44:52 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.25 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -182,7 +182,7 @@ function tags_to_html($str, $allow_img='Y')
 					break;
 				case 'php':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
-					reverse_FMT($param);
+					reverse_fmt($param);
 					reverse_nl2br($param);
 					$param = trim($param);
 
@@ -244,7 +244,7 @@ function tags_to_html($str, $allow_img='Y')
 					$diff = $tmp2_l - $tmp_l;
 					$cpos += $diff;
 					
-					if (is_array($end_tag)) {
+					if (isset($end_tag)) {
 						foreach($end_tag as $key => $val) {
 							if ($key < $epos) {
 								continue;
@@ -532,7 +532,7 @@ function html_to_tags($fudml)
 	$fudml = str_replace('<li>', '[*]', $fudml);
 		
 	/* unhtmlspecialchars */
-	reverse_FMT($fudml);
+	reverse_fmt($fudml);
 		
 	return $fudml;
 }

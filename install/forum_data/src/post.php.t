@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.61 2003/05/18 10:38:25 hackie Exp $
+*   $Id: post.php.t,v 1.62 2003/05/26 06:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,7 +138,7 @@ function flood_check()
 		
 		if ($msg_id) {
 			$msg_subject = $msg->subject;
-			reverse_FMT($msg_subject);
+			reverse_fmt($msg_subject);
 			$msg_subject = apply_reverse_replace($msg_subject);
 		
 			$msg_body = post_to_smiley($msg->body);
@@ -149,7 +149,7 @@ function flood_check()
 	 			case 'HTML':
 	 				break;
 	 			default:
-	 				reverse_FMT($msg_body);
+	 				reverse_fmt($msg_body);
 	 				reverse_nl2br($msg_body);
 	 		}
 	 		$msg_body = apply_reverse_replace($msg_body);
@@ -168,7 +168,7 @@ function flood_check()
 		 	$pl_id = (int) $msg->poll_id;	
 		} else if ($reply_to || $th_id) {
 			$subj = $reply_to ? $msg->subject : $thr->subject;
-			reverse_FMT($subj);
+			reverse_fmt($subj);
 
 			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' . ' ' . $subj : $subj;
 			$old_subject = $msg_subject;
@@ -179,19 +179,19 @@ function flood_check()
 				if (!strlen($msg->login)) {
 					$msg->login = $GLOBALS['ANON_NICK'];
 				}
-				reverse_FMT($msg->login);
+				reverse_fmt($msg->login);
 				
 				switch ($frm->tag_style) {
 					case 'ML':
 						$msg_body = html_to_tags($msg_body);
-						reverse_FMT($msg_body);
+						reverse_fmt($msg_body);
 				 		$msg_body = '{TEMPLATE: fud_quote}';
 				 		break;
 					case 'HTML':
 						$msg_body = '{TEMPLATE: html_quote}';
 						break;
 					default:
-						reverse_FMT($msg_body);
+						reverse_fmt($msg_body);
 						reverse_nl2br($msg_body);
 						$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
 				}
@@ -300,7 +300,7 @@ function flood_check()
 				if ($frm->tag_style == 'ML' ) {
 					$msg_body = html_to_tags($msg_body);
 				} else if ($frm->tag_style != 'HTML') {
-					reverse_FMT($msg_body);
+					reverse_fmt($msg_body);
 				}
 				
 				$msg_body = apply_reverse_replace($msg_body);
@@ -311,7 +311,7 @@ function flood_check()
 				$text_s = htmlspecialchars($text_s);
 				$wa = tokenize_string($text_s);
 				$text_s = spell_replace($wa, 'subject');
-				reverse_FMT($text_s);
+				reverse_fmt($text_s);
 				$msg_subject = apply_reverse_replace($text_s);
 			}
 		}
@@ -427,7 +427,8 @@ function flood_check()
 					if (!strncmp('t=selmsg', $usr->returnto, 8) || !strncmp('/slm/', $usr->returnto, 5)) {
 						check_return($usr->returnto);
 					}
-					$t = ($tmp['t'] == 'tree' || $tmp['t'] == 'msg') ? $tmp['t'] : d_thread_view;
+					preg_match('!t=([A-Za-z_]+)!', $usr->returnto, $tmp);
+					$t = ($tmp[1] == 'tree' || $tmp[1] == 'msg') ? $tmp[1] : d_thread_view;
 				} else {
 					$t = d_thread_view;
 				}
