@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.36 2005/01/17 14:56:29 hackie Exp $
+* $Id: iemail.inc.t,v 1.37 2005/03/09 21:24:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,36 +29,34 @@ function send_email($from, $to, $subj, $body, $header='')
 	if (empty($to)) {
 		return;
 	}
-	$body = str_replace('\n', "\n", $body);
-	$subj = encode_subject($subj);
 
 	if ($GLOBALS['FUD_OPT_1'] & 512) {
 		if (!class_exists('fud_smtp')) {
 			fud_use('smtp.inc');
 		}
 		$smtp = new fud_smtp;
-		$smtp->msg = str_replace("\n.", "\n..", $body);
-		$smtp->subject = $subj;
+		$smtp->msg = str_replace(array('\n', "\n."), array("\n", "\n.."), $body);
+		$smtp->subject = encode_subject($subj);
 		$smtp->to = $to;
 		$smtp->from = $from;
 		$smtp->headers = $header;
 		$smtp->send_smtp_email();
-	} else {
-		$to = (array) $to;
+		return;
+	}
 
-		if ($header) {
-			$header = "\n" . str_replace("\r", "", $header);
-		}
-		$header = "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header;
+	if ($header) {
+		$header = "\n" . str_replace("\r", "", $header);
+	}
+	$header = "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header;
 
-		if (version_compare("4.3.3RC2", phpversion(), ">")) {
-			$body = str_replace("\n.", "\n..", $body);
-		}
-		$body = str_replace("\r", "", $body);
+	$body = str_replace(array('\n',"\r"), array("\n",""), $body);
+	$subj = encode_subject($subj);
+	if (version_compare("4.3.3RC2", phpversion(), ">")) {
+		$body = str_replace("\n.", "\n..", $body);
+	}
 
-		foreach ($to as $email) {
-			mail($email, $subj, $body, $header);
-		}
+	foreach ((array)$to as $email) {
+		mail($email, $subj, $body, $header);
 	}
 }
 ?>
