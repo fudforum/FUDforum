@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email_msg_format.inc,v 1.11 2004/11/24 19:53:34 hackie Exp $
+* $Id: email_msg_format.inc,v 1.12 2004/11/29 17:17:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,17 +21,17 @@ function plain_text(&$data)
 			$s = $s2;
 		}
 
-		if (($e1 = strpos($data, '</b></td></tr><tr><td class="quote"><br>', $s)) === false) {
+		if (($e1 = strpos($data, '</b></td></tr><tr><td class="quote"><br />', $s)) === false) {
 			break;
 		}
-		if (($e2 = strpos($data, '<br></td></tr></table>', $e1)) == false) {
+		if (($e2 = strpos($data, '<br /></td></tr></table>', $e1)) == false) {
 			break;
 		}
 
 		$str = trim(strip_tags(substr($data, $s, ($e1 - $s)))) . "\n";
 		$str .= "> " . str_replace("\n", "\n> ", trim(strip_tags(substr($data, $e1, ($e2 - $e1))))) . "\n";
 
-		$data = substr_replace($data, $str, $s, ($e2 + strlen('<br></td></tr></table>') - $s));
+		$data = substr_replace($data, $str, $s, ($e2 + strlen('<br /></td></tr></table>') - $s));
 	}
 
 	$data = strip_tags($data);
