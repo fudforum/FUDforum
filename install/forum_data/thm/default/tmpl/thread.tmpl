@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.2 2002/06/18 18:06:16 hackie Exp $
+*   $Id: thread.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -41,31 +41,31 @@
 			<tr>
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" border=0></td><td class="SmallText">{MSG: new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" border=0></td><td class="SmallText">{MSG: new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0 alt="{MSG: no_new_posts}"></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 alt="{MSG: locked_with_new_posts}"></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0></td><td class="SmallText">{MSG: locked}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 alt="{MSG: locked}"></td><td class="SmallText">{MSG: locked}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0></td><td class="SmallText">{MSG: moved}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 alt="{MSG: moved}"></td><td class="SmallText">{MSG: moved}</td></tr>
 				</table>
 				</td>
 			</tr>
@@ -99,7 +99,7 @@
 {SECTION: END}
 
 {SECTION: mini_thread_pager}
-<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" border=0>{TEMPLATE-DATA: mini_pager_data})</font>
+<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" border=0 alt="">{TEMPLATE-DATA: mini_pager_data})</font>
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
@@ -115,35 +115,35 @@
 {SECTION: END}
 
 {SECTION: thread_attach_indicator}
-<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0>
+<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0 alt="">
 {SECTION: END}
 
 {SECTION: thread_read}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}">
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}" alt="">
 {SECTION: END}
 
 {SECTION: thread_read_unreg}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}">
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}" alt="">
 {SECTION: END}
 
 {SECTION: thread_read_locked}
-<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}">
+<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}" alt="">
 {SECTION: END}
 
 {SECTION: thread_unread}
-<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}">
+<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}" alt="">
 {SECTION: END}
 
 {SECTION: thread_unread_locked}
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}">
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}" alt="">
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
-<a href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->id}&unread=1&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}"></a>&nbsp;
+<a href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->id}&unread=1&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt=""></a>&nbsp;
 {SECTION: END}
 
 {SECTION: thread_icon}
-<img src="images/message_icons/{VAR: obj->th_icon}" border=0>
+<img src="images/message_icons/{VAR: obj->th_icon}" border=0 alt="{VAR: obj->th_icon}">
 {SECTION: END}
 
 {SECTION: thread_icon_none}
@@ -151,7 +151,7 @@
 {SECTION: END}
 
 {SECTION: rating}
-<img src="{THEME_IMAGE_ROOT}/{VAR: obj->rating}stars.gif" border=0>
+<img src="{THEME_IMAGE_ROOT}/{VAR: obj->rating}stars.gif" border=0 alt="{VAR: obj->rating}">
 {SECTION: END}
 
 {SECTION: rating_none}
@@ -179,7 +179,7 @@
 {SECTION: END}
 
 {SECTION: last_msg_in_thread}
-<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->last_post_id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}"></a>
+<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->last_post_id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}" alt=""></a>
 {SECTION: END}
 
 {SECTION: thread_first_post}
@@ -250,10 +250,10 @@
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
 <td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br>{TEMPLATE: show_links}<br>{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
 <td valign="bottom" align="right" class="GenText">{TEMPLATE: new_thread_link}</td>
-</tr></table><img src="blank.gif" height=2 border=0>
+</tr></table><img src="blank.gif" alt="" height=2 border=0>
 {TEMPLATE-DATA: announcements}
 {TEMPLATE: thread_list}
-<img src="blank.gif" width=1 height=2><br>
+<img src="blank.gif" alt="" width=1 height=2><br>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
 <tr>
 <td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>

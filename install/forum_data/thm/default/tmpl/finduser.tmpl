@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.3 2002/07/18 03:01:51 hackie Exp $
+*   $Id: finduser.tmpl,v 1.4 2002/07/24 12:46:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -39,7 +39,7 @@
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
 </form>
 </table>
-<img src="blank.gif" height=2 width=1 border=0><br>
+<img src="blank.gif" alt="" height=2 width=1 border=0><br>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 <th width="100%"><a class="th_lnk" href="{ROOT}?t=finduser&usr_login={VAR-URL: user_login}&usr_email={VAR-URL: usr_email}&us=1&btn_submit=Find&{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&pc=1&btn_submit=Find" class="th_lnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&btn_submit=Find" class="th_lnk">{MSG: finduser_joindate}</a></th><th align=middle>{MSG: finduser_action}</th>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: selmsg.tmpl,v 1.2 2002/07/24 12:46:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -61,7 +61,7 @@
 {SECTION: END}
 
 {SECTION: more_unread_messages more unread messages link}
-<div align="center" class="GenText">[<a href="{ROOT}?t=selmsg&mark_page_read=1&{VAR: LAST_ID}&{VAR: url_param}" class="GenLink"><acronym title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</acronym></a>]</div><img src="blank.gif" height=3 border=0>
+<div align="center" class="GenText">[<a href="{ROOT}?t=selmsg&mark_page_read=1&{VAR: LAST_ID}&{VAR: url_param}" class="GenLink"><acronym title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</acronym></a>]</div><img src="blank.gif" alt="" height=3 border=0>
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
@@ -81,7 +81,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: todays_posts}{TEMPLATE-DATA: unread_messages}{TEMPLATE-DATA: subscribed_frm}{TEMPLATE-DATA: subscribed_thr}{TEMPLATE-DATA: unanswered}
 <br>{TEMPLATE-DATA: admin_cp}
-<br><img src="blank.gif" height=2 border=0><br>
+<br><img src="blank.gif" alt="" height=2 border=0><br>
 {TEMPLATE-DATA: more_unread_messages}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: message_data}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.2 2002/07/07 21:09:30 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.3 2002/07/24 12:46:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -95,7 +95,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE: pmsg_disk_usage}
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0></a></div><img src="blank.gif" width=1 height=2 border=0>
+<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0></a></div><img src="blank.gif" alt="" width=1 height=2 border=0>
 {TEMPLATE-DATA: tabs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
@@ -119,7 +119,7 @@
 &nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
 </form>
 </table>
-<img src="blank.gif" width=1 height=2 border=0>
+<img src="blank.gif" alt="" width=1 height=2 border=0>
 <div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0></a></div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -187,15 +187,15 @@
 {SECTION: END}
 
 {SECTION: normal_full_indicator normal indicator of space in PM}
-<td bgcolor="#FFFFFF"><img src="blank.gif" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#FFFFFF"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
 {SECTION: END}
 
 {SECTION: alert_full_indicator alert indicator, when user approaches limit}
-<td bgcolor="#fffa00"><img src="blank.gif" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#fffa00"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
 {SECTION: END}
 
 {SECTION: full_full_indicator full indicator, the user has reached or surpassed the limit}
-<td bgcolor="#FF0000"><img src="blank.gif" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#FF0000"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
 {SECTION: END}
 
 {SECTION: pmsg_author}

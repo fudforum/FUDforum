@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.4 2002/07/20 15:05:32 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.5 2002/07/24 12:46:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -204,7 +204,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 <p>
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <form action="{VAR: GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']}" method="post">
-<tr><th nowrap colspan=3>{VAR: poll_obj->name}<img src="blank.gif" border=0 height=1 width=10><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th nowrap colspan=3>{VAR: poll_obj->name}<img src="blank.gif" alt="" border=0 height=1 width=10><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
 {DEF: _hs}
@@ -338,7 +338,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 		{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}
 	</td>
 </tr>
-<tr><td colspan=2 class="ContentTable"><img src="blank.gif" border=0></td></tr>
+<tr><td colspan=2 class="ContentTable"><img src="blank.gif" alt="" border=0></td></tr>
 <tr class="{TEMPLATE-DATA: msg_bg_color_alt}" valign="top">
 	<td colspan=2 valign="top" height="100%"><font class="MsgBodyText">
 	{TEMPLATE-DATA: poll}
