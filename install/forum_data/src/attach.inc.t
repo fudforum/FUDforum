@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.19 2003/04/21 14:14:39 hackie Exp $
+*   $Id: attach.inc.t,v 1.20 2003/05/06 03:55:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,11 +15,13 @@
 *
 ***************************************************************************/
 
-function safe_attachment_copy($source, $id)
+function safe_attachment_copy($source, $id, $ext)
 {
 	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';	
-	if (!move_uploaded_file($source, $loc)) {
-		std_out('unable to uploaded file', 'ERR');
+	if (!$ext && !move_uploaded_file($source, $loc)) {
+		std_out('unable to move uploaded file', 'ERR');
+	} else if ($ext && !rename($source, $loc)) {
+		std_out('unable to handle file attachment', 'ERR');
 	}
 
 	@chmod($loc, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
@@ -27,13 +29,13 @@ function safe_attachment_copy($source, $id)
 	return $loc;
 }
 
-function attach_add($at, $owner, $private='N')
+function attach_add($at, $owner, $private='N', $ext=0)
 {
 	$this->mime_type = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".addslashes(substr(strrchr($at['name'], '.'), 1))."'");
 
 	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".addslashes($at['name'])."', ".$owner.", '".$private."',".$this->mime_type.",".$at['size'].")");
 
-	safe_attachment_copy($at['tmp_name'], $id);
+	safe_attachment_copy($at['tmp_name'], $id, $ext);
 		
 	return $id;
 }
@@ -72,7 +74,7 @@ function attach_finalize($attach_list, $mid, $private='N')
 	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND private='".$private."'".$id_list);	
 
 	if ($private == 'N' && ($atl = attach_rebuild_cache($mid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);
 	}
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.15 2003/04/29 15:26:50 hackie Exp $
+*   $Id: isearch.inc.t,v 1.16 2003/05/06 03:55:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,7 +51,11 @@ function index_text($subj, $body, $msg_id)
 		}
 		$w2[$v] = $v;
 	}
-	
+
+	if (!isset($w2)) {
+		return;
+	}	
+
 	if (!db_locked()) {
 		$ll = 1;
 		db_lock('{SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE');
