@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.10 2003/10/10 12:43:29 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.11 2003/11/27 13:27:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -74,7 +74,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll_lnk}
-{ROOT}{VAR: _SERVER['QUERY_STRING']}
+{ROOT}{VAR: _SERVER['QUERY_STRING']}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachment_lnk}
