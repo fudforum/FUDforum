@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.9 2002/08/23 00:11:37 hackie Exp $
+*   $Id: msg.tmpl,v 1.10 2002/10/09 22:45:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,7 +36,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+<font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
@@ -151,6 +151,7 @@
 </table>
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
+<div align="center">-=] <a href="#page_top">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
