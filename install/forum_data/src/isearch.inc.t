@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: isearch.inc.t,v 1.3 2002/06/19 18:57:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -135,51 +135,43 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 {
 	$w = explode(" ", $str);
 	$qr = '';
-	for ( $i=0; $i<count($w); $i++ ) {
-		$qr .= " '".$w[$i]."',"; 
-	}
 	
-	if ( substr($qr, strlen($qr)-1, 1) == ',' ) {
-		$qr = substr($qr, 0, strlen($qr)-1);
-	}
+	while( list(,$v) = each($w) ) 
+		if( $v ) $qr .= " '".$v."',";
 	
-	switch ( $fld ) 
-	{
-		case "subject":
-			$field = "{SQL_TABLE_PREFIX}title_index";
-			break;
-		case "all":
-			$field = "{SQL_TABLE_PREFIX}index";
-			break;
-		default:
-			$field = "{SQL_TABLE_PREFIX}index";
-			break;
-	}
-
+	if( $qr )
+		$qr = substr($qr, 0, -1);
+	else
+		return q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE id=0");	
+	
+	$field = ( $fld != 'subject' ) ? '{SQL_TABLE_PREFIX}index' : '{SQL_TABLE_PREFIX}title_index';
+	
+	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word IN(".$qr.")");
+	if( !db_count($r) ) return $r;
+	$qr='';
+	while( list($id) = DB_ROWARR($r) ) $qr .= $id.',';
+	QF($r);
+	$qr = substr($qr, 0, -1);
+	
 	if( $GLOBALS['usr']->is_mod != 'A' ) {
 		if( is_numeric($forum_limiter) ) {
 			if( !is_perms(_uid, $forum_limiter, 'READ') ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
 
 			$forum_limiter_sql = " {SQL_TABLE_PREFIX}forum.id=".$forum_limiter." AND ";
 		}
-		else if( $forum_limiter[0]=='c' && is_numeric(substr($forum_limiter,1)) ) {
-			$fids = get_all_perms(_uid);
-			if( empty($fids) ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
-		
-			$forum_limiter_sql = " {SQL_TABLE_PREFIX}cat.id=".substr($forum_limiter,1)." AND ";
-		}
 		else {
-			$fids = get_all_perms(_uid);
-			if( empty($fids) ) 
-				return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
-			else
-				$forum_limiter_sql = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';	
+			if( !($fids = get_all_perms(_uid)) ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+		
+			$forum_limiter_sql = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';
+		
+			if( $forum_limiter[0]=='c' && is_numeric(substr($forum_limiter,1)) ) 
+				$forum_limiter_sql .= '{SQL_TABLE_PREFIX}cat.id='.substr($forum_limiter,1).' AND ';
 		}
 	}	
 	else
 		$forum_limiter_sql = '';	
-	
-	$r = q("SELECT 
+		
+	$r = Q("SELECT 
 		{SQL_TABLE_PREFIX}users.login,
 		{SQL_TABLE_PREFIX}forum.name AS forum_name, 
 		{SQL_TABLE_PREFIX}forum.id AS forum_id,
@@ -194,21 +186,20 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 		{SQL_TABLE_PREFIX}msg.file_id,
 		SUM(1) as rev_match
 	FROM 
-		{SQL_TABLE_PREFIX}search
-		LEFT JOIN ".$field." ON {SQL_TABLE_PREFIX}search.id=".$field.".word_id
+		".$field."
 		LEFT JOIN {SQL_TABLE_PREFIX}msg ON ".$field.".msg_id={SQL_TABLE_PREFIX}msg.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
 		LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
 		LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
 	WHERE 
-		word IN ( ".$qr." ) AND
+		".$field.".word_id IN ( ".$qr." ) AND
 		".$forum_limiter_sql."
 		{SQL_TABLE_PREFIX}msg.approved='Y'
 	GROUP BY 
 		{SQL_TABLE_PREFIX}msg.id 
 	ORDER BY rev_match DESC, {SQL_TABLE_PREFIX}msg.post_stamp DESC");
-
+	
 	return $r;
 }
 ?>
