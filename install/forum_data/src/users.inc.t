@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.97 2003/11/26 19:20:37 hackie Exp $
+* $Id: users.inc.t,v 1.98 2003/11/26 19:33:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@ function init_user()
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
 		if (__request_timestamp__ - $u->last_visit > 300) {
-			$sq = regen_sq();
+			$sq = regen_sq($u->id);
 		} else {
 			$sq =& $u->sq;
 		}
