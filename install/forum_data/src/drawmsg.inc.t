@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.34 2003/04/09 13:34:52 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.35 2003/04/09 13:38:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -164,7 +164,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 			}
 			if ($obj->level_pri) {
 				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
-				$level_image = $obj->level_pri != 'a' ? '{TEMPLATE: dmsg_level_image}' : '';
+				$level_image = ($obj->level_pri != 'a' && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
 			} else {
 				$level_name = $level_image = '';
 			}
