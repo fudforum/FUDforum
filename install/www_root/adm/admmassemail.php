@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.24 2004/01/04 16:38:32 hackie Exp $
+* $Id: admmassemail.php,v 1.25 2004/02/26 21:20:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -68,7 +68,7 @@
 			$smtp->from = $ADMIN_EMAIL;
 			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
 
-			while ($r = db_rowobj($c)) {
+			while ($r = db_rowarr($c)) {
 				$to[] = $r[0];
 				if (!(++$email_block_stat % $email_block)) {
 					$email_block_stat = 0;
