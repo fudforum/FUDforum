@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.23 2003/05/12 14:35:27 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.24 2003/05/13 07:44:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -500,7 +500,7 @@ function html_to_tags($fudml)
 		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>\\1</a>!is', '[email]\1[/email]', $fudml);
 	
 	if( preg_match('!<a href="mailto:.+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[email=\1]\3[/email]', $fudml);
 	
 	if( preg_match('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', $fudml) )	
 		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', '[url]\1[/url]', $fudml);
