@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.20 2003/04/22 13:08:06 hackie Exp $
+*   $Id: compact.php,v 1.21 2003/04/22 13:09:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,14 +22,14 @@
 	define('user_reg', 1);
 
 	require_once('GLOBALS.php');
-	
+
 	fud_use('db.inc');
 	fud_use('fileio.inc');
 	fud_use('adm.inc', true);
 	fud_use('private.inc');
 	fud_use('glob.inc', true);
 	fud_use('imsg_edt.inc');
-	
+
 	if ($usr->is_mod != 'A') {
 		header('Location: admloginuser.php?'._rsidl);
 		exit;
@@ -82,28 +82,20 @@ function write_body_c($data, $i, &$len, &$offset)
 	return $i;
 }
 
-function fud_rename($from, $to)
-{
-	if( @file_exists($to) ) unlink($to);
-	copy($from, $to);
-	unlink($from);
-}
-
-	
 	if ($FORUM_ENABLED == 'Y') {
 		echo '<br>Disabling the forum for the duration of maintenance run<br>';
 		maintenance_status('Undergoing maintenance, please come back later.', 'N');
 	}
-	
+
 	echo "<br>Please wait while forum is being compacted.<br>This may take a while depending on the size of your forum.<br>\n";
 	flush();
-	
+
 	define('__file_perms__', (($FILE_LOCK == 'Y') ? 0600 : 0644));
-	
+
 	/* Normal Messages */
 	echo "Compacting normal messages...<br>\n";
 	flush();
-	
+
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$base = $magic_file_id = 10000001;
 	$base -= 1;
@@ -149,18 +141,18 @@ function fud_rename($from, $to)
 		@unlink($MSG_STORE_DIR . 'msg_' . $j++);
 	}
 	db_unlock();
-	
+
 	/* Private Messages */
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
 	flush();
-	
+
 	if (__dbtype__ == 'mysql') { 
 		q('ALTER TABLE '.$tbl.'pmsg ADD INDEX(foff)');
 	} else {
 		q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)'); 
 	}
-	
+
 	db_lock($tbl.'pmsg WRITE');
 	$i = $off = $len = 0;
 	$fp = fopen($MSG_STORE_DIR.'private_tmp', 'wb');
@@ -188,10 +180,10 @@ function fud_rename($from, $to)
 	} else {
 		q('DROP INDEX '.$tbl.'pmsg_foff_idx'); 
 	}
-	
+
 	echo "100% Done<br>\n";
 	flush();
-	
+
 	if (!$i) {
 		@unlink($MSG_STORE_DIR . 'private_tmp');
 		@unlink($MSG_STORE_DIR . 'private');
@@ -202,7 +194,7 @@ function fud_rename($from, $to)
 
 	db_unlock();
 	echo "Done (in ".((time()-$stm)/60)." min)<br>\n";
-	
+
 	if ($FORUM_ENABLED == 'Y') {
 		echo '<br>Re-enabling the forum.<br>';
 		maintenance_status($DISABLED_REASON, 'Y');
@@ -210,5 +202,5 @@ function fud_rename($from, $to)
 		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	readfile('admclose.html');
+	readfile($WWW_ROOT_DISK . 'admclose.html');
 ?>
