@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.53 2004/11/24 19:53:43 hackie Exp $
+* $Id: admuser.php,v 1.54 2005/02/23 02:02:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,6 +63,7 @@
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
+				logaction(_uid, 'SEND_ECONF', 0, addslashes(htmlspecialchars($u->login)));
 			} else {
 				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
 				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
@@ -70,6 +71,7 @@
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
+				logaction(_uid, 'ADM_RESET_PASSWD', 0, addslashes(htmlspecialchars($u->login)));
 			}
 			break;
 		case 'del':
@@ -182,6 +184,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* changing password */
 		if (!empty($_POST['login_passwd'])) {
 			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
+			logaction(_uid, 'ADM_SET_PASSWD', 0, addslashes(htmlspecialchars($u->login)));
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$login = addslashes($_POST['login_name']);
 			$alias = "'" . substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW) . "'";

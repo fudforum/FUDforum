@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.68 2004/12/07 19:07:10 hackie Exp $
+* $Id: login.php.t,v 1.69 2005/02/23 02:02:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -158,9 +158,7 @@ function error_check()
 		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
-			if ($usr_d->users_opt & 1048576) {
-				logaction(0, 'WRONGPASSWD', 0, get_ip());
-			}
+			logaction($usr_d->id, 'WRONGPASSWD', 0, ($usr_d->users_opt & 1048576 ? 'ADMIN: ' : '')."Invalid Password \'".htmlspecialchars(addslashes($_POST['password']))."\' for login \'".htmlspecialchars(addslashes($_POST['login']))."\'. IP: ".get_ip());
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else { /* Perform check to ensure that the user is allowed to login */
 			$usr_d->users_opt = (int) $usr_d->users_opt;

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.28 2004/11/24 19:53:42 hackie Exp $
+* $Id: admlog.php,v 1.29 2005/02/23 02:02:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,10 +116,19 @@ function return_forum_name($id)
 				echo '<td>Changed Forum Category</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;
 			case "WRONGPASSWD":
-				echo '<td>Failed login attempt for admin</td><td>From '.$obj->logaction.'</td>';
+				echo '<td>Failed login attempt</td><td>'.$obj->logaction.'</td>';
 				break;
 			case "DELETE_USER":
 				echo '<td>Removed user account</td><td>'.$obj->logaction.'</td>';
+				break;
+			case "SEND_ECONF":
+				echo '<td>Sent E-mail Confirmation</td><td>to user: '.$obj->logaction.'</td>';
+				break;
+			case "ADM_RESET_PASSWD":
+				echo '<td>Admin Reset Password</td><td>for user: '.$obj->logaction.'</td>';
+				break;
+			case "ADM_SET_PASSWD":
+				echo '<td>Admin Changed Password</td><td>for user: '.$obj->logaction.'</td>';
 				break;
 			default:
 				echo '<td colspan=2>Unknown</td>';

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.21 2004/11/24 19:53:42 hackie Exp $
+* $Id: admloginuser.php,v 1.22 2005/02/23 02:02:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 			header('Location: '.$WWW_ROOT.'adm/admglobal.php?S='.$sid.'&SQ='.$new_sq);
 			exit;
 		} else {
-			logaction(0, 'WRONGPASSWD', 0, $_SERVER['REMOTE_ADDR']);
+			logaction(0, 'WRONGPASSWD', 0, "Invalid admin login attempt via adminstrative control panel from: ".get_ip());
 			$err = 'Only administrators with proper access credentials can login via this control panel';
 		}
 	} else {
