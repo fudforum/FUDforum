@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.35 2004/11/24 19:53:37 hackie Exp $
+* $Id: threadt.php.t,v 1.36 2005/02/23 20:37:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@
 			if (is_array($tree->kiddies)) {
 				reset($tree->kiddies);
 				$stack[0] = &$tree;
-				$stack_cnt = $tree->kiddie_count;
+				$stack_cnt = isset($tree->kiddie_count) ? $tree->kiddie_count : 0;
 				$j = $lev = 0;
 
 				$thread_list_table_data .= '{TEMPLATE: thread_sep_s}';
