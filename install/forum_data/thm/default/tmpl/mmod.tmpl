@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.tmpl,v 1.6 2003/02/24 11:13:22 hackie Exp $
+*   $Id: mmod.tmpl,v 1.7 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,10 +36,9 @@
 <tr><th>{MSG: mmod_delete_cofirm_ttl}</th></tr>
 <tr class="RowStyleA" align="center"><td class="GenText">
 <form method="post" action="{ROOT}?t=mmod">
-<input type="hidden" name="del" value="{VAR: del}">
+<input type="hidden" name="del" value="{VAR: _REQUEST['del']}">
 <input type="hidden" name="confirm" value="1">
-<input type="hidden" name="det_page" value="{VAR: det_page}">
-{DEF: _hs}{VAR: ret}
+{DEF: _hs}
 {TEMPLATE-DATA: delete_msg}
 {MSG: delete_proceed}<br />
 <input type="submit" class="button" name="YES" value="{MSG: delete_yes}">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="NO" value="{MSG: delete_no}"> 

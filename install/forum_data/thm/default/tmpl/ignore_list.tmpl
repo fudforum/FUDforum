@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.tmpl,v 1.6 2002/08/05 05:58:21 hackie Exp $
+*   $Id: ignore_list.tmpl,v 1.7 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,25 +28,25 @@
 {REF: alt_var.tmpl}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{VAR: r[6]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: obj->login}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
+<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: r[3]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: ignore_user info about an ignored user}
 <tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td width="100%" class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->ignoreent_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
-	<td align="center">{VAR: obj->posted_msg_count}</td>
-	<td align="center" nowrap>{DATE: obj->join_date %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a href="{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" border=0 /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
+	<td width="100%" class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}">{VAR: r[3]}</a>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
+	<td align="center">{VAR: r[5]}</td>
+	<td align="center" nowrap>{DATE: r[4] %a, %d %B %Y %H:%M}</td>
+	<td class="GenText" nowrap><a href="{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[2]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" border=0 /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: ignore_anon_user info about an ignored user}
 <tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td width="100%" colspan=4 class="GenText"><font color="#00AA00">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->ignoreent_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
+	<td width="100%" colspan=4 class="GenText"><font color="#00AA00">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
 </tr>
 {SECTION: END}
 
@@ -54,7 +54,7 @@
 {SECTION: ignore_list}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: ignore_users}</th><th nowrap align="center">{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
-{TEMPLATE-DATA: ignore_user}
+{TEMPLATE-DATA: ignore_list}
 </table>
 {SECTION: END}
 

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.17 2003/03/24 12:05:08 hackie Exp $
+*   $Id: register.tmpl,v 1.18 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,7 +33,6 @@
 {REF: smiley.tmpl}
 {REF: url.tmpl}
 {REF: avatar.tmpl}
-{REF: ilogin.tmpl}
 {REF: replace.tmpl}
 {REF: return.tmpl}
 {REF: tabs.tmpl}
@@ -56,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: theme_select_value}
-<option value="{VAR: theme->id}"{VAR: selected}>{VAR: theme->name}</option>
+<option value="{VAR: t[0]}"{VAR: selected}>{VAR: t[1]}</option>
 {SECTION: END}
 
 {SECTION: change_passwd_link}
@@ -107,7 +106,7 @@
 
 {SECTION: custom_upload_avatar}
 <tr valign="top"><td class="RowStyleC" colspan=2>{MSG: register_custom_avatar_rules}</td></tr>
-<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_upload} {VAR: avatar_err}</td><td class="RowStyleA"><table border=0 cellspacing=0 cellpadding=0><tr><td><img src="{VAR: avatar_img}" border=0 /></td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr> 
+<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_upload} {VAR: avatar_err}</td><td class="RowStyleA"><table border=0 cellspacing=0 cellpadding=0><tr><td>{VAR: custom_avatar_preview}</td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr> 
 <input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}">
 {SECTION: END}
 
@@ -198,7 +197,6 @@
 <input type="hidden" name="prev_loaded" value="1">
 <input type="hidden" name="mod_id" value="{VAR: mod_id}">
 <input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}">
-{VAR: return}
 </form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

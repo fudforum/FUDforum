@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: error.tmpl,v 1.3 2002/08/05 00:47:55 hackie Exp $
+*   $Id: error.tmpl,v 1.4 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,8 +28,8 @@
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th>{VAR: error_title}</th></tr>
-<tr class="RowStyleA" align="center"><td class="GenText">{VAR: error_msg}
-<br /><br /><form action="{ROOT}?t=error" name="error_frm" method="post">{VAR: ret}{DEF: _hs}<input type="submit" class="button" name="ok" value="OK"></form>
+<tr class="RowStyleA" align="center"><td class="GenText">{VAR: error_message}
+<br /><br /><form action="{ROOT}?t=error" name="error_frm" method="post">{DEF: _hs}<input type="submit" class="button" name="ok" value="OK"></form>
 </td></tr>
 </table></div>
 {TEMPLATE: curtime}

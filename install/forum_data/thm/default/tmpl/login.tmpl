@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.6 2003/02/01 20:14:29 hackie Exp $
+*   $Id: login.tmpl,v 1.7 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -39,20 +39,20 @@
 <li><font class="GenText">{MSG: login_perm_denied}</font>
 </ol></td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{ROOT}?t=register&amp;{DEF: _rsid}">{MSG: login_want_to_register}</a></td></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&amp;returnto={VAR-URL: returnto}&amp;{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&amp;{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
 <tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
 <tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
-</table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: adm}">{GVAR: returnto}</form>
+</table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: _POST['adm']}"></form>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
 
 {SECTION: login_error_msg}
-<p align="center" class="ErrorText">{VAR: msg}</div></p>
+<p align="center" class="ErrorText">{VAR: _REQUEST['msg']}</div></p>
 {SECTION: END}
 
 {SECTION: login_error_text}
-<font class="ErrorText">{VAR: msg}</font><br />
+<font class="ErrorText">{VAR: GLOBALS['_ERROR_MSG_'][$type]}</font><br />
 {SECTION: END}
 
 {SECTION: login_name_required}

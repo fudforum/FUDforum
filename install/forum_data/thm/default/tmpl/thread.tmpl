@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.10 2002/08/23 00:11:37 hackie Exp $
+*   $Id: thread.tmpl,v 1.11 2003/04/02 16:06:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -31,6 +31,7 @@
 {REF: cat.tmpl}
 {REF: th.tmpl}
 {REF: is_perms.tmpl}
+{REF: forum_notify.tmpl}
 
 {SECTION: thread_legend}
 <br />
@@ -79,15 +80,15 @@
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
-<a class="GenLink" href="{ROOT}?t=thread&amp;unsub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
+<a class="GenLink" href="{ROOT}?t=thread&amp;unsub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
 {SECTION: END}
 
 {SECTION: subscribe_link}
-<a class="GenLink" href="{ROOT}?t=thread&amp;sub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
+<a class="GenLink" href="{ROOT}?t=thread&amp;sub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
 {SECTION: END}
 
 {SECTION: new_thread_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;{VAR: returnto}&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
 {SECTION: END}
 
 {SECTION: no_messages}
@@ -103,7 +104,7 @@
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
-&nbsp;<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: obj->id}&amp;start={VAR: st_pos}&amp;{DEF: _rsid}">{VAR: pg_num}</a> 
+&nbsp;<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start={VAR: st_pos}&amp;{DEF: _rsid}">{VAR: pg_num}</a> 
 {SECTION: END}
 
 {SECTION: mini_pager_limiter}
@@ -139,11 +140,11 @@
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: obj->id}&amp;unread=1&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;unread=1&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: thread_icon}
-<img src="images/message_icons/{VAR: obj->th_icon}" border=0 alt="{VAR: obj->th_icon}" />
+<img src="images/message_icons/{VAR: r[3]}" border=0 alt="{VAR: r[3]}" />
 {SECTION: END}
 
 {SECTION: thread_icon_none}
@@ -151,11 +152,11 @@
 {SECTION: END}
 
 {SECTION: rating}
-<img src="{THEME_IMAGE_ROOT}/{VAR: obj->rating}stars.gif" border=0 alt="{VAR: obj->rating}" />
+<td class="RowStyleA" align="center"><img src="{THEME_IMAGE_ROOT}/{VAR: r[18]}stars.gif" border=0 alt="{VAR: r[18]}" /></td>
 {SECTION: END}
 
 {SECTION: rating_none}
-&nbsp;
+<td class="RowStyleA" align="center"> </td>
 {SECTION: END}
 
 {SECTION: sticky}
@@ -167,7 +168,7 @@
 {SECTION: END}
 
 {SECTION: thread_last_post}
-<font class="DateText">{DATE: obj->last_post_stamp %a, %d %B %Y %H:%M}</font>
+<font class="DateText">{DATE: r[10] %a, %d %B %Y %H:%M}</font>
 {SECTION: END}
 
 {SECTION: unreg_user_link}
@@ -175,19 +176,19 @@
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->last_poster_id}&amp;{DEF: _rsid}">{VAR: obj->last_poster_login}</a>
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: r[7]}&amp;{DEF: _rsid}">{VAR: r[8]}</a>
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}?t=threadt&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
+<a href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: last_msg_in_thread}
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->last_post_id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}" alt="" /></a>
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[9]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: thread_first_post}
-<font class="DateText">{DATE: obj->creation_date %a, %d %B %Y}</font>
+<font class="DateText">{DATE: r[4] %a, %d %B %Y}</font>
 {SECTION: END}
 
 {SECTION: first_post_unreg_user_link if the thread stater was an anon user link}
@@ -195,29 +196,29 @@
 {SECTION: END}
 
 {SECTION: first_post_reg_user_link if the thread stater was a registered user link}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->starter_id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: r[6]}&amp;{DEF: _rsid}">{VAR: r[5]}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: obj->id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: obj->id}&amp;del={VAR: obj->root_msg_id}&amp;{VAR: returnto}">{MSG: thread_mod_delete}</a></td>
+<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r[13]}&amp;del={VAR: r[15]}">{MSG: thread_mod_delete}</a></td>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: obj->id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></td>
+<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></td>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
-<td align=center class="RowStyleA"><a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: obj->id}&amp;del={VAR: obj->root_msg_id}&amp;{VAR: returnto}">{MSG: thread_mod_delete}</a></td>
+<td align=center class="RowStyleA"><a href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r[13]}&amp;del={VAR: r[15]}">{MSG: thread_mod_delete}</a></td>
 {SECTION: END}
 
 {SECTION: thread_row}
 <tr>		
 <td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: obj->id}&amp;start=0&amp;{DEF: _rsid}">{VAR: obj->subject}</a>&nbsp;{TEMPLATE-DATA: mini_thread_pager}</td>
-<td class="RowStyleB" align="center">{VAR: obj->replies}</td>
-<td class="RowStyleB" align="center">{VAR: obj->views}</td>
-<td class="RowStyleA" align="center">{TEMPLATE-DATA: rating}</td>
+<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start=0&amp;{DEF: _rsid}">{VAR: r[2]}</a>&nbsp;{TEMPLATE-DATA: mini_thread_pager}</td>
+<td class="RowStyleB" align="center">{VAR: r[16]}</td>
+<td class="RowStyleB" align="center">{VAR: r[21]}</td>
+{TEMPLATE-DATA: rating}
 <td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
 <td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br />{MSG: by} {TEMPLATE-DATA: first_post_login}</td>
 {TEMPLATE-DATA: admin_control_row}
@@ -231,6 +232,10 @@
 </tr>
 {SECTION: END}
 
+{SECTION: rating_heading}
+<th align="center">{MSG: rating}</th>
+{SECTION: END}
+
 {SECTION: thread_list}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
@@ -239,7 +244,7 @@
 	<th width="100%">{MSG: thread_thread}</th>
 	<th width=1>{MSG: replies}</th>
 	<th width=1>{MSG: views}</th>
-	<th align="center">{MSG: rating}</th>
+	{TEMPLATE-DATA: rating_heading}
 	<th nowrap>{MSG: last_post}</th>
 	<th nowrap>{MSG: started_on}</th>
 	{TEMPLATE-DATA: admin_heading_row}
