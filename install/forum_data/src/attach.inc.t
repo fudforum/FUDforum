@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.9 2002/09/20 00:07:17 hackie Exp $
+*   $Id: attach.inc.t,v 1.10 2002/09/26 21:46:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,8 +59,14 @@ class fud_attach
 			}
 		}
 	
-		if( !empty($id_list) ) 
-			q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".sql_concat("'".$GLOBALS['FILE_STORE']."'",'id',"'.atch'").", message_id=".$mid." WHERE id IN(".substr($id_list,0,-1).")");
+		if( !empty($id_list) ) {
+			q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".sql_concat("'".$GLOBALS['FILE_STORE']."'",'id',"'.atch'").", message_id=".$mid." WHERE id IN(".substr($id_list,0,-1).") AND private='".$private."'");
+			$id_list = " AND id NOT IN(".substr($id_list, 0, -1).")";
+		} else {
+			$id_list = '';
+		}	
+			
+		q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND private='".$private."'".$id_list);	
 	}
 	
 	function full_add($owner, $message_id, $original_name, $cur_location, $fsize, $private='N')
