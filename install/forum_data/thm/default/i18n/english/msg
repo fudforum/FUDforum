@@ -339,7 +339,7 @@ buddy_status:			Status
 my_buddies:			My Buddies
 add_buddy:			Add Buddy
 add:				Add
-buddy_search:			Enter the login of the user you wish to add.<br>Or use the <a href="javascript:// class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Find User</a> feature to find a person.
+buddy_search:			Enter the login of the user you wish to add.<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
 post_normal:			Normal
 post_sticky:			Sticky
@@ -781,7 +781,7 @@ p_LOCK:				Lock threads
 p_MOVE:				Move threads
 p_SML:				Use smilies
 p_IMG:				Use image tags
-group_mgr_search:		<a href="javascript:// class="GenLink" onClick="javascript: window_open('{ROOT}?t='pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Find User</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Find User</a>
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best

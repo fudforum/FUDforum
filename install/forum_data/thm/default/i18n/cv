@@ -3,7 +3,7 @@ perl -p -i -e 's/href="([^{][^R]|[^j][^a])(.+?)\.php"/href="{ROOT}?t=\1\2"/gi' m
 
 perl -p -i -e 's/href="([^{][^R]|[^j][^a])(.+?)\.php\?(.+?)"/href="{ROOT}?t=\1\2&\3"/gi' msg
 
-perl -p -i -e 's/{ROOT}\?t=javascript:\/\/"/javascript:\/\//gi' msg
+perl -p -i -e 's/{ROOT}\?t=javascript:\/\/"/javascript:\/\/"/gi' msg
 
 perl -p -i -e 's/{GVAR: WWW_ROOT}emailconf.php\?/{ROOT}t=emailconf&/' msg
 
