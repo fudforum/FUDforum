@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.8 2002/07/06 19:19:50 hackie Exp $
+*   $Id: admdump.php,v 1.9 2002/07/08 12:47:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@ function make_insrt_qry($obj, $tbl, $field_data)
 				if( empty($v) && !$field_data[$k]['not_null'] ) 
 					$vl .= 'NULL,';
 				else
-					$vl .= '"'.str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v)))).'",';
+					$vl .= "'".str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v))))."',";
 				break;
 			default:
 				if( empty($v) && !$field_data[$k]['not_null'] ) 
@@ -126,7 +126,7 @@ function sql_field_name($r, $n)
 function sql_is_null($r, $n, $tbl='')
 {
 	if( __dbtype__ == 'pgsql' ) {
-		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = 'fud_action_log' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
+		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = '".$tbl."' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
 		return ( $res == 't' ? TRUE : FALSE );
 	}
 	else 
@@ -169,7 +169,7 @@ include('admpanel.php');
 				$write_func($fp, $sql_data."\n");
 			}
 			else if ( substr($file,-5)=='.func' ) 
-				$write_func($fp, filetomem($file)."\n");
+				$write_func($fp, str_replace("{SQL_TABLE_PREFIX}", $DBHOST_TBL_PREFIX,preg_replace("!(\n|\t)!", " ", filetomem($file)))."\n");
 		}
 		closedir($dir);
 		chdir($curdir);
@@ -195,7 +195,7 @@ include('admpanel.php');
 					$field_data[sql_field_name($r2, $i)] = array(
 						'name' => sql_field_name($r2, $i),
 						'type' => sql_field_type($r2, $i),
-						'not_null' => sql_is_null($r2, $i)
+						'not_null' => sql_is_null($r2, $i, $tbl_name)
 					);	
 				}
 				
