@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.38 2004/11/01 20:12:05 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.39 2004/11/08 17:52:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,7 +96,7 @@
 {SECTION: im_icq ICQ control center}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
-			<table border="0" style="font-face: Arial, Helvetica; font-size: smaller">
+			<table class="icqCP">
 			<tr><td colspan=2>
 				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
 				<b>{MSG: icq_control_panel}</b>
