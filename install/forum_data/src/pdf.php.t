@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.1 2003/05/20 08:56:46 hackie Exp $
+*   $Id: pdf.php.t,v 1.2 2003/05/20 11:09:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,9 +15,11 @@
 *
 ***************************************************************************/
 
+	
+
 class fud_pdf
 {
-	var $pdf, $pw, $ph, $pg_num, $pg_title, $hmargin, $wmargin, $y;
+	var $pdf, $pw, $ph, $pg_num, $pg_title, $hmargin, $wmargin, $y, $fonts;
 
 	function fud_pdf($author, $title, $subject, $page_type='letter', $hmargin=15, $wmargin=15)
 	{
@@ -27,6 +29,7 @@ class fud_pdf
 		pdf_set_info($this->pdf, 'Title',	$title);
 		pdf_set_info($this->pdf, 'Creator',	$author);
 		pdf_set_info($this->pdf, 'Subject',	$subject);
+		pdf_set_value($this->pdf, 'compress', 	9);
 
 		switch ($page_type) {
 			case 'A0':
@@ -78,6 +81,11 @@ class fud_pdf
 
 		$this->hmargin = $hmargin;
 		$this->wmargin = $wmargin;
+
+		$fonts = array('Courier', 'Courier-Bold', 'Helvetica-Bold', 'Helvetica');
+		foreach ($fonts as $f) {
+			$this->fonts[$f] = pdf_findfont($this->pdf, $f, 'host', FALSE);
+		}
 	}
 
 	function begin_page($title)
@@ -92,28 +100,38 @@ class fud_pdf
 			$this->pg_num = 1;
 		}
 		pdf_add_outline($this->pdf, $ttl);
-		pdf_setfont($this->pdf, pdf_findfont($this->pdf, 'Courier', 'host', FALSE), 12);
+		pdf_setfont($this->pdf, $this->fonts['Courier'], 12);
 		pdf_set_text_pos($this->pdf, $this->wmargin, ($this->ph - $this->hmargin));
 		$this->pg_title = $title;
 	}
 
 	function input_text($text)
 	{
+		pdf_setfont($this->pdf, $this->fonts['Courier'], 12);
+
 		$max_cpl = pdf_stringwidth($this->pdf, 'w');
 		$max_cpl = floor(($this->pw - 2 * $this->wmargin) / $max_cpl);
 
 		foreach ($text as $line) {
 			if (strlen($line) > $max_cpl) {
-				$parts = explode("\n", chunk_split($line, $max_cpl, "\n"));
-			} else {
-				$parts = array($line);
+				$parts = explode("\n", wordwrap($line, $max_cpl, "\n", 1));
+				$line = $parts[0];
+				unset($parts[0]);
 			}
-			foreach ($parts as $p) {
-				if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
-					$this->end_page();
-					$this->begin_page($this->pg_title);
+			if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
+				$this->end_page();
+				$this->begin_page($this->pg_title);
+			}
+			pdf_continue_text($this->pdf, $line);
+			if (isset($parts) && count($parts)) {
+				foreach ($parts as $p) {
+					if (pdf_get_value($this->pdf, 'texty', 0) <= ($this->hmargin + 12)) {
+						$this->end_page();
+						$this->begin_page($this->pg_title);
+					}
+					pdf_continue_text($this->pdf, $p);
 				}
-				pdf_continue_text($this->pdf, $p);
+				unset($parts);
 			}
 		}
 	}
@@ -151,28 +169,31 @@ class fud_pdf
 
 	function add_attacments($attch)
 	{
-		pdf_setfont($this->pdf, pdf_findfont($this->pdf, 'Courier-Bold', 'host', FALSE), 20);
+		pdf_setfont($this->pdf, $this->fonts['Courier-Bold'], 20);
 		pdf_continue_text($this->pdf, 'File Attachments');
 
 		$this->draw_line();
 
-		pdf_setfont($this->pdf, pdf_findfont($this->pdf, 'Helvetica', 'host', FALSE), 14);
-		pdf_set_text_pos($this->pdf, $this->wmargin, $this->y - 3);
+		pdf_setfont($this->pdf, $this->fonts['Helvetica'], 14);
+		$y = $this->y - 3;
+		$i = 0;
 		foreach ($attch as $a) {
+			pdf_set_text_pos($this->pdf, $this->wmargin, $y);
+			pdf_continue_text($this->pdf, ++$i . ') ');
 			$this->add_link($GLOBALS['WWW_ROOT'] . 'index.php?t=getfile&id='.$a['id'], $a['name']);
 			pdf_show($this->pdf, ', downloaded '.$a['nd'].' times');
+			$y -= 17;
 		}
 	}
 
 	function add_poll($name, $opts, $ttl_votes)
 	{
-		$font = pdf_findfont($this->pdf, 'Courier-Bold', 'host', FALSE);
 		$this->y = pdf_get_value($this->pdf, 'texty', 0) - 3;
 
 		pdf_set_text_pos($this->pdf, $this->wmargin, $this->y - 3);
-		pdf_setfont($this->pdf, $font, 20);
+		pdf_setfont($this->pdf, $this->fonts['Courier-Bold'], 20);
 		pdf_continue_text($this->pdf, $name);
-		pdf_setfont($this->pdf, $font, 16);
+		pdf_setfont($this->pdf, $this->fonts['Courier-Bold'], 16);
 		pdf_show($this->pdf, '(total votes: '.$ttl_votes.')');
 		
 		$this->draw_line();
@@ -182,7 +203,7 @@ class fud_pdf
 		$p1 = floor($ttl_w / 100);
 		$this->y -= 10;
 
-		pdf_setfont($this->pdf, pdf_findfont($this->pdf, 'Helvetica-Bold', 'host', FALSE), 14);
+		pdf_setfont($this->pdf, $this->fonts['Helvetica-Bold'], 14);
 
 		foreach ($opts as $o) {
 			$w1 = $p1 * (($o['votes'] / $ttl_votes) * 100);
@@ -200,6 +221,11 @@ class fud_pdf
 	function message_header($subject, $author, $date, $id, $th)
 	{
 		$y = pdf_get_value($this->pdf, 'texty', 0) - 3;
+		if ($y < 100) {
+			$this->end_page();
+			$this->begin_page($this->pg_title);
+			$y = $this->ph - $this->hmargin;
+		}
 		pdf_moveto($this->pdf, $this->wmargin, $y);
 		pdf_lineto($this->pdf, ($this->pw - $this->wmargin), $y);
 		pdf_moveto($this->pdf, $this->wmargin, $y - 3);
@@ -208,9 +234,9 @@ class fud_pdf
 
 		pdf_set_text_pos($this->pdf, $this->wmargin, ($y - 5));
 
-		pdf_setfont($this->pdf, pdf_findfont($this->pdf, 'Helvetica', 'host', FALSE), 14);
+		pdf_setfont($this->pdf, $this->fonts['Helvetica'], 14);
 		pdf_continue_text($this->pdf, 'Subject: ' . $subject);
-		pdf_continue_text($this->pdf, 'Posted by '.$author.' on '.date('r', $date));
+		pdf_continue_text($this->pdf, 'Posted by '.$author.' on '.gmdate('D, d M Y H:i:s \G\M\T', $date));
 		pdf_continue_text($this->pdf, 'URL: ');
 		$url = $GLOBALS['WWW_ROOT'].'?t=rview&th='.$th.'&goto='.$id;
 		$this->add_link($url, $url);
@@ -222,7 +248,7 @@ class fud_pdf
 
 	function end_message()
 	{
-		$y = pdf_get_value($this->pdf, 'texty', 0) - 3;
+		$y = pdf_get_value($this->pdf, 'texty', 0) - 10;
 		pdf_moveto($this->pdf, $this->wmargin, $y);
 		pdf_lineto($this->pdf, ($this->pw - $this->wmargin), $y);
 		pdf_moveto($this->pdf, $this->wmargin, $y - 3);
@@ -240,9 +266,19 @@ function fatal_error()
 	invl_inp_err();
 }
 
+
+
+function post_to_smiley($text, $re)
+{
+	return ($re ? strtr($text, $re) : $text);
+}
+
 	require('GLOBALS.php');
 	require ($DATA_DIR . 'include/PDF.php');
 	fud_use('err.inc');
+
+	/* this potentially can be a longer form to generate */
+	set_time_limit($PDF_MAX_CPU);
 
 	/* before we go on, we need to do some very basic activation checks */
 	if ($FORUM_ENABLED != 'Y') {
@@ -284,6 +320,16 @@ function fatal_error()
 		fatal_error();
 	}
 
+	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
+	while ($r = db_rowarr($c)) {
+		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
+		$re[$im] = (($p = strpos($r[0], '~')) !== FALSE) ? substr($r[0], 0, $p) : $r[0];
+	}
+	qf($c);
+	if (!isset($re)) {
+		$re = NULL;
+	}
+
 	if ($PDF_AUTH == 'Y') {
 		if ($PDF_AUTH_ID) {
 			$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
@@ -299,10 +345,10 @@ function fatal_error()
 	}
 
 	if ($forum) {
-		q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
+		$subject = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
 	}
 
-	$data = uq('SELECT 
+	$c = uq('SELECT 
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
 				m.foff, m.length, m.file_id,
@@ -317,7 +363,7 @@ function fatal_error()
 			WHERE
 				m.approved=\'Y\' '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
 
-	if (!($o = db_rowobj($data))) {
+	if (!($o = db_rowobj($c))) {
 		fatal_error();
 	}
 
@@ -334,7 +380,7 @@ function fatal_error()
 		$fpdf->message_header($o->subject, $o->alias, $o->post_stamp, $o->id, $o->thread_id);
 
 		/* write message body */
-		$msg_body = strip_tags(read_msg_body($o->foff, $o->length, $o->file_id));
+		$msg_body = strip_tags(post_to_smiley(read_msg_body($o->foff, $o->length, $o->file_id), $re));
 		reverse_fmt($msg_body);
 		$fpdf->input_text(explode("\n", $msg_body));
 
@@ -343,7 +389,7 @@ function fatal_error()
 			$a = unserialize($o->attach_cache);
 			if (is_array($a) && @count($a)) {
 				foreach ($a as $i) {
-					$attch[] = array('id' => $i[0], 'name' => $r[1], 'nd' => $r[3]);
+					$attch[] = array('id' => $i[0], 'name' => $i[1], 'nd' => $i[3]);
 				}
 				$fpdf->add_attacments($attch);
 			}
@@ -353,7 +399,10 @@ function fatal_error()
 		if ($o->poll_name && $o->poll_cache) {
 			$pc = @unserialize($o->poll_cache);
 			if (is_array($pc) && count($pc)) {
+				reverse_fmt($o->poll_name);
 				foreach ($pc as $opt) {
+					$opt[0] = strip_tags(post_to_smiley($opt[0], $re));
+					reverse_fmt($opt[0]);
 					$votes[] = array('name' => $opt[0], 'votes' => $opt[1]);
 				}
 				$fpdf->add_poll($o->poll_name, $votes, $o->total_votes);
@@ -361,8 +410,9 @@ function fatal_error()
 		}
 
 		$fpdf->end_message();
-	} while (($o = db_rowobj($data)));
+	} while (($o = db_rowobj($c)));
 	un_register_fps();
+	qf($c);
 
 	$fpdf->end_page();
 	pdf_close($fpdf->pdf);
