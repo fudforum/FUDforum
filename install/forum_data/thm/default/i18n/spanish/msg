@@ -864,3 +864,6 @@ forumsel_unread:		*(NO LEIDO)
 groupmgr_no_groups:		No hay grupos para editar
 msg_err_nosuchmsg_msg:		No existe ese mensaje en este hilo de discusión
 msg_err_nosuchmsg_title:	Error
+imsg_err_message_title:		Invalid Message
+imsg_err_message_msg:		The message you are trying to view does not exist.
+poll_edit: 			Edit
