@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.37 2004/04/01 14:53:24 hackie Exp $
+* $Id: finduser.php.t,v 1.38 2004/04/02 01:17:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,7 @@
 	}
 
 	$pager = '';
-	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' 1=1');
+	$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id > 1');
 	if ($total > $count) {
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';
