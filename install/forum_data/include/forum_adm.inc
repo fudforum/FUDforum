@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.8 2003/09/26 18:49:14 hackie Exp $
+*   $Id: forum_adm.inc,v 1.9 2003/10/03 17:20:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,9 +17,8 @@
 
 class fud_forum 
 {
-	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $last_post_id, $forum_opt,
-		$allow_polls, $date_created, $thread_count, $view_order, $message_threshold, $max_attach_size,
-		$max_file_attachments, $forums, $cur_frm, $locked;
+	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $forum_opt, $date_created, 
+		$view_order, $message_threshold, $max_attach_size, $max_file_attachments;
 
 	function fud_forum()
 	{
@@ -32,12 +31,7 @@ class fud_forum
 	
 	function add($pos)
 	{
-		$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_resources gr WRITE, '.$tbl.'group_members gm WRITE,'.$tbl.'group_cache WRITE');
-		}
+		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		if ($pos == 'LAST') {
 			$this->view_order = (int)q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE cat_id='.$this->cat_id) + 1;
@@ -73,11 +67,7 @@ class fud_forum
 		)");
 
 		if (($gid = group_add($this->id, $this->name, 2))) {
-			grp_rebuild_cache($gid);
-		}
-
-		if (isset($ll)) {
-			db_unlock();
+			grp_rebuild_cache(array(0, 2147483647));
 		}
 
 		return $this->id;
@@ -85,12 +75,7 @@ class fud_forum
 	
 	function sync($id, $cat_id)
 	{
-		$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
-		if (!db_locked()) { 
-			$ll = 1; 
-			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE'); 
-		}
+		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
 
@@ -108,10 +93,6 @@ class fud_forum
 		WHERE id=".$id);
 
 		q('UPDATE '.$tbl.'groups SET name=\''.addslashes($this->name).'\' WHERE id='.$gid);
-
-		if (isset($ll)) {
-			db_unlock();
-		}
 	}
 }
 
@@ -183,7 +164,7 @@ function frm_move_forum($id, $dest_cat, $src_cat)
 
 function frm_delete($id)
 {
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	db_lock($tbl.'forum WRITE, '.$tbl.'mod WRITE, '.$tbl.'nntp WRITE, '.$tbl.'mlist WRITE, '.$tbl.'thread WRITE, '.$tbl.'ann_forums WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
 

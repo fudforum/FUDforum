@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.10 2003/09/30 04:13:16 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.11 2003/10/03 17:20:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@ class fud_nntp_adm
 				}
 			}
 
-			$this->nntp_opt =0;
+			$this->nntp_opt = 0;
 			foreach (array('nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
 				if (isset($_POST['nntp_'.$v])) {
 					$this->nntp_opt |= (int) $_POST['nntp_'.$v];
@@ -44,11 +44,6 @@ class fud_nntp_adm
 
 	function add()
 	{
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
-		}
-
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp(
 			forum_id,
 			server,
@@ -69,12 +64,9 @@ class fud_nntp_adm
 			'".addslashes($this->newsgroup)."',
 			".$this->nntp_opt."
 			)");
+
 		if ($this->nntp_opt & 1) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | 2 WHERE id='.$this->forum_id);
-		}
-
-		if (isset($ll)) {
-			db_unlock();
 		}
 
 		return $this->id;
@@ -82,11 +74,6 @@ class fud_nntp_adm
 	
 	function sync($id)
 	{
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
-		}
-
 		list($old_frm_id, $nntp_opt) = db_saq('SELECT forum_id, nntp_opt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp SET
@@ -101,36 +88,20 @@ class fud_nntp_adm
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $nntp_opt & 1) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=(forum_opt & ~ 2) WHERE id='.$old_frm_id);
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt &~ 2 WHERE id='.$old_frm_id);
 		}
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($nntp_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
-
-		if (isset($ll)) {
-			db_unlock();
-		}
 	}
 }	
 
 function nntp_del($id)
 {
-	if (!db_locked()) {
-		$ll = 1;
-		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
-	}
-
 	if (!($d = db_saq('SELECT nntp_opt, forum_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id))) {
-		if (isset($ll)) {
-			db_unlock();
-		}
 		return;
 	}
 	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
 	if ($d[0] & 1) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=(forum_opt & ~ 2) WHERE id='.$d[1]);
-	}
-
-	if (isset($ll)) {
-		db_unlock();
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt &~ 2 WHERE id='.$d[1]);
 	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.10 2003/10/01 18:58:20 hackie Exp $
+*   $Id: groups_adm.inc,v 1.11 2003/10/03 17:20:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	$gid = db_qid("INSERT INTO ".$tbl."groups (name, inherit_id, groups_opt, groups_opti, forum_id) VALUES
-		('".addslashes($name)."', ".$inherit_id.", ".$perm.", ".$permi.", ".($add_gl == 2 ? res_id : 0).")");
+		('".addslashes($name)."', ".$inherit_id.", ".$perm.", ".$permi.", ".($add_gl == 2 ? $res_id : 0).")");
 	$rid = db_qid("INSERT INTO ".$tbl."group_resources (group_id, resource_id) VALUES (".$gid.", ".$res_id.")");
 
 	if ($add_gl) {
@@ -102,6 +102,9 @@ function group_delete($id)
 	q('UPDATE '.$tbl.'groups SET groups_opti=0, inherit_id=0 WHERE inherit_id='.$id);
 
 	/* deal with inheritence */
+	if (!function_exists('grp_rebuild_cache')) {
+		fud_use('groups.inc');
+	}
 	grp_rebuild_cache();
 
 	q('DELETE FROM '.$tbl.'groups WHERE id='.$id);
