@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.50 2003/12/12 13:05:23 hackie Exp $
+* $Id: post_proc.inc.t,v 1.51 2003/12/29 15:22:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -315,8 +315,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				break;
 			}
 		}
-		if ($ostr[$i]=='<') {
-			$pos+=3;
+		if (!$pos || $ostr[$i] == '<') {
+			$pos += 3;
 			continue;
 		}
 
@@ -390,7 +390,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$GLOBALS['seps']['='] = '=';
 
 		$url = substr($ostr, $us+1, $ue-$us-1);
-		if (!strncasecmp($url, 'javascript', strlen('javascript'))) {
+		if (!strncasecmp($url, 'javascript', strlen('javascript')) || ($ue - $us - 1) < 9) {
 			$pos = $ue;
 			continue;
 		}
