@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.16 2002/09/04 04:12:15 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.17 2002/10/24 07:25:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -214,7 +214,7 @@ class fud_msg_edit extends fud_msg
 	function delete($rebuild_view=TRUE)
 	{
 		if ( !db_locked() ) {
-			db_lock('{SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}poll+, {SQL_TABLE_PREFIX}poll_opt+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}msg_report+, {SQL_TABLE_PREFIX}thread_rate_track+');
+			db_lock('{SQL_TABLE_PREFIX}thr_exchange+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}poll+, {SQL_TABLE_PREFIX}poll_opt+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}msg_report+, {SQL_TABLE_PREFIX}thread_rate_track+');
 			$local_lock = 1;
 		}
 		
@@ -276,6 +276,7 @@ class fud_msg_edit extends fud_msg
 			
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id=".$del->root_msg_id);
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id=".$del->thread_id);
+			q("DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th=".$del->thread_id);
 			if( $del->approved!='N' && $del->forum_id ) q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id=".$del->forum_id);
 		}
 		else {
