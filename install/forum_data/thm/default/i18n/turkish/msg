@@ -10,7 +10,7 @@ average_post_count:		Ýleti sayýsý: {VAR: u->posted_msg_count} Günlük ortalama il
 biography:			Kiþisel bilgiler:
 birth_date:			Doðum tarihi:
 by:				Gönderen:
-by_mod:				Onaycý tarafýndan
+by_mod:				Denetmen tarafýndan
 current_time:			Tarih
 custom_avatar_queue:		Özel Avatar Kuyruðu
 date:				Tarih
@@ -68,10 +68,10 @@ message_index:			Ýleti indeksi
 message_index_desc:		Ýleti listesini görüntüle
 minimize_category:		Kategoriyi küçült
 moderation_queue:		Onay Kuyruðu
-moderator:			Onaycý
-moderator_of:			Onaycý olunan forum:
-moderator_options:		Onaycý Seçenekleri
-moderators:			Onaycý(lar)
+moderator:			Denetmen
+moderator_of:			Denetlenen forum:
+moderator_options:		Denetim Seçenekleri
+moderators:			Denetmen(ler)
 more_unread_messages:		diðer okunmamýþ iletiler
 more_unread_messages_desc:	Okunmamýþ diðer iletileri göster ve þu anda görüntülenen iletileri okundu say.
 move_thread:			Taþý
@@ -120,7 +120,7 @@ register:			Kayýt ol
 registered:			Kayýt tarihi
 registered_on:			Kayýt tarihi: {DATE: u->join_date %d %B %Y %a}
 replies:			Yanýtlar
-report_to_mod:			Ýletiyi onaycýya bildir
+report_to_mod:			Ýletiyi denetmene bildir
 reported_messages:		Bildirilen Ýletiler
 reveal_all_posts:		{VAR: user_login} kullanýcýsýnýn tüm gönderilerini göster
 reveal_post:			gönderiyi göster
@@ -188,8 +188,8 @@ views:				Görüntülenme<br>sayýsý
 vote:				{VAR: thread->vote_count()} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Onaycý tarafýndan taþýndýðý yer: <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A günü saat %H:%M} idi.
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Denetmen tarafýndan taþýndýðý yer: <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
 reported_del_report:		Bildirimi sil
 reported_reason:		Neden
@@ -359,7 +359,7 @@ post_poll:			Anket:
 post_create_poll:		ANKET YARAT
 post_poll_delete:		SÝL
 post_poll_edit:			DÜZELT
-post_mod_opt:			Onaycý seçenekleri:
+post_mod_opt:			Denetim seçenekleri:
 post_thread_type:		Zincir tipi:
 post_thread_expiry:		Zincir zaman aþýmý:
 post_locked:			Zinciri kilitle
@@ -434,13 +434,13 @@ rpasswd_invalid_passwd:		Geçersiz parola
 rpasswd_passwd_nomatch:		Parolalar birbirini tutmuyor
 rpasswd_passwd_length:		Parola en az 6 karakter uzunluðunda olmalý
 reset_remind_pass:		Parola Hatýrlatýcý
-reset_reset_conf:		Parolanýz yeniden belirlenip size gönderilecek, veya eðer e-mektubu onaylamamýþ durumdaysanýz, e-mektup onay isteði size tekrar gönderilecek.
+reset_reset_conf:		Parolanýz yeniden belirlenip size gönderilecek, veya eðer e-mektubu doðrulamamýþ durumdaysanýz, e-mektup doðrulama isteði size tekrar gönderilecek.
 reset_error:			E-mektup veritabanýnda bulunamadý
 rpasswd_change_pass:		Parola deðiþtir
 rpasswd_login:			Kullanýcý ismi
 rpasswd_cur_pass:		Þu andaki Parola:
 rpasswd_new_pass:		Yeni Parola:
-rpasswd_conf_pass:		Yeni Parolayý Onayla:
+rpasswd_conf_pass:		Yeni Parolayý Doðrula:
 login_passwd:			Parola:
 reset_email:			E-mektup:
 reset_reset_button:		Parolayý Yeniden Belirle
@@ -611,7 +611,7 @@ post_err_noannontopics_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn tartýþma açmasýna
 post_err_noannonposts_title:	HATA: Yetersiz Yetki
 post_err_noannonposts_msg:	Ýsimsiz (Anonymous) kullanýcýlarýn iletileri yanýtlamasýna izin verilmiyor<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&amp;{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz. <br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">giriþ formunu</a> kullanýn.
 post_err_noreplying_title:	HATA: Yanýtlamaya izin verilmiyor
-post_err_noreplying_msg:	Bu zincire yanýt gönderemiyorsunuz, çünkü bu bir duyuru veya yapýþkan ileti, ve onaycý yanýt gönderilmesine izin vermemiþ durumda.
+post_err_noreplying_msg:	Bu zincire yanýt gönderemiyorsunuz, çünkü bu bir duyuru veya yapýþkan ileti, ve denetmen yanýt gönderilmesine izin vermemiþ durumda.
 post_err_floodtrig_title:	HATA: Üstüste ileti gönderemezsiniz.
 post_err_floodtrig_msg:		Lütfen {VAR: tm} saniye içinde tekrar deneyin.
 post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen sýnýr: {VAR: MAX_F_SIZE} b)</font><br>
@@ -658,7 +658,7 @@ register_register_update:	Kayýt Sayfasý
 report_err_nosuchmsg_title:	HATA
 report_err_nosuchmsg_msg:	Böyle bir ileti yok
 report_err_cantreport_title:	HATA
-report_err_cantreport_msg:	Onaycýya bildirimde bulunma izniniz yok
+report_err_cantreport_msg:	Denetmene bildirimde bulunma izniniz yok
 reset_err_invalidkey_title:	HATA
 reset_err_invalidkey_msg:	Geçersiz parola belirleme anahtarý
 reset_err_rstconf_title:	Bilgi
@@ -841,7 +841,7 @@ maximize_category:		Kategoriyi Aç
 no_view_perm:			Bu zinciri görmek için uygun eriþim iznine sahip deðilsiniz.
 report_empty_report:		Boþ bir bildirim gönderemezsiniz, lütfen bildirim için bir sebep belirtin.
 report_already_reported_title:	Daha önce bildirildi	
-report_already_reported_msg:	Bu ileti daha önce bildirilmiþ ve bildirim þu anda onaycýlarýn gözden geçirme kuyruðunda yer alýyor.
+report_already_reported_msg:	Bu ileti daha önce bildirilmiþ ve bildirim þu anda denetmenlerin gözden geçirme kuyruðunda yer alýyor.
 register_err_toomanyimages:	Ýmzanýzda izin verilenden ({GVAR: FORUM_IMG_CNT_SIG}) daha fazla resim kullanmaya çalýþýyorsunuz.
 pmsg_next_msg:			Sonraki ileti
 pmsg_prev_msg:			Önceki ileti
@@ -870,53 +870,53 @@ poll_edit: 			Düzelt
 unspecified:			Belirtilmemiþ
 register_err_not_valid_img:	Belirtilen adreste geçerli bir resim yok
 pmsg_recepient:			Alýcý
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
-register_alias:			Alias
-register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
-register_allow_pm_msg:		Allow Private Messages	
-register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
-postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
-polllist_vote:			Vote
-polllist_view_results:		View Results
-polllist_name:			Poll Name
-polllist_date:			Created On
-polllist_owner:			Created By
-polllist_votes:			Total Votes
-polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
-userinfo_polls:			Polls:
-show_pollist:			Show Polls
-search_and:			AND
-search_or:			OR
-search_desc_order:		Descending Order		
-search_asc_order:		Ascending Order
-search_logic:			Search Logic:
-search_sorting:			Sort Results By Date In:
-post_proceed:			Proceed
-post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
-post_moderated_forum_ttl:	Moderated Forum Notice
-buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
-email_warning_msg:		If you change your current email address, your account will be marked uncofirmed until you confirm it via e-mail.
-register_show_im:		Show IM indicators
-register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
-unread_message:			Unread Message
-read_message:			Read Messagethreadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
-threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;more&gt;
-register_msg_tree_view:		Flat thread listing/Tree message listing
-register_tree_msg_view:		Tree thread listing/Flat message listing 
-mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
-err_inc_query_err:		SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log
-spell_alts:			no alternatives
-insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
-back_to_top:			Back to Top
-iemail_participate:		To participate in the discussion, go here:
-pm_err_disabled_title:		Private Messaging Disabled
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
+register_err_taken_alias:	Kullanmaya çalýþtýðýnýz takma isim forumda daha önce baþka bir üye tarafýndan seçilmiþ ve kullanýlýyor durumda, lütfen baþka bir tane seçin.
+register_alias:			Takma Ýsim
+register_alias_desc:		Eðer kullanýcý isminizden baþka bir ismin forumda görüntülenmesini istiyorsanýz, burda belirtebilirsiniz.
+register_allow_pm_msg:		Özel iletilere izin ver
+register_allow_pm_msg_desc:	Diðer kullanýcýlarýn forum yoluyla size özel ileti gönderebilmesine izin verir.
+postcheck_pm_disabled:		"{VAR-HTML: v}" kullanýcýsýna özel ileti gönderemezsiniz, çünkü bu kullanýcý ayarlarýnda özel ileti gönderilmesine izin vermiyor durumda.
+polllist_vote:			Oyla
+polllist_view_results:		Sonuçlarý Görüntüle
+polllist_name:			Oylama Ýsmi
+polllist_date:			Baþlatýlma tarihi
+polllist_owner:			Baþlatan
+polllist_votes:			Toplam Oy
+polllist_action:		Eylem
+polllist_update:		<a href="{ROOT}?t=polllist">Oylamalarý gözden geçiriyor</a>
+userinfo_polls:			Oylamalar:
+show_pollist:			Oylamalarý göster
+search_and:			VE
+search_or:			VEYA
+search_desc_order:		Azalan sýrada
+search_asc_order:		Artan sýrada
+search_logic:			Arama mantýðý:
+search_sorting:			Sonuçlarý tarihe göre sýrala:
+post_proceed:			Ýlerle
+post_moderated_forum:		Denetimli bir foruma gönderide bulundunuz, ve iletiniz forum denetmen(ler)ince veya yönetici tarafýndan onaylanmadan forumda görüntülenmeyecek.
+post_moderated_forum_ttl:	Denetimli Forum Uyarýsý
+buddy_list_bday:		Bugün {VAR: obj->login} {VAR: age} yaþýný dolduruyor.
+email_warning_msg:		Eðer þu andaki e-mektup adresinizi deðiþtirirseniz, hesabýnýz doðrulanmamýþ olarak iþaretlenecek, ve e-mektup yoluyla doðrulanana dek iþaretli kalacak.
+register_show_im:		IM belirteçlerini göster
+register_show_im_desc:		IM belirteçlerinin yazýlan iletinin yanýnda görüntülenip görüntülenmeyeceðini belirler.
+unread_message:			Okunmamýþ Ýleti
+read_message:			Ýletiyi oku 
+threadt_disabled_ttl:		Zincirler için aðaç görünümü engellenmiþ durumda.
+threadt_disabled_desc:		Yönetici zincirler için aðaç görünümü engellemiþ durumda, lütfen düz görünümü kullanýn.
+threadt_update:			<a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunu dolaþýyor (aðaç görünümü)
+threadt_more:			&lt;devamý&gt;
+register_msg_tree_view:		Zincirler için düz/Ýletiler için aðaç görünümü
+register_tree_msg_view:		Zincirler için aðaç/Ýletiler için düz görünüm
+mmod_delete_cofirm_ttl:		Konu/Ýleti Silmeyi Doðrula
+err_inc_query_err:		SQL hatasý oluþtu, lütfen SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">forum yöneticisi</a> ile iletiþime geçerek, forumun SQL günlüðüne göz atmasýný saðlayýn.
+spell_alts:			alternatif yok
+insert_uploaded_image:		Ýleti gövdesinin içine resim yerleþtir
+finduser_help:			Arama motoru otomatik olarak * jokerini sorgunuza ekleyecek. örn. kullanýcý ismi &#39;a&#39; ile baþlayan tüm kullanýcýlarý aramak için, arama kutusuna &#39;a&#39; yazmanýz yeterli.
+back_to_top:			Yukarý dön
+iemail_participate:		Tartýþma katýlmak için buraya gidin:
+pm_err_disabled_title:		Özel Ýleti Sistemi engellenmiþ durumda
+pm_err_disabled_msg:		Kiþisel bilgiler bölümündeki &#39;Özel iletilere izin ver&#39; seçeneðini etkinleþtirmeden özel ileti gönderemezsiniz.
+err_mod_acc_ttl:		Onaylanmamýþ Hesap
+err_mod_acc_msg:		Tüm hesaplarýn etkinleþmeden önce yönetici tarafýndan onaylanmasý gerekiyor. Hesabýnýz yönetici tarafýndan etkinleþtirilinceye dek hesabýnýzýn tüm özelliklerini kullanamayabilirsiniz. 
+accounts_pending_approval:	Onay bekleyen hesaplar
+saved:				Kaydedildi
