@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.18 2004/03/22 15:17:04 hackie Exp $
+* $Id: indexdb.php,v 1.19 2004/04/15 21:02:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,7 +13,8 @@
 	@set_time_limit(2400);
 
 	require('./GLOBALS.php');
-	// uncomment the line below if you wish to run this script via command line
+	// uncomment the lines below if you wish to run this script via command line
+	// fud_use('adm_cli.inc', 1); // this contains cli_execute() function.
 	// cli_execute(1);
 
 	fud_use('adm.inc', true);

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.29 2004/03/22 15:17:04 hackie Exp $
+* $Id: adm.inc,v 1.30 2004/04/15 21:02:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,26 +42,5 @@ if (!count($_POST)) {
 function errorify($err)
 {
 	return '<font color="red">'.$err.'</font><br />';
-}
-
-function cli_execute($post_conf, $get_opts=null)
-{
-	$s = $_SERVER['REMOTE_ADDR'];
-	unset($_SERVER['REMOTE_ADDR']);
-	define('forum_debug', 1);
-	$GLOBALS['usr']->users_opt = 1048576;
-
-	fud_use('adm.inc');
-
-	if ($post_conf) {
-		$_POST['conf'] = 1;
-	}
-	if ($get_opts && is_array($get_opts)) {
-		foreach ($get_opts as $k => $v) {
-			$_GET[$k] = $v;
-		}
-	}
-
-	$_SERVER['REMOTE_ADDR'] = $s;
 }
 ?>
