@@ -38,7 +38,7 @@ function external_fud_login($user_id)
 
 	/* create session */
 	$sys_id = __ses_make_sysid(($FUD_OPT_2 & 256), ($FUD_OPT_3 & 16));
-	$ses_id = md5($uid . time() . getmypid());
+	$ses_id = md5($user_id . time() . getmypid());
 	q("REPLACE INTO ".$DBHOST_TBL_PREFIX."ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".time().", '".$sys_id."', ".$user_id.")");
 	setcookie($COOKIE_NAME, $ses_id, time()+$COOKIE_TIMEOUT, $COOKIE_PATH, $COOKIE_DOMAIN);
 
