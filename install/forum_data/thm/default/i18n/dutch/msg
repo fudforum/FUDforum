@@ -333,7 +333,7 @@ register_show_email_desc:	Kies deze optie indien u uw email adres publiek wil la
 register_notification:		Selecteer Notificatie als standaard
 register_notification_desc:	of de notificatie standaard is ingesteld, u kan het nog aanpassen bij het posten
 register_notify_method:		Kies notificatie methode:
-register_notify_method_desc:	Indien u notificaties via ICQ wil ontvangen duidt dan 'EmailExpress' aan in uw ICQ instellingen.
+register_notify_method_desc:	Indien u notificaties via ICQ wil ontvangen duidt dan &#39;EmailExpress&#39; aan in uw ICQ instellingen.
 register_notify_js_error:	U koos ICQ notificatie maar heeft geen ICQ # opgegeven.  Defaulting naar Email&#46;
 register_allow_email_msg:	Toelaten Email Berichten:
 register_allow_email_msg_desc:	Toelaten dat andere leden je emails sturen via het forum.
@@ -840,7 +840,7 @@ no_view_perm:			U heeft niet de nodige permissies om dit topic te zien.
 report_empty_report:		U kan geen lege rapporten verzenden.  Typ de reden van dit rapport in.
 report_already_reported_title:	Reeds gerapporteerd
 report_already_reported_msg:	Dit bericht is reeds gerapporteerd en het rapport zit momenteel in de moderators review queue.
-register_err_toomanyimages:	U probeert meer dan de max {GVAR: FORUM_IMG_CNT_SIG} toegelaten foto's te gebruiken in uw signature.
+register_err_toomanyimages:	U probeert meer dan de max {GVAR: FORUM_IMG_CNT_SIG} toegelaten foto&#39;s te gebruiken in uw signature.
 pmsg_next_msg:			Volgend bericht
 pmsg_prev_msg:			Vorig bericht
 post_proc_reveal_spoiler:	toon Spoiler
