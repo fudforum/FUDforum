@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.6 2002/08/09 11:37:42 hackie Exp $
+*   $Id: db.inc,v 1.7 2002/08/09 11:59:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -122,38 +122,62 @@ function db_affected($r)
 	return pg_affected_rows($r['res']);
 }
 
-function q($query)
-{
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
-		$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
-	else 
-		++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+if( !defined("fud_query_stats") ) {
+	function q($query)
+	{
+		if ( !($result=pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)) ) {
+			$error_reason = "LAST_ERROR: ".pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']);
+			$r = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], "SELECT VERSION()");
+			list($version) = pg_fetch_row($r);
+			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".$DB_VERSION."<br>\n";
+			if( db_locked() ) db_unlock();
+			exit;
+		}
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 	
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		if( defined('debug') ) 
+			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
 	
-	$ts = db_getmicrotime();
-	if ( !($result=pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)) ) {
-		$error_reason = "LAST_ERROR: ".pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-		echo "query failed: %( $query )% because %( $error_reason )%";
-		$r = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], "SELECT VERSION()");
-		list($version) = pg_fetch_row($r);
-		echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".$DB_VERSION."<br>\n";
-		if( db_locked() ) db_unlock();
-		exit;
+		$rs['res'] = $result;
+		$rs['count'] = @pg_num_rows($result);
+		$rs['pos'] = 0;
+		return $rs; 
 	}
-	$te = db_getmicrotime(); 
+}
+else {
+	function q($query)
+	{
+		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
+			$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
+		else 
+			++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
 	
-	$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
-	$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-	$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 	
-	if( defined('debug') ) 
-		echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
+		$ts = db_getmicrotime();
+		if ( !($result=pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)) ) {
+			$error_reason = "LAST_ERROR: ".pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']);
+			$r = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], "SELECT VERSION()");
+			list($version) = pg_fetch_row($r);
+			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".$DB_VERSION."<br>\n";
+			if( db_locked() ) db_unlock();
+			exit;
+		}
+		$te = db_getmicrotime(); 
 	
-	$rs['res'] = $result;
-	$rs['count'] = @pg_num_rows($result);
-	$rs['pos'] = 0;
-	return $rs; 
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
+		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+	
+		if( defined('debug') ) 
+			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
+	
+		$rs['res'] = $result;
+		$rs['count'] = @pg_num_rows($result);
+		$rs['pos'] = 0;
+		return $rs; 
+	}
 }
 
 function qf(&$result)

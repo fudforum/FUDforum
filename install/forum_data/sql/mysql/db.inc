@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.7 2002/08/09 11:37:42 hackie Exp $
+*   $Id: db.inc,v 1.8 2002/08/09 11:59:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -114,34 +114,53 @@ function db_affected()
 	return mysql_affected_rows($GLOBALS['__DB_INC__']['SQL_LINK']);	
 }
 
-function q($query)
-{
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
-		$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
-	else 
-		++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
+if( !defined("fud_query_stats") ) {
+	function q($query) 
+	{
+		if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
+			$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
+			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
+			if( db_locked() ) db_unlock();
+			exit;
+		}
+
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+		
+		if( defined('debug') ) 
+			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
 	
-	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+		return $result; 
+	}	
+}
+else {
+	function q($query)
+	{
+		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
+			$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
+		else 
+			++$GLOBALS['__DB_INC_INTERNALS__']['query_count'];
 	
-	$ts = db_getmicrotime();
-	if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
-		$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-		exit("query failed: %( $query )% because %( $error_reason )%");
-		echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
-		if( db_locked() ) db_unlock();
-		exit;
+		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
+	
+		$ts = db_getmicrotime();
+
+		if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
+			$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
+			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
+			if( db_locked() ) db_unlock();
+			exit;
+		}
+		$te = db_getmicrotime(); 
+	
+		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
+		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
+		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+		
+		if( defined('debug') ) 
+			echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
+	
+		return $result; 
 	}
-	
-	$te = db_getmicrotime(); 
-	
-	$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
-	$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
-	$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-	
-	if( defined('debug') ) 
-		echo "--<br>\n<b>(--</b>&nbsp;&nbsp; ".htmlspecialchars($query)." &nbsp;&nbsp;<b>--) <b>(</b>".$GLOBALS['__DB_INC_INTERNALS__']['last_time']."<b>)</b></b><br><br>\n\n";
-	
-	return $result; 
 }
 
 function qf(&$result)
