@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.24 2003/10/14 14:27:03 hackie Exp $
+* $Id: admforum.php,v 1.25 2003/10/16 15:31:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,7 +47,7 @@ function get_max_upload_size()
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
 		/* (int) $_POST['frm_anon_forum']  is unused */
-		$_POST['frm_forum_opt'] = (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
+		$_POST['frm_forum_opt'] = (int) $_POST['frm_mod_attach'] | (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
 
 		$frm = new fud_forum;
 
@@ -162,6 +162,11 @@ if (!isset($_GET['chpos'])) {
 	<tr bgcolor="#bff8ff">
 		<td>Max Number of file Attachments:</td>
 		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength=100 size=5></td>
+	</tr>
+	
+	<tr bgcolor="#bff8ff">
+		<td>Can moderator(s) bypass attachment limits:</td>
+		<td><?php draw_select('frm_mod_attach', "No\nYes", "0\n32", $frm_forum_opt & 32); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
