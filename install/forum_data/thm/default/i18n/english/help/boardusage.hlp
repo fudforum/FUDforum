@@ -15,7 +15,7 @@ or simply click on the <b>Email</b> button located near their every post. This w
 enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
 <br><br>
 In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
-by sending them a URL with the description. This link can be found on the thread & message view pages of the forum.
+by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
 </td></tr></table></td></tr>
 
 
@@ -66,11 +66,11 @@ These are special messages that can be created by administrators & moderators an
 Generally they are used to inform the users of the forum of a certain event or outline rules etc...
 
 
-TOPIC_TITLE: <a name="rate">Can I rate threads?</a>
+TOPIC_TITLE: <a name="rate">Can I rate topics?</a>
 TOPIC_HELP:
-You may have noticed that certain threads have a rating. If allowed by the administrator you can contribute your own rating of the thread.
+You may have noticed that certain topics have a rating. If allowed by the administrator you can contribute your own rating of the topic.
 You can do so by going to the bottom of the message view page and choose a number between 1-5 (5 highest rating) from the 
-<b>Rate Thread</b> select box.
+<b>Rate Topic</b> select box.
 
 TOPIC_TITLE: <a name="ref">What are referrals?</a>
 TOPIC_HELP:
