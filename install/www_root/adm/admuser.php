@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.32 2003/09/30 13:36:34 hackie Exp $
+*   $Id: admuser.php,v 1.33 2003/09/30 15:36:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,13 +24,6 @@
 	fud_use('iemail.inc');
 	fud_use('private.inc');
 
-function errorify($err)
-{
-	return '<font color="red">'.$err.'</font><br>';
-}
-
-	$tbl =& $DBHOST_TBL_PREFIX;
-
 	if (isset($_GET['act'], $_GET['usr_id'])) {
 		$act = $_GET['act'];
 		$usr_id = (int)$_GET['usr_id'];
@@ -40,7 +33,7 @@ function errorify($err)
 	} else {
 		$usr_id = $act = '';
 	}
-	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '.$tbl.'users WHERE id='.$usr_id))) {
+	if ($act && $usr_id && !($u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id))) {
 		$usr_id = $act = '';
 	}
 
@@ -51,10 +44,10 @@ function errorify($err)
 		case 'coppa':
 		case 'econf':
 			if ($u->users_opt & $keys[$act]) {
-				q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ '.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt &~ '.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt ^= $keys[$act];
 			} else {
-				q('UPDATE '.$tbl.'users SET users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
 				$u->users_opt |= $keys[$act];
 			}
 
@@ -65,17 +58,17 @@ function errorify($err)
 			break;
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
-			q('UPDATE '.$tbl.'users SET custom_color='.strnull(addslashes($u->custom_color)).' WHERE id='.$usr_id);
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET custom_color='.strnull(addslashes($u->custom_color)).' WHERE id='.$usr_id);
 			break;
 		case 'reset':
-			$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
+			$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
 			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
 			} else {
-				$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
-				q("UPDATE ".$tbl."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
+				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
+				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
 
 				$url = '{ROOT}?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
@@ -137,11 +130,11 @@ Are you sure you want to do this?<br>
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
 					$u->users_opt |=  524288|1048576;
-					if (q_singleval('SELECT count(*) FROM '.$tbl.'mod WHERE user_id='.$u->id)) {
-						q('UPDATE '.$tbl.'users SET users_opt=(users_opt|1048576) &~ 1048576 | 524288 WHERE id='.$usr_id);
+					if (q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'mod WHERE user_id='.$u->id)) {
+						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|1048576) &~ 1048576 | 524288 WHERE id='.$usr_id);
 						$u->users_opt ^= 1048576;
 					} else {
-						q('UPDATE '.$tbl.'users SET users_opt=(users_opt|524288|1048576) &~ (524288|1048576) WHERE id='.$usr_id);
+						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|524288|1048576) &~ (524288|1048576) WHERE id='.$usr_id);
 						$u->users_opt ^= 1048576|524288;
 					}
 				}
@@ -165,7 +158,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					q('UPDATE '.$tbl.'users SET users_opt=(users_opt|524288) &~ 524288 | 1048576 WHERE id='.$usr_id);
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|524288) &~ 524288 | 1048576 WHERE id='.$usr_id);
 				}
 			}
 			break;								
@@ -175,9 +168,9 @@ administration permissions to the forum. This individual will be able to do anyt
 	if ($usr_id) {
 		/* deal with custom tags */
 		if (!empty($_POST['c_tag'])) {
-			q('INSERT INTO '.$tbl.'custom_tags (name, user_id) VALUES('.strnull(addslashes($_POST['c_tag'])).', '.$usr_id.')');
+			q('INSERT INTO '.$DBHOST_TBL_PREFIX.'custom_tags (name, user_id) VALUES('.strnull(addslashes($_POST['c_tag'])).', '.$usr_id.')');
 		} else if (!empty($_GET['deltag'])) {
-			q('DELETE FROM '.$tbl.'custom_tags WHERE id='.(int)$_GET['deltag']);
+			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE id='.(int)$_GET['deltag']);
 		} else {
 			$nada = 1;
 		}
@@ -187,18 +180,18 @@ administration permissions to the forum. This individual will be able to do anyt
 
 		/* changing password */
 		if (!empty($_POST['login_passwd'])) {
-			q("UPDATE ".$tbl."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
+			q("UPDATE ".$DBHOST_TBL_PREFIX."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$login = addslashes($_POST['login_name']);
 			$alias = "'" . substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW) . "'";
 			$login = "'" . $login . "'";
 
 			if ($FUD_OPT_2 & 128) {
-				if (db_li('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
+				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
 					$login_error = errorify('Someone is already using that login name.');
 				}
 			} else {
-				if (db_li('UPDATE '.$tbl.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id, $ef) === null) {
+				if (db_li('UPDATE '.$DBHOST_TBL_PREFIX.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id, $ef) === null) {
 					if ($ef == 2) {
 						$login_error = errorify('Someone is already using that login name.');
 					} else {
@@ -232,7 +225,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 		$item_s = "'" . addslashes($item_s) . "'";
 
-		$c = q('SELECT id, alias, email FROM '.$tbl.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
+		$c = q('SELECT id, alias, email FROM '.$DBHOST_TBL_PREFIX.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		switch (($cnt = db_count($c))) {
 			case 0:
 				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
@@ -240,7 +233,7 @@ administration permissions to the forum. This individual will be able to do anyt
 				break;
 			case 1:
 				list($usr_id) = db_rowarr($c);
-				$u = db_sab('SELECT * FROM '.$tbl.'users WHERE id='.$usr_id);
+				$u = db_sab('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE id='.$usr_id);
 				qf($c);
 				break;
 			default:
@@ -311,7 +304,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	}
 
 	echo '<tr bgcolor="#f1f1f1"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
-	$c = q('SELECT f.name FROM '.$tbl.'mod mm INNER JOIN '.$tbl.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
+	$c = q('SELECT f.name FROM '.$DBHOST_TBL_PREFIX.'mod mm INNER JOIN '.$DBHOST_TBL_PREFIX.'forum f ON mm.forum_id=f.id WHERE mm.user_id='.$usr_id);
 	if (db_count($c)) {
 		echo '<table border=0 cellspacing=1 cellpadding=3>';
 		while ($r = db_rowarr($c)) {
@@ -327,7 +320,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . _rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 	<tr bgcolor="#f1f1f1"><td valign=top>Custom Tags:</td><td valign="top">
 <?php
-	$c = uq('SELECT name, id FROM '.$tbl.'custom_tags WHERE user_id='.$usr_id);
+	$c = uq('SELECT name, id FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
 		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . _rsidl . '">Delete</a>]<br>';
 	}
