@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.17 2003/05/02 13:17:08 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.18 2003/05/20 11:09:36 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -46,7 +46,7 @@
 {SECTION: END}
 
 {SECTION: usrinfo_private_msg private message link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;to={VAR: u->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: u->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a></td></tr>
 {SECTION: END}
 
 {SECTION: home_page}
