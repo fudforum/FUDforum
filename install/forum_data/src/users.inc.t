@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.24 2003/04/03 14:35:21 hackie Exp $
+*   $Id: users.inc.t,v 1.25 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -88,45 +88,47 @@ function user_copy_object($osrc, &$odst)
 
 function init_user()
 {
-	$s = new fud_session;
-	$u = new fud_user;
-	$s->cookie_get_session();
-	
-	if ($s->user_id && $s->user_id < 2000000000) {
-		if (!$u->get_user_by_id($s->user_id)) {
-			$s->delete_session();
-		}
-	}
-				
-	if (!$u->id && !$s->id) {
-		$s->save_session();
-	}
-
-	if ($u->id) {
-		set_tz($u->time_zone);
-		
-		define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
-		define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
-		
+	/* fetch an object with the user's session, profile & theme info */
+	if (!($u = ses_get())) {
+		/* new anon user */
+		$u = ses_anon_make();
+	} else if ($u->id != 2147483647) { /* store the last visit date for registered user */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
+	}
+
+	/* set timezone */
+	set_tz($u->time_zone);
+	/* set locale */
+	setlocale(LC_ALL, $u->locale);
+
+	/* view format for threads & messages */
+	define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
+	define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
+
+	/* theme path */
+	define('fud_theme', 'theme/' . $u->theme_name . '/');
+		
+	/* define _uid, which, will tell us if this is a 'real' user or not */
+	define('_uid', ($u->email_conf == 'Y' ? $u->id : 0));
+
+	/* define constants used to track URL sessions & referrals */
+	if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
+		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) { 
+			define('_rsid', 'rid='._uid.'&amp;S='.s); define('_rsidl', 'rid='._uid.'&S='.s);
+		} else {
+			define('_rsid',  'S='.s); define('_rsidl', _rsid);
+		}
 	} else {
-		set_tz($GLOBALS['SERVER_TZ']);
-		
-		define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg'||$GLOBALS['DEFAULT_THREAD_VIEW']=='tree_msg')?'msg':'tree'));
-		define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg'||$GLOBALS['DEFAULT_THREAD_VIEW']=='msg_tree')?'thread':'threadt'));
-		
-		if (!empty($GLOBALS['rid']) && !isset($_COOKIE['frm_referer_id'])) {
-			setcookie('frm_referer_id', $GLOBALS['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		define('s', ''); define('_hs', '');
+		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) { 
+			define('_rsid',  'rid='._uid); define('_rsidl', _rsid);
+		} else {
+			define('_rsid', ''); define('_rsidl', ''); 
 		}
 	}
 
-	define('s', $s->ses_id);
-	define('_rsid', 'rid='.$u->id.'&amp;S='.s);
-	define('_rsidl', 'rid='.$u->id.'&S='.s);
-	define('_hs', '<input type="hidden" name="S" value="'.s.'">');
-	define('_uid', (($u->id && $u->email_conf == 'Y') ? $u->id : 0));
-
-	return array($s, $u);
+	return $u;
 }
 
 function user_alias_by_id($id)
@@ -148,6 +150,6 @@ if (defined('admin_form')) {
 	fud_use('users_adm.inc');
 }
 if (!defined('forum_debug')) {
-	list($GLOBALS['ses'], $GLOBALS['usr']) = init_user();
+	$GLOBALS['usr'] =& init_user();
 }
 ?>

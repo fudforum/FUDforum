@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ulink.inc.t,v 1.1 2003/01/13 10:48:20 hackie Exp $
+*   $Id: ulink.inc.t,v 1.2 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,12 +17,11 @@
 
 function draw_user_link($login, $type, $custom_color='')
 {
-	if (!empty($custom_color)) {
+	if ($custom_color) {
 		return '{TEMPLATE: ulink_custom_color}';
 	}
 
-	switch ($type)
-	{
+	switch ($type) {
 		case 'N':
 			return '{TEMPLATE: ulink_reg_user}';
 			break;

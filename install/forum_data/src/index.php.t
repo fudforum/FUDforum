@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.23 2003/04/03 10:03:31 hackie Exp $
+*   $Id: index.php.t,v 1.24 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -109,7 +109,7 @@ function index_view_perms()
 	if (isset($_GET['c'])) {
 		$c = $_GET['c'];
 		if (_uid && $c != $usr->cat_collapse_status) {
-			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".$c."' WHERE id="._uid);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".addslashes($c)."' WHERE id="._uid);
 		}
 		reload_collapse($c);
 	} else if (_uid && $usr->cat_collapse_status) {
@@ -120,18 +120,13 @@ function index_view_perms()
 	}
 
 	if (!_uid) {
-		$mark_all_read = $welcome_message = $frm_sel = $frm_join = '';
+		$mark_all_read = $welcome_message = '';
 	} else {
 		$welcome_message = '{TEMPLATE: welcome_message}';
-		$frm_sel = ',{SQL_TABLE_PREFIX}forum_read.last_view ';
-		$frm_join = 'LEFT JOIN {SQL_TABLE_PREFIX}forum_read ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}forum_read.forum_id AND {SQL_TABLE_PREFIX}forum_read.user_id='._uid;
-		if ($usr->is_mod != 'A') {
-			$frm_join .= ' WHERE {SQL_TABLE_PREFIX}forum.id IN ('.intzero(index_view_perms()).')';
-		}
 		$mark_all_read = '{TEMPLATE: mark_all_read}';
 	}
 
-	$ses->update('{TEMPLATE: index_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: index_update}');
 
 /*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
@@ -158,10 +153,29 @@ function index_view_perms()
 	  16	forum.post_count
 	  17	forum.thread_count
 	  18	forum_read.last_view
+	  19	is_moderator
+	  20	read perm
 	*/
-	$frmres = uq('SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}msg.id, {SQL_TABLE_PREFIX}msg.post_stamp, {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name, {SQL_TABLE_PREFIX}cat.default_view,{SQL_TABLE_PREFIX}cat.allow_collapse,{SQL_TABLE_PREFIX}forum.cat_id,{SQL_TABLE_PREFIX}forum.forum_icon,{SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.last_post_id,{SQL_TABLE_PREFIX}forum.moderators,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}forum.descr,{SQL_TABLE_PREFIX}forum.post_count,{SQL_TABLE_PREFIX}forum.thread_count '.$frm_sel.' FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id '.$frm_join.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
-
-	$cat = 0;	
+	$frmres = uq('SELECT 
+				m.subject, m.id, m.post_stamp,
+				u.id, u.alias,
+				c.description, c.name, c.default_view, c.allow_collapse,
+				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
+				fr.last_view,
+				mo.id AS mod,
+				'.(_uid ? 'CASE WHEN g2.p_READ IS NULL THEN g1.p_READ ELSE g2.p_READ END AS p_READ' : 'g1.p_READ').'
+		      FROM {SQL_TABLE_PREFIX}forum f
+		      INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+		      INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_type=\'forum\' AND g1.resource_id=f.id
+		      LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
+		      LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
+		      LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
+		      LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
+		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_type=\'forum\' AND g2.resource_id=f.id' : '').'
+		      WHERE '.(_uid ? 'CASE WHEN g2.p_VISIBLE IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END' : 'g1.p_VISIBLE').'=\'Y\'
+		      ORDER BY c.view_order, f.view_order');
+		
+	$post_count = $thread_count = $last_msg_id = $cat = 0;	
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[9]) {
 			if ($r[8] == 'Y') {
@@ -196,11 +210,20 @@ function index_view_perms()
 		
 		$forum_link = '{ROOT}?t='.t_thread_view.'&amp;frm_id='.$r[11].'&amp;'._rsid;
 
-		if (isset($GLOBALS['NO_VIEW_PERMS'][$r[11]])) {
+		/* increase thread & post count */
+		$post_count += $r[16];
+		$thread_count += $r[17];
+
+		if ($r[20] == 'N') { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
-	
+
+		/* code to determine the last post id for 'latest' forum message */
+		if ($r[12] > $last_msg_id) {
+			$last_msg_id = $r[12];
+		}
+
 		if (_uid && $r[18] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
 		} else if (_uid) {

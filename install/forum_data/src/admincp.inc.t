@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.7 2003/03/29 11:40:09 hackie Exp $
+*   $Id: admincp.inc.t,v 1.8 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ if (_uid) {
 			$mod_que = '{TEMPLATE: mod_que}';
 		}
 	}
-	if ($usr->is_mod == 'A' || bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id="._uid." AND group_leader='Y' LIMIT 1")) {
+	if ($usr->is_mod == 'A' || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
 	}
 	

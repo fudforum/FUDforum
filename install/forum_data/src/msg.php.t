@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.20 2003/04/02 01:46:35 hackie Exp $
+*   $Id: msg.php.t,v 1.21 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,14 +15,21 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 		
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+
+	if (isset($_GET['th'])) {
+		$_GET['th'] = (int) $_GET['th'];
+	}
+	if (isset($_GET['goto']) && $_GET['goto'] !== 'end') {
+		$_GET['goto'] = (int) $_GET['goto'];
+	}
 
 	/* quick cheat to avoid a redirect
 	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic 
 	 */
-	if (isset($_GET['unread'], $_GET['th']) && _uid && (int)$_GET['th']) {
+	if (isset($_GET['unread'], $_GET['th']) && _uid) {
 		if (($lv = q_singleval('SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$_GET['th'].' AND user_id='._uid))) {
 			if ($usr->last_read > $lv) {
 				$lv = $usr->last_read;
@@ -31,12 +38,12 @@
 		}
 	}
 		
-	if (!empty($_GET['goto'])) {
-		if ($_GET['goto'] === 'end' && isset($_GET['th']) && (int)$_GET['th']) {
+	if (isset($_GET['goto'])) {
+		if ($_GET['goto'] === 'end' && isset($_GET['th'])) {
 			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_GET['th']);
 			$mid = '#msg_'.$mid;
-		} else if ((int)$_GET['goto']) { /* verify that the thread & msg id are valid */
-			if (!isset($_GET['th']) || !(int)$_GET['th']) {
+		} else if ($_GET['goto']) { /* verify that the thread & msg id are valid */
+			if (!isset($_GET['th'])) {
 				$_GET['th'] = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$_GET['goto']);
 			}
 			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND approved='Y'"))) {
@@ -48,27 +55,40 @@
 		}
 		
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
-	} else if (!isset($_GET['th']) || !(int)$_GET['th']) {
+	} else if (!isset($_GET['th'])) {
 		invl_inp_err();
 	}
 
-	/* we create a BIG object frm, which contains data about forum, category & current thread */
+	if (_uid) {
+		$perm_q = "g.user_id IN("._uid.", 2147483647) AND resource_type='forum' AND resource_id=f.id";
+	} else {
+		$perm_q = "g.user_id=0 AND resource_type='forum' AND resource_id=f.id";
+	}
+
+	/* we create a BIG object frm, which contains data about forum, 
+	 * category, current thread, subscriptions, permissions, moderation status, 
+	 * rating possibilites and if we will need to update last_view field for registered user
+	 */
 	$frm = db_sab('SELECT 
-			{SQL_TABLE_PREFIX}cat.name AS cat_name,
-			{SQL_TABLE_PREFIX}forum.name AS frm_name,
-			{SQL_TABLE_PREFIX}msg.subject,
-			{SQL_TABLE_PREFIX}thread.id,
-			{SQL_TABLE_PREFIX}thread.forum_id,
-			{SQL_TABLE_PREFIX}thread.replies,
-			{SQL_TABLE_PREFIX}thread.rating,
-			{SQL_TABLE_PREFIX}thread.root_msg_id,
-			{SQL_TABLE_PREFIX}thread.moved_to,
-			{SQL_TABLE_PREFIX}thread.locked
-		FROM {SQL_TABLE_PREFIX}thread
-			INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.id={SQL_TABLE_PREFIX}thread.root_msg_id
-			INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}thread.forum_id
-			INNER JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
-		WHERE {SQL_TABLE_PREFIX}thread.id='.$_GET['th']);
+			c.name AS cat_name,
+			f.name AS frm_name,
+			m.subject,
+			t.id, t.forum_id, t.replies, t.rating, t.root_msg_id, t.moved_to, t.locked,
+			tn.thread_id AS subscribed,
+			mo.forum_id AS mod,
+			g.p_VISIBLE as p_visible, g.p_READ as p_read, g.p_post as p_post, g.p_REPLY as p_reply, g.p_EDIT as p_edit, g.p_DEL as p_del, g.p_STICKY as p_sticky, g.p_POLL as p_poll, g.p_FILE as p_file, g.p_VOTE as p_vote, g.p_RATE as p_rate, g.p_SPLIT as p_split, g.p_LOCK as p_lock, g.p_MOVE as p_move, g.p_SML as p_sml, g.p_IMG as p_img,
+			tr.thread_id AS cant_rate,
+			r.last_view
+		FROM {SQL_TABLE_PREFIX}thread t
+			INNER JOIN {SQL_TABLE_PREFIX}msg	m ON m.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum	f ON f.id=t.forum_id
+			INNER JOIN {SQL_TABLE_PREFIX}cat	c ON f.cat_id=c.id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.user_id='._uid.' AND tn.thread_id='.$_GET['th'].'
+			LEFT  JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON '.$perm_q.'
+		WHERE t.id='.$_GET['th']. ' ORDER BY g.user_id ASC LIMIT 1');
 
 	if (!$frm) { /* bad thread, terminate request */
 		invl_inp_err();
@@ -79,7 +99,7 @@
 	}
 
 	$MOD = $sub_status = 0;
-	$USER_PERMS = init_single_user_perms($frm->forum_id, $usr->is_mod, $MOD);
+	$USER_PERMS = perms_from_obj($frm, $usr->is_mod);
 
 	if ($USER_PERMS['read'] == 'N') {
 		if (!isset($_GET['logoff'])) {
@@ -96,31 +116,32 @@
 
 	if (_uid) {
 		/* Deal with thread subscriptions */
-		if (isset($_GET['notify'])) {
-			if ($opt == 'on') {
-				fud_thread_notify::add(_uid, $_GET['th']);
-				$sub_status = 1;
+		if (isset($_GET['notify'], $_GET['opt'])) {
+			if ($_GET['opt'] == 'on') {
+				thread_notify_add(_uid, $_GET['th']);
+				$frm->subscribed = 1;
 			} else {
-				fud_thread_notify::delete(_uid, $_GET['th']);
+				thread_notify_del(_uid, $_GET['th']);
+				$frm->subscribed = 0;
 			}
 		}
 
 		if (($total - $_GET['th']) > $count) {
 			$first_unread_message_link = '{TEMPLATE: first_unread_message_link}';
 		}
-		$subscribe_status = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$_GET['th'].' AND user_id='._uid) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
+		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
 		$subscribe_status = '';
 	}
 
 	$ses->update('{TEMPLATE: msg_update}', $frm->forum_id);
 
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
 
 	if ($ENABLE_THREAD_RATING == 'Y') {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		if (_uid && $USER_PERMS['lock'] == 'Y' && !bq('SELECT id FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$frm->id.' AND user_id='._uid)) {
+		if ($USER_PERMS['rate'] == 'Y' && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
 		}
 	} else {
@@ -131,19 +152,16 @@
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($USER_PERMS['lock'] == 'Y') {
-		$lock_thread = ( $frm->locked == 'N' ) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
+		$lock_thread = $frm->locked == 'N' ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
 		$lock_thread = '';
 	}
-	if ($USER_PERMS['split'] == 'Y') {
-		$split_thread = '{TEMPLATE: split_thread}';
-	} else {
-		$split_thread = '';
-	}
 
-	if (isset($_GET['prevloaded'])) {
+	$split_thread = $USER_PERMS['split'] == 'Y' ? '{TEMPLATE: split_thread}' : '';
+
+	if (!isset($_GET['prevloaded'])) {
 		if (_uid) {
-			$usr->register_forum_view($frm->forum_id);
+			user_register_forum_view($frm->forum_id);
 		}
 		th_inc_view_count($frm->id);
 	}
@@ -198,15 +216,16 @@
 	
 	$message_data = '';
 
+	$m_num = 0;
 	while ($obj = db_rowobj($result)) {
-		$message_data .= tmpl_drawmsg($obj, $m_count++, TRUE);
+		$message_data .= tmpl_drawmsg($obj, $usr, $perms, FALSE, $m_num, array($_GET['start'], $count));
 		$obj2 = $obj;
 	}
 	qf($result);
 	
 	un_register_fps();
 
-	if (_uid && q_singleval('SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$frm->id.' AND user_id='._uid) < $obj2->post_stamp) {
+	if (_uid && $frm->last_view < $obj2->post_stamp) {
 		$usr->register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
 	}
 
@@ -215,13 +234,13 @@
 	$prev_thread_link = $next_thread_link = '';
 	get_prev_next_th_id($frm->forum_id, $frm->id, $prev_thread_link, $next_thread_link);
 		
-	if ($prev_th) {
+	if ($prev_thread_link) {
 		$prev_thread_link = '{TEMPLATE: prev_thread_link}';
 	}
-	if ($next_th) {
+	if ($next_thread_link) {
 		$next_thread_link = '{TEMPLATE: next_thread_link}';
 	}
 		
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MSG_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.24 2003/04/02 01:46:35 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.25 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,215 +15,218 @@
 *
 ***************************************************************************/
 
-$GLOBALS['__IGNORE_LIST__'] = array();
 
-function build_ignore_list()
+
+/* Handle poll votes if any are present */
+function register_vote($opt_id)
 {
-	$r = q('SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='._uid);
-	while ($d = db_rowarr($r)) {
-		$GLOBALS['__IGNORE_LIST__'][$d[1]] = $d[0];
-	}
-	qf($r);
-}
-
-if ($_GET['rev'])) {
-	$drawmsg_inc_tmp = explode(':', $_GET['rev']));
-	foreach($drawmsg_inc_tmp as $v) {
-		$GLOBALS['__REVEALED_POSTS__'][$v] = 1;
-	}
-}	
-
-if (isset($_GET['reveal'])) {
-	$drawmsg_inc_tmp = explode(':', ($_GET['reveal']);
-	foreach($drawmsg_inc_tmp as $v) {	
-		$GLOBALS['__REVEALED_USERS__'][$v] = 1;
-	}
-}	
-
-function register_vote($opt)
-{
-	$poll = new fud_poll; 
-	$poll_opt = new fud_poll_opt;
-	$poll_opt->get($opt);
-	$poll->get($poll_opt->poll_id);
-	if ( !$poll->voted(_uid) ) {
-		$poll_opt->increase();
-		$poll->regvote(_uid);
-	}	
-}
-/* determine the source form */
-$GLOBALS['__DRAW_MSG_SCRIPT_NAME'] = basename($GLOBALS['HTTP_SERVER_VARS']['PATH_TRANSLATED']);
-$GLOBALS['__POLL_ACTION_URL'] = htmlspecialchars($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
-$GLOBALS['__MSG_COUNT__']=-1;
-
-function tmpl_drawmsg(&$obj, $is_mod, $show_avatar, $show_sig, )
-{
-	global $rev;
-	global $reveal;
-	global $count;
-	global $start;
-
-	if (!$obj->user_id) {
-		$obj->user_id = $obj->poster_id = 0;
-	}
-
-	$hide_controls = isset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
-
-	if (_uid && !isset($GLOBALS['__IGNORE_LIST__'])) {
-		build_ignore_list();
-	}
-	if (!$hide_controls) {
-		if ($msg_count) { 
-		
-		
-			if( $GLOBALS['__MSG_COUNT__'] ) {
-			$msg_num = $GLOBALS['__MSG_COUNT__']-1;
-			$prev_message = '{TEMPLATE: dmsg_prev_message}';
-		} else if ( $pager && $obj->id!=$obj->root_msg_id ) {
-			$msg_start = $GLOBALS['start']-$GLOBALS['count'];
-			$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
+	if (($data = db_rowarr('SELECT p.id, pot.user_id FROM {SQL_TABLE_PREFIX}poll_opt po INNER JOIN {SQL_TABLE_PREFIX}poll p ON po.poll_id=p.id LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.' WHERE po.id='.$opt_id))) {
+		if ($data[1]) { /* user already voted */
+			return;
 		}	
-			
-		if( $GLOBALS['__MSG_COUNT__'] < $msg_count ) {
-			$msg_num = $GLOBALS['__MSG_COUNT__']+1;
-			$next_message = '{TEMPLATE: dmsg_next_message}';
-		} else if ( $pager && $obj->id!=$obj->last_post_id ) {
-			$msg_start = $GLOBALS['start']+$GLOBALS['count'];
-			$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
-		}			
+		db_lock('SQL_TABLE_PREFIX}poll_opt_track WRITE');
+		q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id) VALUES('.$data[0].', '._uid.')');
+		db_unlock();
+		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
+	}
+	return;
+}
 
-		if ($_REQUEST['t'] == 'tree')) {
-			if ($pager[0]) {
-				$prev_message = '{TEMPLATE: dmsg_tree_prev_message_prev_page}';
+/* initialize buddy & ignore list for registered users */
+if (_uid) {
+	if ($usr->buddy_list) {
+		$usr->buddy_list = @unserialize($usr->buddy_list);
+	}
+	if ($usr->ignore_list) {
+		$usr->ignore_list = @unserialize($usr->ignore_list);
+	}
+
+	/* make an associated array of ignored users to temporarily 'unhide' */
+	if (!empty($_GET['rev'])) {
+		$drawmsg_inc_tmp = explode(':', $_GET['rev']);
+		foreach($drawmsg_inc_tmp as $v) {
+			$GLOBALS['__REVEALED_POSTS__'][$v] = 1;
+		}
+	} else {
+		$_GET['rev'] = '';
+	}
+
+	/* make an associated array of ignored users to temporarily 'unhide' */
+	if (!empty($_GET['reveal'])) {
+		$drawmsg_inc_tmp = explode(':', $_GET['reveal']);
+		foreach($drawmsg_inc_tmp as $v) {	
+			unset($usr->ignore_list[$v]);
+		}
+	} else {
+		$_GET['reveal'] = '';
+	}
+} else {
+	$_GET['rev'] = $_GET['reveal'] = '';
+}
+
+/* Draws a message, needs a message object, user object, permissions array, 
+ * flag indicating wether or not to show controls and a variable indicating
+ * the number of the current message (needed for cross message pager)
+ * last argument can be anything, allowing forms to specify various vars they
+ * need to.
+ */
+function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
+{
+	/* draw next/prev message controls */
+	if (!$hide_controls) {
+		/* tree view is a special condition, we only show 1 message per page */
+		if ($_REQUEST['t'] != 'tree') {
+			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
+			$next_message = $misc[1] ? '{TEMPLATE: dmsg_tree_next_message_next_page}' : '';
+		} else {
+			/* handle previous link */
+			if (!$m_num && $obj->id > $obj->root_msg_id) { /* prev link on different page */
+				$msg_start = $misc[0] - $misc[1];
+				$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
+			} else if ($m_num) { /* inline link, same page */
+				$msg_num = $m_num - 1;
+				$prev_message = '{TEMPLATE: dmsg_prev_message}';
 			} else {
 				$prev_message = '';
 			}
-			if ($pager[1]) {
-				$next_message = '{TEMPLATE: dmsg_tree_next_message_next_page}';
+
+			/* handle next link */
+			if ($obj->id < $obj->last_post_id) {
+				if ($m_num && !($misc[1] - $n_num - 1)) { /* next page link */
+					$msg_start = $misc[0] + $misc[1];
+					$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
+				} else {
+					$msg_num = $m_num + 1;
+					$next_message = '{TEMPLATE: dmsg_next_message}';
+				}
 			} else {
 				$next_message = '';
 			}
 		}
+	} else {
+		$next_message = $prev_message = '';
 	}	
-	
-	
-	
+
 	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
-	
-	if ( empty($obj->user_id) ) {
+
+	if (!$obj->user_id) {
 		$user_login = $GLOBALS['ANON_NICK'];
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_anon}';
-	}
-	else {
+	} else {
 		$user_login = $obj->login;
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_regged}';
 	}
-	
-	$link_args = '&amp;mid='.$GLOBALS['mid'].'&amp;'.$_rsid.'&amp;frm_id='.$GLOBALS['frm_id'].'&amp;th='.$GLOBALS['th'].'&amp;start='.$GLOBALS['start'].'&amp;count='.$GLOBALS['count'].'&amp;unread='.$GLOBALS['unread'].'&amp;reply_count='.$GLOBALS['reply_count'].'&amp;date='.$GLOBALS['date'].'#msg_'.$obj->id;
-	if ( !empty($GLOBALS['__IGNORE_LIST__'][$obj->poster_id]) && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && empty($GLOBALS['__REVEALED_USERS__'][$obj->poster_id]) ) {
-		if ( empty($hide_controls) )	
-			return '{TEMPLATE: dmsg_ignored_user_message}';
-		else
-			return '{TEMPLATE: dmsg_ignored_user_message_static}';
-	}
 
-	if( !empty($obj->user_id) ) {
-		$disable_avatar = ( $obj->level_pri == 'L' || (_uid && $GLOBALS["usr"]->show_avatars=='N') ) ? 1 : 0;
-		
-		if( ($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' ) || $GLOBALS["usr"]->is_mod == 'A' ) 
-			$online_indicator = (($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
-		
-		if ( !$disable_avatar ) {
-			if( $obj->avatar ) 
-				$avatar_img = 'images/avatars/'.$obj->avatar;
-			else if ( $obj->avatar_approved == 'Y' ) 
-				$avatar_img = ($obj->avatar_loc) ? $obj->avatar_loc : 'images/custom_avatars/'.$obj->user_id;
-		
-			$avatar = ($avatar_img) ? '{TEMPLATE: dmsg_avatar}' : '{TEMPLATE: dmsg_no_avatar}';
+	/* check if the message should be ignored and it is not temporarily revelead */
+	if (isset($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__REVEALED_POSTS__'][$obj->id])) {
+		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
+	}
+	
+	if ($obj->user_id) {
+		if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
+			$avatar = $obj->avatar_loc;
+		} else {
+			$avatar = '';
 		}
-		
-		$user_link = empty($hide_controls) ? '{TEMPLATE: dmsg_reg_user_link}' : '{TEMPLATE: dmsg_reg_user_no_link}';
+
+		if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $GLOBALS["usr"]->is_mod == 'A') {
+			$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
+		} else {
+			$online_indicator = '';
+		}
+
+		$user_link = $hide_controls ? '{TEMPLATE: dmsg_reg_user_link}' : '{TEMPLATE: dmsg_reg_user_no_link}';
 		
 		$user_posts = '{TEMPLATE: dmsg_user_posts}';
 		$user_reg_date = '{TEMPLATE: dmsg_user_reg_date}';
 
-		if ( !empty($obj->location) ) {
-			$location = trim_show_len($obj->location);
+		if ($obj->location) {
+			if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
+				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
+			}
 			$location = '{TEMPLATE: dmsg_location}';
+		} else {
+			$location = '{TEMPLATE: dmsg_no_location}';
 		}
-		else $location = '{TEMPLATE: dmsg_no_location}';
 
-		$custom_tag = empty($obj->custom_status) ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
+		$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
 	} else {
 		$user_link = '{TEMPLATE: dmsg_anon_user}';
 	}
 
-	if ((isset($GLOBALS["usr"]->is_mod) && $GLOBALS["usr"]->is_mod == 'A') || $GLOBALS["DISPLAY_IP"] == 'Y') {
+	if ($usr->is_mod == 'A' || $GLOBALS['DISPLAY_IP'] == 'Y') {
 		$ip_address = '{TEMPLATE: dmsg_ip_address}';
+	} else {
+		$ip_address = '';
 	}
 
-	if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && !empty($obj->host_name) ) {
-		$host_name = wordwrap($obj->host_name,30,'<br>',1);
+	if ($GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && $obj->host_name) {
+		if (strlen($obj->host_name) > 30) {
+			$host_name = wordwrap($obj->host_name, 30, '<br>', 1);
+		}
 		$host_name = '{TEMPLATE: dmsg_host_name}';
+	} else {
+		$host_name = '';
 	}
 	
 	$msg_icon = $obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 	
-	$buddy_link=$ignore_link='';
-	if ( isset($GLOBALS['usr']) && $GLOBALS['usr']->id != $obj->user_id && empty($hide_controls) ) {
-		if ( $obj->user_id > 0 ) 
-			$buddy_link = '{TEMPLATE: dmsg_buddy_link}';
-		else 
-			$obj->user_id = 0;
-		
-		if ( $obj->is_mod != 'A' ) {
-			if ( !empty($GLOBALS['__IGNORE_LIST__'][$obj->poster_id]) )
-				$ignore_link = '{TEMPLATE: dmsg_remove_user_ignore_list}';
-			else 
-				$ignore_link = '{TEMPLATE: dmsg_add_user_ignore_list}';
-		}
+	if (_uid && _uid != $obj->user_id) {
+		$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '' : '';
+		$ignore_link	= !isset($usr->ignore_list[$obj->user_id]) ? '{TEMPLATE: dmsg_add_user_ignore_list}' : '{TEMPLATE: dmsg_remove_user_ignore_list}';
+	} else {
+		$buddy_link = $ignore_link = '';
 	}
-	
-	if ( $obj->level_pri ) {
-		if( !empty($obj->level_name) ) $level_name = '{TEMPLATE: dmsg_level_name}';
-		if( !empty($obj->level_img) && strtolower($obj->level_pri)!='a' ) $level_image = '{TEMPLATE: dmsg_level_image}';
-	}	
 
-	if ( empty($hide_controls) && (!_uid || $GLOBALS['usr']->show_im == 'Y') ) {
-		/* determine IM status */
-		if ( $obj->icq ) 	$im_icq =   '{TEMPLATE: dmsg_im_icq}';
-		if ( $obj->aim ) 	{ $im_aim = urlencode($obj->aim); $im_aim = '{TEMPLATE: dmsg_im_aim}'; }
-		if ( $obj->yahoo ) 	{ $im_yahoo = urlencode($obj->yahoo); $im_yahoo = '{TEMPLATE: dmsg_im_yahoo}'; }
-		if ( $obj->msnm ) 	$im_msnm =  '{TEMPLATE: dmsg_im_msnm}';
-		if ( $obj->jabber ) 	$im_jabber =  '{TEMPLATE: dmsg_im_jabber}';
+	if ($obj->level_pri) {
+		$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+		$level_image = $obj->level_pri != 'a' ? '{TEMPLATE: dmsg_level_image}' : '';
+	} else {
+			$level_name = $level_image = '';
+	}
+
+	/* show im buttons if need be */
+	if ($hide_controls && (!_uid || $usr->show_im == 'Y')) {
+		$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
+		$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
+		$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
+		$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
+		$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
 		if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
-			if ($obj->affero) {
-				$im_affero = '{TEMPLATE: drawmsg_affero_reg}';
-			} else {
-				$im_affero = '{TEMPLATE: drawmsg_affero_noreg}';
-			}
+			$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
+		} else {
+			$im_affero = '';
 		}
+	} else {
+		$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
 	}
 	
-	if( $obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold ) {
+	/* Display message body
+	 * If we have message threshold & the entirity of the post has been revelead show a preview
+	 * otherwise if the message body exists show an actual body
+	 * if there is no body show a 'no-body' message
+	 */
+	if ($obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold) {
 		$msg_body = read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview);
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
-	}
-	else if ( $obj->length ) {
+	} else if ($obj->length) {
 		$msg_body = read_msg_body($obj->foff,$obj->length, $obj->file_id);
 		$msg_body = '{TEMPLATE: dmsg_normal_message_body}';
-	}
-	else
+	} else {
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
+	}
 	
-	if( !empty($GLOBALS['HTTP_POST_VARS']['opt']) && $obj->locked != 'Y' && is_numeric($GLOBALS['HTTP_POST_VARS']['opt']) ) {
-		register_vote($GLOBALS['HTTP_POST_VARS']['opt']);
-		$GLOBALS['HTTP_POST_VARS']['opt']=NULL;
-	}	
+	/* handle poll votes */
+	if (!empty($_GET['poll_opt']) && ($_GET['poll_opt'] = (int)$_GET['poll_opt']) && $obj->locked != 'Y' && $perms['vote'] == 'Y') {
+		register_vote($_GET['poll_opt']);
+		unset($_GET['poll_opt']);
+	}
 	
-	$__RESOURCE_ID = $obj->forum_id;
-	if ( $obj->poll_id ) {
-		$show_res=1;
+	/* display poll if there is one */
+	if ($obj->poll_id) {
+		
+	
+		$show_res = 1;
 		
 		$poll_obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$obj->poll_id));
 
@@ -277,31 +280,41 @@ function tmpl_drawmsg(&$obj, $is_mod, $show_avatar, $show_sig, )
 		qf($a_result);	
 	}
 		
-	if ( $obj->update_stamp ) {
-		if( $obj->updated_by != $obj->poster_id && $GLOBALS['EDITED_BY_MOD'] == 'Y' ) 
+	/* Determine if the message was updated and if this needs to be shown */
+	if ($obj->update_stamp) {
+		if ($obj->updated_by != $obj->poster_id && $GLOBALS['EDITED_BY_MOD'] == 'Y') {
 			$modified_message = '{TEMPLATE: dmsg_modified_message_mod}';
-		else if ( $obj->updated_by == $obj->poster_id && $GLOBALS['SHOW_EDITED_BY'] == 'Y' ) 
+		} else if ($obj->updated_by == $obj->poster_id && $GLOBALS['SHOW_EDITED_BY'] == 'Y') {
 			$modified_message = '{TEMPLATE: dmsg_modified_message}';
-	}		
+		} else {
+			$modified_message = '';
+		}
+	} else {
+		$modified_message = '';
+	}
 	
-	if( empty($hide_controls) ) {
-		if ( $GLOBALS["ALLOW_SIGS"] == 'Y' && $obj->show_sig == 'Y' && $GLOBALS["usr"]->show_sigs=='Y' && $obj->sig ) $signature = '{TEMPLATE: dmsg_signature}';
+	if ($hide_controls) {
+		if ($obj->sig && $GLOBALS["ALLOW_SIGS"] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs=='Y') {
+			$signature = '{TEMPLATE: dmsg_signature}';
+		} else {
+			$signature = '';
+		}
 	
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
 	
-		if( $obj->user_id ) {
+		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
 			$encoded_login = urlencode($obj->login);
 			if( $GLOBALS["ALLOW_EMAIL"] == 'Y' && $obj->email_messages == 'Y' ) $email_link = '{TEMPLATE: dmsg_email_link}';
 			if( $GLOBALS['PM_ENABLED']=='Y' ) $private_msg_link = '{TEMPLATE: dmsg_private_msg_link}';
 		}
 		
-		if( $msg_count && $pager && ($GLOBALS['__MSG_COUNT__']-1) == $msg_count && $obj->id!=$obj->last_post_id ) {
+		if ($msg_count && $pager && ($GLOBALS['__MSG_COUNT__']-1) == $msg_count && $obj->id!=$obj->last_post_id) {
 			$page_num = $start+$count;
 			$next_page = '{TEMPLATE: dmsg_next_msg_page}';
-		}
-		else
+		} else {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
+		}
 		
 		if ( $GLOBALS["MOD"] || is_perms(_uid, $__RESOURCE_ID, 'DEL') ) $delete_link = '{TEMPLATE: dmsg_delete_link}';
 		if ( isset($GLOBALS["usr"]) && (_uid == $obj->poster_id || $GLOBALS["MOD"] || is_perms(_uid, $__RESOURCE_ID, 'EDIT')) ) {
@@ -314,6 +327,8 @@ function tmpl_drawmsg(&$obj, $is_mod, $show_avatar, $show_sig, )
 		}	
 		
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
+	} else {
+		$signature = $report_to_mod_link = $next_page = $message_toolbar = '';
 	}
 	return '{TEMPLATE: message_entry}';
 }		

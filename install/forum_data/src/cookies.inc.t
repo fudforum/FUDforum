@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.16 2003/04/02 15:39:11 hackie Exp $
+*   $Id: cookies.inc.t,v 1.17 2003/04/06 13:36:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -161,17 +161,58 @@ class fud_session
 		return 1;
 	}
 	
-	function cookie_get_session()
-	{
+	
+}
+function ses_make_sysid()
+{
+	return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
+}
+
+function ses_get($id=0)
+{
+	if (!$id) {
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-			return $this->restore_session($_COOKIE[$GLOBALS['COOKIE_NAME']]);
-		} else if (isset($_REQUEST['S'])) {
-			if (!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-				$_SERVER['HTTP_X_FORWARDED_FOR'] = '';
-			}
-			$this->sys_id = md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR']);
-			return $this->restore_session($_REQUEST['S']);
+			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
+		} else if (isset($_REQUEST['S']) && $GLOBALS['SESSION_USE_URL'] == 'Y') {
+			$q_opt = "s.ses_id='".addslashes($_REQUEST['S'])."' AND sys_id='".ses_make_sysid()."'";
+		} else {
+			return;
 		}
+	} else {
+		$q_opt = "s.id='".$id."'";
 	}
+
+	return db_sab('SELECT 
+		s.id AS sid, s.ses_id, s.data, s.returnto,
+		
+		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang,	
+		
+		u.alias, u.append_sig, u.show_sigs, u.show_avatars, u.show_im, u.posts_ppg, u.time_zone,
+		u.sig, u.last_visit, u.email_conf, u.last_read, u.default_view, u.is_mod, u.cat_collapse_status,
+		u.ignore_list, u.acc_status, u.ignore_list, u.buddy_list, u.id, u.group_leader_list
+	FROM {SQL_TABLE_PREFIX}ses s 
+		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 2147483647 ELSE s.user_id END)
+		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme 
+	WHERE '.$q_opt);
+}
+
+function ses_anon_make()
+{
+	db_lock('{SQL_TABLE_PREFIX}ses WRITE');
+	while (bq("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'"));
+	$uid = q_singleval('SELECT CASE WHEN MAX(user_id)>2000000000 THEN MAX(user_id)+1 ELSE 2000000001 END FROM {SQL_TABLE_PREFIX}ses');
+	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,sys_id,user_id) VALUES('".$ses_id."',".__request_timestamp__.", '".ses_make_sysid()."'");
+	db_unlock();
+
+	/* when we have an anon user, we set a special cookie allowing us to see who referred this user */
+	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['TRACK_REFERRALS'] == 'Y') {
+		setcookie($GLOBALS['COOKIE_NAME'].'_referer_id', $_GET['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+	}
+
+	return ses_get($id);
+}
+function ses_update_status($ses_id, $str=NULL, $forum_id=0, $ret='')
+{
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? strnull(addslashes($_SERVER['QUERY_STRING'])) : 'returnto').' WHERE id='.$ses_id);
 }
 ?>
