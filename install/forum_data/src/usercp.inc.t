@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.11 2003/09/26 18:49:03 hackie Exp $
+*   $Id: usercp.inc.t,v 1.12 2003/09/26 21:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 		$register_n_profile = '{TEMPLATE: register}';
 		$admin_control_panel = $private_msg = '';
 	} else {
-		$admin_control_panel = $usr->is_mod == 'A' ? '{TEMPLATE: admin_control_panel}' : '';
+		$admin_control_panel = $usr->users_opt & 1048576 ? '{TEMPLATE: admin_control_panel}' : '';
 		$login_n_logout = '{TEMPLATE: logout}';
 		$register_n_profile = '{TEMPLATE: profile}';
 
@@ -31,9 +31,5 @@
 			$private_msg = '';
 		}
 	}
-	if ($MEMBER_SEARCH_ENABLED == 'Y' || $usr->is_mod == 'A') {
-		$member_search = '{TEMPLATE: member_search}';
-	} else {
-		$member_search = '';
-	}
+ 	$member_search = ($MEMBER_SEARCH_ENABLED == 'Y' || $usr->users_opt & 1048576) ? '{TEMPLATE: member_search}' : '';
 ?>

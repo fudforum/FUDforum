@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: stats.inc.t,v 1.6 2003/04/20 22:27:42 hackie Exp $
+*   $Id: stats.inc.t,v 1.7 2003/09/26 21:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-if (_uid && $usr->is_mod == 'A') {
+if (_uid && $usr->users_opt & 1048576) {
 	$page_gen_end = gettimeofday();
 	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $GLOBALS['PAGE_TIME']['sec'] + (($page_gen_end['usec'] - $GLOBALS['PAGE_TIME']['usec'])/1000000)));
 	$page_stats = '{TEMPLATE: admin_page_stats}';
