@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.14 2003/04/15 08:32:53 hackie Exp $
+*   $Id: threadt.php.t,v 1.15 2003/05/08 00:15:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 /*{PRE_HTML_PHP}*/
 
 	if ($TREE_THREADS_ENABLE == 'N') {
-		error_dialog('{TEMPLATE: threadt_disabled_ttl}', '{TEMPLATE: threadt_disabled_desc}', '');
+		error_dialog('{TEMPLATE: threadt_disabled_ttl}', '{TEMPLATE: threadt_disabled_desc}');
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: threadt_update}', $frm->id);
