@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.12 2003/10/05 22:19:56 hackie Exp $
+*   $Id: glob.inc,v 1.13 2003/10/06 20:34:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -89,8 +89,10 @@ function change_global_settings($list)
 				$settings = substr_replace($settings, "\t{$k}\t= \"{$v}\";\n", $p, 0);
 			}
 		} else {
-			$p = strpos($settings, '=', $p) + 1;
-			$e = strpos($settings, ';', $p);
+			$e = $p = strpos($settings, '=', $p) + 1;
+			do {
+				$e = strpos($settings, ';', $e);
+			} while ($settings[$e + 1] != "\r" && $settings[$e + 1] != "\n");
 
 			if (is_int($v)) {
 				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
