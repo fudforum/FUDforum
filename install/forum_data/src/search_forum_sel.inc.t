@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.13 2004/03/08 15:58:47 hackie Exp $
+* $Id: search_forum_sel.inc.t,v 1.14 2004/10/20 19:03:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,28 +12,40 @@
 
 /* draw search engine selection boxes */
 if ($usr->users_opt & 1048576) {
-	$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY v.id');
+	$c = uq('SELECT f.id, f.name, c.id FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY v.id');
 } else {
-	$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name
+	$c = uq('SELECT f.id, f.name, c.id
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 			WHERE mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1) > 0
 			ORDER BY v.id');
 }
-$old_cat = $forum_limit_data = '';
-while ($r = db_rowarr($c)) {
-	if ($old_cat != $r[2]) {
-		$selected = ('c'.$r[2] == $forum_limiter) ? ' selected' : '';
-		$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
-		$old_cat = $r[2];
+$oldc = $forum_limit_data = ''; $g = $f = array();
+if ($forum_limiter) {
+	if ($forum_limiter{0} != 'c') {
+		$f[$forum_limiter] = 1;
+	} else {
+		$g[(int)ltrim($forum_limiter, 'c')] = 1;
 	}
-	$selected = $r[0] == $forum_limiter ? ' selected' : '';
+}
+
+while ($r = db_rowarr($c)) {
+	if ($oldc != $r[2]) {
+		while (list($k, $i) = each($cat_cache)) {
+			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
+			if ($k == $r[2]) {
+				break;
+			}
+		}
+		$oldc = $r[2];
+	}
 	$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
 }
+
 /* user has no permissions to any forum, so as far as they are concerned the search is disabled */
 if (!$forum_limit_data) {
 	std_error('disabled');

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.47 2004/10/04 13:25:02 hackie Exp $
+* $Id: search.php.t,v 1.48 2004/10/20 19:03:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,6 +31,8 @@
 	} else {
 		$author = $author_id = '';
 	}
+
+	require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
@@ -74,10 +76,17 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	}
 
 	if ($forum_limiter) {
-		if ($forum_limiter[0] != 'c') {
+		if ($forum_limiter{0} != 'c') {
 			$qry_lmt = ' AND f.id=' . (int)$forum_limiter . ' ';
 		} else {
-			$qry_lmt = ' AND c.id=' . (int)substr($forum_limiter, 1) . ' ';
+			$cid = (int)substr($forum_limiter, 1);
+			$cids = array();
+			/* fetch all sub-categories if there are any */
+			if (!empty($GLOBALS['cat_cache'][$cid][2])) {
+				$cids = $GLOBALS['cat_cache'][$cid][2];
+			}
+			$cids[] = $cid;
+			$qry_lmt = ' AND c.id IN(' . implode(',', $cids) . ') ';
 		}
 	} else {
 		$qry_lmt = '';
