@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.86 2003/10/01 23:54:10 hackie Exp $
+*   $Id: post.php.t,v 1.87 2003/10/02 17:50:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -128,16 +128,6 @@ function flood_check()
 			}
 		}
 
-		/* to put it plainly this is a hack to allow us to handle silly browsers
-		 * that encode text for us, when it comes from a different charset :/
-		 */
-		if (isset($msg->body) && ($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg->body))) {
-			$msg->body = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->body);
-		}
-		if (isset($msg->subject) && ($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg->subject))) {
-			$msg->subject = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->subject);
-		}
-
 		if ($msg_id) {
 			$msg_subject = $msg->subject;
 			reverse_fmt($msg_subject);
@@ -205,16 +195,6 @@ function flood_check()
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
-
-		/* to put it plainly this is a hack to allow us to handle silly browsers
-		 * that encode text for us, when it comes from a different charset :/
-		 */
-		if (($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg_body))) {
-			$msg_body = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg_body);
-		}
-		if (($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg_subject))) {
-			$msg_subject = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg_subject);
-		}
 
 		if ($perms & 256) {
 			$attach_count = 0;
@@ -287,6 +267,10 @@ function flood_check()
 				$text = htmlspecialchars($text);
 			}
 
+			if ($frm->forum_opt & 24) {
+				char_fix($text);
+			}
+
 			if ($perms & 16384 && !$msg_smiley_disabled) {
 				$text = smiley_to_post($text);
 			}
@@ -310,6 +294,7 @@ function flood_check()
 
 			if (strlen($_POST['msg_subject']) && empty($no_spell_subject)) {
 				$text_s = htmlspecialchars($text_s);
+				char_fix($text_s);
 				$wa = tokenize_string($text_s);
 				$text_s = spell_replace($wa, 'subject');
 				reverse_fmt($text_s);
@@ -346,20 +331,18 @@ function flood_check()
 				$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
 			}
 
+			if ($frm->forum_opt & 24) {
+				char_fix($msg_post->body);
+			}
+
 	 		if ($perms & 16384 && !($msg_post->msg_opt & 2)) {
 	 			$msg_post->body = smiley_to_post($msg_post->body);
 	 		}
-	 		if (!empty($sp_char_body)) {
-				$msg_post->body = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->body);
-			}
 
 			fud_wordwrap($msg_post->body);
 
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($msg_post->subject));
-
-			if (!empty($sp_char_subj)) {
-				$msg_post->subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->subject);
-			}
+			char_fix($msg_post->subject);
 
 		 	/* chose to create thread OR add message OR update message */
 
@@ -480,18 +463,16 @@ function flood_check()
 			$text = nl2br(htmlspecialchars($text));
 		}
 
+		if ($frm->forum_opt & 24) {
+			char_fix($text);
+		}
+
 		if ($perms & 16384 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 
 		$text_s = htmlspecialchars($text_s);
-
-		if (!empty($sp_char_body)) {
-			$text = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $text);
-		}
-		if (!empty($sp_char_subj)) {
-			$text_s = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $text_s);
-		}
+		char_fix($text_s);
 
 		$spell = empty($spell_check_button);
 
@@ -598,14 +579,9 @@ function flood_check()
 	$msg_body = isset($msg_body) ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
 	if (!empty($msg_subject)) {
 		$msg_subject = htmlspecialchars($msg_subject);
+		char_fix($msg_subject);
 	}
-
-	if (!empty($sp_char_body)) {
-		$msg_body = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_body);
-	}
-	if (!empty($sp_char_subj)) {
-		$msg_subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_subject);
-	}
+	char_fix($msg_body);
 
 	$pivate = '';
 	/* handle file attachments */

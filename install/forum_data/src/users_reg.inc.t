@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.46 2003/10/02 13:53:18 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.47 2003/10/02 17:50:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -68,15 +68,7 @@ class fud_user_reg extends fud_user
 		}
 
 		if ($o2 & 1) {
-			$pfx = md5(__request_timestamp__);
-
-			if (__dbtype__ == 'mysql') {
-				$this->conf_key = "md5(CONCAT(LAST_INSERT_ID(), '".$pfx."')";
-			} else {
-				$this->conf_key = "length(substring(textcat(translate(currval('{SQL_TABLE_PREFIX}ses_id_seq'), '1234567890', 'AbCDeFgHiJ'), '".$pfx."')";
-			}
-
-			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
+			$this->conf_key = md5(implode('', (array)$this) . __request_timestamp__ . getmypid());
 		} else {
 			$this->conf_key = '';
 			$this->users_opt |= 131072;
@@ -143,15 +135,6 @@ class fud_user_reg extends fud_user
 				".$this->users_opt."
 			)
 		");
-
-		if ($this->conf_key) {
-			if (__dbtype__ == 'mysql') {
-				$this->conf_key = md5($this->id . $pfx);
-			} else {
-				$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>'i','0'=>'J');
-				$this->conf_key = substr(strtr((string)$this->id, $tr).$pfx, 0, 32);
-			}
-		}
 
 		return $this->id;
 	}

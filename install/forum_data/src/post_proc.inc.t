@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.33 2003/10/01 21:51:52 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.34 2003/10/02 17:50:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,10 +16,18 @@
 ***************************************************************************/
 
 $GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", "'"=>"'", '"'=>'"', '['=>'[', ']'=>']', '('=>'(', ';'=>';', ')'=>')', "\t"=>"\t", '='=>'=', '>'=>'>', '<'=>'<');
+$GLOBALS['chr_e'] = array('&amp;#0'=>'&#0','&amp;#1'=>'&#1','&amp;#2'=>'&#2','&amp;#3'=>'&#3','&amp;#4'=>'&#4','&amp;#5'=>'&#5','&amp;#6'=>'&#6','&amp;#7'=>'&#7','&amp;#8'=>'&#8','&amp;#9'=>'&#9');
 
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
         return substr($str, 0, $pos).$newstr.substr($str, $pos+$len);
+}
+
+function char_fix(&$str)
+{
+	if (strpos($str, '&amp;#') !== false) {
+		$str = strtr($str, $GLOBALS['chr_e']);
+	}
 }
 
 function tags_to_html($str, $allow_img=1)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.50 2003/10/02 15:27:24 hackie Exp $
+*   $Id: ppost.php.t,v 1.51 2003/10/02 17:50:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -226,6 +226,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$msg_p->body = nl2br(htmlspecialchars($msg_p->body));
 		}
 
+		if ($FUD_OPT_1 & 6144) {
+			char_fix($msg_p->body);
+		}
+
 		if (!($msg_p->pmsg_opt & 2)) {
 			$msg_p->body = smiley_to_post($msg_p->body);
 		}
@@ -235,6 +239,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$msg_p->subject = apply_custom_replace($msg_p->subject);
 		$msg_p->subject = htmlspecialchars($msg_p->subject);
+
+		char_fix($msg_p->subject);
 
 		if (empty($_POST['msg_id'])) {
 			$msg_p->pmsg_opt = $msg_p->pmsg_opt &~ 96;
@@ -299,6 +305,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$text = htmlspecialchars($text);
 		}
 
+		if ($FUD_OPT_1 & 6144) {
+			char_fix($text);
+		}
+
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
@@ -320,6 +330,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		if ($text_s && !$no_spell_subject) {
 			$text_s = htmlspecialchars($text_s);
+			char_fix($text_s);
 			$text_s = spell_replace(tokenize_string($text_s), 'subject');
 			reverse_fmt($text_s);
 			$msg_subject = apply_reverse_replace($text_s);
@@ -344,10 +355,15 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$text = nl2br(htmlspecialchars($text));
 		}
 
+		if ($FUD_OPT_1 & 6144) {
+			char_fix($text);		
+		}
+
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 		$text_s = htmlspecialchars($text_s);
+		char_fix($text_s);
 
 		$spell = empty($spell_check_button);
 

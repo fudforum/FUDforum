@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.37 2003/10/02 03:46:19 hackie Exp $
+*   $Id: cookies.inc.t,v 1.38 2003/10/02 17:50:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -50,17 +50,10 @@ function ses_get($id=0)
 
 function ses_anon_make()
 {
-	$pfx = md5(__request_timestamp__);
-
-	if (__dbtype__ == 'mysql') {
-		$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (MD5(CONCAT(LAST_INSERT_ID(), '".$pfx."')), ".__request_timestamp__.", '".ses_make_sysid()."', LAST_INSERT_ID()+2000000000)");
-		$ses_id = md5($id.$pfx);
-	} else {
-		$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES (length(substring(textcat(translate(currval('{SQL_TABLE_PREFIX}ses_id_seq'), '1234567890', 'AbCDeFgHiJ'), '".$pfx."'), 0, 33)), ".__request_timestamp__.", '".ses_make_sysid()."', currval('{SQL_TABLE_PREFIX}ses_id_seq')+2000000000)");
-		$tr = array('1'=>'A', '2'=>'b', '3'=>'C', '4'=>'D', '5'=>'e','6'=>'F','7'=>'g','8'=>'H','9'=>'i','0'=>'J');
-		$ses_id = substr(strtr((string)$id, $tr).$pfx, 0, 32);
-	}
-	$uid = 2000000000 + $id;
+	do {
+		$uid = 2000000000 + mt_rand(1, 147483647);
+		$ses_id = md5($uid . __request_timestamp__ . getmypid());
+	} while (!($id = db_li("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id, time_sec, sys_id, user_id) VALUES ('".$ses_id."', ".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.")", $ef, 1)));
 
 	/* when we have an anon user, we set a special cookie allowing us to see who referred this user */
 	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
