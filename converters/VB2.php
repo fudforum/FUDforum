@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
+*   $Id: VB2.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,7 +51,7 @@
 	fud_use('rhost.inc');
 	fud_use('private.inc');
 	fud_use('mime.inc');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 	
 	include_once $VB2_CONFIG_PATH;
 	define ("VB2DIR", realpath(dirname($VB2_CONFIG_PATH).'/../'));

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.6 2002/07/08 23:21:26 hackie Exp $
+*   $Id: phorum.php,v 1.7 2002/07/11 21:23:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 	fud_use('forum_adm.inc');
 	fud_use('groups.inc');
 	fud_use('mime.inc');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 	
 	$PH_SETTINGS_PATH = realpath($PH_SETTINGS_PATH);
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: Yabb_dc.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
+*   $Id: Yabb_dc.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,7 +151,7 @@ function getyabbgroupname($str)
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
 	fud_use('rhost.inc');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 
 	$YABB_CONFIG_FILE = realpath($YABB_CONFIG_FILE);
 	

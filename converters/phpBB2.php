@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
+*   $Id: phpBB2.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -844,7 +844,7 @@ $group_map = array(
 	
 /* Import phpBB settings */
 	print_status('Importing Forum Settings');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 
 	$global_config = read_global_config();
 

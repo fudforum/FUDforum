@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: openbb.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
+*   $Id: openbb.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 	fud_use('imsg_edt.inc');
 	fud_use('post_proc.inc');
 	fud_use('rhost.inc');
-	fud_use('static/glob.inc');
+	fud_use('glob.inc', TRUE);
 
 	if( isset($HTTP_SERVER_VARS['REMOTE_ADDR']) ) echo '<pre>';
 	if( !isset($DBHOST_TBL_PREFIX) ) $DBHOST_TBL_PREFIX = $MYSQL_TBL_PREFIX;
