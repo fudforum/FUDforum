@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.7 2003/04/09 12:01:45 hackie Exp $
+*   $Id: getfile.php.t,v 1.8 2003/05/01 20:36:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,6 +58,8 @@
 		$append = 'attachment; ';
 	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
+	} else {
+		$append = 'attachment; ';
 	}
 
 	header('Content-type: '.$r[0]);

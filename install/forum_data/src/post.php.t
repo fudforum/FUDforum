@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.48 2003/04/30 19:51:05 hackie Exp $
+*   $Id: post.php.t,v 1.49 2003/05/01 20:36:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -130,8 +130,16 @@ function flood_check()
 	/* Retrieve Message */
 	if (!isset($_POST['prev_loaded'])) { 
 		if (_uid) {
-			$msg_show_sig = $usr->append_sig == 'Y' ? $usr->append_sig : NULL;
-			$msg_poster_notif = $usr->notify == 'Y' ? $usr->notify : NULL;
+			if (!$msg_id) {
+				$msg_show_sig = $usr->append_sig == 'Y' ? $usr->append_sig : NULL;
+			} else {
+				$msg_show_sig = $msg->show_sig == 'Y' ? $msg->show_sig : NULL;
+			}
+			if ($msg_id || $reply_to || $th_id) {
+				$msg_poster_notif = is_notified(_uid, $msg->thread_id) ? 'Y' : NULL;
+			} else {
+				$msg_poster_notif = $usr->notify == 'Y' ? $usr->notify : NULL;
+			}
 		}
 		
 		if ($msg_id) {
@@ -151,11 +159,10 @@ function flood_check()
 	 				reverse_nl2br($msg_body);
 	 		}
 	 		$msg_body = apply_reverse_replace($msg_body);
-	 		
-	 		$msg_poster_notif = is_notified($usr->id, $msg->thread_id) ? 'Y' : NULL;
+
 	 		$msg_smiley_disabled = $msg->smiley_disabled == 'Y' ? 'Y' : NULL;
-	 		$msg_icon = $msg->icon;
-	 			
+			$msg_icon = $msg->icon;
+
 	 		if ($msg->attach_cnt) {
 	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");
 	 			while ($fa_id = db_rowarr($r)) {
@@ -219,24 +226,30 @@ function flood_check()
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
 				$attach_list = @unserialize(base64_decode($_POST['file_array']));
-				$attach_count = count($attach_list);
+				if (($attach_count = count($attach_list))) {
+					foreach ($attach_list as $v) {
+						if (!$v) {
+							--$attach_count;
+						}
+					}
+				}
 			}
 			
 			/* remove file attachment */
 			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]')) {
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== FALSE) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
 					
 				$attach_count--;
 			}	
 			
-			$MAX_F_SIZE = $frm->max_attach_size;
+			$MAX_F_SIZE = $frm->max_attach_size * 1024;
 			/* newly uploaded files */
 			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
-				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE * 1024) {
+				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE) {
 					$attach_control_error = '{TEMPLATE: post_err_attach_size}';
 				} else {
 					if (filter_ext($_FILES['attach_control']['name'])) {
@@ -282,7 +295,7 @@ function flood_check()
 					$text = htmlspecialchars($text);
 			}
 
-			if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+			if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
 				$text = smiley_to_post($text);
 			}
 
@@ -290,7 +303,7 @@ function flood_check()
 				$wa = tokenize_string($text);
 				$msg_body = spell_replace($wa, 'body');
 				
-				if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+				if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
 					$msg_body = post_to_smiley($msg_body);
 				}
 				if ($frm->tag_style == 'ML' ) {
@@ -327,12 +340,11 @@ function flood_check()
 			/* Process Message Data */
 			$msg_post->poster_id = _uid;
 			$msg_post->poll_id = $pl_id;
-			$msg_post->subject = $_POST['msg_subject'];
-			$msg_post->body = $_POST['msg_body'];
+			$msg_post->subject = $msg_subject;
+			$msg_post->body = $msg_body;
 			$msg_post->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
-			$msg_post->show_sig = isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : '';
-		 	$msg_post->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
-		 	$msg_post->show_sig = isset($_POST['msg_show_sig']) ? 'Y' : 'N';
+		 	$msg_post->smiley_disabled = $msg_smiley_disabled ? 'Y' : 'N';
+		 	$msg_post->show_sig = $msg_show_sig ? 'Y' : 'N';
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			
@@ -389,7 +401,7 @@ function flood_check()
 			if (_uid) {
 	 			if (isset($_POST['msg_poster_notif'])) {
 	 				thread_notify_add(_uid, $msg_post->thread_id);
-	 			} else if ($msg_id) {
+	 			} else {
 	 				thread_notify_del(_uid, $msg_post->thread_id);
 	 			}
 			}
@@ -463,7 +475,7 @@ function flood_check()
 				$text = nl2br(htmlspecialchars($text));
 		}
 			
-		if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+		if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 	
@@ -590,7 +602,7 @@ function flood_check()
 	
 	/* handle smilies */
 	if ($perms['p_sml'] == 'Y') {
-		$msg_smiley_disabled_check = (isset($_POST['msg_smiley_disabled']) ? ' checked' : '');
+		$msg_smiley_disabled_check = isset($msg_smiley_disabled) ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 		$post_smilies = draw_post_smiley_cntrl();
 	} else {
