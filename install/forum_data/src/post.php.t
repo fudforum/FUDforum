@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.74 2003/09/28 14:45:37 hackie Exp $
+*   $Id: post.php.t,v 1.75 2003/09/28 17:23:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,8 +79,8 @@ function flood_check()
 	$frm = db_sab('SELECT id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	
 	/* fetch permissions & moderation status */
-	$perms = perms_from_obj(db_sab("SELECT group_cache_opt FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1"), ($usr->users_opt & 1048576));
-	$MOD = ($usr->users_opt & 1048576 || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
+	$MOD = (int) ($usr->users_opt & 1048576 || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
+	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), ($usr->users_opt & 1048576));
 
 	/* More Security */
 	if (isset($thr) && !($perms & 4096) && $thr->thread_opt & 1) {

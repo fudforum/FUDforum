@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.26 2003/09/28 11:46:26 hackie Exp $
+*   $Id: thread.php.t,v 1.27 2003/09/28 17:23:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -123,7 +123,7 @@
 			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
 
 			$thread_read_status = $first_unread_msg_link = '';
-			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[21]) {
+			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[20]) {
 				if ($r[18] & 1) {
 					$thread_read_status = '{TEMPLATE: thread_unread_locked}';
 				} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.71 2003/09/28 14:45:37 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.72 2003/09/28 17:23:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,7 +72,8 @@ class fud_msg_edit extends fud_msg
 			subject, 
 			attach_cnt, 
 			poll_id, 
-			icon, 
+			icon,
+			msg_opt,
 			file_id,
 			foff,
 			length,
@@ -92,7 +93,7 @@ class fud_msg_edit extends fud_msg
 			".(int)$this->attach_cnt.",
 			".(int)$this->poll_id.",
 			".strnull(addslashes($this->icon)).",
-			".$this->msg_opt."
+			".$this->msg_opt.",
 			".$file_id.",
 			".(int)$offset.",
 			".(int)$length.",
@@ -103,7 +104,7 @@ class fud_msg_edit extends fud_msg
 			".strnull(addslashes($poll_cache))."
 		)");
 
-		$thread_opt = ($perm & 4096 && isset($_POST['thr_locked']));
+		$thread_opt = (int) ($perm & 4096 && isset($_POST['thr_locked']));
 
 		if (!$this->thread_id) { /* new thread */
 			if ($perm & 64 && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
@@ -112,21 +113,21 @@ class fud_msg_edit extends fud_msg
 					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
 				}
 			}
-			
-			$this->thread_id = th_add($this->id, $forum_id, $this->post_stamp, $thread_opt, $thr_orderexpiry);
-	
+
+			$this->thread_id = th_add($this->id, $forum_id, $this->post_stamp, $thread_opt, (isset($thr_orderexpiry) ? $thr_orderexpiry : 0));
+
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
 		} else {
-			th_lock($this->thread_id, $thr_locked & 1);
+			th_lock($this->thread_id, $thread_opt & 1);
 		}
-		
+
 		if ($autoapprove && $forum_opt & 2) {
 			$this->approve($this->id, TRUE);
 		}
 
 		return $this->id;
 	}
-	
+
 	function sync($id, $frm_id, $message_threshold, $perm)
 	{
 		if (!db_locked()) {
@@ -155,8 +156,8 @@ class fud_msg_edit extends fud_msg
 			offset_preview=".$offset_preview.",
 			length_preview=".$length_preview.",
 			updated_by=".$id.",
-			apr=".$this->apr."
-			msg_opt=".$this->msg_opt."
+			apr=".$this->apr.",
+			msg_opt=".$this->msg_opt.",
 			attach_cnt=".(int)$this->attach_cnt.", 
 			poll_id=".(int)$this->poll_id.", 
 			update_stamp=".__request_timestamp__.", 
@@ -352,15 +353,15 @@ class fud_msg_edit extends fud_msg
 			return;
 		}
 
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
-			$ll = 1;
-		}
-
 		if ($mtf->alias) {
 			reverse_fmt($mtf->alias);
 		} else {
 			$mtf->alias = $GLOBALS['ANON_NICK'];
+		}
+
+		if (!db_locked()) {
+			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+			$ll = 1;
 		}
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET apr=1 WHERE id=".$mtf->id);
@@ -408,33 +409,33 @@ class fud_msg_edit extends fud_msg
 			}
 		
 			/* send new thread notifications to forum subscribers */
-			$c = uq('SELECT u.email, u.icq, u.notify_method
+			$c = uq('SELECT u.email, u.icq, u.users_opt
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
-					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
+					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.' 
 					AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
-					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
+					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
 			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
-			$c = uq('SELECT u.email, u.icq, u.notify_method, r.msg_id, u.id
+			$c = uq('SELECT u.email, u.icq, u.users_opt, r.msg_id, u.id
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
-					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.intzero($mtf->poster_id).' 
+					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.' 
 					AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))
-					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
+					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
 			$notify_type = 'thr';
 		}
 		while ($r = db_rowarr($c)) {
-			$to[$r[2]][] = $r[2] == 'EMAIL' ? $r[0] : $r[1].'@pager.icq.com';
+			$to[$r[2]][] = $r[2] & 16 ? $r[0] : $r[1].'@pager.icq.com';
 			if (isset($r[4]) && is_null($r[3])) {
 				$tl[] = $r[4];
 			}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.14 2003/09/27 17:18:50 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.15 2003/09/28 17:23:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
 			'.($mod & 1048576 ? '' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-			'.($mod & 1048576 ? '' : ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END) & 1').'
+			'.($mod & 1048576 ? '' : ' WHERE (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 1').'
 			ORDER BY c.view_order, f.view_order');			
 
 		while ($r = db_rowarr($c)) {

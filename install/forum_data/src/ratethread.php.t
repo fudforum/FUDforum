@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ratethread.php.t,v 1.4 2003/09/28 13:23:42 hackie Exp $
+*   $Id: ratethread.php.t,v 1.5 2003/09/28 17:23:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON t.forum_id=m.forum_id AND m.user_id='._uid.'
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=t.forum_id 
 				'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id ' : '').'
-				WHERE t.id='.$th.($usr->users_opt & 1048576 ? '' : ' AND (m.id IS NOT NULL OR group_cache_opt & 1024)'))) {
+				WHERE t.id='.$th.($usr->users_opt & 1048576 ? '' : ' AND (m.id IS NOT NULL OR (CASE WHEN g1.id IS NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1024)')  . ' LIMIT 1')) {
 			std_error('access');
 		}
 
