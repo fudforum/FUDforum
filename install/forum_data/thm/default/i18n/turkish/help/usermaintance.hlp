@@ -1,100 +1,100 @@
-TOPIC_TITLE: <a name="register">Neden kayıt olunmalı?</a>
+TOPIC_TITLE: <a name="register">Neden kayÄ±t olunmalÄ±?</a>
 TOPIC_HELP:
-Çoğu forumda yeni zincir yaratamadığınızı veya zincirlere yanıt yazamadığınızı farkedeceksiniz, tabii
-eğer yönetici açık olarak izin vermemişse. Tartışmaya katılabilmek için, büyük olasılıkla kayıt olmanız gerekecek.
-Kayıt olduğunuzda, ayrıca diğer bir çok forum özelliğini de kullanabilir duruma geleceksiniz. Bu özellikler arasında:
+Ã‡oÄŸu forumda yeni zincir yaratamadÄ±ÄŸÄ±nÄ±zÄ± veya zincirlere yanÄ±t yazamadÄ±ÄŸÄ±nÄ±zÄ± farkedeceksiniz, tabii
+eÄŸer yÃ¶netici aÃ§Ä±k olarak izin vermemiÅŸse. TartÄ±ÅŸmaya katÄ±labilmek iÃ§in, bÃ¼yÃ¼k olasÄ±lÄ±kla kayÄ±t olmanÄ±z gerekecek.
+KayÄ±t olduÄŸunuzda, ayrÄ±ca diÄŸer bir Ã§ok forum Ã¶zelliÄŸini de kullanabilir duruma geleceksiniz. Bu Ã¶zellikler arasÄ±nda:
 <ul>
-	<li>İletilerinize yanıt yazıldığında gönderilen Email/ICQ uyarısı
-	<li>Özel imza, avatar, kişisel takılar vb.
-	<li>Forumdaki diğer üyelere özel ileti gönderebilme
-	<li>Yaşadığınız yerin saat dilimini belirterek, forumdaki zamanın size uygun şekilde görüntülenmesini sağlayabilme
+	<li>Ä°letilerinize yanÄ±t yazÄ±ldÄ±ÄŸÄ±nda gÃ¶nderilen Email/ICQ uyarÄ±sÄ±
+	<li>Ã–zel imza, avatar, kiÅŸisel takÄ±lar vb.
+	<li>Forumdaki diÄŸer Ã¼yelere Ã¶zel ileti gÃ¶nderebilme
+	<li>YaÅŸadÄ±ÄŸÄ±nÄ±z yerin saat dilimini belirterek, forumdaki zamanÄ±n size uygun ÅŸekilde gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlayabilme
 </ul>
-sayılabilir. Aksi belirtilmediği sürece, kayıt işlemi tamamen ücretsizdir, ve sadece e-mektup adresiniz ve takma isminiz
-gibi en az düzeydeki bilgiyi gerektirir.
+sayÄ±labilir. Aksi belirtilmediÄŸi sÃ¼rece, kayÄ±t iÅŸlemi tamamen Ã¼cretsizdir, ve sadece e-mektup adresiniz ve takma isminiz
+gibi en az dÃ¼zeydeki bilgiyi gerektirir.
 <br>
-COPPA engellenmemiş durumdaysa ve 13 yaşın altındaysanız, ileti gönderebilmek için yasal koruyucunuzun/velinizin izin vermesi
-gerekecek. COPPA'nın engellenmediği forumlarda kayıt işlemi tamamlandığında, 13 yaşından küçük kullanıcılar başka bir forma
-yönlendirilecek, bu formun yasal koruyucu tarafından doldurulması ve o sayfada verilen uygun adrese gönderilmesi gerekiyor.
+COPPA engellenmemiÅŸ durumdaysa ve 13 yaÅŸÄ±n altÄ±ndaysanÄ±z, ileti gÃ¶nderebilmek iÃ§in yasal koruyucunuzun/velinizin izin vermesi
+gerekecek. COPPA'nÄ±n engellenmediÄŸi forumlarda kayÄ±t iÅŸlemi tamamlandÄ±ÄŸÄ±nda, 13 yaÅŸÄ±ndan kÃ¼Ã§Ã¼k kullanÄ±cÄ±lar baÅŸka bir forma
+yÃ¶nlendirilecek, bu formun yasal koruyucu tarafÄ±ndan doldurulmasÄ± ve o sayfada verilen uygun adrese gÃ¶nderilmesi gerekiyor.
 
 
-TOPIC_TITLE: <a name="cookies">FUDforum kurabiyeleri nasıl kullanıyor?</a>
+TOPIC_TITLE: <a name="cookies">FUDforum kurabiyeleri nasÄ±l kullanÄ±yor?</a>
 TOPIC_HELP:
-Olağan olarak FUDforum kurabiyeleri, daha önce giriş yapıp yapmadığınız gibi küçük bir bilgiyi saklamak için tutar. Eğer
-tarayıcınız kurabiyeleri desteklemiyorsa, FUDforum bunun yerine oturumları kullanacaktır. Oturum kullanıldığında, bilgisayarınızda
-herhangi bir bilgi tutulmaz. Giriş işlemi sırasında kurabiye kullanılma seçeneğini atlayabilir ve oturum sisteminin kullanılmasını
-tercih edebilirsiniz. Halka açık bilgisayarlardan bağlanıyorsanız bu yöntemi uygulamanız önerilir, böylelikle kimliğinizin izinsiz
-kullanılmasını engelleyebilirsiniz. Aynı tehlike forumdan çıkış yapmadığınız zaman da mevcuttur. Bununla birlikte çoğu durumda
-kurabiyeleri kullanmak isteyeceksiniz, çünkü bu şekilde forumun kullanılması daha rahat olacaktır, örneğin kurabiye kullandığınızda
-forumu her ziyaret edişinizde yeniden giriş yapmanız gerekmez.
+OlaÄŸan olarak FUDforum kurabiyeleri, daha Ã¶nce giriÅŸ yapÄ±p yapmadÄ±ÄŸÄ±nÄ±z gibi kÃ¼Ã§Ã¼k bir bilgiyi saklamak iÃ§in tutar. EÄŸer
+tarayÄ±cÄ±nÄ±z kurabiyeleri desteklemiyorsa, FUDforum bunun yerine oturumlarÄ± kullanacaktÄ±r. Oturum kullanÄ±ldÄ±ÄŸÄ±nda, bilgisayarÄ±nÄ±zda
+herhangi bir bilgi tutulmaz. GiriÅŸ iÅŸlemi sÄ±rasÄ±nda kurabiye kullanÄ±lma seÃ§eneÄŸini atlayabilir ve oturum sisteminin kullanÄ±lmasÄ±nÄ±
+tercih edebilirsiniz. Halka aÃ§Ä±k bilgisayarlardan baÄŸlanÄ±yorsanÄ±z bu yÃ¶ntemi uygulamanÄ±z Ã¶nerilir, bÃ¶ylelikle kimliÄŸinizin izinsiz
+kullanÄ±lmasÄ±nÄ± engelleyebilirsiniz. AynÄ± tehlike forumdan Ã§Ä±kÄ±ÅŸ yapmadÄ±ÄŸÄ±nÄ±z zaman da mevcuttur. Bununla birlikte Ã§oÄŸu durumda
+kurabiyeleri kullanmak isteyeceksiniz, Ã§Ã¼nkÃ¼ bu ÅŸekilde forumun kullanÄ±lmasÄ± daha rahat olacaktÄ±r, Ã¶rneÄŸin kurabiye kullandÄ±ÄŸÄ±nÄ±zda
+forumu her ziyaret ediÅŸinizde yeniden giriÅŸ yapmanÄ±z gerekmez.
 
 
-TOPIC_TITLE: <a name="clrcookie">FUDforum kurabiyesi nasıl kaldırılabilir?</a>
+TOPIC_TITLE: <a name="clrcookie">FUDforum kurabiyesi nasÄ±l kaldÄ±rÄ±labilir?</a>
 TOPIC_HELP:
-FUDforum tarafından bırakılan kurabiyeyi kaldırmak için, basitçe Çıkış yap linkine tıklatın, bu otomatikman kurabiyeyi silecektir.
+FUDforum tarafÄ±ndan bÄ±rakÄ±lan kurabiyeyi kaldÄ±rmak iÃ§in, basitÃ§e Ã‡Ä±kÄ±ÅŸ yap linkine tÄ±klatÄ±n, bu otomatikman kurabiyeyi silecektir.
 
 
-TOPIC_TITLE: <a name="updprofile">Kişisel Bilgiler nedir?</a>
-TOPIC_HELP: Forumun bir üyesi olarak, içinde kendiniz ile ilgili bilgileri (ICQ veya MSN numaranız, imzanız, özgeçmişiniz vb.) saklayabileceğiniz bir kişisel
-bilgiler bölümüne sahipsiniz. Kişisel Bilgiler bölümü ayrıca forum ile ilgili bazı ayarların da belirtildiği bölümdür. Giriş yaptığınız herhangi bir zaman
-kişisel bilgilerinizde değişiklik yapabilirsiniz. Ayrıca unutmamalısınız ki kişisel bilgilerinizde yer alan bilgiler diğer forum üyeleri tarafından
-görünebilir durumdadır. Dolayısıyla, diğerlerinin görmesini istemediğiniz, sizin için hassas olan bilgileri bu bölüme koymamalısınız.
+TOPIC_TITLE: <a name="updprofile">KiÅŸisel Bilgiler nedir?</a>
+TOPIC_HELP: Forumun bir Ã¼yesi olarak, iÃ§inde kendiniz ile ilgili bilgileri (ICQ veya MSN numaranÄ±z, imzanÄ±z, Ã¶zgeÃ§miÅŸiniz vb.) saklayabileceÄŸiniz bir kiÅŸisel
+bilgiler bÃ¶lÃ¼mÃ¼ne sahipsiniz. KiÅŸisel Bilgiler bÃ¶lÃ¼mÃ¼ ayrÄ±ca forum ile ilgili bazÄ± ayarlarÄ±n da belirtildiÄŸi bÃ¶lÃ¼mdÃ¼r. GiriÅŸ yaptÄ±ÄŸÄ±nÄ±z herhangi bir zaman
+kiÅŸisel bilgilerinizde deÄŸiÅŸiklik yapabilirsiniz. AyrÄ±ca unutmamalÄ±sÄ±nÄ±z ki kiÅŸisel bilgilerinizde yer alan bilgiler diÄŸer forum Ã¼yeleri tarafÄ±ndan
+gÃ¶rÃ¼nebilir durumdadÄ±r. DolayÄ±sÄ±yla, diÄŸerlerinin gÃ¶rmesini istemediÄŸiniz, sizin iÃ§in hassas olan bilgileri bu bÃ¶lÃ¼me koymamalÄ±sÄ±nÄ±z.
 <br>
-Kişisel bilgilerinizde <b>E-mektup adresini göster</b> seçeneği eğer <b>HAYIR</b> olarak seçilmişse e-mektup adresiniz gizlenir. E-mektup adresinizin
-diğerleri tarafından görüntülenmesini istemiyorsanız bu seçeneği kullanabilirsiniz.
+KiÅŸisel bilgilerinizde <b>E-mektup adresini gÃ¶ster</b> seÃ§eneÄŸi eÄŸer <b>HAYIR</b> olarak seÃ§ilmiÅŸse e-mektup adresiniz gizlenir. E-mektup adresinizin
+diÄŸerleri tarafÄ±ndan gÃ¶rÃ¼ntÃ¼lenmesini istemiyorsanÄ±z bu seÃ§eneÄŸi kullanabilirsiniz.
 
 
-TOPIC_TITLE: <a name="sigs">İmza nedir?</a>
+TOPIC_TITLE: <a name="sigs">Ä°mza nedir?</a>
 TOPIC_HELP:
-İmza, gönderdiğiniz her iletinin alt kısmına otomatik olarak eklenen bir yazıdır. Kişisel bilgilerinizde bulunan <b>"Varsayılan olarak imzayı ekle"</b>
-seçeneğini kullanarak imzanızın eklenip/eklenmeyeceğini belirleyebilirsiniz. Buradaki ayar ne olursa olsun, göndermek istediğiniz tüm iletilerin alt kısmında
-da aynı seçenek çıkar, bunu kullanarak belirli bir ileti için de bu seçeneği değiştirebilirsiniz.
+Ä°mza, gÃ¶nderdiÄŸiniz her iletinin alt kÄ±smÄ±na otomatik olarak eklenen bir yazÄ±dÄ±r. KiÅŸisel bilgilerinizde bulunan <b>"VarsayÄ±lan olarak imzayÄ± ekle"</b>
+seÃ§eneÄŸini kullanarak imzanÄ±zÄ±n eklenip/eklenmeyeceÄŸini belirleyebilirsiniz. Buradaki ayar ne olursa olsun, gÃ¶ndermek istediÄŸiniz tÃ¼m iletilerin alt kÄ±smÄ±nda
+da aynÄ± seÃ§enek Ã§Ä±kar, bunu kullanarak belirli bir ileti iÃ§in de bu seÃ§eneÄŸi deÄŸiÅŸtirebilirsiniz.
 .<br>
-Düz metne ek olarak, yönetici tarafından izin verildiyse, imzanız diğer bazı şeyler de içerebilir, örneğin sevdiğiniz URL'lere linkller, kişisel
-fotoğraflar vb.
+DÃ¼z metne ek olarak, yÃ¶netici tarafÄ±ndan izin verildiyse, imzanÄ±z diÄŸer bazÄ± ÅŸeyler de iÃ§erebilir, Ã¶rneÄŸin sevdiÄŸiniz URL'lere linkller, kiÅŸisel
+fotoÄŸraflar vb.
 <br>
-Eğer diğer üyelerin imzalarını görmek istemiyorsanız, kişisel bilgilerinizdeki <b>"İmzaları göster"</b> seçeneğini kapatarak bunu sağlayabilirsiniz.
+EÄŸer diÄŸer Ã¼yelerin imzalarÄ±nÄ± gÃ¶rmek istemiyorsanÄ±z, kiÅŸisel bilgilerinizdeki <b>"Ä°mzalarÄ± gÃ¶ster"</b> seÃ§eneÄŸini kapatarak bunu saÄŸlayabilirsiniz.
 
 
-TOPIC_TITLE: <a name="rstpasswd">Parolanızı kaybettiyseniz ne yapmalısınız?</a>
+TOPIC_TITLE: <a name="rstpasswd">ParolanÄ±zÄ± kaybettiyseniz ne yapmalÄ±sÄ±nÄ±z?</a>
 TOPIC_HELP:
-Eğer FUDforum parolanızı hatırlayamıyorsanız, <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">parola belirleme sayfasına</a> giderek
-e-mektup adresinizi belirtip Gönder düğmesini tıklatmallısınız. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriştiğinizde
-parolanız yeniden belirlenecek ve yeni parolanızı söyleyen bir e-mektup alacaksınız.<br>
+EÄŸer FUDforum parolanÄ±zÄ± hatÄ±rlayamÄ±yorsanÄ±z, <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">parola belirleme sayfasÄ±na</a> giderek
+e-mektup adresinizi belirtip GÃ¶nder dÃ¼ÄŸmesini tÄ±klatmallÄ±sÄ±nÄ±z. Bu sayede size Ã¶zel bir URL e-mektup ile gÃ¶nderilecek, o URL'ye eriÅŸtiÄŸinizde
+parolanÄ±z yeniden belirlenecek ve yeni parolanÄ±zÄ± sÃ¶yleyen bir e-mektup alacaksÄ±nÄ±z.<br>
 <br>
-<b>Not:</b>Parolalarınız, MD5 sağlama toplamı adı verilen tek yönlü bir şifreleme biçimiyle saklanır. Bu, askeri düzeyde 128-bitlik bir
-şifreleme olup, parolalarınızı geri getirmenin bir yolu yoktur. Bu şifrelemede parolanızın doğrulanması, her girişinizde belirttiğiniz
-parolanın MD5 toplamının veritabanındaki MD5 toplamı ile karşılaştırılması şeklinde olur. Dolayısıyla, parolanızı unuttuğunuzda, ne olduğunun
-bulunmasının herhangi bir yolu yoktur. Bu yüzden, parolanızı yeniden belirlediğinizde, forum sizin için rastgele yeni bir parola üretecektir.
+<b>Not:</b>ParolalarÄ±nÄ±z, MD5 saÄŸlama toplamÄ± adÄ± verilen tek yÃ¶nlÃ¼ bir ÅŸifreleme biÃ§imiyle saklanÄ±r. Bu, askeri dÃ¼zeyde 128-bitlik bir
+ÅŸifreleme olup, parolalarÄ±nÄ±zÄ± geri getirmenin bir yolu yoktur. Bu ÅŸifrelemede parolanÄ±zÄ±n doÄŸrulanmasÄ±, her giriÅŸinizde belirttiÄŸiniz
+parolanÄ±n MD5 toplamÄ±nÄ±n veritabanÄ±ndaki MD5 toplamÄ± ile karÅŸÄ±laÅŸtÄ±rÄ±lmasÄ± ÅŸeklinde olur. DolayÄ±sÄ±yla, parolanÄ±zÄ± unuttuÄŸunuzda, ne olduÄŸunun
+bulunmasÄ±nÄ±n herhangi bir yolu yoktur. Bu yÃ¼zden, parolanÄ±zÄ± yeniden belirlediÄŸinizde, forum sizin iÃ§in rastgele yeni bir parola Ã¼retecektir.
 
 
-TOPIC_TITLE: <a name="cstat">Özel takılar nedir & nasıl kullanabilirim?</a>
+TOPIC_TITLE: <a name="cstat">Ã–zel takÄ±lar nedir & nasÄ±l kullanabilirim?</a>
 TOPIC_HELP:
-Özel takılar sadece yönetici tarafından eklenebilir, dolayısıyla özel bir takı istiyorsanız, forumun yöneticinden istemelisiniz.
+Ã–zel takÄ±lar sadece yÃ¶netici tarafÄ±ndan eklenebilir, dolayÄ±sÄ±yla Ã¶zel bir takÄ± istiyorsanÄ±z, forumun yÃ¶neticinden istemelisiniz.
 
 
 TOPIC_TITLE: <a name="avatars">Avatar nedir?</a>
 TOPIC_HELP:
-Avatarlar, kullanıcı bilgilerinizin bulunduğu yerde ve gönderdiğiniz her iletide kullanıcı isminizin altında görüntülenen resimlerdir.
-FUDforum 3 tip avatarı destekler, bazılarına yönetici tarafından izin verilmemiş olabilir. Kendiniz için kişisel bilgiler sayfanızdan bir
-avatar seçebilirsiniz.
+Avatarlar, kullanÄ±cÄ± bilgilerinizin bulunduÄŸu yerde ve gÃ¶nderdiÄŸiniz her iletide kullanÄ±cÄ± isminizin altÄ±nda gÃ¶rÃ¼ntÃ¼lenen resimlerdir.
+FUDforum 3 tip avatarÄ± destekler, bazÄ±larÄ±na yÃ¶netici tarafÄ±ndan izin verilmemiÅŸ olabilir. Kendiniz iÃ§in kiÅŸisel bilgiler sayfanÄ±zdan bir
+avatar seÃ§ebilirsiniz.
 <ul>
-	<li><b>Kurulu</b> - Bu avatarlar yönetici tarafından hazırlanır, bu avatarlardan birini seçtiğinizde sayfadaki değişiklikleri sakladığınız
-anda kullanılmaya hazır hale gelir.
-	<li><b>Avatar yükle</b> - Eğer izin verildiyse, sunucuya kendi avatarınızı yüklemeniz mümkündür. Fakat yüklendikten kullanabilmeniz için yönetici
-tarafından onaylanmayı gerektirir.
-	<li><b>URL belirt</b> - Eğer izin verildiyse, avatarınız olacak resmin URL'sini belirtebilirsiniz. Yönetici tarafından onaylandığı takdirde
-avatarınız olarak kullanabilirsiniz.
+	<li><b>Kurulu</b> - Bu avatarlar yÃ¶netici tarafÄ±ndan hazÄ±rlanÄ±r, bu avatarlardan birini seÃ§tiÄŸinizde sayfadaki deÄŸiÅŸiklikleri sakladÄ±ÄŸÄ±nÄ±z
+anda kullanÄ±lmaya hazÄ±r hale gelir.
+	<li><b>Avatar yÃ¼kle</b> - EÄŸer izin verildiyse, sunucuya kendi avatarÄ±nÄ±zÄ± yÃ¼klemeniz mÃ¼mkÃ¼ndÃ¼r. Fakat yÃ¼klendikten kullanabilmeniz iÃ§in yÃ¶netici
+tarafÄ±ndan onaylanmayÄ± gerektirir.
+	<li><b>URL belirt</b> - EÄŸer izin verildiyse, avatarÄ±nÄ±z olacak resmin URL'sini belirtebilirsiniz. YÃ¶netici tarafÄ±ndan onaylandÄ±ÄŸÄ± takdirde
+avatarÄ±nÄ±z olarak kullanabilirsiniz.
 </ul>
 <b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
 
-TOPIC_TITLE: <a name="blist">Arkadaş listesi nedir?</a>
+TOPIC_TITLE: <a name="blist">ArkadaÅŸ listesi nedir?</a>
 TOPIC_HELP:
-Arkadaş listesi, daha sık diyalog kurmak isteyeceğiniz forum üyelerinin sizin tarafınızdan oluşturulan bir listesidir. Birini arkadaş listenize
-eklediğinizde, o kişinin doğum gününü görebileceksiniz (eğer doğum günü belirtilmişse). Ayrıca özel ileti yollamak istediğinizde bunu daha kolay şekilde
+ArkadaÅŸ listesi, daha sÄ±k diyalog kurmak isteyeceÄŸiniz forum Ã¼yelerinin sizin tarafÄ±nÄ±zdan oluÅŸturulan bir listesidir. Birini arkadaÅŸ listenize
+eklediÄŸinizde, o kiÅŸinin doÄŸum gÃ¼nÃ¼nÃ¼ gÃ¶rebileceksiniz (eÄŸer doÄŸum gÃ¼nÃ¼ belirtilmiÅŸse). AyrÄ±ca Ã¶zel ileti yollamak istediÄŸinizde bunu daha kolay ÅŸekilde
 yapabileceksiniz.
 
 
-TOPIC_TITLE: <a name="ignlist">Gözardı listesi ne işe yarar?</a>
+TOPIC_TITLE: <a name="ignlist">GÃ¶zardÄ± listesi ne iÅŸe yarar?</a>
 TOPIC_HELP:
-Gözardı listesi, iletilerini görmek istemediğiniz ve size özel ileti göndermesini engellemek istediğiniz forum üyelerinin bir listesidir. Gönderilen
-her iletide, iletinin yazarını gözardı listesine eklemenize olanak tanıyan bir link bulunur.
+GÃ¶zardÄ± listesi, iletilerini gÃ¶rmek istemediÄŸiniz ve size Ã¶zel ileti gÃ¶ndermesini engellemek istediÄŸiniz forum Ã¼yelerinin bir listesidir. GÃ¶nderilen
+her iletide, iletinin yazarÄ±nÄ± gÃ¶zardÄ± listesine eklemenize olanak tanÄ±yan bir link bulunur.

@@ -1,17 +1,17 @@
-İletilerinizin içinde anketler yaratabilmenize olanak tanıyan anket
-yaratıcısını çalıştırır.
+Ä°letilerinizin iÃ§inde anketler yaratabilmenize olanak tanÄ±yan anket
+yaratÄ±cÄ±sÄ±nÄ± Ã§alÄ±ÅŸtÄ±rÄ±r.
 
 
-Anketler size oylama panoları oluşturma olanağı verir:
+Anketler size oylama panolarÄ± oluÅŸturma olanaÄŸÄ± verir:
 <br>
-Görünümleri şu şekildedir:
+GÃ¶rÃ¼nÃ¼mleri ÅŸu ÅŸekildedir:
 <center>
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <form method="post"><input type="hidden" name="rid" value="2">
 <tr class="TableHeading">
-	<td nowrap colspan=3>Evet mi Hayır mı?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 oy ]</font></td></tr>
+	<td nowrap colspan=3>Evet mi HayÄ±r mÄ±?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 oy ]</font></td></tr>
 	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Evet</td></tr>
-	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Hayır</td></tr>
+	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;HayÄ±r</td></tr>
 	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Olabilir</td></tr>
 	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="Vote"> </td></tr>
 </table>

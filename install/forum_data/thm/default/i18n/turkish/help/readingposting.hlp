@@ -1,160 +1,156 @@
-TOPIC_TITLE: <a name="style">Metin biçimlendirmesi nasıl yapılır?</a>
+TOPIC_TITLE: <a name="style">Metin biÃ§imlendirmesi nasÄ±l yapÄ±lÄ±r?</a>
 TOPIC_HELP:
-Genel olarak forumdaki iletiler düz metinden oluşur, bununla birlikte zaman zaman metni
-biçimlendirmek isteyebilirsiniz, örnegin bazı bölümleri veya sözcükleri kalın, yatık yapmak vb.
+Genel olarak forumdaki iletiler dÃ¼z metinden oluÅŸur, bununla birlikte zaman zaman metni
+biÃ§imlendirmek isteyebilirsiniz, Ã¶rnegin bazÄ± bÃ¶lÃ¼mleri veya sÃ¶zcÃ¼kleri kalÄ±n, yatÄ±k yapmak vb.
 <p>
-Çoğu durumda yönetici iletilerinizde HTML kullanmanıza izin vermeyeceği için, FUDcode kullanmanız gerekebilir.
-FUDcode, metninizi biçimlendirmenizi sağlayan ve HTML yerine kullanabileceğiniz takıları içerir. FUDcode kullanımı
-çok kolaydır, ve HTML'ye göre çok daha güvenlidir.
+Ã‡oÄŸu durumda yÃ¶netici iletilerinizde HTML kullanmanÄ±za izin vermeyeceÄŸi iÃ§in, FUDcode kullanmanÄ±z gerekebilir.
+FUDcode, metninizi biÃ§imlendirmenizi saÄŸlayan ve HTML yerine kullanabileceÄŸiniz takÄ±larÄ± iÃ§erir. FUDcode kullanÄ±mÄ±
+Ã§ok kolaydÄ±r, ve HTML'ye gÃ¶re Ã§ok daha gÃ¼venlidir.
 <p>
-<b>İşte desteklenen FUDcode takıları ve kullanım hakkında kısa örnekler:</b>
+<b>Ä°ÅŸte desteklenen FUDcode takÄ±larÄ± ve kullanÄ±m hakkÄ±nda kÄ±sa Ã¶rnekler:</b>
 
 <b>URL linkleri</b><br><br>
 
-Forum otomatik olarak değişik şekillerdeki URLleri tanıyabilir, örneğin:<br>
+Forum otomatik olarak deÄŸiÅŸik ÅŸekillerdeki URLleri tanÄ±yabilir, Ã¶rneÄŸin:<br>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
-adresinin otomatik olarak URL olduğu tanınır ve şu şekilde görüntülenir:
+adresinin otomatik olarak URL olduÄŸu tanÄ±nÄ±r ve ÅŸu ÅŸekilde gÃ¶rÃ¼ntÃ¼lenir:
 	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
 	
-FUDcode kullanarak kendiniz de iki değişik yol ile bir URL oluşturabilirsiniz, bunlardan daha basit olanı:
+FUDcode kullanarak kendiniz de iki deÄŸiÅŸik yol ile bir URL oluÅŸturabilirsiniz, bunlardan daha basit olanÄ±:
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.anasayfam.com</font>[/URL]</font></b></div><br>
-şeklinde bir yapı oluşturduğunuzda aşağıdaki link oluşacaktır:
+ÅŸeklinde bir yapÄ± oluÅŸturduÄŸunuzda aÅŸaÄŸÄ±daki link oluÅŸacaktÄ±r:
 	<div align="center"><a href="http://www.anasayfam.com" target=_blank>http://www.anasayfam.com</a></div><br>
-Oluşturduğunuz URLye bir betimleme de eklemeniz mümkün, bunun için daha değişik bir yazım kuralı uygulamalısınız:
-<font color="#ff0000"><b>[URL=<font color="#006600">http://www.anasayfam.com</font>]<font color="#006600">Burası benim ana sayfam</font>[/URL]</b></font>
-Bu, aşağıdaki şekilde görüntülenir:<br>
-	<div align="center"><a href="http://www.anasayfam.com" target=_blank>Burası benim ana sayfam</a></div><br>
+OluÅŸturduÄŸunuz URLye bir betimleme de eklemeniz mÃ¼mkÃ¼n, bunun iÃ§in daha deÄŸiÅŸik bir yazÄ±m kuralÄ± uygulamalÄ±sÄ±nÄ±z:
+<font color="#ff0000"><b>[URL=<font color="#006600">http://www.anasayfam.com</font>]<font color="#006600">BurasÄ± benim ana sayfam</font>[/URL]</b></font>
+Bu, aÅŸaÄŸÄ±daki ÅŸekilde gÃ¶rÃ¼ntÃ¼lenir:<br>
+	<div align="center"><a href="http://www.anasayfam.com" target=_blank>BurasÄ± benim ana sayfam</a></div><br>
 <p>
 <b>E-mektup linkleri</b><br><br>
-E-mektup linki oluşturmak için e-mektup adresini normal şekilde yazmanız yeterlidir:
+E-mektup linki oluÅŸturmak iÃ§in e-mektup adresini normal ÅŸekilde yazmanÄ±z yeterlidir:
 <br>
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-Forum otomatik olarak bunu algılar, ve bir link yaratır. Buna ek olarak
-aşağıdaki biçimde bir e-mektup linki oluşturmak da mümkündür:
+Forum otomatik olarak bunu algÄ±lar, ve bir link yaratÄ±r. Buna ek olarak
+aÅŸaÄŸÄ±daki biÃ§imde bir e-mektup linki oluÅŸturmak da mÃ¼mkÃ¼ndÃ¼r:
 <br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Teknik Destek almak için buraya e-mektup atın<font color="#ff0000"><b>[/email]</b></font><br></div>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Teknik Destek almak iÃ§in buraya e-mektup atÄ±n<font color="#ff0000"><b>[/email]</b></font><br></div>
 <br>
-<b>Metin Biçimlendirme</b><br>
-Metin biçimlendirmek için bir kaç takı vardır, bunlar:
+<b>Metin BiÃ§imlendirme</b><br>
+Metin biÃ§imlendirmek iÃ§in bir kaÃ§ takÄ± vardÄ±r, bunlar:
 <br>
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[b]</b></font>kalın<font color="#ff0000"><b>
-         [/b]</b></font> takısı metnin <b>kalın</b>,</li>
-  <li><font color="#ff0000"><b>[u]</b></font>altçizgi<font color="#ff0000"><b>
-         [/u]</b></font> takısı metnin <u>altı çizgili</u></li>
-  <li><font color="#ff0000"><b>[i]</b></font>yatık<font color="#ff0000"><b>
-         [/i]</b></font> takısı metnin <i>yatık (ya da eğik)</i></li>
-   <li><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>
-          [/sub]</b></font> produces <sub>subscript</sub> text</li>
-   <li><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>
-          [/sup]</b></font> produces <sup>superscript</sup> text</li>
+  <li><font color="#ff0000"><b>[b]</b></font>kalÄ±n<font color="#ff0000"><b>
+         [/b]</b></font> takÄ±sÄ± metnin <b>kalÄ±n</b>,</li>
+  <li><font color="#ff0000"><b>[u]</b></font>altÃ§izgi<font color="#ff0000"><b>
+         [/u]</b></font> takÄ±sÄ± metnin <u>altÄ± Ã§izgili</u></li>
+  <li><font color="#ff0000"><b>[i]</b></font>yatÄ±k<font color="#ff0000"><b>
+         [/i]</b></font> takÄ±sÄ± metnin <i>yatÄ±k (ya da eÄŸik)</i></li>
 </ul>
-görünmesini sağlar. Metnin rengini ve büyüklüğünü, hatta yazı tipini bile ayarlamak mümkündür.
+gÃ¶rÃ¼nmesini saÄŸlar. Metnin rengini ve bÃ¼yÃ¼klÃ¼ÄŸÃ¼nÃ¼, hatta yazÄ± tipini bile ayarlamak mÃ¼mkÃ¼ndÃ¼r.
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>kırmızı metin<font color="#ff0000"><b>
-         [/color]</b></font> metin renginin <font color="#ff0000">kırmızı</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>büyük metin<font color="#ff0000"><b>
-        [/size]</b></font> metnin belirtilen <font size="4">büyüklükte</font></li>
+  <li><font color="#ff0000"><b>[color=red]</b></font>kÄ±rmÄ±zÄ± metin<font color="#ff0000"><b>
+         [/color]</b></font> metin renginin <font color="#ff0000">kÄ±rmÄ±zÄ±</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>bÃ¼yÃ¼k metin<font color="#ff0000"><b>
+        [/size]</b></font> metnin belirtilen <font size="4">bÃ¼yÃ¼klÃ¼kte</font></li>
   <li><font color="#ff0000"><b>[font=courier]</b></font>metin<font color="#ff0000"><b>
-        [/font]</b></font> metnin belirtilen <font face="Courier New, Courier, monospace">yazı tipinde</font></li>
+        [/font]</b></font> metnin belirtilen <font face="Courier New, Courier, monospace">yazÄ± tipinde</font></li>
 </ul>
-olmasını sağlar. Ayrıca çeşitli takıları birlikte kullanmak da mümkündür:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Biçimlenmiş Metin<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       Bu örnekteki biçimlendirme aşağıdaki gibi görünür:<br>
-<div align="Center"><font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Biçimlenmiş Metin</b></i></u></font></div>
+olmasÄ±nÄ± saÄŸlar. AyrÄ±ca Ã§eÅŸitli takÄ±larÄ± birlikte kullanmak da mÃ¼mkÃ¼ndÃ¼r:<br>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>BiÃ§imlenmiÅŸ Metin<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+       Bu Ã¶rnekteki biÃ§imlendirme aÅŸaÄŸÄ±daki gibi gÃ¶rÃ¼nÃ¼r:<br>
+<div align="Center"><font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>BiÃ§imlenmiÅŸ Metin</b></i></u></font></div>
 <br>
 <br>
 <b>Metin Hizalama</b><br>
-FUDcode metinlerin hangi hizada olacağını ayarlamak için [align] takısını içerir. Bunu kullanarak metni 3 değişik hizaya getirebilirsiniz:
+FUDcode metinlerin hangi hizada olacaÄŸÄ±nÄ± ayarlamak iÃ§in [align] takÄ±sÄ±nÄ± iÃ§erir. Bunu kullanarak metni 3 deÄŸiÅŸik hizaya getirebilirsiniz:
 <ul>
 	<li><font color="#ff0000"><b>[align=center]</b></font>ortala<font color="#ff0000"><b>[/align]</b></font>metnin</li>
-		<div align="center">ortalanmasını</div> yani sayfanın her iki kenarından eşit uzaklıkta olmasını sağlar.
+		<div align="center">ortalanmasÄ±nÄ±</div> yani sayfanÄ±n her iki kenarÄ±ndan eÅŸit uzaklÄ±kta olmasÄ±nÄ± saÄŸlar.
 	<li><font color="#ff0000"><b>[align=left]</b></font>sola yasla<font color="#ff0000"><b>[/align]</b></font> metnin</li>
-		<div align="left">sol tarafa</div> daha yakın olmasını sağlar.
-	<li><font color="#ff0000"><b>[align=right]</b></font>sağa yasla<font color="#ff0000"><b>[/align]</b></font> metnin</li>
-		<div align="right">sağ tarafa daha yakın olmasını sağlar.</div>
+		<div align="left">sol tarafa</div> daha yakÄ±n olmasÄ±nÄ± saÄŸlar.
+	<li><font color="#ff0000"><b>[align=right]</b></font>saÄŸa yasla<font color="#ff0000"><b>[/align]</b></font> metnin</li>
+		<div align="right">saÄŸ tarafa daha yakÄ±n olmasÄ±nÄ± saÄŸlar.</div>
 </ul>
 <br>
 <br>
-<b>Çeşitli Listeler</b><br>
-Formdaki takıları kullanarak çeşitli listeler oluşturabilirsiniz:
+<b>Ã‡eÅŸitli Listeler</b><br>
+Formdaki takÄ±larÄ± kullanarak Ã§eÅŸitli listeler oluÅŸturabilirsiniz:
 <br>
 <br>
-Sıralanmamış Liste:<br>
+SÄ±ralanmamÄ±ÅŸ Liste:<br>
 <font color="#ff0000"><b>[list]</b></font><br>
 <font color="#ff0000"><b>[*]</b></font>birinci<br>
 <font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]<br>
-</b></font><br>şeklinde bir yazım aşağıdaki şekilde görünür<br>
+</b></font><br>ÅŸeklinde bir yazÄ±m aÅŸaÄŸÄ±daki ÅŸekilde gÃ¶rÃ¼nÃ¼r<br>
 <ul>
   <li>birinci</li>
   <li>ikinci</li>
 </ul>
-Çeşitli diğer şekillerde de listeler üretmek mümkündür, örneğin sayısal sıralı bir liste için:
+Ã‡eÅŸitli diÄŸer ÅŸekillerde de listeler Ã¼retmek mÃ¼mkÃ¼ndÃ¼r, Ã¶rneÄŸin sayÄ±sal sÄ±ralÄ± bir liste iÃ§in:
 <br>
 <font color="#ff0000"><b>[list type=1]</b></font><br>
 <font color="#ff0000"><b>[*]</b></font>birinci<br>
 <font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
-yazım şeklini kullandığınızda sonuç:<br>
+yazÄ±m ÅŸeklini kullandÄ±ÄŸÄ±nÄ±zda sonuÃ§:<br>
 <ol>
   <li>birinci</li>
   <li>ikinci<br>
   </li>
 </ol>
-şeklinde, alfabetik sıralama için:
+ÅŸeklinde, alfabetik sÄ±ralama iÃ§in:
 <br>
 <font color="#ff0000"><b>[list type=A]</b></font><br>
 <font color="#ff0000"><b>[*]</b></font>birinci<br>
 <font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
 <br>
-yazım şeklini kullandığınızda sonuç:<br>
+yazÄ±m ÅŸeklini kullandÄ±ÄŸÄ±nÄ±zda sonuÃ§:<br>
 <ol type="a">
   <li>birinci</li>
   <li>ikinci</li>
 </ol>
-şeklinde görünür.<br>
+ÅŸeklinde gÃ¶rÃ¼nÃ¼r.<br>
 <b>Resim Ekleme</b><br>
-İletinin içinde bulunan resim eklemek için  <font color="#ff0000"><b>[img][/img]</b></font> takılarını kullanabilirsiniz.<br>
+Ä°letinin iÃ§inde bulunan resim eklemek iÃ§in  <font color="#ff0000"><b>[img][/img]</b></font> takÄ±larÄ±nÄ± kullanabilirsiniz.<br>
 <br>
-Dolayısıyla, örneğin
+DolayÄ±sÄ±yla, Ã¶rneÄŸin
 <br>
 <div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-yazdığınızda iletinin içine şu resmi eklemiş olursunuz:
+yazdÄ±ÄŸÄ±nÄ±zda iletinin iÃ§ine ÅŸu resmi eklemiÅŸ olursunuz:
 <br>
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
 Ek olarak resimlere link atarken
-<font color="#ff0000"><b>    [url][/url]</b></font>takılarını da kullanabilirsiniz, örneğin <br>
+<font color="#ff0000"><b>    [url][/url]</b></font>takÄ±larÄ±nÄ± da kullanabilirsiniz, Ã¶rneÄŸin <br>
 <div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-şeklinde bir yazım da resme link atar:
+ÅŸeklinde bir yazÄ±m da resme link atar:
 <br>
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
 
-<br><b>Diğer iletileri alıntılama</b><br>
-Birisinin gönderdiği iletiyi alıntı şeklinde göstermek mümkdür, yapmanız gereken alıntı olarak göstermek istediğiniz bölümü
-<font color="#ff0000"><b>[quote][/quote]</b></font> takıları arasına koymaktır.
+<br><b>DiÄŸer iletileri alÄ±ntÄ±lama</b><br>
+Birisinin gÃ¶nderdiÄŸi iletiyi alÄ±ntÄ± ÅŸeklinde gÃ¶stermek mÃ¼mkdÃ¼r, yapmanÄ±z gereken alÄ±ntÄ± olarak gÃ¶stermek istediÄŸiniz bÃ¶lÃ¼mÃ¼
+<font color="#ff0000"><b>[quote][/quote]</b></font> takÄ±larÄ± arasÄ±na koymaktÄ±r.
 <br>
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>Selam herkese<font color="#ff0000"><b>[/quote]</b></font><br></div>
-aşağıdaki şekilde görünecektir:<br>
+aÅŸaÄŸÄ±daki ÅŸekilde gÃ¶rÃ¼necektir:<br>
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Alıntı:</b></td></tr><tr>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>AlÄ±ntÄ±:</b></td></tr><tr>
 <td class="quote">Selam herkese<br></td></tr></table>
 <p>
-<b>Bilgisayar kodu ve önceden biçimlendirilmiş metin</b><br>
-<font color="#ff0000"><b>[code][/code]</b></font> takılarını kullanarak yazmış olduğunuz
-metnin olduğu gibi görünmesini sağlayabilirsiniz, bu şekilde örneğin tab ve boşluk karakterlerini
-kullanarak biçimlendirdiğiniz metin, biçimlendirildiği şekliyle görüntülenecektir.
+<b>Bilgisayar kodu ve Ã¶nceden biÃ§imlendirilmiÅŸ metin</b><br>
+<font color="#ff0000"><b>[code][/code]</b></font> takÄ±larÄ±nÄ± kullanarak yazmÄ±ÅŸ olduÄŸunuz
+metnin olduÄŸu gibi gÃ¶rÃ¼nmesini saÄŸlayabilirsiniz, bu ÅŸekilde Ã¶rneÄŸin tab ve boÅŸluk karakterlerini
+kullanarak biÃ§imlendirdiÄŸiniz metin, biÃ§imlendirildiÄŸi ÅŸekliyle gÃ¶rÃ¼ntÃ¼lenecektir.
 <br>
 <br>
-Örneğin bir kod parçasını yazdığınızda: <br>
-<font color="#ff0000"><b>[code]</b></font>
+Ã–rneÄŸin bir kod parÃ§asÄ±nÄ± yazdÄ±ÄŸÄ±nÄ±zda: <br>
+<font color="#ff0000"><b>[pre]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
+<font color="#ff0000"><b>[/pre]</b></font><br>
 <br>
-metin oluşturulurken nasıl görünüyorsa bu takılar kullanıldığında forumda da o şekilde görünecektir:
+metin oluÅŸturulurken nasÄ±l gÃ¶rÃ¼nÃ¼yorsa bu takÄ±lar kullanÄ±ldÄ±ÄŸÄ±nda forumda da o ÅŸekilde gÃ¶rÃ¼necektir:
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
@@ -192,7 +188,7 @@ The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hi
 from being displayed. To see the hidden portion the users must click a link that will display the 
 hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
 reloaded, instead a hidden layer is made visible.<br>
-  <br>
+<br>
 Here is an example of this tag in action: <br>
 
 Visible part of the message
@@ -210,100 +206,99 @@ Hidden part of the message<br />
 More visible text.
 
 <p>
+EÄŸer yÃ¶netici gÃ¼lÃ¼cÃ¼klerin kullanÄ±mÄ±na izin verdiyse duygularÄ± anlatan simgeleri,
+[img] takÄ±sÄ±na izin verdiyse de resimleri iletinizin iÃ§ine ekleyebilirsiniz.
 
-Eğer yönetici gülücüklerin kullanımına izin verdiyse duyguları anlatan simgeleri,
-[img] takısına izin verdiyse de resimleri iletinizin içine ekleyebilirsiniz.
 
-
-TOPIC_TITLE: <a name="sml">Gülücükler/Hissimgeler nedir?</a> 
+TOPIC_TITLE: <a name="sml">GÃ¼lÃ¼cÃ¼kler/Hissimgeler nedir?</a> 
 TOPIC_HELP:
-Gülücükler veya hissimgeler, duygularınızı veya mimiklerinizi anlatmanızı sağlayan küçük simgelerdir.
-Eğer gülücüklerin kullanımına izin verilmişse, foruma ileti gönderirken iletiyi yazdığınız kutunun üst kısmında
-gülücüklerin bir listesi çıkacaktır. Gülücüğün üzerine tıkladığınızda, o gülücük iletinize eklenir.
+GÃ¼lÃ¼cÃ¼kler veya hissimgeler, duygularÄ±nÄ±zÄ± veya mimiklerinizi anlatmanÄ±zÄ± saÄŸlayan kÃ¼Ã§Ã¼k simgelerdir.
+EÄŸer gÃ¼lÃ¼cÃ¼klerin kullanÄ±mÄ±na izin verilmiÅŸse, foruma ileti gÃ¶nderirken iletiyi yazdÄ±ÄŸÄ±nÄ±z kutunun Ã¼st kÄ±smÄ±nda
+gÃ¼lÃ¼cÃ¼klerin bir listesi Ã§Ä±kacaktÄ±r. GÃ¼lÃ¼cÃ¼ÄŸÃ¼n Ã¼zerine tÄ±kladÄ±ÄŸÄ±nÄ±zda, o gÃ¼lÃ¼cÃ¼k iletinize eklenir.
 <br>
-Gülücükleri oluşturan karakter dizileri karşılık gelen resim ile değiştirilir, bunun olmasını istemiyorsanız
-<b>Gülücükleri kapat</b> seçim kutusunu işaretleyin.<p>
+GÃ¼lÃ¼cÃ¼kleri oluÅŸturan karakter dizileri karÅŸÄ±lÄ±k gelen resim ile deÄŸiÅŸtirilir, bunun olmasÄ±nÄ± istemiyorsanÄ±z
+<b>GÃ¼lÃ¼cÃ¼kleri kapat</b> seÃ§im kutusunu iÅŸaretleyin.<p>
 
-TOPIC_TITLE: <a name="polls">Anketleri nasıl kullanabilirim?</a>
+TOPIC_TITLE: <a name="polls">Anketleri nasÄ±l kullanabilirim?</a>
 TOPIC_HELP:
-Bazı forumlarda iletinizin içinde anket bulundurmanıza izin verilmiş durumdadır. Anketler, bir soru sorup seçenekler sunmanıza,
-ve diğer forum üyelerinin bu seçeneklerden birini seçmelerine olanak tanır. Anketin inandırıcı olabilmesi amacıyla, sadece kayıtlı
-kullanıcılara anketlerde oy kullanabilme izni verilmiştir.
+BazÄ± forumlarda iletinizin iÃ§inde anket bulundurmanÄ±za izin verilmiÅŸ durumdadÄ±r. Anketler, bir soru sorup seÃ§enekler sunmanÄ±za,
+ve diÄŸer forum Ã¼yelerinin bu seÃ§eneklerden birini seÃ§melerine olanak tanÄ±r. Anketin inandÄ±rÄ±cÄ± olabilmesi amacÄ±yla, sadece kayÄ±tlÄ±
+kullanÄ±cÄ±lara anketlerde oy kullanabilme izni verilmiÅŸtir.
 <br>
-İleti gönderme sayfasındaki <b>ANKET YARAT</b> linkine tıklattığınızda, küçük bir pencere açılacak, ve size çoktan seçmeli cevapların
-olabileceği bir anket yaratmanızı sağlayacaktır. Bitirdiğinizde, <b>Düzelt</b> düğmesine tıklatarak ileti gönderi sayfasına geri dönebilirsiniz;
-bunu yaptığınızda oluşturduğunuz anket iletinize eklenecektir.
+Ä°leti gÃ¶nderme sayfasÄ±ndaki <b>ANKET YARAT</b> linkine tÄ±klattÄ±ÄŸÄ±nÄ±zda, kÃ¼Ã§Ã¼k bir pencere aÃ§Ä±lacak, ve size Ã§oktan seÃ§meli cevaplarÄ±n
+olabileceÄŸi bir anket yaratmanÄ±zÄ± saÄŸlayacaktÄ±r. BitirdiÄŸinizde, <b>DÃ¼zelt</b> dÃ¼ÄŸmesine tÄ±klatarak ileti gÃ¶nderi sayfasÄ±na geri dÃ¶nebilirsiniz;
+bunu yaptÄ±ÄŸÄ±nÄ±zda oluÅŸturduÄŸunuz anket iletinize eklenecektir.
 
 <br>
-<b>DÜZELT</b> linkine tıklatarak var olan bir anket üzerinde düzeltme yapabilir, ya da <b>SİL</b> linkini tıklatarak anketi tamamen kaldırabilirsiniz.
+<b>DÃœZELT</b> linkine tÄ±klatarak var olan bir anket Ã¼zerinde dÃ¼zeltme yapabilir, ya da <b>SÄ°L</b> linkini tÄ±klatarak anketi tamamen kaldÄ±rabilirsiniz.
 <p>
-Herhangi bir anket için sadece 1 oy hakkınız olacak, dolayısıyla seçiminizi dikkatli yapmanız gerekebilir, daha sonradan bu seçiminizi
-değiştirme şansına sahip olmayacaksınız.
+Herhangi bir anket iÃ§in sadece 1 oy hakkÄ±nÄ±z olacak, dolayÄ±sÄ±yla seÃ§iminizi dikkatli yapmanÄ±z gerekebilir, daha sonradan bu seÃ§iminizi
+deÄŸiÅŸtirme ÅŸansÄ±na sahip olmayacaksÄ±nÄ±z.
 
 
-TOPIC_TITLE: <a name="attach">İletilere dosya ekleyebilir miyim?</a>
+TOPIC_TITLE: <a name="attach">Ä°letilere dosya ekleyebilir miyim?</a>
 TOPIC_HELP:
-Eğer yönetici tarafından izin verilmişse, olağan iletilerinize ya da özel iletilerinize bir veya daha fazla dosya ekleyebilirsiniz.
-Bu izin forum bazında verildiği için, bir forumda iletilerinize dosya ekleyebildiğiniz halde, bir başkasında ekleyemiyor olabilirsiniz.
+EÄŸer yÃ¶netici tarafÄ±ndan izin verilmiÅŸse, olaÄŸan iletilerinize ya da Ã¶zel iletilerinize bir veya daha fazla dosya ekleyebilirsiniz.
+Bu izin forum bazÄ±nda verildiÄŸi iÃ§in, bir forumda iletilerinize dosya ekleyebildiÄŸiniz halde, bir baÅŸkasÄ±nda ekleyemiyor olabilirsiniz.
 <br>
-Gönderme sayfasında dosya eklerinize uygulanan 3 kural vardır:
+GÃ¶nderme sayfasÄ±nda dosya eklerinize uygulanan 3 kural vardÄ±r:
 <p>
-<b>İzin verilen dosya tipleri</b> - iletinize ekleyebileceğiniz dosya tiplerinin bir listesi, örneğin jpg, gif, png.<br>
-<b>En fazla dosya boyutu</b> - iletinize eklediğiniz her dosyanın olabileceği en fazla büyüklük.<br>
-<b>İleti başına en fazla dosya sayısı</b> - iletilerinize kaç tane dosya ekleyebileceğiniz.
+<b>Ä°zin verilen dosya tipleri</b> - iletinize ekleyebileceÄŸiniz dosya tiplerinin bir listesi, Ã¶rneÄŸin jpg, gif, png.<br>
+<b>En fazla dosya boyutu</b> - iletinize eklediÄŸiniz her dosyanÄ±n olabileceÄŸi en fazla bÃ¼yÃ¼klÃ¼k.<br>
+<b>Ä°leti baÅŸÄ±na en fazla dosya sayÄ±sÄ±</b> - iletilerinize kaÃ§ tane dosya ekleyebileceÄŸiniz.
 <p>
-Bir iletiye dosya ekleyebilmek için, gönderi sayfasının alt bölümünde yer alan <b>Browse (Göz at)</b> düğmesine tıklatın.
-Tarayıcınız sabit diskinizdeki dosyalardan seçim yapabilmenize olanak tanıyan bir diyalog penceresi açacaktır. Dosyayı seçtikten
-sonra <b>Dosya Yükle</b> düğmesine tıklatarak dosyayı iletinize ekleyebilirsiniz.
+Bir iletiye dosya ekleyebilmek iÃ§in, gÃ¶nderi sayfasÄ±nÄ±n alt bÃ¶lÃ¼mÃ¼nde yer alan <b>Browse (GÃ¶z at)</b> dÃ¼ÄŸmesine tÄ±klatÄ±n.
+TarayÄ±cÄ±nÄ±z sabit diskinizdeki dosyalardan seÃ§im yapabilmenize olanak tanÄ±yan bir diyalog penceresi aÃ§acaktÄ±r. DosyayÄ± seÃ§tikten
+sonra <b>Dosya YÃ¼kle</b> dÃ¼ÄŸmesine tÄ±klatarak dosyayÄ± iletinize ekleyebilirsiniz.
 <br>
-Eğer eklenmiş olan dosyaları çıkarmak istiyorsanız, basitçe dosyanın sağ tarafından bulunan <b>Sil</b> linkini tıklatın.
+EÄŸer eklenmiÅŸ olan dosyalarÄ± Ã§Ä±karmak istiyorsanÄ±z, basitÃ§e dosyanÄ±n saÄŸ tarafÄ±ndan bulunan <b>Sil</b> linkini tÄ±klatÄ±n.
 
 
-TOPIC_TITLE: <a name="msgico">İleti simgesi nedir?</a>
+TOPIC_TITLE: <a name="msgico">Ä°leti simgesi nedir?</a>
 TOPIC_HELP:
-İleti simgeleri, iletilerinizin yan tarafında görüntüleyebileceğiniz küçük resimlerdir.
-En çok iletilerinizin içeriği ile ilgili ifade etmek istediğiniz duygu, mimik ve tarz hakkında
-ipucu vermek için kullanılırlar. Eğer bu simgeleri ileti gönderme sayfasında göremiyorsanız,
-yönetici tarafından engellenmiş durumda olabilirler.
+Ä°leti simgeleri, iletilerinizin yan tarafÄ±nda gÃ¶rÃ¼ntÃ¼leyebileceÄŸiniz kÃ¼Ã§Ã¼k resimlerdir.
+En Ã§ok iletilerinizin iÃ§eriÄŸi ile ilgili ifade etmek istediÄŸiniz duygu, mimik ve tarz hakkÄ±nda
+ipucu vermek iÃ§in kullanÄ±lÄ±rlar. EÄŸer bu simgeleri ileti gÃ¶nderme sayfasÄ±nda gÃ¶remiyorsanÄ±z,
+yÃ¶netici tarafÄ±ndan engellenmiÅŸ durumda olabilirler.
 
-TOPIC_TITLE: <a name="edit">İletilerimde düzeltme yapabilir miyim?</a>
+TOPIC_TITLE: <a name="edit">Ä°letilerimde dÃ¼zeltme yapabilir miyim?</a>
 TOPIC_HELP:
-Eğer kayıtlı bir üye iseniz, daha önce göndermiş olduğunuz iletiler üzerinde düzeltme yapmanız mümkün olabilir.
-Bu seçenek zaman sınırlı olabilir, dolayısıyla yakın zamanda atmış olduğunuz iletileri düzeltebildiğiniz halde,
-daha önceki iletilerinizi (belirli bir süre önce) düzeltmeyebilirsiniz.
+EÄŸer kayÄ±tlÄ± bir Ã¼ye iseniz, daha Ã¶nce gÃ¶ndermiÅŸ olduÄŸunuz iletiler Ã¼zerinde dÃ¼zeltme yapmanÄ±z mÃ¼mkÃ¼n olabilir.
+Bu seÃ§enek zaman sÄ±nÄ±rlÄ± olabilir, dolayÄ±sÄ±yla yakÄ±n zamanda atmÄ±ÅŸ olduÄŸunuz iletileri dÃ¼zeltebildiÄŸiniz halde,
+daha Ã¶nceki iletilerinizi (belirli bir sÃ¼re Ã¶nce) dÃ¼zeltmeyebilirsiniz.
 <br>
-İletiniz üzerinde düzeltme yaparsanız, iletiye bu düzeltmeniz, tarihi ile birlikte küçük bir not olarak eklenecektir.
+Ä°letiniz Ã¼zerinde dÃ¼zeltme yaparsanÄ±z, iletiye bu dÃ¼zeltmeniz, tarihi ile birlikte kÃ¼Ã§Ã¼k bir not olarak eklenecektir.
 <br>
-Eğer bir denetmen veya yönetici tarafından düzeltme yapılmış ise, forum ayarlarına bağlı olarak düzeltme yapıldığına
+EÄŸer bir denetmen veya yÃ¶netici tarafÄ±ndan dÃ¼zeltme yapÄ±lmÄ±ÅŸ ise, forum ayarlarÄ±na baÄŸlÄ± olarak dÃ¼zeltme yapÄ±ldÄ±ÄŸÄ±na
 dair olan bu not eklenmeyebilir.
 
-TOPIC_TITLE: <a name="mod">Denetmenler ve yöneticiler kimlerdir?</a> 
+TOPIC_TITLE: <a name="mod">Denetmenler ve yÃ¶neticiler kimlerdir?</a> 
 TOPIC_HELP:
-Denetmenler, forumu denetim altında tutan "yetkili kullanıcılar"dır. İletileri onaylama, silme, veya düzeltme yapma yetkileri
-olduğu gibi, foruma duyuru asma izinleri de vardır. Genelde forumda uygunsuz bir durum ortaya çıktığını düşündüğünüzde
-iletişime geçmeniz gereken kullanıcılar, denetmenlerdir. Forumun kullanımına yönelik sorularınız varsa, yine denetmenlere 
-başvurabilirsiniz.
+Denetmenler, forumu denetim altÄ±nda tutan "yetkili kullanÄ±cÄ±lar"dÄ±r. Ä°letileri onaylama, silme, veya dÃ¼zeltme yapma yetkileri
+olduÄŸu gibi, foruma duyuru asma izinleri de vardÄ±r. Genelde forumda uygunsuz bir durum ortaya Ã§Ä±ktÄ±ÄŸÄ±nÄ± dÃ¼ÅŸÃ¼ndÃ¼ÄŸÃ¼nÃ¼zde
+iletiÅŸime geÃ§meniz gereken kullanÄ±cÄ±lar, denetmenlerdir. Forumun kullanÄ±mÄ±na yÃ¶nelik sorularÄ±nÄ±z varsa, yine denetmenlere 
+baÅŸvurabilirsiniz.
 <p>
-Yöneticiler tüm forumu denetimi altında tutan kullanıcılardır, HERŞEYİ yapma yetkileri vardır. Dolayısıyla onlarla konuşurken nazik olun ;-).
-Bir denetmenin yapabildiği herşeyi yönetici de yapabildiği gibi, ek olarak avatarları onaylarlar, özel takı ekleyip çıkarabilirler, kullanıcılara
-bloke koyabilir, ve forumla ilgili çeşitli sorulara yanıt verebilirler.
-Forum ile ilgili böcek (bug) veya forumun çalışmasında bir hata ile karşılaşırsanız, iletişime geçmeniz gereken kişi yöneticidir.
+YÃ¶neticiler tÃ¼m forumu denetimi altÄ±nda tutan kullanÄ±cÄ±lardÄ±r, HERÅEYÄ° yapma yetkileri vardÄ±r. DolayÄ±sÄ±yla onlarla konuÅŸurken nazik olun ;-).
+Bir denetmenin yapabildiÄŸi herÅŸeyi yÃ¶netici de yapabildiÄŸi gibi, ek olarak avatarlarÄ± onaylarlar, Ã¶zel takÄ± ekleyip Ã§Ä±karabilirler, kullanÄ±cÄ±lara
+bloke koyabilir, ve forumla ilgili Ã§eÅŸitli sorulara yanÄ±t verebilirler.
+Forum ile ilgili bÃ¶cek (bug) veya forumun Ã§alÄ±ÅŸmasÄ±nda bir hata ile karÅŸÄ±laÅŸÄ±rsanÄ±z, iletiÅŸime geÃ§meniz gereken kiÅŸi yÃ¶neticidir.
 
-TOPIC_TITLE: <a name="cens">Sansür?</a>
+TOPIC_TITLE: <a name="cens">SansÃ¼r?</a>
 TOPIC_HELP:
-Yönetici bazı sözcükleri sansürlemeyi seçebilir, bu sözcükler yine yöneticinin belirlediği diğer sözcüklerle değiştirilirler.
-Sansür forum çapında bir uygulamadır, ve siz bir sözcüğü göremiyorsanız, diğer insanlar da göremiyor demektir.
+YÃ¶netici bazÄ± sÃ¶zcÃ¼kleri sansÃ¼rlemeyi seÃ§ebilir, bu sÃ¶zcÃ¼kler yine yÃ¶neticinin belirlediÄŸi diÄŸer sÃ¶zcÃ¼klerle deÄŸiÅŸtirilirler.
+SansÃ¼r forum Ã§apÄ±nda bir uygulamadÄ±r, ve siz bir sÃ¶zcÃ¼ÄŸÃ¼ gÃ¶remiyorsanÄ±z, diÄŸer insanlar da gÃ¶remiyor demektir.
 
 
-TOPIC_TITLE: <a name="not">İletilerime verilen cevaplardan haberdar edilebilir miyim?</a> 
+TOPIC_TITLE: <a name="not">Ä°letilerime verilen cevaplardan haberdar edilebilir miyim?</a> 
 TOPIC_HELP:
-Yeni bir zincir yaratırken, veya var olan bir zincire yanıt yazarken, size verilen yanıtların e-mektup veya ICQ ile (kişisel
-bilgilerinizden ayarlayabilirsiniz) haber verilmesini sağlayabilirsiniz. Ayrıca yanıt yazmasanız dahi bir zincire abone olabilirsiniz.
-Bunu yapmak için sayfanın üst kısmındaki <b>Abone ol</b> linkine tıklatmanız gerekiyor. Forumlara abone olmanız da mümkün,
-bu, forumda her yeni zincir yaratıldığında size haber verilmesini sağlar.
+Yeni bir zincir yaratÄ±rken, veya var olan bir zincire yanÄ±t yazarken, size verilen yanÄ±tlarÄ±n e-mektup veya ICQ ile (kiÅŸisel
+bilgilerinizden ayarlayabilirsiniz) haber verilmesini saÄŸlayabilirsiniz. AyrÄ±ca yanÄ±t yazmasanÄ±z dahi bir zincire abone olabilirsiniz.
+Bunu yapmak iÃ§in sayfanÄ±n Ã¼st kÄ±smÄ±ndaki <b>Abone ol</b> linkine tÄ±klatmanÄ±z gerekiyor. Forumlara abone olmanÄ±z da mÃ¼mkÃ¼n,
+bu, forumda her yeni zincir yaratÄ±ldÄ±ÄŸÄ±nda size haber verilmesini saÄŸlar.
 <p>
-Eğer zincir veya forum aboneliklerinizi sona erdirmek isterseniz, zinciri okurken üst sayfada beliren <b>Abonelikten çık</b> linkine tıklatabilirsiniz.
+EÄŸer zincir veya forum aboneliklerinizi sona erdirmek isterseniz, zinciri okurken Ã¼st sayfada beliren <b>Abonelikten Ã§Ä±k</b> linkine tÄ±klatabilirsiniz.
 If you choose to stop receiving notifications from a thread or forum, you can click on the <b>Un-subscribe</b> link, while viewing that thread or forum.
-Kişisel bilgiler sayfanızdaki <b>Abonelikler</b> bölümünden de abone olduğunuz zincir veya forumları idare etmeniz mümkün.
+KiÅŸisel bilgiler sayfanÄ±zdaki <b>Abonelikler</b> bÃ¶lÃ¼mÃ¼nden de abone olduÄŸunuz zincir veya forumlarÄ± idare etmeniz mÃ¼mkÃ¼n.
 <p>
-Zincir veya forum abonelikleri sadece kayıtlı kullanıcılar tarafından kullanılabilir.
+Zincir veya forum abonelikleri sadece kayÄ±tlÄ± kullanÄ±cÄ±lar tarafÄ±ndan kullanÄ±labilir.
