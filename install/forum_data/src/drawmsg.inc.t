@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.57 2003/10/01 21:51:51 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.58 2003/10/01 22:49:47 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,9 +23,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 		return;
 	}
 
-	db_lock('{SQL_TABLE_PREFIX}poll_opt_track WRITE');
-	q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')');
-	db_unlock();
+	db_li('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')', $a);
 
 	q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
 	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);

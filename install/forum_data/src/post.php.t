@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.84 2003/10/01 22:37:55 hackie Exp $
+*   $Id: post.php.t,v 1.85 2003/10/01 22:49:47 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -625,13 +625,12 @@ function flood_check()
 
 	/* handle smilies */
 	if ($perms & 16384) {
-		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
+		$msg_smiley_disabled_check = !empty($msg_smiley_disabled) ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 		$post_smilies = draw_post_smiley_cntrl();
 	} else {
 		$post_smilies = $disable_smileys = '';
 	}
-
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: POST_PAGE}
