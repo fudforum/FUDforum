@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smiley.inc.t,v 1.15 2004/06/22 16:23:28 hackie Exp $
+* $Id: smiley.inc.t,v 1.16 2004/06/23 14:19:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,8 @@ function smiley_to_post($text)
 
 function post_to_smiley($text)
 {
-	include $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
+	/* include once since draw_post_smiley_cntrl() may use it too */
+	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
 
 	/* check for emoticons */
 	foreach ($PS_SRC as $k => $v) {

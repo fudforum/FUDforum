@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.16 2004/05/12 15:26:08 hackie Exp $
+* $Id: post_common.inc.t,v 1.17 2004/06/23 14:19:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,14 +12,22 @@
 
 function draw_post_smiley_cntrl()
 {
-	$c = uq('SELECT code, descr, img FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder LIMIT '.$GLOBALS['MAX_SMILIES_SHOWN']);
-	$data = '';
-	while ($r = db_rowarr($c)) {
-		$r[0] = ($a = strpos($r[0], '~')) ? substr($r[0], 0, $a) : $r[0];
-		$data .= '{TEMPLATE: post_smiley_entry}';
+	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'ps_cache';
+
+	/* nothing to do */
+	if ($GLOBALS['MAX_SMILIES_SHOWN'] < 1 || !$PS_SRC) {
+		return;
+	}
+	$limit = count($PS_SRC);
+	if ($limit > $GLOBALS['MAX_SMILIES_SHOWN']) {
+		$limit = $GLOBALS['MAX_SMILIES_SHOWN'];
 	}
 
-	return ($data ? '{TEMPLATE: post_smilies}' : '');
+	$data = '';
+	for ($i = 0; $i < $limit; $i++) {
+		$data .= '{TEMPLATE: post_smiley_entry}';
+	}
+	return '{TEMPLATE: post_smilies}';
 }
 
 function draw_post_icons($msg_icon)

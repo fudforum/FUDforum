@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.tmpl,v 1.10 2004/04/25 20:18:26 hackie Exp $
+* $Id: smladd.tmpl,v 1.11 2004/06/23 14:19:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 {PAGE: END}
 
 {SECTION: sml_smiley_entry}
-<a href="javascript: insertParentTag(\' {VAR: r[0]} \',\'\');"><img src="images/smiley_icons/{VAR: r[1]}" title="{VAR: r[2]}" alt="{VAR: r[2]}" /></a>&nbsp;&nbsp;
+<a href="javascript: insertParentTag(\' {VAR: PS_DST[$k]} \',\'\');">{VAR: v}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: sml_smiley_row}
