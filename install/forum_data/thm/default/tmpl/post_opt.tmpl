@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_opt.tmpl,v 1.10 2004/11/24 19:53:39 hackie Exp $
+* $Id: post_opt.tmpl,v 1.11 2005/03/18 19:54:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,8 @@
 
 {PHP_FILE: input: post_opt.inc.t; output: post_opt.inc;}
 
-{MAIN_SECTION: posting_options  what features are enabled/disabled for this post}<span class="SmallText"><b>{TEMPLATE: post_opt}</b><br />
+{MAIN_SECTION: posting_options  what features are enabled/disabled for this post}
+<span class="SmallText"><b>{MSG: post_opt}</b><br />
 {TEMPLATE-DATA: post_opt_html}<br />
 {TEMPLATE-DATA: post_opt_fud}<br />
 {TEMPLATE-DATA: post_opt_images}<br />
@@ -56,8 +57,4 @@
 
 {SECTION: post_opt_smilies_off}
 {MSG: post_opt_smilies_off}
-{SECTION: END}
-
-{SECTION: post_opt}
-{MSG: post_opt}
 {SECTION: END}
