@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.36 2004/12/02 20:58:12 hackie Exp $
+* $Id: private.inc.t,v 1.37 2004/12/09 19:04:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,6 +10,7 @@
 * (at your option) any later version.
 **/
 
+$GLOBALS['recv_user_id'] = array();
 
 class fud_pmsg
 {

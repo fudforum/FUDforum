@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.41 2004/12/07 21:07:08 hackie Exp $
+* $Id: attach.inc.t,v 1.42 2004/12/09 19:04:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,12 +73,12 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 
 function attach_rebuild_cache($id)
 {
+	$ret = array();
 	$c = uq('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN m.icon IS NULL THEN \'unknown.gif\' ELSE m.icon END FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE message_id='.$id.' AND attach_opt=0');
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r;
 	}
-
-	return (isset($ret) ? $ret : null);
+	return $ret;
 }
 
 function attach_inc_dl_count($id, $mid)

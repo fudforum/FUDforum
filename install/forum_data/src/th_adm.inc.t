@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: th_adm.inc.t,v 1.14 2004/12/01 21:21:37 hackie Exp $
+* $Id: th_adm.inc.t,v 1.15 2004/12/09 19:04:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,12 +48,13 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 	rebuild_forum_view($forum_id);
 	rebuild_forum_view($to_forum);
 
+	$p = array();
 	$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$id.' AND apr=1 AND poll_id>0');
 	while ($r = db_rowarr($c)) {
 		$p[] = $r[0];
 	}
 	unset($c);
-	if (isset($p)) {
+	if ($p) {
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$to_forum.' WHERE id IN('.implode(',', $p).')');
 	}
 
