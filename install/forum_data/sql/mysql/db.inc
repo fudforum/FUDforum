@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.37 2004/01/04 16:38:26 hackie Exp $
+* $Id: db.inc,v 1.38 2004/03/22 14:34:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -276,8 +276,8 @@ function db_li($q, &$ef, $li=0)
 	}
 
 	/* duplicate key */
-	if (mysql_errno() == 1062) {
-		$ef = ltrim(strrchr(mysql_error(), ' '));
+	if (mysql_errno(fud_sql_lnk) == 1062) {
+		$ef = ltrim(strrchr(mysql_error(fud_sql_lnk), ' '));
 		return null;
 	} else {
 		die(fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
