@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.30 2003/11/28 09:10:28 hackie Exp $
+* $Id: admimport.php,v 1.31 2003/12/03 17:13:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -160,10 +160,11 @@ function resolve_dest_path($path)
 			while (($line = $getf($fp, 1000000)) && $line != "----SQL_END----\n") {
 				if (($line = trim($line))) {
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
-					if ($i && !(++$i % 10000)) {
+					if ($i && !($i % 10000)) {
 						echo 'Processed '.$i.' queries<br>';
 						flush();
 					}
+					++$i;
 				}
 			}
 			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'ses');
