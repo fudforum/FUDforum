@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: tabs.inc.t,v 1.2 2002/06/25 18:04:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,27 +16,25 @@
 ***************************************************************************/
 
 if( isset($usr) ) {
-	$pg = substr(strrchr($GLOBALS["HTTP_SERVER_VARS"]["PATH_TRANSLATED"], '/'),1);
-	if( $pg == 'ppost.php' || $pg == 'pmsg_view.php' ) $pg = 'pmsg.php';
-	
-
 	$tablist = array(
-'{TEMPLATE: tabs_register}'=>'{ROOT}?t=register&',
-'{TEMPLATE: tabs_subscriptions}'=>'{ROOT}?t=subscribed&',
-'{TEMPLATE: tabs_referrals}'=>'{ROOT}?t=referals&id='.$usr->id.'&',
-'{TEMPLATE: tabs_buddy_list}'=>'{ROOT}?t=buddy_list&',
-'{TEMPLATE: tabs_ignore_list}'=>'{ROOT}?t=ignore_list&'
+'{TEMPLATE: tabs_register}'=>array('register', 
+'{TEMPLATE: tabs_subscriptions}'=>'subscribed',
+'{TEMPLATE: tabs_referrals}'=>'referals',
+'{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
+'{TEMPLATE: tabs_ignore_list}'=>'ignore_list'
 );
 	
-	if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = '{ROOT}?t=pmsg&'._rsid;
+	if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
 	
 	$tabs='';
+	$pg = $t;
+	if( $pg == 'pmsg_view' || $pg == 'ppost' ) $pg = 'pmsg';
 	
 	reset($tablist);
-	while( list($tab_name, $tab_url) = each($tablist) ) {
-		$path = substr($tab_url, 0, strpos($tab_url, '?'));
-		$tab_url .= _rsid;
-		$tabs .= ($pg == $path) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
+	while( list($tab_name, $tab) = each($tablist) ) {
+		$tab_url = '{ROOT}?t='.$tab.'&';
+		if( $tab == 'referals' ) $tab_url .= '&id='._uid.'&'._rsid;	
+		$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
 	}
 	
 	$tabs = '{TEMPLATE: tablist}';
