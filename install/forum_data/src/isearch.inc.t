@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.44 2004/11/24 19:53:35 hackie Exp $
+* $Id: isearch.inc.t,v 1.45 2004/12/08 15:35:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,8 +34,7 @@ function mb_word_split($str)
 		return array();
 	}
 
-	$m = array_unique($m[0]);
-	foreach ($m as $v) {
+	foreach (array_unique($m[0]) as $v) {
 		if (isset($v[1])) {
 			$m2[] = "'".addslashes($v)."'";
 		}

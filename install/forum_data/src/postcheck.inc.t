@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.22 2004/12/07 19:07:10 hackie Exp $
+* $Id: postcheck.inc.t,v 1.23 2004/12/08 15:35:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,8 +69,7 @@ function check_ppost_form($msg_subject)
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
-	$list = explode(';', $_POST['msg_to_list']);
-	foreach($list as $v) {
+	foreach(explode(';', $_POST['msg_to_list']) as $v) {
 		$v = trim($v);
 		if (strlen($v)) {
 			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(htmlspecialchars($v)))))) {

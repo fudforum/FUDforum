@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wordwrap.inc.t,v 1.16 2004/11/24 19:53:37 hackie Exp $
+* $Id: wordwrap.inc.t,v 1.17 2004/12/08 15:35:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,7 +96,7 @@ function fud_wordwrap(&$data)
 	$wa = fud_wrap_tok($data);
 	$m = (int) $GLOBALS['WORD_WRAP'];
 	$l = 0;
-	$data = null;
+	$data = '';
 	foreach($wa as $v) {
 		if (isset($v['len']) && $v['len'] > $m) {
 			if ($v['len'] + $l > $m) {

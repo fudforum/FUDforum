@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.131 2004/12/07 19:07:11 hackie Exp $
+* $Id: register.php.t,v 1.132 2004/12/08 15:35:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -402,8 +402,7 @@ function decode_uent(&$uent)
 		$old_avatar = $uent->avatar;
 
 		/* import data from _POST into $uent object */
-		$vars = array_keys(get_class_vars("fud_user"));
-		foreach ($vars as $v) {
+		foreach (array_keys(get_class_vars("fud_user")) as $v) {
 			if (isset($_POST['reg_'.$v])) {
 				$uent->{$v} = $_POST['reg_'.$v];
 			}
@@ -646,8 +645,7 @@ function decode_uent(&$uent)
 
 	/* When we need to create a new user, define default values for various options */
 	if (!__fud_real_user__ && !isset($_POST['prev_loaded'])) {
-		$vars = array_keys(get_object_vars($uent));
-		foreach ($vars as $v) {
+		foreach (array_keys(get_object_vars($uent)) as $v) {
 			 ${'reg_'.$v} = '';
 		}
 
