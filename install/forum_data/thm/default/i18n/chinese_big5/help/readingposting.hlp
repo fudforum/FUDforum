@@ -194,6 +194,13 @@ More visible text.
 
 <p>
 
+<p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
 你还可以发现系统管理员开通了表情符号功能，即你可以使用表情符号表达自己的情绪，同时使用[img]代码添加图片。
 
 

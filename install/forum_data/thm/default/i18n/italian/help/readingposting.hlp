@@ -192,6 +192,13 @@ Hidden part of the message<br />
 More visible text.
 
 <p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
+<p>
 
 TOPIC_TITLE: <a name="sml">Cosa sono gli smiley/faccine/emoticon?</a> 
 TOPIC_HELP:

@@ -191,6 +191,13 @@ More visible text.
 
 <p>
 
+<p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
 Mo¿esz tak¿e sprawdziæ czy administrator zezwoli³ na u¶mieszki, które s±
 niewielkimi obrazkami symbolizuj±cymi Twój nastrój oraz znacznik [img]
 pozwalaj±cy osadzaæ w tek¶cie w³asne obrazki.

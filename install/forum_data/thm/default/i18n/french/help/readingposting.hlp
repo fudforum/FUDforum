@@ -192,6 +192,20 @@ More visible text.
 
 <p>
 
+<p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
+<p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
 Vous pouvez également trouver que l'administrateur a activé les smileys, ce qui vous permet d'utiliser de petites icônes pour exprimer des émotions et le code [img] qui vous permet d'ajouter des images à vos messages.
 
 TOPIC_TITLE: <a name="sml">Que sont les smileys/émoticônes&nbsp;?</a> 

@@ -215,6 +215,13 @@ More visible text.
 
 <p>
 
+<p>
+<b>Acronym</b><br>
+The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
+acronym and provide a full name when the user moves their mouse over the tag.
+<font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
+<p>
+
 You may also find that the administrator has enabled smilies, which allow
 you to use small icons to convey emotion, and the [img] code, which allows
 you to add pictures to your message.
