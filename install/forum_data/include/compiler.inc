@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.63 2004/10/06 18:37:35 hackie Exp $
+* $Id: compiler.inc,v 1.64 2004/10/06 18:55:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -577,25 +577,42 @@ function fudcopy($src, $dest, $mask='*', $recur=false)
 	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
 		$perms = 0644;
 	}
+	$dperm = $perms == 0600 ? 0700 : 0755;
 
-	$files = glob($src . '/' . $mask, GLOB_BRACE);
-	if (!$files) {
-		echo 'Cannot open directory "'.$src.'"<br>';
-		return;
-	}
-
-	foreach ($files as $file) {
-		if (is_dir($file)) {
+	$dirs = array($src);
+	while (list(,$v) = each($dirs)) {
+		if (is_link($v)) {
 			continue;
 		}
 	
-		$d = $dest . '/' . basename($file);
-
-		if (!@copy($file, $d) && !@file_exists($d)) {
-			echo 'cannot copy "'.$file.'" to "'.$d.'"<br>';
-		} else {
-			@chmod($d, $perms);
+		if (!is_readable($v)) {
+			echo 'Cannot open directory "'.$v.'"<br>';
+			return;
 		}
+
+		if (!($files = glob($v . '/' . $mask, GLOB_BRACE))) {
+			continue;
+		}
+
+		foreach ($files as $file) {
+			$d = $dest . '/' . str_replace($src, '', $v) . '/' . basename($file);
+		
+			if (is_dir($file)) {
+				if (!mkdir($d)) {
+					echo "Cannot create directory '".$d."'<br>";
+					return;
+				}
+				chmod($d, $dperm);
+				$dirs[] = $file;
+				continue;
+			}
+	
+			if (!@copy($file, $d) && !@file_exists($d)) {
+				echo 'cannot copy "'.$file.'" to "'.$d.'"<br>';
+			} else {
+				@chmod($d, $perms);
+			}
+		}		
 	}
 }
 

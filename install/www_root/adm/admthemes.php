@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.50 2004/10/06 16:43:22 hackie Exp $
+* $Id: admthemes.php,v 1.51 2004/10/06 18:55:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,9 +123,9 @@ function clean_code($path, $toks)
 			exit('can\'t create ('.$root_nn.')<br>');
 		}
 
-		fudcopy($root . 'default/', $root_nn, '!.*!', true);
+		fudcopy($root . 'default/', $root_nn, '*', true);
 		if ($_POST['base_template_set'] == 'path_info') {
-			fudcopy($root . 'path_info/', $root_nn, '!.*!', true);
+			fudcopy($root . 'path_info/', $root_nn, '*', true);
 		}
 		umask($u);
 	}
