@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.19 2003/05/14 06:14:08 hackie Exp $
+*   $Id: logedin.inc.t,v 1.20 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,9 +22,9 @@ function rebuild_stats_cache($last_msg_id)
 	list($obj->last_user_id, $obj->user_count) = db_saq('SELECT MAX(id), count(*)-1 FROM {SQL_TABLE_PREFIX}users');
 
 	$obj->online_users_anon	= q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s WHERE time_sec>'.$tm_expire.' AND user_id>2000000000');
-	$obj->online_users_hidden = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND u.invisible_mode=\'Y\'');
-	$obj->online_users_reg = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND u.invisible_mode=\'N\'');
-	$c = uq('SELECT u.id, u.alias, u.is_mod, u.custom_color FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND u.invisible_mode=\'N\' ORDER BY s.time_sec DESC LIMIT '.$GLOBALS['MAX_LOGGEDIN_USERS']);
+	$obj->online_users_hidden = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND u.users_opt & 32768');
+	$obj->online_users_reg = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND !(u.users_opt & 32768)');
+	$c = uq('SELECT u.id, u.alias, u.users_opt, u.custom_color FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND !(u.users_opt & 32768) ORDER BY s.time_sec DESC LIMIT '.$GLOBALS['MAX_LOGGEDIN_USERS']);
 	while ($r = db_rowarr($c)) {
 		$obj->online_users_text[$r[0]] = draw_user_link($r[1], $r[2], $r[3]);
 	}
@@ -32,11 +32,11 @@ function rebuild_stats_cache($last_msg_id)
 
 	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET
 		cache_age='.__request_timestamp__.',		
-		last_user_id='.intzero($obj->last_user_id).',
-		user_count='.intzero($obj->user_count).',
-		online_users_anon='.intzero($obj->online_users_anon).',
-		online_users_hidden='.intzero($obj->online_users_hidden).',
-		online_users_reg='.intzero($obj->online_users_reg).',
+		last_user_id='.(int)$obj->last_user_id.',
+		user_count='.(int)$obj->user_count.',
+		online_users_anon='.(int)$obj->online_users_anon.',
+		online_users_hidden='.(int)$obj->online_users_hidden.',
+		online_users_reg='.(int)$obj->online_users_reg.',
 		online_users_text='.strnull(addslashes(@serialize($obj->online_users_text))));
 
 	$obj->last_user_alias = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$obj->last_user_id);

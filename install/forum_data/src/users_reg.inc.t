@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.36 2003/09/26 20:40:47 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.37 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@ class fud_user_reg extends fud_user
 		}	
 
 		if (!$this->users_opt) {
-			$this->users_opt = 6585269;
+			$this->users_opt = 4488117;
 		}
 
 		if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
@@ -62,7 +62,7 @@ class fud_user_reg extends fud_user
 		$this->alias = make_alias(($GLOBALS['USE_ALIASES'] != 'Y' || !$this->alias) ? $this->login : $this->alias);
 
 		if ($GLOBALS['MODERATE_USER_REGS'] == 'Y') {
-			$this->users_opt = $this->users_opt ^ 2097152;
+			$this->users_opt =| 2097152;
 		}
 
 		$this->id = db_qid("INSERT INTO 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.32 2003/06/17 14:04:39 hackie Exp $
+*   $Id: login.php.t,v 1.33 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	/* Remove old unconfirmed users */
 	if ($EMAIL_CONFIRMATION == 'Y') {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
-		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND is_mod!='A'");
+		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND users_opt & 131072 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND !(users_opt & 1048576)");
 	}	
 
 	if (!empty($_GET['logout'])) {
@@ -123,7 +123,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, NULL);
 		}
 
-		if (!($usr_d = db_sab('SELECT id, passwd, login, email, blocked, acc_status, email_conf, is_mod FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {
+		if (!($usr_d = db_sab('SELECT id, passwd, login, email FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			if ($usr_d->is_mod == 'A') {
@@ -131,23 +131,24 @@ function error_check()
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else { /* Perform check to ensure that the user is allowed to login */
+			$usr_d->users_opt = (int) $usr_d->users_opt;
 
 			/* Login & E-mail Filter & IP */
-			if (is_login_blocked($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || is_ip_blocked(get_ip())) {
+			if (is_login_blocked($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->users_opt & 65536 || is_ip_blocked(get_ip())) {
 				setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 
 			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $SESSION_USE_URL == 'Y') ? FALSE : TRUE));
 
-			if ($usr_d->email_conf != 'Y') {
+			if (!($usr_d->users_opt & 131072)) {
 				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', NULL, $ses_id);
 			}
-			if ($usr_d->acc_status != 'A') {
+			if ($usr_d->users_opt & 2097152) {
 				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', NULL, $ses_id);
 			}
 
-			if (!empty($_POST['adm']) && $usr_d->is_mod == 'A') {
+			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
 				header('Location: adm/admglobal.php?S='.$ses_id);
 				exit;
 			}

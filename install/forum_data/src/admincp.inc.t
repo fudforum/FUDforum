@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.11 2003/09/26 18:49:02 hackie Exp $
+*   $Id: admincp.inc.t,v 1.12 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,12 +15,12 @@
 *
 ***************************************************************************/
 
-$thr_exch = $admin_cp = $accounts_pending_approval = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = '';
-
 if (_uid) {
-	if ($usr->is_mod == 'Y' || $usr->is_mod == 'A') {
-		if ($usr->is_mod == 'A') {
-			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE avatar_approved='N'")) {
+	$admin_cp = $accounts_pending_approval = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = $thr_exch = '';
+
+	if ($usr->users_opt & 524288 || $usr->users_opt & 1048576) {
+		if ($usr->users_opt & 1048576) {
+			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216")) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
 			}
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
@@ -31,7 +31,7 @@ if (_uid) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
 			
-			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE acc_status='P'"))) {
+			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND users_opt & 2097152"))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
 				
@@ -52,12 +52,14 @@ if (_uid) {
 			$mod_que = '{TEMPLATE: mod_que}';
 		}
 	}
-	if ($usr->is_mod == 'A' || $usr->group_leader_list) {
+	if ($usr->users_opt & 1048576 || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
 	}
 	
 	if ($thr_exch || $accounts_pending_approval || $group_mgr || $reported_msgs || $custom_avatar_queue || $mod_que) {
 		$admin_cp = '{TEMPLATE: admin_cp}';
 	} 
+} else {
+	$admin_cp = '';
 }
 ?>

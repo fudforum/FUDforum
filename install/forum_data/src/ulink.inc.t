@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ulink.inc.t,v 1.2 2003/04/06 13:36:48 hackie Exp $
+*   $Id: ulink.inc.t,v 1.3 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,16 +21,12 @@ function draw_user_link($login, $type, $custom_color='')
 		return '{TEMPLATE: ulink_custom_color}';
 	}
 
-	switch ($type) {
-		case 'N':
-			return '{TEMPLATE: ulink_reg_user}';
-			break;
-		case 'Y':
-			return '{TEMPLATE: ulink_mod_user}';
-			break;
-		case 'A':
-			return '{TEMPLATE: ulink_adm_user}';
-			break;
+	if (!($type & 1572864)) {
+		return '{TEMPLATE: ulink_reg_user}';
+	} else if ($type & 1048576) {
+		return '{TEMPLATE: ulink_adm_user}';
+	} else if ($type & 524288) {
+		return '{TEMPLATE: ulink_mod_user}';
 	}
 }
 ?>

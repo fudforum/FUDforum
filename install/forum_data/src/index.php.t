@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.38 2003/09/26 18:49:03 hackie Exp $
+*   $Id: index.php.t,v 1.39 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -106,7 +106,7 @@ function url_tog_collapse($id, $c)
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
 				mo.id AS md,
-				'.(_uid ? 'CASE WHEN g2.p_READ IS NULL THEN g1.p_READ ELSE g2.p_READ END AS p_READ' : 'g1.p_READ').'
+				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').'
 		      FROM {SQL_TABLE_PREFIX}forum f
 		      INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 		      INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
@@ -115,7 +115,7 @@ function url_tog_collapse($id, $c)
 		      LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
 		      LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
 		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
-		      '.($usr->is_mod != 'A' ? 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.p_VISIBLE IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END' : 'g1.p_VISIBLE').'=\'Y\'' : '').'
+		      '.($usr->users_opt & 1048576 ? 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1' : '').'
 		      ORDER BY c.view_order, f.view_order');
 		
 	$post_count = $thread_count = $last_msg_id = $cat = 0;	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.69 2003/09/26 20:38:29 hackie Exp $
+*   $Id: users.inc.t,v 1.70 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,11 +39,12 @@ function init_user()
 	if ($u->data) {
 		$u->data = @unserialize($u->data);
 	}
+	$u->users_opt = (int) $u->users_opt;
 
 	/* set timezone */
 	@putenv('TZ=' . $u->time_zone);
 	/* set locale */
-	setlocale(lc_all, $u->locale);
+	setlocale(LC_ALL, $u->locale);
 
 	/* view format for threads & messages */
 	define('d_thread_view', $u->users_opt & 256 ? 'msg' : 'tree');
@@ -53,7 +54,7 @@ function init_user()
 	@define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
 		
 	/* define _uid, which, will tell us if this is a 'real' user or not */
-	define('_uid', $u->users_opt & (131072 | 2097152) ? $u->id : 0);
+	define('_uid', ($u->users_opt & 131072) && !($u->users_opt & 2097152) ? $u->id : 0);
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 
 	/* define constants used to track URL sessions & referrals */

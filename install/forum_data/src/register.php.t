@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.68 2003/09/26 20:40:47 hackie Exp $
+*   $Id: register.php.t,v 1.69 2003/09/26 15:58:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -290,7 +290,7 @@ function decode_uent(&$uent)
 		} else {
 			$uent = new fud_user_reg;
 			$uent->id = 0;
-			$uent->users_opt = 6585269;
+			$uent->users_opt = 4488117;
 		}
 	}
 	
@@ -557,7 +557,7 @@ function decode_uent(&$uent)
 			 ${'reg_'.$v} = '';
 		}
 
-		$users_opt = 6585269;
+		$users_opt = 4488117;
 
 		/* handle coppa passed to us by pre_reg form */
 		if (isset($_GET['reg_coppa']) && !$_GET['reg_coppa']) {
@@ -611,7 +611,7 @@ function decode_uent(&$uent)
 		$submit_button = '{TEMPLATE: register_button}';
 	} else { 
 		$reg_time_limit_err = '';
-		if ($uent->email_conf != 'N' && $GLOBALS['EMAIL_CONFIRMATION']=='Y') {
+		if ($uent->users_opt & 131072 && $GLOBALS['EMAIL_CONFIRMATION']=='Y') {
 			$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 		} else {
 			$email_warning_msg = '';
