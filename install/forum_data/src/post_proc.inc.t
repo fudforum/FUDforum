@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.19 2003/05/05 18:08:42 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.20 2003/05/06 04:15:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -184,11 +184,19 @@ function tags_to_html($str, $allow_img='Y')
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 					reverse_FMT($param);
 					reverse_nl2br($param);
-					
-					if (strpos($param, '<?') !== false) {
-						$param = '<?php '.$param.'?>';
+					$param = trim($param);
+
+					if (strncmp($param, '<?php', 5)) {
+						if (strncmp($param, '<?', 2)) {
+							$param = '<?php ' . $param;
+						} else {
+							$param = '<?php ' . substr($param, 2);
+						}
 					}
-					
+					if (substr($param, -2) != '?>') {
+						$param .= ' ?>';
+					}
+
 					$ostr .= '<span name="php">'.highlight_string($param, true).'</span>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
@@ -450,6 +458,13 @@ function tags_to_html($str, $allow_img='Y')
 	return $ostr;
 }
 
+if (!function_exists('html_entity_decode')) {
+	function html_entity_decode($s)
+	{
+		return strtr ($s, array_flip(get_html_translation_table(HTML_ENTITIES)));
+	}
+}
+
 function html_to_tags($fudml)
 {
 	while ( preg_match('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', $fudml) ) 
@@ -458,7 +473,7 @@ function html_to_tags($fudml)
 	reverse_nl2br($fudml);
 
 	while ( preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res) ) {
-		$res[1] = strip_tags($res[1]);
+		$res[1] = html_entity_decode(strip_tags($res[1]));
 		$fudml = preg_replace('!<span name="php">.*?</span>!is', '[php]'.$res[1].'[/php]', $fudml);
 	}
 
