@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.22 2003/10/16 21:59:04 hackie Exp $
+* $Id: mvthread.php.t,v 1.23 2003/11/10 00:07:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,6 +17,10 @@
 	$th = isset($_POST['th']) ? (int)$_POST['th'] : (isset($_GET['th']) ? (int)$_GET['th'] : 0);
 	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : (isset($_GET['thx']) ? (int)$_GET['thx'] : 0);
 	$to = isset($_GET['to']) ? (int)$_GET['to'] : 0;
+
+	if (!count($_POST) && !sq_check(0, $usr->last_visit)) {
+		return;
+	}
 
 	/* thread x-change */
 	if ($th && $thx) {

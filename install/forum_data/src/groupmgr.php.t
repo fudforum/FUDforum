@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.31 2003/10/09 14:34:26 hackie Exp $
+* $Id: groupmgr.php.t,v 1.32 2003/11/10 00:12:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -126,7 +126,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		}
 	}
 
-	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id) {
+	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id && sq_check(0, $usr->last_visit)) {
 		$is_gl = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$del." AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0");
 		grp_delete_member($group_id, $del);
 
