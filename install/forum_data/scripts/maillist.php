@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.1 2002/07/24 12:47:18 hackie Exp $
+*   $Id: maillist.php,v 1.2 2002/07/24 14:29:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -354,12 +354,12 @@ class fud_emsg
 		return $this->user_id;
 	}
 	
-	function get_fud_reply_id($complex)
+	function get_fud_reply_id($complex, $forum_id)
 	{
 		if( empty($this->reply_to_msg_id) && $complex == 'Y' ) {
 			/* This is slow, but only way to match 'rouge' replies in the event no reference fields are avaliable */
 			if( preg_match('!(Re|Wa)\s*:(.*)$!i', $this->subject, $matches) )
-				$r = q("SELECT id,thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE subject='".addslashes(trim($matches[2]))."'");
+				$r = q("SELECT id,thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$forum_id." AND subject='".addslashes(trim($matches[2]))."'");
 		}	
 		else 
 			$r = q("SELECT id,thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE mlist_msg_id='".addslashes($this->reply_to_msg_id)."'");
@@ -532,7 +532,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$msg_post->poll_id = 0;
 	$msg_post->show_sig = 'N';
 	
-	if( !$emsg->get_fud_reply_id($mlist->complex_reply_match) ) {
+	if( !$emsg->get_fud_reply_id($mlist->complex_reply_match, $forum_id) ) {
 		$msg_post->add_thread($forum_id, FALSE);
 		
 		$thr = new fud_thread;
