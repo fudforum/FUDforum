@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.38 2003/04/11 13:10:46 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.39 2003/04/14 19:42:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,8 +39,8 @@ class fud_msg_edit extends fud_msg
 			$this->post_stamp = __request_timestamp__;
 		}
 
-		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".$_SERVER['REMOTE_ADDR']."'" : "'0.0.0.0'";
-		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".get_host($this->ip_addr)."'" : 'NULL';
+		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
@@ -85,10 +85,10 @@ class fud_msg_edit extends fud_msg
 			".$this->ip_addr.",
 			".$this->host_name.",
 			".$this->post_stamp.",
-			".strnull($this->subject).",
+			".strnull(addslashes($this->subject)).",
 			".intzero($this->attach_cnt).",
 			".intzero($this->poll_id).",
-			".strnull($this->icon).",
+			".strnull(addslashes($this->icon)).",
 			'".yn($this->show_sig)."',
 			'".yn($this->smiley_disabled)."',
 			".$file_id.",
@@ -161,18 +161,18 @@ class fud_msg_edit extends fud_msg
 			file_id=".$file_id.", 
 			foff=".intzero($offset).", 
 			length=".intzero($length).",
-			mlist_msg_id=".strnull($this->mlist_msg_id).",
+			mlist_msg_id=".strnull(addslashes($this->mlist_msg_id)).",
 			file_id_preview=".$file_id_preview.",
 			offset_preview=".$offset_preview.",
 			length_preview=".$length_preview.",
 			smiley_disabled='".yn($this->smiley_disabled)."', 
 			updated_by=".$id.",
 			show_sig='".yn($this->show_sig)."', 
-			subject='".$this->subject."', 
+			subject='".addslashes($this->subject)."', 
 			attach_cnt=".intzero($this->attach_cnt).", 
 			poll_id=".intzero($this->poll_id).", 
 			update_stamp=".__request_timestamp__.", 
-			icon=".strnull($this->icon)." ,
+			icon=".strnull(addslashes($this->icon))." ,
 			poll_cache=".strnull(addslashes($poll_cache))."
 		WHERE id=".$this->id);
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.14 2003/04/14 19:31:19 hackie Exp $
+*   $Id: search.php.t,v 1.15 2003/04/14 19:37:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$srch = isset($_GET['srch']) ? trim($_GET['srch']) : '';
 	$forum_limiter = isset($_GET['forum_limiter']) ? $_GET['forum_limiter'] : '';
-	$field = !isset($_GET['field']) ? 'subject' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
+	$field = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
 	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.13 2003/04/14 19:31:19 hackie Exp $
+*   $Id: isearch.inc.t,v 1.14 2003/04/14 19:37:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,19 +59,19 @@ function index_text($subj, $body, $msg_id)
 	
 	/* subject + body index */
 	foreach ($w2 as $v) {
-		if (!($wid = q_singelval('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=\''.($v = addslashes($v)).'\''))) {
+		if (!($wid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=\''.($v = addslashes($v)).'\''))) {
 			$wid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES(\''.$v.'\')');
 		}
 		$w2d[] = $wid;
 		if (isset($w1[$v])) {
-			$w1d = $wid;
+			$w1d[] = $wid;
 		}
 	}
 	if (isset($w2d) && count($w2d)) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM SQL_TABLE_PREFIX}search WHERE id IN('.implode(',', $w2d).')');
+		q('INSERT INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE id IN('.implode(',', $w2d).')');
 	}
 	if (isset($w1d) && count($w1d)) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM SQL_TABLE_PREFIX}search WHERE id IN('.implode(',', $w1d).')');
+		q('INSERT INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE id IN('.implode(',', $w1d).')');
 	}
 
 	if (isset($ll)) {
@@ -83,7 +83,7 @@ function re_build_index()
 {
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+		db_lock('{SQL_TABLE_PREFIX}search_cache WRITE, {SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}index WRITE, {SQL_TABLE_PREFIX}title_index WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 	}
 	q('DELETE FROM {SQL_TABLE_PREFIX}search');
 	q('DELETE FROM {SQL_TABLE_PREFIX}index');
