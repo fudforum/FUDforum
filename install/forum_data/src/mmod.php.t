@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: mmod.php.t,v 1.3 2002/07/06 13:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,8 +40,12 @@
 	$GLOBALS['__RESOURCE_ID'] = $frm->id;
 
 	if( !$MOD ) {
-		if ( ($del && !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL')) || !is_perms($usr->id, $GLOBALS['__RESOURCE_ID'], 'LOCK') ) 
+		if( $del && !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL' ) )
 			check_return();
+		else if( $lock && !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'LOCK') ) 
+			check_return();
+		else if( !$lock && !$del ) 
+			check_return();	
 	}
 	
 	if ( empty($GLOBALS['HTTP_POST_VARS']['det_page']) ) {
