@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.38 2003/10/17 13:50:31 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.39 2003/10/23 19:00:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -82,20 +82,18 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message ignored message row (this gets draw if this message is ignored due to ignored user)}
-<tr class="MsgR1">
-<td colspan=2>
-<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td>
+<table border=0 cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
-<td align="left" class="GenText">
+<td align="left" class="MsgIg">
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk2}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk3}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
 [<a href="{TEMPLATE: dmsg_ignored_user_message_lnk}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
-<td align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
-</table></td>
-</tr>
+<td class="MsgIg" align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
+</table></td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_static used as ignore message row on the post form in the thread preview}
@@ -117,7 +115,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_avatar}
-<td valign="top">{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}&nbsp;</td>
+<td valign="top" width="1">{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}&nbsp;</td>
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_link_lnk}
@@ -183,11 +181,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_bd_il}
-{TEMPLATE-DATA: buddy_link} {TEMPLATE-DATA: ignore_link}<br />
+{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: ignore_link}<br />
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_add add this user to your buddy list link}
-&laquo;<a href="{TEMPLATE: dmsg_buddy_link_add_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a>&raquo;
+<a href="{TEMPLATE: dmsg_buddy_link_add_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove_lnk}
@@ -195,7 +193,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove add this user to your buddy list link}
-&laquo;<a href="{TEMPLATE: dmsg_buddy_link_remove_lnk}" class="GenLink">{MSG: remove_from_buddy_list}</a>&raquo;
+<a href="{TEMPLATE: dmsg_buddy_link_remove_lnk}" class="GenLink">{MSG: remove_from_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list_lnk}
@@ -203,7 +201,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
-&laquo;<a href="{TEMPLATE: dmsg_remove_user_ignore_list_lnk}" class="GenLink">{MSG: un_ignore_user}</a>&raquo;
+<a href="{TEMPLATE: dmsg_remove_user_ignore_list_lnk}" class="GenLink">{MSG: un_ignore_user}</a>
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list_lnk}
@@ -211,7 +209,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
-&laquo;<a href="{TEMPLATE: dmsg_add_user_ignore_list_lnk}" class="GenLink">{MSG: ignore_user}</a>&raquo;
+<a href="{TEMPLATE: dmsg_add_user_ignore_list_lnk}" class="GenLink">{MSG: ignore_user}</a>
 {SECTION: END}
 
 {SECTION: dmsg_im_icq_lnk}
@@ -385,15 +383,12 @@
 <a class="GenLink" href="{TEMPLATE: dmsg_quote_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" /></a>
 {SECTION: END}
 
-{SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote.. type buttons}
-<tr class="MsgToolBar"><td colspan=2><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
-<td align="left" nowrap width="1%">
-{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}
-</td>
-<td align="center" class="GenText">{TEMPLATE-DATA: next_page}</td>
-<td align="right" nowrap width="1%">
-{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}
-</td></tr></table></td></tr>
+{SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
+<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
+<td align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
+<td width="100%" align="center" class="GenText">{TEMPLATE-DATA: next_page}</td>
+<td align="right">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
+</tr></table></td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_normal_message_body}
@@ -414,11 +409,12 @@
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}
-<tr class="MsgR1">
-<td valign="top" align="left" class="MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
-<td valign="top" align=right><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
+<tr><td class="MsgSpacer"><table cellspacing=0 cellpadding=0 class="MsgTable">
+<tr>
+<td valign="top" align="left" class="MsgR1"><font class="MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</font></td>
+<td valign="top" align="right" class="MsgR1"><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan=2><table align="left" border="0" cellspacing="0" cellpadding="0">
+<tr class="MsgR2"><td class="MsgR2" colspan=2><table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 
 {TEMPLATE-DATA: avatar}
@@ -432,6 +428,7 @@
 {TEMPLATE-DATA: modified_message}{TEMPLATE-DATA: signature}{TEMPLATE-DATA: report_to_mod_link}
 </td></tr>
 {TEMPLATE-DATA: message_toolbar}
+</table></td></tr>
 {MAIN_SECTION: END}
 
 {SECTION: dmsg_no_msg_body}

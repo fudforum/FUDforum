@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.14 2003/10/15 14:13:34 hackie Exp $
+* $Id: reported.tmpl,v 1.15 2003/10/23 19:00:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,7 +30,7 @@
 {SECTION: END}
 
 {SECTION: reported_msg_header}
-<tr class="RowStyleC"><td colspan=2>
+<tr class="RowStyleC"><td>
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 	<tr>
 		<td align=left nowrap valign=top>
@@ -63,8 +63,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="MsgTable">
-<tr><th colspan=2>{MSG: reported_reported_msg}</th></tr>
+<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<tr><th>{MSG: reported_reported_msg}</th></tr>
 {TEMPLATE-DATA: reported_message}
 </table>
 {TEMPLATE: curtime}

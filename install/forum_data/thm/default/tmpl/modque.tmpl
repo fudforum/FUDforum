@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.tmpl,v 1.12 2003/10/15 14:13:34 hackie Exp $
+* $Id: modque.tmpl,v 1.13 2003/10/23 19:00:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,10 +26,10 @@
 {REF: smiley.tmpl}
 
 {SECTION: modque_msg_header moderator message options}
-<tr class="RowStyleB">
-	<td align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br /><b>{MSG: thread}</b> {VAR: obj->frm_name}</td>
-	<td align="right">[<a class="GenLink" href="{TEMPLATE: modque_msg_header_lnk}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{TEMPLATE: modque_msg_header_lnk1}">{MSG: modque_delete}</a>]</td>
-</tr>
+<tr class="RowStyleB"><td>
+	<span align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br /><b>{MSG: thread}</b> {VAR: obj->frm_name}</span>
+	<span align="right">[<a class="GenLink" href="{TEMPLATE: modque_msg_header_lnk}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{TEMPLATE: modque_msg_header_lnk1}">{MSG: modque_delete}</a>]</span>
+</td></tr>
 {SECTION: END}
 
 {SECTION: no_modque_msg}
@@ -45,8 +45,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<table border="0" cellspacing="1" cellpadding="2" class="MsgTable">
-<tr><th colspan=2>{MSG: modque_pending_approval}</th></tr>
+<table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<tr><th>{MSG: modque_pending_approval}</th></tr>
 {TEMPLATE-DATA: modque_message}
 </table>
 {TEMPLATE: curtime}

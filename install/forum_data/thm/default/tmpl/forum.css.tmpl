@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.14 2003/10/17 13:50:31 hackie Exp $
+* $Id: forum.css.tmpl,v 1.15 2003/10/23 19:00:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,8 +21,8 @@ body {
 
 text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText, .GenLink, 
 	.GenTextRed, .ErrorText, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
-	a.thLnk:active, a.thLnk:visited, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, 
-	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .ContentTable, .AnnonTable, .AnnText, 
+	a.thLnk:active, a.thLnk:visited, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg,
+	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, 
 	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, 
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, 
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags,
@@ -55,7 +55,7 @@ a.CatLink {
 
 .CatDesc {
 	color: #000000;
-	background: url("{THEME_IMAGE_ROOT}/tableHeaderbg3.gif");
+	background: url("http://bb.prohost.org/mm/theme/default/images/tableHeaderbg3.gif");
 }
 
 a.UserControlPanel {
@@ -68,7 +68,7 @@ a.UserControlPanel {
 	font-weight: bold;
 }
 
-.GenText, .GenLink {
+.GenText, .GenLink, .MsgIg {
 	color: #000000;
 }
 
@@ -90,7 +90,7 @@ th {
 	text-align: left;
 	color: #FFFFFF;
 	font-weight: bold;
-	background: url("{THEME_IMAGE_ROOT}/tableHeaderbg.gif");
+	background: url("http://bb.prohost.org/mm/theme/default/images/tableHeaderbg.gif");
 }
 
 a.thLnk:link, a.thLnk:active, a.thLnk:visited { 
@@ -120,7 +120,14 @@ a.thLnk:visited {
 }
 
 .MsgToolBar {
-	background: url("{THEME_IMAGE_ROOT}/tableHeaderbg2.gif");
+	background: #DEE2E6;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.MsgSpacer {
+	padding-bottom: 2px;
+	padding-top: 2px;
 }
 
 .PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable { 
@@ -135,9 +142,9 @@ a.thLnk:visited {
 }
 
 .MsgTable {
-	border: 1px solid black;
 	margin-top: 3px;
 	margin-bottom: 3px;
+	border: 1px solid black;
 }
 
 .DialogTable { 
@@ -270,19 +277,26 @@ img {
 .TopBy {
 	margin-top: 3px;
 	margin-bottom: 0px;
-	margin-left: 25px;
+	padding-right: 2px;
+	text-align: right;
+}
+
+.MsgR2, .MsgR1, .MsgR3, .MsgIg {
+	background: #DEE2E6;
+	border-bottom: 1px solid #AAAAAA;
+	padding: 1px;
+}
+
+.MsgIg {
+	border: 0px;
 }
 
 .MsgR1 {
-	background: #DDEEFF;
-}
-
-.MsgR2 {
-	background: #E8E8E8;
+	background: #DEE2E6;
 }
 
 .MsgR3 {
-	background: #dddddd;
+	background: #F4F4F4;
 }
 
 .mnavMsg {
@@ -326,19 +340,24 @@ a.big:link, a.big:active, a.big:visited {
 }
 
 td.msgot, td.msgud {
-	text-align: left;
+	text-align: right;
 	vertical-align: top;
+	width: 33%;
+	white-space: nowrap;
 }
 
 td.msgud {
 	padding-right: 10px;
+	text-align: left;
+	width: 33%;
 }
 
 div.ctags {
 	overflow: auto;
 	white-space: nowrap;
-	height: 64px;
 	margin: 0px;
 	padding: 2px;
+	width: 100%;
+	height: 36px;
 }
 {PAGE: END}

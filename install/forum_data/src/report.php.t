@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.php.t,v 1.13 2003/10/09 14:34:26 hackie Exp $
+* $Id: report.php.t,v 1.14 2003/10/23 19:00:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,6 +15,10 @@
 	if ((!isset($_GET['msg_id']) || !($msg_id = (int)$_GET['msg_id'])) && (!isset($_POST['msg_id']) || !($msg_id = (int)$_POST['msg_id']))) {
 		error_dialog('{TEMPLATE: report_err_nosuchmsg_title}', '{TEMPLATE: report_err_nosuchmsg_msg}');
 	}
+	if (!_uid) {
+		std_error('access');
+	}
+
 	/* permission check */
 	is_allowed_user($usr);
 
