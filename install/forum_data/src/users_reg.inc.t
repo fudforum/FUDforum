@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.12 2003/03/05 13:46:36 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.13 2003/03/13 11:04:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -250,12 +250,12 @@ class fud_user_reg extends fud_user
 
 function get_id_by_email($email)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(email)='".strtolower($email)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email='".$email."'");
 }
 
 function get_id_by_login($login)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(login)='".strtolower($login)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".$login."'");
 }
 
 function get_id_by_alias($alias)
@@ -266,7 +266,7 @@ function get_id_by_alias($alias)
 
 function get_id_by_radius($login, $passwd)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(login)='".strtolower($login)."' AND passwd='".md5($passwd)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".$login."' AND passwd='".md5($passwd)."'");
 }
 
 function check_user($id)

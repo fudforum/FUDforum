@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.7 2003/03/13 11:04:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,9 +39,9 @@
 		$usr_email = str_replace('\\', '\\\\', $usr_email);
 		
 		if ( $usr_login )
-			$qry = "WHERE LOWER(alias) LIKE '".strtolower(addslashes($usr_login))."%'";
+			$qry = "WHERE alias LIKE '".addslashes($usr_login)."%'";
 		else if ( $usr_email ) 
-			$qry = "WHERE LOWER(email) LIKE '".strtolower(addslashes($usr_email))."%'";
+			$qry = "WHERE email LIKE '".addslashes($usr_email)."%'";
 		else 
 			$qry = '';	
 		
