@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.27 2003/10/09 14:34:26 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.28 2003/10/10 20:04:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,19 +21,25 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 	$c =& $obj->level_opt;
 
 	if (!$mini) {
+		$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
+
 		if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
-			$avatar = '{TEMPLATE: dpmsg_avatar}';
 			if (!($c & 1)) {
-				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+				$level_name =& $obj->level_name;
 				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 			} else {
 				$level_name = $level_image = '';
 			}
 		} else {
-			$avatar = '{TEMPLATE: dpmsg_no_avatar}';
-			$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
 			$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
+			$obj->avatar_loc = '';
+			$level_name =& $obj->level_name;
 		}
+		$avatar = ($obj->avatar_loc && $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
+		if (!$level_name && $custom_tag) {
+			$custom_tag = substr($custom_tag, 2);
+		}
+		$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';	
 
 		if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 			$obj->login = $obj->alias;
@@ -41,14 +47,10 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$online_indicator = '';
 		}
-		if ($obj->host_name && $o1 & 268435456) {
-			if (strlen($obj->host_name) > 30) {
-				$obj->host_name = wordwrap($obj->host_name, 30, '<br />', 1);
-			}
-			$host_name = '{TEMPLATE: dpmsg_host_name}';
-		} else {
-			$host_name = '';
-		}
+
+		$host_name = ($obj->host_name && $o1 & 268435456) ? '{TEMPLATE: dpmsg_host_name}' : '';
+		$ip_address = '';
+
 		if ($obj->location) {
 			if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
 				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
@@ -60,7 +62,6 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$location = '{TEMPLATE: dpmsg_no_location}';
 		}
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dpmsg_no_msg_icon}' : '{TEMPLATE: dpmsg_msg_icon}';
-		$custom_tag = $obj->custom_status ? '{TEMPLATE: dpmsg_custom_tags}' : '{TEMPLATE: dpmsg_no_custom_tags}';
 		$usr->buddy_list = @unserialize($usr->buddy_list);
 		if ($obj->user_id != _uid && $obj->user_id > 0) {
 			$buddy_link = !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dpmsg_buddy_link}' : '{TEMPLATE: dpmsg_buddy_link_remove}';
@@ -79,8 +80,9 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			} else {
 				$im_affero = '';
 			}
+			$dmsg_im_row = ($im_icq || $im_aim || $im_yahoo || $im_msnm || $im_jabber || $im_affero) ? '{TEMPLATE: dmsg_im_row}' : '';
 		} else {
-			$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
+			$dmsg_im_row = '';
 		}
 		if ($obj->ouser_id != _uid) {
 			$user_profile = '{TEMPLATE: dpmsg_user_profile}';
@@ -97,9 +99,10 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$reply_link = $quote_link = '';
 		}
 		$profile_link = '{TEMPLATE: dpmsg_profile_link}';
+		$dmsg_user_info = '{TEMPLATE: dmsg_user_info}';
 		$msg_toolbar = '{TEMPLATE: dpmsg_msg_toolbar}';
 	} else {
-		$user_profile = $msg_toolbar = $level_name = $level_image = $im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $buddy_link = $custom_tag = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
+		$dmsg_user_info = $dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
 		$profile_link = '{TEMPLATE: dpmsg_profile_no_link}';
 	}
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';
@@ -121,11 +124,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		}
 	}
 
-	if ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096) {
-		$signature = '{TEMPLATE: dpmsg_signature}';
-	} else {
-		$signature = '';
-	}
+	$signature = ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096) ? '{TEMPLATE: dpmsg_signature}' : '';
 
 	return '{TEMPLATE: private_message_entry}';
 }
