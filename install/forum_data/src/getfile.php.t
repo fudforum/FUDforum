@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.31 2004/06/07 15:24:53 hackie Exp $
+* $Id: getfile.php.t,v 1.32 2004/11/11 20:26:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,6 +92,9 @@ function &get_preview_img($id)
 	if ($_SERVER["SERVER_PORT"] == "443" && (strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false)) {
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0", 1);
 		header("Pragma: public", 1);
+	} else {
+		/* send caching headers */
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", filemtime($r[2])) . " GMT");
 	}
 
 	header('Content-Type: '.$r[0]);
