@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.131 2004/06/11 14:50:25 hackie Exp $
+* $Id: users.inc.t,v 1.132 2004/10/10 18:06:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function init_user()
 
 	/* we need to parse S & rid right away since they are used during user init */
 	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-		$p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
+		$pb = $p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
 		if ($o1 & 128) {
 			$_GET['S'] = array_pop($p);
 		}
@@ -118,7 +118,7 @@ function init_user()
 
 			case 'fa':
 				$_GET['t'] = 'getfile';
-				$_GET['id'] = $p[1];
+				$_GET['id'] = isset($p[1]) ? $p[1] : $pb[1];
 				if (!empty($p[2])) {
 					$_GET['private'] = 1;
 				}
