@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.52 2004/01/04 16:38:27 hackie Exp $
+* $Id: post_proc.inc.t,v 1.53 2004/01/07 02:56:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -217,19 +217,23 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$str[$cpos] = '<';
 					break;
 				case 'img':
+				case 'imgl':
+				case 'imgr':
 					if (!$allow_img) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
+						$class = ($tag == 'img') ? '' : 'class="'.$tag{3}.'" ';
+
 						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
 							if (strpos(strtolower($parms), 'javascript:') === false) {
-								$ostr .= '<img src="'.$parms.'" border=0 alt="'.$parms.'">';
+								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.$parms.'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
 						} else {
 							if (strpos(strtolower($parms), 'javascript:') === false) {
-								$ostr .= '<img src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';
+								$ostr .= '<img '.$class.'src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';
 							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 							}
@@ -535,6 +539,9 @@ function html_to_tags($fudml)
 	while (preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml)) {
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="\\1">!is', '[img]\1[/img]', $fudml);
 	}
+	while (preg_match('!<img class="(r|l)" src="(.*?)" border=0 alt="\\2">!is', $fudml)) {
+		$fudml = preg_replace('!<img class="(r|l)" src="(.*?)" border=0 alt="\\2">!is', '[img\1]\2[/img\1]', $fudml);
+	}
 	while (preg_match('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', $fudml)) {
 		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', '[email]\1[/email]', $fudml);
 	}
@@ -544,6 +551,9 @@ function html_to_tags($fudml)
 
 	if (strpos($fudml, '<img src="') !== false) {
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="(.*?)">!is', '[img=\1]\2[/img]', $fudml);
+	}
+	if (strpos($fudml, '<img class="') !== false) {
+		$fudml = preg_replace('!<img class="(r|l)" src="(.*?)" border=0 alt="(.*?)">!is', '[img\1=\2]\3[/img\1]', $fudml);
 	}
 	if (strpos($fudml, '<a href="mailto:') !== false) {
 		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
