@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: error.php.t,v 1.5 2003/04/07 14:23:14 hackie Exp $
+*   $Id: error.php.t,v 1.6 2003/04/21 17:49:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@
 	if (isset($usr->data['er_msg'], $usr->data['err_t'])) {
 		$error_message	= $usr->data['er_msg'];
 		$error_title	= $usr->data['err_t'];
-		ses_putvar($usr->sid, NULL);
+		ses_putvar((int)$usr->sid, NULL);
 	} else {
 		$error_message	= '{TEMPLATE: error_invalidurl}';
 		$error_title	= '{TEMPLATE: error_error}';

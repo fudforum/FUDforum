@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.7 2003/04/21 17:42:40 hackie Exp $
+*   $Id: reset.php.t,v 1.8 2003/04/21 17:49:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function usr_reset_passwd($id)
 			$passwd = usr_reset_passwd($ui[2]);
 			db_unlock();
 			send_email($GLOBALS['NOTIFY_FROM'], $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
-			ses_putvar($usr->sid, '{TEMPLATE: reset_login_notify}');
+			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			header('Location: {ROOT}?t=login&'._rsidl);
 			exit;
 		}
