@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.6 2003/04/28 18:06:42 hackie Exp $
+*   $Id: admbrowse.php,v 1.7 2003/04/28 18:11:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,7 +155,7 @@ if (!function_exists('posix_getpwuid')) {
 		if (isset($_GET['del_conf'])) {
 			if (@is_dir($cur_dir . '/' . $dest) && !fud_rmdir($cur_dir . '/' . $dest)) {
 				exit('<h2 color="red">ERROR: failed to remove directory '.$cur_dir . '/' . $dest.'</h2>');
-			} else if (@is_file($cur.'/'.$dest) && !@unlink($cur.'/'.$dest)) {
+			} else if (@is_file($cur_dir.'/'.$dest) && !unlink($cur_dir.'/'.$dest)) {
 				exit('<h2 color="red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
 			} else {
 				exit('<html><script> window.opener.location = \'admbrowse.php?'._rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
