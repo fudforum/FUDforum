@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.14 2003/05/26 11:15:05 hackie Exp $
+*   $Id: msglist.php,v 1.15 2003/06/29 18:04:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,7 +92,7 @@ function makedeps()
 
 		$data = file_get_contents($msgfile);
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v)) === FALSE) {
+			if (($s = strpos($data, $v . ':')) === FALSE) {
 				continue;
 			}
 			$s += 2 + strlen($v);
@@ -188,7 +188,7 @@ if (isset($warn)) {
 		$data = file_get_contents($msgfile);
 
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v)) === FALSE) {
+			if (($s = strpos($data, $v . ':')) === FALSE) {
 				echo '<tr><td nowrap><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
 				continue;
 			}
