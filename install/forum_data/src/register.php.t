@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.114 2004/04/07 18:19:14 hackie Exp $
+* $Id: register.php.t,v 1.115 2004/04/08 13:34:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -310,7 +310,6 @@ function decode_uent(&$uent)
 				if (!($img_info = @getimagesize($TMP . $tmp_name))) {
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 					unlink($TMP . $tmp_name);
-
 				}
 
 				list($max_w, $max_y) = explode('x', $CUSTOM_AVATAR_MAX_DIM);
@@ -433,7 +432,7 @@ function decode_uent(&$uent)
 				} else {
 					header('Location: {FULL_ROOT}{ROOT}?t=coppa_fax&'._rsidl);
 				}
-				exit();
+				exit;
 			} else if (!($uent->users_opt & 131072) || $FUD_OPT_2 & 1024) {
 				header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 				exit;

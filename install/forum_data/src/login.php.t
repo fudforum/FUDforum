@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.55 2004/01/30 01:44:17 hackie Exp $
+* $Id: login.php.t,v 1.56 2004/04/08 13:34:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,7 +97,7 @@
 		} else {
 			header('Location: {FULL_ROOT}{ROOT}?t=register&'._rsidl);
 		}
-		exit();
+		exit;
 	}
 
 function login_php_set_err($type, $val)
