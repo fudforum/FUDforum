@@ -1,9 +1,9 @@
-;<?php
+<?php
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.14 2003/09/30 04:26:16 hackie Exp $
+*   $Id: admnntp.php,v 1.15 2003/10/03 16:59:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@
 			${'nntp_' . $k} = $v;
 		}
 	}
-	
+
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 
 	if ($FUD_OPT_2 & 8388608) {
@@ -81,7 +81,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Authentication Method:<br><font size="-1">The authentication method to use when connecting to nntp server.</font></td>
-		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "64\n128\n0", ($nntp_opt & 128 ? 128 : ($nntp_opt & 64 ? 64 : 0))); ?></td>
+		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "64\n128\n0", ($nntp_nntp_opt & 128 ? 128 : ($nntp_nntp_opt & 64 ? 64 : 0))); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
@@ -127,7 +127,7 @@
 			<font size="-1">Any posts from the newsgroup would first need to be approved by moderator(s) before
 			they are made visible on the forum.</font>
 		</td>
-		<td><?php draw_select('nntp_nntp_post_apr', "No\nYes", "0\n1", ($nntp_opt & 1 ? 1 : 0)); ?></td>
+		<td><?php draw_select('nntp_nntp_post_apr', "No\nYes", "0\n1", ($nntp_nntp_opt & 1 ? 1 : 0)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -137,7 +137,7 @@
 			newsgroup by the forum. On the newsgroup the posts would appear on behalf of the user who
 			has made the post.</font>
 		</td>
-		<td><?php draw_select('nntp_allow_frm_post', "No\nYes", "0\n2", ($nntp_opt & 2 ? 2 : 0)); ?></td>
+		<td><?php draw_select('nntp_allow_frm_post', "No\nYes", "0\n2", ($nntp_nntp_opt & 2 ? 2 : 0)); ?></td>
 	</tr>	
 		
 	<tr bgcolor="#bff8ff">
@@ -146,7 +146,7 @@
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be first approved
 			by the moderator(s) before they are syncronized to the newsgroup or appear in the forum.</font>
 		</td>
-		<td><?php draw_select('nntp_frm_post_apr', "No\nYes", "0\n4", ($nntp_opt & 4 ? 4 : 0)); ?></td>
+		<td><?php draw_select('nntp_frm_post_apr', "No\nYes", "0\n4", ($nntp_nntp_opt & 4 ? 4 : 0)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -155,7 +155,7 @@
 			<font size="-1">If enabled, ANY file attachment attached to a message in the newsgroup will be
 			imported into the forum regardless of any limitations imposed on file attachments within the forum.</font>
 		</td>
-		<td><?php draw_select('nntp_allow_nttp_attch', "No\nYes", "0\n8", ($nntp_opt & 8 ? 8 : 0)); ?></td>
+		<td><?php draw_select('nntp_allow_nntp_attch', "No\nYes", "0\n8", ($nntp_nntp_opt & 8 ? 8 : 0)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -166,7 +166,7 @@
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
 			messages in the forum.</font>
 		</td>
-		<td><?php draw_select('nntp_complex_reply_match', "No\nYes", "0\n16", ($nntp_opt & 16 ? 16 : 0)); ?></td>
+		<td><?php draw_select('nntp_complex_reply_match', "No\nYes", "0\n16", ($nntp_nntp_opt & 16 ? 16 : 0)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -177,7 +177,7 @@
 			imported newsgroup messages who's authors cannot be matched against existing forum members will be attributed
 			to the anonymous user.</font>
 		</td>
-		<td><?php draw_select('nntp_create_users', "No\nYes", "0\n32", ($nntp_opt & 32 ? 32 : 0)); ?></td>
+		<td><?php draw_select('nntp_create_users', "No\nYes", "0\n32", ($nntp_nntp_opt & 32 ? 32 : 0)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.19 2003/09/30 03:27:52 hackie Exp $
+*   $Id: admmlist.php,v 1.20 2003/10/03 16:59:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function format_regex(&$regex)
 			$mlist->add();
 		}
 	} else if (isset($_GET['del'])) {
-		fud_mlist::dl((int)$_GET['del']);
+		fud_mlist::del((int)$_GET['del']);
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
