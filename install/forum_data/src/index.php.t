@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.82 2004/11/29 18:55:44 hackie Exp $
+* $Id: index.php.t,v 1.83 2004/12/21 16:03:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,21 +101,17 @@ function url_tog_collapse($id, $c)
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
-				fr.last_view,
-				mo.id,
-				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').',
+				'.(_uid ? 'fr.last_view, mo.id, CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : '0,0,g1.group_cache_opt').',
 				c.cat_opt & 4
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
-			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
-			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id'.
-			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id '.
+			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.' LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').
 			((!$is_a || $cat_id) ?  ' WHERE ' : '') .
-			($is_a ? '' : ' mo.id IS NOT NULL OR ('.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1)>0') .
+			($is_a ? '' : (_uid ? ' mo.id IS NOT NULL OR (CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : ' (g1.group_cache_opt').' & 1)>0') .
 			($cat_id ? ($is_a ? '' : ' AND ') . ' v.c IN('.implode(',', ($cf = $cidxc[$cat_id][5])).') ' : '').' ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
