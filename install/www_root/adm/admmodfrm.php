@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admmodfrm.php,v 1.9 2003/04/23 16:35:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,79 +17,60 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('cat.inc');
-	fud_use('forum.inc');
-	fud_use('util.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('users.inc');
-	fud_use('rev_fmt.inc');
-	
-	list($ses, $usr_adm) = initadm();
-	
-	$usr = new fud_user_adm;
-	$cat = new fud_cat_adm;
-	$frm = new fud_forum_adm;
-	
-	$usr->get_user_by_id($usr_id);
 
-	if ( !empty($mod_submit) ) {
-		$frm->get_all_forums();
-		$frm->resetfrm();
-		
-		$mod = NULL;
-		
-		$usr->start_mod();
-		$usr->de_moderate();		
-		while ( $frm->nextfrm() ) {
-			if ( isset($HTTP_POST_VARS['mod_allow_'.$frm->id]) && $HTTP_POST_VARS['mod_allow_'.$frm->id] == 'Y' ) {
-				$usr->mk_moderator($frm->id);
-				$mod = 1;
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (isset($_GET['usr_id'])) {
+		$usr_id = (int)$_GET['usr_id'];
+	} else if (isset($_POST['usr_id'])) {
+		$usr_id = (int)$_POST['usr_id'];
+	} else {
+		$usr_id = '';
+	}
+	if (!$usr_id || !($login = q_singleval('SELECT alias FROM '.$tbl.'users WHERE id='.$usr_id))) {
+		exit('<html><script language="JavaScript">window.close();</script></html>');
+	}
+
+	if (isset($_POST['mod_submit'])) {
+		q('DELETE FROM '.$tbl.'mod WHERE user_id='.$usr_id);
+		if (isset($_POST['mod_allow'])) {
+			foreach ($_POST['mod_allow'] as $m) {
+				q('INSERT INTO '.$tbl.'mod (forum_id, user_id) VALUES('.(int)$m.', '.$usr_id.')');	
 			}
 		}
-		$usr->end_mod();
-		
-		if( $usr->is_mod != 'A' ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='".(($mod)?'Y':'N')."' WHERE id=".$usr->id);
-		
+
 		/* mod rebuild */	
 		rebuildmodlist();
-
-		reverse_FMT($usr->alias);
-		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=".urlencode($usr->alias)."&"._rsid."'; window.close();\n</script></html>");
+?>
+<html>
+<script language="JavaScript">
+	window.opener.location='admuser.php?usr_id=<?php echo $usr_id; ?>&act=nada&<?php echo _rsidl; ?>';
+	window.close();
+</script>
+</html>
+<?php
+		exit;
 	}
-	
 ?>
 <html>
 <body bgcolor="#ffffff">
-<h3>Allowing <?php echo $usr->alias; ?> to moderate</h3>
-<form name="frm_mod" method="post">
+<h3>Allowing <?php echo $login; ?> to moderate:</h3>
+<form name="frm_mod" action="admmodfrm.php" method="post">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=2>
 <?php
-	$cat->get_all_cat();
-	$cat->resetcat();
-	
-	while ( $cat->nextcat() ) {
-		echo "<tr bgcolor=\"#e5ffe7\"><td colspan=2>$cat->name</td></tr>\n";
-		
-		$frm->get_cat_forums($cat->id);
-		$frm->resetfrm();
-		while ( $frm->nextfrm() ) {
-			echo "<tr><td><input type=\"checkbox\" name=\"mod_allow_$frm->id\" value=\"Y\"".(($frm->is_moderator($usr->id))?' checked':'')."></td><td>$frm->name</td></tr>\n"; 
+	$c = uq('SELECT CASE WHEN c.name IS NULL THEN \'DELETED FORUMS\' ELSE c.name END, f.name, f.id, mm.id FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'cat c ON c.id=f.cat_id LEFT JOIN '.$tbl.'mod mm ON mm.forum_id=f.id AND mm.user_id='.$usr_id.' ORDER BY c.view_order, f.view_order');
+	$pc = '';
+	while ($r = db_rowarr($c)) {
+		if ($pc != $r[0]) {
+			echo '<tr bgcolor="#e5ffe7"><td colspan=2>'.$r[0].'</td></tr>';
+			$pc = $r[0];
 		}
+		echo '<tr><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').'>'.$r[1].'</td></tr>';
 	}
-
-
-	/* deleted forums */
-	$frm->get_cat_forums(0);
-	if ( $frm->countfrm() ) {
-		echo "<tr bgcolor=\"#e5ffe7\"><td colspan=2>DELETED FORUMS</td></tr>\n";
-		$frm->resetfrm();
-		while ( $frm->nextfrm() ) {
-			echo "<tr><td><input type=\"checkbox\" name=\"mod_allow_$frm->id\" value=\"Y\"".(($frm->is_moderator($usr->id))?' checked':'')."></td><td>$frm->name</td></tr>\n"; 
-		}
-	}
+	qf($c);
 ?>
 <tr>
 	<td colspan=2 align=right><input type="submit" name="mod_submit" value="Apply"></td>
