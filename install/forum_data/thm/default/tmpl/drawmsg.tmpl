@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.76 2005/03/07 21:52:04 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.77 2005/03/16 16:53:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -232,18 +232,6 @@
 <tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td>{VAR: v[0]}</td><td><img src="{THEME_IMAGE_ROOT}/poll_pix.gif" alt="" height="10" width="{VAR: length}" /> {VAR: v[1]} / {VAR: length}%</td></tr>
 {SECTION: END}
 
-{SECTION: dmsg_poll_buttons}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan=3>{TEMPLATE: dmsg_vote_button}&nbsp;{TEMPLATE-DATA: view_poll_results_button}</td></tr>
-{SECTION: END}
-
-{SECTION: dmsg_vote_button}
-<input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">
-{SECTION: END}
-
-{SECTION: dmsg_view_poll_results_button}
-<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">
-{SECTION: END}
-
 {SECTION: mini_dmsg_poll}
 <p><table cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span></th></tr>
@@ -261,7 +249,7 @@
 <table cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
-{TEMPLATE-DATA: poll_buttons}
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><td colspan=3><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</td></tr>
 </table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
 {SECTION: END}
 

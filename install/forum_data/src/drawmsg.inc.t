@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.96 2005/03/07 21:52:04 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.97 2005/03/16 16:53:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -310,8 +310,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 
 		if (!$show_res) {
-			$view_poll_results_button = $obj->total_votes ? '{TEMPLATE: dmsg_view_poll_results_button}' : '';
-			$poll_buttons = '{TEMPLATE: dmsg_poll_buttons}';
 			$poll = '{TEMPLATE: dmsg_poll}';
 		} else {
 			$poll = '{TEMPLATE: mini_dmsg_poll}';
