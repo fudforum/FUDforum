@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allperms.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
+*   $Id: allperms.inc.t,v 1.4 2002/07/09 15:04:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,10 +43,8 @@ function get_all_perms($usr_id)
 
 function forum_perm_array($forum_id)
 {
- 	$r = q("SELECT p_READ, user_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_type='forum' AND resource_id=$forum_id AND user_id>0");
-	while ( $obj = db_rowobj($r) ) {
-		$p[$obj->user_id] = $obj->p_READ;
-	}
+ 	$r = q("SELECT p_READ AS p_read, user_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_type='forum' AND resource_id=$forum_id AND user_id>0");
+	while ( $obj = db_rowobj($r) ) $p[$obj->user_id] = $obj->p_read;
 	qf($r);
 	
 	return $p;
