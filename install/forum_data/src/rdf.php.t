@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.4 2003/05/15 17:57:16 hackie Exp $
+*   $Id: rdf.php.t,v 1.5 2003/05/15 18:28:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,6 +16,8 @@
 ***************************************************************************/
 
 	require('GLOBALS.php');
+	require ($DATA_DIR . 'include/RDF.php');
+	fud_use('err.inc');
 
 	/* before we go on, we need to do some very basic activation checks */
 	if ($FORUM_ENABLED != 'Y') {
@@ -26,6 +28,14 @@
 	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 		fud_use('errmsg.inc');
 	        exit(__fud_e_install_script_present_error);
+	}
+
+/*{PRE_HTML_PHP}*/
+
+	if ($RDF_ENABLED == 'N') {
+		fud_use('cookies.inc');
+		fud_use('users.inc');
+		std_error('disabled');
 	}
 
 	if ($PHP_COMPRESSION_ENABLE == 'Y') {
@@ -45,9 +55,6 @@ function email_format($data)
 	return strtr($data, $GLOBALS['email']);
 }
 
-	require ($DATA_DIR . 'include/RDF.php');
-
-/*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 	/* supported modes of output
