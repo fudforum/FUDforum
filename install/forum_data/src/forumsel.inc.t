@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.13 2003/07/14 13:41:50 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.14 2003/09/27 17:18:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-function tmpl_create_forum_select($frm_id, $is_mod)
+function tmpl_create_forum_select($frm_id, $mod)
 {
 	$prev_cat_id = 0;
 	$selection_options = '';
@@ -27,7 +27,7 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 	}
 
 	if (!_uid) { /* anon user, we can optimize things quite a bit here */
-		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id AND g.user_id=0 INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE p_VISIBLE=\'Y\' ORDER BY c.view_order, f.view_order');
+		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE g.user_id=0 AND group_cache_opt>=1 AND group_cache_opt & 1 ORDER BY c.view_order, f.view_order');
 		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
@@ -44,9 +44,9 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 			FROM {SQL_TABLE_PREFIX}forum f 
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
-			'.($is_mod != 'A' ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
+			'.($mod & 1048576 ? '' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-			'.($is_mod != 'A' ? ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END)=\'Y\'' : '').'
+			'.($mod & 1048576 ? '' : ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END) & 1').'
 			ORDER BY c.view_order, f.view_order');			
 
 		while ($r = db_rowarr($c)) {
@@ -63,5 +63,5 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 	}
 }
 
-	$forum_select = tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->is_mod);
+	$forum_select = tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt);
 ?>

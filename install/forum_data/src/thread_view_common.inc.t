@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.21 2003/09/20 04:07:40 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.22 2003/09/27 17:18:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@ $frm = db_sab('SELECT
 			c.name AS cat_name,
 			fn.forum_id AS subscribed,
 			m.forum_id AS md,
-			a.id AS is_ann,
+			a.ann_id AS is_ann,
 			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}forum f
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
@@ -50,12 +50,14 @@ if (!$frm) {
 	invl_inp_err();
 }
 
+$MOD = ($usr->users_opt & 1048576 || $frm->md);
+
 /* check that the user has permissions to access this forum */
-if ($frm->p_read != 'Y' && !$frm->md && $usr->is_mod != 'A') {
+if (!($frm->group_cache_opt & 2) && !$MOD) {
 	if (!isset($_GET['logoff'])) {
 		std_error('perms');
 	} else {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		if ($USE_PATH_INFO == 'N') {
 			header('Location: {ROOT}?' . _rsidl);
 		} else {
 			header('Location: {ROOT}/i/' . _rsidl);
@@ -63,8 +65,6 @@ if ($frm->p_read != 'Y' && !$frm->md && $usr->is_mod != 'A') {
 		exit;
 	}
 }
-
-$MOD = ($usr->is_mod == 'A' || $frm->md) ? 1 : 0;
 
 if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';
@@ -75,8 +75,8 @@ if ($_GET['t'] == 'threadt') {
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
 
-$thread_printable_pdf = $GLOBALS['SHOW_PDF_LINK'] == 'Y' ? '{TEMPLATE: thread_printable_pdf}' : '';
-$thread_syndicate = $GLOBALS['SHOW_XML_LINK'] == 'Y' ? '{TEMPLATE: thread_syndicate}' : '';
+$thread_printable_pdf = $SHOW_PDF_LINK == 'Y' ? '{TEMPLATE: thread_printable_pdf}' : '';
+$thread_syndicate = $SHOW_XML_LINK == 'Y' ? '{TEMPLATE: thread_syndicate}' : '';
 
 /* do various things for registered users */
 if (_uid) {
@@ -89,11 +89,7 @@ if (_uid) {
 	}
 	$subscribe = $frm->subscribed ? '{TEMPLATE: unsubscribe_link}' : '{TEMPLATE: subscribe_link}';
 	$mark_all_read = '{TEMPLATE: thread_mark_all_read}';
-	if ($MOD || $frm->p_split == 'Y') {
-		$merget = '{TEMPLATE: thread_merge_t}';	
-	} else {
-		$merget = '';
-	}
+	$merget = ($MOD || $frm->group_cache_opt & 2048) ? '{TEMPLATE: thread_merge_t}' : '';
 } else {
 	$merget = $subscribe = '';
 	$mark_all_read = '{TEMPLATE: thread_pdf_rdf}';

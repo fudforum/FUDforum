@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.6 2003/09/26 18:49:02 hackie Exp $
+#   $Id: fud_users.tbl,v 1.7 2003/09/27 17:18:50 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -59,7 +59,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	buddy_list		TEXT,
 	ignore_list		TEXT,
 	group_leader_list	TEXT,
-	users_opt		INT NOT NULL DEFAULT 6585269
+	users_opt		INT NOT NULL DEFAULT 4488117
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l ON {SQL_TABLE_PREFIX}users (login);
@@ -93,6 +93,9 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt)
 # 262144 coppa (ON/OFF)
 # 524288 is_mod (ON/OFF)
 # 1048576 is_admin (ON/OFF)
-# 2097152 acc_status (A/P)
+# 2097152 acc_status (P/A)
 # 4194304 avatar_approved (No Avatar)
-# 8388608 avatar_approved (ON/OFF) 
+# 8388608 avatar_approved YES 
+# 16777216 avatar_approved NO
+
+users_opt

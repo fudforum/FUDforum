@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.37 2003/06/12 17:23:31 hackie Exp $
+*   $Id: compiler.inc,v 1.38 2003/09/27 17:18:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -585,7 +585,7 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 			if (!@copy($path, $nd) && !@file_exists($nd)) {
 				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
 			} else {
-				@chmod($nd, 0600);
+				@chmod($nd, ($FILE_LOCK == 'Y' ? 0600 : 0666));
 			}
 		}
 	}
@@ -639,7 +639,7 @@ function copyhelp($thm)
 		}
 		fwrite($fp, str_replace('{ROOT}', $rp, file_get_contents($src . $de)));
 		fclose($fp);
-		@chmod($src . $de, 0666);
+		@chmod($src . $de, ($FILE_LOCK == 'Y' ? 0600 : 0666));
 	}
 	closedir($dp);
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.24 2003/09/26 18:49:03 hackie Exp $
+*   $Id: thread.php.t,v 1.25 2003/09/27 17:18:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,13 +68,8 @@
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
 		$threaded_view = $rating_heading = $admin_heading_row = '';
 	} else {
-		if ($MOD || $frm->p_move == 'Y' || $frm->p_del == 'Y') {
-			$admin_heading_row = '{TEMPLATE: admin_heading_row}';
-		} else {
-			$admin_heading_row = '';
-		}
+		$admin_heading_row = ($MOD || $frm->group_cache_opt & (32|8192)) ? '{TEMPLATE: admin_heading_row}' : '';
 		$rating_heading = $ENABLE_THREAD_RATING == 'Y' ? '{TEMPLATE: rating_heading}' : '';
-
 		$threaded_view = $TREE_THREADS_ENABLE == 'N' ? '' : '{TEMPLATE: threaded_view}';
 		$thread_list_table_data = '';
 
@@ -85,7 +80,7 @@
 			}
 			$msg_count = $r[16] + 1;
 
-			if ($msg_count > $ppg && d_thread_view=='msg') {
+			if ($msg_count > $ppg && $usr->users_opt & 256) {
 				if ($THREAD_MSG_PAGER < ($pgcount = ceil($msg_count/$ppg))) {
 					$i = $pgcount - $THREAD_MSG_PAGER;
 					$mini_pager_data = '{TEMPLATE: mini_pager_limiter}';
@@ -150,23 +145,23 @@
 		
 			$thread_first_post = '{TEMPLATE: thread_first_post}';
 		
-			if ($MOD || ($frm->p_move == 'Y' && $frm->p_del == 'Y')) {
-				$admin_control_row = '{TEMPLATE: admin_control_row_all}';
-			} else if ($frm->p_move == 'Y') {
-				$admin_control_row = '{TEMPLATE: admin_control_row_move}';
-			} else if ($frm->p_del == 'Y') {
-				$admin_control_row = '{TEMPLATE: admin_control_row_del}';
+			if ($admin_heading_row) {
+				if ($MOD || $frm->group_cache_opt & (32|8192)) {
+					$admin_control_row = '{TEMPLATE: admin_control_row_all}';
+				} else if ($frm->group_cache_opt & 32) {
+					$admin_control_row = '{TEMPLATE: admin_control_row_del}';
+				} else {
+					$admin_control_row = '{TEMPLATE: admin_control_row_move}';
+				}
 			} else {
 				$admin_control_row = '';
 			}
-
 			$thread_list_table_data .= '{TEMPLATE: thread_row}';
-	
 		} while (($r = db_rowarr($result)));
 	}
 	qf($result);
 
-	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+	if ($USE_PATH_INFO == 'N') {
 		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
 	} else {
 		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'.$frm_id.'/1/', '/' ._rsid);
