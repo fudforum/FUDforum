@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.13 2003/04/30 20:19:24 hackie Exp $
+*   $Id: reported.php.t,v 1.14 2003/05/09 14:29:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@
 	
 	$mod_limiter = ( $usr->is_mod != 'A' ) ? 'INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id='._uid : '';
 	
-	$r = uq('SELECT 	
+	$r = $query_type('SELECT 	
 			m.*, 
 			t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name AS frm_name,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.25 2003/05/07 23:21:44 hackie Exp $
+*   $Id: selmsg.php.t,v 1.26 2003/05/09 14:29:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -105,7 +105,7 @@ function valstat($a)
 	
 	if ($unread_limit || $total) {
 		/* figure out the query */
-		$c = uq('SELECT 
+		$c = $query_type('SELECT 
 			m.*, 
 			t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,

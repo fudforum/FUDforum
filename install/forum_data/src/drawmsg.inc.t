@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.44 2003/05/01 19:38:54 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.45 2003/05/09 14:29:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,6 +34,8 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 
 	return 1;
 }
+
+$query_type = (empty($_POST['poll_opt']) || !($_POST['poll_opt'] = (int)$_POST['poll_opt']) ? 'uq' : 'q');
 
 /* needed for message threshold & reveling messages */
 if (isset($_GET['rev'])) {
@@ -102,7 +104,7 @@ function make_reveal_link($id)
  * last argument can be anything, allowing forms to specify various vars they
  * need to.
  */
-function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
+function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 {
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
@@ -154,7 +156,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 
 	/* check if the message should be ignored and it is not temporarily revelead */
-	if (!empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
+	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
 		$rev_url = make_reveal_link($obj->id);
 		$un_ignore_url = make_tmp_unignore_lnk($obj->poster_id);
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';

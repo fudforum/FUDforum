@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.37 2003/05/01 15:41:10 hackie Exp $
+*   $Id: msg.php.t,v 1.38 2003/05/09 14:29:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,7 +170,7 @@
 
 	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
 
-	$result = uq('SELECT 
+	$result = $query_type('SELECT 
 		m.*, 
 		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,

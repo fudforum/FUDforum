@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.16 2003/05/08 00:45:56 hackie Exp $
+*   $Id: modque.php.t,v 1.17 2003/05/09 14:29:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,7 +51,7 @@
 	/* for sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will 
 	 * become unmanageable.
 	 */
-	$r = uq("SELECT 
+	$r = $query_type("SELECT 
 		m.*, 
 		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold, f.name AS frm_name,
