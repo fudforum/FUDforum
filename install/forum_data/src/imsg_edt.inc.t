@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.105 2004/05/12 18:25:59 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.106 2004/05/12 22:08:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -649,6 +649,10 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		if ($GLOBALS['FUD_OPT_2'] & 64) {
 
 			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
+
+			if (!$obj->alias) { /* anon user */
+				$obj->alias = htmlspecialchars($GLOBALS['ANON_NICK']);
+			}
 
 			$headers  = "MIME-Version: 1.0\r\n";
 			if ($obj->reply_to) {
