@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.5 2003/05/07 19:12:41 hackie Exp $
+*   $Id: glob.inc,v 1.6 2003/05/15 18:22:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,12 +41,16 @@ function read_help()
 	return (isset($help_ar) ? $help_ar : NULL);
 }
 
-function change_global_settings($list)
+function change_global_settings($list, $name='GLOBALS.php')
 {
-	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
+	$settings = file_get_contents($GLOBALS['INCLUDE'] . $name);
 	foreach ($list as $k => $v) {
 		if (($p = strpos($settings, '$' . $k)) === FALSE) {
-			$p = strpos($settings, '$ALLOW_REGISTRATION')-1;
+			if ($name == 'GLOBALS.php') {
+				$p = strpos($settings, '$ALLOW_REGISTRATION')-1;
+			} else { /* RDF.php */
+				$p = strpos($settings, '$AUTH')-1;
+			}
 			$settings = substr_replace($settings, "\t\$$k\t= \"$v\";\n", $p, 0);
 		} else {
 			$p = strpos($settings, '"', $p) + 1;
@@ -58,7 +62,7 @@ function change_global_settings($list)
 			}
 		}
 	}
-	$fp = fopen($GLOBALS['INCLUDE'] . 'GLOBALS.php', 'w');
+	$fp = fopen($GLOBALS['INCLUDE'] . $name, 'w');
 	fwrite($fp, $settings);
 	fclose($fp);
 }
