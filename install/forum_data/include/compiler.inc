@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.73 2004/12/02 00:31:56 hackie Exp $
+* $Id: compiler.inc,v 1.74 2004/12/08 15:49:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -270,8 +270,7 @@ function compile_file($source)
 	$gfc =& $GLOBALS['file_cache'];
 	$t = substr($source, 0, strpos($source, '.')).'.tmpl';
 	if (isset($gfc[$t]['include'])) {
-		$ir =& $gfc[$t]['include'];
-		foreach ($ir as $v) {
+		foreach ($gfc[$t]['include'] as $v) {
 			if (!isset($gfc[$v]['compiled']) && $t != $v) {
 				generate_file($v);
 			}
@@ -433,8 +432,7 @@ function generate_file($php_file)
 
 function parse_msgs($file)
 {
-	$data = file($file);
-	foreach ($data as $k => $v) {
+	foreach (file($file) as $k => $v) {
 		$m = trim(strtok($v, "\t"), ':');
 		if (isset($GLOBALS['MSG'][$m])) {
 			if ($GLOBALS['MSG'][$m]['file'] != $file) {
@@ -492,9 +490,8 @@ function resolve_inc_refs($file)
 	}
 
 	$ar =& $curf['include'];
-	$vs = array_keys($ar);
 
-	foreach($vs as $v) {
+	foreach(array_keys($ar) as $v) {
 		if ($v == $file) {
 			continue;
 		}
