@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.php.t,v 1.20 2004/10/29 18:40:40 hackie Exp $
+* $Id: report.php.t,v 1.21 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,7 @@
 		invl_inp_err();
 	}
 
-	if (!($usr->users_opt & 1048576) && !$msg->md && !$msg->gco) {
+	if (!$is_a && !$msg->md && !$msg->gco) {
 		std_error('access');
 	}
 

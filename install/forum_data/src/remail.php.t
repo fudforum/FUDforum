@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.php.t,v 1.24 2004/11/08 16:19:17 hackie Exp $
+* $Id: remail.php.t,v 1.25 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,7 +39,7 @@
 		invl_inp_err();
 	}
 
-	if (!($usr->users_opt & 1048576) && !$data->md && !($data->gco & 2)) {
+	if (!$is_a && !$data->md && !($data->gco & 2)) {
 		std_error('access');
 	}
 

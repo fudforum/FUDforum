@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.php.t,v 1.43 2004/10/29 18:49:14 hackie Exp $
+* $Id: modque.php.t,v 1.44 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@
 	INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 	INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 	INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
-	".($usr->users_opt & 1048576 ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='._uid.' ')."
+	".($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON f.id=mm.forum_id AND mm.user_id='._uid.' ')."
 	INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id

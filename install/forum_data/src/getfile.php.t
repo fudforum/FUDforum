@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.32 2004/11/11 20:26:52 hackie Exp $
+* $Id: getfile.php.t,v 1.33 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@ function &get_preview_img($id)
 			if (!($r = get_preview_img($id))) {
 				invl_inp_err();
 			}
-		} else if (!($usr->users_opt & 1048576) && !$r[4] && !$r[5]) {
+		} else if (!$is_a && !$r[4] && !$r[5]) {
 			std_error('access');
 		}
 	} else {
@@ -51,7 +51,7 @@ function &get_preview_img($id)
 			if (!($r = get_preview_img($id))) {
 				invl_inp_err();
 			}
-		} else if (!($usr->users_opt & 1048576) && $r[4] != _uid) {
+		} else if (!$is_a && $r[4] != _uid) {
 			std_error('access');
 		}
 	}

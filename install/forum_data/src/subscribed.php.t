@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.php.t,v 1.22 2004/05/18 18:33:14 hackie Exp $
+* $Id: subscribed.php.t,v 1.23 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,7 +32,7 @@
 
 	/* fetch a list of all the accessible forums */
 	$lmt = '';
-	if (!($usr->users_opt & 1048576)) {
+	if (!$is_a) {
 		$c = uq('SELECT g1.resource_id
 				FROM {SQL_TABLE_PREFIX}group_cache g1
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=g2.resource_id

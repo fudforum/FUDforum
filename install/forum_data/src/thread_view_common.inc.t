@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.42 2004/11/04 01:20:04 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.43 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@ if (!$frm) {
 	invl_inp_err();
 }
 
-$MOD = ($usr->users_opt & 1048576 || $frm->md);
+$MOD = ($is_a || $frm->md);
 
 /* check that the user has permissions to access this forum */
 if (!($frm->group_cache_opt & 2) && !$MOD) {

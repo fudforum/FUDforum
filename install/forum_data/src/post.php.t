@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.120 2004/11/04 17:36:33 hackie Exp $
+* $Id: post.php.t,v 1.121 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,8 +75,8 @@ function flood_check()
 	$frm->forum_opt = (int) $frm->forum_opt;
 
 	/* fetch permissions & moderation status */
-	$MOD = (int) (($admin = $usr->users_opt & 1048576) || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
-	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), ($usr->users_opt & 1048576));
+	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
+	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), $is_a);
 
 	/* More Security */
 	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
@@ -319,7 +319,7 @@ function flood_check()
 			$_POST['btn_submit'] = 1;
 		}
 
-		if (!$admin && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
+		if (!$is_a && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 
@@ -522,7 +522,7 @@ function flood_check()
 	}
 
 	/* handle password protected forums */
-	if ($frm->forum_opt & 4 && !$admin) {
+	if ($frm->forum_opt & 4 && !$is_a) {
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
 	} else {

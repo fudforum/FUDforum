@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.138 2004/11/08 16:45:29 hackie Exp $
+* $Id: users.inc.t,v 1.139 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -616,7 +616,7 @@ function init_user()
 	}
 
 	/* handle PM disabling for users */
-	if (!($uo & 1048576) && $uo & 33554432) {
+	if (!($GLOBALS['is_a'] = $uo & 1048576) && $uo & 33554432) {
 		$o1 = $o1 &~ 1024;
 	}
 

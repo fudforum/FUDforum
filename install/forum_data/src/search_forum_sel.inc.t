@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.14 2004/10/20 19:03:09 hackie Exp $
+* $Id: search_forum_sel.inc.t,v 1.15 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,7 +11,7 @@
 ***************************************************************************/
 
 /* draw search engine selection boxes */
-if ($usr->users_opt & 1048576) {
+if ($is_a) {
 	$c = uq('SELECT f.id, f.name, c.id FROM {SQL_TABLE_PREFIX}fc_view v INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY v.id');
 } else {
 	$c = uq('SELECT f.id, f.name, c.id

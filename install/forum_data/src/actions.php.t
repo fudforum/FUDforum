@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.php.t,v 1.37 2004/11/02 15:51:00 hackie Exp $
+* $Id: actions.php.t,v 1.38 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,7 +21,6 @@
 /*{POST_HTML_PHP}*/
 
 	$limit = &get_all_read_perms(_uid, ($usr->users_opt & 524288));
-	$admin = $usr->users_opt & 1048576;
 
 	$c = uq('SELECT
 			s.action, s.user_id, s.forum_id,
@@ -39,7 +38,7 @@
 
 	$action_data = '';
 	while ($r = db_rowarr($c)) {
-		if ($r[6] & 32768 && !$admin) {
+		if ($r[6] & 32768 && !$is_a) {
 			continue;
 		}
 
@@ -49,14 +48,14 @@
 			if (!$r[9]) {
 				$last_post = '{TEMPLATE: last_post_na}';
 			} else {
-				$last_post = (!$admin && !$r[11] && empty($limit[$r[10]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
+				$last_post = (!$is_a && !$r[11] && empty($limit[$r[10]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
 			}
 		} else {
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 
-		if (!$r[2] || ($admin || !empty($limit[$r[2]]) || $r[12])) {
+		if (!$r[2] || ($is_a || !empty($limit[$r[2]]) || $r[12])) {
 			if ($FUD_OPT_2 & 32768) {
 				if (($s = strpos($r[0], 'href="')) !== false) {
 					$s += 6;

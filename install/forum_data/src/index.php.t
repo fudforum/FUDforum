@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.73 2004/11/13 18:20:14 hackie Exp $
+* $Id: index.php.t,v 1.74 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,6 @@ function url_tog_collapse($id, $c)
 			ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
-	$is_a = $usr->users_opt & 1048576;
 	while ($r = db_rowarr($c)) {
 		/* increase thread & post count */
 		$post_count += $r[12];

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.40 2004/11/14 18:29:36 hackie Exp $
+* $Id: groupmgr.php.t,v 1.41 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,13 +26,13 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
 
-	if ($group_id && !($usr->users_opt & 1048576) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0')) {
+	if ($group_id && !$is_a && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0')) {
 		std_error('access');
 	}
 
 	$hdr = group_perm_array();
 	/* fetch all the groups user has access to */
-	if ($usr->users_opt & 1048576) {
+	if ($is_a) {
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
 	} else {
 		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0 ORDER BY g.name');
@@ -81,7 +81,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$group_resources = '{TEMPLATE: primary_group_resource}';
 	}
 
-	if ($usr->users_opt & 1048576) {
+	if ($is_a) {
 		$maxperms = 2147483647;
 	} else {
 		$maxperms = (int) $grp->groups_opt;
@@ -241,7 +241,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			$group_members_list .= '{TEMPLATE: group_const_entry}';
 		} else {
 			$member_name = $obj->alias;
-			if ($obj->user_id == _uid && !($usr->users_opt & 1048576)) {
+			if ($obj->user_id == _uid && !$is_a) {
 				$group_members_list .= '{TEMPLATE: group_const_entry}';
 			} else {
 				$group_members_list .= '{TEMPLATE: group_member_entry}';

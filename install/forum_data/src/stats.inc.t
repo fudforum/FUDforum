@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: stats.inc.t,v 1.13 2004/06/14 17:37:34 hackie Exp $
+* $Id: stats.inc.t,v 1.14 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-if (($FUD_OPT_2 & 2) || $usr->users_opt & 1048576) {
+if ($FUD_OPT_2 & 2 || $is_a) {
 	$page_gen_end = gettimeofday();
 	$page_gen_time = sprintf('%.5f', ($page_gen_end['sec'] - $PAGE_TIME['sec'] + (($page_gen_end['usec'] - $PAGE_TIME['usec'])/1000000)));
 	$page_stats = $FUD_OPT_2 & 2 ? '{TEMPLATE: public_page_stats}' : '{TEMPLATE: admin_page_stats}';

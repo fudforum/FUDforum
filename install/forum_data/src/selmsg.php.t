@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.54 2004/11/12 15:36:27 hackie Exp $
+* $Id: selmsg.php.t,v 1.55 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@ function path_info_lnk($var, $val)
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '.$usr->last_read.' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : '(g1.group_cache_opt') . ' & 2) > 0)';
+	$perm_limit = $is_a ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : '(g1.group_cache_opt') . ' & 2) > 0)';
 
 	/* mark messages read for registered users */
 	if (_uid && isset($_GET['mr']) && !empty($usr->data)) {
@@ -179,7 +179,7 @@ function path_info_lnk($var, $val)
 			if ($prev_frm != $r->forum_id) {
 				$prev_frm = $r->forum_id;
 				$message_data .= '{TEMPLATE: forum_row}';
-				$perms = perms_from_obj($r, ($usr->users_opt & 1048576));
+				$perms = perms_from_obj($r, $is_a);
 			}
 			if ($prev_th != $r->thread_id) {
 				$thl[] = $r->thread_id;

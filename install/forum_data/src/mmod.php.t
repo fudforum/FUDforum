@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.32 2004/06/07 15:24:53 hackie Exp $
+* $Id: mmod.php.t,v 1.33 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,7 +46,7 @@
 			check_return($usr->returnto);
 		}
 
-		if ($del && !($data[8] & 32) && !($usr->users_opt & 1048576) && !$data[7]) {
+		if ($del && !($data[8] & 32) && !$is_a && !$data[7]) {
 			check_return($usr->returnto);
 		}
 
@@ -143,7 +143,7 @@
 			WHERE t.id='.$th))) {
 			check_return($usr->returnto);
 		}
-		if (!$data[0] && !($data[1] & 4096) && !($usr->users_opt & 1048576)) {
+		if (!$data[0] && !($data[1] & 4096) && !$is_a) {
 			check_return($usr->returnto);
 		}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.78 2004/11/03 15:12:26 hackie Exp $
+* $Id: msg.php.t,v 1.79 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,7 +102,7 @@
 	}
 
 	$sub_status = 0;
-	$perms = perms_from_obj($frm, ($usr->users_opt & 1048576));
+	$perms = perms_from_obj($frm, $is_a);
 
 	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {

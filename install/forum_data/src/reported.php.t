@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.30 2004/11/01 20:48:26 hackie Exp $
+* $Id: reported.php.t,v 1.31 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && sq_check(0, $usr->sq)) {
-		if ($usr->users_opt & 1048576 || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
+		if ($is_a || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='.$del);
 			if (db_affected()) {
 				logaction(_uid, 'DELREPORT');
@@ -42,7 +42,7 @@
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-			'.($usr->users_opt & 1048576 ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid).'
+			'.($is_a ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON mr.user_id=u2.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
@@ -50,7 +50,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 		ORDER BY mr.id');
 
-	$perms = perms_from_obj($r, ($usr->users_opt & 1048576));
+	$perms = perms_from_obj($r, $is_a);
 	$reported_message = '';
 	$_GET['start'] = $prev_thread_id = $n = 0;
 

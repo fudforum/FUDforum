@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.34 2004/11/12 15:44:24 hackie Exp $
+* $Id: buddy_list.php.t,v 1.35 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -81,7 +81,7 @@
 		$md = sprintf("%02d%02d", $dt['mon'], $dt['mday']);
 
 		do {
-			if ((!($r[5] & 32768) && $FUD_OPT_2 & 32) || $usr->users_opt & 1048576) {
+			if ((!($r[5] & 32768) && $FUD_OPT_2 & 32) || $is_a) {
 				$online_status = (($r[8] + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			} else {
 				$online_status = '';

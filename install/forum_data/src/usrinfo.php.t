@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.44 2004/11/01 20:12:04 hackie Exp $
+* $Id: usrinfo.php.t,v 1.45 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@ function convert_bdate($val, $month_fmt)
 		$level_image = $u->level_img ? '{TEMPLATE: level_image}' : '';
 	}
 
-	if (!($usr->users_opt & 1048576)) {
+	if (!$is_a) {
 		$frm_perms = get_all_read_perms(_uid, ($usr->users_opt & 524288));
 		$forum_list = implode(',', array_keys($frm_perms, 2));
 	} else {
@@ -67,7 +67,7 @@ function convert_bdate($val, $month_fmt)
 
 	$moderation = '';
 	if ($u->users_opt & 524288 && $forum_list) {
-		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($usr->users_opt & 1048576 ? '' : 'f.id IN('.$forum_list.') AND ').'mm.user_id='.$u->id);
+		$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE '.($is_a ? '' : 'f.id IN('.$forum_list.') AND ').'mm.user_id='.$u->id);
 		while ($r = db_rowarr($c)) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
 		}
@@ -90,7 +90,7 @@ function convert_bdate($val, $month_fmt)
 	$last_post = '';
 	if ($u->u_last_post_id) {
 		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='.$u->u_last_post_id);
-		if ($usr->users_opt & 1048576 || !empty($frm_perms[$r[3]])) {
+		if ($is_a || !empty($frm_perms[$r[3]])) {
 			$last_post = '{TEMPLATE: last_post}';
 		}
 	}
@@ -115,7 +115,7 @@ function convert_bdate($val, $month_fmt)
 		$buddy = '';
 	}
 
-	if ($forum_list && ($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($usr->users_opt & 1048576 ? '' : ' AND f.id IN('.$forum_list.')')))) {
+	if ($forum_list && ($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($is_a ? '' : ' AND f.id IN('.$forum_list.')')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';

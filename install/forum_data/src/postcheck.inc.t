@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.19 2004/05/13 19:23:37 hackie Exp $
+* $Id: postcheck.inc.t,v 1.20 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,7 +79,7 @@ function check_ppost_form($msg_subject)
 			if (!empty($obj->ignore_id)) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
 				break;
-			} else if (!($obj->users_opt & 32) && !($GLOBALS['usr']->users_opt & 1048576)) {
+			} else if (!($obj->users_opt & 32) && !$GLOBALS['is_a']) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
 				break;
 			} else {

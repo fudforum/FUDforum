@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.44 2004/11/01 23:35:13 hackie Exp $
+* $Id: pmsg.php.t,v 1.45 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,7 +110,7 @@
 			$goto = $folder_id != 4 ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
 		}
 
-		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576)) {
+		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $is_a)) {
 			$obj->login =& $obj->alias;
 			if (($obj->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) {
 				$online_indicator = '{TEMPLATE: pmsg_online_indicator}';

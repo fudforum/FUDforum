@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.42 2004/11/03 15:07:16 hackie Exp $
+* $Id: thread.php.t,v 1.43 2004/11/16 15:46:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -71,7 +71,7 @@
 
 			if ($r[14]) {
 				/* additional security check for moved forums */
-				if (!($usr->users_opt & 1048576) && $r[11] && !th_moved_perm_chk($r[11])) {
+				if (!$is_a && $r[11] && !th_moved_perm_chk($r[11])) {
 					continue;
 				}
 				$thread_list_table_data .= '{TEMPLATE: thread_row_moved}';

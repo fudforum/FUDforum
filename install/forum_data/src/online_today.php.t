@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: online_today.php.t,v 1.24 2004/11/12 15:30:00 hackie Exp $
+* $Id: online_today.php.t,v 1.25 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-		WHERE u.last_visit>'.$today.' AND '.(!($usr->users_opt & 1048576) ? "(u.users_opt & 32768)=0 AND" : '').' u.id!='._uid.'
+		WHERE u.last_visit>'.$today.' AND '.(!$is_a ? "(u.users_opt & 32768)=0 AND" : '').' u.id!='._uid.'
 		ORDER BY u.alias, u.last_visit');
 	/*
 		array(9) {
@@ -42,11 +42,10 @@
 	*/
 
 	$user_entries = '';
-	$admin = $usr->users_opt & 1048576;
 	while ($r = db_rowarr($c)) {
 		if (!$r[7]) {
 			$last_post = '{TEMPLATE: last_post_na}';
-		} else if ($r[10] & 1 || $r[9] || $admin) {
+		} else if ($r[10] & 1 || $r[9] || $is_a) {
 			$last_post = '{TEMPLATE: last_post}';
 		} else {
 			$last_post = '{TEMPLATE: no_view_perm}';

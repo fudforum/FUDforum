@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.21 2004/01/04 16:38:26 hackie Exp $
+* $Id: admincp.inc.t,v 1.22 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,8 +13,8 @@
 if (_uid) {
 	$admin_cp = $accounts_pending_approval = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = $thr_exch = '';
 
-	if ($usr->users_opt & 524288 || $usr->users_opt & 1048576) {
-		if ($usr->users_opt & 1048576) {
+	if ($usr->users_opt & 524288 || $is_a) {
+		if ($is_a) {
 			if ($FUD_OPT_1 & 32 && ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0"))) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
 			}
@@ -47,7 +47,7 @@ if (_uid) {
 			$mod_que = '{TEMPLATE: mod_que}';
 		}
 	}
-	if ($usr->users_opt & 1048576 || $usr->group_leader_list) {
+	if ($is_a || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
 	}
 

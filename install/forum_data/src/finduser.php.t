@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.42 2004/11/02 15:20:59 hackie Exp $
+* $Id: finduser.php.t,v 1.43 2004/11/16 15:46:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,15 +12,13 @@
 
 /*{PRE_HTML_PHP}*/
 
-	$adm = $usr->users_opt & 1048576;
-
-	if (!$adm && !($FUD_OPT_1 & 8388608) && (!($FUD_OPT_1 & 4194304) || !_uid)) {
+	if (!$is_a && !($FUD_OPT_1 & 8388608) && (!($FUD_OPT_1 & 4194304) || !_uid)) {
 		std_error((!_uid ? 'login' : 'disabled'));
 	}
 
 	if (isset($_GET['js_redr'])) {
 		define('plain_form', 1);
-		$adm = 0;
+		$is_a = 0;
 	}
 
 	$TITLE_EXTRA = ': {TEMPLATE: finduser_title}';
@@ -56,7 +54,7 @@
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
 	if (!$find_user_data) {
-		$colspan = $adm ? 5 : 4;
+		$colspan = $is_a ? 5 : 4;
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}
 
