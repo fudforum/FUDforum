@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.42 2003/06/18 00:14:08 hackie Exp $
+*   $Id: consist.php,v 1.43 2003/07/09 08:32:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -216,7 +216,11 @@ forum will be disabled.<br><br>
 			}
 		} else {
 			$r2 = db_saq('SELECT id, post_stamp FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp DESC LIMIT 1');
-			q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$r[2]);
+			if (!$r2) {
+				q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
+			} else {
+				q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$r[2]);
+			}
 		}
 	}
 	draw_stat('Done: Checking thread last & first post ids');
