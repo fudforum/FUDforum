@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.29 2003/04/23 16:49:10 hackie Exp $
+*   $Id: index.php.t,v 1.30 2003/04/30 14:18:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,23 +38,24 @@ function reload_collapse($str)
 	} while (($tok = strtok('_')));
 }
 
-function url_tog_collapse($id)
+function url_tog_collapse($id, $c)
 {
 	if (!isset($GLOBALS['collapse'][$id])) {
 		return;
 	}
 
-	if (empty($_GET['c'])) {
+	if (!$c) {
 		$str = $id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 	} else {
-		if (preg_match('!(^|_)('.$id.':)(0|1)!e', $_GET['c'], $matched)) {
-			$val = ($matched[3]=='1')?'0':'1';		
-			$str = preg_replace('!(^|_)'.$id.':'.$matched[3].'!', '\1'.$id.':'.$val, $_GET['c']);
+		$c_status = (empty($GLOBALS['collapse'][$id]) ? '1' : '0');
+
+		if (isset($GLOBALS['collapse'][$id]) && ($p = strpos($c, $id . ':' . !$c_status)) !== FALSE) {
+			$c[$p + strlen($id) + 1] = $c_status;
+			return $c;
 		} else {
-			$str = $_GET['c'].'_'.$id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
-		}
+			return $c . '_' . $id . ':' . $c_status;
+		} 
 	}	
-	return $str;	
 }
 
 function iscollapsed($id)
@@ -66,16 +67,16 @@ function iscollapsed($id)
 }
 
 	if (isset($_GET['c'])) {
-		$c = $_GET['c'];
-		if (_uid && $c != $usr->cat_collapse_status) {
-			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".addslashes($c)."' WHERE id="._uid);
+		$cs = $_GET['c'];
+		if (_uid && $cs != $usr->cat_collapse_status) {
+			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".addslashes($cs)."' WHERE id="._uid);
 		}
-		reload_collapse($c);
+		reload_collapse($cs);
 	} else if (_uid && $usr->cat_collapse_status) {
-		$c = $usr->cat_collapse_status;
-		reload_collapse($c);
+		$cs = $usr->cat_collapse_status;
+		reload_collapse($cs);
 	} else {
-		$c = '';
+		$cs = '';
 	}
 
 	if (!_uid) {
@@ -148,7 +149,7 @@ function iscollapsed($id)
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MIN}';
 				}
 				
-				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($r[9]).'&amp;'._rsid;
+				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($r[9], $cs).'&amp;'._rsid;
 				
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 			} else {
