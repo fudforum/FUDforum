@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.tmpl,v 1.9 2003/10/09 14:34:27 hackie Exp $
+* $Id: modque.tmpl,v 1.10 2003/10/09 22:27:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,7 +27,7 @@
 
 {SECTION: modque_msg_header moderator message options}
 <tr class="RowStyleB">
-<td class="GenText" colspan=2>
+<td class="GenText">
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 <tr>
 	<td align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br /><b>{MSG: thread}</b> {VAR: obj->frm_name}</td>
@@ -52,7 +52,7 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: modque_pending_approval}</th></tr>
+<tr><th>{MSG: modque_pending_approval}</th></tr>
 {TEMPLATE-DATA: modque_message}
 </table>
 {TEMPLATE: curtime}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: reported.tmpl,v 1.4 2003/10/09 22:27:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,7 +30,7 @@
 {SECTION: END}
 
 {SECTION: reported_msg_header}
-<tr class="RowStyleC"><td colspan=2>
+<tr class="RowStyleC"><td>
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 	<tr>
 		<td align=left nowrap valign=top>
@@ -48,7 +48,7 @@
 	</tr>
 	
 	<tr>
-		<td colspan=2><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}/m/{VAR: obj->id}/{DEF: _rsid}" target="_blank">{VAR: obj->thread_subject}</a></td>
+		<td colspan=3><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}/m/{VAR: obj->id}/{DEF: _rsid}" target="_blank">{VAR: obj->thread_subject}</a></td>
 	</tr>
 </table>
 </td></tr>
@@ -64,7 +64,7 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: reported_reported_msg}</th></tr>
+<tr><th>{MSG: reported_reported_msg}</th></tr>
 {TEMPLATE-DATA: reported_message}
 </table>
 {TEMPLATE: curtime}
@@ -73,5 +73,5 @@
 {PAGE: END}
 
 {SECTION: reported_no_messages}
-<tr><td colspan="2">{MSG: reported_no_messages}</td></tr>
+<tr><td>{MSG: reported_no_messages}</td></tr>
 {SECTION: END}

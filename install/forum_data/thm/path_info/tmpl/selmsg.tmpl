@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.4 2003/10/09 21:08:03 hackie Exp $
+* $Id: selmsg.tmpl,v 1.5 2003/10/09 22:27:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -56,11 +56,11 @@
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th colspan=2>{MSG: forum} <a class="thLnk" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
+<tr><th>{MSG: forum} <a class="thLnk" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
+<tr><th>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
 {SECTION: END}
 
 {SECTION: no_result}
