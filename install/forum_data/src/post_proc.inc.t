@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.14 2003/04/07 14:23:14 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.15 2003/04/09 10:55:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,42 +24,46 @@ function fud_substr_replace($str, $newstr, $pos, $len)
 
 function tags_to_html($str, $allow_img='Y')
 {
-	if( !defined('no_char') ) $str = htmlspecialchars($str);
+	if (!defined('no_char')) {	
+		$str = htmlspecialchars($str);
+	}
 	
 	$str = nl2br($str);
 	
 	$ostr = '';
 	$pos = $old_pos = 0;
 	
-	while ( ($pos = strpos($str, '[', $pos)) !== false ) {
-		if( ($epos = strpos($str, ']', $pos)) === false ) break;
+	while (($pos = strpos($str, '[', $pos)) !== false) {
+		if (($epos = strpos($str, ']', $pos)) === false) {
+			break;
+		}
 		$tag = substr($str, $pos+1, $epos-$pos-1);
-		if ( $pparms = strpos($tag, '=') ) {
+		if (($pparms = strpos($tag, '=')) !== false) {
 			$parms = substr($tag, $pparms+1);
 			$tag = substr($tag, 0, $pparms);
+		} else {
+			$parms = '';
 		}
-		else $parms = '';
 		
 		$tag = strtolower($tag);
 		
-		switch ( $tag ) 
-		{
-			case "quote title":
+		switch ($tag) {
+			case 'quote title':
 				$tag = 'quote';
 				break;
-			case "list type":
+			case 'list type':
 				$tag = 'list';
 				break;
 		}
 		
-		if ( $tag[0] == '/' ) { 
-			if( $end_tag[$pos] ) {
+		if ($tag[0] == '/') { 
+			if (isset($end_tag[$pos])) {
 				if( ($pos-$old_pos) ) $ostr .= substr($str, $old_pos, $pos-$old_pos);
 				$ostr .= $end_tag[$pos];
 				$pos = $old_pos = $epos+1; 
+			} else {
+				$pos = $epos+1;
 			}
-			else
-				$pos = $epos+1; 	
 			
 			continue; 
 		}
@@ -70,57 +74,61 @@ function tags_to_html($str, $allow_img='Y')
 		$otag = '['.$tag;
 		$otag_l = strlen($otag);
 		$rf = 1;
-		while ( ($cpos = strpos($str, '[', $cpos)) !== false ) {
-			if( $end_tag[$cpos] ) {
+		while (($cpos = strpos($str, '[', $cpos)) !== false) {
+			if (isset($end_tag[$cpos])) {
 				$cpos++;
 				continue;
 			}
 
-			if( ($cepos = strpos($str, ']', $cpos)) === false ) break 2;
+			if (($cepos = strpos($str, ']', $cpos)) === false) {
+				break 2;
+			}
 			
-			if( strcasecmp(substr($str, $cpos, $ctag_l), $ctag) == 0 ) 
+			if (strcasecmp(substr($str, $cpos, $ctag_l), $ctag) == 0) {
 				$rf--;
-			else if( strcasecmp(substr($str, $cpos, $otag_l), $otag) == 0 )
+			} else if (strcasecmp(substr($str, $cpos, $otag_l), $otag) == 0) {
 				$rf++;
-			else {
+			} else {
 				$cpos++;
 				continue;		
 			}
 			
-			if ( !$rf ) break;
+			if (!$rf) {
+				break;
+			}
 			$cpos = $cepos;
 		}
 		
-		if( $rf && $str[$cpos] == '<' ) { /* left over [ handler */
+		if ($rf && $str[$cpos] == '<') { /* left over [ handler */
 			$pos++;
 			continue;
 		}	
 		
-		if ( $cpos !== false ) {
-			if( ($pos-$old_pos) ) $ostr .= substr($str, $old_pos, $pos-$old_pos);
-			switch( $tag )
-			{
+		if ($cpos !== false) {
+			if (($pos-$old_pos)) {
+				$ostr .= substr($str, $old_pos, $pos-$old_pos);
+			}
+			switch ($tag) {
 				case 'notag':
 					$ostr .= '<span name="notag">'.substr($str, $epos+1, $cpos-1-$epos).'</span>';
 					$epos = $cepos;
 					break;
 				case 'url':
-					if( !$parms ) {
+					if (!$parms) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-						if( strpos(strtolower($parms), 'javascript:') === false )
+						if (strpos(strtolower($parms), 'javascript:') === false) {
 							$ostr .= '<a href="'.$parms.'" target="_blank">'.$parms.'</a>';
-						else 
+						} else {
 							$ostr .= substr($str, $pos, ($cepos-$pos)+1);	
+						}
 						
 						$epos = $cepos;
 						$str[$cpos] = '<';
-					}
-					else { 
-						if( strpos(strtolower($parms), 'javascript:') === false ) {
+					} else { 
+						if (strpos(strtolower($parms), 'javascript:') === false) {
 							$end_tag[$cpos] = '</a>';
 							$ostr .= '<a href="'.$parms.'" target="_blank">';
-						}
-						else {
+						} else {
 							$ostr .= substr($str, $pos, ($cepos-$pos)+1);	
 							$epos = $cepos;
 							$str[$cpos] = '<';
@@ -137,13 +145,12 @@ function tags_to_html($str, $allow_img='Y')
 					$ostr .= '<'.$tag.'>';
 					break;
 				case 'email':
-					if( !$parms ) {
+					if (!$parms) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
 						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">'.$parms.'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
-					}
-					else { 
+					} else { 
 						$end_tag[$cpos] = '</a>';
 						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">';
 					}
@@ -151,7 +158,9 @@ function tags_to_html($str, $allow_img='Y')
 				case 'color':
 				case 'size':
 				case 'font':
-					if( $tag == 'font' ) $tag = 'face';
+					if ($tag == 'font') {
+						$tag = 'face';
+					}
 					$end_tag[$cpos] = '</font>';
 					$ostr .= '<font '.$tag.'="'.$parms.'">';
 					break;
@@ -164,14 +173,11 @@ function tags_to_html($str, $allow_img='Y')
 					$str[$cpos] = '<';
 					break;
 				case 'php':
-					if (!function_exists("version_compare") || !version_compare(PHP_VERSION, "4.2.0", ">=")) {
-						break;
-					}
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 					reverse_FMT($param);
 					reverse_nl2br($param);
 					
-					if (!strpos($param, '<?')) {
+					if (strpos($param, '<?') !== false) {
 						$param = '<?php '.$param.'?>';
 					}
 					
@@ -182,27 +188,29 @@ function tags_to_html($str, $allow_img='Y')
 				case 'img':
 					if( $allow_img == 'N' ) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
-					}
-					else {
-						if( !$parms ) {
+					} else {
+						if (!$parms) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-							if( strpos(strtolower($parms), 'javascript:') === false )
+							if (strpos(strtolower($parms), 'javascript:') === false) {
 								$ostr .= '<img src="'.$parms.'" border=0 alt="'.$parms.'">';
-							else 
-								$ostr .= substr($str, $pos, ($cepos-$pos)+1);		
-						}
-						else { 
-							if( strpos(strtolower($parms), 'javascript:') === false ) 
-								$ostr .= '<img src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';	
-							else
+							} else {
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
+							}
+						} else { 
+							if (strpos(strtolower($parms), 'javascript:') === false) {
+								$ostr .= '<img src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';	
+							} else {
+								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
+							}
 						}
 					}	
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
 				case 'quote':
-					if( !$parms ) $parms = 'Quote:';
+					if (!$parms) {
+						$parms = 'Quote:';
+					}
 					$ostr .= '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>'.$parms.'</b></td></tr><tr><td class="quote"><br>';
 					$end_tag[$cpos] = '<br></td></tr></table>';
 					break;
@@ -220,17 +228,18 @@ function tags_to_html($str, $allow_img='Y')
 					$diff = $tmp2_l - $tmp_l;
 					$cpos += $diff;
 					
-					if( is_array($end_tag) ) {
+					if (is_array($end_tag)) {
 						foreach($end_tag as $key => $val) {
-							if( $key < $epos ) continue;
+							if ($key < $epos) {
+								continue;
+							}
 						
 							$end_tag[$key+$diff] = $val;
 							unset($end_tag[$key]);
 						}
 					}	
 					
-					switch( strtolower($parms) )
-					{
+					switch (strtolower($parms)) {
 						case '1':
 						case 'a':
 							$end_tag[$cpos] = '</ol>';
@@ -256,55 +265,80 @@ function tags_to_html($str, $allow_img='Y')
 		
 			$str[$pos] = '<';
 			$pos = $old_pos = $epos+1;	
-		}
-		else
+		} else {
 			$pos = $epos+1;
+		}
 	}
 	$ostr .= substr($str, $old_pos, strlen($str)-$old_pos);
 	
 	/* url paser */
 	$pos = 0;
 	$ppos = 0;	
-	while ( ($pos = @strpos($ostr, '://', $pos)) !== false ) {
-		if ( $pos < $ppos ) break;
-		// check if it's inside any tag;
-		$i=$pos;
-		while (--$i && $i>$ppos ) {
-			if ( $ostr[$i] == '>' ) break;
-			if ( $ostr[$i] == '<' ) break;
+	while (($pos = @strpos($ostr, '://', $pos)) !== false) {
+		if ($pos < $ppos) {
+			break;
 		}
-		if ( $ostr[$i]=='<' ) { $pos+=3; continue; }
+		// check if it's inside any tag;
+		$i = $pos;
+		while (--$i && $i > $ppos) {
+			if ($ostr[$i] == '>' || $ostr[$i] == '<') {
+				break;
+			}
+		}
+		if ($ostr[$i]=='<') {
+			$pos+=3;
+			continue;
+		}
 		
 		// check if it's inside the a tag
-		$ts = strpos($ostr, '<a ', $pos);
-		if ( !$ts ) $ts = strlen($ostr);
-		$te = strpos($ostr, '</a>', $pos);
-		if ( !$te ) $te = strlen($ostr);
-		if ( $te < $ts ) { $ppos = $pos += 3; continue; }
+		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
+			$ts = strlen($ostr);
+		}
+		if (($te = strpos($ostr, '</a>', $pos)) == false) {
+			$te = strlen($ostr);
+		}
+		if ($te < $ts) {
+			$ppos = $pos += 3;
+			continue;
+		}
 		
 		// check if it's inside the pre tag
-		$ts = strpos($ostr, '<pre>', $pos);
-		if ( !$ts ) $ts = strlen($ostr);
-		$te = strpos($ostr, '</pre>', $pos);
-		if ( !$te ) $te = strlen($ostr);
-		if ( $te < $ts ) { $ppos = $pos += 3; continue; }
+		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
+			$ts = strlen($ostr);
+		}
+		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
+			$te = strlen($ostr);
+		}
+		if ($te < $ts) {
+			$ppos = $pos += 3;
+			continue;
+		}
 		
 		$us = $pos;
-		while ( 1 ) {
+		while (1) {
 			--$us;
-			if ( isset($GLOBALS['seps'][$ostr[$us]]) || $ppos>$us || !isset($ostr[$us]) ) break;
+			if (isset($GLOBALS['seps'][$ostr[$us]]) || $ppos>$us || !isset($ostr[$us])) {
+				break;
+			}
 		}
 		
 		unset($GLOBALS['seps']['=']);
 		$ue = $pos;
-		while ( 1 ) {
+		while (1) {
 			++$ue;
-			if( $ostr[$ue] == '&' ) {
-				if( $ostr[$ue+4] == ';' ) {$ue += 4; continue;}
-				if( $ostr[$ue+3] == ';' || $ostr[$ue+5] == ';' ) break;
+			if ($ostr[$ue] == '&') {
+				if ($ostr[$ue+4] == ';') {
+					$ue += 4;
+					continue;
+				}
+				if ($ostr[$ue+3] == ';' || $ostr[$ue+5] == ';') {
+					break;
+				}
 			}	
 			
-			if ( isset($GLOBALS['seps'][$ostr[$ue]]) || !isset($ostr[$ue]) ) break;
+			if (isset($GLOBALS['seps'][$ostr[$ue]]) || !isset($ostr[$ue])) {
+				break;
+			}
 		}
 		$GLOBALS['seps']['='] = '=';
 		
@@ -320,52 +354,77 @@ function tags_to_html($str, $allow_img='Y')
 	/* email parser */
 	$pos = 0;
 	$ppos = 0;
-	while ( ($pos = @strpos($ostr, '@', $pos)) !== false ) {
-		if ( $pos < $ppos ) break;
+	while (($pos = @strpos($ostr, '@', $pos)) !== false) {
+		if ($pos < $ppos) {
+			break;
+		}
 		
 		// check if it's inside any tag;
-		$i=$pos;
+		$i = $pos;
 		while (--$i && $i>$ppos) {
-			if ( $ostr[$i] == '>' ) break;
-			if ( $ostr[$i] == '<' ) break;
+			if ( $ostr[$i] == '>' || $ostr[$i] == '<') {
+				break;
+			}
 		}
-		if ( $ostr[$i]=='<' ) { ++$pos; continue; }
+		if ($ostr[$i]=='<') {
+			++$pos;
+			continue;
+		}
+		
 		
 		// check if it's inside the a tag
-		$ts = strpos($ostr, '<a ', $pos);
-		if ( !$ts ) $ts = strlen($ostr);
-		$te = strpos($ostr, '</a>', $pos);
-		if ( !$te ) $te = strlen($ostr);
-		if ( $te < $ts ) { $ppos = $pos += 1; continue; }
+		if (($ts = strpos($ostr, '<a ', $pos)) === false) {
+			$ts = strlen($ostr);
+		}
+		if (($te = strpos($ostr, '</a>', $pos)) == false) {
+			$te = strlen($ostr);
+		}
+		if ($te < $ts) {
+			$ppos = $pos += 1;
+			continue;
+		}
 		
 		// check if it's inside the pre tag
-		$ts = strpos($ostr, '<pre>', $pos);
-		if ( !$ts ) $ts = strlen($ostr);
-		$te = strpos($ostr, '</pre>', $pos);
-		if ( !$te ) $te = strlen($ostr);
-		if ( $te < $ts ) { $ppos = $pos += 1; continue; }
+		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
+			$ts = strlen($ostr);
+		}
+		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
+			$te = strlen($ostr);
+		}
+		if ($te < $ts) {
+			$ppos = $pos += 1;
+			continue;
+		}
 		
-		for ( $es=$pos-1; $es>($ppos-1); $es-- ) {
+		for ($es = ($pos - 1); $es > ($ppos - 1); $es--) {
 			if ( 
 				( ord($ostr[$es]) >= ord('A') && ord($ostr[$es]) <= ord('z') ) ||
 				( ord($ostr[$es]) >= ord(0) && ord($ostr[$es]) <= ord(9) ) ||
 				( $ostr[$es] == '.' || $ostr[$es] == '-' || $ostr[$es] == '\'')
-			) continue;
+			) { continue; }
 			++$es;
 			break;
 		}
-		if ( $es == $pos ) { $ppos = $pos += 1; continue; }
-		if ( $es < 0 ) $es = 0;
+		if ($es == $pos) {
+			$ppos = $pos += 1;
+			continue;
+		}
+		if ($es < 0) {
+			$es = 0;
+		}
 		
-		for ( $ee=$pos+1; @isset($ostr[$ee]); $ee++ ) {
-			if ( 
+		for ($ee = ($pos + 1); @isset($ostr[$ee]); $ee++) {
+			if (
 				( ord($ostr[$ee]) >= ord('A') && ord($ostr[$ee]) <= ord('z') ) ||
 				( ord($ostr[$ee]) >= ord(0) && ord($ostr[$ee]) <= ord(9) ) ||
 				( $ostr[$ee] == '.' || $ostr[$ee] == '-' )
-			) continue;
+			) { continue; }
 			break;
 		}
-		if ( $ee == ($pos+1) ) { $ppos = $pos += 1; continue; }
+		if ($ee == ($pos+1)) {
+			$ppos = $pos += 1;
+			continue;
+		}
 				
 		$email = substr($ostr, $es, $ee-$es);
 		$email_url = '<a href="mailto:'.$email.'" target="_blank">'.$email.'</a>';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.31 2003/04/08 17:27:50 hackie Exp $
+*   $Id: users.inc.t,v 1.32 2003/04/09 10:55:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,6 +99,18 @@ function init_user()
 	}
 
 	return $u;
+}
+
+function user_login($id, $cur_ses_id, $use_cookies)
+{
+	if ($GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
+		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='.$cur_ses_id);
+		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		return $ses_id;
+	} else {
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.' WHERE ses_id='.$cur_ses_id);
+		return $cur_ses_id;
+	}
 }
 
 function user_alias_by_id($id)
