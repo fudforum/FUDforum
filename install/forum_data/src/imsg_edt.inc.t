@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.113 2004/11/24 19:53:35 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.114 2004/11/25 16:03:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -127,7 +127,7 @@ class fud_msg_edit extends fud_msg
 
 	function sync($id, $frm_id, $message_threshold, $perm)
 	{
-		$file_id = write_body($this->body, $length, $offset, $forum_id);
+		$file_id = write_body($this->body, $length, $offset, $frm_id);
 
 		/* determine if preview needs building */
 		if ($message_threshold && $message_threshold < strlen($this->body)) {
