@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.inc.t,v 1.12 2003/10/31 20:09:59 hackie Exp $
+* $Id: draw_pager.inc.t,v 1.13 2003/11/05 14:19:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,6 +24,10 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 	}
 	if ($total <= $count) {
 		return;
+	}
+
+	if (!$suf) {
+		$suf = '/';
 	}
 
 	$cur_pg = ceil($start / $count);
