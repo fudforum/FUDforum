@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.52 2004/07/14 13:52:42 hackie Exp $
+* $Id: selmsg.php.t,v 1.53 2004/10/25 16:02:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,9 +122,6 @@ function path_info_lnk($var, $val)
 		$subscribed_thr = $subscribed_frm = $unread_messages = '';
 	}
 
-	$todays_posts = '{TEMPLATE: todays_posts}';
-	$unanswered = '{TEMPLATE: unanswered}';
-
 	make_perms_query($fields, $join);
 
 	if (!$unread_limit) {
@@ -176,8 +173,7 @@ function path_info_lnk($var, $val)
 		LIMIT '.qry_limit($count, $start));
 
 		/* message drawing code */
-		$message_data = '';
-		$n = $prev_frm = $prev_th = '';
+		$message_data = $n = $prev_frm = $prev_th = '';
 		$thl = $mark_read = array();
 		while ($r = db_rowobj($c)) {
 			if ($prev_frm != $r->forum_id) {
@@ -203,7 +199,7 @@ function path_info_lnk($var, $val)
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id IN('.implode(',', $thl).')');
 		}
 	} else {
-		$message_data = '';
+		$mark_read = $message_data = '';
 	}
 
 	if (_uid && $mark_read) {
