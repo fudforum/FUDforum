@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.37 2003/06/02 17:19:47 hackie Exp $
+*   $Id: ppost.php.t,v 1.38 2003/06/05 23:57:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -287,7 +287,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				}
 			}
 		}
-		if ($GLOBALS['USE_PATH_INFO'] == 'Y') {
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
 			header('Location: {ROOT}?t=pmsg&'._rsidl.'&folder_id=INBOX');
 		} else {
 			header('Location: {ROOT}/pdm/INBOX/'._rsidl);
