@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.7 2002/10/06 23:35:35 hackie Exp $
+*   $Id: admnntp.php,v 1.8 2003/05/05 14:52:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,61 +17,42 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use("widgets.inc", true);
-	fud_use("util.inc");
-	fud_use('cookies.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('objutil.inc');	
-	fud_use('logaction.inc');
+	fud_use('widgets.inc', true);
 	fud_use('nntp_adm.inc', true);
 
-	list($ses, $usr) = initadm();
-	
-	if( $HTTP_POST_VARS['nntp_edit_cancel'] ) {
-		header("Location: admnntp.php?"._rsidl);
-		exit;
-	}
-	
-	$nntp_adm = new fud_nntp_adm;
-	
-	if( $edit ) 
-		$nntp_adm->get($edit);
-	else if ( $del )
-		$nntp_adm->get($del);
-		
-	if( $HTTP_POST_VARS['nntp_forum_id'] ) {
-		fetch_vars('nntp_', $nntp_adm, $HTTP_POST_VARS);
-		
-		if( $HTTP_POST_VARS['edit'] )
-			$nntp_adm->sync();
-		else
-			$nntp_adm->add();
-		
-		header("Location: admnntp.php?"._rsidl);	
-		exit;			
-	}
-	else if( is_numeric($HTTP_GET_VARS['edit']) )
-		export_vars('nntp_', $nntp_adm);
-	else if( is_numeric($HTTP_GET_VARS['del']) ) {
-		$nntp_adm->del();
-		
-		header("Location: admnntp.php?"._rsidl);
-		exit;	
-	}
-	else { /* Set the some default values */
-		$nntp_nntp_post_apr = $nntp_complex_reply_match = 'N';
-		$nntp_frm_post_apr = $nntp_create_users = $nntp_allow_nntp_attch = 'Y';
-		$nntp_timeout = 25;
-		$nntp_port = 119;
-	}
-	
-	cache_buster();
-	include('admpanel.php'); 
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if( $GLOBALS['FILE_LOCK'] == 'Y' )
+	if (isset($_POST['nntp_forum_id'])) {
+		$nntp_adm = new fud_nntp_adm;
+		if ($edit) {
+			$nntp_adm->sync($edit);
+			$edit = '';
+		} else {
+			$nntp_adm->add();
+		}
+	} else if (isset($_GET['del'])) {
+		nntp_del((int)$_GET['del']);
+	}
+
+	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'nntp WHERE id='.$edit))) {
+		foreach ($o as $k => $v) {
+			${'nntp_' . $k} = $v;
+		}
+	} else { /* Set the some default values */
+		$c = get_class_vars('fud_nntp_adm');
+		foreach ($c as $k => $v) {
+			${'nntp_' . $k} = $v;
+		}
+	}
+	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	if ($GLOBALS['FILE_LOCK'] == 'Y') {
 		echo '<font color="#ff0000" size="+3">You MUST UNLOCK the forum\'s files before you can run the newsgroup importing script(s).</font><p>';
+	}
 ?>
 <form method="post" name="frm_forum" action="admnntp.php">
 <?php echo _hs; ?>
@@ -102,18 +83,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Authentication Method:<br><font size="-1">The authentication method to use when connecting to nntp server.</font></td>
-		<td><select name="nntp_auth">
-			<option value="NONE">None</option>
-			<?php
-				if( $nntp_auth == 'ORIGINAL' )
-					$opt1 = ' selected';
-				else if ( $nntp_auth == 'SIMPLE' )
-					$opt2 = ' selected';
-				
-				echo '<option value="ORIGINAL"'.$opt1.'>Original</option><option value="SIMPLE"'.$opt2.'>Simple</option>';
-			?>
-			</select>
-		</td>
+		<td><?php draw_select('nntp_auth', "None\nOriginal\nSimple", "NONE\nORIGINAL\nSIMPLE", $nntp_auth); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
@@ -138,23 +108,16 @@
 		</td>
 		<td><select name="nntp_forum_id">
 		<?php
-			$r = q("SELECT 
-					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id,
-					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name 
-				FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
-				INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat 
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id 
-				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.forum_id 
-				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist
-					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.forum_id 	
-				WHERE
-					".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.id IS NULL AND 
-					(".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.id IS NULL OR ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.id=".intzero($edit).")
-				ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
-						
-			while( list($fid,$fname) = db_rowarr($r) )
-				echo '<option value="'.$fid.'"'.($fid!=$nntp_forum_id?'':' selected').'>'.$fname.'</option>';
+			$c = uq('SELECT f.id, f.name 
+				FROM '.$tbl.'forum f
+				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id 
+				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id 
+				LEFT JOIN '.$tbl.'mlist ml ON f.id=ml.forum_id 	
+				WHERE ml.id IS NULL AND (n.id IS NULL OR n.id='.(int)$edit.')
+				ORDER BY c.view_order, f.view_order');
+			while ($r = db_rowarr($c)) {			
+				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
+			}
 			qf($r);
 		?>
 		</select></td>
@@ -194,7 +157,7 @@
 			<font size="-1">If enabled, ANY file attachment attached to a message in the newsgroup will be
 			imported into the forum regardless of any limitations imposed on file attachments within the forum.</font>
 		</td>
-		<td><?php draw_select('nntp_allow_nntp_attch', "No\nYes", "N\nY", yn($nntp_allow_nntp_attch)); ?></td>
+		<td><?php draw_select('nntp_allow_nttp_attch', "No\nYes", "N\nY", yn($nntp_allow_nntp_attch)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -221,14 +184,12 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-			<?php if ( !empty($edit) ) echo '<input type="submit" value="Cancel" name="nntp_edit_cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo (( !empty($edit) ) ? 'Update Newsgroup Rule':'Add Newsgroup Rule'); ?>" name="nntp_submit">
+			<?php if ($edit) echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; ?>
+			<input type="submit" value="<?php echo (!$edit ? 'Update Newsgroup Rule' : 'Add Newsgroup Rule'); ?>" name="nntp_submit">
 		</td>
 	</tr>
 </table>
-<?php
-	if ( !empty($edit) ) echo '<input type="hidden" name="edit" value="'.$edit.'">';
-?>
+<input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 <br><br>
 <table border=0 cellspacing=3 cellpadding=2 width="100%">
@@ -238,22 +199,21 @@
 		<td>Exec Line</td>
 		<td align="center">Action</td>
 	</tr>
-	
-	<?php
-		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.*, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name AS frm_name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id");
-		$i=0;
-		while( $obj = db_rowobj($r) ) {
-			if( $obj->id != $edit ) 
-				$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-			else
-				$bgcolor = ' bgcolor="#ffb5b5"';
-				
-			echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($obj->newsgroup).'</td><td>'.$obj->frm_name.'</td>
-			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$obj->id.' </font></td>
-			<td>[<a href="admnntp.php?edit='.$obj->id.'&'._rsid.'">Edit</a>] [<a href="admnntp.php?del='.$obj->id.'&'._rsid.'">Delete</a>]</td></tr>';
+<?php
+	$c = uq('SELECT n.id, n.newsgroup, f.name FROM '.$tbl.'nntp n INNER JOIN '.$tbl.'forum f ON n.forum_id=f.id');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		if ($edit == $r[0]) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		qf($r);
-	?>
+		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
+			<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/nntp.php '.$r[0].' </font></td>
+			<td>[<a href="admnntp.php?edit='.$r[0].'&'._rsidl.'">Edit</a>] [<a href="admnntp.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';
+	}
+	qf($c);
+?>
 </table>
 <p>
 <b>***Notes***</b><br>
@@ -264,4 +224,4 @@ Cron example:
 <pre>
 */2 * * * * /home/forum/forum/scripts/nntp.php 1
 </pre>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
