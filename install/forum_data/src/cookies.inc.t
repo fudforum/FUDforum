@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.62 2004/04/02 18:24:18 hackie Exp $
+* $Id: cookies.inc.t,v 1.63 2004/04/28 13:14:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,7 @@ function &ses_get($id=0)
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
+			$url_s = 1;
 			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."'";
 		} else {
 			return;
@@ -62,12 +63,11 @@ function &ses_get($id=0)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme
 	WHERE '.$q_opt);
 
-	if (!$u || $u->id == 1 || $id || $u->sys_id == ses_make_sysid()) {
+	if (!$u || $u->id == 1 || $id || $u->sys_id == ($sys_id = ses_make_sysid())) {
 		return $u;
 	}
 
-	/* if strict checks are enabled disallow sys_id mismatch */
-	if ($GLOBALS['FUD_OPT_3'] & 16) {
+	if (($sys_id != $u->sys_id && isset($url_s)) || $GLOBALS['FUD_OPT_3'] & 16) {
 		return;
 	}
 
