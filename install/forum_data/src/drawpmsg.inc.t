@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.37 2004/04/26 23:42:42 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.38 2004/04/28 17:21:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,10 +18,10 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 	$o2 =& $GLOBALS['FUD_OPT_2'];
 	$a = (int) $obj->users_opt;
 	$b =& $usr->users_opt;
-	$c = (int) $obj->level_opt;
 
 	if (!$mini) {
 		$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
+		$c = (int) $obj->level_opt;
 
 		if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 			if (!($c & 1)) {
