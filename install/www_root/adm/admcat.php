@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.35 2004/12/13 18:01:08 hackie Exp $
+* $Id: admcat.php,v 1.36 2004/12/14 00:08:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -94,9 +94,8 @@
 				$v->lvl = $i;
 				$cat_list[] = $v;
 				if (isset($ol[$v->id])) {
-					$lvl[] = $l;
+					$lvl[++$i] = $l;
 					$l = $v->id;
-					$i++;
 					continue;
 				}
 			}
