@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.20 2002/12/05 20:57:41 hackie Exp $
+*   $Id: post.php.t,v 1.21 2002/12/05 21:09:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -292,7 +292,7 @@
 		 	
 		if( empty($spell) && empty($preview) && !empty($submitted) ) $HTTP_POST_VARS["btn_submit"] = 1;
 		
-		if ( !empty($HTTP_POST_VARS["btn_submit"]) && $frm->passwd_posting == 'Y' && $frm->post_passwd != $frm_passwd ) {
+		if ( $usr->is_mod != 'A' && !empty($HTTP_POST_VARS["btn_submit"]) && $frm->passwd_posting == 'Y' && $frm->post_passwd != $frm_passwd ) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 		
@@ -486,7 +486,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	 * form begins here
 	 */
 		
-	if ( $frm->passwd_posting == 'Y' ) {
+	if ($frm->passwd_posting == 'Y' && $usr->is_mod != 'A') {
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
 	}
