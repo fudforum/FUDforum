@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.14 2002/07/29 19:10:41 hackie Exp $
+*   $Id: compiler.inc,v 1.15 2002/08/08 23:54:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -538,9 +538,8 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 			fudcopy($de, $rdest, $mask, $recur);
 		}
 		else {
-			if ( !@copy($de, $dest.$de) ) {
+			if ( !copy($de, $dest.$de) && !@file_exists($dest.$de) )
 				echo "can't copy in (".getcwd().") a file named (".$de.") to (".$dest.$de.")<br>\n";
-			}
 			else 
 				chmod($dest.$de, 0666);
 		}
