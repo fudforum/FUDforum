@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.25 2004/01/04 16:38:26 hackie Exp $
+* $Id: getfile.php.t,v 1.26 2004/01/25 16:09:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,6 +73,17 @@
 		if (!in_array($ext, $comp_ext)) {
 			ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 		}
+	}
+
+	/* this is a hack for IE browsers when working on HTTPs,
+	 * the no-cache headers appear to cause problems as indicated by the following
+	 * MS advisories:
+	 *	http://support.microsoft.com/?kbid=812935
+	 *	http://support.microsoft.com/default.aspx?scid=kb;en-us;316431
+	 */	
+	if ($_SERVER["SERVER_PORT"] == "443" && (strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false)) {
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0", 1);
+		header("Pragma: none", 1);
 	}
 
 	header('Content-type: '.$r[0]);
