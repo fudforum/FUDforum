@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.4 2003/05/13 11:21:59 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.5 2003/05/20 13:27:52 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,7 +19,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: thread_mark_all_read}
-<div align="right"><font class="SmallText">[<a href="{ROOT}?t=markread&amp;{DEF: _rsid}&id={VAR: frm->id}" class="GenLink" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]</font></div>
+<div align="right"><font class="SmallText">[<a href="{ROOT}?t=markread&amp;{DEF: _rsid}&id={VAR: frm->id}" class="GenLink" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{TEMPLATE: thread_printable_pdf}{TEMPLATE: thread_syndicate}</font></div>
 {SECTION: END}
 
 {SECTION: forum_path}
@@ -76,4 +76,16 @@
 
 {SECTION: thread_title}
 {MSG: thread_title}
+{SECTION: END}
+
+{SECTION: thread_printable_pdf}
+&nbsp;[ <a href="{GVAR: WWW_ROOT}pdf.php?frm={VAR: frm->id}&amp;page={VAR: cur_frm_page}">{MSG: thread_printable_pdf}</a> ]
+{SECTION: END}
+
+{SECTION: thread_syndicate}
+&nbsp;[ <a href="{ROOT}?t=help_index&amp;section=boardusage#syndicate">{MSG: thread_syndicate}</a> ]
+{SECTION: END}
+
+{SECTION: thread_pdf_rdf}
+<div align="right"><font class="SmallText">{TEMPLATE: thread_printable_pdf}{TEMPLATE: thread_syndicate}</font></div>
 {SECTION: END}

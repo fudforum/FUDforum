@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.13 2003/05/13 11:21:59 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.14 2003/05/20 13:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,6 +60,14 @@ if ($frm->p_read != 'Y' && !$frm->mod && $usr->is_mod != 'A') {
 	}
 }
 
+if ($_GET['t'] == 'threadt') {
+	$ann_cols = '5';
+	$cur_frm_page = $start + 1;
+} else {
+	$ann_cols = ($ENABLE_THREAD_RATING == 'Y' ? 9 : 8) + $MOD;
+	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
+}
+
 /* do various things for registered users */
 if (_uid) {
 	if (isset($_GET['sub'])) {
@@ -73,15 +81,12 @@ if (_uid) {
 	$mark_all_read = '{TEMPLATE: thread_mark_all_read}';
 	$MOD = ($usr->is_mod == 'A' || $frm->mod) ? 1 : 0;
 } else {
-	$mark_all_read = $subscribe = '';
+	$subscribe = '';
+	$mark_all_read = '{TEMPLATE: thread_pdf_rdf}';
 	$MOD = 0;
 }
 
-if ($_GET['t'] == 'threadt') {
-	$ann_cols = '5';
-} else {
-	$ann_cols = ($ENABLE_THREAD_RATING == 'Y' ? 9 : 8) + $MOD;
-}
+
 
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 ?>

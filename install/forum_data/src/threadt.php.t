@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.15 2003/05/08 00:15:47 hackie Exp $
+*   $Id: threadt.php.t,v 1.16 2003/05/20 13:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.approved='Y'
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
-		WHERE tv.forum_id=".$frm->id." AND tv.page=".($start + 1)." ORDER by pos ASC");
+		WHERE tv.forum_id=".$frm->id." AND tv.page=".$cur_frm_page." ORDER by pos ASC");
 
 	if (!db_count($r)) {
 		$thread_list_table_data = '{TEMPLATE: no_messages}';

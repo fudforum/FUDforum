@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.3 2003/05/20 12:12:50 hackie Exp $
+*   $Id: pdf.php.t,v 1.4 2003/05/20 13:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -264,9 +264,6 @@ function post_to_smiley($text, $re)
 
 	require('GLOBALS.php');
 	require ($DATA_DIR . 'include/PDF.php');
-	fud_use('cookies.inc');
-	fud_use('users.inc');
-	fud_use('err.inc');
 
 	/* this potentially can be a longer form to generate */
 	set_time_limit($PDF_MAX_CPU);
@@ -285,8 +282,6 @@ function post_to_smiley($text, $re)
 /*{PRE_HTML_PHP}*/
 
 	if ($PDF_ENABLED == 'N' || !extension_loaded('pdf')) {
-		fud_use('cookies.inc');
-		fud_use('users.inc');
 		std_error('disabled');
 	}
 
@@ -299,13 +294,47 @@ function post_to_smiley($text, $re)
 	$forum	= isset($_GET['frm']) ? (int)$_GET['frm'] : 0;
 	$thread	= isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$msg	= isset($_GET['msg']) ? (int)$_GET['msg'] : 0;
+	$page	= isset($_GET['page']) ? (int)$_GET['page'] : 0;
 
 	if ($forum) {
-		$lmt = ' AND f.id='.$forum;
+		if ($PDF_ALLOW_FULL != 'Y' && !$page) {
+			$page = 1;
+		}
+
+		if ($page) {
+			$join = 'FROM {SQL_TABLE_PREFIX}thread_view tv 
+				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id='.$forum.'
+				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+			';
+			$lmt = ' AND tv.forum_id='.$forum.' AND tv.page='.$page;
+		} else {
+			$join = 'FROM {SQL_TABLE_PREFIX}forum f
+				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.forum_id=f.id
+				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+			';
+			$lmt = ' AND f.id='.$forum;
+		}
 	} else if ($thread) {
+		$join = 'FROM {SQL_TABLE_PREFIX}msg m 
+				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+			';
 		$lmt = ' AND m.thread_id='.$thread;
 	} else if ($msg) {
 		$lmt = ' AND m.id='.$msg;
+		$join = 'FROM {SQL_TABLE_PREFIX}msg m 
+				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
+				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
+				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+			';
 	} else {
 		invl_inp_err();
 	}
@@ -322,23 +351,18 @@ function post_to_smiley($text, $re)
 
 	if (_uid) {
 		if ($usr->is_mod != 'A') {
-			$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
+			$join .= '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' ';
 			$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y')";
-		} else {
-			$join = '';
 		}
 	} else {
-		$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
+		$join .= ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
 		$lmt .= " AND g1.p_READ='Y'";
 	}
 
 	if ($forum) {
 		$subject = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
-		if (isset($_GET['page'])) {
-			$join .= ' INNER JOIN {SQL_TABLE_PREFIX}thread_view tv ON tv.forum_id=f.id AND tv.page='.(int)$_GET['page'];
-		}
 	}
 
 	$c = uq('SELECT 
@@ -347,11 +371,6 @@ function post_to_smiley($text, $re)
 				m.foff, m.length, m.file_id,
 				(CASE WHEN u.alias IS NULL THEN \''.$ANON_NICK.'\' ELSE u.alias END) as alias,
 				p.name AS poll_name, p.total_votes
-			FROM {SQL_TABLE_PREFIX}msg m
-			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
-			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			'.$join.'
 			WHERE
 				m.approved=\'Y\' '.$lmt.' ORDER BY m.post_stamp, m.thread_id');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.20 2003/04/30 19:51:05 hackie Exp $
+*   $Id: thread.php.t,v 1.21 2003/05/20 13:27:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
 			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
-			WHERE tv.forum_id='.$frm_id.' AND tv.page='.(floor($start/$THREADS_PER_PAGE)+1).' ORDER BY tv.pos ASC');
+			WHERE tv.forum_id='.$frm_id.' AND tv.page='.$cur_frm_page.' ORDER BY tv.pos ASC');
 	/* Field Defenitions 
 	 * 0 msg.attach_cnt
 	 * 1 msg.poll_id

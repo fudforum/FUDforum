@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: PDF.php,v 1.2 2003/05/20 12:13:00 hackie Exp $
+*   $Id: PDF.php,v 1.3 2003/05/20 13:27:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,4 +20,5 @@
 	$PDF_WMARGIN	= "15";		/* int */
 	$PDF_HMARGIN	= "15";		/* int */
 	$PDF_MAX_CPU	= "60";		/* seconds */
+	$PDF_ALLOW_FULL	= "N";		/* boolean */
 ?>
