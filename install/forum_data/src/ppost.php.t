@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.30 2003/05/12 14:35:27 hackie Exp $
+*   $Id: ppost.php.t,v 1.31 2003/05/12 15:08:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -281,7 +281,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				if (isset($atl)) {
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
-							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize) VALUES(' . $mid[0] . ', \'Y\', ' . $mid[1] . ', ' . $v .')');
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', \'Y\', ' . $mid[1] . ', ' . $v .', \'\')');
 							$aidl[] = $aid;
 							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
 							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));

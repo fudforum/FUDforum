@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.13 2003/05/11 18:55:59 hackie Exp $
+*   $Id: private.inc.t,v 1.14 2003/05/12 15:08:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@ class fud_pmsg
 				".$this->ouser_id.",
 				".(isset($GLOBALS['recv_user_id']) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
 				".strnull(addslashes($this->to_list)).",
-				".$this->ip_addr.",
+				'".$this->ip_addr."',
 				".strnull($this->host_name).",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
@@ -120,7 +120,7 @@ class fud_pmsg
 			(
 				".strnull(addslashes($this->to_list)).",
 				".$this->ouser_id.",
-				".$this->ip_addr.",
+				'".$this->ip_addr."',
 				".$this->host_name.",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
@@ -157,7 +157,7 @@ class fud_pmsg
 				duser_id=".$this->ouser_id.",
 				post_stamp=".$this->post_stamp.",
 				subject='".addslashes($this->subject)."',
-				ip_addr=".$this->ip_addr.",
+				ip_addr='".$this->ip_addr."',
 				host_name=".$this->host_name.",
 				mailed='".yn($this->mailed)."',
 				attach_cnt=".intzero($this->attach_cnt).",

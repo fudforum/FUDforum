@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.10 2003/05/12 14:35:27 hackie Exp $
+*   $Id: polllist.php.t,v 1.11 2003/05/12 15:08:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 		$start = 0;
 	}
 	if (isset($_GET['uid']) && ($uid = (int)$_GET['uid'])) {
-		$usr_lmt = ' m.owner='.$uid.' AND ';
+		$usr_lmt = ' p.owner='.$uid.' AND ';
 	} else {
 		$uid = $usr_lmt = '';
 	}
