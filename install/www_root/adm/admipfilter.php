@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.6 2003/04/22 22:23:18 hackie Exp $
+*   $Id: admipfilter.php,v 1.7 2003/04/22 23:03:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,15 +18,8 @@
 	define('admin_form', 1);
 
 	require('GLOBALS.php');
-	
 	fud_use('adm.inc', true);
 	fud_use('ipfilter.inc', true);
-	fud_use('widgets.inc', true);	
-	fud_use('util.inc');
-
-	if (isset($_POST['btn_cancel'])) {
-		unset($_POST, $_GET);
-	}
 
 	/* validate the address */
 	$bits = NULL;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlogin.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admlogin.php,v 1.5 2003/04/22 23:03:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,76 +17,55 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('db.inc');
-	fud_use('login.inc', true);
-	fud_use('widgets.inc', true);
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
-	
-	if ( !empty($btn_cancel) ) {
-		header("Location: admlogin.php?"._rsidl);
-		exit();
+	fud_use('login_filter.inc', true);
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['login'])) {
+		q('UPDATE '.$tbl.'blocked_logins SET login=\''.addslashes(trim($_POST['login'])).'\' WHERE id='.(int)$_POST['edit']);
+	} else if (isset($_POST['btn_submit']) && !empty($_POST['login'])) {
+		q('INSERT INTO '.$tbl.'blocked_logins (login) VALUES(\''.addslashes(trim($_POST['login'])).'\')');
+	} else if (isset($_GET['del'])) {
+		q('DELETE FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['del']);
+	} else {
+		$nada = 1;
 	}
-	
-	$l = new fud_login_block;
-	if ( !empty($btn_submit) ) {
-		$l->add($l_login);
-		$reload = 1;
+	if (!isset($nada) && db_affected()) {
+		login_cache_rebuild();
 	}
-	
-	if ( !empty($edit) && empty($p_l) ) {
-		$l->get($edit);
-		$l_login = $l->login;
+
+	if (isset($_GET['edit'])) {
+		list($edit, $login) = db_saq('SELECT id, login FROM '.$tbl.'blocked_logins WHERE id='.(int)$_GET['edit']);
+	} else {
+		$edit = $login = '';
 	}
-	
-	if ( !empty($edit) && !empty($btn_update) ) {
-		$l->get($edit);
-		$l->sync($l_login);
-		$reload = 1;
-		
-	}
-	
-	if ( !empty($del) ) {
-		$l->get($del);
-		$l->delete();
-		$reload = 1;
-	}
-	
-	if ( !empty($reload) ) {
-		header("Location: admlogin.php?"._rsidl);
-		exit();
-	}
-	
-	include('admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Login Blocker</h2>
-<form method="post">  
+<form method="post" action="admlogin.php">  
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Regex:</td>
-		<td><input type="text" name="l_login" value="<?php echo htmlspecialchars(stripslashes($l_login)); ?>"></td>
+		<td><input type="text" name="login" value="<?php echo htmlspecialchars($login); ?>"></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 		<?php
-		
-			if ( !empty($edit) ) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
-				echo '<input type="submit" name="btn_update" value="Update">';
+			if ($edit) {
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+			} else  {
+				echo '<input type="submit" name="btn_submit" value="Add">';
 			}
-			else
-			echo '<input type="submit" name="btn_submit" value="Add">';
 		?>
 		</td>
 	</tr>
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
-<input type="hidden" name="p_l" value="1">
 </form>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr bgcolor="#e5ffe7">
@@ -94,17 +73,16 @@
 	<td>Action</td>
 </tr>
 <?php
-	$l = new fud_login_block;
-	$l->getall();
-	$l->resetl();
-	
-	$i=1;
-	while ( $obj = $l->eachl() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		$ctl = "[<a href=\"admlogin.php?edit=$obj->id&"._rsid."\">Edit</a>] [<a href=\"admlogin.php?del=$obj->id&"._rsid."\">Delete</a>]";
-		
-		echo "<tr$bgcolor><td>".htmlspecialchars($obj->login)."</td><td>$ctl</td></tr>\n";
+	$c = uq('SELECT login,id FROM '.$tbl.'blocked_logins');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		if ($edit == $r[0]) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
+	qf($c);
 ?>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

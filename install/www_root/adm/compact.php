@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.24 2003/04/22 20:35:00 hackie Exp $
+*   $Id: compact.php,v 1.25 2003/04/22 23:03:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,6 +20,7 @@
 	define('admin_form', 1);
 	define('msg_edit', 1);
 	define('user_reg', 1);
+	define('back_to_main', 1);
 
 	require_once('GLOBALS.php');
 
@@ -30,14 +31,6 @@
 	fud_use('glob.inc', true);
 	fud_use('imsg_edt.inc');
 
-	if ($usr->is_mod != 'A') {
-		header('Location: admloginuser.php?'._rsidl);
-		exit;
-	}
-	if (isset($_POST['cancel'])) {
-		header('Location: admglobal.php?'._rsidl);
-		exit;
-	}
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf'])) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.20 2003/04/22 22:23:18 hackie Exp $
+*   $Id: consist.php,v 1.21 2003/04/22 23:03:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,8 +17,9 @@
 
 	@set_time_limit(600);
 	define('admin_form', 1);
+	define('back_to_main', 1);
 
-	require_once('GLOBALS.php');
+	require('GLOBALS.php');
 
 	fud_use('db.inc');
 	fud_use('glob.inc', true);
@@ -39,11 +40,6 @@
 	fud_use('attach.inc');	
 	fud_use('groups.inc');
 	fud_use('th_adm.inc');
-
-	if (isset($_POST['cancel'])) {
-		header('Location: admglobal.php?'._rsidl);
-		exit;
-	}
 
 function draw_stat($text)
 {
