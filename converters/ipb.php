@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.5 2004/10/12 15:52:57 hackie Exp $
+* $Id: ipb.php,v 1.6 2004/10/13 19:52:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -158,7 +158,7 @@ function html_clean($str)
 	$u->user_image = $u->occupation = '';
 	$u->theme = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}themes WHERE theme_opt=3 LIMIT 1");
 	$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
-$
+
 	$pp = new post_parser();
 
 	while ($obj = mysql_fetch_object($r)) {
@@ -262,7 +262,7 @@ $
 			join_date={$obj->joined},
 			last_visit={$obj->last_visit},
 			last_read={$obj->last_activity},
-			users_opt=users_opt|{$users_opt}',
+			users_opt=users_opt|{$users_opt},
 			avatar_loc='{$avatar_loc}',
 			passwd='{$obj->password}'
 		WHERE id=".$uid);
@@ -279,6 +279,11 @@ $
 	$i2 = $i = 0;
 	$r = mysql_query("SELECT contact_id, member_id, allow_msg FROM {$ipb}contacts", $ib) or die(mysql_error($ib));
 	while (list($c, $m, $a) = mysql_fetch_row($r)) {
+		/* skip if users cannot be matched */
+		if (isset($ib_u[$c], $ib_u[$m])) {
+			continue;
+		}
+
 		if ($a) {
 			q("INSERT INTO {$DBHOST_TBL_PREFIX}buddy (bud_id, user_id) VALUES ({$ib_u[$c]}, {$ib_u[$m]})");
 			++$i;
@@ -381,6 +386,9 @@ $
 					} else if ($gi == $INFO['guest_group']) {
 						q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt | {$v} WHERE user_id=2147483647 AND group_id=".$gid);
 					} else if ($gi != $INFO['auth_group'] && $gi != $INFO['admin_group']) {
+						if (!isset($ib_g[$gi][$frm_id])) {
+							$ib_g[$gi][$frm_id] = 0;
+						}
 						$ib_g[$gi][$frm_id] |= $v;
 					}
 				}
@@ -436,6 +444,9 @@ $
 	$i = 0;
 	$r = mysql_query("SELECT forum_id, member_id FROM {$ipb}moderators", $ib) or die(mysql_error($ib));
 	while (list($f, $u) = mysql_fetch_row($r)) {
+		if (!isset($ib_f[$f], $ib_u[$u])) {
+			continue;
+		}
 		q("INSERT INTO {$DBHOST_TBL_PREFIX}mod (forum_id, user_id) VALUES({$ib_f[$f]}, {$ib_u[$u]})");
 		++$i;
 	}
@@ -523,8 +534,7 @@ $
 			q("UPDATE {$DBHOST_TBL_PREFIX}thread SET
 				views={$obj->views},
 				thread_opt={$thread_opt},
-				orderexpiry={$orderexpiry},
-				locked='{$locked}'
+				orderexpiry={$orderexpiry}
 			WHERE id={$ib_t[$obj->topic_id][0]}");
 			++$i2;
 		}
@@ -603,12 +613,11 @@ $
 
 	print_msg("Importing private messages");
 	/* disable pm notification for the duration of the import process */
-	$r = uq("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE users_opt=64");
+	$r = uq("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE users_opt>=64 AND (users_opt & 64)>0");
 	$ul = array();
 	while (list($id) = db_rowarr($r)) {
 		$ul[] = $id;
 	}
-	qf($r);
 	q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt = users_opt &~ 64");
 
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}pmsg");
@@ -664,7 +673,9 @@ $
 		}
 		++$i;
 	}
-	q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|64 WHERE id IN(".implode(',', $ul).")");
+	if ($ul) {
+		q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|64 WHERE id IN(".implode(',', $ul).")");
+	}
 	mysql_free_result($r); unset($ul);
 	print_msg("Done: Importing {$i} private messages");
 
