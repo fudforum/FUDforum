@@ -874,7 +874,7 @@ register_err_taken_alias:	Псевдоним, который вы пытаетесь использовать, уже был 
 register_alias:			Псевдоним
 register_alias_desc:		Если вы хотите использовать в форуме имя, отличное от того, с которым вы входите, укажите здесь псевдоним, который будет использоваться вместо имени.
 register_allow_pm_msg:		Разрешить личные сообщения
-register_allow_pm_msg_desc:	Разрешить другим пользователям форума отправку вам личных сообщений.
+register_allow_pm_msg_desc:	Разрешить обмен личными сообщениями с другими пользователями форума.
 postcheck_pm_disabled:		Вы не можете отправить личное сообщение для "{VAR-HTML: v}", потому что данный пользователь запретил прием личных сообщений.
 polllist_vote:			Голосовать
 polllist_view_results:		Результаты
@@ -910,9 +910,9 @@ register_tree_msg_view:		Древовидные форумы/Плоские темы
 mmod_delete_cofirm_ttl:		Подтверждение удаления темы/сообщения
 err_inc_query_err:		Возникла ошибка при выполнениии SQL-запроса, пожалуйста свяжитесь с <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">администратором</a> форума, чтобы он просмотрел протокол SQL-запросов форума
 spell_alts:			нет вариантов
-insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
-back_to_top:			Back to Top
-iemail_participate:		To participate in the discussion, go here:
-pm_err_disabled_title:		Private Messaging Disabled
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
+insert_uploaded_image:		Вставка картинки в тело сообщения
+finduser_help:			Поисковая система автоматически добавляет символ * к вашему запросу. Например, для поиска пользователей, чье имя начинается на &#39;a&#39;, введите просто &#39;a&#39; 
+back_to_top:			Вернуться вверх
+iemail_participate:		Для участия в дискуссии следуйте по указанной ссылке:
+pm_err_disabled_title:		Система личных сообщений отключена
+pm_err_disabled_msg:		Вы не можете посылать личные сообщения, не включив параметр &#39;Разрешить личные сообщения&#39; в ваших персональных настройках.
