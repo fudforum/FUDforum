@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.30 2004/10/22 16:55:10 hackie Exp $
+* $Id: admcat.php,v 1.31 2004/10/25 14:44:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@
 		if (!empty($_POST['cat_description'])) {
 			$_POST['cat_description'] = ' - ' . $_POST['cat_description'];
 		}
-		$_POST['cat_cat_opt'] = ($_POST['cat_allow_collapse'] == 'Y' ? 1 : 0) | ($_POST['cat_default_view'] == 'COLLAPSED' ? 0 : 2);
+		$_POST['cat_cat_opt'] = (int) $_POST['cat_allow_collapse'] | (int) $_POST['cat_default_view'];
 		unset($_POST['cat_allow_collapse'], $_POST['cat_allow_collapse']);
 
 		$cat = new fud_cat;
@@ -128,12 +128,12 @@
 
 	<tr class="field">
 		<td>Collapsible</td>
-		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", $cat_opt & 1); ?></td>
+		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "1\n0", $cat_opt & 1); ?></td>
 	</tr>
 
 	<tr class="field">
 		<td>Default view: </td>
-		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", !($cat_opt & 2)); ?></td>
+		<td><?php draw_select('cat_default_view', "Open\nCollapsed\nCompact", "2\n0\n4", ($cat_opt & (2|4))); ?></td>
 	</tr>
 	
 	<tr class="field">
@@ -191,6 +191,8 @@
 	$cpid = empty($_GET['chpos']) ? -1 : (int) q_singleval("SELECT parent FROM ".$tbl."cat WHERE id=".(int)$_GET['cpid']);
 	$lp = '';
 
+	$stat = array(0 => 'Collapsed', 2 => 'Open', 4 => 'Compact');
+
 	foreach ($cat_list as $i => $r) {
 		$bgcolor = (($i % 2) && ($edit != $r->id)) ? ' class="resultrow2""' : ' class="resultrow1"';
 
@@ -215,7 +217,7 @@
 			<td>'.str_repeat("-", $r->lvl) . " " . $r->name.'</td>
 			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
-			<td>'.($r->cat_opt & 2 ? 'Open' : 'Collapsed').'</td>
+			<td>'.$stat[($r->cat_opt & (2|4))].'</td>
 			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'.__adm_rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td>
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&cpid='.$r->id.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
 	}
