@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.7 2002/07/31 21:56:50 hackie Exp $
+*   $Id: qbud.php.t,v 1.8 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,58 +16,52 @@
 ***************************************************************************/
 
 	define('plain_form', 1);
-	{PRE_HTML_PHP}
+
+/*{PRE_HTML_PHP}*/
 	
-	if ( !isset($usr) ) {
+	if (_uid) {
 		std_error('login');
-		exit();
 	}
 	
-	if( empty($all) ) $all=0;
+	$all = isset($_GET['all']) ? 1 : 0;
 	
-	if( !$all && is_array($GLOBALS["HTTP_POST_VARS"]["names"]) ) {
+	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = '';
-		foreach($GLOBALS["HTTP_POST_VARS"]["names"] as $v) $names .= $v.';';
+		foreach($_POST['names'] as $v) {	
+			$names .= $v.';';
+		}
 		echo '<html><body><script language="Javascript"><!--
 		
-		if( window.opener.document.post_form.msg_to_list.value.length>0 ) 
-			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+\';\'+"'.addslashes($names).'";
-		else
-			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"'.addslashes($names).'";
+		if (window.opener.document.post_form.msg_to_list.value.length > 0) {
+			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+\';\'+"'.$names.'";
+		} else {
+			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"'.$names.'";
+		}
 		
 		window.close();
 		
 		//--></script></body></html>';
 		exit;
 	}
-	
-	{POST_HTML_PHP}
-	
-	$res = q("SELECT {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias FROM {SQL_TABLE_PREFIX}buddy LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
-	
-	if( db_count($res) ) {
-		$buddies='';
-		
-		if( $all ) {
-			$all_v = '';
-			$all_d = '{TEMPLATE: pmsg_none}';
-		}
-		else {
-			$all_v = '1';
-			$all_d = '{TEMPLATE: pmsg_all}';
-		}
-		
-		while( $obj = db_rowobj($res) ) {
-			$checked = $all ? ' checked' : '';
-			$buddies .= '{TEMPLATE: buddy_entry}';
-		}
-		$qbud_data = '{TEMPLATE: buddy_list}';
+
+/*{POST_HTML_PHP}*/
+
+	$buddies = '';
+	if ($all) {
+		$all_v = '';
+		$all_d = '{TEMPLATE: pmsg_none}';	
+	} else {
+		$all_v = '1';
+		$all_d = '{TEMPLATE: pmsg_all}';
 	}
-	else
-		$qbud_data = '{TEMPLATE: no_buddies}';
+	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE u.user_id='._uid);
+	while ($r = db_rowarr($c)) {
+		$checked = $all ? ' checked' : '';
+		$buddies .= '{TEMPLATE: buddy_entry}';
+	}
+	qf($c);
+	$qbud_data = $buddies ? '{TEMPLATE: buddy_list}' : '{TEMPLATE: no_buddies}';
 	
-	qf($res);
-	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: QBUD_PAGE}

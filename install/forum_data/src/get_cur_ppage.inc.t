@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: get_cur_ppage.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: get_cur_ppage.inc.t,v 1.2 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,19 +15,14 @@
 *
 ***************************************************************************/
 
-function tmpl_cur_ppage($folder_id, $msg_subject='')
-{
-	global $folders;
+$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'SAVED'=>'{TEMPLATE: saved}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
 
-	if( empty($folder_id) || (empty($msg_subject) && strstr("ppost.php", $GLOBALS["PHP_SELF"])) )
+function tmpl_cur_ppage($folder_id, $folders, $msg_subject='')
+{
+	if (!$folder_id || (!$msg_subject && $_GET['t'] == 'ppost')) {
 		$user_action = '{TEMPLATE: writing_message}';
-	else {	
-		$folder = $folders[$folder_id];
-	
-		if( !empty($msg_subject) ) 
-			$user_action = '{TEMPLATE: viewing_message}';
-		else
-			$user_action = '{TEMPLATE: viewing_folder}';
+	} else {	
+		$user_action = $msg_subject ? '{TEMPLATE: viewing_message}' : '{TEMPLATE: viewing_folder}';
 	}
 
 	return '{TEMPLATE: cur_ppage}';

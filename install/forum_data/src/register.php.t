@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.39 2003/04/11 09:52:56 hackie Exp $
+*   $Id: register.php.t,v 1.40 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -300,7 +300,7 @@ function remove_old_avatar($avatar_str)
 			$uent->{substr($k,4)} = $v;
 		}
 		
-		$uent->bday = fmt_year($_POST['b_year']).prepad((int)$_POST['b_month'], 2, '0').prepad((int)$_POST['b_day'], 2, '0');
+		$uent->bday = fmt_year($_POST['b_year']) . str_pad((int)$_POST['b_month'], 2, '0', STR_PAD_LEFT) . str_pad((int)$_POST['b_day'], 2, '0', STR_PAD_LEFT);
 		$uent->sig = apply_custom_replace($uent->sig);
 		switch (strtolower($GLOBALS['FORUM_CODE_SIG'])) {
 			case 'ml':

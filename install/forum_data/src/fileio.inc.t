@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: fileio.inc.t,v 1.3 2002/08/01 18:34:57 hackie Exp $
+*   $Id: fileio.inc.t,v 1.4 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,18 +18,22 @@ define('_fileio_inc_', 1);
 
 function register_fp($id)
 {
-	if( empty($GLOBALS['__MSG_FP__'][$id]) ) 
-		$GLOBALS['__MSG_FP__'][$id] = fopen($GLOBALS["MSG_STORE_DIR"].'msg_'.$id, 'rb');
+	if (!isset($GLOBALS['__MSG_FP__'][$id])) {
+		$GLOBALS['__MSG_FP__'][$id] = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$id, 'rb');
+	}
 	
 	return $GLOBALS['__MSG_FP__'][$id];
 }
 
 function un_register_fps()
 {
-	if( !@is_array($GLOBALS['__MSG_FP__']) ) return;
-	
-	foreach($GLOBALS['__MSG_FP__'] as $k => $v)
+	if (!isset($GLOBALS['__MSG_FP__']) || !is_array($GLOBALS['__MSG_FP__'])) {
+		return;
+	}
+
+	foreach($GLOBALS['__MSG_FP__'] as $k => $v) {
 		unset($GLOBALS['__MSG_FP__'][$k]);
+	}
 }
 
 function read_msg_body($off, $len, $file_id)

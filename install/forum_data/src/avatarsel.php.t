@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: avatarsel.php.t,v 1.3 2002/07/30 14:34:37 hackie Exp $
+*   $Id: avatarsel.php.t,v 1.4 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,25 +17,28 @@
 
 	define('plain_form', 1);
 	
-	{PRE_HTML_PHP}
-		
-	{POST_HTML_PHP}
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
+
 	$TITLE_EXTRA = ': {TEMPLATE: avatar_sel_form}';
 	
 	/* here we draw the avatar control */
 	$icons_per_row = 5;
-	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}avatar ORDER BY id");
+	$c = q('SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar ORDER BY id');
 	$avatars_data = '';
-	if( !is_result($r) ) 
-		$avatars_data = '{TEMPLATE: no_avatars}';
-	else {
-		$i=$col=0;
-		while ( $obj = db_rowobj($r) ) {
-			if ( !($col++%$icons_per_row) ) $avatars_data .= '{TEMPLATE: row_separator}';
-			$avatars_data .= '{TEMPLATE: avatar_entry}';
+	$i = $col = 0;
+	while ($r = db_rowobj($c)) {
+		if (!($col++ % $icons_per_row)) {
+			$avatars_data .= '{TEMPLATE: row_separator}';
 		}
-		qf($r);
-	}	
-	{POST_PAGE_PHP_CODE}
+		$avatars_data .= '{TEMPLATE: avatar_entry}';
+	}
+	qf($r);
+
+	if (!$avatars_data) {
+		$avatars_data = '{TEMPLATE: no_avatars}';
+	}
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: AVATARSEL_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.17 2003/04/11 09:52:55 hackie Exp $
+*   $Id: attach.inc.t,v 1.18 2003/04/17 09:37:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@ function safe_attachment_copy($source, $id)
 
 function attach_add($at, $owner, $private='N')
 {
-	$this->mime_type = (int) get_mime_by_ext(substr(strrchr($at['name'], '.'), 1));
+	$this->mime_type = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".addslashes(substr(strrchr($at['name'], '.'), 1))."'");
 
 	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".addslashes($at['name'])."', ".$owner.", '".$private."',".$this->mime_type.",".$at['size'].")");
 
