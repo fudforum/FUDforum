@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.25 2003/06/05 23:07:56 hackie Exp $
+*   $Id: root_index.php.t,v 1.26 2003/06/11 04:32:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,8 @@
 	}
 	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
 		$t = 'index';
-	} else if ($t == 'rview') {
+	}
+	if ($t == 'rview') {
 		if (isset($_GET['th']) || isset($_GET['goto'])) {
 			$t = $_GET['t'] = d_thread_view;
 		} else if (isset($_GET['frm_id'])) {
