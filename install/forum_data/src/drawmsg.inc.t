@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.21 2003/03/05 13:46:36 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.22 2003/03/05 14:15:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,7 +190,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 			if ($obj->affero) {
 				$im_affero = '{TEMPLATE: drawmsg_affero_reg}';
 			} else {
-				$im_affero = '{TEMPLATE: drawmsg_affero_reg}';
+				$im_affero = '{TEMPLATE: drawmsg_affero_noreg}';
 			}
 		}
 	}
