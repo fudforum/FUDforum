@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.21 2003/11/06 17:27:17 hackie Exp $
+* $Id: msglist.php,v 1.22 2003/11/21 20:37:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -156,7 +156,7 @@ if (isset($warn)) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
 		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.$msgnamelist.'&fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
