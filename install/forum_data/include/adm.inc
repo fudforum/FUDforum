@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.4 2002/07/22 14:53:44 hackie Exp $
+*   $Id: adm.inc,v 1.5 2002/08/01 18:32:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,7 +63,7 @@ function rebuildmodlist()
 		if( $ar2[$obj->forum_id] >= $GLOBALS['SHOW_N_MODS'] ) continue;
 				
 		$ar2[$obj->forum_id]++;	
-		$ar[$obj->forum_id] .= $obj->id."\n".addslashes(htmlspecialchars(trim_show_len($obj->login,'LOGIN')))."\n\n";
+		$ar[$obj->forum_id] .= $obj->id."\n".addslashes($obj->login)."\n\n";
 	}
 	qf($r);
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.7 2002/07/22 14:53:37 hackie Exp $
+*   $Id: cookies.inc.t,v 1.8 2002/08/01 18:38:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,22 +155,6 @@ class fud_session
 		}	
 		else
 			return;
-	}
-	
-	function countvar()
-	{
-		return count($this->data);
-	}
-	
-	function resetvar()
-	{
-		if ( is_array($this->data) ) reset($this->data);
-	}
-	
-	function nextvar()
-	{
-		list($RET['key'], $RET['val']) = each($this->data);
-		return $RET;
 	}
 }
 
