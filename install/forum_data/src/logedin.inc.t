@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
+*   $Id: logedin.inc.t,v 1.11 2002/08/28 20:27:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,6 @@
 		
 		if( $lmid ) {
 			$lsubj = q_singleval("SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id=".$lmid);
-			$url = ( _uid ) ? $usr->default_view : 'msg';
 			$last_msg = '{TEMPLATE: last_msg}';
 		}
 		$forum_info = '{TEMPLATE: forum_info}';
