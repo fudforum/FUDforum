@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.40 2003/09/29 22:48:02 hackie Exp $
+*   $Id: admglobal.php,v 1.41 2003/10/02 21:01:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
-	fud_use('users_adm.inc', true);
+	fud_use('users_reg.inc');
 	fud_use('tz.inc');
 
 function get_max_upload_size()
@@ -60,7 +60,7 @@ function get_max_upload_size()
 			if (!strncmp($k, 'CF_', 3)) {
 				$k = substr($k, 3);
 				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-					$ch_list[$k] = $v;
+					$ch_list[$k] = is_numeric($v) ? (int) $v : $v;
 				}
 			} else if (!strncmp($k, 'FUD_OPT_', 8)) {
 				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
@@ -87,10 +87,15 @@ function get_max_upload_size()
 				rebuildmodlist();
 			}
 
-			/* handle enabling/disabling of aliases */
-			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 128) {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
+			/* Handle disabling of aliases */
+			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 128 && !($NEW_FUD_OPT_2 & 128)) {
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET alias=login');
 				rebuildmodlist();
+			}
+
+			/* Topic tree view disabled */
+			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 512 && !($NEW_FUD_OPT_2 & 512)) {
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|128 WHERE !(users_opt & 128)');
 			}
 
 			$q_data = array();
@@ -104,12 +109,13 @@ function get_max_upload_size()
 				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
 			}
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & (4|8)) {
-				$opt  = $NEW_FUD_OPT_2 & 4 ? 128 : 0;
+				/* only allow threaded topic view if it is selected & it's enabled */
+				$opt  = $NEW_FUD_OPT_2 & 4 && $NEW_FUD_OPT_2 & 512 ? 128 : 0;
 				$opt |= $NEW_FUD_OPT_2 & 8 ? 256 : 0;
-				$q_data[] = 'users_opt=((users_opt|384) &~ 384) | '.$opt;
+				$q_data[] = 'users_opt=(users_opt &~ 384) | '.$opt;
 			}
 			if ($q_data) {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET '.implode(',', $q_data).' WHERE id=1');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET '.implode(',', $q_data).' WHERE id=1');
 			}
 
 			/* put the settings 'live' so they can be seen on the form */
