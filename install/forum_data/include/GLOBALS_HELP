@@ -154,8 +154,7 @@ The default number of posts per page.}}}
 The default number of topics per page. NOTE: If you change this value you MUST run the consistency checker, otherwise the forum will not work properly.}}}
 
 {{{WORD_WRAP
-This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator.}}}
-Set this to 0 to disable word wrapping.
+This setting defines on how many character to wrap message bodies on, any text string longer the the number of character in this option will be broken down into 1 or more strings using a space as a separator. Set this to 0 to disable word wrapping. For multibyte configurations disable wordwrap, since wrapping is done on a byte and not character bases.}}}
 
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
