@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.50 2003/05/14 06:46:00 hackie Exp $
+*   $Id: register.php.t,v 1.51 2003/05/16 12:00:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -334,6 +334,16 @@ function remove_old_avatar($avatar_str)
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			} else {
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
+			}
+
+			/* we notify all admins about the new user, so that they can approve him */
+			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && $GLOBALS['NEW_ACCOUNT_NOTIFY'] == 'Y') {
+				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE is_mod='A'");
+				while ($r = db_rowarr($c)) {
+					$admins[] = $r[0];
+				}
+				qf($c);
+				send_email($GLOBALS['NOTIFY_FROM'], $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 
 			/* login the new user into the forum */

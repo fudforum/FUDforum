@@ -371,3 +371,8 @@ is that the user could potentially link to a page other then an image and some
 browsers like Internet Explorer will parse that page executing any potentially 
 hostile Javascript that may be present.
 
+NEW_ACCOUNT_NOTIFY
+This setting will only be used if you have chosen to manually approve all new
+registrations. If enabled, then everytime a new user is registred all forum
+administrators will recieve a notification via e-mail.
+

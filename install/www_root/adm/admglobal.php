@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.28 2003/05/16 06:36:13 hackie Exp $
+*   $Id: admglobal.php,v 1.29 2003/05/16 12:00:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -225,6 +225,7 @@ function get_max_upload_size()
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>General Settings</b> </td></tr>
 <?php
 	print_yn_field('New Account Moderation', 'MODERATE_USER_REGS');
+	print_yn_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');
 	print_yn_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 
 	print_yn_field('Logged In Users List Enabled', 'LOGEDIN_LIST');

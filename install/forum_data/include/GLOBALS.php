@@ -126,6 +126,7 @@
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
 	$FILE_LOCK		= "N";		/* boolean */
 	$MODERATE_USER_REGS	= "N";		/* boolean */
+	$NEW_ACCOUNT_NOTIFY	= "Y";		/* boolean */
 	$REG_TIME_LIMIT		= "60";		/* seconds */
 	$ENABLE_THREAD_RATING	= "Y";		/* boolean */
 	$TRACK_REFERRALS	= "Y";		/* boolean */
