@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.14 2003/09/26 18:49:03 hackie Exp $
+*   $Id: polllist.php.t,v 1.15 2003/09/28 20:12:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,18 +49,17 @@
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
 				WHERE 
-					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1'));
+					'.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 	$poll_entries = $pager = '';
 	if ($ttl) {
 		$c = uq('SELECT 
 				p.owner, p.name, (CASE WHEN expiry_date = 0 THEN 0 ELSE (p.creation_date + p.expiry_date) END) AS poll_expiry_date, p.creation_date, p.id AS poid, p.max_votes, p.total_votes,
-				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.invisible_mode,
+				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
 				m.id,
 				t.thread_opt,
-				'.($usr->is_mod != 'A' ? 'mm.id' : '1').' AS md,
+				'.($usr->users_opt & 1048576 ? '1' : 'mm.id').' AS md,
 				pot.id AS cant_vote,
-				(CASE WHEN g2.id IS NOT NULL THEN g2.p_VOTE ELSE g1.p_VOTE END) AS p_vote,
-				(CASE WHEN g2.id IS NOT NULL THEN g2.p_LOCK ELSE g1.p_LOCK END) AS p_lock
+				(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 				FROM {SQL_TABLE_PREFIX}poll p 
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
@@ -72,7 +71,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 				WHERE 
-					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+					'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
 
 		while ($obj = db_rowobj($c)) {
 			if (!$obj->total_votes) {
@@ -80,7 +79,7 @@
 			}
 			$vote_lnk = '';
 			if(!$obj->cant_vote && (!$obj->poll_expiry_date || $obj->poll_expiry_date < __request_timestamp__)) {
-				if ($obj->md || ($obj->p_vote == 'Y' && (!($obj->thread_opt & 1) || $obj->p_lock == 'Y'))) {
+				if ($obj->md || ($obj->gco & 512 && (!($obj->thread_opt & 1) || $obj->gco & 4096))) {
 					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
 						$vote_lnk = '{TEMPLATE: vote_lnk}';
 					}
@@ -88,7 +87,7 @@
 			}
 			$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';
 
-			if ($obj->owner && ($obj->invisible_mode == 'N' || $usr->is_mod == 'A') && $ONLINE_OFFLINE_STATUS == 'Y') {
+			if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $ONLINE_OFFLINE_STATUS == 'Y') {
 				$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';
 			} else {
 				$online_indicator = '';	
@@ -98,7 +97,7 @@
 		qf($c);
 		
 		if ($ttl > $POLLS_PER_PAGE) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			if ($USE_PATH_INFO == 'N') {
 				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}?t=polllist&amp;oby='.$oby.'&amp;uid='.$uid);
 			} else {
 				$pager = tmpl_create_pager($start, $POLLS_PER_PAGE, $ttl, '{ROOT}/pl/'.$uid.'/', '/' . $oby . '/' . _rsid);

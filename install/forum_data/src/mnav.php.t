@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.4 2003/09/26 18:49:03 hackie Exp $
+*   $Id: mnav.php.t,v 1.5 2003/09/28 20:12:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,14 +64,12 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE 
 					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
-					'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ''));
+					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 		if (!$total) {
 			$mnav_pager = '';
 			$mnav_data = '{TEMPLATE: mnav_no_results}';
 		} else {
-			$c = uq('SELECT
-					u.alias, 
-					f.name AS forum_name, f.id AS forum_id,
+			$c = uq('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
 					m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
 					FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -83,7 +81,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE 
 					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
-					'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '').'
+					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').'
 					ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
 
 			$oldf = $oldt = 0;
@@ -99,7 +97,7 @@
 				}
 				$body = read_msg_body($r->foff, $r->length, $r->file_id);
 				/* remove stuff in quotes */
-				while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== FALSE) {
+				while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== false) {
 					$e = strpos($body, '<br></td></tr></table>', $p) + strlen('<br></td></tr></table>');
 					$body = substr($body, 0, $p) . substr($body, $e);
 				}
@@ -117,7 +115,7 @@
 
 			/* handle pager if needed */
 			if ($total > $ppg) {
-				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				if ($USE_PATH_INFO == 'N') {
 					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter);
 				} else {
 					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$u.'/', '/'._rsid);

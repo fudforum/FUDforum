@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.20 2003/09/28 11:52:50 hackie Exp $
+*   $Id: threadt.php.t,v 1.21 2003/09/28 20:12:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,8 +90,10 @@
 								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 							}
 							if ($lev == 1 && $cur->thread_opt > 1) {
-								$cur->subject .= ($cur->thread_opt & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
-							} 
+								$sticky = ($cur->thread_opt & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
+							} else {
+								$sticky = '';
+							}
 							
 							if (_uid) {
 								if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
