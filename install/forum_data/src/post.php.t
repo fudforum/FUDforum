@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.102 2003/12/15 11:01:02 hackie Exp $
+* $Id: post.php.t,v 1.103 2003/12/29 17:57:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -138,7 +138,7 @@ function flood_check()
 	 		$msg_body = apply_reverse_replace($msg_body);
 
 	 		$msg_smiley_disabled = ($msg->msg_opt & 2);
-			$msg_icon = $msg->icon;
+			$_POST['msg_icon'] = $msg->icon;
 
 	 		if ($msg->attach_cnt) {
 	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND attach_opt=0");
