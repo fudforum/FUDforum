@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ikon.php,v 1.1 2002/08/09 11:06:37 hackie Exp $
+*   $Id: ikon.php,v 1.2 2002/08/09 11:07:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -240,6 +240,7 @@ function fetch_img($url)
 	
 	// Import Users
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."users");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ses");
 	q("DELETE FROm ".$DBHOST_TBL_PREFIX."custom_tags");
 	$THEME = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE t_default='Y' AND enabled='Y'");
 	
