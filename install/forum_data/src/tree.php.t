@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.20 2002/10/28 22:32:03 hackie Exp $
+*   $Id: tree.php.t,v 1.21 2003/01/29 09:57:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -185,7 +185,7 @@
 	$returnto = 'returnto='.$returnto_str;
 	
 	if( $MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'LOCK') )
-		$lock_thread = ( $thread->locked == 'N' ) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
+		$lock_thread = ( $thread->locked == 'Y' ) ?  '{TEMPLATE: mod_unlock_thread}' : '{TEMPLATE: mod_lock_thread}';
 	if( ($MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'SPLIT')) && $thread->replies )
 		$split_thread = '{TEMPLATE: split_thread}';
 
