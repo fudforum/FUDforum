@@ -1,0 +1,55 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: iemail.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: iemail.inc.t; output: iemail.inc;}
+{REF: rev_fmt.tmpl}
+
+
+{SECTION: iemail_body}
+{TEMPLATE: header_plain}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+	<th width=1>{MSG: msg_author}</th>
+	<th>{MSG: msg_thread}</th>
+</tr>
+{TEMPLATE-DATA: body_email}
+</table>
+{TEMPLATE: footer_plain}
+{SECTION: END}
+
+{SECTION: iemail_thr_subject}
+{MSG: iemail_thr_subject}
+{SECTION: END}
+
+{SECTION: iemail_thr_bodyemail}
+{MSG: iemail_thr_bodyemail}
+{SECTION: END}
+
+{SECTION: iemail_thr_bodyicq}
+{MSG: iemail_thr_bodyicq}
+{SECTION: END}
+
+{SECTION: iemail_frm_subject}
+{MSG: iemail_frm_subject}
+{SECTION: END}
+
+{SECTION: iemail_frm_bodyemail}
+{MSG: iemail_frm_bodyemail}
+{SECTION: END}
+
+{SECTION: iemail_frm_bodyicq}
+{MSG: iemail_frm_bodyicq}
+{SECTION: END}

@@ -1,0 +1,53 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: mmod.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: mmod.php.t; output: mmod.php;}
+{REF: security.tmpl}
+{REF: imsg.tmpl}
+{REF: th.tmpl}
+{REF: forum.tmpl}
+{REF: imsg_edt.tmpl}
+{REF: return.tmpl}
+{REF: is_perms.tmpl}
+{REF: logaction.tmpl}
+
+{MAIN_SECTION: delete_confirm_pg delete confirmation message}
+<html>
+<form>
+<input type="hidden" name="del" value="{VAR: del}">
+<input type="hidden" name="confirm" value="1">
+<input type="hidden" name="det_page" value="{VAR: det_page}">
+{DEF: _hs}{VAR: ret}
+<div align=center>
+{TEMPLATE-DATA: delete_msg}
+{MSG: delete_proceed}<br>
+<input type="submit" class="button" name="YES" value="{MSG: delete_yes}">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="NO" value="{MSG: delete_no}"> 
+</div>
+</form>
+</html>
+{MAIN_SECTION: END}
+
+{SECTION: single_msg_delete}
+{MSG: single_msg_delete}
+{SECTION: END}
+
+{SECTION: thread_delete}
+{MSG: thread_delete}
+{SECTION: END}
+
+{SECTION: delete_confirm}
+{MSG: delete_confirm}
+{SECTION: END}

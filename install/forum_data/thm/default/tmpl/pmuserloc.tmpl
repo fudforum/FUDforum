@@ -1,0 +1,64 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: pmuserloc.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: pmuserloc.php.t; output: pmuserloc.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: imsg.tmpl}
+{REF: th.tmpl}
+{REF: forum.tmpl}
+{REF: alt_var.tmpl}
+
+{PAGE: PMUSERLOC_PAGE find user popup used by private message post form}
+{TEMPLATE: header_plain}
+<table border=0>
+<tr>
+<td>
+<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<form action="{ROOT}?t=pmuserloc" method="post">{DEF: _hs}
+<tr>
+	<td>{MSG: pmuserloc_login}</td>
+	<td><input type="text" name="usr_login" value="{VAR: usr_login}"></td>
+	
+</tr>
+<tr>
+	<td>{MSG: pmuserloc_email}</td>
+	<td><input type="text" name="usr_email" value="{VAR: usr_email}"></td>
+</tr>
+<tr>
+<td colspan=2 align=right><input type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
+</tr>
+<input type="hidden" name="js_redr" value="{VAR: js_redr}">
+<input type="hidden" name="overwrite" value="{VAR: overwrite}">
+</form>
+</table>
+<br>
+<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<tr><td bgcolor="#efefef">{MSG: pmuserloc_user}</td></tr>
+{TEMPLATE-DATA: find_user_data}
+</table>
+
+{TEMPLATE: footer_plain}
+{PAGE: END}
+
+{SECTION: user_result_entry}
+<tr class="{ALT-VAR: pmuserloc_alt RowStyleA RowStyleB}"><td><a href="{VAR: retlink}">{VAR-HTML: obj->login}</a></td></tr>
+{SECTION: END}
+
+{SECTION: no_result_entry}
+<tr><td colspan=2>{MSG: pmuserloc_no_result}</td>
+{SECTION: END}

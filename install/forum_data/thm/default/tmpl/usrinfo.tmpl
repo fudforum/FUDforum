@@ -1,0 +1,220 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: usrinfo.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: usrinfo.php.t; output: usrinfo.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: users_reg.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: is_perms.tmpl}
+{REF: allperms.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: last_post last post link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: m_obj->post_stamp %a, %d %B %Y %H:%M}</font><br><a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: m_obj->id}&{DEF: _rsid}" class="GenLink">{VAR: m_obj->subject}</a></td></tr>
+{SECTION: END}
+
+{SECTION: user_image}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" border=0></td></tr>
+{SECTION: END}
+
+{SECTION: avatar}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: avatar}</td><td class="GenText"><img src="{VAR: avatar_img}" border=0></td></tr>
+{SECTION: END}
+
+{SECTION: email_link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email}</td><td class="GenText"><a class="GenLink" href="mailto:{VAR: u->email}">{VAR: u->email}</a></td></tr>
+{SECTION: END}
+
+{SECTION: email_form_link link to the email form}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email}</td><td class="GenText">[<a href="{ROOT}?t=email&tx_name={VAR: encoded_login}&returnto={VAR: returnto}&{DEF: _rsid}">{MSG: email_user}</a>]</td></tr>
+{SECTION: END}
+
+{SECTION: usrinfo_private_msg private message link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR: u->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0></a></td></tr>
+{SECTION: END}
+
+{SECTION: home_page}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: homepage}</td><td class="GenText"><a href="{VAR: u->home_page}" target=_new>{VAR: u->home_page}</a></td></tr>
+{SECTION: END}
+
+{SECTION: gender}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: gender}</td><td class="GenText">{TEMPLATE-DATA: gender_data}</td></tr>
+{SECTION: END}
+
+{SECTION: location}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: location}</td><td class="GenText">{VAR: u->location}</td></tr>
+{SECTION: END}
+
+{SECTION: occupation}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: occupation}</td><td class="GenText">{VAR: u->occupation}</td></tr>
+{SECTION: END}
+
+{SECTION: interests}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: interests}</td><td class="GenText">{VAR: u->interests}</td></tr>
+{SECTION: END}
+
+{SECTION: referals an indicator of how many people this user has referred}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_referals}</td><td class="GenText"><a href="{ROOT}?t=list_referers&{DEF: _rsid}">{MSG: userinfo_referals_count}</a></td></tr>
+{SECTION: END}
+
+{SECTION: bio biography}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: biography}</td><td class="GenText">{VAR: u->bio}</td></tr>
+{SECTION: END}
+
+{SECTION: birth_date}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: birth_date}</td><td class="GenText">{VAR: bday['month']} {VAR: bday['day']}, {VAR: bday['year']}</td></tr>
+{SECTION: END}
+
+{SECTION: im_icq ICQ control center}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
+		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5"><br>
+			<table border="0">
+			<tr><td colspan=2>
+				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
+				<font face="Arial, Helvetica" size="1"><b>{MSG: icq_control_panel}</b></font>
+			</td></tr>
+			<tr>
+				<td>
+					<font face="Arial, Helvetica" size="1">{MSG: sender_name}</font><br>
+					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()">
+				</td>
+				<td>
+					<font face="Arial, Helvetica" size="1">{MSG: sender_email}</font><br>
+					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()">
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<font face="Arial, Helvetica" size="1">{MSG: subject}</font><br>
+					<input type="text" name="subject" value="" size="32"><br>
+					<font face="Arial, Helvetica" size="1">{MSG: message}</font><br>
+					<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
+					<input type="hidden" name="to" value="{VAR: u->icq}"><br>
+				</td>
+			</tr>
+			<tr><td colspan=2 align=right><input type="submit" class="button" name="Send" value="{MSG: send}"></td></tr>
+			</form>
+			</table>
+			</td></tr>		
+{SECTION: END}
+
+{SECTION: im_aim AIM link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: im_aim}&amp;message=Hello+Are+you+there?" class="GenLink">{VAR: u->aim}</a></td></tr>
+{SECTION: END}
+
+{SECTION: im_yahoo Yahoo Instant Messanger link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: im_yahoo}&amp;.src=pg" class="GenLink">{VAR: u->yahoo}</a></td></tr>
+{SECTION: END}
+
+{SECTION: im_msnm MSN Messagenger Link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_msnm}</td><td class="GenText">{VAR: u->msnm}</td></tr>
+{SECTION: END}
+
+{SECTION: im_jabber Jabber link}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>
+{SECTION: END}
+
+{SECTION: level_name user's level name as determined by post count}
+{VAR: obj->level_name}<br>
+{SECTION: END}
+
+{SECTION: level_image user's level image if avaliable as determined by post count}
+<img src="images/{VAR: obj->level_img}" border=0><br>
+{SECTION: END}
+
+{SECTION: custom_tags}
+{VAR: u->custom_status}<br>
+{SECTION: END}
+
+{SECTION: no_custom_tags}
+{SECTION: END}
+
+{SECTION: moderation list of all forums moderated by user}
+{MSG: moderator_of}&nbsp;{TEMPLATE-DATA: moderation_entry}
+{SECTION: END}
+
+{SECTION: moderation_entry link to forum moderated by user}
+<a href="{ROOT}?t=thread&frm_id={VAR: ar->id}&{DEF: _rsid}" class="GenLink">{VAR: ar->name}</a>&nbsp;
+{SECTION: END}
+
+{SECTION: status various forum related tags assigned to user}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: status}</td><td class="GenText">
+<font class="LevelText">
+{TEMPLATE-DATA: level_name}
+{TEMPLATE-DATA: level_image}
+{TEMPLATE-DATA: custom_tags}
+</font>
+{TEMPLATE-DATA: moderation}
+</td></tr>
+{SECTION: END}
+
+{PAGE: USERINFO_PAGE info about a particular user in the forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2 width="100%">{MSG: usrinfo_profile}</th></tr>
+<tr class="RowStyleA"><td nowrap class="GenText">{MSG: date_registered}</td><td width="100%" class="DateText">{DATE: u->join_date %B %d, %Y}</td></tr>
+<tr class="RowStyleB"><td valign="top" nowrap class="GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{VAR: show_all_posts}</a></td></tr>
+{TEMPLATE-DATA: status}
+{TEMPLATE-DATA: avatar}
+{TEMPLATE-DATA: last_post}
+{TEMPLATE-DATA: user_image}
+{TEMPLATE-DATA: email_link}
+{TEMPLATE-DATA: usrinfo_private_msg}
+{TEMPLATE-DATA: referals}
+{TEMPLATE-DATA: home_page}
+{TEMPLATE-DATA: gender}
+{TEMPLATE-DATA: location}
+{TEMPLATE-DATA: occupation}
+{TEMPLATE-DATA: interests}
+{TEMPLATE-DATA: bio}
+{TEMPLATE-DATA: birth_date}
+{TEMPLATE-DATA: im_icq}
+{TEMPLATE-DATA: im_aim}
+{TEMPLATE-DATA: im_yahoo}
+{TEMPLATE-DATA: im_msnm}
+{TEMPLATE-DATA: im_jabber}
+<tr class="RowStyleC"><td nowrap align="right" class="GenText" colspan=2><a class="GenLink" href="{ROOT}?t=showposts&id={VAR: u->id}&{DEF: _rsid}">{MSG: usrinfo_show_all_posts}</a></td></tr>
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: user_info_l}
+{MSG: user_info_l}
+{SECTION: END}
+
+{SECTION: userinfo_update}
+{MSG: userinfo_update}
+{SECTION: END}
+
+{SECTION: male}
+{MSG: male}
+{SECTION: END}
+
+{SECTION: female}
+{MSG: female}
+{SECTION: END}
+
+{SECTION: no_view_perm}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td valign="top" nowrap class="GenText">{MSG: usrinfo_last_post}</td><td class="GenText">{MSG: no_view_perm}</td></tr>
+{SECTION: END}

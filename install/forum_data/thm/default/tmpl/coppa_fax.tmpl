@@ -1,0 +1,49 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: coppa_fax.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: coppa_fax.php.t; output: coppa_fax.php;}
+{REF: security.tmpl}
+
+{PAGE: COPPAFAX_PAGE printable form for parents & guardians who wish to confirm their child's account on the forum}
+<html>
+<body bgcolor="#ffffff">
+<b>{MSG: coppa_fax_instructions}</b><br><br>
+{MSG: coppa_fax_instructions2}
+<pre>
+{VAR: coppa_address}
+</pre>
+<table border=1 cellspacing=1 cellpadding=3>
+<tr><td colspan=2>{MSG: coppa_fax_reg_form}</td></tr>
+<tr><td>{MSG: coppa_fax_login}</td><td>{VAR-HTML: usr->login}</td></tr>
+<tr><td>{MSG: coppa_fax_passwd}</td><td>&lt;HIDDEN&gt;</td></tr>
+<tr><td>{MSG: coppa_fax_remail}</td><td>{VAR: usr->email}</td></tr>
+<tr><td>{MSG: coppa_fax_name}</td><td>{VAR: usr->name}</td></tr>
+<tr><td colspan=2>
+{MSG: coppa_fax_sign}<br>
+{MSG: coppa_fax_conf}
+</td></tr>
+<tr><td>{MSG: coppa_fax_permission}</td><td><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td></tr>
+<tr><td>{MSG: coppa_fax_no_permission}</td><td><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td></tr>
+<tr><td>{MSG: coppa_fax_parent_name}</td><td>&nbsp;</td></tr>
+<tr><td>{MSG: coppa_fax_relation}</td><td>&nbsp;</td></tr>
+<tr><td>{MSG: coppa_fax_telephone}</td><td>&nbsp;</td></tr>
+<tr><td>{MSG: coppa_fax_email}</td><td>&nbsp;</td></tr>
+<tr><td>{MSG: coppa_fax_date}</td><td>&nbsp;</td></tr>
+<tr><td colspan=2>{MSG: coppa_fax_questions}</td></tr>
+</table>
+</body>
+</html>
+{PAGE: END}

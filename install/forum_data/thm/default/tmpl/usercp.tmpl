@@ -1,0 +1,86 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: usercp.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: usercp.inc.t; output: @usercp.inc;}
+
+
+
+{MAIN_SECTION: usercp user control panel}
+<table border=0 cellspacing=0 cellpadding=0 width="100%"><tr><td align="right">
+<table cellspacing=3 cellpadding=0 border=0>
+	<tr>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=help_index&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_help.gif" border=0 alt="{MSG: faq}"></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=help_index&{DEF: _rsid}">{MSG: faq}</a></td>
+		<td>&nbsp;&nbsp;</td>
+		{TEMPLATE-DATA: register_n_profile}
+		<td>&nbsp;&nbsp;</td>
+		{TEMPLATE-DATA: login_n_logout}
+		<td>&nbsp;&nbsp;</td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=index&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_home.gif" border=0 alt="{MSG: home}"></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=index&{DEF: _rsid}">{MSG: home}</a></td>
+	</tr>
+</table>
+<table cellspacing=3 cellpadding=0 border=0>	
+	<tr>	
+		{TEMPLATE-DATA: private_msg}
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&btn_submit=Find&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" border=0 alt="{MSG: members}"></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&btn_submit=Find&{DEF: _rsid}">{MSG: members}</a></td>
+		<td>&nbsp;&nbsp;</td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" border=0 alt="{MSG: search}"></a></td>
+		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&{DEF: _rsid}">{MSG: search}</a></td>
+		{TEMPLATE-DATA: admin_control_panel}
+	</tr>
+</table></td></tr></table>
+{MAIN_SECTION: END}
+
+{SECTION: login login link}
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&{DEF: _rsid}{VAR: ret_to}"><img src="{THEME_IMAGE_ROOT}/top_login.gif" border=0 alt="{MSG: login}"></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&{DEF: _rsid}{VAR: ret_to}">{MSG: login}</a></td>
+{SECTION: END}
+
+{SECTION: logout logout link}
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&{DEF: _rsid}{VAR: ret_to}&logout=1"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" border=0 alt="{MSG: logout}"></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=login&{DEF: _rsid}{VAR: ret_to}&logout=1">{MSG: logout} [ {VAR: user_login} ]</a></td>
+{SECTION: END}
+
+{SECTION: register register link}
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_register.gif" border=0 alt="{MSG: register}"></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&{DEF: _rsid}">{MSG: register}</a></td>
+{SECTION: END}
+
+{SECTION: profile profile link}
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_profile.gif" border=0 title="{MSG: profile_desc}" alt="{MSG: profile}"></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=register&{DEF: _rsid}"><acronym title="{MSG: profile_desc}">{MSG: profile}</acronym></a></td>
+{SECTION: END}
+
+{SECTION: admin_control_panel admin control panel link}
+<td>&nbsp;&nbsp;</td><td valign="middle"><a class="UserControlPanel" href="adm/admglobal.php?{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_admin.gif" border=0 alt="{MSG: admin_control_panel}"></a></td>
+<td valign="middle"><a class="UserControlPanel" href="adm/admglobal.php?{DEF: _rsid}">{MSG: admin_control_panel}</a></td>
+{SECTION: END}
+
+{SECTION: private_msg_empty link to private msg control panel}
+<td>&nbsp;&nbsp;</td>
+<td valign="middle"><a href="{ROOT}?t=pmsg&{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}"></a></td>
+<td><a href="{ROOT}?t=pmsg&{DEF: _rsid}" class="UserControlPanel">{MSG: pm}</a></td>
+<td>&nbsp;&nbsp;</td>
+{SECTION: END}
+
+{SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
+<td>&nbsp;&nbsp;</td>
+<td valign="middle"><a href="{ROOT}?t=pmsg&{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}"></a></td>
+<td><a href="{ROOT}?t=pmsg&{DEF: _rsid}" class="UserControlPanel">{MSG: new_private_messages}</a></td>
+<td>&nbsp;&nbsp;</td>
+{SECTION: END}

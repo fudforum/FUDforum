@@ -1,0 +1,112 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: buddy_list.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: buddy_list.php.t; output: buddy_list.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: users_reg.tmpl}
+{REF: buddy.tmpl}
+{REF: return.tmpl}
+{REF: tabs.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: homepage_link}
+<a class="GenLink" href="{VAR: obj->home_page}" target=_new><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: online_indicator}
+<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}">
+{SECTION: END}
+
+{SECTION: offline_indicator}
+<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}">
+{SECTION: END}
+
+{SECTION: bday_indicator}
+<img src="blank.gif" width=10 height=1 border=0><img src="{THEME_IMAGE_ROOT}/bday.gif" border=0> Today {VAR-HTML: obj->login} turns {VAR: age}
+{SECTION: END}
+
+{SECTION: pm_link}
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink">{VAR-HTML: obj->login}</a>
+{SECTION: END}
+
+{SECTION: email_link}
+<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink">{VAR-HTML: obj->login}</a>
+{SECTION: END}
+
+{SECTION: buddy buddy row entry}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td align="center">{TEMPLATE-DATA: online_status}</td>
+	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{ROOT}?t=buddy_list&{DEF: _rsid}&del={VAR: obj->bud_id}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
+	<td align="center">{VAR: obj->posted_msg_count}</td>
+	<td align="center" nowrap>{DATE: obj->join_date %a, %d %B %Y %H:%M}</td>
+	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t={ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0></a>&nbsp;<a href="showposts&{DEF: _rsid}&id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a> {TEMPLATE-DATA: homepage_link}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: buddy_list the buddy list table}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: buddy_status}</th><th>{MSG: my_buddies}</th><th nowrap align="center">{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
+{TEMPLATE-DATA: buddies}
+</table>
+{SECTION: END}
+
+{PAGE: BUDDYLIST_PAGE Buddy list}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: tabs}
+{TEMPLATE-DATA: buddies}
+<br><br>
+<table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+<form name="buddy_add" action="{ROOT}?t=buddy_list" method="post">{DEF: _hs}
+<tr><th nowrap>{MSG: add_buddy}</th></tr>
+<tr class="RowStyleA">
+<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}</font><p>
+<input type="text" name="add_login" value="" maxlength=100 size=25> <input type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
+</form>
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: err_info}
+{MSG: err_info}
+{SECTION: END}
+
+{SECTION: buddy_list_err_cantadd}
+{MSG: buddy_list_err_cantadd}
+{SECTION: END}
+
+{SECTION: buddy_list_err_dup}
+{MSG: buddy_list_err_dup}
+{SECTION: END}
+
+{SECTION: buddy_list_err_nouser_title}
+{MSG: buddy_list_err_nouser_title}
+{SECTION: END}
+
+{SECTION: buddy_list_err_nouser}
+{MSG: buddy_list_err_nouser}
+{SECTION: END}
+
+{SECTION: buddy_list_update}
+{MSG: buddy_list_update}
+{SECTION: END}

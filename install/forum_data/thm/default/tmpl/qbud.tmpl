@@ -1,0 +1,54 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: qbud.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: qbud.php.t; output: qbud.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: users_reg.tmpl}
+{REF: buddy.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: no_buddies}
+<tr class="RowStyleA"><td class="GenText" align="center">{MSG: qbud_no_buddies}</td></tr>
+{SECTION: END}
+
+{SECTION: buddy_entry}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR-HTML: obj->login}</td><td align="center"><input type="checkbox" name="names[]" value="{VAR-HTML: obj->login}"{VAR: checked}></td></tr>
+{SECTION: END}
+
+{SECTION: buddy_list}
+<form action="{ROOT}?t=qbud" name="qbud" method="post">{DEF: _hs}
+<tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="th_lnk" href="{ROOT}?t=qbud&{DEF: _rsid}&all={VAR: all_v}">{VAR: all_d}</a>]</th></tr>
+{TEMPLATE-DATA: buddies}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText" align="right"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
+</form>
+{SECTION: END}
+
+{PAGE: QBUD_PAGE buddy selector popup}
+{TEMPLATE: header_plain}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+{TEMPLATE-DATA: qbud_data}
+</table>
+{TEMPLATE: footer_plain}
+{PAGE: END}
+{SECTION: pmsg_none}
+{MSG: pmsg_none}
+{SECTION: END}
+
+{SECTION: pmsg_all}
+{MSG: pmsg_all}
+{SECTION: END}

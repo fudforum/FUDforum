@@ -1,0 +1,26 @@
+#!/bin/sh
+perl -p -i -e 's/href="([^{][^R]|[^j][^a])(.+?)\.php"/href="{ROOT}?t=\1\2"/gi' msg
+
+perl -p -i -e 's/href="([^{][^R]|[^j][^a])(.+?)\.php\?(.+?)"/href="{ROOT}?t=\1\2&\3"/gi' msg
+
+perl -p -i -e 's/{ROOT}\?t=javascript:\/\/"/javascript:\/\//gi' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}emailconf.php\?/{ROOT}t=emailconf&/' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}index.php\?/{ROOT}?t=index&/g' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}index.php/{ROOT}?t=index/g' msg
+
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}\/register.php/{ROOT}?t=register/g' msg
+perl -p -i -e 's/{GVAR: WWW_ROOT}register.php/{ROOT}?t=register/g' msg
+
+perl -p -i -e 's/login.php\?{DEF: _rsid}/{ROOT}?t=login&{DEF: _rsid}/' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}login.php\?/{ROOT}?t=login&/g' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}login.php/{ROOT}?t=login/g' msg
+
+perl -p -i -e 's/{GVAR: WWW_ROOT}{GVAR: DEFAULT_THREAD_VIEW}.php\?/{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&/' msg
+
+perl -p -i -e "s/javascript: window_open\(.(.+?)&/javascript: window_open('{ROOT}?t=\1&/" msg

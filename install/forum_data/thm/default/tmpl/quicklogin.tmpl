@@ -1,0 +1,39 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: quicklogin.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: quicklogin.inc.t; output: quicklogin.inc;}
+
+{MAIN_SECTION: quick_login_on}
+<table width="100%" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
+<table border=0 align="right" cellspacing=0 cellpadding=3>
+<form name="quick_login_form" method="post" action="{ROOT}?t=login">{DEF: _hs}
+<tr class="SmallText">
+	<td>{MSG: quicklogin_login}</td>
+	<td>{MSG: quicklogin_password}</td>
+	<td colspan=2>&nbsp;</td>
+</tr>
+<tr>
+	<td><input class="SmallText" type="text" name="quick_login" size=18></td>
+	<td><input class="SmallText" type="password" name="quick_password" size=18></td>
+	<td><input type="checkbox" name="quick_use_cookies"><font class="SmallText"> {MSG: quicklogin_use_cookies}</font> </td>
+	<td><input type="submit" class="button" name="quick_login_submit" value="{MSG: quicklogin_login_btn}"></td>
+</tr>
+<input type="hidden" name="returnto" value="{ROOT}?t=index"></form>
+</table></td></tr></table>
+{MAIN_SECTION: END}
+
+{MAIN_SECTION: quick_login_loged_in}
+{MAIN_SECTION: END}

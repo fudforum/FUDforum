@@ -1,0 +1,98 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: selmsg.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: selmsg.php.t; output: selmsg.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: drawmsg.tmpl}
+{REF: forum.tmpl}
+{REF: cat.tmpl}
+{REF: fileio.tmpl}
+{REF: th.tmpl}
+{REF: imsg.tmpl}
+{REF: is_perms.tmpl}
+{REF: allperms.tmpl}
+
+{SECTION: status_indicator_on indicates that the particular filter option is enabled}
+<font style="font-size: xx-small; font-weight: bold; text-decoration: none;">(<font color="red">{MSG: on}</font>)</font>
+{SECTION: END}
+
+{SECTION: status_indicator_off indicates that the particular filter option is disabled}
+<font style="font-size: xx-small; font-weight: bold; text-decoration: none;">({MSG: off})</font>
+{SECTION: END}
+
+{SECTION: todays_posts todays posts link}
+<a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: dt_opt}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</acronym></a>
+{SECTION: END}
+
+{SECTION: unread_messages unread messages link}
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: un_opt}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</acronym></a>
+{SECTION: END}
+
+{SECTION: unanswered unreplied posts link}
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: rp_opt}&sub_forums={VAR: sub_forums}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</acronym></a>
+{SECTION: END}
+
+{SECTION: subscribed_frm subscribed forum link}
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: frm_opt}&sub_threads={VAR: sub_threads}&{DEF: _rsid}"><acronym title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</acronym></a>
+{SECTION: END}
+
+{SECTION: subscribed_thr subscribed thread link}
+&nbsp;| <a class="GenLink" href="{ROOT}?t=selmsg&date={VAR: date}&unread={VAR: unread}&reply_count={VAR: reply_count}&sub_forums={VAR: sub_forums}&sub_threads={VAR: th_opt}&{DEF: _rsid}"><acronym title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</acronym></a>
+{SECTION: END}
+
+{SECTION: more_unread_messages more unread messages link}
+<div align="center" class="GenText">[<a href="{ROOT}?t=selmsg&mark_page_read=1&{VAR: LAST_ID}&{VAR: url_param}" class="GenLink"><acronym title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</acronym></a>]</div><img src="blank.gif" height=3 border=0>
+{SECTION: END}
+
+{SECTION: forum_row forum heading row}
+<tr><th colspan=2>{MSG: forum} <a class="th_lnk" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}"><font style="font-size: 12px;">{VAR: obj->frm_name}</font></a></th></tr>
+{SECTION: END}
+
+{SECTION: thread_row thread heading row}
+<tr><th colspan=2>&nbsp;{MSG: thread} <a class="th_lnk" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->thr_subject}</a></th></tr>
+{SECTION: END}
+
+{SECTION: no_result}
+<tr><th align=middle>{MSG: no_posts}</th></tr>
+{SECTION: END}
+
+{PAGE: SELMSG_PAGE a form which can show today's,unread,unanswered,etc... posts}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: todays_posts}{TEMPLATE-DATA: unread_messages}{TEMPLATE-DATA: subscribed_frm}{TEMPLATE-DATA: subscribed_thr}{TEMPLATE-DATA: unanswered}
+<br>{TEMPLATE-DATA: admin_cp}
+<br><img src="blank.gif" height=2 border=0><br>
+{TEMPLATE-DATA: more_unread_messages}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+{TEMPLATE-DATA: message_data}
+</table>
+{TEMPLATE-DATA: more_unread_messages}
+{TEMPLATE-DATA: pager}
+<p>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+{SECTION: selmsg_update}
+{MSG: selmsg_update}
+{SECTION: END}

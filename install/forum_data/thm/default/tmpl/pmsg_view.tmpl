@@ -1,0 +1,72 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: pmsg_view.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: pmsg_view.php.t; output: pmsg_view.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: get_cur_ppage.tmpl}
+{REF: drawpmsg.tmpl}
+
+
+{REF: fileio.tmpl}
+{REF: private.tmpl}
+{REF: tabs.tmpl}
+
+{PAGE: PMSG_PAGE form for viewing private messages}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: cur_ppage}
+{TEMPLATE-DATA: tabs}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2>{MSG: msg_author}</th>
+{TEMPLATE-DATA: private_message_entry}
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+{SECTION: pm_err_nopm_title}
+{MSG: pm_err_nopm_title}
+{SECTION: END}
+
+{SECTION: pm_err_nopm_msg}
+{MSG: pm_err_nopm_msg}
+{SECTION: END}
+
+{SECTION: inbox}
+{MSG: inbox}
+{SECTION: END}
+
+{SECTION: draft}
+{MSG: draft}
+{SECTION: END}
+
+{SECTION: sent}
+{MSG: sent}
+{SECTION: END}
+
+{SECTION: trash}
+{MSG: trash}
+{SECTION: END}
+
+{SECTION: pm_update}
+{MSG: pm_update}
+{SECTION: END}

@@ -1,0 +1,284 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: thread.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: thread.php.t; output: thread.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: announcement.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: show.tmpl}
+{REF: forum.tmpl}
+{REF: return.tmpl}
+{REF: cat.tmpl}
+{REF: th.tmpl}
+{REF: is_perms.tmpl}
+
+{SECTION: thread_legend}
+<br>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br></td></tr>
+	<tr><td align=left class="RowStyleB">
+		<table border=0 cellspacing=0 cellpadding=0 align=left>
+			<tr>
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" border=0></td><td class="SmallText">{MSG: new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0></td><td class="SmallText">{MSG: locked}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0></td><td class="SmallText">{MSG: moved}</td></tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	</td></tr>
+</table>	
+{SECTION: END}
+
+{SECTION: forum_path}
+<a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR: frm->name}</b></font>
+{SECTION: END}
+
+{SECTION: unsubscribe_link}
+<a class="GenLink" href="{ROOT}?t=thread&unsub=1&frm_id={VAR: frm_id}&start={VAR: start}&count={VAR: count}&{DEF: _rsid}"><acronym title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</acronym></a>
+{SECTION: END}
+
+{SECTION: subscribe_link}
+<a class="GenLink" href="{ROOT}?t=thread&sub=1&frm_id={VAR: frm_id}&start={VAR: start}&count={VAR: count}&{DEF: _rsid}"><acronym title="{MSG: subscribe_desc}">{MSG: subscribe}</acronym></a>
+{SECTION: END}
+
+{SECTION: new_thread_link}
+<a class="GenLink" href={ROOT}?t="post&{VAR: returnto}&frm_id={VAR: frm_id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0></a>
+{SECTION: END}
+
+{SECTION: no_messages}
+<font class="GenText">{MSG: no_messages}</font>
+{SECTION: END}
+
+{SECTION: admin_heading_row}
+<th nowrap>{MSG: moderator_options}</th>
+{SECTION: END}
+
+{SECTION: mini_thread_pager}
+<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" border=0>{TEMPLATE-DATA: mini_pager_data})</font>
+{SECTION: END}
+
+{SECTION: mini_pager_entry}
+&nbsp;<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->id}&start={VAR: st_pos}&{DEF: _rsid}">{VAR: pg_num}</a> 
+{SECTION: END}
+
+{SECTION: mini_pager_limiter}
+&nbsp;...
+{SECTION: END}
+
+{SECTION: thread_poll_indicator}
+{MSG: poll}&nbsp;
+{SECTION: END}
+
+{SECTION: thread_attach_indicator}
+<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0>
+{SECTION: END}
+
+{SECTION: thread_read}
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}">
+{SECTION: END}
+
+{SECTION: thread_read_unreg}
+<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}">
+{SECTION: END}
+
+{SECTION: thread_read_locked}
+<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}">
+{SECTION: END}
+
+{SECTION: thread_unread}
+<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}">
+{SECTION: END}
+
+{SECTION: thread_unread_locked}
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}">
+{SECTION: END}
+
+{SECTION: first_unread_msg_link}
+<a href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->id}&unread=1&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}"></a>&nbsp;
+{SECTION: END}
+
+{SECTION: thread_icon}
+<img src="images/message_icons/{VAR: obj->th_icon}" border=0>
+{SECTION: END}
+
+{SECTION: thread_icon_none}
+&nbsp;
+{SECTION: END}
+
+{SECTION: rating}
+<img src="{THEME_IMAGE_ROOT}/{VAR: obj->rating}stars.gif" border=0>
+{SECTION: END}
+
+{SECTION: rating_none}
+&nbsp;
+{SECTION: END}
+
+{SECTION: sticky}
+<font class="SmallText"><b>{MSG: sticky}</b>&nbsp;</font>
+{SECTION: END}
+
+{SECTION: announcement}
+<font class="SmallText"><b>{MSG: thread_announcement}</b>&nbsp;</font>
+{SECTION: END}
+
+{SECTION: thread_last_post}
+<font class="DateText">{DATE: obj->last_post_stamp %a, %d %B %Y %H:%M}</font>
+{SECTION: END}
+
+{SECTION: unreg_user_link}
+{VAR: unreg_user_link}
+{SECTION: END}
+
+{SECTION: reg_user_link}
+<a href="{ROOT}?t=usrinfo&id={VAR: obj->last_poster_id}&{DEF: _rsid}">{VAR: reg_user_link}</a>
+{SECTION: END}
+
+{SECTION: last_msg_in_thread}
+<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->last_post_id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}"></a>
+{SECTION: END}
+
+{SECTION: thread_first_post}
+<font class="DateText">{DATE: obj->creation_date %a, %d %B %Y}</font>
+{SECTION: END}
+
+{SECTION: first_post_unreg_user_link if the thread stater was an anon user link}
+{VAR: first_post_login}
+{SECTION: END}
+
+{SECTION: first_post_reg_user_link if the thread stater was a registered user link}
+<a href="{ROOT}?t=usrinfo&id={VAR: obj->starter_id}&{DEF: _rsid}">{VAR: first_post_login}</a>
+{SECTION: END}
+
+{SECTION: admin_control_row_all moderator link for moving & deleting a thread}
+<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&{DEF: _rsid}&th={VAR: obj->id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}?t=mmod&{DEF: _rsid}&th={VAR: obj->id}&del={VAR: obj->root_msg_id}&{VAR: returnto}">{MSG: thread_mod_delete}</a></td>
+{SECTION: END}
+
+{SECTION: admin_control_row_move moderator link for moving a thread}
+<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&{DEF: _rsid}&th={VAR: obj->id}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></td>
+{SECTION: END}
+
+{SECTION: admin_control_row_del moderator link for deleting a thread}
+<td align=center class="RowStyleA"><a href="{ROOT}?t=mmod&{DEF: _rsid}&th={VAR: obj->id}&del={VAR: obj->root_msg_id}&{VAR: returnto}">{MSG: thread_mod_delete}</a></td>
+{SECTION: END}
+
+{SECTION: thread_row}
+<tr>		
+<td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
+<td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
+<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->id}&start=0&{DEF: _rsid}">{VAR: obj->subject}</a>&nbsp;{TEMPLATE-DATA: mini_thread_pager}</td>
+<td class="RowStyleB" align="center">{VAR: obj->replies}</td>
+<td class="RowStyleB" align="center">{VAR: obj->views}</td>
+<td class="RowStyleA" align="center">{TEMPLATE-DATA: rating}</td>
+<td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br>{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
+<td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br>{MSG: by} {TEMPLATE-DATA: first_post_login}</td>
+{TEMPLATE-DATA: admin_control_row}
+</tr>
+{SECTION: END}
+
+{SECTION: thread_row_moved a row indicating that the thread has been moved}
+<tr>
+<td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}"></td>
+<td class="RowStyleB" colspan=10 align="center" class="GenText">{MSG: was_moved_msg}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: thread_list}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th width="100%">{MSG: thread_thread}</th>
+	<th width=1>{MSG: replies}</th>
+	<th width=1>{MSG: views}</th>
+	<th align="center">{MSG: rating}</th>
+	<th nowrap>{MSG: last_post}</th>
+	<th nowrap>{MSG: started_on}</th>
+	{TEMPLATE-DATA: admin_heading_row}
+</tr>
+{TEMPLATE-DATA: thread_list_table_data}
+</table>
+{SECTION: END}
+
+{PAGE: THREAD_PAGE shows the threads in a particular forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
+<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br>{TEMPLATE: show_links}<br>{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
+<td valign="bottom" align="right" class="GenText">{TEMPLATE: new_thread_link}</td>
+</tr></table><img src="blank.gif" height=2 border=0>
+{TEMPLATE-DATA: announcements}
+{TEMPLATE: thread_list}
+<img src="blank.gif" width=1 height=2><br>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<tr>
+<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: new_thread_link}</td>
+</tr>
+</table>
+{TEMPLATE-DATA: forum_select}
+{TEMPLATE: thread_legend}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: permission_denied_title}
+{MSG: permission_denied_title}
+{SECTION: END}
+
+{SECTION: permission_denied_msg}
+{MSG: permission_denied_msg}
+{SECTION: END}
+
+{SECTION: thread_update}
+{MSG: thread_update}
+{SECTION: END}
+
+{SECTION: thread_title}
+{MSG: thread_title}
+{SECTION: END}

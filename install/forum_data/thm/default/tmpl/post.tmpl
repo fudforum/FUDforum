@@ -1,0 +1,516 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: post.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: post.php.t; output: post.php;}
+{REF: security.tmpl}
+{REF: users_reg.tmpl}
+{REF: iemail.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_select_opt.tmpl}
+{REF: draw_radio_opt.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: post_opt.tmpl}
+{REF: post_proc.tmpl}
+{REF: replace.tmpl}
+{REF: attach.tmpl}
+{REF: wordwrap.tmpl}
+{REF: spell.tmpl}
+{REF: thread_notify.tmpl}
+{REF: postcheck.tmpl}
+{REF: ipfilter.tmpl}
+{REF: smiley.tmpl}
+{REF: ipoll.tmpl}
+{REF: forum.tmpl}
+{REF: th.tmpl}
+{REF: imsg.tmpl}
+{REF: imsg_edt.tmpl}
+{REF: isearch.tmpl}
+{REF: return.tmpl}
+{REF: minimsg.tmpl}
+{REF: allowed_user_lnk.tmpl}
+{REF: is_perms.tmpl}
+{REF: logaction.tmpl}
+
+{SECTION: apply_spell_changes}
+<tr><td align="left" class="RowStyleB"><input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}"></td></tr>
+{SECTION: END}
+
+{SECTION: signature}
+<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br>{VAR: usr->sig}
+{SECTION: END}
+
+{SECTION: preview_message}
+<table align="center" border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
+<tr><th colspan=2>{MSG: post_preview}</th></tr>
+<tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
+<tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
+{TEMPLATE-DATA: apply_spell_changes}
+</table><br>
+{SECTION: END}
+
+{SECTION: loged_in_user shows who you're logged in as and offers a logout link}
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&{DEF: _rsid}&logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+{SECTION: END}
+
+{SECTION: post_password if password posting enable this allows the user to enter a password}
+<tr class="RowStyleB"><td class="GenText">{MSG: post_passwd}</td><td><input type="password" name="frm_passwd" value="">{VAR: pass_err}</td></tr>
+{SECTION: END}
+
+{SECTION: create_poll}
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&{DEF: _rsid}&frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+{SECTION: END}
+
+{SECTION: edit_poll}
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll->name} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&{DEF: _rsid}&pl_id={VAR: pl_id}&frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+{SECTION: END}
+
+{SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
+<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: post_mod_opt}</td>
+<td>
+{MSG: post_thread_type} <select name="thr_ordertype">{TEMPLATE-DATA: thread_type_select}</select>
+{MSG: post_thread_expiry} <select name="thr_orderexpiry">{TEMPLATE-DATA: thread_expiry_select}</select>
+</td>
+</tr>
+{SECTION: END}
+
+{SECTION: sel_opt}
+{SECTION: END}
+
+{SECTION: sel_opt_selected}
+{SECTION: END}
+
+{SECTION: post_icon_entry}
+<td nowrap valign=middle><input type="radio" name="msg_icon" value="{VAR: de}"{VAR: checked}><img src="{VAR: icon_path_www}{VAR: de}"></td>
+{SECTION: END}
+
+{SECTION: post_icon_row}
+<tr>{TEMPLATE-DATA: post_icon_entry}</tr>
+{SECTION: END}
+
+{SECTION: post_icons}
+<tr class="RowStyleA"><td valign=top class="GenText">{MSG: post_icons}</td><td>
+<table border=0 cellspacing=0 cellpadding=2>
+<tr><td class="GenText" colspan={VAR: col_count}><input type="radio" name="msg_icon" value=""{VAR: none_checked}>{MSG: post_no_icon}</td></tr>
+{TEMPLATE-DATA: post_icons_rows}
+</table>
+</td></tr>
+{SECTION: END}
+
+{SECTION: post_smiley_entry}
+<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: obj->code} \');"><img title="{VAR: obj->descr}" src="{VAR: smiley_www}{VAR: obj->img}" border=0></a>&nbsp;
+{SECTION: END}
+
+{SECTION: post_smiley_row}
+<tr valign=bottom><td>
+{TEMPLATE-DATA: post_smiley_entry}
+</td></tr>
+{SECTION: END}
+
+{SECTION: post_smilies}
+<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
+	<br><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=smladd\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
+</td>
+<td valign=top><table border=0 cellspacing=5 cellpadding=0>{TEMPLATE-DATA: post_smiley_row}</table></td></tr>
+{SECTION: END}
+
+{SECTION: fud_code_icons shortcuts to various FUDcode text formatting tools}
+<tr class="RowStyleA"><td nowrap class="GenText">{MSG: post_format_tools}</td><td>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td>
+<table border=0 cellspacing=1 cellpadding=2 class="FormattingToolsBG">
+<tr>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img id="bold_anc" name="bold_anc" src="{THEME_IMAGE_ROOT}/b_bold.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');""><img id="italic_anc" name="italic_anc" src="{THEME_IMAGE_ROOT}/b_italic.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img id="underline_anc" name="underline_anc" src="{THEME_IMAGE_ROOT}/b_underline.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img id="left_anc" name="left_anc" src="{THEME_IMAGE_ROOT}/b_aleft.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img id="center_anc" name="center_anc" src="{THEME_IMAGE_ROOT}/b_acenter.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img id="right_anc" name="right_anc" src="{THEME_IMAGE_ROOT}/b_aright.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img id="url_anc" name="url_anc" src="{THEME_IMAGE_ROOT}/b_url.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img id="email_anc" name="email_anc" src="{THEME_IMAGE_ROOT}/b_email.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img id="image_anc" name="image_anc" src="{THEME_IMAGE_ROOT}/b_image.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=OL:1\', \'listmaker\', 350, 350);"><img id="nlist_anc" name="nlist_anc" src="{THEME_IMAGE_ROOT}/b_numlist.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&{DEF: _rsid}&tp=UL:square\', \'listmaker\', 350, 350);"><img id="blist_anc" name="blist_anc" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img id="quote_anc" name="quote_anc" src="{THEME_IMAGE_ROOT}/b_quote.gif" border=0></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img id="code_anc" name="code_anc" src="{THEME_IMAGE_ROOT}/b_code.gif" border=0></a></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;&nbsp;
+<select name="fnt_size" onChange="javascript:insertTag(document.post_form.msg_body, \'[SIZE=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/SIZE]\'); document.post_form.fnt_size.options[0].selected=true">
+<option value="" selected>{MSG: post_size}</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
+<select name="fnt_color" onChange="javascript:insertTag(document.post_form.msg_body, \'[COLOR=\'+document.post_form.fnt_color.options[this.selectedIndex].value+\']\', \'[/COLOR]\'); document.post_form.fnt_color.options[0].selected=true">
+<option value="">{MSG: post_color}</option>
+<option value="skyblue" style="background-color:skyblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="royalblue" style="background-color:royalblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="blue" style="background-color:blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="darkblue" style="background-color:darkblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="orange" style="background-color:orange">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="orangered" style="background-color:orangered">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="crimson" style="background-color:crimson">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="red" style="background-color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="firebrick" style="background-color:firebrick">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="darkred" style="background-color:darkred">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="green" style="background-color:green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="limegreen" style="background-color:limegreen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="seagreen" style="background-color:seagreen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="deeppink" style="background-color:deeppink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="tomato" style="background-color:tomato">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="coral" style="background-color:coral">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="purple" style="background-color:purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="indigo" style="background-color:indigo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="burlywood" style="background-color:burlywood">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="sandybrown" style="background-color:sandybrown">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="sienna" style="background-color:sienna">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="chocolate" style="background-color:chocolate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="teal" style="background-color:teal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+<option value="silver" style="background-color:silver">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+</select>
+<select name="fnt_face" onChange="javascript:insertTag(document.post_form.msg_body, \'[FONT=\'+document.post_form.fnt_face.options[this.selectedIndex].value+\']\', \'[/FONT]\'); document.post_form.fnt_face.options[0].selected=true">
+<option value="">{MSG: post_font}</option>
+<option value="Arial" style="font-family:Arial">Arial</option>
+<option value="Times" style="font-family:Times">Times</option>
+<option value="Courier" style="font-family:Courier">Courier</option>
+<option value="Century" style="font-family:Century">Century</option>
+</select>
+</td></tr></table></td></tr>
+{SECTION: END}
+
+{SECTION: attached_file}
+<tr>
+	<td class="RowStyleB">{VAR: v['name']}</td>
+	<td class="RowStyleB">{VAR: sz}</td>
+	<td class="RowStyleB"><a class="GenLink" href="javascript: document.post_form.file_del_opt.value=\'{VAR: k}\'; document.post_form.submit();">{MSG: post_file_del}</a></td>
+</tr>
+{SECTION: END}
+
+{SECTION: upload_file}
+<input type="file" name="attach_control"> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}">
+{SECTION: END}
+
+{SECTION: attached_status count of already attached files}
+<font class="SmallText"> {MSG: post_cur_attached}
+{SECTION: END}
+
+{SECTION: attachment_list list of all the attached files}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+	<th>{MSG: post_file_name}</th>
+	<th>{MSG: post_file_size}</th>
+	<th>{MSG: action}</th>
+</tr>
+{TEMPLATE-DATA: attached_files}
+</table>
+<input type="hidden" name="file_del_opt" value="">
+<input type="hidden" name="file_array" value="{VAR: file_array_be64}">
+{SECTION: END}
+
+{SECTION: file_attachments}
+<tr class="RowStyleB"><td nowrap valign=top class="GenText">{MSG: file_attachments}</td><td>
+{TEMPLATE-DATA: attachment_list}
+{VAR: attach_control_error}
+<font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br><b>{MSG: max_file_size}</b> {VAR: MAX_F_SIZE}Kb<br><b>{MSG: max_files_per_msg}</b> {VAR: frm->max_file_attachments}
+{TEMPLATE-DATA: attached_status}
+<p></font>
+{TEMPLATE-DATA: upload_file}
+</td></tr>
+{SECTION: END}
+
+{SECTION: reg_user_options various options for logged in registered users}
+<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{VAR: msg_poster_notif_check}></td><td class="GenText"><b>{MSG: post_notification}</b></td></tr>
+<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: post_notification_desc}</font></td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText"><b>{MSG: include_sig}</b></td></tr>
+<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: include_sig_desc}</font></td></tr>
+{TEMPLATE-DATA: mod_post_opts}
+{SECTION: END}
+
+{SECTION: mod_post_opts}
+<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked}></td><td class="GenText"><b>{MSG: post_locked}</b></td></tr>
+{SECTION: END}
+
+{SECTION: disable_smileys}
+<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
+{SECTION: END}
+
+{SECTION: spell_check_button}
+<input type="submit" class="button" value="{MSG: spell_check_msg}" name="spell">&nbsp;
+{SECTION: END}
+
+{SECTION: post_error an error message shown at the top of ppage if there was an error with submission}
+<h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
+{SECTION: END}
+
+{PAGE: POST_PAGE  message posting form}{TEMPLATE: header}
+{TEMPLATE: usercp}
+<form action="{ROOT}?t=post" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+{TEMPLATE-DATA: post_error}
+{TEMPLATE-DATA: preview_message}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2><a name="ptop"> </a>{MSG: post_form}</th></tr>
+{TEMPLATE-DATA: loged_in_user}
+{TEMPLATE-DATA: post_password}
+<tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" name="msg_subject" value="{VAR-HTML: msg_subject}" size=50> {VAR: msg_subect_err}</td></tr>
+{TEMPLATE-DATA: poll}
+{TEMPLATE-DATA: admin_options}
+{TEMPLATE-DATA: post_icons}
+{TEMPLATE-DATA: post_smilies}
+{TEMPLATE-DATA: fud_code_icons}
+
+<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br><br>{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" wrap="virtual" tabindex="2" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR-HTML: msg_body}</textarea></td></tr>
+
+{TEMPLATE-DATA: file_attachments}
+<tr class="RowStyleB" valign="top">
+<td class="GenText">{MSG: post_options}</td>
+<td>
+<table border=0 cellspacing=0 cellpadding=1>
+{TEMPLATE-DATA: reg_user_options}
+{TEMPLATE-DATA: disable_smileys}
+</table>
+</td></tr>
+<tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
+<input type="submit" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+{DEF: _hs}
+<input type="hidden" name="submitted" value="">
+<input type="hidden" name="reply_to" value="{VAR: reply_to}">
+<input type="hidden" name="th_id" value="{VAR: th_id}">
+<input type="hidden" name="frm_id" value="{VAR: frm_id}">
+<input type="hidden" name="start" value="{VAR: start}">
+<input type="hidden" name="count" value="{VAR: count}">
+<input type="hidden" name="msg_id" value="{VAR: msg_id}">
+<input type="hidden" name="pl_id" value="{VAR: pl_id}">
+<input type="hidden" name="old_subject" value="{VAR: old_subject}">
+<input type="hidden" name="prev_loaded" value="1">
+<input type="hidden" name="attach_enabled" value="{VAR: attach_enabled}">
+{VAR: ret}
+</table>
+{TEMPLATE-DATA: minimsg}
+</form>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: post_err_notallowed_title}
+{MSG: post_err_notallowed_title}
+{SECTION: END}
+
+{SECTION: post_err_notallowed_msg}
+{MSG: post_err_notallowed_msg}
+{SECTION: END}
+
+{SECTION: post_err_lockedthread_title}
+{MSG: post_err_lockedthread_title}
+{SECTION: END}
+
+{SECTION: post_err_lockedthread_msg}
+{MSG: post_err_lockedthread_msg}
+{SECTION: END}
+
+{SECTION: post_err_notowner_title}
+{MSG: post_err_notowner_title}
+{SECTION: END}
+
+{SECTION: post_err_notowner_msg}
+{MSG: post_err_notowner_msg}
+{SECTION: END}
+
+{SECTION: post_err_edttimelimit_title}
+{MSG: post_err_edttimelimit_title}
+{SECTION: END}
+
+{SECTION: post_err_edttimelimit_msg}
+{MSG: post_err_edttimelimit_msg}
+{SECTION: END}
+
+{SECTION: post_err_noannontopics_title}
+{MSG: post_err_noannontopics_title}
+{SECTION: END}
+
+{SECTION: post_err_noannontopics_msg}
+{MSG: post_err_noannontopics_msg}
+{SECTION: END}
+
+{SECTION: post_err_noannonposts_title}
+{MSG: post_err_noannonposts_title}
+{SECTION: END}
+
+{SECTION: post_err_noannonposts_msg}
+{MSG: post_err_noannonposts_msg}
+{SECTION: END}
+
+{SECTION: post_err_noreplying_title}
+{MSG: post_err_noreplying_title}
+{SECTION: END}
+
+{SECTION: post_err_noreplying_msg}
+{MSG: post_err_noreplying_msg}
+{SECTION: END}
+
+{SECTION: post_err_floodtrig_title}
+{MSG: post_err_floodtrig_title}
+{SECTION: END}
+
+{SECTION: post_err_floodtrig_msg}
+{MSG: post_err_floodtrig_msg}
+{SECTION: END}
+
+{SECTION: post_err_attach_size}
+{MSG: post_err_attach_size}
+{SECTION: END}
+
+{SECTION: post_err_attach_ext}
+{MSG: post_err_attach_ext}
+{SECTION: END}
+
+{SECTION: post_err_attach_filelimit}
+{MSG: post_err_attach_filelimit}
+{SECTION: END}
+
+{SECTION: post_err_passwd}
+{MSG: post_err_passwd}
+{SECTION: END}
+
+{SECTION: post_reply_update}
+{MSG: post_reply_update}
+{SECTION: END}
+
+{SECTION: post_topic_update}
+{MSG: post_topic_update}
+{SECTION: END}
+
+{SECTION: post_normal}
+{MSG: post_normal}
+{SECTION: END}
+
+{SECTION: post_sticky}
+{MSG: post_sticky}
+{SECTION: END}
+
+{SECTION: post_annoncement}
+{MSG: post_annoncement}
+{SECTION: END}
+
+{SECTION: create_thread}
+{MSG: create_thread}
+{SECTION: END}
+
+{SECTION: submit_reply}
+{MSG: submit_reply}
+{SECTION: END}
+
+{SECTION: edit_message}
+{MSG: edit_message}
+{SECTION: END}
+
+{SECTION: fud_quote quote style for FUD code enabled forums}
+[quote title={MSG: post_quote_msg}]{VAR: msg_body}[/quote]
+{SECTION: END}
+
+{SECTION: html_quote quote style for html enabled forums}
+<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>{MSG: post_quote_msg}</b></td></tr><tr><td class="quote"><br>{VAR: msg_body}<br></td></tr></table>
+{SECTION: END}
+
+{SECTION: plain_quote quoting style for plain text forums}
+{MSG: post_quote} {MSG: post_quote_msg}<br>----------------------------------------------------<br>{VAR: msg_body}<br>----------------------------------------------------<br>
+{SECTION: END}
+
+{SECTION: th_expr_never}
+{MSG: th_expr_never}
+{SECTION: END}
+
+{SECTION: th_expr_one_hr}
+{MSG: th_expr_one_hr}
+{SECTION: END}
+
+{SECTION: th_expr_two_hr}
+{MSG: th_expr_two_hr}
+{SECTION: END}
+
+{SECTION: th_expr_three_hr}
+{MSG: th_expr_three_hr}
+{SECTION: END}
+
+{SECTION: th_expr_four_hr}
+{MSG: th_expr_four_hr}
+{SECTION: END}
+
+{SECTION: th_expr_eight_hr}
+{MSG: th_expr_eight_hr}
+{SECTION: END}
+
+{SECTION: th_expr_sixteen_hr}
+{MSG: th_expr_sixteen_hr}
+{SECTION: END}
+
+{SECTION: th_expr_one_day}
+{MSG: th_expr_one_day}
+{SECTION: END}
+
+{SECTION: th_expr_two_day}
+{MSG: th_expr_two_day}
+{SECTION: END}
+
+{SECTION: th_expr_four_day}
+{MSG: th_expr_four_day}
+{SECTION: END}
+
+{SECTION: th_expr_one_week}
+{MSG: th_expr_one_week}
+{SECTION: END}
+
+{SECTION: th_expr_two_week}
+{MSG: th_expr_two_week}
+{SECTION: END}
+
+{SECTION: th_expr_one_month}
+{MSG: th_expr_one_month}
+{SECTION: END}
+
+{SECTION: th_expr_two_month}
+{MSG: th_expr_two_month}
+{SECTION: END}
+
+{SECTION: th_expr_four_month}
+{MSG: th_expr_four_month}
+{SECTION: END}
+
+{SECTION: th_expr_one_year}
+{MSG: th_expr_one_year}
+{SECTION: END}
+
+{SECTION: reply_prefix used to check if the subject needs it added}
+{MSG: post_re}
+{SECTION: END}
+
+{SECTION: permission_denied_title}
+{MSG: permission_denied_title}
+{SECTION: END}
+
+{SECTION: permission_denied_msg}
+{MSG: permission_denied_msg}
+{SECTION: END}

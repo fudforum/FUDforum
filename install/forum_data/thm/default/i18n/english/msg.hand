@@ -1,0 +1,868 @@
+action:				Action
+add_to_buddy_list:		add to buddy list
+admin:				Admin 
+admin_control_panel:		Admin Control Panel
+administrator:			Administrator
+announcement:			Announcement
+attachment:			Attachment:
+avatar:				Avatar:
+average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} average posts per day)
+biography:			Biography:
+birth_date:			Date Of Birth:
+by:				By:
+by_mod:				by Moderator
+current_time:			Current Time
+custom_avatar_queue:		Custom Avatar Queue
+date:				Date
+date_posted:			Date Posted
+date_registered:		Date Registered:
+download_counter:		Downloaded {VAR: a_obj->dlcount} time(s)
+email:				Email:
+email_to_friend:		Email to friend
+email_to_friend_desc:		Send the URL to this page to your friend(s) via email
+email_user:			Click here to email the user
+faq:				F.A.Q.
+first_unread_msg:		Go to unread message(s)
+first_unread_msg_desc:		Go to the 1st unread message inside this thread
+flat_view:			Return to the default flat view
+forum:				Forum:
+forum_icon:			Forum Icon
+forum_new_messages:		New messages
+forum_none_messages:		Only registered forum members can track read & unread messages
+forum_old_messages:		No new messages
+from:				From:
+gender:				Gender:
+go:				Go
+goto_next_msg:			Go to next message
+goto_prev_msg:			Go to previous message
+home:				Home
+homepage:			Homepage:
+icq_control_panel:		ICQ Online-Message Panel
+icq_message_form:		ICQ Message Message Form:
+ignore_user:			ignore all posts by this user
+im_aim:				AIM Handle:
+im_msnm:			MSN Messenger:
+im_yahoo:			Yahoo Messenger:
+image:				Image:
+index_forum:			Forum
+index_new_posts:		New posts since last read
+index_no_new_posts:		No new posts since last read
+interests:			Interests:
+last_post:			Last Post
+last_thread_msg:		Go to the last message in this thread
+legend:				Legend:
+location:			Location:
+lock_thread:			Lock Thread
+locked:				Locked
+locked_with_new_posts:		Locked (w/ unread posts)
+logged_in_list:			Logged in users list
+login:				Login
+login_header:			Login:
+logout:				Logout
+mark_all_read:			mark all messages read
+mark_all_read_desc:		All your unread messages will be marked as read
+members:			Members
+message:			Message
+message_counter:		Our users have posted a total of <b>{VAR: post_count}</b> messages inside <b>{VAR: thread_count}</b> threads.
+message_index:			Message index
+message_index_desc:		View the message list
+minimize_category:		Minimize Category
+moderation_queue:		Moderation Queue
+moderator:			Moderator
+moderator_of:			Moderator of:
+moderator_options:		Moderator Options
+moderators:			Moderator(s)
+more_unread_messages:		more unread messages
+more_unread_messages_desc:	Show more unread messages and mark the currently viewable messages read
+move_thread:			Move
+moved:				Moved to another forum
+moved_thread_message:		This thread has been moved to another forum
+na:				n/a
+new_posts:			New Posts
+new_private_messages:		You have <span class="GenText" style="color: #ff0000">({VAR: c})</span> unread private message(s)
+new_thread:			Create a new thread
+newest_user:			The newest registered user is
+next_page:			Next Page
+next_thread:			Next Thread:
+no_messages:			There are no messages in this forum.
+no_msg_body:			No Message Body
+no_new_posts:			No New posts
+no_posts:			No Posts
+no_subscribed_forums:		No subscribed forums
+no_subscribed_threads:		No subscribed threads
+no_unread_locked:		This thread has been locked
+no_unread_msg:			This thread has no unread messages
+no_unread_msg_unreg:		The read & unread messages are only tracked for registered users
+num_pages:			Pages ({VAR: ttl_pg}):
+num_votes:			{VAR: total_votes} vote(s)
+occupation:			Occupation:
+off:				OFF
+on:				ON
+page_timings:			MySQL queries took {VAR: ttl_time} seconds<br>Total time taken to generate the page: {VAR: page_gen_time} seconds
+pm:				Private Messaging
+poll:				Poll:
+post_count:			Post Count {VAR: u->posted_msg_count}
+post_count_l:			Post Count:
+poster:				Poster
+posts:				Posts
+posts_c:			Posts:
+prev_thread:			Previous Thread:
+usrinfo_private_message:	Private Message:
+profile:			Profile
+profile_2:			Profile:
+profile_desc:			Click here to access user control panel
+rate:				rate
+rate_thread:			Rate Thread
+rating:				Rating
+refresh_list:			Refresh List
+register:			Register
+registered:			Registered:
+registered_on:			Registered On {DATE: u->join_date %a, %d %B %Y}
+replies:			Replies
+report_to_mod:			Report message to a moderator
+reported_messages:		Reported Messages
+reveal_all_posts:		reveal all posts by {VAR: user_login}
+reveal_post:			reveal post
+search:				Search
+sel_todays_posts:		Today\'s Posts
+sel_todays_posts_desc:		Toggle today\'s posts filter (will only show posts made today)
+sel_unanswered_posts:		Unanswered Posts
+sel_unanswered_posts_desc:	Toggle the un-answered posts filter (will show only posts that have no replies)
+sel_unread_messages:		Unread Messages
+sel_unread_messages_desc:	Toggle unread message filter (will only show unread messages)
+send:				Send
+send_pm_desc:			Send a private message to this user
+sender_email:			Sender Email:
+sender_name:			Sender Name:
+show_all_posts:			Show all posts by {VAR: user_login}
+show_posts_by:			Show Posts by: {VAR-HTML: u->login}
+size:				Size:
+started_on:			Started On
+status:				Status:
+status_line:			There are <b>{VAR: reg_u}</b> members(s), <b>{VAR: inv_u}</b> invisible members and <b>{VAR: annon}</b> guest(s) visiting this board.
+sticky:				sticky:
+stop_ignoring:			stop ignoring this user
+sub_to_thread:			Subscribe to thread
+sub_to_thread_desc:		Receive notification about new posts inside this thread
+subject:			Subject
+subscribe:			Subscribe
+subscribe_desc:			Receive notifications when someone creates a new thread in this forum
+subscribed_forums:		Subscribed Forums
+subscribed_forums_desc:		Toggle the subscribed forums filter (will only show posts from the forums you are subscribed to)
+subscribed_threads:		Subscribed Threads
+subscribed_threads_desc:	Toggle the subscribed threads filter (will only show posts from the threads you are subscribed to)
+switch_to_thread_view:		Switch to threaded view of this thread
+thread:				Thread:
+thread_announcement:		announcement:
+thread_first_unread_msg:	Click here to go the first unread message in this thread
+thread_thread:			Thread
+threads:			Threads
+time:				Time
+todays_posts:			Today's Posts
+todays_posts_desc:		Show all messages that were posted today
+un_ignore_user:			stop ignoring posts by this user
+unanswered_posts:		Unanswered Posts
+unanswered_posts_desc:		Show all messages, which have no replies
+unlock_thread:			Unlock Thread
+unread_msg:			This thread contains messages you have not yet read
+unread_msg_locked:		Locked thread with unread messages
+unread_posts:			Unread Posts
+unread_posts_desc:		Show all unread messages
+unsub_from_thread:		Unsubscribe from thread
+unsub_from_thread_desc:		Stop receiving notifications about new posts in this thread
+unsubscribe:			Unsubscribe
+unsubscribe_desc:		Stop receiving notifications about new threads in the forum
+updated_on:			Updated on:
+user:				User
+user_counter:			We have <b>{VAR: reg_users}</b> registered user(s).
+user_info:			User Information
+user_info_l:			User Information {VAR: user_info}
+user_offline:			{VAR: user_login}  is currently offline
+user_online:			{VAR: user_login} is currently online
+usrinfo_last_post:		Last Post:
+view_forum:			View Forum
+view_last_msg:			View the latest message in this forum
+view_results:			View Results
+view_thread:			View Thread
+views:				Views
+vote:				{VAR: thread->vote_count()} Vote(s)
+vote_button:			Vote
+vote_for_thread:		Vote
+was_moved_msg:			<a href="{ROOT}?t={ROOT}?t={DEF: d_thread_view}?goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> has been moved to <a href="thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a> by the moderator
+welcome_message:		Welcome <b>{VAR: user_login}</b>, your last visit was on {DATE: last_login %a, %d %B %Y %H:%M}
+what_ppl_doing:			show what people are doing
+reported_del_report:		Delete Report
+reported_reason:		Reason
+reported_on:			On:
+reported_reported_by:		Reported By:
+reported_reported_msg:		Reported Messages
+modque_pending_approval:	Messages pending approval
+modque_approve:			Approve
+modque_delete:			Delete
+modque_no_message:		There are no messages pending approval
+pmsg_new_messages:		Unread private message
+pmsg_old_messages:		Read private message
+deny_recipt:			deny receipt
+deny_recipt_desc:		Do not send a confirmation that you\'ve read this message
+restore_to:			Restore To:
+move_to:			Move To:
+list_referes_referrals:		Referrals
+list_referes_members:		Members Referred
+list_referes_member:		Member
+referals_none:			No referrals yet.
+referals_refered_by:		Forum members referred by: <b><a href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b>
+referals_post_count:		Post Count
+referals_registered_on:		Registered On
+referals_action:		Action
+pmsg_all:			all
+pmsg_none:			none
+folder:				Folder:
+pmsg_replied:			replied
+pmsg_forwarded:			forwarded
+pmsg_subject:			Subject
+pmsg_author:			Author
+pmsg_time:			Time
+pmsg_selected:			Selected
+pmsg_delete:			Delete
+cur_ppage_pm:			Private Messaging
+writing_pm:			Writing a Private Message
+browsing_folder:		Browsing <b>{VAR: folder}</b> folder
+inbox:				Inbox
+draft:				Draft
+sent:				Sent
+trash:				Trash
+msg_author:			Author
+msg_thread:			Thread
+avatar_sel_form:		Avatar Selection Form
+no_avatars:			No Avatars available
+month_1:			January
+month_2:			February
+month_3:			March
+month_4:			April
+month_5:			May
+month_6:			June
+month_7:			July
+month_8:			August
+month_9:			September
+month_10:			October
+month_11:			November
+month_12:			December
+male:				Male
+female:				Female
+register_tree_view:		Tree View
+register_flat_view:		Flat View
+use_forum_default:		Use forum default
+finduser_user_info:		User Information
+finduser_by_login:		By Login:
+finduser_by_email:		By Email:
+finduser_submit:		Find
+finduser_no_such_user:		No Such User
+finduser_user:			User
+finduser_postcount:		Post Count
+finduser_joindate:		Join Date
+finduser_action:		Action
+yes:				Yes
+no:				No
+register_email:			Email:
+edit_time_limit:		<br><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
+no_edit_time_limit:		<br><b>Editing Time Limit</b>: <b>Unlimited</b>
+pmuserloc_login:		Login:
+pmuserloc_email:		Email:
+pmuserloc_submit:		Submit
+pmuserloc_user:			User
+pmuserloc_no_result:		No Result
+register_builtin:		Built In
+register_specify_url:		Specify URL
+register_uploaded:		Upload Avatar
+register_login:			Login:
+register_password:		Password:
+register_conf_pass:		Confirm Password:
+register_email_desc:		Please enter a valid email address. You can choose to hide it below in the preferences section.
+register_name:			Name:
+register_your_pass:		Your Password:
+register_update:		Update
+register_avatar_type:		Avatar Type:
+register_del_avatar:		Delete Avatar
+register_avatar:		Avatar:
+register_sel_avatar:		Select Avatar
+register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br><font class="SmallText">The avatar, should be no larger then <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</font>
+register_custom_avatar_url:	Custom Avatar URL:
+register_preview:		Preview
+register_custom_avatar_upload:	Custom Avatar File:
+register_register:		Register
+register_required:		Required Information
+register_required_desc:		All fields are required.  Please note that passwords are case sensitive.
+register_optional:		Optional Information
+register_optional_desc:		It is recommended that you do not reveal any personal or identifying information in your profile.  All information will be viewable by other forum members.
+register_location:		Location:
+register_occupation:		Occupation:
+register_interests:		Interests:
+register_image:			Image:
+register_icq:			ICQ Number:
+register_aim:			AIM Handle:
+register_yahoo:			Yahoo Messenger:
+register_msnm:			MSN Messenger:
+register_homepage:		Homepage:
+register_bday:			Birth Date:
+register_bday_desc:		If you select your birthday then other forum members will be able to see it in your profile
+register_day:			Day
+register_month:			Month
+register_year:			Year
+register_gender:		Gender:
+register_bio:			Biography:
+register_bio_desc:		A few details about yourself such as your interests, job, etc...
+register_prefs:			Preferences
+register_sig:			Signature:
+register_sig_desc:		Optional signature you may use to appear at bottom of your posts.
+register_reset:			Reset
+register_style:			Style:
+register_def_thread_view:	Default Thread View:
+register_msg_per_page:		Messages Per Page:
+register_show_sig:		Show Signatures:
+register_show_sig_desc:		Allows you to either hide or show other forum members signatures
+register_use_sig_default:	Use Signature by default:
+register_use_sig_default_desc:	Automatically append your signature to every message you post
+register_timezone:		Time Zone:
+register_ignore_admin:		Ignore Administrative Messages:
+register_invisible_mode:	Invisible Mode:
+register_invisible_mode_desc:	Hides your online status.
+register_show_email:		Show Email Address:
+register_show_email_desc:	Choose this option if you want your email address to be publicly displayed.
+register_notification:		Select Notification By Default:
+register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
+register_notify_method:		Choose Notification Method:
+register_notify_method_desc:	If you would to receive notifications via ICQ please make sure to enable 'EmailExpress' in your ICQ settings
+register_notify_js_error:	You choose ICQ notification, but did not specify an ICQ #. Defaulting to Email&#46;
+register_allow_email_msg:	Allow Email Messages:
+register_allow_email_msg_desc:	Allow other users to send you e-mails via FUDforum.
+buddy_status:			Status
+my_buddies:			My Buddies
+add_buddy:			Add Buddy
+add:				Add
+buddy_search:			Enter the login of the user you wish to add.<br>Or use the <a href="{ROOT}?t=javascript://" class="GenLink" onClick="javascript: window_open('pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">Find User</a> feature to find a person.
+buddy_remove:			remove
+post_normal:			Normal
+post_sticky:			Sticky
+post_annoncement:		Announcement
+post_size:			Size
+post_color:			Color
+post_font:			Font
+create_thread:			Create Thread
+submit_reply:			Submit Reply
+edit_message:			Edit Message
+apply_spell_changes:		Apply Spelling Changes
+post_preview:			Post Preview
+post_logedin_user:		Logged in user:
+post_logout:			logout
+post_passwd:			Posting Password:
+post_poll:			Poll:
+post_create_poll:		CREATE POLL
+post_poll_delete:		DELETE
+post_poll_edit:			EDIT
+post_mod_opt:			Moderator Options:
+post_thread_type:		Thread Type:
+post_thread_expiry:		Thread Expiry:
+post_locked:			Thread Locked
+post_icons:			Post Icon:
+post_no_icon:			No Icon
+post_smiley:			Smiley Shortcuts:
+post_format_tools:		Formatting Tools:
+post_upload_file:		Upload File
+post_file_del:			Delete
+post_file_name:			Name
+post_file_size:			Size
+file_attachments:		File Attachments:
+allowed_files:			Allowed File Extensions:
+max_file_size:			Maximum File Size:
+max_files_per_msg:		Maximum Files per Message:
+post_notification:		Post Notification
+include_sig:			Include Signature
+include_sig_desc:		Include my profile signature.
+disable_smilies:		Disable smilies in this message
+spell_check_msg:		Spell-check Message
+post_form:			Post Form
+post_forum:			Forum:
+post_title:			Title:
+post_body:			Body:
+post_options:			Options:
+post_preview_btn:		Preview Message
+post_processing_msg:		Your post is being processed, please wait
+ignore_users:			Ignored Users
+add_ignore:			Add Ignoramus
+forum_terms:			Forum Terms
+forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p>The owners of this forum  have the right to remove, edit, move or close any thread for any reason.<p>
+forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			COPPA Confirmation
+coppa_before:			Before {DATE: coppa %B %e, %Y}
+coppa_after:			After {DATE: coppa %B %e, %Y}
+coppa_link:			Click the link that corresponds to your birth date
+coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			Information
+prereg_agree:			Agree
+prereg_disagree:		Disagree
+coppa_fax_instructions:		Instructions for a Parent or Guardian
+coppa_fax_instructions2:	Please print out this page, sign it and fax it to:
+coppa_fax_reg_form:		Registration Form
+coppa_fax_sign:			Please sign the form below and send it to us
+coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
+coppa_fax_permission:		Sign here if you give permission
+coppa_fax_no_permission:	Sign here if you would like the account to be deleted
+coppa_fax_parent_name:		Parent/Guardian Full Name:
+coppa_fax_relation:		Relation to child:
+coppa_fax_telephone:		Telephone:
+coppa_fax_email:		Email address:
+coppa_fax_date:			Date:
+coppa_fax_questions:		Please contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> with any questions
+coppa_fax_login:		Login
+coppa_fax_passwd:		Password
+coppa_fax_remail:		Email
+coppa_fax_name:			Name
+login_not_logedin:		You are not logged in. This could be due to one of several reasons:
+login_cookie_expired:		Your cookie has expired, and you need to login to renew your cookie.
+login_perm_denied:		You do not have permission to access the requested resource as an anonymous user, and must login to gain permission to said resource.
+login_want_to_register:		Want to register?
+login_forgot_passwd:		Forgot password
+login_use_cookie:		Use cookies<br><font class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logedin into the forum.
+login_login:			Login
+login_name_required:		Login name is required
+login_passwd_required:		Password is required
+login_invalid_radius:		Invalid login/password combination
+reset_confirmation:		Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.\n
+reset_reset:			Hello,\n\nYou have requested for your password to be reset, to actually RESET your password\nplease go to this URL\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism which means, that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by simply encoding the password every time you enter it against the encoded version and\nseeing if they match. (If you are interested in how this mechanism works read up on MD5 HASH algorithm)
+rpasswd_invalid_passwd:		Invalid Password
+rpasswd_passwd_nomatch:		Passwords do not match
+rpasswd_passwd_length:		Password must be at least 6 characters long
+reset_remind_pass:		Password Reminder
+reset_reset_conf:		Your password will be reset and sent to you, or in case you have not confirmed your email the email confirmation request will be resent to you.
+reset_error:			Email not found in database
+rpasswd_change_pass:		Change Password
+rpasswd_login:			Login
+rpasswd_cur_pass:		Current Password:
+rpasswd_new_pass:		New Password:
+rpasswd_conf_pass:		Confirm Password:
+login_passwd:			Password:
+reset_email:			Email:
+reset_reset_button:		Reset Password
+rate_this_thread:		Rate
+report_reporting_about:		Reporting About:
+report_subject:			Subject:
+report_by:			By:
+report_posted_on:		Posted on:
+report_give_reason:		Please give a reason why you are reporting this message:
+report_submit_report:		Submit Report
+search_entire_msg:		Entire Message
+search_subect_only:		Subject Only
+search_forum:			Forum
+search_subject:			Subject
+search_posted_on:		Posted On
+search_no_results:		No Results
+search_search:			Search
+search_all_forums:		Search all Forums
+search_in_forum:		Search in Forum:
+search_for:			Search for:
+search_forum_search:		Forum Search
+move_thread_to:			Move thread <b>{VAR: thr->subject}</b> to:
+remail_email_topic:		Email This Topic To A Friend
+remail_your_name:		Your Name:
+remail_your_email:		Your Email:
+remail_friends_name:		Friend\'s Name:
+remail_friends_email:		Friend\'s Email:
+remail_required:		required
+remail_subject:			Subject:
+remail_message:			Message:
+remail_send_now:		Send Email Now
+remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
+remail_done:			Done
+remail_sent_conf:		The email to your friend at {VAR: femail} about the {VAR: thread->subject} was successfully sent.
+remail_continue:		Continue
+remail_error:			You have an error
+mklist_type:			Type:
+mklist_option:			Option:
+mklist_additem:			Add Item
+mklist_apply:			Apply
+mklist_delete:			Delete
+qbud_nick_name:			Nick Name
+qbud_add_selected:		Add Selected
+qbud_selected:			Selected
+qbud_no_buddies:		No buddies to choose from
+mklist_numerical:		Numerical
+mklist_aplha:			Alpha
+mklist_square:			Square
+mklist_disc:			Disc
+mklist_circle:			Circle
+mklist_close:			Close
+email_to:			To:
+email_name:			Name:
+email_email:			Email:
+email_pg_title:			Email
+email_subject:			Subject:
+email_body:			Body:
+email_submit:			Email
+ppost_quote_msg:		{VAR-HTML: msg_r->login} wrote on {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote:			Quote:
+ppost_to:			To:
+ppost_from_buddy_list:		Select from Buddy List
+ppost_find_User:		Find User
+ppost_track_msg:		Track This Message
+ppost_track_msg_desc:		Notify me (via private message) when this message gets read.
+ppost_send:			Send
+ppost_save_draft:		Save Draft
+poll_blank_option:		You cannot add a blank option.
+poll_del_conf:			If you want to delete this option, press OK
+poll_name:			Poll Name:
+poll_timelimit:			Time Limit
+poll_maxiumvotes:		Maximum Votes
+poll_create:			Create
+poll_update:			Update
+poll_disablesmilies:		Disable smilies
+poll_create_poll:		Create Poll
+poll_update_poll:		Update Poll
+poll_delete:			Delete
+poll_updateoption:		Update Option
+poll_addoption:			Add Option
+poll_unlimited:			Unlimited
+poll_day:			day
+poll_days:			days
+poll_hour:			hour
+poll_hours:			hours
+poll_month:			month
+poll_year:			year
+poll_week:			week
+tabs_register:			Settings
+tabs_subscriptions:		Subscriptions
+tabs_referrals:			Referrals
+tabs_buddy_list:		Buddy List
+tabs_ignore_list:		Ignore List
+tabs_private_messaging:		Private Messaging
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: msg->subject}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE THREAD</font> titled: <b>{VAR: msg->subject}</b><p>
+delete_proceed:			Do you wish to proceed?
+delete_yes:			Yes
+delete_no:			No
+error_invalidurl:		Invalid URL
+error_error:			Error
+usrinfo_profile:		{VAR: user_info}&#39;s Profile
+usrinfo_show_all_posts:		Show all posts by {VAR: user_info}
+actions_update:			Snooping on other people, just like you
+err_info:			Info
+buddy_list_err_cantadd:		Can\'t add your self to the buddy list
+buddy_list_err_dup:		You already have this user on your buddy list
+buddy_list_err_nouser:		The user you\'ve tried to add to your buddy list was not found on the forum.
+buddy_list_err_nouser_title:	Unable to add user
+buddy_list_update:		Browsing own buddy list
+core_err_invinp_title:		Invalid Input
+core_err_invinp_err:		You\'ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
+email_err_unabletoemail_title:	ERROR: Unable to email
+email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
+email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.
+email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR-HTML: usr_dst->login} because it was unable to locate his email address
+email_error_body:		The body is required
+email_error_subject:		Subject is required
+email_error_emailrequired:	Email is required
+email_error_invalidaddress:	Invalid email address
+email_error_namerequired:	Name is required
+email_error_invaliduser:	Invalid user
+emailconf_err_invkey_title:	Error
+emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your email to make sure that you have gone to the URL correctly
+err_inc_criticaltitle:		CRITICAL ERROR
+err_inc_criticalmsg:		You have encountered an error, but unfortunately there is a problem with the error reporting system
+finduser_update:		Searching for users
+help_index_update:		Reading the <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q.</a>
+iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
+iemail_thr_bodyemail:		To view unread replies goto {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this thread, please go here: {VAR: unsub_url['email']}
+iemail_thr_bodyicq:		To view unread replies goto\n{VAR: goto_url['icq']}\n\nIf you do not wish to receive further notifications about replies in this thread, please go here:\n{VAR: unsub_url['icq']}
+iemail_frm_subject:		New thread in forum {VAR: frm_name} called {VAR: thr_subject} by {VAR: poster_login}
+iemail_frm_bodyemail:		To view the thread goto:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new threads in this forum, please go here: {VAR: unsub_url['email']}
+iemail_frm_bodyicq:		To view the thread goto:\n{VAR: goto_url['icq']}\n\nTo stop receiving notifications about new threads in this forum, please go here:\n{VAR: unsub_url['icq']}
+ignore_list_err_info_title:	Info
+ignore_list_err_noign_msg:	You can\'t ignore this user
+ignore_list_err_dup_msg:	You already have this user on your ignore list
+ignore_list_err_nu_title:	User not found
+ignore_list_err_nu_msg:		The user you\'ve tried to add to your ignore list was not found on the forum.
+ignore_list_cantign_msg:	You can\'t ignore this user
+ignore_list_update:		Browsing own ignore list
+index_update:			Browsing the <a href="{ROOT}?t=index" class="GenLink">forum list</a>
+list_referers_update:		Browsing referrals
+login_update:			Login Form
+msg_err_onlyreg_title:		Only registered users may view this forum
+msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
+msg_err_ininfo_title:		Insufficient Information
+msg_err_ininfo_msg:		There was a problem generating this page
+msg_update:			Browsing thread <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
+pm_err_nopm_title:		ERROR: Private Messaging Disabled
+pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
+pm_update:			Using private messaging
+post_err_notallowed_title:	Permission Denied
+post_err_notallowed_msg:	You aren\'t allowed to post
+post_err_lockedthread_title:	ERROR: Locked Thread
+post_err_lockedthread_msg:	This thread is locked, no more posting allowed
+err_coppa_title:		ERROR: Your account is not yet confirmed
+err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
+err_blockedaccnt_title:		ERROR: you aren\'t allowed to post
+err_blockedaccnt_msg:		Your account has been blocked from posting
+post_err_notowner_title:	ERROR
+post_err_notowner_msg:		You are not the owner of this message
+post_err_edttimelimit_title:	ERROR
+post_err_edttimelimit_msg:	You can no longer edit this message
+post_err_noannontopics_title:	ERROR: Insufficient Privileges
+post_err_noannontopics_msg:	Anonymous users aren\'t allowed to create topics<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
+post_err_noannonposts_title:	ERROR: Insufficient Privileges
+post_err_noannonposts_msg:	Anonymous users aren\'t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">login form</a>
+post_err_noreplying_title:	ERROR: Replying Not Allowed
+post_err_noreplying_msg:	You cannot post replies to this thread, because it is either an announcement or sticky message, to which the moderator disallowed replying.
+post_err_floodtrig_title:	ERROR: Post flood triggered.
+post_err_floodtrig_msg:		Please try again in {VAR: tm} seconds
+post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</font><br>
+post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn\'t match the allowed file types.</font><br>
+post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
+post_err_passwd:		Incorrect password.
+post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_edit_update:		Editing <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
+post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_error_generic:		You have an error
+postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
+postcheck_subj_needed:		Subject required
+postcheck_not_allowed_file:	This file type isn\'t allowed
+postcheck_no_such_user:		There is no user named "{VAR-HTML: v}" this forum
+postcheck_ignored:		You cannot send a private message to "{VAR-HTML: v}", because this person is ignoring you.
+postcheck_no_recepient:		Cannot send a message, missing recipient
+postcheck_invalid_email:	Please enter a valid email address of your friend.
+postcheck_email_subject:	You cannot send an email without a subject.
+postcheck_email_body:		You cannot send an email without the message body.
+private_msg_notify_subj:	Read Notification For: {VAR: this->subject}
+private_msg_notify_body:	Hello,<br>{VAR: GLOBALS["usr"]->login} has read your private message, "{VAR: this->subject}", on {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+referals_update:		Browsing referrals
+register_err_short_login:	Login you have selected is too short. Login must be at least 4 characters long
+register_err_login_notallowed:	This login name is not allowed
+register_err_loginunique:	Forum login names must be unique, there is already a user with such a name present on the system
+register_err_emailexists:	This email already exists, if you have forgotten your password please use the restore option, instead of re-registering
+register_err_shortpasswd:	The password must be at least 6 characters long
+register_err_passwdnomatch:	Your passwords do not match.
+register_err_invalidemail:	The e-mail address you have specified does not appear to be valid.
+register_err_needname:		To successfully complete this registration you must enter your name.
+register_err_enterpasswd:	You must enter your current password to complete the changes
+register_err_adminpasswd:	You must enter your ADMINISTRATOR password to complete the changes
+register_err_notyouremail:	Some already is registered with this email, and that someone is NOT you
+register_err_avatartobig:	The file you are trying to upload is too big, over {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte limit
+register_err_avatarnotallowed:	The avatar you are trying to upload is not allowed, check allowed file types.
+register_conf_subject:		Registration Confirmation
+register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
+register_welcome_subject:	Forum Registration Confirmation
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nPassword: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{ROOT}?t=register\n
+register_err_cantreg_title:	ERROR: unable to register
+regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:	Viewing own profile
+register_register_update:	Registration Page
+report_err_nosuchmsg_title:	ERROR
+report_err_nosuchmsg_msg:	No Such Message
+report_err_cantreport_title:	ERROR
+report_err_cantreport_msg:	You aren\'t allowed to report to moderator
+reset_err_invalidkey_title:	ERROR
+reset_err_invalidkey_msg:	Invalid password reset key
+reset_err_rstconf_title:	Information
+reset_err_rstconf_msg:		You should receive instructions in your email in the next few minutes
+reset_newpass_title:		Reset Password
+reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: parr['usr']->login}\nPassword: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{ROOT}?t=register\n\n
+reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login
+search_update:			Searching posts
+selmsg_update:			Browsing <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Today\'s Posts</a>
+showposts_update:		Viewing posts by: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+subscribed_update:		Browsing own subscriptions
+th_err_invid_title:		Invalid thread ID
+th_err_invid_msg:		You\'ve followed an invalid link, the thread you are trying to view does not exist.
+thread_err_onlyregview_title:	Only registered users may view this forum
+thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
+thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+tree_update:			Browsing thread (tree view) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}\'s</a> profile
+ERR_login_ttl:			ERROR: You are not logged in			
+ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{ROOT}?t=register&{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&{DEF: _rsid}">login form</a>
+ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
+ERR_disabled_ttl:		Disabled feature
+ERR_disabled_msg:		This feature has been disabled by the system administrator
+ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_ttl:			ERROR: Insufficient Permissions
+ERR_access_msg:			You do not have the required permissions to perform this action
+ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_registration_disabled_ttl:	Registration Disabled
+ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
+ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
+ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
+ERR_emailconf_msg:		You have not confirmed you account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">click here<li>If {VAR: GLOBALS['usr']->email} is not your correct email address <a href="{ROOT}?t=register&{DEF: _rsid}">click here</a></ol></td></tr></table>
+ERR_emailconf_url:		
+ERR_user_ttl:			ERROR: No such user
+ERR_user_msg:			There is no such user
+ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_systemerr_ttl:		ERROR: System Error
+ERR_systemerr_msg:		System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
+ERR_systemerr_url:		{GVAR: returnto_d}
+email_title:			Email Form
+finduser_title:			Find User
+help_title:			F.A.Q.
+login_title:			Login Form
+msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+poll_title:			Poll Editor
+register_title:			Register Form
+reset_title:			Reset Password
+rpasswd_title:			Change Password Form
+error_title:			Error Form
+index_title:			Welcome to the forum
+search_title:			Search For {VAR-HTML: srch}
+thread_title:			{VAR: frm->name}
+tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+remail_emailsent:		Email was sent
+remail_email:			There is a web page on {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) that you may be interested in reading.\nHere is the thread I thought you\'d be interested in, {VAR: thread->subject} can be found here: {ROOT}&t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nFrom {VAR: u}\n
+poll_add_option:		Add Option:
+post_opt_html_on:		<b>HTML</b> is <b>ON</b>
+post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> is <b>ON</a></b>
+post_opt_images_on:		<b>Images</b> are <b>ON</b>
+post_opt_smilies_on:		<a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#sml" target=_new><b>Smilies</b> are <b>ON</b></a>
+post_opt_html_off:		<b>HTML</b> code is <b>OFF</b>
+post_opt_fud_off:		<b>FUDcode</b> is <b>OFF</b>
+post_opt_images_off:		<b>Images</b> are <b>OFF</b>
+post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
+post_opt:			Forum Options
+register_change_passwd:		change password
+install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
+approved_avatar_title:		Your custom avatar was approved.
+approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice, this, in most cases will solve the caching problem.
+unapproved_avatar_title:	Your custom avatar was declined.
+unapproved_avatar_msg:		The administrator did not approve your avatar. Most common reasons are that your avatar was too big (size and/or dimensions) or it had contained inappropriate subject matter. If you would like more information about why your avatar was rejected, contact the administrator.
+mvthread_request_move:		request a move
+move_request_reason:		Why do you wish the thread to be moved?
+mvthread_submit_req:		Submit Request
+thread_exchange:		Thread Exchange 
+move_request_by:		Thread move requested by:
+move_reason:			Reason for thread move:
+thr_exch_accept:		accept thread
+thr_exch_decline:		decline thread
+thr_exch_orig_forum:		Original Forum:
+thr_exch_dest_forum:		Destination Forum:
+thr_exch_no_threads:		No threads waiting approval.
+thr_exch_decl_reason:		Reason for declining thread <b>{VAR: thr_name}</b> into forum <b>{VAR: frm->name}</b>
+thr_exch_submit:		Submit
+exch_decline_ttl:		Moving of thread {VAR: thr_name} into forum {VAR: frm->name} was declined.
+ppost_original_msg:		message you are forwarding or replying to
+split_thread:			Split Thread
+groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
+groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
+groupmgr_yes:			Yes
+groupmgr_no:			No
+groupmgr_inherit:		Inherit
+groupmgr_action:		Action
+groupmgr_member:		Member
+groupmgr_cancel:		Cancel
+groupmgr_add_member:		Add Member
+groupmgr_update_member:		Update Member
+groupmgr_edit:			Edit
+groupmgr_delete:		Delete
+group_mgr_anon:			Anonymous
+group_mgr_reged:		All Registered Users
+show_show:			Show:
+group_mgr:			Group(s) Manager
+group_mgr_edit_btn:		Edit Group
+group_mgr_heading:		Group Editor Selection
+group_mgr_group:		Group:
+permission_denied_title:	Permission Denied!
+permission_denied_msg:		Your user permissions do not allow you to perform the action you are attempting.
+p_READ:				Read
+p_POST:				Post
+p_REPLY:			Reply
+p_EDIT:				Edit
+p_DEL:				Delete
+p_STICKY:			Sticky posts
+p_POLL:				Create polls
+p_FILE:				Attach files
+p_VOTE:				Vote
+p_RATE:				Rate threads
+p_SPLIT:			Split threads
+p_LOCK:				Lock threads
+p_MOVE:				Move threads
+p_SML:				Use smilies
+p_IMG:				Use image tags
+group_mgr_search:		<a href="{ROOT}?t=javascript://" class="GenLink" onClick="javascript: window_open(\'pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Find User</a>
+group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
+rate_worst:			Worst
+rate_best:			Best
+post_quote_msg:			{VAR-HTML: msg->login} wrote on {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote:			Quote:
+userinfo_referals:		Referred Users:
+userinfo_referals_count:	{VAR: referals} Members
+pm_no_space_title:		No space left!
+pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>, as they currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br><br><font class="ErrorText">Remove some old messages to clear up space</font>.
+pm_space_indct_msg:		Your PMs folders are {VAR: percent_full}% full.
+th_expr_never:			Never
+th_expr_one_hr:			1 Hour
+th_expr_two_hr:			2 Hours
+th_expr_three_hr:		3 Hours
+th_expr_four_hr:		4 Hours
+th_expr_eight_hr:		8 Hours
+th_expr_sixteen_hr:		16 Hours
+th_expr_one_day:		1 Day
+th_expr_two_day:		2 Days
+th_expr_four_day:		4 Days
+th_expr_one_week:		1 Week
+th_expr_two_week:		2 Weeks
+th_expr_one_month:		1 Month
+th_expr_two_month:		2 Month
+th_expr_four_month:		4 Month
+th_expr_one_year:		1 Year
+thread_mod_delete:		Delete
+action_latest_post:		Last Post
+online_today_last_visit:	Last Visited
+online_today_update:		Viewing the list of people who were on the forum today.
+logedin_todays_visitors:	Today's Visitors
+logedin_latest_post:		Last post on the forum: 
+register_show_avatar:		Show Avatars:
+register_show_avatar_desc:	Allows you to hide avatars of other users when viewing their messages
+drawmsg_view_rest_post:		Show the rest of the message
+post_re:			Re: 
+forumsel_goto_forum:		Goto Forum:
+minimsg_thread_view:		Thread View
+split_th_post_by:		Post By:
+split_th_posted_on:		Posted On:
+split_th_subject:		Subject:
+split_th_new_thread_title:	New thread title:
+split_th_forum:			Forum:
+split_th_split_sel:		Split selected messages
+split_th_split_unsel:		Split non-selected messages
+split_th_messages:		Messages
+split_th_select:		Select
+report_report_post:		Report Post
+quicklogin_login:		Login
+quicklogin_password:		Password
+quicklogin_use_cookies:		Use Cookies?
+quicklogin_login_btn:		Login
+post_notification_desc:		Notify me when someone replies to this message.
+post_proc_all_ext_allowed:	(unrestricted)
+maximize_category:		Maximize Category
+no_view_perm:			You do not have appropriate permissions needed to see this thread.
+report_empty_report:		You cannot send an empty report, please enter a reason for your report.
+report_already_reported_title:	Already Reported	
+report_already_reported_msg:	This message was already reported and the report is currently in moderation staff\'s review queue.
+register_err_toomanyimages:	You are trying to use more then the allowed {GVAR: FORUM_IMG_CNT_SIG} images in your signature.
+pmsg_next_msg:			Next message
+pmsg_prev_msg:			Previous message
+post_proc_reveal_spoiler:	Reveal Spoiler
+register_jabber:		Jabber Handle:
+im_jabber:			Jabber: 
+forum_contact:			Contact
+forum_home:			Home
+post_cur_attached:		currently attached {VAR: attach_count} file(s) 
+ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
+ignored_anon_post:		{VAR: user_login} is ignored
+ignored_user_post:		Post by <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> is ignored
+smladd_close_window:		close window
+post_list_smilies:		list all smilies
+p_VISIBLE:			Visible
+reported_in_thread:		In thread
+help_back_to_top:		back to top
+help_return_to_index:		Return to Help Index
+forumsel_unread:		*(UNREAD)
+groupmgr_no_groups:		No groups to edit
+msg_err_nosuchmsg_msg:		There is no such message in this thread
+msg_err_nosuchmsg_title:	Error
+imsg_err_message_title:		Invalid Message
+imsg_err_message_msg:		The message you are trying to view does not exist.
+poll_edit: 			Edit

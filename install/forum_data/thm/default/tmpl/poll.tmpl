@@ -1,0 +1,174 @@
+l_smiley_disabled_chk/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: poll.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: poll.php.t; output: poll.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: ipoll.tmpl}
+{REF: post_proc.tmpl}
+{REF: forum.tmpl}
+{REF: objutil.tmpl}
+{REF: smiley.tmpl}
+{REF: draw_select_opt.tmpl}
+{REF: replace.tmpl}
+{REF: is_perms.tmpl}
+
+{SECTION: sel_opt}
+{SECTION: END}
+
+{SECTION: sel_opt_selected}
+{SECTION: END}
+
+{PAGE: POLL_PAGE  poll creator}{TEMPLATE: header_plain}
+<script language="javascript">
+function check_submission()
+{
+	var a;
+	
+	a = document.poll_submit.pl_option.value.replace('/[ \n\r]/g', '');
+
+	if( !a.length ) {
+		if( document.poll_submit.pl_add && document.poll_submit.pl_add.value.length ) {
+			alert("{MSG: poll_blank_option}");
+			return false;
+		}
+		else if( document.poll_submit.pl_upd && document.poll_submit.pl_upd.value.length ) {
+			return confirm("{MSG: poll_del_conf}");
+		}
+	}
+	return true;	
+}
+</script>
+<table border=0 cellspacing=2 width="99%" cellpadding=0 class="dashed">
+<form action="{ROOT}?t=poll" method="post" name="poll_submit">
+<input type="hidden" name="frm_id" value="{VAR: frm_id}">
+<input type="hidden" name="pl_id" value="{VAR: pl_id}">
+{DEF: _hs}
+	<tr>
+		<td class="GenText">{MSG: poll_name}</td>
+		<td><input type="text" name="pl_name" value="{VAR-HTML: pl_name}"></td>
+	</tr>
+	<tr>
+		<td class="GenText">{MSG: poll_timelimit}</td>
+		<td>
+			<select name="pl_expiry_date">
+			{TEMPLATE-DATA: pl_expiry_date_data}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="GenText">{MSG: poll_maxiumvotes}</td>
+		<td>
+			<select name="pl_max_votes">
+			{TEMPLATE-DATA: pl_max_votes_data}
+			</select>
+		</td>
+	</tr>
+	
+	<tr><td colspan=2 align="right">
+		{TEMPLATE-DATA: pl_submit}
+	</td></tr>
+</table>
+<p>
+{TEMPLATE-DATA: poll_editor}
+<p>
+<div align=right>
+{TEMPLATE-DATA: poll_submit_btn}
+</div>
+</form>
+{TEMPLATE: footer_plain}
+{PAGE: END}
+
+{SECTION: btn_submit}
+<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}">
+{SECTION: END}
+
+{SECTION: btn_update}
+<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}">
+{SECTION: END}
+
+{SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
+<tr><td align="right" valign="top" colspan=2 class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y"{VAR: checked}>{MSG: poll_disablesmilies}</td></tr>
+{SECTION: END}
+
+{SECTION: pl_submit_create create poll button}
+<input type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}">
+{SECTION: END}
+
+{SECTION: pl_submit_update update poll button}
+<input type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}">
+{SECTION: END}
+
+{SECTION: poll_editor}
+<table width="99%" border=0 cellspacing=2 cellpadding=0 class="dashed">
+<tr><td class="GenText">{MSG: poll_add_option}</td><td align="right"><input type="text" name="pl_option" value="{VAR-HTML: pl_option}">
+{TEMPLATE-DATA: pl_smiley_disabled_chk}
+<tr><td colspan=2 align=right>{TEMPLATE-DATA: pl_action}</td></tr>
+<tr><td colspan=2><table>
+{TEMPLATE-DATA: poll_option_entry_data}
+</table>
+</tr></td>
+</table>
+{SECTION: END}
+
+{SECTION: poll_option_entry}
+<tr><td class="GenText">{VAR: obj->name}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&pl_smiley_disabled={VAR: pl_smiley_disabled}&frm_id={VAR: frm_id}&{DEF: _rsid}&pl_id={VAR: pl_id}&pl_optedit={VAR: obj->id}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&pl_smiley_disabled={VAR: pl_smiley_disabled}&frm_id={VAR: frm_id}&pl_id={VAR: pl_id}&del_id={VAR: obj->id}&{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
+{SECTION: END}
+
+{SECTION: pl_upd hidden field needed for the form to work}
+<input type="submit" class="button" name="pl_upd" onClick="javascript: return check_submission();" value="{MSG: poll_updateoption}">
+{SECTION: END}
+
+{SECTION: pl_add hidden field needed for the form to work}
+<input type="submit" class="button" name="pl_add" onClick="javascript: return check_submission();" value="{MSG: poll_addoption}">
+{SECTION: END}
+
+{SECTION: poll_title}
+{MSG: poll_title}
+{SECTION: END}
+
+{SECTION: poll_unlimited}
+{MSG: poll_unlimited}
+{SECTION: END}
+
+{SECTION: poll_hour}
+{MSG: poll_hour}
+{SECTION: END}
+
+{SECTION: poll_hours}
+{MSG: poll_hours}
+{SECTION: END}
+
+{SECTION: poll_day}
+{MSG: poll_day}
+{SECTION: END}
+
+{SECTION: poll_days}
+{MSG: poll_days}
+{SECTION: END}
+
+{SECTION: poll_week}
+{MSG: poll_week}
+{SECTION: END}
+
+{SECTION: poll_month}
+{MSG: poll_month}
+{SECTION: END}
+
+{SECTION: poll_year}
+{MSG: poll_year}
+{SECTION: END}

@@ -1,0 +1,50 @@
+#!/usr/local/bin/php -q
+<?
+	$fp = fopen('english/msg', 'rb');
+	while ( $str = fgets($fp, 4096) ) {
+		if ( !trim($str) ) continue;
+		@list($k, $v) = explode(':', $str, 2);
+		if ( $k )
+			$rootmsg[$k] = $v;
+			
+	}
+	fclose($fp);
+	
+	echo count($rootmsg)." messages in the english file\n";
+	
+	$dp = opendir('.');
+	readdir($dp); readdir($dp); 
+	while ( $de = readdir($dp) ) {
+		if ( !is_dir($de) ) continue;
+		if ( $de == 'english' ) continue;
+		
+		echo "checking: $de\n";
+		if ( !($fp = @fopen($de.'/msg', 'rb')) ) {
+			echo "\thmm, no msg here... on I go\n";
+			continue;
+		}
+		
+		$cmp = $rootmsg;
+		while ( $str = fgets($fp, 4096) ) {
+			if ( !trim($str) ) continue;
+			@list($k, $v) = explode(':', $str, 2);
+			if ( $k ) unset($cmp[$k]);
+		}
+		fclose($fp);
+		
+		if ( !count($cmp) ) continue;
+		
+		echo "\t".count($cmp)." difference between msg files\n";
+		reset($cmp);
+		if ( !($fp = @fopen($de.'/msg', 'a')) )
+			exit('can\'t open '.$de."/msg for writing\n");
+		
+		while ( list($k, $v) = each($cmp) ) {
+			echo "\t+$k\n";
+			fwrite($fp, $k.':'.$v);
+		}
+		
+		fclose($fp);
+	}
+	closedir($dp);
+?>

@@ -1,0 +1,60 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: rpasswd.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: rpasswd.php.t; output: rpasswd.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: return.tmpl}
+{REF: users_reg.tmpl}
+
+{PAGE: RPASSWD_PAGE change password popup}
+{TEMPLATE: header_plain}
+<table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+{TEMPLATE-DATA: rpasswd_error}
+<form method="post" action="{ROOT}?t=rpasswd">
+<tr><th colspan=2>{MSG: rpasswd_change_pass}</th></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_login}</td><td>{VAR-HTML: usr->login}</td></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_cur_pass}</td><td><input type="password" name="cpasswd" value=""></td></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" value=""></td></tr>
+<tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" value=""></td></tr>
+<tr class="RowStyleB"><td align=right colspan=2><input type="submit" class="button" value="{MSG: go}" name="btn_submit"></td></tr>
+{DEF: _hs}
+{VAR: return_field}
+</form>
+</table>
+{TEMPLATE: footer_plain}
+{PAGE: END}
+
+{SECTION: rpasswd_error failed to change password error message}
+<tr bgcolor="#ffffff"><td align="center" colspan=2><font class="ErrorText">{VAR: rpasswd_error_msg}</font></td></tr>
+{SECTION: END}
+
+{SECTION: rpasswd_invalid_passwd}
+{MSG: rpasswd_invalid_passwd}
+{SECTION: END}
+
+{SECTION: rpasswd_passwd_nomatch}
+{MSG: rpasswd_passwd_nomatch}
+{SECTION: END}
+
+{SECTION: rpasswd_passwd_length}
+{MSG: rpasswd_passwd_length}
+{SECTION: END}
+
+{SECTION: rpasswd_title}
+{MSG: rpasswd_title}
+{SECTION: END}

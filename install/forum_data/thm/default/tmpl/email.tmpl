@@ -1,0 +1,101 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: email.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: email.php.t; output: email.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: usercp.tmpl}
+{REF: iemail.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: users_reg.tmpl}
+{REF: admincp.tmpl}
+{REF: curtime.tmpl}
+{REF: return.tmpl}
+{REF: stats.tmpl}
+{REF: alt_var.tmpl}
+{REF: allowed_user_lnk.tmpl}
+
+{SECTION: email_error_text}
+<br><font class="ErrorText">{VAR: GLOBALS['_ERROR_'][$type]}</font>
+{SECTION: END}
+
+{SECTION: dest_forum_user mail being sent to forum user}
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_to} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
+{SECTION: END}
+
+{SECTION: dest_non_forum_user mail being sent to non forum user}
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_name} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_email} {VAR: email_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{VAR: tx_email}"></td></tr>
+{SECTION: END}
+
+{PAGE: EMAIL_PAGE }{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<form method="post" action="{ROOT}?t=email">
+<tr><th colspan=2>{MSG: email_pg_title}</th></tr>
+{TEMPLATE-DATA: destination}
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA" width="100%"><input type="text" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText" valign="top">{MSG: email_body} {VAR: body_err}</td><td width="100%" class="RowStyleA"><textarea name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
+<tr class="RowStyleC"><td align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: email_submit}"></td></tr>
+<input type="hidden" name="email_open" value="{VAR: email_open}">
+{DEF: _hs}{VAR: return}
+</form>
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: email_err_unabletoemail_title}
+{MSG: email_err_unabletoemail_title}
+{SECTION: END}
+
+{SECTION: email_err_unabletoemail_msg}
+{MSG: email_err_unabletoemail_msg}
+{SECTION: END}
+
+{SECTION: email_error_body}
+{MSG: email_error_body}
+{SECTION: END}
+
+{SECTION: email_error_subject}
+{MSG: email_error_subject}
+{SECTION: END}
+
+{SECTION: email_error_emailrequired}
+{MSG: email_error_emailrequired}
+{SECTION: END}
+
+{SECTION: email_error_invalidaddress}
+{MSG: email_error_invalidaddress}
+{SECTION: END}
+
+{SECTION: email_error_namerequired}
+{MSG: email_error_namerequired}
+{SECTION: END}
+
+{SECTION: email_error_invaliduser}
+{MSG: email_error_invaliduser}
+{SECTION: END}
+
+{SECTION: email_error_unabletolocaddr}
+{MSG: email_error_unabletolocaddr}
+{SECTION: END}
+
+{SECTION: email_title}
+{MSG: email_title}
+{SECTION: END}

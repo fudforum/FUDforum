@@ -1,0 +1,189 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: msg.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: msg.php.t; output: msg.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: drawmsg.tmpl}
+{REF: show.tmpl}
+{REF: return.tmpl}
+{REF: forum.tmpl}
+{REF: fileio.tmpl}
+{REF: th.tmpl}
+{REF: cat.tmpl}
+{REF: imsg.tmpl}
+{REF: thread_notify.tmpl}
+{REF: is_perms.tmpl}
+
+{SECTION: msg_forum_path forum location forum>thread>}
+<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+{SECTION: END}
+
+{SECTION: thread_rating}
+&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" border=0>) {MSG: vote}
+{SECTION: END}
+
+{SECTION: no_thread_rating}
+{SECTION: END}
+
+{SECTION: split_thread}
+<a class="GenLink" href="{ROOT}?t=split_th&{DEF: _rsid}&th={VAR: th}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+{SECTION: END}
+
+{SECTION: mod_lock_thread}
+<a class="GenLink" href="{ROOT}?t=mmod&{DEF: _rsid}&th={VAR: th}&lock=1&{VAR: returnto}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+{SECTION: END}
+
+{SECTION: mod_unlock_thread}
+<a class="GenLink" href="{ROOT}t=mmod&{DEF: _rsid}&th={VAR: th}&unlock=1&{VAR: returnto}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+{SECTION: END}
+
+{SECTION: email_page_to_friend}
+<a class="GenLink" href="{ROOT}?t=remail&th={VAR: th}&{DEF: _rsid}&{VAR: returnto}"><acronym title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</acronym></a>&nbsp;
+{SECTION: END}
+
+{SECTION: first_unread_message_link}
+| <a class="GenLink" href="{ROOT}?t=msg&unread=1&th={VAR: th}&{DEF: _rsid}"><acronym title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</acronym></a>&nbsp;
+{SECTION: END}
+
+{SECTION: sub_from_thread subscribe to thread link}
+| <a class="GenLink" href="{ROOT}?t=msg&th={VAR: th}&notify={VAR: usr->id}&{DEF: _rsid}&opt=on&start={VAR: start}"><acronym title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</acronym></a>&nbsp;
+{SECTION: END}
+
+{SECTION: unsub_to_thread unsubscribe from thread link}
+| <a class="GenLink" href="{ROOT}?t=msg&th={VAR: th}&notify={VAR: usr->id}&{DEF: _rsid}&opt=off&start={VAR: start}"><acronym title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</acronym></a>&nbsp;
+{SECTION: END}
+
+{SECTION: threaded_view tree view link}
+<a href="{ROOT}?t=tree&th={VAR: th}&{DEF: _rsid}" class="GenLink"><acronym title="{MSG: switch_to_thread_view}"><img src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0></acronym></a>&nbsp;
+{SECTION: END}
+
+{SECTION: new_thread new thread link}
+<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: post_reply}
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: next_thread_link}
+<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=msg&goto={VAR: next_th->msg_id}&{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
+{SECTION: END}
+
+{SECTION: prev_thread_link}
+<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=msg&goto={VAR: prev_th->msg_id}&{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
+{SECTION: END}
+
+{SECTION: rate_thread rate thread select}
+<table border=0 cellspacing=0 cellpadding=0><tr><form action="{ROOT}?t=ratethread" name="vote_frm" method="post"><td nowrap>
+<select name="sel_vote" onChange="javascript: if ( !this.value ) return false; document.vote_frm.submit();">
+<option>{MSG: rate_thread}</option>
+<option value="1">1 {MSG: rate_worst}</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5 {MSG: rate_best}</option>
+</select>
+</td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: rate_this_thread}">
+<input type="hidden" name="returnto" value="{VAR: returnto_dec}">{DEF: _hs}
+<input type="hidden" name="rate_thread_id" value="{VAR: thread->id}">
+</td></form></tr></table>
+{SECTION: END}
+
+{PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}{TEMPLATE: header}
+{TEMPLATE: usercp}
+
+<table width="100%" border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td valign="bottom" align="left" width="100%">
+<font class="GenText">
+{TEMPLATE-DATA: msg_forum_path}
+{TEMPLATE-DATA: thread_rating}
+<br>{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}
+{TEMPLATE-DATA: lock_thread}
+{TEMPLATE-DATA: email_page_to_friend}
+{TEMPLATE-DATA: first_unread_message_link}
+{TEMPLATE-DATA: subscribe_status}
+{TEMPLATE-DATA: admin_cp}
+</font>
+</td>
+<td align="right" class="GenText" valign="bottom" nowrap>
+{TEMPLATE: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}
+</td>
+</tr>
+<tr><td colspan=2><img src="blank.gif" height=1 width=1 border=0></td></tr>
+</table>
+
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
+{TEMPLATE-DATA: message_data}
+</table>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<tr>
+<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
+</tr>
+</table>
+
+<table border=0 cellspacing=1 cellpadding=1 align="right">
+{TEMPLATE-DATA: prev_thread_link}
+{TEMPLATE-DATA: next_thread_link}
+</table>
+{TEMPLATE-DATA: rate_thread}
+{TEMPLATE-DATA: forum_select}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: permission_denied_title}
+{MSG: permission_denied_title}
+{SECTION: END}
+
+{SECTION: permission_denied_msg}
+{MSG: permission_denied_msg}
+{SECTION: END}
+
+{SECTION: msg_err_ininfo_title}
+{MSG: msg_err_ininfo_title}
+{SECTION: END}
+
+{SECTION: msg_err_ininfo_msg}
+{MSG: msg_err_ininfo_msg}
+{SECTION: END}
+
+{SECTION: msg_update}
+{MSG: msg_update}
+{SECTION: END}
+
+{SECTION: msg_title}
+{MSG: msg_title}
+{SECTION: END}
+
+{SECTION: msg_err_nosuchmsg_msg}
+{MSG: msg_err_nosuchmsg_msg}
+{SECTION: END}
+
+{SECTION: msg_err_nosuchmsg_title}
+{MSG: msg_err_nosuchmsg_title}
+{SECTION: END}

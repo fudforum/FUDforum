@@ -1,0 +1,41 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: coppa.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: coppa.php.t; output: coppa.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: usercp.tmpl}
+{REF: curtime.tmpl}
+{REF: footer.tmpl}
+
+{PAGE: COPPA_PAGE determines if a new user is <13 years of age, needed for COPPA compliance}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr align="center" class="RowStyleA"><td class="GenText">
+<div align="center">{MSG: coppa_link}</div><br>
+[<a class="GenLink" href="{ROOT}?t=pre_reg&coppa=n&{DEF: _rsid}">{MSG: coppa_before}</a>]&nbsp;
+[<a class="GenLink" href="{ROOT}?t=pre_reg&coppa=y&{DEF: _rsid}">{MSG: coppa_after}</a>]
+<hr>
+{MSG: coppa}
+</td></tr>
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}
+{SECTION: coppa_conf}
+{MSG: coppa_conf}
+{SECTION: END}

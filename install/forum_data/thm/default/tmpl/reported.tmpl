@@ -1,0 +1,79 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: reported.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: reported.php.t; output: reported.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: drawmsg.tmpl}
+{REF: msgreport.tmpl}
+{REF: logaction.tmpl}
+
+{SECTION: reported_reg_user_link reportee profile link}
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->report_user_id}&{DEF: _rsid}">{VAR: user_login}</a>
+{SECTION: END}
+
+{SECTION: reported_anon_user if reportee is anon section}
+{VAR: user_login}
+{SECTION: END}
+
+{SECTION: reported_msg_header}
+<tr class="RowStyleC"><td colspan=2>
+<table border=0 cellspacing=0 cellpadding=3 width="100%">
+	<tr>
+		<td align=left nowrap valign=top>
+			<font class="SmallText">
+			<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login}<br>
+			<b>{MSG: reported_on}</b> {DATE: obj->report_stamp %a, %d %B %Y %H:%M}
+			</font>
+		</td>
+		<td align=center width="100%" valign=top>
+			<font class="SmallText">
+			<b>{MSG: reported_reason}</b><br>
+			<table border=1 cellspacing=1 cellpadding=0><tr><td align=left>&nbsp;{VAR: obj->report_reason} &nbsp;</td></tr></table>
+			</font>
+		</td>
+		<td nowrap>[<a class="GenLink" href="{ROOT}?t=reported&{DEF: _rsid}&del={VAR: obj->report_id}">{MSG: reported_del_report}</a>]</td>
+	</tr>
+	
+	<tr>
+		<td colspan=2><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}?t=msg&goto={VAR: obj->id}&{DEF: _rsid}" target=_new>{VAR: obj->thread_subject}</a></td>
+	</tr>
+</table>
+</td></tr>
+{SECTION: END}
+
+{SECTION: reported_message}
+{TEMPLATE: reported_msg_header}
+{TEMPLATE-DATA: message}
+{SECTION: END}
+
+{PAGE: REPORTED_PAGE a list of the reported messages}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<br>{TEMPLATE-DATA: admin_cp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2>{MSG: reported_reported_msg}</th></tr>
+{TEMPLATE-DATA: reported_message}
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}

@@ -1,0 +1,87 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: finduser.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: finduser.php.t; output: finduser.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: draw_pager.tmpl}
+{REF: imsg.tmpl}
+{REF: th.tmpl}
+{REF: forum.tmpl}
+
+{PAGE: FINDUSER_PAGE user search form}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<br>{TEMPLATE-DATA: admin_cp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
+<form method="post" action="{ROOT}?t=finduser">{DEF: _hs}
+<tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR: user_login}"></td></tr>
+<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR: user_email}"></td></tr>
+<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
+</form>
+</table>
+<img src="blank.gif" height=2 width=1 border=0><br>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr>
+<th width="100%"><a class="th_lnk" href="{ROOT}?t=finduser&usr_login={VAR-URL: user_login}&usr_email={VAR-URL: usr_email}&us=1&btn_submit=Find&{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&pc=1&btn_submit=Find" class="th_lnk">{MSG: finduser_postcount}</a></th><th nowrap align="center"><a href="{ROOT}?t=finduser&usr_login={VAR-URL: usr_login}&{DEF: _rsid}&usr_email={VAR-URL: usr_email}&btn_submit=Find" class="th_lnk">{MSG: finduser_joindate}</a></th><th align=middle>{MSG: finduser_action}</th>
+</tr>
+{TEMPLATE-DATA: find_user_data}
+</table>
+{TEMPLATE-DATA: pager}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: find_user_no_results}
+<tr class="RowStyleA"><td colspan=4 width="100%" class="GenText">{MSG: finduser_no_such_user}</td></tr>
+{SECTION: END}
+
+{SECTION: find_user_entry}
+<tr class="{VAR: class}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR-HTML: obj->login}</a></td><td align="center" nowrap>{VAR: obj->posted_msg_count}</td><td class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
+{SECTION: END}
+
+{SECTION: action_field lists things that can be done with a user}
+<a href="{ROOT}?t=showposts&id={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a>
+{TEMPLATE-DATA: email_link}
+{TEMPLATE-DATA: pm_link}
+{TEMPLATE-DATA: homepage_link}
+{SECTION: END}
+
+{SECTION: pm_link}
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: homepage_link}
+<a class="GenLink" href="{VAR: obj->home_page}" target=_new><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: email_link}
+<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0></a>
+{SECTION: END}
+{SECTION: finduser_title}
+{MSG: finduser_title}
+{SECTION: END}
+
+{SECTION: finduser_update}
+{MSG: finduser_update}
+{SECTION: END}

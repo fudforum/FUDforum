@@ -1,0 +1,118 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: search.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: search.php.t; output: search.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: show.tmpl}
+{REF: rev_fmt.tmpl}
+{REF: isearch.tmpl}
+{REF: draw_pager.tmpl}
+{REF: alt_var.tmpl}
+{REF: draw_radio_opt.tmpl}
+{REF: allperms.tmpl}
+
+{SECTION: search_results}
+<br>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th width="100%">{MSG: search_subject}</th><th>{MSG: search_forum}</th><th>{MSG: search_posted_on}</th></tr>
+{TEMPLATE-DATA: search_data}
+</table>
+{SECTION: END}
+
+{SECTION: no_search_results}
+<br>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr class="RowStyleA"><th colspan=2 width="100%" align="center">{MSG: search_no_results}</th></tr>
+</table>
+{SECTION: END}
+
+{SECTION: radio_button unselected style}
+{SECTION: END}
+
+{SECTION: radio_button_selected selected radio button style}
+{SECTION: END}
+
+{SECTION: radio_button_separator}
+&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: search_entry}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->subject}</a><br>{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->forum_id}&{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+{SECTION: END}
+
+{SECTION: registered_poster}
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->poster_id}&{DEF: _rsid}">{VAR-HTML: user_login}</a>
+{SECTION: END}
+
+{SECTION: unregistered_poster}
+{VAR-HTML: user_login}
+{SECTION: END}
+
+{SECTION: forum_limit_cat_option limit by category option}
+<option value="c{VAR: obj->cat_id}"{VAR: selected}>{VAR: obj->cat_name}</option>
+{SECTION: END}
+
+{SECTION: forum_limit_frm_option limit by forum select option}
+<option value="{VAR: obj->id}"{VAR: selected}>&nbsp;&nbsp;&nbsp;{VAR: obj->name}</option>
+{SECTION: END}
+
+{PAGE: SEARCH_PAGE message search form}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<form method="post" action="{ROOT}?t=search">{DEF: _hs}
+<tr><th colspan=3 width="100%">{MSG: search_forum_search}</th></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_for}</td><td colspan=2><input type="text" name="srch" value="{VAR-HTML: srch}"></td></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">&nbsp;</td><td colspan=2>{TEMPLATE-DATA: search_options}</td></tr>
+<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_in_forum}</td>
+	<td colspan=2>
+		<select name="forum_limiter"><option value="">{MSG: search_all_forums}</option>
+		{TEMPLATE-DATA: forum_limit_data}
+		</select>
+	</td>
+</tr>
+<tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: search}"></td></tr>
+</form>
+</table>
+{TEMPLATE-DATA: search_data}
+<div align="left">{TEMPLATE-DATA: page_pager}</div>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: search_title}
+{MSG: search_title}
+{SECTION: END}
+
+{SECTION: search_update}
+{MSG: search_update}
+{SECTION: END}
+
+{SECTION: search_entire_msg}
+{MSG: search_entire_msg}
+{SECTION: END}
+
+{SECTION: search_subect_only}
+{MSG: search_subect_only}
+{SECTION: END}
