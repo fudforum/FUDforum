@@ -1,0 +1,97 @@
+CREATE OR REPLACE FUNCTION rebuild_thread_view(int4, int4, int8) RETURNS int4 AS '
+DECLARE
+	forum_id ALIAS FOR $1;
+	initpage ALIAS FOR $2;
+	tm ALIAS FOR $3;
+	page int4;
+	origpage int4;
+	qry TEXT;
+	res RECORD;
+	i int4;
+	cnt int4;
+BEGIN
+	IF initpage=1 THEN
+		origpage := 1;
+		qry := ''SELECT 
+				{SQL_TABLE_PREFIX}thread_view.forum_id,
+				{SQL_TABLE_PREFIX}thread_view.thread_id AS id, 
+				CASE WHEN
+					is_sticky=''''Y''''
+					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
+				THEN
+					2147483647
+				ELSE
+					{SQL_TABLE_PREFIX}thread.last_post_id
+				END as sort_order_fld
+			FROM 
+				{SQL_TABLE_PREFIX}thread_view 
+				INNER JOIN {SQL_TABLE_PREFIX}thread 
+					ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
+				INNER JOIN {SQL_TABLE_PREFIX}msg 
+					ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
+				WHERE 
+					{SQL_TABLE_PREFIX}thread_view.forum_id=''|| forum_id ||''
+					AND page<''|| (origpage+1) ||'' AND
+					{SQL_TABLE_PREFIX}msg.approved=''''Y''''
+			ORDER BY 
+				sort_order_fld DESC, 
+				{SQL_TABLE_PREFIX}thread.last_post_date DESC'';
+	ELSE
+		origpage := 0;
+		qry := ''DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=''|| forum_id;
+		EXECUTE qry;
+		qry := ''SELECT 
+				{SQL_TABLE_PREFIX}thread.id, 
+				{SQL_TABLE_PREFIX}thread.forum_id,
+				CASE WHEN
+					is_sticky=''''Y''''
+					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>''|| tm  ||''
+					OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
+				THEN
+					2147483647
+				ELSE
+					{SQL_TABLE_PREFIX}thread.last_post_id
+				END AS sort_order_fld
+					
+			FROM 
+				{SQL_TABLE_PREFIX}thread
+				INNER JOIN {SQL_TABLE_PREFIX}msg
+					ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
+			WHERE 
+				forum_id=''|| forum_id ||'' AND
+				{SQL_TABLE_PREFIX}msg.approved=''''Y''''
+				
+			ORDER BY 
+				sort_order_fld DESC, 
+				{SQL_TABLE_PREFIX}thread.last_post_date DESC'';
+	END IF;
+	
+	
+	
+	i:= 0;
+	cnt := 0;
+	page := 1;
+	
+	FOR res IN EXECUTE qry LOOP
+		IF origpage = 1 THEN
+			qry := ''DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=''|| forum_id ||'' AND page<''|| origpage+1; 
+			EXECUTE qry;
+			origpage := 0;
+			
+		END IF;
+
+		IF i>39 THEN
+			page := page + 1;
+			i := 0;
+			cnt := 0;
+		END IF;
+		cnt := cnt + 1;
+		qry := ''INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES 
+			(''|| page ||'', ''|| res.forum_id ||'', ''|| res.id ||'', ''|| cnt ||'')'';
+		EXECUTE qry;
+		i := i + 1;
+	END LOOP;
+	
+	RETURN page;
+END;
+' LANGUAGE 'plpgsql';
