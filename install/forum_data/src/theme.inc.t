@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: theme.inc.t,v 1.5 2002/07/29 13:13:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,7 +56,7 @@ class fud_theme
 				".strnull($this->pspell_lang).",
 				'".yn($this->t_default)."'
 			)");
-		$this->id = db_lastid("{SQL_TABLE_PREFIX}themes+", $r);
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}themes", $r);
 		if ( $ll ) db_unlock();
 		return $this->id;
 	}
