@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.71 2005/03/09 21:35:21 hackie Exp $
+* $Id: login.php.t,v 1.72 2005/03/20 15:22:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,26 +188,18 @@ function error_check()
 				$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 			}
 
-			if (strpos($usr->returnto, '?') !== false) { /* no GET vars or no PATH_INFO */
-				$bits = explode('?', $usr->returnto, 2);
-				parse_str($bits[1], $args);
-				$usr->returnto = $bits[0] . '?';
+			if ($usr->returnto{0} != '/') { /* no GET vars or no PATH_INFO */
+				$ret =& $usr->returnto;
+				parse_str($ret, $args);
 				$args['SQ'] = $new_sq;
 
 				if ($FUD_OPT_1 & 128) { /* if URL sessions are supported */
 					$args['S'] = $ses_id;
-					if ($FUD_OPT_2 & 32768) { /* PATH_INFO enabled */
-						if (strpos($bits[0], $ses_id) !== false) { /* session already in URL */
-							unset($args['S']);
-						} else if (preg_match('!([a-z0-9]{32})!', $bits[0], $m)) { /* try to find any session in PATH_INFO */
-							$usr->returnto = str_replace($m[1], $ses_id, $bits[0]);
-							unset($args['S']);
-						}
-					}
 				}
 
+				$ret = '';
 				foreach ($args as $k => $v) {
-					$usr->returnto .= $k.'='.$v.'&';
+					$ret .= $k.'='.$v.'&';
 				}
 			} else { /* PATH_INFO url or GET url with no args */
 				if ($FUD_OPT_1 & 128 && $FUD_OPT_2 & 32768 && !$sesp) {
