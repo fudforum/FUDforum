@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
+*   $Id: rpasswd.php.t,v 1.3 2002/11/03 19:36:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@
 		$passwd2 = stripslashes($passwd2);
 		
 		/* early php4 versions hack */
-		$tmp = get_id_by_radius($usr->login, $cpasswd);
+		$tmp = get_id_by_radius(addslashes($usr->login), $cpasswd);
 	
 		if ( $usr->id != $tmp ) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
