@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.18 2002/10/03 07:33:35 hackie Exp $
+*   $Id: compiler.inc,v 1.19 2003/04/23 22:30:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,134 +19,108 @@
 
 function resolve_refs($file_name)
 {
-	if( isset($GLOBALS['file_cache'][$file_name]) ) return;
+	if (isset($GLOBALS['file_cache'][$file_name])) {
+		return;
+	}
+	$fc =& $GLOBALS['file_cache'][$file_name];
 	
 	/* Fetch file definition */
-	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
-	$file2 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
-	
-	if ( is_file($file1) ) {
-		if ( defined('debug') ) 
-			echo "opening $file1 to resolve refs<br>\n";
-		$str = filetomem($file1);
-		$GLOBALS['CURFILE'] = $file1;
+	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
+	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === FALSE) {
+		$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
+		if (!($str = @file_get_contents($file1)) === FALSE) {
+			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
+		}
 	}
-	else if ( is_file($file2) ) {
-		if ( defined('debug') ) 
-			echo "opening $file1 to resolve refs<br>\n";
-		$str = filetomem($file2);
-		$GLOBALS['CURFILE'] = $file2;
-	}
-	else exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
-	
-	if( $st = strchr($str, '{PHP_FILE:') ) {
-		$st = substr($st, 0, strpos($st, '}')-1);
-	
-		list($in,$out) = explode(';', $st);
-		$GLOBALS['file_cache'][$file_name]['src'] = trim(strrchr($in, ' '));
-		$GLOBALS['file_cache'][$file_name]['dst'] = trim(strrchr($out, ' '));
-	}
-	else {
-		$GLOBALS['file_cache'][$file_name]['inline'] = 1;
+	if (($st = strpos($str, '{PHP_FILE:')) !== FALSE) {
+		$st = substr($st, 11, strpos($st, '}', 11)-1);
+		$fc['src'] = substr($st, 7, (strpos($st, ';', 7) - 7));
+		$fc['dst'] = substr($st, (strrpos($st, ' ') + 1), -1);
+		if (!$fc['src'] || !$fc['dst']) {
+			exit('invalid PHP_FILE directive inside (<b>'.$file_name.'</b>)');
+		}
+	} else {
+		$fc['inline'] = 1;
 	}
 	
 	$start = $str;
-	parse_sections($str, $GLOBALS['file_cache'][$file_name]['dst']);
-	while ( $start = strchr($start, '{REF:') ) 
-	{
-		$endp = strpos($start, '}');
-		$new_name = trim(substr($start, 5, $endp-5));
-
-		if( !isset($GLOBALS['file_cache'][$file_name]['include'][$new_name]) ) 		
-			$GLOBALS['file_cache'][$file_name]['include'][$new_name] = $new_name;		
-
-		$start = substr($start, $endp);
-		resolve_refs($new_name);
-	}	
+	parse_sections($str, $fc['dst']);
+	$p = 0;
+	while (($p = strpos($str, '{REF: ', $p)) !== FALSE) {
+		$p += 6;
+		$e = strpos($str, '}', $p);
+		$nr = substr($str, $p, ($e - $p));
+		if (!isset($fc['include'][$nr])) {
+			$fc['include'][$nr] = $nr;
+		}
+		resolve_refs($nr);
+		
+		$p = $e + 1;
+	}
 }
-	
+
+$GLOBALS['__FUD_SECTIONS__'] = array('MAIN_SECTION' => '{MAIN_SECTION: ', 'PAGE' => '{PAGE: ', 'SECTION' => '{SECTION: ');
+
 function parse_sections($str, $file)
 {
-	$start = $str;
-	
-	$PHP_FILE = ( !empty($file) && substr($file, -4) == '.php') ? 1 : 0;
-	
-	while ( $start = strchr($start, '{') ) 
-	{
-		$endp = strpos($start, '}')+1;
-		$tag_entry = substr($start, $start, $endp);
-		$start = substr($start, $endp);
-		
-		$pos = strpos($tag_entry, ':');
-		$tag = substr($tag_entry, 1, $pos-1);
-		$tag_entry = trim(substr($tag_entry, $pos+1));		
-		$pos=strpos($tag_entry, '}');
-		$pos2=strpos($tag_entry, ' ');
-		
-		if ( is_integer($pos2) && ($pos2<$pos) ) {
-			$pos = $pos2;
+	$PHP_FILE = ($file && substr($file, -4) == '.php') ? 1 : 0;
+
+	/* we parse each section individually, it is faster the looking for all of them together
+	 * due to the large number of {} that can be found inside the template files
+	 */
+
+	foreach ($GLOBALS['__FUD_SECTIONS__'] as $k => $v) {
+		$p = 0;
+		$tr =& $GLOBALS['TC'][$k]; 
+		while (($p = strpos($str, $v, $p)) !== FALSE) {
+			$p += strlen($v);
+			$e = strpos($str, '}', $p);
+			$name = substr($str, $p, ($e - $p));
+			++$e;
+			
+			if (isset($tr[$name])) {
+				exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
+			}
+
+			if (($e2 = strpos($str, $e, $v .'END}')) === FALSE) {
+				exit('unterminated tag '.$k.' inside '.$file);
+			}
+			if ($PHP_FILE) {
+				$GLOBALS['PHP_FILE_SEC'][$k][$name] = 1;
+			}
+
+			$tr[$name]['file'] = $GLOBALS['CURFILE'];
+			$tr[$name]['data'] = trim(substr($str, $e, ($e2 - $e)));
+			$p = $e2;
 		}
-		
-		$name = substr($tag_entry, 0, $pos);
-		
-		switch ( $tag ) 
-		{
-			case 'MAIN_SECTION':
-			case 'PAGE':
-			case 'SECTION':
-				$end = strpos($start, '{'.$tag.': END}');
-				$section_data = substr($start, 0, $end);
-				$start = substr($start, $end+strlen('{'.$tag.': END}'));
-				
-				if( isset($GLOBALS['TC'][$tag][$name]) ) {
-					echo "DUPE: $tag -> $name found in ".$GLOBALS['TC'][$tag][$name]['file']." (now parsing ".$GLOBALS['CURFILE'].")\n";
-					exit;
-				}
-				
-				if( $PHP_FILE ) $GLOBALS['PHP_FILE_SEC'][$tag][$name]=1;
-				
-				$GLOBALS['TC'][$tag][$name]['file'] = $GLOBALS['CURFILE'];
-				$GLOBALS['TC'][$tag][$name]['data'] = trim($section_data);
-				break;
-		}
-	}	
+	}
 }
 
 function resolve_sections($str)
 {
-	$start = $str;
+	$op = $p = 0;
 	$ret = '';
-	while ( $start = strchr($start, '{') ) 
-	{
-		$ret .= substr($str, 0, strlen($str)-strlen($start));
-	
-		$chr = ord($start[1]);
-		if ( $chr<ord('A') || $chr>ord('Z') ) {
-			$ret .= '{';
-			$str = $start = substr($start, 1);
-			continue;		
+	while (($p = strpos($str, '{', $p)) !== FALSE) {
+		if ($op != $p) {
+			$ret .= substr($str, $p, ($p - $op));
 		}
+		++$p;
+		if ($str[$p] < 'A' || $str[$p] > 'Z' || ($te = strpos($str, $p, ': ')) === FALSE) {
+			continue;
+		}
+		$tag = substr($str, $p, ($te - $p));
+		$te += 2;
+
+		if (($e = strpos($str, '}', $te)) === FALSE) {
+			exit('unterminated tag '.substr($str, p, (strpos($str, ' ', $p) - $p)).' inside '.$GLOBALS['CURFILE']);
+		}
+		$name = substr($str, $te, (($ds = strpos($str, ' ', $te)) - $te));
+		$op = $p = $e + 1;
 		
-		$endp = strpos($start, '}')+1;
-		$tag_entry = substr($start, $start, $endp);
-		$start = substr($start, $endp);
-		$str = $start;
-		
-		$pos = strpos($tag_entry, ':');
-		$tag = substr($tag_entry, 1, $pos-1);
-		$tag_entry = trim(substr($tag_entry, $pos+1));		
-		$pos1=strpos($tag_entry, '}');
-		$pos2=strpos($tag_entry, ' ');
-		
-		$pos = (is_integer($pos2) && ($pos2<$pos1)) ? $pos2 : $pos1;
-		
-		$name = substr($tag_entry, 0, $pos);
-		switch ( $tag ) 
-		{
+		switch ($tag) {
 			case 'MSG':
-				if( !isset($GLOBALS['MSG'][$name]) ) {
-					echo "Missing Message entry $name inside i18n/".$GLOBALS['__COMPILER__']['lang']."/msg\n";
-					exit;				
+				if (!isset($GLOBALS['MSG'][$name])) {
+					exit('Missing Message entry '.$name.' inside i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'] =  resolve_sections($GLOBALS['MSG'][$name]['data']);
 				break;
@@ -178,12 +152,14 @@ function resolve_sections($str)
 				$ret .= (($name[0] != '!') ? '\'.strftime("'.$date_str.'", $'.$name.').\'' : '\'.strftime("'.$date_str.'", '.substr($name,1).').\'');
 				break;	
 			case 'TEMPLATE':
-				if ( isset($GLOBALS['TC']['SECTION'][$name]) ) $sec = 'SECTION';
-				else if ( isset($GLOBALS['TC']['MAIN_SECTION'][$name]) ) $sec = 'MAIN_SECTION';
-				else if ( isset($GLOBALS['TC']['PAGE'][$name]) ) $sec = 'PAGE';
-				else {
-					echo "Undefined template: '$tag' inside '$name'\n";
-					exit;
+				if (isset($GLOBALS['TC']['SECTION'][$name])) {
+					$sec = 'SECTION';
+				} else if (isset($GLOBALS['TC']['MAIN_SECTION'][$name])) {
+					$sec = 'MAIN_SECTION';
+				} else if ( isset($GLOBALS['TC']['PAGE'][$name])) {
+					$sec = 'PAGE';
+				} else {
+					exit('Undefined template: "'.$tag.'" inside "'.$name.'"');
 				}
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
 				break;
@@ -201,193 +177,171 @@ function resolve_sections($str)
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				exit("\nNo such tag: $tag -> $name\n");
+				exit('No such tag: '.$tag.' '.$name);
 		}
 	}
-	
-	return $ret.$str;
-}
-
-function add_sql_prefix($s)
-{
-	return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $s);
+	return $ret . substr($str, $op, (strlen($str) - $op));
 }
 
 function cleanup_php($s)
 {
-	$s = str_replace(".''", '' , $s);
-	return str_replace(" ''.", ' ', $s);
+	return str_replace(" ''.", ' ', str_replace(".''", '', $s));
 }
 
 function compile_file($source)
 {
-	if ( empty($source) ) exit("No file passed to compile, fatal error");
-	$fl = $GLOBALS['DATA_DIR'].'src/'.$source;
-	if ( defined('debug') ) 
-			echo "opening $fl to compile ($source)<br>\n";
-	$file_data = filetomem($fl);
-	if( $dest[0] == '@' || $dest[0] == '!' ) $dest = substr($dest,1);
-	
-	if( strpos($file_data, '{TEMPLATE:') === false ) {
-		return add_sql_prefix($file_data);
+	if (empty($source)) {
+		exit('No file passed to compile, fatal error');
 	}
-	
-	$start = $str = $file_data;
+	if (defined('debug')) {
+		echo "opening ".$GLOBALS['DATA_DIR'].'src/'.$source." to compile (".$source.")<br>\n";
+	}
+	$file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source);
+	if ($dest[0] == '@' || $dest[0] == '!') {
+		$dest = substr($dest, 1);
+	}
+
+	if (($p = strpos($file_data, '{TEMPLATE: ')) === FALSE) {
+		return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $file_data);
+	}
+
+	$op = 0;
 	$ret = '';
-	while ( $start = strchr($start, '{TEMPLATE:') ) 
-	{
-		$ret .= substr($str, 0, strlen($str)-strlen($start));
-		$name = trim(substr($start, 10, strpos($start, '}', 10)-10));
-		$str = $start = substr($start,strpos($start, '}')+1);
-		
-		if ( isset($GLOBALS['TC']['SECTION'][$name]) ) $sec = 'SECTION';
-		else if ( isset($GLOBALS['TC']['MAIN_SECTION'][$name]) ) $sec = 'MAIN_SECTION';
-		else if ( isset($GLOBALS['TC']['PAGE'][$name]) ) $sec = 'PAGE';
-		else {
-			echo "Undefined template: '$name' inside '$source'\n";
-			exit;
+	do {
+		if ($op != $p) {
+			$ret .= substr($file_data, $op, ($p - $op));
 		}
-		$GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
-		if( $sec == 'PAGE' ) {
-			$GLOBALS['TC'][$sec][$name]['data'] = str_replace("'.", '<?php echo ', $GLOBALS['TC'][$sec][$name]['data']);
-			$GLOBALS['TC'][$sec][$name]['data'] = str_replace(".''", ".'", $GLOBALS['TC'][$sec][$name]['data']);
-			$GLOBALS['TC'][$sec][$name]['data'] = str_replace(".'", '; ?>', $GLOBALS['TC'][$sec][$name]['data']);
+		$p += 11;
+		$name = substr($file_data, $p, (strpos($file_data, ' ', $p) - $p));
+		if (isset($GLOBALS['TC']['SECTION'][$name])) {
+			$sec = 'SECTION';
+		} else if (isset($GLOBALS['TC']['MAIN_SECTION'][$name])) {
+			$sec = 'MAIN_SECTION';
+		} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
+			$sec = 'PAGE';
+		} else {
+			exit('Undefined template: "'.$name.'" inside "'.$source.'"');
 		}
+		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
+		$ref = resolve_sections($ref);
+		if ($sec == 'PAGE') {
+			$ref = str_replace(".'", '; ?>', str_replace(".''", ".'", str_replace("'.", '<?php echo ', $ref)));
+		}
+		$ret .= $ref;
 		
-		$ret .= $GLOBALS['TC'][$sec][$name]['data'];
-	}
-	
-	return add_sql_prefix($ret.$str);
+		if (($e = strpos($file_data, '}', $p)) === FALSE) {
+			exit('Unterminated tag "'.$name.'" inside "'.$source.'"');
+		}
+		$op = $p = $e + 1;
+	} while (($p = strpos($file_data, '{TEMPLATE: ', $p)) !== FALSE);
+
+	return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $ret . substr($file_data, $op, (strlen($file_data) - $op)));
 }
 
 function generate_file($php_file)
 {
-	$themes_base = $GLOBALS['WWW_ROOT_DISK'].'theme/';
-	if ( !is_dir($themes_base) ) {
-		$u = umask(0);
-		if( !@mkdir(substr($themes_base,0,-1), 0777) ) 
-			exit("unable to make directory for this theme (<b>$themes_base</b>)<br>\n");
-		umask($u);
+	$dirs = array('', '/' . $GLOBALS['__COMPILER__']['tname'], '/' . $GLOBALS['__COMPILER__']['tname']);
+	foreach ($dirs as $v) {
+		if (!@is_dir($GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v)) {
+			$u = umask(0);
+			if (!@mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v, 0777)) {
+				exit('unable to make directory for this theme (<b>'.$GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v.'</b>)<br>');
+			}
+			umask($u);
+		}
 	}
-	
-	$themes_base = $GLOBALS['INCLUDE'].'theme/';
-	if ( !is_dir($themes_base) ) {
-		$u = umask(0);
-		if( !@mkdir(substr($themes_base,0,-1), 0777) ) 
-			exit("unable to make directory for this theme (<b>$themes_base</b>)<br>\n");
-		umask($u);
-	}
-	
-	$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'];
-	if ( !is_dir($dir) ) {
-		$u = umask(0);
-		if ( !@mkdir($dir, 0777) )
-			exit("unable to make directory for this theme (<b>$dir</b>)<br>\n");
-		umask($u);
-	}
-	
-	$dir = $GLOBALS['INCLUDE'].'theme/'.$GLOBALS['__COMPILER__']['tname'];
-	if ( !is_dir($dir) ) {
-		$u = umask(0);
-		if ( !@mkdir($dir, 0777) )
-			exit("unable to make directory for this theme (<b>$dir</b>)<br>\n");
-		umask($u);
-	}
-	
-	if( !isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline']) ) {
+
+	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {
 		$GLOBALS['file_cache'][$php_file]['compiled'] = compile_file($GLOBALS['file_cache'][$php_file]['src']);
 	}
+	$fc =& $GLOBALS['file_cache'][$php_file];
+	$file_data = $fc['compiled'];
+
+	if (substr($fc['dst'], -4) != '.inc') {
+		/*
+		 * ! - end
+		 * @ - middle
+		 * 0 - start
+		 */
+
+		$ins = array('!' => '', '@' => '', 0 => '');
 	
-	$file_data = $GLOBALS['file_cache'][$php_file]['compiled'];
-	
-	if( substr($GLOBALS['file_cache'][$php_file]['dst'], -4) != '.inc' ) {
 		$php_code_start = $php_code_end = $php_code_middle = '';
 	
-		if( is_array($GLOBALS['file_cache'][$php_file]['include']) ) {
-			foreach($GLOBALS['file_cache'][$php_file]['include'] as $v2) {
-				if( $v2 == $php_file ) continue;
-			
-				$k = $v2;
-				$v = $GLOBALS['file_cache'][$v2];
-		
-				if( empty($v['compiled']) && !isset($GLOBALS['file_cache'][$v2]['inline']) ) {
-					$v['compiled'] = $GLOBALS['file_cache'][$v2]['compiled'] = compile_file($GLOBALS['file_cache'][$v2]['src']);
+		if (is_array($fc['include'])) {
+			foreach($fc['include'] as $v2) {
+				if ($v2 == $php_file) {
+					continue;
 				}
-		
-	        		if( isset($v['inline']) ) continue;
-	        		
-				$s = strpos($v['compiled'], '*/')+2;
-				$e = strrpos($v['compiled'], '?>');
 
-	       			switch( $v['dst'][0] )
-	       			{
-	        			case '!':
-	        				$php_code_end .= cleanup_php(trim(substr($v['compiled'], $s, ($e-$s))));
-	        				break;
-	        			case '@':
-	        				$php_code_middle .= cleanup_php(trim(substr($v['compiled'], $s, ($e-$s))));
-	        				break;
-	        			default:
-						$php_code_start .= cleanup_php(trim(substr($v['compiled'], $s, ($e-$s))));
-		        	}
+				$k = $v2;
+				$v =& $GLOBALS['file_cache'][$v2];
+				if (empty($v['compiled']) && !isset($v['inline'])) {
+					$v['compiled'] = compile_file($v['src']);
+				}
+
+	        		if (isset($v['inline'])) {
+	        			continue;
+	        		}
+
+				$s = strpos($v['compiled'], '*/')+2;
+				$k = $v['dst'][0];
+				if (!isset($ins[$k])) {
+					$k = 0;
+				}
+				$ins[$k] = str_replace(" ''.", ' ', str_replace(".''", '', trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s)))));
 			}
-	
-			$file_data = str_replace('{PRE_HTML_PHP}', $php_code_start, $file_data);
-			$file_data = str_replace('{POST_HTML_PHP}', $php_code_middle.'/* FILE START */', $file_data);
-			$file_data = str_replace('{POST_PAGE_PHP_CODE}', $php_code_end, $file_data);
+
+			$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], str_replace('/*{POST_HTML_PHP}*/', $ins['@'], str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data)));
 		}
 		
 		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
-		$dst = $GLOBALS['file_cache'][$php_file]['dst'];
-	}
-	else {
+		$dst = $fc['dst'];
+	} else {
 		$dir = $GLOBALS['INCLUDE'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
-		if( $GLOBALS['file_cache'][$php_file]['dst'][0] == '!' || $GLOBALS['file_cache'][$php_file]['dst'][0] == '@' ) 
-			$dst = substr($GLOBALS['file_cache'][$php_file]['dst'],1);
-		else
-			$dst = $GLOBALS['file_cache'][$php_file]['dst'];	
+		if ($fc['dst'][0] == '!' || $fc['dst'][0] == '@') {
+			$dst = substr($fc['dst'],1);
+		} else {
+			$dst = $fc['dst'];
+		}
 	}
-	
-	$file_data = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $file_data);
-	$file_data = str_replace('{THEME_ROOT}', $GLOBALS['__COMPILER__']['THEME_ROOT'], $file_data);
-	$file_data = str_replace('{THEME_ROOT_DISK}', $GLOBALS['__COMPILER__']['THEME_ROOT_DISK'], $file_data);
-	
-	if ( $dst[0] == '#' ) {
+
+	$cmp =& $GLOBALS['__COMPILER__'];
+	$file_data = str_replace('{ROOT}', $cmp['ROOT'],  str_replace('{THEME_ROOT}', $cmp['THEME_ROOT'], str_replace('{THEME_ROOT_DISK}', $cmp['THEME_ROOT_DISK'], $file_data)));
+
+	if ($dst[0] == '#') {
 		$dst = substr($dst, 1);
 		$dir = $GLOBALS['WWW_ROOT_DISK'];
 	}
 	
-	if( !($fp = fopen($dir.$dst, 'wb')) ) {
-		echo "Couldn't write to $dir$dst\n";
-		exit;
+	if (!($fp = fopen($dir.$dst, 'wb'))) {
+		exit('Couldn\'t write to '. $dir . $dst);
 	}
-		fwrite($fp, $file_data);
+	fwrite($fp, $file_data);
 	fclose($fp);
 }
 
 function build_msg($file)
 {
-	if ( isset($GLOBALS['MSG_FILES'][$file]) ) return;
-	$GLOBALS['MSG_FILES'][$file] = 1;
-	$fp = fopen($file, 'rb');
-	$l=0;
-	while( $str = fgets($fp, 20000) ) {
-		++$l;
-		list($msg, $data) = explode(':', $str, 2);
-		if ( empty($msg) ) continue;
-		if ( isset($GLOBALS['MSG'][$msg]) && $GLOBALS['MSG'][$msg]['file'] != $file ) continue;
-		
-		if( isset($GLOBALS['MSG'][$msg]) ) {
-			echo "duplicated message: $msg in $file  on line #$l, previous entry found on line #".$GLOBALS['MSG'][$msg]['line']." in ".$GLOBALS['MSG'][$msg]['file']."\n";
-			exit;	
-		}
-	
-		$GLOBALS['MSG'][$msg]['data'] = substr(ltrim($data), 0, -1);
-		$GLOBALS['MSG'][$msg]['file'] = $file;
-		if( strpos($GLOBALS['MSG'][$msg]['data'], '\n') ) $GLOBALS['MSG'][$msg]['data'] = str_replace('\n', "\n", $GLOBALS['MSG'][$msg]['data']);
-		$GLOBALS['MSG'][$msg]['line'] = $l;
+	if (isset($GLOBALS['MSG_FILES'][$file])) {
+		return;
 	}
-	fclose($fp);
+	$GLOBALS['MSG_FILES'][$file] = 1;
+
+	$data = file($file);
+	foreach ($data as $k => $v) {
+		$m = strtok($v, ':');
+		if (isset($GLOBALS['MSG'][$msg])) {
+			if ($GLOBALS['MSG'][$msg]['file'] != $file) {
+				continue;
+			}
+			exit('duplicated message: '.$msg.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$msg]['line'].' in '.$GLOBALS['MSG'][$msg]['file']);
+		}
+		$GLOBALS['MSG'][$m] = array('data' => trim(strtok(':')), 'file' => $file, 'line'=> $k);
+		if (strpos($GLOBALS['MSG'][$m]['data'], '\n') !== FALSE) {
+			$GLOBALS['MSG'][$msg]['data'] = str_replace('\n', "\n", $GLOBALS['MSG'][$msg]['data']);
+		}
+	}
 }
 
 function resolve_inc_refs($file)
@@ -471,7 +425,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	
 	if ( defined('debug') )
 		echo "opening charset as $charset<br>\n";
-	$GLOBALS['char_set'] = trim(filetomem($charset));
+	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
 	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
 	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
@@ -576,7 +530,7 @@ function copyhelp($thm)
 		if ( !is_file($de) || substr($de, -4) != '.hlp' ) continue;
 		if ( defined('debug') )
 			echo "opening help as $de from ".getcwd()."<br>\n";
-		$str = filetomem($de);
+		$str = file_get_contents($de);
 		$str = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $str);
 		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 'wb');
 		fwrite($fp, $str);
