@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.28 2004/11/24 19:53:36 hackie Exp $
+* $Id: showposts.php.t,v 1.29 2004/12/13 15:54:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,9 +70,9 @@
 		}
 
 		if ($FUD_OPT_2 & 32768) {
-			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'.$uid.'/0/', '/'._rsid);
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'.$uid.'/'.$SORT_ORDER.'/', '/'._rsid);
 		} else {
-			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='.$uid.'&amp;'._rsid);
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='.$uid.'&amp;so='.$SORT_ORDER.'&amp;'._rsid);
 		}
 	}
 
