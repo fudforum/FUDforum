@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.64 2004/01/29 23:14:55 hackie Exp $
+* $Id: ppost.php.t,v 1.65 2004/02/13 15:34:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,9 +39,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 }
 
-	if (!_uid) {
-		std_error('perms');
+	if (__fud_real_user__) {
+		is_allowed_user($usr);
+	} else {
+		std_error('login');
 	}
+
 	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
@@ -51,7 +54,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if (($fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid)) > $MAX_PMSG_FLDR_SIZE) {
 		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}');
 	}
-	is_allowed_user($usr);
 
 	$attach_control_error = null;
 	$pm_find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: pm_find_user}' : '';

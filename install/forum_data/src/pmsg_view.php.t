@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_view.php.t,v 1.20 2004/01/04 16:38:27 hackie Exp $
+* $Id: pmsg_view.php.t,v 1.21 2004/02/13 15:34:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,7 +15,10 @@
 	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
-	if (!_uid) {
+
+	if (__fud_real_user__) {
+		is_allowed_user($usr);
+	} else {
 		std_error('login');
 	}
 

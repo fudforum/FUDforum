@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.106 2004/01/29 23:14:55 hackie Exp $
+* $Id: post.php.t,v 1.107 2004/02/13 15:34:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,6 +98,10 @@ function flood_check()
 			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}');
 		}
 	} else {
+		if (__fud_real_user__) {
+			is_allowed_user($usr);
+		}
+
 		if (!$th_id && !($perms & 4)) {
 			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}');
 		} else if ($reply_to && !($perms & 8)) {
