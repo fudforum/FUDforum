@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.17 2003/06/02 19:11:32 hackie Exp $
+*   $Id: threadt.php.t,v 1.18 2003/09/19 19:07:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -103,7 +103,7 @@
 								$thread_read_status = '{TEMPLATE: thread_read_unreg}';
 							}
 						
-							$width = 20 * ($lev - 1);
+							$width = '{TEMPLATE: threadt_tab_width}' * ($lev - 1);
 						
 							$thread_list_table_data .= '{TEMPLATE: thread_row}';
 						} else if ($TREE_THREADS_MAX_DEPTH == $lev) {

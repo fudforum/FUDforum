@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.33 2003/07/24 03:16:36 hackie Exp $
+*   $Id: tree.php.t,v 1.34 2003/09/19 19:07:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -217,7 +217,7 @@
 		
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
 				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
-				$width = 6 * ($lev - 1);
+				$width = '{TEMPLATE: tree_tab_width}' * ($lev - 1);
 				
 				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
 					$read_indicator = '{TEMPLATE: tree_unread_message}';
