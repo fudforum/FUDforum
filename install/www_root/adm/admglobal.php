@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.68 2004/12/02 23:48:18 hackie Exp $
+* $Id: admglobal.php,v 1.69 2004/12/02 23:53:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -164,7 +164,7 @@ function get_max_upload_size()
 	print_reg_field('Database Name', 'DBHOST_DBNAME');
 	print_bit_field('Use Persistent Connections', 'DBHOST_PERSIST');
 	if (__dbtype__ == 'mysql') { 
-		if (preg_match('!((3|4)\.([0-9]+)(\.([0-9]+))?)!',  q_singleval("SELECT VERSION()"), $m)) {
+		if (preg_match('!((3|4|5)\.([0-9]+)(\.([0-9]+))?)!',  q_singleval("SELECT VERSION()"), $m)) {
 			$version = $m[1];
 		} else {
 			$version = 0;
