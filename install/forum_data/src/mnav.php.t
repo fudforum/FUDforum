@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.20 2004/11/01 20:12:04 hackie Exp $
+* $Id: mnav.php.t,v 1.21 2004/11/15 20:07:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,6 +20,8 @@
 	$rng2 = isset($_GET['rng2']) ? (float) $_GET['rng2'] : 0;
 	$unit = isset($_GET['u']) ? (int) $_GET['u'] : 86400;
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+
+	require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
 
 /*{POST_HTML_PHP}*/
 
