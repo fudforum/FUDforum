@@ -1,22 +1,22 @@
-Ä°letilerin seÃ§tiÄŸiniz kritere gÃ¶re gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlayan bir ileti
-sÃ¼zgeÃ§ sistemi.
+İletilerin seçtiğiniz kritere göre görüntülenmesini sağlayan bir ileti
+süzgeç sistemi.
 
-Ä°letileri sÃ¼zmenin 3 farklÄ± yolu var:<br>
+İletileri süzmenin 3 farklı yolu var:<br>
 <ul>
-<li>BugÃ¼nkÃ¼ Ä°letiler
-<li>OkunmamÄ±ÅŸ Ä°letiler (sadece kayÄ±tlÄ± kullanÄ±cÄ±lar kullanabilir)
-<li>YanÄ±tlanmamÄ±ÅŸ Ä°letiler
+<li>Bugünkü İletiler
+<li>Okunmamış İletiler (sadece kayıtlı kullanıcılar kullanabilir)
+<li>Yanıtlanmamış İletiler
 </ul>
 
-BugÃ¼nkÃ¼ Ä°letiler sadece bugÃ¼n 0 ve 23:59 saatleri arasÄ±nda gÃ¶nderilmiÅŸ iletilerin
-gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlar.
+Bugünkü İletiler sadece bugün 0 ve 23:59 saatleri arasında gönderilmiş iletilerin
+görüntülenmesini sağlar.
 <br><br>
-OkunmamÄ±ÅŸ Ä°letiler tÃ¼m forumdaki okumadÄ±ÄŸÄ±nÄ±z bÃ¼tÃ¼n iletilerin gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlar.
+Okunmamış İletiler tüm forumdaki okumadığınız bütün iletilerin görüntülenmesini sağlar.
 <br><br>
-YanÄ±tlanmamÄ±ÅŸ Ä°letiler tÃ¼m forumdaki hiÃ§ yanÄ±t almayan iletilerin gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlar.
+Yanıtlanmamış İletiler tüm forumdaki hiç yanıt almayan iletilerin görüntülenmesini sağlar.
 <br><br>
-TÃ¼m bu seÃ§enekler birbirine eklenerek Ã§alÄ±ÅŸÄ±r, bu yÃ¼zden hangilerinin seÃ§ili olduÄŸuna dikkaet etmelisiniz.
-Ã¶rneÄŸin "BugÃ¼nkÃ¼ Ä°letiler"i tÄ±klattÄ±ktan sonra "OkunmamÄ±ÅŸ Ä°letiler"i tÄ±klatÄ±rsasÄ±nÄ±z, sÃ¼zgeÃ§leri eklemiÅŸ
-olur ve sonuÃ§ olarak sadece bugÃ¼n atÄ±lan iletilerden sizin tarafÄ±nÄ±zdan okunmamÄ±ÅŸ olanlarÄ± gÃ¶rÃ¼ntÃ¼lersiniz.
-EÄŸer tekrar "BugÃ¼nkÃ¼ Ä°letiler"i tÄ±klatÄ±rsanÄ±z, sÃ¼zgeÃ§teki "BugÃ¼nkÃ¼ Ä°letiler" kÄ±smÄ±nÄ± Ã§Ä±karmÄ±ÅŸ olursunuz,
-ve geriye "OkunmamÄ±ÅŸ Ä°letiler" kaldÄ±ÄŸÄ± iÃ§in, forumdaki bÃ¼tÃ¼n okumadÄ±ÄŸÄ±nÄ±z iletilerin gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlarsÄ±nÄ±z.
+Tüm bu seçenekler birbirine eklenerek çalışır, bu yüzden hangilerinin seçili olduğuna dikkaet etmelisiniz.
+örneğin "Bugünkü İletiler"i tıklattıktan sonra "Okunmamış İletiler"i tıklatırsasınız, süzgeçleri eklemiş
+olur ve sonuç olarak sadece bugün atılan iletilerden sizin tarafınızdan okunmamış olanları görüntülersiniz.
+Eğer tekrar "Bugünkü İletiler"i tıklatırsanız, süzgeçteki "Bugünkü İletiler" kısmını çıkarmış olursunuz,
+ve geriye "Okunmamış İletiler" kaldığı için, forumdaki bütün okumadığınız iletilerin görüntülenmesini sağlarsınız.

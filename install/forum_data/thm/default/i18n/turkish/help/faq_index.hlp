@@ -1,35 +1,35 @@
-TOPIC_TITLE: KullanÄ±cÄ± YÃ¶netimi
+TOPIC_TITLE: Kullanıcı Yönetimi
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">Neden kayÄ±t olunmalÄ±?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">FUDforum kurabiyeleri nasÄ±l kullanÄ±yor?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">FUDforum kurabiyesi nasÄ±l kaldÄ±rÄ±labilir?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">KiÅŸisel Bilgiler nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">Ä°mza nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">ParolanÄ±zÄ± kaybettiyseniz ne yapmalÄ±sÄ±nÄ±z</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">Ã–zel takÄ±lar nedir & nasÄ±l kullanabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register">Neden kayıt olunmalı?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies">FUDforum kurabiyeleri nasıl kullanıyor?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie">FUDforum kurabiyesi nasıl kaldırılabilir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile">Kullanıcı Denetim Masası nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs">İmza nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd">Parolanızı kaybettiyseniz ne yapmalısınız</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat">Özel takılar nedir & nasıl kullanabilirim?</a><br>
 <a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars">Avatar nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">ArkadaÅŸ listesi nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">GÃ¶zardÄ± listesi ne iÅŸe yarar?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist">Arkadaş listesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist">Gözardı listesi ne işe yarar?</a><br>
 
-TOPIC_TITLE: Genel KullanÄ±m
+TOPIC_TITLE: Genel Kullanım
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">NasÄ±l arama yapabilirim?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">DiÄŸer forum Ã¼yelerine e-mektup gÃ¶nderebilir miyim?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">Ã–zel ileti nedir ve nasÄ±l Ã¶zel ileti gÃ¶nderebilirim?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Ãœye Listesi nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Duyurular ve YapÄ±ÅŸkan iletiler nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Zincirleri deÄŸerlendirebilir miyim?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">TanÄ±tÄ±mlar nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch">Nasıl arama yapabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email">Diğer forum üyelerine e-mektup gönderebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg">Özel ileti nedir ve nasıl özel ileti gönderebilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist">Üye Listesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann">Duyurular ve Yapışkan iletiler nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate">Zincirleri değerlendirebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref">Tanıtımlar nedir?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#accesskeys">Access Keys</a><br>
 
-TOPIC_TITLE: Ä°leti okuma ve gÃ¶nderme
+TOPIC_TITLE: İleti okuma ve gönderme
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">Metin biÃ§imlendirmesi nasÄ±l yapÄ±lÄ±r?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">GÃ¼lÃ¼cÃ¼kler/Hissimgeler nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">Anketleri nasÄ±l kullanabilirim?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">Ä°letilere dosya ekleyebilir miyim?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">GÃ¶nderi simgesi nedir?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">Ä°letilerimde dÃ¼zeltme yapabilir miyim?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">Denetmenler ve yÃ¶neticiler kimlerdir?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">SansÃ¼r?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">Ä°letilerime verilen cevaplardan haberdar edilebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style">Metin biçimlendirmesi nasıl yapılır?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml">Gülücükler/Hissimgeler nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls">Anketleri nasıl kullanabilirim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach">İletilere dosya ekleyebilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico">Gönderi simgesi nedir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit">İletilerimde düzeltme yapabilir miyim?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod">Denetmenler ve yöneticiler kimlerdir?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens">Sansür?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not">İletilerime verilen cevaplardan haberdar edilebilir miyim?</a><br>
