@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_poll_opt.tbl,v 1.6 2003/10/29 09:41:03 hackie Exp $
+#   $Id: fud_poll_opt.tbl,v 1.7 2003/11/09 19:34:10 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}poll_opt;
 CREATE TABLE {SQL_TABLE_PREFIX}poll_opt
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	poll_id		INT NOT NULL DEFAULT 0,	
+	poll_id		INT NOT NULL DEFAULT 0,
 	name		VARCHAR(255) NOT NULL DEFAULT '',
 	count		INT NOT NULL DEFAULT 0
 );

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.10 2003/10/29 09:41:03 hackie Exp $
+#   $Id: fud_users.tbl,v 1.11 2003/11/09 19:34:10 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	level_id 		INT NOT NULL DEFAULT 0,
 	reset_key		VARCHAR(32) NOT NULL DEFAULT '0',
 	u_last_post_id 		INT NOT NULL DEFAULT 0,
-	home_page		VARCHAR(255), 
+	home_page		VARCHAR(255),
 	bio			TEXT,
 	cat_collapse_status	TEXT,
 	custom_color		VARCHAR(255),
@@ -82,7 +82,7 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt)
 # 128 default_topic_view (MSG/TREE)
 # 256 default_message_view (MSG/TREE)
 # 512 gender (UNSPECIFIED)
-# 1024 gender (MALE/FEMALE) 
+# 1024 gender (MALE/FEMALE)
 # 2048 append_sig (ON/OFF)
 # 4096 show_sigs (ON/OFF)
 # 8192 show_avatars (ON/OFF)
@@ -95,5 +95,5 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt)
 # 1048576 is_admin (ON/OFF)
 # 2097152 acc_status (P/A)
 # 4194304 avatar_approved (No Avatar)
-# 8388608 avatar_approved YES 
+# 8388608 avatar_approved YES
 # 16777216 avatar_approved NO

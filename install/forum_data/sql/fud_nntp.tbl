@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_nntp.tbl,v 1.5 2003/10/29 09:41:03 hackie Exp $
+#   $Id: fud_nntp.tbl,v 1.6 2003/11/09 19:34:10 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}nntp
 	forum_id		INT NOT NULL DEFAULT 0,
 	nntp_opt		INT NOT NULL DEFAULT 44,
 
-	server			VARCHAR(255) NOT NULL DEFAULT '',			
+	server			VARCHAR(255) NOT NULL DEFAULT '',
 	newsgroup		VARCHAR(255) NOT NULL DEFAULT '',
 	port			INT NOT NULL DEFAULT 0,
 	timeout			INT NOT NULL DEFAULT 0,
@@ -26,7 +26,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}nntp
 
 CREATE INDEX {SQL_TABLE_PREFIX}nntp_i_f ON {SQL_TABLE_PREFIX}nntp (forum_id);
 
-# 1 nntp_post_apr 
+# 1 nntp_post_apr
 # 2 allow_frm_post
 # 4 frm_post_apr
 # 8 allow_nntp_attch
