@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.53 2005/02/27 02:21:36 hackie Exp $
+* $Id: thread.tmpl,v 1.54 2005/03/15 21:30:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -142,14 +142,14 @@
 {TEMPLATE-DATA: announcements}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="Delete All Selected"> <input type="submit" name="mov_sel_all" value="Move All Selected"></td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="{MSG: thread_del_all}"> <input type="submit" name="mov_sel_all" value="{MSG: thread_mov_all}"></td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
 {IF: $MOD || $mo == 8224}
 <tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="Delete All Selected"> <input type="submit" name="mov_sel_all" value="Move All Selected"></td>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="{MSG: thread_del_all}"> <input type="submit" name="mov_sel_all" value="{MSG: thread_mov_all}"></td>
 	<td colspan="3" class="RowStyleC"> </td>
 </tr>
 {ENDIF}
