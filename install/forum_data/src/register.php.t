@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.118 2004/05/13 19:23:37 hackie Exp $
+* $Id: register.php.t,v 1.119 2004/05/21 21:28:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -516,7 +516,7 @@ function decode_uent(&$uent)
 			$uent->sync_user();
 
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
-			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && $uent->users_opt & 1048576) {
+			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
 				$conf_key = usr_email_unconfirm($uent->id);
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
@@ -652,7 +652,7 @@ function decode_uent(&$uent)
 		$submit_button = '{TEMPLATE: register_button}';
 	} else {
 		$reg_time_limit_err = '';
-		if ($uent->users_opt & 131072 && $FUD_OPT_2 & 1) {
+		if ($uent->users_opt & 131072 && $FUD_OPT_2 & 1 && !($uent->users_opt & 1048576)) {
 			$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 		} else {
 			$email_warning_msg = '';
