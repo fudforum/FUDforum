@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.67 2004/10/30 16:56:16 hackie Exp $
+* $Id: compiler.inc,v 1.68 2004/10/31 19:38:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -224,7 +224,11 @@ function resolve_sections($str)
 		
 			case 'END':
 				$ret .= "' ) .'";
-				break;	
+				break;
+
+			case 'ENDIF':
+				$ret .= "' : '' ) .'";
+				break;
 
 			case 'ROOT':
 			case 'FULL_ROOT':
@@ -242,6 +246,8 @@ function resolve_sections($str)
 
 function compile_file($source)
 {
+	$l = strlen('<?php echo (');
+
 	if (empty($source)) {
 		exit('No file passed to compile, fatal error');
 	}
@@ -300,7 +306,10 @@ function compile_file($source)
 				} else {
 					$end = $end_p + 5;
 				}
-				$new .= substr($ref, $pos, ($end - $pos)); // append if() code
+				// the str_replace() is a hack for handling ifs() inside ifs()
+				$new .= substr($ref, $pos, $l);
+				$pos += $l;
+				$new .= str_replace('<?php echo (',  "'.(", substr($ref, $pos, ($end - $pos))); // append if() code
 				$pos = $end;
 			}
 			if (!$end) {
