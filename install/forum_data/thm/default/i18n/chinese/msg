@@ -33,8 +33,8 @@ forum_old_messages:		Ã»ÓĞĞÂÏûÏ¢
 from:				À´×Ô£º
 gender:				ĞÔ±ğ£º
 go:				Ìø×ª
-goto_next_msg:			×ªµ½ÏÂÒ»Ò³
-goto_prev_msg:			×ªµ½ÉÏÒ»Ò³
+goto_next_msg:			ÏÂÒ»Â¥
+goto_prev_msg:			Â¥ÉÏ
 home:				Ö÷Ò³
 homepage:			Ö÷Ò³£º
 icq_control_panel:		ICQ ÔÚÏßĞÅÏ¢
@@ -85,7 +85,7 @@ newest_user:			×îĞÂ×¢²áµÄÓÃ»§ÊÇ
 next_page:			ÏÂÒ»Ò³
 next_thread:			ÉÏÒ»¸öÖ÷Ìâ£º
 no_messages:			±¾ÂÛÌ³Ã»ÓĞÈÎºÎ·¢ÑÔ¡£
-no_msg_body:			Ã»ÓĞĞÅÏ¢
+no_msg_body:			Ã»ÓĞÄÚÈİ£¡
 no_new_posts:			Ã»ÓĞĞÂµÄÖ÷Ìâ
 no_posts:			Ã»ÓĞĞÂÖ÷Ìâ
 no_subscribed_forums:		Ã»ÓĞÔ¤¶¨µÄÂÛÌ³
@@ -120,8 +120,8 @@ register:			×¢²á
 registered:			×¢²áÊ±¼ä£º
 registered_on:			×¢²áÈÕÆÚ{DATE: u->join_date %Y-%m-%d}
 replies:			»Ø¸´
-report_to_mod:			Ïò°æÖ÷ÍÆ¼öÕâÌõĞÅÏ¢
-reported_messages:		ÒÑÏò°æÖ÷ÍÆ¼öµÄĞÅÏ¢
+report_to_mod:			Î¥¹æÌù¾Ù±¨
+reported_messages:		ÒÑÏò°æÖ÷¾Ù±¨µÄÎ¥¹æÌù
 reveal_all_posts:		ÏÔÊ¾ËùÓĞ½á¹û {VAR: user_login}
 reveal_post:			ÏÔÊ¾½á¹û
 search:				ËÑË÷
@@ -189,7 +189,7 @@ vote:				{VAR: frm->n_rating} Í¶Æ±
 vote_button:			Í¶Æ±
 vote_for_thread:		µ÷²é
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
-welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>£¬Äã×îºóÒ»´Î·ÃÎÊÊÇ {DATE: usr->last_visit %Y-%m-%d %H:%M}
+welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>£¬ÄãÉÏÒ»´Î·ÃÎÊÊÇ {DATE: usr->last_visit %Y-%m-%d %H:%M}
 what_ppl_doing:			ÏÔÊ¾ä¯ÀÀÕßµÄ²Ù×÷
 reported_del_report:		É¾³ı±¨¸æ
 reported_reason:		Ô­Òò
@@ -258,7 +258,7 @@ finduser_by_email:		µç×ÓÓÊÏä£º
 finduser_submit:		²éÕÒ
 finduser_no_such_user:		Ã»ÓĞÕâ¸öÃ»§
 finduser_user:			ÓÃ»§Ãû
-finduser_postcount:		µÇÂ¼´ÎÊı
+finduser_postcount:		·¢ÌùÊı
 finduser_joindate:		×¢²áÈÕÆÚ
 finduser_action:		²Ù×÷
 yes:				ÊÇ
@@ -812,7 +812,7 @@ action_latest_post:		×î½üÒ»´ÎµÇÂ¼
 online_today_last_visit:	×î½üÒ»´ÎµÇÂ¼
 online_today_update:		²é¿´±¾ÂÛÌ³½ñÌìµÄÔÚÏßÓÃ»§
 logedin_todays_visitors:	½ñÌìµÄ·ÃÎÊÕß
-logedin_latest_post:		±¾ÂÛÌ³×îºóÒ»´Î·¢²¼µÄÖ÷Ìâ
+logedin_latest_post:		±¾ÂÛÌ³×îĞÂ·¢²¼µÄÖ÷Ìâ
 register_show_avatar:		ÏÔÊ¾Í·Ïñ£º
 register_show_avatar_desc:	ÊÇ·ñÏÔÊ¾ÓÃ»§µÄÍ·Ïñ¡£
 drawmsg_view_rest_post:		ÏÔÊ¾Ê£ÓàĞÅÏ¢
@@ -992,19 +992,19 @@ findu_ban:			·â
 findu_edit:			±à¼­
 findu_delete:			É¾³ı
 dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
-adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
-adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
-adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
+merge_topics:			ºÏ²¢Ö÷Ìâ
+merge_topics_cp:		ºÏ²¢Ö÷Ìâ¹¦ÄÜÃæ°å
+merge_topics_tpl:		Ñ¡ÔñÒªºÏ²¢µÄÖ÷Ìâ<font class="SmallText">£¨ÖÁÉÙĞèÒªÑ¡ÔñÁ½¸öÖ÷Ìâ£©</font>
+merge_merge:			ºÏ²¢ËùÑ¡Ö÷Ìâ
+merge_next:			ÏÂÒ»Ò³
+merge_prev:			ÉÏÒ»Ò³
+split_cp:			´òÉ¢Ö÷Ìâ¹¦ÄÜÃæ°å
+groups_perms_header:		È¨ÏŞÁĞ±í<font size="-1">£¨½«Êó±êÖ¸ÕëÅ²ÖÁÏàÓ¦È¨ÏŞÎ»ÒÔ²é¿´ÏàÓ¦È¨ÏŞ£©</font>
+register_err_sig_too_long:	ÄãµÄÇ©Ãû³¬³¤ÁË£¬×î¶àÖ»ÄÜ {GVAR: FORUM_SIG_ML} ¸ö×Ö·û£¨Ò»¸öºº×ÓËãÁ½¸ö×Ö·û£©¡£
+register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'ÄãµÄÇ©Ãûµµ¹² \'+document.fud_register.reg_sig.value.length+\' ×Ö·û³¤¡£±¾ÂÛÌ³ÏŞÖÆ³¤¶ÈÎª {GVAR: FORUM_SIG_ML} ¸ö×Ö·û¡£\');" class="SmallText">¼ì²éÇ©Ãûµµ³¤¶È</a>
+p_SEARCH:			ÔÊĞíËÑË÷
+adm_account_accepted:		ÄãµÄÕÊºÅ \'{VAR: GLOBALS['r']->login}\' ÒÑ¾­Í¨¹ıÉóºËÇÒÒÑ±»¼¤»î¡£¹§Ï²Äã£¬ÄãÏÖÔÚÒÑ¾­ÊÇ {GVAR: FORUM_TITLE}\' ÂÛÌ³µÄÕıÊ½×¢²áÓÃ»§ÁË£¡
+adm_account_accepted_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' µÄ×¢²áÒÑ±»½ÓÊÜ£¡
+adm_account_rejected:		ÄãµÄÕÊºÅ \'{VAR: GLOBALS['r']->login}\' Ã»ÓĞÍ¨¹ı¹ÜÀíÔ±µÄÉóºË¡£Çë¼ì²éÕÊºÅÊÇ·ñ·ûºÏÂÛÌ³Ïà¹Ø¹æ¶¨£¬Èç¹û²»ÄÜÈ·¶¨ÎÊÌâ£¬ÇëÁªÏµ \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' ×¢²áµÄÕÊºÅÎ´Í¨¹ıÉóºË£¬Çë¼ì²éÊÇ·ñ·ûºÏÂÛÌ³Ïà¹Ø¹æ¶¨¡£
+thread_on:			ÓÚ
