@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.43 2003/10/10 18:39:36 hackie Exp $
+* $Id: compiler.inc,v 1.44 2003/10/24 17:13:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,17 +12,10 @@
 
 	@set_time_limit(6000);
 
-$GLOBALS['CMP_FILE'] = array(
-				".'." => ".<?php echo ",
-				".''." => '.',
-				".'" => '; ?>',
-				"'." => '<?php echo '
-			);
-$GLOBALS['CPM_CLEAN'] = array(
-				" ''." => ' ',
-				".'';" => ';',
-				".''"  => ''
-			);
+$GLOBALS['CMP_FILE_S'] = array(".'.", ".''.", ".'", "'.");
+$GLOBALS['CMP_FILE_D'] = array(".<?php echo ", '.', '; ?>', '<?php echo ');
+$GLOBALS['CPM_CLEAN_S'] = array(" ''.", ".'';", ".''");
+$GLOBALS['CPM_CLEAN_D'] = array(' ', ';', '');
 
 function resolve_refs($file_name)
 {
@@ -284,7 +277,7 @@ function compile_file($source)
 		$ref = resolve_sections($ref);
 
 		if ($sec == 'PAGE') {
-			$ref = strtr($ref, $GLOBALS['CMP_FILE']);
+			$ref = str_replace($GLOBALS['CMP_FILE_S'], $GLOBALS['CMP_FILE_D'], $ref);
 		}
 		$ret .= $ref;
 
@@ -339,7 +332,8 @@ function generate_file($php_file)
 				if (!isset($ins[$k])) {
 					$k = 0;
 				}
-				$ins[$k] .= strtr(trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s))), $GLOBALS['CPM_CLEAN']);
+
+				$ins[$k] .= str_replace($GLOBALS['CPM_CLEAN_S'], $GLOBALS['CPM_CLEAN_D'], trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s))));
 			}
 
 			$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], str_replace('/*{POST_HTML_PHP}*/', $ins['@'], str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data)));
@@ -357,7 +351,7 @@ function generate_file($php_file)
 	}
 
 	$cmp =& $GLOBALS['__COMPILER__'];
-	$file_data = strtr($file_data, $GLOBALS['CMP_LOC']);
+	$file_data = str_replace($GLOBALS['CMP_LOC_S'], $GLOBALS['CMP_LOC_K'], $file_data);
 
 	if (!$dst) {
 		return;
@@ -508,13 +502,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme/' . $tname, $perms);
 	umask($u);
 
-	$GLOBALS['CMP_LOC'] = array(
-			'{ROOT}'		=> $cmpl['ROOT'],
-			'{THEME_ROOT}'		=> $cmpl['THEME_ROOT'],
-			'{THEME_ROOT_DISK}'	=> $cmpl['THEME_ROOT_DISK'],
-			".'';"			=> ';',
-			".''."			=> '.',
-	);
+	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
+	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
 	$charset = @is_file($file1) ? $file1 : $file2;
 
