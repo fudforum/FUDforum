@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.4 2002/07/24 12:47:18 hackie Exp $
+*   $Id: attach.inc.t,v 1.5 2002/08/24 12:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,7 +111,7 @@ function proto($file)
 
 function start_match($haystack, $needle)
 {
-	if ( strtolower(substr($haystack, 0, strlen($needle))) == strtolower($needle) ) return strlen($needle);
+	if( !strncasecmp($haystack, $needle, strlen($needle)) ) return strlen($needle);
 	return 0;
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: url.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: url.inc.t,v 1.2 2002/08/24 12:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,12 +21,12 @@ function url_check($url)
 
 	if( !$url ) return;
 
-	if( strtolower($url[0]) == 'h' ) {
-		if( strtolower(substr($url, 0, 7)) != 'http://' ) 
+	if( strcasecmp($url[0], 'h') == 0 ) {
+		if( strcasecmp(substr($url, 0, 7), 'http://') ) 
 			return 'http://'.$url;
 	}		
 	else {
-		if( strtolower(substr($url, 0, 6)) != 'ftp://' ) 
+		if( strcasecmp(substr($url, 0, 6), 'ftp://') ) 
 			return 'http://'.$url;
 	}
 	return $url;

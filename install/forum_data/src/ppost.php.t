@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.8 2002/08/07 12:18:43 hackie Exp $
+*   $Id: ppost.php.t,v 1.9 2002/08/24 12:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -461,7 +461,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	 	if ( !empty($post_icons_rows) ) $post_icons = '{TEMPLATE: post_icons}';
 	}
 	 
-	if( strtolower($GLOBALS['PRIVATE_MSG_SMILEY']) == 'y' ) {
+	if( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
 		$smileys = new fud_smiley;
 		$smileys->getall();
 		$smileys->resets();
@@ -482,7 +482,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		}
 	}	
 
-	if( strtolower($GLOBALS['PRIVATE_TAGS']) == 'ml' ) $fud_code_icons = '{TEMPLATE: fud_code_icons}';
+	if( $GLOBALS['PRIVATE_TAGS'] == 'ML' ) $fud_code_icons = '{TEMPLATE: fud_code_icons}';
 	
 	$post_options = tmpl_post_options('private');
 	$message_err = get_err('msg_body',1);
@@ -523,7 +523,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	if( !$HTTP_POST_VARS['prev_loaded'] ) $msg_show_sig = $usr->append_sig;
 	$msg_show_sig_check = ( $msg_show_sig == 'Y' ) ? ' checked' : '';
 
-	if( strtolower($GLOBALS['PRIVATE_MSG_SMILEY']) == 'y' ) {
+	if( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
 		$msg_smiley_disabled_check = ($msg_smiley_disabled=='Y' ? ' checked' : '');
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.17 2002/08/19 09:07:59 hackie Exp $
+*   $Id: register.php.t,v 1.18 2002/08/24 12:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -335,7 +335,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 				$reg_sig = nl2br(htmlspecialchars($reg_sig));				       
 		}
 		
-		if ( strtolower($GLOBALS['FORUM_SML_SIG']) == 'y' ) $reg_sig = smiley_to_post($reg_sig);
+		if ( $GLOBALS['FORUM_SML_SIG'] == 'Y' ) $reg_sig = smiley_to_post($reg_sig);
 		
 		$reg_sig = stripslashes($reg_sig);
 		fud_wordwrap($reg_sig);
@@ -383,7 +383,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			else 
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', "");
 			
-			if ( $GLOBALS['COPPA'] == 'Y' && strtolower($reg_coppa) == 'y' ) {
+			if ( $GLOBALS['COPPA'] == 'Y' && (strcasecmp($reg_coppa,'y') == 0) ) {
 				header("Location: {ROOT}?t=coppa_fax&"._rsidl);
 				exit();
 			}
@@ -465,7 +465,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		
 		$GLOBALS['reg_sig'] = apply_reverse_replace($GLOBALS['reg_sig']);
 		
-		if ( strtolower($GLOBALS['FORUM_SML_SIG']) == 'y' ) 
+		if ( $GLOBALS['FORUM_SML_SIG'] == 'Y' ) 
 			$GLOBALS['reg_sig'] = post_to_smiley($GLOBALS['reg_sig']);
 		
 		switch ( strtolower($GLOBALS['FORUM_CODE_SIG']) )

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.php.t,v 1.3 2002/08/07 12:18:43 hackie Exp $
+*   $Id: pre_reg.php.t,v 1.4 2002/08/24 12:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: forum_terms}';
 	{POST_HTML_PHP}
-	$msg_file = ( trim(strtolower($coppa))=='y' ) ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
+	$msg_file = ( strcasecmp(trim($coppa), 'y') == 0 ) ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
 	{POST_PAGE_PHP_CODE}
 ?>
 {TEMPLATE: PREREG_PAGE}
