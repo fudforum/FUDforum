@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.5 2002/06/28 00:19:50 hackie Exp $
+*   $Id: register.php.t,v 1.6 2002/06/28 00:21:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,8 +64,8 @@ function fetch_img($url)
 	
 	$img_str = '';
 	
-	while( !feof($fs) && strlen($img_str)<10000 ) 
-		$img_str .= fread($fs, 10000);
+	while( !feof($fs) && strlen($img_str)<$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] ) 
+		$img_str .= fread($fs, $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']);
 	fclose($fs);
 	
 	$img_str = substr($img_str, strpos($img_str, "\r\n\r\n")+4);
