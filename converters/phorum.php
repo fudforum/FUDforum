@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.8 2002/07/12 12:45:14 hackie Exp $
+*   $Id: phorum.php,v 1.9 2002/07/13 00:11:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -278,6 +278,11 @@ function INT_yn($s)
 		$msgid_arr = array();
 		
 		while ( $obj = db_rowobj($r) ) {
+			if( !isset($thread_arr[$obj->thread]) ) {
+				print_status("\tNo thread id for message #".$obj->id." w/Subject:".$obj->subject);
+				continue;
+			}
+		
 			$fileid = write_body(tags_to_html($obj->body), $len, $off);
 			
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
