@@ -498,7 +498,7 @@ email_pg_title:			电子邮箱
 email_subject:			主题：
 email_body:			内容：
 email_submit:			发送
-ppost_quote_msg:		{VAR: msg_to_list} 发表于{DATE: msg_r->post_stamp %Y-%m-%d %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} 于 {DATE: msg_r->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
 ppost_quote:			引用：
 ppost_to:			至：
 ppost_from_buddy_list:		从好友名单中选择
@@ -725,7 +725,7 @@ post_opt:			论坛选项
 register_change_passwd:		改变密码
 install_script_present_error:	为了安全起见，请在使用论坛前删除安装文件install.php。<b>{GVAR: WWW_ROOT_DISK}install.php</b>
 approved_avatar_title:		你定制的头像已被管理员批准。
-approved_avatar_msg:		你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器保存了cach页面，尝试多刷新几次或许能解决这个问题。
+approved_avatar_msg:		你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
 unapproved_avatar_title:	你定制的头像未被批准。
 unapproved_avatar_msg:		系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
 mvthread_request_move:		申请移动本主题
@@ -784,7 +784,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		正在编辑：<b>{VAR: grp->name}</b>
 rate_worst:			最差的
 rate_best:			最好的
-post_quote_msg:			{VAR: msg->login} 引用 {DATE: msg->post_stamp %Y-%m-%d %H:%M}
+post_quote_msg:			{VAR: msg->login} 于 {DATE: msg->post_stamp %Y-%m-%d %H:%M} 在大作中提到：
 post_quote:			引用：
 userinfo_referals:		被推荐的用户：
 userinfo_referals_count:	{VAR: referals} 成员：
