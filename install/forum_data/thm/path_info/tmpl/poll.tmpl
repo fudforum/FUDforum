@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: poll.tmpl,v 1.2 2003/06/02 14:11:52 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -111,7 +111,7 @@ function check_submission()
 {SECTION: END}
 
 {SECTION: poll_option_entry}
-<tr><td class="GenText">{VAR: v}</td><td nowrap>[<a class="GenLink" href="{ROOT}?t=poll&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}&amp;pl_id={VAR: pl_id}&amp;pl_optedit={VAR: k}">{MSG: poll_edit}</a>] [<a href="{ROOT}?t=poll&amp;frm_id={VAR: frm_id}&amp;pl_id={VAR: pl_id}&amp;del_id={VAR: k}&amp;{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
+<tr><td class="GenText">{VAR: v}</td><td nowrap>[<a class="GenLink" href="{ROOT}/po/{VAR: frm_id}/{VAR: pl_id}/pl_optedit/{VAR: k}/{DEF: _rsid}">{MSG: poll_edit}</a>] [<a href="{ROOT}/po/VAR: frm_id}/{VAR: pl_id}/del_id/{VAR: k}/{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: pl_upd hidden field needed for the form to work}
