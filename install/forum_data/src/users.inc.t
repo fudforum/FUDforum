@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.124 2004/04/23 14:11:01 hackie Exp $
+* $Id: users.inc.t,v 1.125 2004/04/28 13:51:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -707,8 +707,8 @@ function user_mark_forum_read($id, $fid, $last_view)
 
 function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 {
-	/* no sequence # check for anonymous users or when multi-host login is enabled */
-	if (!$uid || $GLOBALS['FUD_OPT_2'] & 256) {
+	/* no sequence # check for anonymous users */
+	if (!$uid) {
 		return 1;
 	}
 
