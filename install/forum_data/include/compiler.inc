@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.3 2002/06/26 20:00:05 hackie Exp $
+*   $Id: compiler.inc,v 1.4 2002/06/26 20:01:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -146,7 +146,7 @@ function resolve_sections($str)
 		{
 			case 'MSG':
 				if( !isset($GLOBALS['MSG'][$name]) ) {
-					echo "Missing Message entry $name inside i18n/".$GLOBALS['LANGUAGE']."/msg\n";
+					echo "Missing Message entry $name inside i18n/".$GLOBALS['__COMPILER__']['lang']."/msg\n";
 					exit;				
 				}
 				$ret .= $GLOBALS['MSG'][$name]['data'] =  resolve_sections($GLOBALS['MSG'][$name]['data']);
@@ -432,7 +432,6 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['__COMPILER__']['tset'] = $tset;
 	$GLOBALS['__COMPILER__']['lang'] = $lang;
 	$GLOBALS['__COMPILER__']['tname'] = $tname;
-	$GLOBALS['LANGUAGE'] = $lang;
 	
 	$GLOBALS['__COMPILER__']['THEME_ROOT'] = $GLOBALS['WWW_ROOT'];
 	if ( $GLOBALS['__COMPILER__']['THEME_ROOT'][strlen($GLOBALS['__COMPILER__']['THEME_ROOT'])-1] != '/' ) $GLOBALS['__COMPILER__']['THEME_ROOT'] .= '/';
@@ -440,8 +439,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['__COMPILER__']['THEME_ROOT_DISK'] .= $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$GLOBALS['__COMPILER__']['THEME_IMAGE_ROOT'] = $GLOBALS['__COMPILER__']['THEME_ROOT'].'/images';
 	
-	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'i18n/'.$GLOBALS['LANGUAGE'].'/charset';
-	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['LANGUAGE'].'/charset';
+	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'i18n/'.$GLOBALS['__COMPILER__']['lang'].'/charset';
+	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/charset';
 	
 	
 	$u = umask(0);
@@ -457,8 +456,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	
 	$GLOBALS['char_set'] = trim(filetomem($charset));
 
-	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
-	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
+	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
+	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
 
 	/*
 	 * build the message array 
