@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.7 2002/07/29 13:03:45 hackie Exp $
+*   $Id: maillist.php,v 1.8 2002/07/29 19:10:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -524,6 +524,15 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->fetch_useful_headers();
 	
 	$msg_post = new fud_msg_edit;
+	
+	// Handler for our own messages, which do not need to be imported.
+	if( isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m) ) {
+		if( $m[1] == md5($GLOBALS['WWW_ROOT']) ) {
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET mlist_msg_id='".addslashes($emsg->msg_id)."' WHERE id=".intval($m[2])." AND mlist_msg_id IS NULL");
+			if( db_affected() ) exit;
+		}
+	}
+	
 	$msg_post->body = apply_custom_replace($emsg->body);
 	if( $mlist->allow_mlist_html == 'N' ) {
 		if( $frm->tag_style == 'ML' ) 
@@ -539,8 +548,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	define('_uid', $msg_post->poster_id);
 	$msg_post->ip_addr = $emsg->ip;
 	$msg_post->mlist_msg_id = addslashes($emsg->msg_id);
-	
-	mlist_error_log('Importing message '.$msg_post->subject, '', 'LOG');
 	
 	$msg_post->attach_cnt = 0;
 	$msg_post->smiley_disabled = 'Y';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.12 2002/07/29 11:58:44 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.13 2002/07/29 19:10:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -394,7 +394,44 @@ class fud_msg_edit extends fud_msg
 		// Handle Mailing List and/or Newsgroup syncronization.
 		if( !$this->mlist_msg_id ) {
 			if( ($mlist_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id." AND allow_frm_post='Y'")) ) {
-				/* Do nothing */
+				fud_use('email_msg_format.inc', true);
+				fud_use('mlist_post.inc', true);
+				
+				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
+				
+				if( $this->poster_id ) {
+					$r = q("SELECT alias,email,sig FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->poster_id);
+					$obj = db_singleobj($r);
+					$from = $obj->alias.' <'.$obj->email.'>';
+				}
+				else
+				 	$from = $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+				
+				$body = stripslashes($this->body);
+				if( $this->show_sig == 'Y' && $obj->sig ) $body .= "\n--\n".$obj->sig;
+				plain_text($body);
+				
+				if( $this->reply_to ) 
+					$replyto_id = q_singleval("SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->reply_to);
+				else
+					$replyto_id = 0;
+				
+				if( $this->attach_cnt ) {
+					$r = q("SELECT {SQL_TABLE_PREFIX}attach.id, {SQL_TABLE_PREFIX}attach.original_name, {SQL_TABLE_PREFIX}mime.mime_hdr FROM {SQL_TABLE_PREFIX}attach INNER JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$this->id." AND private='N'");
+					while( $obj = db_rowobj($r) ) {
+						$fp = fopen($GLOBALS['FILE_STORE'].$obj->id.'.atch', "rb");
+						$attach[$obj->original_name][] = fread($fp, __ffilesize($fp));
+						fclose($fp);
+						$attach[$obj->original_name][] = $obj->mime_hdr;
+					}
+					qf($r);
+				}
+				else
+					$attach = null;
+				
+				$mlist_email = q_singleval("SELECT name FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id);
+				
+				mail_list_post($mlist_email, $from, $this->subject, $body, $this->id, $replyto_id, $attach);
 			}
 			else if( ($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$frm->id." AND allow_frm_post='Y'")) ) {
 				fud_use('nntp.inc', true);

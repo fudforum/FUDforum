@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.6 2002/07/29 12:43:37 hackie Exp $
+*   $Id: admmlist.php,v 1.7 2002/07/29 19:10:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,7 @@ function format_regex(&$regex, &$opts)
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
-		<td>Mailing List Name:<br><font size="-1">Internal field, for your reference only.</font></td>
+		<td>Mailing List Email:<br><font size="-1">The email address of the mailing list.</font></td>
 		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength=255></td>
 	</tr>
 

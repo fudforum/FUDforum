@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.13 2002/07/22 14:53:44 hackie Exp $
+*   $Id: compiler.inc,v 1.14 2002/07/29 19:10:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,7 +189,10 @@ function resolve_sections($str)
 				break;
 			case 'META-CONTENT-LANGUAGE':
 				$ret .= '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset='.$GLOBALS['char_set'].'">';
-				break;	
+				break;
+			case 'CHARSET':
+				$ret .= $GLOBALS['char_set'];
+				break;		
 			case 'ROOT':
 				$ret .= $GLOBALS['__COMPILER__']['ROOT'];
 				break;
