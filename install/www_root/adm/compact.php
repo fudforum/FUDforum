@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.10 2002/08/14 09:58:46 hackie Exp $
+*   $Id: compact.php,v 1.11 2002/08/18 10:02:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -147,7 +147,7 @@ and the amount of messages your forum has.<br><br>
 				length_preview=".intzero($length_preview)."
 			WHERE id=".$obj->id);
 		
-			if( !($i%$ten_percent) && $i ) {
+			if( $ten_percent && !($i%$ten_percent) && $i ) {
 				echo ($i/$ten_percent*10)."% done<br>\n";
 				flush();
 			}	
