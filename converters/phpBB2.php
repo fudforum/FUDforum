@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
+*   $Id: phpBB2.php,v 1.7 2002/07/12 12:45:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -513,7 +513,7 @@ $group_map = array(
 				smiley_disabled,
 				ip_addr,
 				host_name,
-				foff
+				foff,
 				length,
 				file_id
 			)
@@ -735,7 +735,7 @@ $group_map = array(
 					subject,
 					show_sig,
 					smiley_disabled,
-					foff
+					foff,
 					length
 					)
 					VALUES(
@@ -763,7 +763,7 @@ $group_map = array(
 					subject,
 					show_sig,
 					smiley_disabled,
-					foff
+					foff,
 					length
 					)
 					VALUES(

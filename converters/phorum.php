@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.7 2002/07/11 21:23:21 hackie Exp $
+*   $Id: phorum.php,v 1.8 2002/07/12 12:45:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -290,7 +290,7 @@ function INT_yn($s)
 				approved,
 				smiley_disabled,
 				host_name,
-				foff
+				foff,
 				length,
 				file_id
 			)
