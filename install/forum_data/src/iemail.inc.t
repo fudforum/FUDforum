@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.10 2002/08/06 13:04:20 hackie Exp $
+*   $Id: iemail.inc.t,v 1.11 2002/09/04 02:24:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,14 +40,8 @@ class fud_email_block
 	
 	function get($id)
 	{
-		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$id);
-		if ( !is_result($res) ) exit("no such email block");
-		
-		$obj = db_singleobj($res);
-		
-		$this->id 	= $obj->id;
-		$this->type	= $obj->type;
-		$this->string	= $obj->string;
+		$res = qobj("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$id, $this);
+		if ( !$this->id ) exit("no such email block");
 	}
 	
 	function delete()
@@ -92,25 +86,22 @@ class fud_email_block
 
 function is_email_blocked($addr)
 {
-
 	if ( bq("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE string='".$addr."'") ) return 1;
 
 	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
-		if ( $obj->type == 'SIMPLE' ) {
-			$reg = $obj->string;
-			$reg = str_replace('.', '\.', $reg);
-			$reg = str_replace('*', '.*?', $reg);			
-			if ( preg_match("!".$reg."!i", $addr, $res) ) {
-				return 1;
-			}
+		if( $obj->string[0] == '#' ) {
+			$obj->string = substr($obj->string, 1);
+			$not = 1;
+		} else {
+			$not = 0;
 		}
-		else if ( $obj->type == 'REGEX' ) {
-			$reg = $obj->string;
-			if ( preg_match("!".$reg."!i", $addr, $res) ) {
-				return 1;
-			}	
-		}
+		
+		if( ($obj->type == 'SIMPLE' && preg_match("!".preg_quote($obj->string, '!')."!i", $addr)) || ($obj->type == 'REGEX' && preg_match("!".$obj->string."!i", $addr)) ) {
+			if( !$not ) return 1;	
+		} else if ( $not ) {
+			return 1;
+		}	
 	}
 	qf($r);
 	
