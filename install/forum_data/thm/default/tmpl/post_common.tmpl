@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.11 2004/04/19 19:12:25 hackie Exp $
+* $Id: post_common.tmpl,v 1.12 2004/04/23 20:36:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,17 +17,17 @@
 {SECTION: END}
 
 {SECTION: post_smilies}
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
+<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_smiley}
 	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
 </td>
-<td valign=top><table border=0 cellspacing=5 cellpadding=0><tr valign="bottom"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
+<td class="vt"><table border=0 cellspacing=5 cellpadding=0><tr class="vb"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
 {SECTION: END}
 
 {SECTION: fud_code_icons shortcuts to various FUDcode text formatting tools}
-<tr class="RowStyleA"><td nowrap class="GenText">{MSG: post_format_tools}</td><td>
+<tr class="RowStyleA"><td class="GenText nw">{MSG: post_format_tools}</td><td>
 <table border=0 cellspacing=0 cellpadding=0>
 <tr><td>
-<table border=0 cellspacing=1 cellpadding=2 class="FormattingToolsBG">
+<table cellspacing=1 cellpadding=2 class="FormattingToolsBG">
 <tr>
 <td class="FormattingToolsCLR"><a accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
 <td class="FormattingToolsCLR"><a accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
@@ -102,7 +102,7 @@
 {SECTION: END}
 
 {SECTION: post_icons}
-<tr class="RowStyleA"><td valign=top class="GenText">{MSG: post_icons}</td><td>
+<tr class="RowStyleA"><td class="vt GenText">{MSG: post_icons}</td><td>
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{VAR: none_checked}>{MSG: post_no_icon}</td></tr>
 {TEMPLATE-DATA: data}
@@ -132,7 +132,7 @@
 {SECTION: END}
 
 {SECTION: attachment_list list of all the attached files}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: post_file_name}</th>
 	<th>{MSG: post_file_size}</th>
@@ -145,7 +145,7 @@
 {SECTION: END}
 
 {SECTION: file_attachments}
-<tr class="RowStyleB"><td nowrap valign=top class="GenText">{MSG: file_attachments}</td><td>
+<tr class="RowStyleB"><td class="GenText vt nw">{MSG: file_attachments}</td><td>
 {TEMPLATE-DATA: attachment_list}
 {VAR: attach_control_error}
 <font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}

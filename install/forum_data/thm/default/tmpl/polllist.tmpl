@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.15 2004/04/22 16:03:28 hackie Exp $
+* $Id: polllist.tmpl,v 1.16 2004/04/23 20:36:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -50,13 +50,13 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}<p>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: polllist_name}</th>
-	<th nowrap><a class="thLnk" href="{TEMPLATE: POLLLIST_PAGE_lnk}">{MSG: polllist_date}</a></th>
-	<th nowrap>{MSG: polllist_owner}</th>
-	<th nowrap align="center">{MSG: polllist_votes}</th>
-	<th nowrap><div align="center">{MSG: polllist_action}</div></th>
+	<th class="nw"><a class="thLnk" href="{TEMPLATE: POLLLIST_PAGE_lnk}">{MSG: polllist_date}</a></th>
+	<th class="nw">{MSG: polllist_owner}</th>
+	<th class="nw ac">{MSG: polllist_votes}</th>
+	<th class="nw ac">{MSG: polllist_action}</th>
 </tr>
 {TEMPLATE-DATA: poll_entries}
 </table>
@@ -68,7 +68,7 @@
 {PAGE: END}
 
 {SECTION: poll_no_polls}
-<tr><td colspan="5" align="center">{MSG: poll_no_polls}</td></tr>
+<tr><td colspan="5" class="ac">{MSG: poll_no_polls}</td></tr>
 {SECTION: END}
 
 {SECTION: vote_lnk_lnk}

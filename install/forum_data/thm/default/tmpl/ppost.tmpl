@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.tmpl,v 1.36 2004/04/23 14:11:02 hackie Exp $
+* $Id: ppost.tmpl,v 1.37 2004/04/23 20:36:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,11 +45,11 @@
 {SECTION: END}
 
 {SECTION: preview_message}
-<div align="center"><table border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
+<div class="ctb"><table cellspacing="1" cellpadding="2" class="PreviewTable">
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
-<tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
-<tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
-<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';">&nbsp;<input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value=\'draft\';"></td></tr>
+<tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
+<tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
+<tr><td class="al RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';">&nbsp;<input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value=\'draft\';"></td></tr>
 </table></div><br />
 {SECTION: END}
 
@@ -66,7 +66,7 @@
 {SECTION: END}
 
 {SECTION: html_quote quote style for html enabled forums}
-<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>{MSG: ppost_quote_msg}</b></td></tr><tr><td class="quote"><br />{VAR: msg_body}<br /></td></tr></table>
+<table border="0" class="ac" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText fb">{MSG: ppost_quote_msg}</td></tr><tr><td class="quote"><br />{VAR: msg_body}<br /></td></tr></table>
 {SECTION: END}
 
 {SECTION: plain_quote quoting style for plain text forums}
@@ -76,9 +76,9 @@
 {SECTION: reference_msg displayes the message the user is replying to}
 <br /><br />
 <div align="center">{MSG: ppost_original_msg}</div>
-<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<table cellspacing=0 cellpadding=3 class="dashed wa">
 <tr><td>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: reference_msg}
 </table>
 </td></tr>
@@ -93,29 +93,29 @@
 <form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{TEMPLATE: PPOST_PAGE_lnk}">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR: usr->login} [<a href="{TEMPLATE: PPOST_PAGE_lnk}">{MSG: post_logout}</a>]</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {TEMPLATE-DATA: pm_find_user} [<a href="javascript://" onClick="javascript: window_open('{TEMPLATE: PPOST_PAGE_lnk2}', 'buddy_list',275,300);">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea id="txtb" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea id="txtb" rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 {TEMPLATE-DATA: file_attachments}
-<tr class="RowStyleB" valign="top">
+<tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
 <table border=0 cellspacing=0 cellpadding=1>
-<tr><td><input type="checkbox" name="msg_track" value="Y"{VAR: msg_track_check}></td><td class="GenText"><b>{MSG: ppost_track_msg}</b></td></tr>
-<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: ppost_track_msg_desc}</font></td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText"><b>{MSG: include_sig}</b></td></tr>
-<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: include_sig_desc}</font></td></tr>
+<tr><td><input type="checkbox" name="msg_track" value="Y"{VAR: msg_track_check}></td><td class="GenText fb">{MSG: ppost_track_msg}</td></tr>
+<tr><td>&nbsp;</td><td class="SmallText">{MSG: ppost_track_msg_desc}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {TEMPLATE-DATA: disable_smileys}
 </table>
 </td>
 </tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><input accesskey="r" type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" accesskey="d" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value='send';" accesskey="s"></td></tr>
+<tr class="RowStyleA"><td class="GenText ar" colspan=2><input accesskey="r" type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" accesskey="d" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value='draft';">&nbsp;<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value='send';" accesskey="s"></td></tr>
 </table>
 {DEF: _hs}
 <input type="hidden" name="btn_action" value="">

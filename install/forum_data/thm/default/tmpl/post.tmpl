@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.41 2004/04/23 14:11:02 hackie Exp $
+* $Id: post.tmpl,v 1.42 2004/04/23 20:36:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -43,21 +43,21 @@
 {SECTION: END}
 
 {SECTION: signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: sig}
+<p /><hr class="sig" />{VAR: sig}
 {SECTION: END}
 
 {SECTION: preview_message}
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
+<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="PreviewTable">
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
-<tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
-<tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
-<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
+<tr><td class="RowStyleA MsgSubText">{VAR: subj}</td></tr>
+<tr><td class="RowStyleA MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</td></tr>
+<tr><td class="RowStyleB al">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table><br /></div>
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR-HTML: usr->login} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
@@ -73,7 +73,7 @@
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
-<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: post_mod_opt}</td>
+<tr class="RowStyleB"><td class="GenText nw">{MSG: post_mod_opt}</td>
 <td>
 {MSG: post_thread_type} <select name="thr_ordertype">{TEMPLATE-DATA: thread_type_select}</select>
 {MSG: post_thread_expiry} <select name="thr_orderexpiry">{TEMPLATE-DATA: thread_expiry_select}</select>
@@ -89,19 +89,19 @@
 
 
 {SECTION: reg_user_options various options for logged in registered users}
-<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{VAR: msg_poster_notif_check}></td><td class="GenText"><b>{MSG: post_notification}</b></td></tr>
-<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: post_notification_desc}</font></td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText"><b>{MSG: include_sig}</b></td></tr>
-<tr><td>&nbsp;</td><td><font class="SmallText">{MSG: include_sig_desc}</font></td></tr>
+<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{VAR: msg_poster_notif_check}></td><td class="GenText fb">{MSG: post_notification}</td></tr>
+<tr><td>&nbsp;</td><td class="SmallText">{MSG: post_notification_desc}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {TEMPLATE-DATA: mod_post_opts}
 {SECTION: END}
 
 {SECTION: mod_post_opts}
-<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked}></td><td class="GenText"><b>{MSG: post_locked}</b></td></tr>
+<tr><td><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked}></td><td class="GenText fb">{MSG: post_locked}</td></tr>
 {SECTION: END}
 
 {SECTION: disable_smileys}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}
@@ -109,17 +109,16 @@
 {SECTION: END}
 
 {SECTION: post_error an error message shown at the top of ppage if there was an error with submission}
-<h4 align="center" class="ErrorText">{MSG: post_error_generic}</h4>
+<h4 class="ac ErrorText">{MSG: post_error_generic}</h4>
 {SECTION: END}
 
 {PAGE: moderated_forum_post}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
+<div class="ctb"><table cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th>{MSG: post_moderated_forum_ttl}</th></tr>
-<tr class="RowStyleA" align="center">
-	<td class="GenText">
+<tr class="RowStyleA">
+	<td class="GenText ac">
 		{MSG: post_moderated_forum}
 		<br /><br /><form action="{TEMPLATE: moderated_forum_post_lnk3}" method="post">{DEF: _hs}
 		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
@@ -127,8 +126,7 @@
 		</form>
 	</td>
 </tr>
-</table>
-</div>
+</table></div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
@@ -139,7 +137,7 @@
 <form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2><a name="ptop"> </a>{MSG: post_form}</th></tr>
 {TEMPLATE-DATA: loged_in_user}
 {TEMPLATE-DATA: post_password}
@@ -151,10 +149,10 @@
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
 
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" id="txtb" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" id="txtb" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 
 {TEMPLATE-DATA: file_attachments}
-<tr class="RowStyleB" valign="top">
+<tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
 <table border=0 cellspacing=0 cellpadding=1>
@@ -162,7 +160,7 @@
 {TEMPLATE-DATA: disable_smileys}
 </table>
 </td></tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
+<tr class="RowStyleA"><td class="GenText ar" colspan=2>
 <input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table>
 {TEMPLATE-DATA: minimsg}
