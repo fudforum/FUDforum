@@ -1024,3 +1024,6 @@ ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
 ip_title:			IP Browser
 userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
+post_err_mod_forum_edit_ttl:	ERROR
+post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
+ 

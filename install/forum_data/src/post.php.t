@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.108 2004/02/14 00:06:29 hackie Exp $
+* $Id: post.php.t,v 1.109 2004/03/07 00:15:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,6 +96,8 @@ function flood_check()
 			std_error('perms');
 		} else if ($msg_id && $EDIT_TIME_LIMIT && !$MOD && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
 			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}');
+		} else if ($msg_id && !$MOD && $frm->forum_opt & 2) {
+			error_dialog('{TEMPLATE: post_err_mod_forum_edit_ttl}', '{TEMPLATE: post_err_mod_forum_edit_msg}');
 		}
 	} else {
 		if (__fud_real_user__) {
