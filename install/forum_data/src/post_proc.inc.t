@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.26 2003/05/28 15:07:16 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.27 2003/06/03 13:32:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -237,13 +237,13 @@ function tags_to_html($str, $allow_img='Y')
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
 					$tmp_l = strlen($tmp);
-					$tmp2 = str_replace('[*]', '<li>', $tmp);
+					$tmp2 = strtr($tmp, array('[*]' => '<li>', '<br />' => ''));
 					$tmp2_l = strlen($tmp2);
 					$str = str_replace($tmp, $tmp2, $str);
-					
+
 					$diff = $tmp2_l - $tmp_l;
 					$cpos += $diff;
-					
+
 					if (isset($end_tag)) {
 						foreach($end_tag as $key => $val) {
 							if ($key < $epos) {
@@ -251,10 +251,9 @@ function tags_to_html($str, $allow_img='Y')
 							}
 						
 							$end_tag[$key+$diff] = $val;
-							unset($end_tag[$key]);
 						}
 					}	
-					
+
 					switch (strtolower($parms)) {
 						case '1':
 						case 'a':
