@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.42 2003/12/01 08:41:22 hackie Exp $
+* $Id: post_proc.inc.t,v 1.43 2003/12/02 21:21:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -488,69 +488,65 @@ if (!function_exists('html_entity_decode')) {
 
 function html_to_tags($fudml)
 {
-	while ( preg_match('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', $fudml) )
-		$fudml = preg_replace('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!is', '[quote title=\1]\2[/quote]', $fudml);
-
-	reverse_nl2br($fudml);
-
 	while (preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res)) {
-		$fudml = str_replace($res[0], "[php]\n".trim(html_entity_decode(strip_tags($res[1]))) . "\n[/php]", $fudml);
+		$tmp = trim(html_entity_decode(strip_tags(str_replace('<br />', "\n", $res[1]))));
+		$m = md5($tmp);
+		$php[$m] = $tmp;
+		$fudml = str_replace($res[0], "[php]\n".$m."\n[/php]", $fudml);
 	}
 
-	if( preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml) ) {
+	if (strpos($fudml, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')  !== false) {
+		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br>','<br></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
+	}
+
+	if (preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml)) {
 		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
+	
+	while (preg_match('!<font (color|face|size)=".+?">.*?</font>!is', $fudml)) {
+		$fudml = preg_replace('!<font (color|face|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
+	}
+	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
+		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</ol>!is', '[list type=\2]\3[/list]', $fudml);
+	}
 
-	while( preg_match('!<(b|i|u|s|sub|sup)>.*?</\1>!is', $fudml) )
-		$fudml = preg_replace('!<(b|i|u|s|sub|sup)>(.*?)</\1>!is', '[\1]\2[/\1]', $fudml);
+	$fudml = str_replace(
+	array(
+		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>',
+		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
+		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />'
+	),
+	array(
+		'[b]', '[b]', '[i]', '[/i]', '[/u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
+		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
+		'[notag]', '[/notag]', '[*]', '@', '://', ''
+	), 
+	$fudml);
 
-	while( preg_match('!<div align="(center|left|right)">.*?</div>!is', $fudml) )
-		$fudml = preg_replace('!<div align="(center|left|right)">(.*?)</div>!is', '[align=\1]\2[/align]', $fudml);
-
-	while ( preg_match('!<div class="pre"><pre>.*?</pre></div>!is', $fudml) )
-		$fudml = preg_replace('!<div class="pre"><pre>(.*?)</pre></div>!is', '[code]\1[/code]', $fudml);
-
-	if( preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml) )
+	while (preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml, $m)) {
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="\\1">!is', '[img]\1[/img]', $fudml);
+	}
+	while (preg_match('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', $fudml, $m)) {
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', '[email]\1[/email]', $fudml);
+	}
+	while (preg_match('!<a href="(.+?)" target="_blank">\\1</a>!is', $fudml, $m)) {
+		$fudml = preg_replace('!<a href="(.+?)" target="_blank">\\1</a>!is', '[url]\1[/url]', $fudml);
+	}
 
-	if( preg_match('!<img src=".*?" border=0 alt=".*?">!is', $fudml) )
+	if (strpos($fudml, '<img src="') !== false) {
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="(.*?)">!is', '[img=\1]\2[/img]', $fudml);
+	}
+	if (strpos($fudml, '<a href="mailto:') !== false) {
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\3[/email]', $fudml);
+	}
+	if (strpos($fudml, '<a href="') !== false) { 
+		$fudml = preg_replace('!<a href="(.+?)" target="_blank">(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
+	}
 
-	if( preg_match('!<a href="mailto:(.+?)" target=(_new|"_blank")>\\1</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>\\1</a>!is', '[email]\1[/email]', $fudml);
-
-	if( preg_match('!<a href="mailto:.+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[email=\1]\3[/email]', $fudml);
-
-	if( preg_match('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', '[url]\1[/url]', $fudml);
-
-	if( preg_match('!<a href=".+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
-
-	while ( preg_match('!<font color=".+?">.*?</font>!is', $fudml) )
-		$fudml = preg_replace('!<font color="(.+?)">(.*?)</font>!is', '[color=\1]\2[/color]', $fudml);
-
-	while ( preg_match('!<font face=".+?">.*?</font>!is', $fudml) )
-		$fudml = preg_replace('!<font face="(.+?)">(.*?)</font>!is', '[font=\1]\2[/font]', $fudml);
-
-	while ( preg_match('!<font size=".+?">.*?</font>!is', $fudml) )
-		$fudml = preg_replace('!<font size="(.+?)">(.*?)</font>!is', '[size=\1]\2[/size]', $fudml);
-
-	while ( preg_match('!<ul>.*?</ul>!is', $fudml) )
-		$fudml = preg_replace('!<ul>(.*?)</ul>!is', '[list]\1[/list]', $fudml);
-
-	while ( preg_match('!<ol type=".+?">.*?</ol>!is', $fudml) )
-		$fudml = preg_replace('!<ol type="(.+?)">(.*?)</ol>!is', '[list type=\1]\2[/list]', $fudml);
-
-	while ( preg_match('!<ul type=".+?">.*?</ul>!is', $fudml) )
-		$fudml = preg_replace('!<ul type="(.+?)">(.*?)</ul>!is', '[list type=\1]\2[/list]', $fudml);
-
-	while ( preg_match('!<span name="notag">.*?</span>!is', $fudml) )
-		$fudml = preg_replace('!<span name="notag">(.*?)</span>!is', '[notag]\1[/notag]', $fudml);
-
-	$fudml = str_replace(array('<li>','&#64;', '&#58;&#47;&#47;'), array('[*]', '@', '://'), $fudml);
+	if (isset($php)) {
+		$fudml = str_replace(array_keys($php), array_values($php), $fudml);
+	}
 
 	/* unhtmlspecialchars */
 	reverse_fmt($fudml);
@@ -592,6 +588,6 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 
 function reverse_nl2br(&$data)
 {
-	$data = str_replace('<br />', "\n", $data);
+	$data = str_replace('<br />', '', $data);
 }
 ?>
