@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.11 2002/09/09 23:47:47 hackie Exp $
+*   $Id: db.inc,v 1.12 2002/09/20 00:07:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -307,5 +307,19 @@ function optimize_tables($tbl_list=NULL)
 	if( !$tbl_list ) $tbl_list = get_fud_table_list();
 
 	foreach($tbl_list as $v) q("VACUUM ANALYZE ".$v);
+}
+
+function sql_concat()
+{
+	if( !func_num_args() ) return;
+	
+	$ret = '';
+	
+	$args =  func_get_args();
+	foreach( $args as $arg ) {
+		$ret .= $arg.' || ';	
+	}
+	
+	return substr($ret, 0, -4);
 }
 ?>

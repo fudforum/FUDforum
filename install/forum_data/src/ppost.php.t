@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.10 2002/09/12 21:47:04 hackie Exp $
+*   $Id: ppost.php.t,v 1.11 2002/09/20 00:07:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -288,7 +288,7 @@
 							$id_list .= $fa_id.',';
 						}
 					}
-					q("UPDATE {SQL_TABLE_PREFIX}attach SET location=CONCAT('".$GLOBALS['FILE_STORE']."',id,'.atch') WHERE id IN(".substr($id_list,0,-1).")");	
+					q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".sql_concat("'".$GLOBALS['FILE_STORE']."'",'id',"'.atch'")." WHERE id IN(".substr($id_list,0,-1).")");	
 				}
 			}	
 		}
