@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.24 2003/10/09 21:26:03 hackie Exp $
+* $Id: msg.tmpl,v 1.25 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,7 +29,7 @@
 {REF: th_nav.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: frm->cat_name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
+<font class="GenText"><a class="GenLink" name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk1}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
@@ -40,43 +40,43 @@
 {SECTION: END}
 
 {SECTION: split_thread}
-<a class="GenLink" href="{ROOT}?t=split_th&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_lock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;lock=1">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_unlock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;unlock=1">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: email_page_to_friend}
-<a class="GenLink" href="{ROOT}?t=remail&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
+<a class="GenLink" href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: first_unread_message_link}
-| <a class="GenLink" href="{ROOT}?t=msg&amp;unread=1&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
+| <a class="GenLink" href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: _GET['start']}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+| <a class="GenLink" href="{TEMPLATE: sub_from_thread_lnk}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: _GET['start']}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+| <a class="GenLink" href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}?t=tree&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
+<a href="{TEMPLATE: threaded_view_lnk}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
+<a class="GenLink" href="{TEMPLATE: new_thread_lnk}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: _GET['th']}&amp;reply_to={VAR: frm->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: _GET['start']}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" /></a>
+&nbsp;<a class="GenLink" href="{TEMPLATE: post_reply_lnk}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" /></a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
@@ -134,7 +134,7 @@
 {SECTION: END}
 
 {SECTION: msg_xml_link}
-[ <a href="{ROOT}?t=help_index&amp;section=boardusage#syndicate">{MSG: thread_syndicate}</a> ]
+[ <a href="{TEMPLATE: msg_xml_link_lnk}">{MSG: thread_syndicate}</a> ]
 {SECTION: END}
 
 {SECTION: msg_err_ininfo_title}
@@ -165,4 +165,56 @@
 <script language="javascript" type="text/javascript">
 window.location.hash = "{VAR: mid}";
 </script>
+{SECTION: END}
+
+{SECTION: msg_forum_path_lnk}
+{ROOT}?t=index&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: msg_forum_path_lnk1}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: split_thread_lnk}
+{ROOT}?t=split_th&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}
+{SECTION: END}
+
+{SECTION: mod_lock_thread_lnk}
+{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;lock=1
+{SECTION: END}
+
+{SECTION: mod_unlock_thread_lnk}
+{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;unlock=1
+{SECTION: END}
+
+{SECTION: email_page_to_friend_lnk}
+{ROOT}?t=remail&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: first_unread_message_link_lnk}
+{ROOT}?t=msg&amp;unread=1&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: sub_from_thread_lnk}
+{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: _GET['start']}
+{SECTION: END}
+
+{SECTION: unsub_to_thread_lnk}
+{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: _GET['start']}
+{SECTION: END}
+
+{SECTION: threaded_view_lnk}
+{ROOT}?t=tree&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: new_thread_lnk}
+{ROOT}?t=post&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: post_reply_lnk}
+{ROOT}?t=post&amp;th_id={VAR: _GET['th']}&amp;reply_to={VAR: frm->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: _GET['start']}
+{SECTION: END}
+
+{SECTION: msg_xml_link_lnk}
+{ROOT}?t=help_index&amp;section=boardusage#syndicate
 {SECTION: END}

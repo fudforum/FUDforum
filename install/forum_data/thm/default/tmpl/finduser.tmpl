@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.22 2003/10/10 13:45:01 hackie Exp $
+* $Id: finduser.tmpl,v 1.23 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -51,7 +51,7 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
@@ -62,7 +62,7 @@
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: r->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
+<a href="{TEMPLATE: pm_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
@@ -70,7 +70,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&amp;toi={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+<a href="{TEMPLATE: email_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: finduser_title}
@@ -95,4 +95,16 @@
 
 {SECTION: findu_admin_opts}
 <td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=1">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=del">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
+{SECTION: END}
+
+{SECTION: find_user_entry_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: pm_link_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: r->id}
+{SECTION: END}
+
+{SECTION: email_link_lnk}
+{ROOT}?t=email&amp;toi={VAR: r->id}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.27 2003/10/09 14:34:27 hackie Exp $
+* $Id: post.tmpl,v 1.28 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{TEMPLATE: loged_in_user_lnk}" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
@@ -380,4 +380,8 @@
 
 {SECTION: post_mod_msg_notify_msg}
 {MSG: post_mod_msg_notify_msg}
+{SECTION: END}
+
+{SECTION: loged_in_user_lnk}
+{ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1
 {SECTION: END}

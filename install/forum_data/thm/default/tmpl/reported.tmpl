@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.10 2003/10/09 22:27:46 hackie Exp $
+* $Id: reported.tmpl,v 1.11 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,7 +22,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: reported_reg_user_link reportee profile link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->report_user_id}&amp;{DEF: _rsid}">{VAR: obj->report_user_login}</a>
+<a class="GenLink" href="{TEMPLATE: reported_reg_user_link_lnk}">{VAR: obj->report_user_login}</a>
 {SECTION: END}
 
 {SECTION: reported_anon_user if reportee is anon section}
@@ -74,4 +74,8 @@
 
 {SECTION: reported_no_messages}
 <tr><td>{MSG: reported_no_messages}</td></tr>
+{SECTION: END}
+
+{SECTION: reported_reg_user_link_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: obj->report_user_id}&amp;{DEF: _rsid}
 {SECTION: END}

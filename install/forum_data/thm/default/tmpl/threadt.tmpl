@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.17 2003/10/10 13:45:01 hackie Exp $
+* $Id: threadt.tmpl,v 1.18 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,7 +45,7 @@ ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a href="{TEMPLATE: reg_user_link}">{VAR: cur->alias}</a>
+<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: cur->alias}</a>
 {SECTION: END}
 
 {SECTION: thread_row_lnk}

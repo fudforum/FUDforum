@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.17 2003/10/09 22:27:46 hackie Exp $
+* $Id: selmsg.tmpl,v 1.18 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,35 +32,35 @@
 {SECTION: END}
 
 {SECTION: todays_posts todays posts link}
-<a class="GenLink" href="{ROOT}?{VAR: dt_opt}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</a>
+<a class="GenLink" href="{TEMPLATE: todays_posts_lnk}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</a>
 {SECTION: END}
 
 {SECTION: unread_messages unread messages link}
-&nbsp;| <a class="GenLink" href="{ROOT}?{VAR: un_opt}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</a>
+&nbsp;| <a class="GenLink" href="{TEMPLATE: unread_messages_lnk}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</a>
 {SECTION: END}
 
 {SECTION: unanswered unreplied posts link}
-&nbsp;| <a class="GenLink" href="{ROOT}?{VAR: rp_opt}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</a>
+&nbsp;| <a class="GenLink" href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</a>
 {SECTION: END}
 
 {SECTION: subscribed_frm subscribed forum link}
-&nbsp;| <a class="GenLink" href="{ROOT}?{VAR: frm_opt}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</a>
+&nbsp;| <a class="GenLink" href="{TEMPLATE: subscribed_frm_lnk}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</a>
 {SECTION: END}
 
 {SECTION: subscribed_thr subscribed thread link}
-&nbsp;| <a class="GenLink" href="{ROOT}?{VAR: th_opt}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</a>
+&nbsp;| <a class="GenLink" href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</a>
 {SECTION: END}
 
 {SECTION: more_unread_messages more unread messages link}
-<div align="center" class="GenText">[<a href="{ROOT}?{VAR: _SERVER['QUERY_STRING']}" class="GenLink" title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</a>]</div><img src="blank.gif" alt="" height=3 />
+<div align="center" class="GenText">[<a href="{TEMPLATE: more_unread_messages_lnk}" class="GenLink" title="{MSG: more_unread_messages_desc}">{MSG: more_unread_messages}</a>]</div><img src="blank.gif" alt="" height=3 />
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th>{MSG: forum} <a class="thLnk" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
+<tr><th>{MSG: forum} <a class="thLnk" href="{TEMPLATE: forum_row_lnk}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
+<tr><th>&nbsp;{MSG: thread} <a class="thLnk" href="{TEMPLATE: thread_row_lnk}">{VAR: r->thr_subject}</a></th></tr>
 {SECTION: END}
 
 {SECTION: no_result}
@@ -88,4 +88,36 @@
 
 {SECTION: no_unread_messages}
 <tr><th align=middle>{MSG: no_unread_messages}</th></tr>
+{SECTION: END}
+
+{SECTION: todays_posts_lnk}
+{ROOT}?{VAR: dt_opt}
+{SECTION: END}
+
+{SECTION: unread_messages_lnk}
+{ROOT}?{VAR: un_opt}
+{SECTION: END}
+
+{SECTION: unanswered_lnk}
+{ROOT}?{VAR: rp_opt}
+{SECTION: END}
+
+{SECTION: subscribed_frm_lnk}
+{ROOT}?{VAR: frm_opt}
+{SECTION: END}
+
+{SECTION: subscribed_thr_lnk}
+{ROOT}?{VAR: th_opt}
+{SECTION: END}
+
+{SECTION: more_unread_messages_lnk}
+{ROOT}?{VAR: _SERVER['QUERY_STRING']}
+{SECTION: END}
+
+{SECTION: forum_row_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thread_row_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
 {SECTION: END}

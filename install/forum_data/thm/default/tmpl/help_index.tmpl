@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: help_index.tmpl,v 1.4 2003/10/09 14:34:27 hackie Exp $
+* $Id: help_index.tmpl,v 1.5 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,7 +39,7 @@
 {SECTION: END}
 
 {SECTION: return_top return to top link}
-<div align="center" class="GenText">[ <a href="{ROOT}?t=help_index&amp;{DEF: _rsid}" class="GenLink">{MSG: help_return_to_index}</a> ]</div>
+<div align="center" class="GenText">[ <a href="{TEMPLATE: return_top_lnk}" class="GenLink">{MSG: help_return_to_index}</a> ]</div>
 {SECTION: END}
 {SECTION: help_index_update}
 {MSG: help_index_update}
@@ -47,4 +47,8 @@
 
 {SECTION: help_title}
 {MSG: help_title}
+{SECTION: END}
+
+{SECTION: return_top_lnk}
+{ROOT}?t=help_index&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.11 2003/10/09 21:08:03 hackie Exp $
+* $Id: referals.tmpl,v 1.12 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,7 +20,7 @@
 {REF: tabs.tmpl}
 
 {SECTION: pm_link}
-&nbsp;<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: r[1]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+&nbsp;<a href="{TEMPLATE: pm_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
@@ -28,7 +28,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+&nbsp;<a href="{TEMPLATE: email_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}
@@ -58,4 +58,12 @@
 {PAGE: END}
 {SECTION: referals_update}
 {MSG: referals_update}
+{SECTION: END}
+
+{SECTION: pm_link_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;toi={VAR: r[1]}
+{SECTION: END}
+
+{SECTION: email_link_lnk}
+{ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.9 2003/10/09 21:08:03 hackie Exp $
+* $Id: polllist.tmpl,v 1.10 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,7 @@
 {REF: stats.tmpl}
 
 {SECTION: vote_lnk}
-&nbsp;<b>::</b>&nbsp;<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
+&nbsp;<b>::</b>&nbsp;<a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_online_indicator}
@@ -43,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: poll_view_res_lnk}
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}">{MSG: polllist_view_results}</a>&nbsp;<b>::</b>&nbsp;
+<a href="{TEMPLATE: poll_view_res_lnk_lnk}">{MSG: polllist_view_results}</a>&nbsp;<b>::</b>&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_update}
@@ -73,4 +73,11 @@
 
 {SECTION: poll_no_polls}
 <tr><td colspan="5" align="center">{MSG: poll_no_polls}</td></tr>
+{SECTION: END}
+{SECTION: vote_lnk_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: poll_view_res_lnk_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}
 {SECTION: END}

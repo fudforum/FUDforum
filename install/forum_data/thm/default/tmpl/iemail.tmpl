@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.8 2003/10/09 21:08:03 hackie Exp $
+* $Id: iemail.tmpl,v 1.9 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -95,9 +95,17 @@
 {SECTION: END}
 
 {SECTION: iemail_thread_unsub}
-[ <a href="{ROOT}?t=rview&th={VAR: id}&notify=1&opt=off">{MSG: iemail_thread_unsub}</a> ]
+[ <a href="{TEMPLATE: iemail_thread_unsub_lnk}">{MSG: iemail_thread_unsub}</a> ]
 {SECTION: END}
 
 {SECTION: iemail_forum_unsub}
-[ <a href="{ROOT}?t=rview&frm_id={VAR: id}&unsub=1">{MSG: iemail_forum_unsub}</a> ]
+[ <a href="{TEMPLATE: iemail_forum_unsub_lnk}">{MSG: iemail_forum_unsub}</a> ]
+{SECTION: END}
+
+{SECTION: iemail_thread_unsub_lnk}
+{ROOT}?t=rview&th={VAR: id}&notify=1&opt=off
+{SECTION: END}
+
+{SECTION: iemail_forum_unsub_lnk}
+{ROOT}?t=rview&frm_id={VAR: id}&unsub=1
 {SECTION: END}

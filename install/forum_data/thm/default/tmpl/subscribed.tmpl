@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.tmpl,v 1.8 2003/10/09 14:34:28 hackie Exp $
+* $Id: subscribed.tmpl,v 1.9 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,7 +39,7 @@
 {PAGE: END}
 
 {SECTION: subscribed_forum_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}">{VAR-HTML: r[1]}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}" target="_blank">{MSG: view_forum}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{TEMPLATE: subscribed_forum_entry_lnk}">{VAR-HTML: r[1]}</a></td><td nowrap><a class="GenLink" href="{TEMPLATE: subscribed_forum_entry_lnk1}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{TEMPLATE: subscribed_forum_entry_lnk}" target="_blank">{MSG: view_forum}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_forums}
@@ -47,7 +47,7 @@
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[0]}&amp;{DEF: _rsid}">{VAR: r[1]}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&amp;th={VAR: r[0]}&amp;{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[0]}&amp;{DEF: _rsid}" target="_blank">{MSG: view_thread}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{TEMPLATE: subscribed_thread_entry_lnk}">{VAR: r[1]}</a></td><td nowrap><a class="GenLink" href="{TEMPLATE: subscribed_thread_entry_lnk1}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{TEMPLATE: subscribed_thread_entry_lnk}" target="_blank">{MSG: view_thread}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_threads}
@@ -56,4 +56,20 @@
 
 {SECTION: subscribed_update}
 {MSG: subscribed_update}
+{SECTION: END}
+
+{SECTION: subscribed_forum_entry_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: subscribed_forum_entry_lnk1}
+{ROOT}?t=subscribed&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: subscribed_thread_entry_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: subscribed_thread_entry_lnk1}
+{ROOT}?t=subscribed&amp;th={VAR: r[0]}&amp;{DEF: _rsid}
 {SECTION: END}

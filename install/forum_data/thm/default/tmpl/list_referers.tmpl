@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: list_referers.tmpl,v 1.7 2003/10/09 14:34:27 hackie Exp $
+* $Id: list_referers.tmpl,v 1.8 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,11 +21,11 @@
 {REF: admincp.tmpl}
 
 {SECTION: refered_entry a refered user LINK}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r2[1]}&amp;{DEF: _rsid}">{VAR: r2[0]}</a> &nbsp;
+<a class="GenLink" href="{TEMPLATE: refered_entry_lnk}">{VAR: r2[0]}</a> &nbsp;
 {SECTION: END}
 
 {SECTION: referer_entry refered users row}
-<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}">{VAR: r[0]}</a></td><td align="center" class="GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
+<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{TEMPLATE: referer_entry_lnk}">{VAR: r[0]}</a></td><td align="center" class="GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
 {SECTION: END}
 
 {PAGE: REFERALS_PAGE A list of all the users who referred people to the forum and who they referred}
@@ -43,4 +43,12 @@
 {PAGE: END}
 {SECTION: list_referers_update}
 {MSG: list_referers_update}
+{SECTION: END}
+
+{SECTION: refered_entry_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r2[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: referer_entry_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}
 {SECTION: END}

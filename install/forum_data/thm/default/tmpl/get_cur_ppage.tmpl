@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: get_cur_ppage.tmpl,v 1.8 2003/10/09 21:08:03 hackie Exp $
+* $Id: get_cur_ppage.tmpl,v 1.9 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,7 +20,7 @@
 {SECTION: END}
 
 {SECTION: viewing_message}
-<a href="{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: folders[$folder_id]}</a> &raquo; {VAR: msg_subject}
+<a href="{TEMPLATE: viewing_message_lnk}" class="GenLink">{VAR: folders[$folder_id]}</a> &raquo; {VAR: msg_subject}
 {SECTION: END}
 
 {MAIN_SECTION: cur_ppage private messaging action indicator}
@@ -45,4 +45,8 @@
 
 {SECTION: saved}
 {MSG: saved}
+{SECTION: END}
+
+{SECTION: viewing_message_lnk}
+{ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.12 2003/10/09 21:08:03 hackie Exp $
+* $Id: pmsg.tmpl,v 1.13 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,15 +35,15 @@
 {SECTION: END}
 
 {SECTION: action_buttons_inbox}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>&nbsp;<a href="{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
+<a href="{TEMPLATE: action_buttons_inbox_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: action_buttons_inbox_lnk1}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: action_buttons_inbox_lnk2}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_sent_trash}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
+<a href="{TEMPLATE: action_buttons_sent_trash_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_draft}
-<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>
+<a href="{TEMPLATE: action_buttons_draft_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: pmsg_read private message read}
@@ -55,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
-<font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;dr=1&amp;id={VAR: obj->id}" class="GenLink" title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</a>]</font>
+<font class="SmallText">&nbsp;&nbsp;[<a href="{TEMPLATE: deny_recipt_lnk}" class="GenLink" title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</a>]</font>
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
@@ -190,4 +190,28 @@
 <input type="submit" class="button" name="btn_move" value="{VAR: btn_action}">
 <select name="moveto">{TEMPLATE-DATA: moveto_list}</select>
 &nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
+{SECTION: END}
+
+{SECTION: action_buttons_inbox_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;reply={VAR: obj->id}
+{SECTION: END}
+
+{SECTION: action_buttons_inbox_lnk1}
+{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_buttons_inbox_lnk2}
+{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_buttons_sent_trash_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;forward={VAR: obj->id}
+{SECTION: END}
+
+{SECTION: action_buttons_draft_lnk}
+{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_id={VAR: obj->id}
+{SECTION: END}
+
+{SECTION: deny_recipt_lnk}
+{ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;dr=1&amp;id={VAR: obj->id}
 {SECTION: END}

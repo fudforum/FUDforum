@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.13 2003/10/10 13:45:01 hackie Exp $
+* $Id: search.tmpl,v 1.14 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,11 +52,11 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}">{VAR: r->alias}</a>
+<a class="GenLink" href="{TEMPLATE: registered_poster_lnk}">{VAR: r->alias}</a>
 {SECTION: END}
 
 {SECTION: unregistered_poster}
@@ -126,4 +126,16 @@
 {SECTION: END}
 
 {SECTION: search_selected_option}
+{SECTION: END}
+
+{SECTION: search_entry_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: search_entry_lnk1}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r->forum_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: registered_poster_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}
 {SECTION: END}

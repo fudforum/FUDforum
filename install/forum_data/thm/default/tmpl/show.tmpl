@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: show.tmpl,v 1.13 2003/10/09 21:08:03 hackie Exp $
+* $Id: show.tmpl,v 1.14 2003/10/10 13:58:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,9 +16,17 @@
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}
-<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}" title="{MSG: unread_posts_desc}">{MSG: unread_posts}</a>&nbsp;
+<b>::</b> <a class="GenLink" href="{TEMPLATE: unread_posts_lnk}" title="{MSG: unread_posts_desc}">{MSG: unread_posts}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unanswered_posts}
-<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>
+<b>::</b> <a class="GenLink" href="{TEMPLATE: unanswered_posts_lnk}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>
+{SECTION: END}
+
+{SECTION: unread_posts_lnk}
+{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}
+{SECTION: END}
+
+{SECTION: unanswered_posts_lnk}
+{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}
 {SECTION: END}
