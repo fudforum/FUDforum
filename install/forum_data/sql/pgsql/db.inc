@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.2 2002/07/04 19:56:53 hackie Exp $
+*   $Id: db.inc,v 1.3 2002/07/05 14:09:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -290,6 +290,8 @@ function get_fud_table_list()
 	$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
 	while( list($name) = DB_ROWARR($r) ) $ret[] = $name;
 	QF($r);
+	
+	reset($ret);
 	
 	return $ret;	
 }

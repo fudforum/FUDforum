@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.3 2002/07/04 19:56:53 hackie Exp $
+*   $Id: db.inc,v 1.4 2002/07/05 14:09:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -276,6 +276,8 @@ function get_fud_table_list()
 		$ret[] = $name;
 	}	
 	QF($r);
+	
+	reset($ret);
 	
 	return $ret;	
 }
