@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.16 2003/04/21 20:52:31 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.17 2003/04/21 22:20:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
+
 	if (!_uid) {
 		std_error('access');
 	}
@@ -77,11 +77,11 @@ function make_perm_str(&$max_perms, &$cur_perms, $type)
 			$s1 .= 'u' . $k . ','; 
 			$s2 .= "'".(($v == 'Y' && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
 		} else {
-			$s1 = 'u' . $k . "='".(($v == 'Y' && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
+			$s1 .= 'u' . $k . "='".(($v == 'Y' && $cur_perms[$k] != 'N') ? 'Y' : 'N')."',";
 		}
 	}
 	if ($type) {
-		return array($s1, 0, -1, $s2, 0, -1);
+		return array($s1, $s2);
 	} else {
 		return substr($s1, 0, -1);
 	}
@@ -94,6 +94,17 @@ function make_perms_ob(&$obj)
 			continue;
 		}
 		$perms[$k] = $v;
+	}
+	return $perms;
+}
+
+function make_perms_uob(&$obj)
+{
+	foreach ($obj as $k => $v) {
+		if (strncmp($k, 'up_', 3)) {
+			continue;
+		}
+		$perms[substr($k, 1)] = $v;
 	}
 	return $perms;
 }
@@ -118,22 +129,23 @@ function make_perms_ob(&$obj)
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
 			} else {
 				$p = make_perm_str($maxperms, $_POST, 1);
-				q('INSERT INTO {SQL_TABLE_PREFIX}group_members ('.$p[0].' user_id, group_id) VALUES ('.$p[1].', '.$usr_id.', '.$group_id.')');
+				q('INSERT INTO {SQL_TABLE_PREFIX}group_members ('.$p[0].' user_id, group_id) VALUES ('.$p[1].' '.$usr_id.', '.$group_id.')');
 				grp_rebuild_cache($group_id, $usr_id);
 			}
-		} else if (($usr_id = q_singelval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit']))) {
+		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit']))) {
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET '.make_perm_str($maxperms, $_POST, 0).' WHERE id='.(int)$_POST['edit']);
 			grp_rebuild_cache($group_id, $usr_id);
 		}
+		unset($_POST['btn_submit']);
 	}
-	
+
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id) {
 		grp_delete_member($group_id, $del);
 	}
-	
+
 	$edit = '0';
 	if (isset($_GET['edit']) && ($edit = (int)$_GET['edit'])) {
-		if (!($mbr = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.$edit))) {
+		if (!($mbr = db_sab('SELECT gm.*, u.alias FROM {SQL_TABLE_PREFIX}group_members gm LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.id='.$edit))) {
 			invl_inp_err();
 		}
 		
@@ -144,23 +156,13 @@ function make_perms_ob(&$obj)
 		} else {
 			$gr_member = $mbr->alias;
 		}	
-		foreach ($mbr as $k => $v) {
-			if (strncmp($k, 'up_', 3)) {
-				continue;
-			}
-			$perms[substr($k, 1)] = $v;
-		}
+		$perms = make_perms_uob($mbr);
 	} else if ($group_id > 2 && !isset($_POST['btn_submit']) && ($luser_id = q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id))) {
 		/* help trick, we fetch the last user added to the group */
 		if (!($mbr = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}group_members WHERE id='.$luser_id))) {
 			invl_inp_err();
 		}
-		foreach ($mbr as $k => $v) {
-			if (strncmp($k, 'up_', 3)) {
-				continue;
-			}
-			$perms[substr($k, 1)] = $v;
-		}
+		$perms = make_perms_uob($mbr);
 		unset($mbr);
 	}
 
@@ -171,14 +173,14 @@ function make_perms_ob(&$obj)
 
 	$perm_select = draw_permissions('', $perms, $maxperms);
 
-	if (empty($edit)) {
+	if (!$edit) {
 		$member_input = '{TEMPLATE: member_add}';
 		$submit_button = '{TEMPLATE: submit_button}';
 	} else {
 		$submit_button = '{TEMPLATE: update_buttons}';
 		$member_input = '{TEMPLATE: member_edit}';
 	}
-	
+
 	/* draw list of group members */
 	$group_members_list = '';
 	$r = uq('SELECT gm.id AS mmid, gm.*, g.*, u.alias

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.7 2003/04/21 14:14:54 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.8 2003/04/21 22:25:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -89,8 +89,12 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
+{SECTION: grp_find_user}
+&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]
+{SECTION: END}
+
 {SECTION: member_add add new member}
-<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: login_error}<input type="text" name="gr_member" value="{VAR-HTML: gr_member}">&nbsp;&nbsp;&nbsp;[{MSG: group_mgr_search}]</td></tr>
+<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: login_error}<input type="text" name="gr_member" value="{VAR: gr_member}">{TEMPLATE-DATA: find_user}</td></tr>
 {SECTION: END}
 
 {SECTION: member_edit edit an existing member}
