@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.10 2003/04/25 13:01:04 hackie Exp $
+*   $Id: msglist.php,v 1.11 2003/04/25 13:05:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,8 +85,8 @@ function makedeps()
 	return array($tmplmsglist, $filedeps);
 }
 
-	if (isset($_POST['btn_submit'], $_POST['msg_list'])) {
-		$msglist_arr[] = strtok($_POST['msg_list'], ':');
+	if (isset($_POST['btn_submit'], $_POST['msglist'])) {
+		$msglist_arr[] = strtok($_POST['msglist'], ':');
 		while (($v = strtok(':'))) {
 			$msglist_arr[] = $v;			
 		}
