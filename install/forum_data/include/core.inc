@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.54 2003/03/25 08:50:01 hackie Exp $
+*   $Id: core.inc,v 1.55 2003/04/24 21:35:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,62 +17,64 @@
 
 $FORUM_VERSION = "2.3.9RC1";
 
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL);
 ignore_user_abort(true);
 
 function rls_db_lck()
 {
-	if( connection_status() && !empty($GLOBALS['__DB_INC__']['SQL_LINK']) && db_locked() ) db_unlock();
+	if (connection_status() && defined('FUD_SQL_LNK') && db_locked()) {
+		db_unlock();
+	}
 	return;
 }
 
-register_shutdown_function("rls_db_lck");
+register_shutdown_function('rls_db_lck');
 
-$GLOBALS['MOD']=$GLOBALS['TITLE_EXTRA']=NULL;
+$GLOBALS['TITLE_EXTRA']=NULL;
 
-if( !isset($HTTP_SERVER_VARS['PATH_TRANSLATED']) && isset($HTTP_SERVER_VARS['SCRIPT_FILENAME']) ) 
-	$HTTP_SERVER_VARS['PATH_TRANSLATED'] = $GLOBALS['HTTP_SERVER_VARS']['PATH_TRANSLATED'] = $HTTP_SERVER_VARS['SCRIPT_FILENAME'];
-
-if( empty($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']) ) 
-	if( empty($GLOBALS['REQUEST_URI']) ) 
-		$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI'] = $GLOBALS['REQUEST_URI'] = $GLOBALS['HTTP_SERVER_VARS']['SCRIPT_NAME'].'?'.$GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
-	else 
-		$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI'] = $GLOBALS['REQUEST_URI'];
-
-if( !empty($GLOBALS['returnto']) ) $GLOBALS['returnto'] = stripslashes($GLOBALS['returnto']);
-
-
-$reg_globals = ini_get('register_globals');
-$magic_quotes = get_magic_quotes_gpc();
-
-if (!$reg_globals && !$magic_quotes) {
-	fud_use('reg_globals.inc', true);
-	fud_variable_register('fud_request_add_gns');
-} else if (!$magic_quotes) {
-	fud_use('reg_globals.inc', true);
-	fud_variable_register('fud_request_add_slashes');
-} else if (!$reg_globals) {
-	fud_use('reg_globals.inc', true);
-	fud_variable_register('fud_request_add_globals');
+if (!isset($_SERVER['PATH_TRANSLATED']) && isset($_SERVER['SCRIPT_FILENAME'])) {
+	$_SERVER['PATH_TRANSLATED'] = $_SERVER['SCRIPT_FILENAME'];
 }
 
+if (!isset($_SERVER['REQUEST_URI']) && isset($_SERVER['SCRIPT_NAME'], $_SERVER['QUERY_STRING'])) {
+	$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'];
+}
+
+if (get_magic_quotes_gpc()) {
+	function strip_quotes(&$var) 
+	{
+        	if (is_array($var)) {
+			array_walk($var, 'strip_quotes');
+		} else {
+			$var = stripslashes($var);
+		}
+	}
+
+	if (@count($_GET)) {
+		array_walk($_GET, 'strip_quotes');
+	}
+        if (@count($_POST)) {
+		array_walk($_POST, 'strip_quotes');
+	}
+        if (@count($_COOKIES)) {
+		array_walk($_COOKIES, 'strip_quotes');
+	}
+	if (@count($_FILES)) {
+		array_walk($_FILES, 'strip_quotes');
+	}
+}
+                                                                                                                                                                                        
 define('__request_timestamp__', time());
 
 function fud_use($file, $static=false)
 {
-	if ( !$static && !defined('admin_form') && isset($GLOBALS['FUD_THEME']) ) 
-		$thm = 'theme/'.$GLOBALS['FUD_THEME']->name.'/';
-	else if ( (defined('admin_form') || !isset($GLOBALS['FUD_THEME'])) && !$static ) 
-		$thm = 'theme/default/';
-	else $thm = '';
-	
-	include_once $GLOBALS["INCLUDE"].$thm.$file;
-}
-
-function db_getmicrotime() 
-{
-	$tm_ar = gettimeofday();
-	return ($tm_ar['sec']+$tm_ar['usec']/1000000);
+	if ($static) {
+		include_once $GLOBALS['INCLUDE'] . $file;
+	} else if (defined('admin_form') || !defined('fud_theme')) {
+		include_once $GLOBALS['INCLUDE'] . 'theme/default/' . $file;
+	} else {
+		include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
+	}
 }
 
 function make_seed() 
@@ -82,49 +84,24 @@ function make_seed()
 
 function get_random_value($bitlength=32)
 {
-	$n=round($bitlength/32);
+	$n = round($bitlength/32);
 	$v='';
-	for( $i=0; $i<$n; $i++ ) $v .= mt_rand();
+	while (--$n > -1) {
+		$v .= mt_rand();
+	}
 	return $v;
 }
 
-function start_bench($name, $pool='default')
-{
-	$GLOBALS['__BENCH_ARR__'][$pool][$name] = db_getmicrotime();
-}
-
-function end_bench($name, $pool='default')
-{
-	$end = db_getmicrotime();
-	$GLOBALS['__BENCH_RESULT__'][$pool][$name]['runtime'] =  $end - $GLOBALS['__BENCH_ARR__'][$pool][$name];
-	unset($GLOBALS['__BENCH_ARR__'][$pool][$name]);
-	return $GLOBALS['__BENCH_RESULT__'][$pool][$name]['runtime'];
-}
-
-function get_bench($name, $pool='default')
-{
-	return $GLOBALS['__BENCH_RESULT__'][$pool][$name]['runtime'];
-}
-
-function del_pool_entry($name, $pool='default')
-{
-	unset($GLOBALS['__BENCH_RESULT__'][$pool][$name]);
-}
-
-function get_pool($pool='default')
-{
-	return $GLOBALS['__BENCH_RESULT__'][$pool];
-}
-
-function sum_pool($pool='default')
-{
-	$bp = &$GLOBALS['__BENCH_RESULT__'][$pool];
-	
-	$bt = 0;
-	foreach($bp as $v) $bt += $v['runtime'];
-	foreach($bp as $k => $v) $GLOBALS['__BENCH_RESULT__'][$pool][$k]['fract'] = round($v['runtime']/$bt*100).'%';
-	
-	return $bt;
+if (!function_exists('file_get_contents')) {
+	function file_get_contents($fname)
+	{
+		if (!($fp = @fopen($fname, 'rb'))) {
+			return FALSE;
+		}
+		$data = fread($fp, filesize($fname));
+		fclose($fp);
+		return $data;
+	}
 }
 
 function __ffilesize($fp)
@@ -135,7 +112,5 @@ function __ffilesize($fp)
 
 make_seed();
 
-$GLOBALS['PAGE_TIME'] = db_getmicrotime();
-unset($GLOBALS['BENCH_MARKS']);
-
+$GLOBALS['PAGE_TIME'] = gettimeofday();
 ?>
