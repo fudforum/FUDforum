@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.5 2002/08/08 22:28:26 hackie Exp $
+*   $Id: return.inc.t,v 1.6 2002/08/09 09:25:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,8 +25,8 @@ function check_return()
         if ( empty($GLOBALS['returnto']) ) 
         	$GLOBALS['returnto']='{ROOT}?'._rsidl;
         else {
-        	$GLOBALS['returnto']='{ROOT}?'._rsidl;
         	$url_bits = parse_url($GLOBALS['returnto']);
+        	$GLOBALS['returnto']='{ROOT}?'._rsidl;
 		
 		if( $url_bits['query'] ) {
 			parse_str(str_replace('&amp;', '&', $url_bits['query']), $url_args);
