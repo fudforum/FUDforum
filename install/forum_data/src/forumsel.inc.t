@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.7 2003/04/06 15:52:04 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.8 2003/04/16 15:55:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,7 +34,7 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 
 		return '{TEMPLATE: forum_select}';
 	} else {
-		$c = q('SELECT f.id, f.name, c.name, c.id, CASE WHEN (fr.last_view IS NULL OR m.post_stamp > fr.last_view) THEN 1 ELSE 0 END AS reads
+		$c = q('SELECT f.id, f.name, c.name, c.id, CASE WHEN '.$GLOBALS['usr']->last_read.' < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view) THEN 1 ELSE 0 END AS reads
 			FROM {SQL_TABLE_PREFIX}forum f 
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
