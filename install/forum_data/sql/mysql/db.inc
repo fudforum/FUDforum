@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.1 2002/06/26 20:32:40 hackie Exp $
+*   $Id: db.inc,v 1.2 2002/06/26 22:40:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -126,7 +126,7 @@ function q($query)
 	$ts = db_getmicrotime();
 	if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
 		$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-		error_handler("db.inc", "query failed: %( $query )% because %( $error_reason )%", 1);
+		exit("query failed: %( $query )% because %( $error_reason )%");
 		echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
 		if( db_locked() ) db_unlock();
 		exit;
