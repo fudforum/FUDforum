@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.21 2003/03/13 12:39:10 hackie Exp $
+*   $Id: admglobal.php,v 1.22 2003/04/29 18:20:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,189 +17,252 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
+	require('GLOBALS.php');
+	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
-	fud_use('util.inc');
-	fud_use('adm.inc', true);
 	fud_use('tz.inc');
 	fud_use('cfg.inc', true);
 	fud_use('draw_select_opt.inc');
 	
-	list($ses, $usr) = initadm();
+function draw_help($about)
+{
+	if (isset($GLOBALS['help_ar'][$about])) {
+		return '<br><font size="-1">'.$GLOBALS['help_ar'][$about].'</font>';
+	}
+}
+
+function print_yn_field($descr, $field)
+{
+	$str = !isset($GLOBALS[$field]) ? 'Y' : $GLOBALS[$field];
+	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': '.draw_help($field).'</td><td valign="top">'.create_select('CF_'.$field, "Yes\nNo", "Y\nN", $str).'</td></tr>';
+}
 	
-	$global_config = read_global_config();
-	$global_config_ar = global_config_ar($global_config);
-	reset($global_config_ar);
-	
-	if ( !empty($form_posted) ) {
-		$change = 0;
-		foreach($HTTP_POST_VARS as $k => $v) {
-			if( substr($k, 0, 3) != 'CF_' || $v == ${substr($k, 3)} ) continue;
-			
-			change_global_val(substr($k, 3), $v, $global_config);
-			$change = 1;
+function print_string_field($descr, $field, $is_int=0)
+{
+	if (!isset($GLOBALS[$field])) {
+		$str = !$is_int ? '' : '0';
+	} else {
+		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
+	}
+	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': '.draw_help($field).'</td><td valign="top"><input type="text" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
+}
+
+function print_tag_style($descr, $field)
+{
+	$str = !isset($GLOBALS[$field]) ? 'FUD ML' : $GLOBALS[$field];
+	echo '<tr bgcolor="#bff8ff"><td>Tag Style: '.draw_help($field).'</td><td>'.create_select('CF_'.$field, "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $str).'</td></tr>';
+}
+
+	if (isset($_POST['form_posted'])) {
+		/* make a list of the fields we need to change */
+		foreach ($_POST as $k => $v) {
+			if (strncmp($k, 'CF_', 3)) {
+				continue;
+			}
+			$k = substr($k, 3);
+			if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
+				$ch_list[$k] = $v;
+			}
 		}
-		
-		if( $change ) write_global_config($global_config);
-		
-		/* specific actions that need taking */
-		if ( $GLOBALS['SHOW_N_MODS'] != $HTTP_POST_VARS['CF_SHOW_N_MODS'] ) {
-			$GLOBALS['SHOW_N_MODS'] = $HTTP_POST_VARS['CF_SHOW_N_MODS'];
-			rebuildmodlist();
+		if (isset($ch_list)) {
+			change_global_settings($ch_list);
+
+			/* some fields require us to make special changes */
+			if (isset($ch_list['SHOW_N_MODS'])) {
+				$GLOBALS['SHOW_N_MODS'] = $ch_list['SHOW_N_MODS'];
+				rebuildmodlist();
+			}
+			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
+			}
+			if (isset($ch_list['POSTS_PER_PAGE']) || isset($ch_list['DEFAULT_THREAD_VIEW']) || isset($ch_list['ANON_NICK'])) {
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET 
+					posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'].',
+					default_view=\''.addslashes($ch_list['DEFAULT_THREAD_VIEW']).'\',
+					login=\''.addslashes($ch_list['ANON_NICK']).'\',
+					alias=\''.addslashes(htmlspecialchars($ch_list['ANON_NICK'])).'\'
+					WHERE id=1');
+			}
+
+			/* put the settings 'live' so they can be seen on the form */
+			foreach ($ch_list as $k => $v) {
+				$GLOBALS[$k] = $v;
+			}
 		}
-		
-		if( $GLOBALS['USE_ALIASES'] != $HTTP_POST_VARS['CF_USE_ALIASES'] && $HTTP_POST_VARS['CF_USE_ALIASES'] == 'N' )
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET alias=login");
-		
-		header("Location: admglobal.php?"._rsidl."&rnd=".get_random_value(128));
-		exit();
 	}
 	
 	$help_ar = read_help();
 	
-	foreach($global_config_ar as $key => $val) $GLOBALS['CF_'.$key] = stripslashes($val);
-	
-	$CF_DISABLED_REASON = cfg_dec($CF_DISABLED_REASON);
+	$DISABLED_REASON = cfg_dec($DISABLED_REASON);
 
-function draw_help($about)
-{
-	if( !empty($GLOBALS['help_ar'][$about]) ) 
-		echo '<br><font size="-1">'.$GLOBALS['help_ar'][$about].'</font>';
-}
-	
-include('admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Global Configuration</h2>
 <table border=0 cellspacing=1 cellpadding=3>
-<form method="post">
-<?php echo _hs; ?>
-<tr bgcolor="#bff8ff"><td>Forum Title:<?php draw_help('FORUM_TITLE'); ?></td><td><input type="text" name="CF_FORUM_TITLE" value="<?php echo htmlspecialchars($CF_FORUM_TITLE); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Forum Enabled:<?php draw_help('FORUM_ENABLED'); ?></td><td><?php draw_select('CF_FORUM_ENABLED', "Yes\nNo", "Y\nN", $CF_FORUM_ENABLED); ?></td></tr>
-<tr bgcolor="#bff8ff"><td valign=top>Reason for Disabling:<?php draw_help('DISABLED_REASON'); ?></td><td><textarea name="CF_DISABLED_REASON" cols=40 rows=5><?php echo htmlspecialchars($CF_DISABLED_REASON); ?></textarea></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Registration:<?php draw_help('ALLOW_REGISTRATION'); ?></td><td><?php draw_select('CF_ALLOW_REGISTRATION', "Yes\nNo", "Y\nN", $CF_ALLOW_REGISTRATION); ?></td></tr>
+<form method="post" action="admglobal.php">
+<?php
+	echo _hs;
+	print_string_field('Forum Title', 'FORUM_TITLE');
+	print_yn_field('Forum Enabled', 'FORUM_ENABLED');
+?>
+<tr bgcolor="#bff8ff"><td valign=top>Reason for Disabling:<?php echo draw_help('DISABLED_REASON'); ?></td><td><textarea name="CF_DISABLED_REASON" cols=40 rows=5><?php echo htmlspecialchars($DISABLED_REASON); ?></textarea></td></tr>
+<?php
+	print_yn_field('Allow Registration', 'ALLOW_REGISTRATION');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Global</b></td></tr>
-<tr bgcolor="#bff8ff"><td>WWW Root:<?php draw_help('WWW_ROOT'); ?></td><td><input type="text" name="CF_WWW_ROOT" value="<?php echo htmlspecialchars($CF_WWW_ROOT); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Error File:<?php draw_help('ERROR_PATH'); ?></td><td><input type="text" name="CF_ERROR_PATH" value="<?php echo htmlspecialchars($CF_ERROR_PATH); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Message Storage Dir:<?php draw_help('MSG_STORE_DIR'); ?></td><td><input type="text" name="CF_MSG_STORE_DIR" value="<?php echo htmlspecialchars($CF_MSG_STORE_DIR); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Temporary Dir:<?php draw_help('TMP'); ?></td><td><input type="text" name="CF_TMP" value="<?php echo htmlspecialchars($CF_TMP); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>File Storage Dir:<?php draw_help('FILE_STORE'); ?></td><td><input type="text" name="CF_FILE_STORE" value="<?php echo htmlspecialchars($CF_FILE_STORE); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Forum Settings Dir:<?php draw_help('FORUM_SETTINGS_PATH'); ?></td><td><input type="text" name="CF_FORUM_SETTINGS_PATH" value="<?php echo htmlspecialchars($CF_FORUM_SETTINGS_PATH); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Mogrify Path:<?php draw_help('MOGRIFY_BIN'); ?><br><font size="-1">ImageMagick utility for manipulating images, used to allow the admin to scale/convert custom avatars.</font></td><td><input type="text" name="CF_MOGRIFY_BIN" value="<?php echo htmlspecialchars($CF_MOGRIFY_BIN); ?>"></td></tr>
+<?php
+	print_string_field('WWW Root', 'WWW_ROOT');
+	print_string_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
+	print_string_field('Data Root', 'DATA_DIR');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Database Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Database Server:<?php draw_help('DBHOST'); ?></td><td><input type="text" name="CF_DBHOST" value="<?php echo htmlspecialchars($CF_DBHOST); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Database Login:<?php draw_help('DBHOST_USER'); ?></td><td><input type="text" name="CF_DBHOST_USER" value="<?php echo htmlspecialchars($CF_DBHOST_USER); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Database Password:<?php draw_help('DBHOST_PASSWORD'); ?></td><td><input type="text" name="CF_DBHOST_PASSWORD" value="<?php echo htmlspecialchars($CF_DBHOST_PASSWORD); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Database Name:<?php draw_help('DBHOST_DBNAME'); ?></td><td><input type="text" name="CF_DBHOST_DBNAME" value="<?php echo htmlspecialchars($CF_DBHOST_DBNAME); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Use Persistent Connections:<?php draw_help('DBHOST_PERSIST'); ?></td><td><?php draw_select('CF_DBHOST_PERSIST', "Yes\nNo", "Y\nN", $CF_DBHOST_PERSIST); ?></td></tr>
+<?php
+	print_string_field('Database Server', 'DBHOST');
+	print_string_field('Database Login', 'DBHOST_USER');
+	print_string_field('Database Password', 'DBHOST_PASSWORD');
+	print_string_field('Database Name', 'DBHOST_DBNAME');
+	print_yn_field('Use Persistent Connections', 'DBHOST_PERSIST');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Private Messaging</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Private Messaging:<?php draw_help('PM_ENABLED'); ?></td><td><?php draw_select('CF_PM_ENABLED', "Yes\nNo", "Y\nN", $PM_ENABLED); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>File Attachments in Private Messages:<?php draw_help('PRIVATE_ATTACHMENTS'); ?></td><td><input type="text" name="CF_PRIVATE_ATTACHMENTS" value="<?php echo $CF_PRIVATE_ATTACHMENTS; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Attachment Size (bytes):<?php draw_help('PRIVATE_ATTACH_SIZE'); ?></td><td><input type="text" name="CF_PRIVATE_ATTACH_SIZE" value="<?php echo $CF_PRIVATE_ATTACH_SIZE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Smilies:<?php draw_help('PRIVATE_MSG_SMILEY'); ?></td><td><?php draw_select('CF_PRIVATE_MSG_SMILEY', "Yes\nNo", "Y\nN", $CF_PRIVATE_MSG_SMILEY); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Images (fudcode only):<?php draw_help('PRIVATE_IMAGES'); ?></td><td><?php draw_select('CF_PRIVATE_IMAGES', "Yes\nNo", "Y\nN", $CF_PRIVATE_IMAGES); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Tag Style:<?php draw_help('PRIVATE_TAGS'); ?></td><td><?php draw_select('CF_PRIVATE_TAGS', "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $CF_PRIVATE_TAGS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Private Messages Folder Size:<?php draw_help('MAX_PMSG_FLDR_SIZE'); ?></td><td><input type="text" name="CF_MAX_PMSG_FLDR_SIZE" value="<?php echo $CF_MAX_PMSG_FLDR_SIZE; ?>"></td></tr>
+<?php
+	print_yn_field('Allow Private Messaging', 'PM_ENABLED');
+	print_string_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
+	print_string_field('Maximum Attachment Size (bytes)', 'PRIVATE_ATTACH_SIZE', 1);
+	print_yn_field('Allow Smilies', 'PRIVATE_MSG_SMILEY');
+	print_yn_field('Allow Images (fudcode only)', 'PRIVATE_IMAGES');
+	print_tag_style('Tag Style', 'PRIVATE_TAGS');
+	print_string_field('Maximum Private Messages Folder Size', 'MAX_PMSG_FLDR_SIZE', 1);
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Cookie & Session Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Cookie Path:<?php draw_help('COOKIE_PATH'); ?></td><td><input type="text" name="CF_COOKIE_PATH" value="<?php echo htmlspecialchars($CF_COOKIE_PATH); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Cookie Domain:<?php draw_help('COOKIE_DOMAIN'); ?></td><td><input type="text" name="CF_COOKIE_DOMAIN" value="<?php echo htmlspecialchars($CF_COOKIE_DOMAIN); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Cookie Name:<?php draw_help('COOKIE_NAME'); ?></td><td><input type="text" name="CF_COOKIE_NAME" value="<?php echo htmlspecialchars($CF_COOKIE_NAME); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Cookie Timeout:<?php draw_help('COOKIE_TIMEOUT'); ?></td><td><input type="text" name="CF_COOKIE_TIMEOUT" value="<?php echo $CF_COOKIE_TIMEOUT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Session Timeout:<?php draw_help('SESSION_TIMEOUT'); ?></td><td><input type="text" name="CF_SESSION_TIMEOUT" value="<?php echo $CF_SESSION_TIMEOUT; ?>"></td></tr>
+<?php
+	print_string_field('Cookie Path', 'COOKIE_PATH');
+	print_string_field('Cookie Domain', 'COOKIE_DOMAIN');
+	print_string_field('Cookie Name', 'COOKIE_NAME');
+	print_string_field('Cookie Timeout', 'COOKIE_TIMEOUT', 1);
+	print_string_field('Session Timeout', 'SESSION_TIMEOUT', 1);
+	print_yn_field('Enable URL sessions', 'SESSION_USE_URL');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Custom Avatar Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Avatar Approval:<?php draw_help('CUSTOM_AVATAR_APPOVAL'); ?></td><td><?php draw_select('CF_CUSTOM_AVATAR_APPOVAL', "Yes\nNo", "Y\nN", $CF_CUSTOM_AVATAR_APPOVAL); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Custom Avatars:<?php draw_help('CUSTOM_AVATARS'); ?></td><td><?php draw_select('CF_CUSTOM_AVATARS', "OFF\nBuilt In Only\nURL Only\nUploaded Only\nBuilt In & URL\nBuilt In & Uploaded\nURL & Uploaded\nALL", "OFF\nBUILT\nURL\nUPLOAD\nBUILT_URL\nBUILT_UPLOAD\nURL_UPLOAD\nALL", $CF_CUSTOM_AVATARS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Custom Avatar Max Size (bytes):<?php draw_help('CUSTOM_AVATAR_MAX_SIZE'); ?></td><td><input type="text" name="CF_CUSTOM_AVATAR_MAX_SIZE" value="<?php echo $CUSTOM_AVATAR_MAX_SIZE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Custom Avatar Max Dimentions:<?php draw_help('CUSTOM_AVATAR_MAX_DIM'); ?></td><td><input type="text" name="CF_CUSTOM_AVATAR_MAX_DIM" value="<?php echo htmlspecialchars($CUSTOM_AVATAR_MAX_DIM); ?>"></td></tr>
+<?php
+	print_yn_field('Avatar Approval', 'CUSTOM_AVATAR_APPOVAL');
+	print_yn_field('Allow Flash (swf) avatars', 'AVATAR_ALLOW_SWF');
+?>
+<tr bgcolor="#bff8ff"><td>Custom Avatars:<?php echo draw_help('CUSTOM_AVATARS'); ?></td><td><?php draw_select('CF_CUSTOM_AVATARS', "OFF\nBuilt In Only\nURL Only\nUploaded Only\nBuilt In & URL\nBuilt In & Uploaded\nURL & Uploaded\nALL", "OFF\nBUILT\nURL\nUPLOAD\nBUILT_URL\nBUILT_UPLOAD\nURL_UPLOAD\nALL", $CUSTOM_AVATARS); ?></td></tr>
+<?php
+	print_string_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
+	print_string_field('Custom Avatar Max Dimentions', 'CUSTOM_AVATAR_MAX_DIM');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Signature Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Signatures:<?php draw_help('ALLOW_SIGS'); ?></td><td><?php draw_select('CF_ALLOW_SIGS', "Yes\nNo", "Y\nN", $CF_ALLOW_SIGS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Tag Style:<?php draw_help('FORUM_CODE_SIG'); ?></td><td><?php draw_select('CF_FORUM_CODE_SIG', "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $CF_FORUM_CODE_SIG); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Smilies:<?php draw_help('FORUM_SML_SIG'); ?></td><td><?php draw_select('CF_FORUM_SML_SIG', "Yes\nNo", "Y\nN", $CF_FORUM_SML_SIG); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Images (fudcode only):<?php draw_help('FORUM_IMG_SIG'); ?></td><td><?php draw_select('CF_FORUM_IMG_SIG', "Yes\nNo", "Y\nN", $CF_FORUM_IMG_SIG); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum number of images:<?php draw_help('FORUM_IMG_CNT_SIG'); ?></td><td><input type="text" name="CF_FORUM_IMG_CNT_SIG" value="<?php echo $FORUM_IMG_CNT_SIG; ?>"></td></tr>
+<?php
+	print_yn_field('Allow Signatures', 'ALLOW_SIGS');
+	print_tag_style('Tag Style', 'FORUM_CODE_SIG');
+	print_yn_field('Allow Smilies', 'FORUM_SML_SIG');
+	print_yn_field('Allow Images (fudcode only)', 'FORUM_IMG_SIG');
+	print_string_field('Maximum number of images', 'FORUM_IMG_CNT_SIG', 1);
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
-<?php
-if ( function_exists('pspell_new_config') )
-	$pspell_support = '<font color="red">is enabled.</font>';
-else
-	$pspell_support = '<font color="red">is disabled.<br>Please ask your administrator to enable pspell support.</font>';
-?>
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Spell Checker</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Enable Spell Checker:<?php draw_help('SPELL_CHECK_ENABLED'); ?><br><font size=-1>This option requires pspell support in PHP, which is currently <?php echo $pspell_support; ?></font></td><td><?php draw_select('CF_SPELL_CHECK_ENABLED', "Yes\nNo", "Y\nN", $CF_SPELL_CHECK_ENABLED); ?></td></tr>
+<?php
+	if (function_exists('pspell_new_config')) {
+		$pspell_support = '<font color="red">is enabled.</font>';
+	} else {
+		$pspell_support = '<font color="red">is disabled.<br>Please ask your administrator to enable pspell support.</font>';
+		$GLOBALS['SPELL_CHECK_ENABLED'] = 'N';
+	}
+	print_yn_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Email Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Email:<?php draw_help('ALLOW_EMAIL'); ?></td><td><?php draw_select('CF_ALLOW_EMAIL', "Yes\nNo", "Y\nN", $CF_ALLOW_EMAIL); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Use SMTP To Send Email:<?php draw_help('USE_SMTP'); ?></td><td><?php draw_select('CF_USE_SMTP', "Yes\nNo", "Y\nN", $CF_USE_SMTP); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>SMTP Server:<?php draw_help('FUD_SMTP_SERVER'); ?></td><td><input type="text" name="CF_FUD_SMTP_SERVER" value="<?php echo $FUD_SMTP_SERVER; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>SMTP Server Timeout:<?php draw_help('FUD_SMTP_TIMEOUT'); ?></td><td><input type="text" name="CF_FUD_SMTP_TIMEOUT" value="<?php echo $FUD_SMTP_TIMEOUT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>SMTP Server Login:<?php draw_help('FUD_SMTP_LOGIN'); ?></td><td><input type="text" name="CF_FUD_SMTP_LOGIN" value="<?php echo $FUD_SMTP_LOGIN; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>SMTP Server Password:<?php draw_help('FUD_SMTP_PASS'); ?></td><td><input type="text" name="CF_FUD_SMTP_PASS" value="<?php echo $FUD_SMTP_PASS; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Email Confirmation:<?php draw_help('EMAIL_CONFIRMATION'); ?></td><td><?php draw_select('CF_EMAIL_CONFIRMATION', "Yes\nNo", "Y\nN", $CF_EMAIL_CONFIRMATION); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Administrator Email:<?php draw_help('ADMIN_EMAIL'); ?></td><td><input type="text" name="CF_ADMIN_EMAIL" value="<?php echo htmlspecialchars($CF_ADMIN_EMAIL); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Notify From:<?php draw_help('NOTIFY_FROM'); ?></td><td><input type="text" name="CF_NOTIFY_FROM" value="<?php echo htmlspecialchars($CF_NOTIFY_FROM); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Notify W/Body:<?php draw_help('NOTIFY_WITH_BODY'); ?></td><td><?php draw_select('CF_NOTIFY_WITH_BODY', "Yes\nNo", "Y\nN", $CF_NOTIFY_WITH_BODY); ?></td></tr>
+<?php
+	print_yn_field('Allow Email', 'ALLOW_EMAIL');
+	print_yn_field('Use SMTP To Send Email', 'USE_SMTP');
+	print_string_field('SMTP Server', 'FUD_SMTP_SERVER');
+	print_string_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
+	print_string_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
+	print_string_field('SMTP Server Password', 'FUD_SMTP_PASS');
+	print_yn_field('Email Confirmation', 'EMAIL_CONFIRMATION');
+	print_string_field('Administrator Email', 'ADMIN_EMAIL');
+	print_string_field('Notify From', 'NOTIFY_FROM');
+	print_yn_field('Notify W/Body', 'NOTIFY_WITH_BODY');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>General Settings</b> </td></tr>
-<tr bgcolor="#bff8ff"><td>New Account Moderation:<?php draw_help('MODERATE_USER_REGS'); ?></td><td><?php draw_select('CF_MODERATE_USER_REGS', "Yes\nNo", "Y\nN", $CF_MODERATE_USER_REGS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Max Smilies Shown:<?php draw_help('MAX_SMILIES_SHOWN'); ?></td><td><input type="text" name="CF_MAX_SMILIES_SHOWN" value="<?php echo $CF_MAX_SMILIES_SHOWN; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Public Host Resolving:<?php draw_help('PUBLIC_RESOLVE_HOST'); ?></td><td><?php draw_select('CF_PUBLIC_RESOLVE_HOST', "Yes\nNo", "Y\nN", $CF_PUBLIC_RESOLVE_HOST); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Shown Login Length:<?php draw_help('MAX_LOGIN_SHOW'); ?></td><td><input type="text" name="CF_MAX_LOGIN_SHOW" value="<?php echo $CF_MAX_LOGIN_SHOW; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Shown Location Length:<?php draw_help('MAX_LOCATION_SHOW'); ?></td><td><input type="text" name="CF_MAX_LOCATION_SHOW" value="<?php echo $CF_MAX_LOCATION_SHOW; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Logged In Users List Enabled:<?php draw_help('LOGEDIN_LIST'); ?></td><td><?php draw_select('CF_LOGEDIN_LIST', "Yes\nNo", "Y\nN", $CF_LOGEDIN_LIST); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Logged In Users List Timeout (minutes):<?php draw_help('LOGEDIN_TIMEOUT'); ?></td><td><input type="text" name="CF_LOGEDIN_TIMEOUT" value="<?php echo $CF_LOGEDIN_TIMEOUT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Action List:<?php draw_help('ACTION_LIST_ENABLED'); ?></td><td><?php draw_select('CF_ACTION_LIST_ENABLED', "Yes\nNo", "Y\nN", $CF_ACTION_LIST_ENABLED); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Online/Offline Status Indicator:<?php draw_help('ONLINE_OFFLINE_STATUS'); ?></td><td><?php draw_select('CF_ONLINE_OFFLINE_STATUS', "Yes\nNo", "Y\nN", $CF_ONLINE_OFFLINE_STATUS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>COPPA:<?php draw_help('COPPA'); ?></td><td><?php draw_select('CF_COPPA', "Off\nOn", "N\nY", $CF_COPPA); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Posts Per Page:<?php draw_help('POSTS_PER_PAGE'); ?></td><td><input type="text" name="CF_POSTS_PER_PAGE" value="<?php echo $CF_POSTS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Topics Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
+<?php
+	print_yn_field('New Account Moderation', 'MODERATE_USER_REGS');
+	print_yn_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 
-<tr bgcolor="#bff8ff"><td>Allow Tree View of Thread Listing:<?php draw_help('TREE_THREADS_ENABLE'); ?></td><td><?php draw_select('CF_TREE_THREADS_ENABLE', "No\nYes", "N\nY", $CF_TREE_THREADS_ENABLE); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Depth of Thread Listing (tree view):<?php draw_help('TREE_THREADS_MAX_DEPTH'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_DEPTH" value="<?php echo $CF_TREE_THREADS_MAX_DEPTH; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Maximum Shown Subject Length (tree view):<?php draw_help('TREE_THREADS_MAX_SUBJ_LEN'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_SUBJ_LEN" value="<?php echo $CF_TREE_THREADS_MAX_SUBJ_LEN; ?>"></td></tr>
+	print_yn_field('Logged In Users List Enabled', 'LOGEDIN_LIST');
+	print_string_field('Logged In Users List Timeout (minutes)', 'LOGEDIN_TIMEOUT', 1);
+	print_string_field('Maximum number of logged in users to show', 'MAX_LOGGEDIN_USERS', 1);
+	print_yn_field('Allow Action List', 'ACTION_LIST_ENABLED');
+	print_yn_field('Online/Offline Status Indicator', 'ONLINE_OFFLINE_STATUS');
 
-<tr bgcolor="#bff8ff"><td>Polls Per Page:<?php draw_help('POLLS_PER_PAGE'); ?></td><td><input type="text" name="CF_POLLS_PER_PAGE" value="<?php echo $CF_POLLS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Default Topic View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View thread and message list\nTree View thread and message list".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing":''), "msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Word Wrap:<?php draw_help('WORD_WRAP'); ?></td><td><input type="text" name="CF_WORD_WRAP" value="<?php echo $CF_WORD_WRAP; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Unconfirmed User Expiry:<?php draw_help('UNCONF_USER_EXPIRY'); ?></td><td><input type="text" name="CF_UNCONF_USER_EXPIRY" value="<?php echo $CF_UNCONF_USER_EXPIRY; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Flood Trigger (seconds):<?php draw_help('FLOOD_CHECK_TIME'); ?></td><td><input type="text" name="CF_FLOOD_CHECK_TIME" value="<?php echo $CF_FLOOD_CHECK_TIME; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Moved Topic Pointer Expiry:<?php draw_help('MOVED_THR_PTR_EXPIRY'); ?></td><td><input type="text" name="CF_MOVED_THR_PTR_EXPIRY" value="<?php echo $CF_MOVED_THR_PTR_EXPIRY; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Use Aliases:<?php draw_help('USE_ALIASES'); ?></td><td><?php draw_select('CF_USE_ALIASES', "Yes\nNo", "Y\nN", $CF_USE_ALIASES); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Multiple Host Login:<?php draw_help('MULTI_HOST_LOGIN'); ?></td><td><?php draw_select('CF_MULTI_HOST_LOGIN', "Yes\nNo", "Y\nN", $CF_MULTI_HOST_LOGIN); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $CF_SERVER_TZ, '', ''); ?></select></td></tr>
-<tr bgcolor="#bff8ff"><td>Forum Search Engine:<?php draw_help('FORUM_SEARCH'); ?></td><td><?php draw_select('CF_FORUM_SEARCH', "Yes\nNo", "Y\nN", $CF_FORUM_SEARCH); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Member Search:<?php draw_help('MEMBER_SEARCH_ENABLED'); ?></td><td><?php draw_select('CF_MEMBER_SEARCH_ENABLED', "Yes\nNo", "Y\nN", $CF_MEMBER_SEARCH_ENABLED); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Members Per Page:<?php draw_help('MEMBERS_PER_PAGE'); ?></td><td><input type="text" name="CF_MEMBERS_PER_PAGE" value="<?php echo $CF_MEMBERS_PER_PAGE; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Anonymous Username:<?php draw_help('ANON_NICK'); ?></td><td><input type="text" name="CF_ANON_NICK" value="<?php echo $CF_ANON_NICK; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Quick Pager Link Count:<?php draw_help('THREAD_MSG_PAGER'); ?></td><td><input type="text" name="CF_THREAD_MSG_PAGER" value="<?php echo $CF_THREAD_MSG_PAGER; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>General Pager Link Count:<?php draw_help('GENERAL_PAGER_COUNT'); ?></td><td><input type="text" name="CF_GENERAL_PAGER_COUNT" value="<?php echo $CF_GENERAL_PAGER_COUNT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Show Edited By:<?php draw_help('SHOW_EDITED_BY'); ?></td><td><?php draw_select('CF_SHOW_EDITED_BY', "Yes\nNo", "Y\nN", $CF_SHOW_EDITED_BY); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Show Edited By Moderator:<?php draw_help('EDITED_BY_MOD'); ?></td><td><?php draw_select('CF_EDITED_BY_MOD', "Yes\nNo", "Y\nN", $CF_EDITED_BY_MOD); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Edit Time Limit (minutes):<?php draw_help('EDIT_TIME_LIMIT'); ?></td><td><input type="text" name="CF_EDIT_TIME_LIMIT" value="<?php echo $CF_EDIT_TIME_LIMIT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Display IP Publicly:<?php draw_help('DISPLAY_IP'); ?></td><td><?php draw_select('CF_DISPLAY_IP', "Yes\nNo", "Y\nN", $CF_DISPLAY_IP); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Max Image Count:<?php draw_help('MAX_IMAGE_COUNT'); ?></td><td><input type="text" name="CF_MAX_IMAGE_COUNT" value="<?php echo $CF_MAX_IMAGE_COUNT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td># Of Moderators To Show: <?php draw_help('SHOW_N_MODS'); ?></td><td><input type="text" name="CF_SHOW_N_MODS" value="<?php echo $CF_SHOW_N_MODS; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Public Stats:<?php draw_help('PUBLIC_STATS'); ?></td><td><?php draw_select('CF_PUBLIC_STATS', "Yes\nNo", "Y\nN", $CF_PUBLIC_STATS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Forum Info:<?php draw_help('FORUM_INFO'); ?></td><td><?php draw_select('CF_FORUM_INFO', "Yes\nNo", "Y\nN", $CF_FORUM_INFO); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Registration Time Limit:<?php draw_help('REG_TIME_LIMIT'); ?></td><td><input type="text" name="CF_REG_TIME_LIMIT" value="<?php echo $REG_TIME_LIMIT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Enable Affero:<?php draw_help('ENABLE_AFFERO'); ?><br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a></td><td><?php draw_select('CF_ENABLE_AFFERO', "No\nYes", "N\nY", $CF_ENABLE_AFFERO); ?></td></tr>
+	print_yn_field('COPPA', 'COPPA');
+	print_string_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
+
+	print_string_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
+	print_string_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
+
+	print_string_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
+	print_string_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
+
+	print_yn_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
+?>
+	<tr bgcolor="#bff8ff"><td>Default Topic View:<?php echo draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View thread and message list\nTree View thread and message list".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing":''), "msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), $DEFAULT_THREAD_VIEW); ?></td></tr>
+<?php	
+	print_string_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
+	print_string_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
+	print_string_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
+	
+	print_string_field('Word Wrap', 'WORD_WRAP', 1);
+	print_string_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
+	print_string_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
+	print_string_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
+	print_yn_field('Use Aliases', 'USE_ALIASES');
+	print_yn_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
+?>
+<tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
+<?php
+	print_yn_field('Forum Search Engine', 'FORUM_SEARCH');
+	print_string_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
+	print_yn_field('Member Search', 'MEMBER_SEARCH_ENABLED');
+	print_string_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
+	print_string_field('Anonymous Username', 'ANON_NICK');
+	print_string_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
+	print_string_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
+	print_string_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
+	print_yn_field('Show Edited By', 'SHOW_EDITED_BY');
+	print_yn_field('Show Edited By Moderator', 'EDITED_BY_MOD');
+	print_string_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
+	print_yn_field('Display IP Publicly', 'DISPLAY_IP');
+	print_string_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
+	print_string_field('Number Of Moderators To Show', 'SHOW_N_MODS', 1);
+	print_yn_field('Public Stats', 'PUBLIC_STATS');
+	print_yn_field('Forum Info', 'FORUM_INFO');
+	print_string_field('Forum Info Cache Age', 'STATS_CACHE_AGE', 1);
+	print_string_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
+	print_yn_field('Enable Affero<br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
+	print_yn_field('Topic Rating', 'ENABLE_THREAD_RATING');
+	print_yn_field('Track referrals', 'TRACK_REFERRALS');
+?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1">
 </form>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>                                                                

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.14 2003/04/28 18:34:18 hackie Exp $
+*   $Id: admlock.php,v 1.15 2003/04/29 18:20:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,10 +53,8 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 
 		chmoddir(realpath($GLOBALS['WWW_ROOT_DISK']), $dirperms, $fileperms, true);
 		chmoddir(realpath($GLOBALS['DATA_DIR']), $dirperms, $fileperms, true);
-			
-		$global_config = read_global_config();
-		change_global_val('FILE_LOCK', $FILE_LOCK, $global_config);
-		write_global_config($global_config);
+
+		change_global_settings(array('FILE_LOCK' => $FILE_LOCK));
 	}
 
 	$status = ($FILE_LOCK == 'Y' ? 'LOCKED' : 'UNLOCKED');
