@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.7 2002/07/06 15:45:30 hackie Exp $
+*   $Id: admdump.php,v 1.8 2002/07/06 19:19:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,16 +81,18 @@ function backup_dir($dirp, $key, $keep_dir='')
 			if( $file == 'tmp' ) continue;
 			backup_dir($file, $key, $dirp);
 		}	
-		else if( !@is_file($file) ) continue;
-		else if( $file == 'GLOBALS.php' ) continue;
 		
+		if( !@is_file($file) || $file == 'GLOBALS.php' ) continue;
+
 		$file_data = filetomem($file);
 		$file_ln = strlen($file_data);
+		
+		$curdir = str_replace(substr($GLOBALS[$key],0, -1), '', getcwd());
 		
 		if( empty($keep_dir) )
 			$write_func($fp, '//'.$file.'//'.$key.'//'.$file_ln."//\n".$file_data."\n");
 		else
-			$write_func($fp, '//'.$file.'//'.$key.$dirp.'///'.$file_ln."//\n".$file_data."\n");
+			$write_func($fp, '//'.$file.'//'.$key.$curdir.'//'.$file_ln."//\n".$file_data."\n");
 	}
 	closedir($dir);
 	chdir($cur_dir);
