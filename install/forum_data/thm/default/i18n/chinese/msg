@@ -295,7 +295,7 @@ register_required:		必填信息
 register_required_desc:		所有内容都必须填写。请注意密码是区分大小写的。
 register_optional:		可选择的信息
 register_optional_desc:		由于您的信息将会被别的论坛成员看到，因此我们建议您填写信息时不要暴露自己的个人身份。
-register_location:		居住地:
+register_location:		地址:
 register_occupation:		职业:
 register_interests:		兴趣:
 register_image:			头像:
@@ -324,13 +324,13 @@ register_show_sig_desc:		您可以隐藏签名或者让别的论坛成员看到您的签名。
 register_use_sig_default:	使用默认签名:
 register_use_sig_default_desc:	在您的发言后自动加入您的签名
 register_timezone:		时区:
-register_ignore_admin:		不接收:
+register_ignore_admin:		不接受管理员的信息:
 register_invisible_mode:	隐身模式:
 register_invisible_mode_desc:	当你在线时隐身，不会在在线列表中显示
 register_show_email:		显示电子邮件地址:
 register_show_email_desc:	如果你想公开自己的电子邮件地址，请选择这个选项。
 register_notification:		选择默认的通告方式:
-register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
+register_notification_desc:	您可以屏蔽管理员的通告！
 register_notify_method:		选择通告发布方式:
 register_notify_method_desc:	如果你想通过ICQ接收通告，请确认您的ICQ中的“邮件发送”设置正确。
 register_notify_js_error:	你选择了通过ICQ接收通告, 但是没有填入ICQ #. 默认的电子邮件地址是Email&#46;
@@ -452,7 +452,7 @@ report_by:			发布：
 report_posted_on:		发帖时间:
 report_give_reason:		请填写你报告这个主题的原因:
 report_submit_report:		完成
-search_entire_msg:		内容搜索
+search_entire_msg:		全文搜索
 search_subect_only:		主题搜索
 search_forum:			论坛
 search_subject:			主题
@@ -862,35 +862,35 @@ reported_in_thread:		展开浏览
 help_back_to_top:		回到页首
 help_return_to_index:		返回帮助索引
 forumsel_unread:		*(未读)
-groupmgr_no_groups:		No groups to edit
-msg_err_nosuchmsg_msg:		There is no such message in this thread
+groupmgr_no_groups:		没有要编辑的组
+msg_err_nosuchmsg_msg:		这个主题中没有这些内容
 msg_err_nosuchmsg_title:	出错
 imsg_err_message_title:		贴子出错
 imsg_err_message_msg:		您要查看的贴子不存在.
 poll_edit: 			编辑
-unspecified:			UNSPECIFIED
+unspecified:			保密
 
-register_err_not_valid_img:	The specified url does not contain a valid image
+register_err_not_valid_img:	指定的图片连接不正确
 pmsg_recepient:			Recepient
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
-register_alias:			Alias
-register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
-register_allow_pm_msg:		Allow Private Messages	
-register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
-postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
-polllist_vote:			Vote
-polllist_view_results:		View Results
-polllist_name:			Poll Name
-polllist_date:			Created On
-polllist_owner:			Created By
-polllist_votes:			Total Votes
-polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
-userinfo_polls:			Polls:
-show_pollist:			Show Polls
-search_and:			AND
-search_or:			OR
-search_desc_order:		Descending Order		
-search_asc_order:		Ascending Order
-search_logic:			Search Logic:
-search_sorting:			Sort Results By Date In:
+register_err_taken_alias:	这个昵称已经存在，请更换
+register_alias:			昵称
+register_alias_desc:		如果您想应用昵称代替您的用户名来显示在论坛上就请您填入您想要的昵称。
+register_allow_pm_msg:		接受私人信息
+register_allow_pm_msg_desc:	接受论坛的其他用户向你发送的私人信息.
+postcheck_pm_disabled:		您不能给 "{VAR-HTML: v}" 发送私人信息, 因为他没有开启私人信息.
+polllist_vote:			参加调查
+polllist_view_results:		查看结果
+polllist_name:			调查主题
+polllist_date:			发起时间
+polllist_owner:			发起人
+polllist_votes:			总票数
+polllist_action:		操作选项
+polllist_update:		<a href="{ROOT}?t=polllist">以往调查</a>
+userinfo_polls:			发起调查数
+show_pollist:			调查列表
+search_and:			和
+search_or:			或
+search_desc_order:		降序排列		
+search_asc_order:		升序排列
+search_logic:			方式:
+search_sorting:			结果按日期:
