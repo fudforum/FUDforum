@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.44 2004/05/31 13:24:24 hackie Exp $
+* $Id: maillist.php,v 1.45 2004/07/02 12:40:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -321,6 +321,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 }
 	define('forum_debug', 1);
+	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get("register_argc_argv")) {
 		exit("Enable the 'register_argc_argv' php.ini directive\n");
