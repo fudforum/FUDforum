@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.2 2002/07/01 21:22:35 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.3 2002/07/02 15:06:04 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -288,13 +288,13 @@
 				
 					<para>
 						Use persistent connections when connecting to a database. This is a performance enchanting feature 
-						which if enabled will make your forum somewhat faster. Improvment is the result of PHP not needing
+						which if enabled will make your forum somewhat faster. Improvement is the result of PHP not needing
 						to open a new database connection each time a script is executed, but rather use an existing
 						connection instead.
 					</para>
 					
 					<para>
-						This option does have it's drawbacks, on forked webservers such as Apache, every Apache child 
+						This option does have it's drawbacks, on forked web servers such as Apache, every Apache child 
 						will create a persistent socket for itself. This can potentially exhaust number of allowed database 
 						connections if the number of Apache children with open connections to database exceed the allowed number
 						of database connections, thus preventing threads without an open connection to connect to the database
@@ -2334,6 +2334,156 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</important>
 	</sect1>
 	
+	<sect1 id="admin.theme_manager">
+		<title>Theme Manager</title>
+		
+		<para>
+			Theme Manager is the heart of the FUDforum's templating system, this control panel allows the 
+			administrator to add/edit and remove theme that are available. The users will be able to choose
+			a theme of their choice from the ones available via their profile.
+		</para>
+		
+		<para>
+			The first part of the control panel allows the administrator to add or edit a theme + language 
+			combination, this combination is what the users will see as the theme options in their profile menu.
+		</para>
+		
+		<sect2 id="admin.theme_manager.name">
+			<title>Name</title>
+			
+			<para>
+				The name you wish to assign to a particular theme + language combination.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.theme">
+			<title>Template Set</title>
+			
+			<para>
+				This select allows the admin to choose the template set, which will be used
+				with this theme.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.language">
+			<title>Language</title>
+			
+			<para>
+				This select allows the admin to specify the language, which will be used with this theme.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.locale">
+			<title>Locale</title>
+			
+			<para>
+				Locale is the setting FUDforum will export to PHP making php automatically format various
+				strings such as dates according to certain language/country. This field is automatically filled
+				in using JavaScript when you select the language, however you can change the value manually
+				if you believe you have a better alternative to the one offered.
+			</para>
+			
+			<para>
+				If you are unsure of what this option does, it is better to leave the default value as the locale
+				setting.
+			</para>
+			
+			<note>
+				<simpara>
+				On most *NIX computers you can see the list supported locales by executing this command: 
+				<literal>locale -a</literal>
+				</simpara>
+			</note>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.pspell">
+			<title>pSpell Language</title>
+			
+			<para>
+				This options allows the administrator to select the language pack that pspell will use when
+				spell checking messages posted by users who use this particular theme. This option will 
+				automatically have its value filled in when you choose a language.
+			</para>
+			
+			<para>
+				You can disable the spell checker for a particular theme by clicking on the disable link
+				found on right on the option or removing the value of the option.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.defualt">
+			<title>Default</title>
+			
+			<para>
+				Allows the administrator to specify whether or not this theme is default. Default
+				theme, will be the theme that would be selected by default in the user's profile.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.enabled">
+			<title>Enabled</title>
+			
+			<para>
+				Allows the administrator to specify whether or not this theme is enabled. If the theme
+				is enabled, forum users will be able to choose to use this theme via their profile.
+			</para>
+		</sect2>
+		
+		<para>
+			The next form, 'Create Template Set', allows the administrator to create a new 
+			template set that later can be selected from the 
+			<link linkend="admin.theme_manager.theme">Theme Option</link> inside the theme editor.
+		</para>
+		
+		<para>
+			To create a new template set, simply enter the name you wish to assign to the theme into the text box and click
+			on the 'Create' button.
+		</para>
+		
+		<para>
+			At the bottom of the control panels there is a list of all the available themes with a number of
+			clickable links allowing the admin to administer the available themes.
+		</para>
+		
+		<sect2 id="admin.theme_manager.edit">
+			<title>Edit</title>
+			
+			<para>
+				Clicking this link will load this theme into the theme manager, allowing the admin to edit
+				this theme.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.rebuild">
+			<title>Rebuild Theme</title>
+			
+			<para>
+				Clicking this link will recompile the theme. This link should be used after any manual
+				modifications to the theme's template, source or message files.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.optimize">
+			<title>Optimize Theme</title>
+			
+			<para>
+				This utility will compact the PHP compiled php files created during theme building removing
+				comments, formatting etc... Doing this will result in a slight performance boost since
+				it will make the PHP code parsing easier hence faster and reduce the memory footprint of 
+				the script. 
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.theme_manager.delete">
+			<title>Delete</title>
+			
+			<para>
+				This link allows the administrator to remove a theme. All themes with the exception of the 
+				default theme can be deleted. The default theme can only be disabled.
+			</para>
+		</sect2>
+	</sect>
+	
 	<sect1 id="admin.template_editor">
 		<title>Template Editor</title>
 		
@@ -2343,9 +2493,14 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</para>
 		
 		<para>
+			When you access the template editor you are presented with a form that allows you to choose
+			for which theme & language you are editing the templates for.
+		</para>
+		
+		<para>
 			This control panel offers a web interface to the templates, allowing the admin to change the templates 
 			via their browser. This is generally intended for quick changes and/or fixes, if you intend to do a complete
-			layout redesign we recommend changing the templates (*.tmpl files inside the template/tmpl/ directory) 
+			layout redesign we recommend changing the templates (*.tmpl files inside the tmpl directory for each theme) 
 			with your text editor of choice.
 		</para>
 		
@@ -2406,8 +2561,8 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<important>
 			<simpara>
-			After making manual modifications to the template(s), click on the <link linkend="admin.rebuild_templates">Rebuild Templates</link>
-			option in the admin control panel to activate the changes you have made.
+			After making manual modifications to the template(s), be sure to recompile the theme using those
+			templates via the <link linkend="admin.theme_manager">Theme Manager</link> to activate your changes.
 			</simpara>
 		</important>
 	</sect1>
@@ -2436,6 +2591,11 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</para>
 		
 		<para>
+			When you access the message editor you are presented with a form that allows you to choose which message 
+			file you want to edit and for which theme this message file is for.
+		</para>
+		
+		<para>
 			The message editor displays a color coded view of the templates and their corresponding messages. It also
 			indicated which files utilize each template.
 		</para>
@@ -2456,52 +2616,10 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<important>
 			<simpara>
-			After making manual modifications to the message file, click on the <link linkend="admin.rebuild_templates">Rebuild Templates</link>
-			option in the admin control panel to activate the changes you have made.
+			After making manual modifications to the message file, be sure to recompile the theme using this
+			message file via the <link linkend="admin.theme_manager">Theme Manager</link> to activate your changes.
 			</simpara>
 		</important>
-	</sect1>
-	
-	<sect1 id="admin.language">
-		<title>Language Selection</title>
-		
-		<para>
-			This option allows you to change the language your forum is in. The supported languages are listed in 
-			the 'Language' select box.
-		</para>
-		
-		<sect2 id="admin.language.locale">
-			<title>Locale</title>
-			
-			<para>
-				Each language has a related locale value, the locale setting tells PHP to print all dynamically
-				generated information such as dates in the selected language. This value is filled in automatically
-				for you when you choose a language, if for whatever reason you believe the value is invalid or have a
-				more appropriate locale value you can alter the default by entering a different value inside the 'Locale'
-				textbox.
-			</para>
-			
-			<para>
-				If you are unsure of what this option does, it is better to leave the default value as the locale
-				setting.
-			</para>
-			
-			<note>
-				<simpara>
-				On most *NIX computers you can see the list supported locales by executing this command: 
-				<literal>locale -a</literal>
-				</simpara>
-			</note>
-		</sect2>
-	</sect1>
-	
-	<sect1 id="admin.rebuild_templates">
-		<title>Rebuild Templates</title>
-		
-		<para>
-			This control will rebuild the forum's files from the templates. It is advised to run this utility 
-			after performing any manual modifications to the forum's template, message or source files.
-		</para>
 	</sect1>
 	
 	<sect1 id="admin.smilies">
