@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.46 2003/05/26 13:07:25 hackie Exp $
+*   $Id: users.inc.t,v 1.47 2003/05/26 13:19:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -96,7 +96,7 @@ function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
 		if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$thread_id.' AND user_id='._uid)) {
 			q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')');
 		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' HERE thread_id='.$thread_id.' AND user_id='._uid);
+			q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
 		}
 		db_unlock();
 	}
