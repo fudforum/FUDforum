@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.67 2004/04/08 13:50:18 hackie Exp $
+* $Id: users_reg.inc.t,v 1.68 2004/04/15 01:19:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@ class fud_user_reg extends fud_user
 			}
 			$reg_ip = "127.0.0.1";
 		} else {
-			$reg_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';
+			$reg_ip = get_ip();
 		}
 
 		if ($o2 & 1) {
