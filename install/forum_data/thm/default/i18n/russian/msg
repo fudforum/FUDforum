@@ -898,3 +898,5 @@ post_moderated_forum:		Вы отправили сообщение в модерируемый форум. Это означает
 post_moderated_forum_ttl:	Модерируемый форум
 buddy_list_bday:		Сегодня {VAR: obj->login} исполняется {VAR: age}
 email_warning_msg:		В случае изменения вами вашего адреса email, регистрация будет помечена как неподтвержденная до получения подтверждения с нового email адреса.
+register_show_im:		Show IM indicators
+register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
