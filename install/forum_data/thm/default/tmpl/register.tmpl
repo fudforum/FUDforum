@@ -1,7 +1,7 @@
-/**
+
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.55 2005/02/26 22:55:34 hackie Exp $
+* $Id: register.tmpl,v 1.56 2005/03/04 04:38:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,7 +63,7 @@
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
-<tr class="RowStyleA"><td>{MSG: register_login}</td><td class="fb">{VAR-HTML: uent->login}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_login}</td><td class="fb">{VAR: reg_login}</td></tr>
 {IF: $FUD_OPT_2 & 128}{TEMPLATE: reg_alias}{ENDIFI}
 <tr class="RowStyleA"><td>{MSG: register_your_pass}{FUNC: draw_err('reg_confirm_passwd')}</td><td><input type="password" name="reg_confirm_passwd" size=25 maxlength=16>{IF: !$mod_id}{TEMPLATE: change_passwd_link}{ENDIFI}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
@@ -421,7 +421,7 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_alias}{FUNC: draw_err('reg_alias')}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size=25 value="{VAR: reg_alias}" maxLength="{GVAR: MAX_LOGIN_SHOW}"></td></tr>
 {SECTION: END}
 
 {SECTION: email_warning_msg}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.75 2004/12/09 19:04:25 hackie Exp $
+* $Id: users_reg.inc.t,v 1.76 2005/03/04 04:38:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,11 +23,23 @@ function make_alias($text)
 	if (strlen($text) > $GLOBALS['MAX_LOGIN_SHOW']) {
 		$text = substr($text, 0, $GLOBALS['MAX_LOGIN_SHOW']);
 	}
-	return htmlspecialchars($text);
+	$text = htmlspecialchars($text);
+	char_fix($text);
+	return $text;
 }
 
 class fud_user_reg extends fud_user
 {
+	function html_fields()
+	{
+		foreach(array('name', 'location', 'occupation', 'interests', 'bio') as $v) {
+			if ($this->{$v}) {
+				$this->{$v} = htmlspecialchars($this->$v);
+				char_fix($this->$v);
+			}
+		}
+	}
+
 	function add_user()
 	{
 		if (isset($_COOKIES['frm_referer_id']) && (int)$_COOKIES['frm_referer_id']) {
@@ -73,6 +85,8 @@ class fud_user_reg extends fud_user
 		}
 		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
 
+		$this->html_fields();
+
 		$this->id = db_qid("INSERT INTO
 			{SQL_TABLE_PREFIX}users (
 				login,
@@ -108,7 +122,7 @@ class fud_user_reg extends fud_user
 				'".addslashes($this->login)."',
 				'".addslashes($this->alias)."',
 				'".$md5pass."',
-				'".addslashes(htmlspecialchars($this->name))."',
+				'".addslashes($this->name)."',
 				'".addslashes($this->email)."',
 				".$this->icq.",
 				".ssn(urlencode($this->aim)).",
@@ -123,10 +137,10 @@ class fud_user_reg extends fud_user
 				'".$this->conf_key."',
 				".ssn(htmlspecialchars($this->user_image)).",
 				".$this->join_date.",
-				".ssn(htmlspecialchars($this->location)).",
+				".ssn($this->location).",
 				".(int)$this->theme.",
-				".ssn(htmlspecialchars($this->occupation)).",
-				".ssn(htmlspecialchars($this->interests)).",
+				".ssn($this->occupation).",
+				".ssn($this->interests).",
 				".(int)$ref_id.",
 				".__request_timestamp__.",
 				".ssn($this->sig).",
@@ -149,8 +163,10 @@ class fud_user_reg extends fud_user
 
 		$rb_mod_list = (!($this->users_opt & 524288) && ($is_mod = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id={$this->id}")) && (q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id={$this->id}") == $this->alias));
 
+		$this->html_fields();
+
 		q("UPDATE {SQL_TABLE_PREFIX}users SET ".$passwd."
-			name='".addslashes(htmlspecialchars($this->name))."',
+			name='".addslashes($this->name)."',
 			alias='".addslashes($this->alias)."',
 			email='".addslashes($this->email)."',
 			icq=".$this->icq.",
@@ -163,9 +179,9 @@ class fud_user_reg extends fud_user
 			time_zone='".addslashes($this->time_zone)."',
 			bday=".(int)$this->bday.",
 			user_image=".ssn(htmlspecialchars($this->user_image)).",
-			location=".ssn(htmlspecialchars($this->location)).",
-			occupation=".ssn(htmlspecialchars($this->occupation)).",
-			interests=".ssn(htmlspecialchars($this->interests)).",
+			location=".ssn($this->location).",
+			occupation=".ssn($this->occupation).",
+			interests=".ssn($this->interests).",
 			avatar=".(int)$this->avatar.",
 			theme=".(int)$this->theme.",
 			avatar_loc=".ssn($this->avatar_loc).",

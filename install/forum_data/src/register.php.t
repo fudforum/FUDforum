@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.135 2005/02/26 22:55:34 hackie Exp $
+* $Id: register.php.t,v 1.136 2005/03/04 04:38:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,14 +95,13 @@ function sanitize_url($url)
 
 function sanitize_login($login, $is_alias=0)
 {
-	$list = array();
+	$list = '';
 
-	for ($i = 0; $i < 32; $i++) $list[] = chr($i);
+	for ($i = 0; $i < 32; $i++) $list .= chr($i);
 	if (!$is_alias) {
-		for ($i = 127; $i < 160; $i++) $list[] = chr($i);
+		for ($i = 127; $i < 160; $i++) $list .= chr($i);
 	}
-
-	return str_replace($list, array_fill(0, count($list), ''), $login);
+	return str_replace("\0", "", strtr($login, $list, str_repeat("\0", strlen($list))));
 }
 
 function register_form_check($user_id)
@@ -195,10 +194,7 @@ function register_form_check($user_id)
 			if (is_login_blocked($_POST['reg_alias'])) {
 				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
 			}
-			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
-				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
-			}
-			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['reg_alias']))."' AND id!=".$user_id)) {
+			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(make_alias($_POST['reg_alias']))."' AND id!=".$user_id)) {
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
 			}
 		}
@@ -266,12 +262,7 @@ function remove_old_avatar($avatar_str)
 function decode_uent(&$uent)
 {
 	reverse_fmt($uent->home_page);
-	reverse_fmt($uent->bio);
-	reverse_fmt($uent->interests);
-	reverse_fmt($uent->occupation);
-	reverse_fmt($uent->location);
 	reverse_fmt($uent->user_image);
-	reverse_fmt($uent->name);
 	reverse_fmt($uent->jabber);
 	$uent->aim = urldecode($uent->aim);
 	$uent->yahoo = urldecode($uent->yahoo);
@@ -433,11 +424,6 @@ function decode_uent(&$uent)
 		}
 		fud_wordwrap($uent->sig);
 
-		if ($uent->bio) {
-			$uent->bio = htmlspecialchars($uent->bio);
-			char_fix($uent->bio);
-		}
-
 		if (!$uent->icq && !($uent->users_opt & 4)) {
 			$uent->users_opt |= 4;
 		}
@@ -589,13 +575,18 @@ function decode_uent(&$uent)
 	}
 
 	$avatar_type = '';
+	$chr_fix = array('reg_sig', 'reg_alias', 'reg_login', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests'); 
 
 	/* populate form variables based on user's profile */
 	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
 		}
-		reverse_fmt($reg_sig);
+		foreach($chr_fix as $v) {
+			reverse_fmt($$v);
+			char_fix($$v);
+		}
+
 		$reg_sig = apply_reverse_replace($reg_sig);
 
 		if ($FUD_OPT_1 & 262144) {
@@ -611,7 +602,6 @@ function decode_uent(&$uent)
 		if ($FUD_OPT_1 & 196608) {
 			char_fix($reg_sig);
 		}
-		char_fix($reg_bio);
 
 		if ($uent->bday) {
 			$b_year = substr($uent->bday, 0, 4);
@@ -629,15 +619,15 @@ function decode_uent(&$uent)
 				$avatar_type = 'u';
 			}
 		}
-		reverse_fmt($reg_alias);
 	} else if (isset($_POST['prev_loaded'])) { /* import data from POST data */
 		foreach ($_POST as $k => $v) {
 			if (!strncmp($k, 'reg_', 4)) {
 				${$k} = htmlspecialchars($v);
 			}
 		}
-		char_fix($reg_bio);
-		char_fix($reg_sig);
+		foreach($chr_fix as $v) {
+			char_fix($$v);
+		}
 
 		$b_year = $_POST['b_year'];
 		$b_month = $_POST['b_month'];
