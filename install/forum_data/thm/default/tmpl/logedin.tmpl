@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.12 2003/04/08 14:14:38 hackie Exp $
+*   $Id: logedin.tmpl,v 1.13 2003/05/06 15:00:54 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -53,6 +53,6 @@
 <tr><td class="RowStyleB"><font class="SmallText">
 {MSG: message_counter}<br />
 {MSG: user_counter}<br />
-{MSG: newest_user} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
+{MSG: newest_user} <a href="{ROOT}?t=usrinfo&amp;id={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
 </font></td></tr>
 {SECTION: END}
