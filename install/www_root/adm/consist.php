@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.86 2004/06/10 00:15:36 hackie Exp $
+* $Id: consist.php,v 1.87 2004/06/22 16:23:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,6 +30,7 @@
 	fud_use('email_filter.inc', true);
 	fud_use('customtags.inc', true);
 	fud_use('groups_adm.inc', true);
+	fud_use('sml_rcache.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
@@ -408,6 +409,9 @@ forum will be disabled.
 	closedir($dp);
 	unset($sml);
 	draw_info($cnt);
+
+	draw_stat('Rebuild Smiley Cache');
+	smiley_rebuild_cache();
 
 	draw_stat('Checking topic notification');
 	delete_zero($tbl.'thread_notify', 'SELECT tn.id FROM '.$tbl.'thread_notify tn LEFT JOIN '.$tbl.'thread t ON t.id=tn.thread_id LEFT JOIN '.$tbl.'users u ON u.id=tn.user_id WHERE u.id IS NULL OR t.id IS NULL');
