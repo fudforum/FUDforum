@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.23 2003/04/16 15:51:00 hackie Exp $
+*   $Id: selmsg.php.t,v 1.24 2003/04/30 20:19:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -154,7 +154,7 @@ function valstat($a)
 			if ($prev_frm != $r->forum_id) {
 				$prev_frm = $r->forum_id;
 				$message_data .= '{TEMPLATE: forum_row}';
-				$perms = perms_from_obj($r, (($usr->is_mod == 'A' || $r->mod) ? 1 : 0));
+				$perms = perms_from_obj($r, $usr->is_mod);
 			}
 			if ($prev_th != $r->thread_id) {
 				$thl[] = $r->thread_id;

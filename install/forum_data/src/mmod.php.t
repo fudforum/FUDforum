@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.12 2003/04/21 14:14:39 hackie Exp $
+*   $Id: mmod.php.t,v 1.13 2003/04/30 20:19:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,8 +45,8 @@
 			FROM {SQL_TABLE_PREFIX}msg m 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=f.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
 			WHERE m.id='.$del))) {
 			check_return($usr->returnto);
 		}

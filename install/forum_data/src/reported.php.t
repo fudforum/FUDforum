@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.12 2003/04/16 10:35:52 hackie Exp $
+*   $Id: reported.php.t,v 1.13 2003/04/30 20:19:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 		ORDER BY mr.id');
 	
-	$perms = perms_from_obj($r, 1);
+	$perms = perms_from_obj($r, 'A');
 	$MOD = 1;
 	$reported_message = '';
 	$n = 0;
