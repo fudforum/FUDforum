@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.35 2004/02/13 23:28:22 hackie Exp $
+* $Id: usrinfo.php.t,v 1.36 2004/03/23 20:22:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@ function convert_bdate($val, $month_fmt)
 
 	$custom_tags = $u->custom_status ? '{TEMPLATE: custom_tags}' : '{TEMPLATE: no_custom_tags}';
 
-	$last_visit = $u->last_visit ? '{TEMPLATE: last_visit}' : '';
+	$last_visit = $u->last_visit && !($u->users_opt & 32768) ? '{TEMPLATE: last_visit}' : '';
 
 	if (!($usr->users_opt & 1048576)) {
 		$frm_perms = get_all_read_perms(_uid, ($usr->users_opt & 524288));
