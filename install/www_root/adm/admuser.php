@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.18 2003/04/23 15:18:34 hackie Exp $
+*   $Id: admuser.php,v 1.19 2003/04/23 15:27:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,10 +19,7 @@
 
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('widgets.inc', true);
-	fud_use('util.inc');
-	fud_use('customtags.inc');
-	fud_use('private.inc');
+	fud_use('customtags.inc', true);
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
 
@@ -138,8 +135,8 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* deal with custom tags */
 		if (!empty($_POST['c_tag'])) {
 			q('INSERT INTO '.$tbl.'custom_tags (name, user_id) VALUES('.strnull(addslashes($_POST['c_tag'])).', '.$usr_id.')');
-		} else if (!empty($_POST['deltag'])) {
-			q('DELETE FROM '.$tbl.'custom_tags WHERE id='.(int)$_POST['deltag']);
+		} else if (!empty($_GET['deltag'])) {
+			q('DELETE FROM '.$tbl.'custom_tags WHERE id='.(int)$_GET['deltag']);
 		} else {
 			$nada = 1;
 		}
@@ -285,7 +282,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 	$c = uq('SELECT name, id FROM '.$tbl.'custom_tags WHERE user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] . ' [<a href="admuser.php?act=nada&deltag=' . $r[1] . '&' . _rsidl . '">Delete</a>]<br>';
+		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . _rsidl . '">Delete</a>]<br>';
 	}
 	qf($c);
 ?>

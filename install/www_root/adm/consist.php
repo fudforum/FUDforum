@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.24 2003/04/23 12:57:32 hackie Exp $
+*   $Id: consist.php,v 1.25 2003/04/23 15:27:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -405,7 +405,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding Topic Views');
 
 	draw_stat('Rebuilding user levels & message counts');
-	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0');
+	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
 	$c = q('SELECT poster_id, count(*) AS cnt FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY cnt');
 	while ($r = db_rowarr($c)) {
 		if (!isset($lvl[$r[1]])) {
@@ -492,15 +492,13 @@ forum will be disabled.<br><br>
 	ext_cache_rebuild();
 	draw_stat('Done: Rebuilding extension filter cache');
 
-/*	
 	draw_stat('Rebuilding custom tags for users');
-	$c_level = new fud_custom_tag;
-	$r = q("SELECT distinct(user_id) FROM ".$tbl."custom_tags");
-	while( list($c_level->user_id) = db_rowarr($r) ) {
-		$c_level->sync();
+	$c = q('SELECT distinct(user_id) FROM '.$tbl.'custom_tags');
+	while ($r = db_rowarr($c)) {
+		ctag_rebuild_cache($r[0]);	
 	}
+	qf($c);
 	draw_stat('Done Rebuilding custom tags for users');
-*/
 
 	draw_stat('Rebuilding group cache');
 	$c = q('SELECT id FROM '.$tbl.'groups');
