@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admaccapr.php,v 1.5 2003/07/09 08:26:50 hackie Exp $
+*   $Id: admaccapr.php,v 1.6 2003/09/30 13:45:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 	fud_use('private.inc');
 
 	if (isset($_GET['apr'])) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET acc_status=\'A\' WHERE id='.(int)$_GET['apr']);
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|2097152) &~ 2097152 WHERE id='.(int)$_GET['apr']);
 	} else if (isset($_GET['rm'])) {
 		usr_delete((int)$_GET['rm']);
 	}
@@ -41,9 +41,9 @@ function print_if_avail($descr, $value, $no_html=1)
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
 ?>	
 <div style="font-size: xx-large; font-weight: bold;">Account Approval</div>
-<table cellspacing=0 cellpadding=5 border=0><tr bgcolor="#bff8ff"><td><b>Account Information</b></td><td><b>Action</b></td></tr>
+<table cellspacing=0 cellpadding=5 border=0><tr bgcolor="#bff8ff"><td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
 <?php
-	$c = uq('SELECT * FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE acc_status=\'P\'');
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND users_opt & 2097152');
 	while ($obj = db_rowobj($c)) {
 		echo '<tr><td style="font-size: smaller; border-bottom: 3px double black">'.
 		print_if_avail('Login', $obj->login) .
@@ -52,7 +52,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Location', $obj->location) .
 		print_if_avail('Interests', $obj->interests) .
 		print_if_avail('Occupation', $obj->occupation) .
-		print_if_avail('Gender', $obj->gender) .
+		print_if_avail('Gender', ($obj->users_opt & 1024 ? 'Male' : ($obj->users_opt & 512 ? 'Unspecified' : 'Female'))) .
 		print_if_avail('ICQ UIN', $obj->icq) .
 		print_if_avail('AIM', $obj->aim) .
 		print_if_avail('MSN Messanger', $obj->msnm) .
