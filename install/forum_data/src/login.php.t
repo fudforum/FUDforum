@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.24 2003/04/30 19:51:05 hackie Exp $
+*   $Id: login.php.t,v 1.25 2003/05/01 18:34:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 /*{PRE_HTML_PHP}*/
 
 	/* clear old sessions */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)');
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).($SESSION_USE_URL == 'Y' ? ' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)' : ''));
 
 	/* Remove old unconfirmed users */
 	if ($EMAIL_CONFIRMATION == 'Y') {
@@ -125,7 +125,7 @@ function error_check()
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 
-			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $GLOBALS['SESSION_USE_URL'] == 'Y') ? FALSE : TRUE));
+			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $SESSION_USE_URL == 'Y') ? FALSE : TRUE));
 
 			if ($usr_d->email_conf != 'Y') {
 				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', NULL, $ses_id);

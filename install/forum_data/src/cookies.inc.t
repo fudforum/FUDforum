@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.26 2003/04/21 14:14:39 hackie Exp $
+*   $Id: cookies.inc.t,v 1.27 2003/05/01 18:34:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,6 +17,10 @@
 
 function ses_make_sysid()
 {
+	if ($GLOBALS['SESSION_USE_URL'] != 'Y') {
+		return;
+	}
+
 	return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
 }
 
