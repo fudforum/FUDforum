@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.tmpl,v 1.5 2003/04/10 17:37:06 hackie Exp $
+*   $Id: iemail.tmpl,v 1.6 2003/05/01 18:02:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,7 +35,7 @@
 </tr>
 <tr class="RowStyleB">
 	<td colspan="3">
-	[ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}&quote=true">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}?t=rview&goto={VAR: obj->id}">{MSG: iemail_msg_view}</a> ]
+	[ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}&quote=true">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}?t=rview&goto={VAR: obj->id}">{MSG: iemail_msg_view}</a> ]{TEMPLATE-DATA: iemail_unsub}
 	</td>
 </tr>
 </table>
@@ -97,4 +97,12 @@
 
 {SECTION: iemail_participate}
 {MSG: iemail_participate}
+{SECTION: END}
+
+{SECTION: iemail_thread_unsub}
+[ <a href="{ROOT}?t=rview&th={VAR: id}&notify=1&opt=off">{MSG: iemail_thread_unsub}</a> ]
+{SECTION: END}
+
+{SECTION: iemail_forum_unsub}
+[ <a href="{ROOT}?t=rview&frm_id={VAR: id}&unsub=1">{MSG: iemail_forum_unsub}</a> ]
 {SECTION: END}
