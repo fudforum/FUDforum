@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.30 2003/04/30 14:18:40 hackie Exp $
+*   $Id: index.php.t,v 1.31 2003/05/08 00:27:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@ function url_tog_collapse($id, $c)
 	}
 
 	if (!$c) {
-		$str = $id.':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
+		return $id . ':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 	} else {
 		$c_status = (empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 
