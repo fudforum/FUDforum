@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.81 2004/04/21 21:17:47 hackie Exp $
+* $Id: consist.php,v 1.82 2004/04/28 15:18:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -629,6 +629,10 @@ forum will be disabled.
 	draw_stat('Rebuilding Forum/Category order cache');
 	rebuild_forum_cat_order();
 	draw_stat('Done: Rebuilding Forum/Category order cache');
+
+	draw_stat('Remove absolete entries inside sessions table');
+	q("DELETE FROM ".$tbl."ses WHERE user_id>2000000000 AND time_sec < ".__request_timestamp__." - ".$SESSION_TIMEOUT);
+	draw_stat('Done: Removing absolete entries inside sessions table');
 
 	draw_stat('Unlocking database');
 	db_unlock();
