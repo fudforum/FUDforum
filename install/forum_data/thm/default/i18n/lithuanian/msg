@@ -1030,3 +1030,5 @@ delete_message_extra_body:	Include the body of the removed message that will be 
 delete_msg_removed_ttl:		Your message was removed by administration staff.
 delete_msg_pm_body:		Original message
 delete_msg_pm_subject:		Subject: {VAR: data[15]}
+ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
+ip_whois_title:			<b>ISP Information</b><br />

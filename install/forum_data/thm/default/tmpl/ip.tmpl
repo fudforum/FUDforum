@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.tmpl,v 1.1 2004/01/09 04:17:17 hackie Exp $
+* $Id: ip.tmpl,v 1.2 2004/04/07 16:30:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -62,7 +62,7 @@
 		<tr><th>{MSG: ip_users_using}</th></tr>{TEMPLATE-DATA: user_list}
 	</table></td>
 	<td width="50"> </td>
-	<td valign="top"><iframe src="http://ws.arin.net/cgi-bin/whois.pl?queryinput={VAR: ip}" width="600" height="400"></iframe></td>
+	<td valign="top">{MSG: ip_whois_title}<div style="overflow: auto; margin: 0px; padding: 2px; width: 600px; height: 400px"><pre>{FUNC: fud_whois($ip)}</pre></div></td>
 </tr>
 </table>
 {SECTION: END}
@@ -84,4 +84,8 @@
 
 {SECTION: ip_title}
 {MSG: ip_title}
+{SECTION: END}
+
+{SECTION: ip_no_whois}
+{MSG: ip_no_whois}
 {SECTION: END}

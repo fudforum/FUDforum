@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.1 2004/01/09 04:17:16 hackie Exp $
+* $Id: ip.php.t,v 1.2 2004/04/07 16:30:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,6 +18,43 @@
 	if (!($usr->users_opt & (524288|1048576)) && !($FUD_OPT_1 & 134217728)) {
 		invl_inp_err();
 	}
+
+function __fud_whois($ip, $whois_server='whois.arin.net')
+{
+	$er = error_reporting(0);
+
+	if (!$sock = fsockopen($whois_server, 43, $n, $e, 20)) {
+		error_reporting($er);
+		return;
+	}
+	fputs($sock, $ip."\n");
+	$buffer = '';
+	do {
+		$buffer .= fread($sock, 10240);
+	} while (!feof($sock));
+	fclose($sock);
+
+	return $buffer;	
+}
+
+function fud_whois($ip)
+{
+	$result = __fud_whois($ip);
+
+	/* check if Arin can handle the request or if we need to 
+	 * request information from another server.
+	 */
+	if (($p = strpos($result, 'ReferralServer: whois://')) !== false) {
+		$p += strlen('ReferralServer: whois://');
+		$e = strpos($result, "\n", $p);
+		$whois = substr($result, $p, ($e - $p));
+		if ($whois) {
+			$result = __fud_whois($ip, $whois);
+		}
+	}
+
+	return ($result ? $result : '{TEMPLATE: ip_no_whois}');
+}
 
 /*{POST_HTML_PHP}*/
 
