@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.22 2003/11/11 12:22:08 hackie Exp $
+* $Id: admcat.php,v 1.23 2003/11/13 10:04:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -50,7 +50,7 @@
 			${'cat_'.$k} = '';
 		}
 		$cat_pos = 'LAST';
-		$cat_opt = 1;
+		$cat_opt = 3;
 	}
 
 	if (isset($_GET['del'])) {
@@ -163,7 +163,7 @@
 			<td>'.$r->name.'</td>
 			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
-			<td>'.($r->cat_opt & 2 ? 'Collapsed' : 'Open').'</td>
+			<td>'.($r->cat_opt & 2 ? 'Open' : 'Collapsed').'</td>
 			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'._rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'._rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td>
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'._rsidl.'">Change</a>]</td></tr>';
 
