@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.106 2004/05/12 22:08:46 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.107 2004/06/03 15:25:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -660,7 +660,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			}
 			$headers .= "List-Id: ".$frm_id.".".$_SERVER['SERVER_NAME']."\r\n";
 			$split = get_random_value(128)                                                                            ;
-			$headers .= "Content-Type: multipart/alternative; boundary=\"------------" . $split . "\"\r\n";
+			$headers .= "Content-Type: multipart/alternative;\n  boundary=\"------------" . $split . "\"\r\n";
 			$boundry = "\r\n--------------" . $split . "\r\n";
 
 			$pfx = '';
