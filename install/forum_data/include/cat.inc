@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.10 2004/06/07 15:24:53 hackie Exp $
+* $Id: cat.inc,v 1.11 2004/10/18 23:29:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 class fud_cat
 {
-	var $id, $name, $description, $view_order, $cat_opt;
+	var $id, $name, $description, $view_order, $cat_opt, $parent;
 
 	function fud_cat()
 	{
@@ -31,13 +31,13 @@ class fud_cat
 		}
 
 		if ($pos == 'LAST') {
-			$this->view_order = (int) q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat') + 1;
+			$this->view_order = (int) q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE parent='.$this->parent) + 1;
 		} else {
 			$this->view_order = 1;
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1');
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1 WHERE parent='.$this->parent);
 		}
 
-		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt) VALUES ('".addslashes($this->name)."', '".addslashes($this->description)."', ".$this->view_order.", ".$this->cat_opt.")");
+		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, view_order, cat_opt, parent) VALUES ('".addslashes($this->name)."', '".addslashes($this->description)."', ".$this->view_order.", ".$this->cat_opt.", ".$this->parent.")");
 
 		if (isset($ll)) {
 			db_unlock();
@@ -48,7 +48,7 @@ class fud_cat
 
 	function sync($id)
 	{
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET name='".addslashes($this->name)."',description='".addslashes($this->description)."', cat_opt=".$this->cat_opt." WHERE id=".$id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET parent=".$this->parent.", name='".addslashes($this->name)."',description='".addslashes($this->description)."', cat_opt=".$this->cat_opt." WHERE id=".$id);
 	}
 }
 
