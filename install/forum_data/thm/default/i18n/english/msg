@@ -349,7 +349,7 @@ post_color:			Color
 post_font:			Font
 create_thread:			Create Thread
 submit_reply:			Submit Reply
-edit_message:			Edit Message
+edit_message:			Apply Message Changes
 apply_spell_changes:		Apply Spelling Changes
 post_preview:			Post Preview
 post_logedin_user:		Logged in user:
