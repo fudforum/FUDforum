@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.7 2003/04/24 13:48:53 hackie Exp $
+*   $Id: admcat.php,v 1.8 2003/04/24 13:58:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,16 +39,13 @@
 		} else {
 			$cat->add($_POST['cat_pos']);
 		}
-	} else if ($edit) {
-		if ($c = db_arr_assoc('SELECT name, description, allow_collapse, default_view, pos FROM '.$tbl.'cat WHERE id='.$edit)) {
-			foreach ($c as $k => $v) {
-				${'cat_'.$k} = $v;
-			}
-			if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
-				$cat_description = substr($cat_description, 3);
-			}
-		} else {
-			$edit = '';
+	}
+	if ($edit && ($c = db_arr_assoc('SELECT name, description, allow_collapse, default_view FROM '.$tbl.'cat WHERE id='.$edit))) {
+		foreach ($c as $k => $v) {
+			${'cat_'.$k} = $v;
+		}
+		if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
+			$cat_description = substr($cat_description, 3);
 		}
 	} else {
 		$c = get_class_vars('fud_cat');
@@ -159,7 +156,10 @@
 				$lp = $r->view_order;
 			}
 		}
-		
+		if ($r->description && !strncmp($r->description, ' - ', 3)) {
+			$r->description = substr($r->description, 3);
+		}
+
 		echo '<tr '.$bgcolor.'>
 			<td>'.$r->name.'</td>
 			<td>'.substr($r->description, 0, 30).'</td>

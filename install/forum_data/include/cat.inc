@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc,v 1.1 2003/04/24 13:49:24 hackie Exp $
+*   $Id: cat.inc,v 1.2 2003/04/24 13:58:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,22 +28,20 @@ class fud_cat
 		}
 	}
 
-	function cat_make_view_order($pos)
-	{
-		if ($pos == 'LAST') {
-			$this->view_order = q_singleval('SELEXT MAX(view_order)+1 FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat');
-		} else {
-			$this->view_order = 1;
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1');
-		}
-	}
-
 	function add($pos)
 	{
 		if (!db_locked()) {
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'cat WRITE');
 		}	
+
+		if ($pos == 'LAST') {
+			$this->view_order = q_singleval('SELECT MAX(view_order)+1 FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat');
+		} else {
+			$this->view_order = 1;
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1');
+		}
+
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (name, description, allow_collapse, default_view, view_order) VALUES ('".addslashes($this->name)."','".addslashes($this->description)."','".yn($this->allow_collapse)."','".addslashes($this->default_view)."',".$this->view_order.")");
 
 		if (isset($ll)) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.11 2003/04/24 01:32:15 hackie Exp $
+*   $Id: adm.inc,v 1.12 2003/04/24 13:58:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ if (isset($_POST['btn_cancel'])) {
 		header('Location: admglobal.php?'._rsidl);
 		exit;
 	}
-	unset($_POST, $_GET);
+	$_POST = $_GET = NULL;
 }
 	
 function rebuildmodlist()
