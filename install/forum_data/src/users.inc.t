@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.136 2004/10/24 18:55:51 hackie Exp $
+* $Id: users.inc.t,v 1.137 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -606,7 +606,7 @@ function init_user()
 		}
 	}
 	if ($u->data) {
-		$u->data = @unserialize($u->data);
+		$u->data = unserialize($u->data);
 	}
 	$uo = $u->users_opt = (int) $u->users_opt;
 

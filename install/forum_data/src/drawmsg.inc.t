@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.89 2004/10/22 23:33:58 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.90 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,10 +48,10 @@ if (isset($_GET['rev'])) {
 /* initialize buddy & ignore list for registered users */
 if (_uid) {
 	if ($usr->buddy_list) {
-		$usr->buddy_list = @unserialize($usr->buddy_list);
+		$usr->buddy_list = unserialize($usr->buddy_list);
 	}
 	if ($usr->ignore_list) {
-		$usr->ignore_list = @unserialize($usr->ignore_list);
+		$usr->ignore_list = unserialize($usr->ignore_list);
 		if (isset($usr->ignore_list[1])) {
 			$usr->ignore_list[0] =& $usr->ignore_list[1];
 		}
@@ -247,7 +247,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	/* draw file attachments if there are any */
 	$drawmsg_file_attachments = '';
 	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
-		$atch = @unserialize($obj->attach_cache);
+		$atch = unserialize($obj->attach_cache);
 		if (!empty($atch)) {
 			foreach ($atch as $v) {
 				$sz = $v[2] / 1024;
@@ -272,7 +272,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 
 	if ($obj->poll_cache) {
-		$obj->poll_cache = @unserialize($obj->poll_cache);
+		$obj->poll_cache = unserialize($obj->poll_cache);
 	}
 
 	/* handle poll votes */

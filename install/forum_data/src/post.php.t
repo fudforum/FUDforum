@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.118 2004/06/14 17:34:07 hackie Exp $
+* $Id: post.php.t,v 1.119 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -205,7 +205,7 @@ function flood_check()
 
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
-				if (($attach_list = @unserialize(base64_decode($_POST['file_array'])))) {
+				if (($attach_list = unserialize(base64_decode($_POST['file_array'])))) {
 					foreach ($attach_list as $v) {
 						if ($v) {
 							$attach_count++;

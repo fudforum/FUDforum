@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.109 2004/07/05 22:25:05 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.110 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -614,7 +614,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 {
 	$TITLE_EXTRA = $iemail_poll = $iemail_attach = '';
 	if ($obj->poll_cache) {
-		$pl = @unserialize($obj->poll_cache);
+		$pl = unserialize($obj->poll_cache);
 		if (!empty($pl)) {
 			foreach ($pl as $k => $v) {
 				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
@@ -624,7 +624,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 		}
 	}
 	if ($obj->attach_cnt && $obj->attach_cache) {
-		$atch = @unserialize($obj->attach_cache);
+		$atch = unserialize($obj->attach_cache);
 		if (!empty($atch)) {
 			foreach ($atch as $v) {
 				$sz = $v[2] / 1024;
