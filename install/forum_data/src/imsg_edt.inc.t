@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.120 2005/03/05 18:46:59 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.121 2005/03/12 00:16:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -429,7 +429,7 @@ class fud_msg_edit extends fud_msg
 			/* this allows us to mark the message we are sending notification about as read, so that we do not re-notify the user
 			 * until this message is read.
 			 */
-			q('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')');
+			db_li('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')', $dummy);
 		}
 		if ($to) {
 			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name, $mtf->forum_id);
