@@ -2,5 +2,5 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
-	header('Location: admglobal.php?'._rsidl);
+	header('Location: '.$WWW_ROOT.'adm/admglobal.php?'._rsidl);
 ?>

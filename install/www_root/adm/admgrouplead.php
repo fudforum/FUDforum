@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.26 2004/01/26 16:44:32 hackie Exp $
+* $Id: admgrouplead.php,v 1.27 2004/01/30 01:50:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,7 +19,7 @@
 	$gr_leader = isset($_GET['gr_leader']) ? $_GET['gr_leader'] : (isset($_POST['gr_leader']) ? $_POST['gr_leader'] : '');
 
 	if (!$group_id) {
-		header('Location: admgroups.php?'._rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admgroups.php?'._rsidl);
 		exit;
 	}
 

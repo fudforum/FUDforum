@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.29 2004/01/04 16:38:33 hackie Exp $
+* $Id: tmpllist.php,v 1.30 2004/01/30 01:50:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -88,7 +88,7 @@ function goto_tmpl($tmpl)
 	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: admthemesel.php?ret=tmpllist&'._rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=tmpllist&'._rsidl);
 		exit;
 	}
 
