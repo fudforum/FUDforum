@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.20 2002/09/04 02:25:29 hackie Exp $
+*   $Id: register.php.t,v 1.21 2002/09/17 01:58:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -439,7 +439,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			
 			$usr->sync_user();
 			
-			if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && $old_email != $usr->email ) {
+			if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && $old_email != $usr->email && $usr->is_mod != 'A' ) {
 				$usr->email_unconfirm();
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', "");
 			}
