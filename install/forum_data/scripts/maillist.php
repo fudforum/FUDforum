@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.22 2003/02/26 10:15:58 hackie Exp $
+*   $Id: maillist.php,v 1.23 2003/03/24 13:16:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -449,8 +449,12 @@ class fud_emsg
 	
 	function clean_up_data()
 	{
-		if( $this->subject_cleanup_rgx ) $this->subject = trim(preg_replace($this->subject_cleanup_rgx, '', $this->subject));
-		if( $this->body_cleanup_rgx ) $this->body = trim(preg_replace($this->body_cleanup_rgx, '', $this->body));
+		if( $this->subject_cleanup_rgx ) {
+			$this->subject = trim(preg_replace($this->subject_cleanup_rgx, $this->subject_cleanup_rep, $this->subject));
+		}
+		if( $this->body_cleanup_rgx ) {
+			$this->body = trim(preg_replace($this->body_cleanup_rgx, $this->body_cleanup_rep, $this->body));
+		}
 	}
 }
 
@@ -525,8 +529,9 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->body_cleanup_rep = $mlist->body_regex_needle;
 	
 	$emsg->parse_input($mlist->allow_mlist_html);
-	$emsg->clean_up_data();
+	
 	$emsg->fetch_useful_headers();
+	$emsg->clean_up_data();
 	
 	$msg_post = new fud_msg_edit;
 	
