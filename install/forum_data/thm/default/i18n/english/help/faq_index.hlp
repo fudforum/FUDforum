@@ -20,6 +20,7 @@ TOPIC_HELP:
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">What are announcements & sticky messages?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Can I rate topics?</a><br>
 <a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">What are referrals?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#syndicate" class="GenLink">Syndicating this forum</a><br>
 
 TOPIC_TITLE: Reading and Posting Messages
 TOPIC_HELP:
