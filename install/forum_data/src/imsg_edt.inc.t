@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.50 2003/05/05 21:35:00 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.51 2003/05/05 22:18:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,6 +44,8 @@ class fud_msg_edit extends fud_msg
 
 		if (!isset($this->ip_addr)) {
 			$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		} else {
+			$this->ip_addr = "'" . addslashes($this->ip_addr) . "'";
 		}
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
