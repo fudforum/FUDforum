@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.11 2002/08/05 15:29:11 hackie Exp $
+*   $Id: isearch.inc.t,v 1.12 2003/04/14 18:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -129,116 +129,104 @@ function re_build_index()
 	if ( $ll ) db_unlock();
 }
 
-function search($str, $fld, $start, $count, $forum_limiter='', &$total)
+function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$w = explode(" ", $str);
-	$qr = '';
-	$qry_uniq = array();
-	
-	foreach($w as $v) {
-		if( !$v ) continue;
-		$v = strtolower($v);
-		if ( isset($qry_uniq[$v]) ) continue;
-		
+	$w = explode(' ', strtolower($qry));
+	$qr = ''; $i = 0;
+	foreach ($w as $v) {
+		$v = trim($v);
+		if (!$v || isset($qu[$v]) || strlen($v) <= 2) {
+			continue;
+		} else if ($i++ == 10) { /* limit query length to 10 words */
+			break;
+		}
+		$qu[$v] = $v;
 		$qr .= " '".$v."',";
-		$qry_uniq[$v] = 1;
 	}
-	
-	if( $qr )
+	if (!$qr) {
+		return;
+	} else {
 		$qr = substr($qr, 0, -1);
-	else
-		return q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE id=0");	
-	
-	$field = ( $fld != 'subject' ) ? '{SQL_TABLE_PREFIX}index' : '{SQL_TABLE_PREFIX}title_index';
-	
-	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word IN(".$qr.")");
-	
-	if( !db_count($r) ) return $r;
-	$qr='';
-	while( list($id) = db_rowarr($r) ) $qr .= $id.',';
-	QF($r);
-	
-	$qr = $field.".word_id IN ( ".substr($qr, 0, -1).")";
-	
-	if( $GLOBALS['usr']->is_mod != 'A' ) {
-		if( is_numeric($forum_limiter) ) {
-			if( !is_perms(_uid, $forum_limiter, 'READ') ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
-
-			$forum_limiter_sql = " {SQL_TABLE_PREFIX}forum.id=".$forum_limiter." AND ";
-		}
-		else {
-			if( !($fids = get_all_perms(_uid)) ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
-		
-			$forum_limiter_sql = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';
-		
-			if( $forum_limiter[0]=='c' && is_numeric(substr($forum_limiter,1)) ) 
-				$forum_limiter_sql .= '{SQL_TABLE_PREFIX}cat.id='.substr($forum_limiter,1).' AND ';
-		}
-	}	
-	else
-		$forum_limiter_sql = '';
-
-	$r = q("SELECT 
-		".$field.".msg_id AS msg_id,
-		count({SQL_TABLE_PREFIX}msg.id) as rev_match
-	FROM 
-		".$field."
-		INNER JOIN {SQL_TABLE_PREFIX}msg ON ".$field.".msg_id={SQL_TABLE_PREFIX}msg.id
-		INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
-		INNER JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
-	WHERE 
-		".$qr." AND
-		".$forum_limiter_sql."
-		{SQL_TABLE_PREFIX}msg.approved='Y'
-	GROUP BY 
-		".$field.".msg_id 
-	ORDER BY rev_match DESC");
-	
-	if ( !($total=db_count($r)) ) return $r;
-	
-	$idlist = '';
-	$wc = count($qry_uniq);
-	
-	$i=0;
-	db_seek($r, $start);
-	while ( $obj = db_rowobj($r) ) {
-		if( ($GLOBALS['LOGIC'] == 'AND' && $wc > $obj->rev_match) || ($i++ > $count) ) break;
-		$idlist .= $obj->msg_id.',';
 	}
-	qf($r);
-	
-	if( $i<=$count ) $total = $i;
-	
-	if( empty($idlist) ) 
-		return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
-	else
-		$idlist = substr($idlist, 0, -1);
-	
-	$r = q("SELECT
-			{SQL_TABLE_PREFIX}users.alias AS login,
-			{SQL_TABLE_PREFIX}forum.name AS forum_name, 
-			{SQL_TABLE_PREFIX}forum.id AS forum_id,
-			{SQL_TABLE_PREFIX}msg.poster_id,
-			{SQL_TABLE_PREFIX}msg.id, 
-			{SQL_TABLE_PREFIX}msg.thread_id,
-			{SQL_TABLE_PREFIX}msg.subject,
-			{SQL_TABLE_PREFIX}msg.poster_id,
-			{SQL_TABLE_PREFIX}msg.foff,
-			{SQL_TABLE_PREFIX}msg.length,
-			{SQL_TABLE_PREFIX}msg.post_stamp,
-			{SQL_TABLE_PREFIX}msg.file_id,
-			{SQL_TABLE_PREFIX}msg.icon
-		FROM 
-			{SQL_TABLE_PREFIX}msg 
-			INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-			INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
-			INNER JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id
-			LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
-		WHERE 
-			{SQL_TABLE_PREFIX}msg.id IN ($idlist)
-		ORDER BY {SQL_TABLE_PREFIX}msg.post_stamp ".$GLOBALS['SORT_ORDER']);	
 
-	return $r;
+	if ($srch_type == 'all') {
+		$tbl = 'index';
+		$qt = '0';
+	} else {
+		$tbl = 'title_index';
+		$qt = '1';
+	}
+	$qry_lck = "'".addslashes(implode(' ', $qu))."'";
+
+	db_lock('{SQL_TABLE_PREFIX}search WRITE, {SQL_TABLE_PREFIX}search_cache WRITE, {SQL_TABLE_PREFIX}'.$tbl.' WRITE');
+	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'.(__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
+	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE query_type='.$qt.' AND srch_query='.$qry_lck))) {
+		/* nothing in the cache, let's cache */
+		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word IN('.$qr.')');
+		while ($r = db_rowarr($c)) {
+			$wl[] = $r[0];
+		}
+		qf($c);
+		if ($logic == 'AND' && count($wl) != count($qu)) {
+			return;
+			db_unlock();
+		}
+		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) 
+			SELECT '.$qry_lck.', \''.$qt.'\', '.__request_timestamp__.', msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}'.$tbl.' WHERE word_id IN('.implode(',', $wl).') GROUP BY msg_id ORDER BY word_count DESC LIMIT 500');
+
+		$total = db_affected();
+		db_unlock();
+
+		if (!$total) {
+			return;	
+		}
+	} else {
+		db_unlock();
+	}
+	if ($forum_limiter) {
+		if ($forum_limiter[0] != 'c') {
+			$qry_lmt = ' AND f.id=' . (int)$forum_limiter . ' ';
+		} else {
+			$qry_lmt = ' AND c.id=' . (int)substr($forum_limiter, 1) . ' ';
+		}
+	} else {
+		$qry_lmt = '';
+	}
+
+	$total = q_singleval('SELECT count(*)
+		FROM {SQL_TABLE_PREFIX}search_cache sc
+		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+		WHERE 
+			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
+			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
+			'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ''));
+	if (!$total) {
+		return;	
+	}
+
+	return uq('SELECT 
+			u.alias, 
+			f.name AS forum_name, f.id AS forum_id,
+			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
+		FROM {SQL_TABLE_PREFIX}search_cache sc
+		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
+		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
+		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
+		WHERE 
+			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
+			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
+			'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '').'
+		ORDER BY sc.n_match DESC, m.post_stamp '.$order.' LIMIT '.qry_limit($count, $start));
 }
 ?>

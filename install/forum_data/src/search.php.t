@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.12 2003/02/25 15:30:38 hackie Exp $
+*   $Id: search.php.t,v 1.13 2003/04/14 18:49:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,84 +15,88 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
-	if( $GLOBALS['FORUM_SEARCH'] != 'Y' ) std_error('disabled');
-	
-	if ( empty($start) ) $start = 0;
-	$ppg = ( !empty($usr->posts_ppg) )?$usr->posts_ppg:$GLOBALS['POSTS_PER_PAGE'];
-	
-	$field = ( !empty($field) ) ? trim($field) : 'all';
-	if( empty($forum_limiter) ) $forum_limiter = NULL;
+	if ($FORUM_SEARCH != 'Y') {
+		std_error('disabled');
+	}
+	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
+		$start = 0;
+	}
 
-	{POST_HTML_PHP}
+	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+	$srch = isset($_GET['srch']) ? trim($_GET['srch']) : '';
+	$forum_limiter = isset($_GET['forum_limiter']) ? $_GET['forum_limiter'] : '';
+	$field = !isset($_GET['field']) ? 'subject' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
+	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
+	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
+
+/*{POST_HTML_PHP}*/
+
+	/* draw search engine selection boxes */
+	if ($usr->is_mod != 'A') {
+		$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name 
+				FROM {SQL_TABLE_PREFIX}forum f 
+				INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id 
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=f.id
+				WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'
+				ORDER BY c.view_order, f.view_order');
+	} else {
+		$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+	}
+	$old_cat = $forum_limit_data = '';
+	while ($r = db_rowarr($c)) {
+		if ($old_cat != $r[2]) {
+			$selected = ('c'.$r[2] == $forum_limiter) ? ' selected' : '';
+			$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
+			$old_cat = $r[2];
+			continue;
+		}
+		$selected = $r[0] == $forum_limiter ? ' selected' : '';
+		$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
+	}
+	qf($c);
+	/* user has no permissions to any forum, so as far as they are concerned the search is disabled */
+	if (!$forum_limit_data) {
+		std_error('disabled');	
+	}
+
+	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $search_logic, '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
+	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $sort_order, '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
+
 	$TITLE_EXTRA = ': {TEMPLATE: search_title}';
-	if ( isset($ses) ) $ses->update('{TEMPLATE: search_update}');
 
-	$GLOBALS['LOGIC'] =  ($search_logic == 'OR' ? 'OR' : 'AND');
-	$GLOBALS['SORT_ORDER'] = ($sort_order == 'ASC' ? 'ASC' : 'DESC');
+	ses_update_status($usr->sid, '{TEMPLATE: search_update}');
 
-	if ( !empty($srch) ) {
-		$i = 0;
-		
-		$r = search($srch, $field, $start, $ppg, $forum_limiter, $total);
-		
-		if ( !$total )
+	$page_pager = '';
+	if ($srch) {
+		if (!($c =& fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
-		else {
-			$prev_thread_id=0;
-			while ( ($obj = db_rowobj($r)) ) {
-				if ( $obj->thread_id != $prev_thread_id ) 
-			
-				$body = strip_tags(read_msg_body($obj->foff, $obj->length, $obj->file_id));
-				if( strlen($body) > 80 ) $body = substr($body,0,80).'...';
-			
-				if ( !empty($obj->poster_id) )
-					$poster_info = '{TEMPLATE: registered_poster}';
-				else
-					$poster_info = '{TEMPLATE: unregistered_poster}';
-			
+		} else {
+			$i = 0;
+			$search_data = '';
+			while ($r = db_rowobj($c)) {
+				$body = strip_tags(read_msg_body($r->foff, $r->length, $r->file_id));
+				if (strlen($body) > 80) {
+					$body = substr($body, 0, 80) . '...';
+				}
+				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: registered_poster}' : '{TEMPLATE: unregistered_poster}';
 				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
+			qf($c);
 			un_register_fps();
-			qf($r);
-			
 			$search_data = '{TEMPLATE: search_results}';
+			$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
 		}
+	} else {
+		$search_data = '';
 	}
-	$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;btn_submit=1&amp;srch='.urlencode($srch).'&amp;field='.urlencode($field).'&amp;'._rsid.'&amp;search_logic='.$GLOBALS['LOGIC'].'&amp;sort_order='.$GLOBALS['SORT_ORDER'].'&amp;forum_limiter='.$forum_limiter);
-
-	if( $usr->is_mod != 'A' ) {
-		$fids = get_all_perms(_uid);
-		if( empty($fids) ) $fids = 0;
-		
-		$qry_limiter = ' WHERE {SQL_TABLE_PREFIX}forum.id IN ('.$fids.') ';
-	}
-	else
-		$qry_limiter = '';
-
-	$r = q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}cat.id AS cat_id,{SQL_TABLE_PREFIX}cat.name AS cat_name FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id ".$qry_limiter." ORDER BY {SQL_TABLE_PREFIX}cat.view_order,{SQL_TABLE_PREFIX}forum.view_order");
-	$old_cat = $forum_limit_data = '';
-	if( db_count($r) ) {
-		while( $obj = db_rowobj($r) ) {
-			$selected = (('c'.$obj->cat_id)==$forum_limiter)?' selected':'';
-			if( $old_cat != $obj->cat_id ) {
-				$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
-				$old_cat = $obj->cat_id;
-			}			
-			$selected = ($obj->id==$forum_limiter)?' selected':'';
-			$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
-		}
-	}
-	qf($r);	
 	
-	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$logic_options = tmpl_draw_select_opt("AND\nOR", "{TEMPLATE: search_and}\n{TEMPLATE: search_or}", $GLOBALS['LOGIC'], '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
-	$sort_options = tmpl_draw_select_opt("DESC\nASC", "{TEMPLATE: search_desc_order}\n{TEMPLATE: search_asc_order}", $GLOBALS['SORT_ORDER'], '{TEMPLATE: search_normal_option}', '{TEMPLATE: search_selected_option}');
 	
-	$srch = stripslashes($srch);
-	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: SEARCH_PAGE}
