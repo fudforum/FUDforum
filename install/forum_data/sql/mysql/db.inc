@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.5 2002/07/22 14:53:37 hackie Exp $
+*   $Id: db.inc,v 1.6 2002/07/29 13:22:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -144,9 +144,9 @@ function q($query)
 	return $result; 
 }
 
-function qf($result)
+function qf(&$result)
 {
-	mysql_free_result($result);
+	unset($result);
 }
 
 function query_count()
