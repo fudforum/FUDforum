@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.9 2002/07/13 00:11:47 hackie Exp $
+*   $Id: phorum.php,v 1.10 2002/07/27 15:41:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -175,11 +175,14 @@ function INT_yn($s)
 /* import phorum users */
 
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."users");
-	$r = Q2("SELECT * FROM ".$PHORUM['main_table']."_auth GROUP BY login ORDER BY id DESC");
+	$r = Q2("SELECT * FROM ".$PHORUM['main_table']."_auth GROUP BY name ORDER BY id DESC");
 	print_status('Importing users '.db_count($r));
 	while ( $obj = db_rowobj($r) ) {
 		print_status($obj->name);
 		$append_sig = ( $obj->sig ) ? 'Y' : 'N';
+		
+		if( bq("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email='".$obj->email."'") ) continue;
+		
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
 			(
 				id,
