@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.63 2004/10/21 00:08:37 hackie Exp $
+* $Id: tree.php.t,v 1.64 2004/10/22 23:07:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -214,7 +214,6 @@
 
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
 				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
-				$width = '{TEMPLATE: tree_tab_width}' * ($lev - 1);
 
 				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
 					$read_indicator = '{TEMPLATE: tree_unread_message}';
