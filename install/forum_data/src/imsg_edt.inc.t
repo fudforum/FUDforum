@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.94 2004/03/18 21:24:13 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.95 2004/03/23 20:31:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -431,10 +431,13 @@ class fud_msg_edit extends fud_msg
 		}
 		while ($r = db_rowarr($c)) {
 			if ($r[2] & 16) {
-				$to['EMAIL'] = $r[0];
-			} else {
-				$to['ICQ'] = $r[1].'@pager.icq.com';
+				if ($r[2] & 4) {
+					$to['EMAIL'] = $r[0];
+				} else {
+					$to['ICQ'] = $r[1].'@pager.icq.com';
+				}
 			}
+
 			if (isset($r[4]) && is_null($r[3])) {
 				$tl[] = $r[4];
 			}
