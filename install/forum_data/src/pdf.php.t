@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.8 2003/05/27 17:13:13 hackie Exp $
+*   $Id: pdf.php.t,v 1.9 2003/05/27 18:07:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,7 +97,7 @@ class fud_pdf
 		} else {
 			$this->pg_num = 1;
 		}
-		pdf_add_outline($this->pdf, $ttl);
+		pdf_add_bookmark($this->pdf, $ttl);
 		pdf_setfont($this->pdf, $this->fonts['Courier'], 12);
 		pdf_set_text_pos($this->pdf, $this->wmargin, ($this->ph - $this->hmargin));
 		$this->pg_title = $title;
