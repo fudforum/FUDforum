@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admext.php,v 1.5 2002/10/14 23:40:36 hackie Exp $
+*   $Id: admext.php,v 1.6 2003/04/23 12:57:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,57 +17,42 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('widgets.inc', true);
-	fud_use('util.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	fud_use('fileio.inc');
 	fud_use('ext.inc', true);
-	
-	list($ses, $usr) = initadm();
-	
-	if( !empty($HTTP_POST_VARS['c_ext']) ) 
-		$HTTP_POST_VARS['c_ext'] = ereg_replace(".*\.", "", $HTTP_POST_VARS['c_ext']);	
-	
-	if ( !empty($btn_submit) ) {
-		$c = new fud_ext_block;
-		$c->fetch_vars($HTTP_POST_VARS, 'c_');
-		$c->add();
-		header("Location: admext.php?"._rsidl);
-		exit();
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (!empty($_POST['c_ext'])) {
+		if (($p = strrpos($_POST['c_ext'], '.')) !== FALSE) {
+			$c_ext = rtrim(substr($_POST['c_ext'], ($p + 1)));
+		} else {
+			$c_ext = trim($_POST['c_ext']);	
+		}
 	}
-	
-	if ( !empty($edit) && empty($prev_l) ) {
-		$c_r = new fud_ext_block;
-		$c_r->get($edit);
-		$c_r->export_vars('c_');
+
+	if (isset($_POST['edit'], $_POST['btn_update']) && $c_ext) {
+		q('UPDATE '.$tbl.'ext_block SET ext=\''.addslashes($c_ext).'\' WHERE id='.(int)$_POST['edit']);
+	} else if (isset($_POST['btn_submit']) && $c_ext) {
+		q('INSERT INTO '.$tbl.'ext_block (ext) VALUES(\''.addslashes($c_ext).'\')');
+	} else if (isset($_GET['del'])) {
+		q('DELETE FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['del']);
+	} else {
+		$nada = 1;
 	}
-	
-	if ( !empty($btn_cancel) ) {
- 		header("Location: admext.php?"._rsidl);
-		exit();
+
+	if (!isset($nada) && db_affected()) {
+		ext_cache_rebuild();
 	}
-	
-	if ( !empty($btn_update) && !empty($edit) ) {
-		$c_s = new fud_ext_block;
-		$c_s->get($edit);
-		$c_s->fetch_vars($HTTP_POST_VARS, 'c_');
-		$c_s->sync();
-		header("Location: admext.php?"._rsidl);
-		exit();
-	}
-	
-	if ( !empty($del) ) {
-		$c_d = new fud_ext_block;
-		$c_d->get($del);
-		$c_d->delete();
-		header("Location: admext.php?"._rsidl);
-		exit();
-	}
-	
-	cache_buster();
-include('admpanel.php'); ?>
+
+	if (isset($_GET['edit'])) {
+		list($edit, $c_ext) = db_saq('SELECT id, ext FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['edit']);
+	} else {
+		$edit = $c_ext = '';
+	}                                                
+
+	include($WWW_ROOT_DISK . 'adm/admpanel.php');
+?>
 <h2>Allowed Extensions</h2>
 <form method="post" action="admext.php">  
 <table border=0 cellspacing=1 cellpadding=3>
@@ -76,27 +61,22 @@ include('admpanel.php'); ?>
 	</tr>
 	<tr bgcolor="#bff8ff">
 		<td>Extension:</td>
-		<td><input type="text" name="c_ext" value="<?php echo (empty($c_ext)?'':htmlspecialchars($c_ext)); ?>">
+		<td><input type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>">
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
-		<?php 
-			if ( !empty($edit) ) {
-				?>
-				<input type="submit" name="btn_cancel" value="Cancel">&nbsp;
-				<input type="submit" name="btn_update" value="Update">
-				<?php
-			}
-			else {
-				?><input type="submit" name="btn_submit" value="Add"><?php
+		<?php
+			if ($edit) {
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+			} else {
+				echo '<input type="submit" name="btn_submit" value="Add">';
 			}
 		?>
 		</td>
 	</tr>
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
-<input type="hidden" name="prev_l" value="1">
 <?php echo _hs; ?>
 </form>
 
@@ -106,17 +86,16 @@ include('admpanel.php'); ?>
 	<td>Action</td>
 </tr>
 <?php
-	$c_l = new fud_ext_block;
-	$c_l->getall();
-	$c_l->resetc();
-	
-	$i=1;
-	while ( $obj = $c_l->eachc() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		$ctl = "<td>[<a href=\"admext.php?edit=$obj->id&"._rsid."\">Edit</a>] [<a href=\"admext.php?del=$obj->id&"._rsid."\">Delete</a>]</td>";
-		
-		echo "<tr$bgcolor><td>.$obj->ext</td>$ctl</tr>\n";
+	$c = uq('SELECT ext,id FROM '.$tbl.'ext_block');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		if ($edit == $r[0]) {
+	        	$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+	        	$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
+	qf($c);
 ?>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.23 2003/04/23 00:54:21 hackie Exp $
+*   $Id: consist.php,v 1.24 2003/04/23 12:57:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -487,6 +487,10 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuilding email filter cache');
 	email_cache_rebuild();
 	draw_stat('Done: Rebuilding email filter cache');
+	
+	draw_stat('Rebuilding extension filter cache');
+	ext_cache_rebuild();
+	draw_stat('Done: Rebuilding extension filter cache');
 
 /*	
 	draw_stat('Rebuilding custom tags for users');
@@ -496,11 +500,6 @@ forum will be disabled.<br><br>
 		$c_level->sync();
 	}
 	draw_stat('Done Rebuilding custom tags for users');
-
-	draw_stat('Rebuild File Extension Filter');
-	$ext = new fud_ext_block;
-	$ext->mk_regexp();
-	draw_stat('Done: Rebuilding File Extension Filter');
 */
 
 	draw_stat('Rebuilding group cache');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ext.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
+*   $Id: ext.inc,v 1.3 2003/04/23 12:58:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,111 +14,19 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	fud_use('db.inc');
 
-class fud_ext_block
+function ext_cache_rebuild()
 {
-	var $id;
-	var $ext;
-	
-	var $c_list;
-	
-	function add()
-	{
-		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block (ext) VALUES('".$this->ext."')");
-		$this->mk_regexp();
+	$c = uq('SELECT ext FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ext_block');
+	while ($r = db_rowarr($c)) {
+		$a[] = addcslashes($r[0], '\'/\\');
 	}
-	
-	function sync()
-	{
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block SET ext='".$this->ext."' WHERE id=".$this->id);
-		$this->mk_regexp();
-	}
-	
-	function delete()
-	{
-		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block WHERE id=".$this->id);
-		$this->mk_regexp();
-	}
-	
-	function get($id)
-	{
-		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block WHERE id=".$id);
-		
-		if ( !is_result($res) ) exit("no such extension\n");
-		$obj = db_singleobj($res);
-		
-		$this->id	= $obj->id;
-		$this->ext	= $obj->ext;
-	}
-	
-	function fetch_vars($array, $prefix)
-	{
-		$this->ext = $array[$prefix.'ext'];
-	}
-	
-	function export_vars($prefix)
-	{	
-		$GLOBALS[$prefix.'ext'] = $this->ext;
-	}
-	
-	function getall()
-	{
-		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block");
-				
-		unset($this->c_list);
-		while ( $obj = db_rowobj($res) ) {
-			$this->c_list[] = $obj;
-		}
-		qf($res);
-	}
-	
-	function resetc()
-	{
-		if ( !isset($this->c_list) ) return;
-		reset($this->c_list);
-	}
-	
-	function countc()
-	{
-		if ( !isset($this->c_list) ) return;
-		return count($this->c_list);
-	}
-	
-	function eachc()
-	{
-		if ( !isset($this->c_list) ) return;
-		$obj = current($this->c_list);
-		if ( !isset($obj) ) return;
-		next($this->c_list);
-		return $obj;
-	}
-	
-	function mk_regexp()
-	{
-		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block");
-		
-		if ( !is_result($r) ) {
-			$regexp = '';
-		}
-		else { 
-			$regexp = '.*\.(';
-			while ( $obj = db_rowobj($r) ) {
-				if( $obj->ext == '*' ) {
-					$regexp = '';
-					break;
-				}
-				$regexp .= $obj->ext.'|';
-			}
-			qf($r);
-		}
-		
-		if( !empty($regexp) ) $regexp = substr($regexp, 0, -1).')';
-		
-		$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp', 'wb');
-			fwrite($fp, $regexp);
-		fclose($fp);
-		@chmod($GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp',0600);
-	}
+	qf($c);
+
+	$data = isset($a) ? "'" . implode("', '", $a) . "'" : '';
+
+	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp', 'w');
+	fwrite($fp, '<?php $GLOBALS[\'__FUD_EXT_FILER__\'] = array(' . $data . '); ?>');
+	fclose($fp);
 }
 ?>
