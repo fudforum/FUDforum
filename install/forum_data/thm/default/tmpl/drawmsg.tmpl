@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.56 2004/02/17 15:49:54 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.57 2004/03/15 14:59:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -445,5 +445,13 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
-<font class="small"> [ <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="small">{MSG: dmsg_reply_to}</a> ]</font>
+<font class="small"> [{TEMPLATE: dmsg_num} <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="small">{MSG: dmsg_reply_to}</a> ]</font>
+{SECTION: END}
+
+{SECTION: dmsg_num}
+{MSG: dmsg_num}
+{SECTION: END}
+
+{SECTION: dmsg_num_wrap}
+<font class="small"> [{TEMPLATE: dmsg_num}]</font>
 {SECTION: END}

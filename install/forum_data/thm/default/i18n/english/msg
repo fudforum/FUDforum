@@ -1022,3 +1022,4 @@ userinfo_real_name:		Real Name:
 register_err_alias_notallowed:	This alias is not allowed
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
+dmsg_num:			message #{VAR: obj->id}
