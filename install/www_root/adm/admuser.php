@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.20 2003/04/23 15:46:13 hackie Exp $
+*   $Id: admuser.php,v 1.21 2003/04/23 17:18:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,6 +20,7 @@
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('customtags.inc', true);
+	fud_use('users_adm.inc', true);
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
 
@@ -57,12 +58,11 @@
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
-			include_once($GLOBALS['INCLUDE'] . 'theme/' . $user_theme_name . '/rst.inc');
-
 			if ($EMAIL_CONFIRMATION == 'Y' && $u->email_conf == 'N') {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = '{ROOT}?t=emailconf&conf_key='.$conf_key;
-				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, $register_conf_subject, $reset_confirmation, "");
+				
+				send_email($GLOBALS['NOTIFY_FROM'], $u->email, $GLOBALS['register_conf_subject'], $GLOBALS['reset_confirmation'], "");
 			} else {
 				db_lock($tbl . 'users WRITE');
 				do {
@@ -71,14 +71,16 @@
 				q("UPDATE ".$tbl."users SET reset_key='".$reset_key."' WHERE id=".$u->id);
 				db_unlock();
 
-				$url = '{ROOT}?t=reset&reset_key='.$key;
-				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, $reset_newpass_title, $reset_reset, "");
+				$url = '{ROOT}?t=reset&reset_key='.$reset_key;
+				include_once($GLOBALS['INCLUDE'] . 'theme/' . $user_theme_name . '/rst.inc');
+				send_email($GLOBALS['NOTIFY_FROM'], $u->email, $GLOBALS['reset_newpass_title'], $GLOBALS['reset_reset'], "");
 			}
 			break;
 		case 'del':
 			logaction(_uid, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
-			$usr->delete_user();
-			unset($usr_id, $act, $u);
+			usr_delete($usr_id);
+			unset($act, $u);
+			$usr_id = '';
 			break;
 		case 'admin':
 			if ($u->is_mod == 'A') {
