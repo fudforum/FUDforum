@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.45 2004/10/21 23:21:20 hackie Exp $
+* $Id: index.tmpl,v 1.46 2004/10/21 23:55:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -175,7 +175,7 @@
 {SECTION: END}
 
 {SECTION: mark_all_read_lnk}
-{ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
+{ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}&amp;cat={VAR: cat_id}
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y_lnk}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.134 2004/10/21 21:38:32 hackie Exp $
+* $Id: users.inc.t,v 1.135 2004/10/21 23:55:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -311,6 +311,9 @@ function init_user()
 				$_GET['t'] = 'markread';
 				if (isset($p[1])) {
 					$_GET['id'] = $p[1];
+					if (isset($p[2])) {
+						$_GET['cat'] = $p[2];
+					}
 				}
 				break;
 
