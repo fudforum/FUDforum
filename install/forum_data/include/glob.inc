@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.18 2003/10/15 16:39:59 hackie Exp $
+* $Id: glob.inc,v 1.19 2003/11/06 16:47:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -64,7 +64,7 @@ function print_bit_field($descr, $field)
 	echo '</td></tr>';
 }
 
-function print_reg_field($descr, $field, $is_int=0)
+function print_reg_field($descr, $field, $is_int=0, $pass=0)
 {
 	if (!isset($GLOBALS[$field])) {
 		$str = !$is_int ? '' : '0';
@@ -72,7 +72,7 @@ function print_reg_field($descr, $field, $is_int=0)
 		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : $GLOBALS[$field];
 	}
 
-	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="text" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
+	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$GLOBALS['help_ar'][$field][0].'</font></td><td valign="top"><input type="'.(!$pass ? 'text' : 'password').'" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
 }
 
 function change_global_settings($list)

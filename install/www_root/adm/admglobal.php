@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.47 2003/10/30 21:38:45 hackie Exp $
+* $Id: admglobal.php,v 1.48 2003/11/06 16:47:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -152,7 +152,7 @@ function get_max_upload_size()
 <?php
 	print_reg_field('Database Server', 'DBHOST');
 	print_reg_field('Database Login', 'DBHOST_USER');
-	print_reg_field('Database Password', 'DBHOST_PASSWORD');
+	print_reg_field('Database Password', 'DBHOST_PASSWORD', 0, 1);
 	print_reg_field('Database Name', 'DBHOST_DBNAME');
 	print_bit_field('Use Persistent Connections', 'DBHOST_PERSIST');
 ?>
