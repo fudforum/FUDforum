@@ -1,0 +1,230 @@
+TOPIC_TITLE: <a name="style">How to format text?</a>
+TOPIC_HELP:
+Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
+some formatting to your text, such as making certain words bold,italics,etc...
+<p>
+Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
+set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
+<p>
+<b>Here is a list of the supported FUDcode tags & short examples on it's usage</b>
+
+<b>URL Hyperlinking</b><br><br>
+
+The forum can automatically pick up on many forms of URLs, for example:<br>
+	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
+will be automatically picked up as a URL and converted to a valid URL, which will look like this:
+	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+	
+	
+You can create a URL yourself by using FUD code also, this can be done in 2 ways, a simple way works like this:
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
+this will result in a generation fo the following link:
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
+You can add a description to your URL by using a different syntax inside the <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> this code will result in the following:<br>
+	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
+<p>
+<b>Email Hyperlinking</b><br><br>
+         To create an email link simply type the email address as it would
+ normally    appear, for example:<br>
+<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
+       the forum will automatically understand this create a link.  In addition
+   it is also possible to create a real email hyperlink using this  format<br>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Click here to email our tech support<font color="#ff0000"><b>[/email]</b></font><br></div>
+<br>
+<b>Text Styling</b><br>
+         There are a number of tags which you can use to style text, they 
+are:<br>
+<br>
+<ul>
+  <li><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
+         [/b]</b></font> produces <b>bold</b> text</li>
+  <li><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b>
+         [/u]</b></font> produces <u>underlined</u> text</li>
+  <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
+         [/i]</b></font> produces <i>italicized</i> text</li>
+</ul>
+         It is also possible to control color/size and even font face.<br>
+<ul>
+  <li><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>
+         [/color]</b></font> produces <font color="#ff0000">red text</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>
+        [/size]</b></font> produces text in the specified <font size="4">
+size</font></li>
+  <li><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>
+        [/font]</b></font> produces text using the named <font face="Courier New, Courier, monospace">
+        type face</font></li>
+</ul>
+        It is also possible to combine various formatting tags:<br>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatted Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+       this example produces:<br>
+<div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
+<br>
+<br>
+<b>Text Alignment</b><br>
+FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
+<ul>
+	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
+		<div align="center">centered text</div>
+	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
+		<div align="left">left aligned</div>
+	<li><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
+		<div align="right">right aligned</div>	
+</ul>
+<br>
+<br>
+<b>Various Lists</b><br>
+      You can create various kinds of lists using Form Code:<br>
+<br>
+      Un-ordered bulleted list:<br>
+<font color="#ff0000"><b>[list]</b></font><br>
+<font color="#ff0000"><b>[*]</b></font>first item<br>
+<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[/list]<br>
+</b></font><br>
+      would produce<br>
+<ul>
+  <li>first item</li>
+  <li>second item</li>
+</ul>
+      It is possible to use various kinds of lists, for example to create 
+an  numerical  ordered list:<br>
+<font color="#ff0000"><b>[list type=1]</b></font><br>
+<font color="#ff0000"><b>[*]</b></font>first item<br>
+<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[/list]</b></font><br>
+     which produces<br>
+<ol>
+  <li>first item</li>
+  <li>second item<br>
+  </li>
+</ol>
+     to create an A-Z list:<br>
+<font color="#ff0000"><b>[list type=A]</b></font><br>
+<font color="#ff0000"><b>[*]</b></font>first item<br>
+<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[/list]</b></font><br>
+<br>
+     which produces:<br>
+<ol type="a">
+  <li>first item</li>
+  <li>second item</li>
+</ol>
+<b>Adding Images</b><br>
+    It is possible to include in-line images with the message. using the <font color="#ff0000"><b>
+    [img][/img]</b></font> tags. <br>
+<br>
+    so, for example,<br>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
+    will insert an image in the message as such:<br>
+<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
+    in addition you can create links to images by enclosing them inside a
+<font color="#ff0000"><b>    [url][/url]</b></font> tags such as<br>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
+    which will create a linked image such as<br>
+<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+
+<br><b>Quoting other messages</b><br>
+  It is possible to quote something that has already been posted, by just 
+putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it. 
+<br>
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font><br></div>
+  would appear such as:<br>
+
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<p>
+<b>Computer Code and Pre-formatted Text</b><br>
+ The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
+text exactly as it is, maintaining relational formatting such as tabs and multiple 
+spaces. <br>
+<br>
+ it used like this: <br>
+<font color="#ff0000"><b>[code]</b></font>
+<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
+<font color="#ff0000"><b>[/code]</b></font><br>
+<br>
+ which produces the text exactly as it was typed maintaining the formatting. 
+<br>
+<br>
+<pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
+<br>
+
+You may also find that the administrator has enabled smilies, which allow
+you to use small icons to convey emotion, and the [img] code, which allows
+you to add pictures to your message.
+
+
+TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_HELP:
+Smilies are small icons that you can insert into your message to convey various emotions & feelings.
+If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
+Clicking on a smiley, will insert that smiley into your message.<br>
+Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
+<b>Disable Smilies</b> checkbox.<p>
+
+TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
+TOPIC_HELP:
+In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
+provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
+their votes.<br>
+When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
+potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
+and then poll you've created will be attached to the message.<br>
+You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
+<p>
+You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
+
+TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
+TOPIC_HELP:
+If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
+determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+<br>
+The post form will list 3 rules which apply to your file attachments:<p>
+<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br>
+<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br>
+<b>Maximum Files per Message</b> - the number of files you can attach to your message.
+<p>
+To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
+open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
+<b>Upload File</b> button to attach the file to your message.<br>
+If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
+
+
+TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
+TOPIC_HELP:
+Post icons are small images that you can choose to show beside your messages. They are most 
+commonly used to indicate the nature of your message or the feeling your are trying to convey.
+If you do not see those icons on the post form, it means the administrator has disabled this feature.
+
+TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
+TOPIC_HELP:
+If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
+time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br>
+If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date 
+of editing.<br>
+If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
+that this message was edited.
+
+TOPIC_TITLE: <a name="mod">Who are the moderators & administrators?</a> 
+TOPIC_HELP:
+Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
+as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
+You may also address moderators if you have any questions in regard on how to use the forum.<p>
+Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
+able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions.
+If you encounter any bugs with the forum, Administrator is the person to contact.
+
+TOPIC_TITLE: <a name="cens">Censorship?</a>
+TOPIC_HELP:
+The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
+so the same things you cannot see, other people will also not be able to see.
+
+TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
+TOPIC_HELP:
+When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email or ICQ (select via your profile) 
+of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
+want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
+<p>
+If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
+Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
+<p>
+The ability to receive notifications is limited to registered users.
