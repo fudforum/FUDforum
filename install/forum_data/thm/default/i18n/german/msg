@@ -963,39 +963,39 @@ reg_conf_email:			<b>E-mail Best&auml;tigung</b><br />An Dich wurde eine E-mail 
 reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert wird mu&szlig; es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst Du eine E-mail erhalten, die Dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst Du Dich zwar mit Deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, da&szlig; Du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
 mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
+mnav_date_limit:		Datumsbereich:
+mnav_time_unit:			Zeiteinheit des Datums:
+mnav_forum_limit:		Suche nur in:
+mnav_all_forums:		Durchsuche alle Foren
+mnav_submit:			Fange mit der Suche an
+mnav_no_range:			Du mu&szlig;t einen g&uuml;ltigen Datumsbereich angeben. Dieser Wert kann auch eine Flie&szlig;kommazahl sein (0.12) jedoch mu&szlig; er gr&ouml;&szlig;er als 0 sein.
+mnav_invalid_unit:		Du mu&szlig;t eine g&uuml;ltige Zeiteinheit angeben.
+mnav_invalid_date:		Der Datumsbereich, den Du angegeben hast ist gr&ouml;ßer als der vom Administrator gestattete, schr&auml;nke daher Deine Suche ein wenig ein.
+mnav_no_results:		Es gibt keine Beitr&auml;ge, die den Suchkriterien entsprechen.
+mnav_posted_by:			Erstellt von:
+mnav_more:			Mehr &raquo;&raquo;
+mnav_minute:			Minute(n)
+mnav_hour:			Stunde(n)
+mnav_day:			Tag(e)
+mnav_week:			Woche(n)
+mnav_month:			Monat(e)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
-dmsg_reply_to:			reply to {VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
+mnav_update:			Durchsuche Beitr&auml;ge mittels des <a class="GenLink" href="{ROOT}?t=mnav">Message Navigators</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Message
+pm_notify_body_email:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
+pm_notify_body_icq:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
+register_pm_notification:	Benachrichtigung &uuml;ber private Message
+register_pm_notification_desc:	Falls aktiviert, wirst Du über die Benachrichtigungsmethode Deiner Wahl eine Mitteilung erhalten, sobald eine Private Message an Dich gesendet worden ist.
+findu_admin_opts_header:	Admin Optionen
+findu_unban:			Bann aufheben
+findu_ban:			Verbannen
+findu_edit:			Bearbeiten
+findu_delete:			L&ouml;schen
+dmsg_reply_to:			antworten auf {VAR: obj->reply_to}
+merge_topics:			Themen zusammenf&uuml;hren
+merge_topics_cp:		Bedienfeld zum Zusammenf&uuml;hren von Themen
+merge_topics_tpl:		Themen zum zusammenf&uuml;hren ausw&auml;hlen <font class="SmallText">(Du mu&szlig;t mehr als ein Thema ausw&auml;hlen)</font>
+merge_merge:			Ausgew&auml;hlte Themen zusammenf&uuml;hren
+merge_next:			N&auml;chste Themen
+merge_prev:			Vorherige Themen
+split_cp:			Bedienfeld zum Teilen von Themen
