@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.11 2002/08/23 03:25:05 hackie Exp $
+*   $Id: search.php.t,v 1.12 2003/02/25 15:30:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,8 +29,8 @@
 	$TITLE_EXTRA = ': {TEMPLATE: search_title}';
 	if ( isset($ses) ) $ses->update('{TEMPLATE: search_update}');
 
-	$GLOBALS['LOGIC'] = ( $HTTP_POST_VARS['search_logic'] == 'OR' ? 'OR' : 'AND' );
-	$GLOBALS['SORT_ORDER'] = ( $HTTP_POST_VARS['sort_order'] == 'ASC' ? 'ASC' : 'DESC' );
+	$GLOBALS['LOGIC'] =  ($search_logic == 'OR' ? 'OR' : 'AND');
+	$GLOBALS['SORT_ORDER'] = ($sort_order == 'ASC' ? 'ASC' : 'DESC');
 
 	if ( !empty($srch) ) {
 		$i = 0;
@@ -61,7 +61,7 @@
 			$search_data = '{TEMPLATE: search_results}';
 		}
 	}
-	$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;btn_submit=1&amp;srch='.urlencode($srch).'&amp;field='.urlencode($field).'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter);
+	$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;btn_submit=1&amp;srch='.urlencode($srch).'&amp;field='.urlencode($field).'&amp;'._rsid.'&amp;search_logic='.$GLOBALS['LOGIC'].'&amp;sort_order='.$GLOBALS['SORT_ORDER'].'&amp;forum_limiter='.$forum_limiter);
 
 	if( $usr->is_mod != 'A' ) {
 		$fids = get_all_perms(_uid);
