@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.16 2003/10/16 21:59:05 hackie Exp $
+* $Id: admlevel.php,v 1.17 2003/11/17 13:55:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,7 +38,7 @@
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET level_id='.$r[0].' WHERE posted_msg_count<'.$pl.' AND posted_msg_count>='.$r[1]);
 			$pl = $r[1];
 		}
-		unset($r);
+		unset($c);
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
