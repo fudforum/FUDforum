@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.7 2002/06/27 18:06:22 hackie Exp $
+*   $Id: compiler.inc,v 1.8 2002/06/27 18:23:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -435,7 +435,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 {
 	$oldmask = umask(0133);
 	$olddir = getcwd();
-	copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'include/db.inc');
+	copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
 	$GLOBALS['__COMPILER__']['tset'] = $tset;
 	$GLOBALS['__COMPILER__']['lang'] = $lang;
 	$GLOBALS['__COMPILER__']['tname'] = $tname;
