@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.7 2002/07/17 21:45:22 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.8 2002/07/18 03:54:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -105,7 +105,7 @@ class fud_msg_edit extends fud_msg
 			$thr->last_post = $this->post_stamp;
 			
 			/* if moderator is creating a thread consider a number of other properties */
-			if ( isset($GLOBALS['MOD']) ) {
+			if ( isset($GLOBALS['MOD']) || is_perms(_uid, $forum_id, 'STICKY') ) {
 				if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) 
 					$is_sticky = 'Y';
 				else
@@ -163,20 +163,30 @@ class fud_msg_edit extends fud_msg
 		
 		delete_msg_index($this->id);
 		$root_msg_id = q_singleval("SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$this->thread_id);		
-		if ( isset($GLOBALS['MOD']) ) {
+		if( isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'STICKY') || is_perms(_uid, $frm->id, 'LOCK') ) {
 			$thr = new fud_thread;
 			$thr->id = $this->thread_id;
+			
 			if ( $root_msg_id==$this->id ) {
-				if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) 
+				if( (isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'STICKY')) && $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
 					$thr->is_sticky = 'Y';
-				else
+					$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
+					$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
+				}	
+				else {
 					$thr->is_sticky = 'N';
-				$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
-				$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
-				$thr->locked = yn($GLOBALS['HTTP_POST_VARS']['thr_locked']);
+					$thr->ordertype = 'NONE';
+					$thr->orderexpiry = 0;
+				}	
+			
+				if( isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'LOCK') ) 
+					$thr->locked = yn($GLOBALS['HTTP_POST_VARS']['thr_locked']);
+				else	
+					$thr->locked = q_singleval("SELECT is_sticky FROM {SQL_TABLE_PREFIX}thread WHERE id=".$thr->id);
+			
 				$thr->sync();
 			}
-			else {
+			else if( is_perms(_uid, $frm->id, 'LOCK') || isset($GLOBALS['MOD']) ) {
 				if ( $GLOBALS['HTTP_POST_VARS']['thr_locked']=='Y' ) 
 					$thr->lock();
 				else
