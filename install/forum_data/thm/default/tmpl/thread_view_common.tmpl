@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.6 2003/07/24 03:16:37 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.7 2003/09/20 04:07:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -88,4 +88,8 @@
 
 {SECTION: thread_pdf_rdf}
 <div align="right"><font class="SmallText">{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</font></div>
+{SECTION: END}
+
+{SECTION: thread_merge_t}
+&nbsp;<a href="{ROOT}?t=merge_th&amp;frm={VAR: frm->id}&amp;{DEF: _rsid}">{MSG: merge_topics}</a>
 {SECTION: END}

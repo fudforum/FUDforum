@@ -992,3 +992,10 @@ findu_ban:			Interdire
 findu_edit:			Éditer
 findu_delete:			Supprimer
 dmsg_reply_to:			reply to {VAR: obj->reply_to}
+merge_topics:			Merge Topics
+merge_topics_cp:		Merge Topic Control Panel
+merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
+merge_merge:			Merge Selected Topics
+merge_next:			Next Topics
+merge_prev:			Previous Topics
+split_cp:			Thread Split Control Panel

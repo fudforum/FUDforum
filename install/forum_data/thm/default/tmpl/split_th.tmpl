@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.tmpl,v 1.7 2003/05/13 11:21:59 hackie Exp $
+*   $Id: split_th.tmpl,v 1.8 2003/09/20 04:07:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -55,7 +55,7 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <form name="split_th" action="{ROOT}?t=split_th" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%" colspan=2>Thread Split Control Panel</th></tr>
+<tr><th width="100%" colspan=2>{MSG: split_cp}</th></tr>
 <tr class="RowStyleA">
 	<td align="left"><b>{MSG: split_th_new_thread_title}</b></td>
 	<td ><input type="text" name="new_title" value="" size=50></td>

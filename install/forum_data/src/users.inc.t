@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.66 2003/09/18 19:33:58 hackie Exp $
+*   $Id: users.inc.t,v 1.67 2003/09/20 04:07:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -586,6 +586,13 @@ function init_user()
 					$_GET['t'] = 'mnav';
 					$_GET['u'] = isset($p[2]) ? $p[2] : 0;
 					$_GET['rng'] = isset($p[1]) ? $p[1] : 0;
+					break;
+
+				case 'met':
+					$_GET['t'] = 'merge_th';
+					if (isset($p[1])) {
+						$_GET['frm'] = $p[1];
+					}
 					break;
 
 				default:

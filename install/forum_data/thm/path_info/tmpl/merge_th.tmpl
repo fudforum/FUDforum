@@ -1,0 +1,75 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: merge_th.tmpl,v 1.1 2003/09/20 04:07:41 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: merge_th.php.t; output: merge_th.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: th.tmpl}
+{REF: fileio.tmpl}
+{REF: draw_select_opt.tmpl}
+{REF: logaction.tmpl}
+{REF: replace.tmpl}
+{REF: th_adm.tmpl}
+
+{PAGE: MERGE_TH_PAGE a form that allowes moderators to merge threads}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<br />{TEMPLATE-DATA: admin_cp}
+<form name="merge_th" action="{ROOT}/met/{DEF: _rsid}" method="post">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th width="100%" colspan=2>{MSG: merge_topics_cp}</th></tr>
+<tr class="RowStyleA">
+	<td align="left"><b>{MSG: split_th_new_thread_title}</b></td>
+	<td ><input type="text" name="new_title" value="" size=50></td>
+</tr>
+<tr class="RowStyleA">
+	<td align="left"><b>{MSG: split_th_forum}</b></td>
+	<td align="left"><select name="forum">{VAR: forum_sel}</select></td>
+</tr>
+<tr class="RowStyleC">
+	<td colspan=2 align="center">
+		<table border="0" cellspacing="1" cellpadding="2">
+			<tr><td colspan=3 align="center">{MSG: merge_topics_tpl}</td></tr>
+			<tr><td colspan=3 align="center"><select name="sel_th[]" size=10 multiple>{VAR: thread_sel}</select></td></tr>
+			<tr> 
+				<td align="left" width="100"><input type="submit" name="prev" value="{MSG: merge_prev}"></td>
+				<td align="center" width"200"><input type="submit" name="merge" value="{MSG: merge_merge}"></td>
+				<td align="right" width="100"><input type="submit" name="next" value="{MSG: merge_next}"></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<input type="hidden" name="page" value="{VAR: page}">
+<input type="hidden" name="frm" value="{VAR: frm}">
+</form>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: sel_opt}
+<option value="{VAR: r[0]}">{VAR: r[1]}</option>
+{SECTION: END}
+
+{SECTION: sel_opt_selected}
+<option value="{VAR: r[0]}" selected>{VAR: r[1]}</option>
+{SECTION: END}
