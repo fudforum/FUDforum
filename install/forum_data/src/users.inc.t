@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.64 2003/07/15 03:34:38 hackie Exp $
+*   $Id: users.inc.t,v 1.65 2003/07/19 14:19:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,6 +97,11 @@ function init_user()
 						$_GET['th'] = $p[2];
 						if (isset($p[3])) {
 							$_GET['start'] = $p[3];
+							if ($p[3]) {
+								$_GET['t'] = 'msg';
+								unset($_GET['goto']);
+							}
+
 							if (isset($p[4])) {
 								if ($p[4] === 'prevloaded') {
 									$_GET['prevloaded'] = 1;
@@ -105,9 +110,11 @@ function init_user()
 									$i = 4;
 								}
 
-								$_GET['rev'] = $p[$i];
-								if (isset($p[$i+1])) {
-									$_GET['reveal'] = $p[$i+1];
+								if (isset($p[$i])) {
+									$_GET['rev'] = $p[$i];
+									if (isset($p[$i+1])) {
+										$_GET['reveal'] = $p[$i+1];
+									}
 								}
 							}
 						}
