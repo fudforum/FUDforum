@@ -1003,10 +1003,10 @@ groups_perms_header:		Rechte <font size="-1">(Bewege den Mauszeiger &uuml;ber di
 register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen
-adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als best&auml;tigter Benutzer zugreifen.
-adm_account_accepted_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
-adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Du den Grund f&uuml;r diese Entscheidung erfahren m&ouml;chtest, steht es Dir frei den Administrator &uuml;ber \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
-adm_account_rejected_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
+adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als bestätigter Benutzer zugreifen.
+adm_account_accepted_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
+adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Du den Grund für diese Entscheidung erfahren möchtest, steht es Dir frei den Administrator über \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
+adm_account_rejected_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			an
 userinfo_buddy:			Buddy:
 register_email_addr:		Emailadresse:
