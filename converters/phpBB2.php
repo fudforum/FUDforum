@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.14 2003/11/20 18:10:06 hackie Exp $
+* $Id: phpBB2.php,v 1.15 2003/11/26 11:10:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -220,7 +220,7 @@ function import_av_gal($dirn)
 	print_msg('Importing Users '.db_count($r));
 	
 	while ($obj = db_rowobj($r)) {
-		if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->username)."' OR email='".$obj->user_email."'")) {
+		if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->username)."' OR email='".addslashes($obj->user_email)."'")) {
 			print_msg("\tuser: ".$obj->username);
 			print_msg("\t\tWARNING: Cannot import user ".$obj->username.", user with this email and/or login already exists");
 			continue;
@@ -263,7 +263,7 @@ function import_av_gal($dirn)
 				'".$obj->user_password."',
 				".(int)$obj->user_lastvisit.",
 				".(int)$obj->user_regdate.",
-				'".$obj->user_email."',
+				'".addslashes($obj->user_email)."',
 				".($obj->user_icq ? $obj->user_icq : 'NULL').",
 				'".addslashes($obj->user_from)."',
 				'".addslashes(bbcode2fudcode($obj->user_sig))."',
