@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.4 2002/06/27 03:18:57 hackie Exp $
+*   $Id: register.php.t,v 1.5 2002/06/28 00:19:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,6 +41,47 @@ function create_theme_select($name, $def=NULL)
 	qf($r);
 
 	return '{TEMPLATE: theme_select}';
+}
+
+function fetch_img($url)
+{
+	$ub = parse_url($url);
+	
+	if( empty($ub['port']) ) $ub['port'] = 80;
+	if( !empty($ub['query']) ) $ub['path'] .= '?'.$ub['query'];
+	
+	$fs = fsockopen($ub['host'], $ub['port'], $errno, $errstr, 10);
+	if( !$fs ) return;
+	
+	fputs($fs, "GET ".$ub['path']." HTTP/1.0\r\nHost: ".$ub['host']."\r\n\r\n");
+	
+	$ret_code = fgets($fs, 255);
+	
+	if( !strstr($ret_code, '200') ) {
+		fclose($fs);
+		return;
+	}
+	
+	$img_str = '';
+	
+	while( !feof($fs) && strlen($img_str)<10000 ) 
+		$img_str .= fread($fs, 10000);
+	fclose($fs);
+	
+	$img_str = substr($img_str, strpos($img_str, "\r\n\r\n")+4);
+
+	$fp = FALSE;
+	do {
+		if ( $fp ) fclose($fp);
+		$fp = fopen(($path=tempnam($GLOBALS['TMP'],getmypid())), 'ab');
+	} while ( ftell($fp) );
+	
+	fwrite($fp, $img_str);
+	fclose($fp);
+	
+	if( function_exists("GetImageSize") && !@GetImageSize($path) ) { unlink($path); return; }
+		
+	return $path;
 }
 
 function register_form_check($user_id)
@@ -126,6 +167,12 @@ function register_form_check($user_id)
 		set_err('reg_sig', '{TEMPLATE: register_err_toomanyimages}');
 	}
 			
+	/* Url Avatar check */
+	if( $GLOBALS['HTTP_POST_VARS']['reg_avatar_loc'] ) {		
+		if( !($GLOBALS['reg_avatar_loc_file']=fetch_img($GLOBALS['HTTP_POST_VARS']['reg_avatar_loc'])) ) {
+			set_err('reg_avatar_loc', '{TEMPLATE: register_err_not_valid_img}');
+		}		
+	}	
 	return $GLOBALS['error'];
 }
 
@@ -346,12 +393,18 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			}
 			else if( $avatar_type == 'c' ) {
 				if ( $usr->avatar_loc != $old_avatar_loc ) {
-					$usr->avatar_loc = $reg_avatar_loc;
-					$usr->avatar_approved = empty($usr->avatar_loc)?'NO':'N';
+					if( $reg_avatar_loc && $reg_avatar_loc_file ) {
+                                        	copy($reg_avatar_loc_file, $user_avatar_file);
+                                                @chmod($user_avatar_file,0600);
+                                                $usr->avatar_approved = 'N';
+					}
+                                        else {
+						$usr->avatar_approved = 'NO';
+                                                if ( file_exists($user_avatar_file) ) @unlink($user_avatar_file);
+					}
+					$usr->avatar_loc = '';
 					$usr->avatar = 0;
-				}
-
-				if ( file_exists($user_avatar_file) ) @unlink($user_avatar_file);
+				}				
 			}
 			else if ( strlen($avatar_arr['file']) && $avatar_arr['leave'] < 1 && $avatar_arr['del'] < 1 ) {
 				copy($GLOBALS['TMP'].$avatar_arr['file'], $user_avatar_file);

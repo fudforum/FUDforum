@@ -869,3 +869,4 @@ imsg_err_message_msg:		您要查看的贴子不存在.
 poll_edit: 			编辑
 unspecified:			UNSPECIFIED
 
+register_err_not_valid_img:	The specified url does not contain a valid image
