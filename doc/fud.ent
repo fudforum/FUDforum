@@ -1,4 +1,4 @@
-<!-- $Id: fud.ent,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!-- $Id: fud.ent,v 1.2 2002/07/03 15:56:12 hackie Exp $ -->
 
 <!ENTITY FUDforum		"FUDforum 2">
 <!ENTITY disabled.warning	'<warning><simpara>While this process is running your forum will be disabled.</simpara></warning>'>
@@ -33,5 +33,7 @@
 <!ENTITY frm.features		SYSTEM 'features.xml'>
 <!ENTITY mod.opt		SYSTEM 'modopt.xml'>
 <!ENTITY fudcode.docs		SYSTEM 'fudcode.xml'>
+<!ENTITY upgrading		SYSTEM 'upgrading.xml'>
+<!ENTITY bug_reports		SYSTEM 'bugs.xml'>
 <!ENTITY preface           	SYSTEM 'preface.xml'>
 <!ENTITY bookinfo            	SYSTEM 'bookinfo.xml'>

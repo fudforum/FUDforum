@@ -2,7 +2,7 @@
 			This manual is © Copyright 2001, 2002 by Advanced Internet Designs Inc.
 		</p><p>
 			This manual can be redistributed under the terms of the <a href="#fdl" title="Appendix B. GNU Free Documentation License">GNU Free Documentation License</a>
-		</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#preface">Preface</a></dt><dt>I. <a href="#getting-started">Getting Started</a></dt><dd><dl><dt>1. <a href="#introduction">Introduction</a></dt><dd><dl><dt><a href="#intro-whatis">What is FUDforum 2?</a></dt></dl></dd><dt>2. <a href="#features">FUDforum 2 Features</a></dt><dd><dl><dt><a href="#features.spell">Spell Checker</a></dt><dt><a href="#features.template">Templating System</a></dt><dt><a href="#features.i18n">i18n Support</a></dt><dt><a href="#features.groups">Group Permission System</a></dt><dt><a href="#features.pm">Private Messaging</a></dt><dt><a href="#features.files">File Attachments</a></dt><dt><a href="#features.polls">Polls</a></dt><dt><a href="#features.subscriptions">Forum &amp; Thread Subscriptions</a></dt><dt><a href="#features.tree">Tree View</a></dt><dt><a href="#features.search">Full Text Search</a></dt><dt><a href="#features.ispy">I-Spy &amp; Online Status</a></dt><dt><a href="#features.fudcode">FUDcode</a></dt><dt><a href="#features.smilies">Smilies/Emoticons</a></dt><dt><a href="#features.avatars">Avatars</a></dt><dt><a href="#features.custom_tags">Custom Tags</a></dt><dt><a href="#features.ranks">User Ranks</a></dt><dt><a href="#features.censor">Censor &amp; Replacement System</a></dt><dt><a href="#features.iptracking">IP Tracking</a></dt><dt><a href="#features.actionlog">Action Log</a></dt><dt><a href="#features.message_mangling">Message Mangling</a></dt><dt><a href="#features.user_block">User Blocking</a></dt><dt><a href="#features.sessions">Session Support</a></dt><dt><a href="#features.installation">Installation &amp; Upgrade</a></dt><dt><a href="#features.php">PHP Related Features</a></dt><dt><a href="#features.speed">Forum Speed</a></dt><dt><a href="#features.security">Security</a></dt></dl></dd><dt>3. <a href="#installation">Installation</a></dt><dd><dl><dt><a href="#install.verify.config">Verifying your system configuration</a></dt><dt><a href="#install.fudforum.sources">Downloading FUDforum</a></dt><dt><a href="#install.script">Installing FUDforum</a></dt><dd><dl><dt><a href="#install.wizard.step1">Step #1: Path of System Files and Directories</a></dt><dt><a href="#install.wizard.step2">Step #2: Database Settings</a></dt><dt><a href="#install.wizard.step3">Step #3: Cookie Domain</a></dt><dt><a href="#install.wizard.step4">Step #4: Forum Language</a></dt><dt><a href="#install.wizard.step5">Step #5: Admin Account</a></dt><dt><a href="#install.wizard.finish">Installation Complete</a></dt></dl></dd></dl></dd></dl></dd><dt>II. <a href="#forum-administration">Forum Management &amp; Administration</a></dt><dd><dl><dt>1. <a href="#administrating_fud">Administrating FUD Forum 2</a></dt><dd><dl><dt><a href="#admin.forum_consistency">Forum Consistency</a></dt><dt><a href="#admin.rebuild_search_index">Rebuild Search Index</a></dt><dt><a href="#admin.compact_messages">Compact Messages</a></dt><dt><a href="#admin.global_settings_manager">Global Settings Manager</a></dt><dd><dl><dt><a href="#admin.global_settings_manager.options">Global Options</a></dt></dl></dd><dt><a href="#admin.replacement_censorship_system">Replacement &amp; Censorship System</a></dt><dd><dl><dt><a href="#admin.replacement_censorship_system.str_replace">String Replace</a></dt><dt><a href="#admin.replacement_censorship_system.ereg_replace">Perl Regex</a></dt></dl></dd><dt><a href="#admin.mime_managment_system">MIME Managment System</a></dt><dd><dl><dt><a href="#mime.uploading">Uploading MIME image</a></dt><dt><a href="#mime.info">Editing/Adding MIME Information</a></dt><dt><a href="#mime.list">MIME List</a></dt></dl></dd><dt><a href="#admin.file_manager">File Manager</a></dt><dd><dl><dt><a href="#file_manager.mkdir">Making Directories</a></dt><dt><a href="#file_manager.file_upload">Uploading Files</a></dt><dt><a href="#file_manager.delete">Deleting Files &amp; Directories</a></dt><dt><a href="#file_manager.download">Downloading Files</a></dt><dt><a href="#file_manager.chmod">Changing File Permissions</a></dt></dl></dd><dt><a href="#admin.file_lock">Lock/Unlock Forum's Files</a></dt><dt><a href="#admin.forum_statistics">Forum Statistics</a></dt><dt><a href="#admin.action_log_viewer">Action Log Viewer</a></dt><dt><a href="#admin.system_info">System Info</a></dt><dt><a href="#admin.category_forum_management">Category &amp; Forum Management</a></dt><dd><dl><dt><a href="#admin.category_forum_management.cat">Category Managment</a></dt><dt><a href="#admin.category_forum_management.forum">Forum Managment</a></dt></dl></dd><dt><a href="#admin.deleted.forums">Deleted Forums</a></dt><dt><a href="#admin.announce.manager">Announcement Manager</a></dt><dd><dl><dt><a href="#ann.forums">Forums</a></dt><dt><a href="#ann.st_date">Starting Date</a></dt><dt><a href="#ann.en_date">Ending Date</a></dt><dt><a href="#ann.subject">Subject</a></dt><dt><a href="#ann.message">Message</a></dt></dl></dd><dt><a href="#admin.thread.prunning">Thread Prunning</a></dt><dd><dl><dt><a href="#thread.prunning.period">Time Period</a></dt><dt><a href="#thread.prunning.num">Numeric Value</a></dt><dt><a href="#thread.prunning.frm">Forum Limiter</a></dt></dl></dd><dt><a href="#admin.user_manager">Moderator/User Manager</a></dt><dd><dl><dt><a href="#admin.user_manager.find">Choosing a User</a></dt><dt><a href="#admin.user_manager.login">Change Login Name</a></dt><dt><a href="#admin.user_manager.password">Change Password</a></dt><dt><a href="#admin.user_manager.profile">Change User's Profile</a></dt><dt><a href="#admin.user_manager.admin">Forum Administrator</a></dt><dt><a href="#admin.user_manager.blocked">Blocked</a></dt><dt><a href="#admin.user_manager.coppa">COPPA</a></dt><dt><a href="#admin.user_manager.econf">E-mail Confirmation</a></dt><dt><a href="#admin.user_manager.mod">Moderating Forums</a></dt><dt><a href="#admin.user_manager.ctag">Custom Tags</a></dt><dt><a href="#admin.user_manager.pm">Send Private Message</a></dt><dt><a href="#admin.user_manager.email">Send Email</a></dt><dt><a href="#admin.user_manager.posts">See Posts</a></dt><dt><a href="#admin.user_manager.rpass">Reset Password</a></dt><dt><a href="#admin.user_manager.del">Delete User</a></dt></dl></dd><dt><a href="#admin.group_control_panel">Groups Manager</a></dt><dd><dl><dt><a href="#admin.group_control_panel.res">Group Resources</a></dt><dt><a href="#admin.group_control_panel.leader">Group Leaders</a></dt><dt><a href="#admin.group_control_panel.mgr">Adding &amp; Editing Groups</a></dt><dt><a href="#admin.group_control_panel.users">Adding Users to a Group</a></dt><dt><a href="#admin.group_control_panel.conflicts">Resolving Conflicts</a></dt></dl></dd><dt><a href="#admin.mass_email">Mass Mail System</a></dt><dd><dl><dt><a href="#admin.mass_email.over">Ignore User Override</a></dt></dl></dd><dt><a href="#admin.ranks">Rank Manager</a></dt><dd><dl><dt><a href="#admin.ranks.name">Rank Name</a></dt><dt><a href="#admin.ranks.image">Rank Image</a></dt><dt><a href="#admin.ranks.wimage">Which Image to Show</a></dt><dt><a href="#admin.ranks.pcount">Post Count</a></dt></dl></dd><dt><a href="#admin.theme_manager">Theme Manager</a></dt><dd><dl><dt><a href="#admin.theme_manager.name">Name</a></dt><dt><a href="#admin.theme_manager.theme">Template Set</a></dt><dt><a href="#admin.theme_manager.language">Language</a></dt><dt><a href="#admin.theme_manager.locale">Locale</a></dt><dt><a href="#admin.theme_manager.pspell">pSpell Language</a></dt><dt><a href="#admin.theme_manager.defualt">Default</a></dt><dt><a href="#admin.theme_manager.enabled">Enabled</a></dt><dt><a href="#admin.theme_manager.edit">Edit</a></dt><dt><a href="#admin.theme_manager.rebuild">Rebuild Theme</a></dt><dt><a href="#admin.theme_manager.optimize">Optimize Theme</a></dt><dt><a href="#admin.theme_manager.delete">Delete</a></dt></dl></dd><dt><a href="#admin.template_editor">Template Editor</a></dt><dt><a href="#admin.message_editor">Message Editor</a></dt><dt><a href="#admin.smilies">Smiley Manager</a></dt><dd><dl><dt><a href="#admin.smilies.upload">Smilies Upload</a></dt><dt><a href="#admin.smilies.descr">Smiley Description</a></dt><dt><a href="#admin.smilies.code">Smiley Text</a></dt><dt><a href="#admin.smilies.file">Smiley Image</a></dt><dt><a href="#admin.smilies.preview">Preview Image</a></dt><dt><a href="#admin.smilies.edit">Edit Link</a></dt><dt><a href="#admin.smilies.del">Delete Link</a></dt><dt><a href="#admin.smilies.post">Change Position Link</a></dt></dl></dd><dt><a href="#admin.forum_icons">Forum Icon Manager</a></dt><dt><a href="#admin.msg_icons">Message Icon Manager</a></dt><dt><a href="#admin.avatar_apr">Avatar Approval</a></dt><dt><a href="#admin.avatar">Avatar Manager</a></dt><dd><dl><dt><a href="#admin.avatar.upload">Uploading Avatar</a></dt><dt><a href="#admin.avatar.descr">Description</a></dt><dt><a href="#admin.avatar.img">Avatar Image</a></dt><dt><a href="#admin.avatar.preview">Preview Image</a></dt></dl></dd><dt><a href="#admin.email_filter">Email filter</a></dt><dd><dl><dt><a href="#admin.email_filter.simple">Simple</a></dt><dt><a href="#admin.email_filter.regex">Regular Expression</a></dt></dl></dd><dt><a href="#admin.ip_filter">IP Filter</a></dt><dt><a href="#admin.login_filter">Login Filter</a></dt><dt><a href="#admin.file_filter">File Filter</a></dt><dt><a href="#admin.dump">Make forum datadump</a></dt><dt><a href="#admin.import">Import forum data</a></dt></dl></dd><dt>2. <a href="#mod_options">Moderation Options</a></dt><dd><dl><dt><a href="#mod.avatar">Custom Avatar Queue</a></dt><dt><a href="#mod.msg">Moderation Queue</a></dt><dt><a href="#mod.reported">Reported Messages</a></dt><dt><a href="#mod.move">Move Thread</a></dt><dt><a href="#mod.thread_exchange"> Thread Exchange</a></dt><dt><a href="#mod.del">Delete Threads/Messages</a></dt><dd><dl><dt><a href="#mod.del.thread">Deleting a thread</a></dt><dt><a href="#mod.del.msg">Deleting a message</a></dt></dl></dd><dt><a href="#mod.edit">Edit Message</a></dt><dt><a href="#mod.split">Split Thread</a></dt><dt><a href="#mod.lock">Thread Locking/Unlocking</a></dt><dt><a href="#mod.sticky">Sticky/Announcements</a></dt><dt><a href="#mod.ip">Display of Message Author IP Address</a></dt><dt><a href="#mod.groups">User Group Management</a></dt><dd><dl><dt><a href="#mod.groups.visible">Visible</a></dt><dt><a href="#mod.groups.read">Read</a></dt><dt><a href="#mod.groups.post">Post</a></dt><dt><a href="#mod.groups.reply">Reply</a></dt><dt><a href="#mod.groups.edit">Edit</a></dt><dt><a href="#mod.groups.delete">Delete</a></dt><dt><a href="#mod.groups.sticky">Sticky posts</a></dt><dt><a href="#mod.groups.polls">Create polls</a></dt><dt><a href="#mod.groups.vote">Votes</a></dt><dt><a href="#mod.groups.files">Attach files</a></dt><dt><a href="#mod.groups.rate">Rate threads</a></dt><dt><a href="#mod.groups.split">Split threads</a></dt><dt><a href="#mod.groups.lock">Lock threads</a></dt><dt><a href="#mod.groups.move">Move threads</a></dt><dt><a href="#mod.groups.smilies">Use smilies</a></dt><dt><a href="#mod.groups.images">Use image tags</a></dt></dl></dd></dl></dd></dl></dd><dt>III. <a href="#forum-appendixes">Appendixes</a></dt><dd><dl><dt>1. <a href="#fudcode">FUDcode</a></dt><dd><dl><dt><a href="#fudcode.text">Text Styling Tools</a></dt><dd><dl><dt><a href="#fudcode.text.bold">Bold</a></dt><dt><a href="#fudcode.text.italics">Italics</a></dt><dt><a href="#fudcode.text.underline">Underline</a></dt><dt><a href="#fudcode.text.sub">Subscript</a></dt><dt><a href="#fudcode.text.sup">Superscript</a></dt><dt><a href="#fudcode.text.color">Font Color</a></dt><dt><a href="#fudcode.text.size">Font Size</a></dt><dt><a href="#fudcode.text.font">Font Face</a></dt><dt><a href="#fudcode.text.align">Text Alignment</a></dt></dl></dd><dt><a href="#fudcode.list">Lists</a></dt><dd><dl><dt><a href="#fudcode.list.ordered">Ordered Lists</a></dt><dt><a href="#fudcode.text.unordered">Unordered Lists</a></dt></dl></dd><dt><a href="#fudcode.links">Links</a></dt><dd><dl><dt><a href="#fudcode.links.url">URLs</a></dt><dt><a href="#fudcode.links.email">E-mails</a></dt></dl></dd><dt><a href="#fudcode.images">Images</a></dt><dt><a href="#fudcode.test_blocks">Text Blocks</a></dt><dd><dl><dt><a href="#fudcode.test_blocks.code">Code</a></dt><dt><a href="#fudcode.test_blocks.quote">Quote</a></dt><dt><a href="#fudcode.test_blocks.spoiler">Spoiler Tag</a></dt></dl></dd></dl></dd><dt>A. <a href="#GPL">GNU General Public License</a></dt><dd><dl><dt><a href="#gpl-preamble">Preamble</a></dt><dt><a href="#gpl-terms">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</a></dt><dd><dl><dt><a href="#gpl-sect0">Section 0</a></dt><dt><a href="#gpl-sect1">Section 1</a></dt><dt><a href="#gpl-sect2">Section 2</a></dt><dt><a href="#gpl-sect3">Section 3</a></dt><dt><a href="#gpl-sect4">Section 4</a></dt><dt><a href="#gpl-sect5">Section 5</a></dt><dt><a href="#gpl-sect6">Section 6</a></dt><dt><a href="#gpl-sect7">Section 7</a></dt><dt><a href="#gpl-sect8">Section 8</a></dt><dt><a href="#gpl-sect9">Section 9</a></dt><dt><a href="#gpl-sect10">Section 10</a></dt><dt><a href="#gpl-sect11">NO WARRANTY</a></dt><dt><a href="#gpl-sect12">Section 12</a></dt></dl></dd></dl></dd><dt>B. <a href="#fdl">GNU Free Documentation License</a></dt><dd><dl><dt><a href="#fdl-preamble">0. PREAMBLE</a></dt><dt><a href="#fdl-section1">1. APPLICABILITY AND DEFINITIONS</a></dt><dt><a href="#fdl-section2">2. VERBATIM COPYING</a></dt><dt><a href="#fdl-section3">3. COPYING IN QUANTITY</a></dt><dt><a href="#fdl-section4">4. MODIFICATIONS</a></dt><dt><a href="#fdl-section5">5. COMBINING DOCUMENTS</a></dt><dt><a href="#fdl-section6">6. COLLECTIONS OF DOCUMENTS</a></dt><dt><a href="#fdl-section7">7. AGGREGATION WITH INDEPENDENT WORKS</a></dt><dt><a href="#fdl-section8">8. TRANSLATION</a></dt><dt><a href="#fdl-section9">9. TERMINATION</a></dt><dt><a href="#fdl-section10">10. FUTURE REVISIONS OF THIS LICENSE</a></dt><dt><a href="#fdl-using">Addendum</a></dt></dl></dd></dl></dd></dl></div><div class="preface"><div class="titlepage"><div><h2 class="title"><a name="preface"></a>Preface</h2></div></div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
+		</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#preface">Preface</a></dt><dt>I. <a href="#getting-started">Getting Started</a></dt><dd><dl><dt>1. <a href="#introduction">Introduction</a></dt><dd><dl><dt><a href="#intro-whatis">What is FUDforum 2?</a></dt></dl></dd><dt>2. <a href="#features">FUDforum 2 Features</a></dt><dd><dl><dt><a href="#features.spell">Spell Checker</a></dt><dt><a href="#features.template">Templating System</a></dt><dt><a href="#features.i18n">i18n Support</a></dt><dt><a href="#features.groups">Group Permission System</a></dt><dt><a href="#features.pm">Private Messaging</a></dt><dt><a href="#features.files">File Attachments</a></dt><dt><a href="#features.polls">Polls</a></dt><dt><a href="#features.subscriptions">Forum &amp; Thread Subscriptions</a></dt><dt><a href="#features.tree">Tree View</a></dt><dt><a href="#features.search">Full Text Search</a></dt><dt><a href="#features.ispy">I-Spy &amp; Online Status</a></dt><dt><a href="#features.fudcode">FUDcode</a></dt><dt><a href="#features.smilies">Smilies/Emoticons</a></dt><dt><a href="#features.avatars">Avatars</a></dt><dt><a href="#features.custom_tags">Custom Tags</a></dt><dt><a href="#features.ranks">User Ranks</a></dt><dt><a href="#features.censor">Censor &amp; Replacement System</a></dt><dt><a href="#features.iptracking">IP Tracking</a></dt><dt><a href="#features.actionlog">Action Log</a></dt><dt><a href="#features.message_mangling">Message Mangling</a></dt><dt><a href="#features.user_block">User Blocking</a></dt><dt><a href="#features.sessions">Session Support</a></dt><dt><a href="#features.installation">Installation &amp; Upgrade</a></dt><dt><a href="#features.php">PHP Related Features</a></dt><dt><a href="#features.speed">Forum Speed</a></dt><dt><a href="#features.security">Security</a></dt></dl></dd><dt>3. <a href="#installation">Installation</a></dt><dd><dl><dt><a href="#install.verify.config">Verifying your system configuration</a></dt><dt><a href="#install.fudforum.sources">Downloading FUDforum</a></dt><dt><a href="#install.script">Installing FUDforum</a></dt><dd><dl><dt><a href="#install.wizard.step1">Step #1: Path of System Files and Directories</a></dt><dt><a href="#install.wizard.step2">Step #2: Database Settings</a></dt><dt><a href="#install.wizard.step3">Step #3: Cookie Domain</a></dt><dt><a href="#install.wizard.step4">Step #4: Forum Language</a></dt><dt><a href="#install.wizard.step5">Step #5: Admin Account</a></dt><dt><a href="#install.wizard.finish">Installation Complete</a></dt></dl></dd></dl></dd></dl></dd><dt>II. <a href="#forum-administration">Forum Management &amp; Administration</a></dt><dd><dl><dt>1. <a href="#administrating_fud">Administrating FUD Forum 2</a></dt><dd><dl><dt><a href="#admin.forum_consistency">Forum Consistency</a></dt><dt><a href="#admin.rebuild_search_index">Rebuild Search Index</a></dt><dt><a href="#admin.compact_messages">Compact Messages</a></dt><dt><a href="#admin.global_settings_manager">Global Settings Manager</a></dt><dd><dl><dt><a href="#admin.global_settings_manager.options">Global Options</a></dt></dl></dd><dt><a href="#admin.replacement_censorship_system">Replacement &amp; Censorship System</a></dt><dd><dl><dt><a href="#admin.replacement_censorship_system.str_replace">String Replace</a></dt><dt><a href="#admin.replacement_censorship_system.ereg_replace">Perl Regex</a></dt></dl></dd><dt><a href="#admin.mime_managment_system">MIME Managment System</a></dt><dd><dl><dt><a href="#mime.uploading">Uploading MIME image</a></dt><dt><a href="#mime.info">Editing/Adding MIME Information</a></dt><dt><a href="#mime.list">MIME List</a></dt></dl></dd><dt><a href="#admin.file_manager">File Manager</a></dt><dd><dl><dt><a href="#file_manager.mkdir">Making Directories</a></dt><dt><a href="#file_manager.file_upload">Uploading Files</a></dt><dt><a href="#file_manager.delete">Deleting Files &amp; Directories</a></dt><dt><a href="#file_manager.download">Downloading Files</a></dt><dt><a href="#file_manager.chmod">Changing File Permissions</a></dt></dl></dd><dt><a href="#admin.file_lock">Lock/Unlock Forum's Files</a></dt><dt><a href="#admin.forum_statistics">Forum Statistics</a></dt><dt><a href="#admin.action_log_viewer">Action Log Viewer</a></dt><dt><a href="#admin.system_info">System Info</a></dt><dt><a href="#admin.category_forum_management">Category &amp; Forum Management</a></dt><dd><dl><dt><a href="#admin.category_forum_management.cat">Category Managment</a></dt><dt><a href="#admin.category_forum_management.forum">Forum Managment</a></dt></dl></dd><dt><a href="#admin.deleted.forums">Deleted Forums</a></dt><dt><a href="#admin.announce.manager">Announcement Manager</a></dt><dd><dl><dt><a href="#ann.forums">Forums</a></dt><dt><a href="#ann.st_date">Starting Date</a></dt><dt><a href="#ann.en_date">Ending Date</a></dt><dt><a href="#ann.subject">Subject</a></dt><dt><a href="#ann.message">Message</a></dt></dl></dd><dt><a href="#admin.thread.prunning">Thread Prunning</a></dt><dd><dl><dt><a href="#thread.prunning.period">Time Period</a></dt><dt><a href="#thread.prunning.num">Numeric Value</a></dt><dt><a href="#thread.prunning.frm">Forum Limiter</a></dt></dl></dd><dt><a href="#admin.user_manager">Moderator/User Manager</a></dt><dd><dl><dt><a href="#admin.user_manager.find">Choosing a User</a></dt><dt><a href="#admin.user_manager.login">Change Login Name</a></dt><dt><a href="#admin.user_manager.password">Change Password</a></dt><dt><a href="#admin.user_manager.profile">Change User's Profile</a></dt><dt><a href="#admin.user_manager.admin">Forum Administrator</a></dt><dt><a href="#admin.user_manager.blocked">Blocked</a></dt><dt><a href="#admin.user_manager.coppa">COPPA</a></dt><dt><a href="#admin.user_manager.econf">E-mail Confirmation</a></dt><dt><a href="#admin.user_manager.mod">Moderating Forums</a></dt><dt><a href="#admin.user_manager.ctag">Custom Tags</a></dt><dt><a href="#admin.user_manager.pm">Send Private Message</a></dt><dt><a href="#admin.user_manager.email">Send Email</a></dt><dt><a href="#admin.user_manager.posts">See Posts</a></dt><dt><a href="#admin.user_manager.rpass">Reset Password</a></dt><dt><a href="#admin.user_manager.del">Delete User</a></dt></dl></dd><dt><a href="#admin.group_control_panel">Groups Manager</a></dt><dd><dl><dt><a href="#admin.group_control_panel.res">Group Resources</a></dt><dt><a href="#admin.group_control_panel.leader">Group Leaders</a></dt><dt><a href="#admin.group_control_panel.mgr">Adding &amp; Editing Groups</a></dt><dt><a href="#admin.group_control_panel.users">Adding Users to a Group</a></dt><dt><a href="#admin.group_control_panel.conflicts">Resolving Conflicts</a></dt></dl></dd><dt><a href="#admin.mass_email">Mass Mail System</a></dt><dd><dl><dt><a href="#admin.mass_email.over">Ignore User Override</a></dt></dl></dd><dt><a href="#admin.ranks">Rank Manager</a></dt><dd><dl><dt><a href="#admin.ranks.name">Rank Name</a></dt><dt><a href="#admin.ranks.image">Rank Image</a></dt><dt><a href="#admin.ranks.wimage">Which Image to Show</a></dt><dt><a href="#admin.ranks.pcount">Post Count</a></dt></dl></dd><dt><a href="#admin.theme_manager">Theme Manager</a></dt><dd><dl><dt><a href="#admin.theme_manager.name">Name</a></dt><dt><a href="#admin.theme_manager.theme">Template Set</a></dt><dt><a href="#admin.theme_manager.language">Language</a></dt><dt><a href="#admin.theme_manager.locale">Locale</a></dt><dt><a href="#admin.theme_manager.pspell">pSpell Language</a></dt><dt><a href="#admin.theme_manager.defualt">Default</a></dt><dt><a href="#admin.theme_manager.enabled">Enabled</a></dt><dt><a href="#admin.theme_manager.edit">Edit</a></dt><dt><a href="#admin.theme_manager.rebuild">Rebuild Theme</a></dt><dt><a href="#admin.theme_manager.optimize">Optimize Theme</a></dt><dt><a href="#admin.theme_manager.delete">Delete</a></dt></dl></dd><dt><a href="#admin.template_editor">Template Editor</a></dt><dt><a href="#admin.message_editor">Message Editor</a></dt><dt><a href="#admin.smilies">Smiley Manager</a></dt><dd><dl><dt><a href="#admin.smilies.upload">Smilies Upload</a></dt><dt><a href="#admin.smilies.descr">Smiley Description</a></dt><dt><a href="#admin.smilies.code">Smiley Text</a></dt><dt><a href="#admin.smilies.file">Smiley Image</a></dt><dt><a href="#admin.smilies.preview">Preview Image</a></dt><dt><a href="#admin.smilies.edit">Edit Link</a></dt><dt><a href="#admin.smilies.del">Delete Link</a></dt><dt><a href="#admin.smilies.post">Change Position Link</a></dt></dl></dd><dt><a href="#admin.forum_icons">Forum Icon Manager</a></dt><dt><a href="#admin.msg_icons">Message Icon Manager</a></dt><dt><a href="#admin.avatar_apr">Avatar Approval</a></dt><dt><a href="#admin.avatar">Avatar Manager</a></dt><dd><dl><dt><a href="#admin.avatar.upload">Uploading Avatar</a></dt><dt><a href="#admin.avatar.descr">Description</a></dt><dt><a href="#admin.avatar.img">Avatar Image</a></dt><dt><a href="#admin.avatar.preview">Preview Image</a></dt></dl></dd><dt><a href="#admin.email_filter">Email filter</a></dt><dd><dl><dt><a href="#admin.email_filter.simple">Simple</a></dt><dt><a href="#admin.email_filter.regex">Regular Expression</a></dt></dl></dd><dt><a href="#admin.ip_filter">IP Filter</a></dt><dt><a href="#admin.login_filter">Login Filter</a></dt><dt><a href="#admin.file_filter">File Filter</a></dt><dt><a href="#admin.dump">Make forum datadump</a></dt><dt><a href="#admin.import">Import forum data</a></dt></dl></dd><dt>2. <a href="#mod_options">Moderation Options</a></dt><dd><dl><dt><a href="#mod.avatar">Custom Avatar Queue</a></dt><dt><a href="#mod.msg">Moderation Queue</a></dt><dt><a href="#mod.reported">Reported Messages</a></dt><dt><a href="#mod.move">Move Thread</a></dt><dt><a href="#mod.thread_exchange"> Thread Exchange</a></dt><dt><a href="#mod.del">Delete Threads/Messages</a></dt><dd><dl><dt><a href="#mod.del.thread">Deleting a thread</a></dt><dt><a href="#mod.del.msg">Deleting a message</a></dt></dl></dd><dt><a href="#mod.edit">Edit Message</a></dt><dt><a href="#mod.split">Split Thread</a></dt><dt><a href="#mod.lock">Thread Locking/Unlocking</a></dt><dt><a href="#mod.sticky">Sticky/Announcements</a></dt><dt><a href="#mod.ip">Display of Message Author IP Address</a></dt><dt><a href="#mod.groups">User Group Management</a></dt><dd><dl><dt><a href="#mod.groups.visible">Visible</a></dt><dt><a href="#mod.groups.read">Read</a></dt><dt><a href="#mod.groups.post">Post</a></dt><dt><a href="#mod.groups.reply">Reply</a></dt><dt><a href="#mod.groups.edit">Edit</a></dt><dt><a href="#mod.groups.delete">Delete</a></dt><dt><a href="#mod.groups.sticky">Sticky posts</a></dt><dt><a href="#mod.groups.polls">Create polls</a></dt><dt><a href="#mod.groups.vote">Votes</a></dt><dt><a href="#mod.groups.files">Attach files</a></dt><dt><a href="#mod.groups.rate">Rate threads</a></dt><dt><a href="#mod.groups.split">Split threads</a></dt><dt><a href="#mod.groups.lock">Lock threads</a></dt><dt><a href="#mod.groups.move">Move threads</a></dt><dt><a href="#mod.groups.smilies">Use smilies</a></dt><dt><a href="#mod.groups.images">Use image tags</a></dt></dl></dd></dl></dd></dl></dd><dt>III. <a href="#forum-misc">Miscellaneous</a></dt><dd><dl><dt>1. <a href="#upgrading">Upgrading FUD Forum 2</a></dt><dd><dl><dt><a href="#upgrading.2X">Upgrading 2.X and 1.9X series FUDforum</a></dt><dd><dl><dt><a href="#upgrading.2X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.2X.running">Running the Upgrade Script</a></dt></dl></dd><dt><a href="#upgrading.1Xto2X">Upgrading from 1.2.8 to 2.0.2 series FUDforum</a></dt><dd><dl><dt><a href="#upgrading.1Xto2X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.1Xto2X.running">Running the Upgrade Script</a></dt></dl></dd><dt><a href="#upgrading.1X">Upgrading from 1.X to 1.2.8 FUDforum</a></dt><dd><dl><dt><a href="#upgrading.1X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.1X.running">Running the Upgrade Script</a></dt></dl></dd></dl></dd><dt>2. <a href="#fudcode">FUDcode</a></dt><dd><dl><dt><a href="#fudcode.text">Text Styling Tools</a></dt><dd><dl><dt><a href="#fudcode.text.bold">Bold</a></dt><dt><a href="#fudcode.text.italics">Italics</a></dt><dt><a href="#fudcode.text.underline">Underline</a></dt><dt><a href="#fudcode.text.sub">Subscript</a></dt><dt><a href="#fudcode.text.sup">Superscript</a></dt><dt><a href="#fudcode.text.color">Font Color</a></dt><dt><a href="#fudcode.text.size">Font Size</a></dt><dt><a href="#fudcode.text.font">Font Face</a></dt><dt><a href="#fudcode.text.align">Text Alignment</a></dt></dl></dd><dt><a href="#fudcode.list">Lists</a></dt><dd><dl><dt><a href="#fudcode.list.ordered">Ordered Lists</a></dt><dt><a href="#fudcode.text.unordered">Unordered Lists</a></dt></dl></dd><dt><a href="#fudcode.links">Links</a></dt><dd><dl><dt><a href="#fudcode.links.url">URLs</a></dt><dt><a href="#fudcode.links.email">E-mails</a></dt></dl></dd><dt><a href="#fudcode.images">Images</a></dt><dt><a href="#fudcode.test_blocks">Text Blocks</a></dt><dd><dl><dt><a href="#fudcode.test_blocks.code">Code</a></dt><dt><a href="#fudcode.test_blocks.quote">Quote</a></dt><dt><a href="#fudcode.test_blocks.spoiler">Spoiler Tag</a></dt></dl></dd></dl></dd><dt>3. <a href="#bug_reports">Reporting Bugs</a></dt><dd><dl><dt><a href="#bug_reports.info">Bug Information</a></dt><dd><dl><dt><a href="#bug_reports.info.bug">Bug</a></dt><dt><a href="#bug_reports.info.system">System Information</a></dt></dl></dd></dl></dd></dl></dd><dt>IV. <a href="#forum-appendixes">Appendixes</a></dt><dd><dl><dt>A. <a href="#GPL">GNU General Public License</a></dt><dd><dl><dt><a href="#gpl-preamble">Preamble</a></dt><dt><a href="#gpl-terms">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</a></dt><dd><dl><dt><a href="#gpl-sect0">Section 0</a></dt><dt><a href="#gpl-sect1">Section 1</a></dt><dt><a href="#gpl-sect2">Section 2</a></dt><dt><a href="#gpl-sect3">Section 3</a></dt><dt><a href="#gpl-sect4">Section 4</a></dt><dt><a href="#gpl-sect5">Section 5</a></dt><dt><a href="#gpl-sect6">Section 6</a></dt><dt><a href="#gpl-sect7">Section 7</a></dt><dt><a href="#gpl-sect8">Section 8</a></dt><dt><a href="#gpl-sect9">Section 9</a></dt><dt><a href="#gpl-sect10">Section 10</a></dt><dt><a href="#gpl-sect11">NO WARRANTY</a></dt><dt><a href="#gpl-sect12">Section 12</a></dt></dl></dd></dl></dd><dt>B. <a href="#fdl">GNU Free Documentation License</a></dt><dd><dl><dt><a href="#fdl-preamble">0. PREAMBLE</a></dt><dt><a href="#fdl-section1">1. APPLICABILITY AND DEFINITIONS</a></dt><dt><a href="#fdl-section2">2. VERBATIM COPYING</a></dt><dt><a href="#fdl-section3">3. COPYING IN QUANTITY</a></dt><dt><a href="#fdl-section4">4. MODIFICATIONS</a></dt><dt><a href="#fdl-section5">5. COMBINING DOCUMENTS</a></dt><dt><a href="#fdl-section6">6. COLLECTIONS OF DOCUMENTS</a></dt><dt><a href="#fdl-section7">7. AGGREGATION WITH INDEPENDENT WORKS</a></dt><dt><a href="#fdl-section8">8. TRANSLATION</a></dt><dt><a href="#fdl-section9">9. TERMINATION</a></dt><dt><a href="#fdl-section10">10. FUTURE REVISIONS OF THIS LICENSE</a></dt><dt><a href="#fdl-using">Addendum</a></dt></dl></dd></dl></dd></dl></div><div class="preface"><div class="titlepage"><div><h2 class="title"><a name="preface"></a>Preface</h2></div></div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
 			FUDforum 2 is web based forum software designed in PHP, utilizing MySQL or PostgreSQL back-end 
 			released under the <a href="#GPL" title="Appendix A. GNU General Public License">GPL</a> Open Source license. It is designed to work on any web server that 
 			supports PHP, which makes it usable on virtually very OS. The forum includes i18n and 
@@ -82,7 +82,7 @@
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.files"></a>File Attachments</h2></div></div><p>
 			If permitted by the admin users may attach files to their forum &amp; private messages. The amount of files that the user 
 			can attach as well as their maximum size can be defined by the admin on a forum by forum basis via the 
-			<a href="#admin.category_forum_management" title="Category &amp;#38; Forum Management">forum control panel</a>. The ability to attach files to private messages can be defined by the admin
+			<a href="#admin.category_forum_management" title="Category &amp; Forum Management">forum control panel</a>. The ability to attach files to private messages can be defined by the admin
 			via the <a href="#global.pm.options" title="Private Messaging">private messaging system controls</a>.
 		</p><p>
 			In addition to specifying the size and the quantity limits the administrator may also indicate what file types
@@ -136,7 +136,7 @@
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.fudcode"></a>FUDcode</h2></div></div><p>
 			FUDcode is a series of text formatting tags that allow users to style the text of their messages &amp; signatures.
 			More information about this features as well as the complete list of supported tags can be found 
-			<a href="#fudcode" title="Chapter 1. FUDcode">here</a>.
+			<a href="#fudcode" title="Chapter 2. FUDcode">here</a>.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.smilies"></a>Smilies/Emoticons</h2></div></div><p>
 			Smilies are commonly used codes to represent emotions, such as :) for example is generally used to indicate happiness. 
 			FUDforum 2 has a list of  30 commonly uses smiley codes that will be replaced with image representing the corresponding 
@@ -165,7 +165,7 @@
 			the administrator. This is most commonly used to filter in appropriate language from being used in the forum.
 		</p><p>
 			The administrator can specify the strings that are to be replaced via the 
-			<a href="#admin.replacement_censorship_system" title="Replacement &amp;#38; Censorship System">replacement control panel</a>, which supports 
+			<a href="#admin.replacement_censorship_system" title="Replacement &amp; Censorship System">replacement control panel</a>, which supports 
 			both basic replacement as well as regex pattern matching.
 		</p></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="features.iptracking"></a>IP Tracking</h2></div></div><p>
 			FUDforum 2 tracks the IP address of all the people who have made posts on the forum. The moderators &amp; administrators
@@ -295,12 +295,13 @@
 			FUDforum sources can also be obtained from CVS (Concurrent Version System).
 			</p><div class="example"><p class="title"><b>Example 3.4. Downloading FUDforum from CVS</b></p><pre class="programlisting">
 
-cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum2 checkout fud2_install
+cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_install
 
 Once the files are retrieved, run the following commands to create the install script
 
-cd fud2_install
+cd fud21_install
 chmod 644 install.php
+chmod 755 create_file_list
 ./create_file_list install &gt;&gt; install.php
 
                                 </pre></div><p>
@@ -646,7 +647,7 @@ Windows: c:\\web\\my website\\forum\\
 							</p></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_TAGS"></a>Tag Style</h5></div></div><p>
 						What kind of text formatting options are available to the user.
-						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 1. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 2. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_PMSG_FLDR_SIZE"></a>Maximum Private Messages Folder Size</h5></div></div><p>
 						The maximum amount of data, in bytes, the users can store inside their private message folders. This
 						does not include the space taken up by the file attachments attached to private messages.
@@ -714,7 +715,7 @@ Windows: c:\\web\\my website\\forum\\
 						Whether or not forum users can specify signatures that will be appended to their messages.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_CODE_SIG"></a>Tag Style</h5></div></div><p>
 						What kind of text formatting options are available to the user.
-						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 1. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 2. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_SML_SIG"></a>Allow Smilies</h5></div></div><p>
 						Whether or not smilies/emoticons in signatures will be converted to their graphical equivalents.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.FORUM_IMG_SIG"></a>Allow Images</h5></div></div><p>
@@ -838,7 +839,7 @@ Windows: c:\\web\\my website\\forum\\
 						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_IMAGE_COUNT"></a>Max Image Count</h5></div></div><p>
 						The maximum number of images a user may include in their forum messages.
 					</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
-						This limit will ONLY work if the <a href="#fudcode" title="Chapter 1. FUDcode">FUDcode</a> style is being used.
+						This limit will ONLY work if the <a href="#fudcode" title="Chapter 2. FUDcode">FUDcode</a> style is being used.
 						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SHOW_N_MODS"></a># Of Moderators To Show</h5></div></div><p>
 						An indicator of how many forum moderators to show beside each forum on the front page.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.EMAIL_CONFIRMATION"></a>E-mail Confirmation</h5></div></div><p>
@@ -1093,7 +1094,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 						</p></div><p>
 				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.tag"></a>Tag Style</h4></div></div><p>
 					What kind of text formatting tools are available to the user.
-					</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 1. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>			
+					</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>FUDcode</b></span> Users can use <a href="#fudcode" title="Chapter 2. FUDcode">FUDcode</a> styling tags to format their messages.</p></li><li><p><span class="bold"><b>HTML</b></span> The users can use HTML inside their messages.</p></li><li><p><span class="bold"><b>NONE</b></span> only plain text is allowed.</p></li></ul></div><p>			
 				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.pp"></a>Password Posting</h4></div></div><p>
 					Whether or users will be required to enter a special password in order to be able to post messages inside
 					this forum.
@@ -1895,12 +1896,166 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				If enabled, the user's emoticon tags will be converted to equivalent smiley images during the posting
 				process.
 			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="mod.groups.images"></a>Use image tags</h3></div></div><p>
-				Whether or not this user may use <a href="#fudcode" title="Chapter 1. FUDcode">FUDcode</a>'s [img] tags in their code.
+				Whether or not this user may use <a href="#fudcode" title="Chapter 2. FUDcode">FUDcode</a>'s [img] tags in their code.
 				
 				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 					If the <a href="#global.option.MAX_IMAGE_COUNT" title="Max Image Count">maximum allowed images per message option</a> is set to 0 this option will have no affect.
 					</p></div><p>
-			</p></div></div></div></div><div class="part"><div class="titlepage"><div><h1 class="title"><a name="forum-appendixes"></a>Appendixes</h1></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="fudcode"></a>Chapter 1. FUDcode</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#fudcode.text">Text Styling Tools</a></dt><dd><dl><dt><a href="#fudcode.text.bold">Bold</a></dt><dt><a href="#fudcode.text.italics">Italics</a></dt><dt><a href="#fudcode.text.underline">Underline</a></dt><dt><a href="#fudcode.text.sub">Subscript</a></dt><dt><a href="#fudcode.text.sup">Superscript</a></dt><dt><a href="#fudcode.text.color">Font Color</a></dt><dt><a href="#fudcode.text.size">Font Size</a></dt><dt><a href="#fudcode.text.font">Font Face</a></dt><dt><a href="#fudcode.text.align">Text Alignment</a></dt></dl></dd><dt><a href="#fudcode.list">Lists</a></dt><dd><dl><dt><a href="#fudcode.list.ordered">Ordered Lists</a></dt><dt><a href="#fudcode.text.unordered">Unordered Lists</a></dt></dl></dd><dt><a href="#fudcode.links">Links</a></dt><dd><dl><dt><a href="#fudcode.links.url">URLs</a></dt><dt><a href="#fudcode.links.email">E-mails</a></dt></dl></dd><dt><a href="#fudcode.images">Images</a></dt><dt><a href="#fudcode.test_blocks">Text Blocks</a></dt><dd><dl><dt><a href="#fudcode.test_blocks.code">Code</a></dt><dt><a href="#fudcode.test_blocks.quote">Quote</a></dt><dt><a href="#fudcode.test_blocks.spoiler">Spoiler Tag</a></dt></dl></dd></dl></div><p>
+			</p></div></div></div></div><div class="part"><div class="titlepage"><div><h1 class="title"><a name="forum-misc"></a>Miscellaneous</h1></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="upgrading"></a>Chapter 1. Upgrading FUD Forum 2</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#upgrading.2X">Upgrading 2.X and 1.9X series FUDforum</a></dt><dd><dl><dt><a href="#upgrading.2X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.2X.running">Running the Upgrade Script</a></dt></dl></dd><dt><a href="#upgrading.1Xto2X">Upgrading from 1.2.8 to 2.0.2 series FUDforum</a></dt><dd><dl><dt><a href="#upgrading.1Xto2X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.1Xto2X.running">Running the Upgrade Script</a></dt></dl></dd><dt><a href="#upgrading.1X">Upgrading from 1.X to 1.2.8 FUDforum</a></dt><dd><dl><dt><a href="#upgrading.1X.download">Download Upgrade Script</a></dt><dt><a href="#upgrading.1X.running">Running the Upgrade Script</a></dt></dl></dd></dl></div><p>
+		FUDforum 2 is easily upgradeable to the next stable or development release via an upgrade script
+		that can be freely downloaded from FUDforum's website. The upgrade script is a single file, that once
+		run via the web browser, will upgrade your existing forum to the release for which the upgrade
+		script was downloaded for.
+		
+		</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+			Each time an upgrade script runs it creates/updates a special file, UPGRADE_STATUS inside the errors
+			directory. This file will prevent the same upgrade script from running twice or running of an upgrade
+			script that will attempt to upgrade a forum to a version older then the current one. 
+			If you find it necessary to run the same upgrade script more then once, use the file manager 
+			to remove this file before running the upgrade script.
+		</p></div><p>
+	</p><p>
+		Announcements about new FUDforum releases as well as list of major changes done in the release can be
+		found on <a href="http://fud.prohost.org/forum/" target="_top"><i>FUDforum's 
+		support forum</i></a>, the <a href="http://fud.prohost.org/CHANGELOG" target="_top"><i>detailed 
+		changelog</i></a> is also available.
+	</p><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="upgrading.2X"></a>Upgrading 2.X and 1.9X series FUDforum</h2></div></div><p>
+			To upgrade from 2.X or 1.9X to the latest stable or development release is a very easy process
+			that can be accomplished in a few minutes by following the steps outlined below.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.2X.download"></a>Download Upgrade Script</h3></div></div><p>
+				You can download the latest stable or development release from the FUDforum's 
+				<a href="http://fud.prohost.org/download.php" target="_top"><i>download page</i></a>,
+				the upgrade scripts are always available in 3 compression formats: bzip2, gzip and zip.
+			</p><p>
+				The upgrade script to the latest stable release can be found under the 
+				'Upgrade from 1.9.8+ &amp; 2.0+ to FUDforum [version number]' sub-heading.
+				The upgrade script to the latest development release can be found under the 
+				'Upgrade from 1.9.8+ &amp; 2.0+ to FUDforum [version number] (Development Release)' sub-heading.	
+			</p><p>
+				If you wish to get an upgrade script to the very latest development release, you can do so
+				via FUDforum's anonymous CVS, by doing the following:
+			</p><div class="example"><p class="title"><b>Example 1.1. Downloading FUDforum upgrade script from CVS</b></p><pre class="programlisting">
+
+cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_upgrade
+
+Once the files are retrieved, run the following commands to create the upgrade script
+
+cd fud21_install
+chmod 644 upgrade.php
+chmod 755 create_file_list
+./create_file_list install &gt;&gt; upgrade.php
+
+                                </pre></div><p>
+			</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+				You will need to have php binary installed on your system in order to generate the install.php installation script.
+				If you already have a php binary in your system, but it is not inside <tt>/usr/local/bin/php</tt>, modify the
+				1st line inside the install.php script to reflect the proper path of the php binary on your system.
+				</p></div><p>
+			</p><p>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/upgrade.php
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.2X.running"></a>Running the Upgrade Script</h3></div></div><p>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/upgrade.php 
+				URL with your web browser, this will begin the execution of the upgrade script.
+				The script will output various progress indicators, letting you know of what is it doing
+				at the moment. 
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</p></div><p>
+			</p><p>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</p><p>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the upgrade.php script you've placed inside the forum's web directory
+				in the <a href="#upgrading.2X.download" title="Download Upgrade Script">1st step</a>.
+			</p></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="upgrading.1Xto2X"></a>Upgrading from 1.2.8 to 2.0.2 series FUDforum</h2></div></div><p>
+			Because of the many differences between the 1.X and 2.X series FUDforum, there is a special script
+			you need to use to upgrade. This upgrade script will convert from version 1.2.8 to 2.0.2.
+			</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				It is very important that you make sure that your old forum is running version 1.2.8, other
+				wise the upgrade script will fail. If you see that your forum is older, you will first need
+				to <a href="#upgrading.1X" title="Upgrading from 1.X to 1.2.8 FUDforum">upgrade to version 1.2.8</a> before continuing to upgrade to 2.0.2.
+				
+			</p></div><p>
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.1Xto2X.download"></a>Download Upgrade Script</h3></div></div><p>
+				This upgrade script is available from the FUDforum's <a href="http://fud.prohost.org/download.php" target="_top"><i>download page</i></a> in 3 
+				compression formats: bzip2, gzip and zip.
+			</p><p>
+				The links to download this script can be found under the 
+				'Upgrade from 1.2.8 to FUDforum 2.0.2' sub-heading.
+			</p><p>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/upgrade.php
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.1Xto2X.running"></a>Running the Upgrade Script</h3></div></div><p>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/upgrade.php 
+				URL with your web browser, this will begin the execution of the upgrade script.
+				The script will output various progress indicators, letting you know of what is it doing
+				at the moment. 
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</p></div><p>
+			</p><p>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</p><p>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the upgrade.php script you've placed inside the forum's web directory
+				in the <a href="#upgrading.1Xto2X.download" title="Download Upgrade Script">1st step</a>.
+			</p><p>
+				You should also consider upgrading from 2.0.2 to the later stable release if one is available
+				by following instructions in the 
+				<a href="#upgrading.2X" title="Upgrading 2.X and 1.9X series FUDforum">Upgrading 2.X and 1.9X series FUDforum</a> section of the manual.
+			</p></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="upgrading.1X"></a>Upgrading from 1.X to 1.2.8 FUDforum</h2></div></div><p>
+			If you find that you are running a FUDforum release older then 1.2.8 you will need to upgrade
+			your forum to version 1.2.8 before you can perform any other upgrades.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.1X.download"></a>Download Upgrade Script</h3></div></div><p>
+				This upgrade script is available from the FUDforum's <a href="http://fud.prohost.org/download.php" target="_top"><i>download page</i></a> in 2
+				compression formats: bzip2 and gzip.
+			</p><p>
+				The download links for the upgrade scripts are:
+				<a href="http://fud.prohost.org/download/update-v1.2.8.php.tar.bz2" target="_top"><i>update-v1.2.8.php.tar.bz2</i></a>
+				<a href="http://fud.prohost.org/download/update-v1.2.8.php.tar.gz" target="_top"><i>update-v1.2.8.php.tar.gz</i></a>
+			</p><p>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/update-v1.2.8.php
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="upgrading.1X.running"></a>Running the Upgrade Script</h3></div></div><p>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/update-v1.2.8.php
+				URL with your web browser. You will then need to enter the full path on the disk where the
+				GLOBALS.php file can be found. Once you've entered the forum submit the form, which will begin
+				the upgrade process. The script will output various progress indicators, letting you know 
+				of what is it doing at the moment. 
+				
+				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</p></div><p>
+			</p><p>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</p><p>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the update-v1.2.8.php script you've placed inside the forum's web directory
+				in the <a href="#upgrading.1X.download" title="Download Upgrade Script">1st step</a>.
+			</p><p>
+				Once you've upgraded to version 1.2.8 you can now upgrade to the <a href="#upgrading.1Xto2X" title="Upgrading from 1.2.8 to 2.0.2 series FUDforum">2X series</a> FUDforum.
+			</p></div></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="fudcode"></a>Chapter 2. FUDcode</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#fudcode.text">Text Styling Tools</a></dt><dd><dl><dt><a href="#fudcode.text.bold">Bold</a></dt><dt><a href="#fudcode.text.italics">Italics</a></dt><dt><a href="#fudcode.text.underline">Underline</a></dt><dt><a href="#fudcode.text.sub">Subscript</a></dt><dt><a href="#fudcode.text.sup">Superscript</a></dt><dt><a href="#fudcode.text.color">Font Color</a></dt><dt><a href="#fudcode.text.size">Font Size</a></dt><dt><a href="#fudcode.text.font">Font Face</a></dt><dt><a href="#fudcode.text.align">Text Alignment</a></dt></dl></dd><dt><a href="#fudcode.list">Lists</a></dt><dd><dl><dt><a href="#fudcode.list.ordered">Ordered Lists</a></dt><dt><a href="#fudcode.text.unordered">Unordered Lists</a></dt></dl></dd><dt><a href="#fudcode.links">Links</a></dt><dd><dl><dt><a href="#fudcode.links.url">URLs</a></dt><dt><a href="#fudcode.links.email">E-mails</a></dt></dl></dd><dt><a href="#fudcode.images">Images</a></dt><dt><a href="#fudcode.test_blocks">Text Blocks</a></dt><dd><dl><dt><a href="#fudcode.test_blocks.code">Code</a></dt><dt><a href="#fudcode.test_blocks.quote">Quote</a></dt><dt><a href="#fudcode.test_blocks.spoiler">Spoiler Tag</a></dt></dl></dd></dl></div><p>
 		In most cases allowing users to enter HTML inside their message is impractical for security and stylistic reasons,
 		FUDforum 2 offers a large set of it's own formatting tags that will internally be converted to HTML. Thus preventing
 		users from compromising security by inserting hostile JavaScript in to their messages and intentionally or 
@@ -1955,7 +2110,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				<pre class="screen">ex. [align=center]centered text[/align] will result in &lt;div align=&quot;center&quot;&gt;centered text&lt;/div&gt;</pre>
 			</p></div><p>
 			The user may use those tags in combination with each other as the example below demonstrates.
-		</p><div class="example"><p class="title"><b>Example 1.1. Using Multiple Text Styling Tags</b></p><pre class="programlisting">
+		</p><div class="example"><p class="title"><b>Example 2.1. Using Multiple Text Styling Tags</b></p><pre class="programlisting">
 
 [b]Bold
 	[i]Bold Italics
@@ -1986,7 +2141,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>[list type=A]</b></span> The items in the list will be indicated by upper case letters of the alphabet from A to Z.</p></li><li><p><span class="bold"><b>[list type=z]</b></span> The items in the list will be indicated by lower case letters of the alphabet from a to z.</p></li><li><p><span class="bold"><b>[list type=1]</b></span> The items in the list will be indicated by numbers from 1 to infinity.</p></li><li><p><span class="bold"><b>[list type=I]</b></span> The items in the list will be indicated by upper case Roman numerals.</p></li><li><p><span class="bold"><b>[list type=I]</b></span> The items in the list will be indicated by lower case Roman numerals.</p></li></ul></div><p>
 			</p><p>
 				Internally FUDforum 2 will convert ordered lists to &lt;ol&gt; tags with an appropriate parameter.
-			</p><div class="example"><p class="title"><b>Example 1.2. Ordered List</b></p><pre class="programlisting">
+			</p><div class="example"><p class="title"><b>Example 2.2. Ordered List</b></p><pre class="programlisting">
 [list type=I]
 [*] Item one
 [*] Item two
@@ -2009,7 +2164,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 					[list] tag without a parameter, will be automatically converted to a [list type=disc] by default.
 					</p></div><p>
-			</p><div class="example"><p class="title"><b>Example 1.3. Unordered List</b></p><pre class="screen">
+			</p><div class="example"><p class="title"><b>Example 2.3. Unordered List</b></p><pre class="screen">
 [list type=square]
 [*] Item one
 [*] Item two
@@ -2159,7 +2314,40 @@ ex. [spoiler]Movie Spoiler[/spoiler] will result in the following HTML
 	&lt;div align=&quot;left&quot; id=&quot;1147217758771422496&quot; style=&quot;visibility: hidden;&quot;&gt;Movie Spoiler&lt;/div&gt;
 &lt;/div&gt;
 </pre>
-			</p></div></div></div><div class="appendix"><div class="titlepage"><div><h2 class="title"><a name="GPL"></a>Appendix A. GNU General Public License</h2></div><div><p class="releaseinfo">
+			</p></div></div></div><div class="chapter"><div class="titlepage"><div><h2 class="title"><a name="bug_reports"></a>Chapter 3. Reporting Bugs</h2></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><a href="#bug_reports.info">Bug Information</a></dt><dd><dl><dt><a href="#bug_reports.info.bug">Bug</a></dt><dt><a href="#bug_reports.info.system">System Information</a></dt></dl></dd></dl></div><p>
+		Should you come across a bug inside FUDforum 2 or a typo in the documentation please
+		take a moment of your time and report it to the development team via 
+		<a href="http://fud.prohost.org/forum/" target="_top"><i>Support Forum</i></a> or
+		by sending an <a href="mailto:forum@prohost.org" target="_top"><i>email</i></a>.
+	</p><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="bug_reports.info"></a>Bug Information</h2></div></div><p>
+			To ensure that your bug is solved quickly please include as much information as possible
+			about the bug itself as well as your system configuration. Also, check on the 
+			<a href="http://fud.prohost.org/forum/" target="_top"><i>Support Forum</i></a>
+			if any similar bugs were already posted and if a solution is already available in the later release
+			or in the CVS.
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bug_reports.info.bug"></a>Bug</h3></div></div><p>
+				Please include any warning &amp; error messages that occurred as the result of bug. If you
+				had not received any such messages, please verify you php configuration to see that such
+				errors would be displayed. This can be done make making sure that
+				<span class="emphasis"><em>display_errors</em></span> option is turn on and your 
+				<span class="emphasis"><em>error_reporting</em></span> option is set to E_ALL^E_NOTICE (2039) or
+				greater.
+			</p><p>
+				If the bug results in broken functionality please clearly explain the problem caused by the bug.
+			</p><p>
+				You should always include the URL of the page where the bug had occurred even if the URL
+				is not accessible via the Internet. The URL would let us know which page caused the problem
+				and what variables may have been responsible for the problem you've experienced.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="bug_reports.info.system"></a>System Information</h3></div></div><p>
+				A good bug report should also include information about the system on which the bug had occurred.
+				The optimal way to get this information is by including the output of PHP's phpinfo() function
+				in your bug report by making a small test script like this: 
+				<pre class="screen"></pre>
+			</p><p>
+				If you cannot send us the phpinfo() output, please include the information shown by the
+				<a href="#admin.system_info" title="System Info">System Info</a> admin form as well as information about
+				your browser.
+			</p></div></div></div></div><div class="part"><div class="titlepage"><div><h1 class="title"><a name="forum-appendixes"></a>Appendixes</h1></div></div><div class="appendix"><div class="titlepage"><div><h2 class="title"><a name="GPL"></a>Appendix A. GNU General Public License</h2></div><div><p class="releaseinfo">
       Version 2, June 1991
     </p></div><div><p class="copyright">Copyright © 2000 Free Software Foundation, Inc.</p></div><div><div class="legalnotice"><p>
 	</p><div class="address"><p>Free Software Foundation, Inc. <br>

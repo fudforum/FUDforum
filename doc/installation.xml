@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: installation.xml,v 1.3 2002/07/03 12:56:58 hackie Exp $ -->
+<!-- $Id: installation.xml,v 1.4 2002/07/03 15:56:13 hackie Exp $ -->
 <chapter id="installation">
 	<title>Installation</title>
 	
@@ -98,7 +98,7 @@ cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_install
 ]]>
 Once the files are retrieved, run the following commands to create the install script
 <![CDATA[
-cd fud2_install
+cd fud21_install
 chmod 644 install.php
 chmod 755 create_file_list
 ./create_file_list install >> install.php
