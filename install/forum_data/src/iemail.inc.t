@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.13 2002/10/15 03:08:15 hackie Exp $
+*   $Id: iemail.inc.t,v 1.14 2002/12/05 01:12:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@ class fud_email_block
 
 function is_email_blocked($addr)
 {
-	if ( bq("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE string='".$addr."'") ) return 1;
+	if ( bq("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE string='".addslashes($addr)."'") ) return 1;
 
 	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
