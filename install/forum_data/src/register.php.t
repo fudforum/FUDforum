@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.116 2004/04/26 19:13:15 hackie Exp $
+* $Id: register.php.t,v 1.117 2004/05/12 18:25:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ function sanitize_url($url)
 	return $url;
 }
 
-function sanitize_login($login, $is_alias=false)
+function sanitize_login($login, $is_alias=0)
 {
 	for ($i = 0; $i < 32; $i++) $list[] = chr($i);
 	if (!$is_alias) {

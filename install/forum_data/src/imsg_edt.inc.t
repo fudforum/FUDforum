@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.104 2004/05/12 15:26:08 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.105 2004/05/12 18:25:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,7 @@ class fud_msg
 
 class fud_msg_edit extends fud_msg
 {
-	function add_reply($reply_to, $th_id=null, $perm, $autoapprove=true)
+	function add_reply($reply_to, $th_id=null, $perm, $autoapprove=1)
 	{
 		if ($reply_to) {
 			$this->reply_to = $reply_to;
@@ -31,7 +31,7 @@ class fud_msg_edit extends fud_msg
 		return $this->add($fd[0], $fd[1], $fd[2], $perm, $autoapprove);
 	}
 
-	function add($forum_id, $message_threshold, $forum_opt, $perm, $autoapprove=true)
+	function add($forum_id, $message_threshold, $forum_opt, $perm, $autoapprove=1)
 	{
 		if (!$this->post_stamp) {
 			$this->post_stamp = __request_timestamp__;
@@ -214,7 +214,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 
-	function delete($rebuild_view=true, $mid=0, $th_rm=0)
+	function delete($rebuild_view=1, $mid=0, $th_rm=0)
 	{
 		if (!$mid) {
 			$mid = $this->id;
@@ -323,7 +323,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 
-	function approve($id, $unlock_safe=false)
+	function approve($id, $unlock_safe=0)
 	{
 		/* fetch info about the message, poll (if one exists), thread & forum */
 		$mtf = db_sab('SELECT

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.inc.t,v 1.15 2004/01/04 16:38:26 hackie Exp $
+* $Id: draw_pager.inc.t,v 1.16 2004/05/12 18:25:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function pager_replace(&$str, $s, $c)
 
 if ($FUD_OPT_2 & 32768) {
 
-function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=false)
+function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=0)
 {
 	if (!$count) {
 		$count =& $GLOBALS['POSTS_PER_PAGE'];
@@ -112,7 +112,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 
 } else {
 
-function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=false)
+function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=0)
 {
 	if (!$count) {
 		$count =& $GLOBALS['POSTS_PER_PAGE'];
