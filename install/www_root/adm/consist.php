@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.101 2005/01/19 14:36:59 hackie Exp $
+* $Id: consist.php,v 1.102 2005/02/07 15:14:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -661,7 +661,8 @@ forum will be disabled.
 	draw_stat('Cleaning forum\'s tmp directory');
 	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
 		foreach ($files as $file) {
-			if (is_file($file)) {
+			// remove if file and not-standard forum backup file.
+			if (is_file($file) && strncmp($file, 'FUDforum_', 9)) {
 				@unlink($file);
 			}
 		}
