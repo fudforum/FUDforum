@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.24 2003/04/30 20:19:24 hackie Exp $
+*   $Id: selmsg.php.t,v 1.25 2003/05/07 23:21:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@ function valstat($a)
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '.$usr->last_read.' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '';
+	$perm_limit = $usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)' : 'g1.p_READ') . '=\'Y\')': '';
 
 	/* mark messages read for registered users */
 	if (_uid && !empty($usr->data) && count($usr->data)) {
