@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.16 2002/09/18 20:52:08 hackie Exp $
+*   $Id: compact.php,v 1.17 2002/09/26 20:55:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -164,8 +164,8 @@ and the amount of messages your forum has.<br><br>
 		}
 	} 
 	else { /* there are no messages in db, make sure that msg files are blank */
-		$i=1;
-		while ($i++<100) {
+		$i=0;
+		while (++$i<100) {
 			if( @file_exists($GLOBALS['MSG_STORE_DIR'].'msg_'.$i) )
 				@unlink($GLOBALS['MSG_STORE_DIR'].'msg_'.$i);
 			else 
