@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.32 2003/10/05 20:46:29 hackie Exp $
+*   $Id: db.inc,v 1.33 2003/10/06 19:10:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -339,7 +339,7 @@ function db_li($q, &$ef, $li=0)
 	if ($r) {
 		if ($li) {
 			preg_match('!('.$GLOBALS['DBHOST_TBL_PREFIX'].'[A-Za-z0-9_]+)!', $q, $m);
-			q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
+			return q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
 		}
 		return $r;
 	}
