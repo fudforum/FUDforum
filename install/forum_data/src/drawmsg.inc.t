@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.45 2003/05/09 14:29:37 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.46 2003/05/13 14:33:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -257,7 +257,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	/* display poll if there is one */
-	if ($obj->poll_id) {
+	if ($obj->poll_id && $obj->poll_cache) {
 		/* we need to determine if we allow the user to vote or see poll results */
 		$show_res = 1;
 
