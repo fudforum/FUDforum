@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: buddy_list.tmpl,v 1.2 2003/06/02 15:19:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -56,7 +56,7 @@
 	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{ROOT}/bl/{VAR: r[0]}/{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
 	<td align="center">{VAR: r[6]}</td>
 	<td align="center" nowrap>{DATE: r[3] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0 alt="" /></a>&nbsp;<a href="{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[1]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0 alt="" /></a>&nbsp;<a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 

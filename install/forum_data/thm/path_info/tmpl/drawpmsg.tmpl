@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link}
-<br />[<a href="{ROOT}?t=buddy_list&amp;{DEF: _rsid}&amp;add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+<br />[<a href="{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}" class="GenLink">{MSG: add_to_buddy_list}</a>]
 {SECTION: END}
 
 {SECTION: dpmsg_level_name}
@@ -69,7 +69,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}#icq_msg"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" border=0 alt="" alt="" /></a>&nbsp;
+<a href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}#icq_msg"><img src="http://web.icq.com/whitepages/online?icq={VAR: obj->icq}&amp;img=5" border=0 alt="" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_aim}
@@ -97,8 +97,8 @@
 
 {SECTION: dpmsg_file_attachment file attachment entry row}
 <tr>
-<td valign=middle><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: r->id}&amp;{DEF: _rsid}&amp;private=1"><img src="images/mime/{VAR: r->icon}" border=0 alt="" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: r->id}&amp;{DEF: _rsid}&amp;private=1">{VAR: r->original_name}</a><br />
+<td valign=middle><a class="GenLink" href="{ROOT}/fa/{VAR: r->id}/1/{DEF: _rsid}"><img src="images/mime/{VAR: r->icon}" border=0 alt="" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}/fa/{VAR: r->id}/1/{DEF: _rsid}">{VAR: r->original_name}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -107,30 +107,30 @@
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_email_link}
-<a class="GenLink" href="{ROOT}?t=email&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}/em/{VAR: obj->user_id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}/pmm/toi/{VAR: obj->user_id}/{DEF: _rsid}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_edit_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 alt="" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="GenLink" href="{ROOT}/pmm/msg_id/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 alt="" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_reply_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;reply={VAR: obj->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 alt="" /></a>&nbsp;
+<a class="GenLink" href="{ROOT}/pmm/reply/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_quote_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;quote={VAR: obj->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}/pmm/quote/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 alt="" /></a>
 {SECTION: END}
 
-{MAIN_SECTION: private_message_entry   draws a single private message}<tr>
+{MAIN_SECTION: private_message_entry draws a single private message}<tr>
 <td class="RowStyleA" valign=top nowrap>
 
 <table cellspacing=0 cellpadding=0 border=0>
@@ -179,13 +179,13 @@
 {TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}
 </td>
 <td align="right" nowrap width="1%">
-<a class="GenLink" href="{ROOT}?t=pmsg&amp;{DEF: _rsid}&amp;btn_delete=1&amp;sel={VAR: obj->id}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;forward={VAR: obj->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 alt="" /></a>
+<a class="GenLink" href="{ROOT}/pdm/btn_delete/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}
+<a class="GenLink" href="{ROOT}/pmm/forward/{VAR: obj->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 alt="" /></a>
 </td></tr></table></td></tr>
 {SECTION: END}
 
 {SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->user_id}&amp;{DEF: _rsid}">{VAR: obj->alias}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
+<a class="GenLink" href="{ROOT}/u/{VAR: obj->user_id}/{DEF: _rsid}">{VAR: obj->alias}</a><br />{TEMPLATE-DATA: level_name}{TEMPLATE-DATA: level_image}
 {SECTION: END}
 
 {SECTION: dpmsg_profile_no_link user's name without the link to the profile}
@@ -193,11 +193,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_prev_message link to the previous message}
-<a href="{ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;id={VAR: pid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goback.gif" border=0 alt="" /> {MSG: pmsg_prev_msg}</a>
+<a href="{ROOT}/pmv/{VAR: pid}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goback.gif" border=0 alt="" /> {MSG: pmsg_prev_msg}</a>
 {SECTION: END}
 
 {SECTION: dpmsg_next_message link to the next message}
-<a href="{ROOT}?t=pmsg_view&amp;{DEF: _rsid}&amp;id={VAR: nid}" class="GenLink">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="" /></a>
+<a href="{ROOT}/pmv/{VAR: nid}/{DEF: _rsid}" class="GenLink">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="" /></a>
 {SECTION: END}
 
 {SECTION: drawpmsg_affero_reg}
@@ -209,5 +209,5 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link_remove add this user to your buddy list link}
-<br />[<a href="{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
+<br />[<a href="{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
 {SECTION: END}

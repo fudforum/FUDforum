@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: mvthread.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -37,11 +37,11 @@
 {SECTION: END}
 
 {SECTION: forum_entry}
-<tr><td><a href="{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;to={VAR: ent[1]}&amp;{DEF: _rsid}">{VAR-HTML: ent[0]}</a></td></tr>
+<tr><td><a href="{ROOT}/mh/{VAR: thr->id}/to/{VAR: ent[1]}/{DEF: _rsid}">{VAR-HTML: ent[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: txc_forum_entry request that the thread be moved to a forum, of which a person is not a mod of}
-<tr><td>{VAR-HTML: ent[0]} [<a href="{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;{DEF: _rsid}&amp;thx={VAR: ent[1]}">{MSG: mvthread_request_move}</a>]</td></tr>
+<tr><td>{VAR-HTML: ent[0]} [<a href="{ROOT}/mh/{VAR: thr->id}/thx/{VAR: ent[1]}/{DEF: _rsid}">{MSG: mvthread_request_move}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: move_thread_request form for giving a reason why the thread should be moved}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: register.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=rpasswd&amp;{DEF: _rsid}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
+&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{ROOT}/rp/{DEF: _rsid}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
@@ -85,7 +85,7 @@
 
 {SECTION: built_in_avatar}
 <tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" border=0 name="reg_avatar_img" alt="" />
-<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}?t=avatarsel&amp;{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
+<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}/as/{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
 {SECTION: END}
 

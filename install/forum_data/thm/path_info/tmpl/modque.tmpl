@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: modque.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,7 +34,7 @@
 <table border=0 cellspacing=0 cellpadding=3 width="100%">
 <tr>
 	<td align="left"><b>{MSG: forum}</b> {VAR: obj->cat_name}<br /><b>{MSG: thread}</b> {VAR: obj->frm_name}</td>
-	<td align="right">[<a class="GenLink" href="{ROOT}?t=modque&amp;appr={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{ROOT}?t=modque&amp;del={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: modque_delete}</a>]</td>
+	<td align="right">[<a class="GenLink" href="{ROOT}/mq/appr/{VAR: obj->id}/{DEF: _rsid}">{MSG: modque_approve}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{ROOT}/del/{VAR: obj->id}/{DEF: _rsid}">{MSG: modque_delete}</a>]</td>
 </tr>
 </table>
 </td>
