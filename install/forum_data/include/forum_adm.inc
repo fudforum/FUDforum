@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.4 2003/04/25 20:20:37 hackie Exp $
+*   $Id: forum_adm.inc,v 1.5 2003/05/01 23:12:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,7 +76,7 @@ class fud_forum
 			".(int)$this->message_threshold."
 		)");
 
-		if (($gid = group_add($this->id, $this->name, 1))) {
+		if (($gid = group_add($this->id, $this->name, 2))) {
 			grp_rebuild_cache($gid);
 		}
 
@@ -200,7 +200,7 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
-	$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id='.$tbl.'forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name='.$tbl.'forum.name');
+	$gid = q_singleval('SELECT '.$tbl.'groups WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	db_unlock();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.23 2003/04/30 16:07:36 hackie Exp $
+*   $Id: compiler.inc,v 1.24 2003/05/01 23:12:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -184,7 +184,7 @@ function resolve_sections($str, $debug=0)
 					$sec = 'SECTION';
 				} else if (isset($GLOBALS['TC']['MAIN_SECTION'][$name])) {
 					$sec = 'MAIN_SECTION';
-				} else if ( isset($GLOBALS['TC']['PAGE'][$name])) {
+				} else if (isset($GLOBALS['TC']['PAGE'][$name])) {
 					$sec = 'PAGE';
 				} else {
 					exit('Undefined template: "'.$tag.'" inside "'.$name.'"');
@@ -423,10 +423,10 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	
 	if (substr($GLOBALS['WWW_ROOT'], -1) != '/') {
 		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . '/index.php';
-		$cmpl['THEME_ROOT'] = '/theme/' . $tname;
+		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . '/theme/' . $tname;
 	} else {
 		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . 'index.php';
-		$cmpl['THEME_ROOT'] = 'theme/' . $tname;
+		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . 'theme/' . $tname;
 	}
 	
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.3 2003/04/25 20:20:05 hackie Exp $
+*   $Id: groups_adm.inc,v 1.4 2003/05/01 23:12:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,10 @@ function group_add($res_id, $name, $add_gl=0, $perms='', $inherit_id=0, $joinmod
 	}
 	$vals = "'" . implode("', '", $r) . "'";
 
-	$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, joinmode, '.$fld_lst.') VALUES(\''.addslashes($name).'\', '.$inherit_id.', \''.$joinmode.'\', '.$vals.')');
+	/* primary group */
+	$pg = ($add_gl == 2) ? $res_id : 0;
+
+	$gid = db_qid('INSERT INTO '.$tbl.'groups (name, inherit_id, joinmode, '.$fld_lst.', forum_id) VALUES(\''.addslashes($name).'\', '.$inherit_id.', \''.$joinmode.'\', '.$vals.', '.$pg.')');
 	$rid = db_qid('INSERT INTO '.$tbl.'group_resources (group_id, resource_id) VALUES ('.$gid.','.$res_id.')');
 	if ($add_gl) {
 		$vals = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
