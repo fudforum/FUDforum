@@ -1008,3 +1008,4 @@ adm_account_accepted_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE
 adm_account_rejected:		Ваш запрос на регистрацию в форуме \'{VAR: GLOBALS['r']->login}\' был отклонен администратором. Узнать подробнее о причинах отказа в регистрации вы можете, связавшись с администратором форума по адресу \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' отклонен.
 thread_on:			вкл
+userinfo_buddy:			Buddy:

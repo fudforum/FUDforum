@@ -1008,3 +1008,4 @@ adm_account_accepted_s:		Din kontoförfrågan för \'{GVAR: FORUM_TITLE}\' accepter
 adm_account_rejected:		Ditt konto \'{VAR: GLOBALS['r']->login}\' nekades av administratören och är inte aktivt. Om du vill veta varför detta beslut fattades, kontakta administratören på \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Din kontoförfrågan på \'{GVAR: FORUM_TITLE}\' nekades.
 thread_on:			på
+userinfo_buddy:			Buddy:

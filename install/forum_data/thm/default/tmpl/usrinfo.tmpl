@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.22 2003/10/10 13:45:01 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.23 2003/11/14 11:09:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -193,6 +193,7 @@
 {TEMPLATE-DATA: user_image}
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: usrinfo_private_msg}
+{TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
 {TEMPLATE-DATA: home_page}
 {TEMPLATE-DATA: gender}
@@ -244,4 +245,12 @@
 
 {SECTION: usrinfo_affero}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>
+{SECTION: END}
+
+{SECTION: ui_buddy_lnk}
+{ROOT}?t=buddy_list&amp;add={VAR: u->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ui_buddy}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: userinfo_buddy}</td><td class="GenText"><a href="{TEMPLATE: ui_buddy_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a></td></tr>
 {SECTION: END}

@@ -1008,3 +1008,4 @@ adm_account_accepted_s:		你在论坛 \'{GVAR: FORUM_TITLE}\' 的注册已被接受！
 adm_account_rejected:		你的帐号 \'{VAR: GLOBALS['r']->login}\' 没有通过管理员的审核。请检查帐号是否符合论坛相关规定，如果不能确定问题，请联系 \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		你在论坛 \'{GVAR: FORUM_TITLE}\' 注册的帐号未通过审核，请检查是否符合论坛相关规定。
 thread_on:			于
+userinfo_buddy:			Buddy:

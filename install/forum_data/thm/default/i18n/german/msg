@@ -1008,3 +1008,4 @@ adm_account_accepted_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}
 adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator abgewiesen und ist daher nicht aktiviert. Falls Du den Grund f&uuml;r diese Entscheidung erfahren m&ouml;chtest, steht es Dir frei den Administrator &uuml;ber \'{GVAR: ADMIN_EMAIL}\' zu kontaktieren.
 adm_account_rejected_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			an
+userinfo_buddy:			Buddy:

@@ -1008,3 +1008,4 @@ adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was acc
 adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
 adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
 thread_on:			on
+userinfo_buddy:			Buddy:
