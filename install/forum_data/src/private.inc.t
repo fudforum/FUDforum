@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.22 2003/09/30 01:42:28 hackie Exp $
+*   $Id: private.inc.t,v 1.23 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -224,7 +224,7 @@ function pmsg_del($mid, $fldr=null)
 		return;
 	}
 	if ($fldr != 5) {
-		pmsg_move($mid, 5, FALSE);
+		pmsg_move($mid, 5, false);
 	} else {
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
 		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.22 2003/09/27 15:49:31 hackie Exp $
+*   $Id: modque.php.t,v 1.23 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,9 +37,9 @@
 	}
 
 	if ($appr) {
-		fud_msg_edit::approve($appr, TRUE);
+		fud_msg_edit::approve($appr, true);
 	} else if ($del) {
-		fud_msg_edit::delete(FALSE, $del);
+		fud_msg_edit::delete(false, $del);
 	}
 
 	ses_update_status($usr->sid, '', 0);
@@ -87,7 +87,7 @@
 			$prev_thread_id = $obj->thread_id;
 		}
 
-		$message = tmpl_drawmsg($obj, $usr, $perms, FALSE, $m_num, NULL);
+		$message = tmpl_drawmsg($obj, $usr, $perms, false, $m_num, NULL);
 		$modque_message .= '{TEMPLATE: modque_message}';
 	}
 	qf($r);

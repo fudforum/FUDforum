@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.46 2003/09/30 03:27:52 hackie Exp $
+*   $Id: ppost.php.t,v 1.47 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -178,7 +178,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			if ($attach_list[$_POST['file_del_opt']]) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== FALSE) {
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
 				$attach_count--;
@@ -403,7 +403,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');
 		$dpmsg_prev_message = $dpmsg_next_message = '';
-		$reference_msg = tmpl_drawpmsg($mm, $usr, TRUE);
+		$reference_msg = tmpl_drawpmsg($mm, $usr, true);
 		$reference_msg = '{TEMPLATE: reference_msg}';
 	} else {
 		$reference_msg = '';

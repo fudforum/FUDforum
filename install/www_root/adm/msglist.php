@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.15 2003/06/29 18:04:20 hackie Exp $
+*   $Id: msglist.php,v 1.16 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,14 +92,14 @@ function makedeps()
 
 		$data = file_get_contents($msgfile);
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v . ':')) === FALSE) {
+			if (($s = strpos($data, $v . ':')) === false) {
 				continue;
 			}
 			$s += 2 + strlen($v);
 			while ($data[$s] == "\t") {
 				++$s;
 			}
-			if (($e = strpos($data, "\n", $s)) === FALSE) {
+			if (($e = strpos($data, "\n", $s)) === false) {
 				continue;
 			}
 			$data = substr_replace($data, $_POST[$v], $s, ($e - $s));
@@ -188,12 +188,12 @@ if (isset($warn)) {
 		$data = file_get_contents($msgfile);
 
 		foreach ($msglist_arr as $v) {
-			if (($s = strpos($data, $v . ':')) === FALSE) {
+			if (($s = strpos($data, $v . ':')) === false) {
 				echo '<tr><td nowrap><font color="red">Unable to find "'.$v.'" inside "'.$msgfile.'"</font></td></tr>';
 				continue;
 			}
 			$s += 2 + strlen($v);
-			if (($e = strpos($data, "\n", $s)) === FALSE) {
+			if (($e = strpos($data, "\n", $s)) === false) {
 				$e = strlen($data);
 			}
 

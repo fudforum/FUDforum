@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.17 2003/09/29 14:50:36 hackie Exp $
+*   $Id: reported.php.t,v 1.18 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@
 			$prev_thread_id = $obj->thread_id;
 			
 		}
-		$message = tmpl_drawmsg($obj, $usr, $perms, FALSE, $n, NULL);
+		$message = tmpl_drawmsg($obj, $usr, $perms, false, $n, NULL);
 		
 		$reported_message .= '{TEMPLATE: reported_message}';
 	}

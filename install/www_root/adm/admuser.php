@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.30 2003/09/30 02:31:39 hackie Exp $
+*   $Id: admuser.php,v 1.31 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -208,7 +208,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		/* user searching logic */
 		$item = !empty($_POST['usr_email']) ? $_POST['usr_email'] : $_POST['usr_login'];
 		$field = !empty($_POST['usr_email']) ? 'email' : ($FUD_OPT_2 & 128 ? 'alias' : 'login');
-		if (strpos($item, '*') !== FALSE) {
+		if (strpos($item, '*') !== false) {
 			$like = 1;
 			$item = str_replace('*', '%', $item);
 			$item_s = str_replace('\\', '\\\\', $item);

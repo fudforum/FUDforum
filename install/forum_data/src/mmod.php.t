@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.19 2003/09/30 03:27:52 hackie Exp $
+*   $Id: mmod.php.t,v 1.20 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@
 			if ($data[2] == $data[4]) {
 				logaction(_uid, 'DELTHR', 0, '"'.addslashes($data[3]).'" w/'.$data[6].' replies');
 
-				fud_msg_edit::delete(TRUE, $data[2], 1);
+				fud_msg_edit::delete(true, $data[2], 1);
 
 				if (strpos($usr->returnto, 'selmsg') === false) {
 					if ($FUD_OPT_2 & 32768) {
@@ -82,7 +82,7 @@
 				}
 			} else {
 				logaction(_uid, 'DELMSG', 0, addslashes($data[3]));
-				fud_msg_edit::delete(TRUE, $data[2], 0);
+				fud_msg_edit::delete(true, $data[2], 0);
 			}
 		}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.13 2003/09/30 02:31:39 hackie Exp $
+*   $Id: pdf.php.t,v 1.14 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -82,7 +82,7 @@ class fud_pdf
 
 		$fonts = array('Courier', 'Courier-Bold', 'Helvetica-Bold', 'Helvetica');
 		foreach ($fonts as $f) {
-			$this->fonts[$f] = pdf_findfont($this->pdf, $f, 'host', FALSE);
+			$this->fonts[$f] = pdf_findfont($this->pdf, $f, 'host', false);
 		}
 	}
 
@@ -345,7 +345,7 @@ function post_to_smiley($text, $re)
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
 	while ($r = db_rowarr($c)) {
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
-		$re[$im] = (($p = strpos($r[0], '~')) !== FALSE) ? substr($r[0], 0, $p) : $r[0];
+		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
 	qf($c);
 	if (!isset($re)) {

@@ -197,7 +197,7 @@ class fud_forum_rdf_topic_print extends fud_forum_rdf_topic
 
 class fud_forum_rdf_msg
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=FALSE, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
 
 	var	$title, $topic_id, $topic_title, $message_id, $reply_to_id, $reply_to_title, $forum_id, $forum_title,
 		$category_title, $author, $author_id, $attachments, $poll_name, $total_votes, $poll_opts, $body;
@@ -207,7 +207,7 @@ class fud_forum_rdf_msg
 	function parse($url)
 	{
 		$this->parser = xml_parser_create();
-		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, FALSE);
+		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
@@ -219,7 +219,7 @@ class fud_forum_rdf_msg
 	function tag_open($parser, $tag, $attributes)
 	{
 		if (!$this->in_parser && $tag === 'item') {
-			$this->in_parser = TRUE;
+			$this->in_parser = true;
 		}
 		$this->ctag = $tag;
 		if ($tag === 'content:item') {
@@ -275,7 +275,7 @@ class fud_forum_rdf_msg
 			$this->handle_fud_data();
 			unset($this->title, $this->topic_id, $this->topic_title, $this->message_id, $this->reply_to_id, $this->reply_to_title, $this->forum_id, $this->forum_title, $this->category_title, $this->author, $this->author_id, $this->attachments, $this->poll_name, $this->total_votes, $this->poll_opts, $this->body);
 			$this->cur_poll_opt = $this->cur_attach = 0;
-			$this->in_parser = FALSE;
+			$this->in_parser = false;
 		}
 		if ($tag === 'content:item') {
 			if ($this->ctag_attr === 'attachments') {
@@ -290,7 +290,7 @@ class fud_forum_rdf_msg
 
 class fud_forum_rdf_user
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=FALSE, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
 
 	var	$user_id, $user_login, $user_name, $user_email, $post_count, $avatar_img, $homepage,
 		$bday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_affero,
@@ -299,7 +299,7 @@ class fud_forum_rdf_user
 	function parse($url)
 	{
 		$this->parser = xml_parser_create();
-		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, FALSE);
+		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
@@ -311,7 +311,7 @@ class fud_forum_rdf_user
 	function tag_open($parser, $tag, $attributes)
 	{
 		if (!$this->in_parser && $tag === 'item') {
-			$this->in_parser = TRUE;
+			$this->in_parser = true;
 		}
 		$this->ctag = $tag;
 	}
@@ -330,14 +330,14 @@ class fud_forum_rdf_user
 		if ($this->in_parser && $tag === 'item') {
 			$this->handle_fud_data();
 			unset($this->user_id, $this->user_login, $this->user_name, $this->user_email, $this->post_count, $this->avatar_img, $this->homepage, $this->bday, $this->last_visit, $this->reg_date, $this->im_icq, $this->im_aim, $this->im_yahoo, $this->im_msnm, $this->im_jabber, $this->im_affero, $this->m_subject, $this->m_id, $this->m_thread_id, $this->m_forum_id, $this->m_forum_title, $this->m_cat_title);
-			$this->in_parser = FALSE;
+			$this->in_parser = false;
 		}
 	}
 }
 
 class fud_forum_rdf_topic
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=FALSE, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
 
 	var	$topic_id, $topic_title, $topic_creation_date, $forum_id, $forum_title, $category_title,
 		$author, $author_id, $replies, $views, $last_post_id, $last_post_subj, $last_post_date;
@@ -345,7 +345,7 @@ class fud_forum_rdf_topic
 	function parse($url)
 	{
 		$this->parser = xml_parser_create();
-		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, FALSE);
+		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
@@ -357,7 +357,7 @@ class fud_forum_rdf_topic
 	function tag_open($parser, $tag, $attributes)
 	{
 		if (!$this->in_parser && $tag === 'item') {
-			$this->in_parser = TRUE;
+			$this->in_parser = true;
 		}
 		$this->ctag = $tag;
 	}
@@ -376,7 +376,7 @@ class fud_forum_rdf_topic
 		if ($this->in_parser && $tag === 'item') {
 			$this->handle_fud_data();
 			unset($this->topic_id, $this->topic_title, $this->topic_creation_date, $this->forum_id, $this->forum_title, $this->category_title, $this->author, $this->author_id, $this->replies, $this->views, $this->last_post_id, $this->last_post_subj, $this->last_post_date);
-			$this->in_parser = FALSE;
+			$this->in_parser = false;
 		}
 	}
 }

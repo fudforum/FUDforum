@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: help_index.php.t,v 1.5 2003/09/30 03:27:52 hackie Exp $
+*   $Id: help_index.php.t,v 1.6 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@
 	$tt_len = strlen('TOPIC_TITLE:');
 	$th_len = strlen('TOPIC_HELP:');
 	$help_section_data = '';
-	while (($str = strstr($str, 'TOPIC_TITLE:')) !== FALSE) {
+	while (($str = strstr($str, 'TOPIC_TITLE:')) !== false) {
 		$end_of = strpos($str, "\n");
 		$topic_title = substr($str, $tt_len, $end_of-$tt_len);
 		$str = strstr($str, 'TOPIC_HELP:');

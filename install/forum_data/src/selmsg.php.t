@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.36 2003/09/30 03:27:52 hackie Exp $
+*   $Id: selmsg.php.t,v 1.37 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -199,7 +199,7 @@ function path_info_lnk($var, $val)
 				$mark_read[$r->thread_id] = $r->id;
 			}
 
-			$message_data .= tmpl_drawmsg($r, $usr, $perms, FALSE, $n, '');
+			$message_data .= tmpl_drawmsg($r, $usr, $perms, false, $n, '');
 		}
 		un_register_fps();
 		qf($c);
@@ -237,7 +237,7 @@ function path_info_lnk($var, $val)
 		}
 		if ($FUD_OPT_2 & 32768) {
 			$p = str_replace(_rsid, '', $_SERVER['QUERY_STRING']);
-			if (strpos('start/', $p) !== FALSE) {
+			if (strpos('start/', $p) !== false) {
 				$p = preg_replace('!start/[0-9]+/!', '', $p);
 			}
 			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}' . $p . 'start/', '/' . _rsid);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.8 2003/05/20 19:55:04 hackie Exp $
+*   $Id: smiley.inc.t,v 1.9 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,12 +23,12 @@ function smiley_to_post($text)
 
         $c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
         while ($r = db_rowarr($c)) {
-        	$codes = (strpos($r[0], '~') !== FALSE) ? explode('~', strtolower($r[0])) : array(strtolower($r[0]));
+        	$codes = (strpos($r[0], '~') !== false) ? explode('~', strtolower($r[0])) : array(strtolower($r[0]));
 
 		foreach ($codes as $v) {
 			$a = 0;
 			$len = strlen($v);
-			while (($a = strpos($text_l, $v, $a)) !== FALSE) {
+			while (($a = strpos($text_l, $v, $a)) !== false) {
 				if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len]) == "" || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
 					$rep = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 					$text = substr_replace($text, $rep, $a, $len);
@@ -50,7 +50,7 @@ function post_to_smiley($text)
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
 	while ($r = db_rowarr($c)) {
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
-		$re[$im] = (($p = strpos($r[0], '~')) !== FALSE) ? substr($r[0], 0, $p) : $r[0];
+		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
 	qf($c);
 	

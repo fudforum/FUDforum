@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admext.php,v 1.8 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admext.php,v 1.9 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (!empty($_POST['c_ext'])) {
-		if (($p = strrpos($_POST['c_ext'], '.')) !== FALSE) {
+		if (($p = strrpos($_POST['c_ext'], '.')) !== false) {
 			$c_ext = rtrim(substr($_POST['c_ext'], ($p + 1)));
 		} else {
 			$c_ext = trim($_POST['c_ext']);	

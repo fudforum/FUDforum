@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.5 2003/09/30 02:31:45 hackie Exp $
+*   $Id: scripts_common.inc,v 1.6 2003/09/30 03:49:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -125,7 +125,7 @@ function decode_string($str, $encoding)
 function decode_header_value($val)
 {
 	// check if string needs to be decoded
-	if (strpos($val, '?') === FALSE) {
+	if (strpos($val, '?') === false) {
 		return trim($val);	
 	}
 

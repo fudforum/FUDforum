@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.13 2003/09/29 14:56:42 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.14 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	}
 
 	if (isset($_GET['appr']) || isset($_GET['decl']) || isset($_POST['decl'])) {
-		fud_use('thrx_adm.inc', TRUE);
+		fud_use('thrx_adm.inc', true);
 	}
 
 	/* verify that we got a valid thread-x-change approval */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.75 2003/09/30 03:27:52 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.76 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -219,7 +219,7 @@ class fud_msg_edit extends fud_msg
 		}
 	}
 	
-	function delete($rebuild_view=TRUE, $mid=0, $th_rm=0)
+	function delete($rebuild_view=true, $mid=0, $th_rm=0)
 	{
 		if (!db_locked()) {
 			db_lock('{SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
@@ -262,7 +262,7 @@ class fud_msg_edit extends fud_msg
 			if ($del->replies) {
 				$rmsg = q('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND id != '.$del->id);
 				while ($dim = db_rowarr($rmsg)) {
-					fud_msg_edit::delete(FALSE, $dim[0], 1);
+					fud_msg_edit::delete(false, $dim[0], 1);
 				}
 				qf($rmsg);
 			}
@@ -558,7 +558,7 @@ function trim_html($str, $maxlen)
 			continue;
 		}
 		
-		if (($p = strpos($str, '>', $i)) === FALSE) {
+		if (($p = strpos($str, '>', $i)) === false) {
 			break;
 		}
 		

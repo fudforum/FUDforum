@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.39 2003/09/29 22:24:27 hackie Exp $
+*   $Id: compiler.inc,v 1.40 2003/09/30 03:49:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,13 +38,13 @@ function resolve_refs($file_name)
 	
 	/* Fetch file definition */
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
-	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === FALSE) {
+	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
 		$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
-		if (($str = @file_get_contents($file1)) === FALSE) {
+		if (($str = @file_get_contents($file1)) === false) {
 			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
 		}
 	}
-	if (($st = strpos($str, '{PHP_FILE: ')) !== FALSE) {
+	if (($st = strpos($str, '{PHP_FILE: ')) !== false) {
 		$st += 11;
 		$st = substr($str, $st, (strpos($str, '}', $st) - $st - 1));
 		$fc['src'] = substr($st, 7, (strpos($st, ';', 7) - 7));
@@ -59,7 +59,7 @@ function resolve_refs($file_name)
 	}
 
 	$p = 0;
-	while (($p = strpos($str, '{REF: ', $p)) !== FALSE) {
+	while (($p = strpos($str, '{REF: ', $p)) !== false) {
 		$p += 6;
 		$e = strpos($str, '}', $p);
 		$nr = substr($str, $p, ($e - $p));
@@ -85,11 +85,11 @@ function parse_sections($str, $file)
 	foreach ($GLOBALS['__FUD_SECTIONS__'] as $k => $v) {
 		$p = 0;
 		$tr =& $GLOBALS['TC'][$k]; 
-		while (($p = strpos($str, $v, $p)) !== FALSE) {
+		while (($p = strpos($str, $v, $p)) !== false) {
 			$p += strlen($v);
 			$e = strpos($str, '}', $p);
 			$name = substr($str, $p, ($e - $p));
-			if (($p = strpos($name, ' ')) !== FALSE) {
+			if (($p = strpos($name, ' ')) !== false) {
 				$name = substr($name, 0, $p);
 			}
 			++$e;
@@ -98,7 +98,7 @@ function parse_sections($str, $file)
 				exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
 			}
 
-			if (($e2 = strpos($str, $v .'END}', $e)) === FALSE) {
+			if (($e2 = strpos($str, $v .'END}', $e)) === false) {
 				exit('unterminated tag '.$k.' inside '.$file);
 			}
 			if ($PHP_FILE) {
@@ -117,7 +117,7 @@ function parse_sections($str, $file)
 
 function resolve_sections($str)
 {
-	if (($p = strpos($str, '{')) === FALSE) {
+	if (($p = strpos($str, '{')) === false) {
 		return $str;
 	}
 
@@ -137,14 +137,14 @@ function resolve_sections($str)
 		}
 		++$p;
 
-		if (($e = strpos($str, '}', $p)) === FALSE) {
+		if (($e = strpos($str, '}', $p)) === false) {
 			exit('unterminated tag '.substr($str, ($p - 1), 255));
 		}
 
-		if (($te = strpos($str, ': ', $p)) !== FALSE && $te < $e) {
+		if (($te = strpos($str, ': ', $p)) !== false && $te < $e) {
 			$tag = substr($str, $p, ($te - $p));
 			$te += 2;
-			if (($ds = strpos($str, ' ', $te)) === FALSE || $ds > $e) {
+			if (($ds = strpos($str, ' ', $te)) === false || $ds > $e) {
 				$ds = $e;
 			}
 			$name = substr($str, $te, ($ds - $te));
@@ -225,7 +225,7 @@ function resolve_sections($str)
 			default:
 				exit('No such tag: '.htmlspecialchars($tag).' -> '.htmlspecialchars($name));
 		}
-	} while (($p = strpos($str, '{', $p)) !== FALSE);
+	} while (($p = strpos($str, '{', $p)) !== false);
 
 	return $ret . substr($str, $op, (strlen($str) - $op));
 }
@@ -235,11 +235,11 @@ function compile_file($source)
 	if (empty($source)) {
 		exit('No file passed to compile, fatal error');
 	}
-	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === FALSE) {
+	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === false) {
 		exit('Unable to open file '.$GLOBALS['DATA_DIR'].'src/'.$source);
 	}
 
-	if (($p = strpos($file_data, '{TEMPLATE: ')) === FALSE) {
+	if (($p = strpos($file_data, '{TEMPLATE: ')) === false) {
 		return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $file_data);
 	}
 
@@ -280,11 +280,11 @@ function compile_file($source)
 		}
 		$ret .= $ref;
 		
-		if (($e = strpos($file_data, '}', $p)) === FALSE) {
+		if (($e = strpos($file_data, '}', $p)) === false) {
 			exit('Unterminated tag "'.$name.'" inside "'.$source.'"');
 		}
 		$op = $p = $e + 1;
-	} while (($p = strpos($file_data, '{TEMPLATE: ', $p)) !== FALSE);
+	} while (($p = strpos($file_data, '{TEMPLATE: ', $p)) !== false);
 
 	return str_replace('{SQL_TABLE_PREFIX}', $GLOBALS['DBHOST_TBL_PREFIX'], $ret . substr($file_data, $op, (strlen($file_data) - $op)));
 }
@@ -559,7 +559,7 @@ class cmpl_local_theme
 	var $lang;
 }
 
-function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
+function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
 {
 	$src = preg_replace('!/*$!', '', $src);
 	$dest = preg_replace('!/*$!', '', $dest);
@@ -576,11 +576,11 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 		$path = $src . '/' . $de;
 		$nd = $dest . '/' . $de;
 		
-		if (@is_dir($path) && $recur == TRUE) {
+		if (@is_dir($path) && $recur == true) {
 			if (!@is_dir($nd) && !@mkdir($nd, 0777)) {
 				exit('can\'t mkdir ('.$nd.')<br>');
 			}
-			fudcopy($path, $nd, $mask, TRUE);
+			fudcopy($path, $nd, $mask, true);
 		} else {
 			if (!@copy($path, $nd) && !@file_exists($nd)) {
 				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.21 2003/08/01 17:56:52 hackie Exp $
+*   $Id: tmpllist.php,v 1.22 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@ function minimize($file, $maxl)
 {
 	if ($file == $maxl) {
 		return '';
-	} else if (($p = strpos($maxl, $file)) !== FALSE) {
+	} else if (($p = strpos($maxl, $file)) !== false) {
 		return ($p ? str_replace(':'. $file, '', $maxl) : str_replace($file. ':', '', $maxl));
 	}
 	return $maxl;
@@ -38,7 +38,7 @@ function maximize($file, $maxl)
 function fetch_section($data, $file, $section, $type)
 {
 	if ($type == 'MAIN') {
-		if (($p = strpos($data, '{PAGE: '.$section)) === FALSE) {
+		if (($p = strpos($data, '{PAGE: '.$section)) === false) {
 			$p = strpos($data, '{MAIN_SECTION: '.$section);
 			$end = '{MAIN_SECTION: END}';
 		} else {
@@ -48,16 +48,16 @@ function fetch_section($data, $file, $section, $type)
 		$p = strpos($data, '{SECTION: '.$section);
 		$end = '{SECTION: END}';
 	}
-	if ($p === FALSE) {
-		return FALSE;
+	if ($p === false) {
+		return false;
 	}
-	if (($te = strpos($data, '}', $p)) === FALSE) {
-		return FALSE;
+	if (($te = strpos($data, '}', $p)) === false) {
+		return false;
 	}
 	$ti = explode(' ', substr($data, $p, ($te - $p)), 3);
 
-	if (($ef = strpos($data, $end, $te)) === FALSE) {
-		return FALSE;
+	if (($ef = strpos($data, $end, $te)) === false) {
+		return false;
 	}
 
 	$ret['offset'] = ++$te;
@@ -123,7 +123,7 @@ function goto_tmpl($tmpl)
 		if (!$tmpl) {
 			exit('Section parameter not avaliable<br>');
 		}
-		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === FALSE) {
+		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === false) {
 			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br>');
 		}
 
@@ -147,7 +147,7 @@ function goto_tmpl($tmpl)
 			$update_ok = 1;
 		}
 		$p = 0;
-		while (($p = strpos($tmpl_data, '{MSG: ', $p)) !== FALSE) {
+		while (($p = strpos($tmpl_data, '{MSG: ', $p)) !== false) {
 			$p += 6;
 			$e = strpos($tmpl_data, '}', $p);
 			$msg_list[] = substr($tmpl_data, $p, ($e - $p));
@@ -213,7 +213,7 @@ function goto_tmpl($tmpl)
 			$file = $f;
 		} else {
 			/* fetch file name */
-			if (($p = strpos($data, '{PHP_FILE: input: ')) === FALSE) {
+			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
 				continue;
 			}
 			$p = strpos($data, '; output: ', $p) + 10;
@@ -229,19 +229,19 @@ function goto_tmpl($tmpl)
 		
 		/* build dependency list */
 		$p = 0;
-		while (($p = strpos($data, '{REF: ', $p)) !== FALSE) {
+		while (($p = strpos($data, '{REF: ', $p)) !== false) {
 			$p += 5;
 			$deps[$file][substr($data, $p, (strpos($data, '}', $p) - $p))] = 1;
 		}
 
 		/* parse sections */
-		if (($p = strpos($data, '{PAGE: ')) === FALSE && ($p = strpos($data, '{MAIN_SECTION: ') === FALSE)) {
+		if (($p = strpos($data, '{PAGE: ')) === false && ($p = strpos($data, '{MAIN_SECTION: ') === false)) {
 			/* the file has not templetable data, skipping */
 			continue;
 		}
 		if (isset($max_opts[$file])) { /* we need to show sections inside this file */
 			$p = 0;
-			while (($p = strpos($data, '{', $p)) !== FALSE) {
+			while (($p = strpos($data, '{', $p)) !== false) {
 				$e = strpos($data, ':', ++$p);
 				$tag = substr($data, $p, ($e - $p));
 				switch ($tag) {
@@ -250,7 +250,7 @@ function goto_tmpl($tmpl)
 					case 'MAIN_SECTION':
 						$e = strpos($data, '}', $p);
 						$e2 = strpos($data, '{'.$tag.': END}', $e);
-						if ($e === FALSE || $e2 === FALSE) {
+						if ($e === false || $e2 === false) {
 							exit('broken template file "'.$file.'"');
 						}
 

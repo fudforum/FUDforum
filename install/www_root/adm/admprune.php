@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.14 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admprune.php,v 1.15 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 
 			$c = q('SELECT root_msg_id, forum_id FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt);
 			while ($r = db_rowarr($c)) {
-				fud_msg_edit::delete(FALSE, $r[0], 1);
+				fud_msg_edit::delete(false, $r[0], 1);
 				$frm_list[$r[1]] = $r[1];
 			}
 			qf($r);

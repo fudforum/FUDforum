@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mem_limit.inc,v 1.1 2003/07/18 14:28:33 hackie Exp $
+*   $Id: mem_limit.inc,v 1.2 2003/09/30 03:49:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ $GLOBALS['BUF_SIZE'] = 2000000;
 /* if memory limit is present try to set it higher */
 if (($lmt = ini_get('memory_limit'))) {
 	/* failed to set memory limit higher, safe_mode */
-	if (ini_set('memory_limit', '64M') === FALSE) {
+	if (ini_set('memory_limit', '64M') === false) {
 		if (($lmt = mem_limit_to_int($lmt))) {
 			$GLOBALS['BUF_SIZE'] = round($lmt / 4);
 			/* we can tell the amount of free memory try using that for the limit */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.14 2003/09/30 03:27:52 hackie Exp $
+*   $Id: mvthread.php.t,v 1.15 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 		}
 	
 		if (!empty($_POST['reason_msg'])) {
-			fud_use('thrx_adm.inc', TRUE);
+			fud_use('thrx_adm.inc', true);
 			if (thx_add($_POST['reason_msg'], $th, $thx, _uid)) {
 				logaction(_uid, 'THRXREQUEST', $th);
 			}

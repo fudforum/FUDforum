@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.8 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admloginuser.php,v 1.9 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@
 
 	if (isset($_POST['login'])) {
 		if (($id = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_POST['login']).'\' AND passwd=\''.md5($_POST['passwd']).'\' AND is_mod=\'A\''))) {
-			$sid = user_login($id, $usr->ses_id, TRUE);
+			$sid = user_login($id, $usr->ses_id, true);
 			header('Location: admglobal.php?S='.$sid);
 			exit;
 		} else {

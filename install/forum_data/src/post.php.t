@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.78 2003/09/30 03:27:52 hackie Exp $
+*   $Id: post.php.t,v 1.79 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -232,7 +232,7 @@ function flood_check()
 			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== FALSE) {
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
 					
@@ -385,7 +385,7 @@ function flood_check()
 			}	
 
 			if (!$msg_id && !($frm->forum_opt & 2)) {
-				$msg_post->approve($msg_post->id, TRUE);
+				$msg_post->approve($msg_post->id, true);
 			}	
 
 			if (_uid) {
@@ -452,7 +452,7 @@ function flood_check()
 	}
 
 	if (isset($_POST['spell'])) {
-		$GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
+		$GLOBALS['MINIMSG_OPT']['DISABLED'] = true;
 	}
 
 /*{POST_HTML_PHP}*/

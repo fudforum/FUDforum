@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.18 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admforum.php,v 1.19 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,9 +19,9 @@ function get_max_upload_size()
 {
 	$us = strtolower(ini_get('upload_max_filesize'));
 	$size = (int) $us;
-	if (strpos($us, 'm') !== FALSE) {
+	if (strpos($us, 'm') !== false) {
 		$size *= 1024 * 1024;
-	} else if (strpos($us, 'k') !== FALSE) {
+	} else if (strpos($us, 'k') !== false) {
 		$size *= 1024;
 	}
 	return $size;

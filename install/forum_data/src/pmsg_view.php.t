@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.12 2003/09/30 01:42:28 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.13 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,7 +63,7 @@
 		$dpmsg_prev_message = '';
 	}
 
-	$private_message_entry = tmpl_drawpmsg($m, $usr, FALSE);
+	$private_message_entry = tmpl_drawpmsg($m, $usr, false);
 
 	if (!$m->read_stamp && $m->pmsg_opt & 16) {
 		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', track=track|8 WHERE id='.$m->id);

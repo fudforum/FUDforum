@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.51 2003/09/30 02:50:45 hackie Exp $
+*   $Id: msg.php.t,v 1.52 2003/09/30 03:49:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -203,7 +203,7 @@
 
 	$m_num = 0;
 	while ($obj = db_rowobj($result)) {
-		$message_data .= tmpl_drawmsg($obj, $usr, $perms, FALSE, $m_num, array($_GET['start'], $count));
+		$message_data .= tmpl_drawmsg($obj, $usr, $perms, false, $m_num, array($_GET['start'], $count));
 		$obj2 = $obj;
 	}
 	qf($result);

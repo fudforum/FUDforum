@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.32 2003/09/26 18:49:14 hackie Exp $
+*   $Id: nntp.inc,v 1.33 2003/09/30 03:49:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -408,7 +408,7 @@ class fud_nntp
 			/* try to determine whether this message is a reply or a new thread */
 			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $this->reply_to_msg_id);
 
-			$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
+			$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
 
 			// Handle File Attachments
 			if (isset($this->attachments) && is_array($this->attachments)) {
@@ -430,7 +430,7 @@ class fud_nntp
 				}
 			}
 			if ($nntp_adm->nntp_post_apr == 'N') {
-				fud_msg_edit::approve($msg_post->id, TRUE);	
+				fud_msg_edit::approve($msg_post->id, true);	
 			}
 			unset($msg_post);
 		}	
