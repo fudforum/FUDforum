@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.116 2004/12/09 19:04:25 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.117 2004/12/11 21:38:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -333,8 +333,8 @@ class fud_msg_edit extends fud_msg
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON f.last_post_id=m2.id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
-				LEFT JOIN {SQL_TABLE_PREFIX}mlist ml ON ml.forum_id=f.id
-				LEFT JOIN {SQL_TABLE_PREFIX}nntp n ON n.forum_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mlist ml ON ml.forum_id=f.id AND (ml.mlist_opt & 2) > 0
+				LEFT JOIN {SQL_TABLE_PREFIX}nntp n ON n.forum_id=f.id AND (n.nntp_opt & 2) > 0
 				WHERE m.id='.$id.' AND m.apr=0');
 
 		/* nothing to do or bad message id */
