@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.34 2003/09/27 15:49:31 hackie Exp $
+*   $Id: selmsg.php.t,v 1.35 2003/09/29 14:30:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@ function path_info_lnk($var, $val)
 	$unread_limit = (isset($_GET['unread']) && _uid) ? ' AND m.post_stamp > '.$usr->last_read.' AND (r.id IS NULL OR r.last_view < m.post_stamp) ' : '';
 	$th = isset($_GET['th']) ? (int)$_GET['th'] : 0;
 	$frm_id = isset($_GET['frm_id']) ? (int)$_GET['frm_id'] : 0;
-	$perm_limit = $usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)' : 'g1.p_READ') . '=\'Y\')': '';
+	$perm_limit = $usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt') . ' & 2)';
 
 	/* mark messages read for registered users */
 	if (_uid && isset($_GET['mr']) && !empty($usr->data) && count($usr->data)) {
@@ -94,7 +94,7 @@ function path_info_lnk($var, $val)
 	}
 
 	/* date limit */
-	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+	if ($USE_PATH_INFO != 'Y') {
 		$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
 		$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
 	} else {
@@ -107,7 +107,7 @@ function path_info_lnk($var, $val)
 	$s_unu = valstat(isset($_GET['reply_count']));
 	
 	if (_uid) {
-		if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+		if ($USE_PATH_INFO != 'Y') {
 			$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
 			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
 			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
@@ -145,10 +145,8 @@ function path_info_lnk($var, $val)
 			m.*, 
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
-			u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
-			u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
-			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
-			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			pot.id AS cant_vote,
