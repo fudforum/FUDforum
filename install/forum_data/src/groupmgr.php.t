@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.5 2002/07/09 14:54:09 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.6 2002/07/09 16:15:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -139,7 +139,11 @@ function draw_tmpl_perm_table($perm_arr)
 		$perms = $perms_new;
 	}
 	else if( $grp->id>2 && ($luser_id = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id)) ) {
-		$mbr = $grp->get_member_by_ent_id($luser_id);
+		if( empty($btn_submit) ) 
+			$mbr = $grp->get_member_by_ent_id($luser_id);
+		else
+			$mbr = $perms_arr;
+				
 		$perms = perm_obj_to_arr($mbr, 'up_');
 		reset($perms);
 		while ( list($k, $v) = each($perms) ) {
@@ -147,6 +151,7 @@ function draw_tmpl_perm_table($perm_arr)
 		}
 		$perms = $perms_new;
 	}
+		
 	
 	if( $group_id ) {
 		if( $mbr->user_id == 0 ) $maxperms['p_VOTE'] = $maxperms['p_RATE'] = 'N';
