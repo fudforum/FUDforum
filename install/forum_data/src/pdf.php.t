@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.31 2004/11/29 16:05:40 hackie Exp $
+* $Id: pdf.php.t,v 1.32 2004/11/29 16:39:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -151,7 +151,7 @@ class fud_pdf extends FPDF
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (!($FUD_OPT_2 &134217728) || !extension_loaded('pdf')) {
+	if (!($FUD_OPT_2 & 134217728)) {
 		std_error('disabled');
 	}
 
