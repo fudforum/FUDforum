@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.52 2004/10/26 21:08:02 hackie Exp $
+* $Id: admthemes.php,v 1.53 2004/11/08 17:23:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,32 +61,42 @@ function get_func_usage(&$toks)
 function clean_code($path, $toks)
 {
 	$old_size = filesize($path);
+	$s = 0;
 	$r = '';
 	foreach ($toks as $k => $tok) {
-		if (is_array($tok)) {
-			switch ($tok[0]) {
-				case T_COMMENT:
-				case T_ML_COMMENT:
-				case T_WHITESPACE:
-					break;
-				case T_FUNCTION:
-				case T_CASE:
-				case T_CLASS:
-				case T_NEW:
-				case T_ECHO:
-				case T_RETURN:
-					$r .= $tok[1].' ';
-					break;
-				case T_AS:
-				case T_LOGICAL_OR:
-				case T_EXTENDS:
-					$r .= ' '.$tok[1].' ';
-					break;
-				default:
-					$r .= $tok[1];
-			}
-		} else {
+		if (!is_array($tok)) {
 			$r .= $tok;
+			continue;
+		}
+		switch ($tok[0]) {
+			case T_COMMENT:
+			case T_ML_COMMENT:
+				break;
+
+			case T_WHITESPACE:
+				if (!$s) {
+					$r .= ' ';
+					$s = 1;
+				}
+				break;
+
+			case T_AS:
+			case T_LOGICAL_OR:
+			case T_EXTENDS:
+				$s = 0;
+				$r .= ' ';
+
+			case T_FUNCTION:
+			case T_CASE:
+			case T_CLASS:
+			case T_NEW:
+			case T_ECHO:
+			case T_RETURN:
+				$r .= $tok[1].' ';
+				break;
+
+			default:
+				$r .= $tok[1];
 		}
 	}
 
@@ -101,6 +111,7 @@ function clean_code($path, $toks)
 	return $saved;
 }
 	$is_tok = extension_loaded('tokenizer');
+	$meml = (($meml = ini_get("memory_limit")) && (int)$meml < 10);
 
 	require('./GLOBALS.php');
 	fud_use('widgets.inc', true);
@@ -164,14 +175,20 @@ function clean_code($path, $toks)
 		/* optimize *.php files */
 		$files = glob($WWW_ROOT_DISK . 'theme/' . $t_name . '/*.php', GLOB_NOSORT);
 		foreach ($files as $f) {
+			if ($meml && filesize($f) > 150000) { // not enough memory to tokenize large PHP scripts
+				continue; 
+			}
 			$toks = token_get_all(file_get_contents($f));
 			while (get_func_usage($toks));
 			clean_code($f, $toks);
 		}
-		
+
 		$files = glob($DATA_DIR . 'include/theme/' . $t_name . '/*.inc', GLOB_NOSORT);
 		foreach ($files as $f) {
-			clean_code($f, token_get_all(file_get_contents($$f)));
+			if ($meml && filesize($f) > 150000) { // not enough memory to tokenize large PHP scripts
+				continue; 
+			}
+			clean_code($f, token_get_all(file_get_contents($f)));
 		}
 	}
 	if (!$edit) {
