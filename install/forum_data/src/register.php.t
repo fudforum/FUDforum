@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.108 2004/01/30 01:44:17 hackie Exp $
+* $Id: register.php.t,v 1.109 2004/02/17 15:24:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,6 +162,9 @@ function register_form_check($user_id)
 	/* Alias Check */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
 		if (($_POST['reg_alias'] = trim(sanitize_login($_POST['reg_alias'])))) {
+			if (is_login_blocked($_POST['reg_alias'])) {
+				set_err('reg_alias', '{TEMPLATE: register_err_alias_notallowed}');
+			}
 			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
 				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
 			}

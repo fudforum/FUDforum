@@ -1023,3 +1023,4 @@ ip_users_using:			Benutzer, die die IP Adresse &#39;{VAR: ip}&#39; benutzt haben
 ip_all_ips:			Alle IP(s), die von &#39;{VAR: user}&#39; verwendet worden sind
 ip_title:			IP Browser
 userinfo_real_name:		Tats&auml;chlicher Name:
+register_err_alias_notallowed:	This alias is not allowed
