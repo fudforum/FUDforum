@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.67 2003/09/26 20:38:29 hackie Exp $
+*   $Id: register.php.t,v 1.68 2003/09/26 20:40:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -373,7 +373,7 @@ function decode_uent(&$uent)
 		fud_wordwrap($uent->sig);
 
 		if (!$uent->icq && !($uent->users_opt & 4)) {
-			$uent->users_opt =| 4;
+			$uent->users_opt |= 4;
 		}
 	
 		if (!__fud_real_user__) { /* new user */
@@ -405,7 +405,7 @@ function decode_uent(&$uent)
 					header('Location: {ROOT}/cpf/'._rsidl);
 				}
 				exit();
-			} else if (!($uent->users_opt email_conf) || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
+			} else if (!($uent->users_opt & 131072) || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
 				header('Location: {ROOT}' . (($GLOBALS['USE_PATH_INFO'] == 'N') ? '?t=reg_conf&' : '/rc/') . _rsidl);
 				exit;		
 			}

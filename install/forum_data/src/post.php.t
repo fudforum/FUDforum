@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.72 2003/09/26 18:49:03 hackie Exp $
+*   $Id: post.php.t,v 1.73 2003/09/26 20:40:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -350,7 +350,7 @@ function flood_check()
 			$msg_post->body = $msg_body;
 			$msg_post->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
 		 	$msg_post->msg_opt =  $msg_smiley_disabled ? 2 : 0;
-		 	$msg_post->msg_opt =| $msg_show_sig ? 1 : 0;
+		 	$msg_post->msg_opt |= $msg_show_sig ? 1 : 0;
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			

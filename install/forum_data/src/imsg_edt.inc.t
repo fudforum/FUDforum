@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.68 2003/09/26 18:49:02 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.69 2003/09/26 20:40:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -112,7 +112,7 @@ class fud_msg_edit extends fud_msg
 		if (!$this->thread_id) { /* new thread */
 			if ((!empty($GLOBALS['MOD']) || $sticky_perm == 'Y') && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry'])) {
 				if ((int)$_POST['thr_ordertype']) {
-					$thread_opt =| (int) $_POST['thr_ordertype'];
+					$thread_opt |= (int) $_POST['thr_ordertype'];
 					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
 				}
 			}
@@ -184,7 +184,7 @@ class fud_msg_edit extends fud_msg
 				if ($locked && !($thread_opt & $locked)) {
 					$thread_opt = $thread_opt ^ 1;
 				} else if (!$locked && $thread_opt & 1) {
-					$thread_opt =| 1;
+					$thread_opt |= 1;
 				}
 			}
 
@@ -194,7 +194,7 @@ class fud_msg_edit extends fud_msg
 					$orderexpiry = 0;
 					$thread_opt = $thread_opt ^ (4|2);
 				} else if ($thread_opt < 2 && (int) $_POST['thr_ordertype']) {
-					$thread_opt =| (int) $_POST['thr_ordertype'];
+					$thread_opt |= (int) $_POST['thr_ordertype'];
 				} else if (!($thread_opt & (int) $_POST['thr_ordertype'])) {
 					$thread_opt = $thread_opt ^ (4|2) | (int) $_POST['thr_ordertype'];
 				}

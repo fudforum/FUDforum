@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.35 2003/09/26 20:38:29 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.36 2003/09/26 20:40:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,7 +48,7 @@ class fud_user_reg extends fud_user
 			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
 		} else {
 			$this->conf_key = '';
-			$this->users_opt =| 131072;
+			$this->users_opt |= 131072;
 		}
 
 		if (isset($_COOKIES['frm_referer_id']) && (int)$_COOKIES['frm_referer_id']) {
