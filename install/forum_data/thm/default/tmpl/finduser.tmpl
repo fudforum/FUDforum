@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.26 2003/10/22 19:24:20 hackie Exp $
+* $Id: finduser.tmpl,v 1.27 2003/11/11 10:56:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -86,15 +86,15 @@
 {SECTION: END}
 
 {SECTION: findu_unban}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_unban}</a>
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&{DEF: _rsid}">{MSG: findu_unban}</a>
 {SECTION: END}
 
 {SECTION: findu_ban}
-<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_ban}</a>
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&{DEF: _rsid}">{MSG: findu_ban}</a>
 {SECTION: END}
 
 {SECTION: findu_admin_opts}
-<td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=1">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=del">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
+<td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&{DEF: _rsid}&act=1">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&{DEF: _rsid}&act=del">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
 {SECTION: END}
 
 {SECTION: find_user_entry_lnk}
