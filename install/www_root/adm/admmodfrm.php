@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
+*   $Id: admmodfrm.php,v 1.3 2002/06/21 15:49:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,20 +53,6 @@
 		
 		/* mod rebuild */	
 		rebuildmodlist();
-		
-		reset($ar);
-		while( list($k,$v) = each($ar) ) {
-			if( $k ) {
-				$v = substr($v, 0, -1);
-				q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
-			}
-		}
-
-		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
-		while( list($fid) = db_rowarr($r) ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
-		}
-		qf($r);
 
 		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=$usr->login&"._rsid."'; window.close();\n</script></html>");
 	}

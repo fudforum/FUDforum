@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: adm.inc,v 1.3 2002/06/21 15:49:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,6 +65,16 @@ function rebuildmodlist()
 		$ar2[$obj->forum_id]++;	
 		$ar[$obj->forum_id] .= $obj->id."\n".htmlspecialchars(trim_show_len($obj->login,'LOGIN'))."\n\n";
 	}
+	qf($r);
+	
+	reset($ar);
+	while( list($k,$v) = each($ar) ) {
+		if( $k ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='".substr($v, 0, -1)."' WHERE id=".$k);	
+	}
+
+	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
+	while( list($fid) = db_rowarr($r) ) 
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
 	qf($r);
 }
 ?>
