@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.14 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admglobal.php,v 1.15 2002/10/29 00:19:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -169,7 +169,6 @@ else
 <tr bgcolor="#bff8ff"><td>Topics Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
 
 <tr bgcolor="#bff8ff"><td>Allow Tree View of Thread Listing:<?php draw_help('TREE_THREADS_ENABLE'); ?></td><td><?php draw_select('CF_TREE_THREADS_ENABLE', "No\nYes", "N\nY", $CF_TREE_THREADS_ENABLE); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Topics Per Page (tree view):<?php draw_help('TREE_THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_TREE_THREADS_PER_PAGE" value="<?php echo $CF_TREE_THREADS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Maximum Depth of Thread Listing (tree view):<?php draw_help('TREE_THREADS_MAX_DEPTH'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_DEPTH" value="<?php echo $CF_TREE_THREADS_MAX_DEPTH; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Maximum Shown Subject Length (tree view):<?php draw_help('TREE_THREADS_MAX_SUBJ_LEN'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_SUBJ_LEN" value="<?php echo $CF_TREE_THREADS_MAX_SUBJ_LEN; ?>"></td></tr>
 
