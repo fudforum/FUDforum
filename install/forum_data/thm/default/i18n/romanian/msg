@@ -113,7 +113,7 @@ rate_thread:			Voteaza tema
 refresh_list:			Lista de reimprospatare
 register:			Inregistreaza
 registered:			Inregistrat:
-registered_on:			Inregistrat la {TEMPLATE: registered_on_date}
+registered_on:			Inregistrat la {DATE: u_reg_date %a, %d %B %Y}
 replies:			Raspunsuri
 report_to_mod:			Raporteaza mesajul la moderator
 reported_messages:		Mesaje raportate
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} Vot(uri)
 vote_button:			Voteaza
 vote_for_thread:		Voteaza
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a fost mutat la <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de moderator
-welcome_message:		Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {TEMPLATE: welcome_message_date}
+welcome_message:		Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Arata procesele utilizatorilor
 reported_del_report:		Sterge raport
 reported_reason:		Motivul
@@ -382,8 +382,8 @@ forum_terms:			Termenii Forumului
 forum_rules:			Inregistrare la acest forum este libera! Insistam insa sa respectati regulile si termenii specificati mai jos. Daca sunteti de acord apasati butonul DE ACORD de la sfarsitul paginii.<p>
 forum_rules_13:			Toti utilizatorii sub 13 ani trebuie sa primeasca acordul parintilor sau tutorilor pentru a putea fi membri ai acestui forum. Trebuie sa primim prim mail sau fax acorul semnat al parintilor sau tutorilor.<p>Daca doriti sa continuati cu inregistrarea apasati butonul DE ACORD de mai jos. Daca doriti sa renuntati apsati butonul RENUNTA din josul paginii <p>O copie a formularului de permisiune poate fi descarcata de aici. Pentru mai multe informatii trimiteti un email administratorului <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmare Parinti/Tutori
-coppa_before:			Inainte {TEMPLATE: coppa_date}
-coppa_after:			Dupa {TEMPLATE: coppa_date}
+coppa_before:			Inainte {DATE: coppa %B %e, %Y}
+coppa_after:			Dupa {DATE: coppa %B %e, %Y}
 coppa_link:			Apasati pe legatura care corespunde datei dumneavoastra de nastere
 coppa:				Un parinte/tutore trebuie sa trimita aprobarea pentru ca persoanele sub 13 ani sa poata fi inregistrati.<p>Pentru mai multe informatii contactati <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informatii
@@ -485,7 +485,7 @@ email_pg_title:			Email
 email_subject:			Subiect:
 email_body:			Corpul mesajului:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} scris la data de {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} scris la data de {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citeaza:
 ppost_to:			La:
 ppost_from_buddy_list:		Alege din lista cu prieteni
@@ -758,7 +758,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Editati: <b>{VAR: grp->name}</b>
 rate_worst:			Slab
 rate_best:			Foarte Bun
-post_quote_msg:			{VAR: msg->login} scris la data de {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} scris la data de {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Citare:
 userinfo_referals:		Informatii referinta:
 userinfo_referals_count:	{VAR: referals} Membri
@@ -902,7 +902,7 @@ login_unapproved_account_msg:	Administratorul acestui forum a ales sa confirme f
 remove_from_buddy_list:		serge din lista cu prieteni
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subiect:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Data:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Raspunde
 iemail_msg_quote:		Citeaza
 iemail_msg_view:		Vizualizare Tema
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.48 2004/09/15 05:16:33 hackie Exp $
+* $Id: admthemes.php,v 1.46 2004/06/07 15:24:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,11 +122,9 @@ function clean_code($path, $toks)
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
 			exit('can\'t create ('.$root_nn.')<br>');
 		}
+		$ts = $_POST['base_template_set'] == 'path_info' ? 'path_info/' : 'default/';
 
-		fudcopy($root . 'default/', $root_nn, '!.*!', true);
-		if ($_POST['base_template_set'] == 'path_info') {
-			fudcopy($root . 'path_info/', $root_nn, '!.*!', true);
-		}
+		fudcopy($root . $ts, $root_nn, '!.*!', true);
 		umask($u);
 	}
 
@@ -176,7 +174,7 @@ function clean_code($path, $toks)
 		closedir($dir);
 
 		/* optimize *.inc files */
-		$path = $DATA_DIR . 'include/theme/' . $t_name;
+		$path = $WWW_ROOT_DISK . 'include/theme/' . $t_name;
 		$dir = opendir($path);
 		$path .= '/';
 		readdir($dir); readdir($dir);

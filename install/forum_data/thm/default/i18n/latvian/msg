@@ -113,7 +113,7 @@ rate_thread:			Novçrtçt tçmu
 refresh_list:			Atjaunot sarakstu
 register:			Reìistrâcija
 registered:			Piereìistrçts:
-registered_on:			Reìistrâcijas datums: {TEMPLATE: registered_on_date}
+registered_on:			Reìistrâcijas datums: {DATE: u_reg_date %a, %d %B %Y}
 replies:			Atbildes
 report_to_mod:			Paziòojums moderâtoram
 reported_messages:		Paziòojumi par ierakstiem
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating}balsis
 vote_button:			Balsot
 vote_for_thread:		Novçrtçjums
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderâtors pârcçla uz forumu <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {TEMPLATE: welcome_message_date}
+welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			parâdît ko kurð dara
 reported_del_report:		Dzçst atskaiti
 reported_reason:		Iemesls
@@ -379,8 +379,8 @@ forum_terms:			Foruma noteikumi
 forum_rules:			Ikviens interesents var brîvi piereìistrçties un kïût par ðî foruma dalîbnieku-lietotâju. Ceram, ka pirms reìistrâcijas forumâ Jûs iepazîsieties ar daþiem forumu lietoðanas noteikumiem un ja ðie noteikumi nebûs pretrunâ ar Jûsu pârliecîbu, nospiedîsiet pogu <b>Piekrîtu</b>. <b><u>Atcerieties!</u></b> Nospieþot pogu <b>Piekrîtu</b> Jûs apstipriniet, ka Jûs esat vecâks par 13 gadiem, kâ arî uzòematies autora atbildîbu par visu to, ko publicçciet forumâ. Foruma îpaðnieki un tâ veidotâji nav atbildîgi par informâcijas saturu, kas publicçta forumos. Ikviena publikâcija atspoguïo autora viedokli un lîdz ar to arî atbildîbu uzòemas publikâciju autori. Nospieþot pogu <b>Piekrîtu</b> Jûs apstiprinât, ka savâs publikâcijâs izturçsieties korekti pret pârçjiem foruma dalîbnikiem un pârçjo sabiedrîbu kopumâ. Nepaudîsiet antisemîtiskus un rasistiskus uzskatus, nepublicçsiet seksuâli orientçtus, draudus izsakoðus un kâdus citus izteikumus un materiâlus kas ir pretrunâ ar spçkâ esoðajiem likumdoðanas un citiem normatîvajiem aktiem. Foruma îpaðnieki un veidotâji ir tiesîgi veikt izmaiòas Jûsu lietotâja kontâ un uzstâdîjumos, slçgt, dzçst vai pârvietot ikvienu foruma tçmu bez iepriekðçjas saskaòoðanas ar foruma lietotâjiem vai dalîbniekiem.
 forum_rules_13:			Visiem lietotâjiem, kas ir jaunâki par 13. gadiem, pirms reìistrâcijas forumâ jâsaòem vecâku atïauja vai ieteikums, kas jânosûta pa pastu vai faksu foruma administrâcijai, ðîs atïaujas vai ieteikuma izskatîðanai un akceptam. Kaut arî forumâ var piedalîties visi interesenti un bez vecuma ierobeþojuma, tomçr lai dotu tiesîbas forumâ piedalîties dalîbniekiem lîdz 13. gadiem, vçlamies saòemt vecâku atïauju vai ieteikumu.<p>Ja vçlaties turpinât reìistrâciju pirms mûsu akcepta, nospiediet pogu <b>Piekrîtu</b>, pretçjâ gadîjumâ nospieiet <b>Nepiekrîtu</b>.<p>Atïaujas-ieteikuma veidlapas kopiju Jûs varat saòemt <a href="{TEMPLATE: err_coppa_msg_lnk}"> ðeit</a>. Papildinformâciju par reìistrâciju forumâ Jûs varat saòemt nosûtot vçstuli uz e-pasta adresi <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Apstiprinât COPPA
-coppa_before:			Pirms {TEMPLATE: coppa_date}
-coppa_after:			Pçc {TEMPLATE: coppa_date}
+coppa_before:			Pirms {DATE: coppa %B %e, %Y}
+coppa_after:			Pçc {DATE: coppa %B %e, %Y}
 coppa_link:			Izvçlieties norâdi, kas pareizi norâda Jûsu dzimðanas datumu.
 coppa:				Lai pabeigtu lietotâju, kas jaunâki par 13. gadiem, reìistrâciju, nepiecieðams nosûtît pa pastu vai faksu ieteikuma vçstuli vai atïauju. <p>Papildus informâcija saòemama: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informâcija
@@ -482,7 +482,7 @@ email_pg_title:			Email
 email_subject:			Tçma:
 email_body:			Teksts:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} uzrakstîja {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} uzrakstîja {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citâts:
 ppost_to:			Kam:
 ppost_from_buddy_list:		Izvçlçties no kontaktu saraksta
@@ -608,7 +608,7 @@ postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
 postcheck_email_subject:	Nevar nosûtît bez tçmas norâdîðanas.
 postcheck_email_body:		Nevar nosûtît bez publikâcijas teksta.
 private_msg_notify_subj:	Paziòojums par: {VAR: m->subject}izlasîðanu
-private_msg_notify_body:	Sveiki <br>{VAR: usr->login}. Izlasîju Jûsu ziòu "{VAR: m->subject}" {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Sveiki <br>{VAR: usr->login}. Izlasîju Jûsu ziòu "{VAR: m->subject}" {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Uzaicinâto saraksts
 register_err_short_login:	Pârâk maz simbolu. Minimâlais simbolu skaits nikâ – 4 simboli
 register_err_login_notallowed:	Izvçlçtais niks nav pieejams vai atïauts
@@ -755,7 +755,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Grupa laboðanai: <b>{VAR: grp->name}</b>
 rate_worst:			Tâ pat vien
 rate_best:			Labâkâ
-post_quote_msg:			{VAR: msg->login} rakstîja {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} rakstîja {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Citâts:
 userinfo_referals:		Uzaicinâjums:
 userinfo_referals_count:	{VAR: referals} lietotâju
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

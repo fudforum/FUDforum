@@ -114,7 +114,7 @@ rate_thread:			rate tr&aring;den
 refresh_list:			Oppdatere listen
 register:			Registrer
 registered:			Registrert:
-registered_on:			Registrert den {TEMPLATE: registered_on_date}
+registered_on:			Registrert den {DATE: u_reg_date %a, %d %B %Y}
 replies:			Svar
 report_to_mod:			Rapportere innlegg til en moderator
 reported_messages:		Rapporterte innlegg
@@ -181,7 +181,7 @@ vote:				{VAR: frm->n_rating}stemmer
 vote_button:			Stem
 vote_for_thread:		Stem
 was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> til forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {TEMPLATE: welcome_message_date}
+welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			vis hva folk holder p&aring; med
 reported_del_report:		Slett rapport
 reported_reason:		Forklaring
@@ -378,8 +378,8 @@ forum_terms:			Vilk&aring;r for forumet
 forum_rules:			Det koster ingenting &aring; registrere seg som medlem i dette forumet! Vi forventer at du som blir medlem f&oslash;lger disse reglene. Om du g&aring;r med vilk&aring;rene, trykk p&aring; "Jeg godkjenner"-knappen nederst p&aring; siden. Noter at du gjennom &aring; trykke p&aring; knappen samtykker i at du er minst 13 &aring;r gammel. Om du er 13 &aring;r eller yngre b&oslash;r du anvende dette registeringsformularet.<p>Tross i at administratorene og moderatorerne gj&oslash;r sitt beste for &aring; holde upassende innlegg borte, kan vi ikke lese alle meldinger. Alle innlegg utrykker skribentens meninger, og hverken forumets eiere eller dets programmerere kan ses ansvarlige for innholdet i noe innlegg.<p>Ved &aring; trykke p&aring; "Jeg godkjenner"-knappen g&aring;r du med p&aring; &aring; ikke poste noen obsk&oslash;ne, vulg&aelig;e, hatske eller p&aring; noen som helst m&aring;te krenkende innlegg.<p>Forumets administrator forbeholder seg retten til &aring; slette, redigere, flytte eller stenge en tr&aring;d n&aring; som helst.<p>
 forum_rules_13:			Alle medlemmer under 13 &aring;rs alder m&aring; ha foreldres eller formynderes tillatelse til &aring; f&aring; rett til &aring; anvende forumet. Vi &oslash;nsker medlemmer som er under 13 &aring;r velkommen, men forutsetter at en forelder eller formynder faxer eller sender en underskrevet godkjenning innen vi bevilger medlemskap.<p>Om du vil starte registreringsprosessen innen vi har f&aring;tt tillatelsen kan du trykke p&aring; "Jag godkjenner"-knappen nederst. Trykk p&aring; Avbryt om du vil avbryte registreringen og komme tilbake til forumets f&oslash;rste side. <p>En kopi av formularet for godkjenning kan lastes ned her. Send e-post til <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> for mer informasjon om registreringsprosessen.<p>
 coppa_conf:			COPPA-bekreftelse
-coppa_before:			F&oslash;r {TEMPLATE: coppa_date}
-coppa_after:			Etter {TEMPLATE: coppa_date}
+coppa_before:			F&oslash;r {DATE: coppa %B %e, %Y}
+coppa_after:			Etter {DATE: coppa %B %e, %Y}
 coppa_link:			Trykk p&aring; lenken som passer din f&oslash;delsdato
 coppa:				Om det kommende medlemmet er under 13 &aring;r m&aring; en forelder eller formynder poste eller faxe en underskrevet godkjennelse til forumets administrator.<p>Kontakt <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> for mer informasjon.
 prereg_info:			Informasjon
@@ -481,7 +481,7 @@ email_pg_title:			E-post
 email_subject:			Emne:
 email_body:			Melding:
 email_submit:			Send
-ppost_quote_msg:		{VAR: msg_to_list} skrev {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Sitat:
 ppost_to:			Til:
 ppost_from_buddy_list:		Velg fra kontaktlisten
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:	Kan ikke sende e-post uten emne.
 postcheck_email_body:		Kan ikke sende e-post utan tekst.
 private_msg_notify_subj:	Kvittering for: {VAR: m->subject}
-private_msg_notify_body:	Hei!<br>Den {TEMPLATE: private_msg_notify_body_date} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br>
+private_msg_notify_body:	Hei!<br>Den {DATE: m->post_stamp %a, %d %B %Y %H:%M} leste {VAR: usr->login} din private melding med emnet "{VAR: m->subject}"<br>
 referals_update:		Visar refererte medlemmer
 register_err_short_login:	Brukernavnet du har valgt er for kort. Det m&aring; v&aelig;re minst 4 tegn langt
 register_err_login_notallowed:	Dette brukernavnet er ikke tillatt
@@ -753,7 +753,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Redigeres akkurat n&aring;: <b>{VAR: grp->name}</b>
 rate_worst:			V&aelig;rst
 rate_best:			Best
-post_quote_msg:			Den {TEMPLATE: make_report_date} skrev {VAR: msg->login}:
+post_quote_msg:			Den {DATE: msg->post_stamp %a, %d %B %Y %H:%M} skrev {VAR: msg->login}:
 post_quote:			Sitat:
 userinfo_referals:		Refererte medlemmer:
 userinfo_referals_count:	{VAR: referals} medlemmer
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

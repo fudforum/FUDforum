@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.123 2004/09/27 12:49:15 hackie Exp $
+* $Id: core.inc,v 1.117 2004/06/22 12:58:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-$FORUM_VERSION = "2.6.7RC1";
+$FORUM_VERSION = "2.6.5RC1";
 
 ignore_user_abort(true);
 set_magic_quotes_runtime(0);
@@ -48,9 +48,7 @@ if (get_magic_quotes_gpc()) {
 		array_walk($_COOKIES, 'strip_quotes');
 	}
 	if (!empty($_FILES)) {
-		foreach ($_FILES as $k => $v) {
-			$_FILES[$k]['name'] = stripslashes($v['name']);
-		}
+		array_walk($_FILES, 'strip_quotes');
 	}
 }
 

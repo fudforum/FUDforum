@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: widgets.inc,v 1.11 2004/07/08 20:58:18 hackie Exp $
+* $Id: widgets.inc,v 1.10 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,14 +22,14 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 	$opt_val = explode("\n", $opt_val);
 	$opt_tag = explode("\n", $extraval);
 
-	if (($c = count($opt_nam)) != count($opt_val) ) {
+	if ( count($opt_nam) != count($opt_val) ) {
 		exit("option count doesn't match value count\n");
 	}
 
 	if ( $js ) $js = ' '.$js;
 
 	$rval = '<select name="'.$name.'"'.$js.'>';
-	for ( $i=0; $i<$c; $i++ ) {
+	for ( $i=0; $i<count($opt_nam); $i++ ) {
 		$selected = ( $def_val == $opt_val[$i] ) ? " selected" : "";
 		if ( isset($opt_tag[$i]) )
 			$tag = ' '.$opt_tag[$i];

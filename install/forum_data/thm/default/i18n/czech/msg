@@ -113,7 +113,7 @@ rate_thread:			Ohodnotit téma
 refresh_list:			Aktualizovat seznam
 register:			Registrovat
 registered:			Registerace:
-registered_on:			Registerován(a) {TEMPLATE: registered_on_date}
+registered_on:			Registerován(a) {DATE: u_reg_date %a, %d %B %Y}
 replies:			Reakce
 report_to_mod:			Pøednést pøíspìvek moderátorovi
 reported_messages:		Pøednesené pøíspìvky
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} hlasù
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla pøemístìna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> moderátorem
-welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {TEMPLATE: welcome_message_date}
+welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			uka¾, co dìlají ostatní
 reported_del_report:		Zpráva o smazání
 reported_reason:		Dùvod
@@ -381,8 +381,8 @@ forum_terms:			Podmínky fóra
 forum_rules:			Registrace k tomuto fóru není omezena! Av¹ak vy¾adujeme plnìní následujících pravidel a podmínek. Pokud souhlasíte, prosím, stisknìte tlaèítko "Souhlasím" na konci stránky. Poznámka: Stisknutím tohoto tlaèítka prohla¹ujete, ¾e je vám více ne¾ 13 let. Pokud je vám 13 a ménì, prosím, pou¾ijte tento registraèní formuláø.<p>Aèkoliv administrátor i moderátoøi tohoto fóra se sna¾í bránit v¹em ne¾ádoucím zprávám, není pro nás mo¾né je zcela vyluèit. V¹echny zprávy vyjadøují postoje autora. Majitel fóra nebo vývojáø nenese zodpovìdnost za obsah jakékoliv zprávy.<p>Kliknutím na talèítko "Souhlasím" potvrzujete, ¾e nebudete posílat neslu¹né, hrubé, sexuálnì orientované, nenávistivé, výhru¾né nebo zákon poru¹ující zprávy.<p>Majiteké tohoto fóra mají právo vymazat, zmìnit, pøesunout nebo zavøít jakékoliv téma z jakéhokoliv dùvodu.<p>
 forum_rules_13:			V¹ichni u¾ivatelé, kterým je 13 ménì musí po¾ádat o povolení své rodièe nebo opatrovníky k získání èlenství ve fóru. Jakkoli vítáme úèast èlenù, kterým je 13 a ménì, musíme vy¾adovat fax nebo email od rodièù nebo opatrovníkù back s podepsaným formuláøem povolení ne¾ poskytneme èlenství.<p>Pokud ji¾ jsme pøijali va¹e povolení, mù¾ete zaèít proces registrace stisknutím tlaèítka "Souhlasím". Pokud chcete zru¹it registraci, stisknìte tlaèítko "Zru¹it", vrátíte se do seznmu fór. <p>Kopie formuláøe povolení je ke sta¾ení zde. Pro více informací o procesu registrace, prosím, po¹lete email na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Vìkové potvrzení
-coppa_before:			Pøed {TEMPLATE: coppa_date}
-coppa_after:			Po {TEMPLATE: coppa_date}
+coppa_before:			Pøed {DATE: coppa %B %e, %Y}
+coppa_after:			Po {DATE: coppa %B %e, %Y}
 coppa_link:			Kliknìte na odkaz podle va¹eho data narození
 coppa:				Rodiè nebo opatrovník musí nafaxovat nebo zaslat emailem administrátorovi tohoto fóra formuláø povolení o vstupu u¾ivatele, kterému je 13 a ménì, aby tento mohl dokonèit registraci.<p>Pro dal¹í informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informace
@@ -484,7 +484,7 @@ email_pg_title:			Email
 email_subject:			napis:
 email_body:			Obsah:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} napsáno {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} napsáno {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citace:
 ppost_to:			Pro:
 ppost_from_buddy_list:		Vybrat ze seznamu pøátel
@@ -610,7 +610,7 @@ postcheck_invalid_email:	Prosím, zadejte platnou emailovou adresu pøíjemce.
 postcheck_email_subject:	Nemù¾ete poslat email bez nadpisu.
 postcheck_email_body:		Nemù¾ete poslat email bez obsahu.
 private_msg_notify_subj:	Pøeèíst oznámení pro: {VAR: m->subject}
-private_msg_notify_body:	Dobrý den,<br>{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Dobrý den,<br>{VAR: usr->login} si pøeèetl(a) zprávu, "{VAR: m->subject}", v {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Prohlí¾íte si pøivedené lidi
 register_err_short_login:	U¾ivatelské jméno je pøíli¹ krátké. Musí mít alespoò 4 znaky
 register_err_login_notallowed:	Toto u¾ivatelské jméno není povoleno
@@ -757,7 +757,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Nyní mìníte: <b>{VAR: grp->name}</b>
 rate_worst:			Nejhor¹í
 rate_best:			Nejlep¹í
-post_quote_msg:			{VAR: msg->login} napsal dne {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} napsal dne {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Citát:
 userinfo_referals:		Pøivedení u¾ivatelé:
 userinfo_referals_count:	{VAR: referals} pøivedených èlenù
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.45 2004/06/27 21:16:45 hackie Exp $
+* $Id: compact.php,v 1.44 2004/06/07 15:24:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -142,9 +142,9 @@ function eta_calc($start, $pos, $pc)
 		$j = $base + 1;
 		$u = umask(0);
 		for ($j; $j < $magic_file_id; $j++) {
-			$mode = fileperms($MSG_STORE_DIR . 'msg_'.($j - $base));
+			$mode = fileperms('msg_'.($j - $base));
 			rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
-			chmod($MSG_STORE_DIR . 'msg_'.($j - $base), $mode);
+			chmod('msg_'.($j - $base), $mode);
 		}
 		umask($u);
 		$j = $magic_file_id - $base;
@@ -198,9 +198,9 @@ function eta_calc($start, $pos, $pc)
 		@unlink($MSG_STORE_DIR . 'private');
 	} else {
 		$u = umask(0);
-		$mode = fileperms($MSG_STORE_DIR . 'private');
+		$mode = fileperms('private');
 		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
-		chmod($MSG_STORE_DIR . 'private', $mode);
+		chmod('private', $mode);
 		umask($u);
 		@chmod($MSG_STORE_DIR . 'private', __file_perms__);
 	}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.109 2004/07/05 22:25:05 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.108 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,8 +16,6 @@ class fud_msg
 	    $update_stamp, $icon, $apr, $updated_by, $login, $length, $foff, $file_id, $msg_opt,
 	    $file_id_preview, $length_preview, $offset_preview, $body, $mlist_msg_id;
 }
-
-$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
 
 class fud_msg_edit extends fud_msg
 {
@@ -509,7 +507,7 @@ class fud_msg_edit extends fud_msg
 				$nntp->release_lock($lock);
 			} else {
 				fud_use('mlist_post.inc', true);
-				
+				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
 				$r = db_saq('SELECT name, additional_headers FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
 				mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 			}
@@ -647,7 +645,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	if (!empty($to['EMAIL'])) {
 		$do_email = 1;
 		$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
-		$CHARSET = $GLOBALS['CHARSET'];
+		$CHARSET = '{TEMPLATE: CHARSET}';
 		if ($GLOBALS['FUD_OPT_2'] & 64) {
 
 			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");

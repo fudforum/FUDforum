@@ -113,7 +113,7 @@ rate_thread:			Ohodnoti tému
 refresh_list:			Aktualizova zoznam
 register:			Registrova sa
 registered:			Registrácia:
-registered_on:			Zaregistrovanı {TEMPLATE: registered_on_date}
+registered_on:			Zaregistrovanı {DATE: u_reg_date %a, %d %B %Y}
 replies:			Reakcie
 report_to_mod:			Oznámi príspevok moderátorovi
 reported_messages:		Oznámené príspevky
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} hlasov
 vote_button:			Hlasova
 vote_for_thread:		Hlasova
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> bola premiestnená do <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[12]}</a> moderátorom
-welcome_message:		Vitajte <b>{VAR: usr->alias}</b>, Vaša posledná návšteva bola v {TEMPLATE: welcome_message_date}
+welcome_message:		Vitajte <b>{VAR: usr->alias}</b>, Vaša posledná návšteva bola v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Uká, èo robia ostatní
 reported_del_report:		Zmaza oznámenie
 reported_reason:		Dôvod
@@ -383,8 +383,8 @@ forum_terms:			Podmienky Fóra
 forum_rules:			Registrácia na tomto fóre je zadarmo! Trváme na dodriavaní všetkıch pravidiel uvedenıch nišie. Ak súhlasíte s tımito podmienkami, prosím stlaète tlaèítko Súhlasím na konci tejto stránky.<p>Aj keï sa administrátori a moderátori tohoto fóra budú snai o odstránenie všetkıch neprípustnıch správ z tohoto fóra, je pre nás nemoné prezrie všetky uverejnené príspevky a správy. Všetky správy vyjadrujú názory ich autorov a prevádzkovatelia tohto fóra, tak ako aj jeho tvorcovia, nie sú zodpovední za obsah ktorejko¾vek správy.<p>Stlaèením tlaèítka Súhlasím dávate súhlas, e nebudete uverejòova správy ktoré sú obscénne, vulgárne, sexuálne orientované, vyjadrujúce nenávis alebo hrozbu, alebo inak porušujúce zákony Slovenskej republiky. <p>Prevázkovatelia tohto fóra majú právo na zmazanie, editovanie, presúvanie alebo uzatvorenie akejko¾vek témy z akéhoko¾vek dôvodu.<p>
 forum_rules_13:			Všetci uívate¾ia mladši ako 13 rokov, musia získa povolenie ich rodièa, alebo zákonného zástupcu na to aby sa mohli sta èlenom tohoto fóra. Napriek tomu, e vítame príspevky od èlenov mladších ako 13 rokov, vyadujeme aby rodiè alebo zákonnı zástupca odfaxoval alebo poslal poštou podpísanı registraènı formulár, pred tım ako bude uívate¾ovi po volenı prístup.<p>Ak chcete zaèa proces registrácie, pred tım ako dostaneme registraènı formulár, stlaète tlaèítko Súhlasím. Ak chcete preruši registraènı proces stlaète tlaèítko Zruši a vrátite sa do zoznamu fór.</p><p>Kópiu registraèného formuláru si môete stiahnu tu. V prípade e potrebujete viac informácií o registraènom procese, prosím pošlite email na túto adresu <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:			COPPA Potvrdenie
-coppa_before:			Pred {TEMPLATE: coppa_date}
-coppa_after:			Po {TEMPLATE: coppa_date}
+coppa_before:			Pred {DATE: coppa %B %e, %Y}
+coppa_after:			Po {DATE: coppa %B %e, %Y}
 coppa_link:			Kliknite na linku ktorá zodpovedá Vášmu dátumu narodenia 
 coppa:				Rodiè alebo zákonnı zástupca musí posla poštou alebo faxom podpísanı povolenie administrátorovi tohoto fóra pred tım ako sa uívate¾ mladší ako 13 rokov moe zaregistrova.<p>Pre viac informácií kontaktujte <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informácia
@@ -486,7 +486,7 @@ email_pg_title:			Email
 email_subject:			Predmet:
 email_body:			Obsah:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} napísané {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} napísané {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citované:
 ppost_to:			Pre:
 ppost_from_buddy_list:		Vybra zo zoznamu priate¾ov
@@ -612,7 +612,7 @@ postcheck_invalid_email:	Prosím pridajte platnú emailovú adresu Vášho priate¾a.
 postcheck_email_subject:	Nemôete posla email bez predmetu.
 postcheck_email_body:		Nemôete posla email bez obsahu.
 private_msg_notify_subj:	Preèíta oznámenie pre: {VAR: m->subject}
-private_msg_notify_body:	Dobrı deò,<br>uívate¾ {VAR: usr->login} si preèítal Vašu správu, "{VAR: m->subject}", o {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Dobrı deò,<br>uívate¾ {VAR: usr->login} si preèítal Vašu správu, "{VAR: m->subject}", o {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Prehliada si zoznam ludí registrovanıch na základe referencií
 register_err_short_login:	Uívate¾ské meno, ktoré ste zadali, je príliš krátke. Zadajte aspoò 4 znaky
 register_err_login_notallowed:	Toto uívate¾ské meno nie je povolené
@@ -760,7 +760,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Práve editujete: <b>{VAR: grp->name}</b>
 rate_worst:			Najhoršia
 rate_best:			Najlepšia
-post_quote_msg:			{VAR: msg->login} napísal dòa {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} napísal dòa {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Citát:
 userinfo_referals:		Privedenı uívatelia:
 userinfo_referals_count:	{VAR: referals} Èlenovia
@@ -902,7 +902,7 @@ login_unapproved_account_msg:	Administrátor tohoto fóra sa rozhodol manuálne pot
 remove_from_buddy_list:		Odstráni zo zoznamu priate¾ov
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Predmet:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Dátum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Dátum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Odpoveda
 iemail_msg_quote:		Citova
 iemail_msg_view:		Prezrie Tému/Správu
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.49 2004/10/04 13:55:44 hackie Exp $
+* $Id: nntp.inc,v 1.47 2004/06/07 15:24:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 
 class fud_nntp
 {
-	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup, $imp_limit;
+	var $server, $port=119, $user, $pass, $timeout=25, $newsgroup;
 	var $error, $lrc;
 	var $fs;
 	var $group_na, $group_first, $group_last, $nntp_opt;
@@ -163,9 +163,7 @@ class fud_nntp
 
 	function format_headers()
 	{
-		/* convert to unix line endings and handle multi-line headers */
-		$this->headers = str_replace(array("\r\n", "\n "), array("\n",""), $this->headers);
-		
+		$this->headers = str_replace("\r\n", "\n", $this->headers);
 		$hdr = explode("\n", trim($this->headers));
 		$this->headers = array();
 		foreach($hdr as $v) {
@@ -363,17 +361,10 @@ class fud_nntp
 			$this->group_first = $start_id;
 		}
 
-		$counter = 0;
-
 		for ($i = $this->group_first; $i < $this->group_last; $i++) {
 			if (!$this->get_message($i)) {
 				$this->error = null;
 				continue;
-			}
-
-			/* message import limit reached */
-			if ($this->imp_limit && $this->imp_limit >= $counter++) {
-				break;
 			}
 
 			$this->format_headers();

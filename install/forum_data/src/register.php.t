@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.127 2004/09/23 19:13:43 hackie Exp $
+* $Id: register.php.t,v 1.123 2004/06/08 21:55:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,6 +183,8 @@ function register_form_check($user_id)
 	/* Url Avatar check */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
+	} else {
+		$GLOBALS['reg_avatar_loc_file'] = '';
 	}
 
 	/* Alias Check */
@@ -312,11 +314,6 @@ function decode_uent(&$uent)
 		$reg_coppa = '';
 	}
 
-	/* ip filter */
-	if (is_ip_blocked(get_ip())) {
-		invl_inp_err();
-	}
-
 	/* allow the root to modify settings other lusers */
 	if (_uid && $usr->users_opt & 1048576 && $mod_id) {
 		if (!($uent =& usr_reg_get_full($mod_id))) {
@@ -334,7 +331,7 @@ function decode_uent(&$uent)
 		}
 	}
 
-	$reg_avatar_loc_file = $avatar_tmp = $avatar_arr = null;
+	$avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp'])) {
@@ -389,8 +386,8 @@ function decode_uent(&$uent)
 		}
 
 		/* security check, prevent haxors from passing values that shouldn't */
-		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864))) {
-			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864)) | $new_users_opt;
+		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216))) {
+			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216)) | $new_users_opt;
 		}
 	}
 
@@ -866,8 +863,6 @@ function decode_uent(&$uent)
 
 	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
 	$sig_len_limit = $FORUM_SIG_ML ? '{TEMPLATE: register_sig_limit}' : '';
-
-	$auto_c = $GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

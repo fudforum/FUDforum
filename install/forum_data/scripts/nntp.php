@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.php,v 1.23 2004/10/04 13:55:44 hackie Exp $
+* $Id: nntp.php,v 1.20 2004/01/04 16:38:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,7 +13,6 @@
 
 	set_time_limit(600);
 	define('forum_debug', 1);
-	unset($_SERVER['REMOTE_ADDR']);
 
 	if (!ini_get("register_argc_argv")) {
 		exit("Enable the 'register_argc_argv' php.ini directive\n");
@@ -76,11 +75,8 @@
 	$nntp->nntp_opt 	= $nntp_adm->nntp_opt;
 	$nntp->user 		= $nntp_adm->login;
 	$nntp->pass 		= $nntp_adm->pass;
-	$nntp->imp_limit	= $nntp_adm->imp_limit;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
-
-	$GLOBALS['usr']->lang = q_singleval("SELECT lang FROM ".sql_p."themes WHERE theme_opt=1|2");
 
 	$FUD_OPT_2 |= 128;
 

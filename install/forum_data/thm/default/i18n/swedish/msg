@@ -114,7 +114,7 @@ rate_thread:			Bed&ouml;m diskussionen
 refresh_list:			Uppdatera listan
 register:			Registrera
 registered:			Registrerad:
-registered_on:			Registrerad den {TEMPLATE: registered_on_date}
+registered_on:			Registrerad den {DATE: u_reg_date %a, %d %B %Y}
 replies:			Svar
 report_to_mod:			Rapportera inl&auml;gg till en moderator
 reported_messages:		Rapporterade inl&auml;gg
@@ -181,7 +181,7 @@ vote:				{VAR: frm->n_rating} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
 was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {TEMPLATE: welcome_message_date}
+welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
 reported_reason:		F&ouml;rklaring
@@ -378,8 +378,8 @@ forum_terms:			Villkor f&ouml;r forumet
 forum_rules:			Det kostar inget att registrera sig som medlem i det h&auml;r forumet! Vi f&ouml;rv&auml;ntar oss att du som blir medlem f&ouml;ljer dessa regler. Om du g&aring;r med villkoren, tryck p&aring; "Jag godk&auml;nner"-knappen i slutet av sidan. Notera att du genom att trycka p&aring; knappen intygar att du &auml;r minst 13 &aring;r gammal. Om du &auml;r 13 &aring;r eller yngre b&ouml;r du anv&auml;nda det h&auml;r registeringsformul&auml;ret.<p>Trots att administrat&ouml;rerna och moderat&ouml;rerna g&ouml;r sitt b&auml;sta f&ouml;r att h&aring;lla f&ouml;rargelsev&auml;ckande inl&auml;gg borta kan vi inte l&auml;sa alla meddelanden. Alla inl&auml;gg utrycker skribentens &aring;sikter, och varken forumets &auml;gare eller dess programmerare kan ses ansvariga f&ouml;r inneh&aring;llet i n&aring;got inl&auml;gg.<p>Genom att trycka p&aring; "Jag godk&auml;nner"-knappen g&aring;r du med p&aring; att inte posta n&aring;gra obscena, vulg&auml;ra, hatiska, hotfulla eller p&aring; n&aring;got s&auml;tt olagliga inl&auml;gg. <p>Forumets administrator f&ouml;rbeh&aring;ller sig r&auml;tten att radera, editera, flytta eller st&auml;nga en diskussion av vilken anledning som helst.<p>
 forum_rules_13:			Alla medlemmar under 13 &aring;rs &aring;lder m&aring;ste ha f&ouml;r&auml;lders eller f&ouml;rmyndares tillst&aring;nd f&ouml;r att f&aring; r&auml;tt att anv&auml;nda forumet. Vi v&auml;lkomnar medlemmar som &auml;r under 13 &aring;r, men f&ouml;ruts&auml;tter att en f&ouml;r&auml;lder eller f&ouml;rmyndare faxar eller s&auml;nder ett undertecknat godk&auml;nnande innan vi beviljar medlemskap.<p>Om du vill p&aring;b&ouml;rja registreringsprocessen innan vi har f&aring;tt godk&auml;nnandet kan du trycka p&aring; "Jag godk&auml;nner"-knappen nedan. Tryck p&aring; Avbryt om du vill avbryta registreringen och komma tillbaka till forumets f&ouml;rsta sida. <p>En kopia av formul&auml;ret f&ouml;r godk&auml;nnande kan laddas ner h&auml;r. Skicka e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information om registreringsprocessen.<p>
 coppa_conf:			COPPA-bekr&auml;ftelse
-coppa_before:			F&ouml;re {TEMPLATE: coppa_date}
-coppa_after:			Efter {TEMPLATE: coppa_date}
+coppa_before:			F&ouml;re {DATE: coppa %B %e, %Y}
+coppa_after:			Efter {DATE: coppa %B %e, %Y}
 coppa_link:			Tryck p&aring; l&auml;nken som motsvarar ditt f&ouml;delsedatum
 coppa:				Om den blivande medlemmen &auml;r under 13 &aring;r m&aring;ste en f&ouml;r&auml;lder eller f&ouml;rmyndare posta eller faxa ett undertecknat godk&auml;nnande till forumets administrator.<p>Kontakta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information.
 prereg_info:			Information
@@ -481,7 +481,7 @@ email_pg_title:			E-post
 email_subject:			Rubrik:
 email_body:			Meddelande:
 email_submit:			Skicka
-ppost_quote_msg:		{VAR: msg_to_list} skrev {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citat:
 ppost_to:			Till:
 ppost_from_buddy_list:		V&auml;lj fr&aring;n kompislistan
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Ge en riktig e-postadress till din v&auml;n.
 postcheck_email_subject:	Kan inte skicka e-post utan rubrik.
 postcheck_email_body:		Kan inte skicka e-post utan text.
 private_msg_notify_subj:	Kvittering f&ouml;r: {VAR: m->subject}
-private_msg_notify_body:	Hej!<br>Den {TEMPLATE: private_msg_notify_body_date} l&auml;ste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br>
+private_msg_notify_body:	Hej!<br>Den {DATE: m->post_stamp %a, %d %B %Y %H:%M} l&auml;ste {VAR: usr->login} ditt privata meddelande med rubriken "{VAR: m->subject}"<br>
 referals_update:		Visar refererade medlemmar
 register_err_short_login:	Det anv&auml;ndarnamn du valt &auml;r f&ouml;r kort. Anv&auml;ndarnamnet m&aring;ste vara minst 4 tecken l&aring;ngt
 register_err_login_notallowed:	Det h&auml;r anv&auml;ndarnamnet &auml;r inte till&aring;tet
@@ -753,7 +753,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Editeras just nu: <b>{VAR: grp->name}</b>
 rate_worst:			S&auml;mst
 rate_best:			B&auml;st
-post_quote_msg:			Den {TEMPLATE: make_report_date} skrev {VAR: msg->login}:
+post_quote_msg:			Den {DATE: msg->post_stamp %a, %d %B %Y %H:%M} skrev {VAR: msg->login}:
 post_quote:			Citat:
 userinfo_referals:		Refererade medlemmar:
 userinfo_referals_count:	{VAR: referals} medlemmar
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	Administratören på forumet har valt att verifiera 
 remove_from_buddy_list:		ta bort från kompislistan
 iemail_msg_author:		<b>Skribent:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Ämne:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Datum:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Datum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Svara
 iemail_msg_quote:		Citera
 iemail_msg_view:		Visa Ämne/Meddelande
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum

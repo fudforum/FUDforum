@@ -113,7 +113,7 @@ rate_thread:			Beoordeel Topic
 refresh_list:			Ververs Lijst
 register:			Registreer
 registered:			Geregistreerd:
-registered_on:			Geregistreerd op {TEMPLATE: registered_on_date}
+registered_on:			Geregistreerd op {DATE: u_reg_date %a, %d %B %Y}
 replies:			Reacties
 report_to_mod:			Raporteer het bericht aan een moderator
 reported_messages:		Geraporteerde berichten
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} stemmen
 vote_button:			stem
 vote_for_thread:		stem
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> door de moderator
-welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {TEMPLATE: welcome_message_date}
+welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			laat zien wat de mensen aan het doen zijn
 reported_del_report:		Verwijder Raport
 reported_reason:		Reden
@@ -380,8 +380,8 @@ forum_terms:			Forum richtlijnen
 forum_rules:			De registratie tot dit forum is gratis!  We dringen er op aan dat u de onderstaande regels en beleid volgt. Indien u akkoord gaat het de richtlijnen klik dan aub op de "akkoord" knop onderaan de pagina. Nota: Door op de knop te drukken verklaart u dat u <b>ouder dan 13 jaar</b> bent.  indien u 13 of jonger bent gebruik dan dit registratie formulier.<p>Alhoewel de administrators en moderators van dit forum zullen proberen om al de boodschappen van dit forum objectief te houden is het onmogelijk voor ons om al de berichten te reviewen. Alle berichten drukken de visie van de schrijver uit, noch de eigenaars van dit forum of de developers zullen verantwoordelijk geacht worden voor de inhoud van GEEN ENKEL bericht<p> door te klikken op de "akkoord" knop, gaat u akkoord dat u nooit obscene,vulgaire,sexueel gerichte, haatdragende, bedreigende berichten of berichten die eenderwelke wet overtreden. <p> De eigenaars van dit forum hebben het recht om ieder topic te editeren,verplaatsen,verwijderen of tee sluiten voor eenderwelke reden<p>
 forum_rules_13:			Alle leden <b>jonger dan 13</b> moeten de toestemming van hun voogd hebben indien ze een lidmaatschap willen bekomen voor het forum. Hoewel de aanmelden van leden onder de 13 welkom is, vereist een registratie dat de voogd een fax of mail stuurt met getekende toestemming voordat we een lidmaatschap toekennen.<p>Indien u het registratie proces wilt starten, klik dan op de "akkoord" knop beneden. Indien u de registratie wil annuleren klik dan op "Niet Akkoord" om terug te keren naar de forum index. <p> Een copie van het toestemmingsformulier kan hier gedownload worden. Voor meer info over het registratie proces stuur aub een email naar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Bevestiging
-coppa_before:			Voor {TEMPLATE: coppa_date}
-coppa_after:			Na {TEMPLATE: coppa_date}
+coppa_before:			Voor {DATE: coppa %B %e, %Y}
+coppa_after:			Na {DATE: coppa %B %e, %Y}
 coppa_link:			Klik op de link die overeenstemt met uw geboortedatum
 coppa:				Uw voogd moet via fax of mail een getekend toestemmings formulier versturen naar de administrator van die forum voordat een gebruiker <b>jonger dan 13</b> de registratie kan uitvoeren<p> voor meer informatie contacteer <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informatie
@@ -483,7 +483,7 @@ email_pg_title:			Email
 email_subject:			Onderwerp:
 email_body:			Bericht:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} geschreven op {TEMPLATE: ppost_quote_msg_date}
+ppost_quote_msg:		{VAR: msg_to_list} geschreven op {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Quote:
 ppost_to:			Aan:
 ppost_from_buddy_list:		Selecteer van "buddy" lijst
@@ -607,7 +607,7 @@ postcheck_invalid_email:	Vul een geldig email adres in van uw vriend.
 postcheck_email_subject:	U kan geen email versturen zonder een onderwerp.
 postcheck_email_body:		U kan geen email versturen zonder bericht.
 private_msg_notify_subj:	Lees Notificatie voor: {VAR: m->subject}
-private_msg_notify_body:	Hallo,<br>{VAR: usr->login} heeft uw privé bericht, "{VAR: m->subject}", gelezen op {TEMPLATE: private_msg_notify_body_date}<br>
+private_msg_notify_body:	Hallo,<br>{VAR: usr->login} heeft uw privé bericht, "{VAR: m->subject}", gelezen op {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
 referals_update:		Browsing door verwijzingen
 register_err_short_login:	De login die u heeft geselecteer is te kort. De login moet op zijn minst 4 karakters lang zijn
 register_err_login_notallowed:	Deze login is niet toegelaten
@@ -754,7 +754,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		huidige editering: <b>{VAR: grp->name}</b>
 rate_worst:			Ergste
 rate_best:			Beste
-post_quote_msg:			{VAR: msg->login} geschreven op {TEMPLATE: make_report_date}
+post_quote_msg:			{VAR: msg->login} geschreven op {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Quote:
 userinfo_referals:		gerefereerde leden:
 userinfo_referals_count:	{VAR: referals} leden
@@ -902,7 +902,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -1020,5 +1020,3 @@ findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
 register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
-modque_cat:			Category
-modque_forum:			Forum
