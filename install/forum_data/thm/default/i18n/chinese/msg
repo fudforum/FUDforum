@@ -926,3 +926,4 @@ login_blocked_account_ttl:	您的账号已经被封掉.
 login_blocked_account_msg:	您的账号已经被封掉, 如果您不知道原因，请联系系统管理员，或者版主.
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
+register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.

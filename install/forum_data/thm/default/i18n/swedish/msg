@@ -925,3 +925,4 @@ login_blocked_account_ttl:	Your account has been banned.
 login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
+register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.27 2003/03/13 12:39:10 hackie Exp $
+*   $Id: register.php.t,v 1.28 2003/03/24 12:05:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -88,13 +88,13 @@ function fetch_img($url)
 	fwrite($fp, $img_str);
 	fclose($fp);
 	
-	if (function_exists("GetImageSize") && !@GetImageSize($path, $img_info)) {
+	if (function_exists("GetImageSize") && !($img_info = @getimagesize($path))) {
 		unlink($path);
 		return; 
 	}
 	
 	list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-	if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
+	if ($img_info[0] > $max_w || $img_info[1] > $max_y || $img_info[2] > 3) {
 		unlink($path);
 		return; 
 	}
@@ -197,7 +197,7 @@ function register_form_check($user_id)
 	/* Url Avatar check */
 	if( $GLOBALS['HTTP_POST_VARS']['reg_avatar_loc'] ) {		
 		if( !($GLOBALS['reg_avatar_loc_file']=fetch_img($GLOBALS['HTTP_POST_VARS']['reg_avatar_loc'])) ) {
-			set_err('reg_avatar_loc', '{TEMPLATE: register_err_not_valid_img}');
+			set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 		}		
 	}
 	
@@ -319,13 +319,15 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 			} else {
-				if ( strlen($avatar_arr['file']) ) @unlink($GLOBALS['TMP'].$avatar_arr['file']);
-				getimagesize($_FILES['avatar_upload']['tmp_name'], $img_info);
+				if (strlen($avatar_arr['file'])) {
+					@unlink($GLOBALS['TMP'].$avatar_arr['file']);
+				}
+				$img_info = getimagesize($_FILES['avatar_upload']['tmp_name']);
 				list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
 				if ($img_info[2] > 3) {
 					set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
 				} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
-					set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
+					set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
 				} else {
 					$avatar_arr['file'] = safe_tmp_copy($avatar_upload);
 					$avarar_arr['del'] = 0;
@@ -669,11 +671,10 @@ if( empty($usr->id) ) {
 		if ( $avatar_type == 'b' ) {		
 			if ( $reg_avatar ) $del_built_in_avatar = '{TEMPLATE: del_built_in_avatar}';
 			$avatar = '{TEMPLATE: built_in_avatar}';
-		}
-		else if ( $avatar_type == 'c' ) {
+		} else if ( $avatar_type == 'c' ) {
+			$avatar_err = draw_err('avatar');
 			$avatar = '{TEMPLATE: custom_url_avatar}';			
-		}
-		else if ( $avatar_type == 'u' ) {
+		} else if ( $avatar_type == 'u' ) {
 			$avatar_err = draw_err('avatar');
 			if ( $avatar_arr['leave'] > 0 ) {
 				if ( @file_exists('images/custom_avatars/'.$usr->id) ) 

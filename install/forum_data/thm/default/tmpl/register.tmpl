@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.16 2003/03/05 13:46:36 hackie Exp $
+*   $Id: register.tmpl,v 1.17 2003/03/24 12:05:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -94,7 +94,7 @@
 
 {SECTION: custom_url_avatar}
 <tr valign="top"><td class="RowStyleC" colspan=2>{MSG: register_custom_avatar_rules}</td></tr>
-<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_url}</td><td class="RowStyleA"><input type="text" value="{VAR: reg_avatar_loc}" name="reg_avatar_loc"></td></tr>
+<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_url} {VAR: avatar_err}</td><td class="RowStyleA"><input type="text" value="{VAR: reg_avatar_loc}" name="reg_avatar_loc"></td></tr>
 {SECTION: END}
 
 {SECTION: delete_uploaded_avatar}
@@ -427,4 +427,8 @@
 
 {SECTION: register_err_time_limit}
 <tr><td class="RowStyleA" colspan="2" align="center"><font color="red" size="+2">{MSG: register_err_time_limit}</font></td></tr>
+{SECTION: END}
+
+{SECTION: register_err_avatardimtobig}
+{MSG: register_err_avatardimtobig}
 {SECTION: END}

@@ -926,3 +926,4 @@ login_blocked_account_ttl:	A sua conta foi banida.
 login_blocked_account_msg:	A sua conta foi banida deste forum, se não sabe qual foi a razão para este acto, contacte o administrador do forum.
 register_affero:		Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
 im_affero:			Login para Affero
+register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
