@@ -181,7 +181,6 @@ user_offline:			{VAR: user_login}  è attualmente offline
 user_online:			{VAR: user_login} è attualmente online
 usrinfo_last_post:		Ultimo messaggio:
 view_forum:			Visualizza forum
-view_last_msg:			Visualizza l&#39;ultimo messaggio in questo forum
 view_results:			Visualizza risultati
 view_thread:			Visualizza topic
 views:				View

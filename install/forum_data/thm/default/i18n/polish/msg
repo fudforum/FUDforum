@@ -183,7 +183,6 @@ user_offline:			{VAR: obj->login} jest aktualnie niedostêpny
 user_online:			{VAR: obj->login} jest aktualnie dostêpny
 usrinfo_last_post:		Ostatnia wiadomo¶æ:
 view_forum:			Wy¶wietl forum
-view_last_msg:			Wy¶wietl ostatni± wiadomo¶æ w tym forum
 view_results:			Wy¶wietl wyniki
 view_thread:			Wy¶wietl w±tek
 views:				Ods³on

@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login}  现在不在线
 user_online:			{VAR: obj->login} 现在在线
 usrinfo_last_post:		上一次登录：
 view_forum:			查看论坛
-view_last_msg:			浏览本论坛的最新发言
 view_results:			查看结果
 view_thread:			查看主题
 views:				点击

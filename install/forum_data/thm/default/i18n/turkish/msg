@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login}  þu anda baðlý deðil
 user_online:			{VAR: obj->login} þu anda baðlý
 usrinfo_last_post:		Son ileti:
 view_forum:			Forumu görüntüle
-view_last_msg:			Bu forumdaki en son iletiyi görüntüle
 view_results:			Sonuçlarý görüntüle
 view_thread:			Zinciri görüntüle
 views:				Görüntülenme<br>sayýsý

@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login}  is currently offline
 user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Last Post:
 view_forum:			View Forum
-view_last_msg:			View the latest message in this forum
 view_results:			View Results
 view_thread:			View Topic
 views:				Views

@@ -849,7 +849,6 @@ usrinfo_private_message:	Private Message:
 usrinfo_profile:		{VAR: u->alias}s Profil
 usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: u->alias} anzeigen
 view_forum:			Forum ansehen
-view_last_msg:			Den neusten Beitrag in diesem Forum ansehen
 view_results:			Ergebnisse ansehen
 view_thread:			Thema ansehen
 views:				Aufrufe

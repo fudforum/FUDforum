@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.18 2002/09/30 20:32:43 hackie Exp $
+*   $Id: index.php.t,v 1.19 2002/10/29 00:36:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -130,7 +130,7 @@ function index_view_perms($usr_id)
 		$qry_limit = " WHERE {SQL_TABLE_PREFIX}forum.id IN (".$lmt.")";
 	}	
 	
-	$frmres = q("SELECT {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name AS cat_name, {SQL_TABLE_PREFIX}cat.default_view, {SQL_TABLE_PREFIX}cat.allow_collapse, {SQL_TABLE_PREFIX}forum.*, ".$frm_sel." {SQL_TABLE_PREFIX}msg.id AS msg_id, {SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp, {SQL_TABLE_PREFIX}users.id AS user_id, {SQL_TABLE_PREFIX}users.alias AS user_login
+	$frmres = q("SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name AS cat_name, {SQL_TABLE_PREFIX}cat.default_view, {SQL_TABLE_PREFIX}cat.allow_collapse, {SQL_TABLE_PREFIX}forum.*, ".$frm_sel." {SQL_TABLE_PREFIX}msg.id AS msg_id, {SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp, {SQL_TABLE_PREFIX}users.id AS user_id, {SQL_TABLE_PREFIX}users.alias AS user_login
 		FROM 
 			{SQL_TABLE_PREFIX}cat
 			INNER JOIN {SQL_TABLE_PREFIX}forum 
@@ -142,8 +142,7 @@ function index_view_perms($usr_id)
 			".$frm_join.$qry_limit."
 			ORDER BY 
 				{SQL_TABLE_PREFIX}cat.view_order,
-				{SQL_TABLE_PREFIX}forum.view_order
-		");
+				{SQL_TABLE_PREFIX}forum.view_order");
 	$cat=0;	
 	
 	while ( $data = db_rowobj($frmres) ) {

@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login} не присътства в момента
 user_online:			{VAR: obj->login} е онлайн
 usrinfo_last_post:		Последно съобщение:
 view_forum:			Преглед на форума
-view_last_msg:			Преглед на последното съобщение от този форум
 view_results:			Преглед на резултатите
 view_thread:			Преглед на темата
 views:				Видяно

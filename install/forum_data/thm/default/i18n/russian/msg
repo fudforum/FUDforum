@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login} в настоящее время не в онлайне
 user_online:			{VAR: obj->login} в настоящее время в онлайне
 usrinfo_last_post:		Последнее сообщение:
 view_forum:			Просмотр форума
-view_last_msg:			Просмотр последнего сообщения в этом форуме
 view_results:			Просмотр результатов
 view_thread:			Просмотр темы
 views:				Просмотров

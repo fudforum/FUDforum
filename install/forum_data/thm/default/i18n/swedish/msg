@@ -183,7 +183,6 @@ user_offline:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet offline
 user_online:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet online
 usrinfo_last_post:		Senaste inl&auml;gg:
 view_forum:			Visa forum
-view_last_msg:			Visa det sista inl&auml;gget i det h&auml;r forumet
 view_results:			Visa resultat
 view_thread:			Visa tr&aring;d
 views:				Vyer

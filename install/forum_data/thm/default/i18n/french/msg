@@ -181,7 +181,6 @@ user_offline:                   {VAR: obj->login} n&#39;est pas connecte
 user_online:                    {VAR: obj->login} est online
 usrinfo_last_post:              Dernier Message:
 view_forum:                     Voir le forum
-view_last_msg:                  Voir le dernier message de ce forum
 view_results:                   Voir les résultats
 view_thread:                    Voir le thread
 views:                          Visites

@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login} no está actualmente ingresado
 user_online:			{VAR: obj->login} está actualmente ingresado
 usrinfo_last_post:		Ultimo mensaje:
 view_forum:			Ver Foro
-view_last_msg:			Ver el último mensaje en este foro
 view_results:			Ver resultados
 view_thread:			Ver hilo de discusión
 views:				Vistas

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.10 2002/08/10 02:19:08 hackie Exp $
+*   $Id: index.tmpl,v 1.11 2002/10/29 00:36:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -112,7 +112,7 @@
 {SECTION: END}
 
 {SECTION: last_post_link}
-<a href="{VAR: last_post_link}" class="GenLink"><img title="{MSG: view_last_msg}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{MSG: view_last_msg}" /></a>
+<a href="{VAR: last_post_link}" class="GenLink"><img title="{VAR: data->subject}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{VAR: data->subject}" /></a>
 {SECTION: END}
 
 {SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
