@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.15 2003/10/04 00:34:36 hackie Exp $
+*   $Id: admcat.php,v 1.16 2003/10/05 20:35:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,7 +60,7 @@
 
 	if (isset($_GET['del'])) {
 		$del = (int)$_GET['del'];
-		db_lock($tbl.'cat WRITE, '.$tbl.'forum WRITE');
+		db_lock($tbl.'cat WRITE, '.$tbl.'forum WRITE, '.$tbl.'fc_view WRITE');
 		q_singleval('DELETE FROM '.$tbl.'cat WHERE id='.$del);
 		if (db_affected()) {
 			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id='.$del);
