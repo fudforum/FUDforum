@@ -926,3 +926,32 @@ login_blocked_account_msg:	Votre compte a été interdit de ce forum, si vous n&#3
 register_affero:		Nom d'utilisateur Affero:<br /><font class="SmallText">Si vous avez un nom d'utilisateur <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, entrez-le ici.</font>
 im_affero:			Nom d'utilisateur Affero
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
+member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+post_all_ext_allowed:		(unrestricted)
+buddy_offline:			{VAR: r[2]} is currently offline
+buddy_online:			{VAR: r[2]} is currently online
+sml_no_smilies:			No emoticons available.
+login_unapproved_account_ttl:	Unapproved Account
+login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
+remove_from_buddy_list:		remove from buddy list
+iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Reply
+iemail_msg_quote:		Quote
+iemail_msg_view:		View Topic/Message
+threadt_sticky:			sticky
+threadt_announce:		announcement
+reported_no_messages:		There are no reported messages.
+poll_no_polls:			There are no accessible polls.
+no_unread_messages:		There are no unread messages matching your query.
+thread_mark_all_read:		mark all unread forum messages read
+thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
+private_no_messages:		There are no messages inside this folder
+register_email_change_subject:	E-mail change confirmation
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+iemail_thread_unsub:		Unsubscribe from this thread		
+iemail_forum_unsub:		Unsubscribe from this forum
+primary_group_prefix:		Primary group for forum:
+group_resources:		This group controls permissions of the following forums
