@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_mime.tbl,v 1.3 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_mime.tbl,v 1.4 2003/10/13 22:32:36 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,8 +13,8 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}mime;
 CREATE TABLE {SQL_TABLE_PREFIX}mime
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	fl_ext		VARCHAR(10) NOT NULL,
-	mime_hdr	VARCHAR(255) NOT NULL,
+	fl_ext		VARCHAR(10) NOT NULL DEFAULT '',
+	mime_hdr	VARCHAR(255) NOT NULL DEFAULT '',
 	descr		VARCHAR(255),
 	icon		VARCHAR(100) NOT NULL DEFAULT 'unknown.gif'
 );
