@@ -429,7 +429,7 @@ login_login_btn:		Zaloguj siê
 login_name_required:		Nazwa u¿ytkownika jest wymagana
 login_passwd_required:		Has³o jest wymagane
 login_invalid_radius:		Nieprawid³owa kombinacja nazwy u¿ytkownika/has³a
-reset_confirmation:		Dziêkujemy za zarejestrowanie siê.\n\nAby aktywowaæ swoje konto, przejd¼ do adresu wskazanego poni¿ej:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na g³ówna stronê forum.\n
+reset_confirmation:		Dziêkujemy za zarejestrowanie siê.\n\nAby aktywowaæ swoje konto, przejd¼ do adresu wskazanego poni¿ej:\n\n{VAR: url}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na g³ówna stronê forum.\n
 reset_reset:			Witaj,\n\nPoprosi³es o wyzerowanie swojego has³a, ale aby faktycznie WYZEROWAÆ Twoje has³o\nprzejd¼ do tego adresu\n\n{VAR: url}\n\nUWAGA: To forum zapisuje has³a za pomoc± jednokierunkowej funkcji szyfruj±cej,\ndlatego nie mo¿na odczytaæ raz wczytanego has³a.\nSprawdzanie has³a polega na tym, ¿e podczas logowania Twoje has³o jest szyfrowane i porównywane\n z zapisan± wersj± zaszyfrowan±. (Je¶li chcesz wiedzieæ wiêcej poczytaj o algorytmie mieszaj±cym MD5)
 rpasswd_invalid_passwd:		Nieprawid³owe Has³o
 rpasswd_passwd_nomatch:		Has³a nie pokrywaj± siê
@@ -649,7 +649,7 @@ register_err_notyouremail:	Kto¶ jest ju¿ zarejestrowany z tym adresem e-mail i t
 register_err_avatartobig:	Plik, który próbujesz do³±czyæ, jest za du¿y, poniewa¿ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtów
 register_err_avatarnotallowed:	Avatar, który próbujesz do³±czyæ, jest niedozwolony, wiêc sprawd¼ dozwolone typy plików.
 register_conf_subject:		Potwierdzenie rejestracji
-register_conf_msg:		Dziêkujemy za zarejestrowanie siê.\nAby aktywowaæ Twoje konto, przejd¼ do adresu poni¿ej:\n\n{ROOT}t=emailconf&conf_key={VAR: usr->conf_key}\n\nJak tylko bêdzie aktywowane, zostaniesz zalogowany(a) na forum i\nprzekierowana na g³own± stronê forum.
+register_conf_msg:		Dziêkujemy za zarejestrowanie siê.\nAby aktywowaæ Twoje konto, przejd¼ do adresu poni¿ej:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nJak tylko bêdzie aktywowane, zostaniesz zalogowany(a) na forum i\nprzekierowana na g³own± stronê forum.
 register_welcome_subject:	Potwierdzenie rejestracji na forum
 register_welcome_msg:		Dziêkujemy za zarejestrowanie siê.\n\nTutaj znajduj± siê szczegó³y twojego logowania siê na forum:\n\nAdres forum: {ROOT}?t=index\nNazwa u¿ytkownika: {VAR: usr->login}\nHas³o: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nB±d¼ ¶wiadom(a), ¿e wielko¶æ liter w has³ach ma znaczenie!\nAby zmieniæ swoje ustawienia i profil, przejd¼ do tej strony:\n{ROOT}?t=register\n
 register_err_cantreg_title:	B£¡D: rejestracja nie jest mo¿liwa
