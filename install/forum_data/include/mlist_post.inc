@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist_post.inc,v 1.8 2004/06/03 15:25:31 hackie Exp $
+* $Id: mlist_post.inc,v 1.9 2004/06/07 14:57:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,10 +19,10 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 		$multi_part = 1;
 		$boundry = md5(get_random_value());
 
-		$final_body = "--".$boundry."\nContent-Type: text/plain;\n  charset=\"".$GLOBALS['CHARSET']."\"\nContent-Transfer-Encoding: 8bit\n\n".$body."\n";
+		$final_body = "\n--".$boundry."\nContent-Type: text/plain;\n  charset=\"".$GLOBALS['CHARSET']."\"\nContent-Transfer-Encoding: 8bit\n\n".$body."\n";
 
 		foreach ($attch as $file_name => $file_data) {
-			$final_body .= "--".$boundry."\nContent-Type: ".$attach_mime[$file_name]."; name=\"$file_name\"\nContent-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"".$file_name."\"\n\n".chunk_split(base64_encode($file_data))."\n\n";
+			$final_body .= "\n--".$boundry."\nContent-Type: ".$attach_mime[$file_name]."; name=\"$file_name\"\nContent-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"".$file_name."\"\n\n".chunk_split(base64_encode($file_data))."\n\n";
 		}
 		$final_body .= "\n--".$boundry."--\n";
 	} else {
@@ -32,7 +32,7 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	if (!$multi_part) {
 		$header = "Content-Type: text/plain;\n  charset=\"".$GLOBALS['CHARSET']."\"\nContent-Transfer-Encoding: 8bit\n";
 	} else {
-		$header = "Content-Type: Multipart/Mixed;\n  boundary=\"$boundry\"\n";
+		$header = "MIME-Version: 1.0\nContent-Type: Multipart/Mixed;\n  boundary=\"$boundry\"\n";
 	}
 
 	if ($GLOBALS['FORUM_TITLE']) {
