@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.46 2004/11/18 17:17:00 hackie Exp $
+* $Id: pmsg.php.t,v 1.47 2004/11/18 21:16:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -147,8 +147,9 @@
 			$btn_del_name = 'btn_delete';
 			$btn_del_title = '{TEMPLATE: pmsg_delete}';
 		}
-		unset($folders[$folder_id]);
-		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
+		$tmp = $folders;
+		unset($tmp[$folder_id]);
+		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($tmp)), implode("\n", $tmp), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
 		$private_tools = '{TEMPLATE: private_tools}';
 	}
 
