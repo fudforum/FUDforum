@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.41 2003/06/09 13:41:46 hackie Exp $
+*   $Id: consist.php,v 1.42 2003/06/18 00:14:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -592,6 +592,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Cleaning forum\'s tmp directory');
 
 	draw_stat('Validate GLOBALS.php');
+	$gvars = array();
 	$data = file($GLOBALS['INCLUDE'] . 'GLOBALS.php');
 	$olc = count($data);
 	foreach ($data as $k => $l) {
@@ -605,11 +606,16 @@ forum will be disabled.<br><br>
 					$gvars[$var] = 1;
 				}
 			}
+		} else if (!trim($l)) {
+			unset($data[$k]);
 		}
 	}
 	if ($olc != count($data)) {
 		$fp = fopen($GLOBALS['INCLUDE'] . 'GLOBALS.php', 'w');
 		fwrite($fp, implode('', $data));
+		if (strpos(array_pop($data), '?>') === FALSE) {
+			fwrite($fp, "\n?>");
+		}
 		fclose($fp);
 	}
 	draw_stat('Done: Validate GLOBALS.php');
