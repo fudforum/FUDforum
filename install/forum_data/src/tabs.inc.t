@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.5 2002/08/05 05:58:21 hackie Exp $
+*   $Id: tabs.inc.t,v 1.6 2003/01/17 09:45:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,19 +23,28 @@ if( isset($usr) ) {
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
 '{TEMPLATE: tabs_ignore_list}'=>'ignore_list'
 );
-	
-	if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
-	
-	$tabs='';
-	$pg = $t;
-	if( $pg == 'pmsg_view' || $pg == 'ppost' ) $pg = 'pmsg';
-	
-	foreach($tablist as $tab_name => $tab) { 
-		$tab_url = '{ROOT}?t='.$tab.'&amp;'._rsid;
-		if( $tab == 'referals' ) $tab_url .= '&amp;id='._uid;	
-		$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
+	if (isset($GLOBALS['HTTP_POST_VARS']['mod_id'])) {
+		$mod_id_chk = $GLOBALS['HTTP_POST_VARS']['mod_id'];
+	} else if (isset($GLOBALS['HTTP_GET_VARS']['mod_id'])) {
+		$mod_id_chk = $GLOBALS['HTTP_GET_VARS']['mod_id'];
+	} else {
+		$mod_id_chk = NULL;	
 	}
+
+	if (!is_numeric($mod_id_chk) && $pg == 'register') {
+		if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
 	
-	$tabs = '{TEMPLATE: tablist}';
+		$tabs='';
+		$pg = $t;
+		if( $pg == 'pmsg_view' || $pg == 'ppost' ) $pg = 'pmsg';
+	
+		foreach($tablist as $tab_name => $tab) { 
+			$tab_url = '{ROOT}?t='.$tab.'&amp;'._rsid;
+			if( $tab == 'referals' ) $tab_url .= '&amp;id='._uid;	
+			$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
+		}
+	
+		$tabs = '{TEMPLATE: tablist}';
+	}
 }	
 ?>
