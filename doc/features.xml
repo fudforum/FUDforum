@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.3 2002/07/02 15:06:04 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.4 2002/07/22 17:04:17 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
@@ -140,17 +140,17 @@
 	</sect1>
 	
 	<sect1 id="features.subscriptions">
-		<title>Forum &amp; Thread Subscriptions</title>
+		<title>Forum &amp; Topic Subscriptions</title>
 		
 		<para>
-			The users on the forum have the ability to subscribe to threads &amp; forums. By subscribing to a thread a user will receive 
-			an E-mail or ICQ notification about any new posts made inside that thread. The subscription to a forum on the other hand 
-			will notify the user of any new threads created in the forum.
+			The users on the forum have the ability to subscribe to topics &amp; forums. By subscribing to a topic a user will receive 
+			an E-mail or ICQ notification about any new posts made inside that topic. The subscription to a forum on the other hand 
+			will notify the user of any new topics created in the forum.
 		</para>
 		
 		<para>
 			To prevent sending multiple notifications the notification system will only notify the user if they have no unread 
-			notifications for that particular forum or thread. This is extremely useful for active forums where many messages can be
+			notifications for that particular forum or topic. This is extremely useful for active forums where many messages can be
 			posted in a short period of time causing a massive amount of notifications to be sent to the user about the same content.
 		</para>
 		
@@ -314,7 +314,7 @@
 		<title>Message Mangling</title>
 		
 		<para>
-			The ability to edit, delete, move and split threads and messages.	
+			The ability to edit, delete, move and split topics and messages.	
 		</para>
 	</sect1>
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: modopt.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!-- $Id: modopt.xml,v 1.2 2002/07/22 17:04:17 hackie Exp $ -->
 <chapter id="mod_options">
 	<title>Moderation Options</title>
 	
@@ -70,47 +70,47 @@
 	</sect1>
 	
 	<sect1 id="mod.move">
-		<title>Move Thread</title>
+		<title>Move Topic</title>
 		
 		<para>
-			This option which is visible to all privileged users beside each thread on the thread view (thread.php) allows
-			them to move the thread to a different forum. Clicking on the link will open a pop-up window with a list of all
+			This option which is visible to all privileged users beside each topic on the topic view (thread.php) allows
+			them to move the topic to a different forum. Clicking on the link will open a pop-up window with a list of all
 			the available forums.
 		</para>
 		
 		<para>
-			If the user in question has permission to move the thread to the destination forum then the thread will be moved
+			If the user in question has permission to move the topic to the destination forum then the topic will be moved
 			to their forum of choice once they click on that forum.
 		</para>
 		
 		<para>	
 			 Otherwise beside the forum there will be a 'request a move' link. Clicking on this link will allow the moderator
-			 to request that the thread be moved to another forum, the form will allow the moderator to enter their reasoning
+			 to request that the topic be moved to another forum, the form will allow the moderator to enter their reasoning
 			 behind their request. It will then be up to the administrator(s) or the moderator(s) of the destination forum
-			 to approve or decline the request via the <link linkend="mod.thread_exchange">Thread Exchange</link>.
+			 to approve or decline the request via the <link linkend="mod.thread_exchange">Topic Exchange</link>.
 		</para>
 	</sect1>
 	
 	<sect1 id="mod.thread_exchange">
-		<title> Thread Exchange</title>
+		<title> Topic Exchange</title>
 		
 		<para>
-			This link will be visible if there are any move thread requests pending as well as indicate how many of those
+			This link will be visible if there are any move topic requests pending as well as indicate how many of those
 			requests are pending. Clicking on the link would take the moderator to a page where they'll be able to see
-			the move request and either accept or decline the move thread request made by another moderator.
+			the move request and either accept or decline the move topic request made by another moderator.
 		</para>
 	</sect1>
 	
 	<sect1 id="mod.del">
-		<title>Delete Threads/Messages</title>
+		<title>Delete Topics/Messages</title>
 		
 		<sect2 id="mod.del.thread">
-			<title>Deleting a thread</title>
+			<title>Deleting a topic</title>
 			
 			<para>
-				Deletion of a thread is an action, which can be performed by privileged users by clicking on the delete
-				link beside each thread on the thread listing, or by clicking on the delete button of the root 
-				(1st message in the thread) message.
+				Deletion of a topic is an action, which can be performed by privileged users by clicking on the delete
+				link beside each topic on the topic listing, or by clicking on the delete button of the root 
+				(1st message in the topic) message.
 			</para>
 		</sect2>
 		
@@ -141,47 +141,47 @@
 	</sect1>
 	
 	<sect1 id="mod.split">
-		<title>Split Thread</title>
+		<title>Split Topic</title>
 		
 		<para>
-			Split thread link, which is visible to privileged users when they are viewing the content of the thread allows
-			for splitting of a thread in to two separate threads. This is mostly done to allow the forum staff to move 
-			off topic discussions that have wondered in to a relevant thread.	
+			Split topic link, which is visible to privileged users when they are viewing the content of the topic allows
+			for splitting of a topic in to two separate topics. This is mostly done to allow the forum staff to move 
+			off topic discussions that have wondered in to a relevant topic.	
 		</para>
 		
 		<para>
-			When clicked, the link would take the privileged user to a control form where how the thread will be split
+			When clicked, the link would take the privileged user to a control form where how the topic will be split
 			can be specified.
 		</para>
 		
 		<para>
-			At the top of this form there is a textbox where the name of the new thread will be specified as well as a drop
-			down box with a list of forums where the new thread will be placed. Below these controls there are two buttons
+			At the top of this form there is a textbox where the name of the new topic will be specified as well as a drop
+			down box with a list of forums where the new topic will be placed. Below these controls there are two buttons
 			allowing the privileged user to split the selected or the non-selected messages.
 		</para>
 		
 		<para>
-			All the messages in the thread are listed on the 'Split Thread Control Panel', the messages can be selected 
+			All the messages in the topic are listed on the 'Split Topic Control Panel', the messages can be selected 
 			by marking the checkbox, which is located to left of every message. 
 		</para>	
 					
 		<para>
 			Clicking on the 'Split selected messages' button would then split all the selected messages or if the 
-			'Split non-selected messages' button is clicked then all the non-selected messages will be moved to a new thread.
+			'Split non-selected messages' button is clicked then all the non-selected messages will be moved to a new topic.
 		</para>	
 	</sect1>
 	
 	<sect1 id="mod.lock">
-		<title>Thread Locking/Unlocking</title>
+		<title>Topic Locking/Unlocking</title>
 		
 		<para>
-			Privileged users may lock and unlock threads using a link available on the thread contents page. Locked threads
-			prevent regular users from being able to post replies in the thread.
+			Privileged users may lock and unlock topics using a link available on the topic contents page. Locked topics
+			prevent regular users from being able to post replies in the topic.
 		</para>
 		
 		<para>
-			When privileged users post new threads or replies to existing threads they may lock thread by marking the
-			'Thread Locked' checkbox. The thread will be automatically locked once the post is made.
+			When privileged users post new topics or replies to existing topics they may lock topic by marking the
+			'Topic Locked' checkbox. The topic will be automatically locked once the post is made.
 		</para>
 	</sect1>
 	
@@ -189,8 +189,8 @@
 		<title>Sticky/Announcements</title>
 		
 		<para>
-			Privileged users may create threads and mark them as 'Sticky' or 'Announcements'. Such threads will be displayed
-			at the top of thread listing regardless of their age until they reach their expiration date as defined by the
+			Privileged users may create topics and mark them as 'Sticky' or 'Announcements'. Such topics will be displayed
+			at the top of topic listing regardless of their age until they reach their expiration date as defined by the
 			privileged user.
 		</para>
 		
@@ -251,7 +251,7 @@
 			<title>Post</title>
 			
 			<para>
-				The ability to create new threads in the forum.
+				The ability to create new topics in the forum.
 			</para>
 		</sect2>
 		
@@ -259,7 +259,7 @@
 			<title>Reply</title>
 			
 			<para>
-				The ability to post replies to existing threads in the forum.
+				The ability to post replies to existing topics in the forum.
 			</para>
 		</sect2>
 		
@@ -281,7 +281,7 @@
 			<title>Delete</title>
 			
 			<para>
-				The ability to deletes threads &amp; posted by other users.
+				The ability to deletes topics &amp; posted by other users.
 			</para>
 		</sect2>
 		
@@ -289,7 +289,7 @@
 			<title>Sticky posts</title>
 			
 			<para>
-				The ability to create <link linkend="mod.sticky">Sticky/Announcement</link> threads.
+				The ability to create <link linkend="mod.sticky">Sticky/Announcement</link> topics.
 			</para>
 		</sect2>
 		
@@ -332,10 +332,10 @@
 		</sect2>
 		
 		<sect2 id="mod.groups.rate">
-			<title>Rate threads</title>
+			<title>Rate topics</title>
 			
 			<para>
-				Whether or not a user can rate threads inside the forum.
+				Whether or not a user can rate topics inside the forum.
 				<note>
 					<simpara>
 					This option will ALWAYS be set to NO for anonymous users, since their uniqueness
@@ -346,32 +346,32 @@
 		</sect2>
 		
 		<sect2 id="mod.groups.split">
-			<title>Split threads</title>
+			<title>Split topics</title>
 			
 			<para>
-				The ability to <link linkend="mod.split">split threads</link>.
+				The ability to <link linkend="mod.split">split topics</link>.
 			</para>
 		</sect2>
 		
 		<sect2 id="mod.groups.lock">
-			<title>Lock threads</title>
+			<title>Lock topics</title>
 			
 			<para>
-				The ability to <link linkend="mod.lock">lock &amp; unlock</link> threads in the forum.
+				The ability to <link linkend="mod.lock">lock &amp; unlock</link> topics in the forum.
 				
 				<note>
 					<simpara>
-					Users with this ability will also have the ability to post replies in locked threads.
+					Users with this ability will also have the ability to post replies in locked topics.
 					</simpara>
 				</note>
 			</para>
 		</sect2>
 		
 		<sect2 id="mod.groups.move">
-			<title>Move threads</title>
+			<title>Move topics</title>
 			
 			<para>
-				The ability to <link linkend="mod.move">move or request that a thread be moved</link> to another forum.
+				The ability to <link linkend="mod.move">move or request that a topic be moved</link> to another forum.
 			</para>
 		</sect2>
 		

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.7 2002/07/09 21:50:36 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.8 2002/07/22 17:04:17 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -19,7 +19,7 @@
 		<para>
 			Forum consistency checks the integrity of FUDforum's data and repairs it if any 
 			inconsistency is found. This process also regenerates forum caches of various
-			data such as moderators, thread views etc... It is highly recommended to run a 
+			data such as moderators, topic views etc... It is highly recommended to run a 
 			consistency checker once per month on high traffic forums and once every two or three months
 			on low traffic forums.
 		</para>
@@ -297,7 +297,7 @@
 						This option does have it's drawbacks, on forked web servers such as Apache, every Apache child 
 						will create a persistent socket for itself. This can potentially exhaust number of allowed database 
 						connections if the number of Apache children with open connections to database exceed the allowed number
-						of database connections, thus preventing threads without an open connection to connect to the database
+						of database connections, thus preventing topics without an open connection to connect to the database
 						server.
 					</para>
 				</sect4>
@@ -766,15 +766,15 @@
 				</sect4>
 				
 				<sect4 id="global.option.THREADS_PER_PAGE">
-					<title>Threads Per Page</title>
+					<title>Topics Per Page</title>
 				
 					<para>
-						Indicates how many threads to show per page.
+						Indicates how many topics to show per page.
 					</para>
 				</sect4>
 				
 				<sect4 id="global.option.DEFAULT_THREAD_VIEW">
-					<title>Default Thread View</title>
+					<title>Default Topic View</title>
 				
 					<para>
 						Allows the admin to specify the default message view.
@@ -817,10 +817,10 @@
 				</sect4>
 				
 				<sect4 id="global.option.MOVED_THR_PTR_EXPIRY">
-					<title>Moved Thread Pointer Expiry</title>
+					<title>Moved Topic Pointer Expiry</title>
 				
 					<para>
-						The number of days to show a pointer of a moved thread from the original forum to the new forum.
+						The number of days to show a pointer of a moved topic from the original forum to the new forum.
 						The pointer will be removed after this period of time.	
 					</para>
 				</sect4>
@@ -884,7 +884,7 @@
 					<title>Quick Pager Link Count</title>
 				
 					<para>
-						How many page links to display beside a thread that exceeds 1 page in length 
+						How many page links to display beside a topic that exceeds 1 page in length 
 						as defined by the <link linkend="global.option.THREADS_PER_PAGE">THREADS_PER_PAGE</link> option.
 					</para>
 				</sect4>
@@ -1347,7 +1347,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			The statistics engine can be used to analyze the following information:
 			<itemizedlist>
 				<listitem><para><emphasis role="bold">Number of Posted Message</emphasis> The number of posted within a defined time frame.</para></listitem>
-				<listitem><para><emphasis role="bold">Number of Threads</emphasis> The number of threads within a defined time frame.</para></listitem>
+				<listitem><para><emphasis role="bold">Number of Topics</emphasis> The number of topics within a defined time frame.</para></listitem>
 				<listitem><para><emphasis role="bold">Registered Users</emphasis> The number of new user registrations within a defined time frame.</para></listitem>
 			</itemizedlist>	
 			
@@ -1698,7 +1698,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		
 		<para>
 			Announcement manager control panel that allows the administrator to create global announcements that would appear
-			in selected forums at the top of the thread listing.
+			in selected forums at the top of the topic listing.
 		</para>
 		
 		<sect2 id="ann.forums">
@@ -1750,10 +1750,10 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 	</sect1>
 	
 	<sect1 id="admin.thread.prunning">
-		<title>Thread Prunning</title>
+		<title>Topic Prunning</title>
 		
 		<para>
-			The thread prunning control panel allows the admin to remove threads that are older then a certain date.
+			The topic prunning control panel allows the admin to remove topics that are older then a certain date.
 		</para>
 		
 		<sect2 id="thread.prunning.period">
@@ -1768,7 +1768,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			<title>Numeric Value</title>
 			
 			<para>
-				Threads that are older then this number of days, weeks, months or years as specified by the 'Time Period'
+				Topics that are older then this number of days, weeks, months or years as specified by the 'Time Period'
 				option, will be pruned.
 			</para>
 		</sect2>
@@ -1782,15 +1782,15 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		</sect2>
 		
 		<para>
-			Once you click on the prune button the forum will calculate the number of threads that will be affected by the 
-			prunning and ask you to confirm that you indeed wish to prune that number of threads. If you confirm the process
-			the affected threads will be removed.
+			Once you click on the prune button the forum will calculate the number of topics that will be affected by the 
+			prunning and ask you to confirm that you indeed wish to prune that number of topics. If you confirm the process
+			the affected topics will be removed.
 		</para>
 		
 		<tip>
 			<simpara>
 			It is a good idea to run the <link linkend="admin.compact_messages">Compact Messages</link> utility 
-			after doing thread prunning.
+			after doing topic prunning.
 			</simpara>
 		</tip>
 	</sect1>

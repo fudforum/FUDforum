@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: api.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!-- $Id: api.xml,v 1.2 2002/07/22 17:04:17 hackie Exp $ -->
 <chapter id="api">
 	<title>FUDforum API</title>
 	
@@ -121,7 +121,7 @@ u_last_post_id (int)		- 	The id of the last post made by this user
 			<refentry id="api.fud_user.func.register_thread_view">
 				<refnamediv>
 					<refname>register_thread_view</refname>
-					<refpurpose>Mark thread as read</refpurpose>
+					<refpurpose>Mark topic as read</refpurpose>
 				</refnamediv>
 				<refsect1>
 			        	<title>Description</title>
@@ -131,7 +131,7 @@ u_last_post_id (int)		- 	The id of the last post made by this user
 			                        <methodparam><type>int</type><parameter>msg_id</parameter></methodparam>
 					</methodsynopsis>
 					<para>
-						This function will mark a thread read by inserting or updating an entry inside
+						This function will mark a topic read by inserting or updating an entry inside
 						the read table. If a msg_id is passed only messages up until msg_id will be marked 
 						read.
 					</para>
