@@ -97,7 +97,7 @@ num_votes:			голосов: {VAR: obj->total_votes}
 occupation:			Род деятельности:
 off:				откл
 on:				вкл
-page_timings:			Время, затраченное на генерацию страницы: {VAR: page_gen_time} seconds
+page_timings:			Время, затраченное на генерацию страницы: {VAR: page_gen_time} сек.
 pm:				Личная почта
 poll:				Голосование:
 post_count:			Количество сообщений {VAR: u_pcount}
@@ -106,7 +106,7 @@ posts:				Сообщений
 posts_c:			Сообщений:
 prev_thread:			Предыдущая тема:
 usrinfo_private_message:	Личное сообщение:
-profile:			Профиль
+profile:			Настройки
 profile_desc:			Нажмите для перехода в панель управления
 rate_thread:			Дать оценку теме
 refresh_list:			Обновить список
@@ -252,7 +252,7 @@ finduser_joindate:		Дата подключения
 finduser_action:		Действие
 yes:				Да
 no:				Нет
-edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минут
+edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> мин.
 no_edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>Неограничено</b>
 pmuserloc_login:		Имя:
 pmuserloc_submit:		Найти
@@ -297,7 +297,7 @@ register_month:			Месяц
 register_year:			Год
 register_gender:		Пол:
 register_bio:			Биография:
-register_bio_desc:		Отдельные детали, такие как ваши интересы, работа и т.п...
+register_bio_desc:		Отдельные детали, такие как ваши интересы, работа и т. п...
 register_prefs:			Персональные настройки
 register_sig:			Подпись:
 register_sig_desc:		Необязательная подпись, которая будет включаться в ваши сообщения.
@@ -976,10 +976,10 @@ register_theme:			Тема:
 pmsg_trash:			Очистить корзину
 uc_new_pm:			Новые личные сообщения
 uc_new_topic:			Новая тема
-uc_new_cat_forum:		Форумы, на котороые вы подписаны, содержащие новые сообщения
+uc_new_cat_forum:		Форумы, на котороые вы подписаны, содержащие с новые сообщения
 uc_cat_forum:			Категория &raquo; Форум
-uc_sub_topics:			Темы, на которые вы подписаны, содержащие новые сообщения
-uc_page_title:			Viewing personal control panel.
+uc_sub_topics:			Темы, на которые вы подписаны, содержащие с новые сообщения
+uc_page_title:			Просмотр персональной контрольной панели.
 search_options:			Настройки поиска
 search_user_filter:		Отобрать по пользователю:
 register_none:			Не уведомлять
@@ -987,14 +987,14 @@ findu_no_conf:			Неподтвержденный пользователь
 register_max_sig_len:		Максимальная длинна:
 register_turing:		Пожалуйста, введите код подтверждения, который вы видите ниже:
 register_err_turing:		Неверный код подтверждения.
-modque_forum:			Forum
-modque_cat:			Category
-idx_compact_forum_row:		Available Forums:
-mmd_del_title:			Delete Topics
-mmd_mov_title:			Move Topics
-mmd_move_threads_to:		Destination Forum:
-mmd_abort_move:			Cancel
-mmd_move:			Move Topics
+modque_forum:			Форум
+modque_cat:			Категория
+idx_compact_forum_row:		Доступные форумы:
+mmd_del_title:			Удаление тем
+mmd_mov_title:			Перенос тем
+mmd_move_threads_to:		Выберите форум, в который нужно перенести сообщения:
+mmd_abort_move:			Отмена
+mmd_move:			Перенести темы
 pmsg_pdf_btn:			Make PDF Archive
 search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
