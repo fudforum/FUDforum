@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admiconsel.php,v 1.9 2004/10/06 16:36:15 hackie Exp $
+* $Id: admiconsel.php,v 1.10 2004/10/26 20:11:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,9 +19,9 @@
 <table border=0 cellspacing=1 cellpadding=2>
 <tr>
 <?php
-	$path = $WWW_ROOT_DISK . 'images/forum_icons/';
+	$path = $WWW_ROOT . 'images/forum_icons/';
 
-	if (($files = glob($path. '/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
+	if (($files = glob($WWW_ROOT_DISK. 'images/forum_icons/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE))) {
 		$col = $i = 0;
 		foreach ($files as $file) {
 			$f = basename($file);
