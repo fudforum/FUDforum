@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.26 2003/10/16 21:59:05 hackie Exp $
+* $Id: admimport.php,v 1.27 2003/11/27 19:33:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -119,15 +119,15 @@ function resolve_dest_path($path)
 			preg_match("!define\('__dbtype__', '(mysql|pgsql)'\);!", file_get_contents($DATA_DIR.'src/db.inc.t'), $tmp);
 			if ($tmp[1] != __dbtype__) {
 				/* read the table definitions from appropriate SQL directory */
-				if (!($d = opendir($DATA_DIR.'sql/'.__dbtype__))) {
-					exit("Couldn't open ".$DATA_DIR.'sql/'.$tmp[1]." directory<br>\n");
+				if (!($d = opendir($DATA_DIR.'sql'))) {
+					exit("Couldn't open ".$DATA_DIR.'sql/' directory<br>\n");
 				}
 				readdir($d); readdir($d);
 				while ($f = readdir($d)) {
 					if (substr($f, -4) != '.tbl') {
 						continue;
 					}
-					$tbl_data = file_get_contents($DATA_DIR.'sql/'.__dbtype__.'/'.$f);
+					$tbl_data = file_get_contents($DATA_DIR.'sql/'.$f);
 					$tbl_data = preg_replace("!#.*?\n!", '', $tbl_data);
 					$tbl_data = preg_replace('!\s+!', ' ', trim($tbl_data));
 					$tmp = explode(';', str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $tbl_data));

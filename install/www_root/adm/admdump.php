@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.35 2003/10/17 12:30:49 hackie Exp $
+* $Id: admdump.php,v 1.36 2003/11/27 19:33:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -170,7 +170,7 @@ function sql_is_null($r, $n, $tbl='')
 		$write_func($fp, "\n----SQL_START----\n");
 
 		/* read sql table defenitions */
-		$path = $DATA_DIR . 'sql/' . __dbtype__;
+		$path = $DATA_DIR . 'sql';
 		if (!($d = opendir($path))) {
 			exit('Failed to open SQL directory "'.$path.'"');
 		}
