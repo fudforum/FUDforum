@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.109 2004/05/10 12:40:05 hackie Exp $
+* $Id: core.inc,v 1.110 2004/05/12 12:45:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,7 +26,7 @@ function rls_db_lck()
 register_shutdown_function('rls_db_lck');
 
 $GLOBALS['TITLE_EXTRA'] = '';
-$GLOBALS['is_post'] = count($_POST);
+$GLOBALS['is_post'] = !empty($_POST);
 
 if (get_magic_quotes_gpc()) {
 	function strip_quotes(&$var)
@@ -44,10 +44,10 @@ if (get_magic_quotes_gpc()) {
         if ($GLOBALS['is_post']) {
 		array_walk($_POST, 'strip_quotes');
 	}
-        if (count($_COOKIES)) {
+        if (!empty($_COOKIES)) {
 		array_walk($_COOKIES, 'strip_quotes');
 	}
-	if (@count($_FILES)) {
+	if (!empty($_FILES)) {
 		array_walk($_FILES, 'strip_quotes');
 	}
 }
