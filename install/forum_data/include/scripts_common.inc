@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: scripts_common.inc,v 1.21 2005/03/05 18:46:59 hackie Exp $
+* $Id: scripts_common.inc,v 1.22 2005/03/26 14:53:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,9 +104,9 @@ function parse_ip($str)
 }
 
 if (extension_loaded("iconv")) {
-	function charset_convert($str, $from, $to) { return iconv($from, $to, $str); }
+	function charset_convert($str, $from, $to) { return @iconv($from, $to, $str); }
 } else if (extension_loaded("recode")) {
-	function charset_convert($str, $from, $to) { return recode_string($from."..".$to, $str); }
+	function charset_convert($str, $from, $to) { return @recode_string($from."..".$to, $str); }
 } else {
 	function charset_convert($str, $from, $to) { return $str; }
 }	
