@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_pager.inc.t,v 1.3 2003/04/20 10:45:19 hackie Exp $
+*   $Id: draw_pager.inc.t,v 1.4 2003/04/21 16:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,10 +74,8 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		$end = $ttl_pg;
 		$st = 0;
 	}
-	
-	
+
 	while ($st < $end) {
-		$st++;
 		if ($st != $cur_pg) {
 			$page_start = $st * $count;
 			if ($append) {
@@ -86,10 +84,12 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 				$page_page_url = $arg;
 				pager_replace($page_page_url, $page_start, $count);
 			}
+			$st++;
 			$page_pager_data .= !$js_pager ? '{TEMPLATE: page_entry}' : '{TEMPLATE: page_entry_js}';
 		} else {
+			$st++;
 			$page_pager_data .= !$js_pager ? '{TEMPLATE: current_page}' : '{TEMPLATE: current_page_js}';
-		}	
+		}
 	}
 
 	$page_pager_data = substr($page_pager_data, 0 , strlen((!$js_pager ? '{TEMPLATE: page_separator}' : '{TEMPLATE: page_separator_js}')) * -1);
