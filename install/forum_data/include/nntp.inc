@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.5 2002/08/23 03:20:10 hackie Exp $
+*   $Id: nntp.inc,v 1.6 2002/08/28 20:29:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -363,7 +363,7 @@ class fud_nntp
 		
 		$user->email = addslashes($this->from_email);
 		$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
-		$user->default_view = 'msg';
+		$user->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
 		$user->notify_method = 'EMAIL';
 		$user->gender = 'UNSPECIFIED';
 		$user->email_messages = 'Y';

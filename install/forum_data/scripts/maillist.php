@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.11 2002/08/23 02:50:12 hackie Exp $
+*   $Id: maillist.php,v 1.12 2002/08/28 20:29:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -343,7 +343,7 @@ class fud_emsg
 		$user->pm_messages = 'Y';
 		$user->show_avatars = 'Y';
 		$user->show_sigs = 'Y';
-		$user->default_view = 'msg';
+		$user->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
 		$user->notify_method = 'EMAIL';
 		$user->gender = 'UNSPECIFIED';
 		$user->name = addslashes($this->from_name);
