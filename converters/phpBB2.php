@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
+*   $Id: phpBB2.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -222,6 +222,7 @@ function import_av_gal($dir)
 			(
 				id,
 				login,
+				alias,
 				passwd,
 				last_visit,
 				join_date,
@@ -245,6 +246,7 @@ function import_av_gal($dir)
 			)
 			VALUES (
 				'".$obj->user_id."',
+				'".addslashes($obj->username)."',
 				'".addslashes($obj->username)."',
 				'".$obj->user_password."',
 				".intzero($obj->user_lastvisit).",

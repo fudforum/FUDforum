@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.5 2002/07/04 14:40:46 hackie Exp $
+*   $Id: phorum.php,v 1.6 2002/07/08 23:21:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -184,6 +184,7 @@ function INT_yn($s)
 			(
 				id,
 				login,
+				alias,
 				passwd,
 				email,
 				home_page,
@@ -199,6 +200,7 @@ function INT_yn($s)
 			)
 			VALUES (
 				$obj->id,
+				'".addslashes($obj->name)."',
 				'".addslashes($obj->name)."',
 				'".$obj->password."',
 				'".addslashes($obj->email)."',

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
+*   $Id: VB2.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -183,6 +183,7 @@ function append_perm_str($perm, $who)
 		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."users (
 			id,
 			login,
+			alias,
 			passwd,
 			email,
 			home_page,
@@ -212,6 +213,7 @@ function append_perm_str($perm, $who)
 			)
 			VALUES(
 			".$obj->userid.",
+			'".addslashes($obj->username)."',
 			'".addslashes($obj->username)."',
 			'".addslashes($obj->password)."',
 			'".addslashes($obj->email)."',

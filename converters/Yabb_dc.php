@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: Yabb_dc.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
+*   $Id: Yabb_dc.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -319,6 +319,7 @@ function getyabbgroupname($str)
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
 			(
 				login,
+				alias,
 				passwd,
 				join_date,
 				append_sig,
@@ -338,6 +339,7 @@ function getyabbgroupname($str)
 				coppa
 			)
 			VALUES (
+				'".addslashes($u_name)."',
 				'".addslashes($u_name)."',
 				'".md5(trim($user_data[0]))."',
 				".time().",

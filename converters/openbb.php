@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: openbb.php,v 1.4 2002/07/04 14:40:46 hackie Exp $
+*   $Id: openbb.php,v 1.5 2002/07/08 23:21:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,6 +190,7 @@ function openBBcode2fudcode($str)
 			(
 				id,
 				login,
+				alias
 				passwd,
 				join_date,
 				display_email,
@@ -213,6 +214,7 @@ function openBBcode2fudcode($str)
 			)
 			VALUES (
 				".$obj->id.",
+				'".addslashes($obj->username)."',
 				'".addslashes($obj->username)."',
 				'".$obj->password."',
 				".intzero($obj->joindate).",
