@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.8 2003/10/01 02:46:43 hackie Exp $
+*   $Id: groups_adm.inc,v 1.9 2003/10/01 03:43:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,8 +27,8 @@ function group_add($res_id, $name, $add_gl=0, $perm=0, $permi=2147483647, $inher
 		$reg = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=2") | 65536;
 		$ano = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=1") | 65536;
 
-		q("INSERT INTO ".$tbl."group_members (user_id, group_members_opt) VALUES(2147483647, ".$reg.")");
-		q("INSERT INTO ".$tbl."group_members (user_id, group_members_opt) VALUES(0, ".$ano.")");
+		q("INSERT INTO ".$tbl."group_members (group_id, user_id, group_members_opt) VALUES(".$gid.", 2147483647, ".$reg.")");
+		q("INSERT INTO ".$tbl."group_members (group_id, user_id, group_members_opt) VALUES(".$gid.", 0, ".$ano.")");
 	}
 
 	return $gid;
@@ -93,9 +93,9 @@ function group_delete($id)
 	}
 
 	q('DELETE FROM '.$tbl.'group_members WHERE group_id='.$id);
+	q('UPDATE '.$tbl.'groups SET groups_opti=0, inherit_id=0 WHERE inherit_id='.$id);
 
 	/* deal with inheritence */
-	rebuild_group_ih($id, null);
 	grp_rebuild_cache();
 
 	q('DELETE FROM '.$tbl.'groups WHERE id='.$id);

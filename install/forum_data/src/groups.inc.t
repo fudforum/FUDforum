@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.19 2003/10/01 02:46:37 hackie Exp $
+*   $Id: groups.inc.t,v 1.20 2003/10/01 03:43:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@ function grp_delete_member($id, $user_id)
 	if ($o) {
 		/* we rebuild cache, since this user's permission for a particular resource are controled by 
 		 * more the one group. */
-		grp_rebuild_cache($user_id);
+		grp_rebuild_cache(array($user_id));
 	} else {
 		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".$user_id);
 	}
@@ -41,7 +41,7 @@ function grp_delete_member($id, $user_id)
 function grp_update_member($id, $user_id, $perm)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE group_id='.$id.' AND user_id='.$user_id);
-	grp_rebuild_cache($user_id);
+	grp_rebuild_cache(array($user_id));
 }
 
 function grp_rebuild_cache($user_id=null)
@@ -57,7 +57,7 @@ function grp_rebuild_cache($user_id=null)
 	$r = uq("SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}group_members gm ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND gm.group_members_opt & 65536" . ($lmt ? ' AND '.$lmt : ''));
 	while ($o = db_rowobj($r)) {
 		if (isset($list[$o->rid][$o->uid])) {
-			if ($o->cgo & 131072) {
+			if ($o->gco & 131072) {
 				$list[$o->rid][$o->uid] |= $o->gco;
 			} else {
 				$list[$o->rid][$o->uid] &= $o->gco;
@@ -66,14 +66,14 @@ function grp_rebuild_cache($user_id=null)
 			$list[$o->rid][$o->uid] = $o->gco;
 		}
 	}
-	qf($r);
 
 	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
 	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
 
 	foreach ($list as $k => $v) {
-		list($u, $p) = each($v);
-		db_qid("INSERT INTO ".$tmp_t." (a, b, c) VALUES(".$k.", ".$p.", ".$u.")");
+		foreach ($v as $u => $p) {
+			db_qid("INSERT INTO ".$tmp_t." (a, b, c) VALUES(".$k.", ".$p.", ".$u.")");
+		}
 	}
 
 	if (!db_locked()) {
