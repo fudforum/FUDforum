@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.48 2004/10/20 19:03:08 hackie Exp $
+* $Id: search.php.t,v 1.49 2004/10/21 00:24:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,6 +44,11 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$wa = array_slice($wa, 0, 10);
 		}
 	}
+
+	if (!$wa) {
+		return;
+	}
+
 	$qr = implode(',', $wa);
 	$i = count($wa);
 
@@ -53,10 +58,6 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	} else {
 		$tbl = 'title_index';
 		$qt = '1';
-	}
-
-	if (empty($qr)) {
-		return;
 	}
 
 	$qry_lck = md5($qr);
