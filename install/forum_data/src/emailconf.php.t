@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.3 2002/07/30 14:34:37 hackie Exp $
+*   $Id: emailconf.php.t,v 1.4 2002/09/25 00:52:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,9 @@
 		$ses->save_session($conf_usr->id);		
 		$usr->get_user_by_id($conf_usr->id);
 
-		if ( $usr->conf_key == $conf_key ) $usr->email_confirm();
+		if ($usr->conf_key != 0) { /* do not try to confirm already confirmed users */
+			if ( $usr->conf_key == $conf_key ) $usr->email_confirm();
+		}	
 		
 		check_return();
 	}
