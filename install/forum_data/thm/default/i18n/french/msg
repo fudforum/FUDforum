@@ -1020,5 +1020,5 @@ findu_no_conf:			utilisateur non confirmé
 register_max_sig_len:		Longueur maximale :
 register_turing:		Veuillez entrer le code ci-dessous :
 register_err_turing:		Code de validation incorrect.
-modque_cat:			Catégorie
+modque_cat:			Category
 modque_forum:			Forum
