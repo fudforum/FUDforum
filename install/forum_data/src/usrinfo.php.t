@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.42 2004/08/20 13:57:28 hackie Exp $
+* $Id: usrinfo.php.t,v 1.43 2004/10/16 19:10:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,6 +46,9 @@ function convert_bdate($val, $month_fmt)
 
 	if (!($u = db_sab('SELECT u.*, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {
 		std_error('user');
+	}
+	if (!_uid) {
+		header("Last-Modified: " .  gmdate("D, d M Y H:i:s", $u->last_visit) . " GMT");
 	}
 
 	$avatar = ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2)) ? '{TEMPLATE: avatar}' : '';

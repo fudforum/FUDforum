@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.28 2004/08/31 23:26:46 hackie Exp $
+* $Id: admlock.php,v 1.31 2004/10/06 18:23:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,29 +31,27 @@
 			}
 		}
 
-		$m1 = realpath($WWW_ROOT_DISK);
-		$m2 = realpath($DATA_DIR);
+		$dirs = array(realpath($DATA_DIR));
+		if ($WWW_ROOT_DISK != $DATA_DIR) {
+			$dirs[] = realpath($WWW_ROOT_DISK);
+		}
+
 		$u = umask(0);
 
-		$dirs = array($m1, $m2);
 		while (list(,$v) = each($dirs)) {
 			@chmod($v, $dirperms);
-			if (!($d = opendir($v))) {
+			if (!is_readable($v)) {
 				echo 'ERROR: Unable to open "'.$v.'" directory<br>';
 				continue;
 			}
-			while ($f = readdir($d)) {
-				$path = $v . '/' . $f;
+			$files = glob($v . '{.[a-z]*,*}', GLOB_BRACE);
+			foreach ($files as $path) {
 				if (@is_file($path) && !@chmod($path, $fileperms)) {
 					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
-				} else if (@is_dir($path)) {
-					if ($f == '.' || $f == '..' || is_link($path)) {
-						continue;
-					}
+				} else if (@is_dir($path) && !is_link($path)) {
 					$dirs[] = $path;
 				}
 			}
-			closedir($d);
 		}
 		umask($u);
 

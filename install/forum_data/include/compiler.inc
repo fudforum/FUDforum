@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.61 2004/07/09 23:07:59 hackie Exp $
+* $Id: compiler.inc,v 1.64 2004/10/06 18:55:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -466,32 +466,6 @@ function fud_mkdir($dir, $perms=0700)
 	}
 }
 
-if (!function_exists('glob')) {
-function glob($str)
-{
-	$dir = dirname($str);
-	$match = '!' . ltrim(str_replace($dir, '', $str), '/\\') . '$!';
-	$match = str_replace(array('.', '*'), array('\\.','.*'), $match);
-	$list = array();
-
-	$d = opendir($dir);
-	readdir($d); readdir($d);
-
-	while (($f = readdir($d))) {
-		if (!preg_match($match, $f)) {
-			continue;
-		}
-		$list[] = $dir . '/' . $f;
-	}
-
-	closedir($d);
-
-	sort($list);
-
-	return $list;
-}
-}
-
 function compile_all($tset='default', $lang='english', $tname='default')
 {
 	$oldmask = umask(0133);
@@ -594,7 +568,7 @@ class cmpl_local_theme
 	var $lang;
 }
 
-function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
+function fudcopy($src, $dest, $mask='*', $recur=false)
 {
 	$src = preg_replace('!/*$!', '', $src);
 	$dest = preg_replace('!/*$!', '', $dest);
@@ -603,33 +577,43 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
 	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
 		$perms = 0644;
 	}
+	$dperm = $perms == 0600 ? 0700 : 0755;
 
-	if (!($dp = opendir($src))) {
-		echo 'Cannot open directory "'.$src.'"<br>';
-		return;
-	}
-	readdir($dp); readdir($dp);
-	while ($de = readdir($dp)) {
-		if (!preg_match($mask, $de, $regs)) {
+	$dirs = array($src);
+	while (list(,$v) = each($dirs)) {
+		if (is_link($v)) {
 			continue;
 		}
-		$path = $src . '/' . $de;
-		$nd = $dest . '/' . $de;
-
-		if (@is_dir($path) && $recur == true) {
-			if (!@is_dir($nd) && !@mkdir($nd, 0777)) {
-				exit('can\'t mkdir ('.$nd.')<br>');
-			}
-			fudcopy($path, $nd, $mask, true);
-		} else {
-			if (!@copy($path, $nd) && !@file_exists($nd)) {
-				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
-			} else {
-				@chmod($nd, $perms);
-			}
+	
+		if (!is_readable($v)) {
+			echo 'Cannot open directory "'.$v.'"<br>';
+			return;
 		}
+
+		if (!($files = glob($v . '/' . $mask, GLOB_BRACE))) {
+			continue;
+		}
+
+		foreach ($files as $file) {
+			$d = $dest . '/' . str_replace($src, '', $v) . '/' . basename($file);
+		
+			if (is_dir($file)) {
+				if (!mkdir($d)) {
+					echo "Cannot create directory '".$d."'<br>";
+					return;
+				}
+				chmod($d, $dperm);
+				$dirs[] = $file;
+				continue;
+			}
+	
+			if (!@copy($file, $d) && !@file_exists($d)) {
+				echo 'cannot copy "'.$file.'" to "'.$d.'"<br>';
+			} else {
+				@chmod($d, $perms);
+			}
+		}		
 	}
-	closedir($dp);
 }
 
 function copyimages($thm)
@@ -640,15 +624,15 @@ function copyimages($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 
 	if ($thm->theme != 'default') {
 		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
-			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
+			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
 		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img')) {
-			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '{*.jpg,*.gif,*.png,*.jpeg}');
 		}
 	}
 
@@ -678,23 +662,25 @@ function copyhelp($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
-	$path .= '/';
-	$dp = opendir($src);
-	$src .= '/';
-	readdir($dp); readdir($dp);
-	while ($de = readdir($dp)) {
-		if (!@is_file($src . $de) || substr($de, -4) != '.hlp') {
-			continue;
-		}
-		if (!($fp = fopen($path . $de, 'wb'))) {
-			exit('Failed to write to: '.$path . '/' . $de.'<br>');
-		}
-		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), array($rp, $GLOBALS['WWW_ROOT']), file_get_contents($src . $de)));
-		fclose($fp);
-		@chmod($src . $de, $perms);
-	}
-	closedir($dp);
 
+	$path .= '/';
+
+	$files = glob($src . '/*.hlp');
+	if (!$files) {
+		exit("Failed to find help files inside '{$src}'");
+	}
+	foreach ($files as $file) {
+		$de = basename($file);
+		if (!($fp = fopen($path . $de, 'wb'))) {
+			exit('Failed to write to: '.$path . $de.'<br>');
+		}
+		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), 
+					array($rp, $GLOBALS['WWW_ROOT']), 
+					file_get_contents($file))
+		);
+		fclose($fp);
+		@chmod($file, $perms);
+	}
 	umask($u);
 }
 ?>
