@@ -21,13 +21,13 @@
 	$INCLUDE 		= "";
 	$WWW_ROOT 		= "";
 	$WWW_ROOT_DISK		= "";
-	$TEMPLATE_DIR		= "";
+	$DATA_DIR		= "";
 	$ERROR_PATH 		= "";
 	$MSG_STORE_DIR		= "";
 	$TMP			= "";
 	$FILE_STORE		= "";
 	$FORUM_SETTINGS_PATH 	= "";
-		
+
 	$MOGRIFY_BIN		= "";
 	
 	$LANGUAGE		= "english";
