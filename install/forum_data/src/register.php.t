@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.11 2002/07/25 19:12:07 hackie Exp $
+*   $Id: register.php.t,v 1.12 2002/07/30 14:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,9 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Register Page */
-	
-	include_once "GLOBALS.php";	
 	{PRE_HTML_PHP}
 	$usr = fud_user_to_reg($usr);
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.2 2002/07/08 23:15:18 hackie Exp $
+*   $Id: email.php.t,v 1.3 2002/07/30 14:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,8 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Email Composition Form */
-	include_once "GLOBALS.php";	
 	{PRE_HTML_PHP}
 
 	if ( empty($usr->id) ) std_error('login');
