@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.11 2002/11/21 21:42:45 hackie Exp $
+#   $Id: fud_users.tbl,v 1.12 2003/01/08 23:17:05 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -91,7 +91,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	bio			TEXT,
 	cat_collapse_status	TEXT,
 	acc_status		VARCHAR(1) NOT NULL DEFAULT 'A',
-	CONSTRAINT		acc_status_cnt CHECK (acc_status='A' OR acc_status='P'),
+	CONSTRAINT		acc_status_cnt CHECK (acc_status='A' OR acc_status='P')
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_index_login ON {SQL_TABLE_PREFIX}users (login);
