@@ -1,0 +1,16 @@
+Otworzy okienko do tworzenia g³osowañ wewn±trz wiadomo¶ci.
+
+Pozwalaj± one stworzyæ pytanie oraz listê dostêpnych odpowiedzi.
+<br>
+Przyk³adowe g³osowanie wygl±da nastêpuj±co:
+<center>
+<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<form method="post"><input type="hidden" name="rid" value="2">
+<tr class="TableHeading">
+	<td nowrap colspan=3>Tak czy nie?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 votes ]</font></td></tr>
+	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Tak</td></tr>
+	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Nie</td></tr>
+	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Mo¿e</td></tr>
+	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="G³osuj"> </td></tr>
+</table>
+</center>

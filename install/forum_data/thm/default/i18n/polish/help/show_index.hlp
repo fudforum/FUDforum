@@ -1,0 +1,22 @@
+System filtrowania wiadomo¶ci, który pozwala Ci widzieæ wiadomo¶ci
+wed³ug wybranych kryteriów.
+
+S± trzy mo¿liwe sposoby filtrowania wiadomo¶ci:<br>
+<ul>
+<li>Dzisiejsze wiadomo¶ci
+<li>Nieprzeczytane wiadomo¶ci (dostêpne tylko dla zarejestrowanych u¿ytkowników)
+<li>Bez odpowiedzi
+</ul>
+
+Dzisiejsze wiadomo¶ci poka¿e tylko wiadomo¶ci napisane dzisiaj, czyli miêdzy godzin± 00:00 a 23:59.
+<br><br>
+Nieprzeczytane wiadomo¶ci poka¿e wszystkie wiadomo¶ci, których nie przeczyta³e¶ w ca³ym forum.
+<br><br>
+Bez odpowiedzi poka¿e wiadomo¶ci, na które nigdy nie odpowiedziano.
+<br><br>
+Wszystkie te opcje mo¿na uruchamiaæ aby funkcjonowa³y jednocze¶nie, dlatego
+zwracaj uwage na to, które zaznaczasz. Je¶li wybierzesz Dzisiejsze wiadomo¶ci
+a nastêpnie Nieprzeczytane wiadomo¶ci, zobaczysz wszystkie nieprzeczytane
+wiadomo¶ci napisane w dniu dzisiejszym. Po wybraniu Dzisiejsze wiadomo¶ci
+ponownie zobaczysz ju¿ tylko wiadomo¶ci, które nie zosta³y przeczytane (tak¿e
+z innych dni).
