@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.98 2003/11/06 01:43:02 hackie Exp $
+* $Id: register.php.t,v 1.99 2003/11/06 01:47:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 function create_theme_select($name, $def=null)
 {
 	$theme_select_values = '';
-	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY id ASC");
+	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
 	while ($t = db_rowarr($r)) {
 		$selected = $t[0] == $def ? ' selected' : '';
 		$theme_select_values .= '{TEMPLATE: theme_select_value}';
