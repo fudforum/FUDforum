@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
+*   $Id: login.inc,v 1.3 2003/02/01 19:27:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,7 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	fud_use('db.inc');
 	
 class fud_login_block
 {
