@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.42 2004/06/07 15:31:36 hackie Exp $
+* $Id: pmsg.php.t,v 1.43 2004/06/11 14:37:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,10 +35,7 @@
 
 	/* moving or deleting a message */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
-		$sel = isset($_POST['sel']) ? $_POST['sel'] : $_GET['sel'];
-		if (!is_array($sel)) {
-			$sel = array($sel);
-		}
+		$sel = isset($_POST['sel']) ? (array)$_POST['sel'] : (array)$_GET['sel'];
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;
 		foreach ($sel as $m) {
 			if ($move_to) {
