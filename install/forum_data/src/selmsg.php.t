@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.29 2003/05/19 10:50:35 hackie Exp $
+*   $Id: selmsg.php.t,v 1.30 2003/06/02 15:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,9 +21,30 @@ function ifstr($opt1, $opt2, $str)
 {	
 	return (strlen($str) ? $opt1 : $opt2);
 }
+
 function valstat($a)
 {
 	return ($a ? '{TEMPLATE: status_indicator_on}' : '{TEMPLATE: status_indicator_off}');
+}
+
+function path_info_lnk($var, $val)
+{
+	$a = $_GET;
+	unset($a['rid'], $a['S'], $a['t']);
+	if (isset($a[$var])) {
+		unset($a[$var]);
+		$rm = 1;
+	}
+	$url = '/sel';
+
+	foreach ($a as $k => $v) {
+		$url .= '/' . $k . '/' . $v;
+	}
+	if (!isset($rm)) {
+		$url .= '/' . $var . '/' . $val;
+	}
+
+	return $url . '/' . _rsid;
 }
 	
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
@@ -73,21 +94,31 @@ function valstat($a)
 	}
 
 	/* date limit */
-	$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
+	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+		$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
+		$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
+	} else {
+		$dt_opt = path_info_lnk('date', '1');
+		$rp_opt = path_info_lnk('reply_count', '0');	
+	}
+	
 	$s_today = valstat(isset($_GET['date']));
- 
 	/* reply limit */
-	$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
 	$s_unu = valstat(isset($_GET['reply_count']));
 	
 	if (_uid) {
-		$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
+		if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+			$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
+			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
+			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
+		} else {
+			$un_opt = path_info_lnk('unread', '1');
+			$frm_opt = path_info_lnk('sub_forum_limit', '1');
+			$th_opt =path_info_lnk('sub_th_limit', '1');
+		}
+
 		$s_unread = valstat(isset($_GET['unread']));
-	
-		$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
 		$s_subf = valstat(isset($_GET['sub_forum_limit']));
-	
-		$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
 		$s_subt = valstat(isset($_GET['sub_th_limit']));
 
 		$subscribed_thr = '{TEMPLATE: subscribed_thr}';

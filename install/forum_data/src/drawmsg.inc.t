@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.48 2003/05/18 08:52:27 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.49 2003/06/02 15:26:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,11 @@ if (isset($_GET['rev'])) {
 	foreach ($tmp as $v) {
 		$GLOBALS['__FMDSP__'][$v] = 1;
 	}
-	define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
+	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
+	} else {
+		define('reveal_lnk', '/' . $_GET['rev']);
+	}
 } else {
 	define('reveal_lnk', '');
 }
@@ -65,7 +69,11 @@ if (_uid) {
 				$usr->ignore_list[$v] = 0;
 			}
 		}
-		define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
+		if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+			define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
+		} else {
+			define('unignore_tmp', '/' . $_GET['reveal']);
+		}
 	} else {
 		define('unignore_tmp', '');
 	}
@@ -78,23 +86,66 @@ if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
-$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
+if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
+} else {
+	$_SERVER['QUERY_STRING_ENC'] = $_SERVER['QUERY_STRING'];
+}
 
 function make_tmp_unignore_lnk($id)
 {
-	if (!isset($_GET['reveal'])) {
-		return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
+	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+		if (!isset($_GET['reveal'])) {
+			return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
+		} else {
+			return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		}
 	} else {
-		return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
+		$p[3] = $_GET['start'];
+		if (empty($_GET['reveal'])) {
+			if ($p[4] === 'prevloaded') {
+				$p[6] = $id; 
+			} else {
+				$p[5] = $id;
+			}
+		} else {
+			if ($p[4] === 'prevloaded') {
+				$p[6] = unignore_tmp . ':' . $id; 
+			} else {
+				$p[5] = unignore_tmp . ':' . $id;
+			}
+		}
+		return '/' . implode('/', $p) . '/';
 	}
 }
 
 function make_reveal_link($id)
 {
-	if (!isset($GLOBALS['__FMDSP__'])) {
-		return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
+	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+		if (!isset($GLOBALS['__FMDSP__'])) {
+			return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
+		} else {
+			return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		}
 	} else {
-		return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
+		$p[3] = $_GET['start'];
+
+		if (!isset($GLOBALS['__FMDSP__'])) {
+			if ($p[4] === 'prevloaded') {
+				$p[5] = $id; 
+			} else {
+				$p[4] = $id;
+			}
+		} else {
+			if ($p[4] === 'prevloaded') {
+				$p[5] = reveal_lnk . $id; 
+			} else {
+				$p[4] = reveal_lnk . $id;
+			}
+		}
+		return '/' . implode('/', $p) . '/';
 	}
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.34 2003/05/29 13:04:20 hackie Exp $
+*   $Id: index.php.t,v 1.35 2003/06/02 15:26:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@ function reload_collapse($str)
 		return;
 	}
 	do {
-		list($key, $val) = explode(':', $tok);
+		@list($key, $val) = explode(':', $tok);
 		if ((int) $key) {
 			$GLOBALS['collapse'][(int) $key] = (int) $val;
 		}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.23 2003/05/26 11:15:04 hackie Exp $
+*   $Id: root_index.php.t,v 1.24 2003/06/02 15:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,10 +17,6 @@
 
 	require('./GLOBALS.php');
 
-	if ($USE_PATH_INFO == 'Y' && !empty($_SERVER['PATH_INFO'])) {
-		fud_use('path_info.inc');
-	}
-
 	if ($PHP_COMPRESSION_ENABLE == 'Y') {
 		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 	}
@@ -32,7 +28,7 @@
 
 	/* before we go on, we need to do some very basic activation checks */
 	if ($FORUM_ENABLED != 'Y') {
-		fud_use('cfg.inc', TRUE);
+		fud_use('cfg.inc', true);
 		fud_use('errmsg.inc');
 		exit(cfg_dec($DISABLED_REASON) . __fud_ecore_adm_login_msg);
 	}

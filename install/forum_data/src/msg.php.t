@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.40 2003/05/26 13:31:46 hackie Exp $
+*   $Id: msg.php.t,v 1.41 2003/06/02 15:26:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 
 	if (isset($_GET['th'])) {
-		$_GET['th'] = (int) $_GET['th'];
+		$th = $_GET['th'] = (int) $_GET['th'];
 	}
 	if (isset($_GET['goto']) && $_GET['goto'] !== 'end') {
 		$_GET['goto'] = (int) $_GET['goto'];
