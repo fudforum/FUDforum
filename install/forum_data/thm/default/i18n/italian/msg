@@ -317,7 +317,6 @@ register_show_email_desc:	Seleziona questa opzione se vuoi che il tuo indirizzo 
 register_notification:		Seleziona la notifica di default:
 register_notification_desc:	Se la notifica &egrave; abilitata di default, pu&ograve; essere disabilitata durante la scrittura di un messaggio.
 register_notify_method:		Seleziona il metodo di notifica:
-register_notify_method_desc:	Se desideri ricevere le notifiche via ICQ assicurati di abilitare &#39;EmailExpress&#39; nelle impostazioni di ICQ
 register_notify_js_error:	Hai selezionato la notifica via ICQ, ma non hai specificato un numero di ICQ. Imposto come default Email&#46;
 register_allow_email_msg:	Consenti messaggi email:
 register_allow_email_msg_desc:	Consenti ad altri utenti di inviarti messaggi email tramite il forum (questo non render&agrave; pubblico il tuo indirizzo).
@@ -474,8 +473,6 @@ mklist_disc:			Arco
 mklist_circle:			Cerchio
 mklist_close:			Chiudi
 email_to:			A:
-email_name:			Nome:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Oggetto:
 email_body:			Messaggio:
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	Il sistema di invio email &egrave; stato disabilita
 email_error_unabletolocaddr:	Il sistema non &egrave; in grado di inviare un&#39;email all&#39;utente {VAR-HTML: usr_dst->login} poich&egrave; non &egrave; in grado di trovare il suo indirizzo di posta elettronica
 email_error_body:		Il campo testo &egrave; obbligatorio
 email_error_subject:		Oggetto &egrave; obbligatorio
-email_error_emailrequired:	Email &egrave; obbligatorio
-email_error_invalidaddress:	Indirizzo email non valido
 email_error_namerequired:	Nome &egrave; obbligatorio
 email_error_invaliduser:	Utente non corretto
 emailconf_err_invkey_title:	Errore
@@ -552,12 +547,9 @@ finduser_update:		Cerca utenti
 help_index_update:		Legge le <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nuova risposta a {VAR: thr_subject} da parte di {VAR: poster_login}
 iemail_thr_bodyemail:		Per visualizzare le risposte non lette vai a {VAR: goto_url['email']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate su questo argomento, fai click qui: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Per visualizzare le reply non lette vai a\n{VAR: goto_url['icq']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate su questo argomento, clicca qui:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nuovo argomento nel forum {VAR: frm_name} intitolata {VAR: thr_subject} di {VAR: poster_login}
 iemail_frm_bodyemail:		Per visualizzare l&#39;argomento vai a:\n{VAR: goto_url['email']}\n\nPer non ricevere pi&ugrave; notifiche circa nuovi post in questo forum, clicca qui: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Per visualizzare l&#39;argomento vai a:\n{VAR: goto_url['icq']}\n\nPer non ricevere pi&ugrave; notifiche circa nuovi post in questo forum, clicca qui:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Informazioni
-ignore_list_err_noign_msg:	Non puoi ignorare questo utente
 ignore_list_err_dup_msg:	Hai gi&agrave; inserito questo utente nella tua lista di utenti da ignorare
 ignore_list_err_nu_title:	Utente non trovato
 ignore_list_err_nu_msg:		L&#39;utente che hai cercato di inserire nella ignore list non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
@@ -566,26 +558,18 @@ ignore_list_update:		Sfoglia la propria ignore list
 index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}">elenco dei forum</a>
 list_referers_update:		Sfoglia le segnalazioni
 login_update:			Pagina di login
-msg_err_ininfo_title:		Informazioni non sufficienti
-msg_err_ininfo_msg:		C&#39;&egrave; stato un problema nella generazione di questa pagina
 msg_update:			Sfoglia l&#39;argomento <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRORE: Messaggi personali disabilitati
 pm_err_nopm_msg:		Non puoi usare i messaggi personali, sono stati disabilitati dall&#39;amministratore.
 pm_update:			Legge/Scrive i messaggi personali
-post_err_notallowed_title:	Permesso negato
-post_err_notallowed_msg:	Non sei autorizzato a postare messaggi
 post_err_lockedthread_title:	ERRORE: Argomento chiuso
 post_err_lockedthread_msg:	Questo argomento &egrave; chiuso, non &egrave; pi&ugrave; possibile inserire messaggi
 err_coppa_title:		ERRORE: il tuo account non &egrave; stato ancora confermato
 err_coppa_msg:			Non abbiamo ricevuto una conferma dai tuoi genitori e/o tutori legali, la quale ti permetterebbe di inserire messaggi. Se hai perso il modulo COPPA (Children&#39;s Online Privacy Protection Act) <a href="{TEMPLATE: err_coppa_msg_lnk}">fai click qui</a> per ottenerlo
 err_blockedaccnt_title:		ERRORE: non sei autorizzato a postare messaggi
 err_blockedaccnt_msg:		A questo account &egrave; stata impedita la possibilit&agrave; di scrivere messaggi
-post_err_notowner_title:	ERRORE
-post_err_notowner_msg:		Non sei l&#39;autore di questo messaggio
 post_err_edttimelimit_title:	ERRORE
 post_err_edttimelimit_msg:	Non puoi pi&ugrave; modificare questo messaggio
-post_err_noreplying_title:	ERRORE: non &egrave; permesso rispondere a messaggi
-post_err_noreplying_msg:	Non puoi rispondere su questo argomento, perch&egrave; si tratta o di un announcement o di un messaggio al quale il moderatore ha bloccato la possibilit&agrave; di inserire ulteriori risposte.
 post_err_floodtrig_title:	ERRORE: &egrave; attivo il controllo sui messaggi.
 post_err_floodtrig_msg:		Per cortesia, riprova tra {VAR: tm} secondi
 post_err_attach_size:		<font class="ErrorText">Il file allegato &egrave; troppo grande (supera il limite consentito di {VAR: MAX_F_SIZE} byte)</font><br>
@@ -597,7 +581,6 @@ post_topic_update:		Scrive un nuovo argomento in <a href="{TEMPLATE: post_topic_
 post_error_generic:		Si &egrave; verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario
-postcheck_not_allowed_file:	Questo tipo di file non &egrave; ammesso
 postcheck_no_such_user:		Non c&#39;&egrave; alcun utente "{VAR-HTML: v}" in questo forum
 postcheck_ignored:		Non puoi spedire un messaggio personale a "{VAR-HTML: v}", perch&egrave; questo utente ha deciso di ignorarti.
 postcheck_no_recepient:		Non &egrave; possibile inviare il messaggio, manca il destinatario
@@ -629,8 +612,6 @@ register_profile_update:	Guarda il suo profilo
 register_register_update:	Pagina di registrazione
 report_err_nosuchmsg_title:	ERRORE
 report_err_nosuchmsg_msg:	Nessun messaggio
-report_err_cantreport_title:	ERRORE
-report_err_cantreport_msg:	Non hai il permesso di segnalare messaggi al moderatore
 reset_err_invalidkey_title:	ERRORE
 reset_err_invalidkey_msg:	Password di reimpostazione chiave non valida
 reset_err_rstconf_title:	Informazioni
@@ -642,28 +623,21 @@ search_update:			Cerca negli argomenti
 selmsg_update:			Sfoglia <a href="{TEMPLATE: selmsg_update_lnk}">Messaggi odierni</a>
 showposts_update:		Visualizza messaggi per: <a href="{TEMPLATE: showposts_update_lnk}">{VAR-HTML: u->login}</a>
 subscribed_update:		Sfoglia le proprie sottoscrizioni
-th_err_invid_title:		Argomento non valido
-th_err_invid_msg:		Hai seguito un link non valido; l&#39;argomento che stai cercando di aprire non esiste
 thread_update:			Legge il forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Legge l&#39;argomento (vista ad albero) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Guarda il profilo di <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Opzione non attiva
 ERR_disabled_msg:		Questa opzione &egrave; stata disabilitata dall&#39;amministratore
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ERRORE: permessi non sufficienti
 ERR_access_msg:			Non disponi dei permessi necessari per eseguire questa azione
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova pi&ugrave; tardi
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non &egrave; stato confermato
 ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clicca qui<li>Se {VAR: usr_d->email} non &egrave; il tuo indirizzo di posta elettronica <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERRORE: Errore di sistema
 ERR_systemerr_msg:		Se &egrave; verificato un errore di sistema, per cortesia segnalalo all&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">amministratore</a>.
-ERR_systemerr_url:		
 email_title:			Email
 finduser_title:			Trova utenti
 help_title:			F.A.Q.
@@ -759,7 +733,6 @@ pm_no_space_msg:		Le tue cartelle di messaggi privati hanno superato la quota li
 pm_space_indct_msg:		Le tue cartelle di MP sono piene al {VAR: percent_full}%.
 th_expr_never:			Mai
 th_expr_one_hr:			1 Ora
-th_expr_two_hr:			2 Ore
 th_expr_three_hr:		3 Ore
 th_expr_four_hr:		4 Ore
 th_expr_eight_hr:		8 Ore
@@ -822,10 +795,6 @@ p_VISIBLE:			Visibile
 reported_in_thread:		Nell&#39;argomento
 help_back_to_top:		torna all&#39;inizio
 help_return_to_index:		Torna all&#39;indice
-forumsel_unread:		*(NON LETTO)
-groupmgr_no_groups:		Nessun gruppo da modificare
-msg_err_nosuchmsg_msg:		Non ci sono messaggi in questo argomento
-msg_err_nosuchmsg_title:	Errore
 imsg_err_message_title:		Messaggio non valido
 imsg_err_message_msg:		Il messaggio che stai cercando di visualizzare non esiste.
 poll_edit:			Modifica
@@ -851,7 +820,6 @@ post_proceed:			Procedi
 post_moderated_forum:		Hai scritto un messaggio in un forum moderato, il che vuol dire che il tuo messaggio non sar&agrave; reso pubblico fino a quando uno dei moderatori non l&#39;avr&agrave; approvato.
 post_moderated_forum_ttl:	Avviso: forum moderato
 buddy_list_bday:		Oggi {VAR: r[2]} compie {VAR: age} anni!!! AUGURI!!!
-fud_query_stats:		Le interrogazioni sul db hanno richiesto {VAR: ttl_time} secondi<br>
 pmsg_recepient:			Destinatario
 register_err_taken_alias:	Username gi&agrave; utilizzato
 register_alias:			Alias
