@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.4 2002/07/24 15:17:38 hackie Exp $
+*   $Id: maillist.php,v 1.5 2002/07/24 15:18:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -519,7 +519,13 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	
 	$msg_post = new fud_msg_edit;
 	$msg_post->body = apply_custom_replace($emsg->body);
-	if( $mlist->allow_mlist_html == 'N' && $frm->tag_style == 'ML' ) $msg_post->body = tags_to_html($msg_post->body, 'N');
+	if( $mlist->allow_mlist_html == 'N' ) {
+		if( $frm->tag_style == 'ML' ) 
+			$msg_post->body = tags_to_html($msg_post->body, 'N');
+		else 
+			$msg_post->body = nlb2r($msg_post->body);	
+	}	
+		
 	fud_wordwrap($msg_post->body);
 	$msg_post->subject = addslashes(htmlspecialchars(apply_custom_replace($emsg->subject)));
 	$msg_post->poster_id = intzero($emsg->match_user_to_post());
