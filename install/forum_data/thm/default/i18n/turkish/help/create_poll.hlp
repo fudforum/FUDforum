@@ -1,17 +1,18 @@
-Will bring up the poll creator which allows you to create
-polls inside your posts.
+Ýletilerinizin içinde anketler yaratabilmenize olanak tanýyan anket
+yaratýcýsýný çalýþtýrýr.
 
-Polls allow you to make "voting booths":
+
+Anketler size oylama panolarý oluþturma olanaðý verir:
 <br>
-They look like:
+Görünümleri þu þekildedir:
 <center>
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
 <form method="post"><input type="hidden" name="rid" value="2">
 <tr class="TableHeading">
-	<td nowrap colspan=3>Yes or no?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 votes ]</font></td></tr>
-	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Yes</td></tr>
-	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;No</td></tr>
-	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Maybe</td></tr>
+	<td nowrap colspan=3>Evet mi Hayýr mý?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 oy ]</font></td></tr>
+	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Evet</td></tr>
+	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Hayýr</td></tr>
+	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Olabilir</td></tr>
 	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="Vote"> </td></tr>
 </table>
 </center>

@@ -1,4 +1,4 @@
-action:				Action
+action:				Eylem
 add_to_buddy_list:		Arkadaþ listesine ekle
 admin:				Yönetici
 admin_control_panel:		Yönetici Denetim Masasý
@@ -104,8 +104,8 @@ poll:				Oylama:
 post_count:			Ýleti Sayýsý {VAR: u->posted_msg_count}
 post_count_l:			Ýleti Sayýsý:
 poster:				Gönderen
-posts:				Ýletiler
-posts_c:			Ýletiler:
+posts:				Ýleti Sayýsý
+posts_c:			Ýleti Sayýsý:
 prev_thread:			Önceki Zincir:
 usrinfo_private_message:	Özel Ýleti:
 profile:			Kiþisel Bilgiler
@@ -217,8 +217,8 @@ referals_action:		Eylem
 pmsg_all:			tümü
 pmsg_none:			hiçbiri
 folder:				Klasör:
-pmsg_replied:			cevaplanmýþ
-pmsg_forwarded:			yönlendirilmiþ
+pmsg_replied:			cevaplandý
+pmsg_forwarded:			yönlendirildi
 pmsg_subject:			Konu
 pmsg_author:			Gönderen
 pmsg_time:			Tarih
@@ -271,7 +271,7 @@ pmuserloc_email:		E-mektup:
 pmuserloc_submit:		Yolla
 pmuserloc_user:			Kullanýcý
 pmuserloc_no_result:		Sonuç Yok
-register_builtin:		Built In
+register_builtin:		Kurulu
 register_specify_url:		URL Belirt
 register_uploaded:		Avatar Yükle
 register_login:			Kullanýcý Ýsmi:
@@ -285,7 +285,7 @@ register_avatar_type:		Avatar Tipi:
 register_del_avatar:		Avatarý Sil
 register_avatar:		Avatar:
 register_sel_avatar:		Avatar Seçimi
-register_custom_avatar_rules:	Özel avatar yönetici tarafýndan onaylanýncaya dek görünmeyecek.<br><font class="SmallText">Avatar, <b>{VAR: GLOBALS['CUSTOM_AVATAR_MAX_DIM']} piksel </b> boyutundan daha büyük olmamalý ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalý.</font>
+register_custom_avatar_rules:	Özel avatar yönetici tarafýndan onaylanýncaya dek görünmeyecek.<br><font class="SmallText">Avatar, <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel </b> boyutundan daha büyük olmamalý ve <b>jpg</b>, <b>gif</b> veya <b>png</b> biçiminde olmalý.</font>
 register_custom_avatar_url:	Özel Avatar URL\'si:
 register_preview:		Önizleme
 register_custom_avatar_upload:	Özel Avatar Dosyasý:
@@ -353,7 +353,7 @@ edit_message:			Ýletiyi Düzelt
 apply_spell_changes:		Yazým Deðiþikliklerini Uygula
 post_preview:			Ýleti Önizleme
 post_logedin_user:		Giriþ yapýlan kullanýcý:
-post_logout:			Çýk
+post_logout:			Çýkýþ yap
 post_passwd:			Ýleti Parolasý:
 post_poll:			Anket:
 post_create_poll:		ANKET YARAT
@@ -499,7 +499,7 @@ email_subject:			Konu:
 email_body:			Gövde:
 email_submit:			Gönder
 ppost_quote_msg:		{VAR-HTML: msg_r->login} kullanýcýsý , {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
-ppost_quote:			Aktar:
+ppost_quote:			Alýntýla:
 ppost_to:			Kime:
 ppost_from_buddy_list:		Arkadaþ listesinden seç
 ppost_find_User:		Kullanýcý Bul
@@ -621,7 +621,7 @@ post_reply_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}
 post_edit_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
 post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a> forumunda yeni tartýþma açýyor.
 post_error_generic:		Bir hata oluþtu
-postcheck_max_images_err:	Ýleti baþýna en fazla {VAR: GLOBALS['MAX_IMAGE_COUNT']} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
+postcheck_max_images_err:	Ýleti baþýna en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
 postcheck_subj_needed:		Konu bölümü zorunlu
 postcheck_not_allowed_file:	Bu dosya tipine izin verilmiyor.
 postcheck_no_such_user:		Bu forumda "{VAR-HTML: v}" isminde bir kullanýcý yok.
@@ -644,12 +644,12 @@ register_err_needname:		Bu kaydý baþarýyla tamamlayabilmek için isminizi girmeli
 register_err_enterpasswd:	Deðiþiklikleri tamamlayabilmek için þu andaki parolanýzý girmelisiniz.
 register_err_adminpasswd:	Deðiþiklikleri tamamlayabilmek için YÖNETÝCÝ parolanýzý girmelisiniz.
 register_err_notyouremail:	Birisi bu e-mektup ile daha önce kaydolmuþ, fakat bu birisi siz DEÐÝLSÝNÝZ.
-register_err_avatartobig:	Yüklemeye çalýþtýðýnýz dosya izin verilenden daha büyük. Ýzin verilen sýnýr: {VAR: GLOBALS['CUSTOM_AVATAR_MAX_SIZE']} b
+register_err_avatartobig:	Yüklemeye çalýþtýðýnýz dosya izin verilenden daha büyük. Ýzin verilen sýnýr: {GVAR: CUSTOM_AVATAR_MAX_SIZE} b
 register_err_avatarnotallowed:	Yüklemeye çalýþtýðýnýz avatara izin verilmiyor. Ýzin verilen dosya tiplerini gözden geçirin.
 register_conf_subject:		Kayýt Doðrulama
 register_conf_msg:		Kayýt olduðunuz için teþekkürler,\nHesabýnýzý etkinleþtirmek için lütfen aþaðýdaki URL\'ye gidin:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nBir kez hesabýnýz etkineþti mi foruma giriþ yapacak ve \nforumun ana sayfasýna yönlendirileceksiniz.
 register_welcome_subject:	Forum Kayýt Doðrulama
-register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {VAR: GLOBALS['WWW_ROOT']}\nKullanýcý ismi: {VAR: usr->login}\nParola: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{ROOT}?t=register\n
+register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}index.php\nKullanýcý ismi: {VAR: usr->login}\nParola: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{ROOT}?t=register\n
 register_err_cantreg_title:	HATA: kayýt olunamadý
 regsiter_err_cantreg_msg:	Kullanýcý hesabý yaratýlamadý, lütfen yönetici ile iletiþime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Kiþisel bilgilerini görüntülüyor
@@ -677,26 +677,26 @@ thread_update:			<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}"
 tree_update:			<a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
 userinfo_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_login_ttl:			HATA: Giriþ yapmamýþ durumdasýnýz			
-ERR_login_msg:			Lütfen giriþ yapýn.<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&{VAR: GLOBALS['_rsid']}">kayýt formunu</a> kullanabilirsiniz<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&{VAR: GLOBALS['_rsid']}">giriþ formunu</a> kullanýn.
+ERR_login_msg:			Lütfen giriþ yapýn.<br><br>Kayýt olmak isterseniz <a href="{ROOT}?t=register&{DEF: _rsid}">kayýt formunu</a> kullanabilirsiniz<br>Giriþ yapmak istiyorsanýz lütfen <a href="{ROOT}?t=login&{DEF: _rsid}">giriþ formunu</a> kullanýn.
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		Engellenmiþ Özellik
 ERR_disabled_msg:		Bu özellik sistem yöneticisi tarafýndan engellenmiþ durumda.
-ERR_disabled_url:		{VAR: GLOBALS['HTTP_REFERER']}?{VAR: GLOBALS['_rsid']}
+ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_access_ttl:			HATA: Yetersiz Eriþim Ýzni
 ERR_access_msg:			Yapmak istediðiniz için yeterli eriþim iznine sahip deðilsiniz.
-ERR_access_url:			{VAR: GLOBALS['HTTP_REFERER']}?{VAR: GLOBALS['_rsid']}
+ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
-ERR_registration_disabled_url:	{VAR: GLOBALS['WWW_ROOT']}?{VAR: GLOBALS['_rsid']}
+ERR_registration_disabled_url:	{GVAR: WWW_ROOT}index.php?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
-ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{VAR: GLOBALS['_rsid']}">buraya týklayýn<li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{VAR: GLOBALS['_rsid']}">buraya týklayýn</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn<li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
-ERR_user_url:			{VAR: GLOBALS['HTTP_REFERER']}&{VAR: GLOBALS['_rsid']}
+ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		HATA: Sistem Hatasý
-ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{VAR: GLOBALS["ADMIN_EMAIL"]}">webmaster\'a</a> bildirin.
-ERR_systemerr_url:		{VAR: GLOBALS['returnto_d']}
+ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster\'a</a> bildirin.
+ERR_systemerr_url:		{GVAR: returnto_d}
 email_title:			E-mektup Formu
 finduser_title:			Kullanýcý Bul
 help_title:			S.S.S.
@@ -712,7 +712,7 @@ search_title:			Aranacak sözcükler {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: thread->subject}
 remail_emailsent:		E-mektup gönderildi
-remail_email:			{VAR: GLOBALS["FORUM_TITLE"]} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: thread->subject}" konulu zincire buradan ulaþabilirsin:\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\nGönderen: {VAR: u}\n
+remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: thread->subject}" konulu zincire buradan ulaþabilirsin:\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\nGönderen: {VAR: u}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
 post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode AÇIK</a></b>

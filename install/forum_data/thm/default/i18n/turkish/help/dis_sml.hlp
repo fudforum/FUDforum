@@ -1,5 +1,6 @@
-<center>Disable Smilies</center>
-Will disable smilies in the post, this is useful if you 
-need to use the character combinations such as: :), :P.
-Normally they will be interpreted as smilies, but if you want 
-them appear as they are enable this option. 
+<center>Gülücükleri Kapat</center>
+Ýletideki gülücük simgelerinin engellenmesini saðlar. Bunun yararý
+gülücükleri simgeleyen :) :P gibi karakter kombinasyonlarýný baþka amaçlarla
+kullanabilmenize olanak tanýmasýdýr. Olaðan olarak bu kombinasyonlar gülücük
+olarak deðerlendirilir ve karþýlýk gelen simgelerle deðiþtirilir. Bu karakterlerin
+olduklarý gibi görünmelerini istiyorsanýz bu seçeneði kullanabilirsiniz.

@@ -1,230 +1,253 @@
-TOPIC_TITLE: <a name="style">How to format text?</a>
+TOPIC_TITLE: <a name="style">Metin biçimlendirmesi nasýl yapýlýr?</a>
 TOPIC_HELP:
-Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold,italics,etc...
+Genel olarak forumdaki iletiler düz metinden oluþur, bununla birlikte zaman zaman metni
+biçimlendirmek isteyebilirsiniz, örnegin bazý bölümleri veya sözcükleri kalýn, yatýk yapmak vb.
 <p>
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
+Çoðu durumda yönetici iletilerinizde HTML kullanmanýza izin vermeyeceði için, FUDcode kullanmanýz gerekebilir.
+FUDcode, metninizi biçimlendirmenizi saðlayan ve HTML yerine kullanabileceðiniz takýlarý içerir. FUDcode kullanýmý
+çok kolaydýr, ve HTML'ye göre çok daha güvenlidir.
 <p>
-<b>Here is a list of the supported FUDcode tags & short examples on it's usage</b>
+<b>Ýþte desteklenen FUDcode takýlarý ve kullaným hakkýnda kýsa örnekler:</b>
 
-<b>URL Hyperlinking</b><br><br>
+<b>URL linkleri</b><br><br>
 
-The forum can automatically pick up on many forms of URLs, for example:<br>
+Forum otomatik olarak deðiþik þekillerdeki URLleri tanýyabilir, örneðin:<br>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
-will be automatically picked up as a URL and converted to a valid URL, which will look like this:
+adresinin otomatik olarak URL olduðu tanýnýr ve þu þekilde görüntülenir:
 	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
 	
-	
-You can create a URL yourself by using FUD code also, this can be done in 2 ways, a simple way works like this:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
-this will result in a generation fo the following link:
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-You can add a description to your URL by using a different syntax inside the <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> this code will result in the following:<br>
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
+FUDcode kullanarak kendiniz de iki deðiþik yol ile bir URL oluþturabilirsiniz, bunlardan daha basit olaný:
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.anasayfam.com</font>[/URL]</font></b></div><br>
+þeklinde bir yapý oluþturduðunuzda aþaðýdaki link oluþacaktýr:
+	<div align="center"><a href="http://www.anasayfam.com" target=_blank>http://www.anasayfam.com</a></div><br>
+Oluþturduðunuz URLye bir betimleme de eklemeniz mümkün, bunun için daha deðiþik bir yazým kuralý uygulamalýsýnýz:
+<font color="#ff0000"><b>[URL=<font color="#006600">http://www.anasayfam.com</font>]<font color="#006600">Burasý benim ana sayfam</font>[/URL]</b></font>
+Bu, aþaðýdaki þekilde görüntülenir:<br>
+	<div align="center"><a href="http://www.anasayfam.com" target=_blank>Burasý benim ana sayfam</a></div><br>
 <p>
-<b>Email Hyperlinking</b><br><br>
-         To create an email link simply type the email address as it would
- normally    appear, for example:<br>
+<b>E-mektup linkleri</b><br><br>
+E-mektup linki oluþturmak için e-mektup adresini normal þekilde yazmanýz yeterlidir:
+<br>
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       the forum will automatically understand this create a link.  In addition
-   it is also possible to create a real email hyperlink using this  format<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Click here to email our tech support<font color="#ff0000"><b>[/email]</b></font><br></div>
+Forum otomatik olarak bunu algýlar, ve bir link yaratýr. Buna ek olarak
+aþaðýdaki biçimde bir e-mektup linki oluþturmak da mümkündür:
 <br>
-<b>Text Styling</b><br>
-         There are a number of tags which you can use to style text, they 
-are:<br>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Teknik Destek almak için buraya e-mektup atýn<font color="#ff0000"><b>[/email]</b></font><br></div>
+<br>
+<b>Metin Biçimlendirme</b><br>
+Metin biçimlendirmek için bir kaç taký vardýr, bunlar:
+<br>
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
-         [/b]</b></font> produces <b>bold</b> text</li>
-  <li><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b>
-         [/u]</b></font> produces <u>underlined</u> text</li>
-  <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
-         [/i]</b></font> produces <i>italicized</i> text</li>
+  <li><font color="#ff0000"><b>[b]</b></font>kalýn<font color="#ff0000"><b>
+         [/b]</b></font> takýsý metnin <b>kalýn</b>,</li>
+  <li><font color="#ff0000"><b>[u]</b></font>altçizgi<font color="#ff0000"><b>
+         [/u]</b></font> takýsý metnin <u>altý çizgili</u></li>
+  <li><font color="#ff0000"><b>[i]</b></font>yatýk<font color="#ff0000"><b>
+         [/i]</b></font> takýsý metnin <i>yatýk (ya da eðik)</i></li>
 </ul>
-         It is also possible to control color/size and even font face.<br>
+görünmesini saðlar. Metnin rengini ve büyüklüðünü, hatta yazý tipini bile ayarlamak mümkündür.
+<br>
 <ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>
-         [/color]</b></font> produces <font color="#ff0000">red text</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>
-        [/size]</b></font> produces text in the specified <font size="4">
-size</font></li>
-  <li><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>
-        [/font]</b></font> produces text using the named <font face="Courier New, Courier, monospace">
-        type face</font></li>
+  <li><font color="#ff0000"><b>[color=red]</b></font>kýrmýzý metin<font color="#ff0000"><b>
+         [/color]</b></font> metin renginin <font color="#ff0000">kýrmýzý</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>büyük metin<font color="#ff0000"><b>
+        [/size]</b></font> metnin belirtilen <font size="4">büyüklükte</font></li>
+  <li><font color="#ff0000"><b>[font=courier]</b></font>metin<font color="#ff0000"><b>
+        [/font]</b></font> metnin belirtilen <font face="Courier New, Courier, monospace">yazý tipinde</font></li>
 </ul>
-        It is also possible to combine various formatting tags:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatted Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       this example produces:<br>
-<div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
+olmasýný saðlar. Ayrýca çeþitli takýlarý birlikte kullanmak da mümkündür:<br>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Biçimlenmiþ Metin<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+       Bu örnekteki biçimlendirme aþaðýdaki gibi görünür:<br>
+<div align="Center"><font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Biçimlenmiþ Metin</b></i></u></font></div>
 <br>
 <br>
-<b>Text Alignment</b><br>
-FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
+<b>Metin Hizalama</b><br>
+FUDcode metinlerin hangi hizada olacaðýný ayarlamak için [align] takýsýný içerir. Bunu kullanarak metni 3 deðiþik hizaya getirebilirsiniz:
 <ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="center">centered text</div>
-	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="left">left aligned</div>
-	<li><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="right">right aligned</div>	
+	<li><font color="#ff0000"><b>[align=center]</b></font>ortala<font color="#ff0000"><b>[/align]</b></font>metnin</li>
+		<div align="center">ortalanmasýný</div> yani sayfanýn her iki kenarýndan eþit uzaklýkta olmasýný saðlar.
+	<li><font color="#ff0000"><b>[align=left]</b></font>sola yasla<font color="#ff0000"><b>[/align]</b></font> metnin</li>
+		<div align="left">sol tarafa</div> daha yakýn olmasýný saðlar.
+	<li><font color="#ff0000"><b>[align=right]</b></font>saða yasla<font color="#ff0000"><b>[/align]</b></font> metnin</li>
+		<div align="right">sað tarafa daha yakýn olmasýný saðlar.</div>
 </ul>
 <br>
 <br>
-<b>Various Lists</b><br>
-      You can create various kinds of lists using Form Code:<br>
+<b>Çeþitli Listeler</b><br>
+Formdaki takýlarý kullanarak çeþitli listeler oluþturabilirsiniz:
 <br>
-      Un-ordered bulleted list:<br>
+<br>
+Sýralanmamýþ Liste:<br>
 <font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>birinci<br>
+<font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]<br>
-</b></font><br>
-      would produce<br>
+</b></font><br>þeklinde bir yazým aþaðýdaki þekilde görünür<br>
 <ul>
-  <li>first item</li>
-  <li>second item</li>
+  <li>birinci</li>
+  <li>ikinci</li>
 </ul>
-      It is possible to use various kinds of lists, for example to create 
-an  numerical  ordered list:<br>
+Çeþitli diðer þekillerde de listeler üretmek mümkündür, örneðin sayýsal sýralý bir liste için:
+<br>
 <font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>birinci<br>
+<font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
-     which produces<br>
+yazým þeklini kullandýðýnýzda sonuç:<br>
 <ol>
-  <li>first item</li>
-  <li>second item<br>
+  <li>birinci</li>
+  <li>ikinci<br>
   </li>
 </ol>
-     to create an A-Z list:<br>
+þeklinde, alfabetik sýralama için:
+<br>
 <font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>birinci<br>
+<font color="#ff0000"><b>[*]</b></font>ikinci<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
 <br>
-     which produces:<br>
+yazým þeklini kullandýðýnýzda sonuç:<br>
 <ol type="a">
-  <li>first item</li>
-  <li>second item</li>
+  <li>birinci</li>
+  <li>ikinci</li>
 </ol>
-<b>Adding Images</b><br>
-    It is possible to include in-line images with the message. using the <font color="#ff0000"><b>
-    [img][/img]</b></font> tags. <br>
+þeklinde görünür.<br>
+<b>Resim Ekleme</b><br>
+Ýletinin içinde bulunan resim eklemek için  <font color="#ff0000"><b>[img][/img]</b></font> takýlarýný kullanabilirsiniz.<br>
 <br>
-    so, for example,<br>
+Dolayýsýyla, örneðin
+<br>
 <div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    will insert an image in the message as such:<br>
+yazdýðýnýzda iletinin içine þu resmi eklemiþ olursunuz:
+<br>
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-    in addition you can create links to images by enclosing them inside a
-<font color="#ff0000"><b>    [url][/url]</b></font> tags such as<br>
+Ek olarak resimlere link atarken
+<font color="#ff0000"><b>    [url][/url]</b></font>takýlarýný da kullanabilirsiniz, örneðin <br>
 <div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    which will create a linked image such as<br>
+þeklinde bir yazým da resme link atar:
+<br>
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
 
-<br><b>Quoting other messages</b><br>
-  It is possible to quote something that has already been posted, by just 
-putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it. 
+<br><b>Diðer iletileri alýntýlama</b><br>
+Birisinin gönderdiði iletiyi alýntý þeklinde göstermek mümkdür, yapmanýz gereken alýntý olarak göstermek istediðiniz bölümü
+<font color="#ff0000"><b>[quote][/quote]</b></font> takýlarý arasýna koymaktýr.
 <br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  would appear such as:<br>
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>Selam herkese<font color="#ff0000"><b>[/quote]</b></font><br></div>
+aþaðýdaki þekilde görünecektir:<br>
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Alýntý:</b></td></tr><tr>
+<td class="quote">Selam herkese<br></td></tr></table>
 <p>
-<b>Computer Code and Pre-formatted Text</b><br>
- The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
-text exactly as it is, maintaining relational formatting such as tabs and multiple 
-spaces. <br>
+<b>Bilgisayar kodu ve önceden biçimlendirilmiþ metin</b><br>
+<font color="#ff0000"><b>[code][/code]</b></font> takýlarýný kullanarak yazmýþ olduðunuz
+metnin olduðu gibi görünmesini saðlayabilirsiniz, bu þekilde örneðin tab ve boþluk karakterlerini
+kullanarak biçimlendirdiðiniz metin, biçimlendirildiði þekliyle görüntülenecektir.
 <br>
- it used like this: <br>
+<br>
+Örneðin bir kod parçasýný yazdýðýnýzda: <br>
 <font color="#ff0000"><b>[code]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
 <font color="#ff0000"><b>[/code]</b></font><br>
 <br>
- which produces the text exactly as it was typed maintaining the formatting. 
+metin oluþturulurken nasýl görünüyorsa bu takýlar kullanýldýðýnda forumda da o þekilde görünecektir:
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <br>
-
-You may also find that the administrator has enabled smilies, which allow
-you to use small icons to convey emotion, and the [img] code, which allows
-you to add pictures to your message.
+Eðer yönetici gülücüklerin kullanýmýna izin verdiyse duygularý anlatan simgeleri,
+[img] takýsýna izin verdiyse de resimleri iletinizin içine ekleyebilirsiniz.
 
 
-TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_TITLE: <a name="sml">Gülücükler/Hissimgeler nedir?</a> 
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions & feelings.
-If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
-Clicking on a smiley, will insert that smiley into your message.<br>
-Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable Smilies</b> checkbox.<p>
-
-TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
-TOPIC_HELP:
-In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
-provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
-their votes.<br>
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
-and then poll you've created will be attached to the message.<br>
-You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
-<p>
-You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
-
-TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
-TOPIC_HELP:
-If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
-determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+Gülücükler veya hissimgeler, duygularýnýzý veya mimiklerinizi anlatmanýzý saðlayan küçük simgelerdir.
+Eðer gülücüklerin kullanýmýna izin verilmiþse, foruma ileti gönderirken iletiyi yazdýðýnýz kutunun üst kýsmýnda
+gülücüklerin bir listesi çýkacaktýr. Gülücüðün üzerine týkladýðýnýzda, o gülücük iletinize eklenir.
 <br>
-The post form will list 3 rules which apply to your file attachments:<p>
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br>
-<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br>
-<b>Maximum Files per Message</b> - the number of files you can attach to your message.
+Gülücükleri oluþturan karakter dizileri karþýlýk gelen resim ile deðiþtirilir, bunun olmasýný istemiyorsanýz
+<b>Gülücükleri kapat</b> seçim kutusunu iþaretleyin.<p>
+
+TOPIC_TITLE: <a name="polls">Anketleri nasýl kullanabilirim?</a>
+TOPIC_HELP:
+Bazý forumlarda iletinizin içinde anket bulundurmanýza izin verilmiþ durumdadýr. Anketler, bir soru sorup seçenekler sunmanýza,
+ve diðer forum üyelerinin bu seçeneklerden birini seçmelerine olanak tanýr. Anketin inandýrýcý olabilmesi amacýyla, sadece kayýtlý
+kullanýcýlara anketlerde oy kullanabilme izni verilmiþtir.
+<br>
+Ýleti gönderme sayfasýndaki <b>ANKET YARAT</b> linkine týklattýðýnýzda, küçük bir pencere açýlacak, ve size çoktan seçmeli cevaplarýn
+olabileceði bir anket yaratmanýzý saðlayacaktýr. Bitirdiðinizde, <b>Düzelt</b> düðmesine týklatarak ileti gönderi sayfasýna geri dönebilirsiniz;
+bunu yaptýðýnýzda oluþturduðunuz anket iletinize eklenecektir.
+
+<br>
+<b>DÜZELT</b> linkine týklatarak var olan bir anket üzerinde düzeltme yapabilir, ya da <b>SÝL</b> linkini týklatarak anketi tamamen kaldýrabilirsiniz.
 <p>
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
-open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
-<b>Upload File</b> button to attach the file to your message.<br>
-If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
+Herhangi bir anket için sadece 1 oy hakkýnýz olacak, dolayýsýyla seçiminizi dikkatli yapmanýz gerekebilir, daha sonradan bu seçiminizi
+deðiþtirme þansýna sahip olmayacaksýnýz.
 
 
-TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
+TOPIC_TITLE: <a name="attach">Ýletilere dosya ekleyebilir miyim?</a>
 TOPIC_HELP:
-Post icons are small images that you can choose to show beside your messages. They are most 
-commonly used to indicate the nature of your message or the feeling your are trying to convey.
-If you do not see those icons on the post form, it means the administrator has disabled this feature.
-
-TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
-TOPIC_HELP:
-If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
-time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br>
-If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time & date 
-of editing.<br>
-If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
-that this message was edited.
-
-TOPIC_TITLE: <a name="mod">Who are the moderators & administrators?</a> 
-TOPIC_HELP:
-Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
-as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p>
-Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions.
-If you encounter any bugs with the forum, Administrator is the person to contact.
-
-TOPIC_TITLE: <a name="cens">Censorship?</a>
-TOPIC_HELP:
-The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
-so the same things you cannot see, other people will also not be able to see.
-
-TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
-TOPIC_HELP:
-When you post a new thread or make a reply to an existing thread, you may choose to be notified via Email or ICQ (select via your profile) 
-of the replies. You can also subscribe to a thread without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
-want you can subscribe to a forum, so that whenever a new thread is made in that forum you will receive a notification about it.
+Eðer yönetici tarafýndan izin verilmiþse, olaðan iletilerinize ya da özel iletilerinize bir veya daha fazla dosya ekleyebilirsiniz.
+Bu izin forum bazýnda verildiði için, bir forumda iletilerinize dosya ekleyebildiðiniz halde, bir baþkasýnda ekleyemiyor olabilirsiniz.
+<br>
+Gönderme sayfasýnda dosya eklerinize uygulanan 3 kural vardýr:
 <p>
+<b>Ýzin verilen dosya tipleri</b> - iletinize ekleyebileceðiniz dosya tiplerinin bir listesi, örneðin jpg, gif, png.<br>
+<b>En fazla dosya boyutu</b> - iletinize eklediðiniz her dosyanýn olabileceði en fazla büyüklük.<br>
+<b>Ýleti baþýna en fazla dosya sayýsý</b> - iletilerinize kaç tane dosya ekleyebileceðiniz.
+<p>
+Bir iletiye dosya ekleyebilmek için, gönderi sayfasýnýn alt bölümünde yer alan <b>Browse (Göz at)</b> düðmesine týklatýn.
+Tarayýcýnýz sabit diskinizdeki dosyalardan seçim yapabilmenize olanak tanýyan bir diyalog penceresi açacaktýr. Dosyayý seçtikten
+sonra <b>Dosya Yükle</b> düðmesine týklatarak dosyayý iletinize ekleyebilirsiniz.
+<br>
+Eðer eklenmiþ olan dosyalarý çýkarmak istiyorsanýz, basitçe dosyanýn sað tarafýndan bulunan <b>Sil</b> linkini týklatýn.
+
+
+TOPIC_TITLE: <a name="msgico">Ýleti simgesi nedir?</a>
+TOPIC_HELP:
+Ýleti simgeleri, iletilerinizin yan tarafýnda görüntüleyebileceðiniz küçük resimlerdir.
+En çok iletilerinizin içeriði ile ilgili ifade etmek istediðiniz duygu, mimik ve tarz hakkýnda
+ipucu vermek için kullanýlýrlar. Eðer bu simgeleri ileti gönderme sayfasýnda göremiyorsanýz,
+yönetici tarafýndan engellenmiþ durumda olabilirler.
+
+TOPIC_TITLE: <a name="edit">Ýletilerimde düzeltme yapabilir miyim?</a>
+TOPIC_HELP:
+Eðer kayýtlý bir üye iseniz, daha önce göndermiþ olduðunuz iletiler üzerinde düzeltme yapmanýz mümkün olabilir.
+Bu seçenek zaman sýnýrlý olabilir, dolayýsýyla yakýn zamanda atmýþ olduðunuz iletileri düzeltebildiðiniz halde,
+daha önceki iletilerinizi (belirli bir süre önce) düzeltmeyebilirsiniz.
+<br>
+Ýletiniz üzerinde düzeltme yaparsanýz, iletiye bu düzeltmeniz, tarihi ile birlikte küçük bir not olarak eklenecektir.
+<br>
+Eðer bir onaycý veya yönetici tarafýndan düzeltme yapýlmýþ ise, forum ayarlarýna baðlý olarak düzeltme yapýldýðýna
+dair olan bu not eklenmeyebilir.
+
+TOPIC_TITLE: <a name="mod">Onaycýlar ve yöneticiler kimdir?</a> 
+TOPIC_HELP:
+Onaycýlar, forumu denetim altýnda tutan "yetkili kullanýcýlar"dýr. Ýletileri onaylama, silme, veya düzeltme yapma yetkileri
+olduðu gibi, foruma duyuru asma izinleri de vardýr. Genelde forumda uygunsuz bir durum ortaya çýktýðýný düþündüðünüzde
+iletiþime geçmeniz gereken kullanýcýlar, onaycýlardýr. Forumun kullanýmýna yönelik sorularýnýz varsa, yine onaycýlara
+baþvurabilirsiniz.
+<p>
+Yöneticiler tüm forumu denetimi altýnda tutan kullanýcýlardýr, HERÞEYÝ yapma yetkileri vardýr. Dolayýsýyla onlarla konuþurken nazik olun ;-).
+Bir onaycýnýn yapabildiði herþeyi yönetici de yapabildiði gibi, ek olarak avatarlarý onaylarlar, özel taký ekleyip çýkarabilirler, kullanýcýlara
+bloke koyabilir, ve forumla ilgili çeþitli sorulara yanýt verebilirler.
+Forum ile ilgili böcek (bug) veya forumun çalýþmasýnda bir hata ile karþýlaþýrsanýz, iletiþime geçmeniz gereken kiþi yöneticidir.
+
+TOPIC_TITLE: <a name="cens">Sansür?</a>
+TOPIC_HELP:
+Yönetici bazý sözcükleri sansürlemeyi seçebilir, bu sözcükler yine yöneticinin belirlediði diðer sözcüklerle deðiþtirilirler.
+Sansür forum çapýnda bir uygulamadýr, ve siz bir sözcüðü göremiyorsanýz, diðer insanlar da göremiyor demektir.
+
+
+TOPIC_TITLE: <a name="not">Ýletilerime verilen cevaplardan haberdar edilebilir miyim?</a> 
+TOPIC_HELP:
+Yeni bir zincir yaratýrken, veya var olan bir zincire yanýt yazarken, size verilen yanýtlarýn e-mektup veya ICQ ile (kiþisel
+bilgilerinizden ayarlayabilirsiniz) haber verilmesini saðlayabilirsiniz. Ayrýca yanýt yazmasanýz dahi bir zincire abone olabilirsiniz.
+Bunu yapmak için sayfanýn üst kýsmýndaki <b>Abone ol</b> linkine týklatmanýz gerekiyor. Forumlara abone olmanýz da mümkün,
+bu, forumda her yeni zincir yaratýldýðýnda size haber verilmesini saðlar.
+<p>
+Eðer zincir veya forum aboneliklerinizi sona erdirmek isterseniz, zinciri okurken üst sayfada beliren <b>Abonelikten çýk</b> linkine týklatabilirsiniz.
 If you choose to stop receiving notifications from a thread or forum, you can click on the <b>Un-subscribe</b> link, while viewing that thread or forum.
-Or go to the <b>Subscriptions</b> tab in your profile and remove the thread or forum from that list.
+Kiþisel bilgiler sayfanýzdaki <b>Abonelikler</b> bölümünden de abone olduðunuz zincir veya forumlarý idare etmeniz mümkün.
 <p>
-The ability to receive notifications is limited to registered users.
+Zincir veya forum abonelikleri sadece kayýtlý kullanýcýlar tarafýndan kullanýlabilir.

@@ -1,89 +1,100 @@
-TOPIC_TITLE: <a name="register">Why Register?</a>
+TOPIC_TITLE: <a name="register">Neden kayýt olunmalý?</a>
 TOPIC_HELP:
-On most forums you will find it impossible to post new threads or reply to existing ones, unless the Admin 
-allows this explicitly. So, in order for you to be able to participate in the discussion, you would likely be 
-required to register. By registering you will also obtain access to many other features of the forum such as:
+Çoðu forumda yeni zincir yaratamadýðýnýzý veya zincirlere yanýt yazamadýðýnýzý farkedeceksiniz, tabii
+eðer yönetici açýk olarak izin vermemiþse. Tartýþmaya katýlabilmek için, büyük olasýlýkla kayýt olmanýz gerekecek.
+Kayýt olduðunuzda, ayrýca diðer bir çok forum özelliðini de kullanabilir duruma geleceksiniz. Bu özellikler arasýnda:
 <ul>
-	<li>Email/ICQ Notification, when someone replies to your messages
-	<li>Customized signature, avatar, personal tag etc...
-	<li>Ability to send private messages to one or more members of the forum
-	<li>You'll be able to choose a time zone so that forum's time is equivalent to that of the region you live in 
+	<li>iletilerinize yanýt yazýldýðýnda gönderilen Email/ICQ uyarýsý
+	<li>Özel imza, avatar, kiþisel takýlar vb.
+	<li>Forumdaki diðer üyelere özel ileti gönderebilme
+	<li>Yaþadýðýnýz yerin saat dilimini belirterek, forumdaki zamanýn size uygun þekilde görüntülenmesini saðlayabilme
 </ul>
-Unless otherwise specified, the registration for the forum is completely free and requires only minimal information such as 
-your email address and a nick name of your choice.<br>
-If COPPA is enabled and you are under 13 years of age, you will need to have your legal guardian provide consent before your 
-account can be used to post messages. Upon completion of the registration process on COPPA enabled forums, members younger then 13 years of age 
-will be taken to a form, which their legal guardian will need to fill out and send to the appropriate address shown on that page.
-
-TOPIC_TITLE: <a name="cookies">How FUDforum uses cookies?</a>
-TOPIC_HELP:
-Normally FUDforum uses cookies to store a small bit of information that allows the forum to see if you are logged in or not. 
-If for some reason your browser does not support cookies, FUDforum will instead use sessions, which do not store any information 
-on your computer. During the login process you can choose to bypass the cookie system and opt for the session system, this is recommended 
-if you are using a public terminal. Doing so will prevent the possible identity theft, which may occur if you do not logout after using the forum. 
-In most cases however, you probably should leave cookies enabled as it is much more convenient in the long run. 
-For example, you will not need to login each time you visit the forum.
-
-
-TOPIC_TITLE: <a name="clrcookie">How to remove FUDforum cookie?</a>
-TOPIC_HELP:
-To remove the cookie set by FUDforum, simply click the logout link and it will automatically delete the cookie.
-
-TOPIC_TITLE: <a name="updprofile">What's a profile?</a>
-TOPIC_HELP: As a forum member you have a personal profile inside which you can store various information about yourself, such as IM client ids, signature, 
-biography, etc... Your profile also stores various settings, which deal with the forum. Any time you are logged in you may change your profile settings, 
-you should be aware that most data inside your profile can be viewed by other forum members. So, you should try to not store any sensitive information 
-that you do not wish other people to see.<br>
-Your profile has an option <b>"Show Email Address"</b>, which if set to <b>NO</b> will hide your email address from view. You may want to use this option 
-if you do not want other people to see your email address.
-
-TOPIC_TITLE: <a name="sigs">What's a signature?</a>
-TOPIC_HELP:
-Signature is a string of text that you may automatically append to the end of every message you post. In your profile you have an option, 
-<b>"Use Signature by default"</b> that will enable or disable this feature by default. However, on every post form you can change this option for 
-that particular post.<br>
-In addition to plain text, this string can contain (if allowed by administrator) various tidbits such as links to favorite URLs, 
-personal photos, etc...
+sayýlabilir. Aksi belirtilmediði sürece, kayýt iþlemi tamamen ücretsizdir, ve sadece e-mektup adresiniz ve takma isminiz
+gibi en az düzeydeki bilgiyi gerektirir.
 <br>
-If you do not wish to see the signatures of other people, you can turn them off by setting the <b>"Show Signature"</b> to <b>NO</b> in your profile.
+COPPA engellenmemiþ durumdaysa ve 13 yaþýn altýndaysanýz, ileti gönderebilmek için yasal koruyucunuzun/velinizin izin vermesi
+gerekecek. COPPA'nýn engellenmediði forumlarda kayýt iþlemi tamamlandýðýnda, 13 yaþýndan küçük kullanýcýlar baþka bir forma
+yönlendirilecek, bu formun yasal koruyucu tarafýndan doldurulmasý ve o sayfada verilen uygun adrese gönderilmesi gerekiyor.
 
 
-TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
+TOPIC_TITLE: <a name="cookies">FUDforum kurabiyeleri nasýl kullanýyor?</a>
 TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">reset password page</a>, 
-on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
-your password will be reset and you will receive a new email with your password.<br>
+Olaðan olarak FUDforum kurabiyeleri, daha önce giriþ yapýp yapmadýðýnýz gibi küçük bir bilgiyi saklamak için tutar. Eðer
+tarayýcýnýz kurabiyeleri desteklemiyorsa, FUDforum bunun yerine oturumlarý kullanacaktýr. Oturum kullanýldýðýnda, bilgisayarýnýzda
+herhangi bir bilgi tutulmaz. Giriþ iþlemi sýrasýnda kurabiye kullanýlma seçeneðini atlayabilir ve oturum sisteminin kullanýlmasýný
+tercih edebilirsiniz. Halka açýk bilgisayarlardan baðlanýyorsanýz bu yöntemi uygulamanýz önerilir, böylelikle kimliðinizin izinsiz
+kullanýlmasýný engelleyebilirsiniz. Ayný tehlike forumdan çýkýþ yapmadýðýnýz zaman da mevcuttur. Bununla birlikte çoðu durumda
+kurabiyeleri kullanmak isteyeceksiniz, çünkü bu þekilde forumun kullanýlmasý daha rahat olacaktýr, örneðin kurabiye kullandýðýnýzda
+forumu her ziyaret ediþinizde yeniden giriþ yapmanýz gerekmez.
+
+
+TOPIC_TITLE: <a name="clrcookie">FUDforum kurabiyesi nasýl kaldýrýlabilir?</a>
+TOPIC_HELP:
+FUDforum tarafýndan býrakýlan kurabiyeyi kaldýrmak için, basitçe Çýkýþ yap linkine týklatýn, bu otomatikman kurabiyeyi silecektir.
+
+
+TOPIC_TITLE: <a name="updprofile">Kiþisel Bilgiler nedir?</a>
+TOPIC_HELP: Forumun bir üyesi olarak, içinde kendiniz ile ilgili bilgileri (ICQ veya MSN numaranýz, imzanýz, özgeçmiþiniz vb.) saklayabileceðiniz bir kiþisel
+bilgiler bölümüne sahipsiniz. Kiþisel Bilgiler bölümü ayrýca forum ile ilgili bazý ayarlarýn da belirtildiði bölümdür. Giriþ yaptýðýnýz herhangi bir zaman
+kiþisel bilgilerinizde deðiþiklik yapabilirsiniz. Ayrýca unutmamalýsýnýz ki kiþisel bilgilerinizde yer alan bilgiler diðer forum üyeleri tarafýndan
+görünebilir durumdadýr. Dolayýsýyla, diðerlerinin görmesini istemediðiniz, sizin için hassas olan bilgileri bu bölüme koymamalýsýnýz.
 <br>
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 HASH.
-This is military grade 128-bit encryption, there is no way to restore your password.
-It works by encrypting the data every time you enter it and then comparing against
-encrypted version.
-Therefor if you forget your password it can not be restored back, so, upon a restore
-password request the forum will randomly generate you a new password.
+Kiþisel bilgilerinizde <b>E-mektup adresini göster</b> seçeneði eðer <b>HAYIR</b> olarak seçilmiþse e-mektup adresiniz gizlenir. E-mektup adresinizin
+diðerleri tarafýndan görüntülenmesini istemiyorsanýz bu seçeneði kullanabilirsiniz.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they & how can I get one?</a>
-TOPIC_HELP:
-Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
 
-TOPIC_TITLE: <a name="avatars">What's an avatar?</a>
+TOPIC_TITLE: <a name="sigs">Ýmza nedir?</a>
 TOPIC_HELP:
-Avatars are images that appear below your user name on the messages that you've posted as well as your user information page. 
-FUDforum supports 3 types of avatars, some of which may or may not be enabled by the forum's administrator. You may choose an avatar for yourself 
-from your profile page.
+Ýmza, gönderdiðiniz her iletinin alt kýsmýna otomatik olarak eklenen bir yazýdýr. Kiþisel bilgilerinizde bulunan <b>"Varsayýlan olarak imzayý ekle"</b>
+seçeneðini kullanarak imzanýzýn eklenip/eklenmeyeceðini belirleyebilirsiniz. Buradaki ayar ne olursa olsun, göndermek istediðiniz tüm iletilerin alt kýsmýnda
+da ayný seçenek çýkar, bunu kullanarak belirli bir ileti için de bu seçeneði deðiþtirebilirsiniz.
+.<br>
+Düz metne ek olarak, yönetici tarafýndan izin verildiyse, imzanýz diðer bazý þeyler de içerebilir, örneðin sevdiðiniz URL'lere linkller, kiþisel
+fotoðraflar vb.
+<br>
+Eðer diðer üyelerin imzalarýný görmek istemiyorsanýz, kiþisel bilgilerinizdeki <b>"Ýmzalarý göster"</b> seçeneðini kapatarak bunu saðlayabilirsiniz.
+
+
+TOPIC_TITLE: <a name="rstpasswd">Parolanýzý kaybettiyseniz ne yapmalýsýnýz?</a>
+TOPIC_HELP:
+Eðer FUDforum parolanýzý hatýrlayamýyorsanýz, <a href="reset.php?<?php echo $_RSID; ?>" class="GenLink">parola belirleme sayfasýna</a> giderek
+e-mektup adresinizi belirtip Gönder düðmesini týklatmallýsýnýz. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriþtiðinizde
+parolanýz yeniden belirlenecek ve yeni parolanýzý söyleyen bir e-mektup alacaksýnýz.<br>
+<br>
+<b>Not:</b>Parolalarýnýz, MD5 saðlama toplamý adý verilen tek yönlü bir þifreleme biçimiyle saklanýr. Bu, askeri düzeyde 128-bitlik bir
+þifreleme olup, parolalarýnýzý geri getirmenin bir yolu yoktur. Bu þifrelemede parolanýzýn doðrulanmasý, her giriþinizde belirttiðiniz
+parolanýn MD5 toplamýnýn veritabanýndaki MD5 toplamý ile karþýlaþtýrýlmasý þeklinde olur. Dolayýsýyla, parolanýzý unuttuðunuzda, ne olduðunun
+bulunmasýnýn herhangi bir yolu yoktur. Bu yüzden, parolanýzý yeniden belirlediðinizde, forum sizin için rastgele yeni bir parola üretecektir.
+
+
+TOPIC_TITLE: <a name="cstat">Özel takýlar nedir & nasýl kullanabilirim?</a>
+TOPIC_HELP:
+Özel takýlar sadece yönetici tarafýndan eklenebilir, dolayýsýyla özel bir taký istiyorsanýz, forumun yöneticinden istemelisiniz.
+
+
+TOPIC_TITLE: <a name="avatars">Avatar nedir?</a>
+TOPIC_HELP:
+Avatarlar, kullanýcý bilgilerinizin bulunduðu yerde ve gönderdiðiniz her iletide kullanýcý isminizin altýnda görüntülenen resimlerdir.
+FUDforum 3 tip avatarý destekler, bazýlarýna yönetici tarafýndan izin verilmemiþ olabilir. Kendiniz için kiþisel bilgiler sayfanýzdan bir
+avatar seçebilirsiniz.
 <ul>
-	<li><b>Built In</b> - These are the avatars the Admin has made available, you can choose one of those avatars and it will become your avatar as soon as 
-	you submit the change to your profile page.
-	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
-	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
+	<li><b>Kurulu</b> - Bu avatarlar yönetici tarafýndan hazýrlanýr, bu avatarlardan birini seçtiðinizde sayfadaki deðiþiklikleri sakladýðýnýz
+anda kullanýlmaya hazýr hale gelir.
+	<li><b>Avatar yükle</b> - Eðer izin verildiyse, sunucuya kendi avatarýnýzý yüklemeniz mümkündür. Fakat yüklendikten kullanabilmeniz için yönetici
+tarafýndan onaylanmayý gerektirir.
+	<li><b>URL belirt</b> - Eðer izin verildiyse, avatarýnýz olacak resmin URL'sini belirtebilirsiniz. Yönetici tarafýndan onaylandýðý takdirde
+avatarýnýz olarak kullanabilirsiniz.
 </ul>
 <b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
 
-TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
+TOPIC_TITLE: <a name="blist">Arkadaþ listesi nedir?</a>
 TOPIC_HELP:
-A buddy list is your own little list of forum members with whom you wish to converse more frequently. By putting a person on your buddy list, 
-you will be able to see their birthday (if they entered one) as well as easily choose them as recipients of your Private Messages.
+Arkadaþ listesi, daha sýk diyalog kurmak isteyeceðiniz forum üyelerinin sizin tarafýnýzdan oluþturulan bir listesidir. Birini arkadaþ listenize
+eklediðinizde, o kiþinin doðum gününü görebileceksiniz (eðer doðum günü belirtilmiþse). Ayrýca özel ileti yollamak istediðinizde bunu daha kolay þekilde
+yapabileceksiniz.
 
-TOPIC_TITLE: <a name="ignlist">What does the ignore list do?</a>
+
+TOPIC_TITLE: <a name="ignlist">Gözardý listesi ne iþe yarar?</a>
 TOPIC_HELP:
-Ignore List is a database of forum members who's messages you do not wish to see as well as not allow these members to send you 
-private messages. On every message there is a quick link that would give you an opportunity to add the author of that message to your ignore list.
+Gözardý listesi, iletilerini görmek istemediðiniz ve size özel ileti göndermesini engellemek istediðiniz forum üyelerinin bir listesidir. Gönderilen
+her iletide, iletinin yazarýný gözardý listesine eklemenize olanak tanýyan bir link bulunur.
