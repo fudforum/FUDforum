@@ -958,3 +958,7 @@ post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает у
 post_mod_msg_notify_msg:	В модерируемый вами форум было отправлено новое сообщение, озаглавленное "{VAR: msg_post->subject}". Для просмотра сообщение следуйте ссылке: {ROOT}?t=modque\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\n
 thread_printable_pdf:		Сформировать PDF для печати
 thread_syndicate:		Сформировать XML
+reg_conf_title:			Registration Confirmation
+reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
+reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
+forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
