@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.20 2003/05/06 04:15:44 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.21 2003/05/07 01:43:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -188,13 +188,13 @@ function tags_to_html($str, $allow_img='Y')
 
 					if (strncmp($param, '<?php', 5)) {
 						if (strncmp($param, '<?', 2)) {
-							$param = '<?php ' . $param;
+							$param = "<?php\n" . $param;
 						} else {
-							$param = '<?php ' . substr($param, 2);
+							$param = "<?php\n" . substr($param, 2);
 						}
 					}
 					if (substr($param, -2) != '?>') {
-						$param .= ' ?>';
+						$param .= "\n?>";
 					}
 
 					$ostr .= '<span name="php">'.highlight_string($param, true).'</span>';

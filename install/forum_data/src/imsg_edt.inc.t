@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.53 2003/05/06 14:31:38 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.54 2003/05/07 01:43:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -476,9 +476,16 @@ class fud_msg_edit extends fud_msg
 			}
 
 			if ($mtf->attach_cnt) {
-				$r = uq("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mtf->id." AND private='N'");
+				$r = uq("SELECT a.id, a.original_name, 
+						CASE WHEN m.mime_hdr IS NULL THEN 'application/octet-stream' ELSE m.mime_hdr END
+						FROM {SQL_TABLE_PREFIX}attach a 
+						LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id
+						WHERE a.message_id=".$mtf->id." AND a.private='N'");
 				while ($ent = db_rowarr($r)) {
 					$attach[$ent[1]] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
+					if ($mtf->mlist_id) {
+						$attach_mime[$ent[1]] = $ent[2];
+					}
 				}
 				qf($r);
 			} else {
@@ -508,7 +515,8 @@ class fud_msg_edit extends fud_msg
 			} else {
 				fud_use('mlist_post.inc', true);
 				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
-				mail_list_post($addr, $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, '');
+				$r = db_saq('SELECT name, additional_headers FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
+				mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 			}
 		}
 	}
