@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.tmpl,v 1.5 2002/08/10 02:19:08 hackie Exp $
+*   $Id: usercp.tmpl,v 1.6 2003/03/28 12:58:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -15,8 +15,6 @@
 ***************************************************************************/
 
 {PHP_FILE: input: usercp.inc.t; output: @usercp.inc;}
-
-
 
 {MAIN_SECTION: usercp user control panel}
 <table border=0 cellspacing=0 cellpadding=0 width="100%"><tr><td align="right">
@@ -36,9 +34,7 @@
 <table cellspacing=3 cellpadding=0 border=0>	
 	<tr>	
 		{TEMPLATE-DATA: private_msg}
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" border=0 alt="{MSG: members}" /></a></td>
-		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: members}</a></td>
-		<td>&nbsp;&nbsp;</td>
+		{TEMPLATE-DATA: member_search}
 		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" border=0 alt="{MSG: search}" /></a></td>
 		<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=search&amp;{DEF: _rsid}">{MSG: search}</a></td>
 		{TEMPLATE-DATA: admin_control_panel}
@@ -82,5 +78,11 @@
 <td>&nbsp;&nbsp;</td>
 <td valign="middle"><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" border=0 alt="{MSG: pm}" /></a></td>
 <td><a href="{ROOT}?t=pmsg&amp;{DEF: _rsid}" class="UserControlPanel">{MSG: new_private_messages}</a></td>
+<td>&nbsp;&nbsp;</td>
+{SECTION: END}
+
+{SECTION: member_search link to member search}
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" border=0 alt="{MSG: members}" /></a></td>
+<td valign="middle"><a class="UserControlPanel" href="{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: members}</a></td>
 <td>&nbsp;&nbsp;</td>
 {SECTION: END}
