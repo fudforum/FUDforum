@@ -131,6 +131,7 @@
 	$TRACK_REFERRALS	= "Y";		/* boolean */
 	$POST_ICONS_PER_ROW	= "9";		/* int */
 	$MAX_LOGGEDIN_USERS	= "25";		/* int */
+	$USE_PATH_INFO		= "N";		/* boolean */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */
