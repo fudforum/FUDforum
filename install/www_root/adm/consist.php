@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.33 2003/05/11 18:46:55 hackie Exp $
+*   $Id: consist.php,v 1.34 2003/05/12 14:59:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -251,7 +251,7 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuild attachment cache for regular messages');
 	$oldm = '';
 	$atr = array();
-	q('UPDATE '.$tbl.'msg SET attach_cnt=0 AND attach_cache=NULL');
+	q('UPDATE '.$tbl.'msg SET attach_cnt=0, attach_cache=NULL');
 	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=\'N\'');
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r[5]) {
@@ -417,9 +417,9 @@ forum will be disabled.<br><br>
 	draw_stat('Done rebuilding user levels & message counts');
 
 	draw_stat('Rebuilding users last post ids');
-	$c = q('SELECT poster_id, id FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY post_stamp DESC');
+	$c = q('SELECT poster_id, id, MAX(post_stamp) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id, id');
 	while ($r = db_rowarr($c)) {
-		q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[1].' WHERE id='.$r[1]);	
+		q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[1].' WHERE id='.$r[0]);	
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding users last post ids');
