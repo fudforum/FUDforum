@@ -231,8 +231,8 @@
 						</p></div><p>	
 				</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="global.email.options"></a>Email Settings</h4></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.ALLOW_EMAIL"></a>Allow E-mail</h5></div></div><p>
 						Allow the users to send e-mails to other forum members using the forum's internal e-mail client.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.USE_SMTP"></a>Use STMP To Send Email</h5></div></div><p>
-						Whether or not to use FUDforum smtp gateway to send email instead of standard 
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.USE_SMTP"></a>Use SMTP To Send Email</h5></div></div><p>
+						Whether or not to use FUDforum SMTP gateway to send email instead of standard 
 						PHP mail() function. 
 						
 						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
@@ -240,10 +240,10 @@
 							alternate SMTP server on UNIX systems.
 						</p></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_SERVER"></a>SMTP Server</h5></div></div><p>
-						The ip or host name of the SMTP server to use when sending out emails via SMTP.
+						The IP or host name of the SMTP server to use when sending out e-mails via SMTP.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_TIMEOUT"></a>SMTP Server Timeout</h5></div></div><p>
 						The number of seconds to wait for the SMTP server to respond to a request.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_LOGIN"></a>STMP Server Login</h5></div></div><p>
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_LOGIN"></a>SMTP Server Login</h5></div></div><p>
 						If your SMTP server requires SMTP Authentication, use this field to specify
 						the login name that will be used when accessing the SMTP server.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.SMTP_PASSWORD"></a>SMTP Server Password</h5></div></div><p>
@@ -277,8 +277,7 @@
 						This may slow down the posting process, especially, if the user's host mask takes a while to
 						resolve.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_LOGIN_SHOW"></a>Maximum Shown Login Length</h5></div></div><p>
-						The maximum number of characters of a user's login name to show on all pages with the exception 
-						of user info page.
+						The maximum length (in bytes) of user's login name and alias.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.MAX_LOCATION_SHOW"></a>Maximum Shown Location Length</h5></div></div><p>
 						The maximum number of characters of a user's location to show on all pages with the 
 						exception of user info page.
