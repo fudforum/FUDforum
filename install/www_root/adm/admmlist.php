@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.3 2002/07/24 13:27:50 hackie Exp $
+*   $Id: admmlist.php,v 1.4 2002/07/24 14:16:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -105,9 +105,9 @@ function format_regex(&$regex, &$opts)
 
 	<tr bgcolor="#bff8ff">
 		<td>
-			Moderate Mailing List Posts:<br>
-			<font size="-1">Any posts from the mailing list would 1st need to be approved by moderator(s) before
-			they are made visible on the forum.</font>
+			Forum:<br>
+			<font size="-1">Messages imported from the mailing list will be imported into this forum.
+			It is <b>**highly recommeded**</b> that you setup a seperate forum for each mailing list.</font>
 		</td>
 		<td><select name="ml_forum_id">
 		<?php
@@ -121,9 +121,9 @@ function format_regex(&$regex, &$opts)
 	
 	<tr bgcolor="#bff8ff">
 		<td>
-			Forum:<br>
-			<font size="-1">Messages imported from the mailing list will be imported into this forum.
-			It is <b>**highly recommeded**</b> that you setup a seperate forum for each mailing list.</font>
+			Moderate Mailing List Posts:<br>
+			<font size="-1">Any posts from the mailing list would 1st need to be approved by moderator(s) before
+			they are made visible on the forum.</font>
 		</td>
 		<td><?php draw_select('ml_mlist_post_apr', "No\nYes", "N\nY", yn($ml_mlist_post_apr)); ?></td>
 	</tr>
