@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.6 2002/07/05 12:15:25 hackie Exp $
+*   $Id: admdump.php,v 1.7 2002/07/06 15:45:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,30 +29,34 @@
 function make_insrt_qry($obj, $tbl, $field_data)
 {
 	$vl = $kv = '';
-
+	
 	while( list($k,$v) = each($obj) ) {
-		switch ( strtolower($field_data[$k]->type) )
+		if( !isset($field_data[$k]) ) continue;
+	
+		switch ( strtolower($field_data[$k]['type']) )
 		{
 			case 'string':
 			case 'blob':
 			case 'text':
 			case 'date':
-				if( empty($v) && !$field_data[$k]->not_null ) 
+			case 'varchar':
+				if( empty($v) && !$field_data[$k]['not_null'] ) 
 					$vl .= 'NULL,';
 				else
 					$vl .= '"'.str_replace("\n", '\n', str_replace("\t", '\t', str_replace("\r", '\r', addslashes($v)))).'",';
 				break;
 			default:
-				if( empty($v) && !$field_data[$k]->not_null ) 
+				if( empty($v) && !$field_data[$k]['not_null'] ) 
 					$vl .= 'NULL,';
 				else
 					$vl .= $v.',';
 		}
 		
-		$kv .= $k.',';
+		$kv .= $field_data[$k]['name'].',';
 	}	
 	$vl = substr($vl, 0, -1);
 	$kv = substr($kv, 0, -1);
+	
 	return "INSERT INTO ".$tbl." (".$kv.") VALUES(".$vl.")";
 }
 
@@ -63,7 +67,8 @@ function backup_dir($dirp, $key, $keep_dir='')
 
 	$cur_dir = getcwd();
 	
-	$opendir = empty($keep_dir) ? $dirp : realpath($keep_dir.'/'.$dirp);
+	$opendir = $dirp;
+	
 	if( !@chdir($opendir) ) {
 		echo "warning no perms to open '$opendir'<br>\n";
 		return;
@@ -72,8 +77,12 @@ function backup_dir($dirp, $key, $keep_dir='')
 	$dir = opendir('.');
 	readdir($dir); readdir($dir);
 	while( $file = readdir($dir) ) {
-		if( @is_dir($file) ) backup_dir($file, $key, $dirp);
-		if( !@is_file($file) ) continue;
+		if( @is_dir($file) ) {
+			if( $file == 'tmp' ) continue;
+			backup_dir($file, $key, $dirp);
+		}	
+		else if( !@is_file($file) ) continue;
+		else if( $file == 'GLOBALS.php' ) continue;
 		
 		$file_data = filetomem($file);
 		$file_ln = strlen($file_data);
@@ -85,6 +94,41 @@ function backup_dir($dirp, $key, $keep_dir='')
 	}
 	closedir($dir);
 	chdir($cur_dir);
+}
+
+function sql_num_fields($r)
+{
+	if( __dbtype__ == 'pgsql' ) 
+		return pg_num_fields($r['res']);
+	else
+		return mysql_num_fields($r);
+}
+
+function sql_field_type($r,$n)
+{
+	if( __dbtype__ == 'pgsql' ) 
+		return pg_field_type($r['res'], $n);
+	else
+		return mysql_field_type($r, $n);
+}
+
+
+function sql_field_name($r, $n)
+{
+	if( __dbtype__ == 'pgsql' ) 
+		return pg_field_name($r['res'],$n);
+	else
+		return mysql_field_name($r, $n);
+}
+
+function sql_is_null($r, $n, $tbl='')
+{
+	if( __dbtype__ == 'pgsql' ) {
+		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = 'fud_action_log' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
+		return ( $res == 't' ? TRUE : FALSE );
+	}
+	else 
+		return ( strstr(mysql_field_flags($r,$n), 'not_null') ? TRUE : FALSE );
 }
 
 include('admpanel.php'); 
@@ -107,11 +151,13 @@ include('admpanel.php');
 		$write_func($fp, "\n----SQL_START----\n");
 	
 		$curdir = getcwd();
-		chdir(realpath($INCLUDE.'../sql/'));
+		chdir(realpath($INCLUDE.'../sql/'.__dbtype__.'/'));
 		$dir = opendir('.');
 		readdir($dir); readdir($dir);
 		while( $file = readdir($dir) ) {
-			if( !@is_dir($file) && substr($file,-4)=='.tbl' ) {
+			if( !@is_file($file) ) continue;
+		
+			if( substr($file,-4)=='.tbl' ) {
 				$sql_data = filetomem($file);
 				$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
 				$sql_data = preg_replace("!\s+!s", " ", $sql_data);
@@ -120,48 +166,51 @@ include('admpanel.php');
 				$sql_data = str_replace("\r", "", $sql_data);
 				$write_func($fp, $sql_data."\n");
 			}
+			else if ( substr($file,-5)=='.func' ) 
+				$write_func($fp, filetomem($file)."\n");
 		}
 		closedir($dir);
 		chdir($curdir);
-	
-		$r = q("show tables");
-		$prefix_len = strlen($DBHOST_TBL_PREFIX);
 		
-		while ( list($tbl_name) = db_rowarr($r) ) {
-			if( substr($tbl_name, 0, $prefix_len) != $DBHOST_TBL_PREFIX ) continue;
-			$locklist .= $tbl_name.'+,';
-		}
-		db_seek($r, 0);
+		$sql_table_list = get_fud_table_list();
+		
+		while ( list(,$tbl_name) = each($sql_table_list) ) $locklist .= $tbl_name.'+,';
 		$locklist = substr($locklist, 0, -1);
 		db_lock($locklist);
 
-		while( list($tbl_name) = db_rowarr($r) ) {
-			if( substr($tbl_name, 0, $prefix_len) != $DBHOST_TBL_PREFIX ) continue;
-		
+		reset($sql_table_list);
+
+		while( list(,$tbl_name) = each($sql_table_list) ) {
 			echo "Processing table: $tbl_name .... ";
 			flush();
 			
 			$r2 = q("SELECT * FROM ".$tbl_name);
 			if( db_count($r2) ) {
 				$field_data = array();
-				for( $i=0; $i<mysql_num_fields($r2); $i++ ) {
-					$field_info = mysql_fetch_field($r2);
-					$field_data[$field_info->name] = $field_info;
+				$nf = sql_num_fields($r2);
+				
+				for( $i=0; $i<$nf; $i++ ) {
+					$field_data[sql_field_name($r2, $i)] = array(
+						'name' => sql_field_name($r2, $i),
+						'type' => sql_field_type($r2, $i),
+						'not_null' => sql_is_null($r2, $i)
+					);	
 				}
-				while( $obj = mysql_fetch_object($r2, MYSQL_ASSOC) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
+				
+				while( $obj = DB_ROWOBJ($r2) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
 			}	
+			
 			qf($r2);
 			echo "DONE<br>\n";
 			flush();
 		}
-		qf($r);
 
 		$write_func($fp, "\n----SQL_END----\n");
 	
 		echo "Compressing forum datafiles<br>\n";
 		flush();
 		backup_dir($DATA_DIR, 'DATA_DIR');
-		backup_dir($WWW_ROOT_DISK.'images/', 'IMG_ROOT_DISK');
+		if( $DATA_DIR != $WWW_ROOT_DISK ) backup_dir($WWW_ROOT_DISK.'images/', 'IMG_ROOT_DISK');
 	
 		if( $HTTP_POST_VARS['compress'] ) 
 			gzclose($fp);
