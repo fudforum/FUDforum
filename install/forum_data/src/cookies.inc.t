@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
+*   $Id: cookies.inc.t,v 1.4 2002/07/05 21:23:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@ class fud_session
 				q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$this->user_id);
 			else 
 				$this->user_id=0;
-			if ( db_locked() ) {
+			if ( !db_locked() ) {
 				db_lock('{SQL_TABLE_PREFIX}ses+');
 				$ll = 1;
 			}
