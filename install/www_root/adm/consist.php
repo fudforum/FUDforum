@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.47 2003/07/18 23:35:36 hackie Exp $
+*   $Id: consist.php,v 1.48 2003/07/31 17:42:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,6 +16,7 @@
 ***************************************************************************/
 
 	@set_time_limit(600);
+	@ini_set("memory_limit", "100M");
 	define('back_to_main', 1);
 
 	require('./GLOBALS.php');
@@ -127,6 +128,10 @@ forum will be disabled.<br><br>
 	$tbl = $DBHOST_TBL_PREFIX;
 
 	draw_stat('Locking the database for checking');
+	if (__dbtype__ == 'mysql') {
+		q('DROP TABLE IF EXISTS '.$tbl.'tmp_consist');
+		q('CREATE TABLE '.$tbl.'tmp_consist (p INT, ps INT UNSIGNED, c INT)');	
+	}
 	$tbls = get_fud_table_list();
 	// add the various table aliases 
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot', 
@@ -134,6 +139,7 @@ forum will be disabled.<br><br>
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
 				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2', $tbl.'themes thm');
+
 	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
 
@@ -197,24 +203,27 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Checking message approvals');
 
 	$cnt = 0;
-	$tr = array();
+	$del = $tr = array();
 	draw_stat('Checking threads against messages');
 	q('UPDATE '.$tbl.'thread SET replies=0');
-	$c = q('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.approved=\'Y\' GROUP BY m.thread_id,t.id ORDER BY cnt');
+	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.approved=\'Y\' GROUP BY m.thread_id,t.id ORDER BY cnt');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
-			q('DELETE FROM '.$tbl.'thread WHERE id='.$r[1]);
+			$del[] = $r[1];
 			++$cnt;
 		} else {
 			$tr[$r[2] - 1][] = $r[1];
 		}
 	}
 	qf($c);
+	if (count($del)) {
+		q('DELETE FROM '.$tbl.'thread WHERE id='.implode(',', $del));
+	}
 	unset($tr[0]);
 	foreach ($tr as $k => $v) {
 		q('UPDATE '.$tbl.'thread SET replies='.$k.' WHERE id IN('.implode(',', $v).')');
 	}
-	unset($tr);
+	unset($tr, $del);
 	draw_info($cnt);
 
 	draw_stat('Checking thread last & first post ids');
@@ -439,29 +448,16 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 
-	$c = q('SELECT poster_id, MAX(id), count(*) AS cnt FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id');
-	while ($r = db_rowarr($c)) {
-		q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[1].', posted_msg_count='.$r[2].',level_id='.get_ulevel($lvl, $r[2]).' WHERE id='.$r[0]);
-	}
-	qf($r);
-	unset($lvl);
-
-	/* verify that last post ids are correct, needed for rare cases where MAX(id) != MAX(last_post_id) */
 	if (__dbtype__ == 'mysql') {
-		$c = uq('SELECT m.id, m.poster_id, u.u_last_post_id FROM '.$tbl.'users u INNER JOIN '.$tbl.'msg m ON u.id=m.poster_id AND m.approved=\'Y\' AND u.u_last_post_id>0 GROUP BY m.poster_id, m.id ORDER BY m.post_stamp DESC');
-		$todo = array();
+		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
+		$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.approved=\'Y\' AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
 		while ($r = db_rowarr($c)) {
-			if ($r[0] != $r[2]) {
-				$todo[$r[1]] = $r[0];
-			}
+			if (!$r[1]) { continue; }
+			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].',level_id='.get_ulevel($lvl, $r[1]).' WHERE id='.$r[0]);
 		}
-		qf($r);
-		foreach ($todo as $k => $v) {
-			q('UPDATE '.$tbl.'users SET u_last_post_id='.$v.' WHERE id='.$k);
-		}
-		unset($todo);
+		qf($c);
 	} else {
-		$c = q('SELECT MAX(post_stamp), poster_id FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
+		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid) = db_rowarr($c)) {
 			if (!$uid) { continue; }
 			q('UPDATE '.$tbl.'users SET u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
@@ -634,7 +630,10 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Validating User/Theme Relations');
 
 	draw_stat('Unlocking database');
-	db_unlock();	
+	db_unlock();
+	if (__dbtype__ == 'mysql') {
+		q('DROP TABLE '.$tbl.'tmp_consist');
+	}
 	draw_stat('Database unlocked');
 
 	draw_stat('Cleaning forum\'s tmp directory');
