@@ -189,7 +189,7 @@ views:				点击
 vote:				{VAR: thread->vote_count()} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		欢迎！ <b>{VAR: usr->alias}</b>, 你最后一次访问是 {DATE: last_login %Y-%m-%d %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
