@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.26 2004/01/25 16:09:39 hackie Exp $
+* $Id: getfile.php.t,v 1.27 2004/01/25 18:50:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@
 
 	reverse_fmt($r[1]);
 	if (!$r[0]) {
-		$r[0] = 'application/ocet-stream';
+		$r[0] = 'application/octet-stream';
 		$append = 'attachment; ';
 	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
@@ -83,10 +83,10 @@
 	 */	
 	if ($_SERVER["SERVER_PORT"] == "443" && (strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') !== false)) {
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0", 1);
-		header("Pragma: none", 1);
+		header("Pragma: public", 1);
 	}
 
-	header('Content-type: '.$r[0]);
+	header('Content-Type: '.$r[0]);
 	header('Content-Disposition: '.$append.'filename="'.$r[1].'"');
 	header('Content-Length: '.array_pop($r));
 
