@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.10 2004/01/08 19:24:21 hackie Exp $
+* $Id: mnav.tmpl,v 1.11 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,24 +30,29 @@
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 
-<form method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav">
+<form name="mnav" method="get" action="{TEMPLATE: MNAV_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="mnav">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=4 width="100%">{MSG: mnav_description}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText" width="30%" nowrap>{MSG: mnav_date_limit}</td>
-	<td class="GenText"><font class="SmallText">{MSG: mnav_newer}<br /></font><input type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11"></td>
-	<td class="GenText"><font class="SmallText">{MSG: mnav_older}<br /></font><input type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11"></td>
-	<td align="left" valign="bottom" width="60%"><select name="u">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
+	<td class="GenText"><font class="SmallText">{MSG: mnav_newer}<br /></font><input tabindex="1" type="text" name="rng" value="{VAR: rng}" maxlength="10" size="11"></td>
+	<td class="GenText"><font class="SmallText">{MSG: mnav_older}<br /></font><input tabindex="2" type="text" name="rng2" value="{VAR: rng2}" maxlength="10" size="11"></td>
+	<td align="left" valign="bottom" width="60%"><select name="u" tabindex="3">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
 	<td class="GenText" nowrap>{MSG: mnav_forum_limit}</td>
 	<td colspan=3 valign="top">
-		<select name="forum_limiter"><option value="">{MSG: mnav_all_forums}</option>
+		<select name="forum_limiter" tabindex="4"><option value="">{MSG: mnav_all_forums}</option>
 		{TEMPLATE-DATA: forum_limit_data}
 		</select>
 	</td>
 </tr>
-<tr class="RowStyleC"><td class="GenText" align="right" colspan="4"><input type="submit" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
+<tr class="RowStyleC"><td class="GenText" align="right" colspan="4"><input type="submit" tabindex="5" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
 </table></form>
+<script>
+<!--
+document.mnav.rng.focus();
+//-->
+</script>
 <br />
 {TEMPLATE-DATA: mnav_data}
 <div align="left">{TEMPLATE-DATA: mnav_pager}</div>

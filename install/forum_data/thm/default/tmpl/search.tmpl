@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.17 2004/01/04 16:38:28 hackie Exp $
+* $Id: search.tmpl,v 1.18 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText wa">{VAR: i}. <a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
@@ -67,22 +67,24 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<form method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search">
+<form name="search" method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=3 width="100%">{MSG: search_forum_search}</th></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_for}</td><td colspan=2><input type="text" name="srch" value="{VAR-HTML: srch}"></td></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">&nbsp;</td><td colspan=2>{TEMPLATE-DATA: search_options}</td></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_in_forum}</td>
-	<td colspan=2>
-		<select name="forum_limiter"><option value="">{MSG: search_all_forums}</option>
-		{TEMPLATE-DATA: forum_limit_data}
-		</select>
-	</td>
+<tr><th>{MSG: search_forum_search}</th><th class="wa">{MSG: search_options}</th></tr>
+<tr class="RowStyleA">
+	<td class="vt nw"><input type="text" name="srch" tabindex="1" value="{VAR-HTML: srch}"> <input type="submit" tabindex="2" class="button" name="btn_submit" value="{MSG: search}"><br /><span class="SmallText">{TEMPLATE-DATA: search_options}</span></td>
+	<td class="RowStyleB SmallText">
+<div class="sr">{MSG: search_in_forum}<br /><select class="SmallText" name="forum_limiter"><option value="">{MSG: search_all_forums}</option>{TEMPLATE-DATA: forum_limit_data}</select></div>
+<div class="sr">{MSG: search_logic}<br /><select class="SmallText" name="search_logic">{TEMPLATE-DATA: logic_options}</select></div>
+<div class="sr">{MSG: search_sorting}<br /><select class="SmallText" name="sort_order">{TEMPLATE-DATA: sort_options}</select></div>
+<div class="sr">{MSG: search_user_filter}<br /><input class="SmallText" type="text" value="{VAR-HTML: author}" name="author"></div>
+</td>
 </tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_logic}</td><td colspan=2><select name="search_logic">{TEMPLATE-DATA: logic_options}</select></td></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_sorting}</td><td colspan=2><select name="sort_order">{TEMPLATE-DATA: sort_options}</select></td></tr>
-<tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: search}"></td></tr>
 </table></form>
+<script>
+<!--
+document.search.srch.focus();
+//-->
+</script>
 {TEMPLATE-DATA: search_data}
 <div align="left">{TEMPLATE-DATA: page_pager}</div>
 {TEMPLATE: curtime}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.tmpl,v 1.12 2004/04/01 14:53:24 hackie Exp $
+* $Id: pmuserloc.tmpl,v 1.13 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,21 +17,26 @@
 
 {PAGE: PMUSERLOC_PAGE find user popup used by private message post form}
 {TEMPLATE: header_plain}
-<form action="{TEMPLATE: PMUSERLOC_PAGE_lnk3}" method="get">{DEF: _hs}
+<form name="pmuserloc" action="{TEMPLATE: PMUSERLOC_PAGE_lnk3}" method="get">{DEF: _hs}
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr>
 	<td>{MSG: pmuserloc_login}</td>
-	<td><input type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td>
+	<td><input tabindex="1" type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td>
 	
 </tr>
 <tr>
-<td colspan=2 align=right><input type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
+<td colspan=2 align=right><input tabindex="2" type="submit" class="button" name="btn_submit" value="{MSG: pmuserloc_submit}"></td>
 </tr>
 </table>
 <input type="hidden" name="js_redr" value="{VAR: js_redr}">
 <input type="hidden" name="overwrite" value="{VAR: overwrite}">
 <input type="hidden" name="t" value="pmuserloc">
 </form>
+<script>
+<!--
+document.pmuserloc.usr_login.focus();
+//-->
+</script>
 <br />
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr><th>{MSG: pmuserloc_user}</td></tr>

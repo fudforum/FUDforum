@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.40 2004/01/04 16:38:27 hackie Exp $
+* $Id: search.php.t,v 1.41 2004/04/23 14:11:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,6 +25,12 @@
 	$field = !isset($_GET['field']) ? 'all' : ($_GET['field'] == 'subject' ? 'subject' : 'all');
 	$search_logic = (isset($_GET['search_logic']) && $_GET['search_logic'] == 'OR') ? 'OR' : 'AND';
 	$sort_order = (isset($_GET['sort_order']) && $_GET['sort_order'] == 'ASC') ? 'ASC' : 'DESC';
+	if (!empty($_GET['author'])) {
+		$author = $_GET['author'];
+		$author_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes($_GET['author'])."'");
+	} else {
+		$author = $author_id = '';	
+	}
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
@@ -92,6 +98,9 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	} else {
 		$qry_lmt = '';
 	}
+	if ($GLOBALS['author_id']) {
+		$qry_lmt = ' AND m.poster_id='.$GLOBALS['author_id'].' ';
+	}
 
 	$qry_lck = "'" . $qry_lck . "'";
 
@@ -156,9 +165,9 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			un_register_fps();
 			$search_data = '{TEMPLATE: search_results}';
 			if ($FUD_OPT_2 & 32768) {
-				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.$forum_limiter.'/', '/'._rsid);
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.$forum_limiter.'/', '/'.urlencode($author).'/'._rsid);
 			} else {
-				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter.'&amp;author='.urlencode($author));
 			}
 		}
 	} else {

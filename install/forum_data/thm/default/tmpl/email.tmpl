@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.tmpl,v 1.12 2004/01/04 16:38:28 hackie Exp $
+* $Id: email.tmpl,v 1.13 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,14 +39,19 @@
 {PAGE: EMAIL_PAGE }
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{TEMPLATE: EMAIL_PAGE_lnk3}">
+<form method="post" name="frme" action="{TEMPLATE: EMAIL_PAGE_lnk3}">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: email_pg_title}</th></tr>
 {TEMPLATE-DATA: destination}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA" width="100%"><input type="text" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
-<tr class="RowStyleB"><td nowrap class="GenText" valign="top">{MSG: email_body} {VAR: body_err}</td><td width="100%" class="RowStyleA"><textarea name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
-<tr class="RowStyleC"><td align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: email_submit}"></td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA" width="100%"><input type="text" tabindex="1" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText" valign="top">{MSG: email_body} {VAR: body_err}</td><td width="100%" class="RowStyleA"><textarea tabindex="2" name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
+<tr class="RowStyleC"><td align="right" colspan=2><input type="submit" class="button" name="btn_submit" tabindex="3" value="{MSG: email_submit}"></td></tr>
 </table>{DEF: _hs}</form>
+<script>
+<!--
+document.frme.tx_subject.focus();
+//-->
+</script>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

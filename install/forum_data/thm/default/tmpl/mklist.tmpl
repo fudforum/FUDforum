@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.7 2004/01/04 16:38:28 hackie Exp $
+* $Id: mklist.tmpl,v 1.8 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,8 +33,8 @@
 <tr>
 	<td>{MSG: mklist_option}</td>
 	<td nowrap>
-		<input type="text" name="opt" size=20>
-		<input type="submit" class="button" name="btn_submit" value="{MSG: mklist_additem}">
+		<input tabindex="1" type="text" name="opt" size=20>
+		<input tabindex="2" type="submit" class="button" name="btn_submit" value="{MSG: mklist_additem}">
 	</td>
 </tr>
 {TEMPLATE-DATA: list_sample}
@@ -46,6 +46,11 @@
 </table>
 <input type="hidden" name="opt_list" value="{VAR: _POST['opt_list']}"><input type="hidden" name="del" value="">{DEF: _hs}
 </form>
+<script>
+<!--
+document.list.opt.focus();
+//-->
+</script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 

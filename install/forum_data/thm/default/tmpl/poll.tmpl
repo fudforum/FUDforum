@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.10 2004/01/04 16:38:28 hackie Exp $
+* $Id: poll.tmpl,v 1.11 2004/04/23 14:11:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -51,15 +51,15 @@ function check_submission()
 <table border=0 cellspacing=2 width="99%" cellpadding=0 class="dashed">
 	<tr>
 		<td class="GenText">{MSG: poll_name}</td>
-		<td><input type="text" name="pl_name" value="{VAR-HTML: pl_name}"></td>
+		<td><input tabindex="1" type="text" name="pl_name" value="{VAR-HTML: pl_name}"></td>
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_timelimit}</td>
-		<td><select name="pl_expiry_date">{TEMPLATE-DATA: pl_expiry_date_data}</select></td>
+		<td><select tabindex="2" name="pl_expiry_date">{TEMPLATE-DATA: pl_expiry_date_data}</select></td>
 	</tr>
 	<tr>
 		<td class="GenText">{MSG: poll_maxiumvotes}</td>
-		<td><select name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
+		<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
 	</tr>
 	
 	<tr><td colspan=2 align="right">{TEMPLATE-DATA: pl_submit}</td></tr>
@@ -71,15 +71,24 @@ function check_submission()
 {TEMPLATE-DATA: poll_submit_btn}
 </div>
 </form>
+<script>
+<!--
+if (document.poll_submit.pl_option) {
+	document.poll_submit.pl_option.focus();
+} else {
+	document.poll_submit.pl_name.focus();
+}
+//-->
+</script>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
 {SECTION: btn_submit}
-<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}">
+<input type="button" tabindex="4" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}">
 {SECTION: END}
 
 {SECTION: btn_update}
-<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}">
+<input type="button" tabindex="4" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}">
 {SECTION: END}
 
 {SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
@@ -87,11 +96,11 @@ function check_submission()
 {SECTION: END}
 
 {SECTION: pl_submit_create create poll button}
-<input type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}">
+<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}">
 {SECTION: END}
 
 {SECTION: pl_submit_update update poll button}
-<input type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}">
+<input tabindex="5" type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}">
 {SECTION: END}
 
 {SECTION: poll_editor}

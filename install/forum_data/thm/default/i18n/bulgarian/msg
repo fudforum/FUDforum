@@ -1014,3 +1014,5 @@ uc_new_cat_forum:		Subscribed Forums With New Messages
 uc_cat_forum:			Category &raquo; Forum
 uc_sub_topics:			Subscribed Topics With New Messages
 uc_page_title:			Viewing personal control panel.
+search_options:			Search Options
+search_user_filter:		Filter by user:
