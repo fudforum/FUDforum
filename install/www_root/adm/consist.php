@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.102 2005/02/07 15:14:32 hackie Exp $
+* $Id: consist.php,v 1.103 2005/03/31 17:00:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -604,13 +604,11 @@ forum will be disabled.
 	}
 	if (isset($glm)) {
 		// make group based on 'primary' 1st group
-		$fld_lst = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
-		$anon = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
-		$regu = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2')) . "'";
-		$fld_lst = str_replace('p_', 'up_', $fld_lst);
+		$anon = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=1");
+		$regu = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=2");
 		foreach ($glm as $k => $v) {
 			foreach ($v as $uid) {
-				q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.$fld_lst.') VALUES ('.$k.', '.$uid.', '.(!$uid ? $anon : $regu).')');
+				q('INSERT INTO '.$tbl.'group_members (group_id, user_id, group_members_opt) VALUES ('.$k.', '.$uid.', '.(!$uid ? $anon : $regu).')');
 			}
 		}
 	}
