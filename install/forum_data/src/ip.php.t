@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.3 2004/04/25 20:25:15 hackie Exp $
+* $Id: ip.php.t,v 1.4 2004/05/18 16:59:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,8 +66,7 @@ function fud_whois($ip)
 		$_GET['user'] = $_POST['user'];
 	}
 	if (isset($_GET['user'])) {
-		if (is_numeric($_GET['user'])) {
-			$user_id = (int) $_GET['user'];
+		if (($user_id = (int) $_GET['user'])) {
 			$user = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$user_id);
 		} else {
 			list($user_id, $user) = db_saq("SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes($_GET['user'])."'");
