@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.21 2003/04/22 13:09:26 hackie Exp $
+*   $Id: compact.php,v 1.22 2003/04/22 16:36:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@ and the amount of messages your forum has.<br><br>
 <?php echo _hs; ?>
 </form>	
 <?php	
-		readfile('admclose.html');
+		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;	
 	}
 
@@ -115,8 +115,9 @@ function write_body_c($data, $i, &$len, &$offset)
 			q('UPDATE '.$tbl.'msg SET foff='.$off.', length='.$len.', file_id='.$magic_file_id.' WHERE id='.$r[0]);
 		}
 		if ($i && !($i % $pc)) {
-			$prg = $i / $pc;		
-			echo ($prg * 10) . "% done ETA: '.((time()-$stm) / $prg * 10 - $stm).' seconds<br>\n";
+			$prg = $i / $pc;
+			$t = time();
+			echo ($prg * 10) . '% done ETA: '.round((($t-$stm) / $prg * 10 - $stm + $t))." seconds<br>\n";
 			flush();
 		}
 		$i++;
@@ -134,7 +135,7 @@ function write_body_c($data, $i, &$len, &$offset)
 	q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
 	$j = $base + 1;
 	for ($j; $j < $magic_file_id; $j++) {
-		rename('tmp_msg_'.$j, 'msg_'.($j - $base));
+		rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
 	}
 	$j = $magic_file_id - $base;
 	while (@file_exists($MSG_STORE_DIR . 'msg_' . $j)) {
@@ -167,8 +168,9 @@ function write_body_c($data, $i, &$len, &$offset)
 		$off += $len;
 
 		if ($i && !($i % $pc)) {
-			$prg = $i / $pc;		
-			echo ($prg * 10) . '% done ETA: '.((time()-$stm) / $prg * 10 - $stm)." seconds<br>\n";
+			$prg = $i / $pc;
+			$t = time();
+			echo ($prg * 10) . '% done ETA: '.round((($t-$stm) / $prg * 10 - $stm + $t))." seconds<br>\n";
 		}	
 		$i++;
 	}
@@ -189,7 +191,7 @@ function write_body_c($data, $i, &$len, &$offset)
 		@unlink($MSG_STORE_DIR . 'private');
 	} else {
 		rename($MSG_STORE_DIR . 'private_tmp', $MSG_STORE_DIR . 'private');
-		@chmod($MSG_STORE_DIR.'private', __file_perms__);
+		@chmod($MSG_STORE_DIR . 'private', __file_perms__);
 	}
 
 	db_unlock();
@@ -202,5 +204,5 @@ function write_body_c($data, $i, &$len, &$offset)
 		echo '<br><font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
-	readfile($WWW_ROOT_DISK . 'admclose.html');
+	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
