@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.34 2003/09/30 04:02:22 hackie Exp $
+*   $Id: admthemes.php,v 1.35 2003/10/03 02:28:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -112,11 +112,9 @@ function clean_code($path, $toks)
 	fud_use('compiler.inc', true);
 	fud_use('theme.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (isset($_POST['newname']) && !q_singleval("SELECT id FROM ".$tbl."themes WHERE name='".addslashes($_POST['newname'])."'")) {
+	if (isset($_POST['newname']) && !q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE name='".addslashes($_POST['newname'])."'")) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
@@ -141,15 +139,17 @@ function clean_code($path, $toks)
 		$thm->sync((int)$_POST['edit']);
 		compile_all($thm->theme, $thm->lang, $thm->name);
 		$edit = '';
-	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$tbl.'themes WHERE id='.(int)$_GET['rebuild']))) {
+	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['rebuild']))) {
 		compile_all($data[0], $data[1], $data[2]);
-	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'themes WHERE id='.$edit))) {
+	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
 			${'thm_'.$k} = $v;
 		}
+		$thm_t_default = $c['theme_opt'] & 2;
+		$thm_enabled = $c['theme_opt'] & 1;
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
-	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE id='.(int)$_GET['optimize']))) {
+	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['optimize']))) {
 		/* optimize *.php files */
 		$path = $WWW_ROOT_DISK . 'theme/' . $t_name;
 		$dir = opendir($path);
@@ -183,6 +183,7 @@ function clean_code($path, $toks)
 		}
 		$thm_locale = 'english';
 		$thm_pspell_lang = 'en';
+		$thm_t_default = $thm_enabled = 0;
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
@@ -335,7 +336,7 @@ function update_locale()
 </tr>
 <?php
 	$i = 1;
-	$c = uq('SELECT * FROM '.$tbl.'themes ORDER BY id');
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'themes ORDER BY id');
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' bgcolor="#ffb5b5"';

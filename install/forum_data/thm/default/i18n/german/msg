@@ -999,3 +999,6 @@ merge_merge:			Ausgew&auml;hlte Themen zusammenf&uuml;hren
 merge_next:			N&auml;chste Themen
 merge_prev:			Vorherige Themen
 split_cp:			Bedienfeld zum Teilen von Themen
+groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
+register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>

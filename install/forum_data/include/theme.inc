@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.7 2003/10/03 01:57:39 hackie Exp $
+*   $Id: theme.inc,v 1.8 2003/10/03 02:28:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -83,7 +83,7 @@ class fud_theme
 			lang='".addslashes($this->lang)."', 
 			locale='".addslashes($this->locale)."', 
 			theme_opt=".$this->theme_opt.",
-			pspell_lang=".strnull(addslashes($this->pspell_lang)).",
+			pspell_lang=".strnull(addslashes($this->pspell_lang))."
 		WHERE id=".$id);
 
 		if (!($this->theme_opt & 1) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt & 1")) {
