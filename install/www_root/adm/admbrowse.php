@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.5 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admbrowse.php,v 1.6 2003/04/28 18:06:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,17 +14,20 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
+	if (isset($_POST['btn_mini_cancel']) || isset($_GET['btn_mini_cancel'])) {
+		exit('<html><script>window.close();</script></html>');
+	}
+
 	define('admin_form', 1);
-	
-	include_once "GLOBALS.php";
-	
-	fud_use('widgets.inc', true);
+
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
 
 function bit_test($val, $mask)
 {
-	return ( ($val&$mask)==$mask ) ? $mask : 0;
+	return (($val & $mask) == $mask) ? $mask : 0;
 }
 
 function mode_string($mode, $de)
@@ -33,194 +36,155 @@ function mode_string($mode, $de)
 	01234567890 */
 	$mode_str = 'drwxrwxrwxt';
 		
-	if ( !is_dir($de) ) /* directory */
+	if (!is_dir($de)) {/* directory */
 		$mode_str[0] = '-';
-		
-	if ( !bit_test($mode, 00400) ) /* owner read */
+	}
+	if (!bit_test($mode, 00400)) {/* owner read */
 		$mode_str[1] = '-';
-			
-	if ( !bit_test($mode, 00200) ) /* owner write */
+	}
+	if (!bit_test($mode, 00200)) {/* owner write */
 		$mode_str[2] = '-';
-		
-	if ( !bit_test($mode, 00100) ) /* owner exec */
+	}
+	if (!bit_test($mode, 00100)) {/* owner exec */
 		$mode_str[3] = '-';
-		
-	if ( bit_test($mode, 0004000) ) /* setuid */
+	}
+	if (bit_test($mode, 0004000)) {/* setuid */
 		$mode_str[3] = 's';
-			
-	if ( !bit_test($mode, 00040) ) /* group read */
+	}
+	if (!bit_test($mode, 00040)) {/* group read */
 		$mode_str[4] = '-';
-			
-	if ( !bit_test($mode, 00020) ) /* group write */
+	}	
+	if (!bit_test($mode, 00020)) {/* group write */
 		$mode_str[5] = '-';
-		
-	if ( !bit_test($mode, 00010) ) /* group exec */
+	}
+	if (!bit_test($mode, 00010)) {/* group exec */
 		$mode_str[6] = '-';
-		
-	if ( bit_test($mode, 0002000) ) /* setgid */
+	}
+	if (bit_test($mode, 0002000)) {/* setgid */
 		$mode_str[6] = 's';
-		
-	if ( !bit_test($mode, 00004) ) /* world read */
+	}		
+	if (!bit_test($mode, 00004)) {/* world read */
 		$mode_str[7] = '-';
-			
-	if ( !bit_test($mode, 00002) ) /* world write */
+	}
+	if (!bit_test($mode, 00002)) {/* world write */
 		$mode_str[8] = '-';
-		
-	if ( !bit_test($mode, 00001) ) /* world exec */
+	}
+	if (!bit_test($mode, 00001)) {/* world exec */
 		$mode_str[9] = '-';
-		
-	if ( !bit_test($mode, 0001000) ) /* sticky (warning: NOT POSIX) */
-		$mode_str[10] = '-';	
+	}
+	if (!bit_test($mode, 0001000)) {/* sticky (warning: NOT POSIX) */
+		$mode_str[10] = '-';
+	}
 			
 	return $mode_str;
 }
 
-	list($ses, $usr) = initadm();
-	
+function fud_rmdir($dir)
+{
+	if (!($d = opendir($dir))) {
+		return;
+	}
+	readdir($d); readdir($d);
+	while ($f = readdir($d)) {
+		if (@is_dir($dir . '/' . $f)) {
+			if (!fud_rmdir($dir . '/' . $f)) {
+				return;
+			}
+		} else {
+			if (!@unlink($dir . '/' . $f)) {
+				return;
+			}
+		}
+	}
+	closedir($d);
+	return @rmdir($dir);
+}
+
+if (!function_exists('posix_getpwuid')) {
+	function posix_getpwuid($id)
+	{
+		return array('name' => $id);
+	}
+
+	function posix_getgrgid($id)
+	{
+		return array('name' => $id);
+	}
+}
+
 	/* Figure out the ROOT paths based on the location of web browseable dir & data dir */
 	$ROOT_PATH[0] = realpath($GLOBALS['WWW_ROOT_DISK']);
-	$ROOT_PATH[1] = realpath($GLOBALS['INCLUDE'].'../');
+	$ROOT_PATH[1] = realpath($GLOBALS['DATA_DIR']);
 	
-	if ( $btn_cancel ) exit('<html><script>window.close();</script></html>');
-	
-	if( !($MYDIR = getcwd()) ) $MYDIR = dirname($HTTP_SERVER_VARS['PATH_TRANSLATED']);
+	$cur_dir = realpath(isset($_POST['cur']) ? $_POST['cur'] : (isset($_GET['cur']) ? $_GET['cur'] : $ROOT_PATH[0]));
+	$dest = isset($_POST['dest']) ? basename($_POST['dest']) : (isset($_GET['dest']) ? basename($_GET['dest']) : '');
 
-	/* Remove slashes */
-	if( isset($HTTP_POST_VARS['cur']) ) {
-		$cur = $HTTP_POST_VARS['cur'] = stripslashes($HTTP_POST_VARS['cur']);
-		$dest = $HTTP_POST_VARS['dest'] = stripslashes($HTTP_POST_VARS['dest']);
-	}
-	else if ( isset($HTTP_GET_VARS['cur']) ) {
-		$cur = $HTTP_GET_VARS['cur'] = stripslashes($HTTP_GET_VARS['cur']);
-		$dest = $HTTP_GET_VARS['dest'] = stripslashes($HTTP_GET_VARS['dest']);
-	}
-	else {
-		$cur = $ROOT_PATH[0];
+	/* make sure that the specified path is within the forum directories */
+	if (strpos($cur_dir, $ROOT_PATH[1]) !== 0 && strpos($cur_dir, $ROOT_PATH[0]) !== 0) {
+		$cur = $cur_dir = $ROOT_PATH[0];
 		$dest = '';
-	}	
-	
-	$cur_path = $cur = realpath($cur);
-	
-	/* Security check to ensure the user does not attempt to control files outside of the allowed directories */
-	if( !empty($dest) ) {
-		$dest = basename($dest);
-		if( $dest == '.' || $dest == '..' ) $dest = '';
-	}	
-
-	$ROOT_PATH[2] = preg_quote($ROOT_PATH[0]);
-	$ROOT_PATH[3] = preg_quote($ROOT_PATH[1]);
-
-	if( !preg_match('!^'.$ROOT_PATH[2].'!', $cur) && !preg_match('!^'.$ROOT_PATH[3].'!', $cur) ) {
-		header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($ROOT_PATH[0]));
-		exit;	
 	}
 	
 	/* Directory creation code */
-	if( isset($HTTP_GET_VARS['mkdir']) ) {
-		$cur_dir = getcwd();
-		chdir($cur);
-		$oldmask = umask(0);
-		$ret = mkdir(basename(stripslashes($HTTP_GET_VARS['mkdir'])), 0700);
-		chdir($cur_dir);
-		umask($oldmask);
-		
-		if( $ret == true ) {
-			header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($cur));
-			exit;
+	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
+		$u = umask(0);
+		if (!mkdir($cur_dir . '/' . basename($_GET['mkdir']), ($GLOBALS['FILE_LOCK'] == 'Y' ? 0700 : 0777))) {
+			echo '<h2 color="red">ERROR: failed to create '.$cur_dir . '/' . basename($_GET['mkdir']).'</h2>';
 		}
-		else {
-			exit('FATAL ERROR: failed to create "'.stripslashes($HTTP_GET_VARS['mkdir']).'" directory inside "'.$cur."\"<br>\n");
-		}
+		umask($u);
 	}
 
 	/* File upload code */
-	if( isset($HTTP_POST_FILES['fname']) ) {
-		$dest = $cur.'/'.(strlen($HTTP_POST_VARS['d_name']) ? stripslashes($HTTP_POST_VARS['d_name']) : $HTTP_POST_FILES['fname']['name']);
-		$oldmask = umask(0177);
-		move_uploaded_file($HTTP_POST_FILES['fname']['tmp_name'], $dest);
-		umask($oldmask);
-		header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($cur));
-		exit;		
+	if (isset($_FILES['fname']) && $_FILES['fname']['size']) {
+		$fdest = !empty($_POST['d_name']) ? $_POST['d_name'] : $_FILES['fname']['name'];
+		$fdest = $cur_dir . '/' . basename($fdest);
+		move_uploaded_file($_FILES['fname']['tmp_name'], $fdest);
+		@chmod($fdest, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
 	}
 
 	/* Download file code */
-	if( isset($HTTP_GET_VARS['down']) && @file_exists($cur.'/'.$dest) ) {
-		header("Content-type: application/octet-stream");
-		header("Content-Disposition: attachment; filename=".$dest);
-		fpassthru(fopen($cur.'/'.$dest, 'rb'));
-		exit;	
+	if (isset($_GET['down']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
+		header('Content-type: application/octet-stream');
+		header('Content-Disposition: attachment; filename='.$dest);
+		fpassthru(fopen($cur_dir . '/' . $dest, 'rb'));
+		exit;
 	}
 	
-	/* Delete file code */
-	if( isset($HTTP_GET_VARS['del']) ) {
-		if( !@file_exists($cur.'/'.$dest) ) {
-			exit('FATAL ERROR: cannnot delete non-existant file: '.$cur.'/'.$dest);
-		}
-		
-		if( isset($HTTP_GET_VARS['del_conf']) ) {
-			if( @is_dir($cur.'/'.$dest) ) {
-				if( rmdir($cur.'/'.$dest.'/') ) 
-					exit('<html><script> window.opener.location = \'admbrowse.php?'._rsid.'&cur='.urlencode($cur).'\';  window.close();</script></html>');
-				else
-					exit('Failed to delete: '.$cur.'/'.$dest.'/');	
-			}	
-			else {
-				if( unlink($cur.'/'.$dest) ) 
-					exit('<html><script> window.opener.location = \'admbrowse.php?'._rsid.'&cur='.urlencode($cur).'\'; window.close();</script></html>');
-				else
-					exit('Failed to delete: '.$cur.'/'.$dest);
+	/* Delete file/directory code */
+	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
+		if (isset($_GET['del_conf'])) {
+			if (@is_dir($cur_dir . '/' . $dest) && !fud_rmdir($cur_dir . '/' . $dest)) {
+				exit('<h2 color="red">ERROR: failed to remove directory '.$cur_dir . '/' . $dest.'</h2>');
+			} else if (@is_file($cur.'/'.$dest) && !@unlink($cur.'/'.$dest)) {
+				exit('<h2 color="red">ERROR: failed to remove file '.$cur_dir . '/' . $dest.'</h2>');
+			} else {
+				exit('<html><script> window.opener.location = \'admbrowse.php?'._rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
-			exit;			
-		}
-		else { 
-			$file = $cur.'/'.$dest;
+		} else { 
+			$file = $cur_dir.'/'.$dest;
 			$type = @is_dir($file) ? 'directory' : 'file';
 		?>
 			<html>
 			<h2>File/Directory Deletion</h2>
 			Are you sure you want to delete <?php echo $type.' <font color="#ff0000"><b>'.$file.'</b></font>'; ?><p>
 			<form method="GET" action="admbrowse.php">
-			<input type="hidden" name="cur" value="<?php echo $cur; ?>">
+			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>">
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>">
 			<input type="hidden" name="del" value="1">
-			<div align="center"><input type="submit" name="btn_cancel" value="No"> <input type="submit" name="del_conf" value="Yes"></div>
+			<div align="center"><input type="submit" name="btn_mini_cancel" value="No"> <input type="submit" name="del_conf" value="Yes"></div>
 			</form>
 			</html>
 		<?php 
 			exit;
 		}
 	}
-
-if ( $chmod ) {
-	$file = $cur.'/'.$dest;
-	$st = stat($file);
-	if( !isset($st[2]) ) $st[2] = $st['mode'];
-	
-	$mode_o = sprintf('%o', 0x0FFF&$st[2]);
-	
-	if ( $btn_cancel ) exit('<html><script>window.close();</script></html>');
-
-	if ( $btn_submit ) {
-		$new_mode = 
-			($oread+0)
-			|($owrite+0)
-			|($oexec+0)
-			|($gread+0)
-			|($gwrite+0)
-			|($gexec+0)
-			|($wread+0)
-			|($wwrite+0)
-			|($wexec+0)
-			|($setuid+0)
-			|($setgid+0)
-			|($sticky+0)
-			;
-					
-		if ( !@chmod($file, $new_mode) )
-			exit("<html>Unable to chmod <b>$file</b><br><a href=\"javscript: return false;\" onClick=\"javascript: window.close();\">close</a></html>");
-
-		exit('<html><script> window.opener.location = \'admbrowse.php?'._rsid.'&cur='.urlencode($cur).'\'; window.close();</script></html>');
-	}
+	if (isset($_GET['chmod'])) {
+		$file = $cur_dir.'/'.$dest;
+		$st = stat($file);
+		if (!isset($st[2])) {
+			$st[2] = $st['mode'];
+		}
+		$mode_o = sprintf('%o', 0x0FFF & $st[2]);
 ?>
 	<html>
 		<h2>Change File Permissions</h2>
@@ -229,7 +193,7 @@ if ( $chmod ) {
 		<form method="post" action="admbrowse.php">
 		<?php echo _hs; ?>
 		<input type="hidden" name="chmod" value="1">
-		<input type="hidden" name="cur" value="<?php echo $cur; ?>">
+		<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>">
 		<input type="hidden" name="dest" value="<?php echo $dest; ?>">
 		<table border=0>
 		<tr><td>Group:</td><td>Read</td><td>Write</td><td>Execute</td></tr>
@@ -248,50 +212,62 @@ if ( $chmod ) {
 		<tr><td colspan=4><?php draw_checkbox('setuid', 0004000, bit_test($st[2], 0004000)); ?> setuid</td></tr>
 		<tr><td colspan=4><?php draw_checkbox('setgid', 0002000, bit_test($st[2], 0002000)); ?> setgid</td></tr>
 		<tr><td colspan=4><?php draw_checkbox('sticky', 0001000, bit_test($st[2], 0001000)); ?> sticky</td></tr>
-		<tr><td colspan=4 align=right><input type="submit" name="btn_submit" value="Apply"> <input type="submit" name="btn_cancel" value="Cancel"></td></tr>
+		<tr><td colspan=4 align=right><input type="submit" name="btn_submit" value="Apply"> <input type="submit" name="btn_mini_cancel" value="Cancel"></td></tr>
 		</table>
 		</form>
 	</html>
 <?php
-exit();
-}
+		exit;
+	}
 
-include('admpanel.php'); 
+	/* change file/directory permissions */
+	if (isset($_POST['chmod'])) {
+		$file = $cur_dir.'/'.$dest;
+		$perm_bits = array('oread', 'owrite', 'oexec', 'gread', 'gwrite', 'gexec', 'wread', 'wwrite', 'wexec', 'setuid', 'setgid', 'sticky');
+		$new_mode = 0;
+		foreach ($perm_bits as $v) {
+			if (isset($_POST[$v])) {
+				$new_mode |= $_POST[$v] + 0;
+			}
+		}
+		if (!@chmod($file, $new_mode)) {
+			exit('<html>Unable to chmod <b>'.$file.'</b><br><a href="javscript: return false;" onClick="javascript: window.close();">close</a></html>');
+		} else {
+			exit('<html><script> window.opener.location = \'admbrowse.php?'._rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
+		}
+	}
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>File Adminstration System</h2>
 <?php
-	if( !@is_dir($cur) ) exit("'".$cur."' is not a valid directory<br>\n");
-	if ( !@chdir($cur) ) {	
-		echo "<b>PERMISSION DENINED ACCSESING $cur</b><br>\n";
-		$cur = $MYDIR;
-		chdir($cur);
+	if (!@is_dir($cur_dir)) {
+		$cur_dir = $ROOT_PATH[0];
 	}
 
 	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
 		DATA_ROOT:  <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
-	echo 'Currently Browsing: <b>'.htmlspecialchars($cur)."</b><br>\n";		
+	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";		
 	
 	clearstatcache();
-	if ( !($dp = @opendir('.') )) {
-		echo "<b>PERMISSION DENINED ACCSESING $cur</b><br>\n";
-		$cur = $MYDIR;
-		chdir($cur);
-		$dp = @opendir('.');
+	if (!($dp = opendir($cur_dir))) {
+		echo '<b>PERMISSION DENINED ACCSESING '.$cur_dir.'</b><br>';
+		$dp = opendir($ROOT_PATH[0]);
 	}
 ?>
 <br>
 <table cellspacing=2 cellpadding=2 border=0>
-	<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur; ?>"><?php echo _hs; ?>
+	<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
 	<tr style="font-size: x-small;">
 		<td>Directory Name:</td>
 		<td><input type="text" name="mkdir" value=""></td>
-		<td align="right" colspan=2><input  style="font-size: x-small;"  type="submit" name="btn_mkdir" value="Create Directory">
+		<td align="right" colspan=2><input  style="font-size: x-small;" type="submit" name="btn_mkdir" value="Create Directory">
 	</tr>
 	</form>
 </table>
 <br>
 <table cellspacing=2 cellpadding=2 border=0>
-	<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur; ?>"><?php echo _hs; ?>
+	<form method="post" action="admbrowse.php" enctype="multipart/form-data"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
 	<tr style="font-size: x-small;">
 		<td colspan=2><b>File Upload</b></td>
 	</tr>
@@ -315,36 +291,36 @@ include('admpanel.php');
 	$file_list = array();
 	$dir_list = array();
 
-	while ( $de = readdir($dp) ) {
-		if( @is_dir($de) ) 
+	while ($de = readdir($dp)) {
+		if (@is_dir($cur_dir . '/' . $de)) {
 			$dir_list[] = $de;
-		else
-			$file_list[] = $de;	
+		} else {
+			$file_list[] = $de;
+		}
 	}
 	closedir($dp);
-	
+
 	sort($dir_list);
 	sort($file_list);
-	
+
 	$dir_data = array_merge($dir_list, $file_list);	
+
+	$cur_enc = urlencode($cur_dir);
 		
-	foreach($dir_data as $de) { 
-		if( @is_file($de) ) {
-			$name = $de;
-			$st = stat($de);
-		}	
-		if( @is_dir($de) ) {
-			if( $de == '.' ) continue;
-		
-			$path = realpath($cur.'/'.$de.'/');
-			if( !preg_match('!^'.$ROOT_PATH[2].'!', $path) && !preg_match('!^'.$ROOT_PATH[3].'!', $path) ) continue;
-					
-			$name = '<a href="admbrowse.php?cur='.urlencode($path).'&rand='.get_random_value().'&'._rsid.'">'.$de.'</a>';
-			$st = stat($de);
-		}	
+	foreach($dir_data as $de) {
+		$fpath = $cur_dir . '/' . $de;
+	
+		if (@is_file($fpath)) {
+			$name = htmlspecialchars($de);
+			$st = stat($fpath);
+		} else if (@is_dir($fpath)) {
+			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&'._rsidl.'">'.htmlspecialchars($de).'</a>';
+			$st = stat($fpath);
+		}
 	
 		$mode = isset($st[2]) ? $st[2] : $st['mode'];
 		$mode_str = mode_string($mode, $de);
+		$de_enc = urlencode($de);
 		
 		$passwdent = posix_getpwuid((isset($st[4])?$st[4]:$st['uid']));
 		$owner = $passwdent['name'];
@@ -357,28 +333,30 @@ include('admpanel.php');
 		
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
 		
-		echo '<tr class="admin_fixed"><td nowrap>'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td>'.$size.' KB</td><td>'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
-		if( @is_readable($de) ) {
-			if( @is_writeable($de) ) 
-				echo "<td style=\"border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;\"><a href=\"javascript: return false;\" onClick=\"javascript: window.open('admbrowse.php?chmod=1&cur=".urlencode($cur)."&dest=".urlencode($de)."&"._rsid."', 'chmod_window', 'width=500,height=350,menubar=no');\">chmod</a></td> ";
-			else
+		echo '<tr class="admin_fixed"><td nowrap>'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap>'.$size.' KB</td><td nowrap>'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
+		if (@is_readable($fpath)) {
+			if (@is_writeable($fpath)) {
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?chmod=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
+			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';	
-			
-			if( @is_file($de) ) 
-				echo "<td style=\"border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;\"><a href=\"admbrowse.php?down=1&cur=".urlencode($cur)."&dest=".urlencode($de)."&"._rsid."\">download</a></td>";
-			else
+			}
+
+			if (@is_file($fpath)) {
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'">download</a></td>';
+			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';					
-			
-			if( @is_writeable($de) ) 
-				echo "<td style=\"border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;\"><a href=\"javascript: return false;\" onClick=\"javascript: window.open('admbrowse.php?del=1&cur=".urlencode($cur)."&dest=".urlencode($de)."&"._rsid."', 'chmod_window', 'width=500,height=350,menubar=no');\">delete</a></td>";
-			else
+			}
+
+			if (@is_writeable($fpath)) {
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
+			} else {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';	
-		}
-		else
+			}
+		} else {
 			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan=3 align="center">n/a</td>';
+		}
 		echo '</tr>';
 	}
 
-	chdir($MYDIR);
-
-readfile('admclose.html'); ?>
+require($WWW_ROOT_DISK . 'adm/admclose.html');
+?>
