@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.77 2004/03/15 14:59:36 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.78 2004/04/05 16:14:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -292,15 +292,14 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 
 		/* various conditions that may prevent poll voting */
-		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
-			if ($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) {
-				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
-					/* check if the max # of poll votes was reached */
-					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
-						$show_res = 0;
-					}
-				}
-			}
+		if (!$hide_controls && !$obj->cant_vote && 
+			(!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id) && 
+			($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) &&
+			(!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) &&
+			/* check if the max # of poll votes was reached */
+			(!$obj->max_votes || $obj->total_votes < $obj->max_votes)
+		) {
+			$show_res = 0;
 		}
 
 		$i = 0;
