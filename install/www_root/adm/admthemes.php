@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.25 2003/05/05 12:55:32 hackie Exp $
+*   $Id: admthemes.php,v 1.26 2003/05/05 13:01:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,10 +77,12 @@ function clean_code($path, $toks)
 				case T_FUNCTION:
 				case T_CLASS:
 				case T_ECHO:
+				case T_RETURN:
 					$r .= $tok[1].' ';
 					break;
 				case T_AS:
 				case T_LOGICAL_OR:
+				case T_EXTENDS:
 					$r .= ' '.$tok[1].' ';
 					break;
 				default:
