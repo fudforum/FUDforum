@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.15 2003/06/09 13:41:54 hackie Exp $
+*   $Id: adm.inc,v 1.16 2003/07/24 22:47:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,6 +24,8 @@ if (!defined('shell_script')) {
 	fud_use('users.inc');
 	$GLOBALS['USE_PATH_INFO'] = $r;
 }
+
+define('__fud_index_name__', 'index.php');
 
 if ($GLOBALS['usr']->is_mod != 'A') {
 	header('Location: admloginuser.php?'._rsidl);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.19 2003/06/02 18:06:52 hackie Exp $
+*   $Id: finduser.php.t,v 1.20 2003/07/24 22:47:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,13 +16,16 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
+
+	$adm = $usr->is_mod != 'A' ? 0 : 1;
 	
-	if ($MEMBER_SEARCH_ENABLED != 'Y' && $usr->is_mod != 'A') {
+	if ($MEMBER_SEARCH_ENABLED != 'Y' && !$adm) {
 		std_error('disabled');
 	}
 
 	if (isset($_GET['js_redr'])) {
 		define('plain_form', 1);
+		$adm = 0;
 	}
 
 	$TITLE_EXTRA = ': {TEMPLATE: finduser_title}';
@@ -55,12 +58,20 @@
 	}
 	$lmt = ' LIMIT '.qry_limit($count, $start);
 
+	$admin_opts = $adm ? '{TEMPLATE: findu_admin_opts_header}' : '';
+
 	$find_user_data = '';
-	$c = uq('SELECT home_page, email_messages, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
+	$c = uq('SELECT blocked, home_page, email_messages, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
 		$pm_link = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = strlen($r->home_page) ? '{TEMPLATE: homepage_link}' : '';
 		$email_link = ($ALLOW_EMAIL == 'Y' && $r->email_messages == 'Y') ? '{TEMPLATE: email_link}' : '';
+
+		if ($adm) {
+			$admi = $r->blocked == 'Y' ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
+			$admi = '{TEMPLATE: findu_admin_opts}';
+		}
+
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
 	qf($c);

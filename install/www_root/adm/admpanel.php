@@ -1,4 +1,3 @@
-<?php define('__fud_index_name__', 'index.php'); ?>
 <html>
 <body bgcolor="#ffffff">
 <style type="text/css">

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.26 2003/07/09 08:26:50 hackie Exp $
+*   $Id: admuser.php,v 1.27 2003/07/24 22:47:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,6 +43,10 @@
 		case 'block':
 			$u->blocked = $u->blocked == 'Y' ? 'N' : 'Y';
 			q('UPDATE '.$tbl.'users SET blocked=\''.$u->blocked.'\' WHERE id='.$usr_id);
+			if (isset($_GET['f'])) {
+				header('Location: '.$WWW_ROOT.__fud_index_name__.$GLOBALS['usr']->returnto);
+				exit;
+			}
 			break;
 		case 'coppa':
 			$u->coppa = $u->coppa == 'Y' ? 'N' : 'Y';
@@ -77,10 +81,38 @@
 			}
 			break;
 		case 'del':
-			logaction(_uid, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
-			usr_delete($usr_id);
-			unset($act, $u);
-			$usr_id = '';
+			if (!isset($_POST['del_confirm'])) {
+?>
+<html>
+<title>User Deletion confirmation</title>
+<body color="white">
+<form method="post" action="admuser.php"><?php echo _hs; ?>
+<input type="hidden" name="act" value="del">
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
+<input type="hidden" name="del_confirm" value="1">
+<div align="center">You are about to delete <font color="red"><b><?php echo $u->alias; ?></b></font>'s account!<br><br>
+Are you sure you want to do this, once deleted the account cannot be recovered?<br>
+<input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
+</div>
+<?php
+	if (isset($_GET['f'])) {
+		echo '<input type="hidden" name="f" value="1">';
+	}
+?>
+</form>
+</body></html>
+<?php
+					exit;			
+			} else if (isset($_POST['btn_yes'])) {
+				logaction(_uid, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
+				usr_delete($usr_id);
+				unset($act, $u);
+				$usr_id = '';
+			}
+			if (isset($_POST['f']) || isset($_GET['f'])) {
+				header('Location: '.$WWW_ROOT.__fud_index_name__.$GLOBALS['usr']->returnto);
+				exit;
+			}
 			break;
 		case 'admin':
 			if ($u->is_mod == 'A') {
@@ -96,7 +128,7 @@
 <div align="center">You are taking away administration privileges from <font color="red"><b><?php echo $u->alias; ?></b></font>!<br><br>
 Are you sure you want to do this?<br>
 <input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
-<div>
+</div>
 </form>
 </body></html>
 <?php
@@ -119,7 +151,7 @@ Are you sure you want to do this?<br>
 administration permissions to the forum. This individual will be able to do anything with the forum, including taking away your own administration permissions.
 <br><br>Are you sure you want to do this?<br>
 <input type="submit" value="Yes" name="btn_yes"> <input type="submit" value="No" name="btn_no">
-<div>
+</div>
 </form>
 </body></html>
 <?php

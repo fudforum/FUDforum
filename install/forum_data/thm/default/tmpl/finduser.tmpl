@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.18 2003/05/26 07:10:31 hackie Exp $
+*   $Id: finduser.tmpl,v 1.19 2003/07/24 22:47:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -41,7 +41,7 @@
 <img src="blank.gif" alt="" height=2 width=1 border=0 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-<th width="100%"><a class="thLnk" href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>
+<th width="100%"><a class="thLnk" href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;usr_email={VAR-URL: usr_email}&amp;us=1&amp;btn_submit=Find&amp;{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;pc=1&amp;btn_submit=Find" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{ROOT}?t=finduser&amp;usr_login={VAR-URL: usr_login}&amp;{DEF: _rsid}&amp;usr_email={VAR-URL: usr_email}&amp;btn_submit=Find" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -56,7 +56,7 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td></tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
@@ -84,4 +84,20 @@
 
 {SECTION: finduser_update}
 {MSG: finduser_update}
+{SECTION: END}
+
+{SECTION: findu_admin_opts_header}
+<th>{MSG: findu_admin_opts_header}</th>
+{SECTION: END}
+
+{SECTION: findu_unban}
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_unban}</a>
+{SECTION: END}
+
+{SECTION: findu_ban}
+<a href="{GVAR: WWW_ROOT}adm/admuser.php?act=block&usr_id={VAR: r->id}&S={DEF: s}">{MSG: findu_ban}</a>
+{SECTION: END}
+
+{SECTION: findu_admin_opts}
+<td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=1">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&S={DEF: s}&act=del">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
 {SECTION: END}

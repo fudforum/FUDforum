@@ -986,3 +986,8 @@ pm_notify_body_email:		You have a new private message titled "{VAR: subject}" fr
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
+findu_admin_opts_header:	Admin Opts.
+findu_unban:			UnBan
+findu_ban:			Ban
+findu_edit:			Edit
+findu_delete:			Delete
