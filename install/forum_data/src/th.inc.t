@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.29 2003/04/08 19:12:56 hackie Exp $
+*   $Id: th.inc.t,v 1.30 2003/04/09 14:11:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -117,23 +117,9 @@ class fud_thread
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$val.' WHERE id='.$this->id);
 	}
 	
-	function adm_set_rating($value)
-	{
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='.intnull($value).' WHERE id='.$this->id);
-	}
+	
 
-	function has_thread_vote($user_id, $thread_id='')
-	{
-		if (!$thread_id) {
-			$thread_id = $this->id;
-		}
-		
-		if (($rating = q_singleval('SELECT rating FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$thread_id.' AND user_id='.$user_id))) {
-			return $rating;	
-		}
-
-		return -1;
-	}
+	
 	
 	function update_vote_count()
 	{
@@ -147,35 +133,6 @@ class fud_thread
 		}
 		
 		return q_singleval('SELECT COUNT(*) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$thread_id);
-	}
-	
-	function register_thread_vote($user_id, $rating, $thread_id='')
-	{
-		if (!$thread_id) {
-			$thread_id = $this->id;
-		}
-		
-		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thread_rate_track WRITE, {SQL_TABLE_PREFIX}thread WRITE');
-			$ll = 1;
-		}
-		
-		if ($this->has_thread_vote($user_id, $thread_id) != -1) {
-			if (isset($ll)) {
-				db_unlock();
-			}
-			return;
-		}	
-		
-		q('INSERT INTO {SQL_TABLE_PREFIX}thread_rate_track (thread_id, user_id, stamp, rating) VALUES('.$thread_id.', '.$user_id.', '.__request_timestamp__.', '.$rating.')');
-		
-		$rating = q_singleval('SELECT ROUND(AVG(rating)) FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$thread_id);
-		
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET rating='.$rating.' WHERE id='.$thread_id);
-		
-		if (isset($ll)){
-			db_unlock();
-		}
 	}
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.26 2003/04/09 12:20:06 hackie Exp $
+*   $Id: msg.php.t,v 1.27 2003/04/09 14:11:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,7 +64,7 @@
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.root_msg_id, t.moved_to, t.locked,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.locked,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS mod,
 			tr.thread_id AS cant_rate,
@@ -137,12 +137,15 @@
 	ses_update_status($usr->sid, '{TEMPLATE: msg_update}', $frm->forum_id);
 
 /*{POST_HTML_PHP}*/
+
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
 
 	if ($ENABLE_THREAD_RATING == 'Y') {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
 		if ($perms['p_rate'] == 'Y' && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
+		} else {
+			$rate_thread = '';
 		}
 	} else {
 		$rate_thread = $thread_rating = '';
