@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.60 2004/05/23 20:49:00 hackie Exp $
+* $Id: login.php.t,v 1.61 2004/06/01 21:40:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,7 +188,7 @@ function error_check()
 				check_return('');
 			}
 
-			if (($sesp = strpos($usr->returnto, s)) !== false) { /* replace old session with new session */
+			if (s && ($sesp = strpos($usr->returnto, s)) !== false) { /* replace old session with new session */
 				$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 			}
 
