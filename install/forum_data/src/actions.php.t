@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.9 2002/07/11 21:49:08 hackie Exp $
+*   $Id: actions.php.t,v 1.10 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,6 +44,7 @@
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}ses.action,
 			{SQL_TABLE_PREFIX}ses.user_id,
+			{SQL_TABLE_PREFIX}ses.forum_id,
 			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}ses.time_sec,
@@ -94,12 +95,16 @@
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 		
-		if( ($p=strpos($obj->action, '?')) ) 
-			$action = substr_replace($obj->action, '?'._rsid.'&', $p, 1);
-		else if( ($p=strpos($obj->action, '.php')) ) 
-			$action = substr_replace($obj->action, '.php?'._rsid.'&', $p, 4);
-		else
-			$action = $obj->action;	
+		if( empty($limit[$obj->forum_id]) ) {
+			if( ($p=strpos($obj->action, '?')) ) 
+				$action = substr_replace($obj->action, '?'._rsid.'&', $p, 1);
+			else if( ($p=strpos($obj->action, '.php')) ) 
+				$action = substr_replace($obj->action, '.php?'._rsid.'&', $p, 4);
+			else
+				$action = $obj->action;	
+		}
+		else 
+			$action = '{TEMPLATE: no_view_perm}';	
 				
 		$action_data .= '{TEMPLATE: action_entry}';
 	}

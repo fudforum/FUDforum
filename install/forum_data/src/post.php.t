@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.4 2002/06/19 00:08:19 hackie Exp $
+*   $Id: post.php.t,v 1.5 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -433,11 +433,11 @@
 	/* form start */	 
 	if ( isset($ses) ) {
 		if ( $reply_to || $th_id && !$msg_id )
-			$ses->update('{TEMPLATE: post_reply_update}');
+			$ses->update('{TEMPLATE: post_reply_update}', $__RESOURCE_ID);
 		else if ( $msg_id ) 
-			$ses->update('{TEMPLATE: post_reply_update}');
+			$ses->update('{TEMPLATE: post_reply_update}', $__RESOURCE_ID);
 		else 
-			$ses->update('{TEMPLATE: post_topic_update}');
+			$ses->update('{TEMPLATE: post_topic_update}', $__RESOURCE_ID);
 	}
 	
 	if ( isset($thr) ) $th=$thr->id;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.3 2002/07/08 23:15:19 hackie Exp $
+*   $Id: thread.php.t,v 1.4 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@
 		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');	
 	
 	
-	if ( isset($ses) ) $ses->update('{TEMPLATE: thread_update}');
+	if ( isset($ses) ) $ses->update('{TEMPLATE: thread_update}', $GLOBALS['__RESOURCE_ID']);
 
 	if ( isset($usr) ) {
 		if ( $frm->is_moderator($usr->id) || $usr->is_mod == 'A' ) $MOD = 1;

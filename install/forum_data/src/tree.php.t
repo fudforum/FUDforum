@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: tree.php.t,v 1.5 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,8 +70,6 @@
 		header("Location: {ROOT}?t=tree&th=".$th.'&goto=end&'._rsid);
 		exit();
 	}
-
-
 
 	$GLOBALS['__RESOURCE_ID'] = $frm->id;	
 	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') )
@@ -163,7 +161,7 @@
 	}
 	qf($r);
 
-	if ( isset($ses) ) $ses->update('{TEMPLATE: tree_update}');
+	if ( isset($ses) ) $ses->update('{TEMPLATE: tree_update}', $GLOBALS['__RESOURCE_ID']);
 
 	if ( isset($frm) ) {
 		if ( !isset($cat) ) {

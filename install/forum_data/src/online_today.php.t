@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.7 2002/07/11 21:49:08 hackie Exp $
+*   $Id: online_today.php.t,v 1.8 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,15 +26,13 @@
 	
 	$limit = array();
 	if( $usr->is_mod != 'A' ) {
-		$r = q("SELECT resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum'");
+		$r = q("SELECT resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".intval(_uid)." AND resource_type='forum'");
 		while( list($fid,$pr) = db_rowarr($r) ) $limit[$fid] = ( $pr == 'Y' ) ? 1 : 0;
 		qf($r);
 
 		if( _uid ) {
 			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND p_READ='Y'");
-			while( list($fid) = db_rowarr($r) ) {
-				if( !isset($limit[$fid]) ) $limit[$fid] = 1;
-			}	
+			while( list($fid) = db_rowarr($r) ) if( !isset($limit[$fid]) ) $limit[$fid] = 1;
 			qf($r);
 		}
 	}

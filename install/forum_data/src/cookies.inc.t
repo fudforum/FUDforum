@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.5 2002/07/09 21:16:32 hackie Exp $
+*   $Id: cookies.inc.t,v 1.6 2002/07/16 16:33:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,10 +26,10 @@ class fud_session
 	var $action=NULL;
 	var $sys_id=NULL;
 
-	function update($str='')
+	function update($str='', $forum_id='')
 	{
 		if ( strlen($str) ) $this->action = $str;
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET time_sec=".__request_timestamp__.", action=".strnull(addslashes($this->action))." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}ses SET forum_id=".intval($forum_id).", time_sec=".__request_timestamp__.", action=".strnull(addslashes($this->action))." WHERE id=".$this->id);
 	}
 
 	function putvar($name, $val)
