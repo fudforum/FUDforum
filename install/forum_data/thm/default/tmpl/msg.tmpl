@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.14 2003/04/10 09:27:03 hackie Exp $
+*   $Id: msg.tmpl,v 1.15 2003/04/16 10:56:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -102,8 +102,10 @@
 </td></form></tr></table>
 {SECTION: END}
 
-{PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}{TEMPLATE: header}
+{PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}
+{TEMPLATE: header}
 {TEMPLATE: usercp}
+{TEMPLATE-DATA: msg_page_focus}
 
 <table width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr>
@@ -179,4 +181,10 @@
 
 {SECTION: msg_err_nosuchmsg_title}
 {MSG: msg_err_nosuchmsg_title}
+{SECTION: END}
+
+{SECTION: msg_page_focus}
+<script language="javascript" type="text/javascript">
+window.location = "{VAR: mid}";
+</script>
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.22 2003/04/10 17:37:06 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.23 2003/04/16 10:56:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -16,7 +16,6 @@
 
 {PHP_FILE: input: drawmsg.inc.t; output: drawmsg.inc;}
 {REF: fileio.tmpl}
-{REF: mime.tmpl}
 {REF: is_perms.tmpl}
 {REF: alt_var.tmpl}
 
@@ -25,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
@@ -37,7 +36,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
@@ -61,8 +60,8 @@
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
-[<a href="{ROOT}?t={VAR: _GET['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;start={VAR: _GET['start']}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
-[<a href="{ROOT}?t={VAR: _GET['t']}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}:{VAR: obj->poster_id}&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;start={VAR: _GET['start']}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
+[<a href="{ROOT}?{VAR: rev_url}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
+[<a href="{ROOT}?{VAR: un_ignore_url}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
 [<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
 <td align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
 </table></td>
@@ -271,7 +270,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
@@ -311,8 +310,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
-<br />
-<div align="center">[<a href="{ROOT}?t={VAR: _GET['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
+<br /><div align="center">[<a href="{ROOT}?{VAR: rev_url}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}

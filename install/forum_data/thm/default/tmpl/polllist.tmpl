@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.tmpl,v 1.6 2003/04/15 18:41:58 hackie Exp $
+*   $Id: polllist.tmpl,v 1.7 2003/04/16 10:56:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,7 +26,7 @@
 {REF: stats.tmpl}
 
 {SECTION: vote_lnk}
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
+&nbsp;<b>::</b>&nbsp;<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_online_indicator}
@@ -43,8 +43,12 @@
 	<td nowrap>{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
 	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->owner}&amp;{DEF: _rsid}">{VAR: obj->alias}</a></td>
 	<td align="center" nowrap>{VAR: obj->total_votes}</td>
-	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}">{MSG: polllist_view_results}</a></td>
+	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}{TEMPLATE-DATA: view_res_lnk}</td>
 </tr>
+{SECTION: END}
+
+{SECTION: poll_view_res_lnk}
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}">{MSG: polllist_view_results}</a>&nbsp;<b>::</b>&nbsp;
 {SECTION: END}
 
 {SECTION: polllist_update}
