@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.29 2003/10/03 13:55:03 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.30 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -31,7 +31,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
 
-	if ($group_id && !($usr->users_opt & 1048576) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072')) {
+	if ($group_id && !($usr->users_opt & 1048576) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0')) {
 		std_error('access');
 	}
 
@@ -40,7 +40,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	if ($usr->users_opt & 1048576) {
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
 	} else {
-		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072 ORDER BY g.name');
+		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0 ORDER BY g.name');
 	}
 
 	/* make a group selection form */
@@ -119,7 +119,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 				grp_rebuild_cache(array($usr_id));
 			}
 		} else if (($usr_id = q_singleval('SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND id='.(int)$_POST['edit'])) !== null) {
-			if (q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr_id." AND group_members_opt>=131072 AND group_members_opt & 131072")) {
+			if (q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr_id." AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0")) {
 				$perm |= 131072;
 			}
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE id='.(int)$_POST['edit']);
@@ -132,7 +132,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id) {
-		$is_gl = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$del." AND group_members_opt>=131072 AND group_members_opt & 131072");
+		$is_gl = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$del." AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0");
 		grp_delete_member($group_id, $del);
 
 		/* if the user was a group moderator, rebuild moderation cache */

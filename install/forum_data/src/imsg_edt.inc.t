@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.82 2003/10/02 19:37:01 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.83 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -417,7 +417,7 @@ class fud_msg_edit extends fud_msg
 				WHERE
 					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.'
 					AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
-					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
+					AND ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0');
 			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
@@ -430,7 +430,7 @@ class fud_msg_edit extends fud_msg
 				WHERE
 					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.'
 					AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))
-					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
+					AND ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0');
 			$notify_type = 'thr';
 		}
 		while ($r = db_rowarr($c)) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.17 2003/10/01 21:51:52 hackie Exp $
+*   $Id: polllist.php.t,v 1.18 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -49,7 +49,7 @@
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
 				WHERE
-					'.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
+					'.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));
 	$poll_entries = $pager = '';
 	if ($ttl) {
 		$c = uq('SELECT
@@ -71,7 +71,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 				WHERE
-					'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+					'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
 
 		while ($obj = db_rowobj($c)) {
 			if (!$obj->total_votes) {

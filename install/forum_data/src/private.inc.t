@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.25 2003/10/02 15:27:24 hackie Exp $
+*   $Id: private.inc.t,v 1.26 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -113,7 +113,7 @@ class fud_pmsg
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
-		$c =  uq('SELECT id, email, users_opt, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND users_opt & 64');
+		$c =  uq('SELECT id, email, users_opt, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND (users_opt & 64) > 0');
 
 		$from = $GLOBALS['usr']->alias;
 		reverse_fmt($from);

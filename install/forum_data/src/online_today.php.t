@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.15 2003/10/01 21:51:52 hackie Exp $
+*   $Id: online_today.php.t,v 1.16 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,7 +36,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-		WHERE u.last_visit>'.$today.' AND '.(!($usr->users_opt & 1048576) ? "!(u.users_opt & 32768) AND" : '').' u.id!='._uid.'
+		WHERE u.last_visit>'.$today.' AND '.(!($usr->users_opt & 1048576) ? "(u.users_opt & 32768)=0 AND" : '').' u.id!='._uid.'
 		ORDER BY u.alias, u.last_visit');
 	/*
 		array(9) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.19 2003/09/30 04:26:16 hackie Exp $
+*   $Id: admlock.php,v 1.20 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 	closedir($d);
 }
 
-	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['usr_login'])."' AND passwd='".md5($_POST['usr_passwd'])."' AND users_opt & 1048576")) {
+	if (isset($_POST['usr_passwd'], $_POST['usr_login']) && q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($_POST['usr_login'])."' AND passwd='".md5($_POST['usr_passwd'])."' AND (users_opt & 1048576) > 0")) {
 		$FUD_OPT_2 |= 8388608;
 		if (isset($_POST['btn_unlock'])) {
 			$dirperms = 0777;

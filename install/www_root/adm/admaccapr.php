@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admaccapr.php,v 1.7 2003/10/03 14:21:07 hackie Exp $
+*   $Id: admaccapr.php,v 1.8 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ function print_if_avail($descr, $value, $no_html=1)
 <div style="font-size: xx-large; font-weight: bold;">Account Approval</div>
 <table cellspacing=0 cellpadding=5 border=0><tr bgcolor="#bff8ff"><td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
 <?php
-	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND users_opt & 2097152');
+	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0');
 	while ($obj = db_rowobj($c)) {
 		echo '<tr><td style="font-size: smaller; border-bottom: 3px double black">'.
 		print_if_avail('Login', $obj->login) .

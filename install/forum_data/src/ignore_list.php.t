@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.18 2003/10/02 20:58:29 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.19 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -54,7 +54,7 @@ function ignore_alias_fetch($al, &$is_mod)
 			$usr->ignore_list = @unserialize($usr->ignore_list);
 		}
 
-		if (($ignore_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'].' AND !(users_opt & 1048576)')) && !isset($usr->ignore_list[$ignore_id])) {
+		if (($ignore_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'].' AND (users_opt & 1048576)=0')) && !isset($usr->ignore_list[$ignore_id])) {
 			ignore_add(_uid, $ignore_id);
 		}
 		check_return($usr->returnto);

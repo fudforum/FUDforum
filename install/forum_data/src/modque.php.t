@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.29 2003/10/03 23:59:46 hackie Exp $
+*   $Id: modque.php.t,v 1.30 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -70,7 +70,7 @@
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id="._uid."
-	WHERE (f.forum_opt>=2 AND f.forum_opt & 2) AND m.apr=0
+	WHERE (f.forum_opt>=2 AND (f.forum_opt & 2) > 0) AND m.apr=0
 	ORDER BY v.id, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
 
 	$prev_thread_id = $modque_message = '';

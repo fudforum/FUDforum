@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.28 2003/10/03 13:55:03 hackie Exp $
+*   $Id: search.php.t,v 1.29 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -97,7 +97,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
-			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 262144)'));
+			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 262144) > 0)'));
 	if (!$total) {
 		return;
 	}
@@ -116,7 +116,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match>='.$i : '').'
-			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 262144)').'
+			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 262144) > 0)').'
 		ORDER BY sc.n_match DESC, m.post_stamp '.$order.' LIMIT '.qry_limit($count, $start));
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.8 2003/10/03 02:28:39 hackie Exp $
+*   $Id: theme.inc,v 1.9 2003/10/05 22:18:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@ class fud_theme
 		}
 
 		if ($this->theme_opt & 2) {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt>=2 AND theme_opt & 2");
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0");
 			$this->theme_opt |= 1;
 		}
 
@@ -68,7 +68,7 @@ class fud_theme
 		}
 
 		if ($this->theme_opt & 2) {
-			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt>=2 AND theme_opt & 2");
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt>=2 AND (theme_opt & 2) > 0");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$id.' WHERE id=1');
 			$this->theme_opt |= 2;
 		}
@@ -86,17 +86,17 @@ class fud_theme
 			pspell_lang=".strnull(addslashes($this->pspell_lang))."
 		WHERE id=".$id);
 
-		if (!($this->theme_opt & 1) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt & 1")) {
+		if (!($this->theme_opt & 1) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE (theme_opt & 1) > 0")) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt|1 WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme='.$id);
 		}
-		if (!($this->theme_opt & 2) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND theme_opt & 2")) {
+		if (!($this->theme_opt & 2) && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0")) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt|3 WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
 		}
 		
 		if (!($this->theme_opt & 1)) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND theme_opt & 2").' WHERE theme='.$id);
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0").' WHERE theme='.$id);
 		}
 
 		if (isset($ll)) {
@@ -122,12 +122,12 @@ class fud_theme
 		
 		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id);
 		if ($data[0] & 2) {
-			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt & 1'))) {
+			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE (theme_opt & 1) > 0'))) {
 				$new_default = 1;
 			}
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt|3 WHERE id=".$new_default);
 		} else {
-			$new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt>=2 AND theme_opt & 2');
+			$new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0');
 		}
 
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$new_default.' WHERE theme='.$id);

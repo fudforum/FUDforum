@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.22 2003/10/03 19:16:43 hackie Exp $
+*   $Id: admimport.php,v 1.23 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,7 +181,7 @@ function resolve_dest_path($path)
 			}
 
 			/* Try to restore the current admin's account by seeing if he exists in the imported database */
-			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND users_opt & 1048576"))) {
+			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND (users_opt & 1048576) > 0"))) {
 				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
 			} else {
 				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>Therefor you\'ll need to re-login once the import process is complete<br></font>';
@@ -192,7 +192,7 @@ function resolve_dest_path($path)
 			flush();
 
 			fud_use('compiler.inc', true);
-			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND theme_opt & 1');
+			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0');
 			while ($r = db_rowarr($c)) {
 				compile_all($r[0], $r[1], $r[2]);
 			}
@@ -206,11 +206,11 @@ function resolve_dest_path($path)
 			}
 
 			echo "Correcting Attachment Paths<br>\n";
-			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND users_opt & (8388608|16777216) LIMIT 1'))) {
+			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0 LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
 				
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE users_opt>=8388608 AND users_opt & (8388608|16777216)');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
 			
 			echo '<b>Import process is now complete</b><br>';

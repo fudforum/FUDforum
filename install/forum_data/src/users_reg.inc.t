@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.51 2003/10/03 23:59:46 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.52 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -49,7 +49,7 @@ class fud_user_reg extends fud_user
 		/* this used when utilities create users (aka nntp/mlist import) */
 		if ($this->users_opt == -1) {
 			$this->users_opt = 1|2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
-			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND theme_opt & 2 LIMIT 1");
+			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
 			$this->time_zone =& $GLOBALS['SERVER_TZ'];
 			$this->posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
 			if (!($o2 & 4)) {
@@ -247,9 +247,9 @@ function rebuildmodlist()
 			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k);
 		}
 	}
-	q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ 524288 WHERE users_opt>=524288 AND users_opt & 524288');
+	q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ 524288 WHERE users_opt>=524288 AND (users_opt & 524288) > 0');
 	if (isset($u)) {
-		q('UPDATE '.$tbl.'users SET users_opt=users_opt|524288 WHERE id IN('.implode(',', $u).') AND !(users_opt & 1048576)');
+		q('UPDATE '.$tbl.'users SET users_opt=users_opt|524288 WHERE id IN('.implode(',', $u).') AND (users_opt & 1048576)=0');
 	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.18 2003/10/03 23:59:46 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.19 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 	}
 
 	if (!_uid) { /* anon user, we can optimize things quite a bit here */
-		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=g.resource_id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE g.user_id=0 AND group_cache_opt>=1 AND group_cache_opt & 1 ORDER BY v.id');
+		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=g.resource_id INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE g.user_id=0 AND group_cache_opt>=1 AND (group_cache_opt & 1) > 0 ORDER BY v.id');
 		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
@@ -47,7 +47,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
 			'.($mod ? '' : 'LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-			'.($mod ? '' : ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 1').'
+			'.($mod ? '' : ' WHERE mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 1) > 0').'
 			ORDER BY v.id');
 
 		while ($r = db_rowarr($c)) {

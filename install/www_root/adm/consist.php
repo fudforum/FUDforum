@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.57 2003/10/04 00:34:36 hackie Exp $
+*   $Id: consist.php,v 1.58 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -152,12 +152,12 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding moderators');
 		
 	draw_stat('Checking if all private messages have users');
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE !(pm.pmsg_opt & 16) AND u.id IS NULL');
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE (pm.pmsg_opt & 16)=0 AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
 	qf($c);
-	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE (pm.pmsg_opt & 16 AND pm.pmsg_opt>=16) AND u.id IS NULL');
+	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE ((pm.pmsg_opt & 16) > 0 AND pm.pmsg_opt>=16) AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
@@ -180,7 +180,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking message approvals');
 	$m = array();
-	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND f.forum_opt & 2');
+	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) > 0');
 	while ($r = db_rowarr($c)) {
 		$m[] = $r[0];
 	}
@@ -604,7 +604,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Validating group/primary user relations');
 
 	draw_stat('Rebuilding group leader cache');
-	$c = q('SELECT DISTINCT(user_id) FROM '.$tbl.'group_members WHERE group_members_opt>=131072 AND group_members_opt & 131072');
+	$c = q('SELECT DISTINCT(user_id) FROM '.$tbl.'group_members WHERE group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		rebuild_group_ldr_cache($r[0]);
 	}

@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.24 2003/10/02 21:44:05 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.25 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@ function &get_all_read_perms($uid, $mod)
 	qf($r);
 
 	if (_uid) {
-		$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN ('.implode(',', array_keys($limit)).') AND user_id=2147483647 AND group_cache_opt & 2");
+		$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id NOT IN ('.implode(',', array_keys($limit)).') AND user_id=2147483647 AND (group_cache_opt & 2) > 0");
 		while ($ent = db_rowarr($r)) {
 			if (!isset($limit[$ent[0]])) {
 				$limit[$ent[0]] = 1;

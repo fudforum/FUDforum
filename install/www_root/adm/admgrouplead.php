@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.18 2003/10/03 13:55:03 hackie Exp $
+*   $Id: admgrouplead.php,v 1.19 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,7 +81,7 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
-	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND gm.group_members_opt & 131072');
+	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		echo '<tr><td>'.$r[1].'</td><td>
 		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'&ug=1">Remove Group Leader Permission</a>]

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.40 2003/10/01 21:51:52 hackie Exp $
+*   $Id: login.php.t,v 1.41 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 	/* Remove old unconfirmed users */
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
-		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND users_opt & 131072 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND !(users_opt & 1048576)");
+		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND (users_opt & 131072) > 0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
 	}
 
 	if (!empty($_GET['logout'])) {

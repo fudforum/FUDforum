@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.13 2003/10/02 20:58:29 hackie Exp $
+*   $Id: email.php.t,v 1.14 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -64,7 +64,7 @@ function mail_check()
 	if (isset($_GET['toi']) && (int)$_GET['toi']) {
 		$_POST['tx_name'] = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['toi']);
 	} else if (isset($_POST['btn_submit']) && !mail_check()) {
-		if (!($email = q_singleval("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['tx_name']))."' AND users_opt & 16"))) {
+		if (!($email = q_singleval("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['tx_name']))."' AND (users_opt & 16) > 0"))) {
 			error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_error_unabletolocaddr}');
 		}
 		send_email($usr->email, $email, $_POST['tx_subject'], $_POST['tx_body'], 'Reply-To: '.$usr->email);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.89 2003/10/03 02:03:12 hackie Exp $
+*   $Id: register.php.t,v 1.90 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,7 +21,7 @@
 function create_theme_select($name, $def=null)
 {
 	$theme_select_values = '';
-	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND theme_opt & 1 ORDER BY id ASC");
+	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY id ASC");
 	while ($t = db_rowarr($r)) {
 		$selected = $t[0] == $def ? ' selected' : '';
 		$theme_select_values .= '{TEMPLATE: theme_select_value}';
@@ -414,7 +414,7 @@ function decode_uent(&$uent)
 
 			/* we notify all admins about the new user, so that they can approve him */
 			if (($FUD_OPT_2 & 132096) == 132096) {
-				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND users_opt & 1048576");
+				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0");
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
 				}

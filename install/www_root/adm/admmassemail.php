@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.18 2003/10/03 03:41:43 hackie Exp $
+*   $Id: admmassemail.php,v 1.19 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,13 +32,13 @@
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
 		if (!$_POST['group']) {
-			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($POST['ignore_override']) ? '' : 'WHERE !(users_opt & 8)'));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($POST['ignore_override']) ? '' : 'WHERE (users_opt & 8)=0'));
 		} else if (!isset($groups[$_POST['group']])) {
 			echo '<font color="+1" color="red">Invalid group id</font><br />';
 			$err = 1;
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
 		} else {
-			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND !(users_opt & 8)'));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND (users_opt & 8)=0'));
 		}
 
 		$email_block = 50;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.17 2003/10/01 21:51:52 hackie Exp $
+*   $Id: getfile.php.t,v 1.18 2003/10/05 22:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 	}
 	if (!isset($_GET['private'])) { /* non-private upload */
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
-			'.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2
+			('.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2) > 0
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.41 2003/10/02 21:01:17 hackie Exp $
+*   $Id: admglobal.php,v 1.42 2003/10/05 22:18:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,7 +95,7 @@ function get_max_upload_size()
 
 			/* Topic tree view disabled */
 			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 512 && !($NEW_FUD_OPT_2 & 512)) {
-				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|128 WHERE !(users_opt & 128)');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt|128 WHERE (users_opt & 128)=0');
 			}
 
 			$q_data = array();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.11 2003/10/03 17:20:58 hackie Exp $
+*   $Id: groups_adm.inc,v 1.12 2003/10/05 22:18:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,7 @@ function rebuild_group_ih($gid, $perm, $perma)
 		if ($v) continue; /* prevents circular references */
 
 		/* select all groups that inherit permissions from current group */
-		$r = q("SELECT id, groups_opt, groups_opti FROM ".$tbl."groups WHERE inherit_id=".$gid." AND groups_opti & ".$perm);
+		$r = q("SELECT id, groups_opt, groups_opti FROM ".$tbl."groups WHERE inherit_id=".$gid." AND (groups_opti & ".$perm.") > 0");
 		while ($o = db_rowarr($r)) {
 			foreach ($hdr as $p) {
 				if ($o[2] & $p[0]) {
@@ -93,7 +93,7 @@ function group_delete($id)
 	q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$id);
 
 	/* rebuild group manager cache for managers of the removed group */
-	$r = q("SELECT user_id FROM  ".$tbl."group_members WHERE group_id=".$id." AND group_members_opt>=131072 AND group_members_opt & 131072");
+	$r = q("SELECT user_id FROM  ".$tbl."group_members WHERE group_id=".$id." AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0");
 	while ($o = db_rowarr($r)) {
 		rebuild_group_ldr_cache($o[0]);
 	}
@@ -114,7 +114,7 @@ function rebuild_group_ldr_cache($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$c = uq('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND group_members_opt & 131072');
+	$c = uq('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND (group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		$g[] = $r[0];
 	}
