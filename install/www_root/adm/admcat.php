@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.4 2002/07/24 14:44:12 hackie Exp $
+*   $Id: admcat.php,v 1.5 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	cache_buster();	
 	
 	if ( !empty($cat_cancel_edit) ) {
-		header("Location: admcat.php?"._rsid);
+		header("Location: admcat.php?"._rsidl);
 	}
 	
 	$cat = new fud_cat_adm;
@@ -46,7 +46,7 @@
 		else 
 			$cat->sync();
 			
-		header("Location: admcat.php?"._rsid."&rnd=".get_random_value(64));
+		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
 		exit();
 	}
 	else if ( !empty($edit) ) {
@@ -56,13 +56,13 @@
 	
 	if ( !empty($act) && !empty($ct) && $act=="del" ) { 
 		$cat->delete($ct); 
-		header("Location: admcat.php?"._rsid."&rnd=".get_random_value(64));
+		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
 		exit();
 	}
 	
 	if ( isset($chpos) && isset($newpos) ) {
 		$cat->change_pos($chpos, $newpos);
-		header("Location: admcat.php?"._rsid."&rnd=".get_random_value(64));
+		header("Location: admcat.php?"._rsidl."&rnd=".get_random_value(64));
 		exit();
 	}
 

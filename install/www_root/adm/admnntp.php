@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.2 2002/08/02 12:41:54 hackie Exp $
+*   $Id: admnntp.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 	list($ses, $usr) = initadm();
 	
 	if( $HTTP_POST_VARS['nntp_edit_cancel'] ) {
-		header("Location: admnntp.php?"._rsid);
+		header("Location: admnntp.php?"._rsidl);
 		exit;
 	}
 	
@@ -49,7 +49,7 @@
 		else
 			$nntp_adm->add();
 		
-		header("Location: admnntp.php?"._rsid);	
+		header("Location: admnntp.php?"._rsidl);	
 		exit;			
 	}
 	else if( is_numeric($HTTP_GET_VARS['edit']) )
@@ -57,7 +57,7 @@
 	else if( is_numeric($HTTP_GET_VARS['del']) ) {
 		$nntp_adm->del();
 		
-		header("Location: admnntp.php?"._rsid);
+		header("Location: admnntp.php?"._rsidl);
 		exit;	
 	}
 	else { /* Set the some default values */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.9 2002/08/05 00:47:55 hackie Exp $
+*   $Id: msg.php.t,v 1.10 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@
 	
 		$start = (ceil(($pos/$count))-1)*$count;
 		if ( $start < 0 ) $start = 0;
-		header("Location: {ROOT}?t=msg&th=".$th."&"._rsid."&pl_view=".$pl_view."&start=".$start.$mid);
+		header("Location: {ROOT}?t=msg&th=".$th."&"._rsidl."&pl_view=".$pl_view."&start=".$start.$mid);
 		exit();
 	}
 	
@@ -57,7 +57,7 @@
 	else error_dialog('{TEMPLATE: msg_err_ininfo_title}','{TEMPLATE: msg_err_ininfo_msg}','');
 	
 	if ( $thread->moved_to ) {
-		header("Location: {ROOT}?t=msg&goto=$thread->root_msg_id&"._rsid);
+		header("Location: {ROOT}?t=msg&goto=$thread->root_msg_id&"._rsidl);
 		exit();
 	}
 
@@ -77,7 +77,7 @@
 			else
 				$th_not->delete($usr->id, $th);
 
-			header("Location: {ROOT}?t=msg&th=".$th."&start=".$start.'&'._rsid.'&rand='.get_random_value());
+			header("Location: {ROOT}?t=msg&th=".$th."&start=".$start.'&'._rsidl.'&rand='.get_random_value());
 			exit();
 		}
 	
@@ -88,11 +88,11 @@
 				$rr=q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." ORDER BY id LIMIT 1");
 				if ( is_result($rr) ) {
 					list($new_msg_id) = db_singlearr($rr);
-					header("Location: {ROOT}?t=msg&goto=".$new_msg_id.'&'._rsid);
+					header("Location: {ROOT}?t=msg&goto=".$new_msg_id.'&'._rsidl);
 					exit();
 				}
 			}
-			header("Location: {ROOT}?t=msg&th=".$th.'&goto=end&'._rsid);
+			header("Location: {ROOT}?t=msg&th=".$th.'&goto=end&'._rsidl);
 			exit();
 		}
 	}	

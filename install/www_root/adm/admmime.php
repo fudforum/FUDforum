@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmime.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admmime.php,v 1.5 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 			else
 				$mime->sync($edit);
 		
-			header("Location: admmime.php?edit=".$mime->id."&"._rsid);
+			header("Location: admmime.php?edit=".$mime->id."&"._rsidl);
 			exit;
 		}
 		else {	
@@ -64,7 +64,7 @@
 		$mime->get($del);
 		$mime->delete();
 		
-		header("Location: admmime.php?"._rsid);
+		header("Location: admmime.php?"._rsidl);
 		exit;		
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.13 2002/07/31 23:26:29 hackie Exp $
+*   $Id: consist.php,v 1.14 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,7 +54,7 @@ function draw_info($cnt)
 }
 
 	if( !empty($HTTP_POST_VARS['cancel']) ) {
-		header("Location: admglobal.php?"._rsid);
+		header("Location: admglobal.php?"._rsidl);
 		exit;
 	}
 	include('admpanel.php');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.7 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admprune.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@
 			');
 		}
 		else if ( $btn_cancel ) {
-			header("Location: admprune.php?"._rsid."&rand=".get_random_value());
+			header("Location: admprune.php?"._rsidl."&rand=".get_random_value());
 		}
 		else if ( $btn_conf ) { /* prune here */
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thread_view+, 
@@ -120,7 +120,7 @@
 			}
 			db_unlock();
 		}
-		header("Location: admprune.php?"._rsid."&rand=".get_random_value());
+		header("Location: admprune.php?"._rsidl."&rand=".get_random_value());
 	}
 
 include('admpanel.php'); 

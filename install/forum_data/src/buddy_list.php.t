@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.10 2002/07/31 21:56:50 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@
 		if ( $buddy_id && !($buddy=check_buddy($usr->id, $buddy_id)) ) {
 			$bud->add($usr->id, $buddy_id);
 			$done=1;
-			header("Location: {ROOT}?t=buddy_list&"._rsid."&rand=".get_random_value());
+			header("Location: {ROOT}?t=buddy_list&"._rsidl."&rand=".get_random_value());
 		}
 		else if ( $buddy ) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}', '{ROOT}?t=buddy_list&'._rsid);

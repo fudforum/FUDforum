@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.7 2002/08/02 13:33:35 hackie Exp $
+*   $Id: msglist.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@
 	list($ses, $usr) = initadm();
 	
 	if ( empty($tname) || empty($tlang) ) {
-		header("Location: admthemesel.php?ret=msglist&"._rsid."&rand=".get_random_value());
+		header("Location: admthemesel.php?ret=msglist&"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 

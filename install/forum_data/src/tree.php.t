@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.9 2002/07/31 21:56:50 hackie Exp $
+*   $Id: tree.php.t,v 1.10 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 		else
 			$th_not->delete($usr->id, $th);
 
-		header("Location: {ROOT}?t=tree&th=".$th."&mid=".$mid.'&'._rsid.'&rand='.get_random_value());
+		header("Location: {ROOT}?t=tree&th=".$th."&mid=".$mid.'&'._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 
@@ -52,7 +52,7 @@
 	$frm->get($thread->forum_id);
 	if( empty($frm->cat_id) ) invl_inp_err();
 	if ( $thread->moved_to ) {
-		header("Location: {ROOT}?t=tree&goto=$thread->root_msg_id&"._rsid);
+		header("Location: {ROOT}?t=tree&goto=$thread->root_msg_id&"._rsidl);
 		exit();
 	}
 
@@ -63,11 +63,11 @@
 			$rr=q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." AND approved='Y' ORDER BY id LIMIT 1");
 			if ( is_result($rr) ) {
 				list($new_msg_id) = db_singlearr($rr);
-				header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsid);
+				header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsidl);
 				exit();
 			}
 		}
-		header("Location: {ROOT}?t=tree&th=".$th.'&goto=end&'._rsid);
+		header("Location: {ROOT}?t=tree&th=".$th.'&goto=end&'._rsidl);
 		exit();
 	}
 

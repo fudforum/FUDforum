@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.3 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admbrowse.php,v 1.4 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,7 +111,7 @@ function mode_string($mode, $de)
 	$ROOT_PATH[3] = preg_quote($ROOT_PATH[1]);
 
 	if( !preg_match('!^'.$ROOT_PATH[2].'!', $cur) && !preg_match('!^'.$ROOT_PATH[3].'!', $cur) ) {
-		header('Location: admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[0]));
+		header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($ROOT_PATH[0]));
 		exit;	
 	}
 	
@@ -125,7 +125,7 @@ function mode_string($mode, $de)
 		umask($oldmask);
 		
 		if( $ret == TRUE ) {
-			header('Location: admbrowse.php?'._rsid.'&cur='.urlencode($cur));
+			header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($cur));
 			exit;
 		}
 		else {
@@ -139,7 +139,7 @@ function mode_string($mode, $de)
 		$oldmask = umask(0177);
 		move_uploaded_file($HTTP_POST_FILES['fname']['tmp_name'], $dest);
 		umask($oldmask);
-		header('Location: admbrowse.php?'._rsid.'&cur='.urlencode($cur));
+		header('Location: admbrowse.php?'._rsidl.'&cur='.urlencode($cur));
 		exit;		
 	}
 

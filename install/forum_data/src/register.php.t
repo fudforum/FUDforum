@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.13 2002/07/31 21:56:50 hackie Exp $
+*   $Id: register.php.t,v 1.14 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -249,7 +249,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	/*----------------- END FORM FUNCTIONS --------------------*/
 	if( empty($usr->id) && empty($reg_coppa) ) {
 		if ( $GLOBALS['COPPA'] == 'Y' ) {
-			header("Location: {ROOT}?t=coppa&"._rsid);
+			header("Location: {ROOT}?t=coppa&"._rsidl);
 		}
 		else if ( $GLOBALS['COPPA'] != 'Y' ) {
 			header("Location: {ROOT}?t=pre_reg");
@@ -384,7 +384,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 			}
 			
 			if ( $GLOBALS['COPPA'] == 'Y' && strtolower($reg_coppa) == 'y' ) {
-				header("Location: {ROOT}?t=coppa_fax&"._rsid);
+				header("Location: {ROOT}?t=coppa_fax&"._rsidl);
 				exit();
 			}
 			check_return();

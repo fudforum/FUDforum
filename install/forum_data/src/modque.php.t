@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.10 2002/07/30 14:34:37 hackie Exp $
+*   $Id: modque.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 	if ( isset($ses) ) $ses->update();
 	
 	if ( !isset($usr) ) { 
-		header("Location: {ROOT}?t=login&"._rsid."&returnto=".urlencode('{ROOT}?t=modque&'._rsid)); 
+		header("Location: {ROOT}?t=login&"._rsidl."&returnto=".urlencode('{ROOT}?t=modque&'._rsidl)); 
 		exit(); 
 	}
 	
@@ -46,7 +46,7 @@
 		$msg->subject = addslashes($msg->subject);
 		$msg->body = addslashes($msg->body);
 		$msg->approve();
-		header("Location: {ROOT}?t=modque&"._rsid.'&rand='.get_random_value());
+		header("Location: {ROOT}?t=modque&"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	else if( is_numeric($del) ) {
@@ -54,7 +54,7 @@
 		$msg->get_by_id($del);
 		logaction($usr->id, 'DELMSG', $msg->id);
 		$msg->delete();
-		header("Location: {ROOT}?t=modque&"._rsid.'&rand='.get_random_value());
+		header("Location: {ROOT}?t=modque&"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	

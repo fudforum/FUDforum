@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rebuildforum.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: rebuildforum.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@
 	fud_use('compiler.inc', TRUE);
 
 	if( !empty($HTTP_POST_VARS['cancel']) ) {
-		header("Location: admglobal.php?"._rsid);
+		header("Location: admglobal.php?"._rsidl);
 		exit;
 	}
 

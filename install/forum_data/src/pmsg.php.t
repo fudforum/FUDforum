@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.16 2002/08/06 20:38:35 hackie Exp $
+*   $Id: pmsg.php.t,v 1.17 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@
 		
 		if( !empty($moveto) && empty($btn_delete) ) $folder_id = $moveto;
 			
-		header("Location: {ROOT}?t=pmsg&"._rsid."&folder_id=".$folder_id."&rand=".get_random_value());
+		header("Location: {ROOT}?t=pmsg&"._rsidl."&folder_id=".$folder_id."&rand=".get_random_value());
 		exit();
 	}
 		

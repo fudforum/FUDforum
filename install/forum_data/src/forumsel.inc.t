@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@ function tmpl_create_forum_select()
 }
 
 if ( !empty($dst_frm_id) ) {
-	header("Location: {ROOT}?t=thread&frm_id=".$dst_frm_id."&"._rsid);
+	header("Location: {ROOT}?t=thread&frm_id=".$dst_frm_id."&"._rsidl);
 	exit();
 }
 

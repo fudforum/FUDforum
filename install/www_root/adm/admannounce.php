@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.2 2002/06/26 19:41:20 hackie Exp $
+*   $Id: admannounce.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@ function raw_date($dt)
 		$a_d->get($del);
 		$a_d->delete();
 		
-		header("Location: admannounce.php?"._rsid);
+		header("Location: admannounce.php?"._rsidl);
 		exit();
 	}
 	
@@ -95,7 +95,7 @@ function raw_date($dt)
 			} 
 		}
 		
-		header("Location: admannounce.php?"._rsid);
+		header("Location: admannounce.php?"._rsidl);
 		exit();
 	}
 	
@@ -136,7 +136,7 @@ function raw_date($dt)
 			} 
 		}
 		
-		header("Location: admannounce.php?"._rsid);
+		header("Location: admannounce.php?"._rsidl);
 		exit();                                                                                                            
 	} 
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.5 2002/07/21 22:11:10 hackie Exp $
+*   $Id: admthemesel.php,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	list($ses, $usr) = initadm();
  
 	if ( $HTTP_POST_VARS['tname'] ) {
-		header("Location: ".$ret.".php?tname=$tname&tlang=$tlang&rand=".get_random_value()."&"._rsid);
+		header("Location: ".$ret.".php?tname=$tname&tlang=$tlang&rand=".get_random_value()."&"._rsidl);
 		exit();
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admipfilter.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	list($ses, $usr) = initadm();
 
 	if ( !empty($btn_cancel) ) {
-		header("Location: admipfilter.php?"._rsid);
+		header("Location: admipfilter.php?"._rsidl);
 		exit();
 	}
 	
@@ -43,14 +43,14 @@
 		$flt = new fud_ip_filter_adm;
 		$flt->get($edit);
 		$flt->sync($ipaddr);
-		header("Location: admipfilter.php?"._rsid);
+		header("Location: admipfilter.php?"._rsidl);
 		exit();
 	}
 	
 	if ( !empty($btn_submit) ) {
 		$flt = new fud_ip_filter_adm;
 		$flt->add($ipaddr);
-		header("Location: admipfilter.php?"._rsid);
+		header("Location: admipfilter.php?"._rsidl);
 		exit();
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admreplace.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,12 +61,12 @@
 			$rpl_u->with_str =  addslashes(str_replace('\\', '\\\\', stripslashes($rpl_u->with_str)));
 		}
 		$rpl_u->sync();
-		header("Location: admreplace.php?"._rsid);
+		header("Location: admreplace.php?"._rsidl);
 		exit();
 	}
 	
 	if ( !empty($btn_cancel) ) {
-		header("Location: admreplace.php?"._rsid);
+		header("Location: admreplace.php?"._rsidl);
 		exit();
 	}
 	
@@ -85,7 +85,7 @@
 		}
 
 		$rpl->add();
-		header("Location: admreplace.php?"._rsid);
+		header("Location: admreplace.php?"._rsidl);
 		exit();
 	}
 	
@@ -93,7 +93,7 @@
 		$rpl = new fud_replace;
 		$rpl->get($del);
 		$rpl->delete();
-		header("Location: admreplace.php?"._rsid);
+		header("Location: admreplace.php?"._rsidl);
 		exit();
 	}
 	

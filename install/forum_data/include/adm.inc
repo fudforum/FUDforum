@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.6 2002/08/06 15:00:28 hackie Exp $
+*   $Id: adm.inc,v 1.7 2002/08/07 12:18:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@ function initadm()
 	global $ses;
 	
 	if ( $usr->is_mod != 'A' ) {
-		header("Location: admloginuser.php?"._rsid);
+		header("Location: admloginuser.php?"._rsidl);
 		exit();
 	}
 	

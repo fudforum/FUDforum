@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.7 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@
 	/* check for convert */
 	if ( !empty($fixit) && $MOGRIFY_BIN ) {
 		exec($MOGRIFY_BIN.' -geometry '.$GLOBALS['CUSTOM_AVATAR_MAX_DIM'].' +profile iptc +profile icm +comment '.realpath($avatar_dir).$fixit);
-		header("Location: admapprove_avatar.php?"._rsid."&rand=".get_random_value());
+		header("Location: admapprove_avatar.php?"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 	
@@ -44,7 +44,7 @@
 		$usr_a = new fud_user_adm;
 		$usr_a->get_user_by_id($usr_id);
 		$usr_a->approve_avatar();
-		header("Location: admapprove_avatar.php?"._rsid."&rand=".get_random_value());
+		header("Location: admapprove_avatar.php?"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 	
@@ -55,7 +55,7 @@
 			@unlink($avatar_dir.$del);
 
 		$usr_a->unapprove_avatar();
-		header("Location: admapprove_avatar.php?"._rsid."&rand=".get_random_value());
+		header("Location: admapprove_avatar.php?"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 	cache_buster();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.7 2002/07/31 21:56:50 hackie Exp $
+*   $Id: ppost.php.t,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -326,7 +326,7 @@
 		}
 		
 		if( empty($GLOBALS['__error__']) ) {
-			header("Location: {ROOT}?t=pmsg&"._rsid."&folder_id=INBOX");
+			header("Location: {ROOT}?t=pmsg&"._rsidl."&folder_id=INBOX");
 			exit;
 		}	
 	}

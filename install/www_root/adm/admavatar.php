@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admavatar.php,v 1.2 2002/06/26 19:41:20 hackie Exp $
+*   $Id: admavatar.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,14 +31,14 @@
 	cache_buster();
 	
 	if ( !empty($btn_cancel) ) {
-		header("Location: admavatar.php?"._rsid);
+		header("Location: admavatar.php?"._rsidl);
 	}
 	
 	if ( !empty($del) ) {
 		$avt_d = new fud_avatar;
 		$avt_d->get($del);
 		$avt_d->delete();
-		header("Location: admavatar.php?"._rsid);
+		header("Location: admavatar.php?"._rsidl);
 		exit();
 	}
 	
@@ -47,7 +47,7 @@
 		$avt_u->get($edit);
 		$avt_u->fetch_vars($HTTP_POST_VARS, 'avt_');
 		$avt_u->sync();
-		header("Location: admavatar.php?"._rsid);
+		header("Location: admavatar.php?"._rsidl);
 		exit();
 	}
 	
@@ -61,7 +61,7 @@
 		$avt = new fud_avatar;
 		$avt->fetch_vars($HTTP_POST_VARS, 'avt_');
 		$avt->add();
-		header("Location: admavatar.php?"._rsid);
+		header("Location: admavatar.php?"._rsidl);
 		exit();
 	}
 	

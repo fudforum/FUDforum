@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
+*   $Id: pre_reg.php.t,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,12 +18,12 @@
 	{PRE_HTML_PHP}
 
 	if ( !empty($disagree) ) {
-		header("Location: ".$WWW_ROOT.'?'._rsid);
+		header("Location: ".$WWW_ROOT.'?'._rsidl);
 		exit;
 	}
 	else if ( !empty($agree) ) {
 		if( $GLOBALS['COPPA'] != 'Y' ) $coppa = 'n';
-		header("Location: {ROOT}?t=register&"._rsid."&coppa=".$coppa);
+		header("Location: {ROOT}?t=register&"._rsidl."&coppa=".$coppa);
 		exit;
 	}
 

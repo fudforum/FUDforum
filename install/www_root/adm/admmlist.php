@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.8 2002/07/31 23:26:29 hackie Exp $
+*   $Id: admmlist.php,v 1.9 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@ function format_regex(&$regex, &$opts)
 	list($ses, $usr) = initadm();
 	
 	if( $HTTP_POST_VARS['ml_edit_cancel'] ) {
-		header("Location: admmlist.php?"._rsid);
+		header("Location: admmlist.php?"._rsidl);
 		exit;
 	}
 	
@@ -66,7 +66,7 @@ function format_regex(&$regex, &$opts)
 		else
 			$mlist->add();
 		
-		header("Location: admmlist.php?"._rsid);	
+		header("Location: admmlist.php?"._rsidl);	
 		exit;			
 	}
 	else if( is_numeric($HTTP_GET_VARS['edit']) ) {
@@ -80,7 +80,7 @@ function format_regex(&$regex, &$opts)
 	else if( is_numeric($HTTP_GET_VARS['del']) ) {
 		$mlist->del();
 		
-		header("Location: admmlist.php?"._rsid);
+		header("Location: admmlist.php?"._rsidl);
 		exit;	
 	}
 	else { /* Set the some default values */

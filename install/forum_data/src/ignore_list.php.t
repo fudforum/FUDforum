@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.7 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 		if ( $ignore_id && !($ignore=check_ignore($usr->id, $ignore_id)) ) {
 			$ign->add($usr->id, $ignore_id);
 			$done=1;
-			header("Location: {ROOT}?t=ignore_list&"._rsid."&rand=".get_random_value());
+			header("Location: {ROOT}?t=ignore_list&"._rsidl."&rand=".get_random_value());
 		}
 		else if ( $ignore == 1 ) {
 			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_err_noign_msg}', '{ROOT}?t=ignore_list&'._rsid);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admsmiley.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,14 +31,14 @@
 	cache_buster();
 	
 	if ( !empty($btn_cancel) ) {
-		header("Location: admsmiley.php?"._rsid);
+		header("Location: admsmiley.php?"._rsidl);
 	}
 	
 	if ( !empty($del) ) {
 		$sml_d = new fud_smiley;
 		$sml_d->get($del);
 		$sml_d->delete();
-		header("Location: admsmiley.php?"._rsid);
+		header("Location: admsmiley.php?"._rsidl);
 		exit();
 	}
 	
@@ -47,7 +47,7 @@
 		$sml_u->get($edit);
 		$sml_u->fetch_vars($HTTP_POST_VARS, 'sml_');
 		$sml_u->sync();
-		header("Location: admsmiley.php?"._rsid);
+		header("Location: admsmiley.php?"._rsidl);
 		exit();
 	}
 	
@@ -61,7 +61,7 @@
 		$sml = new fud_smiley;
 		$sml->fetch_vars($HTTP_POST_VARS, 'sml_');
 		$sml->add();
-		header("Location: admsmiley.php?"._rsid);
+		header("Location: admsmiley.php?"._rsidl);
 		exit();
 	}
 	
@@ -88,7 +88,7 @@
 		$sml = new fud_smiley;
 		$sml->get_by_vieworder($chpos);
 		$sml->chpos($chdest);
-		header("Location: admsmiley.php?"._rsid);
+		header("Location: admsmiley.php?"._rsidl);
 		exit();
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.5 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admoptimizer.php,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@
 	
 	list($ses, $usr) = initadm();
 
-	if ( !$tname ) header("Location: admthemes.php?"._rsid);
+	if ( !$tname ) header("Location: admthemes.php?"._rsidl);
 
 $O_LEVEL=20;
 

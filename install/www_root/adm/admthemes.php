@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.12 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admthemes.php,v 1.13 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,7 @@ function cleandir($dir)
 	$thm = new fud_theme;
 	
 	if ( $btn_cancel ) {
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	
@@ -81,7 +81,7 @@ function cleandir($dir)
 			fudcopy($root.'default/', $root_nn, '!.*!', TRUE);
 			umask($u);
 		}
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	
@@ -90,7 +90,7 @@ function cleandir($dir)
 		$thm->add();
 		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	else if ( $edit && $HTTP_POST_VARS['thm_theme'] ) {
@@ -102,7 +102,7 @@ function cleandir($dir)
 		$thm->sync();
 		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 
@@ -110,7 +110,7 @@ function cleandir($dir)
 		$thm->get($rebuild);
 		fud_use('compiler.inc', TRUE);
 		compile_all($thm->theme, $thm->lang, $thm->name);
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 
@@ -127,7 +127,7 @@ function cleandir($dir)
 
 		$obj = default_theme();
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
-		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
+		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
 		exit();
 	}
 	

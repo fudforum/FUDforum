@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.7 2002/08/05 05:58:21 hackie Exp $
+*   $Id: split_th.php.t,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -100,7 +100,7 @@
 			
 			$th_id = $old_thr->id;
 		}
-		header("Location: {ROOT}?t=msg&th=".$th_id."&"._rsid);
+		header("Location: {ROOT}?t=msg&th=".$th_id."&"._rsidl);
 		exit;
 	}
 	

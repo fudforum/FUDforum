@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.4 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admdelfrm.php,v 1.5 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,11 +52,11 @@
 	if ( !empty($act) && $act=='del' && !empty($del_id) ) {
 		if ( !empty($conf) && $conf=='Yes' ) {
 			$frm->delete($del_id);
-			header("Location: admdelfrm.php?"._rsid);
+			header("Location: admdelfrm.php?"._rsidl);
 			exit();
 		}
 		else if ( !empty($conf) && $conf == 'No' ) {
-			header("Location: admdelfrm.php?"._rsid);
+			header("Location: admdelfrm.php?"._rsidl);
 			exit();
 		}
 		else {

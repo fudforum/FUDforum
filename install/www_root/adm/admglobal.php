@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.10 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admglobal.php,v 1.11 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@
 		if( $GLOBALS['USE_ALIASES'] != $HTTP_POST_VARS['CF_USE_ALIASES'] && $HTTP_POST_VARS['CF_USE_ALIASES'] == 'N' )
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET alias=login");
 		
-		header("Location: admglobal.php?"._rsid."&rnd=".get_random_value(128));
+		header("Location: admglobal.php?"._rsidl."&rnd=".get_random_value(128));
 		exit();
 	}
 	

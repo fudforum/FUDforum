@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: reported.php.t,v 1.7 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 		$obj = get_report($del, $usr->id);
 		if ( !delete_msg_report($del, $usr->id) ) { std_error('access'); exit(); }
 		logaction($usr->id, 'DELREPORT', $obj->id);
-		header("Location: {ROOT}?t=reported&"._rsid.'rand='.get_random_value());
+		header("Location: {ROOT}?t=reported&"._rsidl.'rand='.get_random_value());
 		exit();
 	}
 	

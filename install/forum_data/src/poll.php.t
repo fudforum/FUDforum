@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.5 2002/08/06 11:32:12 hackie Exp $
+*   $Id: poll.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@
 		$poll->max_votes = $pl_max_votes;
 		$poll->expiry_date = $pl_expiry_date;
 		$poll->sync();
-		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsid."&pl_id=".$poll->id);
+		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsidl."&pl_id=".$poll->id);
 		exit();
 	}
 	
@@ -114,7 +114,7 @@
 			}	
 		}
 		
-		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsid."&pl_id=".$poll->id);
+		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsidl."&pl_id=".$poll->id);
 		exit;
 	}	
 	
@@ -122,7 +122,7 @@
 		$a_opt = new fud_poll_opt;
 		$a_opt->get($del_id);
 		$a_opt->delete();
-		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsid."&pl_id=".$pl_id);
+		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsidl."&pl_id=".$pl_id);
 		exit();
 	}
 	
@@ -131,7 +131,7 @@
 		fetch_vars('pl_', $in_pl, $HTTP_POST_VARS);
 		$in_pl->owner = $usr->id;
 		$id = $in_pl->add();
-		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsid."&pl_id=".$id);
+		header("Location: {ROOT}?t=poll&pl_smiley_disabled=$pl_smiley_disabled&frm_id=".$frm_id."&"._rsidl."&pl_id=".$id);
 	 	exit();
 	}
 	

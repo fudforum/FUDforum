@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admext.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admext.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,7 +34,7 @@
 		$c = new fud_ext_block;
 		$c->fetch_vars($HTTP_POST_VARS, 'c_');
 		$c->add();
-		header("Location: admext.php?"._rsid);
+		header("Location: admext.php?"._rsidl);
 		exit();
 	}
 	
@@ -45,7 +45,7 @@
 	}
 	
 	if ( !empty($btn_cancel) ) {
- 		header("Location: admext.php?"._rsid);
+ 		header("Location: admext.php?"._rsidl);
 		exit();
 	}
 	
@@ -54,7 +54,7 @@
 		$c_s->get($edit);
 		$c_s->fetch_vars($HTTP_POST_VARS, 'c_');
 		$c_s->sync();
-		header("Location: admext.php?"._rsid);
+		header("Location: admext.php?"._rsidl);
 		exit();
 	}
 	
@@ -62,7 +62,7 @@
 		$c_d = new fud_ext_block;
 		$c_d->get($del);
 		$c_d->delete();
-		header("Location: admext.php?"._rsid);
+		header("Location: admext.php?"._rsidl);
 		exit();
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.3 2002/07/30 14:34:37 hackie Exp $
+*   $Id: reset.php.t,v 1.4 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 	if ( $reset_key ) {
 		if ( $parr = reset_user_passwd_by_key($reset_key) ) {
 			send_email($GLOBALS['NOTIFY_FROM'], $parr['usr']->email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}', "");
-			header('Location: {ROOT}?t=login&'._rsid.'&msg='.urlencode('{TEMPLATE: reset_login_notify}'));
+			header('Location: {ROOT}?t=login&'._rsidl.'&msg='.urlencode('{TEMPLATE: reset_login_notify}'));
 		}
 		else {
 			error_dialog('{TEMPLATE: reset_err_invalidkey_title}', '{TEMPLATE: reset_err_invalidkey_msg}', NULL, 'FATAL');

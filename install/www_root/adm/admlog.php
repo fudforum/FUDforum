@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.7 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admlog.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@
 	
 	if ( $clear ) {
 		clear_action_log();
-		header("Location: admlog.php?"._rsid."&rand=".get_random_value());
+		header("Location: admlog.php?"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 	

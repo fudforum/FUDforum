@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@
 		$thrx->delete();
 		logaction($usr->id, 'THRXAPPROVE', $thr->id);
 		
-		header("Location: {ROOT}?t=thr_exch&"._rsid);
+		header("Location: {ROOT}?t=thr_exch&"._rsidl);
 		exit;
 	}
 	else if( !empty($decl) ) {
@@ -69,7 +69,7 @@
 			send_status_update($dusr, '{TEMPLATE: exch_decline_ttl}', stripslashes($reason));
 			$thrx->delete();
 			
-			header("Location: {ROOT}?t=thr_exch&"._rsid);
+			header("Location: {ROOT}?t=thr_exch&"._rsidl);
 			exit;
 		}
 		else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.5 2002/07/24 14:39:15 hackie Exp $
+*   $Id: admforum.php,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 	}
 
 	if ( !empty($frm_edit_cancel) ) {
-		header("Location: admforum.php?"._rsid."&cat_id=".$cat_id);
+		header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
 		exit();
 	}
 
@@ -55,13 +55,13 @@
 			$frm->cat_id = $cat_id;
 			$frm->add($frm_pos);
 			logaction($usr->id, "ADDFORUM", $frm->id);
-			header("Location: admforum.php?"._rsid."&cat_id=".$cat_id);
+			header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
 			exit();
 		}
 		else if ( !empty($edit) ) {
 			$frm->sync();
 			logaction($usr->id, "SYNCFORUM", $frm->id);
-			header("Location: admforum.php?"._rsid."&cat_id=".$cat_id);
+			header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
 			exit();
 		}
 		else {
@@ -72,7 +72,7 @@
 	
 	if ( !empty($chpos) && !empty($newpos) && !empty($cat_id) ) {
 		$frm->change_pos($chpos, $newpos, $cat_id);
-		header("Location: admforum.php?"._rsid."&cat_id=".$cat_id);
+		header("Location: admforum.php?"._rsidl."&cat_id=".$cat_id);
 		exit();
 	}
 	
@@ -92,7 +92,7 @@
 		$frm->get($chcat_src);
 		$frm->get($dest_cat);
 		$frm->chcat($chcat_src, $dest_cat);
-		header("Location: admforum.php?"._rsid."&cat_id=$cat_id");
+		header("Location: admforum.php?"._rsidl."&cat_id=$cat_id");
 		exit();
 		
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.9 2002/07/27 06:04:45 hackie Exp $
+*   $Id: admgroups.php,v 1.10 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 	list($ses, $adm) = initadm();
 	
 	if ( $btn_cancel ) {
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsid);
+		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}
 		
@@ -93,14 +93,14 @@
 			echo "Done, return to <a href=\"admgroups.php?rnd=".get_random_value()."\">group manager</a><br><font size=-1>cache for group $grp->name rebuilt in $tt min (".($te-$ts)." sec)</font>\n</html>";
 		}
 		else
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsid);
+		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}
 	
 	if ( $del ) {
 		$grp->get($del);
 		if ( $grp->res == 'NONE' ) $grp->delete();
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsid);
+		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}
 	

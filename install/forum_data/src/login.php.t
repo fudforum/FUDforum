@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.3 2002/07/30 14:34:37 hackie Exp $
+*   $Id: login.php.t,v 1.4 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@
 	}
 	
 	if ( is_object($usr) ) {
-		header("Location: {ROOT}?t=register&"._rsid);
+		header("Location: {ROOT}?t=register&"._rsidl);
 		exit();
 	}
 
@@ -118,7 +118,7 @@ function error_check()
 			}
 			
 			if( !empty($GLOBALS["HTTP_POST_VARS"]["adm"]) && $usr->is_mod == 'A' ) {
-				header("Location: adm/admglobal.php?"._rsid);
+				header("Location: adm/admglobal.php?"._rsidl);
 				exit;
 			}
 			check_return();

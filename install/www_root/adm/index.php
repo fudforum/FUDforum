@@ -7,5 +7,5 @@
 	fud_use('adm.inc', TRUE);
 	list($ses, $usr) = initadm();
 	
-	header("Location: admglobal.php?"._rsid); 
+	header("Location: admglobal.php?"._rsidl); 
 ?>

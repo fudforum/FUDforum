@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admlevel.php,v 1.5 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@
 	$lev = new fud_level;
 	
 	if ( !empty($lev_cancel) ) {
-		header("Location: admlevel.php?"._rsid);
+		header("Location: admlevel.php?"._rsidl);
 		exit();
 	}
 
@@ -48,7 +48,7 @@
 		}
 		/* update levels */
 		
-		header("Location: admlevel.php?"._rsid);
+		header("Location: admlevel.php?"._rsidl);
 	}
 	
 	if ( !empty($act) && $act=='del' && !empty($del_id) ) {
@@ -56,7 +56,7 @@
 		$lev->delete();
 		/* update levels */
 
-		header("Location: admlevel.php?"._rsid);
+		header("Location: admlevel.php?"._rsidl);
 	}
 
 	if ( !empty($edit) && !(@count($HTTP_POST_VARS)>1) ) {

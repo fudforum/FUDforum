@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.6 2002/07/22 14:53:37 hackie Exp $
+*   $Id: tmpllist.php,v 1.7 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 }
 
 	if ( empty($tname) || empty($tlang) ) {
-		header("Location: admthemesel.php?ret=tmpllist&"._rsid."&rand=".get_random_value());
+		header("Location: admthemesel.php?ret=tmpllist&"._rsidl."&rand=".get_random_value());
 		exit();
 	}
 

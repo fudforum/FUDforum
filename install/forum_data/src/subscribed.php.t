@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.php.t,v 1.5 2002/07/30 14:34:37 hackie Exp $
+*   $Id: subscribed.php.t,v 1.6 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,14 +28,14 @@
 	if ( isset($frm_id) && is_numeric($frm_id) ) {
 		$frm_not = new fud_forum_notify;
 		$frm_not->delete($usr->id, $frm_id);
-		header("Location: {ROOT}?t=subscribed&"._rsid.'rand='.get_random_value());
+		header("Location: {ROOT}?t=subscribed&"._rsidl.'rand='.get_random_value());
 		exit();
 	}
 	
 	if ( isset($th) && is_numeric($th) ) {
 		$th_not = new fud_thread_notify;
 		$th_not->delete($usr->id, $th);
-		header("Location: {ROOT}?t=subscribed&"._rsid.'rand='.get_random_value());
+		header("Location: {ROOT}?t=subscribed&"._rsidl.'rand='.get_random_value());
 		exit();
 	}
 	

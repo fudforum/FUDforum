@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@ function draw_tmpl_perm_table($perm_arr)
 	}
 	
 	if ( $btn_cancel ) {
-		header("Location: {ROOT}?t=groupmgr&"._rsid."&group_id=$grp->id&rnd=".get_random_value());
+		header("Location: {ROOT}?t=groupmgr&"._rsidl."&group_id=$grp->id&rnd=".get_random_value());
 		exit();
 	}
 	
@@ -109,14 +109,14 @@ function draw_tmpl_perm_table($perm_arr)
 
 		if( empty($login_error) ) {
 			$grp->rebuild_cache($mbr->id);
-			header("Location: {ROOT}?t=groupmgr&"._rsid."&group_id=$grp->id&rnd=".get_random_value());
+			header("Location: {ROOT}?t=groupmgr&"._rsidl."&group_id=$grp->id&rnd=".get_random_value());
 			exit();
 		}	
 	}
 	
 	if ( !empty($del) ) {
 		$grp->delete_member($del);
-		header("Location: {ROOT}?t=groupmgr&"._rsid."&group_id=$grp->id&rnd=".get_random_value());
+		header("Location: {ROOT}?t=groupmgr&"._rsidl."&group_id=$grp->id&rnd=".get_random_value());
 		exit();
 	}
 	

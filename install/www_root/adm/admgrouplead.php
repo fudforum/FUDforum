@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.7 2002/07/31 23:26:29 hackie Exp $
+*   $Id: admgrouplead.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@
 	list($ses, $adm) = initadm();
 
 	if ( empty($group_id) ) {
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsid);
+		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}	
 
@@ -66,7 +66,7 @@
 
 		$grp->add_leader($usr->id);
 		$grp->rebuild_cache($usr->id);
-		header("Location: admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsid);
+		header("Location: admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}
 	$grp->get($group_id);
@@ -74,7 +74,7 @@
 	if ( $del ) {
 		$grp->delete_member($del);
 		$grp->rebuild_cache($del);
-		header("Location: admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsid);
+		header("Location: admgrouplead.php?group_id=$group_id&rnd=".get_random_value()."&"._rsidl);
 		exit();
 	}
 include('admpanel.php'); 

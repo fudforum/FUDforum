@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.8 2002/07/25 13:33:46 hackie Exp $
+*   $Id: compact.php,v 1.9 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,7 +64,7 @@ function write_body_c($data, &$len, &$offset)
 	list($ses, $usr) = initadm();
 	
 	if( !empty($HTTP_POST_VARS['cancel']) ) {
-		header("Location: admglobal.php?"._rsid);
+		header("Location: admglobal.php?"._rsidl);
 		exit;
 	}
 	include('admpanel.php');

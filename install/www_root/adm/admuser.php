@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.9 2002/08/02 12:41:00 hackie Exp $
+*   $Id: admuser.php,v 1.10 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,19 +43,19 @@ if( !empty($act) ) {
 			else
 				$usr->block_user();
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;
 		case 'del':
 			$usr->delete_user();
-			header("Location: admuser.php?"._rsid);
+			header("Location: admuser.php?"._rsidl);
 			exit();
 			break;
 		case 'coppa':
 			$val = (strtoupper($usr->coppa)=='Y') ? 'N' : 'Y';
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;
 		case 'econf':
@@ -66,7 +66,7 @@ if( !empty($act) ) {
 			else
 				$eusr->email_unconfirm();
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			exit();	
 			break;	
 		case 'admin':
@@ -110,7 +110,7 @@ if( !empty($act) ) {
 				if ( $btn_yes ) $usr->mk_admin();
 			}
 			
-			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->alias));
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			exit();
 			break;								
 	}
@@ -121,14 +121,14 @@ if( !empty($act) ) {
 		$tag->user_id = $user_id;
 		$tag->name = $c_tag;
 		$tag->add();
-		header("Location: admuser.php?"._rsid."&".$rdr_login);
+		header("Location: admuser.php?"._rsidl."&".$rdr_login);
 	}
 	
 	if ( !empty($deltag) ) {
 		$tag = new fud_custom_tag;
 		$tag->get($deltag);
 		$tag->delete();
-		header("Location: admuser.php?"._rsid."&".$rdr_login);
+		header("Location: admuser.php?"._rsidl."&".$rdr_login);
 	}
 	
 	if ( !empty($usr_email) ) {

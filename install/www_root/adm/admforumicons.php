@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforumicons.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admforumicons.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 			$upl_unable=1;
 		}
 		
-		header("Location: admforumicons.php?"._rsid."&upl_unable=$upl_unable&which_dir=$which_dir");
+		header("Location: admforumicons.php?"._rsidl."&upl_unable=$upl_unable&which_dir=$which_dir");
 	}
 	
 	if ( $del ) {
@@ -54,7 +54,7 @@
 		else
 			$unable = 1;
 		
-		header("Location: admforumicons.php?"._rsid."&unable=$unable&which_dir=$which_dir");
+		header("Location: admforumicons.php?"._rsidl."&unable=$unable&which_dir=$which_dir");
 		exit();
 	}
 	
