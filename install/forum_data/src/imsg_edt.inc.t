@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.45 2003/05/01 00:34:27 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.46 2003/05/01 17:30:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -418,12 +418,12 @@ class fud_msg_edit extends fud_msg
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
 					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
-					AND (CASE WHEN r.last_view IS NULL || r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
+					AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
 			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
-			$c = uq('SELECT u.email, u.icq, u.notify_method
+			$c = uq('SELECT u.email, u.icq, u.notify_method, r.msg_id, u.id
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
@@ -431,14 +431,23 @@ class fud_msg_edit extends fud_msg
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.' 
 				WHERE 
 					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.intzero($mtf->poster_id).' 
-					AND r.msg_id='.$mtf->last_post_id.' 
+					AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
 			$notify_type = 'thr';
 		}
 		while ($r = db_rowarr($c)) {
 			$to[$r[2]][] = $r[2] == 'EMAIL' ? $r[0] : $r[1].'@pager.icq.com';
+			if (isset($r[4]) && is_null($r[3])) {
+				$tl[] = $r[4];
+			}
 		}
 		qf($c);
+		if (isset($tl)) {
+			/* this allows us to mark the message we are sending notification about as read, so that we do not re-notify the user
+			 * until this message is read.
+			 */
+			q('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')');
+		}
 		if (isset($to)) {
 			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, $mtf->thread_id, $mtf->frm_name);
 		}
