@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.131 2005/03/06 18:51:27 hackie Exp $
+* $Id: post.php.t,v 1.132 2005/03/08 21:32:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -548,7 +548,6 @@ function flood_check()
 		$msg_subject = char_fix(htmlspecialchars($msg_subject));
 	}
 
-	$pivate = '';
 	/* handle file attachments */
 	if ($perms & 256) {
 		if ($frm->forum_opt & 32 && $MOD) {
