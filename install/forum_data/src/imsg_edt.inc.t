@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.17 2002/10/24 07:25:09 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.18 2002/10/24 23:33:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -341,7 +341,7 @@ class fud_msg_edit extends fud_msg
 		}	
 		if( empty($this->approved) ) $this->approved = q_singleval("SELECT approved FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->id);
 		
-		if ( $this->approved!='Y' ) {
+		if ( $this->approved != 'Y' ) {
 			$thr = new fud_thread;
 			$frm = new fud_forum;
 			
@@ -382,7 +382,7 @@ class fud_msg_edit extends fud_msg
 
 			if ( $thr->root_msg_id == $this->id ) 
 				send_notifications($frm->get_notify_list(intzero($this->poster_id)), $this->id, $thr->subject, ($GLOBALS['usr']->login?$GLOBALS['usr']->login:$GLOBALS['ANON_NICK']), 'frm', $frm->id, $frm->name);
-			else
+			else 
 				send_notifications($thr->get_notify_list(intzero($this->poster_id)), $this->id, $thr->subject, ($GLOBALS['usr']->login?$GLOBALS['usr']->login:$GLOBALS['ANON_NICK']), 'thr', $thr->id);
 		}
 		
