@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.25 2003/04/23 15:27:32 hackie Exp $
+*   $Id: consist.php,v 1.26 2003/04/30 12:12:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,6 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('ext.inc', true);
-	fud_use('level_adm.inc', true);
 	fud_use('ipfilter.inc', true);
 	fud_use('login_filter.inc', true);
 	fud_use('email_filter.inc', true);
@@ -34,10 +33,8 @@
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
 	fud_use('private.inc');
-	fud_use('util.inc');
 	fud_use('th.inc');
 	fud_use('users.inc');
-	fud_use('customtags.inc');
 	fud_use('ipoll.inc');
 	fud_use('attach.inc');	
 	fud_use('groups.inc');
