@@ -22,8 +22,9 @@ function insertTag(obj, stag, etag)
 
 	if ( navigator.userAgent.indexOf("MSIE") > -1 && !OPERA ) {
 		insertTagIE(obj, stag, etag);
-	}
-	else {
+	} else if (window.getSelection) {
+		insertTagMoz(obj, stag, etag);	
+	} else {
 		insertTagNS(obj, stag, etag);	
 	}
 }
@@ -31,6 +32,22 @@ function insertTag(obj, stag, etag)
 function insertTagNS(obj, stag, etag)
 {
 	obj.value = obj.value+stag+etag;	
+}
+
+function insertTagMoz(obj, stag, etag)
+{
+	txt = window.getSelection();
+
+	if (!txt || txt == '') {
+		t = document.getElementById('txtb');
+		h = document.getElementsByTagName('textarea')[0];
+		txt = t.value.substring(t.selectionStart, t.selectionEnd);
+		if (txt) {
+			t.value = t.value.substring(0, t.selectionStart) + stag + t.value.substring(t.selectionStart, t.selectionEnd) + etag +  t.value.substring(t.selectionEnd, t.value.length);
+			return;
+		}
+	}
+	obj.value = obj.value+stag+etag;
 }
 
 function insertTagIE(obj, stag, etag)
