@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.35 2003/06/02 21:57:25 hackie Exp $
+*   $Id: compiler.inc,v 1.36 2003/06/09 13:27:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -435,6 +435,10 @@ function resolve_compile($file)
 	}
 	resolve_refs($file, $file);
 	resolve_inc_refs($file);
+	if (empty($GLOBALS['file_cache'][$file]['src'])) {
+		exit('No source for '.$file);
+	}
+
 	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
 }
 
