@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.123 2004/06/08 21:55:35 hackie Exp $
+* $Id: register.php.t,v 1.124 2004/06/22 23:55:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -386,8 +386,8 @@ function decode_uent(&$uent)
 		}
 
 		/* security check, prevent haxors from passing values that shouldn't */
-		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216))) {
-			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216)) | $new_users_opt;
+		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864))) {
+			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216|33554432|67108864)) | $new_users_opt;
 		}
 	}
 
