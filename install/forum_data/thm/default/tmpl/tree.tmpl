@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.38 2003/10/23 19:00:50 hackie Exp $
+* $Id: tree.tmpl,v 1.39 2003/11/05 14:05:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -214,8 +214,8 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {PAGE: TREE_PAGE a tree(thread) view of all the messages inside a thread}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
 {TEMPLATE-DATA: admin_cp}
+{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
 <table cellspacing=0 cellpadding=0 border=0 width="100%">
 <tr>
 <td align="left" class="GenText">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
