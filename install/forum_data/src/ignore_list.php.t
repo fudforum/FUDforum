@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.28 2004/10/25 16:32:20 hackie Exp $
+* $Id: ignore_list.php.t,v 1.29 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -78,8 +78,6 @@ function ignore_alias_fetch($al, &$is_mod)
 
 	ses_update_status($usr->sid, '{TEMPLATE: ignore_list_update}');
 
-	$ignore_member_search = ($FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: ignore_member_search}' : '');
-
 /*{POST_HTML_PHP}*/
 
 	$c = uq('SELECT ui.ignore_id, ui.id as ignoreent_id,
@@ -91,13 +89,7 @@ function ignore_alias_fetch($al, &$is_mod)
 	$ignore_list = '';
 	if (($r = @db_rowarr($c))) {
 		do {
-			if ($r[0]) {
-				$homepage_link = $r[6] ? '{TEMPLATE: homepage_link}' : '';
-				$email_link = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_link}' : '';
-				$ignore_list .= '{TEMPLATE: ignore_user}';
-			} else {
-				$ignore_list .=	'{TEMPLATE: ignore_anon_user}';
-			}
+			$ignore_list .= $r[0] ? '{TEMPLATE: ignore_user}' : '{TEMPLATE: ignore_anon_user}';
 		} while (($r = db_rowarr($c)));
 		$ignore_list = '{TEMPLATE: ignore_list}';
 	}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: online_today.php.t,v 1.22 2004/10/29 18:54:49 hackie Exp $
+* $Id: online_today.php.t,v 1.23 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,8 +44,6 @@
 	$user_entries = '';
 	$admin = $usr->users_opt & 1048576;
 	while ($r = db_rowarr($c)) {
-		$user_login = '{TEMPLATE: reg_user_link}';
-
 		if (!$r[7]) {
 			$last_post = '{TEMPLATE: last_post_na}';
 		} else if ($r[10] & 1 || $r[9] || $admin) {

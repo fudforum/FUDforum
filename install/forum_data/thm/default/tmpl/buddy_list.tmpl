@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.28 2004/07/02 16:54:27 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.29 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,10 +48,10 @@
 {SECTION: buddy buddy row entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="ac">{TEMPLATE-DATA: online_status}</td>
-	<td class="GenText wa">{TEMPLATE-DATA: contact_link}&nbsp;<span class="SmallText">(<a href="{TEMPLATE: buddy_lnk}">{MSG: buddy_remove}</a>)</span>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
+	<td class="GenText wa">{IF: $FUD_OPT_1 & 1024}{TEMPLATE: pm_link}{ELSE}{TEMPLATE: email_link}{END}&nbsp;<span class="SmallText">(<a href="{TEMPLATE: buddy_lnk}">{MSG: buddy_remove}</a>)</span>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
 	<td class="ac">{VAR: r[6]}</td>
 	<td class="ac nw">{TEMPLATE: buddy_date}</td>
-	<td class="GenText nw"><a href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText nw"><a href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {IF: $r[7]}{TEMPLATE: homepage_link}{ENDIF}</td>
 </tr>
 {SECTION: END}
 
@@ -72,7 +72,7 @@
 <table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th nowrap>{MSG: add_buddy}</th></tr>
 <tr class="RowStyleA">
-<td class="GenText nw Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: buddy_member_search}<p>
+<td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304))}{TEMPLATE: buddy_member_search}{ENDIF}<p>
 <input type="text" tabindex="1" name="add_login" value="" maxlength=100 size=25> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
 <script>

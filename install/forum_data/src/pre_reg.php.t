@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pre_reg.php.t,v 1.15 2004/01/29 22:58:32 hackie Exp $
+* $Id: pre_reg.php.t,v 1.16 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -35,8 +35,6 @@
 	if (!isset($_GET['coppa']) || $_GET['coppa'] === '0') {
 		$_GET['coppa'] = 0;
 	}
-
-	$msg_file = $_GET['coppa'] ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

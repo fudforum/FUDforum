@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.22 2004/07/02 16:54:28 hackie Exp $
+* $Id: reported.tmpl,v 1.23 2004/11/01 20:48:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 
 {SECTION: reported_msg_header}
 <tr><td class="RowStyleC">
-<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login} <b>{MSG: reported_on}</b> {TEMPLATE: reported_date}
+<b>{MSG: reported_reported_by}</b> {IF: $obj->report_user_id}{TEMPLATE: reported_reg_user_link}{ELSE}{TEMPLATE: reported_anon_user}{END} <b>{MSG: reported_on}</b> {TEMPLATE: reported_date}
 <b>{MSG: reported_in_thread}:</b> <a href="{TEMPLATE: reported_msg_header_lnk1}" target="_blank">{VAR: obj->thread_subject}</a>
 <br /><b>{MSG: reported_reason}</b> {VAR: obj->report_reason}
 <br />[<a href="{TEMPLATE: reported_msg_header_lnk}">{MSG: reported_del_report}</a>]
@@ -40,7 +40,7 @@
 
 {SECTION: reported_message}
 {TEMPLATE: reported_msg_header}
-{TEMPLATE-DATA: message}
+{FUNC: tmpl_drawmsg($obj, $usr, $perms, false, $n, null)}
 {SECTION: END}
 
 {PAGE: REPORTED_PAGE a list of the reported messages}
