@@ -1000,7 +1000,7 @@ dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Votre session a expiré, veuillez re-soumettre le formulaire. Désolé pour le dérangement.
 delete_message_extra_desc:	<b>Optionnel</b><br />Indiquez une raison justifiant l&#39;effacement du message. Ceci sera envoyé par message privé à l&#39;auteur.
 delete_message_extra_body:	Inclure le corps du message et l&#39;envoyer à l&#39;auteur.
-delete_msg_removed_ttl:		Votre message a été effacé par l&#39;équipe d'administration.
+delete_msg_removed_ttl:		Votre message a été effacé par l&#39;équipe d&#39;administration.
 delete_msg_pm_body:		Message original
 delete_msg_pm_subject:		Sujet : {VAR: data[15]}
 ip_no_whois:			Information Whois pour <b>{VAR: ip}</b> non disponible.
