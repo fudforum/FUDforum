@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.4 2002/06/20 02:40:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,49 +30,51 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	
 	
 	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".$start.",".$count);
-	$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
-	$m_count=0;
-	while ( list($msgp_id) = db_rowarr($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
-	qf($msg_list);
-	$id_list = substr($id_list, 0, -1).')';
+	if( IS_RESULT($msg_list) ) {
+		$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
+		$m_count=0;
+		while ( list($msgp_id) = db_rowarr($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
+		qf($msg_list);
+		$id_list = substr($id_list, 0, -1).')';
 
-	$result = q('SELECT HIGH_PRIORITY
-		{SQL_TABLE_PREFIX}msg.*, 
-		{SQL_TABLE_PREFIX}thread.locked,
-		{SQL_TABLE_PREFIX}thread.root_msg_id,
-		{SQL_TABLE_PREFIX}thread.last_post_id,
-		{SQL_TABLE_PREFIX}thread.forum_id,
-		{SQL_TABLE_PREFIX}users.id AS user_id, 
-		{SQL_TABLE_PREFIX}users.login, 
-		{SQL_TABLE_PREFIX}users.invisible_mode, 
-		{SQL_TABLE_PREFIX}users.posted_msg_count, 
-		{SQL_TABLE_PREFIX}users.join_date, 
-		{SQL_TABLE_PREFIX}users.last_visit AS time_sec
-	FROM 
-		{SQL_TABLE_PREFIX}msg
-		INNER JOIN {SQL_TABLE_PREFIX}thread
-			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-	WHERE 
-		'.$id_list.'
-	ORDER BY id ASC');
+		$result = q('SELECT HIGH_PRIORITY
+			{SQL_TABLE_PREFIX}msg.*, 
+			{SQL_TABLE_PREFIX}thread.locked,
+			{SQL_TABLE_PREFIX}thread.root_msg_id,
+			{SQL_TABLE_PREFIX}thread.last_post_id,
+			{SQL_TABLE_PREFIX}thread.forum_id,
+			{SQL_TABLE_PREFIX}users.id AS user_id, 
+			{SQL_TABLE_PREFIX}users.login, 
+			{SQL_TABLE_PREFIX}users.invisible_mode, 
+			{SQL_TABLE_PREFIX}users.posted_msg_count, 
+			{SQL_TABLE_PREFIX}users.join_date, 
+			{SQL_TABLE_PREFIX}users.last_visit AS time_sec
+		FROM 
+			{SQL_TABLE_PREFIX}msg
+			INNER JOIN {SQL_TABLE_PREFIX}thread
+				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
+			LEFT JOIN {SQL_TABLE_PREFIX}users 
+				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
+		WHERE 
+			'.$id_list.'
+		ORDER BY id ASC');
 	
-	$m_count--;
+		$m_count--;
 	
-	$message_data='';
-	while ( $obj = db_rowobj($result) ) {
-		$message_data .= tmpl_drawmsg($obj, $m_count, true);
-		$mid = $obj->id;
+		$message_data='';
+		while ( $obj = db_rowobj($result) ) {
+			$message_data .= tmpl_drawmsg($obj, $m_count, true);
+			$mid = $obj->id;
+		}
+		qf($result);
+	
+		un_register_fps();
+	
+		$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", NULL, FALSE, TRUE);
+		$minimsg = '{TEMPLATE: minimsg_form}';
+		
+		unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
 	}
-	qf($result);
-	
-	un_register_fps();
-	
-	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", NULL, FALSE, TRUE);
-	$minimsg = '{TEMPLATE: minimsg_form}';
-	
-	unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
 }
 else if( !empty($th) ) $minimsg = '{TEMPLATE: minimsg_hidden}';
 ?>

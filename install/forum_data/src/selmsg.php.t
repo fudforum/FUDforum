@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: selmsg.php.t,v 1.4 2002/06/20 02:40:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -168,6 +168,7 @@ function ifstr($opt1, $opt2, $str)
 			{SQL_TABLE_PREFIX}thread.id AS th_id,
 			{SQL_TABLE_PREFIX}thread.locked AS locked,
 			{SQL_TABLE_PREFIX}thread.forum_id,
+			{SQL_TABLE_PREFIX}thread.replies,
 			{SQL_TABLE_PREFIX}users.id AS user_id, 
 			{SQL_TABLE_PREFIX}users.login AS login,
 			{SQL_TABLE_PREFIX}users.display_email,
@@ -344,7 +345,11 @@ function ifstr($opt1, $opt2, $str)
 			}
 			
 			$GLOBALS["returnto"] = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]);
+			$o_start = $start;
+			$start = $obj->replies-$GLOBALS['POSTS_PER_PAGE'];
+			if( $start < 0 ) $start = 0;
 			$message_data .= tmpl_drawmsg($obj, $m_count);
+			$start = $o_start;
 			$msg_id = $obj->id;
 			$p_frm_id = $obj->frm_id;
 		}
