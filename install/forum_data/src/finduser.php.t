@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
+*   $Id: finduser.php.t,v 1.11 2002/11/18 14:15:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 	{PRE_HTML_PHP}	
 	
-	if ( $MEMBER_SEARCH_ENABLED != 'Y' ) {
+	if ($MEMBER_SEARCH_ENABLED != 'Y' || $usr->is_mod == 'A') {
 		std_error('disabled');
 		exit();
 	}
@@ -31,8 +31,8 @@
 	$usr_login = ( !empty($usr_login) ) ? trim(stripslashes($usr_login)) : '';
 	$usr_email = ( !empty($usr_email) ) ? trim(stripslashes($usr_email)) : '';
 	
-	if ( empty($start) ) $start = 0;
-	if ( empty($count) ) $count = $GLOBALS['MEMBERS_PER_PAGE'];
+	if (empty($start) || !is_numeric($start)) $start = 0;
+	if (empty($count) || !is_numeric($count)) $count = $GLOBALS['MEMBERS_PER_PAGE'];
 	
 	if( !empty($pc) ) 
 		$ord = "posted_msg_count DESC";
