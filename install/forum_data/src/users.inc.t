@@ -1,9 +1,9 @@
-<?php
+
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.58 2003/06/05 20:16:02 hackie Exp $
+*   $Id: users.inc.t,v 1.59 2003/06/09 13:41:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@ function init_user()
 	define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
 
 	/* theme path */
-	define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
+	@define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
 		
 	/* define _uid, which, will tell us if this is a 'real' user or not */
 	define('_uid', (($u->email_conf == 'Y' && $u->acc_status == 'A') ? $u->id : 0));
