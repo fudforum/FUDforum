@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.132 2004/12/08 15:35:37 hackie Exp $
+* $Id: register.php.t,v 1.133 2004/12/09 18:43:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,6 +25,7 @@ function generate_turing_val(&$rt)
 	);
 
 	$text = $rt = '';
+	$rv = array();
 
 	// pick 4 random letters
 	for ($i = 0; $i < 4; $i++) {
@@ -94,6 +95,8 @@ function sanitize_url($url)
 
 function sanitize_login($login, $is_alias=0)
 {
+	$list = array();
+
 	for ($i = 0; $i < 32; $i++) $list[] = chr($i);
 	if (!$is_alias) {
 		for ($i = 127; $i < 160; $i++) $list[] = chr($i);
@@ -463,6 +466,7 @@ function decode_uent(&$uent)
 
 			/* we notify all admins about the new user, so that they can approve him */
 			if (($FUD_OPT_2 & 132096) == 132096) {
+				$admins = array();
 				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND (users_opt & 1048576) > 0");
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];

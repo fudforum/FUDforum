@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.72 2004/12/03 19:41:48 hackie Exp $
+* $Id: ppost.php.t,v 1.73 2004/12/09 18:43:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -266,6 +266,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					$atl[$r[0]] = "'".addslashes($r[1])."', ".$r[2].", ".$r[3];
 				}
 				if ($atl) {
+					$aidl = array();
+
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
 							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', 1, ' . $mid[1] . ', ' . $v .', \'\')');
