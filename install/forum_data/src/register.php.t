@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.44 2003/04/30 19:51:05 hackie Exp $
+*   $Id: register.php.t,v 1.45 2003/05/01 02:46:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -325,11 +325,11 @@ function remove_old_avatar($avatar_str)
 		}
 	
 		if (!__fud_real_user__) { /* new user */
-			$uent->id = $uent->add_user();
+			$uent->add_user();
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
+				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', str_replace('\n', "\n", '{TEMPLATE: register_conf_msg}'), '');
 			} else {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
+				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', str_replace('\n', "\n", '{TEMPLATE: register_welcome_msg}'), '');
 			}
 
 			/* login the new user into the forum */
@@ -618,8 +618,11 @@ function remove_old_avatar($avatar_str)
 
 				/* determine the avatar specification field to show */
 				if ($avatar_type == 'b') {
-					$avatar = '{TEMPLATE: built_in_avatar}';
 					$del_built_in_avatar = $reg_avatar ? '{TEMPLATE: del_built_in_avatar}' : '';
+					if (!isset($reg_avatar_img)) {
+						$reg_avatar_img = 'blank.gif';
+					}
+					$avatar = '{TEMPLATE: built_in_avatar}';
 				} else if ($avatar_type == 'c') {
 					if (!isset($reg_avatar_loc)) {
 						$reg_avatar_loc = '';
