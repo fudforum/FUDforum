@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.51 2004/11/01 20:48:26 hackie Exp $
+* $Id: search.php.t,v 1.52 2004/11/08 15:49:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -143,13 +143,12 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	ses_update_status($usr->sid, '{TEMPLATE: search_update}');
 
-	$page_pager = '';
+	$search_data = $page_pager = '';
 	if ($srch) {
 		if (!($c =& fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
 			$search_data = '{TEMPLATE: no_search_results}';
 		} else {
 			$i = 0;
-			$search_data = '';
 			while ($r = db_rowobj($c)) {
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
@@ -161,10 +160,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter.'&amp;author='.urlencode($author));
 			}
 		}
-	} else {
-		$search_data = '';
 	}
-
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
