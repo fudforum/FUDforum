@@ -56,7 +56,7 @@ locked:				±»Ëø¶¨
 locked_with_new_posts:		Ëø¶¨£¨ÇÒÎ´¶Á£©
 logged_in_list:			µÇÂ¼ÓÃ»§ÁĞ±í
 login:				µÇÂ¼
-login_header:			µÇÂ¼£º
+login_header:			êÇ³Æ£º
 logout:				×¢Ïú
 mark_all_read:			±ê¼ÇËùÓĞĞÅÏ¢ÎªÒÑ¶Á
 mark_all_read_desc:		ËùÓĞÄãÃ»ÓĞ¶Á¹ıµÄĞÅÏ¢¶¼½«±»±êÎªÒÑ¶Á¡£
@@ -101,8 +101,8 @@ page_timings:			Éú³É±¾Ò³Ãæ¹²»¨·ÑÊ±¼ä£º{VAR: page_gen_time} Ãë¡£
 fud_query_stats:		MySQLÏµÍ³»¨·ÑÁË{VAR: ttl_time} Ãë<br>
 pm:				ÇÄÇÄ»°
 poll:				µ÷²é£º
-post_count:			µã»÷Êı {VAR: u_pcount}
-post_count_l:			µã»÷Êı£º
+post_count:			·¢ÌûÊı£º {VAR: u_pcount}
+post_count_l:			Ìû×ÓÊı£º
 posts:				Ìû×Ó
 posts_c:			·¢ÌûÊı£º
 prev_thread:			ÏÂÒ»¸öÖ÷Ìâ£º
@@ -113,7 +113,7 @@ rate_thread:			Ö÷ÌâÆÀ¼Û
 refresh_list:			¸üĞÂÄ¿Â¼
 register:			×¢²á
 registered:			×¢²áÊ±¼ä£º
-registered_on:			×¢²áÈÕÆÚ{DATE: u->join_date %Y-%m-%d}
+registered_on:			×¢²áÈÕÆÚ£º{DATE: u_reg_date %Y-%m-%d}
 replies:			»Ø¸´
 report_to_mod:			Î¥¹æÌû¾Ù±¨
 reported_messages:		ÒÑÏò°æÖ÷¾Ù±¨µÄÎ¥¹æÌû
@@ -245,7 +245,7 @@ use_forum_default:		Ê¹ÓÃÂÛÌ³Ä¬ÈÏÖµ
 finduser_user_info:		ÓÃ»§ĞÅÏ¢
 finduser_by_login:		ÕËºÅ£º
 finduser_submit:		²éÕÒ
-finduser_no_such_user:		Ã»ÓĞÕâ¸öÃ»§
+finduser_no_such_user:		Ã»ÓĞÕâ¸öÓÃ»§
 finduser_user:			ÓÃ»§Ãû
 finduser_postcount:		·¢ÌûÊı
 finduser_joindate:		×¢²áÈÕÆÚ
