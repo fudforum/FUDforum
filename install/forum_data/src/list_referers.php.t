@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.php.t,v 1.8 2003/04/21 16:26:29 hackie Exp $
+*   $Id: list_referers.php.t,v 1.9 2003/05/12 23:26:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,11 +30,11 @@
 			$start = 0;
 		}
 	
-		$c = uq('SELECT u2.alias, u2.id, count(*) AS cnt FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON u2.id=u.referer_id WHERE u.referer_id > 0 AND u2.id IS NOT NULL GROUP BY u2.id ORDER BY cnt, u.alias DESC LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
+		$c = q('SELECT u2.alias, u2.id, count(*) AS cnt FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON u2.id=u.referer_id WHERE u.referer_id > 0 AND u2.id IS NOT NULL GROUP BY u2.id ORDER BY cnt, u.alias DESC LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
 		$referer_entry_data = '';
 		while ($r = db_rowarr($c)) {
 			$r_list = '';		
-			$c2 = q('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$r[1]);
+			$c2 = uq('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$r[1]);
 			$refered_entry_data = '';
 			while ($r2 = db_rowarr($c2)) {
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';

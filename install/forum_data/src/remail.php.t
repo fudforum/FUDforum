@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.8 2003/04/15 19:17:57 hackie Exp $
+*   $Id: remail.php.t,v 1.9 2003/05/12 23:29:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,6 +73,7 @@
 	} else {
 		$form_data = '{TEMPLATE: anon_user}';
 	}
+	$form_data = str_replace('\n', "\n", $form_data);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

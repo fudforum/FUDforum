@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.15 2003/05/12 16:49:55 hackie Exp $
+*   $Id: root_index.php.t,v 1.16 2003/05/12 23:26:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,21 +22,25 @@
 		fud_use('cfg.inc', TRUE);
 		exit(cfg_dec($DISABLED_REASON) . '{TEMPLATE: core_adm_login_msg}');
 	}
-	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
+	if (!$FORUM_TITLE && @file_exists($WWW_ROOT_DISK.'install.php')) {
 	        exit('{TEMPLATE: install_script_present_error}');
 	}
 
 	fud_use('err.inc');
+
+	if ($USE_PATH_INFO == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+		fud_use('path_info.inc');
+	}
 	
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 	if (isset($_GET['t'])) {
 		$t = $_GET['t'];
-	} else if (isset($_POSt['t'])) {
+	} else if (isset($_POST['t'])) {
 		$t = $_POST['t'];
 	}
-	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t)) {
+	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($GLOBALS['DATA_DIR'] . fud_theme . $t . '.php')) {
 		$t = 'index';
 	}
 
