@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.13 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admgrouplead.php,v 1.14 2003/07/24 00:55:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,7 +76,7 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
-	$c = uq('SELECT u.id, u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id);
+	$c = uq('SELECT u.id, u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_leader=\'Y\'');
 	while ($r = db_rowarr($c)) {
 		echo '<tr><td>'.$r[1].'</td><td>[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]</td></tr>';
 	}
