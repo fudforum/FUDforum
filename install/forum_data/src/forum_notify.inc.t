@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_notify.inc.t,v 1.8 2004/04/05 21:19:51 hackie Exp $
+* $Id: forum_notify.inc.t,v 1.9 2004/04/19 18:20:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function is_forum_notified($user_id, $forum_id)
 
 function forum_notify_add($user_id, $forum_id)
 {
-	db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_notify(user_id, forum_id) VALUES ('.$user_id.', '.$forum_id.')', $ret);
+	db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_notify (user_id, forum_id) VALUES ('.$user_id.', '.$forum_id.')', $ret);
 }
 
 function forum_notify_del($user_id, $forum_id)
