@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: reported.tmpl,v 1.2 2003/06/02 13:51:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: reported_reg_user_link reportee profile link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->report_user_id}&amp;{DEF: _rsid}">{VAR: obj->report_user_login}</a>
+<a class="GenLink" href="{ROOT}/u/{VAR: obj->report_user_id}/{DEF: _rsid}">{VAR: obj->report_user_login}</a>
 {SECTION: END}
 
 {SECTION: reported_anon_user if reportee is anon section}
@@ -49,11 +49,11 @@
 			<table border=1 cellspacing=1 cellpadding=0><tr><td align="left">&nbsp;{VAR: obj->report_reason} &nbsp;</td></tr></table>
 			
 		</td>
-		<td nowrap>[<a class="GenLink" href="{ROOT}?t=reported&amp;{DEF: _rsid}&amp;del={VAR: obj->report_id}">{MSG: reported_del_report}</a>]</td>
+		<td nowrap>[<a class="GenLink" href="{ROOT}/rl/{VAR: obj->report_id}/{DEF: _rsid}">{MSG: reported_del_report}</a>]</td>
 	</tr>
 	
 	<tr>
-		<td colspan=2><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}" target="_blank">{VAR: obj->thread_subject}</a></td>
+		<td colspan=2><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}/m/{VAR: obj->id}/{DEF: _rsid}" target="_blank">{VAR: obj->thread_subject}</a></td>
 	</tr>
 </table>
 </td></tr>
