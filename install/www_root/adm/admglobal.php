@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admglobal.php,v 1.2 2002/06/18 17:23:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,6 @@
 	fud_use('static/glob.inc');
 	fud_use('static/widgets.inc');
 	fud_use('util.inc');
-	fud_use('style.inc');
 	fud_use('static/adm.inc');
 	fud_use('tz.inc');
 	fud_use('static/cfg.inc');
