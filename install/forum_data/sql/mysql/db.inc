@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.40 2004/04/05 21:11:22 hackie Exp $
+* $Id: db.inc,v 1.41 2004/05/28 15:00:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -108,30 +108,15 @@ function db_affected()
 }
 
 if (!defined('fud_query_stats')) {
-	if (!defined('debug')) {
-		function q($query)
-		{
-			$r = mysql_query($query, fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
-			return $r;
-		}
-		function uq($query)
-		{
-			$r = mysql_unbuffered_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
-			return $r;
-		}
-	} else {
-		function q($query) 
-		{
-			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-			$r = mysql_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
-			return $r;
-		}
-		function uq($query) 
-		{
-			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
-			$r = mysql_unbuffered_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
-			return $r;
-		}
+	function q($query)
+	{
+		$r = mysql_query($query, fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
+		return $r;
+	}
+	function uq($query)
+	{
+		$r = mysql_unbuffered_query($query,fud_sql_lnk) or die (fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
+		return $r;
 	}
 } else {
 	function q($query)

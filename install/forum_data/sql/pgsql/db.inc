@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.45 2004/04/05 21:11:22 hackie Exp $
+* $Id: db.inc,v 1.46 2004/05/28 15:00:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -133,19 +133,10 @@ function uq($q)
 }
 
 if (!defined('fud_query_stats')) {
-	if (!defined('debug')) {
-		function q($q)
-		{
-			$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
-			return $GLOBALS['__FLPG__'];
-		}
-	} else {
-		function q($q)
-		{
-			$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
-			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
-			return $GLOBALS['__FLPG__'];
-		}
+	function q($q)
+	{
+		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
+		return $GLOBALS['__FLPG__'];
 	}
 } else {
 	function q($q)
