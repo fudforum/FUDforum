@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.6 2002/08/09 09:25:40 hackie Exp $
+*   $Id: return.inc.t,v 1.7 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,30 +15,13 @@
 *
 ***************************************************************************/
 
-function create_return()
+function check_return($returnto)
 {
-	return '<input type="hidden" name="returnto" value="'.htmlspecialchars(urldecode($GLOBALS['returnto'])).'">';
-}
-        
-function check_return()
-{
-        if ( empty($GLOBALS['returnto']) ) 
-        	$GLOBALS['returnto']='{ROOT}?'._rsidl;
-        else {
-        	$url_bits = parse_url($GLOBALS['returnto']);
-        	$GLOBALS['returnto']='{ROOT}?'._rsidl;
-		
-		if( $url_bits['query'] ) {
-			parse_str(str_replace('&amp;', '&', $url_bits['query']), $url_args);
-			if( is_array($url_args) ) {
-				foreach( $url_args as $k => $v ) {
-					if( $k == 'S' || $k == 'rid' ) continue;
-					$GLOBALS['returnto'] .= '&'.$k.'='.urlencode($v);
-				}	
-			}
-		}
-        }
-        header("Location: ".$GLOBALS['returnto']);
-	exit();
+	if ($returnto) {
+		header('Location: '.$GLOBALS['WWW_ROOT'].'?t=index&'._rsidl);
+	} else {
+		header('Location: '.$GLOBALS['WWW_ROOT'].$returnto);
+	}
+	exit;
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.11 2003/03/30 12:44:52 hackie Exp $
+*   $Id: thread.php.t,v 1.12 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,8 +78,6 @@
 	$cat = new fud_cat;
 	$cat->get_cat($frm->cat_id);
 	
-	$returnto = 'returnto='.urlencode("{ROOT}?t=thread&amp;frm_id=".$frm->id.'&amp;'._rsid);
-
 	$result = uq('SELECT 
 		{SQL_TABLE_PREFIX}msg.attach_cnt, 
 		{SQL_TABLE_PREFIX}msg.poll_id, 

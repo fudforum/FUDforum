@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.11 2003/03/29 11:40:09 hackie Exp $
+*   $Id: root_index.php.t,v 1.12 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,16 +22,14 @@
 	{PRE_HTML_PHP}
 	{POST_HTML_PHP}
 
-	if (isset($_REQUEST['t']) && !preg_match('/[^A-Za-z0-9_]/', $_REQUEST['t'])) {
-		$pg = $_REQUEST['t'];
-	} else {
-		$pg = 'index';
+	if (!isset($_REQUEST['t']) || preg_match('/[^A-Za-z0-9_]/', $_REQUEST['t'])) {
+		$_REQUEST['t'] = 'index';
 	}
 
 	if (!$usr->theme) {
-		$r = q('SELECT id,lang,name,locale,theme,pspell_lang FROM {SQL_TABLE_PREFIX}themes WHERE t_default=\'Y\'');
+		$r = uq('SELECT id,lang,name,locale,theme,pspell_lang FROM {SQL_TABLE_PREFIX}themes WHERE t_default=\'Y\'');
 	} else {
-		$r = q('SELECT id,lang,name,locale,theme,pspell_lang FROM {SQL_TABLE_PREFIX}themes WHERE id='.$usr->theme);
+		$r = uq('SELECT id,lang,name,locale,theme,pspell_lang FROM {SQL_TABLE_PREFIX}themes WHERE id='.$usr->theme);
 	}
 
 	$GLOBALS['FUD_THEME'] = db_singlearr($r);
@@ -40,5 +38,5 @@
 	setlocale(LC_ALL, $GLOBALS['FUD_THEME'][3]);
 	
 	define('__index_page_start__', true);
-	require($GLOBALS['DATA_DIR'] . 'theme/' . $GLOBALS['FUD_THEME'][2] . '/' . $pg . '.php');
+	require($GLOBALS['DATA_DIR'] . 'theme/' . $GLOBALS['FUD_THEME'][2] . '/' . $_REQUEST['t'] . '.php');
 ?>

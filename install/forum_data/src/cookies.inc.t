@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.12 2003/03/29 11:40:09 hackie Exp $
+*   $Id: cookies.inc.t,v 1.13 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,15 +17,15 @@
 
 class fud_session
 {
-	var $id, $ses_id, $tm, $user_id, $data, $action, $sys_id;
+	var $id, $ses_id, $tm, $user_id, $data, $action, $sys_id, $returnto;
 
 	function update($str=NULL, $forum_id=0)
 	{
 		if ($str) {
 			$this->action = $str;
-			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.strnull(addslashes($this->action)).' WHERE id='.$this->id);
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.strnull(addslashes($this->action)).', returnto='.strnull(addslashes($_SERVER['QUERY_STRING'])).' WHERE id='.$this->id);
 		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action=NULL WHERE id='.$this->id);
+			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action=NULL, returnto='.strnull(addslashes($_SERVER['QUERY_STRING'])).' WHERE id='.$this->id);
 		}
 	}
 
@@ -75,7 +75,7 @@ class fud_session
 			}
 
 			if (!db_locked()) {
-				db_lock('{SQL_TABLE_PREFIX}ses+');
+				db_lock('WRITE {SQL_TABLE_PREFIX}ses');
 				$ll = 1;
 			}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.21 2003/03/24 12:33:20 hackie Exp $
+*   $Id: th.inc.t,v 1.22 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,10 +33,8 @@ class fud_thread
 	var $subject=NULL;
 	var $db_thread=NULL;
 	
-	function add($root, $forum_id, $locked=NULL, $is_sticky=NULL, $ordertype=NULL, $orderexpiry=NULL) 
+	function add($root, $forum_id, $last_post_date, $locked=NULL, $is_sticky=NULL, $ordertype=NULL, $orderexpiry=NULL) 
 	{
-		if( !$this->last_post_date ) $this->last_post_date = __request_timestamp__;
-		
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}thread(
 				forum_id, 
@@ -55,15 +53,15 @@ class fud_thread
 			(
 				".$forum_id.",
 				".$root.",
-				".$this->last_post_date.",
+				".$last_post_date.",
 				0,
 				0,
 				0,
 				".$root.",
-				'".yn($locked)."',
-				'".yn($is_sticky)."',
-				".ifnull($ordertype, "'NONE'").",
-				".intzero($orderexpiry)."
+				'".$locked."',
+				'".$is_sticky."',
+				".$ordertype.",
+				".$orderexpiry."
 			)");
 		
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}thread", $r);
@@ -119,14 +117,14 @@ class fud_thread
 		if( $rebuild_view ) rebuild_forum_view($this->forum_id);
 	}
 	
-	function lock()
+	function lock($id)
 	{
-		q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='Y' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='Y' WHERE id=".$id);
 	}
 	
 	function unlock()
 	{
-		q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='N' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='N' WHERE id=".$id);
 	}
 	
 	function move($to_forum)

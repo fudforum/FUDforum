@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.5 2002/11/03 19:40:39 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.6 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,24 +52,23 @@ class fud_poll
 	
 	function sync()
 	{
-		q("UPDATE {SQL_TABLE_PREFIX}poll SET 
-			name='".$this->name."',
-			expiry_date=".intzero($this->expiry_date).",
-			max_votes=".intzero($this->max_votes)."
-		WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}poll SET name='".$this->name."', expiry_date=".intzero($this->expiry_date).", max_votes=".intzero($this->max_votes)." WHERE id=".$this->id);
 	}
 	
 	function get($id) 
 	{
-		qobj("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$id, $this);
+		qobj('SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id='.$id, $this);
 	}
 	
-	function delete()
+	function delete($id=0)
 	{
-		q("UPDATE {SQL_TABLE_PREFIX}msg SET poll_id=0 WHERE poll_id=".$this->id);
-		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$this->id);
-		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$this->id);
-		q("DELETE FROM {SQL_TABLE_PREFIX}poll WHERE id=".$this->id);
+		if (!$id) {
+			$id = $this->id;
+		}
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_id=0 WHERE poll_id='.$id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}poll WHERE id='.$id);
 	}
 	
 	function regvote($user_id)

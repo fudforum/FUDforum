@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.19 2003/01/15 13:09:46 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.20 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,39 +23,42 @@ class fud_msg_edit extends fud_msg
 	
 	function add_reply($reply_to, $th_id=NULL, $autoapprove=TRUE)
 	{
-		if( !empty($reply_to) ) {
-			$this->reply_to=$reply_to;
-			$forum_id = q_singleval("SELECT {SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$reply_to);
+		if ($reply_to) {
+			$this->reply_to = $reply_to;
+			$fd = db_saq('SELECT {SQL_TABLE_PREFIX}thread.forum_id,{SQL_TABLE_PREFIX}forum.message_threshold,{SQL_TABLE_PREFIX}forum.moderated FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}thread.forum_id WHERE {SQL_TABLE_PREFIX}msg.id='.$reply_to);
+		} else {
+			$fd = db_saq('SELECT {SQL_TABLE_PREFIX}thread.forum_id,{SQL_TABLE_PREFIX}forum.message_threshold,{SQL_TABLE_PREFIX}forum.moderated FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}thread.forum_id WHERE {SQL_TABLE_PREFIX}thread.id='.$th_id);
 		}
-		else
-			$forum_id = q_singleval("SELECT {SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}thread WHERE {SQL_TABLE_PREFIX}thread.id=".$th_id);
 		
-		return $this->add($forum_id, $autoapprove);
+		return $this->add($fd[0], $fd[1], $fd[2], $autoapprove);
 	}
 	
-	function add($forum_id, $autoapprove=TRUE)
+	function add($forum_id, $message_threshold, $moderated, $autoapprove=TRUE)
 	{
-		if ( empty($this->attachment_id) ) $this->attachment_id = 0;
-		if ( isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) ) $this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
+		if (!$this->attachment_id) {
+			$this->attachment_id = 0;
+		}
 		
-		if( !$this->post_stamp ) $this->post_stamp = __request_timestamp__;
-		if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ) $this->host_name = get_host($this->ip_addr);
-		
+		if (!$this->post_stamp) {
+			$this->post_stamp = __request_timestamp__;
+		}
+
+		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : "'0.0.0.0'";
+		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? get_host($this->ip_addr) : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
-		
-		$frm = new fud_forum;
-		$frm->get($forum_id);
+
+		$file_id = write_body($this->body, $length, $offset);
 
 		/* determine if preview needs building */
-		if ( $frm->message_threshold && $frm->message_threshold < strlen($this->body) )
-			$thres_body = trim_html($this->body, $frm->message_threshold);
+		if ($message_threshold && $message_threshold < strlen($this->body)) {
+			$thres_body = trim_html($this->body, $message_threshold);
+			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
+		} else {
+			$file_id_preview = $offset_preview = $length_preview = 0;
+		}
 		
-		/* length+offset are returned by ref, thank php-devs for dumbass syntax */
-		$file_id = write_body($this->body, $length, $offset);
-		if ( $thres_body ) $file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
-		
-		$r = q("INSERT INTO {SQL_TABLE_PREFIX}msg (
+		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
 			poster_id, 
 			reply_to, 
@@ -75,13 +78,12 @@ class fud_msg_edit extends fud_msg
 			offset_preview,
 			length_preview,
 			mlist_msg_id
-		) 
-		VALUES(
+		) VALUES(
 			".$this->thread_id.",
 			".$this->poster_id.",
 			".intzero($this->reply_to).",
-			".ifnull($this->ip_addr, "'0.0.0.0'").",
-			".strnull($this->host_name).",
+			".$this->ip_addr.",
+			".$this->host_name.",
 			".$this->post_stamp.",
 			".strnull($this->subject).",
 			".intzero($this->attach_cnt).",
@@ -92,69 +94,80 @@ class fud_msg_edit extends fud_msg
 			".$file_id.",
 			".intzero($offset).",
 			".intzero($length).",
-			".intzero($file_id_preview).",
-			".intzero($offset_preview).",
-			".intzero($length_preview).",
+			".$file_id_preview.",
+			".$offset_preview.",
+			".$length_preview.",
 			".strnull($this->mlist_msg_id)."
 		)");
 
-		$this->id = db_lastid("{SQL_TABLE_PREFIX}msg", $r);
-
-		$thr = new fud_thread;
-		if ( !$this->thread_id ) { /* new thread */
-			$thr->last_post_date = $this->post_stamp;
-			
-			/* if moderator is creating a thread consider a number of other properties */
-			if ( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $forum_id, 'STICKY') ) {
-				if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) 
-					$is_sticky = 'Y';
-				else
-					$is_sticky = 'N';
-				$this->thread_id = $thr->add($this->id, $forum_id, $GLOBALS['HTTP_POST_VARS']['thr_locked'], $is_sticky, $GLOBALS['HTTP_POST_VARS']['thr_ordertype'], $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry']);
-			}
-			else
-				$this->thread_id = $thr->add($this->id, $forum_id);
-	
-			q("UPDATE {SQL_TABLE_PREFIX}msg SET thread_id=".$this->thread_id." WHERE id=".$this->id);
+		if ((!empty($GLOBALS['MOD']) || is_perms($this->poster_id, $forum_id, 'STICKY')) && isset($_POST['thr_locked'])) {
+			$thr_locked = $_POST['thr_locked'] == 'Y' ? 'Y' : 'N';
+		} else {
+			$thr_locked = 'N';
 		}
-		else {
-			$thr->get_by_id($this->thread_id);
-			if ( $GLOBALS['HTTP_POST_VARS']['thr_locked']=='Y' ) 
-				$thr->lock(); 
-			else
-				$thr->unlock();
+
+		if (!$this->thread_id) { /* new thread */
+			if ((!empty($GLOBALS['MOD']) || is_perms($this->poster_id, $forum_id, 'STICKY')) && isset($_POST['thr_ordertype']) && isset($_POST['thr_ordertype']) && isset($_POST['thr_orderexpiry'])) {
+				if ($_POST['thr_ordertype'] != 'NONE' && ($_POST['thr_ordertype'] == 'ANNOUNCE' || $_POST['thr_ordertype'] == 'STICKY')) {
+					$is_sticky = 'Y';
+					$thr_ordertype = $_POST['thr_ordertype'];
+					$thr_orderexpiry = (int) $_POST['thr_orderexpiry'];
+				} else {
+					$is_sticky = 'N';
+					$thr_ordertype = "'NONE'";
+					$thr_orderexpiry = 0;
+				}
+			} else {
+				$is_sticky = 'N';
+				$thr_ordertype = "'NONE'";
+				$thr_orderexpiry = 0;
+			}
+			
+			$this->thread_id = fud_thread::add($this->id, $forum_id, $this->post_stamp, $thr_locked, $is_sticky, $thr_ordertype, $thr_orderexpiry);
+	
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
+		} else {
+			if (thr_locked == 'Y') {
+				fud_thread::lock($this->thread_id);
+			} else {
+				fud_thread::unlock($this->thread_id);
+			}
 		}
 		
-		if ( $autoapprove && $frm->moderated != 'N' ) $this->approve(NULL, TRUE);
+		if ($autoapprove && $moderated == 'Y') {
+			$this->approve(NULL, TRUE);
+		}
 
 		return $this->id;
 	}
 	
-	function sync($id)
+	function sync($id, $frm_id, $message_threshold)
 	{
-		if ( !db_locked() ) {
-			db_lock('{SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}index+, {SQL_TABLE_PREFIX}title_index+, {SQL_TABLE_PREFIX}thread_view+');
+		if (!db_locked()) {
+			db_lock('WRITE {SQL_TABLE_PREFIX}cat, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}msg, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}thread_view');
 			$ll=1;
 		}
 		$file_id = write_body($this->body, $length, $offset);
+
 		/* determine if preview needs building */
-		$frm = new fud_forum;
-		$frm->get(q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$this->thread_id));
-		
-		if ( $frm->message_threshold && $frm->message_threshold < strlen($this->body) ) {
-			$thres_body = trim_html($this->body, $frm->message_threshold);
+		if ($message_threshold && $message_threshold < strlen($this->body)) {
+			$thres_body = trim_html($this->body, $message_threshold);
 			$file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
+		} else {
+			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
+
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
 			file_id=".$file_id.", 
 			foff=".intzero($offset).", 
 			length=".intzero($length).",
 			mlist_msg_id=".strnull($this->mlist_msg_id).",
-			file_id_preview=".intzero($file_id_preview).",
-			offset_preview=".intzero($offset_preview).",
-			length_preview=".intzero($length_preview).",
+			file_id_preview=".$file_id_preview.",
+			offset_preview=".$offset_preview.",
+			length_preview=".$length_preview.",
 			smiley_disabled='".yn($this->smiley_disabled)."', 
-			updated_by=".$id.", show_sig='".yn($this->show_sig)."', 
+			updated_by=".$id.",
+			show_sig='".yn($this->show_sig)."', 
 			subject='".$this->subject."', 
 			attach_cnt=".intzero($this->attach_cnt).", 
 			poll_id=".intzero($this->poll_id).", 
@@ -162,37 +175,49 @@ class fud_msg_edit extends fud_msg
 			icon=".strnull($this->icon)." 
 		WHERE id=".$this->id);
 		
-		delete_msg_index($this->id);
+		/* determine wether or not we should deal with locked & sticky stuff 
+		 * current approach may seem a little redundant, but for (most) users who 
+		 * do not have access to locking & sticky this eliminated a query.
+		 */
+		if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) || isset($_POST['thr_locked'])) {
+			$th_data = db_saq('SELECT ordertype, orderexpiry, locked, root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$this->thread_id);
 
-		$thr = new fud_thread;
-		$thr->get_by_id($this->thread_id);
-		
-		$th_change = $stick = 0;
-		
-		/* Sticky message handling */
-		if ( $thr->root_msg_id == $this->id && (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && ($thr->ordertype != $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] || $thr->orderexpiry != $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry']) ) {
-			if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
-				$thr->is_sticky = 'Y';
-				$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
-				$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
-			} else {
-				$thr->is_sticky = 'N';
-				$thr->ordertype = 'NONE';
-				$thr->orderexpiry = 0;
+			if (isset($_POST['thr_locked']) && $_POST['thr_locked'] != $th_data[2]) {
+				/* confirm that user has ability to change lock status of the thread */
+				if (!empty($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'LOCK')) {
+					$thr_locked = $_POST['thr_locked'];
+				}	
 			}
-			$th_change = $stick = $thr->forum_id;
+
+			if ($th_data[3] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && ($_POST['thr_ordertype'] != $th_data[0] || $_POST['thr_orderexpiry'] != $th_data[1])) {
+				/* confirm that user has ability to change sticky status of the thread */
+				if (!empty($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) {
+					$is_sticky = $_POST['thr_ordertype'] == 'NONE' ? 'N' : 'Y';
+					$ordertype = $_POST['thr_ordertype'];
+					$orderexpiry = $_POST['thr_orderexpiry'];
+				}
+			}
+
+			/* Determine if any work needs to be done */
+			if (isset($thr_locked, $is_sticky)) {
+				q("UPDATE SQL_TABLE_PREFIX}thread SET is_sticky='".yn($this->is_sticky)."', ordertype=".ifnull($this->ordertype, "'NONE'").", orderexpiry=".intzero($this->orderexpiry).", locked='".yn($this->locked)."' WHERE id=".$this->id);
+				rebuild_forum_view($frm_id);
+			} else if (isset($thr_locked)) {
+				q("UPDATE SQL_TABLE_PREFIX}thread SET locked='".yn($this->locked)."' WHERE id=".$this->id);
+			} else {
+				q("UPDATE SQL_TABLE_PREFIX}thread SET is_sticky='".yn($this->is_sticky)."', ordertype=".ifnull($this->ordertype, "'NONE'").", orderexpiry=".intzero($this->orderexpiry)." WHERE id=".$this->id);
+				rebuild_forum_view($frm_id);
+			}
 		}
-			
-		if( (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'LOCK')) && $thr->locked != yn($GLOBALS['HTTP_POST_VARS']['thr_locked']) ) {
-			$thr->locked = $GLOBALS['HTTP_POST_VARS']['thr_locked'];
-			$th_change = 1;
+
+		if (isset($ll)) {
+			db_unlock();
 		}
-		
-		if( $th_change ) $thr->sync($stick);
-		
-		if ( $ll ) db_unlock();
-		$s_text = preg_match("!^Re: !i", $this->subject) ? '': $this->subject;
-		if( $GLOBALS['FORUM_SEARCH'] == 'Y' ) index_text($s_text, $this->body, $this->id);
+
+		if ($GLOBALS['FORUM_SEARCH'] == 'Y') {
+			delete_msg_index($this->id);
+			index_text((preg_match('!^Re: !i', $this->subject) ? '': $this->subject), $this->body, $this->id);
+		}
 	}
 	
 	function fetch_vars($array, $prefix)
@@ -211,126 +236,92 @@ class fud_msg_edit extends fud_msg
 		$GLOBALS[$prefix.'show_sig'] = $this->show_sig;
 	}
 	
-	function delete($rebuild_view=TRUE)
+	function delete($rebuild_view=TRUE, $mid=0, $th_rm=0)
 	{
-		if ( !db_locked() ) {
-			db_lock('{SQL_TABLE_PREFIX}thr_exchange+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}poll+, {SQL_TABLE_PREFIX}poll_opt+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}msg_report+, {SQL_TABLE_PREFIX}thread_rate_track+');
-			$local_lock = 1;
+		if (!db_locked()) {
+			db_lock('WRITE {SQL_TABLE_PREFIX}thr_exchange, WRITE {SQL_TABLE_PREFIX}thread_view, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}forum_read, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}msg, WRITE {SQL_TABLE_PREFIX}attach, WRITE {SQL_TABLE_PREFIX}poll, WRITE {SQL_TABLE_PREFIX}poll_opt, WRITE {SQL_TABLE_PREFIX}poll_opt_track, WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}thread_notify, WRITE {SQL_TABLE_PREFIX}msg_report, WRITE {SQL_TABLE_PREFIX}thread_rate_track');
+			$ll = 1;
+		}
+		if (!$mid) {
+			$mid = $this->id;
 		}
 		
-		$res = q("SELECT 
-				{SQL_TABLE_PREFIX}msg.*,
-				{SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, 
-				{SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip,
-				{SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip,
-				forum_id 
-			FROM {SQL_TABLE_PREFIX}msg 
-			LEFT JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}forum 
-				ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-			WHERE 
-				{SQL_TABLE_PREFIX}msg.id=".$this->id);
-		if ( !is_result($res) ) exit("no such message");
-		$del = db_singleobj($res);
+		if (!($del = db_sab('SELECT {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}thread.replies, {SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, {SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip, {SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip, {SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}msg.id='.$mid))) {
+			exit('no such message');
+		}
 		
 		/* attachments */
-		if ( $del->attach_cnt ) {
-			$res = q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='N'");
-			if( db_count($res) ) {
-				while ( list($loc) = db_rowarr($res) ) {
-					if( file_exists($loc) ) unlink($loc);				
+		if ($del->attach_cnt) {
+			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND private='N'");
+			if (db_count($res)) {
+				while ($loc = db_rowarr($res)) {
+					@unlink($loc[0]);
 				}
 			}
 			qf($res);
-			q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='N'");
+			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND private='N'");
 		}
 		
-		q("DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id=".$this->id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id='.$mid);
 		
-		if ( $del->poll_id ) {
-			$poll = new fud_poll;
-			$poll->get($del->poll_id);
-			$poll->delete();
+		if ($del->poll_id) {
+			fud_poll::delete($del->poll_id);
 		}
 		
 		/* check if thread */
-		if( $del->root_msg_id==$del->id ) {
-			$rmsg = q("SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$del->thread_id." AND id!=".$del->id);
-			$d_msg = new fud_msg_edit;
-			while ( $obj = db_rowobj($rmsg) ) {
-				qobj("SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE id=".$obj->id, $d_msg);
-				$d_msg->delete($rebuild_view);
+		if ($del->root_msg_id == $del->id) {
+			$rmsg = q('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND id != '.$del->id);
+			while ($dim = db_rowarr($rmsg)) {
+				fud_msg_edit::delete(FALSE, $dim[0], 1);
 			}
 			qf($rmsg);
-			q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$del->thread_id);
-			$rthd=q("SELECT forum_id, root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id=".$del->root_msg_id);
-			$i = 0;
-			while ( list($th_forum_id, $th_root_msg_id) = db_rowarr($rthd) ) {
-				q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-1 WHERE id=".$th_forum_id);
-				$lip_update[$i]['forum_id'] = $th_forum_id;
-				$lip_update[$i]['msg_id'] = $th_root_msg_id;
-				++$i;
-			}
-			qf($rthd);
-			
-			q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id=".$del->root_msg_id);
-			q("DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id=".$del->thread_id);
-			q("DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th=".$del->thread_id);
-			if( $del->approved!='N' && $del->forum_id ) q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id=".$del->forum_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$del->thread_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$del->thread_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th='.$del->thread_id);
+		} else if (!$th_rm  && $del->approved == 'Y') {
+			q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='.$del->thread_id);
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id='.$del->forum_id);
+			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$del->reply_to.' WHERE thread_id='.$del->thread_id.' AND reply_to='.$mid);
 		}
-		else {
-			if( $del->approved!='N' ) {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id=".$del->thread_id);
-				if( $del->forum_id ) {
-					q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id=".$del->forum_id);
-					$lip_update[0]['forum_id'] = $del->forum_id;
-					$lip_update[0]['msg_id'] = $del->id;
-				}	
-			}	
+
+		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
+
+		if ($this->poster_id && $del->approved == 'Y') {
+			fud_user::set_post_count($this->poster_id, -1);
 		}
-		
-		q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=".$this->reply_to." WHERE thread_id=".$this->thread_id." AND reply_to=".$this->id);
-		q("DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->id);
-		
-		if ( $this->poster_id && $del->approved!='N' ) {
-			$u = new fud_user;
-			$u->id = $this->poster_id;
-			$u->set_post_count(-1);
+
+		if (!$th_rm && $del->root_msg_id != $mid && $del->thread_lip == $mid) {
+			$mid = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$del->thread_id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1");
+			q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='.$mid.' WHERE id='.$del->thread_id);
 		}
-		
-		if( $del->root_msg_id!=$this->id && $del->thread_lip == $this->id ) {
-			$mid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$del->thread_id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1");
-			q("UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id=".$mid." WHERE id=".$del->thread_id);
-		}
-		
-		if ( is_array($lip_update) ) {
-			reset($lip_update);
-			while ( list($k, $v) = each($lip_update) ) {
-				if( $v['msg_id'] == $this->id ) {
-					$mid = q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$v['forum_id']." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
-					if( !$mid ) $mid = 0;
-			
-					q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$mid." WHERE id=".$v['forum_id']);
-					if( $rebuild_view ) rebuild_forum_view($v['forum_id']);
+
+		if ($del->root_msg_id == $del->id && $del->approved == 'Y') {
+			$mid = (int) q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$v['forum_id']." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.',thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
+
+			if ($rebuild_view) {
+				rebuild_forum_view($del->forum_id);
+				$r = q('SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
+				if (($res = @db_rowarr($r))) {
+					do {
+						rebuild_forum_view($res[0]);
+					} while (($res = @db_rowarr($r)));
 				}
+			} else {
+				q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
 			}
 		}
-		if ( $local_lock ) db_unlock();
+
+		if (isset($ll)) {
+			db_unlock();
+		}
 	}	
 	
 	function approve($id=NULL, $unlock_safe=FALSE)
 	{	
 		if( !db_locked() ) {
-			db_lock('
-				{SQL_TABLE_PREFIX}thread_view+, 
-				{SQL_TABLE_PREFIX}level+, 
-				{SQL_TABLE_PREFIX}cat+, 
-				{SQL_TABLE_PREFIX}users+, 
-				{SQL_TABLE_PREFIX}forum+, 
-				{SQL_TABLE_PREFIX}thread+, 
-				{SQL_TABLE_PREFIX}msg+
-				');
+			db_lock('WRITE {SQL_TABLE_PREFIX}thread_view, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}cat, WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}msg');
 			$ll = 1;
 		}
 		
@@ -350,10 +341,8 @@ class fud_msg_edit extends fud_msg
 			
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET approved='Y' WHERE id=".$this->id);
 			
-			if ( $this->poster_id ) {
-				$u = new fud_user;
-				$u->id = $this->poster_id;
-				$u->set_post_count(1,$this->id);
+			if ($this->poster_id) {
+				fud_user::set_post_count($this->poster_id, 1, $this->id);
 			}
 		
 			if ( $thr->last_post_id <= $this->id ) { 

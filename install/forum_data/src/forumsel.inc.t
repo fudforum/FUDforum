@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.5 2003/03/30 12:44:52 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.6 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,8 +51,8 @@ function tmpl_create_forum_select($frm_id)
 	return $selection_options;
 }
 
-if (isset($_POST['dst_frm_id'])) {
-	header("Location: {ROOT}?t=".t_thread_view."&frm_id=".$_POST['dst_frm_id']."&"._rsidl);
+if (isset($_GET['forum_redr']) && $_REQUEST['t'] != 'thread' && $_REQUEST['t'] != 'threadt') {
+	header('Location: {ROOT}?t='.t_thread_view.'&frm_id='.$_GET['frm_id'].'&'._rsidl);
 	exit();
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.19 2003/03/29 11:40:09 hackie Exp $
+*   $Id: users.inc.t,v 1.20 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,20 +30,20 @@ class fud_user
 		return $this->id;
 	}
 	
-	function set_post_count($val, $mid=0)
+	function set_post_count($uid, $val, $mid=0)
 	{
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}msg+');
+			db_lock('WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}msg');
 			$ll = 1;
 		}
 	
 		if (empty($mid)) {
-			$mid = (int) q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$this->id." AND approved='Y'");
+			$mid = (int) q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid." AND approved='Y'");
 		}
-		$pcount = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='.$this->id) + $val;
+		$pcount = q_singleval('SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id='.$uid) + $val;
 		$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pcount.' ORDER BY post_count DESC LIMIT 1');
 		
-		q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$mid.', posted_msg_count=posted_msg_count+'.$val.',level_id='.$level_id.' WHERE id='.$this->id);
+		q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$mid.', posted_msg_count=posted_msg_count+'.$val.',level_id='.$level_id.' WHERE id='.$uid);
 		
 		if (isset($ll)) {
 			db_unlock();

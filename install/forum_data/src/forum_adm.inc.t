@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.8 2002/10/31 19:08:16 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.9 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -278,10 +278,8 @@ class fud_forum_adm extends fud_forum
 		$this->move_down($view_order, $max, $cat_id); 
 		
 		$r = q("select {SQL_TABLE_PREFIX}users.id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}users.u_last_post_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}msg.id IS NULL");
-		while( list($uid) = db_rowarr($r) ) {
-			$u = new fud_user_reg;
-			$u->id = $uid;
-			$u->set_post_count(0);
+		while ($uid = db_rowarr($r)) {
+			fud_user_reg::set_post_count($uid[0], 0);
 		}
 		qf($r);
 		

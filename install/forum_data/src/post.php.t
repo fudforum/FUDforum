@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.24 2003/03/29 11:40:09 hackie Exp $
+*   $Id: post.php.t,v 1.25 2003/03/30 18:03:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@
 	
 	if( isset($usr) ) {
 		/* check if moderator */
-		if ( $frm->is_moderator($usr->id) || $usr->is_mod == 'A' ) { $MOD = 1; } else { $MOD=NULL; }
+		if ( $frm->is_moderator($usr->id) || $usr->is_mod == 'A' ) { $MOD = 1; } else { $MOD=0; }
 
 		is_allowed_user();
 		
@@ -324,7 +324,7 @@
 		 	
 		 	if( !$th_id ) {
 		 		$create_thread=1;
-		 		$msg_post->add_thread($frm->id, FALSE);
+		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, FALSE);
 		 		$thr = new fud_thread;
 		 		$thr->get_by_id($msg_post->thread_id);
 		 	}
@@ -336,7 +336,7 @@
 				$msg_post->id = $msg_id;
 				$msg_post->thread_id = $th_id;
 				$msg_post->post_stamp = $msg->post_stamp;
-				$msg_post->sync($usr->id);
+				$msg_post->sync($usr->id, $frm->id, $frm->message_threshold);
 				/* log moderator edit */
 			 	if ( _uid && _uid != $msg->poster_id ) 
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
