@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.9 2002/07/08 12:47:14 hackie Exp $
+*   $Id: admdump.php,v 1.10 2002/07/09 19:13:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -163,13 +163,12 @@ include('admpanel.php');
 				$sql_data = filetomem($file);
 				$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
 				$sql_data = preg_replace("!\s+!s", " ", $sql_data);
-				$sql_data = str_replace("{SQL_TABLE_PREFIX}", $DBHOST_TBL_PREFIX, $sql_data);
 				$sql_data = str_replace(";", "\n", $sql_data);
 				$sql_data = str_replace("\r", "", $sql_data);
 				$write_func($fp, $sql_data."\n");
 			}
 			else if ( substr($file,-5)=='.func' ) 
-				$write_func($fp, str_replace("{SQL_TABLE_PREFIX}", $DBHOST_TBL_PREFIX,preg_replace("!(\n|\t)!", " ", filetomem($file)))."\n");
+				$write_func($fp, preg_replace("!(\n|\t)!", " ", filetomem($file))."\n");
 		}
 		closedir($dir);
 		chdir($curdir);
@@ -187,6 +186,8 @@ include('admpanel.php');
 			flush();
 			
 			$r2 = q("SELECT * FROM ".$tbl_name);
+			$tbl_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
+			
 			if( db_count($r2) ) {
 				$field_data = array();
 				$nf = sql_num_fields($r2);
