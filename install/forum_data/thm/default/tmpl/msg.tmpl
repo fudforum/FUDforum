@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.17 2003/04/20 22:27:34 hackie Exp $
+*   $Id: msg.tmpl,v 1.18 2003/05/01 15:41:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -102,7 +102,6 @@
 {PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE-DATA: msg_page_focus}
 
 <table width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr>
@@ -143,6 +142,7 @@
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
 <div align="center">-=] <a href="#page_top">{MSG: back_to_top}</a> [=-</div>
+{TEMPLATE-DATA: msg_page_focus}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
@@ -182,6 +182,6 @@
 
 {SECTION: msg_page_focus}
 <script language="javascript" type="text/javascript">
-window.location = "{VAR: mid}";
+window.location.hash = "{VAR: mid}";
 </script>
 {SECTION: END}

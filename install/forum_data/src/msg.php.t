@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.36 2003/04/16 10:56:09 hackie Exp $
+*   $Id: msg.php.t,v 1.37 2003/05/01 15:41:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND approved='Y'"))) {
 				invl_inp_err();				
 			}
-			$mid = '#msg_'.$_GET['goto'];
+			$mid = 'msg_'.$_GET['goto'];
 		} else {
 			invl_inp_err();
 		}
