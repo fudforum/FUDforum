@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.15 2002/08/08 16:59:29 hackie Exp $
+*   $Id: register.php.t,v 1.16 2002/08/15 05:27:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -505,7 +505,8 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	if ( empty($usr->id) && empty($error) ) {
 		$reg_display_email = 'Y';
 		$reg_ignore_admin = 'N';
-		$reg_email_messages = 'Y';	
+		$reg_email_messages = 'Y';
+		$reg_pm_messages = 'Y';
 		$reg_append_sig = 'Y';
 		$reg_show_sigs = 'Y';
 		$reg_show_avatars = 'Y';
