@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: help_index.tmpl,v 1.7 2004/01/04 16:38:28 hackie Exp $
+* $Id: help_index.tmpl,v 1.8 2004/02/13 15:10:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,7 +28,7 @@
 
 {SECTION: help_section individual help section}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{VAR: topic_title} <a href="#top" class="thLnk">{MSG: help_back_to_top}</a></th></tr>
+<tr><th>{VAR: topic_title} <a href="javascript://" onClick="chng_focus(\'top\');" class="thLnk">{MSG: help_back_to_top}</a></th></tr>
 <tr><td class="ForumBackground">
 	<table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
 	{TEMPLATE-DATA: topic_help}

@@ -203,6 +203,11 @@ function fud_msg_focus(mid_hash)
 	}
 }
 
+function chng_focus(phash)
+{
+	window.location.hash = phash;
+}
+
 // This code below is used to make PNG's to work in IE.
 // The code comes from youngpup.net. Thanks youngpup!
 
