@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.6 2002/07/16 23:57:19 hackie Exp $
+*   $Id: admmassemail.php,v 1.7 2002/09/04 20:49:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@
 				
 				if( count($to) ) {
 					$smtp->to = $to;
-					$stmp->send_smtp_email();
+					$smtp->send_smtp_email();
 				}
 			}
 		}	
