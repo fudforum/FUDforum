@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread_notify.tbl,v 1.6 2004/01/04 16:38:26 hackie Exp $
+#   $Id: fud_thread_notify.tbl,v 1.7 2004/04/19 17:57:43 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -17,5 +17,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread_notify
 	thread_id	INT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}thread_notify_i_ut ON {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}thread_notify_i_ut ON {SQL_TABLE_PREFIX}thread_notify (user_id, thread_id);
 CREATE INDEX {SQL_TABLE_PREFIX}thread_notify_i_t ON {SQL_TABLE_PREFIX}thread_notify (thread_id);
