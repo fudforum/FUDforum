@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.39 2003/05/13 11:21:59 hackie Exp $
+*   $Id: msg.php.t,v 1.40 2003/05/26 13:31:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic 
 	 */
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
-		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.approved=\'Y\' AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL || r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
+		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.approved=\'Y\' AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 	}
 		
 	if (isset($_GET['goto'])) {
