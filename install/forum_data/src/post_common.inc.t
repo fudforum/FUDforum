@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.inc.t,v 1.4 2003/04/20 22:27:42 hackie Exp $
+*   $Id: post_common.inc.t,v 1.5 2003/04/23 13:08:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,14 +85,11 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error)
 
 	$upload_file = (($i + 1) <= $max_a) ? '{TEMPLATE: upload_file}' : '';
 
-	$allowed_extensions = '';
-	$c = uq('SELECT ext FROM {SQL_TABLE_PREFIX}ext_block');
-	while ($r = db_rowarr($c)) {
-		$allowed_extensions .= '{TEMPLATE: post_allowed_extension}';
-	}
-	qf($c);
-	if (!$allowed_extensions) {
+	include_once $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
+	if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
+	} else {
+		$allowed_extensions = implode(' ', $GLOBALS['__FUD_EXT_FILER__']);
 	}
 
 	return '{TEMPLATE: file_attachments}';

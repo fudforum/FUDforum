@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.46 2003/04/21 14:17:50 hackie Exp $
+*   $Id: post.php.t,v 1.47 2003/04/23 13:08:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	define('msg_edit', 1); define("_imsg_edit_inc_", 1);
+	define('msg_edit', 1); define('_imsg_edit_inc_', 1);
 
 function flood_check()
 {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.16 2003/04/16 10:11:37 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.17 2003/04/23 13:08:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -517,10 +517,14 @@ function html_to_tags($fudml)
 
 function filter_ext($file_name)
 {
-	if (!($rgx = @file_get_contents($GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp'))) {
-		return 0;
+	include_once $GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp';
+	if (!count($GLOBALS['FORUM_SETTINGS_PATH'])) {
+		return;
 	}
-	return !preg_match('/'.$rgx.'/i', $file_name);
+	if (($p = strrpos($file_name, '.')) === FALSE) {
+		return 1;
+	}
+	return !in_array(strtolower(substr($file_name, ($p + 1))), $GLOBALS['FORUM_SETTINGS_PATH']);
 }
 
 function safe_tmp_copy($source, $del_source=0, $prefx='')
