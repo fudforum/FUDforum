@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.51 2005/02/23 05:09:32 hackie Exp $
+* $Id: thread.tmpl,v 1.52 2005/02/23 18:58:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -140,6 +140,12 @@
 	<th class="nw">{MSG: last_post}</th>
 </tr>
 {TEMPLATE-DATA: announcements}
+{IF: $MOD || $mo == 8224}
+<tr>
+	<td colspan="3" class="RowStyleC ar"><input type="submit" name="del_sel_all" value="Delete All Selected"> <input type="submit" name="mov_sel_all" value="Move All Selected"></td>
+	<td colspan="3" class="RowStyleC"> </td>
+</tr>
+{ENDIF}
 {TEMPLATE-DATA: thread_list_table_data}
 {IF: $MOD || $mo == 8224}
 <tr>
