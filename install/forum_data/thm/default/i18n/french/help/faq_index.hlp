@@ -1,34 +1,34 @@
-TOPIC_TITLE: User Maintenance
+TOPIC_TITLE: Gestion des utilisateurs
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Why Register?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">How FUDforum uses cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">How to remove FUDforum cookie?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">What's a profile?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">What's a signature?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">What to do if you lost your password</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Custom Tags, what are they & how can I get one?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">What's an avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">What's a buddy list?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">What does the ignore list do?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Pourquoi s'enregistrer&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">Comment sont utilisés les cookies sur FUDforum&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">Comment supprimer les cookies de FUDforum&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">Qu'est-ce qu'un profil&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">Qu'est-ce qu'une signature&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">Que faire si vous avez perdu votre mot de passe&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Les marques personnalisées, qu'est-ce que c'est et comment puis-je en avoir une&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">Qu'est-ce qu'un avatar&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">Qu'est-ce qu'une liste d'amis&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">Qu'est-ce que fait la liste à ignorer&nbsp;?</a><br>
 
-TOPIC_TITLE: General Board Usage
+TOPIC_TITLE: Utilisation générale de l'interface
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">How can I search?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Can I email other forum members?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">What are private messages and how do I send them?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Member List?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">What are announcements & sticky messages?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Can I rate topics?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">What are referrals?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">Comment faire une recherche&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Comment envoyer un courrier à d'autres membres du forum&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">Que sont les messages privés et comment en envoyer un&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Liste des membres&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">Que sont les annonces et les messages épinglés&nbsp;</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Comment noter un sujet&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">Que sont les parrainages&nbsp;?</a><br>
 
-TOPIC_TITLE: Reading and Posting Messages
+TOPIC_TITLE: Lire et envoyer des messages
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">How to format text?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">What are Smilies/Emoticons?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">How do I use Polls?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Can I attach files to messages?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">What's a post icon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Can I edit my message?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Who are the moderators & administrators?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Censorship?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Can I be notified of replies to my messages?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">Comment appliquer des formats à un texte&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">Que sont les smileys/émoticônes&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">Comment utiliser les sondages&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Comment attacher des fichiers aux messages&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">Qu'est-ce qu'une icône de message&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Comment éditer mes messages&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Qui sont les modérateurs et administrateurs&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Censure&nbsp;?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Puis-je être averti des réponses à mes messages&nbsp;?</a><br>

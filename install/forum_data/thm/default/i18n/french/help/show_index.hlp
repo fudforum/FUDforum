@@ -1,23 +1,17 @@
-A message filtering system that allows you to see messages by your 
-selected criteria.
+Un système de filtre de messages qui vous permet de voir les messages selon les critères que vous sélectionnez.
 
-There are 3 different ways to filter messages:<br>
+Il existe 3 façons différentes de filtrer les messages&nbsp;:<br>
 <ul>
-<li>Today's Posts
-<li>Unread Posts (avalible only to registered users)
-<li>No Replies
+<li>Messages d'aujourd'hui
+<li>Messages non-lus (disponible seulement pour les utilisateurs enregistrés)
+<li>Aucune réponse
 </ul>
 
-Today's posts will show only the posts made today i.e. between today
-0AM and 23:59AM.
+Sélectionner Messages d'aujourd'hui va afficher les messages envoyés aujourd'hui, c'est-à-dire, aujourd'hui entre 00:00 et 23:59.
 <br><br>
-Unread Posts will show all of your unread posts in the entire forum.
+Sélectionner Messages non-lus va afficher tous les messages non-lus dans l'ensemble du forum.
 <br><br>
-No Replies will show posts that have never been replied to in the entire forum.
+Sélectionner Aucune réponse va afficher les messages qui n'ont pas reçu de réponse dans l'ensemble du forum.
 <br><br>
-All of these options are additive and you should pay careful attention to how they are selected,
-which means that if you were to click Today's Posts and look at today's posts and then click
-Unread Posts you would combine both filters, so you would only see today's posts which are unread 
-by you. 
-If you were to click Today's Posts again you will disable to "Today" part of the filter and see all 
-the unread posts again. 
+Toutes ces options sont cumulatives et vous devriez faire attention à la façon dont elles sont sélectionnées, ce qui veut dire que si vous sélectionnez Messages d'aujourd'hui et que vous regardez les messages d'aujourd'hui, puis que vous cliquez sur Messages non-lus, vous allez combiner les deux filtres, vous ne verrez donc que les messages d'aujourd'hui que vous n'avez pas lus. 
+Si vous cliquez à nouveau sur Messages d'aujourd'hui, vous désactiverez la partie «&nbsp;Aujourd'hui&nbsp;» du filtre et vous verrez à nouveau tous les messages non-lus. 
