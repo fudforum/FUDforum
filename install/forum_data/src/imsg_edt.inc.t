@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.14 2002/08/09 10:20:22 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.15 2002/09/02 20:07:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -163,37 +163,33 @@ class fud_msg_edit extends fud_msg
 		WHERE id=".$this->id);
 		
 		delete_msg_index($this->id);
-		$root_msg_id = q_singleval("SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$this->thread_id);		
-		if( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY') || is_perms($this->poster_id, $frm->id, 'LOCK') ) {
-			$thr = new fud_thread;
-			$thr->id = $this->thread_id;
-			
-			if ( $root_msg_id==$this->id ) {
-				if( (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
-					$thr->is_sticky = 'Y';
-					$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
-					$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
-				}	
-				else {
-					$thr->is_sticky = 'N';
-					$thr->ordertype = 'NONE';
-					$thr->orderexpiry = 0;
-				}	
-			
-				if( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'LOCK') ) 
-					$thr->locked = yn($GLOBALS['HTTP_POST_VARS']['thr_locked']);
-				else	
-					$thr->locked = q_singleval("SELECT is_sticky FROM {SQL_TABLE_PREFIX}thread WHERE id=".$thr->id);
-			
-				$thr->sync();
+
+		$thr = new fud_thread;
+		$thr->get_by_id($this->thread_id);
+		
+		$th_change = $stick = 0;
+		
+		/* Sticky message handling */
+		if ( $thr->root_msg_id == $this->id && (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && $thr->ordertype != $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] ) {
+			if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
+				$thr->is_sticky = 'Y';
+				$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
+				$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
+			} else {
+				$thr->is_sticky = 'N';
+				$thr->ordertype = 'NONE';
+				$thr->orderexpiry = 0;
 			}
-			else if( is_perms($this->poster_id, $frm->id, 'LOCK') || isset($GLOBALS['MOD']) ) {
-				if ( $GLOBALS['HTTP_POST_VARS']['thr_locked']=='Y' ) 
-					$thr->lock();
-				else
-					$thr->unlock();
-			}
+			$th_change = $stick = $thr->forum_id;
 		}
+			
+		if( (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'LOCK')) && $thr->locked != yn($GLOBALS['HTTP_POST_VARS']['thr_locked']) ) {
+			$thr->locked = $GLOBALS['HTTP_POST_VARS']['thr_locked'];
+			$th_change = 1;
+		}
+		
+		if( $th_change ) $thr->sync();
+		
 		if ( $ll ) db_unlock();
 		$s_text = preg_match("!^Re: !i", $this->subject) ? '': $this->subject;
 		if( $GLOBALS['FORUM_SEARCH'] == 'Y' ) index_text($s_text, $this->body, $this->id);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.13 2002/07/26 12:08:31 hackie Exp $
+*   $Id: th.inc.t,v 1.14 2002/09/02 20:07:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -71,18 +71,16 @@ class fud_thread
 		return $this->id;
 	}
 	
-	function sync()
+	function sync($forum_id='')
 	{
-		list($old_sticky,$forum_id) = db_singlearr(q("SELECT is_sticky,forum_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$this->id));
-	
 		q("UPDATE {SQL_TABLE_PREFIX}thread SET 
 			is_sticky='".yn($this->is_sticky)."',
 			ordertype=".ifnull($this->ordertype, "'NONE'").",
-			orderexpiry=".intnull($this->orderexpiry).",
+			orderexpiry=".intzero($this->orderexpiry).",
 			locked='".yn($this->locked)."'
 		WHERE id=".$this->id);
 		
-		if( $old_sticky != yn($this->is_sticky) ) rebuild_forum_view($forum_id);
+		if( $forum_id ) rebuild_forum_view($forum_id);
 	}
 	
 	function get_by_id($id)
