@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.7 2002/08/01 14:49:54 hackie Exp $
+*   $Id: register.tmpl,v 1.8 2002/08/04 15:08:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -86,7 +86,7 @@
 {SECTION: END}
 
 {SECTION: built_in_avatar}
-<tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" border=0 name="reg_avatar_img" value="0">
+<tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" border=0 name="reg_avatar_img" value="0" />
 <input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}?t=avatarsel&{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br></td></tr>
 {SECTION: END}
@@ -106,7 +106,7 @@
 
 {SECTION: custom_upload_avatar}
 <tr valign="top"><td class="RowStyleC" colspan=2>{MSG: register_custom_avatar_rules}</td></tr>
-<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_upload} {VAR: avatar_err}</td><td class="RowStyleA"><table border=0 cellspacing=0 cellpadding=0><tr><td><img src="{VAR: avatar_img}" border=0></td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr> 
+<tr valign="top"><td class="RowStyleA">{MSG: register_custom_avatar_upload} {VAR: avatar_err}</td><td class="RowStyleA"><table border=0 cellspacing=0 cellpadding=0><tr><td><img src="{VAR: avatar_img}" border=0 /></td><td>{TEMPLATE-DATA: buttons}</td></tr></table></td></tr> 
 <input type="hidden" name="avatar_tmp" value="{VAR: avatar_tmp}">
 {SECTION: END}
 

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.4 2002/07/31 21:56:50 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.5 2002/08/04 15:08:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,23 +40,23 @@
 {SECTION: END}
 
 {SECTION: action_buttons_inbox}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0></a>&nbsp;<a href="{ROOT}?t=ppost&quote={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0></a>&nbsp;<a href="{ROOT}?t=ppost&forward={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0></a>
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&reply={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&quote={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=ppost&forward={VAR: obj->id}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_sent_trash}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0></a>
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&forward={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: action_buttons_draft}
-<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0></a>
+<a href="{ROOT}?t=ppost&{DEF: _rsid}&msg_id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: pmsg_read private message read}
-<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 title="{MSG: pmsg_new_messages}">
+<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 title="{MSG: pmsg_new_messages}" />
 {SECTION: END}
 
 {SECTION: pmsg_unread private message unread}
-<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" border=0 title="{MSG: pmsg_old_messages}">
+<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" border=0 title="{MSG: pmsg_old_messages}" />
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
@@ -64,11 +64,11 @@
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}">&nbsp;
+<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}" />&nbsp;
 {SECTION: END}
 
 {SECTION: pmsg_offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}">&nbsp;
+<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}" />&nbsp;
 {SECTION: END}
 
 {SECTION: replied_msg replied message indicator}
@@ -95,7 +95,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE: pmsg_disk_usage}
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0></a></div><img src="blank.gif" alt="" width=1 height=2 border=0>
+<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 /></a></div><img src="blank.gif" alt="" width=1 height=2 border=0 />
 {TEMPLATE-DATA: tabs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
@@ -119,8 +119,8 @@
 &nbsp;&nbsp;&nbsp;<input type="submit" class="button" name="btn_delete" value="{MSG: pmsg_delete}"></td></tr>
 </form>
 </table>
-<img src="blank.gif" alt="" width=1 height=2 border=0>
-<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0></a></div>
+<img src="blank.gif" alt="" width=1 height=2 border=0 />
+<div align="right"><a class="GenLink" href="{ROOT}?t=ppost&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 /></a></div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
@@ -187,15 +187,15 @@
 {SECTION: END}
 
 {SECTION: normal_full_indicator normal indicator of space in PM}
-<td bgcolor="#FFFFFF"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#FFFFFF"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: alert_full_indicator alert indicator, when user approaches limit}
-<td bgcolor="#fffa00"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#fffa00"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: full_full_indicator full indicator, the user has reached or surpassed the limit}
-<td bgcolor="#FF0000"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8"></td>
+<td bgcolor="#FF0000"><img src="blank.gif" alt="" width={VAR: full_indicator} height="8" /></td>
 {SECTION: END}
 
 {SECTION: pmsg_author}

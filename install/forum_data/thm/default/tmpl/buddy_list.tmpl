@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.tmpl,v 1.5 2002/07/31 21:56:50 hackie Exp $
+*   $Id: buddy_list.tmpl,v 1.6 2002/08/04 15:08:07 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,19 +28,19 @@
 {REF: alt_var.tmpl}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
+<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: online_indicator}
-<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}">
+<img src="{THEME_IMAGE_ROOT}/online.gif" border=0 title="{MSG: user_online}" />
 {SECTION: END}
 
 {SECTION: offline_indicator}
-<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}">
+<img src="{THEME_IMAGE_ROOT}/offline.gif" border=0 title="{MSG: user_offline}" />
 {SECTION: END}
 
 {SECTION: bday_indicator}
-<img src="blank.gif" alt="" width=10 height=1 border=0><img src="{THEME_IMAGE_ROOT}/bday.gif" border=0> Today {VAR: obj->login} turns {VAR: age}
+<img src="blank.gif" alt="" width=10 height=1 border=0 /><img src="{THEME_IMAGE_ROOT}/bday.gif" border=0 /> Today {VAR: obj->login} turns {VAR: age}
 {SECTION: END}
 
 {SECTION: pm_link}
@@ -57,7 +57,7 @@
 	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{ROOT}?t=buddy_list&{DEF: _rsid}&del={VAR: obj->bud_id}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
 	<td align="center">{VAR: obj->posted_msg_count}</td>
 	<td align="center" nowrap>{DATE: obj->join_date %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0></a>&nbsp;<a href="{ROOT}?t=showposts&{DEF: _rsid}&id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" border=0 /></a>&nbsp;<a href="{ROOT}?t=showposts&{DEF: _rsid}&id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a> {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 

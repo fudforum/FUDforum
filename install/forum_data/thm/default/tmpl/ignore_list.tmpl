@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.tmpl,v 1.3 2002/07/31 21:56:50 hackie Exp $
+*   $Id: ignore_list.tmpl,v 1.4 2002/08/04 15:08:07 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,11 +28,11 @@
 {REF: alt_var.tmpl}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0></a>
+<a class="GenLink" href="{VAR: obj->home_page}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0></a>
+<a href="{ROOT}?t=email&tx_name={VAR-URL: obj->login}&returnto={VAR: returnto}&{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: ignore_user info about an ignored user}
@@ -40,7 +40,7 @@
 	<td width="100%" class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->id}&{DEF: _rsid}">{VAR: obj->login}</a>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&del={VAR: obj->ignoreent_id}&{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
 	<td align="center">{VAR: obj->posted_msg_count}</td>
 	<td align="center" nowrap>{DATE: obj->join_date %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a href="{ROOT}?t=showposts&{DEF: _rsid}&id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText" nowrap><a href="{ROOT}?t=showposts&{DEF: _rsid}&id={VAR: obj->id}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 

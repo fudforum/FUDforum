@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: index.tmpl,v 1.7 2002/08/04 15:08:07 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: forum_icon}
-<img src="{VAR: data->forum_icon}" border=0 alt="{MSG: forum_icon}">
+<img src="{VAR: data->forum_icon}" border=0 alt="{MSG: forum_icon}" />
 {SECTION: END}
 
 {SECTION: no_forum_icon}
@@ -80,15 +80,15 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" border=0>
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" border=0 />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" border=0>
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" border=0 />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" border=0>
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" border=0 />
 {SECTION: END}
 
 {SECTION: last_post}
@@ -112,7 +112,7 @@
 {SECTION: END}
 
 {SECTION: last_post_link}
-<a href="{VAR: last_post_link}" class="GenLink"><img title="{MSG: view_last_msg}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{MSG: view_last_msg}"></a>
+<a href="{VAR: last_post_link}" class="GenLink"><img title="{MSG: view_last_msg}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{MSG: view_last_msg}" /></a>
 {SECTION: END}
 
 {SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
@@ -136,12 +136,12 @@
 <tr>
 <td>
 <table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" border=0 alt="{MSG: index_new_posts}"></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
+<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" border=0 alt="{MSG: index_new_posts}" /></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
 </table>
 </td>
 <td>
 <table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" border=0></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
+<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" border=0 /></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
 </table>
 </td>
 </tr>

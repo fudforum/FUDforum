@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.5 2002/07/31 21:56:50 hackie Exp $
+*   $Id: tree.tmpl,v 1.6 2002/08/04 15:08:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,7 +38,7 @@
 {SECTION: END}
 
 {SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" alt="{VAR: thread->rating}" border=0>) {MSG: vote}
+&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" alt="{VAR: thread->rating}" border=0 />) {MSG: vote}
 {SECTION: END}
 
 {SECTION: no_thread_rating}
@@ -69,15 +69,15 @@
 {SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
-<a href="{ROOT}?t=msg&th={VAR: th}&{DEF: _rsid}#msg_{VAR: mid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0></a>
+<a href="{ROOT}?t=msg&th={VAR: th}&{DEF: _rsid}#msg_{VAR: mid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0></a>
+<a class="GenLink" href="{ROOT}?t=post&{VAR: returnto}&frm_id={VAR: frm->id}&{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0></a>
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&th_id={VAR: th}&reply_to={VAR: thread->root_msg_id}&{DEF: _rsid}&start={VAR: start}&{VAR: returnto}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: next_thread_link}
@@ -105,7 +105,7 @@
 {SECTION: END}
 
 {SECTION: tree_tab image used to show the position of each msg inside the tree}
-<img border=0 src="blank.gif" alt="" width="{VAR: width}" height=1>
+<img border=0 src="blank.gif" alt="" width="{VAR: width}" height=1 />
 {SECTION: END}
 
 {SECTION: reg_user_link}
@@ -120,7 +120,7 @@
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0>&nbsp;
+<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
 <a href="{ROOT}?t=tree&th={VAR: th}&mid={VAR: cur->id}&{DEF: _rsid}&rev={VAR: rev}&reveal={VAR: reveal}" class="GenLink">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
@@ -130,7 +130,7 @@
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0>&nbsp;
+<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
 <a href="{ROOT}?t=tree&th={VAR: th}&mid={VAR: cur->id}&{DEF: _rsid}&rev={VAR: rev}&reveal={VAR: reveal}" class="GenLink">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
@@ -140,7 +140,7 @@
 <tr class="RowStyleC">
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0>&nbsp;
+<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
 <a href="{ROOT}?t=tree&th={VAR: th}&mid={VAR: cur->id}&{DEF: _rsid}&rev={VAR: rev}&reveal={VAR: reveal}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
@@ -150,7 +150,7 @@
 <tr class="RowStyleC">
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0>&nbsp;
+<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
 <a href="{ROOT}?t=tree&th={VAR: th}&mid={VAR: cur->id}&{DEF: _rsid}&rev={VAR: rev}&reveal={VAR: reveal}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
@@ -177,7 +177,7 @@
 {TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}
 </td>
 </tr>
-<tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 border=0></td></tr>
+<tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 border=0 /></td></tr>
 </table>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
