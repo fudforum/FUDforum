@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.4 2002/06/27 16:53:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 function is_perms($user_id, $r_id, $perm, $r_type='forum')
 {
 	if( $GLOBALS['usr']->is_mod == 'A' ) return TRUE;
-	$perm = strtolower($perm);
+	if( __dbtype__ == 'pgsql' ) $perm = strtolower($perm);
 	if( empty($user_id) ) $user_id = 0;
 
 	if( @is_object($GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type]) ) 
