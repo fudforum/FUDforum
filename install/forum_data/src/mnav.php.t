@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.18 2004/06/07 15:24:53 hackie Exp $
+* $Id: mnav.php.t,v 1.19 2004/10/25 17:00:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,8 +83,6 @@
 				$mnav_data .= '{TEMPLATE: mnav_thread}';
 				$oldt = $r->thread_id;
 			}
-
-			$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
 
 			$poster_info = !empty($r->poster_id) ? '{TEMPLATE: mnav_user}' : '{TEMPLATE: mnav_anon}';
 
