@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.17 2002/10/01 21:02:24 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.18 2002/10/06 23:38:58 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -2029,6 +2029,17 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			</para>
 		</sect2>
 		
+		<sect2 id="admin.mailing_list.manager.cnu">
+			<title>Create New Users</title>
+			
+			<para>
+				When importing messages from the mailing list, should a new user be created for every mailing
+				list author, who cannot be matched against an existing forum user. If this option is set to 'No', then all 
+				imported mailing list messages who's authors cannot be matched against existing forum members will be attributed
+				to the anonymous user.
+			</para>
+		</sect2>
+		
 		<sect2 id="admin.mailing_list.manager.sm">
 			<title>Subject Mangling (optional)</title>
 			
@@ -2280,6 +2291,17 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				to an existing message. If this option is enabled and normally available reply headers are not 
 				there, the forum will try to determine if message is a reply by comparing the message's 
 				subject to subjects of existing messages in the forum.
+			</para>
+		</sect2>
+		
+		<sect2 id="admin.newsgroup.manager.cnu">
+			<title>Create New Users</title>
+			
+			<para>
+				When importing messages from a newsgroup, should a new user be created for every newsgroup
+				author, who cannot be matched against an existing forum user. If this option is set to 'No', then all 
+				imported newsgroup messages who's authors cannot be matched against existing forum members will be attributed
+				to the anonymous user.
 			</para>
 		</sect2>
 		
