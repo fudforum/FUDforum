@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.25 2004/11/01 19:27:37 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.26 2004/11/04 01:20:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
-<div class="ar SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIF}</div>
+<div class="ar SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ELSE}{ENDI}</div>
 {SECTION: END}
 
 {SECTION: new_thread_link_lnk}
@@ -102,7 +102,7 @@
 {SECTION: END}
 
 {SECTION: thread_pdf_rdf}
-<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIF}</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ELSE}{ENDI}</div>
 {SECTION: END}
 
 {SECTION: thread_merge_t_lnk}
