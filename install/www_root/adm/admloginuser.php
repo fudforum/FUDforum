@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admloginuser.php,v 1.14 2003/11/10 00:19:15 hackie Exp $
+* $Id: admloginuser.php,v 1.15 2003/11/13 18:48:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,7 +38,7 @@
 		echo '<font color="#ff0000">'.$err.'</font>';
 	}
 ?>
-<form method="post" action="admloginuser.php">
+<form method="post" action="admloginuser.php"><?php echo _hs; ?>
 <table border=0 cellspacing=0 cellpadding=3>
 <tr>
 	<td>Login:</td>
