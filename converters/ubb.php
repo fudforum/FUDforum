@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.5 2004/02/18 16:07:00 hackie Exp $
+* $Id: ubb.php,v 1.6 2004/02/19 03:54:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,7 +18,7 @@
 	 */
 
 	/* Specify the FULL path to the UBB.threads ubbthreads_config.txt file */
-	$UBB_CFG = "/work2/src/ubbthreads_config.txt";
+	$UBB_CFG = "/path/to/ubbthreads_config.txt";
 
 /* DO NOT MODIFY BEYOND THIS POINT */
 
@@ -102,21 +102,29 @@ function bbq($q, $err=0)
 
 	$start_time = time();
 
-/* Import phpBB2 users */
+/* Import ubb users */
 
 	$old_umask = umask(0111);
+	$IMG_ROOT_DISK = $WWW_ROOT_DISK . 'images/';
+	$dupe_list = array();
 
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."users WHERE id>1");
 	$theme = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE (theme_opt & 3) >= 3 LIMIT 1");
 
-	$r = bbq("SELECT * FROM {$ubb}Users WHERE U_Number>0 ORDER BY U_Number");
+	$r = bbq("SELECT * FROM {$ubb}Users WHERE U_Number>1 ORDER BY U_Number");
 	
 	print_msg('Importing Users '.db_count($r));
 	
 	while ($obj = db_rowobj($r)) {
-		if (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->U_Username)."' OR email='".addslashes($obj->U_Email)."'")) {
+		if (($dupe = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->U_Username)."'"))) {
+			$dupe_list[$obj->U_Number] = $dupe;
 			print_msg("\tuser: ".$obj->U_Username);
-			print_msg("\t\tWARNING: Cannot import user ".$obj->U_Username.", user with this email and/or login already exists");
+			print_msg("\t\tWARNING: Cannot import user ".$obj->U_Username.", user with this login already exists");
+			continue;
+		} else if (($dupe = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email='".addslashes($obj->U_Email)."'"))) {
+			$dupe_list[$obj->U_Number] = $dupe;
+			print_msg("\temail: ".$obj->U_Email);
+			print_msg("\t\tWARNING: Cannot import user ".$obj->U_Email.", user with this email already exists");
 			continue;
 		}
 
@@ -168,6 +176,8 @@ function bbq($q, $err=0)
 				".(int)$obj->U_Laston."
 				)");
 
+/* XXX: uncomment continue to disable avatar fetching continue; */
+
 		if (!$obj->U_Picture || $obj->U_Picture == 'http://') {
 			continue;
 		}
@@ -214,15 +224,15 @@ function bbq($q, $err=0)
 	umask($old_umask);
 	print_msg('Finished Importing Users');
 
-/* Import ubb Categories */
-	
+// Import ubb Categories
+
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."cat");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_resources");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."groups WHERE id>2");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_members");
 	
-	$r = bbq("select * from {$ubb}w3t_Category ORDER BY Cat_Number");
+	$r = bbq("select * from {$ubb}Category ORDER BY Cat_Number");
 	print_msg('Importing Categories '.db_count($r));
 	$i = 1;
 	while( $obj = db_rowobj($r) ) {
@@ -231,7 +241,7 @@ function bbq($q, $err=0)
 	unset($r);
 	print_msg('Finished Importing Categories');
 
-/* Import ubb Forums */
+// Import ubb Forums
 	$group_map = array(
 		'Bo_Read_Perm'=> 1 | 262144 | 512 | 2 | 1024 | 16384 | 32768,
 		'Bo_Write_Perm'=> 4 | 512 | 128,
@@ -285,8 +295,8 @@ function bbq($q, $err=0)
 	unset($r);
 	print_msg('Finished Importing Forums');
 
-/* Import ubb moderators */
-	
+// Import ubb moderators
+
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."mod");
 	print_msg('Importing Moderators');
 
@@ -295,13 +305,16 @@ function bbq($q, $err=0)
 			INNER JOIN {$ubb}Boards f ON f.Bo_Keyword=m.Mod_Board");
 
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->Bo_Number.")");
+		if (isset($dupe_list[$obj->U_Number])) {
+			$obj->U_Number = $dupe_list[$obj->U_Number];		
+		}
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->Bo_Number.")");
 	}
 
 	unset($r);
 	print_msg('Finished Importing Moderators');
 
-/* Import ubb Topics & Messages */
+// Import ubb Topics & Messages
 
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."msg");
@@ -312,28 +325,41 @@ function bbq($q, $err=0)
 
 	$old_umask = umask(0111);
 
+	print_msg('Importing Messages');	
+	$j = $i = 0; 
+	$tmp = bbq("SELECT MAX(B_Number) as mp FROM {$ubb}Posts");
+	$tmp = db_rowobj($tmp);
+	$max = $tmp->mp;
+
+while (1) {
 	$r = bbq("SELECT f.Bo_Number, m.*, u.U_Number AS edit_id
 		FROM {$ubb}Posts m
-		INNER JOIN {$ubb}Boards f N f.Bo_Keyword=m.B_Board
+		INNER JOIN {$ubb}Boards f ON f.Bo_Keyword=m.B_Board
 		LEFT JOIN {$ubb}Users u ON u.U_Username=m.B_LastEditBy
+		WHERE B_Number BETWEEN ".$i." AND ".($i + 99)."
 		ORDER BY B_Board, B_Main, B_Parent");
 
-	print_msg('Importing Messages '.db_count($r));
-
 	while ($obj = db_rowobj($r)) {
-		/* new topic */
-		if (!$obj->parent) {
+		// new topic
+		if (!$obj->B_Parent) {
 			if ($obj->B_Sticky) {
 				$thread_opt = 4;
 				$orderexpiry = $obj->B_Sticky;
 			} else {
 				$orderexpiry = $thread_opt = 0;
 			}
-			q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (id, forum_id, n_rating, n_rating) VALUES(".(int)$obj->B_Number.", ".(int)$obj->Bo_Number.", ".(int)$obj->B_Rating.", ".(int)$obj->B_Rates.")");
+			q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."thread (id, forum_id) VALUES(".(int)$obj->B_Number.", ".(int)$obj->Bo_Number.")");
 		}
 		$fileid = write_body($obj->B_Body, $len, $off);
 
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
+		if (isset($dupe_list[$obj->B_PosterId])) {
+			$obj->B_PosterId = $dupe_list[$obj->B_PosterId];		
+		}
+		if ($obj->edit_id && isset($dupe_list[$obj->edit_id])) {
+			$obj->edit_id = $dupe_list[$obj->edit_id];	
+		}
+
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."msg
 			(id, thread_id, poster_id, post_stamp, update_stamp, updated_by, subject,
 			 ip_addr, foff, length, file_id, msg_opt, apr, reply_to
 		) VALUES (
@@ -349,19 +375,25 @@ function bbq($q, $err=0)
 			".$len.",
 			".$fileid.",
 			".(int)($obj->B_Signature ? 1 : 0).",
-			".(int)($obj->B_Status == 'yes').",
+			".(int)($obj->B_Status == 'O').",
 			".(int)$obj->B_Parent."
 			)"
 		);
 
-		/* handle any file attachments */
+		// handle any file attachments
 		if ($obj->B_File && $obj->B_File != 'http://') {
-			if (!@file_exists($config['files'].$obj->B_File)) {
-				print_msg("\tWARNING: file attachment ".$config['files'].$obj->B_File." doesn't exist");
+			if (!@file_exists($config['files']."/".$obj->B_File)) {
+				print_msg("\tWARNING: file attachment ".$config['files']."/".$obj->B_File." doesn't exist");
 				continue;
 			}
 
 			$mime = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."mime WHERE fl_ext='".substr(strrchr($obj->B_File, '.'), 1)."'");
+
+			if (($pos = strpos($obj->B_File, '-')) !== false) {
+				$realname = substr($obj->B_File, $pos + 1);
+			} else {
+				$realname = $obj->B_File;
+			}
 
 			$attach_id = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."attach 
 				(original_name, owner, message_id, dlcount, mime_type, fsize)
@@ -371,17 +403,17 @@ function bbq($q, $err=0)
 					".(int)$obj->B_Number.",
 					".(int)$obj->B_FileCounter.",
 					".(int)$mime.",
-					".(int)filesize($config['files'].$obj->B_File).")"
+					".(int)filesize($config['files']."/".$obj->B_File).")"
 				);
 
-			if (!copy($config['files'].$obj->B_File, $FILE_STORE.$attach_id.'.atch')) {
-				print_msg("Couldn't copy file attachment (".$config['files'].$obj->B_File.") to (".$FILE_STORE.$attach_id.'.atch'.")");
+			if (!copy($config['files']."/".$obj->B_File, $FILE_STORE.$attach_id.'.atch')) {
+				print_msg("Couldn't copy file attachment (".$config['files']."/".$obj->B_File.") to (".$FILE_STORE.$attach_id.'.atch'.")");
 				exit;
 			}
 			q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);		
 		}		
 
-		/* handle polls */
+		// handle polls
 		if ($obj->B_Poll) {
 			$r2 = bbq("SELECT * FROM {$ubb}Polls WHERE P_Name='".addslashes($obj->B_Poll)."' ORDER BY P_Number");
 			$row = db_rowobj($r2);
@@ -397,10 +429,10 @@ function bbq($q, $err=0)
 			
 			$opts = array();
 			do {
-				$opts[$obj->P_Number] = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt VALUES(poll_id, name) VALUES(".$pid.", '".addslashes($row->P_Option)."')");
+				$opts[$row->P_Number] = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (poll_id, name) VALUES(".$pid.", '".addslashes($row->P_Option)."')");
 			} while (($row = db_rowobj($r2)));
 			
-			/* handle poll voters */
+			// handle poll voters
 			$r2 = bbq("select count(*) AS cnt, P_Number FROM {$ubb}PollData WHERE P_Name='".addslashes($obj->B_Poll)."' GROUP BY P_Number");
 			while ($row = db_rowobj($r2)) {
 				q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt_track 
@@ -409,27 +441,41 @@ function bbq($q, $err=0)
 			}
 			unset($r2, $opts);
 		}
-	}	
+	}
+
 	unset($r, $r2);
+
+	if ($i > $max) {
+		var_dump($i, $max);
+		break;
+	}
+
+	$i += 100;
+	echo "pos: " . $i . "\n";
+	flush();
+}
 	umask($old_umask);
 	print_msg('Finished Importing Messages');
 
-/* import ubb ratings */
+// import ubb ratings
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_rate_track");
-	$r = bb("SELECT r.R_What, r.R_Rating, u.U_Number
-			FROM {$ubb}Ratings r,
+	$r = bbq("SELECT r.R_What, r.R_Rating, u.U_Number
+			FROM {$ubb}Ratings r
 			INNER JOIN {$ubb}Users u ON u.U_Username=r.R_Rater
 			WHERE R_Type='t'");
 	print_msg('Importing Topic Ratings '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_rate_track 
+		if (isset($dupe_list[$obj->U_Number])) {
+			$obj->U_Number = $dupe_list[$obj->U_Number];		
+		}
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."thread_rate_track 
 			(thread_id, user_id, rating) 
 			VALUES (".(int)$obj->R_What.", ".(int)$obj->U_Number.", ".(int)$obj->R_Rating.")");
 	}
 	unset($r);
 	print_msg('Finished Importing Topic Ratings');
 
-/* Import ubb forum Subscriptions */
+// Import ubb forum Subscriptions
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum_notify");
 	$r = bbq("SELECT u.U_Number, f.Bo_Number 
 		FROM {$ubb}Subscribe s
@@ -437,24 +483,30 @@ function bbq($q, $err=0)
 		INNER JOIN {$ubb}Boards f ON f.Bo_Keyword=s.S_Board");
 	print_msg('Importing Forum Subscriptions '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."forum_notify (user_id, forum_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->Bo_Number.")");
+		if (isset($dupe_list[$obj->U_Number])) {
+			$obj->U_Number = $dupe_list[$obj->U_Number];		
+		}
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."forum_notify (user_id, forum_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->Bo_Number.")");
 	}
 	unset($r);
 	print_msg('Finished Importing Forum Subscriptions');
 
-/* Import ubb topic Subscriptions */
+// Import ubb topic Subscriptions
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_notify");
 	$r = bbq("SELECT u.U_Number, s.F_Thread 
 			FROM {$ubb}Favorites s
 			INNER JOIN {$ubb}Users u ON u.U_Username=s.F_Owner");
 	print_msg('Importing Thread Subscriptions '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_notify (user_id, thread_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->F_Thread.")");
+		if (isset($dupe_list[$obj->U_Number])) {
+			$obj->U_Number = $dupe_list[$obj->U_Number];		
+		}
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."thread_notify (user_id, thread_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->F_Thread.")");
 	}
 	unset($r);
 	print_msg('Finished Importing Thread Subscriptions');
 
-/* Import ubb buddy list */
+// Import ubb buddy list
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."buddy");
 	$r = bbq("SELECT u1.U_Number AS s, u2.U_Number AS d
 			FROM {$ubb}AddressBook a
@@ -462,12 +514,12 @@ function bbq($q, $err=0)
 			INNER JOIN {$ubb}Users u2 ON u2.U_Username=a.Add_Member");
 	print_msg('Importing Buddy List '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."buddy (user_id, bud_id) VALUES(".(int)$obj->d.", ".(int)$obj->s.")");
+		q("INSERT IGNORE INTO ".$DBHOST_TBL_PREFIX."buddy (user_id, bud_id) VALUES(".(int)$obj->d.", ".(int)$obj->s.")");
 	}
 	unset($r);
 	print_msg('Finished Importing Buddy List');
 
-/* Import ubb banns */
+// Import ubb banns
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."blocked_logins");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ip_block");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."email_block");
@@ -475,9 +527,13 @@ function bbq($q, $err=0)
 	$r = bbq("SELECT B_Username, B_Hostname FROM {$ubb}Banned");
 	print_msg('Importing Bans '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		if ($obj->B_Hostname) {
-			list($ca,$cb,$cc,$cd) = explode('.', $obj->B_Hostname);
-			q("INSERT INTO ".$DBHOST_TBL_PREFIX."ip_block (ca,cb,cc,cd) VALUES($ca,$cb,$cc,$cd)");
+		if ($obj->B_Hostname && $obj->B_Hostname != 'NULL') {
+			list($ca,$cb,$cc,$cd) = explode('.', str_replace('%', '256', trim($obj->B_Hostname)));
+			$ca = (int) $ca;
+			$cb = (int) $cb;
+			$cc = (int) $cc;
+			$cd = (int) $cd;
+			q("INSERT INTO  ".$DBHOST_TBL_PREFIX."ip_block (ca,cb,cc,cd) VALUES($ca,$cb,$cc,$cd)");
 		} else {
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."blocked_logins (login) VALUES('".addslashes($obj->B_Username)."')");
 			q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|65536 WHERE login='".addslashes($obj->B_Username)."'");
@@ -486,7 +542,7 @@ function bbq($q, $err=0)
 	unset($r);
 	print_msg('Finished Importing Bans');
 
-/* Import phpBB private messages */
+/* Import ubb private messages */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."pmsg");
 
 	$r = bbq("SELECT u1.U_Number AS sen, u2.U_Number AS rec, m.*
@@ -496,11 +552,13 @@ function bbq($q, $err=0)
 			ORDER BY m.M_Number");
 	print_msg('Importing Private Messages '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		if ($obj->privmsgs_type != PRIVMSGS_READ_MAIL && $obj->privmsgs_type != PRIVMSGS_NEW_MAIL && $obj->privmsgs_type != PRIVMSGS_SENT_MAIL) {
-			continue;
-		}
-
 		list($off, $len) = write_pmsg_body($obj->M_Message);
+		if (isset($dupe_list[$obj->sen])) {
+			$obj->sen = $dupe_list[$obj->sen];		
+		}
+		if (isset($dupe_list[$obj->rec])) {
+			$obj->rec = $dupe_list[$obj->rec];		
+		}
 
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."pmsg 
 			(ouser_id, duser_id, post_stamp, read_stamp, fldr, subject, pmsg_opt, foff, length, to_list)
@@ -531,7 +589,7 @@ function bbq($q, $err=0)
 	$list['PRIVATE_ATTACH_SIZE'] = (int) $config['filesize'];
 	$list['EDIT_TIME_LIMIT'] = (int)$config['edittime'] * 60;
 
-	$FUD_OPT_1 = $FUD_OPT_1 &~ (16384|1048576|134217728|1024|1|2|8388608|32768);
+	$FUD_OPT_1 = $FUD_OPT_1 &~ (16384|1048576|134217728|1024|1|2|8388608);
 	$FUD_OPT_2 = $FUD_OPT_2 &~ (16384|1073741824);
 
 	if ($config['allowimages']) {
@@ -555,9 +613,6 @@ function bbq($q, $err=0)
 	if ($config['userlist']) {
 		$FUD_OPT_1 |= 8388608;		
 	}
-	if ($board_config['allow_sig']) {
-		$FUD_OPT_1 |= 32768;
-	}
 	if ($config['compression']) {
 		$FUD_OPT_2 |= 16384;
 		$list['PHP_COMPRESSION_LEVEL'] = 9;
@@ -577,7 +632,7 @@ function bbq($q, $err=0)
 		$time_taken .= ' seconds';
 	} else {
 		$m = floor($time_taken/60);
-		$s = $time_taken - $m*60;
+		$s = $time_taken - $m * 60;
 		$time_taken = $m." minutes ".$s." seconds";
 	}	
 
