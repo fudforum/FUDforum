@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.tmpl,v 1.6 2003/04/21 14:14:54 hackie Exp $
+*   $Id: email.tmpl,v 1.7 2003/05/26 07:21:04 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -33,12 +33,12 @@
 {SECTION: END}
 
 {SECTION: dest_forum_user mail being sent to forum user}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_to} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR: tx_name}"></td></tr>
+<tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_to} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
 {SECTION: END}
 
 {SECTION: dest_non_forum_user mail being sent to non forum user}
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_name} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR: tx_name}"></td></tr>
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_email} {VAR: email_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{VAR: tx_email}"></td></tr>
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_name} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: email_email} {VAR: email_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{VAR-HTML: tx_email}"></td></tr>
 {SECTION: END}
 
 {PAGE: EMAIL_PAGE }

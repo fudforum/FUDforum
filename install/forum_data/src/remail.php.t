@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.9 2003/05/12 23:29:20 hackie Exp $
+*   $Id: remail.php.t,v 1.10 2003/05/26 07:21:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,8 +65,8 @@
 		$subject_error = get_err('subj');
 		$body_error = get_err('body');
 
-		$fname = isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : '';
-		$femail = isset($_POST['femail']) ? htmlspecialchars($_POST['femail']) : '';
+		$fname = isset($_POST['fname']) ? $_POST['fname'] : '';
+		$femail = isset($_POST['femail']) ? $_POST['femail'] : '';
 		$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : $data->subject;
 
 		$form_data = '{TEMPLATE: registed_user}';	
