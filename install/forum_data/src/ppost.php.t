@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.21 2003/04/18 12:22:06 hackie Exp $
+*   $Id: ppost.php.t,v 1.22 2003/04/18 12:43:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,6 +16,34 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
+
+function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley_disabled, &$msg_show_sig, &$msg_track, &$msg_to_list)
+{
+	$msg_subject = $m->subject;
+	$msg_body = read_pmsg_body($m->foff, $m->length);
+	$msg_icon = $m->icon;
+	$msg_smiley_disabled = $m->smiley_disabled == 'Y' ? 1 : NULL;
+	$msg_show_sig = $m->show_sig == 'Y' ? 1 : NULL;
+	$msg_track = $m->msg_track == 'Y' ? 1 : NULL;
+	$msg_to_list = $m->to_list;
+
+	reverse_FMT($msg_subject);
+	$msg_subject = apply_reverse_replace($msg_subject);
+	if (!$msg_smiley_disabled) {
+		$msg_body = post_to_smiley($msg_body);
+	}
+	switch ($GLOBALS['PRIVATE_TAGS']) {
+		case 'ML':
+			$msg_body = html_to_tags($msg_body);
+			break;
+		case 'HTML':
+			break;
+		default:
+			reverse_FMT($msg_body);
+			reverse_nl2br($msg_body);
+	}
+	$msg_body = apply_reverse_replace($msg_body);
+}
 	
 	if (!_uid) {
 		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
@@ -56,65 +84,29 @@
 		}
 	
 		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
-			if (($msg_r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
-				export_vars('msg_', $msg_r);
-				reverse_FMT($msg_subject);
-				$msg_subject = apply_reverse_replace($msg_subject);
-				$msg_body = post_to_smiley($msg_body);
-				switch ($PRIVATE_TAGS) {
-					case 'ML':
-						$msg_body = html_to_tags($msg_body);
-				 		break;
-					case 'HTML':
-						break;
-					default:
-						reverse_FMT($msg_body);
-						reverse_nl2br($msg_body);
-				}
-				$msg_body = apply_reverse_replace($msg_body);
+			if (($msg_r = db_sab('SELECT subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
+				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
-			if (($msg_r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
+			if (($msg_r = db_sab('SELECT subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
 				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
-			
-				export_vars('msg_', $msg_r);
-				$msg_id = $msg_to_list = $msg_duser_id = '';
-				$msg_body = post_to_smiley($msg_body);
-				
-				switch ($PRIVATE_TAGS) {
-					case 'ML':
-						$msg_body = html_to_tags($msg_body);
-					 	$msg_body = '{TEMPLATE: fud_quote}';
-					 	break;
-					case 'HTML':
-						$msg_body = '{TEMPLATE: html_quote}';
-						break;
-					default:
-						reverse_FMT($msg_body);
-						reverse_nl2br($msg_body);
-						$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
-				}
-			 	$msg_body = apply_reverse_replace($msg_body)."\n";	
-		 	
-			 	reverse_FMT($msg_subject);
-				$msg_subject = apply_reverse_replace($msg_subject);
-			
+
+				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
+				$msg_id = $msg_to_list = '';
+
 				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 					$msg_ref_msg_id = 'R'.$reply;
+					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
+					unset($msg_r);
 				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
 					$old_subject = $msg_subject = 'Fwd: ' . $msg_subject;
 					$msg_ref_msg_id = 'F'.$forward;
 				}
-
-				if ($quote) {
-					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
-					unset($msg_r);
-				}
 			}
 		} else if (isset($_GET['reply']) && ($reply = (int)$_GET['reply'])) {
-			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
+			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.id='.$reply.' AND p.duser_id='._uid))) {
 				$msg_subject = $msg_r[0];
 				$msg_to_list = $msg_r[1];
 				reverse_FMT($msg_subject);
@@ -408,8 +400,9 @@
 		$spell_check_button = '';
 	}
 
-	if ($reply && ($mm = db_sab('SELECT p.*, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
-		fud_use('drawpmsg.inc');	
+	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
+		fud_use('drawpmsg.inc');
+		$dpmsg_prev_message = $dpmsg_next_message = '';
 		$reference_msg = tmpl_drawpmsg($mm, $usr, TRUE);
 		$reference_msg = '{TEMPLATE: reference_msg}';
 	} else {

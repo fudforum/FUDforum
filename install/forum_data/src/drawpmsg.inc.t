@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.15 2003/04/18 12:22:06 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.16 2003/04/18 12:43:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -96,6 +96,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		$msg_toolbar = '{TEMPLATE: dpmsg_msg_toolbar}';
 	} else {
 		$user_profile = $msg_toolbar = $level_name = $level_image = $im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $buddy_link = $custom_tag = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
+		$profile_link = '{TEMPLATE: dpmsg_profile_no_link}';
 	}
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';
 	
