@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.28 2004/12/02 17:23:01 hackie Exp $
+* $Id: minimsg.inc.t,v 1.29 2005/03/03 17:20:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,14 +10,19 @@
 * (at your option) any later version.
 **/
 
-$start = '';
+$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
+if ($start < 0) {
+	$start = 0;
+}
 if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$total = $thr->replies + 1;
 
 	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
 		$start = ($total - q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 AND id>=".$reply_to));
+		if ($start < 0) {
+			$start = 0;
+		}
 		$msg_order_by = 'ASC';
 	} else {
 		$msg_order_by = 'DESC';
@@ -47,7 +52,6 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
 	$minimsg = '{TEMPLATE: minimsg_form}';
 } else if ($th_id) {
-	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$minimsg = '{TEMPLATE: minimsg_hidden}';
 } else {
 	$minimsg = '';
