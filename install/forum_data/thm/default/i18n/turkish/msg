@@ -1017,3 +1017,4 @@ search_options:			Arama Seçenekleri
 search_user_filter:		Kullanýcýya göre ara:
 register_none:			Haberdar etme
 findu_no_conf:			onaylanmamýþ kullanýcý
+register_max_sig_len:		Maximum Length:
