@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.58 2004/05/20 00:23:14 hackie Exp $
+* $Id: login.php.t,v 1.59 2004/05/21 16:28:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -189,10 +189,14 @@ function error_check()
 					$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 				} else {
 					if ($FUD_OPT_2 & 32768) {
-						if ($usr->returnto{strlen($usr->returnto)-1} == '?') {
+						$pos = strpos($usr->returnto, '?');
+						if ($pos && $pos == strlen($usr->returnto)-1) {
 							$usr->returnto = substr($usr->returnto, 0, -1);
+						} else if (!$pos) {
+							$usr->returnto .= $ses_id . '/';
+						} else {
+							$usr->returnto .= '&S=' . $ses_id;
 						}
-						$usr->returnto .= $ses_id . '/';
 					} else {
 						$usr->returnto .= '&S=' . $ses_id;
 					}
