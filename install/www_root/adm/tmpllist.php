@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.35 2004/10/06 18:59:10 hackie Exp $
+* $Id: tmpllist.php,v 1.36 2004/10/12 13:56:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -216,17 +216,18 @@ function goto_tmpl($tmpl)
 		} else {
 			/* fetch file name */
 			if (($p = strpos($data, '{PHP_FILE: input: ')) === false) {
-				continue;
+				$file = $f;
+			} else {
+				$p = strpos($data, '; output: ', $p) + 10;
+				if ($data[$p] == '@' || $data[$p] == '!') {
+					++$p;
+				}
+				$file = substr($data, $p, (strpos($data, ';', $p) - $p));
+				if ($file != 'forum.css') {
+					$file = substr($file, 0, strrpos($file, '.'));
+				}
+				$file .= '.tmpl';
 			}
-			$p = strpos($data, '; output: ', $p) + 10;
-			if ($data[$p] == '@' || $data[$p] == '!') {
-				++$p;
-			}
-			$file = substr($data, $p, (strpos($data, ';', $p) - $p));
-			if ($file != 'forum.css') {
-				$file = substr($file, 0, strrpos($file, '.'));
-			}
-			$file .= '.tmpl';
 		}
 
 		/* build dependency list */
