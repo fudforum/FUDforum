@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.20 2003/05/02 15:21:57 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.21 2003/09/29 08:00:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,22 +66,22 @@
 
 /*{POST_HTML_PHP}*/
 
-	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.bday, u.invisible_mode, u.posted_msg_count, u.home_page, u.last_visit AS time_sec
+	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.bday, (u.users_opt & 32768), u.posted_msg_count, u.home_page, u.last_visit AS time_sec
 		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
 	
 	$buddies = '';
 	/* Result index 
-	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - invisible	6 - msg_count	
+	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - users_opt	6 - msg_count	
 	 * 7 - home_page	8 - last_visit
 	 */
 
 	if (($r = @db_rowarr($c))) {
 		do {
 			$homepage_link = $r[7] ? '{TEMPLATE: homepage_link}' : '';
-			if ($r[0] == 'Y' && $usr->is_mod != 'A') {
-				$online_status = '';
-			} else {
+			if (!$r[5] || $usr->users_opt & 1048576) {
 				$online_status = (($r[8] + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
+			} else {
+				$online_status = '';
 			}
 
 			if ($r[5] && substr($r[4], 4) == date('md')) {

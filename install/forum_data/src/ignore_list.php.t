@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.11 2003/04/11 09:52:56 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.12 2003/09/29 08:00:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,10 +23,10 @@
 
 function ignore_alias_fetch($al, &$is_mod)
 {
-	if (!($tmp = db_saq('SELECT id, is_mod FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($al)).'\''))) {
+	if (!($tmp = db_saq('SELECT id, (users_opt & 1048576) FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($al)).'\''))) {
 		return;
 	}
-	$is_mod = $tmp[1] != 'A' ? 0 : 1;
+	$is_mod = $tmp[1];
 
 	return $tmp[0];
 }
@@ -74,8 +74,7 @@ function ignore_alias_fetch($al, &$is_mod)
 	
 /*{POST_HTML_PHP}*/
 	
-	$c = uq('SELECT 
-			ui.ignore_id, ui.id as ignoreent_id,
+	$c = uq('SELECT ui.ignore_id, ui.id as ignoreent_id,
 			u.id, u.alias AS login, u.join_date, u.posted_msg_count, u.home_page 
 		FROM {SQL_TABLE_PREFIX}user_ignore ui
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON ui.ignore_id=u.id 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.php.t,v 1.10 2003/06/02 19:11:32 hackie Exp $
+*   $Id: subscribed.php.t,v 1.11 2003/09/29 08:00:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,12 +37,12 @@
 
 	/* fetch a list of all the accessible forums */
 	$lmt = '';
-	if ($usr->is_mod != 'A') {
+	if (!($usr->users_opt & 1048576)) {
 		$c = uq('SELECT g1.resource_id 
 				FROM {SQL_TABLE_PREFIX}group_cache g1 
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g1.resource_id=g2.resource_id 
 				LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.forum_id=g1.resource_id AND m.user_id='._uid.'
-				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'N\')');
+				WHERE g1.user_id=2147483647 AND (m.id IS NULL AND !((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2))');
 		while ($r = db_rowarr($c)) {
 			$lmt .= $r[0] . ',';
 		}
@@ -83,7 +83,7 @@
 	}
 	qf($c);
 	
-	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+	if ($USE_PATH_INFO == 'N') {
 		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=subscribed&a=1&'._rsid, '#fff');
 	} else {
 		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sl/start/', '/'._rsid.'#fff');
