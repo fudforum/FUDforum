@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rst.inc.t,v 1.1 2002/12/11 18:51:16 hackie Exp $
+*   $Id: rst.inc.t,v 1.2 2002/12/16 17:02:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,8 +15,8 @@
 *
 ***************************************************************************/
 
-$GLOBALS['register_conf_subject']	= '{TEMPLATE: register_conf_subject}';
-$GLOBALS['reset_newpass_title']		= '{TEMPLATE: reset_newpass_title}';
-$GLOBALS['reset_confirmation']		= '{TEMPLATE: reset_confirmation}';
-$GLOBALS['reset_reset']			= '{TEMPLATE: reset_reset}';
+$GLOBALS['register_conf_subject']	= '{TEMPLATE: rst_register_conf_subject}';
+$GLOBALS['reset_newpass_title']		= '{TEMPLATE: rst_newpass_title}';
+$GLOBALS['reset_confirmation']		= '{TEMPLATE: rst_confirmation}';
+$GLOBALS['reset_reset']			= '{TEMPLATE: rst_reset}';
 ?>
