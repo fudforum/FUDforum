@@ -346,3 +346,21 @@ Number of message icons to show per row on message posting form.
 MAX_LOGGEDIN_USERS
 Maximum number of currenty logged-in users to show on the front page.
 
+PHP_COMPRESSION_ENABLE
+Whether or not to use php to compress forum's output. By turning
+this option you are likely to save a fair bit of bandwidth. However, for performance
+reasons it is recommended that you use native compression built-in into most webservers
+like mod_gzip for Apache.
+
+PHP_COMPRESSION_LEVEL
+If php's compression is used, this indicates how extensively should the data be
+compressed, the values can range from 1-9.
+
+USE_PATH_INFO
+Wether or not use PATH_INFO based urls, this will make forum's URLs look like
+htt://a.com/index.php/a/b/c/. This makes forum's URLs much easier to remember
+as well as more search engine friendly. Unfortunately this feature mostly works
+with Apache 1.X based servers and may not work with other webservers. To see if
+your webserver supports this feature, click on the test link above. If you see
+forum's front page, then you can make use of this feature.
+

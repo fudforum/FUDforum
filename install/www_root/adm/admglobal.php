@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.24 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admglobal.php,v 1.25 2003/05/13 19:46:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -261,6 +261,12 @@ function print_tag_style($descr, $field)
 	print_yn_field('Enable Affero<br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
 	print_yn_field('Topic Rating', 'ENABLE_THREAD_RATING');
 	print_yn_field('Track referrals', 'TRACK_REFERRALS');
+
+	if (function_exists('ob_gzhandler')) {
+		print_yn_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
+		print_string_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
+	}		
+	print_yn_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>

@@ -132,6 +132,9 @@
 	$POST_ICONS_PER_ROW	= "9";		/* int */
 	$MAX_LOGGEDIN_USERS	= "25";		/* int */
 	$USE_PATH_INFO		= "N";		/* boolean */
+	$PHP_COMPRESSION_ENABLE	= "N";		/* boolean */
+	$PHP_COMPRESSION_LEVEL	= "9";		/* int 1-9 */
+
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.26 2003/05/09 14:29:37 hackie Exp $
+*   $Id: selmsg.php.t,v 1.27 2003/05/13 19:46:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,8 +26,15 @@ function valstat($a)
 	return ($a ? '{TEMPLATE: status_indicator_on}' : '{TEMPLATE: status_indicator_off}');
 }
 	
+	$old_qs = $_SERVER['QUERY_STRING'];
+	if ($_SERVER['QUERY_STRING'][0] != '/') {
+		$_SERVER['QUERY_STRING'] .= '&nm=1';
+	} else {
+		$_SERVER['QUERY_STRING'] .= 'n/';
+	}
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
-	
+	$_SERVER['QUERY_STRING'] = $old_qs;
+
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
@@ -52,9 +59,9 @@ function valstat($a)
 	$perm_limit = $usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR ' . (_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)' : 'g1.p_READ') . '=\'Y\')': '';
 
 	/* mark messages read for registered users */
-	if (_uid && !empty($usr->data) && count($usr->data)) {
+	if (_uid && empty($_GET['nm']) && !empty($usr->data) && count($usr->data)) {
 		foreach ($usr->data as $ti => $mi) {
-			if (!(int)$ti || !(int) $mi) {
+			if (!(int)$ti || !(int)$mi) {
 				break;
 			}
 			user_register_thread_view($ti, __request_timestamp__, $mi);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.20 2003/05/13 09:52:11 hackie Exp $
+*   $Id: root_index.php.t,v 1.21 2003/05/13 19:46:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,6 +32,10 @@
 
 	if ($USE_PATH_INFO == 'Y' && !empty($_SERVER['PATH_INFO'])) {
 		fud_use('path_info.inc');
+	}
+
+	if ($PHP_COMPRESSION_ENABLE == 'Y') {
+		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
 	
 /*{PRE_HTML_PHP}*/
