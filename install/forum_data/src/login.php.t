@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.45 2003/11/11 13:42:13 hackie Exp $
+* $Id: login.php.t,v 1.46 2003/11/14 10:50:19 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -50,16 +50,16 @@
 			default:
 				if ($page == 'msg' || $page == 'tree') {
 					if (empty($tmp['th'])) {
-						if (empty($tmp['goto']) || !q_singleval("SELECT t.forum_id 
-								FROM {SQL_TABLE_PREFIX}msg m 
-								INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
+						if (empty($tmp['goto']) || !q_singleval("SELECT t.forum_id
+								FROM {SQL_TABLE_PREFIX}msg m
+								INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
 								WHERE m.id=".(int)$tmp['goto'])) {
 							$returnto = '';
 							break;
 						}
 					} else {
-						if (!q_singleval("SELECT t.forum_id 
+						if (!q_singleval("SELECT t.forum_id
 								FROM {SQL_TABLE_PREFIX}thread t
 								INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON g.user_id=0 AND g.resource_id=t.forum_id AND (g.group_cache_opt & 2) > 0
 								WHERE t.id=".(int)$tmp['th'])) {

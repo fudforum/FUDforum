@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.22 2003/11/09 23:54:24 hackie Exp $
+* $Id: ignore_list.php.t,v 1.23 2003/11/14 10:50:19 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -48,7 +48,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		if (!sq_check(0, $usr->last_visit)) {
 			check_return($usr->returnto);
 		}
-	
+
 		if (!empty($usr->ignore_list)) {
 			$usr->ignore_list = @unserialize($usr->ignore_list);
 		}

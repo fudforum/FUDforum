@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.32 2003/10/16 21:59:04 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.33 2003/11/14 10:50:18 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -36,7 +36,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$level_name =& $obj->level_name;
 		}
 		$avatar = ($obj->avatar_loc || $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
-		$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';	
+		$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';
 
 		if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 			$obj->login = $obj->alias;

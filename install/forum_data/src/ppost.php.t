@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.59 2003/11/01 20:13:13 hackie Exp $
+* $Id: ppost.php.t,v 1.60 2003/11/14 10:50:19 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -348,7 +348,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 
 		if ($FUD_OPT_1 & 6144) {
-			char_fix($text);		
+			char_fix($text);
 		}
 
 		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {

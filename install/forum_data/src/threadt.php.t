@@ -2,11 +2,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.26 2003/11/13 19:14:40 hackie Exp $
+* $Id: threadt.php.t,v 1.27 2003/11/14 10:50:20 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -128,7 +128,7 @@
 					}
 				}
 				unset($cur);
-				
+
 				$thread_list_table_data .= '{TEMPLATE: thread_sep_e}';
 			}
 		}
