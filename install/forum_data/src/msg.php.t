@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.77 2004/11/01 19:27:37 hackie Exp $
+* $Id: msg.php.t,v 1.78 2004/11/03 15:12:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,10 +116,6 @@
 		exit;
 	}
 
-	if (!_uid) {
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
-	}
-
 	$_GET['start'] = (isset($_GET['start']) && $_GET['start'] > 0) ? (int)$_GET['start'] : 0;
 	$total = $frm->replies + 1;
 
@@ -136,6 +132,7 @@
 		$first_unread_message_link = (($total - $_GET['th']) > $count) ? '{TEMPLATE: first_unread_message_link}' : '';
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 		$first_unread_message_link = $subscribe_status = '';
 	}
 

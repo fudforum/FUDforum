@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.40 2004/11/01 19:27:37 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.41 2004/11/03 15:12:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,10 +75,6 @@ if (!($frm->group_cache_opt & 2) && !$MOD) {
 	exit;
 }
 
-if (!_uid && $frm->post_stamp) {
-	header("Last-Modified: " .  gmdate("D, d M Y H:i:s", $frm->post_stamp) . " GMT");
-}
-
 if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';
 	$cur_frm_page = $start + 1;
@@ -100,6 +96,7 @@ if (_uid) {
 	$mark_all_read = '{TEMPLATE: thread_mark_all_read}';
 	$merget = ($MOD || $frm->group_cache_opt & 2048) ? '{TEMPLATE: thread_merge_t}' : '';
 } else {
+	header("Last-Modified: " .  gmdate("D, d M Y H:i:s", (int)$frm->post_stamp) . " GMT");
 	$merget = $subscribe = '';
 	$mark_all_read = '{TEMPLATE: thread_pdf_rdf}';
 }

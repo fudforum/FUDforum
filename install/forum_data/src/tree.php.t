@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.66 2004/11/01 19:27:37 hackie Exp $
+* $Id: tree.php.t,v 1.67 2004/11/03 15:12:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,10 +105,6 @@
 		exit;
 	}
 
-	if (!_uid) {
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
-	}
-
 	if (_uid) {
 		/* Deal with thread subscriptions */
 		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->sq)) {
@@ -118,6 +114,8 @@
 				thread_notify_del(_uid, $_GET['th']);
 			}
 		}
+	} else {
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 	}
 
 	if (!$mid) {
