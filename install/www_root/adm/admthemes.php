@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.16 2002/09/11 22:13:00 hackie Exp $
+*   $Id: admthemes.php,v 1.17 2002/09/11 22:30:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,7 +119,7 @@ function cleandir($dir)
 		export_vars('thm_', $thm);
 	}
 	
-	if ( is_numeirc($del) && $del>1 ) {
+	if ( is_numeric($del) && $del>1 ) {
 		$thm->get($del);
 		$thm->delete();
 
