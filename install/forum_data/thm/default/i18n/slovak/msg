@@ -918,7 +918,6 @@ mnav_title:			Navigátor správ
 mnav_update:			Prezerá si príspevky cez <a href="{TEMPLATE: mnav_update_lnk}">Navigátor správ</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Upozornenie na novú správu v pošte
 pm_notify_body_email:		V pošte máte novú správu s predmetom "{VAR: subject}" od uívate¾a "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}" forum.\nPre prezretie správy kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neeláte dostáva ïalšie takéto upozornenia, vypnite monos "Upozoròova na prijatú poštu" vo Vašom profile.
-pm_notify_body_icq:		V pošte máte novú správu s predmetom "{VAR: subject}" od uívate¾a "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}".\n\nAk si neeláte dostáva ïalšie takéto upozornenia, vypnite monos "Upozoròova na prijatú poštu" vo Vašom profile.
 register_pm_notification:	Upozoròova na prijatú poštu
 register_pm_notification_desc:	Ak je povolené, budete upozornenı prostredníctvom komunikaènej metódy pod¾a Vášho vıberu vdy, keï do Vašej pošty príde správa.
 findu_admin_opts_header:	Monosti Admina

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.77 2005/03/05 18:46:59 hackie Exp $
+* $Id: users_reg.inc.t,v 1.78 2005/03/09 00:24:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -241,15 +241,15 @@ function user_login($id, $cur_ses_id, $use_cookies)
 			q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id='' WHERE ses_id='".$s[0]."'");
 		}
 		return $s[0];
-	} else {
-		/* if we can only have 1 login per account, 'remove' all other logins */
-		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
-		q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
-		$GLOBALS['new_sq'] = regen_sq();
-		q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
-
-		return $cur_ses_id;
 	}
+
+	/* if we can only have 1 login per account, 'remove' all other logins */
+	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
+	q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
+	$GLOBALS['new_sq'] = regen_sq();
+	q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
+
+	return $cur_ses_id;
 }
 
 function rebuildmodlist()

@@ -919,7 +919,6 @@ mnav_title:			Viestiselain
 mnav_update:			Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">Viestiselainta</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
 pm_notify_body_email:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
-pm_notify_body_icq:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:	Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:	Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.
 findu_admin_opts_header:	Ylläpidon valinnat

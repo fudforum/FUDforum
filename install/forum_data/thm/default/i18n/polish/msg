@@ -918,7 +918,6 @@ mnav_title:			Przegl±darka wiadomo¶ci
 mnav_update:			Przegl±danie Wiadomo¶ci z u¿yciem <a href="{TEMPLATE: mnav_update_lnk}">Przegl±darki wiadomo¶ci</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej Wiadomo¶ci
 pm_notify_body_email:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytaæ wiadomo¶æ udaj siê pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomienia o Prywatnych Wiadomo¶ciach" w swoim profilu.
-pm_notify_body_icq:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomiania o Prywatnych Wiadomo¶ciach" w swoim profilu.
 register_pm_notification:	Powiadomienia o Prywatnych Wiadomo¶ciach
 register_pm_notification_desc:	Gdy w³±czone, bêdziesz dostawaæ powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomo¶æ zostanie do Ciebie wys³ana.
 findu_admin_opts_header:	Opcje Admina

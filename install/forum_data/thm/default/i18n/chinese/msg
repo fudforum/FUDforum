@@ -918,7 +918,6 @@ mnav_title:			帖子浏览器
 mnav_update:			用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
 pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
-pm_notify_body_icq:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒，请在“个人信息”中禁止“新悄悄话提醒”。
 register_pm_notification:	新悄悄话提醒
 register_pm_notification_desc:	如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
 findu_admin_opts_header:	管理员选项

@@ -918,7 +918,6 @@ mnav_title:			Meddelandenavigatorn
 mnav_update:			Bläddra Meddelanden användandes <a href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Du har ett Nytt Privat Meddelande
 pm_notify_body_email:		Du har ett nytt privat meddelande titulerat "{VAR: subject}" från "{VAR: from}" på "{GVAR: FORUM_TITLE}" forumet.\nFör att läsa detta meddelande klicka här: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att sluta mottaga meddelanden som detta, stäng av "Meddela mig när jag får Privata Meddelanden" i din profil.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Meddela mig när jag får Privata Meddelanden
 register_pm_notification_desc:	Välj det här alternativet för att få ett meddelande med vald metod när ett privat meddelande skickas till dig.
 findu_admin_opts_header:	Admin Alternativ.

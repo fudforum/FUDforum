@@ -918,7 +918,6 @@ mnav_title:			Beitragsnavigator
 mnav_update:			Durchsuche Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
 pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
-pm_notify_body_icq:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachricht" in deinem Profil.
 register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
 register_pm_notification_desc:	Falls aktiviert, wirst du über die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.
 findu_admin_opts_header:	Admin Optionen

@@ -915,7 +915,6 @@ mnav_title:			Navigatore Messaggi
 mnav_update:			Navigazione dei messaggi usando il <a href="{TEMPLATE: mnav_update_lnk}">Navigatore Messaggi</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Notifica di un nuovo Messaggio privato
 pm_notify_body_email:		Hai un nuovo messaggio privato intitolato "{VAR: subject}" provenente da "{VAR: from}" sul forum "{GVAR: FORUM_TITLE}" forum.\nPer visualizzare il messaggio clicca qui: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPer bloccare future notifiche, disabilita "Notifica Messaggi Privati" sul tuo profilo.
-pm_notify_body_icq:		Hai un nuovo messaggio privato intitolato "{VAR: subject}" provenente da "{VAR: from}" sul forum "{GVAR: FORUM_TITLE}".\n\nPer bloccare future notifiche, disabilita "Notifica Messaggi Privati" sul tuo profilo.
 register_pm_notification:	Notifica Messaggio Privato
 register_pm_notification_desc:	Se abilitato, verrai notificato con il metodo di notifica scelto ogni qual volta ti sara&agrave; inviato un nuovo messaggio privato.
 findu_admin_opts_header:	Opz. Admin

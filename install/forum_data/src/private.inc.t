@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.38 2005/03/05 18:46:59 hackie Exp $
+* $Id: private.inc.t,v 1.39 2005/03/09 00:24:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,7 +109,7 @@ class fud_pmsg
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
-		$c =  uq('SELECT id, email, users_opt, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND (users_opt & 64) > 0');
+		$c =  uq('SELECT id, email FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND (users_opt & 64) > 0');
 
 		$from = reverse_fmt($GLOBALS['usr']->alias);
 		$subject = reverse_fmt($this->subject);
@@ -119,10 +119,7 @@ class fud_pmsg
 			if ($r[0] == $this->ouser_id) {
 				continue;
 			}
-			if (!($r[2] & 4)) {
-				$r[1] = $r[3] . '@pager.icq.com';
-			}
-			send_pm_notification($r[1], $um[$r[0]], $subject, $from, $r[2]);
+			send_pm_notification($r[1], $um[$r[0]], $subject, $from);
 		}
 	}
 
@@ -231,25 +228,8 @@ function pmsg_del($mid, $fldr=0)
 	}
 }
 
-function send_pm_notification($email, $pid, $subject, $from, $not_mthd)
+function send_pm_notification($email, $pid, $subject, $from)
 {
-	$sub = '{TEMPLATE: pm_notify_subject}';
-
-	if ($not_mthd & 4) {
-		$pfx = '';
-		if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
-			if ($GLOBALS['FUD_OPT_1'] & 128) {
-				$pfx .= '0/';
-			}
-			if ($GLOBALS['FUD_OPT_2'] & 8192) {
-				$pfx .= '0/';
-			}
-		}
-		$body = '{TEMPLATE: pm_notify_body_email}';
-	} else {
-		$body = '{TEMPLATE: pm_notify_body_icq}';
-	}
-
-	send_email($GLOBALS['NOTIFY_FROM'], $email, $sub, $body);
+	send_email($GLOBALS['NOTIFY_FROM'], $email, '{TEMPLATE: pm_notify_subject}', '{TEMPLATE: pm_notify_body_email}');
 }
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipoll.inc.t,v 1.23 2004/12/10 16:54:05 hackie Exp $
+* $Id: ipoll.inc.t,v 1.24 2005/03/09 00:24:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,8 +73,7 @@ function poll_validate($poll_id, $msg_id)
 {
 	if (($mid = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id='.$poll_id)) && $mid != $msg_id) {
 		return 0;
-	} else {
-		return $poll_id;
 	}
+	return $poll_id;
 }
 ?>

@@ -922,7 +922,6 @@ mnav_title:			メッセージナビゲーター
 mnav_update:			<a href="{TEMPLATE: mnav_update_lnk}">メッセージナビゲータ</a> を使ってメッセージ閲覧
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] 新規プライベートメッセージ通知
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\nTo view the message, click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	プライベートメッセージ通知
 register_pm_notification_desc:	If enabled, you will be notified whenever a private message is sent to you.
 findu_admin_opts_header:	管理オプション

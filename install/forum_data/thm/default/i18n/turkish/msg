@@ -917,7 +917,6 @@ mnav_title:			Ýleti Gezgini
 mnav_update:			<a href="{TEMPLATE: mnav_update_lnk}">Ýleti Gezginini</a> kullanarak iletileri dolaþýyor.
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Yeni Özel Ýleti Uyarýsý
 pm_notify_body_email:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\nÝletiyi görüntülemek için buraya týklayýn: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
-pm_notify_body_icq:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
 register_pm_notification:	Özel Ýleti Uyarýsý
 register_pm_notification_desc:	Size bir özel ileti gönderildiðinde belirttiðiniz yöntemle uyarý almanýzý saðlar.
 findu_admin_opts_header:	Yönetici Seçenekleri
