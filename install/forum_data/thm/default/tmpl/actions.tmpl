@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.tmpl,v 1.5 2002/09/08 00:28:54 hackie Exp $
+*   $Id: actions.tmpl,v 1.6 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,6 +23,7 @@
 {REF: usercp.tmpl}
 {REF: stats.tmpl}
 {REF: alt_var.tmpl}
+{REF: ulink.tmpl}
 
 {SECTION: last_post last by a user}
 {DATE: obj->post_stamp %a, %d %B %Y %H:%M}<br />
@@ -47,15 +48,7 @@
 {SECTION: END}
 
 {SECTION: reg_user_link registered user link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: obj->alias}</a>
-{SECTION: END}
-
-{SECTION: adm_user_link administator link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}"><font class="adminColor">{VAR: obj->alias}</font></a>
-{SECTION: END}
-
-{SECTION: mod_user_link moderator link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}"><font class="modsColor">{VAR: obj->alias}</font></a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: obj->user_id}&{DEF: _rsid}">{VAR: user_login}</a>
 {SECTION: END}
 
 {PAGE: ACTION_PAGE iSpy User Action List}

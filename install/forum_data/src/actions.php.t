@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.15 2002/09/08 20:10:50 hackie Exp $
+*   $Id: actions.php.t,v 1.16 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,6 +46,7 @@
 			{SQL_TABLE_PREFIX}ses.forum_id AS action_forum_id,
 			{SQL_TABLE_PREFIX}users.alias,
 			{SQL_TABLE_PREFIX}users.is_mod,
+			{SQL_TABLE_PREFIX}users.custom_color,
 			{SQL_TABLE_PREFIX}ses.time_sec,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
 			{SQL_TABLE_PREFIX}msg.id AS mid,
@@ -66,17 +67,8 @@
 		if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) continue;
 
 		if ( isset($obj->alias) ) {
-			switch( $obj->is_mod )
-			{
-				case 'A':
-					$user_login = '{TEMPLATE: adm_user_link}';
-					break;
-				case 'Y':
-					$user_login = '{TEMPLATE: mod_user_link}';
-					break;
-				default:
-					$user_login = '{TEMPLATE: reg_user_link}';
-			}
+			$user_login = draw_user_link($obj->alias, $obj->is_mod, $obj->custom_color);
+			$user_login = '{TEMPLATE: reg_user_link}';
 			
 			if( empty($obj->post_stamp) )
 				$last_post = '{TEMPLATE: last_post_na}';
@@ -86,8 +78,7 @@
 				else 
 					$last_post = '{TEMPLATE: last_post}';
 			}
-		}	
-		else {
+		} else {
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}

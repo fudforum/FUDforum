@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.11 2002/08/28 20:27:02 hackie Exp $
+*   $Id: logedin.inc.t,v 1.12 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 		$tm_expire = __request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60);
 		
 		$annon = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}ses WHERE {SQL_TABLE_PREFIX}ses.time_sec>".$tm_expire." AND user_id>2000000000");
-		$r = q("SELECT id,alias,is_mod,invisible_mode FROM {SQL_TABLE_PREFIX}users WHERE last_visit>".$tm_expire);
+		$r = q("SELECT id,alias,is_mod,invisible_mode,custom_color FROM {SQL_TABLE_PREFIX}users WHERE last_visit>".$tm_expire);
 		if( empty($annon) ) $annon = 0;
 
 		$reg_u=$inv_u=0;
@@ -38,12 +38,8 @@
 			
 			$profile_link = '{ROOT}?t=usrinfo&amp;id='.$obj->id.'&amp;'._rsid;
 					
-			if( $obj->is_mod == 'A' ) 
-				$loged_in_list .= '{TEMPLATE: online_user_link_admin}';
-			else if ( $obj->is_mod=='Y' ) 
-				$loged_in_list .= '{TEMPLATE: online_user_link_mod}';
-			else
-				$loged_in_list .= '{TEMPLATE: online_user_link}';
+			$ul = draw_user_link($obj->alias, $obj->is_mod, $obj->custom_color);
+			$loged_in_list .= '{TEMPLATE: online_user_link}';
 		}
 		$logedin = '{TEMPLATE: logedin}';
 	}

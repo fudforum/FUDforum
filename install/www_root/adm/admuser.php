@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.14 2002/12/11 18:51:16 hackie Exp $
+*   $Id: admuser.php,v 1.15 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,6 +75,12 @@ if( !empty($act) ) {
 				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, $reset_newpass_title, $reset_reset, "");
 			}
 			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
+			break;
+		case 'color':
+			$usr->custom_color = $GLOBALS['HTTP_POST_VARS']['custom_color'];
+			$usr->change_user_color();
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
+			exit;
 			break;
 		case 'econf':
 			$eusr = new fud_user_adm();
@@ -327,6 +333,17 @@ if( !empty($act) ) {
 		</td>
 	</tr>
 	
+	<tr bgcolor="#f1f1f1"><td valign=top>Profile Link Color:</td>
+		<td valign=top>
+		<form name="extra_tags" method="post" action="admuser.php">
+		<?php echo _hs; ?>
+		<input type="text" name="custom_color" maxLength="255" value="<?php echo $usr->custom_color; ?>">
+		<input type="hidden" name="usr_id" value="<?php echo $usr->id; ?>">
+		<input type="hidden" name="act" value="color"> <input type="submit" value="Change">
+		<input type="hidden" name="user_login" value="<?php echo htmlspecialchars($usr->alias); ?>">
+		</form>
+		</td>
+	</tr>
 	<tr bgcolor="#f1f1f1">
 		<td colspan=2><br><br><b>Actions:</b></td>
 	</tr>

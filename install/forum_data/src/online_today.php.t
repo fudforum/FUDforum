@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.9 2002/07/30 14:34:37 hackie Exp $
+*   $Id: online_today.php.t,v 1.10 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,6 +41,7 @@
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}users.id,
 			{SQL_TABLE_PREFIX}users.last_visit,
+			{SQL_TABLE_PREFIX}users.custom_color,
 			{SQL_TABLE_PREFIX}msg.id AS mid,
 			{SQL_TABLE_PREFIX}msg.subject,
 			{SQL_TABLE_PREFIX}msg.post_stamp,
@@ -60,17 +61,8 @@
 		
 	$user_entries='';
 	while ( $obj = db_rowobj($r) ) {
-		switch( $obj->is_mod )
-		{
-			case 'A':
-				$user_login = '{TEMPLATE: adm_user_link}';
-				break;
-			case 'Y':
-				$user_login = '{TEMPLATE: mod_user_link}';
-				break;
-			default:
-				$user_login = '{TEMPLATE: reg_user_link}';
-		}
+		$user_login = draw_user_link($obj->login, $obj->is_mod, $obj->custom_color);
+		$user_login = '{TEMPLATE: reg_user_link}';
 			
 		if( empty($obj->post_stamp) )
 			$last_post = '{TEMPLATE: last_post_na}';

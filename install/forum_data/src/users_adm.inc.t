@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.9 2002/11/21 21:42:45 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.10 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -176,6 +176,15 @@ class fud_user_adm extends fud_user_reg
 	{
 		q("UPDATE {SQL_TABLE_PREFIX}users SET avatar_approved='NO', avatar_loc=NULL WHERE id=".$this->id);
 		send_status_update($this, '{TEMPLATE: unapproved_avatar_title}', '{TEMPLATE: unapproved_avatar_msg}');
+	}
+	
+	function change_user_color()
+	{
+		if (empty($this->custom_color)) {
+			q("UPDATE {SQL_TABLE_PREFIX}users SET custom_color=NULL WHERE id=".$this->id);
+		} else {
+			q("UPDATE {SQL_TABLE_PREFIX}users SET custom_color='".$this->custom_color."' WHERE id=".$this->id);
+		}
 	}
 }
 

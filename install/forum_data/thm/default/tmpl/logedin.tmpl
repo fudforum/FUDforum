@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.tmpl,v 1.10 2002/09/04 10:32:58 hackie Exp $
+*   $Id: logedin.tmpl,v 1.11 2003/01/12 13:21:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -15,7 +15,7 @@
 ***************************************************************************/
 
 {PHP_FILE: input: logedin.inc.t; output: @logedin.inc;}
-
+{REF: ulink.tmpl}
 
 {MAIN_SECTION: loged_in_list loggedin user list}
 <br /><img src="blank.gif" alt="" height=2 width=1 />
@@ -42,15 +42,7 @@
 {SECTION: END}
 
 {SECTION: online_user_link}
-<a href="{VAR: profile_link}" class="GenLink">{VAR: obj->alias}</a>
-{SECTION: END}
-
-{SECTION: online_user_link_mod}
-<a href="{VAR: profile_link}" class="GenLink"><font class="modsColor">{VAR: obj->alias}</font></a>
-{SECTION: END}
-
-{SECTION: online_user_link_admin}
-<a href="{VAR: profile_link}" class="GenLink"><font class="adminColor">{VAR: obj->alias}</font></a>
+<a href="{VAR: profile_link}" class="GenLink">{VAR: ul}</a>
 {SECTION: END}
 
 {SECTION: last_msg latest message on the forum}
