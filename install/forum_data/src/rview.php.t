@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rview.php.t,v 1.5 2002/08/23 01:02:02 hackie Exp $
+*   $Id: rview.php.t,v 1.6 2002/08/26 06:28:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,23 +18,22 @@
 	{PRE_HTML_PHP}	
 	{POST_HTML_PHP}
 	
-	if( preg_match('!&(th|frm_id)=([0-9]+)(&)?!', $HTTP_SERVER_VARS["QUERY_STRING"], $m) ) {
+	if( preg_match('!&(goto|th|frm_id)=([0-9]+)!', $HTTP_SERVER_VARS["QUERY_STRING"], $m) ) {
 		switch( $m[1] )
 		{
-			case 'msg':
-			case 'tree':
-				$page = d_thread_view;
+			case 'th':
+			case 'goto':
+				$page = 't='.d_thread_view;
 				break;
-			case 'thread':
-			case 'threadt':
-				$page = t_thread_view;
+			case 'frm_id':
+				$page = 't='.t_thread_view;
 				break;
 			default:
-				$page = 'index';
+				$page = 't=index';
 				break;
 		}
-		$HTTP_SERVER_VARS["QUERY_STRING"] = str_replace('t=rview', 't='.$page);
-		header("Location: {ROOT}?t".$HTTP_SERVER_VARS["QUERY_STRING"]);
+		$HTTP_SERVER_VARS["QUERY_STRING"] = str_replace('t=rview', $page, $HTTP_SERVER_VARS["QUERY_STRING"]);
+		header("Location: {ROOT}?".$HTTP_SERVER_VARS["QUERY_STRING"]);
 		
 		exit;
 	}
