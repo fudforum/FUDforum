@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.67 2003/06/06 19:16:19 hackie Exp $
+*   $Id: post.php.t,v 1.68 2003/06/08 16:35:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -143,10 +143,10 @@ function flood_check()
 		/* to put it plainly this is a hack to allow us to handle silly browsers
 		 * that encode text for us, when it comes from a different charset :/
 		 */
-		if (($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg->body))) {
+		if (isset($msg->body) && ($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg->body))) {
 			$msg->body = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->body);
 		}
-		if (($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg->subject))) {
+		if (isset($msg->subject) && ($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg->subject))) {
 			$msg->subject = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->subject);
 		}
 
