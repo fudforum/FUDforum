@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.12 2004/10/19 00:06:42 hackie Exp $
+* $Id: cat.inc,v 1.13 2004/10/19 00:40:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,13 +103,14 @@ function rebuild_forum_cat_order()
 		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');
 	}
 
-	$c = uq("SELECT c.id, f.id FROM ".$tbl."cat c INNER JOIN ".$tbl."forum f ON f.cat_id=c.id
+	$c = uq("SELECT c.id, f.id, c.parent FROM ".$tbl."cat c INNER JOIN ".$tbl."forum f ON f.cat_id=c.id
 			ORDER BY c.parent, c.view_order, f.view_order");
-	while ($r = db_rowobj($c)) {
-		if (!isset($ol[$r->parent])) {
-			$ol[$r->parent] = array();
+	$ol = array();
+	while ($r = db_rowarr($c)) {
+		if (!isset($ol[$r[2]])) {
+			$ol[$r[2]] = array();
 		}
-		$ol[$r->parent][] = $r;
+		$ol[$r[2]][] = $r;
 	}
 	q("DELETE FROM ".$tbl."fc_view");
 	

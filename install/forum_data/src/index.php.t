@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.55 2004/05/12 15:49:35 hackie Exp $
+* $Id: index.php.t,v 1.56 2004/10/19 00:40:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,8 @@ function url_tog_collapse($id, $c)
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
 				mo.id AS md,
-				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').'
+				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').',
+				v.lvl, c.parent
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
@@ -116,7 +117,14 @@ function url_tog_collapse($id, $c)
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[8]) {
+			if ($r[21] && !empty($GLOBALS['collapse'][$r[21]])) {
+				$GLOBALS['collapse'][$r[8]] = 1;
+				continue;
+			}
+
 			$r[7] = (int) $r[7];
+
+			$tabw = $r[20] ?  $r[20] * '{TEMPLATE: cat_tab}' : '0';
 
 			if ($r[7] & 1) {
 				if (!isset($GLOBALS['collapse'][$r[8]])) {
