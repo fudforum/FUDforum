@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.11 2002/08/19 08:47:15 hackie Exp $
+*   $Id: admimport.php,v 1.12 2002/08/19 09:17:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -168,7 +168,6 @@ include('admpanel.php');
 
 			if( $qry ) {
 				if( !$db_s_c || !strncasecmp("INSERT INTO ", $qry, 12) ) {
-					echo "Q: ".$qry." LEN: ".($lend-$pos)."<br>\n";
 					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $qry));
 					$i++;
 				}	
