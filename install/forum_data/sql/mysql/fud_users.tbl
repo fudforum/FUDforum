@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.12 2003/05/03 18:16:18 hackie Exp $
+#   $Id: fud_users.tbl,v 1.13 2003/05/07 21:53:05 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	show_avatars		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 	show_im			ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 	posts_ppg		INT UNSIGNED NOT NULL DEFAULT 0,
-	time_zone		CHAR(255) NOT NULL DEFAULT 'America/Detroit',
+	time_zone		CHAR(255) NOT NULL DEFAULT 'America/Montreal',
 	
 	bday			INT UNSIGNED NOT NULL DEFAULT 0,
 	join_date		INT UNSIGNED NOT NULL DEFAULT 0,
