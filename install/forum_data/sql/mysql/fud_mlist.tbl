@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_mlist.tbl,v 1.3 2003/01/15 13:09:46 hackie Exp $
+#   $Id: fud_mlist.tbl,v 1.4 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,24 +12,30 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}mlist;
 
 CREATE TABLE {SQL_TABLE_PREFIX}mlist
 (
-	id			INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	forum_id		INT NOT NULL,
 	name			VARCHAR(255) NOT NULL,
-	mlist_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	allow_frm_post		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	frm_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	allow_mlist_attch	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	allow_mlist_html	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	complex_reply_match	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	create_users		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	
+
 	subject_regex_haystack	TEXT,
 	subject_regex_needle	TEXT,
-	
+
 	body_regex_haystack	TEXT,
 	body_regex_needle	TEXT,
-	
+
 	additional_headers	TEXT,
-	
+	mlist_opt		INT NOT NULL DEFAULT 76,
+
 	index(forum_id)
-)
+);
+
+# 1 mlist_post_apr (ON/OFF)
+# 2 allow_frm_post (ON/OFF)
+# 4 frm_post_apr (ON/OFF)
+# 8 allow_mlist_attch (ON/OFF)
+# 16 allow_mlist_html (ON/OFF)
+# 32 complex_reply_match (ON/OFF)
+# 64 create_users (ON/OFF)
+
+# ALTER TABLE mm_mlist ADD mlist_opt INT NOT NULL DEFAULT 76;
+# UPDATE mm_mlist SET mlist_opt=(CASE WHEN mlist_post_apr='Y' THEN 1 ELSE 0 END) | (CASE WHEN allow_frm_post='Y' THEN 2 ELSE 0 END) | (CASE WHEN frm_post_apr='Y' THEN 4 ELSE 0 END) | (CASE WHEN allow_mlist_attch='Y' THEN 8 ELSE 0 END) | (CASE WHEN allow_mlist_html='Y' THEN 16 ELSE 0 END) | (CASE WHEN complex_reply_match='Y' THEN 32 ELSE 0 END) | (CASE WHEN create_users='Y' THEN 64 ELSE 0 END);
+# ALTER TABLE mm_mlist DROP mlist_post_apr, DROP allow_frm_post, DROP frm_post_apr, DROP allow_mlist_attch, DROP allow_mlist_html, DROP complex_reply_match, DROP create_users;

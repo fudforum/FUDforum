@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.34 2003/09/19 19:07:47 hackie Exp $
+*   $Id: tree.php.t,v 1.35 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 		invl_inp_err();
 	}
 	if (!$mid && isset($_GET['unread']) && _uid) {
-		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.approved=\'Y\' AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp DESC LIMIT 1');
+		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp DESC LIMIT 1');
 	}
 
 	/* we create a BIG object frm, which contains data about forum, 
@@ -52,7 +52,7 @@
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.locked, t.root_msg_id,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
@@ -125,13 +125,13 @@
 
 	$msg_obj = db_sab('SELECT 
 		m.*, 
-		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
 		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
 		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
 	FROM 
@@ -143,7 +143,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 	WHERE 
-		m.id='.$mid.' AND m.approved=\'Y\'');
+		m.id='.$mid.' AND m.apr=1');
 
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($th);
@@ -177,16 +177,16 @@
 	}
 
 	if ($perms['p_lock'] == 'Y') {
-		$lock_thread = $frm->locked == 'N' ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
+		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
 		$lock_thread = '';
 	}
 
 	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
-	$post_reply = ($frm->locked == 'N' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = (!($frm->thread_opt & 1) || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
-	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.approved=\'Y\' ORDER BY m.post_stamp');
+	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.post_stamp');
 	while ($r = db_rowobj($c)) {
 		$arr[$r->id] = $r;
 		@$arr[$r->reply_to]->kiddie_count++;

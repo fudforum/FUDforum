@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.4 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admadduser.php,v 1.5 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@ function validate_input()
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval('SELECT id FROM '.$tbl.'themes WHERE t_default=\'Y\' AND enabled=\'Y\'');
+		$default_theme = q_singleval('SELECT id FROM '.$tbl.'themes WHERE theme_opt=3');
 		$alias = addslashes(htmlspecialchars($_POST['login']));
 		db_lock($tbl.'users WRITE');
 	

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.4 2003/05/07 21:02:15 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,42 +12,52 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}msg;
 
 CREATE TABLE {SQL_TABLE_PREFIX}msg
 (
-	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	thread_id	INT UNSIGNED NOT NULL,
-	poster_id	INT UNSIGNED NOT NULL DEFAULT 0,
-	reply_to	INT UNSIGNED NOT NULL DEFAULT 0,
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	thread_id	INT NOT NULL,
+	poster_id	INT NOT NULL DEFAULT 0,
+	reply_to	INT NOT NULL DEFAULT 0,
 	ip_addr		CHAR(15) NOT NULL DEFAULT '0.0.0.0',
-	host_name	CHAR(255),
-	post_stamp	INT UNSIGNED NOT NULL,
-	update_stamp	INT UNSIGNED NOT NULL DEFAULT 0,
+	host_name	VARCHAR(255),
+	post_stamp	BIGINT NOT NULL,
+	update_stamp	BIGINT NOT NULL DEFAULT 0,
 
-	updated_by	INT UNSIGNED NOT NULL DEFAULT 0,
-	icon		CHAR(100),
+	updated_by	INT NOT NULL DEFAULT 0,
+	icon		VARCHAR(100),
 
-	subject		CHAR(100) NOT NULL,
-	attach_cnt	INT UNSIGNED NOT NULL DEFAULT 0,
-	poll_id		INT UNSIGNED NOT NULL DEFAULT 0,
-	approved	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	show_sig	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	smiley_disabled	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	foff		INT UNSIGNED NOT NULL DEFAULT 0,
-	length		INT UNSIGNED NOT NULL DEFAULT 0,
-	file_id		INT UNSIGNED NOT NULL DEFAULT 1,
-	offset_preview  INT UNSIGNED NOT NULL DEFAULT 0,
-	length_preview	INT UNSIGNED NOT NULL DEFAULT 0,
-	file_id_preview	INT UNSIGNED NOT NULL DEFAULT 0,
+	subject		VARCHAR(100) NOT NULL,
+	attach_cnt	INT NOT NULL DEFAULT 0,
+	poll_id		INT NOT NULL DEFAULT 0,
+	foff		BIGINT NOT NULL DEFAULT 0,
+	length		INT NOT NULL DEFAULT 0,
+	file_id		INT NOT NULL DEFAULT 1,
+	offset_preview  BIGINT NOT NULL DEFAULT 0,
+	length_preview	INT NOT NULL DEFAULT 0,
+	file_id_preview	INT NOT NULL DEFAULT 0,
 	attach_cache	TEXT,
 	poll_cache	TEXT,
 
 	mlist_msg_id 	VARCHAR(100),
+	msg_opt		INT NOT NULL DEFAULT 1,
+	apr		INT NOT NULL DEFAULT 0
+);
 
-	INDEX(thread_id,approved),
-	INDEX(post_stamp),
-	INDEX(poster_id,approved),
-	INDEX(approved),
-	INDEX(attach_cnt),
-	INDEX(poll_id),
-	INDEX(ip_addr, post_stamp),
-	INDEX(mlist_msg_id),
-	INDEX(subject)
-)
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_ta ON {SQL_TABLE_PREFIX}msg (thread_id, apr);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_ps ON {SQL_TABLE_PREFIX}msg (post_stamp);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_pa ON {SQL_TABLE_PREFIX}msg (poster_id, apr);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_a ON {SQL_TABLE_PREFIX}msg (apr);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_ac ON {SQL_TABLE_PREFIX}msg (attach_cnt);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_pi ON {SQL_TABLE_PREFIX}msg (poll_id);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_ip ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_mmi ON {SQL_TABLE_PREFIX}msg (mlist_msg_id);
+CREATE INDEX ON {SQL_TABLE_PREFIX}msg_i_s ON {SQL_TABLE_PREFIX}msg (subject);
+
+# 1 show_sig
+# 2 smiley_disabled
+
+# approved
+# apr 1/0 Y/N
+
+# ALTER TABLE mm_msg ADD msg_opt INT NOT NULL DEFAULT 1, ADD INDEX(thread_id, apr), ADD INDEX(poster_id, apr), ADD INDEX(apr), DROP INDEX thread_id, DROP INDEX poster_id;
+# UPDATE mm_msg SET msg_opt=(CASE WHEN show_sig='Y' THEN 1 ELSE 0 END) | (CASE WHEN smiley_disabled='Y' THEN 2 ELSE 0 END);
+# UPDATE mm_msg SET apr=1 WHERE approved='Y';
+# ALTER TABLE mm_msg DROP show_sig, DROP smiley_disabled, DROP approved;

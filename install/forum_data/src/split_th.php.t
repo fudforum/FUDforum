@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.20 2003/06/02 17:19:47 hackie Exp $
+*   $Id: split_th.php.t,v 1.21 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,7 +64,7 @@
 			$start = $_POST['sel_th'][0];
 			$end = $_POST['sel_th'][($mc - 1)];
 		} else {
-			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND approved=\'Y\' ORDER BY post_stamp ASC');
+			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.implode(',', $_POST['sel_th']).') AND apr=1 ORDER BY post_stamp ASC');
 			while ($r = db_rowarr($c)) {
 				$a[] = $r[0];
 			}
@@ -122,13 +122,13 @@
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
 		
 			/* Deal with the old thread */
-			list($lpi, $lpd) = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1");$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND approved='Y' ORDER BY post_stamp ASC LIMIT 1");
+			list($lpi, $lpd) = db_saq("SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp DESC LIMIT 1");$old_root_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data->id." AND apr=1 ORDER BY post_stamp ASC LIMIT 1");
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=".$old_root_msg_id." WHERE thread_id=".$data->id." AND reply_to IN(".$mids.")");
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0 WHERE id='.$old_root_msg_id);
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);
 		
 			if ($forum != $data->forum_id) {
-				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$new_th.' AND approved=\'Y\' AND poll_id>0');
+				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$new_th.' AND apr=1 AND poll_id>0');
 				while ($r = db_rowarr($c)) {
 					$p[] = $r[0];
 				}
@@ -208,7 +208,7 @@
 
 	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $forum, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
-	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.approved='Y' ORDER BY m.post_stamp ASC");
+	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.apr=1 ORDER BY m.post_stamp ASC");
 
 	$anon_alias = htmlspecialchars($ANON_NICK);
 

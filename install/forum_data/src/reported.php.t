@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.14 2003/05/09 14:29:37 hackie Exp $
+*   $Id: reported.php.t,v 1.15 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,13 +34,13 @@
 	
 	$r = $query_type('SELECT 	
 			m.*, 
-			t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name AS frm_name,
 			u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
 			u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-			l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
 			u2.id AS report_user_id, u2.alias AS report_user_login, u2.last_visit AS time_sec_r,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.10 2003/06/30 08:00:30 hackie Exp $
+*   $Id: admreplace.php,v 1.11 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 
 function clean_rgx()
 {
-	if ($_POST['rpl_type'] == 'PERL') {
+	if (!$_POST['rpl_replace_opt']) {
 		$_POST['rpl_replace_str'] = '/' . $_POST['rpl_replace_str'] . '/' . $_POST['rpl_preg_opt'];
 		$_POST['rpl_from_post'] = '/' . $_POST['rpl_from_post'] . '/' . $_POST['rpl_from_post_opt'];
 	} else {
@@ -33,18 +33,18 @@ function clean_rgx()
 
 	if (isset($_POST['btn_submit'])) {
 		clean_rgx();
-		if ($_POST['rpl_type'] == 'PERL') {
-			q('INSERT INTO '.$tbl.'replace (type, replace_str, with_str, from_post, to_msg) VALUES(\'PERL\', \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\', \''.addslashes($_POST['rpl_from_post']).'\', \''.addslashes($_POST['rpl_to_msg']).'\')');
+		if (!$_POST['rpl_replace_opt']) {
+			q('INSERT INTO '.$tbl.'replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\', \''.addslashes($_POST['rpl_from_post']).'\', \''.addslashes($_POST['rpl_to_msg']).'\')');
 		} else {
-			q('INSERT INTO '.$tbl.'replace (type, replace_str, with_str) VALUES(\'REPLACE\', \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\')');
+			q('INSERT INTO '.$tbl.'replace (replace_opt, replace_str, with_str) VALUES(1, \''.addslashes($_POST['rpl_replace_str']).'\', \''.addslashes($_POST['rpl_with_str']).'\')');
 		}
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
 		clean_rgx();
-		if ($_POST['rpl_type'] != 'PERL') {
+		if ($_POST['rpl_replace_opt']) {
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
 		q('UPDATE '.$tbl.'replace SET 
-			type=\''.addslashes($_POST['rpl_type']).'\',
+			rpl_replace_opt='.(int)$_POST['rpl_replace_opt'].',
 			replace_str=\''.addslashes($_POST['rpl_replace_str']).'\',
 			with_str=\''.addslashes($_POST['rpl_with_str']).'\',
 			from_post=\''.addslashes($_POST['rpl_from_post']).'\',
@@ -56,9 +56,9 @@ function clean_rgx()
 		q('DELETE FROM '.$tbl.'replace WHERE id='.(int)$_GET['del']);
 	}
 	if (isset($_GET['edit'])) {
-		list($rpl_type, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT type,replace_str,with_str,from_post,to_msg FROM '.$tbl.'replace WHERE id='.(int)$_GET['edit']);
+		list($rpl_replace_opt, $rpl_replace_str, $rpl_with_str, $rpl_from_post, $rpl_to_msg) = db_saq('SELECT replace_opt,replace_str,with_str,from_post,to_msg FROM '.$tbl.'replace WHERE id='.(int)$_GET['edit']);
 		$edit = (int)$_GET['edit'];
-		if ($rpl_type == 'REPLACE') {
+		if ($rpl_replace_opt) {
 			$rpl_replace_str = str_replace('\\/', '/', substr($rpl_replace_str, 1, -1));
 		} else {
 			$p = strrpos($rpl_replace_str, '/');
@@ -71,7 +71,7 @@ function clean_rgx()
 		}
 	} else {
 		$edit = $rpl_replace_str = $rpl_with_str = $rpl_from_post = $rpl_to_msg = $rpl_from_post_opt = $rpl_preg_opt = '';
-		$rpl_type = isset($_POST['rpl_type']) ? $_POST['rpl_type'] : 'REPLACE';
+		$rpl_type = isset($_POST['rpl_replace_opt']) ? (int) $_POST['rpl_replace_opt'] : 1;
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
@@ -82,12 +82,12 @@ function clean_rgx()
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Replacement Type:</td>
-		<td><?php draw_select_ex('rpl_type', "Simple Replace\nPerl Regex (preg_replace)", "REPLACE\nPERL", $rpl_type, 'onChange="document.frm_rpl.submit();"'); ?></td>
+		<td><?php draw_select_ex('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", $rpl_replace_opt, 'onChange="document.frm_rpl.submit();"'); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
-		<?php if ($rpl_type == 'PERL') { ?>
+		<?php if (!$rpl_replace_opt) { ?>
 			<td>/<input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>"></td>
 		<?php } else { ?>
 			<td> <input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>"></td>
@@ -100,7 +100,7 @@ function clean_rgx()
 	</tr>
 	
 <?php 
-	if ($rpl_type == 'PERL') {
+	if (!$rpl_replace_opt) {
 ?>
 	<tr>
 		<td colspan=2><br></td>
@@ -121,7 +121,7 @@ function clean_rgx()
 	</tr>
 	
 <?php
-	} /* $rpl_type == 'PERL' */
+	} /* !$rpl_replace_opt */
 ?>
 	<tr bgcolor="#bff8ff" align=right>
 		<td colspan=2>
@@ -136,7 +136,7 @@ function clean_rgx()
 	</tr>
 	
 <?php
-	if ($rpl_type == 'PERL') {
+	if (!$rpl_replace_opt) {
 		if (!isset($_POST['btn_regex'])) {
 			$regex_str = $regex_src = $regex_with = $regex_str_opt = '';
 		} else {
@@ -195,7 +195,7 @@ function clean_rgx()
 	<tr bgcolor="#bff8ff" align=right>
 		<td colspan=2><input type="submit" name="btn_regex" value="Run"></td>
 	</tr>
-<?php } /* $rpl_type == 'PERL' */ ?>
+<?php } /* !$rpl_replace_opt */ ?>
 
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
@@ -210,7 +210,7 @@ function clean_rgx()
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT * FROM '.$tbl.'replace ORDER BY type');
+	$c = uq('SELECT * FROM '.$tbl.'replace ORDER BY replace_opt');
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
@@ -218,7 +218,7 @@ function clean_rgx()
 		} else {
 			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		if ($r->type == 'REPLACE') {
+		if ($r->replace_opt) {
 			$rtype = 'Simple';
 			$r->replace_str = substr($r->replace_str, 1, -1);
 		} else {
@@ -226,7 +226,7 @@ function clean_rgx()
 		}
 		
 		echo '<tr'.$bgcolor.'><td>'.$rtype.'</td><td>'.htmlspecialchars($r->replace_str).'</td><td>'.htmlspecialchars($r->with_str).'</td>';
-		if ($r->type == 'REPLACE') {
+		if ($r->replace_opt) {
 			echo '<td colspan="2" align="center">n/a</td>';
 		} else {
 			echo '<td>'.htmlspecialchars($r->from_post).'</td><td>'.htmlspecialchars($r->to_msg).'</td>';

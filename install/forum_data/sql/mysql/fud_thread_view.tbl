@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread_view.tbl,v 1.2 2002/07/04 18:54:50 hackie Exp $
+#   $Id: fud_thread_view.tbl,v 1.3 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,12 +12,12 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}thread_view;
 
 CREATE TABLE {SQL_TABLE_PREFIX}thread_view
 (
-	forum_id	INT UNSIGNED NOT NULL,
-	page		INT UNSIGNED NOT NULL,
-	thread_id	INT UNSIGNED NOT NULL,
-	pos		INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	tmp 		INT UNSIGNED,
+	forum_id	INT NOT NULL,
+	page		INT NOT NULL,
+	thread_id	INT NOT NULL,
+	pos		INT NOT NULL AUTO_INCREMENT,
+	tmp 		INT
+);
 
-	UNIQUE(forum_id, page, pos),
-	INDEX(forum_id, thread_id)
-)
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}thread_view_i_fps ON {SQL_TABLE_PREFIX}thread_view (forum_id, page, pos);
+CREATE INDEX {SQL_TABLE_PREFIX}thread_view_i_ft ON {SQL_TABLE_PREFIX}thread_view ON (forum_id, thread_id);

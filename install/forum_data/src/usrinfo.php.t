@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.17 2003/09/18 14:16:47 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.18 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,13 +30,13 @@ function convert_bdate($val, $month_fmt)
 		invl_inp_err();
 	}
 
-	if (!($u = db_sab('SELECT {SQL_TABLE_PREFIX}users.*, {SQL_TABLE_PREFIX}level.name AS level_name, {SQL_TABLE_PREFIX}level.pri AS level_pri, {SQL_TABLE_PREFIX}level.img AS level_img FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}level ON {SQL_TABLE_PREFIX}level.id={SQL_TABLE_PREFIX}users.level_id WHERE {SQL_TABLE_PREFIX}users.id='.(int)$_GET['id']))) {
+	if (!($u = db_sab('SELECT u.*, l.name AS level_name, l.level_opt, l.img AS level_img FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}level l ON l.id=u.level_id WHERE u.id='.(int)$_GET['id']))) {
 		std_error('user');
 	}
 
-	if ($u->level_pri) {
+	if ($u->level_opt) {
 		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
-		$level_image = ($u->level_img && $u->level_pri != 'A') ? '{TEMPLATE: level_image}' : '';
+		$level_image = ($u->level_img && $u->level_opt != 1) ? '{TEMPLATE: level_image}' : '';
 	} else {
 		$level_name = $level_image = '';
 	}

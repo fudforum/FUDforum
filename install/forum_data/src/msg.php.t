@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.47 2003/09/18 14:16:47 hackie Exp $
+*   $Id: msg.php.t,v 1.48 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic 
 	 */
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
-		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.approved=\'Y\' AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
+		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.apr=1 AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 	}
 		
 	if (isset($_GET['goto'])) {
@@ -41,7 +41,7 @@
 			if (!isset($_GET['th'])) {
 				$_GET['th'] = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$_GET['goto']);
 			}
-			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND approved='Y'"))) {
+			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND apr=1"))) {
 				invl_inp_err();				
 			}
 			$mid = 'msg_'.$_GET['goto'];
@@ -67,7 +67,7 @@
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.locked,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
@@ -167,11 +167,11 @@
 		$rate_thread = $thread_rating = '';
 	}
 
-	$post_reply = ($frm->locked == 'N' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = (!($frm->thread_opt & 1) || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms['p_lock'] == 'Y') {
-		$lock_thread = $frm->locked == 'N' ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
+		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
 		$lock_thread = '';
 	}
@@ -180,13 +180,13 @@
 
 	$result = $query_type('SELECT 
 		m.*, 
-		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
 		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
 		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
 	FROM 
@@ -198,7 +198,7 @@
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 	WHERE 
-		m.thread_id='.$_GET['th'].' AND m.approved=\'Y\'
+		m.thread_id='.$_GET['th'].' AND m.apr=1
 	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 	
 	$obj2 = $message_data = '';

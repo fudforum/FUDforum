@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.14 2003/05/07 01:05:51 hackie Exp $
+*   $Id: nntp.php,v 1.15 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,12 +73,11 @@
 	$nntp->newsgroup 	= $nntp_adm->newsgroup;
 	$nntp->port 		= $nntp_adm->port;
 	$nntp->timeout 		= $nntp_adm->timeout;
-	$nntp->auth 		= $nntp_adm->auth;
+	$nntp->nntp_opt 	= $nntp_adm->nntp_opt;
 	$nntp->user 		= $nntp_adm->login;
 	$nntp->pass 		= $nntp_adm->pass;
-	$nntp->create_users 	= $nntp_adm->create_users;
-	
-	$frm = db_sab('SELECT id, tag_style, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
+
+	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
 	
 	$lock = $nntp->get_lock();
 	$nntp->parse_msgs($frm, $nntp_adm, $nntp->read_start());

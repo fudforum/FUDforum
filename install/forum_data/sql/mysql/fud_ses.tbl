@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_ses.tbl,v 1.4 2003/05/07 21:02:15 hackie Exp $
+#   $Id: fud_ses.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,19 +12,19 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}ses;
 
 CREATE TABLE {SQL_TABLE_PREFIX}ses
 (
-	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	ses_id		CHAR(32) NOT NULL DEFAULT 0,
 	sys_id		CHAR(32) NOT NULL DEFAULT 0,
-	user_id		INT UNSIGNED NOT NULL DEFAULT 0,
-	action		CHAR(255),
+	user_id		INT NOT NULL DEFAULT 0,
+	action		VARCHAR(255),
 	forum_id        INT NOT NULL DEFAULT 0,
 	
-	time_sec	INT UNSIGNED NOT NULL DEFAULT 0,
+	time_sec	BIGINT NOT NULL DEFAULT 0,
 	
 	data		TEXT,
-	returnto	VARCHAR(255),
-	
-	UNIQUE(ses_id),
-	UNIQUE(user_id),
-	INDEX(time_sec, user_id)
-)
+	returnto	VARCHAR(255)
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}ses_i_s ON {SQL_TABLE_PREFIX}ses (ses_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}ses_i_u ON {SQL_TABLE_PREFIX}ses (user_id);
+CREATE INDEX {SQL_TABLE_PREFIX}ses_i_tu ON {SQL_TABLE_PREFIX}ses (time_sec, user_id);

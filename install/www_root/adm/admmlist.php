@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.17 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admmlist.php,v 1.18 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function format_regex(&$regex)
 			$mlist->add();
 		}
 	} else if (isset($_GET['del'])) {
-		mlist_del((int)$_GET['del']);
+		fud_mlist::dl((int)$_GET['del']);
 	}
 
 	if (isset($_GET['edit']) && $edit && ($o = db_sab('SELECT * FROM '.$tbl.'mlist WHERE id='.$edit))) {
@@ -106,7 +106,7 @@ function format_regex(&$regex)
 			<font size="-1">Any posts from the mailing list would 1st need to be approved by moderator(s) before
 			they are made visible on the forum.</font>
 		</td>
-		<td><?php draw_select('ml_mlist_post_apr', "No\nYes", "N\nY", yn($ml_mlist_post_apr)); ?></td>
+		<td><?php draw_select('ml_mlist_post_apr', "No\nYes", "0\n1", ($ml_mlist_opt & 1 ? 1 : 0)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -116,7 +116,7 @@ function format_regex(&$regex)
 			mailing list by the forum. On the mailing list the posts would appear on behalf of the user who
 			has made the post.</font>
 		</td>
-		<td><?php draw_select('ml_allow_frm_post', "No\nYes", "N\nY", yn($ml_allow_frm_post)); ?></td>
+		<td><?php draw_select('ml_allow_frm_post', "No\nYes", "0\n2", ($ml_mlist_opt & 2 ? 2 : 0)); ?></td>
 	</tr>	
 		
 	<tr bgcolor="#bff8ff">
@@ -125,7 +125,7 @@ function format_regex(&$regex)
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be 1st approved
 			by the moderator(s) before they are syncronized to the mailing list or appear in the forum.</font>
 		</td>
-		<td><?php draw_select('ml_frm_post_apr', "No\nYes", "N\nY", yn($ml_frm_post_apr)); ?></td>
+		<td><?php draw_select('ml_frm_post_apr', "No\nYes", "0\n4", ($ml_mlist_opt & 4 ? 4 : 0)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -134,7 +134,7 @@ function format_regex(&$regex)
 			<font size="-1">If enabled, ANY file attachment attached to a message on the mailing list will be
 			imported into the forum regardless of any limitations imposed on file attachments within the forum.</font>
 		</td>
-		<td><?php draw_select('ml_allow_mlist_attch', "No\nYes", "N\nY", yn($ml_allow_mlist_attch)); ?></td>
+		<td><?php draw_select('ml_allow_mlist_attch', "No\nYes", "0\n8", ($ml_mlist_opt & 8 ? 8 : 0)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -143,7 +143,7 @@ function format_regex(&$regex)
 			<font size="-1">If enabled, HTML contained within mailing list messages that are imported will not be
 			stripped. <b>**not recommended**</b></font>
 		</td>
-		<td><?php draw_select('ml_allow_mlist_html', "No\nYes", "N\nY", yn($ml_allow_mlist_html)); ?></td>
+		<td><?php draw_select('ml_allow_mlist_html', "No\nYes", "0\n16", ($ml_mlist_opt & 16 ? 16 : 0)); ?></td>
 	</tr>	
 	
 	<tr bgcolor="#bff8ff">
@@ -154,7 +154,7 @@ function format_regex(&$regex)
 			the forum will try to determine if message is a reply by comparing the message's subject to subjects of existing
 			messages in the forum.</font>
 		</td>
-		<td><?php draw_select('ml_complex_reply_match', "No\nYes", "N\nY", yn($ml_complex_reply_match)); ?></td>
+		<td><?php draw_select('ml_complex_reply_match', "No\nYes", "0\n32", ($ml_mlist_opt & 32 ? 32 : 0)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -165,7 +165,7 @@ function format_regex(&$regex)
 			imported mailing list messages who's authors cannot be matched against existing forum members will be attributed
 			to the anonymous user.</font>
 		</td>
-		<td><?php draw_select('ml_create_users', "Yes\nNo", "Y\nN", yn($ml_create_users)); ?></td>
+		<td><?php draw_select('ml_create_users', "Yes\nNo", "64\n0", ($ml_mlist_opt & 64 ? 64 : 0)); ?></td>
 	</tr>
 	
 	<tr>

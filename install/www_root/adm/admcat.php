@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.12 2003/07/18 22:20:25 hackie Exp $
+*   $Id: admcat.php,v 1.13 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,8 +29,10 @@
 		if (!empty($_POST['cat_description'])) {
 			$_POST['cat_description'] = ' - ' . $_POST['cat_description'];
 		}
-		$cat = new fud_cat;
+		$_POST['cat_cat_opt'] = ($_POST['cat_allow_collapse'] == 'Y' ? 1 : 0) | ($_POST['cat_default_view'] == 'COLLAPSED' ? 2 : 0);
+		unset($_POST['cat_allow_collapse'], $_POST['cat_allow_collapse']);
 
+		$cat = new fud_cat;
 		if ($edit) {
 			$cat->sync($edit);
 			$edit = '';
@@ -38,7 +40,7 @@
 			$cat->add($_POST['cat_pos']);
 		}
 	}
-	if ($edit && ($c = db_arr_assoc('SELECT name, description, allow_collapse, default_view FROM '.$tbl.'cat WHERE id='.$edit))) {
+	if ($edit && ($c = db_arr_assoc('SELECT name, description, cat_opt FROM '.$tbl.'cat WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
 			${'cat_'.$k} = $v;
 		}
@@ -51,7 +53,7 @@
 			${'cat_'.$k} = '';
 		}
 		$cat_pos = 'LAST';
-		$cat_allow_collapse = 'Y';
+		$cat_opt = 1;
 	}
 
 	if (isset($_GET['del'])) {
@@ -90,12 +92,12 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Collapsible</td>
-		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", yn($cat_allow_collapse)); ?></td>
+		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", $cat_opt & 1); ?></td>
 	</tr>
 		
 	<tr bgcolor="#bff8ff">
 		<td>Default view: </td>
-		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", $cat_default_view); ?></td>
+		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", !($cat_opt & 2)); ?></td>
 	</tr>
 	
 	<?php if (!$edit) { ?>
@@ -161,8 +163,8 @@
 		echo '<tr '.$bgcolor.'>
 			<td>'.$r->name.'</td>
 			<td>'.substr($r->description, 0, 30).'</td>
-			<td>'.($r->allow_collapse == 'Y' ? 'Yes' : 'No').'</td>
-			<td>'.$r->default_view.'</td>
+			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
+			<td>'.($r->cat_opt & 2 ? 'Collapsed' : 'Open').'</td>
 			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'._rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'._rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td>
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'._rsidl.'">Change</a>]</td></tr>';
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.19 2003/06/07 19:56:46 hackie Exp $
+*   $Id: rdf.php.t,v 1.20 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,7 +94,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 
 	switch ($mode) {
 		case 'm':
-			$lmt = " m.approved='Y'";
+			$lmt = " m.apr=1";
 			/* check for various supported limits
 			 * cat		- category
 			 * frm		- forum
@@ -125,7 +125,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 			}
-			if ($lmt == " m.approved='Y'") {
+			if ($lmt == " m.apr=1") {
 				$lmt .= ' AND m.post_stamp >= ' . (time() - 86400 * 5);
 			}
 	
@@ -276,7 +276,7 @@ $basic_rss_data .= '
 			 * n		- number of rows to get
 			 * l		- latest
 			 */
-			$lmt = " m.approved='Y'";
+			$lmt = " m.apr=1";
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
 			}

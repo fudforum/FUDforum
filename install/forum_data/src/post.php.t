@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.71 2003/09/21 22:29:30 hackie Exp $
+*   $Id: post.php.t,v 1.72 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,10 +31,8 @@ function flood_check()
 	$pl_id = 0;
 	$old_subject = $attach_control_error = '';
 
-	/* redirect user where need be in moderated forums after they've seen
-	 * the moderation message.
-	 */
-	if(isset($_POST['moderated_redr'])) {
+	/* redirect user where need be in moderated forums after they've seen the moderation message. */
+	if (isset($_POST['moderated_redr'])) {
 		check_return($usr->returnto);
 	}
 
@@ -68,7 +66,7 @@ function flood_check()
 	}
 
 	if ($th_id) {
-		$thr = db_sab('SELECT t.forum_id, t.replies, t.locked, t.root_msg_id, t.ordertype, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
+		$thr = db_sab('SELECT t.forum_id, t.replies, t.thread_opt, t.root_msg_id, t.orderexpiry, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th_id);
 		if (!$thr) {
 			invl_inp_err();
 		}
@@ -78,7 +76,7 @@ function flood_check()
 	} else {
 		std_error('systemerr');
 	}
-	$frm = db_sab('SELECT id, name, max_attach_size, tag_style, max_file_attachments, passwd_posting, post_passwd, message_threshold, moderated FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
+	$frm = db_sab('SELECT id, name, max_attach_size, forum_opt, max_file_attachments, post_passwd, message_threshold FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	
 	/* fetch permissions & moderation status */
 	if (!_uid) {
@@ -93,7 +91,7 @@ function flood_check()
 	}
 
 	/* More Security */
-	if (isset($thr) && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
+	if (isset($thr) && $perms['p_lock'] != 'Y' && $thr->thread_opt & 1) {
 		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
 	}
 
@@ -131,7 +129,7 @@ function flood_check()
 			if (!$msg_id) {
 				$msg_show_sig = $usr->append_sig == 'Y' ? $usr->append_sig : NULL;
 			} else {
-				$msg_show_sig = $msg->show_sig == 'Y' ? $msg->show_sig : NULL;
+				$msg_show_sig = $msg->msg_opt & 1 ? '1' : '';
 			}
 			if ($msg_id || $reply_to || $th_id) {
 				if (($usr->notify == 'Y' && !q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$msg->thread_id." AND poster_id="._uid)) || is_notified(_uid, $msg->thread_id)) {
@@ -160,23 +158,19 @@ function flood_check()
 			$msg_subject = apply_reverse_replace($msg_subject);
 		
 			$msg_body = post_to_smiley($msg->body);
-	 		switch ($frm->tag_style) {
-	 			case 'ML':
-	 				$msg_body = html_to_tags($msg_body);
-	 				break;
-	 			case 'HTML':
-	 				break;
-	 			default:
-	 				reverse_fmt($msg_body);
-	 				reverse_nl2br($msg_body);
+	 		if ($frm->forum_opt & 16) {
+	 			$msg_body = html_to_tags($msg_body);
+	 		} else if ($frm->forum_opt & 8) {
+	 			reverse_fmt($msg_body);
+	 			reverse_nl2br($msg_body);
 	 		}
 	 		$msg_body = apply_reverse_replace($msg_body);
 
-	 		$msg_smiley_disabled = $msg->smiley_disabled == 'Y' ? 'Y' : NULL;
+	 		$msg_smiley_disabled = $msg->msg_opt & 2 ? '1' : '';
 			$msg_icon = $msg->icon;
 
 	 		if ($msg->attach_cnt) {
-	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");
+	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND attach_opt=0");
 	 			while ($fa_id = db_rowarr($r)) {
 	 				$attach_list[$fa_id[0]] = $fa_id[0];
 	 			}
@@ -199,19 +193,16 @@ function flood_check()
 				}
 				reverse_fmt($msg->login);
 				
-				switch ($frm->tag_style) {
-					case 'ML':
-						$msg_body = html_to_tags($msg_body);
-						reverse_fmt($msg_body);
-				 		$msg_body = '{TEMPLATE: fud_quote}';
-				 		break;
-					case 'HTML':
-						$msg_body = '{TEMPLATE: html_quote}';
-						break;
-					default:
-						reverse_fmt($msg_body);
-						reverse_nl2br($msg_body);
-						$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+				if ($frm->forum_opt & 16) {
+					$msg_body = html_to_tags($msg_body);
+					reverse_fmt($msg_body);
+				 	$msg_body = '{TEMPLATE: fud_quote}';
+				} else if ($frm->forum_opt & 8) {
+					reverse_fmt($msg_body);
+					reverse_nl2br($msg_body);
+					$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+				} else {
+					$msg_body = '{TEMPLATE: html_quote}';
 				}
 				$msg_body .= "\n";
 			}
@@ -222,9 +213,9 @@ function flood_check()
 		}
 
 		/* import message options */
-		$msg_show_sig		= isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : NULL;
-		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : NULL;
-		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : NULL;
+		$msg_show_sig		= isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : '';
+		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : '';
+		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : '';
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
@@ -304,14 +295,10 @@ function flood_check()
 			$text = apply_custom_replace($msg_body);
 			$text_s = apply_custom_replace($msg_subject);
 		
-			switch ($frm->tag_style) {
-				case 'ML':
-					$text = tags_to_html($text, $perms['p_img']);
-					break;
-				case 'HTML':
-					break;
-				default:
-					$text = htmlspecialchars($text);
+			if ($frm->forum_opt & 16) {
+				$text = tags_to_html($text, $perms['p_img']);
+			} else if ($frm->forum_opt & 8) {
+				$text = htmlspecialchars($text);
 			}
 
 			if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
@@ -325,9 +312,9 @@ function flood_check()
 				if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
 					$msg_body = post_to_smiley($msg_body);
 				}
-				if ($frm->tag_style == 'ML' ) {
+				if ($frm->forum_opt & 16) {
 					$msg_body = html_to_tags($msg_body);
-				} else if ($frm->tag_style != 'HTML') {
+				} else if ($frm->forum_opt & 8) {
 					reverse_fmt($msg_body);
 				}
 				
@@ -348,7 +335,7 @@ function flood_check()
 			$_POST['btn_submit'] = 1;
 		}
 		
-		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
+		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 		
@@ -362,22 +349,18 @@ function flood_check()
 			$msg_post->subject = $msg_subject;
 			$msg_post->body = $msg_body;
 			$msg_post->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
-		 	$msg_post->smiley_disabled = $msg_smiley_disabled ? 'Y' : 'N';
-		 	$msg_post->show_sig = $msg_show_sig ? 'Y' : 'N';
+		 	$msg_post->msg_opt =  $msg_smiley_disabled ? 2 : 0;
+		 	$msg_post->msg_opt =| $msg_show_sig ? 1 : 0;
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			
-			switch ($frm->tag_style) {
-				case 'ML':
-					$msg_post->body = tags_to_html($msg_post->body, $perms['p_img']);
-					break;
-				case 'HTML':
-					break;
-				default:
-					$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
+			if ($frm->forum_opt & 16) {
+				$msg_post->body = tags_to_html($msg_post->body, $perms['p_img']);
+			} else if ($frm->forum_opt & 8) {
+				$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
 			}
 			
-	 		if ($perms['p_sml'] == 'Y' && $msg_post->smiley_disabled != 'Y') {
+	 		if ($perms['p_sml'] == 'Y' && !($msg_post->msg_opt & 2)) {
 	 			$msg_post->body = smiley_to_post($msg_post->body);
 	 		}
 	 		if (!empty($sp_char_body)) {
@@ -396,7 +379,7 @@ function flood_check()
 		 	
 		 	if (!$th_id) {
 		 		$create_thread = 1;
-		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, $perms['p_sticky'], $perms['p_lock'], FALSE);
+		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, $perms['p_sticky'], $perms['p_lock'], FALSE);
 		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
 		 		$msg_post->add_reply($reply_to, $th_id, $perms['p_sticky'], $perms['p_lock'], FALSE);
@@ -418,7 +401,7 @@ function flood_check()
 				attach_finalize($attach_list, $msg_post->id);
 			}	
 			
-			if (!$msg_id && ($frm->moderated == 'N' || $MOD)) {
+			if (!$msg_id && (!($frm->forum_opt & 2) || $MOD)) {
 				$msg_post->approve($msg_post->id, TRUE);
 			}	
 	
@@ -436,10 +419,8 @@ function flood_check()
 				user_register_forum_view($frm->id);
 			}
 			
-			/* where to redirect, to the treeview or the flat view 
-			 * and consider what to do for a moderated forum
-			 */
-			if ($frm->moderated == 'Y' && !$MOD) {
+			/* where to redirect, to the treeview or the flat view and consider what to do for a moderated forum */
+			if ($frm->forum_opt & 2 && !$MOD) {
 				if ($GLOBALS['MODERATED_POST_NOTIFY'] == 'Y') {
 					$c = uq('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
 					while ($r = db_rowarr($c)) {
@@ -511,14 +492,10 @@ function flood_check()
 		$text = apply_custom_replace($msg_body);
 		$text_s = apply_custom_replace($msg_subject);
 
-		switch ($frm->tag_style) {
-			case 'ML':
-				$text = tags_to_html($text, $perms['p_img']);
-				break;
-			case 'HTML':
-				break;
-			default:
-				$text = nl2br(htmlspecialchars($text));
+		if ($frm->forum_opt & 16) {
+			$text = tags_to_html($text, $perms['p_img']);
+		} else if ($frm->forum_opt & 8) {
+			$text = nl2br(htmlspecialchars($text));
 		}
 
 		if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
@@ -547,7 +524,7 @@ function flood_check()
 			$subj = $text_s;
 		}
 
-		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && isset($msg_show_sig)) {
+		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $msg_show_sig) {
 			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !$reply_to) {
 				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 			} else {
@@ -570,7 +547,7 @@ function flood_check()
 	$loged_in_user = _uid ? '{TEMPLATE: loged_in_user}' : '';
 
 	/* handle password protected forums */
-	if ($frm->passwd_posting == 'Y' && $usr->is_mod != 'A') {
+	if ($frm->forum_opt & 4 && $usr->is_mod != 'A') {
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
 	} else {
@@ -598,15 +575,15 @@ function flood_check()
 			if (!isset($thr)) {
 				$thr_ordertype = $thr_orderexpiry = '';
 			} else {
-				$thr_ordertype = $thr->ordertype;
+				$thr_ordertype = $thr->ordertype ^ 1;
 				$thr_orderexpiry = $thr->orderexpiry;
 			}
 		} else {
-			$thr_ordertype = isset($_POST['thr_ordertype']) ? $_POST['thr_ordertype'] : '';
-			$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? $_POST['thr_orderexpiry'] : '';
+			$thr_ordertype = isset($_POST['thr_ordertype']) ? (int) $_POST['thr_ordertype'] : '';
+			$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? (int) $_POST['thr_orderexpiry'] : '';
 		}
 
-		$thread_type_select = tmpl_draw_select_opt("NONE\nSTICKY\nANNOUNCE", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+		$thread_type_select = tmpl_draw_select_opt("0\n4\n2", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 		$thread_expiry_select = tmpl_draw_select_opt("1000000000\n3600\n7200\n14400\n28800\n57600\n86400\n172800\n345600\n604800\n1209600\n2635200\n5270400\n10540800\n938131200", "{TEMPLATE: th_expr_never}\n{TEMPLATE: th_expr_one_hr}\n{TEMPLATE: th_expr_three_hr}\n{TEMPLATE: th_expr_four_hr}\n{TEMPLATE: th_expr_eight_hr}\n{TEMPLATE: th_expr_sixteen_hr}\n{TEMPLATE: th_expr_one_day}\n{TEMPLATE: th_expr_two_day}\n{TEMPLATE: th_expr_four_day}\n{TEMPLATE: th_expr_one_week}\n{TEMPLATE: th_expr_two_week}\n{TEMPLATE: th_expr_one_month}\n{TEMPLATE: th_expr_two_month}\n{TEMPLATE: th_expr_four_month}\n{TEMPLATE: th_expr_one_year}", $thr_orderexpiry, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 		
 		$admin_options = '{TEMPLATE: admin_options}';
@@ -617,7 +594,7 @@ function flood_check()
 	/* thread locking controls */
 	if ($perms['p_lock'] == 'Y') {
 		if (!isset($_POST['prev_loaded']) && isset($thr)) {
-			$thr_locked_checked = $thr->locked == 'Y' ? ' checked' : '';
+			$thr_locked_checked = $thr->thread_opt & 1 ? ' checked' : '';
 		} else if (isset($_POST['prev_loaded'])) {
 			$thr_locked_checked = isset($_POST['thr_locked']) ? ' checked' : '';
 		} else {
@@ -632,7 +609,7 @@ function flood_check()
 	$post_icons = draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''));
 	
 	/* tool bar icons */
-	$fud_code_icons = $frm->tag_style == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
+	$fud_code_icons = $frm->forum_opt & 16 ? '{TEMPLATE: fud_code_icons}' : '';
 	
 	$post_options = tmpl_post_options($frm);
 	$message_err = get_err('msg_body', 1);
@@ -658,7 +635,7 @@ function flood_check()
 
 	if (_uid) {
 		$msg_poster_notif_check = isset($msg_poster_notif) ? ' checked' : '';
-		$msg_show_sig_check = isset($msg_show_sig) ? ' checked' : '';
+		$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
 		$reg_user_options = '{TEMPLATE: reg_user_options}';
 	} else {
 		$reg_user_options = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.11 2003/07/09 07:55:46 hackie Exp $
+*   $Id: poll.php.t,v 1.12 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,13 +39,13 @@
 
 	/* fetch forum, poll & moderator data */
 	if (!$pl_id) { /* new poll */
-		$frm = db_sab('SELECT f.id, f.tag_style, m.id AS md, '.$fields.'
+		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, '.$fields.'
 			FROM {SQL_TABLE_PREFIX}forum f 
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			'.$join.'
 			WHERE f.id='.$frm_id);
 	} else { /* editing a poll */
-		$frm = db_sab('SELECT f.id, f.tag_style, m.id AS is_mod, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
+		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS is_mod, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
 			FROM {SQL_TABLE_PREFIX}forum f 
 			INNER JOIN {SQL_TABLE_PREFIX}poll p ON p.id='.$pl_id.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
@@ -85,16 +85,12 @@
 	if(!empty($_POST['pl_upd']) || !empty($_POST['pl_add'])) {
 		$pl_option = apply_custom_replace($_POST['pl_option']);
 		
-		switch ($frm->tag_style) {
-			case 'ML':
-				$pl_option = tags_to_html($pl_option, $frm->p_img);
-				break;
-			case 'HTML':
-				break;
-			default:
-				$pl_option = nl2br(htmlspecialchars($pl_option));	
+		if ($frm->forum_opt & 16) {
+			$pl_option = tags_to_html($pl_option, $frm->p_img);
+		} else if ($frm->forum_opt & 8) {
+			$pl_option = nl2br(htmlspecialchars($pl_option));
 		}
-	
+
 		if ($frm->p_sml == 'Y' && !isset($_POST['pl_smiley_disabled'])) {
 			$pl_option = smiley_to_post($pl_option);
 		}
@@ -141,16 +137,12 @@
 		if (isset($pl_option)) {
 			$pl_option = post_to_smiley($pl_option);
 		
-			switch ($frm->tag_style) {
-		 		case 'ML':
-		 			$pl_option = html_to_tags($pl_option);
-	 				break;
-	 			case 'HTML':
-	 				break;
-	 			default:
-	 				reverse_nl2br($pl_option);
-		 	}
-	 	
+			if ($frm->forum_opt & 16) {
+				$pl_option = html_to_tags($pl_option);	
+			} else if ($frm->forum_opt & 8) {
+				reverse_nl2br($pl_option);
+			}
+
 			$pl_option = apply_reverse_replace($pl_option);
 		} else {
 			$pl_option = '';

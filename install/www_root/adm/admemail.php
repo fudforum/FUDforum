@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admemail.php,v 1.7 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admemail.php,v 1.8 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,13 +23,13 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
-		$e_type = $_POST['e_type'] == 'REGEX' ? "'REGEX'" : "'SIMPLE'";
+		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
-		q('UPDATE '.$tbl.'email_block SET type='.$e_type.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'email_block SET email_block_opt='.$e_email_block_opt.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['e_string'])) {
-		$e_type = $_POST['e_type'] == 'REGEX' ? "'REGEX'" : "'SIMPLE'";
+		$e_email_block_opt = (int) $_POST['e_email_block_opt'];
 		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
-		q('INSERT INTO '.$tbl.'email_block (type, string) VALUES('.$e_type.', '.$e_string.')');
+		q('INSERT INTO '.$tbl.'email_block (email_block_opt, string) VALUES('.$e_email_block_opt.', '.$e_string.')');
 	} else if (isset($_GET['del'])) {
 		q('DELETE FROM '.$tbl.'email_block WHERE id='.(int)$_GET['del']);
 	} else {
@@ -41,9 +41,9 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		list($edit, $e_type, $e_string) = db_saq('SELECT id, type, string FROM '.$tbl.'email_block WHERE id='.(int)$_GET['edit']);
+		list($edit, $e_email_block_opt, $e_string) = db_saq('SELECT id, email_block_opt, string FROM '.$tbl.'email_block WHERE id='.(int)$_GET['edit']);
 	} else {
-		$edit = $e_type = $e_string = '';
+		$edit = $e_email_block_opt = $e_string = '';
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -54,7 +54,7 @@
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Type:</td>
-		<td><?php draw_select("e_type", "Simple\nRegexp", "SIMPLE\nREGEX", $e_type); ?></td>
+		<td><?php draw_select("e_email_block_opt", "Simple\nRegexp", "0\n1", $e_email_block_opt); ?></td>
 	</tr>
 
 	<tr bgcolor="#bff8ff">
@@ -84,7 +84,7 @@
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT id, type, string FROM '.$tbl.'email_block');
+	$c = uq('SELECT id, email_block_opt, string FROM '.$tbl.'email_block');
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
@@ -92,7 +92,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[1].'</td><td>[<a href="admemail.php?edit='.$r[0].'&'._rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&'._rsid.'">Delete</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.($r[1] ? 'Simple' : 'Regex').'</td><td>[<a href="admemail.php?edit='.$r[0].'&'._rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
 ?>
 </table>

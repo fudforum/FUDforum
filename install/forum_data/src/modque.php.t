@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.20 2003/07/09 07:34:17 hackie Exp $
+*   $Id: modque.php.t,v 1.21 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,14 +51,14 @@
 	 */
 	$r = $query_type("SELECT 
 		m.*, 
-		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold, f.name AS frm_name,
 		c.name AS cat_name,
 		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
 		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
 	FROM
@@ -71,12 +71,9 @@
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id="._uid."
-	WHERE 
-		f.moderated='Y' AND m.approved='N'
+	WHERE (f.forum_opt>=2 AND f.forum_opt & 2) AND m.apr=0
 	ORDER BY f.view_order, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
-	
 
-	
 	$prev_thread_id = $modque_message = '';
 	$m_num = 0;
 

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_members.tbl,v 1.2 2003/05/03 18:16:18 hackie Exp $
+#   $Id: fud_group_members.tbl,v 1.3 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,29 +12,34 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}group_members;
 
 CREATE TABLE {SQL_TABLE_PREFIX}group_members
 (
-	id		INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	user_id		INT UNSIGNED NOT NULL,
-	group_id	INT UNSIGNED NOT NULL,
-	group_leader	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	approved	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	
-	up_VISIBLE	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_READ		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_POST		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_REPLY	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_EDIT		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_DEL		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_STICKY	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_POLL		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_FILE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_VOTE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_RATE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_SPLIT	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_LOCK		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_MOVE		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_SML		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	up_IMG		ENUM('Y', 'N') NOT NULL DEFAULT 'N',	
-	
-	UNIQUE(group_id, user_id),
-	INDEX(group_leader)
-)
+	id		INT AUTO_INCREMENT PRIMARY KEY,
+	user_id		INT NOT NULL,
+	group_id	INT NOT NULL,
+	group_members_opt INT NOT NULL DEFAULT 65536
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}group_members_i_gu ON {SQL_TABLE_PREFIX}group_members (group_id, user_id);
+CREATE INDEX {SQL_TABLE_PREFIX}group_members_i_gmo ON {SQL_TABLE_PREFIX}group_members (group_members_opt);
+
+# 1 up_VISIBLE
+# 2 up_READ
+# 4 up_POST
+# 8 up_REPLY
+# 16 up_EDIT
+# 32 up_DEL
+# 64 up_STICKY
+# 128 up_POLL
+# 256 up_FILE
+# 512 up_VOTE
+# 1024 up_RATE
+# 2048 up_SPLIT
+# 4096 up_LOCK
+# 8192 up_MOVE
+# 16384 up_SML
+# 32768 up_IMG
+# 65536 approved
+# 131072 group_leader
+
+# ALTER TABLE mm_group_members ADD group_members_opt INT NOT NULL DEFAULT 65536;
+# UPDATE mm_group_members SET group_members_opt=(CASE WHEN up_VISIBLE='Y' THEN 1 ELSE 0 END) | (CASE WHEN up_READ='Y' THEN 2 ELSE 0 END) | (CASE WHEN up_POST='Y' THEN 4 ELSE 0 END) | (CASE WHEN up_REPLY='Y' THEN 8 ELSE 0 END) | (CASE WHEN up_EDIT='Y' THEN 16 ELSE 0 END) | (CASE WHEN up_DEL='Y' THEN 32 ELSE 0 END) | (CASE WHEN up_STICKY='Y' THEN 64 ELSE 0 END) | (CASE WHEN up_POLL='Y' THEN 128 ELSE 0 END) | (CASE WHEN up_FILE='Y' THEN 256 ELSE 0 END) | (CASE WHEN up_VOTE='Y' THEN 512 ELSE 0 END) | (CASE WHEN up_RATE='Y' THEN 1024 ELSE 0 END) | (CASE WHEN up_SPLIT='Y' THEN 2048 ELSE 0 END) | (CASE WHEN up_LOCK='Y' THEN 4096 ELSE 0 END) | (CASE WHEN up_MOVE='Y' THEN 8192 ELSE 0 END) | (CASE WHEN up_SML='Y' THEN 16384 ELSE 0 END) | (CASE WHEN up_IMG='Y' THEN 32768 ELSE 0 END) | (CASE WHEN approved='Y' THEN 65536 ELSE 0 END) | (CASE WHEN group_leader='Y' THEN 131072 ELSE 0 END);
+# ALTER TABLE mm_group_members DROP group_leader, DROP approved, DROP up_VISIBLE, DROP up_READ, DROP up_POST, DROP up_REPLY, DROP up_EDIT, DROP up_DEL, DROP up_STICKY, DROP up_POLL, DROP up_FILE, DROP up_VOTE, DROP up_RATE, DROP up_SPLIT,DROP up_LOCK, DROP up_MOVE, DROP up_SML, DROP up_IMG;

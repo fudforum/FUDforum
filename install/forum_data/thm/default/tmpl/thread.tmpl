@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.18 2003/09/20 04:07:41 hackie Exp $
+*   $Id: thread.tmpl,v 1.19 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -161,7 +161,7 @@
 <td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
 <td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start=0&amp;{DEF: _rsid}">{VAR: r[2]}</a>&nbsp;{TEMPLATE-DATA: mini_thread_pager}</td>
 <td class="RowStyleB" align="center">{VAR: r[16]}</td>
-<td class="RowStyleB" align="center">{VAR: r[21]}</td>
+<td class="RowStyleB" align="center">{VAR: r[20]}</td>
 {TEMPLATE-DATA: rating}
 <td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
 <td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br />{MSG: by} {TEMPLATE-DATA: first_post_login}</td>

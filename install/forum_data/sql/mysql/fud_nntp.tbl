@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_nntp.tbl,v 1.2 2002/10/06 23:04:59 hackie Exp $
+#   $Id: fud_nntp.tbl,v 1.3 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,23 +12,29 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}nntp;
 
 CREATE TABLE {SQL_TABLE_PREFIX}nntp
 (
-	id			INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	forum_id		INT NOT NULL,
-	nntp_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	allow_frm_post		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	frm_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	allow_nntp_attch	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	complex_reply_match	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	create_users		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	
-	
+	nntp_opt		INT NOT NULL DEFAULT 44,
+
 	server			VARCHAR(255) NOT NULL,			
 	newsgroup		VARCHAR(255) NOT NULL,
 	port			INT NOT NULL,
 	timeout			INT NOT NULL,
-	auth			ENUM('NONE', 'ORIGINAL', 'SIMPLE') NOT NULL DEFAULT 'NONE',
 	login			VARCHAR(255),
 	pass			VARCHAR(255),
 		
 	index(forum_id)
-)
+);
+
+# 1 nntp_post_apr 
+# 2 allow_frm_post
+# 4 frm_post_apr
+# 8 allow_nntp_attch
+# 16 complex_reply_match
+# 32 create_users
+# 64 auth NONE
+# 128 auth (ORIGINAL/SIMPLE)
+
+# ALTER TABLE mm_nntp ADD nntp_opt INT NOT NULL DEFAULT 44;
+# UPDATE mm_nntp SET nntp_opt=(CASE WHEN nntp_post_apr='Y' THEN 1 ELSE 0 END) | (CASE WHEN allow_frm_post='Y' THEN 2 ELSE 0 END) | (CASE WHEN frm_post_apr='Y' THEN 4 ELSE 0 END) | (CASE WHEN allow_nntp_attch='Y' THEN 8 ELSE 0 END) | (CASE WHEN complex_reply_match='Y' THEN 16 ELSE 0 END) | (CASE WHEN create_users='Y' THEN 32 ELSE 0 END) | (CASE WHEN auth='NONE' THEN 64 ELSE 0 END) | (CASE WHEN auth='ORIGINAL' THEN 128 ELSE 0 END);
+# ALTER TABLE mm_nntp DROP nntp_post_apr, DROP allow_frm_post, DROP frm_post_apr, DROP allow_nntp_attch, DROP complex_reply_match, DROP create_users, DROP auth;

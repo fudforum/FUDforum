@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.52 2003/09/24 20:17:02 hackie Exp $
+*   $Id: consist.php,v 1.53 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -152,12 +152,12 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding moderators');
 		
 	draw_stat('Checking if all private messages have users');
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE pm.mailed=\'N\' AND u.id IS NULL');
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE !(pm.pmsg_opt & 16) AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
 	qf($c);
-	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE pm.mailed=\'Y\' AND u.id IS NULL');
+	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE (pm.pmsg_opt & 16 AND pm.pmsg_opt>=16) AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
@@ -165,7 +165,7 @@ forum will be disabled.<br><br>
 	if (isset($dpm)) {
 		$cnt = count($dpm);
 		foreach ($dpm as $v) {
-			pmsg_del($v, 'TRASH');
+			pmsg_del($v, 5);
 		}
 	} else {
 		$cnt = 0;
@@ -180,12 +180,12 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking message approvals');
 	$m = array();
-	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.approved=\'N\' AND f.moderated=\'N\'');
+	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND f.forum_opt & 2');
 	while ($r = db_rowarr($c)) {
 		$m[] = $r[0];
 	}
 	if (count($m)) {
-		q('UPDATE '.$tbl.'msg SET approved=\'Y\' WHERE id IN('.implode(',', $m).')');
+		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
 		unset($m);
 	}
 	qf($c);
@@ -195,7 +195,7 @@ forum will be disabled.<br><br>
 	$del = $tr = array();
 	draw_stat('Checking threads against messages');
 	q('UPDATE '.$tbl.'thread SET replies=0');
-	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.approved=\'Y\' GROUP BY m.thread_id,t.id ORDER BY cnt');
+	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY cnt');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
 			$del[] = $r[1];
@@ -238,7 +238,7 @@ forum will be disabled.<br><br>
 	draw_stat('Checking forum & topic relations');
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
-		$r = db_saq('select MAX(last_post_id), SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.approved=\'Y\' WHERE t.forum_id='.$f[0]);
+		$r = db_saq('select MAX(last_post_id), SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.forum_id='.$f[0]);
 		if (!$r[2]) {
 			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
 		} else {
@@ -271,12 +271,12 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking file attachments against messages');
 	$arm = array();
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND private=\'N\'');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND private=0');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
 	qf($c);
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND private=\'Y\'');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND private=1');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
@@ -293,7 +293,7 @@ forum will be disabled.<br><br>
 	$oldm = '';
 	$atr = array();
 	q('UPDATE '.$tbl.'msg SET attach_cnt=0, attach_cache=NULL');
-	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=\'N\'');
+	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=0');
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r[5]) {
 			if ($oldm) {
@@ -313,7 +313,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Rebuild attachment cache for private messages');
 	q('UPDATE '.$tbl.'pmsg SET attach_cnt=0');
-	$c = q('SELECT count(*), message_id FROM '.$tbl.'attach WHERE private=\'Y\' GROUP BY message_id');
+	$c = q('SELECT count(*), message_id FROM '.$tbl.'attach WHERE private=1 GROUP BY message_id');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'pmsg SET attach_cnt='.$r[0].' WHERE id='.$r[1]);
 	}
@@ -378,7 +378,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding poll cache');
 
 	draw_stat('Validating poll activation');
-	$c = q('SELECT t.forum_id, p.id FROM '.$tbl.'poll p INNER JOIN '.$tbl.'msg m ON m.poll_id=p.id INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id AND m.approved=\'Y\' WHERE t.forum_id!=p.forum_id');
+	$c = q('SELECT t.forum_id, p.id FROM '.$tbl.'poll p INNER JOIN '.$tbl.'msg m ON m.poll_id=p.id INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id AND m.apr=1 WHERE t.forum_id!=p.forum_id');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'poll SET forum_id='.$r[0].' WHERE id='.$r[1]);
 	}
@@ -447,18 +447,18 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuilding user levels, message counts & last post ids');
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
 	if (__dbtype__ == 'mysql') {
-		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
-		$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.approved=\'Y\' AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
+		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
+		$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.apr=1 AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
 		while ($r = db_rowarr($c)) {
 			if (!$r[1]) { continue; }
 			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].' WHERE id='.$r[0]);
 		}
 		qf($c);
 	} else {
-		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
+		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
 			if (!$uid) { continue; }
-			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
+			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND apr=1 AND poster_id='.$uid.') WHERE id='.$uid);
 		}
 		qf($c);
 	}
@@ -628,7 +628,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	if ($te) {
-		$tid = q_singleval('SELECT id FROM '.$tbl.'themes WHERE t_default=\'Y\' AND enabled=\'Y\'');
+		$tid = q_singleval('SELECT id FROM '.$tbl.'themes WHERE theme_opt=3');
 		q('UPDATE '.$tbl.'users SET theme='.$tid.' WHERE id IN('.implode(',', $te).')');
 	}
 	draw_stat('Done: Validating User/Theme Relations');

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.5 2003/09/25 21:08:32 hackie Exp $
+#   $Id: fud_users.tbl,v 1.6 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -96,7 +96,3 @@ CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt)
 # 2097152 acc_status (A/P)
 # 4194304 avatar_approved (No Avatar)
 # 8388608 avatar_approved (ON/OFF) 
-
-# ALTER TABLE mm_users ADD users_opt INT NOT NULL DEFAULT 6585269, ADD INDEX(users_opt);
-# UPDATE mm_users SET users_opt=(CASE WHEN display_email='Y' THEN 1 ELSE 0 END) | (CASE WHEN notify='Y' THEN 2 ELSE 0 END) | (CASE WHEN notify_method='EMAIL' THEN 4 ELSE 0 END) | (CASE WHEN ignore_admin='Y' THEN 8 ELSE 0 END) | (CASE WHEN email_messages='Y' THEN 16 ELSE 0 END) | (CASE WHEN pm_messages='Y' THEN 32 ELSE 0 END) | (CASE WHEN pm_notify='Y' THEN 64 ELSE 0 END) | (CASE WHEN default_view='msg' OR default_view='msg_tree' THEN 128 ELSE 0 END) | (CASE WHEN default_view='tree' OR default_view='tree_msg' THEN 256 ELSE 0 END) | (CASE WHEN gender='UNSPECIFIED' THEN 512 ELSE 0 END) | (CASE WHEN gender='MALE' THEN 1024 ELSE 0 END) | (CASE WHEN append_sig='Y' THEN 2048 ELSE 0 END) | (CASE WHEN show_sigs='Y' THEN 4096 ELSE 0 END) | (CASE WHEN show_avatars='Y' THEN 8192 ELSE 0 END) | (CASE WHEN show_im='Y' THEN 16384 ELSE 0 END) | (CASE WHEN invisible_mode='Y' THEN 32768 ELSE 0 END) | (CASE WHEN blocked='Y' THEN 65536 ELSE 0 END) | (CASE WHEN email_conf='Y' THEN 131072 ELSE 0 END) | (CASE WHEN coppa='Y' THEN 262144 ELSE 0 END) | (CASE WHEN is_mod='Y' THEN 524288 ELSE 0 END) | (CASE WHEN is_mod='A' THEN 1048576 ELSE 0 END) | (CASE WHEN acc_status='A' THEN 2097152 ELSE 0 END) | (CASE WHEN avatar_approved='NO' THEN 4194304 ELSE 0 END) | (CASE WHEN avatar_approved='Y' THEN 8388608 ELSE 0 END);
-# ALTER TABLE mm_users DROP display_email, DROP notify, DROP notify_method, DROP ignore_admin, DROP email_messages, DROP pm_messages, DROP pm_notify, DROP default_view, DROP gender, DROP append_sig, DROP show_sigs, DROP show_avatars, DROP show_im, DROP invisible_mode, DROP blocked, DROP email_conf, DROP coppa, DROP is_mod, DROP acc_status, DROP avatar_approved;

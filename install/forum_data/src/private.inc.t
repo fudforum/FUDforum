@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.20 2003/07/23 01:57:09 hackie Exp $
+*   $Id: private.inc.t,v 1.21 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,8 +18,8 @@
 
 class fud_pmsg
 {
-	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $post_stamp, $icon, $mailed, $folder_id,
-		$subject, $attach_cnt, $smiley_disabled, $show_sig, $track, $length, $foff, $login, $ref_msg_id, $body;
+	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $post_stamp, $icon, $fldr,
+		$subject, $attach_cnt, $pmsg_opt, $length, $foff, $login, $ref_msg_id, $body;
 
 	function add($track='')
 	{
@@ -32,10 +32,7 @@ class fud_pmsg
 		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 
-		if (!$this->mailed) {
-			$this->mailed = $this->folder_id == 'SENT' ? 'Y' : 'N';
-		}
-		if ($this->folder_id != 'INBOX') {
+		if ($this->fldr != 1) {
 			$this->read_stamp = $this->post_stamp;
 		}
 
@@ -50,19 +47,15 @@ class fud_pmsg
 			host_name,
 			post_stamp,
 			icon,
-			mailed,
-			folder_id,
+			fldr,
 			subject,
 			attach_cnt,
-			smiley_disabled,
-			show_sig,
-			track,
 			read_stamp,
 			ref_msg_id,
 			foff,
-			length
-			)
-			VALUES(
+			length,
+			pmsg_opt
+			) VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
 				".(isset($GLOBALS['recv_user_id']) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
@@ -71,20 +64,17 @@ class fud_pmsg
 				".$this->host_name.",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
-				'".yn($this->mailed)."',
-				'".$this->folder_id."',
+				".$this->fldr.",
 				'".addslashes($this->subject)."',
-				".intzero($this->attach_cnt).",
-				'".yn($this->smiley_disabled)."',
-				'".yn($this->show_sig)."',
-				'".yn($this->track)."',
+				".(int)$this->attach_cnt.",
 				".$this->read_stamp.",
 				".strnull($this->ref_msg_id).",
-				".intzero($this->foff).",
-				".intzero($this->length)."
+				".(int)$this->foff.",
+				".(int)$this->length.",
+				".$this->pmsg_opt."
 			)");
 			
-		if ($this->folder_id == 'SENT' && !$track) {
+		if ($this->fldr == 3 && !$track) {
 			$this->send_pmsg();
 		}
 		if (isset($ll)) {
@@ -104,39 +94,29 @@ class fud_pmsg
 				host_name,
 				post_stamp,
 				icon,
-				mailed,
-				folder_id,
+				fldr,
 				subject,
 				attach_cnt,
-				show_sig,
-				smiley_disabled,
-				track,
 				foff,
 				length,
 				duser_id,
-				ref_msg_id
-			)
-			VALUES
-			(
+				ref_msg_id,
+				pmsg_opt
+			) VALUES (
 				".strnull(addslashes($this->to_list)).",
 				".$this->ouser_id.",
 				'".$this->ip_addr."',
 				".$this->host_name.",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
-				'Y',
-				'INBOX',
+				1,
 				'".addslashes($this->subject)."',
 				".intzero($this->attach_cnt).",
-				'".yn($this->show_sig)."',
-				'".yn($this->smiley_disabled)."',
-				'".yn($this->track)."',
 				".$this->foff.",
 				".$this->length.",
 				".$v.",
-				".strnull($this->ref_msg_id)."
-			)
-			");
+				".strnull($this->ref_msg_id).",
+				".($this->pmsg_opt|16).")");
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
@@ -166,30 +146,24 @@ class fud_pmsg
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
-		$this->mailed = $this->folder_id=='SENT' ? 'Y' : 'N';
-		
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg 
-			SET
-				to_list=".strnull(addslashes($this->to_list)).",
-				icon=".strnull($this->icon).",
-				ouser_id=".$this->ouser_id.",
-				duser_id=".$this->ouser_id.",
-				post_stamp=".$this->post_stamp.",
-				subject='".addslashes($this->subject)."',
-				ip_addr='".$this->ip_addr."',
-				host_name=".$this->host_name.",
-				mailed='".yn($this->mailed)."',
-				attach_cnt=".intzero($this->attach_cnt).",
-				show_sig='".yn($this->show_sig)."',
-				smiley_disabled='".yn($this->smiley_disabled)."',
-				track='".yn($this->track)."',
-				folder_id='".$this->folder_id."',
-				foff=".$this->foff.",
-				length=".$this->length."
-			WHERE
-				id=".$this->id);
+
+		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
+			to_list=".strnull(addslashes($this->to_list)).",
+			icon=".strnull($this->icon).",
+			ouser_id=".$this->ouser_id.",
+			duser_id=".$this->ouser_id.",
+			post_stamp=".$this->post_stamp.",
+			subject='".addslashes($this->subject)."',
+			ip_addr='".$this->ip_addr."',
+			host_name=".$this->host_name.",
+			attach_cnt=".(int)$this->attach_cnt.",
+			fldr=".$this->fldr.",
+			foff=".(int)$this->foff.",
+			length=".(int)$this->length.",
+			pmsg_opt=".$this->pmsg_opt."
+		WHERE id=".$this->id);
 				
-		if ($this->folder_id == 'SENT') {
+		if ($this->fldr == 3) {
 			$this->send_pmsg();
 		}
 	}
@@ -197,7 +171,7 @@ class fud_pmsg
 
 function set_nrf($nrf, $id)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET nrf_status='".$nrf."' WHERE id=".$id);		
+	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt &~ 32 &~ 64) | ".$nrf." WHERE id=".$id);
 }	
 
 function write_pmsg_body($text)
@@ -241,24 +215,24 @@ function pmsg_move($mid, $fid, $validate)
 		return;		
 	}
 
-	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET folder_id=\''.$fid.'\' WHERE duser_id='._uid.' AND id='.$mid);
+	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET fldr='.$fid.' WHERE duser_id='._uid.' AND id='.$mid);
 }
 
-function pmsg_del($mid, $fldr_id='')
+function pmsg_del($mid, $fldr=null)
 {
-	if (!$fldr_id && !($fldr_id = q_singleval('SELECT folder_id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid))) {
+	if (is_null($fldr) && is_null(($fldr = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid)))) {
 		return;
 	}
-	if ($fldr_id != 'TRASH') {
-		pmsg_move($mid, 'TRASH', FALSE);
+	if ($fldr != 5) {
+		pmsg_move($mid, 5, FALSE);
 	} else {
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
-		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND private=\'Y\'');
+		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
 		while ($r = db_rowarr($c)) {
 			@unlink($GLOBALS[''] . $r[0] . '.atch');
 		}
 		qf($c);
-		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND private=\'Y\'');
+		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
 	}
 }
 

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.5 2003/09/25 21:08:31 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.6 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -56,8 +56,3 @@ CREATE INDEX {SQL_TABLE_PREFIX}msg_i_s ON {SQL_TABLE_PREFIX}msg (subject);
 
 # approved
 # apr 1/0 Y/N
-
-# ALTER TABLE mm_msg ADD msg_opt INT NOT NULL DEFAULT 1, ADD INDEX(thread_id, apr), ADD INDEX(poster_id, apr), ADD INDEX(apr), DROP INDEX thread_id, DROP INDEX poster_id;
-# UPDATE mm_msg SET msg_opt=(CASE WHEN show_sig='Y' THEN 1 ELSE 0 END) | (CASE WHEN smiley_disabled='Y' THEN 2 ELSE 0 END);
-# UPDATE mm_msg SET apr=1 WHERE approved='Y';
-# ALTER TABLE mm_msg DROP show_sig, DROP smiley_disabled, DROP approved;

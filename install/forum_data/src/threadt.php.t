@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.18 2003/09/19 19:07:47 hackie Exp $
+*   $Id: threadt.php.t,v 1.19 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,12 +28,12 @@
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
 	$r = q("SELECT 
-			t.moved_to, t.locked, t.is_sticky, t.ordertype, t.root_msg_id, r.last_view,
+			t.moved_to, t.thread_opt, t.root_msg_id, r.last_view,
 			m.subject, m.reply_to, m.poll_id, m.attach_cnt, m.icon, m.poster_id, m.post_stamp, m.thread_id, m.id,
 			u.alias
 		FROM {SQL_TABLE_PREFIX}thread_view tv
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id
-		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.approved='Y'
+		INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.id=m.thread_id AND m.apr=1
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id="._uid."
 		WHERE tv.forum_id=".$frm->id." AND tv.page=".$cur_frm_page." ORDER by pos ASC");
@@ -95,9 +95,9 @@
 							
 							if (_uid) {
 								if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
-									$thread_read_status = $cur->locked == 'Y' ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';
+									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';
 								} else {
-									$thread_read_status = $cur->locked == 'Y' ? '{TEMPLATE: thread_read_locked}'	: '{TEMPLATE: thread_read}';
+									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}'	: '{TEMPLATE: thread_read}';
 								}
 							} else {
 								$thread_read_status = '{TEMPLATE: thread_read_unreg}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.11 2003/06/02 18:57:09 hackie Exp $
+*   $Id: showposts.php.t,v 1.12 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id 
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					WHERE ".$qry_limit." m.approved='Y' AND m.poster_id=".$uid);
+					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
 		
 		$c = uq("SELECT 
 				f.name, f.id, 
@@ -67,7 +67,7 @@
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-			WHERE ".$qry_limit." m.approved='Y' AND m.poster_id=".$uid." 
+			WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid." 
 			ORDER BY m.post_stamp ".$SORT_ORDER." LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
 		
 		while ($r = db_rowarr($c)) {

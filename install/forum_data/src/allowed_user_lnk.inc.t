@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.16 2003/06/05 23:07:56 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.17 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ function is_email_blocked($addr)
 	}
 	$addr = strtolower($addr);
 	foreach ($GLOBALS['__FUD_EMAIL_FILTER__'] as $k => $v) {
-		if (($v == 'SIMPLE' && (strpos($addr, $k) !== false)) || ($v == 'REGEX' && preg_match($k, $addr))) {
+		if (($v && (strpos($addr, $k) !== false)) || (!$v && preg_match($k, $addr))) {
 			return 1;
 		}
 	}

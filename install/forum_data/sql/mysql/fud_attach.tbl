@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_attach.tbl,v 1.2 2002/09/12 23:00:58 hackie Exp $
+#   $Id: fud_attach.tbl,v 1.3 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,16 +12,19 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}attach;
 
 CREATE TABLE {SQL_TABLE_PREFIX}attach
 (
-	id		INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	proto		ENUM('LOCAL', 'REMOTE') NOT NULL DEFAULT 'REMOTE',
-	location	CHAR(255) NOT NULL,
-	original_name	CHAR(255),
-	owner		INT UNSIGNED NOT NULL,
-	private		ENUM('N', 'Y') NOT NULL DEFAULT 'N',
-	message_id	INT UNSIGNED NOT NULL,
-	dlcount		INT UNSIGNED NOT NULL DEFAULT 0,
-	mime_type	INT UNSIGNED NOT NULL DEFAULT 0,
-	fsize		INT NOT NULL DEFAULT 0,
-	
-	INDEX(message_id,private)
-)
+	id		INT AUTO_INCREMENT PRIMARY KEY,
+	location	VARCHAR(255) NOT NULL,
+	original_name	VARCHAR(255),
+	owner		INT NOT NULL,
+	attach_opt	INT NOT NULL DEFAULT 0,
+	message_id	INT NOT NULL,
+	dlcount		INT NOT NULL DEFAULT 0,
+	mime_type	INT NOT NULL DEFAULT 0,
+	fsize		INT NOT NULL DEFAULT 0
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}attach_i_mp ON {SQL_TABLE_PREFIX}attach (message_id, attach_opt);
+
+# ALTER TABLE mm_attach ADD attach_opt INT NOT NULL DEFAULT 0, DROP INDEX message_id, ADD INDEX(message_id, attach_opt);
+# UPDATE mm_attach SET attach_opt=1 WHERE private='Y';
+# ALTER TABLE mm_attach DROP private, DROP proto;

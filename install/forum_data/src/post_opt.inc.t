@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_opt.inc.t,v 1.3 2003/04/21 14:14:39 hackie Exp $
+*   $Id: post_opt.inc.t,v 1.4 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,9 +24,9 @@ function tmpl_post_options($arg)
 	$edit_time_limit	= '';
 	
 	if (is_object($arg)) {
-		if ($arg->tag_style == 'ML') {
+		if ($arg->forum_opt & 16) {
 			$post_opt_fud = '{TEMPLATE: post_opt_fud_on}';
-		} else if ($arg->tag_style == 'HTML') {
+		} else if (!($arg->forum_opt & 8)) {
 			$post_opt_html = '{TEMPLATE: post_opt_html_on}';
 		}
 		if ($GLOBALS['perms']['p_sml'] == 'Y') {

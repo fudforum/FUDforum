@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.32 2003/07/09 07:55:46 hackie Exp $
+*   $Id: selmsg.php.t,v 1.33 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,7 +134,7 @@ function path_info_lnk($var, $val)
 	make_perms_query($fields, $join);
 	
 	if (!$unread_limit) {
-		$total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '.(isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='._uid : '').' '.(isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='._uid : '').' '.$join.' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' WHERE m.approved=\'Y\' '.$date_limit.' '.($frm_id ? ' AND f.id='.$frm_id : '').' '.($th ? ' AND t.id='.$th : '').' '.(isset($_GET['reply_count']) ? ' AND t.replies='.(int)$_GET['reply_count'] : '').' '.$perm_limit);
+		$total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '.(isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='._uid : '').' '.(isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='._uid : '').' '.$join.' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' WHERE m.apr=1 '.$date_limit.' '.($frm_id ? ' AND f.id='.$frm_id : '').' '.($th ? ' AND t.id='.$th : '').' '.(isset($_GET['reply_count']) ? ' AND t.replies='.(int)$_GET['reply_count'] : '').' '.$perm_limit);
 	}
 
 /*{POST_HTML_PHP}*/
@@ -143,13 +143,13 @@ function path_info_lnk($var, $val)
 		/* figure out the query */
 		$c = $query_type('SELECT 
 			m.*, 
-			t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
 			u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
 			u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-			l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			pot.id AS cant_vote,
 			r.last_view,
@@ -172,7 +172,7 @@ function path_info_lnk($var, $val)
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 		WHERE
-			m.approved=\'Y\'
+			m.apr=1
 			'.$date_limit.'
 			'.($frm_id ? ' AND f.id='.$frm_id : '').'
 			'.($th ? ' AND t.id='.$th : '').'

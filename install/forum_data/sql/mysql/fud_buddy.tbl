@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_buddy.tbl,v 1.1 2002/06/26 19:49:28 hackie Exp $
+#   $Id: fud_buddy.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,8 +13,8 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}buddy;
 CREATE TABLE {SQL_TABLE_PREFIX}buddy
 (
 	id		INT PRIMARY KEY AUTO_INCREMENT,
-	bud_id		INT UNSIGNED NOT NULL,
-	user_id		INT UNSIGNED NOT NULL,
-
-	INDEX(user_id,bud_id)
+	bud_id		INT NOT NULL,
+	user_id		INT NOT NULL
 );
+
+CREATE INDEX {SQL_TABLE_PREFIX}buddy_i_ub ON {SQL_TABLE_PREFIX}buddy (user_id, bud_id);

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_attach.tbl,v 1.4 2003/09/25 21:08:31 hackie Exp $
+#   $Id: fud_attach.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -24,7 +24,3 @@ CREATE TABLE {SQL_TABLE_PREFIX}attach
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}attach_i_mp ON {SQL_TABLE_PREFIX}attach (message_id, attach_opt);
-
-# ALTER TABLE mm_attach ADD attach_opt INT NOT NULL DEFAULT 0, DROP INDEX message_id, ADD INDEX(message_id, attach_opt);
-# UPDATE mm_attach SET attach_opt=1 WHERE private='Y';
-# ALTER TABLE mm_attach DROP private, DROP proto;

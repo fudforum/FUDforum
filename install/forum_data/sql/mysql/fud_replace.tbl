@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_replace.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#   $Id: fud_replace.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,10 +12,16 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}replace;
 
 CREATE TABLE {SQL_TABLE_PREFIX}replace
 (
-	id 		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	type		ENUM('REPLACE', 'PERL') NOT NULL DEFAULT 'REPLACE',
-	replace_str	CHAR(255) NOT NULL,
-	with_str	CHAR(255) NOT NULL,
-	from_post	CHAR(255),
-	to_msg		CHAR(255)
-)
+	id 		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	replace_str	VARCHAR(255) NOT NULL,
+	with_str	VARCHAR(255) NOT NULL,
+	from_post	VARCHAR(255),
+	to_msg		VARCHAR(255),
+	replace_opt	INT NOT NULL DEFAULT 1
+);
+
+# 1 type (REPLACE/PERL)
+
+# ALTER TABLE mm_replace ADD replace_opt INT NOT NULL DEFAULT 1;
+# UPDATE mm_replace SET replace_opt=0 WHERE type='PERL';
+# ALTER TABLE mm_replace DROP type;

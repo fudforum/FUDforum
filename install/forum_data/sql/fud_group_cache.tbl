@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_cache.tbl,v 1.4 2003/09/25 21:08:31 hackie Exp $
+#   $Id: fud_group_cache.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -39,7 +39,3 @@ CREATE INDEX {SQL_TABLE_PREFIX}group_cache_i_g ON {SQL_TABLE_PREFIX}group_cache 
 # 8192 p_MOVE
 # 16384 p_SML
 # 32768 p_IMG
-
-# ALTER TABLE mm_group_cache ADD group_cache_opt INT NOT NULL DEFAULT 0;
-# UPDATE mm_group_cache SET group_cache_opt=(CASE WHEN p_VISIBLE='Y' THEN 1 ELSE 0 END) | (CASE WHEN p_READ='Y' THEN 2 ELSE 0 END) | (CASE WHEN p_POST='Y' THEN 4 ELSE 0 END) | (CASE WHEN p_REPLY='Y' THEN 8 ELSE 0 END) | (CASE WHEN p_EDIT='Y' THEN 16 ELSE 0 END) | (CASE WHEN p_DEL='Y' THEN 32 ELSE 0 END) | (CASE WHEN p_STICKY='Y' THEN 64 ELSE 0 END) | (CASE WHEN p_POLL='Y' THEN 128 ELSE 0 END) | (CASE WHEN p_FILE='Y' THEN 256 ELSE 0 END) | (CASE WHEN p_VOTE='Y' THEN 512 ELSE 0 END) | (CASE WHEN p_RATE='Y' THEN 1024 ELSE 0 END) | (CASE WHEN p_SPLIT='Y' THEN 2048 ELSE 0 END) | (CASE WHEN p_LOCK='Y' THEN 4096 ELSE 0 END) | (CASE WHEN p_MOVE='Y' THEN 8192 ELSE 0 END) | (CASE WHEN p_SML='Y' THEN 16384 ELSE 0 END) | (CASE WHEN p_IMG='Y' THEN 32768 ELSE 0 END);
-# ALTER TABLE mm_group_cache DROP p_VISIBLE, DROP p_READ, DROP p_POST, DROP p_REPLY, DROP p_EDIT, DROP p_DEL, DROP p_STICKY, DROP p_POLL, DROP p_FILE, DROP p_VOTE, DROP p_RATE, DROP p_SPLIT, DROP p_LOCK, DROP p_MOVE, DROP p_SML, DROP p_IMG;

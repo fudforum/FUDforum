@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_cat.tbl,v 1.1 2002/06/26 19:49:28 hackie Exp $
+#   $Id: fud_cat.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,12 +12,16 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}cat;
 
 CREATE TABLE {SQL_TABLE_PREFIX}cat
 (
-	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name		CHAR(50) NOT NULL,
-	description	CHAR(255),
-	
-	allow_collapse	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	default_view	ENUM('OPEN', 'COLLAPSED') NOT NULL DEFAULT 'OPEN',
-	
-	view_order	INT NOT NULL DEFAULT 0
-)
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name		VARCHAR(50) NOT NULL,
+	description	VARCHAR(255),
+	cat_opt	INT NOT NULL DEFAULT 0,
+	view_order	INT NOT NULL DEFAULT 3
+);
+
+# 1 allow_collapse (ON/OFF)
+# 2 default_view (OPEN/COLLAPSED)
+
+# ALTER TABLE mm_cat ADD cat_opt INT NOT NULL DEFAULT 3;
+# UPDATE mm_cat SET cat_opt=(CASE WHEN allow_collapse='Y' THEN 1 ELSE 0 END) | (CASE WHEN default_view='OPEN' THEN 2 ELSE 0 END);
+# ALTER TABLE mm_cat DROP allow_collapse, DROP default_view;

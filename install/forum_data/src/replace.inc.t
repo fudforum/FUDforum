@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.6 2003/05/02 15:32:59 hackie Exp $
+*   $Id: replace.inc.t,v 1.7 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,13 +41,13 @@ function make_replace_array()
 
 function make_reverse_replace_array()
 {
-	$c = uq('SELECT type, with_str, replace_str, from_post, to_msg FROM {SQL_TABLE_PREFIX}replace');
+	$c = uq('SELECT replace_opt, with_str, replace_str, from_post, to_msg FROM {SQL_TABLE_PREFIX}replace');
 
 	while ($r = db_rowarr($c)) {
-		if ($r[0] == 'PERL') {
+		if (!$r[0]) {
 			$GLOBALS['__FUD_REPLR__']['pattern'][] = $r[3];
 			$GLOBALS['__FUD_REPLR__']['replace'][] = $r[4];
-		} else if ($r[0] == 'REPLACE' && strlen($r[1]) && strlen($r[2])) {
+		} else if ($r[0] && strlen($r[1]) && strlen($r[2])) {
 			$GLOBALS['__FUD_REPLR__']['pattern'][] = '/'.str_replace('/', '\\/', preg_quote(stripslashes($r[1]))).'/';
 			preg_match('/\/(.+)\/(.*)/', $r[2], $regs);
 			$GLOBALS['__FUD_REPLR__']['replace'][] = str_replace('\\/', '/', $regs[1]);

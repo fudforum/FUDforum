@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.13 2003/09/25 00:58:08 hackie Exp $
+*   $Id: getfile.php.t,v 1.14 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
 			'.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read' : 'g1.p_READ as p_read').'
 			FROM {SQL_TABLE_PREFIX}attach a
-			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.private=\'N\'
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=t.forum_id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mod ON mod.forum_id=t.forum_id AND mod.user_id='._uid.'
@@ -41,7 +41,7 @@
 	} else {
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, pm.id, a.owner
 			FROM {SQL_TABLE_PREFIX}attach a
-			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.private=\'Y\'
+			INNER JOIN {SQL_TABLE_PREFIX}pmsg pm ON a.message_id=pm.id AND a.attach_opt=1
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
 			WHERE a.id='.$id);
 		if (!$r) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.37 2003/07/09 07:55:46 hackie Exp $
+*   $Id: index.php.t,v 1.38 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,25 +85,24 @@ function url_tog_collapse($id, $c)
 	  4	users.alias
 	  5	cat.description, 
 	  6	cat.name, 
-	  7	cat.default_view, 
-	  8	cat.allow_collapse, 
-	  9	forum.cat_id,
-	  10	forum.forum_icon
-	  11	forum.id
-	  12	forum.last_post_id
-	  13	forum.moderators
-	  14	forum.name
-	  15	forum.descr
-	  16	forum.post_count
-	  17	forum.thread_count
-	  18	forum_read.last_view
-	  19	is_moderator
-	  20	read perm
+	  7	cat.cat_opt, 
+	  8	forum.cat_id,
+	  9	forum.forum_icon
+	  10	forum.id
+	  11	forum.last_post_id
+	  12	forum.moderators
+	  13	forum.name
+	  14	forum.descr
+	  15	forum.post_count
+	  16	forum.thread_count
+	  17	forum_read.last_view
+	  18	is_moderator
+	  19	read perm
 	*/
 	$frmres = uq('SELECT 
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
-				c.description, c.name, c.default_view, c.allow_collapse,
+				c.description, c.name, c.cat_opt,
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
 				mo.id AS md,
@@ -121,13 +120,13 @@ function url_tog_collapse($id, $c)
 		
 	$post_count = $thread_count = $last_msg_id = $cat = 0;	
 	while ($r = db_rowarr($frmres)) {
-		if ($cat != $r[9]) {
-			if ($r[8] == 'Y') {
-				if (!isset($GLOBALS['collapse'][$r[9]])) {
-					$GLOBALS['collapse'][$r[9]] = ($r[7] == 'COLLAPSED' ? 1 : 0);
+		if ($cat != $r[8]) {
+			if ($r[7] & 2) {
+				if (!isset($GLOBALS['collapse'][$r[8]])) {
+					$GLOBALS['collapse'][$r[8]] = ($r[7] & 1 ? 0 : 1);
 				}
 				
-				if (!empty($GLOBALS['collapse'][$r[9]])) {
+				if (!empty($GLOBALS['collapse'][$r[8]])) {
 					$collapse_status = '{TEMPLATE: maximize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MAX}';
 				} else {
@@ -139,34 +138,34 @@ function url_tog_collapse($id, $c)
 			} else {
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 			}
-			$cat = $r[9];
+			$cat = $r[8];
 		}
 
-		if (!empty($GLOBALS['collapse'][$r[9]])) {
+		if (!empty($GLOBALS['collapse'][$r[8]])) {
 			continue;
 		}
 
-		if ($r[10]) {
+		if ($r[9]) {
 			$forum_icon = '{TEMPLATE: forum_icon}';
 		} else {
 			$forum_icon = '{TEMPLATE: no_forum_icon}';
 		}
 
 		/* increase thread & post count */
-		$post_count += $r[16];
-		$thread_count += $r[17];
+		$post_count += $r[15];
+		$thread_count += $r[16];
 
-		if ($r[20] == 'N' && $usr->is_mod != 'A' && !$r[19]) { /* visible forum with no 'read' permission */
+		if ($r[19] == 'N' && $usr->is_mod != 'A' && !$r[18]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
 
 		/* code to determine the last post id for 'latest' forum message */
-		if ($r[12] > $last_msg_id) {
-			$last_msg_id = $r[12];
+		if ($r[11] > $last_msg_id) {
+			$last_msg_id = $r[11];
 		}
 
-		if (_uid && $r[18] < $r[2] && $usr->last_read < $r[2]) {
+		if (_uid && $r[17] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
 		} else if (_uid) {
 			$forum_read_indicator = '{TEMPLATE: forum_read}';
@@ -174,7 +173,7 @@ function url_tog_collapse($id, $c)
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
 		}
 
-		if ($r[12]) {
+		if ($r[11]) {
 			if ($r[3]) {
 				$last_poster_profile = '{TEMPLATE: profile_link_user}';
 			} else {
@@ -186,7 +185,7 @@ function url_tog_collapse($id, $c)
 		}
 
 		$moderators = '';
-		if ($r[13] && ($mods = @unserialize($r[13]))) {
+		if ($r[12] && ($mods = @unserialize($r[12]))) {
 			foreach($mods as $k => $v) {
 				$moderators .= '{TEMPLATE: profile_link_mod}';	
 			}

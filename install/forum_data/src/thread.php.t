@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.23 2003/07/09 07:39:21 hackie Exp $
+*   $Id: thread.php.t,v 1.24 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 		u2.id, u2.alias,
 		m2.id, m2.post_stamp, 
 		f.id, f.name,
-		t.id, t.moved_to, t.root_msg_id, t.replies, t.locked, t.rating, t.is_sticky, t.ordertype, t.views,
+		t.id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views,
 		r.last_view
 		FROM {SQL_TABLE_PREFIX}thread_view tv
 			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id 
@@ -58,12 +58,10 @@
 	 * 14 thread.moved_to 
 	 * 15 thread.root_msg_id
 	 * 16 thread.replies
-	 * 17 thread.locked
+	 * 17 thread.thread_opt
 	 * 18 thread.rating
-	 * 19 thread.is_sticky
-	 * 20 thread.ordertype
-	 * 21 thread.views
-	 * 22 read.last_view
+	 * 19 thread.views
+	 * 20 read.last_view
 	 */
 
 	if (!($r = @db_rowarr($result))) {
@@ -119,8 +117,8 @@
 			} else {
 				$rating = '';
 			}
-			if ($r[19] == 'Y') {
-				$stick_status = $r[20] == 'STICKY' ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}';
+			if ($r[17] > 1) {
+				$stick_status = $r[17] & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}';
 			} else {
 				$stick_status = '';
 			}
@@ -128,8 +126,8 @@
 			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
 
 			$thread_read_status = $first_unread_msg_link = '';
-			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[22]) {
-				if ($r[17] == 'Y') {
+			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[21]) {
+				if ($r[17] & 1) {
 					$thread_read_status = '{TEMPLATE: thread_unread_locked}';
 				} else {
 					$thread_read_status = '{TEMPLATE: thread_unread}';
@@ -141,7 +139,7 @@
 			}
 
 			if (!$thread_read_status) {
-				if ($r[17] == 'Y') {
+				if ($r[17] & 1) {
 					$thread_read_status = '{TEMPLATE: thread_read_locked}';
 				} else if (!_uid) {
 					$thread_read_status = '{TEMPLATE: thread_read_unreg}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.53 2003/09/23 15:36:34 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.54 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,7 +215,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	if ($obj->user_id) {
 		if (!$hide_controls) {
-			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_pri != 'L') {
+			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
 				$avatar = '{TEMPLATE: dmsg_avatar}';
 			} else {
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
@@ -248,9 +248,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			} else {
 				$buddy_link = $ignore_link = '';
 			}
-			if ($obj->level_pri) {
+			if ($obj->level_opt) {
 				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
-				$level_image = ($obj->level_pri != 'A' && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
+				$level_image = ($obj->level_opt != 1 && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
 			} else {
 				$level_name = $level_image = '';
 			}
@@ -299,7 +299,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	/* handle poll votes */
-	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && $obj->locked == 'N' && $perms['p_vote'] == 'Y') {
+	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && !($obj->thread_opt & 1) && $perms['p_vote'] == 'Y') {
 		if (register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id)) {
 			$obj->total_votes += 1;
 			$obj->cant_vote = 1;
@@ -314,7 +314,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		/* various conditions that may prevent poll voting */		
 		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
-			if ($perms['p_vote'] == 'Y' && ($obj->locked == 'N' || $perms['p_lock'] == 'Y')) {
+			if ($perms['p_vote'] == 'Y' && (!($obj->thread_opt & 1) || $perms['p_lock'] == 'Y')) {
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
 					/* check if the max # of poll votes was reached */
 					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
@@ -394,7 +394,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 
-		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs == 'Y') {
+		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->msg_opt & 1 && $usr->show_sigs == 'Y') {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
 			$signature = '';
@@ -432,7 +432,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$edit_link = '';
 		}
 
-		if ($obj->locked == 'N' || $perms['p_lock'] == 'Y') {
+		if (!($obj->thread_opt & 1) || $perms['p_lock'] == 'Y') {
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
 		} else {

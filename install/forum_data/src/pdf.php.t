@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.10 2003/07/22 01:19:01 hackie Exp $
+*   $Id: pdf.php.t,v 1.11 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -377,7 +377,7 @@ function post_to_smiley($text, $re)
 				p.name AS poll_name, p.total_votes
 			'.$join.'
 			WHERE
-				m.approved=\'Y\' '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
+				m.apr=1 '.$lmt.' ORDER BY m.post_stamp, m.thread_id');
 
 	if (!($o = db_rowobj($c))) {
 		invl_inp_err();

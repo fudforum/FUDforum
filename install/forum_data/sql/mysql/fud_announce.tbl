@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_announce.tbl,v 1.1 2002/06/26 19:49:28 hackie Exp $
+#   $Id: fud_announce.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,12 +12,12 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}announce;
 
 CREATE TABLE {SQL_TABLE_PREFIX}announce
 (
-	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	date_started	INT NOT NULL,
-	date_ended	INT NOT NULL,
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	date_started	BIGINT NOT NULL,
+	date_ended	BIGINT NOT NULL,
 
-	subject		CHAR(255) NOT NULL,
-	text		TEXT NOT NULL,
-		
-	INDEX(date_started, date_ended)
+	subject		VARCHAR(255) NOT NULL,
+	text		TEXT NOT NULL
 );
+
+CREATE INDEX {SQL_TABLE_PREFIX}announce_i_dd ON {SQL_TABLE_PREFIX}announce (date_started, date_ended);

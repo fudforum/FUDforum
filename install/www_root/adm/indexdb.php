@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.9 2003/05/26 11:15:05 hackie Exp $
+*   $Id: indexdb.php,v 1.10 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,7 +60,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		q('DELETE FROM '.$tbl.'search_cache');
 	}
 
-	$c = q('SELECT id, subject, length, foff, file_id FROM '.$tbl.'msg WHERE '.($sid ? ' id>'.$sid.' AND ' : '').' approved=\'Y\' ORDER BY subject');
+	$c = q('SELECT id, subject, length, foff, file_id FROM '.$tbl.'msg WHERE '.($sid ? ' id>'.$sid.' AND ' : '').' apr=1 ORDER BY subject');
 	$old_subject = '';
 	while ($r = db_rowarr($c)) {
 		if ($old_subject != $r[1]) {

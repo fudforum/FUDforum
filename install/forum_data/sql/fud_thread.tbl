@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread.tbl,v 1.4 2003/09/25 21:08:32 hackie Exp $
+#   $Id: fud_thread.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -32,9 +32,6 @@ CREATE INDEX {SQL_TABLE_PREFIX}thread_i_rmi ON {SQL_TABLE_PREFIX}thread (root_ms
 CREATE INDEX {SQL_TABLE_PREFIX}thread_i_r ON {SQL_TABLE_PREFIX}thread (replies);
 
 # 1 locked
-# 2 sticky ANNOUNCE
-# 4 sticky STICKY
-
-# ALTER TABLE mm_thread ADD thread_opt INT NOT NULL DEFAULT 0, ADD INDEX(thread_opt), DROP INDEX is_sticky;
-# UPDATE mm_thread SET thread_opt=(CASE WHEN locked='Y' THEN 1 ELSE 0 END) | (CASE WHEN thread_opt='ANNOUNCE' AND is_sticky='Y' THEN 2 ELSE 0 END) | (CASE WHEN thread_opt='STICKY' AND is_sticky='Y' THEN 4 ELSE 0 END);
-# ALTER TABLE mm_thread DROP locked, DROP is_sticky, DROP ordertype;
+# 2 is_sticky ANNOUNCE
+# 4 is_sticky STICKY
+# ordertype (removed)

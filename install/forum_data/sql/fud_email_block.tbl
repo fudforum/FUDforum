@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_email_block.tbl,v 1.3 2003/09/25 16:52:49 hackie Exp $
+#   $Id: fud_email_block.tbl,v 1.4 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -20,7 +20,3 @@ CREATE TABLE {SQL_TABLE_PREFIX}email_block
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}email_block_i_s ON {SQL_TABLE_PREFIX}email_block (string);
 
 # 1 type (SIMPLE/REGEX)
-
-# ALTER TABLE mm_email_block ADD email_block_opt INT NOT NULL DEFAULT 0;
-# UPDATE mm_email_block SET email_block_opt=0 WHERE type='REGEX';
-# ALTER TABLE mm_email_block DROP type;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.1 2003/09/20 04:07:40 hackie Exp $
+*   $Id: merge_th.php.t,v 1.2 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
 			if ($forum != $frm) {
 				$p = array();
-				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND approved=\'Y\' AND poll_id>0');
+				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id IN('.$tl.') AND apr=1 AND poll_id>0');
 				while ($r = db_rowarr($c)) {
 					$p[] = $r[0];
 				}
@@ -96,7 +96,7 @@
 			if ($forum != $frm) {
 				rebuild_forum_view($frm);
 				foreach (array($frm, $forum) as $v) {
-					$r = db_saq("SELECT MAX(last_post_id), SUM(replies), COUNT(*) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON root_msg_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.approved='Y' WHERE forum_id={$v}");
+					$r = db_saq("SELECT MAX(last_post_id), SUM(replies), COUNT(*) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON root_msg_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.apr=1 WHERE forum_id={$v}");
 					if (empty($r[2])) {
 						$r = array(0,0,0);
 					}

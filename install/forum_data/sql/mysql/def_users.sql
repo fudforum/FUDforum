@@ -1,1 +1,1 @@
-INSERT INTO {SQL_TABLE_PREFIX}users (login, alias, display_email, pm_messages, append_sig, time_zone, default_view, is_mod, acc_status, theme, email, passwd, name) VALUES('Anonymous Coward', 'Anonymous Coward', 'N', 'N', 'N', 'America/Montreal', 'msg', 'N', 'A', 1, 'dev@null', '1', 'Anonymous Coward');
+INSERT INTO {SQL_TABLE_PREFIX}users (login, alias, time_zone, theme, email, passwd, name, users_opt) VALUES('Anonymous Coward', 'Anonymous Coward', 'America/Montreal', 'dev@null' '1', 'Anonymous Coward', 1|4|16|32|128|256|512|2048|4096|8192|16384|262144|2097152|4194304);

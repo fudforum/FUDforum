@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.3 2003/07/31 00:12:15 hackie Exp $
+*   $Id: mnav.php.t,v 1.4 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,7 +63,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE 
-					m.post_stamp > '.$tm.' AND m.approved=\'Y\' '.$qry_lmt.'
+					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
 					'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ''));
 		if (!$total) {
 			$mnav_pager = '';
@@ -82,7 +82,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE 
-					m.post_stamp > '.$tm.' AND m.approved=\'Y\' '.$qry_lmt.'
+					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
 					'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '').'
 					ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
 

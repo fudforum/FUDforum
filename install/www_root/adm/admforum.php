@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.17 2003/09/25 01:27:59 hackie Exp $
+*   $Id: admforum.php,v 1.18 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,6 +51,9 @@ function get_max_upload_size()
 		if ($_POST['frm_max_attach_size'] > $max_upload_size) {
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
+		/* (int) $_POST['frm_anon_forum']  is unused */
+		$_POST['frm_forum_opt'] = (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
+		unset($_POST['frm_moderated'], $_POST['frm_passwd_posting'], $_POST['frm_tag_style']);
 
 		if (!$edit) {
 			fud_use('groups_adm.inc', true);
@@ -79,7 +82,7 @@ function get_max_upload_size()
 		$frm_max_attach_size = floor($max_upload_size / 1024);
 		$frm_message_threshold = '0';
 		$frm_max_file_attachments = '1';
-		$frm_moderated = $frm_passwd_posting = 'N';
+		$frm_forum_opt = 16;
 	}
 
 	if (isset($_GET['chpos'], $_GET['newpos'])) {
@@ -128,12 +131,12 @@ if (!isset($_GET['chpos'])) {
 	
 	<tr bgcolor="#bff8ff">
 		<td>Tag Style</td>
-		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $frm_tag_style); ?></td>
+		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
 		<td>Password Posting<br><font size=-2>Posting is only allowed with a knowledge of a password</font></td>
-		<td><?php draw_select('frm_passwd_posting', "No\nYes", "N\nY", $frm_passwd_posting); ?></td>
+		<td><?php draw_select('frm_passwd_posting', "No\nYes", "0\n4", $frm_forum_opt & 4); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -143,7 +146,7 @@ if (!isset($_GET['chpos'])) {
 	
 	<tr bgcolor="#bff8ff">
 		<td>Moderated Forum</td>
-		<td><?php draw_select('frm_moderated', "No\nYes", "N\nY", yn($frm_moderated)); ?></td>
+		<td><?php draw_select('frm_moderated', "No\nYes", "0\n2", $frm_forum_opt & 2); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -218,7 +221,7 @@ if (!isset($_GET['chpos'])) {
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
 	$i = 1;
-	$c = uq('SELECT id, name, descr, passwd_posting, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
+	$c = uq('SELECT id, name, descr, forum_opt, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' bgcolor="#ffb5b5"';
@@ -234,7 +237,7 @@ if (!isset($_GET['chpos'])) {
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'"><input type="hidden" name="cat_id" value="'.$cat_id.'"><input type="submit" name="btn_chcat" value="Move To: "> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.substr($r->descr, 0, 30).'</font></td><td>'.($r->passwd_posting == 'Y' ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'._rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'._rsidl.'">Change</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.substr($r->descr, 0, 30).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'._rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'._rsidl.'">Change</a>]</td></tr>';
 	}
 	qf($c);
 	if (isset($lp)) {

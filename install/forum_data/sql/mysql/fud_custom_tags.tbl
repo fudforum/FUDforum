@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_custom_tags.tbl,v 1.1 2002/06/26 19:49:28 hackie Exp $
+#   $Id: fud_custom_tags.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,9 +12,9 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}custom_tags;
 
 CREATE TABLE {SQL_TABLE_PREFIX}custom_tags
 (
-	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name		CHAR(255) NOT NULL,
-	user_id		INT UNSIGNED NOT NULL,
-	
-	INDEX(user_id)
-)
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name		VARCHAR(255) NOT NULL,
+	user_id		INT NOT NULL
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}custom_tags_i_u ON {SQL_TABLE_PREFIX}custom_tags (user_id);

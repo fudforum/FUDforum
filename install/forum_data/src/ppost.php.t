@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.42 2003/09/23 16:36:47 hackie Exp $
+*   $Id: ppost.php.t,v 1.43 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,9 +22,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_subject = $m->subject;
 	$msg_body = read_pmsg_body($m->foff, $m->length);
 	$msg_icon = $m->icon;
-	$msg_smiley_disabled = $m->smiley_disabled == 'Y' ? 1 : NULL;
-	$msg_show_sig = $m->show_sig == 'Y' ? 1 : NULL;
-	$msg_track = $m->track == 'Y' ? 1 : NULL;
+	$msg_smiley_disabled = $m->pmsg_opt & 2 ? '2' : '';
+	$msg_show_sig = $m->pmsg_opt & 1 ? '1' : '';
+	$msg_track = $m->pmsg_opt & 4 ? '4' : '';
 	$msg_to_list = $m->to_list;
 
 	reverse_fmt($msg_subject);
@@ -70,9 +70,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if (!isset($_POST['prev_loaded'])) {
 		/* setup some default values */
 		$msg_subject = $msg_body = $msg_icon = $old_subject = $msg_ref_msg_id = '';
-		$msg_track = NULL;
-		$msg_show_sig = $usr->append_sig == 'Y' ? 1 : NULL;
-		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? NULL : 1;
+		$msg_track = '';
+		$msg_show_sig = $usr->append_sig == 'Y' ? '1' : '';
+		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? '' : '2';
 		$reply = $forward = $msg_id = 0;
 		
 		/* deal with users passed via GET */
@@ -83,11 +83,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 	
 		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
-			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
+			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list, 1);
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
-			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id '.(isset($_GET['quote']) ? ', to_list' : '').' FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
+			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id '.(isset($_GET['quote']) ? ', to_list' : '').' FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
 				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
 
@@ -136,7 +136,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		
 		/* restore file attachments */
 		if (!empty($msg_r->attach_cnt) && $PRIVATE_ATTACHMENTS > 0) {
-			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_r->id.' AND private=\'Y\'');
+			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_r->id.' AND attach_opt=1');
 	 		while ($r = db_rowarr($c)) {
 	 			$attach_list[$r[0]] = $r[0];
 	 		}
@@ -157,9 +157,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$old_subject = $_POST['old_subject'];
 		$msg_body = $_POST['msg_body'];
 		$msg_icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
-		$msg_track = isset($_POST['msg_track']) ? 1 : NULL;
-		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 1 : NULL;
-		$msg_show_sig = isset($_POST['msg_show_sig']) ? 1 : NULL;
+		$msg_track = isset($_POST['msg_track']) ? '4' : '';
+		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? '2' : '';
+		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
 
 		$reply = isset($_POST['quote']) ? (int)$_POST['quote'] : 0;
 		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
@@ -218,14 +218,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 	if ((isset($_POST['btn_submit']) && !check_ppost_form($_POST['msg_subject'])) || isset($_POST['btn_draft'])) {
 		$msg_p = new fud_pmsg;
-		$msg_p->smiley_disabled = $msg_smiley_disabled ? 'Y' : 'N';
-		$msg_p->show_sig = $msg_show_sig ? 'Y' : 'N';
-		$msg_p->track = $msg_track ? 'Y' : 'N';
+		$msg_p->pmsg_opt = (int) $msg_smiley_disabled | (int) $msg_show_sig | (int) $msg_track;
 		$msg_p->attach_cnt = $attach_count;
 		$msg_p->icon = $msg_icon;
 		$msg_p->body = $msg_body;
 		$msg_p->subject = $msg_subject;
-		$msg_p->folder_id = isset($_POST['btn_submit']) ? 'SENT' : 'DRAFT';
+		$msg_p->fldr = isset($_POST['btn_submit']) ? 3 : 4;
 		$msg_p->to_list = $_POST['msg_to_list'];
 		
 		$msg_p->body = apply_custom_replace($msg_p->body);
@@ -239,7 +237,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$msg_p->body = nl2br(htmlspecialchars($msg_p->body));	
 		}
 		
-		if ($msg_p->smiley_disabled != 'Y') {
+		if (!($msg_p->pmsg_opt & 2)) {
 			$msg_p->body = smiley_to_post($msg_p->body);
 		}
 		fud_wordwrap($msg_p->body);
@@ -273,7 +271,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				
 			/* we need to add attachments to all copies of the message */
 			if (!isset($_POST['btn_draft'])) {
-				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND private=\'Y\'');
+				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND attach_opt=1');
 				while ($r = db_rowarr($c)) {
 					$atl[$r[0]] = "'".addslashes($r[1])."', ".$r[2].", ".$r[3];
 				}
@@ -281,7 +279,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				if (isset($atl)) {
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
-							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', \'Y\', ' . $mid[1] . ', ' . $v .', \'\')');
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', 1, ' . $mid[1] . ', ' . $v .', \'\')');
 							$aidl[] = $aid;
 							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
 							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));
@@ -293,9 +291,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			}
 		}
 		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?t=pmsg&'._rsidl.'&folder_id=INBOX');
+			header('Location: {ROOT}?t=pmsg&'._rsidl.'&fldr=1');
 		} else {
-			header('Location: {ROOT}/pdm/INBOX/'._rsidl);
+			header('Location: {ROOT}/pdm/1/'._rsidl);
 		}
 		exit;
 	}
@@ -316,14 +314,14 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$text = htmlspecialchars($text);
 		}
 
-		if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+		if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 
 	 	if ($text) {	
 			$text = spell_replace(tokenize_string($text), 'body');
 			
-			if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+			if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
 				$msg_body = post_to_smiley($text);
 			}
 			
@@ -373,7 +371,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			default:
 				$text = nl2br(htmlspecialchars($text));
 		}
-		if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+		if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 		$text_s = htmlspecialchars($text_s);
@@ -387,7 +385,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$subj = ($spell && !$no_spell_subject && $text_s) ? check_data_spell($text_s, 'subject', $usr->pspell_lang) : $text_s;
 
-		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && isset($msg_show_sig)) ? '{TEMPLATE: signature}' : '';
+		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && $msg_show_sig) ? '{TEMPLATE: signature}' : '';
 		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
 		$preview_message = '{TEMPLATE: preview_message}';
 	} else {
@@ -418,11 +416,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$file_attachments = '';	
 	}
 
-	$msg_track_check = isset($msg_track) ? ' checked' : '';
-	$msg_show_sig_check = isset($msg_show_sig) ? ' checked' : '';
+	$msg_track_check = $msg_track ? ' checked' : '';
+	$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
 
 	if ($PRIVATE_MSG_SMILEY == 'Y') {
-		$msg_smiley_disabled_check = isset($msg_smiley_disabled) ? ' checked' : '';
+		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	} else {
 		$disable_smileys = '';

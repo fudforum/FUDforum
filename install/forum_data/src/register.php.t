@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.65 2003/09/24 19:25:41 hackie Exp $
+*   $Id: register.php.t,v 1.66 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 function create_theme_select($name, $def=NULL)
 {
 	$theme_select_values = '';
-	$r = uq("SELECT id,name FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y' ORDER BY id ASC");
+	$r = uq("SELECT id,name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt & 1 ORDER BY id ASC");
 	while ($t = db_rowarr($r)) {
 		$selected = $t[0] == $def ? ' selected' : '';
 		$theme_select_values .= '{TEMPLATE: theme_select_value}';

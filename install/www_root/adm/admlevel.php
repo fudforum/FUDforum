@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.10 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admlevel.php,v 1.11 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,21 +22,21 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['lev_submit'])) {
-		q('INSERT INTO '.$tbl.'level (name, img, pri, post_count) VALUES (\''.addslashes($_POST['lev_name']).'\', '.strnull(addslashes($_POST['lev_img'])).', \''.addslashes($_POST['lev_pri']).'\', '.(int)$_POST['lev_post_count'].')');
+		q('INSERT INTO '.$tbl.'level (name, img, level_opt, post_count) VALUES (\''.addslashes($_POST['lev_name']).'\', '.strnull(addslashes($_POST['lev_img'])).', '.(int)$_POST['lev_level_opt'].', '.(int)$_POST['lev_post_count'].')');
 	} else if (isset($_POST['edit'], $_POST['lev_update'])) {
 		q('UPDATE '.$tbl.'level SET 
 			name=\''.addslashes($_POST['lev_name']).'\',
 			img='.strnull(addslashes($_POST['lev_img'])).',
-			pri=\''.addslashes($_POST['lev_pri']).'\',
+			level_opt='.(int)$_POST['lev_level_opt']).',
 			post_count='.(int)$_POST['lev_post_count'].'
 		WHERE id='.(int)$_POST['edit']);	
 	}
 
 	if (isset($_GET['edit'])) {
 		$edit = (int)$_GET['edit'];
-		list($lev_name, $lev_img, $lev_pri,$lev_post_count) = db_saq('SELECT name, img, pri, post_count FROM '.$tbl.'level WHERE id='.(int)$_GET['edit']);
+		list($lev_name, $lev_img, $lev_level_opt, $lev_post_count) = db_saq('SELECT name, img, level_opt, post_count FROM '.$tbl.'level WHERE id='.(int)$_GET['edit']);
 	} else {
-		$edit = $lev_name = $lev_img = $lev_pri = $lev_post_count = '';
+		$edit = $lev_name = $lev_img = $lev_level_opt = $lev_post_count = '';
 	}
 
 	if (isset($_GET['del'])) {
@@ -74,7 +74,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Which Image to Show:</td>
-		<td><?php draw_select("lev_pri", "Avatar & Rank Image\nAvatar Only\nRank Image Only", "B\nA\nL", $lev_pri); ?></td>
+		<td><?php draw_select("lev_level_opt", "Avatar & Rank Image\nAvatar Only\nRank Image Only", "0\n1\n2", $lev_level_opt); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">

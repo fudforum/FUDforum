@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.13 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admthemesel.php,v 1.14 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
 
-	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE t_default=\'Y\'');
+	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">

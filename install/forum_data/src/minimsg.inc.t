@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.15 2003/04/21 14:14:39 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.16 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,13 +24,13 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 	$total = $thr->replies + 1;
 
 	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
-		$start = ($total - q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND approved='Y' AND id>=".$reply_to));
+		$start = ($total - q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND apr=1 AND id>=".$reply_to));
 		$msg_order_by = 'ASC';
 	} else {
 		$msg_order_by = 'DESC';
 	}
 		
-	$c = uq('SELECT m.*, t.locked, t.root_msg_id, t.last_post_id, t.forum_id, 
+	$c = uq('SELECT m.*, t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id, 
 			u.id AS user_id, u.alias AS login, u.invisible_mode, u.last_visit AS time_sec,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,  p.total_votes
 		FROM 
@@ -39,7 +39,7 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 		WHERE 
-			m.thread_id='.$th_id.' AND m.approved=\'Y\'
+			m.thread_id='.$th_id.' AND m.apr=1
 		ORDER BY id '.$msg_order_by.' LIMIT '.qry_limit($count, $start));
 	
 	$message_data='';

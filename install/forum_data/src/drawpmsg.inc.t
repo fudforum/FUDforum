@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.22 2003/07/09 10:12:56 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.23 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ $GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
 function tmpl_drawpmsg(&$obj, &$usr, $mini)
 {
 	if (!$mini) {
-		if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_pri != 'L') {
+		if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
 			$avatar = '{TEMPLATE: dpmsg_avatar}';
 		} else {
 			$avatar = '{TEMPLATE: dpmsg_no_avatar}';
@@ -57,9 +57,9 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		} else {
 			$buddy_link = '';
 		}
-		if ($obj->level_pri) {
+		if ($obj->level_opt) {
 			$level_name = $obj->level_name ? '{TEMPLATE: dpmsg_level_name}' : '';
-			$level_image = ($obj->level_pri != 'A' && $obj->level_img) ? '{TEMPLATE: dpmsg_level_image}' : '';
+			$level_image = ($obj->level_opt != 1 && $obj->level_img) ? '{TEMPLATE: dpmsg_level_image}' : '';
 		} else {
 			$level_name = $level_image = '';
 		}
@@ -85,8 +85,8 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
 		}
-		$edit_link = $obj->folder_id == 'DRAFT' ? '{TEMPLATE: dpmsg_edit_link}' : '';
-		if ($obj->folder_id == 'INBOX') {
+		$edit_link = $obj->fldr == 4 ? '{TEMPLATE: dpmsg_edit_link}' : '';
+		if ($obj->fldr == 1) {
 			$reply_link = '{TEMPLATE: dpmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dpmsg_quote_link}';
 		} else {
@@ -102,7 +102,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 
 	$file_attachments = '';
 	if ($obj->attach_cnt) {
-		$c = uq('SELECT a.id, a.original_name, a.dlcount, m.icon, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.message_id='.$obj->id.' AND private=\'Y\'');
+		$c = uq('SELECT a.id, a.original_name, a.dlcount, m.icon, a.fsize FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.message_id='.$obj->id.' AND attach_opt=1');
 		while ($r = db_rowobj($c)) {
 			$sz = $r->fsize/1024;
 			$sz = $sz<1000 ? number_format($sz, 2).'KB' : number_format($sz / 1024 ,2).'MB';
@@ -117,7 +117,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		}
 	}
 
-	if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs == 'Y' && $obj->sig) {
+	if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->pmsg_opt & 1 && $usr->show_sigs == 'Y' && $obj->sig) {
 		$signature = '{TEMPLATE: dpmsg_signature}';
 	} else {
 		$signature = '';

@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.28 2003/06/17 17:16:12 hackie Exp $
+*   $Id: maillist.php,v 1.29 2003/09/26 18:49:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -127,7 +127,7 @@ class fud_emsg
 		}
 	}
 
-	function decode_body($html='N')
+	function decode_body($html=0)
 	{
 		switch ($this->headers['content-type']) {
 			case 'text/plain':
@@ -135,7 +135,7 @@ class fud_emsg
 				break;
 			case 'text/html':
 				$this->decode_message_body();
-				$this->body = ($html == 'N' ? strip_tags($this->body) : $this->body);
+				$this->body = (!$html ? strip_tags($this->body) : $this->body);
 				break;
 			case 'multipart/parallel': // Apparently same as multipart/mixed but order of body parts does not matter
 	                case 'multipart/report': // RFC1892 ( 1st part is human readable, identical to multipart/mixed )
@@ -220,7 +220,7 @@ class fud_emsg
 		$this->body = decode_string($this->body, $this->headers['content-transfer-encoding']);
 	}
 
-	function parse_input($html='N', $data='', $internal=false)
+	function parse_input($html=0, $data='', $internal=false)
 	{
 		$this->read_data($data);
 		$this->split_hdr_body();
@@ -372,10 +372,10 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		exit('Invalid list identifier');
 	}
 
-	$GLOBALS['CREATE_NEW_USERS'] = $mlist->create_users;
+	$GLOBALS['CREATE_NEW_USERS'] = $mlist->mlist_opt & 64;
 	$GLOBALS['MODERATE_USER_REGS'] = 'N';
 
-	$frm = db_sab('SELECT id, tag_style, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
+	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
 
 	$emsg = new fud_emsg();
 	
@@ -384,7 +384,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->body_cleanup_rgx = $mlist->body_regex_haystack;
 	$emsg->body_cleanup_rep = $mlist->body_regex_needle;
 	
-	$emsg->parse_input($mlist->allow_mlist_html);
+	$emsg->parse_input($mlist->mlist_opt & 16);
 	
 	$emsg->fetch_useful_headers();
 	$emsg->clean_up_data();
@@ -402,8 +402,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	}
 	
 	$msg_post->body = apply_custom_replace($emsg->body);
-	if ($mlist->allow_mlist_html == 'N') {
-		if ($frm->tag_style == 'ML') { 
+	if (!($mlist->mlist_opt & 16)) {
+		if ($frm->forum_opt & 16) { 
 			$msg_post->body = tags_to_html($msg_post->body, 'N');
 		} else {
 			$msg_post->body = nl2br($msg_post->body);
@@ -416,24 +416,23 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		mlist_error_log("Blank Subject", $emsg->raw_msg, 'ERROR');
 	}
 	
-	$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->create_users, $emsg->user_id);
+	$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
 	$msg_post->ip_addr = $emsg->ip;
 	$msg_post->mlist_msg_id = addslashes($emsg->msg_id);
 	$msg_post->attach_cnt = 0;
-	$msg_post->smiley_disabled = 'Y';
 	$msg_post->poll_id = 0;
-	$msg_post->show_sig = 'N';
+	$msg_post->msg_opt = 2;
 	if (($msg_post->post_stamp = strtotime($emsg->headers['date'])) <= 0 || $msg_post->post_stamp > time()) {
 		$msg_post->post_stamp = __request_timestamp__;
 	}
 
 	// try to determine whether this message is a reply or a new thread
-	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->complex_reply_match, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
+	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
 
 	$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
 	
 	// Handle File Attachments
-	if ($mlist->allow_mlist_attch == 'Y' && isset($emsg->attachments) && is_array($emsg->attachments)) {
+	if ($mlist->mlist_opt & 8 && isset($emsg->attachments) && is_array($emsg->attachments)) {
 		foreach($emsg->attachments as $key => $val) {
 			$tmpfname = tempnam($GLOBALS['TMP'], 'FUDf_');
 			$fp = fopen($tmpfname, 'wb');
@@ -449,7 +448,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		}
 	}	
 
-	if ($mlist->mlist_post_apr == 'N') {
+	if (!($mlist->mlist_opt & 1)) {
 		$msg_post->approve($msg_post->id, TRUE);
 	}
 ?>

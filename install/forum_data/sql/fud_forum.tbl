@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_forum.tbl,v 1.4 2003/09/25 21:08:31 hackie Exp $
+#   $Id: fud_forum.tbl,v 1.5 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -43,7 +43,3 @@ CREATE INDEX {SQL_TABLE_PREFIX}forum_i_lpi ON {SQL_TABLE_PREFIX}forum (last_post
 # 4 passwd_posting (ON/OFF)
 # 8 tag_style NONE
 # 16 tag_style (ML/HTML)
-
-# ALTER TABLE mm_forum ADD forum_opt INT NOT NULL DEFAULT 16;
-# UPDATE mm_forum SET forum_opt=(CASE WHEN anon_forum='Y' THEN 1 ELSE 0 END) | (CASE WHEN moderated='Y' THEN 2 ELSE 0 END) | (CASE WHEN passwd_posting='Y' THEN 4 ELSE 0 END) | (CASE WHEN tag_style='NONE' THEN 8 ELSE 0 END) | (CASE WHEN tag_style='ML' THEN 16 ELSE 0 END);
-# ALTER TABLE mm_forum DROP passwd_posting, DROP anon_forum, DROP tag_style, DROP moderated;

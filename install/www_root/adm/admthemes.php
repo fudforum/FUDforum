@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.32 2003/07/09 08:23:32 hackie Exp $
+*   $Id: admthemes.php,v 1.33 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -282,7 +282,7 @@ function update_locale()
 
 <tr bgcolor="#bff8ff">
 	<td colspan=2>
-	<?php draw_checkbox('thm_t_default', 'Y', $thm_t_default);?> Default <?php draw_checkbox('thm_enabled', 'Y', $thm_enabled); ?> Enabled
+	<?php draw_checkbox('thm_t_default', '2', $thm_t_default);?> Default <?php draw_checkbox('thm_enabled', '1', $thm_enabled); ?> Enabled
 	</td>
 </tr>
 <tr bgcolor="#bff8ff">
@@ -349,8 +349,8 @@ function update_locale()
 			<td>'.htmlspecialchars($r->lang).'</td>
 			<td>'.htmlspecialchars($r->locale).'</td>
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
-			<td>'.($r->enabled == 'Y' ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td>'.$r->t_default.'</td>
+			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
+			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>] 
 			'.($is_tok ? '[<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
 			'.($r->id != 1 ? '[<a href="admthemes.php?'._rsid.'&del='.$r->id.'">Delete</a>]' : '').'

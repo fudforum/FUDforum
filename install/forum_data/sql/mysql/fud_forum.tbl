@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_forum.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#   $Id: fud_forum.tbl,v 1.2 2003/09/26 18:49:02 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -12,31 +12,38 @@ DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}forum;
 
 CREATE TABLE {SQL_TABLE_PREFIX}forum
 (
-	id			INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	cat_id			INT UNSIGNED NOT NULL,
-	name			CHAR(100) NOT NULL,
+	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	cat_id			INT NOT NULL,
+	name			VARCHAR(100) NOT NULL,
 	descr			TEXT,
-	
-	passwd_posting		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	post_passwd		CHAR(32),
-	
-	anon_forum		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	forum_icon		CHAR(255),
-	tag_style		ENUM('NONE', 'ML', 'HTML') NOT NULL DEFAULT 'ML',
-	
-	date_created		INT UNSIGNED NOT NULL,
-	
-	thread_count		INT UNSIGNED NOT NULL DEFAULT 0,
-	post_count		INT UNSIGNED NOT NULL DEFAULT 0,
-	last_post_id		INT UNSIGNED NOT NULL DEFAULT 0,
-	
-	view_order		INT UNSIGNED NOT NULL,
-	moderated		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
-	max_attach_size		INT UNSIGNED NOT NULL DEFAULT 0,
-	max_file_attachments 	INT UNSIGNED NOT NULL DEFAULT 1,
+
+	post_passwd		VARCHAR(32),
+
+	forum_icon		VARCHAR(255),
+
+	date_created		BIGINT NOT NULL,
+
+	thread_count		INT NOT NULL DEFAULT 0,
+	post_count		INT NOT NULL DEFAULT 0,
+	last_post_id		INT NOT NULL DEFAULT 0,
+
+	view_order		INT NOT NULL,
+	max_attach_size		INT NOT NULL DEFAULT 0,
+	max_file_attachments 	INT NOT NULL DEFAULT 1,
 	moderators 		TEXT,
-	message_threshold 	INT UNSIGNED NOT NULL DEFAULT 0,
-	
-	INDEX(cat_id),
-	INDEX(last_post_id)
-)
+	message_threshold 	INT NOT NULL DEFAULT 0,
+	forum_opt		INT NOT NULL DEFAULT 16
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}forum_i_c ON {SQL_TABLE_PREFIX}forum (cat_id);
+CREATE INDEX {SQL_TABLE_PREFIX}forum_i_lpi ON {SQL_TABLE_PREFIX}forum (last_post_id);
+
+# 1 anon_forum (ON/OFF)
+# 2 moderated (ON/OFF)
+# 4 passwd_posting (ON/OFF)
+# 8 tag_style NONE
+# 16 tag_style (ML/HTML)
+
+# ALTER TABLE mm_forum ADD forum_opt INT NOT NULL DEFAULT 16;
+# UPDATE mm_forum SET forum_opt=(CASE WHEN anon_forum='Y' THEN 1 ELSE 0 END) | (CASE WHEN moderated='Y' THEN 2 ELSE 0 END) | (CASE WHEN passwd_posting='Y' THEN 4 ELSE 0 END) | (CASE WHEN tag_style='NONE' THEN 8 ELSE 0 END) | (CASE WHEN tag_style='ML' THEN 16 ELSE 0 END);
+# ALTER TABLE mm_forum DROP passwd_posting, DROP anon_forum, DROP tag_style, DROP moderated;

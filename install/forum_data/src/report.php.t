@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.8 2003/07/09 07:55:46 hackie Exp $
+*   $Id: report.php.t,v 1.9 2003/09/26 18:49:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
 			LEFT JOIN {SQL_TABLE_PREFIX}msg_report mr ON mr.msg_id='.$msg_id.' AND mr.user_id='._uid.'
-			WHERE m.id='.$msg_id.' AND m.approved=\'Y\'');
+			WHERE m.id='.$msg_id.' AND m.apr=1');
 	if (!$msg) {
 		invl_inp_err();
 	}
