@@ -1,5 +1,5 @@
 /*
- * $Id: README,v 1.4 2003/05/26 09:12:16 hackie Exp $
+ * $Id: README,v 1.5 2003/06/19 22:38:35 hackie Exp $
  *
  */ 
 
@@ -27,7 +27,7 @@
 	cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 edit fud21_install
 
 3) Enter the fud21_install directory, which was created by the CVS and run:
-	php create_file_list install 1 >> install.php
+	php -q create_file_list install 1 >> install.php
    ** If your php was not compiled with zlib support, remove 1 from the above command.
 
 4) Now you have latest working install script, you can now begin the installation process by following
