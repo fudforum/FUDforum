@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.25 2003/10/01 21:51:52 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.26 2003/10/03 03:21:14 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,15 +21,26 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
+	$a =& $obj->users_opt;
+	$b =& $usr->users_opt;
+	$c =& $obj->level_opt;
 
 	if (!$mini) {
-		if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $o1 & 28 && $obj->level_opt != 2) {
+		if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 			$avatar = '{TEMPLATE: dpmsg_avatar}';
+			if (!($c & 1)) {
+				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
+			} else {
+				$level_name = $level_image = '';
+			}
 		} else {
 			$avatar = '{TEMPLATE: dpmsg_no_avatar}';
+			$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+			$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 		}
 
-		if (($o2 & 32 && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
+		if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 			$obj->login = $obj->alias;
 			$online_indicator = (($obj->last_visit + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dpmsg_online_indicator}' : '{TEMPLATE: dpmsg_offline_indicator}';
 		} else {
@@ -61,14 +72,8 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		} else {
 			$buddy_link = '';
 		}
-		if ($obj->level_opt) {
-			$level_name = $obj->level_name ? '{TEMPLATE: dpmsg_level_name}' : '';
-			$level_image = ($obj->level_opt != 1 && $obj->level_img) ? '{TEMPLATE: dpmsg_level_image}' : '';
-		} else {
-			$level_name = $level_image = '';
-		}
 		/* show im buttons if need be */
-		if ($usr->users_opt & 16384) {
+		if ($b & 16384) {
 			$im_icq		= $obj->icq ? '{TEMPLATE: dpmsg_im_icq}' : '';
 			$im_aim		= $obj->aim ? '{TEMPLATE: dpmsg_im_aim}' : '';
 			$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dpmsg_im_yahoo}' : '';
@@ -84,7 +89,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		}
 		if ($obj->ouser_id != _uid) {
 			$user_profile = '{TEMPLATE: dpmsg_user_profile}';
-			$email_link = ($o1 & 4194304 && $obj->users_opt & 16) ? '{TEMPLATE: dpmsg_email_link}' : '';
+			$email_link = ($o1 & 4194304 && $a & 16) ? '{TEMPLATE: dpmsg_email_link}' : '';
 			$private_msg_link = '{TEMPLATE: dpmsg_private_msg_link}';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
@@ -121,7 +126,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 		}
 	}
 
-	if ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $usr->users_opt & 4096) {
+	if ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096) {
 		$signature = '{TEMPLATE: dpmsg_signature}';
 	} else {
 		$signature = '';

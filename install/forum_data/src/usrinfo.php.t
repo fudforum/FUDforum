@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.22 2003/10/02 20:58:29 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.23 2003/10/03 03:21:14 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,11 +34,13 @@ function convert_bdate($val, $month_fmt)
 		std_error('user');
 	}
 
-	if ($u->level_opt) {
-		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
-		$level_image = ($u->level_img && $u->level_opt != 1) ? '{TEMPLATE: level_image}' : '';
-	} else {
+	$avatar = ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2)) ? '{TEMPLATE: avatar}' : '';
+
+	if ($avatar && $u->level_opt & 1) {
 		$level_name = $level_image = '';
+	} else {
+		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
+		$level_image = $u->level_img ? '{TEMPLATE: level_image}' : '';
 	}
 
 	$custom_tags = $u->custom_status ? '{TEMPLATE: custom_tags}' : '{TEMPLATE: no_custom_tags}';
@@ -81,7 +83,7 @@ function convert_bdate($val, $month_fmt)
 	}
 
 	$user_image = ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
-	$avatar = ($FUD_OPT_1 & 28 && $u->users_opt & 8388608) ? '{TEMPLATE: avatar}' : '';
+	
 
 	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';

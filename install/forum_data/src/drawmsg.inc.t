@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.61 2003/10/03 01:28:31 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.62 2003/10/03 03:21:14 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -157,6 +157,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 {
 	$o1 =& $GLOBALS['FUD_OPT_1'];
 	$o2 =& $GLOBALS['FUD_OPT_2'];
+	$a =& $obj->users_opt;
+	$b =& $usr->users_opt;
+	$c =& $obj->level_opt;
 
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
@@ -200,10 +203,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
 
 	if (!$obj->user_id) {
-		$user_login = $GLOBALS['ANON_NICK'];
+		$user_login =& $GLOBALS['ANON_NICK'];
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_anon}';
 	} else {
-		$user_login = $obj->login;
+		$user_login =& $obj->login;
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_regged}';
 	}
 
@@ -216,13 +219,21 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	if ($obj->user_id) {
 		if (!$hide_controls) {
-			if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $o1 & 28 && $obj->level_opt != 2) {
+			if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 				$avatar = '{TEMPLATE: dmsg_avatar}';
+				if (!($c & 1)) {
+					$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+					$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
+				} else {
+					$level_name = $level_image = '';
+				}
 			} else {
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
+				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 			}
 
-			if (($o2 & 32 && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
+			if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 			} else {
 				$online_indicator = '';
@@ -235,7 +246,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
 					$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
 				} else {
-					$location = $obj->location;
+					$location =& $obj->location;
 				}
 				$location = '{TEMPLATE: dmsg_location}';
 			} else {
@@ -249,14 +260,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			} else {
 				$buddy_link = $ignore_link = '';
 			}
-			if ($obj->level_opt) {
-				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
-				$level_image = ($obj->level_opt != 1 && $obj->level_img) ? '{TEMPLATE: dmsg_level_image}' : '';
-			} else {
-				$level_name = $level_image = '';
-			}
+
 			/* show im buttons if need be */
-			if ($usr->users_opt & 16384) {
+			if ($b & 16384) {
 				$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
 				$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
 				$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
@@ -378,7 +384,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	$rpl = '';
 	if (!$hide_controls) {
-		if ($usr->users_opt & 1048576 || $usr->md || $o1 & 134217728) {
+		if ($b & 1048576 || $usr->md || $o1 & 134217728) {
 			$ip_address = '{TEMPLATE: dmsg_ip_address}';
 		} else {
 			$ip_address = '';
@@ -395,7 +401,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 
-		if ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $usr->users_opt & 4096) {
+		if ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096) {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
 			$signature = '';
@@ -407,14 +413,14 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
 				$lnk = d_thread_view;
 			} else {
-				$lnk = $_GET['t'];
+				$lnk =& $_GET['t'];
 			}
 			$rpl = '{TEMPLATE: dmsg_reply_to}';
 		}
 
 		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
-			$email_link = ($o1 & 4194304 && $obj->users_opt & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
+			$email_link = ($o1 & 4194304 && $a & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
 			$private_msg_link = $o1 & 1024 ? '{TEMPLATE: dmsg_private_msg_link}' : '';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
