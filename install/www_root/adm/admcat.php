@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.19 2003/10/16 21:59:05 hackie Exp $
+* $Id: admcat.php,v 1.20 2003/10/20 02:27:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -55,7 +55,7 @@
 
 	if (isset($_GET['del'])) {
 		$del = (int)$_GET['del'];
-		db_lock($tbl.'cat WRITE, '.$tbl.'forum WRITE, '.$tbl.'fc_view WRITE');
+		db_lock($tbl.'cat WRITE, '.$tbl.'cat c WRITE, '.$tbl.'forum WRITE, '.$tbl.'forum f WRITE, '.$tbl.'fc_view WRITE');
 		q_singleval('DELETE FROM '.$tbl.'cat WHERE id='.$del);
 		if (db_affected()) {
 			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id='.$del);
