@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.15 2002/09/04 04:35:37 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.16 2002/09/13 00:24:36 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -3492,6 +3492,50 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 			and in MySQL. If PHP's gzip module is available the administrator may choose to compress the backed up data,
 			to save drive space.
 		</para>
+		
+		<para>
+			To allow for easy automated backups of the forum, this form also supports authentication via HTTP. The example below
+			demonstrates how to make a daily backup on the forum.
+		</para>	
+<example>
+	<title>Automated Forum Backup Script</title>
+
+<programlisting>
+<![CDATA[
+echo -e 'submitted=1\n&compress=1\n&path=/home/user/forum/backup/FUDforum_'`date +%Y%m%d`'.gz' | lynx http://YOUR_FORUM_URL/adm/admdump.php?do_http_auth=1 -auth=ADMIN_LOGIN:ADMIN_PASS -post_data
+]]>
+</programlisting>
+	
+	<para>
+		The parameters that are piped to the lynx utility represent the POST data. There are 2 arguments that you can change.
+		<itemizedlist>
+			<listitem>
+				<para><emphasis role="bold">compress</emphasis> whether or not to compress the backup. 
+				By default this option is set to 1, meaning that the archive will be compressed using zlib. If you wish to disable
+				compression, change the value of this option to 0.</para>
+			</listitem>
+			
+			<listitem>
+				<para><emphasis role="bold">path</emphasis> This represents the full path on your harddrive where 
+				the backup file will be written to. It is imperative that the user and/or group web-server runs as, 
+				has write access to that directory.
+				</para>
+			</listitem>	
+		</itemizedlist>
+	</para>
+	
+	<para>
+		The other two options are ADMIN_LOGIN, ADMIN_PASS, which represent the login and password of the admin account. Since this is
+		sensitive information, I highly recommend that you ensure other users on the server cannot read this file. For example, if you
+		placed your backup code inside the shell script that would be executed by cron, make the shell script's permissions 500, thus only
+		allowing the root user and yourself to read and execute it.
+	</para>
+
+	<para>
+		Needless to say the YOUR_FORUM_URL should be replaced with your forum's URL.
+	</para>
+</example>
+
 	</sect1>
 	
 	<sect1 id="admin.import">
