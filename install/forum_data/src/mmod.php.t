@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.30 2004/04/21 20:50:15 hackie Exp $
+* $Id: mmod.php.t,v 1.31 2004/04/23 19:55:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -14,7 +14,6 @@
 /*{POST_HTML_PHP}*/
 
 	if (isset($_GET['del'])) {
-		sq_check(0, $usr->sq);
 		$del = (int) $_GET['del'];
 	} else if (isset($_POST['del'])) {
 		$del = (int) $_POST['del'];
@@ -22,7 +21,6 @@
 		$del = 0;
 	}
 	if (isset($_GET['th'])) {
-		sq_check(0, $usr->sq);
 		$th = (int) $_GET['th'];
 	} else if (isset($_POST['th'])) {
 		$th = (int) $_POST['th'];
@@ -136,7 +134,7 @@
 			}
 		}
 		exit;
-	} else if ($th) {
+	} else if ($th && (!isset($_GET['th']) || sq_check(0, $usr->sq))) {
 		if (!($data = db_saq('SELECT mm.id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 			FROM {SQL_TABLE_PREFIX}thread t
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
