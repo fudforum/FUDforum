@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.121 2004/04/21 21:36:36 hackie Exp $
+* $Id: users.inc.t,v 1.122 2004/04/21 22:37:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -581,7 +581,7 @@ function init_user()
 		if ($GLOBALS['FUD_OPT_3'] & 1) {
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
-		if (!$u->sq || __request_timestamp__ - $u->last_visit > 300) {
+		if (!$u->sq || __request_timestamp__ - $u->last_visit > 180) {
 			$u->sq = $sq = regen_sq($u->id);
 			if (!$GLOBALS['is_post']) {
 				$_GET['SQ'] = $sq;
