@@ -13,7 +13,6 @@ by:				Paraðë:
 by_mod:				Moderuota
 current_time:			Dabar:
 custom_avatar_queue:		Custom Avatar Queue
-date:				Data
 date_posted:			Raðymo data
 date_registered:		Prisiregistravo:
 download_counter:		Atsisiøsta {VAR: v[3]} kartà(-ø).
@@ -105,17 +104,13 @@ pm:				Asmeninës þinutës
 poll:				Apklausa:
 post_count:			Viso praneðimø {VAR: u_pcount}
 post_count_l:			Viso praneðimø:
-poster:				Paraðë
 posts:				Þinutës
 posts_c:			Paraðë praneðimø:
 prev_thread:			Preita tema:
 usrinfo_private_message:	Asmeninë þinutë:
 profile:			Profilis
-profile_2:			Profilis:
 profile_desc:			Spausk èia, norëdamas patekti á nario nustatymø puslapá
-rate:				ávertinti
 rate_thread:			Vertinti temà
-rating:				Reitingas
 refresh_list:			Atnaujinti sàraðà
 register:			Registruotis
 registered:			Uþsiregistravæs:
@@ -136,10 +131,8 @@ send:				Siûsti
 send_pm_desc:			Siûsti privaèià þinutæ ðiam nariui
 sender_email:			Siuntëjo email adresas:
 sender_name:			Siuntëjo vardas:
-show_all_posts:			Rodyti visus {VAR: user_login} praneðimus
 show_posts_by:			Rodyti: {VAR: u_alias} praneðimus
 size:				Dydis:
-started_on:			Pradëta
 status:				Bûklë:
 status_line:			Ðiuo metu prisijungæ <b>{VAR: st_obj->online_users_reg}</b> narys(-iai), <b>{VAR: st_obj->online_users_hidden}</b> nematomi nariai ir <b>{VAR: st_obj->online_users_anon}</b> sveèias(-iai).
 sticky:				lipnus:
@@ -182,9 +175,7 @@ user_info_l:			Nario inforcija {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is currently offline
 user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Paskutinë þinutë:
-view_forum:			View Forum
 view_results:			View Results
-view_thread:			View Topic
 views:				Perþiûrëta
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Balsuoti
@@ -233,7 +224,6 @@ draft:				Ruoðiniai
 sent:				Siøsti
 trash:				Ðiukðliø dëþë
 msg_author:			Autorius
-msg_thread:			Tema
 avatar_sel_form:		Logotipo pasirinkimo forma
 no_avatars:			Logotipø nëra!
 month_1:			Sausis
@@ -258,7 +248,6 @@ register_flat_view:		Flat View message and thread listing
 use_forum_default:		Use forum default
 finduser_user_info:		Nario informacija
 finduser_by_login:		Pagal prisijungimo vardà:
-finduser_by_email:		Pagal email adresà:
 finduser_submit:		Rasti
 finduser_no_such_user:		Tokio nario nëra
 finduser_user:			Narys
@@ -271,7 +260,6 @@ register_email:			Email
 edit_time_limit:		<br><b>Redagavimo laiko limitas</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuèiø
 no_edit_time_limit:		<br><b>Redagavimo laiko limitas</b>: <b>Nelimituota</b>
 pmuserloc_login:		Vardas:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Siøsti
 pmuserloc_user:			Vartotojas
 pmuserloc_no_result:		Nerasta
@@ -319,7 +307,6 @@ register_prefs:			Nustatymai
 register_sig:			Paraðas:
 register_sig_desc:		Paraðas, kuris atsiras po visomis jûsø forumuose raðytomis þinutëmis.
 register_reset:			Panaikinti pakeitimus
-register_style:			Stilius:
 register_def_thread_view:	Temø perþiûros tipas pagal nutylëjimà:
 register_msg_per_page:		Þinuèiø kiekis puslapyje:
 register_show_sig:		Rodyti paraðà:
@@ -391,7 +378,6 @@ post_title:			Pavadinimas:
 post_body:			Þinutës tekstas:
 post_options:			Nustatymai:
 post_preview_btn:		Perþiûrëti þinutæ
-post_processing_msg:		Your post is being processed, please wait
 ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
@@ -462,7 +448,6 @@ search_forum:			Forumas
 search_subject:			Tema
 search_posted_on:		Sukurta
 search_no_results:		Nerasta
-search_search:			Ieðkoti
 search_all_forums:		Ieðkoti visuose forumuose
 search_in_forum:		Ieðkoti forume:
 search_for:			Ieðkoti:
@@ -480,7 +465,6 @@ remail_send_now:		Siøsti laiðkà dabar
 remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
 remail_done:			Atlikta
 remail_sent_conf:		The email to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
-remail_continue:		Continue
 remail_error:			You have an error
 mklist_type:			Type:
 mklist_option:			Option:
@@ -561,7 +545,6 @@ core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a 
 core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
-email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.
 email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR: usr_dst->alias} because it was unable to locate his email address
 email_error_body:		The body is required
 email_error_subject:		Subject is required
@@ -592,8 +575,6 @@ ignore_list_update:		Browsing own ignore list
 index_update:			Browsing the <a href="{FULL_ROOT}{ROOT}?t=index">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Prisijungimo langas
-msg_err_onlyreg_title:		Only registered users may view this forum
-msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{FULL_ROOT}{ROOT}?t=register&amp;{DEF: _rsid}">register</a>, if you are already registered you&#39;ll need to <a href="{FULL_ROOT}{ROOT}?t=login&amp;{DEF: _rsid}">login</a>.
 msg_err_ininfo_title:		Insufficient Information
 msg_err_ininfo_msg:		There was a problem generating this page
 msg_update:			Browsing topic <a href="{FULL_ROOT}{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
@@ -621,7 +602,6 @@ post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload 
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a href="{FULL_ROOT}{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editing <a href="{FULL_ROOT}{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{FULL_ROOT}{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
@@ -674,8 +654,6 @@ showposts_update:		Viewing posts by: <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
-thread_err_onlyregview_title:	Only registered users may view this forum
-thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{FULL_ROOT}{ROOT}?t=register&amp;{DEF: _rsid}">register</a>, if you are already registered you&#39;ll need to <a href="{FULL_ROOT}{ROOT}?t=login&amp;{DEF: _rsid}">login</a>.
 thread_update:			Browsing forum <a href="{FULL_ROOT}{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a> profile
@@ -748,7 +726,6 @@ groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
 groupmgr_yes:			Taip
 groupmgr_no:			Ne
-groupmgr_inherit:		Inherit
 groupmgr_action:		Action
 groupmgr_member:		Narys
 groupmgr_cancel:		Cancel
@@ -849,7 +826,6 @@ im_jabber:			Jabber:
 forum_contact:			Susisiekti su admistratoriumi
 forum_home:			Á forumo pradþià
 post_cur_attached:		currently attached {VAR: i} file(s) 
-ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Post by <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		uþdaryti langà
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Þinuèiø atranka
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -12,7 +12,6 @@ by:				Od:
 by_mod:				od Moderátora
 current_time:			Aktuálny èas
 custom_avatar_queue:		Fronta ikon uívate¾ov
-date:				Dátum
 date_posted:			Dátum Pridania
 date_registered:		Dátum registrácie:
 download_counter:		Stiahnuté {VAR: v[3]} krát
@@ -104,17 +103,13 @@ pm:				Pošta
 poll:				Anketa:
 post_count:			Poèet príspevkov {VAR: u_pcount}
 post_count_l:			Poèet príspevkov:
-poster:				Odosielate¾
 posts:				Príspevky
 posts_c:			Príspevky:
 prev_thread:			Predchádzajúca téma:
 usrinfo_private_message:	Pošta:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Kliknite sem pre prístup k panelu uívate¾skıch nastavení
-rate:				hodnotenie
 rate_thread:			Ohodnoti tému
-rating:				Hodnotenie
 refresh_list:			Aktualizova zoznam
 register:			Registrova sa
 registered:			Registrácia:
@@ -135,10 +130,8 @@ send:				Posla
 send_pm_desc:			Posla poštu tomuto uívatelovi
 sender_email:			Email odosielate¾a:
 sender_name:			Meno odosielate¾a:
-show_all_posts:			Zobraz všetky príspevky od uívate¾a {VAR: user_login}
 show_posts_by:			Zobraz príspevky od: {VAR: u_alias}
 size:				Ve¾kos:
-started_on:			Zaèiatok
 status:				Hodnos:
 status_line:			Tieto fóra práve navštevuje <b>{VAR: st_obj->online_users_reg}</b> èlen(ov), <b>{VAR: st_obj->online_users_hidden}</b> skrytı(ch) èlen(ov) a <b>{VAR: st_obj->online_users_anon}</b> hos(ov).
 sticky:				Vıveska:
@@ -181,9 +174,7 @@ user_info_l:			Informácie o uívate¾ovi {VAR: u->alias}
 user_offline:			{VAR: obj->login}  je práve offline
 user_online:			{VAR: obj->login} je práve online
 usrinfo_last_post:		Poslednı príspevok:
-view_forum:			Zobrazi fórum
 view_results:			Zobrazi vısledky
-view_thread:			Zobrazi tému
 views:				Zobrazené
 vote:				{VAR: frm->n_rating} hlasov
 vote_button:			Hlasova
@@ -232,7 +223,6 @@ draft:				Rozpísané
 sent:				Odoslané
 trash:				Kôš
 msg_author:			Autor
-msg_thread:			Téma
 avatar_sel_form:		Formulár pre vıber ikony uívate¾a
 no_avatars:			iadne ikony uívate¾a k dispozícii
 month_1:			Január
@@ -257,7 +247,6 @@ register_flat_view:		Ploché zobrazenie správ a vlákien
 use_forum_default:		Poui predvolené
 finduser_user_info:		Informácie o uívate¾ovi
 finduser_by_login:		Pod¾a uívate¾ského mena:
-finduser_by_email:		Pod¾a emailu:
 finduser_submit:		H¾ada
 finduser_no_such_user:		H¾adanı uívate¾ neexistuje
 finduser_user:			Uívate¾
@@ -270,7 +259,6 @@ register_email:			Email
 edit_time_limit:		<br><b>Èasovı limit na editáciu</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minút
 no_edit_time_limit:		<br><b>Èasovı limit na editáciu</b>: <b>Neobmedzenı</b>
 pmuserloc_login:		Uivate¾ské meno:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Odosla
 pmuserloc_user:			Uívate¾
 pmuserloc_no_result:		Bez vısledku
@@ -318,7 +306,6 @@ register_prefs:			Nastavenia
 register_sig:			Podpis:
 register_sig_desc:		Volite¾nı podpis, ktorı sa bude zobrazova na konci Vašich príspevkov.
 register_reset:			Vymaza
-register_style:			Štıl:
 register_def_thread_view:	Vıchodzie zobrazenie tém:
 register_msg_per_page:		Poèet správ na stránku:
 register_show_sig:		Zobrazova podpis:
@@ -390,7 +377,6 @@ post_title:			Predmet:
 post_body:			Obsah:
 post_options:			Monosti:
 post_preview_btn:		Náh¾ad správy
-post_processing_msg:		Váš príspevok sa spracováva, prosím èakajte
 ignore_users:			Ignorovanı uívatelia
 add_ignore:			Prida ignorovaného
 forum_terms:			Podmienky Fóra
@@ -461,7 +447,6 @@ search_forum:			Fórum
 search_subject:			Predmet
 search_posted_on:		Pridané
 search_no_results:		iadne vısledky
-search_search:			H¾ada
 search_all_forums:		H¾ada vo všetkıch fórach
 search_in_forum:		H¾ada vo fóre:
 search_for:			H¾ada:
@@ -479,7 +464,6 @@ remail_send_now:		Odosla email
 remail_anon_opt:		Kopírova správu na odoslanie do Vášho emailového klienta.
 remail_done:			Hotovo
 remail_sent_conf:		Email Vášmu priate¾ovi s adresou {VAR-HTML: _POST['femail']} oh¾adne témy {VAR: data->subject} bol úspešne odoslanı.
-remail_continue:		Pokraèova
 remail_error:			Chyba!
 mklist_type:			Typ:
 mklist_option:			Vo¾ba:
@@ -560,7 +544,6 @@ core_err_invinp_err:		Nasledovali ste neplatnı odkaz, prosím oznámte to <a href=
 core_adm_login_msg:		<br>Administrátori sa môu prihlási <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tu</a>
 email_err_unabletoemail_title:	CHYBA: Nie je moné posla email
 email_err_unabletoemail_msg:	Systém emailov bol administrátorom vypnutı.
-email_err_unabletoemailu_msg:	Systém emailov bol administrátorom vypnutı.
 email_error_unabletolocaddr:	Ospravedlòujeme sa, ale systém nemohol odosla email uivate¾ovi {VAR: usr_dst->alias} pretoe nemohol zisti/nájs jeho emailovú adresu.
 email_error_body:		Obsah správy je povinnı
 email_error_subject:		Predmet správy je povinnı
@@ -591,8 +574,6 @@ ignore_list_update:		Prehliada si vlastnı zoznam ignorovanıch
 index_update:			Prehliada si <a href="{ROOT}?t=index" class="GenLink">zoznam fór</a>
 list_referers_update:		Prehliada si zoznam ludí registrovanıch na základe referencií
 login_update:			Prihlasovací formulár
-msg_err_onlyreg_title:		Iba registrovanı uívatelia môu vstupova do tohoto fóra
-msg_err_onlyreg_msg:		Ak si chcete prehliada fórum musíte sa <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrova</a>, ak ste u registrovanı, tak sa prosím <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">prihláste</a>.
 msg_err_ininfo_title:		Nedostatoèné informácie
 msg_err_ininfo_msg:		Pri generovaní tejto stránky sa vyskytol problém
 msg_update:			Prehliadate si tému <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
@@ -620,7 +601,6 @@ post_err_attach_ext:		<font class="ErrorText">Súbor, ktorı chcete uploadova nez
 post_err_attach_filelimit:	<font class="ErrorText">Chcete priloi viac súborov ako je povolené.</font><br>
 post_err_passwd:		Nesprávne heslo.
 post_reply_update:		Odpovedáte na <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> vo fóre {VAR-HTML: frm->name}
-post_edit_update:		Editujete <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> vo fóre {VAR-HTML: frm->name}
 post_topic_update:		Vytvárate novú tému vo fóre <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Vyskytla sa chyba
 postcheck_max_images_err:	Maximálnu poèet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím zníte poèet obrázkov
@@ -673,8 +653,6 @@ showposts_update:		Prezerá si príspevky od: <a class="GenLink" href="{ROOT}?t=us
 subscribed_update:		Prehliada si odoberané témy a fóra
 th_err_invid_title:		Chybné ID témy
 th_err_invid_msg:		Nasledovali ste chybnı odkaz, takáto téma neexistuje.
-thread_err_onlyregview_title:	Iba registrovanı uívatelia môu vstúpi do tohoto fórum.
-thread_err_onlyregview_msg:	Ak chcete vstúpi do tohoto fóra musíte sa <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrova</a>, ak ste u registrovanı <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">prihláste sa</a> prosím.
 thread_update:			Prehliada si fórum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Prehliada si tému (stromové zobrazenie) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Prezerá si profil uívate¾a <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a>
@@ -747,7 +725,6 @@ groupmgr_no_user:		Uívate¾ s uívate¾skım menom "{VAR-HTML: gr_member}" neexist
 groupmgr_already_exists:	Uívate¾ "{VAR-HTML: gr_member}" sa u v tejto skupine nachádza.
 groupmgr_yes:			Áno
 groupmgr_no:			Nie
-groupmgr_inherit:		Dedi
 groupmgr_action:		Akcia
 groupmgr_member:		Èlen
 groupmgr_cancel:		Zruši
@@ -849,7 +826,6 @@ im_jabber:			Jabber:
 forum_contact:			Kontakt
 forum_home:			Domov
 post_cur_attached:		momentálne máte {VAR: i} priloenıch súborov 
-ppost_cur_attached:		momentálne máte {VAR: attach_count} priloenıch súborov 
 ignored_anon_post:		{GVAR: ANON_NICK} je ignorovanı
 ignored_user_post:		Príspevok od <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> je ignorovanı
 smladd_close_window:		Zatvori okno
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Potvrdenie konta</b><br />Pred tım ne bude Vaše konto akt
 forum_banned_user:		Vaše predchádzajúce správanie vyústilo do toho, e Váš prístup do tohoto fóra bol na stálo zakázanı. Zbohom.
 mnav_description:		Navigátor správ
 mnav_date_limit:		Èasovı interval:
-mnav_time_unit:			Èasová jednotka:
 mnav_forum_limit:		H¾ada iba v:
 mnav_all_forums:		H¾ada vo všetkıch fórach
 mnav_submit:			Zaèa Vyh¾adávanie
@@ -1023,7 +998,6 @@ register_err_alias_notallowed:	This alias is not allowed
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

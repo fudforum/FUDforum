@@ -13,7 +13,6 @@ by:				De:
 by_mod:				de Moderator
 current_time:			Ora curenta
 custom_avatar_queue:		Alege imagine
-date:				Data
 date_posted:			Data trimiterii
 date_registered:		Data inregistrarii:
 download_counter:		Descarcat de {VAR: v[3]} ori
@@ -104,17 +103,13 @@ pm:				Mesaje personale
 poll:				Sondaj:
 post_count:			Mesaje trimise {VAR: u_pcount}
 post_count_l:			Mesaje trimise:
-poster:				Trimitator
 posts:				Trimise
 posts_c:			Trimise:
 prev_thread:			Tema precedenta:
 usrinfo_private_message:	Mesaje personale:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Apasati aici pentru a accesa panoul de control
-rate:				voturi
 rate_thread:			Voteaza tema
-rating:				Rata
 refresh_list:			Lista de reimprospatare
 register:			Inregistreaza
 registered:			Inregistrat:
@@ -135,10 +130,8 @@ send:				Trimite
 send_pm_desc:			Trimite un mesaj personal utilizatorului
 sender_email:			Email-ul trimitatorului:
 sender_name:			Numele trimitatorului:
-show_all_posts:			Arata toate mesajele trimise de {VAR: user_login}
 show_posts_by:			Arata mesaje trimise de: {VAR: u_alias}
 size:				Marimea:
-started_on:			Pornit la
 status:				Statut:
 status_line:			Sunt <b>{VAR: st_obj->online_users_reg}</b> memberi, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
 sticky:				sticky:
@@ -181,9 +174,7 @@ user_info_l:			Informatii utilizator {VAR: u->alias}
 user_offline:			{VAR: obj->login}  este offline
 user_online:			{VAR: obj->login} este online
 usrinfo_last_post:		Ultimul mesaj trimis:
-view_forum:			Vezi forum
 view_results:			Vezi rezultate
-view_thread:			Vezi tema
 views:				Vizualizari
 vote:				{VAR: frm->n_rating} Vot(uri)
 vote_button:			Voteaza
@@ -232,7 +223,6 @@ draft:				Salvate
 sent:				Trimise
 trash:				Gunoi
 msg_author:			Autor
-msg_thread:			Tema
 avatar_sel_form:		Formular de selctie imagine
 no_avatars:			Nici o imagine disponibila
 month_1:			Ianuarie
@@ -257,7 +247,6 @@ register_flat_view:		Vizualizare normala
 use_forum_default:		Foloseste standardele forumului
 finduser_user_info:		Informatii utlizator
 finduser_by_login:		Dupa numele de utilizator:
-finduser_by_email:		Dupa adresa de email:
 finduser_submit:		Cauta
 finduser_no_such_user:		Nici un utilizator gasit
 finduser_user:			Utilizator
@@ -270,7 +259,6 @@ register_email:			Email:
 edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minute
 no_edit_time_limit:		<br><b>Limita timpului de editare</b>: <b>Nelimitata</b>
 pmuserloc_login:		Utilizator:
-pmuserloc_email:		Email:
 pmuserloc_submit:		OK
 pmuserloc_user:			Utilizator
 pmuserloc_no_result:		Nici un rezultat
@@ -318,7 +306,6 @@ register_prefs:			Preferinte:
 register_sig:			Semnatura:
 register_sig_desc:		Semnatura este optiunala si va aparea la mesajele trimise de dumneavoastra.
 register_reset:			Reseteaza
-register_style:			Stil:
 register_def_thread_view:	Tipul vizualizarii temelor:
 register_msg_per_page:		Mesaje per pagina:
 register_show_sig:		Arata semnaturi:
@@ -389,7 +376,6 @@ post_title:			Titlu:
 post_body:			Corpul mesajului:
 post_options:			Optiuni:
 post_preview_btn:		Previzualizeaza mesaj
-post_processing_msg:		Mesajul dumneavoastra este procesat, va rugam asteptai
 ignore_users:			Utilizatori ignorati
 add_ignore:			Adauga ingorare
 forum_terms:			Termenii Forumului
@@ -460,7 +446,6 @@ search_forum:			Forum
 search_subject:			Subiect
 search_posted_on:		Trimis la data de
 search_no_results:		Nici un rezultat
-search_search:			Cauta
 search_all_forums:		Cauta in tote forumurile
 search_in_forum:		Cauta in forum:
 search_for:			Cauta :
@@ -478,7 +463,6 @@ remail_send_now:		Trimite Email
 remail_anon_opt:		Copie acest mesaj in clientul de mail pentru a putea sa-l retransmiteti si altor prieteni.
 remail_done:			Gata
 remail_sent_conf:		Email-ul pentru prietenul dumneavoastra {VAR-HTML: _POST['femail']} despre {VAR: data->subject} a fost trimis.
-remail_continue:		Continua
 remail_error:			Aveti o eroare
 mklist_type:			Tipul:
 mklist_option:			Optiuni:
@@ -559,7 +543,6 @@ core_err_invinp_err:		A-ti urmarit o adresa gresita
 core_adm_login_msg:		<br>Administratori se pot autentifica <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">aici</a>
 email_err_unabletoemail_title:	EROARE: nu pot trimite email
 email_err_unabletoemail_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
-email_err_unabletoemailu_msg:	Sistemul de trimitere a email-urilor a fost dezactivat de administrator
 email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
 email_error_body:		Continutul mesajului este camp obligatoriu
 email_error_subject:		Subiectul este obligatoriu
@@ -590,8 +573,6 @@ ignore_list_update:		Navigare in lista de ignorare
 index_update:			Navigare in <a href="{TEMPLATE: index_update_lnk}">lista cu forumuri</a>
 list_referers_update:		Navigare referinte
 login_update:			Formular de autentificare
-msg_err_onlyreg_title:		Doar utilizatorii autentificati pot vedea acest forum
-msg_err_onlyreg_msg:		Pentru a vedea acest forum <a href="{TEMPLATE: msg_register_lnk}">inregistrati-va</a>, daca sunteti inregistrat trebuie sa va <a href="{TEMPLATE: msg_login_lnk}">autentificati</a>.
 msg_err_ininfo_title:		Informatii insuficiente
 msg_err_ininfo_msg:		Este o problema cu generarea paginii
 msg_update:			Navigare in tema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -619,7 +600,6 @@ post_err_attach_ext:		<font class="ErrorText">Extensia fisierului pe care incerc
 post_err_attach_filelimit:	<font class="ErrorText">Incercati sa incarcati mai multe fisiere decat este permis</font><br>
 post_err_passwd:		Parola incorecta.
 post_reply_update:		Raspunde la <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editeaza <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
@@ -672,8 +652,6 @@ showposts_update:		Vizualizare mesaje trimise de: <a href="{TEMPLATE: showposts_
 subscribed_update:		Navigare in inscrieri
 th_err_invid_title:		Numarul de identificare a temei este incorect
 th_err_invid_msg:		A-ti urmarit o legatura inexistenta
-thread_err_onlyregview_title:	Doar utilizatorii inregistrati pot vedea acest forum
-thread_err_onlyregview_msg:	Pentru a vedea acest forum trebuie sa va  <a href="{TEMPLATE: msg_register_lnk}">inregistrati</a>, daca sunteti inregistrat trebuie sa va <a href="{TEMPLATE: msg_login_lnk}">autentificati</a>.
 thread_update:			Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
@@ -746,7 +724,6 @@ groupmgr_no_user:		Nu este nici un utilizator numit "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	Utilizatorul "{VAR-HTML: gr_member}" deja exista in acest grup.
 groupmgr_yes:			Da
 groupmgr_no:			Nu
-groupmgr_inherit:		Mosteneste
 groupmgr_action:		Actiune
 groupmgr_member:		Membru
 groupmgr_cancel:		Renunta
@@ -846,7 +823,6 @@ im_jabber:			Jabber:
 forum_contact:			Contactare
 forum_home:			Prima Pagina
 post_cur_attached:		fisiere atasate {VAR: i}
-ppost_cur_attached:		fisiere atasate {VAR: attach_count}
 ignored_anon_post:		{VAR: user_login} este ignorat
 ignored_user_post:		Trimis de <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> este ignorat
 smladd_close_window:		inchide fereastra
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Confirmarea contului</b><br/>Inainte de a se activa contul
 forum_banned_user:		Activitatile anterioare au facut ca contul dumneavoastra sa fie blocat permanent. Va multumim ca a-ti alesl acest forum. La revedere.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

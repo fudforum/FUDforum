@@ -13,7 +13,6 @@ by:				No:
 by_mod:				no moderâtora
 current_time:			Tekoðais laiks
 custom_avatar_queue:		Citas bildîtes
-date:				Datums
 date_posted:			Nosûtîðanas datums
 date_registered:		Reìistrâcijas datums:
 download_counter:		{VAR: v[3]} reizes ielâdçts
@@ -104,17 +103,13 @@ pm:				Privâtâ sarakste
 poll:				Balsojumi:
 post_count:			{VAR: u_pcount}ieraksti
 post_count_l:			Ierakstu skaits:
-poster:				Autors
 posts:				Ieraksti
 posts_c:			Ieraksti:
 prev_thread:			Iepriekðçjâ tçma:
 usrinfo_private_message:	Privâtâ vçstule:
 profile:			Uzstâdîjumi
-profile_2:			Uzstâdîjumi:
 profile_desc:			Nospiest lai pârietu uz vadîbas paneli
-rate:				novçrtçt
 rate_thread:			Novçrtçt tçmu
-rating:				Reitings
 refresh_list:			Atjaunot sarakstu
 register:			Reìistrâcija
 registered:			Piereìistrçts:
@@ -135,10 +130,8 @@ send:				Nosûtît
 send_pm_desc:			Nosûtît privâto vçstuli
 sender_email:			Autora E-pasts:
 sender_name:			Autora vârds:
-show_all_posts:			Uzrâdît ierakstus kas nosûtîti {VAR: user_login}
 show_posts_by:			Uzrâdît ierakstus kurus iesûtîja: {VAR: u_alias}
 size:				Izmçrs:
-started_on:			Sâkums
 status:				Statuss:
 status_line:			Ðobrîd forumos <b>{VAR: st_obj->online_users_reg}</b>lietotâji, <b>{VAR: st_obj->online_users_hidden}</b>neredzamie, <b>{VAR: st_obj->online_users_anon}</b>viesi.
 sticky:				Sticky:
@@ -181,9 +174,7 @@ user_info_l:			Info par {VAR: u->alias}
 user_offline:			{VAR: obj->login} ðobrîd nav On-Line reþîmâ
 user_online:			{VAR: obj->login} ðobrîd On-Line reþîmâ
 usrinfo_last_post:		Pçdçjais ieraksts:
-view_forum:			Foruma pârskats
 view_results:			Rezultâtu pârskats
-view_thread:			Tçmas pârskats
 views:				Pârskati
 vote:				{VAR: frm->n_rating}balsis
 vote_button:			Balsot
@@ -232,7 +223,6 @@ draft:				Melnraksti
 sent:				Nosûtîtâs
 trash:				Papîrgrozs
 msg_author:			Autors
-msg_thread:			Tçma
 avatar_sel_form:		Nozîmîtes izvçle
 no_avatars:			Nav brîvu nozîmîðu
 month_1:			Janvâris
@@ -255,7 +245,6 @@ register_flat_view:		Izplâtais skats
 use_forum_default:		Izmantot foruma noklusçjumuzstâdîjumus
 finduser_user_info:		Info par lietotâju
 finduser_by_login:		Pçc vârda:
-finduser_by_email:		Pçc E-pasta:
 finduser_submit:		Meklçt
 finduser_no_such_user:		Neesoðs lietotâjs
 finduser_user:			Lietotâjs
@@ -267,7 +256,6 @@ no:				Nç
 edit_time_limit:		<br><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
 no_edit_time_limit:		<br><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
 pmuserloc_login:		Vârds:
-pmuserloc_email:		E-pasts:
 pmuserloc_submit:		Meklçt
 pmuserloc_user:			Lietotâjs
 pmuserloc_no_result:		Nekas nav atrasts
@@ -315,7 +303,6 @@ register_prefs:			Privâtie uzstâdîjumi
 register_sig:			Paraksts:
 register_sig_desc:		Neobligâtais paraksts. Tiks pievienots Jûsu sûtîjumiem.
 register_reset:			Reset
-register_style:			Stils:
 register_def_thread_view:	Noklusçtais tçmu skats:
 register_msg_per_page:		Ieraksti lapâ:
 register_show_sig:		Uzrâdît pierakstus:
@@ -386,7 +373,6 @@ post_title:			Virsraksts:
 post_body:			Teksts:
 post_options:			Parametri:
 post_preview_btn:		Priekðapskate
-post_processing_msg:		Jûsu raksts apstrâdes procesâ. Lûdzu uzgaidiet.
 ignore_users:			Ignorçjamie lietotâji
 add_ignore:			Pievienot ignorçjamo
 forum_terms:			Foruma noteikumi
@@ -457,7 +443,6 @@ search_forum:			Forums
 search_subject:			Tçma
 search_posted_on:		Nosûtîðanas datums
 search_no_results:		Rezultâtu nav
-search_search:			Meklçt
 search_all_forums:		Visi forumi
 search_in_forum:		Meklçt forumâ:
 search_for:			Atslçgas vârdi:
@@ -475,7 +460,6 @@ remail_send_now:		Nosûtît E-pastu
 remail_anon_opt:		Pârkopçjiet publikâciju uz E-pasta klienta programmu (pie. Outlook Express), lai pârsûtîtu saviem draugiem.
 remail_done:			Gatavs
 remail_sent_conf:		Elektroniskâ vçstule uz adresi {VAR-HTML: _POST['femail']} par tçmu {{VAR: data->subject} veiksmîgi nosûtîta.
-remail_continue:		Turpinât
 remail_error:			Kïûda
 mklist_type:			Tips:
 mklist_option:			Elements:
@@ -556,7 +540,6 @@ core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a 
 core_adm_login_msg:		<br>Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ðeit</a>
 email_err_unabletoemail_title:	KÏÛDA!!! Nevar nosûtît E-pastu
 email_err_unabletoemail_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
-email_err_unabletoemailu_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
 email_error_unabletolocaddr:	Atvainojiet. Nosûtît paziòojumu {VAR-HTML: _POST['tx_name']} nav iespçjams, jo nav zinâma adresâta E-pasta adrese
 email_error_body:		Publikâcijas teksts ir obligâts
 email_error_subject:		Tçma ir obligâta
@@ -587,8 +570,6 @@ ignore_list_update:		Ignorçto saraksta pârskats
 index_update:			Forumu saraksta <a href="{TEMPLATE: index_update_lnk}">pârskats</a>
 list_referers_update:		Uzaicinâto saraksta pârskats
 login_update:			Ieiet forumâ
-msg_err_onlyreg_title:		ðis forums ir tikai reìistrçtiem lietotâjiem
-msg_err_onlyreg_msg:		Lai ieietu ðajâ forumâ Jums jâbût <a href="{TEMPLATE: msg_register_lnk}">reìistrçtam lietotâjam</a>, ja Jûs bijât reìistrçts agrâk, tad Jums <a href="{TEMPLATE: msg_login_lnk}">jâieiet forumâ</a>.
 msg_err_ininfo_title:		Nepietiekama informâcija
 msg_err_ininfo_msg:		Kïûda lapas izveidç
 msg_update:			Tçmas <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> apskats
@@ -616,7 +597,6 @@ post_err_attach_ext:		<font class="ErrorText">Ielâdçtais fails neatbilst neviena
 post_err_attach_filelimit:	<font class="ErrorText">Mçìinâjums ielâdçt vairâk failu far pieïaujamo skaitu.</font><br>
 post_err_passwd:		Kïûdaina parole.
 post_reply_update:		Atbilde publikâcijai <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> forumâ {VAR-HTML: frm->name}
-post_edit_update:		Publikâcijas <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> rediìçðana {VAR-HTML: frm->name} forumâ
 post_topic_update:		Jaunas tçmas izveidoðana <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>forumâ
 post_error_generic:		Kïûda
 postcheck_max_images_err:	Samaziniet bilþu skaitu publikâcijâ lîdz {GVAR: MAX_IMAGE_COUNT}
@@ -669,8 +649,6 @@ showposts_update:		Visu <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias
 subscribed_update:		Personîgâs sarakstes pârskats
 th_err_invid_title:		Nepieejams ID – Tçmas identifikâtors
 th_err_invid_msg:		Jûs ðai saitç esat nokïuvis kïûdas pçc. Tçma kuru Jûs vçlaties apskatît neeksistç.
-thread_err_onlyregview_title:	Ðis forums ir pieejams tikai rìistrçtajiem lietotâjiem
-thread_err_onlyregview_msg:	Lai piekïûtu ðim forumam Jums nepiecieðams reìistrçties <a href="{TEMPLATE: msg_register_lnk}">Reìistrçties</a>, Ja esat reìistrçts lietotâjs Jums nepiecieðams <a href="{TEMPLATE: msg_login_lnk}">ielogoties forumâ</a>.
 thread_update:			Foruma <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>apskate
 tree_update:			Foruma <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>apskate hierarhija koka veidâ
 userinfo_update:		Peronîgâs informâcijas <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>apskats
@@ -743,7 +721,6 @@ groupmgr_no_user:		Lietotâjs "{VAR-HTML: gr_member}" neeksistç
 groupmgr_already_exists:	Lietotâjs "{VAR-HTML: gr_member}" jau ir piederîgs ðai grupai.
 groupmgr_yes:			Jâ
 groupmgr_no:			Nç
-groupmgr_inherit:		Pârmantot
 groupmgr_action:		Darbîba
 groupmgr_member:		Lietotâji
 groupmgr_cancel:		Atcelt
@@ -843,7 +820,6 @@ im_jabber:			Jabber:
 forum_contact:			Webmaster
 forum_home:			Sâkums
 post_cur_attached:		{VAR: i} pievienotie faili
-ppost_cur_attached:		{VAR: attach_count} pievienotie faili
 ignored_anon_post:		{GVAR: ANON_NICK} ignorçts
 ignored_user_post:		Ziòojums no <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignorçts
 smladd_close_window:		aizvçrt logu
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

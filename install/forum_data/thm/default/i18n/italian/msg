@@ -13,7 +13,6 @@ by:				Da:
 by_mod:				dal moderatore
 current_time:			Ora corrente
 custom_avatar_queue:		Coda di avatar personalizzati
-date:				Data
 date_posted:			Data del messaggio
 date_registered:		Data di registrazione:
 download_counter:		Scaricato {VAR: v[3]} volte
@@ -103,17 +102,13 @@ pm:				Messaggistica Privata
 poll:				Sondaggio:
 post_count:			Numero di messaggi {VAR: u_pcount}
 post_count_l:			Numero di messaggi:
-poster:				Poster
 posts:				Messaggi
 posts_c:			Messaggi:
 prev_thread:			Topic precedente:
 usrinfo_private_message:	Messaggio privato:
 profile:			Profilo
-profile_2:			Profilo:
 profile_desc:			Clicca qui per accedere al pannello di controllo dell&#39;utente
-rate:				giudica
 rate_thread:			Esprimi un giudizio sul topic
-rating:				Giudizio
 refresh_list:			Aggiorna l&#39;elenco
 register:			Registrati
 registered:			Registrato:
@@ -134,10 +129,8 @@ send:				Invia
 send_pm_desc:			Invia un messaggi privato a questo utente
 sender_email:			Mittente:
 sender_name:			Nome del mittente:
-show_all_posts:			Mostra tutti i messaggi di {VAR: user_login}
 show_posts_by:			Mostra i messaggi di: {VAR-HTML: u->login}
 size:				Dimensione:
-started_on:			Aperto il 
 status:				Status:
 status_line:			Ci sono <b>{VAR: st_obj->online_users_reg}</b> utenti, <b>{VAR: st_obj->online_users_hidden}</b> utenti invisibili e <b>{VAR: st_obj->online_users_anon}</b> guest che frequentano questo forum.
 sticky:				topped:
@@ -180,9 +173,7 @@ user_info_l:			Informazioni utente {VAR: user_info}
 user_offline:			{VAR: user_login}  è attualmente offline
 user_online:			{VAR: user_login} è attualmente online
 usrinfo_last_post:		Ultimo messaggio:
-view_forum:			Visualizza forum
 view_results:			Visualizza risultati
-view_thread:			Visualizza topic
 views:				View
 vote:				{VAR: frm->n_rating} Voti
 vote_button:			Vota
@@ -231,7 +222,6 @@ draft:				Bozze
 sent:				Posta inviata
 trash:				Cestino
 msg_author:			Mittente
-msg_thread:			Topic
 avatar_sel_form:		Modulo di selezione degli avatar
 no_avatars:			Nessun avatar disponibile
 month_1:			Gennaio
@@ -254,7 +244,6 @@ register_flat_view:		Vista piatta
 use_forum_default:		Usa le impostazioni standard del forum
 finduser_user_info:		Informazioni utente
 finduser_by_login:		Per login:
-finduser_by_email:		Per email:
 finduser_submit:		Trova
 finduser_no_such_user:		Nessun utente trovato
 finduser_user:			Utente
@@ -266,7 +255,6 @@ no:				No
 edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuti
 no_edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>illimitato</b>
 pmuserloc_login:		Login:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Invia
 pmuserloc_user:			Utente
 pmuserloc_no_result:		Nessun risultato
@@ -314,7 +302,6 @@ register_prefs:			Opzioni
 register_sig:			Signature:
 register_sig_desc:		Signature aggiuntiva che puoi far comparire in fondo ai tuoi messaggi.
 register_reset:			Cancella
-register_style:			Stile:
 register_def_thread_view:	Visualizzazione predefinita dei topic:
 register_msg_per_page:		Numero di messaggi per pagina:
 register_show_sig:		Mostra le signature:
@@ -385,7 +372,6 @@ post_title:			Titolo:
 post_body:			Testo:
 post_options:			Opzioni:
 post_preview_btn:		Anteprima del messaggio
-post_processing_msg:		Il tuo messaggio sta per essere inviato...
 ignore_users:			Utenti ignorati
 add_ignore:			Aggiungi Ignoramus
 forum_terms:			Regole del forum
@@ -456,7 +442,6 @@ search_forum:			Forum
 search_subject:			Oggetto
 search_posted_on:		Inviato 
 search_no_results:		Nessun risultato
-search_search:			Cerca
 search_all_forums:		Cerca in tutti i forum
 search_in_forum:		Cerca nel forum:
 search_for:			Cerca:
@@ -474,7 +459,6 @@ remail_send_now:		Spedisci email
 remail_anon_opt:		Copia questo messaggio in un programma di posta elettronica.
 remail_done:			Fatto
 remail_sent_conf:		L&#39;email {{VAR: data->subject} al tuo amico ({VAR-HTML: _POST['femail']}) è stata spedita con successo.
-remail_continue:		Continua
 remail_error:			Hai un errore
 mklist_type:			Tipo:
 mklist_option:			Opzione:
@@ -555,7 +539,6 @@ core_err_invinp_err:		Hai seguito un link non attivo. Per cortesia, segnalalo al
 core_adm_login_msg:		<br>Gli amministratori possono effettuare il login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">qui</a>
 email_err_unabletoemail_title:	ERRORE: Impossibile spedire email
 email_err_unabletoemail_msg:	Il sistema di invio email è stato disabilitato dall&#39;amministratore.
-email_err_unabletoemailu_msg:	Il sistema di invio email è stato disabilitato dall&#39;amministratore.
 email_error_unabletolocaddr:	Il sistema non è in grado di inviare un&#39;email all&#39;utente {VAR-HTML: usr_dst->login} poichè non è in grado di trovare il suo indirizzo di posta elettronica
 email_error_body:		Il campo testo è obbligatorio
 email_error_subject:		Oggetto è obbligatorio
@@ -585,8 +568,6 @@ ignore_list_update:		Sfoglia la propria ignore list
 index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}">elenco dei forum</a>
 list_referers_update:		Sfoglia i referral
 login_update:			Pagina di login
-msg_err_onlyreg_title:		Solo gli utenti registrati possono accedere a questo forum
-msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">login</a>.
 msg_err_ininfo_title:		Informazioni non sufficienti
 msg_err_ininfo_msg:		C&#39;è stato un problema nella generazione di questa pagina
 msg_update:			Sfoglia il topic <a href="{FULL_ROOT}{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">Il file che stai cercando di spedi
 post_err_attach_filelimit:	<font class="ErrorText">Stai cercando di spedire più file di quanti sia consentito spedire.</font><br>
 post_err_passwd:		Incorrect password.
 post_reply_update:		Risponde a <a href="{FULL_ROOT}{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_edit_update:		Modifica <a href="{FULL_ROOT}{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
 post_topic_update:		Scrive un nuovo topic in <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 post_error_generic:		Si è verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
@@ -667,8 +647,6 @@ showposts_update:		Visualizza messaggi per: <a href="{FULL_ROOT}{ROOT}?t=usrinfo
 subscribed_update:		Sfoglia le proprie sottoscrizioni
 th_err_invid_title:		Topic non valido
 th_err_invid_msg:		Hai seguito un link non valido; il topic che stai cercando di aprire non esiste
-thread_err_onlyregview_title:	Solo gli utenti registrati possono vedere il contenuto di questo forum
-thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato devi effettuare il <a href="{FULL_ROOT}{ROOT}?t=login&{DEF: _rsid}">login</a>.
 thread_update:			Legge il forum <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 tree_update:			Legge il topic (vista ad albero) <a href="{FULL_ROOT}{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Guarda il profilo di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
@@ -741,7 +719,6 @@ groupmgr_no_user:		Non esiste utente con login "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	L&#39;utente "{VAR-HTML: gr_member}" esiste già all&#39;interno di questo gruppo.
 groupmgr_yes:			Sì
 groupmgr_no:			No
-groupmgr_inherit:		Eredita
 groupmgr_action:		Azione
 groupmgr_member:		Utente
 groupmgr_cancel:		Annulla
@@ -841,7 +818,6 @@ im_jabber:			Jabber:
 forum_contact:			Contatti
 forum_home:			Home
 post_cur_attached:		allegati {VAR: i} file 
-ppost_cur_attached:		allegati {VAR: attach_count} file
 ignored_anon_post:		{GVAR: ANON_NICK} è ignorato
 ignored_user_post:		Il messaggio di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}">{VAR: obj->login}</a> viene ignorato
 smladd_close_window:		chiudi finestra
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -13,7 +13,6 @@ by:				Lähettäjä:
 by_mod:				Moderaattori
 current_time:			Paikallinen aika
 custom_avatar_queue:		Hyväksymättömät Avatarit
-date:				Päiväys
 date_posted:			Lähetetty
 date_registered:		Rekisteröitynyt:
 download_counter:		Imuroitu {VAR: v[3]} kerta(a)
@@ -105,17 +104,13 @@ pm:				Yksityisviestit
 poll:				Gallup:
 post_count:			Viestejä yhteensä {VAR: u_pcount}
 post_count_l:			Lähetetyt viestit:
-poster:				Lähettäjä
 posts:				Viestejä
 posts_c:			Lähetetyt:
 prev_thread:			Edellinen Aihe:
 usrinfo_private_message:	Yksityisviesti:
 profile:			Profiili
-profile_2:			Profiili:
 profile_desc:			Tästä pääset muuttamaan asetuksia ja käyttäjätietojasi
-rate:				arvostele
 rate_thread:			Arvostele Aihe
-rating:				Arvostelu
 refresh_list:			Päivitä Lista
 register:			Rekisteröidy
 registered:			Rekisteröitynyt:
@@ -136,10 +131,8 @@ send:				Lähetä
 send_pm_desc:			Lähetä yksityisviesti tälle käyttäjälle
 sender_email:			Lähettäjän sähköpostiosoite:
 sender_name:			Lähettäjän nimi:
-show_all_posts:			Näutä käyttäjän "{VAR: user_login}" kaikki viestit
 show_posts_by:			Näytä käyttäjän "{VAR: u_alias}" viestit
 size:				Koko:
-started_on:			Aloitettu
 status:				Status:
 status_line:			Tällä hetkellä <b>{VAR: st_obj->online_users_reg}</b> rekisteröitynyt(tä), <b>{VAR: st_obj->online_users_hidden}</b> näkymätön(tä) ja <b>{VAR: st_obj->online_users_anon}</b> vieras(ta) käyttäjä(ä).
 sticky:				kelluva:
@@ -182,9 +175,7 @@ user_info_l:			{VAR: u->alias} Profiili
 user_offline:			{VAR: obj->login} ei ole sisäänkirjautunut
 user_online:			{VAR: obj->login} on sisäänkirjautunut
 usrinfo_last_post:		Viimeisin viesti:
-view_forum:			Näytä Foorumi
 view_results:			Näytä Tulokset
-view_thread:			Näytä Aihe
 views:				Luettu
 vote:				Arvioita: {VAR: frm->n_rating}
 vote_button:			Äänestä
@@ -233,7 +224,6 @@ draft:				Vedokset
 sent:				Lähetetyt
 trash:				Roskakori
 msg_author:			Lähettäjä
-msg_thread:			Aihe
 avatar_sel_form:		Avatarin Valinta
 no_avatars:			Avatareja ei ole saatavilla
 month_1:			Tammikuu
@@ -258,7 +248,6 @@ register_flat_view:		Taso - viesti ja aihe listaus
 use_forum_default:		Käytä foorumin oletusarvoa
 finduser_user_info:		Profiili
 finduser_by_login:		Hae käyttäjätunnuksella:
-finduser_by_email:		Hae sähköpostiosoitteella:
 finduser_submit:		Hae käyttäjä
 finduser_no_such_user:		Käyttäjää ei löytynyt
 finduser_user:			Käyttäjä
@@ -271,7 +260,6 @@ register_email:			Sähköposti
 edit_time_limit:		<br><br><b>Muokkaus aikaraja</b>:<br> <b>{GVAR: EDIT_TIME_LIMIT}</b> minuutti(a)
 no_edit_time_limit:		<br><br><b>Muokkaus aikaraja</b>:<br> <b>Ei rajoitettu</b>
 pmuserloc_login:		Käyttäjätunnus:
-pmuserloc_email:		Sähköpostiosoite:
 pmuserloc_submit:		Hae
 pmuserloc_user:			Käyttäjä
 pmuserloc_no_result:		Käyttäjiä ei löytynyt
@@ -319,7 +307,6 @@ register_prefs:			Asetukset
 register_sig:			Allekirjoitus:
 register_sig_desc:		Valinnainen allekirjoitus, jonka voit liittää viesteihisi.
 register_reset:			Tyhjennä
-register_style:			Tyyli:
 register_def_thread_view:	Aiheiden oletus listaustapa:
 register_msg_per_page:		Viestejä per sivu:
 register_show_sig:		Näytä allekirjoitukset:
@@ -391,7 +378,6 @@ post_title:			Otsikko:
 post_body:			Teksti:
 post_options:			Valinnat:
 post_preview_btn:		Viestin esikatselu
-post_processing_msg:		Viestiäsi prosessoidaan, odota hetki
 ignore_users:			Torjutut Käyttäjät
 add_ignore:			Lisää Torjuttu
 forum_terms:			Foorumin Ehdot
@@ -462,7 +448,6 @@ search_forum:			Foorumi
 search_subject:			Otsikko
 search_posted_on:		Lähetetty
 search_no_results:		Ei tuloksia
-search_search:			Hae
 search_all_forums:		Hae kaikista foorumeista
 search_in_forum:		Hae foorumista:
 search_for:			Hakusana:
@@ -480,7 +465,6 @@ remail_send_now:		Lähetä sähköposti
 remail_anon_opt:		Kopioi tämä viesti käyttämääsi sähköpostiohjelmaan lähettääksesi sen kaverillesi
 remail_done:			Valmis
 remail_sent_conf:		Sähköposti kaverillesi osoitteeseen {VAR-HTML: _POST['femail']} aiheesta {VAR: data->subject} on lähetetty.
-remail_continue:		Jatka
 remail_error:			Virhe!
 mklist_type:			Luettelon tyyppi:
 mklist_option:			Rivi:
@@ -561,7 +545,6 @@ core_err_invinp_err:		Yritit ladata virheellista linkkiä, ole hyvä ja ilmoita tä
 core_adm_login_msg:		<br>Ylläpitäjät voivat kirjautua sisään <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">täällä</a>
 email_err_unabletoemail_title:	VIRHE: Sähköpostin lähetys ei onnistunut
 email_err_unabletoemail_msg:	Ylläpitäjä on estänyt sähköpostin lähetyksen.
-email_err_unabletoemailu_msg:	Ylläpitäjä on estänyt sähköpostin lähetyksen.
 email_error_unabletolocaddr:	Sori, systeemi ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']} koska ei löytänyt hänen osoitettaan
 email_error_body:		Viestin teksti on pakollinen
 email_error_subject:		Otsikko on pakollinen
@@ -592,8 +575,6 @@ ignore_list_update:		Selaa omaa torjuttujen listaa
 index_update:			Selaa <a href="{TEMPLATE: index_update_lnk}">foorumi listaa</a>
 list_referers_update:		Selaa suosittelujaan
 login_update:			Sisäänkirjautuminen
-msg_err_onlyreg_title:		Vain rekisteröityneet käyttäjät voivat lukea viestejä
-msg_err_onlyreg_msg:		Nähdäksesi tämän foorumin viestit sinun täytyy <a href="{TEMPLATE: msg_register_lnk}">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}">kirjaudu sisään</a>.
 msg_err_ininfo_title:		Riittämättömät Tiedot
 msg_err_ininfo_msg:		Ongelma sivun generoinnissa
 msg_update:			Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
@@ -621,7 +602,6 @@ post_err_attach_ext:		<font class="ErrorText">Lähetetyn tiedoston tyyppi ei vast
 post_err_attach_filelimit:	<font class="ErrorText">Yritit lähettää sallittua enemmän tiedostoja.</font><br>
 post_err_passwd:		Virheellinen salasana.
 post_reply_update:		Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> {VAR-HTML: frm->name} foorumissa
-post_edit_update:		Editoi viestiä otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> {VAR-HTML: frm->name} foorumissa
 post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
 post_error_generic:		Sinulla on virhe
 postcheck_max_images_err:	Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
@@ -674,8 +654,6 @@ showposts_update:		Selaa käyttäjän "<a href="{TEMPLATE: showposts_update_lnk}">{
 subscribed_update:		Selaa omia tilauksiaan
 th_err_invid_title:		Virheellinen aihe ID
 th_err_invid_msg:		Aihetta ei ole olemassa. Tarkista linkki jota käytit.
-thread_err_onlyregview_title:	Vain rekisteröityneet käyttäjät voivat lukea viestejä
-thread_err_onlyregview_msg:	Voidaksesi lukea tämän foorumin viestejä, sinun täytyy ensin <a href="{TEMPLATE: msg_register_lnk}">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}">kirjaudu sisään</a>.
 thread_update:			Selaa <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> foorumia
 tree_update:			Selaa aihetta (puu listaus) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
@@ -748,7 +726,6 @@ groupmgr_no_user:		Käyttäjätunnuksella "{VAR-HTML: gr_member}" ei löydy käyttäjä
 groupmgr_already_exists:	Käyttäjä "{VAR-HTML: gr_member}" on jo tämän ryhmän jäsen.
 groupmgr_yes:			Kyllä
 groupmgr_no:			Ei
-groupmgr_inherit:		Inherit
 groupmgr_action:		Toiminto
 groupmgr_member:		Jäsen
 groupmgr_cancel:		Peruuta
@@ -850,7 +827,6 @@ im_jabber:			Jabber:
 forum_contact:			Kontakti
 forum_home:			Koti
 post_cur_attached:		liitetiedostoja tällä hetkellä: {VAR: i} tiedosto(a)
-ppost_cur_attached:		liitetiedostoja tällä hetkellä: {VAR: attach_count} tiedosto(a) 
 ignored_anon_post:		{GVAR: ANON_NICK} viestit on torjuttu
 ignored_user_post:		Käyttäjän <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> viesti on torjuttu
 smladd_close_window:		sulje ikkuna
@@ -958,7 +934,6 @@ reg_conf_account:		<b>Käyttäjätilin hyväksyminen</b><br />Ylläpidon täytyy hyväk
 forum_banned_user:		Sinut on lopullisesti häädetty tältä foorumilta aikaisemman käytöksesi perusteella. Hyvästi.
 mnav_description:		Viestiselain
 mnav_date_limit:		Aikarajaus:
-mnav_time_unit:			Aikayksikkö:
 mnav_forum_limit:		Hae vain:
 mnav_all_forums:		Kaikista foorumeista
 mnav_submit:			Aloita Haku
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -13,7 +13,6 @@ by:				·¢Ìû£º
 by_mod:				°æÖ÷
 current_time:			µ±Ç°Ê±¼ä
 custom_avatar_queue:		¶¨ÖÆÍ·ÏñÁĞ±í
-date:				ÈÕÆÚ
 date_posted:			·¢²¼Ê±¼ä
 date_registered:		×¢²áÈÕÆÚ£º
 download_counter:		ÏÂÔØ´ÎÊı{VAR: v[3]}
@@ -104,17 +103,13 @@ pm:				ÇÄÇÄ»°
 poll:				µ÷²é£º
 post_count:			µã»÷Êı {VAR: u_pcount}
 post_count_l:			µã»÷Êı£º
-poster:				·¢ÌûÈË
 posts:				Ìû×Ó
 posts_c:			·¢ÌûÊı£º
 prev_thread:			ÏÂÒ»¸öÖ÷Ìâ£º
 usrinfo_private_message:	ÇÄÇÄ»°
 profile:			¸öÈËĞÅÏ¢
-profile_2:			¸öÈËĞÅÏ¢£º
 profile_desc:			µã»÷ÕâÀïÖÁÓÃ»§¹ÜÀí½çÃæ
-rate:				ÆÀ¼Û
 rate_thread:			Ö÷ÌâÆÀ¼Û
-rating:				ÆÀ¼Û
 refresh_list:			¸üĞÂÄ¿Â¼
 register:			×¢²á
 registered:			×¢²áÊ±¼ä£º
@@ -135,10 +130,8 @@ send:				·¢ËÍ
 send_pm_desc:			·¢ÇÄÇÄ»°¸øÕâ¸öÓÃ»§
 sender_email:			·¢ËÍÕßÓÊ¼ş£º
 sender_name:			·¢ËÍÕßĞÕÃû£º
-show_all_posts:			ÏÔÊ¾ËùÓĞÓÉÓÃ»§{VAR: user_login}·¢²¼µÄÖ÷Ìâ
 show_posts_by:			ÏÔÊ¾ÓÃ»§ {VAR: u_alias}·¢²¼µÄÖ÷Ìâ
 size:				´óĞ¡£º
-started_on:			·¢Æğ
 status:				¼¶±ğ£º
 status_line:			ÏÖÔÚ¹²ÓĞ <b>{VAR: st_obj->online_users_reg}</b> ÓÃ»§£¬°üÀ¨<b>{VAR: st_obj->online_users_hidden}</b> Ãû²»Ô¸Í¸Â¶Éí·İµÄÓÃ»§ºÍ <b>{VAR: st_obj->online_users_anon}</b> Ãû·Ã¿Í·ÃÎÊ±¾ÂÛÌ³¡£
 sticky:				ÖÃ¶¥£º
@@ -181,9 +174,7 @@ user_info_l:			ÓÃ»§ĞÅÏ¢ {VAR: u->alias}
 user_offline:			{VAR: obj->login}  ÏÖÔÚ²»ÔÚÏß
 user_online:			{VAR: obj->login} ÏÖÔÚÔÚÏß
 usrinfo_last_post:		ÉÏÒ»´ÎµÇÂ¼£º
-view_forum:			²é¿´ÂÛÌ³
 view_results:			²é¿´½á¹û
-view_thread:			²é¿´Ö÷Ìâ
 views:				µã»÷
 vote:				{VAR: frm->n_rating} Í¶Æ±
 vote_button:			Í¶Æ±
@@ -232,7 +223,6 @@ draft:				²İ¸åÏä
 sent:				·¢¼şÏä
 trash:				À¬»øÏä
 msg_author:			×÷Õß
-msg_thread:			Ö÷Ìâ
 avatar_sel_form:		Ñ¡ÔñÍ·Ïñ
 no_avatars:			Ã»ÓĞ¿ÉÓÃµÄÍ·Ïñ
 month_1:			1ÔÂ
@@ -254,7 +244,6 @@ register_flat_view:		Õ¹¿ªä¯ÀÀ
 use_forum_default:		Ê¹ÓÃÂÛÌ³Ä¬ÈÏÖµ
 finduser_user_info:		ÓÃ»§ĞÅÏ¢
 finduser_by_login:		ÕËºÅ£º
-finduser_by_email:		µç×ÓÓÊÏä£º
 finduser_submit:		²éÕÒ
 finduser_no_such_user:		Ã»ÓĞÕâ¸öÃ»§
 finduser_user:			ÓÃ»§Ãû
@@ -266,7 +255,6 @@ no:				·ñ
 edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆÎª</b>£º<b>{GVAR: EDIT_TIME_LIMIT}</b> ·ÖÖÓ
 no_edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆ</b>£º<b>²»ÏŞ</b>
 pmuserloc_login:		µÇÂ¼£º
-pmuserloc_email:		µç×ÓĞÅÏä£º
 pmuserloc_submit:		Ìá½»
 pmuserloc_user:			ÓÃ»§
 pmuserloc_no_result:		Ã»ÓĞ½á¹û
@@ -314,7 +302,6 @@ register_prefs:			²ÎÊıÑ¡Ôñ
 register_sig:			Ç©Ãû£º
 register_sig_desc:		¸úÔÚÄãµÄ·¢ÑÔºóµÄ¸öĞÔ»¯Ç©Ãû¡£
 register_reset:			ÖØÌî
-register_style:			×ÖÌå£º
 register_def_thread_view:	Ä¬ÈÏÖ÷Ìâä¯ÀÀ·½Ê½£º
 register_msg_per_page:		Ã¿Ò³Ìû×ÓÊı£º
 register_show_sig:		ÏÔÊ¾Ç©Ãû£º
@@ -385,7 +372,6 @@ post_title:			Ö÷Ìâ£º
 post_body:			ÄÚÈİ£º
 post_options:			Ñ¡Ïî£º
 post_preview_btn:		Ô¤ÀÀ
-post_processing_msg:		ĞÅÏ¢ÕıÔÚ·¢²¼£¬ÇëÉÔºò
 ignore_users:			±»¾Ü¾øµÄÓÃ»§
 add_ignore:			Ìí¼Ó±»¾Ü¾øµÄÓÃ»§
 forum_terms:			ÂÛÌ³Ğ­Òé
@@ -456,7 +442,6 @@ search_forum:			ÂÛÌ³
 search_subject:			Ö÷Ìâ
 search_posted_on:		Ìá½»
 search_no_results:		Ã»ÓĞ²éÑ¯½á¹û
-search_search:			ËÑË÷
 search_all_forums:		ËÑË÷ËùÓĞÂÛÌ³
 search_in_forum:		ËÑË÷Õâ¸öÂÛÌ³£º
 search_for:			ËÑË÷
@@ -474,7 +459,6 @@ remail_send_now:		·¢ËÍÓÊ¼ş
 remail_anon_opt:		°ÑÕâĞ©ÄÚÈİ¿½±´µ½ÄãÑ¡ÔñµÄÓÊ¼şµØÖ·ÖĞ£¬·¢ËÍ¸øÄãµÄÅóÓÑ¡£
 remail_done:			Íê³É
 remail_sent_conf:		¸øÄãµÄÅóÓÑ {VAR-HTML: _POST['femail']} µÄ¹ØÓÚ{{VAR: data->subject} µÄÓÊ¼şÒÑ¾­³É¹¦·¢ËÍ¡£
-remail_continue:		¼ÌĞø
 remail_error:			·¢ÉúÁË´íÎó
 mklist_type:			ÀàĞÍ£º
 mklist_option:			Ñ¡Ïî£º
@@ -555,7 +539,6 @@ core_err_invinp_err:		ÄãÊäÈëÁËÒ»¸ö´íÎóµÄÁ´½Ó,Çë¸üÕı<a href="mailto:{VAR: ADMIN_E
 core_adm_login_msg:		<br><a href="adm/admloginuser.php">¹ÜÀíÔ±µÇÂ½</a>
 email_err_unabletoemail_title:	´íÎó£ºÎŞ·¨·¢ËÍÓÊ¼ş
 email_err_unabletoemail_msg:	ÏµÍ³¹ÜÀíÔ±ÉèÖÃÓÊ¼şÏµÍ³ÎŞ·¨Ê¹ÓÃ¡£
-email_err_unabletoemailu_msg:	µç×ÓÓÊ¼şÏµÍ³±»ÏµÍ³¹ÜÀíÔ±¹Ø±Õ¡£
 email_error_unabletolocaddr:	¶Ô²»Æğ£¬ÒòÎªÎŞ·¨µÇÂ¼¶Ô·½µÄÓÊ¼ş·şÎñÆ÷µ¼ÖÂÏµÍ³ÎŞ·¨·¢ËÍÓÊ¼ş{VAR-HTML: _POST['tx_name']}
 email_error_body:		±ØĞëÌîĞ´ÓÊ¼şÄÚÈİ
 email_error_subject:		±ØĞëÌîĞ´ÓÊ¼şÖ÷Ìâ
@@ -585,8 +568,6 @@ ignore_list_update:		ä¯ÀÀ¡°±»¾Ü¾øÓÃ»§¡±Ãûµ¥
 index_update:			ä¯ÀÀ<a href="{TEMPLATE: index_update_lnk}">ÂÛÌ³ÁĞ±í</a>
 list_referers_update:		ä¯ÀÀ±»ÌáÃûÕß
 login_update:			µÇÂ¼¸ñÊ½
-msg_err_onlyreg_title:		Ö»ÓĞ×¢²áÓÃ»§¿ÉÒÔ²é¿´Õâ¸öÂÛÌ³¡£
-msg_err_onlyreg_msg:		Òª²é¿´Õâ¸öÂÛÌ³£¬Äã±ØĞë×¢²á<a href="{TEMPLATE: msg_register_lnk}">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë\'ll need to <a href="{TEMPLATE: msg_login_lnk}">µÇÂ¼</a>¡£
 msg_err_ininfo_title:		ĞÅÏ¢²»³ä·Ö
 msg_err_ininfo_msg:		±¾Ò³·¢Éú´íÎó
 msg_update:			Õ¹¿ªä¯ÀÀ <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼şÀàĞÍ²»·ûºÏÂÛÌ³¶ÔÉÏ
 post_err_attach_filelimit:	<font class="ErrorText">ÄãÕıÔÚÉÏ´«µÄÎÄ¼ş³¬¹ıÁËÏŞÖÆµÄÊıÁ¿¡£</font><br>
 post_err_passwd:		ÃÜÂë´íÎó¡£
 post_reply_update:		»Ø¸´ <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ÔÚ {VAR-HTML: frm->name}
-post_edit_update:		±à­<a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ÔÚ {VAR-HTML: frm->name}
 post_topic_update:		·¢±íĞÂÖ÷Ìâ <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		·¢Éú´íÎó
 postcheck_max_images_err:	Ò»´ÎÌá½»Í¼Æ¬ÔÊĞíµÄ×î´óÊıÊÇ{GVAR: MAX_IMAGE_COUNT} £¬Çë¾¡Á¿¼õÉÙÍ¼Æ¬ÊıÁ¿¡£
@@ -667,8 +647,6 @@ showposts_update:		²é¿´ÓÃ»§ <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_a
 subscribed_update:		ä¯ÀÀ×Ô¼ºÔ¤¶¨µÄÄÚÈİ
 th_err_invid_title:		´íÎóµÄÖ÷ÌâidºÅ
 th_err_invid_msg:		ÄãÊäÈëµÄÁ¬½Ó´íÎó£¬Ïà¹ØÖ÷Ìâ²¢²»´æÔÚ¡£
-thread_err_onlyregview_title:	Ö»ÓĞ×¢²áÓÃ»§ÔÊĞí²é¿´Õâ¸öÂÛÌ³
-thread_err_onlyregview_msg:	Òª²é¿´±¾ÂÛÌ³£¬Äã±ØĞë<a href="{TEMPLATE: msg_register_lnk}">×¢²á</a>£¬Èç¹ûÒÑ¾­×¢²á£¬Çë<a href="{TEMPLATE: msg_login_lnk}">µÇÂ¼</a>¡£
 thread_update:			ä¯ÀÀÂÛÌ³<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			ä¯ÀÀ£¨ÒÔÊ÷×´·½Ê½£© <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		²é¿´ <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}µÄ</a> ¸öÈËĞÅÏ¢
@@ -741,7 +719,6 @@ groupmgr_no_user:		´ËÕËºÅ²»´æÔÚ "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	"{VAR-HTML: gr_member}" ±¾ÂÛÌ³ÒÑ¾­´æÔÚÕâ¸öÓÃ»§
 groupmgr_yes:			ÊÇ
 groupmgr_no:			·ñ
-groupmgr_inherit:		¼Ì³Ğ
 groupmgr_action:		²Ù×÷
 groupmgr_member:		³ÉÔ±
 groupmgr_cancel:		É¾³ı
@@ -841,7 +818,6 @@ im_jabber:			Jabber£º
 forum_contact:			ÁªÏµ
 forum_home:			Ö÷Ò³
 post_cur_attached:		ÕıÔÚÕ³Ìû{VAR: i} ¸öÎÄ¼ş
-ppost_cur_attached:		ÕıÔÚÕ³Ìû {VAR: attach_count} ¸öÎÄ¼ş
 ignored_anon_post:		{GVAR: ANON_NICK} ±»ºöÂÔ
 ignored_user_post:		ÉèÖÃºöÂÔĞÅÏ¢<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
 smladd_close_window:		¹Ø±Õ´°¿Ú
@@ -957,7 +933,6 @@ reg_conf_account:		<b>ÕÊºÅÈ·ÈÏ</b><br />ÔÚÕÊºÅ±»¼¤»îÆôÓÃÖ®Ç°£¬±ØĞëÍ¨¹ı¹ÜÀíÔ±µÄÉó
 forum_banned_user:		ÓÉÓÚ´ËÕÊºÅÉÏ´ÎÔÚÂÛÌ³µÄËù×÷ËùÎªÑÏÖØÎ¥·´ÂÛÌ³¹æ¶¨£¬µ¼ÖÂÕÊºÅ±»ÂÛÌ³¹ÜÀíÔ±·â±Õ£¬ÔÙ¼û¡£
 mnav_description:		Ìû×Óä¯ÀÀÆ÷
 mnav_date_limit:		ÈÕÆÚ·¶Î§£º
-mnav_time_unit:			Ê±¼ä/ÈÕÆÚµ¥Î»£º
 mnav_forum_limit:		ÏŞÖÆÔÚÈçÏÂµÄ°æÃæÉÏ²éÕÒ£º
 mnav_all_forums:		ËùÓĞÂÛÌ³°æÃæ
 mnav_submit:			ä¯ ÀÀ
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>´íÎó£ºÎ´µÇÂ¼</legend>µÇÂ¼ºó²ÅÄÜ·ÃÎÊËùĞèÒ³Ãæ¡
 post_err_mod_forum_edit_ttl:	´íÎó
 post_err_mod_forum_edit_msg:	ÔÚĞèÒªÉó²éµÄÂÛÌ³Àï²»¿É±à¼­Ìû×Ó¡£
 dmsg_num:			ÌûºÅ #{VAR: obj->id}
-post_opt_session_warn:		<font color=red><b>¾¯¸æ£¡</b><br />Èç¹ûÄãÍ¬Ê±ÕıÔÚÆäËû´°¿Úä¯ÀÀÂÛÌ³£¬<br />ÇëÎñ±Ø£º<br /><b>Ê±³£µã»÷ &#39;Ô¤ÀÀ&#39; °´Å¥</b><br />ÒÔ±£Ö¤·¢Ìû´°¿Ú²»»á³¬Ê±¡£<br /></font>
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

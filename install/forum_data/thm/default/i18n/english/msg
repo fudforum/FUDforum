@@ -13,7 +13,6 @@ by:				By:
 by_mod:				by Moderator
 current_time:			Current Time
 custom_avatar_queue:		Custom Avatar Queue
-date:				Date
 date_posted:			Date Posted
 date_registered:		Date Registered:
 download_counter:		Downloaded {VAR: v[3]} time(s)
@@ -105,17 +104,13 @@ pm:				Private Messaging
 poll:				Poll:
 post_count:			Message Count {VAR: u_pcount}
 post_count_l:			Message Count:
-poster:				Poster
 posts:				Messages
 posts_c:			Messages:
 prev_thread:			Previous Topic:
 usrinfo_private_message:	Private Message:
 profile:			Profile
-profile_2:			Profile:
 profile_desc:			Click here to access user control panel
-rate:				rate
 rate_thread:			Rate Topic
-rating:				Rating
 refresh_list:			Refresh List
 register:			Register
 registered:			Registered:
@@ -136,10 +131,8 @@ send:				Send
 send_pm_desc:			Send a private message to this user
 sender_email:			Sender Email:
 sender_name:			Sender Name:
-show_all_posts:			Show all messages by {VAR: user_login}
 show_posts_by:			Show Messages by: {VAR: u_alias}
 size:				Size:
-started_on:			Started On
 status:				Status:
 status_line:			There are <b>{VAR: st_obj->online_users_reg}</b> members(s), <b>{VAR: st_obj->online_users_hidden}</b> invisible members and <b>{VAR: st_obj->online_users_anon}</b> guest(s) visiting this board.
 sticky:				sticky:
@@ -182,9 +175,7 @@ user_info_l:			User Information {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is currently offline
 user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Last Message:
-view_forum:			View Forum
 view_results:			View Results
-view_thread:			View Topic
 views:				Views
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Vote
@@ -233,7 +224,6 @@ draft:				Draft
 sent:				Sent
 trash:				Trash
 msg_author:			Author
-msg_thread:			Topic
 avatar_sel_form:		Avatar Selection Form
 no_avatars:			No Avatars available
 month_1:			January
@@ -258,7 +248,6 @@ register_flat_view:		Flat View message and topic listing
 use_forum_default:		Use forum default
 finduser_user_info:		User Information
 finduser_by_login:		By Login:
-finduser_by_email:		By Email:
 finduser_submit:		Find
 finduser_no_such_user:		No Such User
 finduser_user:			User
@@ -271,7 +260,6 @@ register_email:			Email
 edit_time_limit:		<br><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
 no_edit_time_limit:		<br><b>Editing Time Limit</b>: <b>Unlimited</b>
 pmuserloc_login:		Login:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Submit
 pmuserloc_user:			User
 pmuserloc_no_result:		No Result
@@ -319,7 +307,6 @@ register_prefs:			Preferences
 register_sig:			Signature:
 register_sig_desc:		Optional signature you may use to appear at bottom of your messages.
 register_reset:			Reset
-register_style:			Style:
 register_def_thread_view:	Default Topic View:
 register_msg_per_page:		Messages Per Page:
 register_show_sig:		Show Signatures:
@@ -391,7 +378,6 @@ post_title:			Title:
 post_body:			Body:
 post_options:			Options:
 post_preview_btn:		Preview Message
-post_processing_msg:		Your post is being processed, please wait
 ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
@@ -462,7 +448,6 @@ search_forum:			Forum
 search_subject:			Subject
 search_posted_on:		Posted On
 search_no_results:		No Results
-search_search:			Search
 search_all_forums:		Search all Forums
 search_in_forum:		Search in Forum:
 search_for:			Search for:
@@ -480,7 +465,6 @@ remail_send_now:		Send Email Now
 remail_anon_opt:		Copy this message into a mail client of your choice to send it to your friend(s).
 remail_done:			Done
 remail_sent_conf:		The email to your friend at {VAR-HTML: _POST['femail']} about the {VAR: data->subject} topic was successfully sent.
-remail_continue:		Continue
 remail_error:			You have an error
 mklist_type:			Type:
 mklist_option:			Option:
@@ -561,7 +545,6 @@ core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a 
 core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">here</a>
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
-email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.
 email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR-HTML: _POST['tx_name']} because it was unable to locate his email address
 email_error_body:		The body is required
 email_error_subject:		Subject is required
@@ -592,8 +575,6 @@ ignore_list_update:		Browsing own ignore list
 index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Login Form
-msg_err_onlyreg_title:		Only registered users may view this forum
-msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}">login</a>.
 msg_err_ininfo_title:		Insufficient Information
 msg_err_ininfo_msg:		There was a problem generating this page
 msg_update:			Browsing topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -623,7 +604,6 @@ post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload 
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
 post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editing <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per message, please decrease the number of images
@@ -676,8 +656,6 @@ showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
-thread_err_onlyregview_title:	Only registered users may view this forum
-thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}">login</a>.
 thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
@@ -751,7 +729,6 @@ groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
 groupmgr_yes:			Yes
 groupmgr_no:			No
-groupmgr_inherit:		Inherit
 groupmgr_action:		Action
 groupmgr_member:		Member
 groupmgr_cancel:		Cancel
@@ -853,7 +830,6 @@ im_jabber:			Jabber:
 forum_contact:			Contact
 forum_home:			Home
 post_cur_attached:		currently attached {VAR: i} file(s) 
-ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
@@ -961,7 +937,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ register_err_alias_notallowed:	This alias is not allowed
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

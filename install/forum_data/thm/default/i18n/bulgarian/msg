@@ -13,7 +13,6 @@ by:				От:
 by_mod:				от Модератора
 current_time:			Текущо време
 custom_avatar_queue:		Опашка от аватарите на потребителите
-date:				Дата
 date_posted:			Дата на публикуване
 date_registered:		Дата на регистрация:
 download_counter:		Заредено {VAR: v[3]} пъти
@@ -104,17 +103,13 @@ pm:				Лична поща
 poll:				Гласуване:
 post_count:			{VAR: u_pcount} съобщения
 post_count_l:			Брой на съобщенията:
-poster:				Автор
 posts:				Съобщения
 posts_c:			Съобщения:
 prev_thread:			Предишна тема:
 usrinfo_private_message:	Лично съобщение:
 profile:			Настройки
-profile_2:			Настройки:
 profile_desc:			Натисни за преместване в Вашия контролен панел
-rate:				оцени
 rate_thread:			Оцени темата
-rating:				Рейтинг
 refresh_list:			Обнови списъка
 register:			Регистрация
 registered:			Регистриран:
@@ -135,10 +130,8 @@ send:				Изпрати
 send_pm_desc:			Изпрати лично съобщение на този потребител
 sender_email:			E-mail на изпращача:
 sender_name:			Името на изпращача:
-show_all_posts:			Покажи всички съобщения, изпратени от {VAR: user_login}
 show_posts_by:			Покажи съобщенията от: {VAR: u_alias}
 size:				Размер:
-started_on:			Започната на
 status:				Статут:
 status_line:			В момента&nbsp; са <b>{VAR: st_obj->online_users_reg}</b> участници, невидимите - <b>{VAR: st_obj->online_users_hidden}</b>, гостите - <b>{VAR: st_obj->online_users_anon}</b>.
 sticky:				табелка:
@@ -181,9 +174,7 @@ user_info_l:			Информация за потребителя {VAR: u->alias}
 user_offline:			{VAR: obj->login} не присътства в момента
 user_online:			{VAR: obj->login} е онлайн
 usrinfo_last_post:		Последно съобщение:
-view_forum:			Преглед на форума
 view_results:			Преглед на резултатите
-view_thread:			Преглед на темата
 views:				Видяно
 vote:				{VAR: frm->n_rating} гласа
 vote_button:			Гласувай
@@ -232,7 +223,6 @@ draft:				Чернови
 sent:				Изпратени
 trash:				Кошче
 msg_author:			Автор
-msg_thread:			Тема
 avatar_sel_form:		Избор на Аватар
 no_avatars:			Няма Аватари на разположение
 month_1:			Януари
@@ -257,7 +247,6 @@ register_flat_view:		Плосък изглед на темите и съобщенията&nbsp;
 use_forum_default:		Използвай стандартните настройки на форума
 finduser_user_info:		Информация за потребителя
 finduser_by_login:		По име:
-finduser_by_email:		По e-mail:
 finduser_submit:		Търси
 finduser_no_such_user:		Несъществуващ потребител
 finduser_user:			Потребител
@@ -269,7 +258,6 @@ no:				Не
 edit_time_limit:		<br><b>Ограничено време за редактиране</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минути
 no_edit_time_limit:		<br><b>Време за редактиране</b>: <b>Неограничено</b>
 pmuserloc_login:		Потребителско име:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Търси
 pmuserloc_user:			Потребител
 pmuserloc_no_result:		Не намерен
@@ -317,7 +305,6 @@ register_prefs:			Предпочитания
 register_sig:			Подпис:
 register_sig_desc:		Подпис, с който бихте могли да завършвате вашите съобщения.
 register_reset:			Изчисти
-register_style:			Маска:
 register_def_thread_view:	Изглед на темата по подразбиране:
 register_msg_per_page:		Брой на съобщенията на страница:
 register_show_sig:		Покажи подписа:
@@ -388,7 +375,6 @@ post_title:			Заглавие:
 post_body:			Текст:
 post_options:			Настройки:
 post_preview_btn:		Предварителен преглед
-post_processing_msg:		Съобщението се обработва, моля изчакай
 ignore_users:			Игнорирани потребители
 add_ignore:			Добави игнорирания
 forum_terms:			Условия на форума
@@ -459,7 +445,6 @@ search_forum:			Форум
 search_subject:			Заглавие
 search_posted_on:		Публикувано на
 search_no_results:		Няма резултати
-search_search:			Търси
 search_all_forums:		Във всички форуми
 search_in_forum:		Във форума:
 search_for:			Търси за:
@@ -477,7 +462,6 @@ remail_send_now:		Изпрати e-mailа
 remail_anon_opt:		Копирай съобщението в твоята програма за изпращане на електронна поща и го прати на приятел.
 remail_done:			Готово
 remail_sent_conf:		Е-мейл за адрес {VAR-HTML: _POST['femail']} със заглавие {{VAR: data->subject} е изпратено успешно.
-remail_continue:		Продължи
 remail_error:			Възникна грешка
 mklist_type:			Вид:
 mklist_option:			Опция:
@@ -558,7 +542,6 @@ core_err_invinp_err:		Следваш недействителен адрес, моля, съобщи на <a href="mai
 core_adm_login_msg:		<br>Входът за Администратори е <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">тук</a>
 email_err_unabletoemail_title:	ГРЕШКА: Невъзможно е да се прати Е-mail
 email_err_unabletoemail_msg:	Е-mail системата е изключена от Администратора.
-email_err_unabletoemailu_msg:	Е-mail системата е изключена от Администратора.
 email_error_unabletolocaddr:	За съжаление, не е било възможно да се изпрати e-mail съобщението до {VAR-HTML: _POST['tx_name']} защото e-mail адресът му е неизвестен&nbsp;
 email_error_body:		Задължително трябва да има текст
 email_error_subject:		Задължително трябва да има заглавие
@@ -588,8 +571,6 @@ ignore_list_update:		Преглед на своята листа за игнорирани
 index_update:			Разглеждане на <a href="{TEMPLATE: index_update_lnk}">листата на форуми</a>
 list_referers_update:		Преглед на Рефералите
 login_update:			Вход във форума
-msg_err_onlyreg_title:		Само регистрираните потребители имат право да видят този форум
-msg_err_onlyreg_msg:		За да видищ този форум, трябва да бъдеш <a href="{TEMPLATE: msg_register_lnk}">регистриран</a>, ако си бил регистрирал преди, трябва <a href="{TEMPLATE: msg_login_lnk}">влезеш във форума</a>.
 msg_err_ininfo_title:		Информацията е недостатъчна
 msg_err_ininfo_msg:		Изникна проблем със зареждането на тази страница
 msg_update:			Разглеждане на темата <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -617,7 +598,6 @@ post_err_attach_ext:		<font class="ErrorText">Форматът на файла, който опитваш д
 post_err_attach_filelimit:	<font class="ErrorText">Опитваш се да заредиш повече файлове от допустимото количество.</font><br>
 post_err_passwd:		Невярна парола.
 post_reply_update:		Отговор на <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> във форума {VAR-HTML: frm->name}
-post_edit_update:		Нанасяне на промени в <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> във форума {VAR-HTML: frm->name}
 post_topic_update:		Започване на нова тема в <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name} форум </a>
 post_error_generic:		Имаш грешка
 postcheck_max_images_err:	Максимално разрешено количество на изображения в една публикация е {GVAR: MAX_IMAGE_COUNT}, моля, намали броя на изображенията
@@ -670,8 +650,6 @@ showposts_update:		Преглед на съобщенията от <a href="{TEMPLATE: showposts_updat
 subscribed_update:		Разглеждане на собствената абонаментна листа
 th_err_invid_title:		Недействителен ID на темата
 th_err_invid_msg:		Отиде на недействителен адрес. Темата която се опитваш да видиш, не съществува
-thread_err_onlyregview_title:	Само регистриранните потребители имат право да разглеждат този форум
-thread_err_onlyregview_msg:	За да видиш този форум, трябва да <a href="{TEMPLATE: msg_register_lnk}">се регистрираш</a>, ако вече си регистриран, трябва да <a href="{TEMPLATE: msg_login_lnk}">влезеш във форума</a>.
 thread_update:			Разглеждане на форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Разглеждане (в разгърнат изглед) на темата <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Преглед на личния профил на <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -744,7 +722,6 @@ groupmgr_no_user:		Няма участник във форума "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	Участника "{VAR-HTML: gr_member}" вече присъства в тази група.
 groupmgr_yes:			Да
 groupmgr_no:			Не
-groupmgr_inherit:		Наследи
 groupmgr_action:		Действие
 groupmgr_member:		Участник
 groupmgr_cancel:		Отказ
@@ -844,7 +821,6 @@ im_jabber:			Jabber:&nbsp;
 forum_contact:			Обратна връзка
 forum_home:			Начало
 post_cur_attached:		броят на прикачени файлове в момента е: {VAR: i}
-ppost_cur_attached:		броят на прикачени файлове в момента е: {VAR: attach_count}
 ignored_anon_post:		{GVAR: ANON_NICK} е игнориран
 ignored_user_post:		Съобщението от <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> е игнорирано
 smladd_close_window:		затвори прозорец
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

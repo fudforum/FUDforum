@@ -13,7 +13,6 @@ by:				發帖:
 by_mod:				版主
 current_time:			當前時間
 custom_avatar_queue:		定制頭像列表
-date:				日期
 date_posted:			發布時間
 date_registered:		注冊日期：
 download_counter:		下載次數{VAR: v[3]}
@@ -104,17 +103,13 @@ pm:				悄悄話
 poll:				調查:
 post_count:			點擊數 {VAR: u_pcount}
 post_count_l:			點擊數：
-poster:				發帖人
 posts:				貼子
 posts_c:			發貼數:
 prev_thread:			下一個主題：
 usrinfo_private_message:	悄悄話
 profile:			個人信息
-profile_2:			個人信息:
 profile_desc:			點擊這里至用戶管理界面
-rate:				評價
 rate_thread:			主題評價
-rating:				評價
 refresh_list:			更新目錄
 register:			注冊
 registered:			注冊時間：
@@ -135,10 +130,8 @@ send:				發送
 send_pm_desc:			發悄悄話給這個用戶
 sender_email:			發送者郵件：
 sender_name:			發送者姓名：
-show_all_posts:			顯示所有由用戶{VAR: user_login}發布的主題
 show_posts_by:			顯示用戶 {VAR: u_alias}發布的主題
 size:				大小:
-started_on:			發起
 status:				級別：
 status_line:			現在有 <b>{VAR: st_obj->online_users_reg}</b> 用戶, 包括<b>{VAR: st_obj->online_users_hidden}</b> 名隱藏用戶和 <b>{VAR: st_obj->online_users_anon}</b> 名訪客訪問本論壇。
 sticky:				置頂:
@@ -181,9 +174,7 @@ user_info_l:			用戶信息 {VAR: u->alias}
 user_offline:			{VAR: obj->login}  現在不在線
 user_online:			{VAR: obj->login} 現在在線
 usrinfo_last_post:		上一次登錄：
-view_forum:			查看論壇
 view_results:			查看結果
-view_thread:			查看主題
 views:				點擊
 vote:				{VAR: frm->n_rating} 投票
 vote_button:			投票
@@ -232,7 +223,6 @@ draft:				草稿箱
 sent:				發件箱
 trash:				垃圾箱
 msg_author:			作者
-msg_thread:			主題
 avatar_sel_form:		選擇頭像
 no_avatars:			沒有可用的頭像
 month_1:			1月
@@ -254,7 +244,6 @@ register_flat_view:		展開瀏覽
 use_forum_default:		使用默認論壇
 finduser_user_info:		用戶信息
 finduser_by_login:		賬號:
-finduser_by_email:		電子郵箱:
 finduser_submit:		查找
 finduser_no_such_user:		沒有這個用戶
 finduser_user:			用戶名
@@ -267,7 +256,6 @@ register_email:			電子信箱：
 edit_time_limit:		<br><b>編輯時間限制為</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> 分鐘
 no_edit_time_limit:		<br><b>編輯時間限制</b>: <b>不限</b>
 pmuserloc_login:		登錄:
-pmuserloc_email:		電子信箱：
 pmuserloc_submit:		提交
 pmuserloc_user:			用戶
 pmuserloc_no_result:		沒有結果
@@ -315,7 +303,6 @@ register_prefs:			參數選擇
 register_sig:			簽名:
 register_sig_desc:		跟在您的發言后的個性化簽名。
 register_reset:			重填
-register_style:			字體:
 register_def_thread_view:	默認主題瀏覽方式:
 register_msg_per_page:		每頁貼子數:
 register_show_sig:		顯示簽名:
@@ -386,7 +373,6 @@ post_title:			主題：
 post_body:			內容：
 post_options:			選項：
 post_preview_btn:		預覽
-post_processing_msg:		信息正在發布，請稍候
 ignore_users:			被拒絕的用戶
 add_ignore:			添加被拒絕的用戶
 forum_terms:			論壇協議
@@ -457,7 +443,6 @@ search_forum:			論壇
 search_subject:			主題
 search_posted_on:		提交
 search_no_results:		沒有查詢結果
-search_search:			搜索
 search_all_forums:		搜索所有論壇
 search_in_forum:		搜索這個論壇：
 search_for:			搜索
@@ -475,7 +460,6 @@ remail_send_now:		發送郵件
 remail_anon_opt:		把這些內容拷貝到你選擇的郵件地址中，發送給你的朋友。
 remail_done:			完成
 remail_sent_conf:		給你的朋友 {VAR-HTML: _POST['femail']} 的關于{{VAR: data->subject} 的郵件已經成功發送。
-remail_continue:		繼續
 remail_error:			發生了錯誤
 mklist_type:			類型:
 mklist_option:			選項：
@@ -556,7 +540,6 @@ core_err_invinp_err:		你輸入了一個錯誤的鏈接,請更正<a href="mailto:{VAR: ADMIN_E
 core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理員登陸</a>
 email_err_unabletoemail_title:	錯誤:無法發送郵件
 email_err_unabletoemail_msg:	系統管理員設置郵件系統無法使用。
-email_err_unabletoemailu_msg:	電子郵件系統被系統管理員關閉。
 email_error_unabletolocaddr:	對不起，因為無法登錄對方的郵件服務器導致系統無法發送郵件{VAR-HTML: _POST['tx_name']}
 email_error_body:		必須填寫郵件內容
 email_error_subject:		必須填寫郵件主題
@@ -586,8 +569,6 @@ ignore_list_update:		瀏覽“被拒絕用戶”名單
 index_update:			瀏覽<a href="{TEMPLATE: index_update_lnk}">論壇列表</a>
 list_referers_update:		瀏覽被提名者
 login_update:			登錄格式
-msg_err_onlyreg_title:		只有注冊用戶可以查看這個論壇。
-msg_err_onlyreg_msg:		要查看這個論壇，你必須注冊<a href="{TEMPLATE: msg_register_lnk}">注冊</a>, 如果已經注冊，請\'ll need to <a href="{TEMPLATE: msg_login_lnk}">登錄</a>.
 msg_err_ininfo_title:		信息不充分
 msg_err_ininfo_msg:		本頁發生錯誤
 msg_update:			展開瀏覽 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -615,7 +596,6 @@ post_err_attach_ext:		<font class="ErrorText">你正在上傳的文件類型不符合論壇對上
 post_err_attach_filelimit:	<font class="ErrorText">你正在上傳的文件超過了限制的數量。</font><br>
 post_err_passwd:		密碼錯誤。
 post_reply_update:		回復 <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
-post_edit_update:		編輯<a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
 post_topic_update:		發表新主題 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		發生錯誤
 postcheck_max_images_err:	一次提交圖片允許的最大數是{GVAR: MAX_IMAGE_COUNT} ，請盡量減少圖片數量。
@@ -668,8 +648,6 @@ showposts_update:		查看用戶 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_a
 subscribed_update:		瀏覽自己預定的內容
 th_err_invid_title:		錯誤的主題id號
 th_err_invid_msg:		你輸入的連接錯誤,相關主題并不存在。
-thread_err_onlyregview_title:	只有注冊用戶允許查看這個論壇
-thread_err_onlyregview_msg:	要查看本論壇，你必須<a href="{TEMPLATE: msg_register_lnk}">注冊</a>, 如果已經注冊，請<a href="{TEMPLATE: msg_login_lnk}">登錄</a>.
 thread_update:			瀏覽論壇<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			瀏覽（以樹狀方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 個人信息
@@ -742,7 +720,6 @@ groupmgr_no_user:		此賬號不存在 "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	 "{VAR-HTML: gr_member}" 本論壇已經存在這個用戶
 groupmgr_yes:			是
 groupmgr_no:			否
-groupmgr_inherit:		繼承
 groupmgr_action:		操作
 groupmgr_member:		成員
 groupmgr_cancel:		刪除
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			聯系
 forum_home:			主頁
 post_cur_attached:		正在粘貼{VAR: i} file(s)
-ppost_cur_attached:		正在粘貼 {VAR: attach_count} file(s)
 ignored_anon_post:		{GVAR: ANON_NICK} 被拒絕
 ignored_user_post:		您被拒絕提交信息<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a>
 smladd_close_window:		關閉窗口
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

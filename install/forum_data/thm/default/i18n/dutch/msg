@@ -13,7 +13,6 @@ by:				door:
 by_mod:				door Moderator
 current_time:			huidig tijdstip
 custom_avatar_queue:		Custom Avatar Queue
-date:				Datum
 date_posted:			Datum gepost
 date_registered:		Datum geregistreerd:
 download_counter:		{VAR: v[3]} keer gedownload
@@ -104,17 +103,13 @@ pm:				Privé Bericht
 poll:				Poll:
 post_count:			Post aantal {VAR: u_pcount}
 post_count_l:			Post aantal:
-poster:				Poster
 posts:				Posts
 posts_c:			Posts:
 prev_thread:			Vorige topic:
 usrinfo_private_message:	Privé Bericht:
 profile:			Profiel
-profile_2:			Profiel:
 profile_desc:			Klik hier om toegang te krijgen tot het leden controle paneel
-rate:				Beoordeel
 rate_thread:			Beoordeel Topic
-rating:				Beoordeling
 refresh_list:			Ververs Lijst
 register:			Registreer
 registered:			Geregistreerd:
@@ -135,10 +130,8 @@ send:				Verstuur
 send_pm_desc:			Verstuur een privé bericht naar deze gebruiker
 sender_email:			Email verzender:
 sender_name:			Naam verzender:
-show_all_posts:			Toon alle posts van: {VAR: user_login}
 show_posts_by:			Toon posts van: {VAR: u_alias}
 size:				Groote:
-started_on:			Gestart op
 status:				Status:
 status_line:			Er zijn <b>{VAR: st_obj->online_users_reg}</b> leden, <b>{VAR: st_obj->online_users_hidden}</b> onzichtbare leden en <b>{VAR: st_obj->online_users_anon}</b> gasten die dit &quot;board&quot; bezoeken.
 sticky:				sticky:
@@ -181,9 +174,7 @@ user_info_l:			Leden Informatie {VAR: u->alias}
 user_offline:			{VAR: obj->login}  is op dit moment offline
 user_online:			{VAR: obj->login} is op dit moment online
 usrinfo_last_post:		Laatste Post:
-view_forum:			Bekijk Forum
 view_results:			Bekijk resultaten
-view_thread:			Bekijk Topic
 views:				keer bekeken
 vote:				{VAR: frm->n_rating} stemmen
 vote_button:			stem
@@ -232,7 +223,6 @@ draft:				Draft
 sent:				Sent
 trash:				Vuilbak
 msg_author:			Schrijver
-msg_thread:			Topic
 avatar_sel_form:		Avatar Selectie Formulier
 no_avatars:			Geen Avatars beschikbaar
 month_1:			Januari
@@ -257,7 +247,6 @@ register_flat_view:		Flat View message en thread listing
 use_forum_default:		Gebruik forum standaard
 finduser_user_info:		Gebruikers Informatie
 finduser_by_login:		via Login:
-finduser_by_email:		via Email:
 finduser_submit:		vind
 finduser_no_such_user:		onbekend lid
 finduser_user:			lid
@@ -270,7 +259,6 @@ register_email:			Email
 edit_time_limit:		<br><b>Tijdslimiet aanpassen</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuten
 no_edit_time_limit:		<br><b>Tijdslimiet aanpassen</b>: <b>Onbeperkt</b>
 pmuserloc_login:		login:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Verzend
 pmuserloc_user:			Lid
 pmuserloc_no_result:		Geen Resultaat
@@ -317,7 +305,6 @@ register_prefs:			Voorkeuren
 register_sig:			Signature:
 register_sig_desc:		optionele signature mag u gebruiken om onderaan uw posts te laten verschijnen
 register_reset:			Herstel
-register_style:			Stijl:
 register_def_thread_view:	Standaard Topic View:
 register_msg_per_page:		Berichten Per Pagina:
 register_show_sig:		Toon Signatures:
@@ -387,7 +374,6 @@ post_title:			Titel:
 post_body:			Bericht:
 post_options:			Opties:
 post_preview_btn:		Preview Bericht
-post_processing_msg:		Uw bericht wordt verwerkt, gelieve even te wachten
 ignore_users:			Genegeerde Leden
 add_ignore:			Voeg Ignorant toe
 forum_terms:			Forum richtlijnen
@@ -458,7 +444,6 @@ search_forum:			Forum
 search_subject:			Onderwerp
 search_posted_on:		Gepost op
 search_no_results:		Geen resultaten
-search_search:			Zoek
 search_all_forums:		Doorzoek alle forums
 search_in_forum:		Zoek in Forum:
 search_for:			Zoek voor:
@@ -476,7 +461,6 @@ remail_send_now:		verzend Email
 remail_anon_opt:		Copieer dit bericht naar een mail programma van uw keuze om het naar uw vrienden te versturen.
 remail_done:			Gedaan
 remail_sent_conf:		De email naar uw vriend op {VAR-HTML: _POST['femail']} over het {{VAR: data->subject} onderwerp was succesvol verstuurd.
-remail_continue:		Doorgaan
 remail_error:			U heeft een fout
 mklist_type:			Type:
 mklist_option:			Optie:
@@ -557,7 +541,6 @@ core_err_invinp_err:		U heeft een ongeldige link gevolgd, contacteert u AUB de<a
 core_adm_login_msg:		<br>Administrators kunnen <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> inloggen
 email_err_unabletoemail_title:	FOUT: niet in staat om te mailen
 email_err_unabletoemail_msg:	Het email systeem is uitgeschakeld door de administrator.
-email_err_unabletoemailu_msg:	Het email systeem is uitgeschakeld door de administrator.
 email_error_unabletolocaddr:	Sorry, het systeem was niet in staat om {VAR-HTML: _POST['tx_name']} te mailen omdat het niet in staat was dit mail adres te vinden
 email_error_body:		een bericht is vereist
 email_error_subject:		Onderwerp is vereist
@@ -588,8 +571,6 @@ ignore_list_update:		Browsing in eigen negeer lijst
 index_update:			Browsing door de <a href="{TEMPLATE: index_update_lnk}">forum lijst</a>
 list_referers_update:		Browsing door verwijzingen
 login_update:			inlog Formulier
-msg_err_onlyreg_title:		Enkel geregistreerde gebruikers mogen dit forum zien
-msg_err_onlyreg_msg:		indien u wenst dit forum te zien moet u zich <a href="{TEMPLATE: msg_register_lnk}">registreren</a>, indien u reeds geregistreerd bent moet u zich<a href="{TEMPLATE: msg_login_lnk}">inloggen</a>.
 msg_err_ininfo_title:		Onvoldoende Informatie
 msg_err_ininfo_msg:		Er was een probleem bij het laden van deze pagina
 msg_update:			Browsing door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -615,7 +596,6 @@ post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht up te loa
 post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden up te loaden dan is toegelaten.</font><br>
 post_err_passwd:		ongeldig paswoord.
 post_reply_update:		Antwoorden op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editeren van <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		u heeft een fout
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten per post, verminder het aantal foto&quot;s
@@ -668,8 +648,6 @@ showposts_update:		Bekijk posts van: <a href="{TEMPLATE: showposts_update_lnk}">
 subscribed_update:		Browsing in eigen inschrijvingen
 th_err_invid_title:		ongeldig topic ID
 th_err_invid_msg:		u volgde een ongeldig link, het topic dat u tracht te bekijken bestaat niet.
-thread_err_onlyregview_title:	Enkel geregistreerde gebruikers mogen dit forum bekijken
-thread_err_onlyregview_msg:	Indien u dit forum wenst te bekijken moet u zich <a href="{TEMPLATE: msg_register_lnk}">registreren</a>, indien u al geregistreerd bent moet u <a href="{TEMPLATE: msg_login_lnk}">inloggen</a>.
 thread_update:			Browsing door forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
@@ -742,7 +720,6 @@ groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	User "{VAR-HTML: gr_member}" already exists in this group.
 groupmgr_yes:			Ja
 groupmgr_no:			Nee
-groupmgr_inherit:		Overerving
 groupmgr_action:		Actie
 groupmgr_member:		Lid
 groupmgr_cancel:		Annuleer
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			Contacteer
 forum_home:			Home
 post_cur_attached:		momenteel bijgevoegde {VAR: i} bestanden
-ppost_cur_attached:		momenteel bijgevoegde {VAR: attach_count} bestanden
 ignored_anon_post:		{GVAR: ANON_NICK} wordt genegeerd
 ignored_user_post:		Post door <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wordt genegeerd
 smladd_close_window:		Sluit venster
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

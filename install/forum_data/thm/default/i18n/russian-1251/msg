@@ -13,7 +13,6 @@ by:				От:
 by_mod:				от Модератора
 current_time:			Текущее время
 custom_avatar_queue:		Очередь внешних картинок
-date:				Дата
 date_posted:			Дата отправки
 date_registered:		Дата регистрации:
 download_counter:		Загружено {VAR: v[3]} раз
@@ -104,17 +103,13 @@ pm:				Личная почта
 poll:				Голосование:
 post_count:			Количество сообщений {VAR: u_pcount}
 post_count_l:			Количество сообщений:
-poster:				Автор
 posts:				Сообщений
 posts_c:			Сообщений:
 prev_thread:			Предыдущая тема:
 usrinfo_private_message:	Личное сообщение:
 profile:			Настройки
-profile_2:			Настройки:
 profile_desc:			Нажмите для перехода в панель управления
-rate:				оценить
 rate_thread:			Дать оценку теме
-rating:				Рейтинг
 refresh_list:			Обновить список
 register:			Регистрация
 registered:			Зарегистрирован:
@@ -135,10 +130,8 @@ send:				Отправить
 send_pm_desc:			Отправить личное сообщение этому пользователю
 sender_email:			Email автора:
 sender_name:			Имя автора:
-show_all_posts:			Показать все сообщения, отправленные {VAR: user_login}
 show_posts_by:			Показать сообщения от: {VAR: u_alias}
 size:				Размер:
-started_on:			Начата
 status:				Статус:
 status_line:			В настоящее время присутствуют пользователей: <b>{VAR: st_obj->online_users_reg}</b>, невидимых: <b>{VAR: st_obj->online_users_hidden}</b>, гостей: <b>{VAR: st_obj->online_users_anon}</b>.
 sticky:				стикер:
@@ -181,9 +174,7 @@ user_info_l:			Информация о пользователе {VAR: u->alias}
 user_offline:			{VAR: obj->login} в настоящее время не в онлайне
 user_online:			{VAR: obj->login} в настоящее время в онлайне
 usrinfo_last_post:		Последнее сообщение:
-view_forum:			Просмотр форума
 view_results:			Просмотр результатов
-view_thread:			Просмотр темы
 views:				Просмотров
 vote:				Голосов: {VAR: frm->n_rating}
 vote_button:			Проголосовать
@@ -232,7 +223,6 @@ draft:				Черновики
 sent:				Отправленные
 trash:				Корзина
 msg_author:			Автор
-msg_thread:			Тема
 avatar_sel_form:		Выбор картинки
 no_avatars:			Нет доступных картинок
 month_1:			Январь
@@ -255,7 +245,6 @@ register_flat_view:		Плоский вид
 use_forum_default:		Использовать умолчания форума
 finduser_user_info:		Информация о пользователе
 finduser_by_login:		По имени:
-finduser_by_email:		По email:
 finduser_submit:		Найти
 finduser_no_such_user:		Несуществующий пользователь
 finduser_user:			Пользователь
@@ -267,7 +256,6 @@ no:				Нет
 edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> минут
 no_edit_time_limit:		<br><b>Период возможности редактирования</b>: <b>Неограничено</b>
 pmuserloc_login:		Имя:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Найти
 pmuserloc_user:			Пользователь
 pmuserloc_no_result:		Ничего не найдено
@@ -315,7 +303,6 @@ register_prefs:			Персональные настройки
 register_sig:			Подпись:
 register_sig_desc:		Необязательная подпись, которая будет включаться в ваши сообщения.
 register_reset:			Сброс
-register_style:			Стиль:
 register_def_thread_view:	Вид тем по умолчанию:
 register_msg_per_page:		Сообщений на странице:
 register_show_sig:		Показывать подписи:
@@ -386,7 +373,6 @@ post_title:			Заголовок:
 post_body:			Текст:
 post_options:			Параметры:
 post_preview_btn:		Предварительный просмотр
-post_processing_msg:		Ваше сообщение обрабатывается, пожалуйста подождите
 ignore_users:			Игнорируемые пользователи
 add_ignore:			Добавить игнорируемого
 forum_terms:			Правила форума
@@ -457,7 +443,6 @@ search_forum:			Форум
 search_subject:			Тема
 search_posted_on:		Дата отправки
 search_no_results:		Нет результатов
-search_search:			Поиск
 search_all_forums:		Все форумы
 search_in_forum:		Форум для поиска:
 search_for:			Ключевые слова:
@@ -475,7 +460,6 @@ remail_send_now:		Отправить email
 remail_anon_opt:		Скопируйте это сообщение в используемую вами программу - почтовый клиент для отсылки вашим друзьям.
 remail_done:			Готово
 remail_sent_conf:		Электронное письмо на адрес {VAR-HTML: _POST['femail']} на тему {{VAR: data->subject} было успешно отправлено.
-remail_continue:		Продолжить
 remail_error:			Возникла ошибка
 mklist_type:			Тип:
 mklist_option:			Элемент:
@@ -556,7 +540,6 @@ core_err_invinp_err:		Вы попали на эту страницу по ошибочной ссылке, известите о
 core_adm_login_msg:		<br>Администраторы могут войти <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">здесь</a>
 email_err_unabletoemail_title:	ОШИБКА: Невозможно отправить электронное сообщение
 email_err_unabletoemail_msg:	Система отправки email была выключена администратором.
-email_err_unabletoemailu_msg:	Система отправки email была выключена администратором.
 email_error_unabletolocaddr:	Извините, отправка email-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
 email_error_body:		Текст сообщения обязателен
 email_error_subject:		Тема обязательна
@@ -586,8 +569,6 @@ ignore_list_update:		Просмотр списка игнорируемых
 index_update:			Просмотр <a href="{TEMPLATE: index_update_lnk}">списка форумов</a>
 list_referers_update:		Просмотр приглашенных
 login_update:			Вход в форум
-msg_err_onlyreg_title:		Просмотр данного форума разрешен только зарегистрированным пользователям
-msg_err_onlyreg_msg:		Для просмотра данного форума вы должны быть <a href="{TEMPLATE: msg_register_lnk}">зарегистрированным пользователем</a>, если вы были зарегистрированы ранее, то вам необходимо <a href="{TEMPLATE: msg_login_lnk}">войти в форум</a>.
 msg_err_ininfo_title:		Недостаточно информации
 msg_err_ininfo_msg:		Возникла проблема при создании страницы
 msg_update:			Просмотр темы <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -615,7 +596,6 @@ post_err_attach_ext:		<font class="ErrorText">Загружаемый файл не принадлежит к 
 post_err_attach_filelimit:	<font class="ErrorText">Вы пытаетесь загрузить большее допустимого количество файлов.</font><br>
 post_err_passwd:		Неверный пароль.
 post_reply_update:		Ответ на сообщение <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> в форуме {VAR-HTML: frm->name}
-post_edit_update:		Редактирование сообщение <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> в форуме {VAR-HTML: frm->name}
 post_topic_update:		Создание новой темы в форуме <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
@@ -668,8 +648,6 @@ showposts_update:		Просмотр всех сообщений от <a href="{TEMPLATE: showposts_upda
 subscribed_update:		Просмотр личной подписки
 th_err_invid_title:		Недопустимый ID - идентификатор темы
 th_err_invid_msg:		Вы попали на эту страницу по ошибочной ссылке - тема, которую вы пытаетесь просмотреть, не существует.
-thread_err_onlyregview_title:	Только зарегистрированные пользователи могут просматривать этот форум
-thread_err_onlyregview_msg:	Для того, чтобы просмотреть этот форум, вы должны <a href="{TEMPLATE: msg_register_lnk}">зарегистрироваться</a>, если же вы зарегистрировались ранее, то вам необходимо <a href="{TEMPLATE: msg_login_lnk}">войти в форум</a>.
 thread_update:			Просмотр форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Просмотр в режиме дерева темы <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Просмотр персональной информации о <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -742,7 +720,6 @@ groupmgr_no_user:		Пользователь с именем "{VAR-HTML: gr_member}" не существует
 groupmgr_already_exists:	Пользователь "{VAR-HTML: gr_member}" уже присутствует в этой группе.
 groupmgr_yes:			Да
 groupmgr_no:			Нет
-groupmgr_inherit:		Наследовать
 groupmgr_action:		Действие
 groupmgr_member:		Пользователи
 groupmgr_cancel:		Отмена
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			Обратная связь
 forum_home:			Начало
 post_cur_attached:		количество вложенных файлов: {VAR: i}
-ppost_cur_attached:		количество вложенных файлов: {VAR: attach_count}
 ignored_anon_post:		{GVAR: ANON_NICK} игнорирован
 ignored_user_post:		Сообщение от <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> игнорировано
 smladd_close_window:		закрыть окно
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Подтверждение аккаунта</b><br />Прежде чем ваш аккаунт ста
 forum_banned_user:		Ваши действия привели к тому, что вы исключены из этого форума. До свидания.
 mnav_description:		Навигатор по сообщениям
 mnav_date_limit:		Период времени:
-mnav_time_unit:			Единица времени:
 mnav_forum_limit:		Искать в:
 mnav_all_forums:		Искать во всех форумах
 mnav_submit:			Начать поиск
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

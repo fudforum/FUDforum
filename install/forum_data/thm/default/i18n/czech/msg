@@ -13,7 +13,6 @@ by:				Od:
 by_mod:				od Moderátora
 current_time:			Aktuální èas
 custom_avatar_queue:		Zátup ikon u¾ivatelù
-date:				Datum
 date_posted:			Pøidáno
 date_registered:		Registrován:
 download_counter:		Sta¾eno {VAR: v[3]} krát
@@ -104,17 +103,13 @@ pm:				Po¹ta
 poll:				Anketa:
 post_count:			Poèet pøíspìvkù {VAR: u_pcount}
 post_count_l:			Poèet pøíspìvkù:
-poster:				Odesilatel
 posts:				Pøíspìvky
 posts_c:			Pøíspìvky:
 prev_thread:			Pøedchozí téma:
 usrinfo_private_message:	Po¹ta:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Kliknìte sem pro pøístup k panelu u¾ivatelského nastavení
-rate:				hodnota
 rate_thread:			Ohodnotit téma
-rating:				Hodnocení
 refresh_list:			Aktualizovat seznam
 register:			Registrovat
 registered:			Registerace:
@@ -135,10 +130,8 @@ send:				Odeslat
 send_pm_desc:			Odeslat po¹tu tomuto u¾ivateli
 sender_email:			Email odesílatele:
 sender_name:			Jméno odesílatele:
-show_all_posts:			Zobrazit v¹echny pøíspìvky od {VAR: user_login}
 show_posts_by:			Zobrazit pøíspìvky od: {VAR: u_alias}
 size:				Velikost:
-started_on:			Zaèátek v
 status:				Stav:
 status_line:			<b>{VAR: st_obj->online_users_reg}</b> èlenù, <b>{VAR: st_obj->online_users_hidden}</b> skrytých èlenù a <b>{VAR: st_obj->online_users_anon}</b> hostù v tomto klubu.
 sticky:				vývìska:
@@ -181,9 +174,7 @@ user_info_l:			Inforace o u¾ivateli {VAR: u->alias}
 user_offline:			{VAR: obj->login} je nyní offline
 user_online:			{VAR: obj->login} je nyní online
 usrinfo_last_post:		Poslední pøíspìvek:
-view_forum:			Zobraz fórum
 view_results:			Zobraz výsledky
-view_thread:			Zobraz téma
 views:				Zobrazení
 vote:				{VAR: frm->n_rating} hlasù
 vote_button:			Hlasovat
@@ -232,7 +223,6 @@ draft:				Rozepsané
 sent:				Odeslané
 trash:				Ko¹
 msg_author:			Autor
-msg_thread:			Téma
 avatar_sel_form:		Formuláø výbìru ikony u¾ivatele
 no_avatars:			®ádné ikony u¾ivatele k dispozici
 month_1:			leden
@@ -257,7 +247,6 @@ register_flat_view:		Ploché zobrazení zpráv a vláken
 use_forum_default:		Pou¾ít nastavení fóra
 finduser_user_info:		Informace o u¾ivateli
 finduser_by_login:		Podle u¾ivatelského jména:
-finduser_by_email:		Podle emailu:
 finduser_submit:		Nalézt
 finduser_no_such_user:		®ádný takový u¾ivatel neexistuje
 finduser_user:			U¾ivatel
@@ -269,7 +258,6 @@ no:				Ne
 edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br><b>Èasový limit na editaci</b>: <b>Neomezen</b>
 pmuserloc_login:		U¾ivatelské jméno:
-pmuserloc_email:		Email:
 pmuserloc_submit:		Odeslat
 pmuserloc_user:			U¾ivatel
 pmuserloc_no_result:		®ádný výsledek
@@ -317,7 +305,6 @@ register_prefs:			Volby
 register_sig:			Podpis:
 register_sig_desc:		Volitelný podpis, který bude zobrazen na konci va¹ich pøíspìvkù.
 register_reset:			Vymazat
-register_style:			Styl:
 register_def_thread_view:	Výchozí zobrazení tématu:
 register_msg_per_page:		Poèet zpráv na stránku:
 register_show_sig:		Zobrazovat podpisy:
@@ -388,7 +375,6 @@ post_title:			Titulek:
 post_body:			Obsah:
 post_options:			Volby:
 post_preview_btn:		Náhled zprávy
-post_processing_msg:		Vá¹ pøíspìvek je zpracováván
 ignore_users:			Ignorovaní u¾ivatelé
 add_ignore:			Pøidat ignorovaného
 forum_terms:			Podmínky fóra
@@ -459,7 +445,6 @@ search_forum:			Fórum
 search_subject:			Nadpis
 search_posted_on:		Zasláno dne
 search_no_results:		®ádné výsledky
-search_search:			Hledat
 search_all_forums:		Hledat ve v¹ech fórech
 search_in_forum:		Hledat ve fóru:
 search_for:			Hledat:
@@ -477,7 +462,6 @@ remail_send_now:		Odeslat email
 remail_anon_opt:		Zkopírovat zprávu do va¹eho emaulového klienta k odeslání.
 remail_done:			Hotovo
 remail_sent_conf:		Email pro {VAR-HTML: _POST['femail']} ohlednì {{VAR: data->subject} byl úspì¹nì odeslán.
-remail_continue:		Popkraèovat
 remail_error:			Máte chybu
 mklist_type:			Typ:
 mklist_option:			Volba:
@@ -558,7 +542,6 @@ core_err_invinp_err:		Následoval(a) jste ¹patný odkaz. Prosím, oznamte to <a hre
 core_adm_login_msg:		<br>Administrátoøi se mù¾ou pøihlásit <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">zde</a>
 email_err_unabletoemail_title:	CHYBA: Není mo¾no zaslat email
 email_err_unabletoemail_msg:	Systém emailù by administrátorem vypnut.
-email_err_unabletoemailu_msg:	Systém emailù by administrátorem vypnut.
 email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} proto¾e nedokázal najít jeho adresu
 email_error_body:		Obsah je nutný
 email_error_subject:		nadpis je nutný
@@ -589,8 +572,6 @@ ignore_list_update:		Prohlí¾íte si seznam ignorovaných u¾ivatelù
 index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}">seznam fór</a>
 list_referers_update:		Prohlí¾íte si pøivedené lidi
 login_update:			Pøihla¹ovací formuláø
-msg_err_onlyreg_title:		Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}">pøihlásit</a>.
 msg_err_ininfo_title:		Nedostatek informací
 msg_err_ininfo_msg:		Pøi generování této stránky se vyskytl problém
 msg_update:			Prohlí¾íte si téma <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -618,7 +599,6 @@ post_err_attach_ext:		<font class="ErrorText">Soubor, kerý se sna¾íte nahrát neo
 post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br>
 post_err_passwd:		Nesprávné heslo.
 post_reply_update:		Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_edit_update:		Mìníte <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ve fóru {VAR-HTML: frm->name}
 post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Máte chybu
 postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
@@ -671,8 +651,6 @@ showposts_update:		Prohlí¾íte si pøíspìvek od: <a href="{TEMPLATE: showposts_upd
 subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
 th_err_invid_title:		Chybné ID tématu
 th_err_invid_msg:		Následoval(a) jste chybný odkaz, toto téma neexistuje.
-thread_err_onlyregview_title:	Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}">pøihlásit</a>.
 thread_update:			Prohlí¾íte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -745,7 +723,6 @@ groupmgr_no_user:		Neexistuje u¾ivatel s u¾ivatelským jménem "{VAR-HTML: gr_memb
 groupmgr_already_exists:	U¾ivatel "{VAR-HTML: gr_member}" ji¾ ve skupinì je.
 groupmgr_yes:			Ano
 groupmgr_no:			Ne
-groupmgr_inherit:		Odvodit
 groupmgr_action:		Akce
 groupmgr_member:		Èlen
 groupmgr_cancel:		Zru¹it
@@ -845,7 +822,6 @@ im_jabber:			Jabber:
 forum_contact:			Kontakt
 forum_home:			Domù
 post_cur_attached:		máte {VAR: i} pøilo¾ených souborù
-ppost_cur_attached:		máte {VAR: attach_count} pøilo¾ených souborù
 ignored_anon_post:		{GVAR: ANON_NICK} je ignorován
 ignored_user_post:		Pøíspìvek od <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> je ignorován
 smladd_close_window:		zavøít okno
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

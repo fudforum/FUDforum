@@ -13,7 +13,6 @@ by:				Av:
 by_mod:				av moderatorn
 current_time:			Klockan just nu
 custom_avatar_queue:		Egna avatarer i k&ouml;
-date:				Datum
 date_posted:			Postningsdatum
 date_registered:		Registreringsdatum:
 download_counter:		Laddat ner {VAR: v[3]} g&aring;nger
@@ -105,17 +104,13 @@ pm:				Privata meddelanden
 poll:				Gallup:
 post_count:			Antal inl&auml;gg {VAR: u_pcount}
 post_count_l:			Antal inl&auml;gg:
-poster:				Av
 posts:				Inl&auml;gg
 posts_c:			Inl&auml;gg:
 prev_thread:			F&ouml;reg&aring;ende diskussion:
 usrinfo_private_message:	Privat meddelande:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Tryck h&auml;r f&ouml;r att komma till medlemmens kontrollpanel
-rate:				bed&ouml;m
 rate_thread:			Bed&ouml;m diskussionen
-rating:				Bed&ouml;mning
 refresh_list:			Uppdatera listan
 register:			Registrera
 registered:			Registrerad:
@@ -136,10 +131,8 @@ send:				S&auml;nd
 send_pm_desc:			S&auml;nd ett privat meddelande till den h&auml;r medlemmen
 sender_email:			Avs&auml;ndarens e-postadress:
 sender_name:			Avs&auml;ndarens namn:
-show_all_posts:			Visa alla inl&auml;gg av {VAR: user_login}
 show_posts_by:			Visa inl&auml;gg av: {VAR: u_alias}
 size:				Storlek:
-started_on:			P&aring;b&ouml;rjad
 status:				Status:
 status_line:			Vi har <b>{VAR: st_obj->online_users_reg}</b> medlemmar, <b>{VAR: st_obj->online_users_hidden}</b> osynliga medlemmar och <b>{VAR: st_obj->online_users_anon}</b> g&auml;ster p&aring; bes&ouml;k just nu.
 sticky:				klibbig:
@@ -182,9 +175,7 @@ user_info_l:			Anv&auml;ndarinformation {VAR: u->alias}
 user_offline:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet offline
 user_online:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet online
 usrinfo_last_post:		Senaste inl&auml;gg:
-view_forum:			Visa forum
 view_results:			Visa resultat
-view_thread:			Visa diskussion
 views:				Visningar
 vote:				{VAR: frm->n_rating} r&ouml;ster
 vote_button:			R&ouml;sta
@@ -233,7 +224,6 @@ draft:				UTKAST
 sent:				S&Auml;NDA
 trash:				SKR&Auml;PKORG
 msg_author:			F&ouml;rfattare
-msg_thread:			Diskussion
 avatar_sel_form:		Val av avatar
 no_avatars:			Inga tillg&auml;ngliga avatarer
 month_1:			januari
@@ -255,7 +245,6 @@ register_flat_view:		Platt vy
 use_forum_default:		Anv&auml;nd forumets inst&auml;llning
 finduser_user_info:		Anv&auml;ndarinformation
 finduser_by_login:		Enligt anv&auml;ndarnamn:
-finduser_by_email:		Enligt e-postadress:
 finduser_submit:		S&ouml;k
 finduser_no_such_user:		Ingen s&aring;dan medlem
 finduser_user:			Medlem
@@ -267,7 +256,6 @@ no:				Nej
 edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuter
 no_edit_time_limit:		<br><b>Tidsgr&auml;ns f&ouml;r editering</b>: <b>Obegr&auml;nsad</b>
 pmuserloc_login:		Anv&auml;ndarnamn:
-pmuserloc_email:		E-post:
 pmuserloc_submit:		Skicka
 pmuserloc_user:			Medlem
 pmuserloc_no_result:		Inget resultat
@@ -315,7 +303,6 @@ register_prefs:			Inst&auml;llningar
 register_sig:			Signatur:
 register_sig_desc:		Valbar signatur som kan bifogas l&auml;ngst ner i dina inl&auml;gg.
 register_reset:			&Aring;terst&auml;ll
-register_style:			Stil:
 register_def_thread_view:	F&ouml;rvald vy av diskussion:
 register_msg_per_page:		Antal inl&auml;gg per sida:
 register_show_sig:		Visa signaturer:
@@ -385,7 +372,6 @@ post_title:			Rubrik:
 post_body:			Text:
 post_options:			Alternativ:
 post_preview_btn:		F&ouml;rhandsgranska meddelande
-post_processing_msg:		Ditt inl&auml;gg behandlas, var god v&auml;nta
 ignore_users:			Ignorerade medlemmar
 add_ignore:			Ignorera medlem
 forum_terms:			Villkor f&ouml;r forumet
@@ -456,7 +442,6 @@ search_forum:			Forum
 search_subject:			Rubrik
 search_posted_on:		Postningsdatum
 search_no_results:		Inga resultat
-search_search:			S&ouml;k
 search_all_forums:		S&ouml;k i alla forum
 search_in_forum:		S&ouml;k i forum:
 search_for:			S&ouml;kterm:
@@ -474,7 +459,6 @@ remail_send_now:		Skicka e-post nu
 remail_anon_opt:		Kopiera det h&auml;r meddelandet till en valbar e-postklient f&ouml;r att s&auml;nda till dina v&auml;nner.
 remail_done:			Klart
 remail_sent_conf:		E-postmeddelandet till din v&auml;n {VAR-HTML: _POST['femail']} med rubriken {{VAR: data->subject} har skickats.
-remail_continue:		Forts&auml;tt
 remail_error:			Ett fel har uppst&aring;tt
 mklist_type:			Typ:
 mklist_option:			Alternativ:
@@ -555,7 +539,6 @@ core_err_invinp_err:		Du har f&ouml;ljt en felaktig l&auml;nk, v&auml;nligen med
 core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="adm/admloginuser.php">h&auml;r</a>
 email_err_unabletoemail_title:	FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:	E-postsystemet har st&auml;ngts av av administratorn.
-email_err_unabletoemailu_msg:	E-postsystemet har st&auml;ngts av av administratorn.
 email_error_unabletolocaddr:	Systemet kunde tyv&auml;rr inte skicka e-post till {VAR-HTML: _POST['tx_name']} eftersom det inte hittade hans/hennes e-postadress
 email_error_body:		Du kan inte skicka ett tomt meddelande
 email_error_subject:		Rubriken &auml;r obligatorisk
@@ -585,8 +568,6 @@ ignore_list_update:		Visar egen lista &ouml;ver ignorerade medlemmar
 index_update:			Visar <a href="{TEMPLATE: index_update_lnk}">listan &ouml;ver forum</a>
 list_referers_update:		Visar refererade medlemmar
 login_update:			Logga in
-msg_err_onlyreg_title:		Endast registrerade medlemmar kan l&auml;sa detta forum
-msg_err_onlyreg_msg:		F&ouml;r att kunna l&auml;sa detta forum m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}">logga in</a>.
 msg_err_ininfo_title:		Otillr&auml;cklig information
 msg_err_ininfo_msg:		Ett problem uppkom n&auml;r sidan skulle g&ouml;ras
 msg_update:			L&auml;ser diskussionen med rubriken <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">Filen du f&ouml;rs&ouml;ker skicka
 post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka fler filer &auml;n vad som &auml;r till&aring;tet.</font><br>
 post_err_passwd:		Fel l&ouml;senord
 post_reply_update:		Svarar p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
-post_edit_update:		Editerar <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
 post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
@@ -667,8 +647,6 @@ showposts_update:		Visar inl&auml;gg av: <a href="{TEMPLATE: showposts_update_ln
 subscribed_update:		Visar egna best&auml;llningar
 th_err_invid_title:		Felaktigt diskussions-ID
 th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, diskussionen du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
-thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
-thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}">logga in</a>.
 thread_update:			L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -741,7 +719,6 @@ groupmgr_no_user:		Det finns ingen medlem med anv&auml;ndarnamnet "{VAR-HTML: gr
 groupmgr_already_exists:	Medlemmen "{VAR-HTML: gr_member}" finns redan i den h&auml;r gruppen.
 groupmgr_yes:			Ja
 groupmgr_no:			Nej
-groupmgr_inherit:		&Auml;rv
 groupmgr_action:		Handling
 groupmgr_member:		Medlem
 groupmgr_cancel:		Tillbaka
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			Ta kontakt
 forum_home:			Hem
 post_cur_attached:		{VAR: i} filer bifogade f&ouml;r tillf&auml;llet
-ppost_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
 post_list_smilies:		visa alla smilisar
 ignored_anon_post:		{GVAR: ANON_NICK} ignoreras
 smladd_close_window:		st&auml;ng f&ouml;nstret
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Kontoverifiering</b><br />Innan ditt konto aktiveras, måst
 forum_banned_user:		Handligar gjorda av dig har resulterat i att du permanent bannlysts från detta forum. Adjö.
 mnav_description:		Meddelandenavigatorn
 mnav_date_limit:		Ålder:
-mnav_time_unit:			Tidsenhet för datum:
 mnav_forum_limit:		Sök bara i:
 mnav_all_forums:		Sök alla forum
 mnav_submit:			Starta Sökning
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

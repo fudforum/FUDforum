@@ -13,7 +13,6 @@ by:				Przez:
 by_mod:				przez Moderatora
 current_time:			Aktualna data
 custom_avatar_queue:		Kolejka Avatarów U¿ytkowników
-date:				Data
 date_posted:			Data zamieszczenia
 date_registered:		Data rejestracji:
 download_counter:		Pobrane {VAR: v[3]} razy
@@ -105,17 +104,13 @@ pm:				Prywatne wiadomo¶ci
 poll:				G³osowanie:
 post_count:			Liczba wiadomo¶ci {VAR: u_pcount}
 post_count_l:			Liczba wiadomo¶ci:
-poster:				U¿ytkownik
 posts:				Wiadomo¶ci
 posts_c:			Wiadomo¶ci:
 prev_thread:			Poprzedni w±tek:
 usrinfo_private_message:	Prywatna wiadomo¶æ:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Dostêp do panelu sterowania u¿ytkownika
-rate:				ocena
 rate_thread:			Ocena W±tku
-rating:				Oceny
 refresh_list:			Od¶wie¿ Listê
 register:			Zarejestruj siê
 registered:			Zarejestrowany:
@@ -136,10 +131,8 @@ send:				Wy¶lij
 send_pm_desc:			Wy¶lij prywatn± wiadomo¶æ u¿ytkownikowi
 sender_email:			E-mail nadawcy:
 sender_name:			Nazwa nadawcy:
-show_all_posts:			Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: user_login}
 show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR: u_alias}
 size:				Rozmiar:
-started_on:			Rozpoczêty
 status:				Status:
 status_line:			Mamy <b>{VAR: st_obj->online_users_reg}</b> u¿ytkowników, <b>{VAR: st_obj->online_users_hidden}</b> ukrytych u¿ytkowników i <b>{VAR: st_obj->online_users_anon}</b> go¶ci odwiedzaj±cych forum.
 sticky:				przyczepiony:
@@ -182,9 +175,7 @@ user_info_l:			Informacje o u¿ytkowniku {VAR: u->alias}
 user_offline:			{VAR: obj->login} jest aktualnie niedostêpny
 user_online:			{VAR: obj->login} jest aktualnie dostêpny
 usrinfo_last_post:		Ostatnia wiadomo¶æ:
-view_forum:			Wy¶wietl forum
 view_results:			Wy¶wietl wyniki
-view_thread:			Wy¶wietl w±tek
 views:				Ods³on
 vote:				{VAR: frm->n_rating} G³osów
 vote_button:			G³osuj
@@ -233,7 +224,6 @@ draft:				Skrzynka szkiców
 sent:				Skrzynka nadawcza
 trash:				¦mietnik
 msg_author:			Autor
-msg_thread:			W±tek
 avatar_sel_form:		Formularz Wyboru Avatara
 no_avatars:			Brak dostêpnych Avatarów
 month_1:			Styczeñ
@@ -255,7 +245,6 @@ register_flat_view:		Widok p³aski
 use_forum_default:		U¿ywaj standardów forum
 finduser_user_info:		Informacje o szukanym u¿ytkowniku
 finduser_by_login:		Nazwa szukanego u¿ytkownika:
-finduser_by_email:		Adres e-mail szukanego u¿ytkownika:
 finduser_submit:		Znajd¼
 finduser_no_such_user:		Brak takiego u¿ytkownika.
 finduser_user:			U¿ytkownik
@@ -267,7 +256,6 @@ no:				Nie
 edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minut
 no_edit_time_limit:		<br><b>Ograniczenie czasu edycji</b>: <b>Nieograniczony</b>
 pmuserloc_login:		Nazwa u¿ytkownika:
-pmuserloc_email:		E-mail:
 pmuserloc_submit:		Wy¶lij
 pmuserloc_user:			U¿ytkownik
 pmuserloc_no_result:		Brak wyników
@@ -315,7 +303,6 @@ register_prefs:			Preferencje
 register_sig:			Podpis:
 register_sig_desc:		Opcjonalny podpis, który mo¿e pojawiaæ siê na dole Twoich wiadomo¶ci.
 register_reset:			Zresetuj
-register_style:			Styl:
 register_def_thread_view:	Domy¶lny widok w±tków:
 register_msg_per_page:		Ilo¶æ wiadomo¶ci na stronie:
 register_show_sig:		Poka¿ podpisy:
@@ -385,7 +372,6 @@ post_title:			Temat:
 post_body:			Tre¶æ:
 post_options:			Opcje:
 post_preview_btn:		Podgl±d wiadomo¶ci
-post_processing_msg:		Twoja wiadomo¶æ jest przetwarzana, proszê czekaæ
 ignore_users:			Ignorowani U¿ytkownicy
 add_ignore:			Dodawanie ignorowanych
 forum_terms:			Zasady Forum
@@ -456,7 +442,6 @@ search_forum:			Forum
 search_subject:			Temat
 search_posted_on:		Zamieszczona dnia
 search_no_results:		Brak wyników.
-search_search:			Szukaj
 search_all_forums:		Przeszukaj wszystkie fora
 search_in_forum:		Szukaj w forum:
 search_for:			Szukany ci±g:
@@ -474,7 +459,6 @@ remail_send_now:		Wy¶lij teraz
 remail_anon_opt:		Skopiuj tê wiadomo¶æ do wybranego klienta poczty, aby wys³aæ go do swoich znajomych.
 remail_done:			Zrobione
 remail_sent_conf:		List do Twojego znajomego o adresie {VAR-HTML: _POST['femail']} o temacie {{VAR: data->subject} zosta³ pomy¶lnie wys³any.
-remail_continue:		Kontynuuj
 remail_error:			Zosta³ wykryty b³±d
 mklist_type:			Typ:
 mklist_option:			Opcje:
@@ -555,7 +539,6 @@ core_err_invinp_err:		Odkry³e¶ nieprawid³owy odno¶nik, wiêc powiadom <a href="ma
 core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">tutaj</a>
 email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
 email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
-email_err_unabletoemailu_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
 email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: _POST['tx_name']}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
 email_error_body:		Tre¶æ listu jest wymagana
 email_error_subject:		Temat listu jest wymagany
@@ -585,8 +568,6 @@ ignore_list_update:		Przegl±danie w³asnej listy ignorowanych
 index_update:			Przegl±danie <a href="{TEMPLATE: index_update_lnk}">listy forum</a>
 list_referers_update:		Przegl±danie osób poleconych
 login_update:			Formularz logowania
-msg_err_onlyreg_title:		Tylko zarejestrowani u¿ytkownicy mog± przegl±daæ to forum
-msg_err_onlyreg_msg:		Aby zobaczyæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}">zarejestrowaæ siê</a>, a je¶li ju¿ jeste¶ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}">zalogowaæ siê</a>.
 msg_err_ininfo_title:		Niewystarczaj±ce informacje
 msg_err_ininfo_msg:		Pojawi³ siê problem z wygenerowaniem tej strony
 msg_update:			Przegl±danie w±tku <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie
 post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br>
 post_err_passwd:		Nieprawid³owe has³o.
 post_reply_update:		Odpowiadanie na w±tek <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
-post_edit_update:		Edycja wiadomo¶ci <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> na forum {VAR-HTML: frm->name}
 post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Pojawi³ siê pewien b³±d
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
@@ -667,8 +647,6 @@ showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a hre
 subscribed_update:		Przegl±danie w³asnych subskrypcji
 th_err_invid_title:		Nieprawid³owy identyfikator w±tku
 th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który próbujesz obejrzeæ nie istnieje.
-thread_err_onlyregview_title:	Tylko zarejestrowani u¿ytkownicy mog± ogl±daæ to forum
-thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}">zalogowaæ siê</a>.
 thread_update:			Przegl±danie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Przegl±danie w±tku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Przegl±danie profilu u¿ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -741,7 +719,6 @@ groupmgr_no_user:		Nie ma u¿ytkownika o nazwie "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	U¿ytkownik "{VAR-HTML: gr_member}" ju¿ istnieje w tej grupie.
 groupmgr_yes:			Tak
 groupmgr_no:			Nie
-groupmgr_inherit:		Odziedzicz
 groupmgr_action:		Akcja
 groupmgr_member:		U¿ytkownik
 groupmgr_cancel:		Anuluj
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			Kontakt
 forum_home:			Strona g³ówna
 post_cur_attached:		aktualnie za³±czone {VAR: i} plików 
-ppost_cur_attached:		aktualnie za³±czone {VAR: attach_count} plików 
 post_list_smilies:		wy¶wietl wszystkie u¶mieszki
 ignored_anon_post:		{GVAR: ANON_NICK} jest ignorowany
 smladd_close_window:		zamknij okno
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -13,7 +13,6 @@ by:				Av:
 by_mod:				av moderatoren
 current_time:			Klokken akkurat n&aring;
 custom_avatar_queue:		Egne avatarer i k&oslash;
-date:				Dato
 date_posted:			Postet dato
 date_registered:		Registreringsdato:
 download_counter:		Lastet ned {VAR: v[3]} ganger
@@ -105,17 +104,13 @@ pm:				Private meldinger
 poll:				Avstemning:
 post_count:			Antall innlegg {VAR: u_pcount}
 post_count_l:			Antall innlegg:
-poster:				Av
 posts:				Innlegg
 posts_c:			Innlegg:
 prev_thread:			Foreg&aring;ende tr&aring;d:
 usrinfo_private_message:	Privat melding:
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Trykk her for &aring; komme til medlemmets kontrollpanel
-rate:				rate
 rate_thread:			rate tr&aring;den
-rating:				rating
 refresh_list:			Oppdatere listen
 register:			Registrer
 registered:			Registrert:
@@ -136,10 +131,8 @@ send:				Send
 send_pm_desc:			Send en privat melding til dette medlemmet
 sender_email:			Avsenderens e-postadresse:
 sender_name:			Avsenderens navn:
-show_all_posts:			Vise alle innlegg av {VAR: user_login}
 show_posts_by:			Vise innlegg av: {VAR: u_alias}
 size:				St&oslash;rrelse:
-started_on:			P&aring;begynt
 status:				Status:
 status_line:			Vi har <b>{VAR: st_obj->online_users_reg}</b> medlemmer, <b>{VAR: st_obj->online_users_hidden}</b> usynlige medlemmer og <b>{VAR: st_obj->online_users_anon}</b> gjester p&aring; bes&oslash;k akkurat n&aring;.
 sticky:				klebrig:
@@ -182,9 +175,7 @@ user_info_l:			Brukerinformasjon {VAR: u->alias}
 user_offline:			{VAR: obj->login} er offline
 user_online:			{VAR: obj->login} er online
 usrinfo_last_post:		Siste innlegg:
-view_forum:			Vise forum
 view_results:			Vise resultat
-view_thread:			Vise tr&aring;d
 views:				Views
 vote:				{VAR: frm->n_rating}stemmer
 vote_button:			Stem
@@ -233,7 +224,6 @@ draft:				KLADD
 sent:				SENDTE
 trash:				PAPIRKURV
 msg_author:			Forfatter
-msg_thread:			Innlegg
 avatar_sel_form:		Valg av avatar
 no_avatars:			Ingen tilgjengelige avatarer
 month_1:			januar
@@ -255,7 +245,6 @@ register_flat_view:		Flat visning
 use_forum_default:		Bruk forumets innstilling
 finduser_user_info:		Brukerinformasjon
 finduser_by_login:		Entydig brukernavn:
-finduser_by_email:		Entydig e-postadresse:
 finduser_submit:		S&oslash;k
 finduser_no_such_user:		Ingen slike medlemmer
 finduser_user:			Medlem
@@ -267,7 +256,6 @@ no:				Nei
 edit_time_limit:		<br><b>Tidsgrense f&oslash;r editering</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutter
 no_edit_time_limit:		<br><b>Tidsgrense f&oslash;r editering</b>: <b>Ubegrenset</b>
 pmuserloc_login:		Brukernavn:
-pmuserloc_email:		E-post:
 pmuserloc_submit:		Send
 pmuserloc_user:			Medlem
 pmuserloc_no_result:		Ingen resultater
@@ -315,7 +303,6 @@ register_prefs:			Innstillinger
 register_sig:			Signatur:
 register_sig_desc:		Signatur som kan settes inn nederst i innleggene dine.
 register_reset:			Still tilbake
-register_style:			Stil:
 register_def_thread_view:	Forvalgt visning av tr&aring;d
 register_msg_per_page:		Antall innlegg per side:
 register_show_sig:		Vise signaturer:
@@ -385,7 +372,6 @@ post_title:			Emne:
 post_body:			Tekst:
 post_options:			Alternativ:
 post_preview_btn:		Forh&aring;ndsvis melding
-post_processing_msg:		Ditt innlegg behandles, vennligst vent
 ignore_users:			Ignorerte medlemmer
 add_ignore:			Ignorere medlem
 forum_terms:			Vilk&aring;r for forumet
@@ -456,7 +442,6 @@ search_forum:			Forum
 search_subject:			Emne
 search_posted_on:		Postet dato
 search_no_results:		Ingen resultater
-search_search:			S&oslash;k
 search_all_forums:		S&oslash;k i alle forum
 search_in_forum:		S&oslash;k i forum:
 search_for:			S&oslash;keord:
@@ -474,7 +459,6 @@ remail_send_now:		Send e-post n&aring;
 remail_anon_opt:		Kopier denne meldingen til en valgbar e-postklient for &aring; sende til dine kontakter.
 remail_done:			Klart
 remail_sent_conf:		E-posten til din kontakt {VAR-HTML: _POST['femail']} med emnet{{VAR: data->subject} er sendt.
-remail_continue:		Fortsett
 remail_error:			En feil har oppst&aring;tt
 mklist_type:			Type:
 mklist_option:			Alternativ:
@@ -555,7 +539,6 @@ core_err_invinp_err:		Du har fulgt en feilaktig lenke, vennligst gi beskjed til 
 core_adm_login_msg:		<br>Administratorer kan logga inn <a href="adm/admloginuser.php">her</a>
 email_err_unabletoemail_title:	FEIL: Kan ikke sende e-post
 email_err_unabletoemail_msg:	E-postsystemet er stengt av administratorn.
-email_err_unabletoemailu_msg:	E-postsystemet er stengt av av administratorn.
 email_error_unabletolocaddr:	Systemet kunne dessverre ikke sende e-post til {VAR-HTML: _POST['tx_name']} ettersom det ikke kunne finne hans/hennes e-postadresse
 email_error_body:		Du kan ikke sende en tom melding
 email_error_subject:		Emne er obligatorisk
@@ -585,8 +568,6 @@ ignore_list_update:		Viser egen liste over ignorerte medlemmer
 index_update:			Viser <a href="{TEMPLATE: index_update_lnk}">listen over forum</a>
 list_referers_update:		Viser refererede medlemmer
 login_update:			Logge inn
-msg_err_onlyreg_title:		Kun registrerte medlemmer kan lese dette forumet
-msg_err_onlyreg_msg:		For &aring; kunne lese dette forumet m&aring; du <a href="{TEMPLATE: msg_register_lnk}">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{TEMPLATE: msg_login_lnk}">logge inn</a>.
 msg_err_ininfo_title:		Mangelfull information
 msg_err_ininfo_msg:		Et problem oppstod da siden skulle vises
 msg_update:			Leser tr&aring;den med emnet <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">Filen du fors&oslash;ker &aring; s
 post_err_attach_filelimit:	<font class="ErrorText">Du fors&oslash;ker &aring; sende flere filer enn det som er tillatt.</font><br>
 post_err_passwd:		Feil passord
 post_reply_update:		Svarer p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
-post_edit_update:		Redigerer <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
 post_topic_update:		Skriver ny tr&aring;d i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		En feil har oppst&aring;tt
 postcheck_max_images_err:	Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
@@ -667,8 +647,6 @@ showposts_update:		Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">
 subscribed_update:		Viser egne abonnement
 th_err_invid_title:		Feilaktig tr&aring;d-ID
 th_err_invid_msg:		Du har fulgt en feilaktig lenke, tr&aring;den du fors&oslash;ker &aring; lese eksisterer ikke.
-thread_err_onlyregview_title:	Kun registrerte medlemmer kan lese dette forumet
-thread_err_onlyregview_msg:	For &aring; kunne lese dette forumet m&aring; du <a href="{TEMPLATE: msg_register_lnk}">registrere</a> deg. Dersom du allerede er registrert m&aring; du <a href="{TEMPLATE: msg_login_lnk}">logge inn</a>.
 thread_update:			Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -741,7 +719,6 @@ groupmgr_no_user:		Det finnes ingen medlemmer med brukernavnet "{VAR-HTML: gr_me
 groupmgr_already_exists:	Medlemmet "{VAR-HTML: gr_member}" finnes allerede i denne gruppen.
 groupmgr_yes:			Ja
 groupmgr_no:			Nei
-groupmgr_inherit:		arv
 groupmgr_action:		Handling
 groupmgr_member:		Medlem
 groupmgr_cancel:		Tilbake
@@ -842,7 +819,6 @@ im_jabber:			Jabber:
 forum_contact:			Kontakt
 forum_home:			Hjem
 post_cur_attached:		{VAR: i} filer vedlagt for &oslash;yeblikket
-ppost_cur_attached:		{VAR: attach_count} filer vedlagt for &oslash;yeblikket
 post_list_smilies:		vis alle smilies
 ignored_anon_post:		{GVAR: ANON_NICK} ignoreres
 smladd_close_window:		Lukk vinduet
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made 
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
 mnav_description:		Message Navigator
 mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
 mnav_forum_limit:		Only search In:
 mnav_all_forums:		Search all forums
 mnav_submit:			Begin Search
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -13,7 +13,6 @@ by:				Gönderen:
 by_mod:				Denetmen tarafından
 current_time:			Tarih
 custom_avatar_queue:		Özel Avatar Kuyruğu
-date:				Tarih
 date_posted:			Gönderilme Tarihi
 date_registered:		Kayıt Tarihi:
 download_counter:		{VAR: v[3]} kez indirildi.
@@ -104,17 +103,13 @@ pm:				Özel İletiler
 poll:				Oylama:
 post_count:			İleti Sayısı {VAR: u_pcount}
 post_count_l:			İleti Sayısı:
-poster:				Gönderen
 posts:				İleti Sayısı
 posts_c:			İleti Sayısı:
 prev_thread:			Önceki Zincir:
 usrinfo_private_message:	Özel İleti:
 profile:			Kişisel Bilgiler
-profile_2:			Kişisel Bilgiler:
 profile_desc:			Denetim masasına erişim için buraya tıklayın
-rate:				Değerlendir
 rate_thread:			Zinciri değerlendir
-rating:				Beğeni
 refresh_list:			Listeyi yenile
 register:			Kayıt ol
 registered:			Kayıt tarihi
@@ -135,10 +130,8 @@ send:				Gönder
 send_pm_desc:			Bu kullanıcıya özel ileti gönder
 sender_email:			Gönderen E-mektup:
 sender_name:			Gönderen İsim:
-show_all_posts:			{VAR: user_login} kullanıcısının tüm iletilerini göster
 show_posts_by:			{VAR: u_alias} kullanıcısının iletilerini göster
 size:				Boyut:
-started_on:			Başlangıç Tarihi
 status:				Durum:
 status_line:			Bu forumu şu anda <b>{VAR: st_obj->online_users_reg}</b> üye, <b>{VAR: st_obj->online_users_hidden}</b> görünmez üye ve <b>{VAR: st_obj->online_users_anon}</b> konuk ziyaret ediyor.
 sticky:				Yapışkan:	
@@ -181,9 +174,7 @@ user_info_l:			Kullanıcı Bilgisi {VAR: u->alias}
 user_offline:			{VAR: obj->login}  şu anda bağlı değil
 user_online:			{VAR: obj->login} şu anda bağlı
 usrinfo_last_post:		Son ileti:
-view_forum:			Forumu görüntüle
 view_results:			Sonuçları görüntüle
-view_thread:			Zinciri görüntüle
 views:				Görüntülenme<br>sayısı
 vote:				{VAR: frm->n_rating} Oy
 vote_button:			Oyla
@@ -232,7 +223,6 @@ draft:				Taslak
 sent:				Giden
 trash:				Çöp
 msg_author:			Yazar
-msg_thread:			Zincir
 avatar_sel_form:		Avatar Seçim Formu
 no_avatars:			Avatar yok
 month_1:			Ocak
@@ -254,7 +244,6 @@ register_flat_view:		Düz Görünüm
 use_forum_default:		Forum varsayılanını kullan
 finduser_user_info:		Kullanıcı bilgisini görüntüle
 finduser_by_login:		Kullanıcı ismi ile:
-finduser_by_email:		E-mektup adresi ile:
 finduser_submit:		Kullanıcıyı bul
 finduser_no_such_user:		Böyle bir kullanıcı yok
 finduser_user:			Kullanıcı
@@ -266,7 +255,6 @@ no:				Hayır
 edit_time_limit:		<br><b>Düzeltme süre sınırı</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> dakika
 no_edit_time_limit:		<br><b>Düzeltme süre sınırı</b>: <b>Sınırsız</b>
 pmuserloc_login:		Kullanıcı ismi:
-pmuserloc_email:		E-mektup:
 pmuserloc_submit:		Bul
 pmuserloc_user:			Kullanıcı
 pmuserloc_no_result:		Bulunamadı
@@ -314,7 +302,6 @@ register_prefs:			Tercihler
 register_sig:			İmza:
 register_sig_desc:		İsteğe bağlı imzanızın iletilerinizin alt kısmına eklenmesini sağlayabilirsiniz.
 register_reset:			Sıfırla
-register_style:			Biçem:
 register_def_thread_view:	Varsayılan zincir görünümü:
 register_msg_per_page:		Sayfa başına ileti sayısı:
 register_show_sig:		İmzaları göster:
@@ -385,7 +372,6 @@ post_title:			Başlık:
 post_body:			Gövde:
 post_options:			Seçenekler:
 post_preview_btn:		Önizle
-post_processing_msg:		İletiniz işleme alındı, lütfen bekleyin
 ignore_users:			Gözardı edilen kullanıcılar
 add_ignore:			Ignoramus ekle
 forum_terms:			Forum kuralları
@@ -456,7 +442,6 @@ search_forum:			Forum
 search_subject:			Konu
 search_posted_on:		Gönderilme Tarihi
 search_no_results:		Bulunamadı
-search_search:			Ara
 search_all_forums:		Tüm forumlar
 search_in_forum:		Aranacak forum:
 search_for:			Aranacak sözcükler:
@@ -474,7 +459,6 @@ remail_send_now:		Gönder
 remail_anon_opt:		Bu iletiyi arkadaş(lar)ınıza göndermek için e-mektup istemcinize kopyalayın.
 remail_done:			Yapıldı
 remail_sent_conf:		{{VAR: data->subject} konulu e-mektup, {VAR-HTML: _POST['femail']} adresindeki arkadaşınıza başarıyla gönderildi.
-remail_continue:		Devam et
 remail_error:			Bir hata oluştu
 mklist_type:			Tipi:
 mklist_option:			Seçenek:
@@ -555,7 +539,6 @@ core_err_invinp_err:		Geçersiz bir linki izlediniz, lütfen <a href="mailto:{GV
 core_adm_login_msg:		<br>Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">buradan</a> giriş yapabilir
 email_err_unabletoemail_title:	HATA: E-mektup gönderilemedi
 email_err_unabletoemail_msg:	E-mektup sistemi yönetici tarafından engellenmiş durumda.
-email_err_unabletoemailu_msg:	E-mektup sistemi yönetici tarafından engellenmiş durumda.
 email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR-HTML: _POST['tx_name']} kullanıcısına e-mektup gönderemedi, çünkü kullanıcının e-mektup adresi bulunamadı.
 email_error_body:		Gövde bölümü zorunludur.
 email_error_subject:		Konu bölümü zorunludur.
@@ -585,8 +568,6 @@ ignore_list_update:		Gözardı listesini dolaşıyor
 index_update:			<a href="{TEMPLATE: index_update_lnk}">Forum listesini</a> dolaşıyor
 list_referers_update:		Tanıtımları Dolaşıyor
 login_update:			Giriş Formu
-msg_err_onlyreg_title:		Sadece kayıtlı kullanıcılar bu forumu görüntüleyebilir
-msg_err_onlyreg_msg:		Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}">kayıt olmanız</a>, eğer kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}">giriş yapmanız</a> gerekiyor.
 msg_err_ininfo_title:		Yetersiz Bilgi
 msg_err_ininfo_msg:		Bu sayfanın oluşturulmasında bir sorun oluştu.
 msg_update:			<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> zincirini dolaşıyor
@@ -614,7 +595,6 @@ post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalıştığınız dos
 post_err_attach_filelimit:	<font class="ErrorText">İzin verilenden daha fazla dosya yüklemeye çalışıyorsunuz.</font><br>
 post_err_passwd:		Yanlış parola.
 post_reply_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanıt yazıyor. 
-post_edit_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
 post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartışma açıyor.
 post_error_generic:		Bir hata oluştu
 postcheck_max_images_err:	İleti başına en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayısını azaltın.
@@ -667,8 +647,6 @@ showposts_update:		<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Üyeliklerini dolaşıyor
 th_err_invid_title:		Geçersiz zincir ID&#39;si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalıştığınız zincir yok.
-thread_err_onlyregview_title:	Sadece kayıtlı kullanıcılar bu forumu görüntüleyebilir.
-thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}">kayıt olmanız</a>, kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}">giriş yapmanız</a> gerekiyor.
 thread_update:			<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaşıyor
 tree_update:			<a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaşıyor (ağaç görünümü)
 userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
@@ -741,7 +719,6 @@ groupmgr_no_user:		"{VAR-HTML: gr_member}" kullanıcı isminde bir kullanıcı y
 groupmgr_already_exists:	"{VAR-HTML: gr_member}" kullanıcısı bu grupta zaten var.
 groupmgr_yes:			Evet
 groupmgr_no:			Hayır
-groupmgr_inherit:		Inherit
 groupmgr_action:		Eylem
 groupmgr_member:		Üye
 groupmgr_cancel:		İptal
@@ -841,7 +818,6 @@ im_jabber:			Jabber:
 forum_contact:			İletişim
 forum_home:			Ana Sayfa
 post_cur_attached:		şu anda {VAR: i} dosya ekli
-ppost_cur_attached:		şu anda {VAR: attach_count} dosya ekli
 ignored_anon_post:		{GVAR: ANON_NICK} gözardı edilmiş durumda
 ignored_user_post:		<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> tarafından gönderilen ileti gözardı ediliyor.
 smladd_close_window:		penereyi kapat
@@ -956,7 +932,6 @@ reg_conf_account:		<b>Kayıt Onayı</b><br />Hesabınızın etkinleştirilmeden 
 forum_banned_user:		Davranışlarınızdan dolayı bu forumda süresiz şekilde yasaklanmış durumdasınız. Güle güle.
 mnav_description:		İleti Gezgini
 mnav_date_limit:		Tarih aralığı:
-mnav_time_unit:			Tarih-saat birimi:
 mnav_forum_limit:		Aranacak forumlar:
 mnav_all_forums:		Tüm forumlarda ara
 mnav_submit:			Aramayı başlat
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.

@@ -76,7 +76,6 @@ create_thread:			Thema erstellen
 cur_ppage_pm:			Private Nachrichten
 current_time:			aktuelle Zeit
 custom_avatar_queue:		Zu &uuml;berpr&uuml;fende Benutzeravatare
-date:				Datum
 date_posted:			Beitragsdatum
 date_registered:		Datum der Registrierung:
 delete_no:			Nein
@@ -95,7 +94,6 @@ email_body:			Inhalt:
 email_email:			Email:
 email_err_unabletoemail_msg:	Das Emailsystem wurde vom Administrator deaktiviert.
 email_err_unabletoemail_title:	FEHLER: Kann Email nicht verschicken
-email_err_unabletoemailu_msg:	Das Emailsystem wurde vom Administrator deaktiviert.
 email_error_body:		Inhalt ist erforderlich
 email_error_emailrequired:	Email ist erforderlich
 email_error_invalidaddress:	Ung&uuml;ltige Emailadresse
@@ -129,7 +127,6 @@ faq:				F.A.Q.
 female:				Weiblich
 file_attachments:		Dateianhang:
 finduser_action:		Aktion
-finduser_by_email:		nach Email:
 finduser_by_login:		nach Login:
 finduser_joindate:		Beitrittsdatum
 finduser_no_such_user:		Benutzer nicht vorhanden
@@ -173,7 +170,6 @@ groupmgr_already_exists:	Benutzer "{VAR-HTML: gr_member}" ist bereits in dieser 
 groupmgr_cancel:		Abbrechen
 groupmgr_delete:		L&ouml;schen
 groupmgr_edit:			Bearbeiten
-groupmgr_inherit:		Vererben
 groupmgr_member:		Mitglied
 groupmgr_no:			Nein
 groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{VAR-HTML: gr_member}" Login
@@ -308,9 +304,6 @@ moved_thread_message:		Dieses Thema wurde in ein anderes Forum verschoben
 msg_author:			Verfasser
 msg_err_ininfo_msg:		Beim Erzeugen der Seite ist ein Problem aufgetreten
 msg_err_ininfo_title:		Information reicht nicht aus
-msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_login_lnk}">anmelden</a>.
-msg_err_onlyreg_title:		Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
-msg_thread:			Thema
 msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 msg_update:			Durchsucht das Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
@@ -383,7 +376,6 @@ pmsg_replied:			beantwortet
 pmsg_selected:			Ausgew&auml;hlt
 pmsg_subject:			Betreff
 pmsg_time:			Zeit
-pmuserloc_email:		Email:
 pmuserloc_login:		Login:
 pmuserloc_no_result:		Kein Ergebnis
 pmuserloc_submit:		Abschicken
@@ -419,7 +411,6 @@ post_count:			Anzahl der Beitr&auml;ge {VAR: u_pcount}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		Abstimmung erstellen
 post_cur_attached:		Momentan {VAR: i} Dateianh&auml;nge 
-post_edit_update:		Bearbeitet <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du versuchst, mehr Dateien hochzuladen als erlaubt sind.</font><br>
 post_err_attach_size:		<font class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -471,7 +462,6 @@ post_poll_edit:			Bearbeiten
 post_preview:			Beitragsvorschau
 post_preview_btn:		Beitragsvorschau
 post_proc_reveal_spoiler:	Spoiler anzeigen
-post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
 post_quote_msg:			{VAR: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_re:			Re: 
@@ -493,10 +483,8 @@ postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{VAR-HTML: v}" in diesem Forum
 postcheck_not_allowed_file:	Dieser Dateityp ist nicht gestattet
 postcheck_subj_needed:		Betreff erforderlich
-poster:				Verfasser
 posts:				Beitr&auml;ge
 posts_c:			Beitr&auml;ge:
-ppost_cur_attached:		Momentan {VAR: attach_count} Dateianh&auml;nge 
 ppost_find_User:		Benutzer suchen
 ppost_from_buddy_list:		Aus der Buddyliste ausw&auml;hlen
 ppost_original_msg:		Nachricht, die Du weiterleitest oder beantwortest
@@ -514,7 +502,6 @@ prev_thread:			Vorheriges Thema:
 private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat Deine private Nachricht, "{VAR: m->subject}", am {DATE: m->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
 private_msg_notify_subj:	Benachrichtigung lesen zu: {VAR: m->subject}
 profile:			Profil
-profile_2:			Profil:
 profile_desc:			Hier klicken um zum Benutzermen&uuml; zu gelangen
 qbud_add_selected:		Markierte hinzuf&uuml;gen
 qbud_nick_name:			Spitzname
@@ -524,12 +511,10 @@ quicklogin_login:		Login
 quicklogin_login_btn:		Login
 quicklogin_password:		Passwort
 quicklogin_use_cookies:		Cookies verwenden?
-rate:				Bewerten
 rate_best:			am besten
 rate_this_thread:		Bewerten
 rate_thread:			Thema bewerten
 rate_worst:			am schlechtesten
-rating:				Bewertung
 referals_action:		Aktion
 referals_none:			Keine Anwerbungen bisher.
 referals_post_count:		Anzahl der Beitr&auml;ge
@@ -617,7 +602,6 @@ register_show_sig_desc:		Erm&ouml;glicht es, die Signaturen von Forumsmitglieder
 register_sig:			Signatur:
 register_sig_desc:		Optionale Signatur, die Du unter Deine Beitr&auml;ge setzen kannst.
 register_specify_url:		Url angeben
-register_style:			Stil:
 register_timezone:		Zeitzone:
 register_title:			Registrierungsseite
 register_tree_view:		Baumansicht
@@ -634,7 +618,6 @@ registered:			Registriert:
 registered_on:			Registriert am {DATE: u_reg_date %a, %d %B %Y}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nehme Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in einen Email Klienten Deiner Wahl kopieren, um sie an Deine Freunde zu schicken.
-remail_continue:		Weiter
 remail_done:			Fertig
 remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für Dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
@@ -708,7 +691,6 @@ search_forum_search:		Forumssuche
 search_in_forum:		Suchen im Forum:
 search_no_results:		Kein Ergebnis
 search_posted_on:		Erstellt am
-search_search:			Suchen
 search_subect_only:		Nur Betreff
 search_subject:			Betreff
 search_title:			Suche nach {VAR-HTML: srch}
@@ -725,7 +707,6 @@ send_pm_desc:			Eine private Nachricht an diesen Benutzer verschicken
 sender_email:			Email des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
-show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -743,7 +724,6 @@ split_th_split_sel:		Ausgew&auml;hlte Beitr&auml;ge aufteilen
 split_th_split_unsel:		Nicht ausgew&auml;hlte Beitr&auml;ge aufteilen
 split_th_subject:		Thema:
 split_thread:			Thema aufteilen
-started_on:			Begonnen am
 status:				Status:
 status_line:			Es sind <b>{VAR: st_obj->online_users_reg}</b> Mitglieder, <b>{VAR: st_obj->online_users_hidden}</b> unsichtbare Mitglieder und <b>{VAR: st_obj->online_users_anon}</b> Besucher auf diesem Board unterwegs.
 sticky:				Angeheftet:
@@ -794,8 +774,6 @@ thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
 thread_delete:			Du bist gerade dabei, das <font color="#ff0000" size="4">KOMPLETTE THEMA</font>: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
-thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{TEMPLATE: msg_login_lnk}">anmelden</a>.
-thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
 thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
@@ -838,9 +816,7 @@ usrinfo_last_post:		Letzter Beitrag:
 usrinfo_private_message:	Private Nachricht:
 usrinfo_profile:		{VAR: u->alias}s Profil
 usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: u->alias} anzeigen
-view_forum:			Forum ansehen
 view_results:			Ergebnisse ansehen
-view_thread:			Thema ansehen
 views:				Aufrufe
 vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
@@ -957,7 +933,6 @@ reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, da&szlig; Du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
 mnav_description:		Beitragsnavigator
 mnav_date_limit:		Datumsbereich:
-mnav_time_unit:			Zeiteinheit des Datums:
 mnav_forum_limit:		Suche nur in:
 mnav_all_forums:		Durchsuche alle Foren
 mnav_submit:			Fange mit der Suche an
@@ -1023,7 +998,6 @@ ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To acce
 post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
-post_opt_session_warn:		<b>Warning!</b><br />If you are browsing the forum<br />in another window, be sure to<br />periodically click on the<br />&#39;Preview Message&#39; button<br />to ensure the session in the<br />current window does not timeout.<br />
 postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
 delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
