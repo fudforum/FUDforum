@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.tmpl,v 1.2 2002/08/05 05:58:21 hackie Exp $
+*   $Id: rpasswd.tmpl,v 1.3 2003/04/03 10:11:48 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -18,7 +18,6 @@
 {REF: security.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
-{REF: return.tmpl}
 {REF: users_reg.tmpl}
 
 {PAGE: RPASSWD_PAGE change password popup}
@@ -32,7 +31,7 @@
 <tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" value=""></td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" value=""></td></tr>
 <tr class="RowStyleB"><td align=right colspan=2><input type="submit" class="button" value="{MSG: go}" name="btn_submit"></td></tr>
-</table></div>{DEF: _hs}{VAR: return_field}</form>
+</table></div>{DEF: _hs}</form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.php.t,v 1.3 2002/11/03 19:36:21 hackie Exp $
+*   $Id: rpasswd.php.t,v 1.4 2003/04/03 10:11:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,43 +17,33 @@
 
 	define('plain_form', 1);
 	
-	{PRE_HTML_PHP}
-	$usr = fud_user_to_reg($usr);
-	
-	if ( !isset($usr) ) {
+/*{PRE_HTML_PHP}*/
+
+	if (!_uid) {
 		std_error('login');
 		exit();
 	}
-	
-	if ( !empty($btn_submit) ) {
-		$cpasswd = stripslashes($cpasswd);
-		$passwd1 = stripslashes($passwd1);
-		$passwd2 = stripslashes($passwd2);
-		
-		/* early php4 versions hack */
-		$tmp = get_id_by_radius(addslashes($usr->login), $cpasswd);
-	
-		if ( $usr->id != $tmp ) {
+
+	if (isset($_POST['btn_submit'])) {
+		if (_uid != get_id_by_radius($usr->login, $_POST['cpasswd'])) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_invalid_passwd}';
-		}
-		else if ( $passwd1 != $passwd2 ) {
+		} else if ($_POST['passwd1'] !== $_POST['passwd2']) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_nomatch}';
-		}
-		else if ( strlen($passwd1) < 6 ) {
+		} else if (strlen($_POST['passwd1']) < 6 ) {
 			$rpasswd_error_msg = '{TEMPLATE: rpasswd_passwd_length}';
-		}
-		else {
-			$usr->ch_passwd($passwd1);
+		} else {
+			usr_ch_passwd(_uid, $_POST['passwd1']);
 			exit('<html><script>window.close();</script></html>');
 		}
-		
-		if ( $rpasswd_error_msg ) $rpasswd_error = '{TEMPLATE: rpasswd_error}';
-	}
-	
-	$TITLE_EXTRA = ': {TEMPLATE: rpasswd_title}';
-	{POST_HTML_PHP}
 
-	$return_field = create_return();
-	{POST_PAGE_PHP_CODE}
+		$rpasswd_error = isset($rpasswd_error_msg) ? '{TEMPLATE: rpasswd_error}' : '';
+	} else {
+		$rpasswd_error = '';
+	}
+
+	$TITLE_EXTRA = ': {TEMPLATE: rpasswd_title}';
+
+/*{POST_HTML_PHP}*/
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: RPASSWD_PAGE}

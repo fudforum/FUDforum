@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.17 2003/04/02 21:30:43 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.18 2003/04/03 10:11:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -222,11 +222,7 @@ class fud_user_reg extends fud_user
 		WHERE id=".$this->id);
 	}
 	
-	function ch_passwd($pass)
-	{
-		q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($pass)."' WHERE id=".$this->id);
-	}
-
+	
 	function reset_passwd()
 	{
 		$randval = dechex(get_random_value(32));
@@ -317,5 +313,10 @@ function fud_user_to_reg(&$obj)
 function check_user($id)
 {
 	return q_singleval('SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
+}
+
+function usr_ch_passwd($id, $pass)
+{
+	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($pass)."' WHERE id=".$id);
 }
 ?>
