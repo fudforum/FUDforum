@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.9 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admprune.php,v 1.10 2002/11/21 15:14:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -103,7 +103,8 @@
 				'.$GLOBALS['DBHOST_TBL_PREFIX'].'users+, 
 				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_notify+, 
 				'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg_report+, 
-				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_rate_track+');
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_rate_track+,
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange+');
 			
 			$r = q("SELECT root_msg_id, forum_id ".$QRY_TAIL);
 			while ( $obj = db_rowobj($r) ) {
