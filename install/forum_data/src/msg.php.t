@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.6 2002/07/16 16:33:07 hackie Exp $
+*   $Id: msg.php.t,v 1.7 2002/07/27 05:10:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@
 	
 		$start = (ceil(($pos/$count))-1)*$count;
 		if ( $start < 0 ) $start = 0;
-		header("Location: {ROOT}?t=msg&th=".$th."&"._rsid."&start=".$start.$mid);
+		header("Location: {ROOT}?t=msg&th=".$th."&"._rsid."&pl_view=".$pl_view."&start=".$start.$mid);
 		exit();
 	}
 	
