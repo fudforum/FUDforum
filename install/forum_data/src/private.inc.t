@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.17 2003/05/18 08:52:28 hackie Exp $
+*   $Id: private.inc.t,v 1.18 2003/07/17 15:53:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -185,6 +185,7 @@ function write_pmsg_body($text)
 {
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
 
+	fseek($fp, 0, SEEK_END);
 	if (!($s = ftell($fp))) {
 		$s = __ffilesize($fp);
 	}

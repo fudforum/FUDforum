@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.63 2003/06/06 20:56:31 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.64 2003/07/17 15:53:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -528,6 +528,7 @@ function write_body($data, &$len, &$offset)
 	$i = 1;
 	while ($i < 100) {
 		$fp = fopen($GLOBALS['MSG_STORE_DIR'].'msg_'.$i, 'ab');
+		fseek($fp, 0, SEEK_END);
 		if (!($off = ftell($fp))) {
 			$off = __ffilesize($fp);
 		}
