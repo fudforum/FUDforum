@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.77 2004/03/10 16:40:19 hackie Exp $
+* $Id: consist.php,v 1.78 2004/03/22 15:17:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,6 +15,10 @@
 	define('back_to_main', 1);
 
 	require('./GLOBALS.php');
+
+	// uncomment the line below if you wish to run this script via command line
+	// cli_execute(1); /* uncomment this line to run consistency checker */
+	// cli_execute(0, array('opt'=>1)); /* uncomment this line to run SQL optimizer */
 
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
