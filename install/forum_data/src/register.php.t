@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.124 2004/06/22 23:55:23 hackie Exp $
+* $Id: register.php.t,v 1.125 2004/07/21 13:06:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -312,6 +312,11 @@ function decode_uent(&$uent)
 		$reg_coppa = (int)$_POST['reg_coppa'];
 	} else {
 		$reg_coppa = '';
+	}
+
+	/* ip filter */
+	if (is_ip_blocked(get_ip())) {
+		invl_inp_err();
 	}
 
 	/* allow the root to modify settings other lusers */
