@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.6 2002/07/09 21:16:32 hackie Exp $
+*   $Id: admglobal.php,v 1.7 2002/07/16 23:57:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -144,6 +144,19 @@ else
 <tr bgcolor="#bff8ff"><td>Enable Spell Checker:<?php draw_help('SPELL_CHECK_ENABLED'); ?><br><font size=-1>This option requires pspell support in PHP, which is currently <?php echo $pspell_support; ?></font></td><td><?php draw_select('CF_SPELL_CHECK_ENABLED', "Yes\nNo", "Y\nN", $CF_SPELL_CHECK_ENABLED); ?></td></tr>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
+<tr bgcolor="#bff8ff"><td colspan=2><br><b>Email Settings</b> </td></tr>
+<tr bgcolor="#bff8ff"><td>Allow Email:<?php draw_help('ALLOW_EMAIL'); ?></td><td><?php draw_select('CF_ALLOW_EMAIL', "Yes\nNo", "Y\nN", $CF_ALLOW_EMAIL); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Use STMP To Send Email:<?php draw_help('USE_SMTP'); ?></td><td><?php draw_select('CF_USE_SMTP', "Yes\nNo", "Y\nN", $CF_USE_SMTP); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>SMTP Server:<?php draw_help('FUD_SMTP_SERVER'); ?></td><td><input type="text" name="CF_FUD_SMTP_SERVER" value="<?php echo $FUD_SMTP_SERVER; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>SMTP Server Timeout:<?php draw_help('FUD_SMTP_TIMEOUT'); ?></td><td><input type="text" name="CF_FUD_SMTP_TIMEOUT" value="<?php echo $FUD_SMTP_TIMEOUT; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>STMP Server Login:<?php draw_help('FUD_SMTP_LOGIN'); ?></td><td><input type="text" name="CF_FUD_SMTP_LOGIN" value="<?php echo $FUD_SMTP_LOGIN; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>SMTP Server Password:<?php draw_help('FUD_SMTP_PASS'); ?></td><td><input type="text" name="CF_FUD_SMTP_PASS" value="<?php echo $FUD_SMTP_PASS; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Email Confirmation:<?php draw_help('EMAIL_CONFIRMATION'); ?></td><td><?php draw_select('CF_EMAIL_CONFIRMATION', "Yes\nNo", "Y\nN", $CF_EMAIL_CONFIRMATION); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Administrator Email:<?php draw_help('ADMIN_EMAIL'); ?></td><td><input type="text" name="CF_ADMIN_EMAIL" value="<?php echo htmlspecialchars($CF_ADMIN_EMAIL); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Notify From:<?php draw_help('NOTIFY_FROM'); ?></td><td><input type="text" name="CF_NOTIFY_FROM" value="<?php echo htmlspecialchars($CF_NOTIFY_FROM); ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Notify W/Body:<?php draw_help('NOTIFY_WITH_BODY'); ?></td><td><?php draw_select('CF_NOTIFY_WITH_BODY', "Yes\nNo", "Y\nN", $CF_NOTIFY_WITH_BODY); ?></td></tr>
+<tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
+
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>General Settings</b> </td></tr>
 <tr bgcolor="#bff8ff"><td>Max Smilies Shown:<?php draw_help('MAX_SMILIES_SHOWN'); ?></td><td><input type="text" name="CF_MAX_SMILIES_SHOWN" value="<?php echo $CF_MAX_SMILIES_SHOWN; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Public Host Resolving:<?php draw_help('PUBLIC_RESOLVE_HOST'); ?></td><td><?php draw_select('CF_PUBLIC_RESOLVE_HOST', "Yes\nNo", "Y\nN", $CF_PUBLIC_RESOLVE_HOST); ?></td></tr>
@@ -153,9 +166,6 @@ else
 <tr bgcolor="#bff8ff"><td>Logged In Users List Timeout (minutes):<?php draw_help('LOGEDIN_TIMEOUT'); ?></td><td><input type="text" name="CF_LOGEDIN_TIMEOUT" value="<?php echo $CF_LOGEDIN_TIMEOUT; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Allow Action List:<?php draw_help('ACTION_LIST_ENABLED'); ?></td><td><?php draw_select('CF_ACTION_LIST_ENABLED', "Yes\nNo", "Y\nN", $CF_ACTION_LIST_ENABLED); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Online/Offline Status Indicator:<?php draw_help('ONLINE_OFFLINE_STATUS'); ?></td><td><?php draw_select('CF_ONLINE_OFFLINE_STATUS', "Yes\nNo", "Y\nN", $CF_ONLINE_OFFLINE_STATUS); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Administrator EMail:<?php draw_help('ADMIN_EMAIL'); ?></td><td><input type="text" name="CF_ADMIN_EMAIL" value="<?php echo htmlspecialchars($CF_ADMIN_EMAIL); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Notify From:<?php draw_help('NOTIFY_FROM'); ?></td><td><input type="text" name="CF_NOTIFY_FROM" value="<?php echo htmlspecialchars($CF_NOTIFY_FROM); ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Notify W/Body:<?php draw_help('NOTIFY_WITH_BODY'); ?></td><td><?php draw_select('CF_NOTIFY_WITH_BODY', "Yes\nNo", "Y\nN", $CF_NOTIFY_WITH_BODY); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>COPPA:<?php draw_help('COPPA'); ?></td><td><?php draw_select('CF_COPPA', "Off\nOn", "N\nY", $CF_COPPA); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Posts Per Page:<?php draw_help('POSTS_PER_PAGE'); ?></td><td><input type="text" name="CF_POSTS_PER_PAGE" value="<?php echo $CF_POSTS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Threads Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
@@ -164,7 +174,6 @@ else
 <tr bgcolor="#bff8ff"><td>Unconfirmed User Expiry:<?php draw_help('UNCONF_USER_EXPIRY'); ?></td><td><input type="text" name="CF_UNCONF_USER_EXPIRY" value="<?php echo $CF_UNCONF_USER_EXPIRY; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Flood Trigger (seconds):<?php draw_help('FLOOD_CHECK_TIME'); ?></td><td><input type="text" name="CF_FLOOD_CHECK_TIME" value="<?php echo $CF_FLOOD_CHECK_TIME; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Moved Thread Pointer Expiry:<?php draw_help('MOVED_THR_PTR_EXPIRY'); ?></td><td><input type="text" name="CF_MOVED_THR_PTR_EXPIRY" value="<?php echo $CF_MOVED_THR_PTR_EXPIRY; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Allow Email:<?php draw_help('ALLOW_EMAIL'); ?></td><td><?php draw_select('CF_ALLOW_EMAIL', "Yes\nNo", "Y\nN", $CF_ALLOW_EMAIL); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Use Aliases:<?php draw_help('USE_ALIASES'); ?></td><td><?php draw_select('CF_USE_ALIASES', "Yes\nNo", "Y\nN", $CF_USE_ALIASES); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Multiple Host Login:<?php draw_help('MULTI_HOST_LOGIN'); ?></td><td><?php draw_select('CF_MULTI_HOST_LOGIN', "Yes\nNo", "Y\nN", $CF_MULTI_HOST_LOGIN); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $CF_SERVER_TZ, '', ''); ?></select></td></tr>
@@ -180,7 +189,6 @@ else
 <tr bgcolor="#bff8ff"><td>Display IP Publicly:<?php draw_help('DISPLAY_IP'); ?></td><td><?php draw_select('CF_DISPLAY_IP', "Yes\nNo", "Y\nN", $CF_DISPLAY_IP); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Max Image Count:<?php draw_help('MAX_IMAGE_COUNT'); ?></td><td><input type="text" name="CF_MAX_IMAGE_COUNT" value="<?php echo $CF_MAX_IMAGE_COUNT; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td># Of Moderators To Show: <?php draw_help('SHOW_N_MODS'); ?></td><td><input type="text" name="CF_SHOW_N_MODS" value="<?php echo $CF_SHOW_N_MODS; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>Email Confirmation:<?php draw_help('EMAIL_CONFIRMATION'); ?></td><td><?php draw_select('CF_EMAIL_CONFIRMATION', "Yes\nNo", "Y\nN", $CF_EMAIL_CONFIRMATION); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Public Stats:<?php draw_help('PUBLIC_STATS'); ?></td><td><?php draw_select('CF_PUBLIC_STATS', "Yes\nNo", "Y\nN", $CF_PUBLIC_STATS); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Forum Info:<?php draw_help('FORUM_INFO'); ?></td><td><?php draw_select('CF_FORUM_INFO', "Yes\nNo", "Y\nN", $CF_FORUM_INFO); ?></td></tr>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>

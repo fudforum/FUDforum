@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
+*   $Id: admmassemail.php,v 1.6 2002/07/16 23:57:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,12 +24,13 @@
 	fud_use('util.inc');
 	fud_use('adm.inc', TRUE);
 	fud_use('users.inc');
+	fud_use('smtp.inc');
 	
 	list($ses, $usr) = initadm();
 	
 	if ( $btn_submit ) {
 		if ( !$ignore_override ) $ignore_override_q = " WHERE ignore_admin='N'";
-		$r = q("SELECT email FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users".$ignore_override_q);
+		$r = q("SELECT email,name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users".$ignore_override_q);
 		$email_block = 50;
 		$email_block_stat = 0;
 		$send_to = $GLOBALS['ADMIN_EMAIL'];
@@ -37,20 +38,47 @@
 		$subject = stripslashes($subject);
 		$body = stripslashes($body);
 		
-		while ( $obj = db_rowobj($r) ) {
-			$bcc .= $obj->email.', ';
-			if ( !(++$email_block_stat%$email_block) ) {
-				$email_block_stat=0;
+		if( $GLOBALS['USE_SMTP'] == 'N' ) {
+			while ( $obj = db_rowobj($r) ) {
+				$bcc .= $obj->email.', ';
+				if ( !(++$email_block_stat%$email_block) ) {
+					$email_block_stat=0;
+					$bcc = substr($bcc, 0, -2)."\r\n";
+					mail($send_to, $subject, $body, "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
+					$bcc = NULL;
+				}
+			}
+		
+			if( $bcc ) {
 				$bcc = substr($bcc, 0, -2)."\r\n";
-				mail($send_to, $subject, $body, "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\nBcc: ".$bcc);
-				$bcc = NULL;
+				mail($send_to, $subject, $body, "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum\r\nBcc: ".$bcc);
 			}
 		}
-		
-		if( $bcc ) {
-			$bcc = substr($bcc, 0, -2)."\r\n";
-			mail($send_to, $subject, $body, "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum\r\nBcc: ".$bcc);
-		}
+		else {
+			$to = array();
+			$smtp = new fud_smtp;
+			$smtp->msg = $body;
+			$smtp->subject = $subject;
+			$smtp->from = $ADMIN_EMAIL;
+			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
+			
+			while ( $obj = db_rowobj($r) ) {
+				$to[] = $obj->name.' <'.$obj->email.'>';
+				if ( !(++$email_block_stat%$email_block) ) {
+					$email_block_stat=0;
+					
+					$smtp->to = $to;
+					$smtp->send_smtp_email();
+					
+					$to = array();
+				}
+				
+				if( count($to) ) {
+					$smtp->to = $to;
+					$stmp->send_smtp_email();
+				}
+			}
+		}	
 		
 		qf($r);
 	}

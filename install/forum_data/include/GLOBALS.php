@@ -49,6 +49,12 @@
 	$DBHOST_PERSIST		= "N";     	/* boolean */
 	$DBHOST_TBL_PREFIX	= "fud2_";	/* do not modify this */
 
+	$USE_SMTP		= "N";		/* boolean */
+	$FUD_SMTP_SERVER	= "";
+	$FUD_SMTP_TIMEOUT	= "10";		/* seconds */
+	$FUD_SMTP_LOGIN		= "";
+	$FUD_SMTP_PASS		= "";
+
 	$ADMIN_EMAIL 		= "";
 
 	$PM_ENABLED		= "Y";		/* boolean */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
+*   $Id: iemail.inc.t,v 1.6 2002/07/16 23:57:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -120,21 +120,29 @@ function is_email_blocked($addr)
 function send_email($from, $to, $subj, $body, $header='')
 {
 	if( empty($to) || !count($to) ) return;	
-	$bcc='';
 	
-	if( is_array($to) ) {
-		if( ($a = count($to)) > 1 ) {
-			$bcc = "Bcc: ";
-			for( $i=1; $i<$a; $i++ ) 
-				$bcc .= $to[$i].', ';
-				
-			$bcc = substr($bcc,0,-2);	
-		}		
-
-		$to = $to[0];
+	if( $GLOBALS['USE_SMTP'] == 'Y' ) {
+		$smtp = new fud_smtp;
+		$smtp->msg = $body;
+		$smtp->subject = $subj;
+		$smtp->to = $to;
+		$smtp->from = $from;
+		$smtp->headers = $header;
+		$smtp->send_smtp_email();
 	}
+	else {
+		$bcc='';
 	
-	mail($to, $subj, $body, "From: $from\r\nErrors-To: $from\r\nReturn-Path: $from\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\n".$header.$bcc);
+		if( is_array($to) ) {
+			if( ($a = count($to)) > 1 ) {
+				$bcc = "Bcc: ";
+				for( $i=1; $i<$a; $i++ ) $bcc .= $to[$i].', ';
+				$bcc = substr($bcc,0,-2);	
+			}		
+			$to = $to[0];
+		}
+		mail($to, $subj, $body, "From: $from\r\nErrors-To: $from\r\nReturn-Path: $from\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\n".$header.$bcc);
+	}		
 }
 
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name='')

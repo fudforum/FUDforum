@@ -299,3 +299,20 @@ MULTI_HOST_LOGIN
 This option allows users to login into the forum from different computers/browsers and not
 terminate their existing sessions on other computers/browsers.
 
+USE_SMTP
+Whether or not to use FUDforum smtp gateway to send email instead of standard PHP mail()
+function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP 
+server on UNIX systems.
+
+FUD_SMTP_SERVER
+The ip or host name of the SMTP server.
+
+FUD_SMTP_TIMEOUT
+The number of seconds to wait for the SMTP server to respond to a request.
+
+FUD_SMTP_LOGIN
+If your SMTP server requires SMTP Authentication, enter the login name here.
+
+FUD_SMTP_PASS
+If your SMTP server requires SMTP Authentication, enter the password here.
+
