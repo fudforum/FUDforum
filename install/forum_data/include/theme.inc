@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.12 2003/10/09 14:34:25 hackie Exp $
+* $Id: theme.inc,v 1.13 2003/10/10 20:04:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,7 @@ class fud_theme
 				$this->{$k} = $_POST['thm_'.$k];
 			}
 		}
-		$this->theme_opt = (int) $_POST['thm_enabled'] | (int) $_POST['thm_t_default'];
+		$this->theme_opt = !empty($_POST['thm_enabled']) | !empty($_POST['thm_t_default']);
 	}
 
 	function add()
