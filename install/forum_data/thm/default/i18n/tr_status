@@ -24,7 +24,8 @@ function make_lang_todo($list, $name)
 		exit("unable to open ".$name.".todo for writing\n");
 	}
 	foreach ($list as $k => $v) {
-		fwrite($fp, $k . ":\t\t\t" . $v);	
+		$n_tabs = 4 - floor((strlen($k) + 1) / 8);
+		fwrite($fp, $k . ":" . str_repeat("\t", $n_tabs) . $v);	
 	}
 	fclose($fp);
 }

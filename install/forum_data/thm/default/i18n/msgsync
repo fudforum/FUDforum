@@ -49,7 +49,7 @@ function make_lang_arr($path)
 		}
 		$tabs = floor($longest_key / 8);
 		foreach ($curl as $k => $v) {
-			$ct = $tabs - floor(strlen($k) / 8);
+			$ct = $tabs - floor((strlen($k) + 1) / 8);
 			if ($v[strlen($k) + 1] != "\t") {
 				var_dump($k, $v, $v[strlen($k) + 1]);
 				exit;
