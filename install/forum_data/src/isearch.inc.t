@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.23 2003/10/03 13:55:03 hackie Exp $
+*   $Id: isearch.inc.t,v 1.24 2003/10/07 12:49:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -60,7 +60,11 @@ function index_text($subj, $body, $msg_id)
 	}
 
 	$w2 = array_unique($w2);
-	ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2);
+	if (__dbtype__ == 'mysql') {
+		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2);
+	} else {
+		ins_m('{SQL_TABLE_PREFIX}search', 'word', $w2, 'text');
+	}
 
 	/* This allows us to return right away, meaning we don't need to wait
 	 * for any locks to be released etc... */

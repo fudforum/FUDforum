@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.13 2003/10/06 20:34:56 hackie Exp $
+*   $Id: glob.inc,v 1.14 2003/10/07 12:49:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -91,7 +91,10 @@ function change_global_settings($list)
 		} else {
 			$e = $p = strpos($settings, '=', $p) + 1;
 			do {
-				$e = strpos($settings, ';', $e);
+				++$e;
+				if (($e = strpos($settings, ';', $e)) === false) {
+					exit("Fatal Error: Cannot find argument end.");
+				}
 			} while ($settings[$e + 1] != "\r" && $settings[$e + 1] != "\n");
 
 			if (is_int($v)) {

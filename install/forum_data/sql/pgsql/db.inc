@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.33 2003/10/06 19:10:51 hackie Exp $
+*   $Id: db.inc,v 1.34 2003/10/07 12:49:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -357,13 +357,13 @@ function db_li($q, &$ef, $li=0)
 
 function ins_m($tbl, $flds, $vals, $type)
 {
-	$pid = md5(rand());
+	$pid = $GLOBALS['DBHOST_TBL_PREFIX'] . substr(md5(rand()), 0, 10);
 
-	$qry = 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ','))).'); BEGIN; ';
+	$qry = 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ',') + 1)).'); BEGIN; ';
 	foreach ($vals as $v) {
 		$qry .= ' EXECUTE '.$pid.' ('.$v.');';
 	}
 	$qry .= 'COMMIT;';
-	@pg_query(fud_sql_link, $qry);
+	pg_query(fud_sql_lnk, $qry) or die(pg_last_error(fud_sql_lnk).$qry);
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.30 2003/10/06 20:00:24 hackie Exp $
+*   $Id: search.php.t,v 1.31 2003/10/07 12:49:50 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -63,13 +63,12 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	/* remove expired cache */
 	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'.(__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
-	$it = (__dbtype__ == 'mysql') ? 'INSERT IGNORE' : 'REPLACE'; 
 
 	if (!($total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE query_type=".$qt." AND srch_query='".$qry_lck."'"))) {
 		if (__dbtype__ == 'mysql') {
 			q("INSERT IGNORE INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500");
 		} else {
-			q("BEGIN; DELETE FROM {SQL_TABLE_PREFIX}search_cache; INSERT IGNORE INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500; COMMIT;");
+			q("BEGIN; DELETE FROM {SQL_TABLE_PREFIX}search_cache; INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match) SELECT '".$qry_lck."', ".$qt.", ".__request_timestamp__.", msg_id, count(*) as word_count FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}".$tbl." i ON i.word_id=s.id WHERE word IN(".$qr.") GROUP BY msg_id ORDER BY word_count DESC LIMIT 500; COMMIT;");
 		}
 
 		if (!($total = (int) db_affected())) {
