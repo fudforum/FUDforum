@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore.inc.t,v 1.3 2003/04/02 16:06:15 hackie Exp $
+*   $Id: ignore.inc.t,v 1.4 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@ function ignore_add($user_id, $ignore_id)
 
 function ignore_delete($user_id, $ignore_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$user_id.' AND id='.$ignore_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$user_id.' AND ignore_id='.$ignore_id);
 	return ignore_rebuild_cache($user_id);
 }	
 

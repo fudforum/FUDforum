@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.35 2003/04/10 09:26:56 hackie Exp $
+*   $Id: register.php.t,v 1.36 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,7 +215,7 @@ function remove_old_avatar($avatar_str)
 
 	/* handle coppa passed to us by pre_reg form */
 	if (isset($_GET['reg_coppa']) && !isset($_POST['reg_coppa'])) {
-		$_POST['reg_coppa'] = $_GET['reg_coppa'];
+		$_POST['reg_coppa'] = strtoupper($_GET['reg_coppa']);
 	}
 
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa'])) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.38 2003/04/09 12:01:45 hackie Exp $
+*   $Id: post.php.t,v 1.39 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,19 +67,16 @@
 		$th_id = NULL;
 	} else {
 		std_error('systemerr');
-		exit;
 	}
 	
-	$MAX_F_SIZE = $frm->max_attach_size;
-	
-	/* More Security */
-	if (isset($thr) && $usr->is_mod != 'A' && $thr->locked=='Y') {
-		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}', '');
-	}
-
 	/* fetch permissions & moderation status */
 	$perms = init_single_user_perms($frm->id, $usr->is_mod, $MOD);
 	
+	/* More Security */
+	if (isset($thr) && $usr->is_mod != 'A' && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
+		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}', '');
+	}
+
 	if (_uid) {
 		/* all sorts of user blocking filters */
 		is_allowed_user($usr);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.35 2003/04/09 13:38:24 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.36 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,6 +64,11 @@ if (_uid) {
 	}
 } else {
 	$_GET['rev'] = $_GET['reveal'] = '';
+}
+
+if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
+	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
+	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
 /* Draws a message, needs a message object, user object, permissions array, 
@@ -157,7 +162,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
 
 			if (_uid && _uid != $obj->user_id) {
-				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '' : '';
+				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dmsg_buddy_link_add}' : '{TEMPLATE: dmsg_buddy_link_remove}';
 				$ignore_link	= !isset($usr->ignore_list[$obj->user_id]) ? '{TEMPLATE: dmsg_add_user_ignore_list}' : '{TEMPLATE: dmsg_remove_user_ignore_list}';
 			} else {
 				$buddy_link = $ignore_link = '';

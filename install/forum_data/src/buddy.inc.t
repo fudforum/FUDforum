@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy.inc.t,v 1.3 2003/04/02 15:39:11 hackie Exp $
+*   $Id: buddy.inc.t,v 1.4 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@ function buddy_add($user_id, $bud_id)
 
 function buddy_delete($user_id, $bud_id)
 {
-	q('DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='.$user_id.' AND id='.$bud_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id='.$user_id.' AND bud_id='.$bud_id);
 	return buddy_rebuild_cache($user_id);
 }	
 

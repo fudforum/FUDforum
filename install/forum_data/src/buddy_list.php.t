@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.14 2003/04/02 16:17:11 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.15 2003/04/10 11:00:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,6 @@
 
 	if (!_uid) {
 		std_error('login');
-		exit();
 	}
 
 	if (isset($_POST['add_login'])) {
@@ -42,38 +41,33 @@
 	}
 
 	/* incomming from message display page (add buddy link) */
-	if (isset($_GET['add']) && (int)$_GET['add']) {
+	if (isset($_GET['add']) && ($_GET['add'] = (int)$_GET['add'])) {
 		if (!empty($usr->buddy_list)) {
 			$usr->buddy_list = @unserialize($usr->buddy_list);
 		}
 
-		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['add'])) && !isset($usr->buddy_list[$buddy_id])) {
+		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'])) && !isset($usr->buddy_list[$buddy_id])) {
 			buddy_add(_uid, $buddy_id);
 		}
-		check_return($ses->returnto);
+		check_return($usr->returnto);
 	}
 
-	if (isset($_GET['del']) && (int)$_GET['del']) {
-		buddy_delete(_uid, (int)$_GET['del']);	
+	if (isset($_GET['del']) && ($_GET['del'] = (int)$_GET['del'])) {
+		buddy_delete(_uid, $_GET['del']);	
+		/* needed for external links to this form */
+		if (isset($_GET['redr'])) {
+			check_return($usr->returnto);
+		}
 	}
 
-	$ses->update('{TEMPLATE: buddy_list_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: buddy_list_update}');
 
 	$buddy_member_search = ($MEMBER_SEARCH_ENABLED == 'Y') ? '{TEMPLATE: buddy_member_search}' : '';
 
 /*{POST_HTML_PHP}*/
 
-	$c = uq('SELECT 
-			{SQL_TABLE_PREFIX}buddy.id,
-			{SQL_TABLE_PREFIX}users.id,
-			{SQL_TABLE_PREFIX}users.alias,
-			{SQL_TABLE_PREFIX}users.join_date,
-			{SQL_TABLE_PREFIX}users.bday,
-			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}users.posted_msg_count,
-			{SQL_TABLE_PREFIX}users.home_page,
-			{SQL_TABLE_PREFIX}users.last_visit AS time_sec
-		FROM {SQL_TABLE_PREFIX}buddy INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}buddy.bud_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}buddy.user_id='._uid);
+	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.bday, u.invisible_mode, u.posted_msg_count, u.home_page, u.last_visit AS time_sec
+		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
 	
 	$buddies = '';
 	/* Result index 
