@@ -137,7 +137,7 @@ send_pm_desc:			Wy¶lij prywatn± wiadomo¶æ u¿ytkownikowi
 sender_email:			E-mail nadawcy:
 sender_name:			Nazwa nadawcy:
 show_all_posts:			Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: user_login}
-show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR-HTML: u->alias}
+show_posts_by:			Poka¿ wiadomo¶ci u¿ytkownika: {VAR: u->alias}
 size:				Rozmiar:
 started_on:			Rozpoczêty
 status:				Status:
@@ -178,9 +178,9 @@ updated_on:			Uaktualnione dnia:
 user:				U¿ytkownik
 user_counter:			Mamy <b>{VAR: reg_users}</b> zarejestrowanych u¿ytkowników.
 user_info:			Informacje o u¿ytkowniku
-user_info_l:			Informacje o u¿ytkowniku {VAR: user_info}
-user_offline:			{VAR: user_login} jest aktualnie niedostêpny
-user_online:			{VAR: user_login} jest aktualnie dostêpny
+user_info_l:			Informacje o u¿ytkowniku {VAR: u->alias}
+user_offline:			{VAR: obj->login} jest aktualnie niedostêpny
+user_online:			{VAR: obj->login} jest aktualnie dostêpny
 usrinfo_last_post:		Ostatnia wiadomo¶æ:
 view_forum:			Wy¶wietl forum
 view_last_msg:			Wy¶wietl ostatni± wiadomo¶æ w tym forum
@@ -191,7 +191,7 @@ vote:				{VAR: thread->vote_count()} G³osów
 vote_button:			G³osuj
 vote_for_thread:		G³osuj
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> zosta³ przeniesiony do forum <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a> przez moderatora.
-welcome_message:		Witaj <b>{VAR: user_login}</b>, Twoja ostatnia wizyta by³a dnia {DATE: last_login %a, %d %B %Y %H:%M}.
+welcome_message:		Witaj <b>{VAR: usr->alias}</b>, Twoja ostatnia wizyta by³a dnia {DATE: last_login %a, %d %B %Y %H:%M}.
 what_ppl_doing:			poka¿, co robi± inni u¿ytkownicy
 reported_del_report:		Usuñ Zg³oszenie
 reported_reason:		Powód
@@ -501,7 +501,7 @@ email_pg_title:			E-mail
 email_subject:			Temat:
 email_body:			Tre¶æ:
 email_submit:			Wy¶lij
-ppost_quote_msg:		U¿ytkownik {VAR-HTML: msg_r->login} zamie¶ci³ dnia {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		U¿ytkownik {VAR: msg_r->login} zamie¶ci³ dnia {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Cytuj:
 ppost_to:			Do:
 ppost_from_buddy_list:		wybierz z listy znajomych
@@ -544,8 +544,8 @@ delete_yes:			Tak
 delete_no:			Nie
 error_invalidurl:		Nieprawid³owy adres
 error_error:			B³±d
-usrinfo_profile:		Profil u¿ytkownika {VAR: user_info}
-usrinfo_show_all_posts:		Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: user_info}
+usrinfo_profile:		Profil u¿ytkownika {VAR: u->alias}
+usrinfo_show_all_posts:		Poka¿ wszystkie wiadomo¶ci u¿ytkownika {VAR: u->alias}
 actions_update:			podgl±danie innych ludzi, takich jak Ty
 err_info:			Informacje
 buddy_list_err_cantadd:		Nie mo¿na dodaæ siebie do listy znajomych
@@ -559,7 +559,7 @@ core_adm_login_msg:		<br>Administratorzy mog± zalogowaæ siê <a href="{GVAR: WWW_
 email_err_unabletoemail_title:	B£¡D: Nie uda³o siê wys³aæ listu
 email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
 email_err_unabletoemailu_msg:	System poczty elektronicznej zosta³ wy³±czony przez administratora.
-email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: usr_dst->login}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
+email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR: usr_dst->alias}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
 email_error_body:		Tre¶æ listu jest wymagana
 email_error_subject:		Temat listu jest wymagany
 email_error_emailrequired:	Adres e-mail jest wymagany
@@ -670,7 +670,7 @@ reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, nazwa u¿ytkownika jest w
 reset_login_notify:		Twoje has³o zosta³o do Ciebie wys³ane poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ.
 search_update:			Szukanie wiadomo¶ci
 selmsg_update:			Przegl±danie <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">dzisiejszych wiadomo¶c</a>
-showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Przegl±danie w³asnych subskrypcji
 th_err_invid_title:		Nieprawid³owy identyfikator w±tku
 th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który próbujesz obejrzeæ nie istnieje.
@@ -788,7 +788,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Aktualnie edytujemy: <b>{VAR: grp->name}</b>
 rate_worst:			Najgorszy
 rate_best:			Najlepszy
-post_quote_msg:			{VAR-HTML: msg->login} napisa³(a) dnia {DATE: msg->post_stamp %a, %d %B %Y %I:%M}
+post_quote_msg:			{VAR: msg->login} napisa³(a) dnia {DATE: msg->post_stamp %a, %d %B %Y %I:%M}
 post_quote:			Cytuj:
 userinfo_referals:		Osoby polecone:
 userinfo_referals_count:	{VAR: referals} u¿ytkowników

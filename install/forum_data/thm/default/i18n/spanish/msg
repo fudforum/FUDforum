@@ -136,7 +136,7 @@ send_pm_desc:			Enviar un mensaje privado a este usuario
 sender_email:			E-mail del remitente:
 sender_name:			Nombre del remitente:
 show_all_posts:			Mostrar todos los mensajes de {VAR: user_login}
-show_posts_by:			Mostrar mensajes de: {VAR-HTML: u->alias}
+show_posts_by:			Mostrar mensajes de: {VAR: u->alias}
 size:				Tamaño:
 started_on:			Comenzado El
 status:				Estado:
@@ -177,9 +177,9 @@ updated_on:			Actualizado el:
 user:				Usuario
 user_counter:			Tenemos <b>{VAR: reg_users}</b> usuarios registrados.
 user_info:			Información del usuario
-user_info_l:			Información del usuario {VAR: user_info}
-user_offline:			{VAR: user_login} no está actualmente ingresado
-user_online:			{VAR: user_login} está actualmente ingresado
+user_info_l:			Información del usuario {VAR: u->alias}
+user_offline:			{VAR: obj->login} no está actualmente ingresado
+user_online:			{VAR: obj->login} está actualmente ingresado
 usrinfo_last_post:		Ultimo mensaje:
 view_forum:			Ver Foro
 view_last_msg:			Ver el último mensaje en este foro
@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
 was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&goto={VAR: obj->root_msg_id}&{DEF: _RSID}" class="GenLink">{VAR: obj->subject}</a> ha sido movido a <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _RSID}" class="GenLink">{VAR: name}</a> por el moderador
-welcome_message:		Bienvenido <b>{VAR: user_login}</b>, su última visita fue el {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
 reported_reason:		Razón
@@ -500,7 +500,7 @@ email_pg_title:			E-mail
 email_subject:			Asunto:
 email_body:			Cuerpo de mensaje:
 email_submit:			E-mail
-ppost_quote_msg:		{VAR-HTML: msg_r->login} escribió el {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_r->login} escribió el {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Cita:
 ppost_to:			Para:
 ppost_from_buddy_list:		Seleccionar de lista de amigos
@@ -543,8 +543,8 @@ delete_yes:			Si
 delete_no:			No
 error_invalidurl:		URL inválida
 error_error:			Error
-usrinfo_profile:		Perfil de {VAR: user_info}
-usrinfo_show_all_posts:		Mostrar todos los mensajes publicados por {VAR: user_info}
+usrinfo_profile:		Perfil de {VAR: u->alias}
+usrinfo_show_all_posts:		Mostrar todos los mensajes publicados por {VAR: u->alias}
 actions_update:			Espiando a otros usuarios, tal como Ud
 err_info:			Info
 buddy_list_err_cantadd:		No se puede agregar Ud mismo a su lista de amigos
@@ -558,7 +558,7 @@ core_adm_login_msg:		<br>Los administradores pueden entrar <a href="{ROOT}?t={GV
 email_err_unabletoemail_title:	ERROR: No fue posible enviar e-mail
 email_err_unabletoemail_msg:	El sistema de e-mail ha sido deshabilitado por el administrador.
 email_err_unabletoemailu_msg:	El sistema de e-mail ha sido deshabilitado por el administrador.
-email_error_unabletolocaddr:	Lo siento, el sistema no pudo enviar un e-mail a {VAR-HTML: usr_dst->login} porque no fue capaz de encontrar su dirección de e-mail
+email_error_unabletolocaddr:	Lo siento, el sistema no pudo enviar un e-mail a {VAR: usr_dst->alias} porque no fue capaz de encontrar su dirección de e-mail
 email_error_body:		Se requiere un cuerpo del mensaje
 email_error_subject:		Se requiere un asunto
 email_error_emailrequired:	Se requiere un e-mail
@@ -670,7 +670,7 @@ reset_newpass_msg:		Hola,\n\nComo Ud los solicitó su nombre de usurio y clave le
 reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario
 search_update:			Buscando mensajes
 selmsg_update:			Recorriendo <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Mensajes de Hoy</a>
-showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Viendo mensajes de: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Recorriendo subscripciones propias
 th_err_invid_title:		ID de hilo de discusión es inválida
 th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
@@ -788,7 +788,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Actualmente Editando: <b>{VAR: grp->name}</b>
 rate_worst:			Peor
 rate_best:			Mejor
-post_quote_msg:			{VAR-HTML: msg->login} escribió el {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} escribió el {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Cita:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Miembros

@@ -136,7 +136,7 @@ send_pm_desc:			Send a private message to this user
 sender_email:			Sender Email:
 sender_name:			Sender Name:
 show_all_posts:			Show all posts by {VAR: user_login}
-show_posts_by:			Show Posts by: {VAR-HTML: u->alias}
+show_posts_by:			Show Posts by: {VAR: u->alias}
 size:				Size:
 started_on:			Started On
 status:				Status:
@@ -177,9 +177,9 @@ updated_on:			Updated on:
 user:				User
 user_counter:			We have <b>{VAR: reg_users}</b> registered user(s).
 user_info:			User Information
-user_info_l:			User Information {VAR: user_info}
-user_offline:			{VAR: user_login}  is currently offline
-user_online:			{VAR: user_login} is currently online
+user_info_l:			User Information {VAR: u->alias}
+user_offline:			{VAR: obj->login}  is currently offline
+user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Last Post:
 view_forum:			View Forum
 view_last_msg:			View the latest message in this forum
@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> has been moved to <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a> by the moderator
-welcome_message:		Welcome <b>{VAR: user_login}</b>, your last visit was on {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			show what people are doing
 reported_del_report:		Delete Report
 reported_reason:		Reason
@@ -501,7 +501,7 @@ email_pg_title:			Email
 email_subject:			Subject:
 email_body:			Body:
 email_submit:			Email
-ppost_quote_msg:		{VAR-HTML: msg_r->login} wrote on {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_r->login} wrote on {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Quote:
 ppost_to:			To:
 ppost_from_buddy_list:		Select from Buddy List
@@ -544,8 +544,8 @@ delete_yes:			Yes
 delete_no:			No
 error_invalidurl:		Invalid URL
 error_error:			Error
-usrinfo_profile:		{VAR: user_info}&#39;s Profile
-usrinfo_show_all_posts:		Show all posts by {VAR: user_info}
+usrinfo_profile:		{VAR: u->alias}&#39;s Profile
+usrinfo_show_all_posts:		Show all posts by {VAR: u->alias}
 actions_update:			Snooping on other people, just like you
 err_info:			Info
 buddy_list_err_cantadd:		Can\'t add your self to the buddy list
@@ -559,7 +559,7 @@ core_adm_login_msg:		<br>Administrators can login <a href="{GVAR: WWW_ROOT}adm/a
 email_err_unabletoemail_title:	ERROR: Unable to email
 email_err_unabletoemail_msg:	The email system has been disabled by the administrator.
 email_err_unabletoemailu_msg:	The email system has been disabled by the administrator.
-email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR-HTML: usr_dst->login} because it was unable to locate his email address
+email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR: usr_dst->alias} because it was unable to locate his email address
 email_error_body:		The body is required
 email_error_subject:		Subject is required
 email_error_emailrequired:	Email is required
@@ -670,7 +670,7 @@ reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent
 reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login
 search_update:			Searching posts
 selmsg_update:			Browsing <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Today\'s Posts</a>
-showposts_update:		Viewing posts by: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Viewing posts by: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You\'ve followed an invalid link, the topic you are trying to view does not exist.
@@ -715,7 +715,7 @@ search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		Email was sent
-remail_email:			There is a web page on {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) that you may be interested in reading.\nHere is the topic I thought you\'d be interested in, {VAR: thread->subject} can be found here: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nFrom {VAR: u}\n
+remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: thread->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\n Your friend,\n\n{VAR: u}\n
 poll_add_option:		Add Option:
 post_opt_html_on:		<b>HTML</b> is <b>ON</b>
 post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> is <b>ON</a></b>
@@ -788,7 +788,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best
-post_quote_msg:			{VAR-HTML: msg->login} wrote on {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} wrote on {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members

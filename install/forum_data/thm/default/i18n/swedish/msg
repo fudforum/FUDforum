@@ -137,7 +137,7 @@ send_pm_desc:			S&auml;nd ett privat meddelande till den h&auml;r medlemmen
 sender_email:			Avs&auml;ndarens e-postadress:
 sender_name:			Avs&auml;ndarens namn:
 show_all_posts:			Visa alla inl&auml;gg av {VAR: user_login}
-show_posts_by:			Visa inl&auml;gg av: {VAR-HTML: u->alias}
+show_posts_by:			Visa inl&auml;gg av: {VAR: u->alias}
 size:				Storlek:
 started_on:			P&aring;b&ouml;rjad
 status:				Status:
@@ -178,9 +178,9 @@ updated_on:			Uppdaterad:
 user:				Medlem
 user_counter:			Vi har <b>{VAR: reg_users}</b> registrerade medlemmar.
 user_info:			Anv&auml;ndarinformation
-user_info_l:			Anv&auml;ndarinformation {VAR: user_info}
-user_offline:			{VAR: user_login}  &auml;r f&ouml;r tillf&auml;llet offline
-user_online:			{VAR: user_login} &auml;r f&ouml;r tillf&auml;llet online
+user_info_l:			Anv&auml;ndarinformation {VAR: u->alias}
+user_offline:			{VAR: obj->login}  &auml;r f&ouml;r tillf&auml;llet offline
+user_online:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet online
 usrinfo_last_post:		Senaste inl&auml;gg:
 view_forum:			Visa forum
 view_last_msg:			Visa det sista inl&auml;gget i det h&auml;r forumet
@@ -191,7 +191,7 @@ vote:				{VAR: thread->vote_count()} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
 was_moved_msg:			Moderatorn har flyttat tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		V&auml;lkommen <b>{VAR: user_login}</b>! Ditt senaste bes&ouml;k var {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
 reported_reason:		F&ouml;rklaring
@@ -500,7 +500,7 @@ email_pg_title:			E-post
 email_subject:			Rubrik:
 email_body:			Meddelande:
 email_submit:			Skicka
-ppost_quote_msg:		{VAR-HTML: msg_r->login} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_r->login} skrev {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			Citat:
 ppost_to:			Till:
 ppost_from_buddy_list:		V&auml;lj fr&aring;n kompislistan
@@ -543,8 +543,8 @@ delete_yes:			Ja
 delete_no:			Nej
 error_invalidurl:		Ogiltig URL
 error_error:			Fel
-usrinfo_profile:		{VAR: user_info}s profil
-usrinfo_show_all_posts:		Visa alla inl&auml;gg av {VAR: user_info}
+usrinfo_profile:		{VAR:  u->alias}s profil
+usrinfo_show_all_posts:		Visa alla inl&auml;gg av {VAR:  u->alias}
 actions_update:			Spionerar p&aring; andra medlemmar, precis som du
 err_info:			Info
 buddy_list_err_cantadd:		Du kan l&auml;gga dig sj&auml;lv till kompislistan
@@ -558,7 +558,7 @@ core_adm_login_msg:		<br>Administrat&ouml;rer kan logga in <a href="adm/admlogin
 email_err_unabletoemail_title:	FEL: Kan inte skicka e-post
 email_err_unabletoemail_msg:	E-postsystemet har st&auml;ngts av av administratorn.
 email_err_unabletoemailu_msg:	E-postsystemet har st&auml;ngts av av administratorn.
-email_error_unabletolocaddr:	Systemet kunde tyv&auml;rr inte skicka e-post till {VAR-HTML: usr_dst->login} eftersom det inte hittade hans/hennes e-postadress
+email_error_unabletolocaddr:	Systemet kunde tyv&auml;rr inte skicka e-post till {VAR: usr_dst->alias} eftersom det inte hittade hans/hennes e-postadress
 email_error_body:		Du kan inte skicka ett tomt meddelande
 email_error_subject:		Rubriken &auml;r obligatorisk
 email_error_emailrequired:	E-postadressen &auml;r obligatorisk
@@ -669,7 +669,7 @@ reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnam
 reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord
 search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Dagens inl&auml;gg</a>
-showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Visar egna best&auml;llningar
 th_err_invid_title:		Felaktigt tr&aring;d-ID
 th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, tr&aring;den du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
@@ -787,7 +787,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Editeras just nu: <b>{VAR: grp->name}</b>
 rate_worst:			S&auml;mst
 rate_best:			B&auml;st
-post_quote_msg:			Den {DATE: msg->post_stamp %a, %d %B %Y %H:%M} skrev {VAR-HTML: msg->login}:
+post_quote_msg:			Den {DATE: msg->post_stamp %a, %d %B %Y %H:%M} skrev {VAR: msg->login}:
 post_quote:			Citat:
 userinfo_referals:		Refererade medlemmar:
 userinfo_referals_count:	{VAR: referals} medlemmar

@@ -136,7 +136,7 @@ send_pm_desc:			Bu kullanýcýya özel ileti gönder
 sender_email:			Gönderen E-mektup:
 sender_name:			Gönderen Ýsim:
 show_all_posts:			{VAR: user_login} kullanýcýsýnýn tüm gönderilerini göster
-show_posts_by:			{VAR: user_login} kullanýcýsýnýn gönderilerini göster
+show_posts_by:			{VAR: u->alias} kullanýcýsýnýn gönderilerini göster
 size:				Boyut:
 started_on:			Baþlangýç Tarihi
 status:				Durum:
@@ -177,9 +177,9 @@ updated_on:			Güncelleme tarihi:
 user:				Kullanýcý
 user_counter:			<b>{VAR: reg_users}</b> kayýtlý kullanýcýmýz var.
 user_info:			Kullanýcý Bilgisi
-user_info_l:			Kullanýcý Bilgisi {VAR: user_info}
-user_offline:			{VAR: user_login}  þu anda baðlý deðil
-user_online:			{VAR: user_login} þu anda baðlý
+user_info_l:			Kullanýcý Bilgisi {VAR: u->alias}
+user_offline:			{VAR: obj->login}  þu anda baðlý deðil
+user_online:			{VAR: obj->login} þu anda baðlý
 usrinfo_last_post:		Son ileti:
 view_forum:			Forumu görüntüle
 view_last_msg:			Bu forumdaki en son iletiyi görüntüle
@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Onaycý tarafýndan taþýndýðý yer: <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Hoþ geldiniz <b>{VAR: user_login}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A günü saat %H:%M} idi.
+welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A günü saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
 reported_del_report:		Bildirimi sil
 reported_reason:		Neden
@@ -500,7 +500,7 @@ email_pg_title:			E-mektup
 email_subject:			Konu:
 email_body:			Gövde:
 email_submit:			Gönder
-ppost_quote_msg:		{VAR-HTML: msg_r->login} kullanýcýsý , {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
+ppost_quote_msg:		{VAR: msg_r->login} kullanýcýsý , {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
 ppost_quote:			Alýntýla:
 ppost_to:			Kime:
 ppost_from_buddy_list:		Arkadaþ listesinden seç
@@ -543,8 +543,8 @@ delete_yes:			Evet
 delete_no:			Hayýr
 error_invalidurl:		Geçersiz URL
 error_error:			Gata
-usrinfo_profile:		{VAR: user_info} Kullanýcýsýnýn Kiþisel Bilgileri
-usrinfo_show_all_posts:		{VAR: user_info} tarafýndan gönderilen tüm iletileri göster
+usrinfo_profile:		{VAR: u->alias} Kullanýcýsýnýn Kiþisel Bilgileri
+usrinfo_show_all_posts:		{VAR: u->alias} tarafýndan gönderilen tüm iletileri göster
 actions_update:			Snooping on other people, just like you
 err_info:			Bilgi
 buddy_list_err_cantadd:		Arkadaþ listesine kendinizi ekleyemezsiniz.
@@ -558,7 +558,7 @@ core_adm_login_msg:		<br>Yöneticiler <a href="{GVAR: WWW_ROOT}adm/admloginuser.p
 email_err_unabletoemail_title:	HATA: E-mektup gönderilemedi
 email_err_unabletoemail_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
 email_err_unabletoemailu_msg:	E-mektup sistemi yönetici tarafýndan engellenmiþ durumda.
-email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR-HTML: usr_dst->login} kullanýcýsýna e-mektup gönderemedi, çünkü kullanýcýnýn e-mektup adresi bulunamadý.
+email_error_unabletolocaddr:	Üzgünüz,  sistem {VAR: usr_dst->alias} kullanýcýsýna e-mektup gönderemedi, çünkü kullanýcýnýn e-mektup adresi bulunamadý.
 email_error_body:		Gövde bölümü zorunludur.
 email_error_subject:		Konu bölümü zorunludur.
 email_error_emailrequired:	E-mektup adresi zorunludur.
@@ -669,7 +669,7 @@ reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\n
 reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn.
 search_update:			Ýletileri arýyor
 selmsg_update:			<a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Bugünkü Ýletilerde</a> dolaþýyor
-showposts_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_login}</a> tarafýndan gönderilen iletileri görüntülüyor.
+showposts_update:		<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a> tarafýndan gönderilen iletileri görüntülüyor.
 subscribed_update:		Üyeliklerini dolaþýyor
 th_err_invid_title:		Geçersiz zincir ID\'si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalýþtýðýnýz zincir yok.
@@ -787,7 +787,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		Þu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
 rate_best:			Çok Ýyi
-post_quote_msg:			{VAR-HTML: msg->login} kullanýcýsý, {DATE: msg->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
+post_quote_msg:			{VAR: msg->login} kullanýcýsý, {DATE: msg->post_stamp %a, %d %B %Y %H:%M} tarihinde yazmýþtý:
 post_quote:			Aktarým:
 userinfo_referals:		Tanýtým Yapýlan Kullanýcýlar:
 userinfo_referals_count:	{VAR: referals} Üyeler

@@ -136,7 +136,7 @@ send_pm_desc:			·¢ÇÄÇÄ»°¸øÕâ¸öÓÃ»§
 sender_email:			·¢ËÍÕßÓÊ¼ş£º
 sender_name:			·¢ËÍÕßĞÕÃû£º
 show_all_posts:			ÏÔÊ¾ËùÓĞÓÉÓÃ»§{VAR: user_login}·¢²¼µÄÖ÷Ìâ
-show_posts_by:			ÏÔÊ¾ÓÃ»§ {VAR-HTML: u->alias}·¢²¼µÄÖ÷Ìâ
+show_posts_by:			ÏÔÊ¾ÓÃ»§ {VAR: u->alias}·¢²¼µÄÖ÷Ìâ
 size:				´óĞ¡:
 started_on:			·¢Æğ
 status:				¼¶±ğ£º
@@ -177,9 +177,9 @@ updated_on:			¸üĞÂ:
 user:				ÓÃ»§Ãû
 user_counter:			ÎÒÃÇÓĞ <b>{VAR: reg_users}</b> ×¢²áÓÃ»§¡£
 user_info:			ÓÃ»§ĞÅÏ¢
-user_info_l:			ÓÃ»§ĞÅÏ¢ {VAR: user_login}
-user_offline:			{VAR: user_login}  ÏÖÔÚ²»ÔÚÏß
-user_online:			{VAR: user_login} ÏÖÔÚÔÚÏß
+user_info_l:			ÓÃ»§ĞÅÏ¢ {VAR: u->alias}
+user_offline:			{VAR: obj->login}  ÏÖÔÚ²»ÔÚÏß
+user_online:			{VAR: obj->login} ÏÖÔÚÔÚÏß
 usrinfo_last_post:		ÉÏÒ»´ÎµÇÂ¼£º
 view_forum:			²é¿´ÂÛÌ³
 view_last_msg:			ä¯ÀÀ±¾ÂÛÌ³µÄ×îĞÂ·¢ÑÔ
@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} Í¶Æ±
 vote_button:			Í¶Æ±
 vote_for_thread:		µ÷²é
 was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ÒÑ¾­±»°æÖ÷ÒÆÖÁ<a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		»¶Ó­£¡ <b>{VAR: user_login}</b>, Äã×îºóÒ»´Î·ÃÎÊÊÇ {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		»¶Ó­£¡ <b>{VAR: usr->alias}</b>, Äã×îºóÒ»´Î·ÃÎÊÊÇ {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			ÏÔÊ¾ä¯ÀÀÕßµÄ²Ù×÷
 reported_del_report:		É¾³ı±¨¸æ
 reported_reason:		Ô­Òò
@@ -500,7 +500,7 @@ email_pg_title:			µç×ÓÓÊÏä
 email_subject:			Ö÷Ìâ:
 email_body:			ÄÚÈİ:
 email_submit:			·¢ËÍ
-ppost_quote_msg:		{VAR-HTML: msg_r->login} ·¢±íÓÚ{DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_r->login} ·¢±íÓÚ{DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_quote:			ÒıÓÃ:
 ppost_to:			ÖÁ£º
 ppost_from_buddy_list:		´ÓºÃÓÑÃûµ¥ÖĞÑ¡Ôñ
@@ -543,8 +543,8 @@ delete_yes:			ÊÇ
 delete_no:			·ñ
 error_invalidurl:		¸ÃµØÖ·ÎŞĞ§
 error_error:			´íÎó
-usrinfo_profile:		{VAR: user_info}&#39;µÄ¸öÈËĞÅÏ¢
-usrinfo_show_all_posts:		ÏÔÊ¾ÓÃ»§ {VAR: user_info}·¢²¼µÄËùÓĞÖ÷Ìâ
+usrinfo_profile:		{VAR: u->alias}&#39;µÄ¸öÈËĞÅÏ¢
+usrinfo_show_all_posts:		ÏÔÊ¾ÓÃ»§ {VAR: u->alias}·¢²¼µÄËùÓĞÖ÷Ìâ
 actions_update:			²éÕÒºÍÄãµÄ¸öÈËĞÅÏ¢ÄÚÈİÏàÆ¥ÅäµÄÓÃ»§¡£
 err_info:			ĞÅÏ¢
 buddy_list_err_cantadd:		ÎŞ·¨°ÑÄã¼ÓÈëºÃÓÑÃûµ¥
@@ -558,7 +558,7 @@ core_adm_login_msg:		<br><a href="adm/admloginuser.php">¹ÜÀíÔ±µÇÂ½</a>
 email_err_unabletoemail_title:	´íÎó:ÎŞ·¨·¢ËÍÓÊ¼ş
 email_err_unabletoemail_msg:	ÏµÍ³¹ÜÀíÔ±ÉèÖÃÓÊ¼şÏµÍ³ÎŞ·¨Ê¹ÓÃ¡£
 email_err_unabletoemailu_msg:	µç×ÓÓÊ¼şÏµÍ³±»ÏµÍ³¹ÜÀíÔ±¹Ø±Õ¡£
-email_error_unabletolocaddr:	¶Ô²»Æğ£¬ÒòÎªÎŞ·¨µÇÂ¼¶Ô·½µÄÓÊ¼ş·şÎñÆ÷µ¼ÖÂÏµÍ³ÎŞ·¨·¢ËÍÓÊ¼ş{VAR-HTML: usr_dst->login}
+email_error_unabletolocaddr:	¶Ô²»Æğ£¬ÒòÎªÎŞ·¨µÇÂ¼¶Ô·½µÄÓÊ¼ş·şÎñÆ÷µ¼ÖÂÏµÍ³ÎŞ·¨·¢ËÍÓÊ¼ş{VARHTML: usr_dst->alias}
 email_error_body:		±ØĞëÌîĞ´ÓÊ¼şÄÚÈİ
 email_error_subject:		±ØĞëÌîĞ´ÓÊ¼şÖ÷Ìâ
 email_error_emailrequired:	±ØĞëÌîĞ´ÓÊ¼şµØÖ·
@@ -669,7 +669,7 @@ reset_newpass_msg:		ÄãºÃ£¬\n\nÄãÃ¿´ÎµÇÂ¼µÄÕËºÅ¶¼½«·¢ËÍ¸øÄã¡£\nHere ÕâÀïÊÇÄãµÄµÇÂ
 reset_login_notify:		Ò»»á¶ù£¬Äã½«Í¨¹ıÓÊ¼şÊÕµ½ÃÜÂë¡£Çë¼ì²éÄãµÄÃÜÂë²¢µÇÂ¼¡£
 search_update:			ËÑË÷
 selmsg_update:			ä¯ÀÀ <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">½ñÌì·¢²¼µÄÖ÷Ìâ</a>
-showposts_update:		²é¿´ÓÃ»§ <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_login}</a>·¢²¼µÄÖ÷Ìâ
+showposts_update:		²é¿´ÓÃ»§ <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>·¢²¼µÄÖ÷Ìâ
 subscribed_update:		ä¯ÀÀ×Ô¼ºÔ¤¶¨µÄÄÚÈİ
 th_err_invid_title:		´íÎóµÄÖ÷ÌâidºÅ
 th_err_invid_msg:		ÄãÊäÈëµÄÁ¬½Ó´íÎó,Ïà¹ØÖ÷Ìâ²¢²»´æÔÚ¡£
@@ -787,7 +787,7 @@ group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: 
 group_mgr_indicator:		ÕıÔÚ±à¼­: <b>{VAR: grp->name}</b>
 rate_worst:			×î²îµÄ
 rate_best:			×îºÃµÄ
-post_quote_msg:			{VAR-HTML: msg->login} ÒıÓÃ {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} ÒıÓÃ {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_quote:			ÒıÓÃ:
 userinfo_referals:		±»ÍÆ¼öµÄÓÃ»§£º
 userinfo_referals_count:	{VAR: referals} ³ÉÔ±£º

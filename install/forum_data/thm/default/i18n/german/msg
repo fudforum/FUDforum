@@ -106,7 +106,7 @@ email_error_invalidaddress:	Ung&uuml;ltige Emailadresse
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
-email_error_unabletolocaddr:	Entschuldigung, das System konnte die Email an {VAR-HTML: usr_dst->login} nicht verschicken, weil es die Emailadresse nicht finden kann
+email_error_unabletolocaddr:	Entschuldigung, das System konnte die Email an {VAR: usr_dst->alias} nicht verschicken, weil es die Emailadresse nicht finden kann
 email_name:			Name:
 email_pg_title:			Email
 email_subject:			Betreff:
@@ -482,7 +482,7 @@ post_proc_all_ext_allowed:	(uneingeschr&auml;nkt)
 post_proc_reveal_spoiler:	Spoiler anzeigen
 post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
-post_quote_msg:			{VAR-HTML: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_re:			Re: 
 post_reply_update:		Antwortet auf <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
@@ -510,7 +510,7 @@ ppost_find_User:		Benutzer suchen
 ppost_from_buddy_list:		Aus der Buddyliste ausw&auml;hlen
 ppost_original_msg:		Nachricht, die Du weiterleitest oder beantwortest
 ppost_quote:			Zitat:
-ppost_quote_msg:		{VAR-HTML: msg_r->login} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VARHTML: msg_r->login} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
 ppost_save_draft:		Entwurf speichern
 ppost_send:			Verschicken
 ppost_to:			An:
@@ -736,9 +736,9 @@ sender_email:			Email des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
 show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
-show_posts_by:			Beitr&auml;ge von {VAR-HTML: u->alias} anzeigen
+show_posts_by:			Beitr&auml;ge von {VAR: u->alias} anzeigen
 show_show:			Anzeigen:
-showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR-HTML: u->login}</a>
+showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: u->login}</a>
 single_msg_delete:		Du bist gerade dabei, den Beitrag mit dem Titel: <b>{VAR: msg->subject}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
@@ -838,16 +838,16 @@ use_forum_default:		Die Standardeinstellung des Forums benutzen
 user:				Benutzer
 user_counter:			Wir haben <b>{VAR: reg_users}</b> registrierte Benutzer.
 user_info:			Benutzerinformation
-user_info_l:			Benutzerinformation {VAR: user_info}
-user_offline:			{VAR: user_login} ist gerade offline
-user_online:			{VAR: user_login} ist gerade online
+user_info_l:			Benutzerinformation {VAR: u->alias}
+user_offline:			{VAR: obj->login} ist gerade offline
+user_online:			{VAR: obj->login} ist gerade online
 userinfo_referals:		Angeworbene Benutzer:
 userinfo_referals_count:	{VAR: referals} Mitglieder
 userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 usrinfo_last_post:		Letzter Beitrag:
 usrinfo_private_message:	Private Message:
-usrinfo_profile:		{VAR: user_info}s Profil
-usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: user_info} anzeigen
+usrinfo_profile:		{VAR: u->alias}s Profil
+usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: u->alias} anzeigen
 view_forum:			Forum ansehen
 view_last_msg:			Den neusten Beitrag in diesem Forum ansehen
 view_results:			Ergebnisse ansehen
@@ -857,7 +857,7 @@ vote:				{VAR: thread->vote_count()} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ist vom Moderator nach <a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a> verschoben worden
-welcome_message:		Willkommen <b>{VAR: user_login}</b>, Dein letzter Besuch war am {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben
 yes:				Ja
@@ -869,9 +869,9 @@ imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den Du versuchst anzusehen, existiert nicht.
 poll_edit: 			Bearbeiten
 unspecified:			NICHT ANGEGEBEN
-register_err_not_valid_img:	Die angegebene Url enth&aauml;t kein g&uuml;ltiges Bild
-pmsg_recepient:			Empf&aauml;nger
-register_err_taken_alias:	Der Alias, welchen Du verwenden m&oouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen.
+register_err_not_valid_img:	Die angegebene Url enth&auml;t kein g&uuml;ltiges Bild
+pmsg_recepient:			Empf&auml;nger
+register_err_taken_alias:	Der Alias, welchen Du verwenden m&ouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen.
 register_alias:			Alias
 register_alias_desc:		Wenn Du m&ouml;chtest, da&szlig; Dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
 register_allow_pm_msg:		Private Messages erlauben	
