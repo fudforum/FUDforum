@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist_post.inc,v 1.1 2002/07/29 19:10:41 hackie Exp $
+*   $Id: mlist_post.inc,v 1.2 2003/01/15 13:09:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to='', $attch='')
+function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to='', $attch='', $additional_headers=array())
 {
 	$multi_part = 0;
 	$final_body = '';
@@ -42,6 +42,14 @@ function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=
 	if( $GLOBALS['FORUM_TITLE'] ) $header .= "Organization: ".$GLOBALS['FORUM_TITLE']."\n";	
 	if( $reply_to ) $header .= "In-Reply-To: <".$reply_to.">\n";
 	$header .= "X-FUDforum: ".md5($GLOBALS['WWW_ROOT'])." <$msg_id>\n";
+
+	if (count($additional_headers)) {
+		foreach ($additional_headers as $addh) {
+			if (($addh = trim($addh))) {
+				$header .= $addh . "\n";
+			}
+		}
+	}
 	
 	send_email($from, $list_email, $subject, $final_body, $header);
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.18 2002/10/24 23:33:45 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.19 2003/01/15 13:09:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -426,9 +426,9 @@ class fud_msg_edit extends fud_msg
 				else
 					$attach = null;
 				
-				$mlist_email = q_singleval("SELECT name FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id);
+				list($mlist_email,$additional_headers) = db_singlearr(q("SELECT name FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id));
 				
-				mail_list_post($mlist_email, $from, $this->subject, $body, $this->id, $replyto_id, $attach);
+				mail_list_post($mlist_email, $from, $this->subject, $body, $this->id, $replyto_id, $attach, $additional_headers);
 			}
 			else if( ($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$frm->id." AND allow_frm_post='Y'")) ) {
 				fud_use('nntp.inc', true);

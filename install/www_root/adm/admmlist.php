@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.12 2002/10/14 23:40:36 hackie Exp $
+*   $Id: admmlist.php,v 1.13 2003/01/15 13:09:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -241,6 +241,21 @@ function format_regex(&$regex, &$opts)
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:</td>
 		<td><input type="text" name="ml_body_regex_needle" value="<?php echo (empty($ml_body_regex_needle)?'':htmlspecialchars(stripslashes($ml_body_regex_needle))); ?>"></td>
+	</tr>
+	
+	<tr>
+		<td colspan=2><br></td>
+	</tr>
+	
+	<tr bgcolor="#bff8ff">	
+		<td colspan=2><font size="-1"><b>Optional</b> Custom Headers<br><font size="-1">This field allows you to specify custom headers, that
+		will be appended to any existing headers sent by the forum when posting a message to the mailing list. To avoid problem
+		enter each header on a seperate line and do not place blank lines.</font></td>
+	</tr>
+	
+	<tr bgcolor="#bff8ff">
+		<td valign="top">Custom Headers:</td>
+		<td nowrap><textarea nowrap cols=50 rows=5><?php echo htmlspecialchars(stripslashes($ml_additional_headers)); ?></textarea></td>
 	</tr>
 	
 	<tr>

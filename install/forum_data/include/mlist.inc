@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.5 2002/10/06 23:23:23 hackie Exp $
+*   $Id: mlist.inc,v 1.6 2003/01/15 13:09:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@ class fud_mlist
 {
 	var $id=NULL, $forum_id=NULL, $name=NULL;
 	var $create_users=NULL, $mlist_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_mlist_attch=NULL, $allow_mlist_html=NULL, $complex_reply_match=NULL;
-	var $subject_regex_haystack=NULL, $subject_regex_needle=NULL, $body_regex_haystack=NULL, $body_regex_needle=NULL;
+	var $subject_regex_haystack=NULL, $subject_regex_needle=NULL, $body_regex_haystack=NULL, $body_regex_needle=NULL, $additional_headers=NULL;
 
 	function get($id)
 	{
@@ -42,7 +42,8 @@ class fud_mlist
 			subject_regex_needle,
 			body_regex_haystack,
 			body_regex_needle,
-			create_users
+			create_users,
+			additional_headers
 			)
 			VALUES(
 			".$this->forum_id.",
@@ -57,7 +58,8 @@ class fud_mlist
 			'".$this->subject_regex_needle."',
 			'".$this->body_regex_haystack."',
 			'".$this->body_regex_needle."',
-			'".yn($this->create_users)."'
+			'".yn($this->create_users)."',
+			'".$this->additional_headers."',
 			)");
 
 		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mlist", $r);
@@ -81,6 +83,7 @@ class fud_mlist
 			subject_regex_needle='".$this->subject_regex_needle."',
 			body_regex_haystack='".$this->body_regex_haystack."',
 			body_regex_needle='".$this->body_regex_needle."',
+			additional_headers='".$this->additional_headers."',
 			create_users='".yn($this->create_users)."'
 		WHERE id=".$this->id);
 		
