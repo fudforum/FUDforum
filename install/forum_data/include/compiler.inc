@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.47 2003/10/29 21:41:05 hackie Exp $
+* $Id: compiler.inc,v 1.48 2003/11/12 13:37:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -565,6 +565,11 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
 	$src = preg_replace('!/*$!', '', $src);
 	$dest = preg_replace('!/*$!', '', $dest);
 
+	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
+	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
+		$perms = 0644;
+	}
+
 	if (!($dp = opendir($src))) {
 		echo 'Cannot open directory "'.$src.'"<br>';
 		return;
@@ -586,7 +591,7 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
 			if (!@copy($path, $nd) && !@file_exists($nd)) {
 				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
 			} else {
-				@chmod($nd, $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
+				@chmod($nd, $perms);
 			}
 		}
 	}
@@ -626,6 +631,12 @@ function copyhelp($thm)
 	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
 
 	$u = umask(0);
+
+	$perms = $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666;
+	if (strncmp(PHP_SAPI, 'apache', 6) && $perms == 0600) {
+		$perms = 0644;
+	}
+
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
@@ -642,7 +653,7 @@ function copyhelp($thm)
 		}
 		fwrite($fp, str_replace('{ROOT}', $rp, file_get_contents($src . $de)));
 		fclose($fp);
-		@chmod($src . $de, $GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666);
+		@chmod($src . $de, $perms);
 	}
 	closedir($dp);
 
