@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.14 2002/08/03 19:37:34 hackie Exp $
+*   $Id: pmsg.php.t,v 1.15 2002/08/05 16:45:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,7 +81,7 @@
 
 	$cur_ppage = tmpl_cur_ppage($folder_id);
 
-	if ( $folder_id == 'DRAFT' ) $lnk = '{ROOT}?t=pmsg&msg_id';
+	if ( $folder_id == 'DRAFT' ) $lnk = '{ROOT}?t=pmsg&amp;msg_id';
 	
 	$author_dest_col = $folder_id == 'SENT' ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
 	
@@ -128,7 +128,7 @@
 				break;
 		}
 		
-		$goto = ( $folder_id != 'DRAFT' ) ? '{ROOT}?t=pmsg_view&'._rsid.'&id='.$obj->id : '{ROOT}?t=ppost&'._rsid.'&msg_id='.$obj->id;
+		$goto = ( $folder_id != 'DRAFT' ) ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
 		$pmsg_status = ( $obj->read_stamp ) ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
 		if( $obj->track=='Y' && $obj->mailed=='Y' && $obj->duser_id==$usr->id && $obj->ouser_id!=$usr->id ) $deny_recipt = '{TEMPLATE: deny_recipt}'; else $deny_recipt = '';
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.4 2002/07/30 14:34:37 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.5 2002/08/05 16:45:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,14 +85,12 @@
 	$obj = db_singleobj($r);
 		
 	/* Next Msg */
-	if( ($nid =  q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id>".$id." ORDER BY id DESC LIMIT 1")) ) {
+	if( ($nid =  q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id>".$id." ORDER BY id ASC LIMIT 1")) )
 		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';		
-	}	
 	
 	/* Prev Msg */
-	if( ($pid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id<".$id." ORDER BY id ASC LIMIT 1")) ) {
+	if( ($pid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id<".$id." ORDER BY id DESC LIMIT 1")) )
 		$dpmsg_prev_message = '{TEMPLATE: dpmsg_prev_message}';
-	}	
 		
 	$private_message_entry = tmpl_drawpmsg($obj);
 
