@@ -86,17 +86,13 @@ edit_message:			Beitrag bearbeiten
 edit_time_limit:		<br><b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
 email:				E-Mail:
 email_body:			Inhalt:
-email_email:			E-Mail:
 email_err_unabletoemail_msg:	Das Emailsystem wurde vom Administrator deaktiviert.
 email_err_unabletoemail_title:	FEHLER: Kann E-Mail nicht verschicken
 email_error_body:		Inhalt ist erforderlich
-email_error_emailrequired:	E-Mail ist erforderlich
-email_error_invalidaddress:	Ung&uuml;ltige Emailadresse
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
 email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die Emailadresse nicht finden kann
-email_name:			Name:
 email_pg_title:			E-Mail
 email_subject:			Betreff:
 email_submit:			E-Mail
@@ -185,7 +181,6 @@ iemail_thr_subject:		Neue Antwort an {VAR: thr_subject} von {VAR: poster_login}
 ignore_list_cantign_msg:	Du kannst diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf deiner Ignorierliste
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Du kannst diesen Benutzer nicht ignorieren
 ignore_list_err_nu_msg:		Der Benutzer, den du deiner Liste hinzuzuf&uuml;gen wolltest, kann vom System nicht gefunden werden.
 ignore_list_err_nu_title:	Benutzer nicht gefunden
 ignore_list_update:		Durchsucht die eigene Ignorierliste
@@ -295,8 +290,6 @@ move_to:			Verschieben nach:
 moved:				In ein anderes Forum verschoben
 moved_thread_message:		Dieses Thema wurde in ein anderes Forum verschoben
 msg_author:			Verfasser
-msg_err_ininfo_msg:		Beim Erzeugen der Seite ist ein Problem aufgetreten
-msg_err_ininfo_title:		Information reicht nicht aus
 msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 msg_update:			Durchsucht das Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
@@ -346,7 +339,6 @@ p_READ:				Read
 p_VISIBLE:			Sichtbar
 p_VOTE:				Abstimmen
 page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
-fud_query_stats:		MySQL Abfragen ben&ouml;tigten {VAR: ttl_time} Sekunden<br>
 permission_denied_msg:		Deine Benutzerrechte gestatten es dir nicht, den von dir geplanten Vorgang durchzuf&uuml;hren.
 permission_denied_title:	Zugriff verweigert!
 pm:				Private Nachrichten
@@ -413,12 +405,6 @@ post_err_floodtrig_msg:		Bitte versuche es in {VAR: tm} Sekunden erneut
 post_err_floodtrig_title:	FEHLER: Schutz vor Flooding mit Beitr&auml;gen aktiviert.
 post_err_lockedthread_msg:	Das Thema ist gesperrt, und es sind keine weiteren Beitr&auml;ge erlaubt
 post_err_lockedthread_title:	FEHLER: gesperrtes Thema
-post_err_noreplying_msg:	Du kannst auf diesen Beitrag nicht antworten, weil es entweder eine Ank&uuml;ndigung oder ein angehefteter Beitrag ist, f&uuml; den der Moderator das Antworten nicht getattet hat.
-post_err_noreplying_title:	FEHLER: Antworten nicht erlaubt
-post_err_notallowed_msg:	Du hast keine Erlaubnis Beitr&auml;ge zu erstellen
-post_err_notallowed_title:	Zugriff verweigert
-post_err_notowner_msg:		Du bist nicht der Verfasser des Beitrages
-post_err_notowner_title:	FEHLER
 post_err_passwd:		Falsches Passwort.
 post_error_generic:		Es ist ein Fehler aufgetreten
 post_file_del:			L&ouml;schen
@@ -474,7 +460,6 @@ postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen F
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
 postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{VAR-HTML: v}" in diesem Forum
-postcheck_not_allowed_file:	Dieser Dateityp ist nicht gestattet
 postcheck_subj_needed:		Betreff erforderlich
 posts:				Beitr&auml;ge
 posts_c:			Beitr&auml;ge:
@@ -629,8 +614,6 @@ report_already_reported_msg:	Der Beitrag ist bereits gemeldet und wird demn&auml
 report_already_reported_title:	Bereits gemeldet	
 report_by:			von:
 report_empty_report:		Du kannst keine leere Meldung abschicken, gib bitte einen Grund an.
-report_err_cantreport_msg:	Es ist dir nicht gestattet, eine Meldung an den Moderator zu schicken
-report_err_cantreport_title:	FEHLER
 report_err_nosuchmsg_msg:	Keine solcher Beitrag vorhanden
 report_err_nosuchmsg_title:	FEHLER
 report_give_reason:		Bitte einen Grund angeben, warum du diesen Beitrag meldest:
@@ -737,8 +720,6 @@ tabs_private_messaging:		Private Nachricht
 tabs_referrals:			Anwerbungen
 tabs_register:			Einstellungen
 tabs_subscriptions:		Abonnements
-th_err_invid_msg:		Du bist einem ung&uuml;ltigen Link gefolgt. Das Thema, das du ansehen wolltest, ist nicht mehr vorhanden.
-th_err_invid_title:		Ung&uuml;ltige Themenkennung
 th_expr_eight_hr:		8 Stunden
 th_expr_four_day:		4 Tage
 th_expr_four_hr:		4 Stunden
@@ -752,7 +733,6 @@ th_expr_one_year:		1 Jahr
 th_expr_sixteen_hr:		16 Stunden
 th_expr_three_hr:		3 Stunden
 th_expr_two_day:		2 Tage
-th_expr_two_hr:			2 Stunden
 th_expr_two_month:		2 Monate
 th_expr_two_week:		2 Wochen
 thr_exch_accept:		Thema akzeptieren
@@ -817,10 +797,6 @@ welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war a
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Nachricht schreiben
 yes:				Ja
-forumsel_unread:		*(Ungelesen)
-groupmgr_no_groups:		Keine Gruppen zu bearbeiten
-msg_err_nosuchmsg_msg:		Einen solchen Beitrag gibt es in diesem Thema nicht
-msg_err_nosuchmsg_title:	Fehler
 imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den du versuchst anzusehen, existiert nicht.
 poll_edit:			Bearbeiten

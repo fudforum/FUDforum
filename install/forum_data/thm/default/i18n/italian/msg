@@ -473,8 +473,6 @@ mklist_disc:			Disc
 mklist_circle:			Circle
 mklist_close:			Chiudi
 email_to:			A:
-email_name:			Nome:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Oggetto:
 email_body:			Messaggio:
@@ -539,8 +537,6 @@ email_err_unabletoemail_msg:	Il sistema di invio email è stato disabilitato dall
 email_error_unabletolocaddr:	Il sistema non è in grado di inviare un&#39;email all&#39;utente {VAR-HTML: usr_dst->login} poichè non è in grado di trovare il suo indirizzo di posta elettronica
 email_error_body:		Il campo testo è obbligatorio
 email_error_subject:		Oggetto è obbligatorio
-email_error_emailrequired:	Email è obbligatorio
-email_error_invalidaddress:	Indirizzo email non valido
 email_error_namerequired:	Nome è obbligatorio
 email_error_invaliduser:	Utente non corretto
 emailconf_err_invkey_title:	Errore
@@ -554,7 +550,6 @@ iemail_thr_bodyemail:		Per visualizzare le reply non lette vai a {VAR: goto_url[
 iemail_frm_subject:		Nuovo topic nel forum {VAR: frm_name} intitolato {VAR: thr_subject} di {VAR: poster_login}
 iemail_frm_bodyemail:		Per vedere il topic vai a:\n{VAR: goto_url['email']}\n\nPer non ricevere più notifiche circa nuovi post in questo forum, clicca qui: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Informazioni
-ignore_list_err_noign_msg:	Non puoi ignorare questo utente
 ignore_list_err_dup_msg:	Hai già inserito questo utente nella tua ignore list
 ignore_list_err_nu_title:	Utente non trovato
 ignore_list_err_nu_msg:		L&#39;utente che hai cercato di inserire nella ignore list non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
@@ -563,26 +558,18 @@ ignore_list_update:		Sfoglia la propria ignore list
 index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}">elenco dei forum</a>
 list_referers_update:		Sfoglia i referral
 login_update:			Pagina di login
-msg_err_ininfo_title:		Informazioni non sufficienti
-msg_err_ininfo_msg:		C&#39;è stato un problema nella generazione di questa pagina
 msg_update:			Sfoglia il topic <a href="{FULL_ROOT}{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRORE: Messaggi personali disabilitati
 pm_err_nopm_msg:		Non puoi usare i messaggi personali, sono stati disabilitati dall&#39;amministratore.
 pm_update:			Legge/Scrive i messagi personali
-post_err_notallowed_title:	Permesso negato
-post_err_notallowed_msg:	Non sei autorizzato a postare messaggi
 post_err_lockedthread_title:	ERRORE: Topic chiuso
 post_err_lockedthread_msg:	Questo topic è chiuso, non è più possibile inserire messaggi
 err_coppa_title:		ERRORE: il tuo account non è stato ancora confermato
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
 err_blockedaccnt_title:		ERRORE: non sei autorizzato a postare messaggi
 err_blockedaccnt_msg:		A questo account è stata impedita la possibilità di scrivere messaggi
-post_err_notowner_title:	ERRORE
-post_err_notowner_msg:		Non sei l&#39;autore di questo messaggio
 post_err_edttimelimit_title:	ERRORE
 post_err_edttimelimit_msg:	Non puoi più modificare questo messaggio
-post_err_noreplying_title:	ERRORE: non è permesso rispondere a messaggi
-post_err_noreplying_msg:	Non puoi rispondere a questo topic, perchè si tratta o di un announcement o di un messaggio al quale il moderatore ha bloccato la possibilità di inserire ulteriori risposte.
 post_err_floodtrig_title:	ERRORE: è attivo il controllo sui messaggi.
 post_err_floodtrig_msg:		Per cortesia, riprova tra {VAR: tm} secondi
 post_err_attach_size:		<font class="ErrorText">Il file allegato è troppo grande (supera il limite consentito di {VAR: MAX_F_SIZE} byte)</font><br>
@@ -594,7 +581,6 @@ post_topic_update:		Scrive un nuovo topic in <a href="{FULL_ROOT}{ROOT}?t=thread
 post_error_generic:		Si è verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario
-postcheck_not_allowed_file:	Questo tipo di file non è ammesso
 postcheck_no_such_user:		Non c&#39;è alcun utente "{VAR-HTML: v}" in questo forum
 postcheck_ignored:		Non puoi spedire un messaggio personale a "{VAR-HTML: v}", perchè questo utente ha deciso di ignorarti.
 postcheck_no_recepient:		Non è possibile inviare il messaggio, manca il destinatario
@@ -626,8 +612,6 @@ register_profile_update:	Guarda il suo profilo
 register_register_update:	Pagina di registrazione
 report_err_nosuchmsg_title:	ERRORE
 report_err_nosuchmsg_msg:	Nessun messaggio
-report_err_cantreport_title:	ERRORE
-report_err_cantreport_msg:	Non hai il permesso di segnalare messaggi al moderatore
 reset_err_invalidkey_title:	ERRORE
 reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Informazioni
@@ -639,8 +623,6 @@ search_update:			Cerca nei topic
 selmsg_update:			Sfoglia <a href="{FULL_ROOT}{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
 showposts_update:		Visualizza messaggi per: <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
 subscribed_update:		Sfoglia le proprie sottoscrizioni
-th_err_invid_title:		Topic non valido
-th_err_invid_msg:		Hai seguito un link non valido; il topic che stai cercando di aprire non esiste
 thread_update:			Legge il forum <a href="{FULL_ROOT}{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 tree_update:			Legge il topic (vista ad albero) <a href="{FULL_ROOT}{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Guarda il profilo di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
@@ -751,7 +733,6 @@ pm_no_space_msg:		Le tue cartelle di messaggi privati hanno superato la quota li
 pm_space_indct_msg:		Le tue cartelle di MP sono piene al {VAR: percent_full}%.
 th_expr_never:			Mai
 th_expr_one_hr:			1 Ora
-th_expr_two_hr:			2 Ore
 th_expr_three_hr:		3 Ore
 th_expr_four_hr:		4 Ore
 th_expr_eight_hr:		8 Ore
@@ -814,10 +795,6 @@ p_VISIBLE:			Visibile
 reported_in_thread:		Nel topic
 help_back_to_top:		torna all&#39;inizio
 help_return_to_index:		Torna all&#39;indice
-forumsel_unread:		*(NON LETTO)
-groupmgr_no_groups:		Nessun gruppo da modificare
-msg_err_nosuchmsg_msg:		Non ci sono messaggi in questo topic
-msg_err_nosuchmsg_title:	Errore
 imsg_err_message_title:		Messaggio non valido
 imsg_err_message_msg:		Il messaggio che stai cercando di visualizzare non esiste.
 poll_edit:			Modifica
@@ -843,7 +820,6 @@ post_proceed:			Procedi
 post_moderated_forum:		Hai scritto un messaggio in un forum moderato, il che vuol dire che il tuo messaggio non sarà reso pubblico fino a quando uno dei moderatori non l&#39;avrà approvato.
 post_moderated_forum_ttl:	Avviso: forum moderato
 buddy_list_bday:		Oggi {VAR: r[2]} compie {VAR: age} anni!!! AUGURI!!!
-fud_query_stats:		Le query MySQL hanno richiesto {VAR: ttl_time} secondi<br>
 pmsg_recepient:			Destinatario
 register_err_taken_alias:	Username già utilizzato
 register_alias:			Alias

@@ -98,7 +98,6 @@ occupation:			Род деятельности:
 off:				откл
 on:				вкл
 page_timings:			Время, затраченное на генерацию страницы: {VAR: page_gen_time} seconds
-fud_query_stats:		На выполнение запросов MySQL затрачено {VAR: ttl_time} секунд<br>
 pm:				Личная почта
 poll:				Голосование:
 post_count:			Количество сообщений {VAR: u_pcount}
@@ -475,8 +474,6 @@ mklist_disc:			Бюллетень - диски
 mklist_circle:			Бюллетень - кружки
 mklist_close:			Закрыть
 email_to:			Кому:
-email_name:			Имя:
-email_email:			E-mail:
 email_pg_title:			E-mail
 email_subject:			Тема:
 email_body:			Текст:
@@ -541,8 +538,6 @@ email_err_unabletoemail_msg:	Система отправки e-mail была выключена администрато
 email_error_unabletolocaddr:	Извините, отправка e-mail-сообщения {VAR: usr_dst->alias} невозможно, так как неизвестен его адрес email
 email_error_body:		Текст сообщения обязателен
 email_error_subject:		Тема обязательна
-email_error_emailrequired:	Адрес e-mail обязателен
-email_error_invalidaddress:	Недопустимый адрес e-mail
 email_error_namerequired:	Имя обязательно
 email_error_invaliduser:	Недопустимый пользователь
 emailconf_err_invkey_title:	Ошибка
@@ -556,7 +551,6 @@ iemail_thr_bodyemail:		Для просмотра непрочитанных ответов следуйте по указанной
 iemail_frm_subject:		Новая тема в форуме {VAR: frm_name}, озаглавленная {VAR: thr_subject} от {VAR: poster_login}
 iemail_frm_bodyemail:		Для просмотра темы следуйте по указанной ссылке:\n{VAR: goto_url['email']}\n\nЕсли вы не хотите получать извещения о новых темах в этом форуме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['email']}
 ignore_list_err_info_title:	Информация
-ignore_list_err_noign_msg:	Вы не можете игнорировать этого пользователя
 ignore_list_err_dup_msg:	Этот пользователь уже был внесен в ваш список игнорируемых ранее
 ignore_list_err_nu_title:	Пользователь не найден
 ignore_list_err_nu_msg:		Пользователь, которого вы пытаетесь добавить в список игнорируемых, не найден.
@@ -565,26 +559,18 @@ ignore_list_update:		Просмотр списка игнорируемых
 index_update:			Просмотр <a href="{TEMPLATE: index_update_lnk}">списка форумов</a>
 list_referers_update:		Просмотр приглашенных
 login_update:			Вход в форум
-msg_err_ininfo_title:		Недостаточно информации
-msg_err_ininfo_msg:		Возникла проблема при создании страницы
 msg_update:			Просмотр темы <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ОШИБКА: Система личных сообщений отключена
 pm_err_nopm_msg:		Вы не можете использовать систему личных сообщений, так как она была выключена администратором.
 pm_update:			Личная почта
-post_err_notallowed_title:	В доступе отказано
-post_err_notallowed_msg:	Вам не разрешена отправка сообщений
 post_err_lockedthread_title:	ОШИБКА: Тема закрыта
 post_err_lockedthread_msg:	Эта тема была закрыта, отправка сообщений более не допускается
 err_coppa_title:		ОШИБКА: Ваша регистрация пока не была утверждена
 err_coppa_msg:			Мы пока не получили разрешение от ваших родителей/опекунов на ваше участие в форуме. Если вы потеряли форму разрешения COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">нажмите здесь</a> для ее повторного получения.
 err_blockedaccnt_title:		ОШИБКА: Вам не разрешена отправка сообщений
 err_blockedaccnt_msg:		Отправка сообщений от вашего имени была блокирована
-post_err_notowner_title:	ОШИБКА
-post_err_notowner_msg:		Вы не являетесь автором данного сообщения
 post_err_edttimelimit_title:	ОШИБКА
 post_err_edttimelimit_msg:	Вы более не можете редактировать данное сообщение
-post_err_noreplying_title:	ОШИБКА: Ответ не разрешен
-post_err_noreplying_msg:	Вы не можете отвечать по этой тема, поскольку это анонс или сообщение-стикер, ответы на которые запрещены модератором.
 post_err_floodtrig_title:	ОШИБКА: Обнаружен флуд - массовая отправка.
 post_err_floodtrig_msg:		Пожалуйста повторите попытку через {VAR: tm} секунд
 post_err_attach_size:		<font class="ErrorText">Файл слишком велик (превышает установленный предел в {VAR: MAX_F_SIZE} байт)</font><br>
@@ -596,7 +582,6 @@ post_topic_update:		Создание новой темы в форуме <a href="{TEMPLATE: post_topic_
 post_error_generic:		Произошла ошибка
 postcheck_max_images_err:	Пожалуйста сократите количество картинок в сообщении до максимально допустимого, которое составляет {GVAR: MAX_IMAGE_COUNT}
 postcheck_subj_needed:		Указание темы является обязательным
-postcheck_not_allowed_file:	Такой тип файла недопустим
 postcheck_no_such_user:		В этом форуме нет пользователей с именем "{VAR-HTML: v}"
 postcheck_ignored:		Вы не можете отправить личное сообщение для "{VAR-HTML: v}", поскольку этот пользователь вас игнорирует.
 postcheck_no_recepient:		Невозможно послать сообщение если не указан получатель
@@ -629,8 +614,6 @@ register_profile_update:	Просмотр собственных данных и настроек
 register_register_update:	Регистрационная страница
 report_err_nosuchmsg_title:	ОШИБКА
 report_err_nosuchmsg_msg:	Несуществующее сообщение
-report_err_cantreport_title:	ОШИБКА
-report_err_cantreport_msg:	Вы не можете посылать извещения модератору
 reset_err_invalidkey_title:	ОШИБКА
 reset_err_invalidkey_msg:	Неверный ключ сброса пароля
 reset_err_rstconf_title:	Информация
@@ -642,8 +625,6 @@ search_update:			Поиск сообщений
 selmsg_update:			Просмотр <a href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
 showposts_update:		Просмотр всех сообщений от <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Просмотр личной подписки
-th_err_invid_title:		Недопустимый ID - идентификатор темы
-th_err_invid_msg:		Вы попали на эту страницу по ошибочной ссылке - тема, которую вы пытаетесь просмотреть, не существует.
 thread_update:			Просмотр форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Просмотр в режиме дерева темы <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Просмотр персональной информации о <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -755,7 +736,6 @@ pm_no_space_msg:		Размер папок с вашими личными сообщениями превышает установлен
 pm_space_indct_msg:		Ваши личные папки заполнены на {VAR: percent_full}%.
 th_expr_never:			Никогда
 th_expr_one_hr:			1 Час
-th_expr_two_hr:			2 Часа
 th_expr_three_hr:		3 Часа
 th_expr_four_hr:		4 Часа
 th_expr_eight_hr:		8 Часов
@@ -818,10 +798,6 @@ p_VISIBLE:			Видимый
 reported_in_thread:		По теме
 help_back_to_top:		возврат наверх
 help_return_to_index:		Возврат на главную страницу помощи
-forumsel_unread:		*(НЕ ПРОЧИТАНО)
-groupmgr_no_groups:		Нет групп для правки
-msg_err_nosuchmsg_msg:		Указанное сообщение по данной теме не существует
-msg_err_nosuchmsg_title:	Ошибка
 imsg_err_message_title:		Недопустимое сообщение
 imsg_err_message_msg:		Сообщение, которое вы пытаетесь просмотреть, не существует.
 poll_edit:			Правка

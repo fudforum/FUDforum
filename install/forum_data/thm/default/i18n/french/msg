@@ -474,8 +474,6 @@ mklist_disc:			Disque
 mklist_circle:			Cercle
 mklist_close:			Fermer
 email_to:			À :
-email_name:			Nom :
-email_email:			e-mail :
 email_pg_title:			e-mail
 email_subject:			Sujet :
 email_body:			Contenu :
@@ -540,8 +538,6 @@ email_err_unabletoemail_msg:	La fonctionnalité e-mail a été désactivée par l&#39
 email_error_unabletolocaddr:	Désolé, le système n&#39;a pas été en mesure d&#39;envoyer l&#39;e-mail à {VAR-HTML: _POST['tx_name']} car il n&#39;a pas trouvé son adresse e-mail dans le système
 email_error_body:		Le contenu est obligatoire
 email_error_subject:		Le sujet est obligatoire
-email_error_emailrequired:	L&#39;adresse e-mail est obligatoire
-email_error_invalidaddress:	L&#39;adresse e-mail est invalide
 email_error_namerequired:	Le nom est invalide
 email_error_invaliduser:	L&#39;utilisateur est invalide
 emailconf_err_invkey_title:	Erreur
@@ -556,7 +552,6 @@ iemail_thr_bodyemail:		Pour lire les réponses non lues, veuillez cliquer ici : {
 iemail_frm_subject:		Nouveau fil dans le forum {VAR: frm_name} intitulé {VAR: thr_subject} par {VAR: poster_login}
 iemail_frm_bodyemail:		Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l&#39;avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Vous ne pouvez pas choisir d&#39;ignorer cet utilisateur
 ignore_list_err_dup_msg:	Cet utilisateur figure déjà dans votre liste de personnes à ignorer
 ignore_list_err_nu_title:	L&#39;utilisateur n&#39;a pas été trouvé
 ignore_list_err_nu_msg:		L&#39;utilisateur que vous essayez d&#39;ajouter à la liste des personnes à ignorer n&#39;a pas été trouvé sur le forum.
@@ -564,26 +559,18 @@ ignore_list_cantign_msg:	Vous ne pouvez pas ignorer cet utilisateur
 ignore_list_update:		Parcourt sa liste des personnes à ignorer
 list_referers_update:		Parcourt sa liste d&#39;utilisateurs parrainés
 login_update:			Page de connexion
-msg_err_ininfo_title:		Informations insuffisantes
-msg_err_ininfo_msg:		Il y a eu un problème lors de la génération de cette page
 msg_update:			Parcourt le fil <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERREUR : la messagerie privée est désactivée
 pm_err_nopm_msg:		Vous ne pouvez pas utiliser le système de messagerie privé car il a été désactivé par l&#39;administrateur.\n
 pm_update:			Utilise la messagerie privée
-post_err_notallowed_title:	Permission refusée
-post_err_notallowed_msg:	Vous n&#39;êtes pas autorisé à poster des messages
 post_err_lockedthread_title:	ERREUR : Le fil est verrouillé
 post_err_lockedthread_msg:	Ce fil est verrouillé, aucun nouveau message n&#39;est autorisé
 err_coppa_title:		ERREUR : Votre compte n&#39;est pas encore confirmé
 err_coppa_msg:			Nous n&#39;avons pas reçu de confirmation de vos parents ou de votre tuteur légal qui vous autorise à envoyer des messages. Si vous avez perdu votre formulaire COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">cliquez ici</a> pour en obtenir un autre
 err_blockedaccnt_title:		ERREUR : vous n&#39;êtes pas autorisé à envoyer de messages
 err_blockedaccnt_msg:		Votre compte est bloqué pour l&#39;envoi de messages
-post_err_notowner_title:	ERREUR
-post_err_notowner_msg:		Ce message ne vous appartient pas
 post_err_edttimelimit_title:	ERREUR
 post_err_edttimelimit_msg:	Vous n&#39;avez plus la possibilité de modifier ce message
-post_err_noreplying_title:	ERREUR : Vous n&#39;êtes pas autorisé à répondre
-post_err_noreplying_msg:	Vous ne pouvez pas poster de réponse à ce fil car il s&#39;agit soit d&#39;une annonce, soit d&#39;un message épinglé pour lequel le modérateur a désactivé la possibilité de répondre.
 post_err_floodtrig_title:	ERREUR : Tentative d&#39;inondation détectée
 post_err_floodtrig_msg:		Veuillez essayer à nouveau dans {VAR: tm} secondes
 post_err_attach_size:		<font class="ErrorText">Le fichier que vous voulez attacher est trop gros (la taille limite autorisée est {VAR: MAX_F_SIZE} octets)</font>.<br>
@@ -595,7 +582,6 @@ post_topic_update:		Écrit un nouveau sujet dans <a href="{TEMPLATE: post_topic_u
 post_error_generic:		Une erreur s&#39;est produite
 postcheck_max_images_err:	Un maximum de {GVAR: MAX_IMAGE_COUNT} images est autorisé par message, veuillez réduire le nombre d&#39;images
 postcheck_subj_needed:		Le champ sujet est obligatoire
-postcheck_not_allowed_file:	Ce type de fichier n&#39;est pas autorisé
 postcheck_no_such_user:		Il n&#39;y a pas d&#39;utilisateur nommé "{VAR-HTML: v}" dans ce forum
 postcheck_ignored:		Vous ne pouvez pas envoyer de message privé à "{VAR-HTML: v}" car cet utilisateur a décidé de vous ignorer.
 postcheck_no_recepient:		Impossible d&#39;envoyer le message, il manque le destinataire.
@@ -628,8 +614,6 @@ register_profile_update:	Parcourt son profil
 register_register_update:	Est sur la page d&#39;inscription
 report_err_nosuchmsg_title:	ERREUR
 report_err_nosuchmsg_msg:	Message non trouvé
-report_err_cantreport_title:	ERREUR
-report_err_cantreport_msg:	Vous n&#39;êtes pas autorisé à rapporter au modérateur
 reset_err_invalidkey_title:	ERREUR
 reset_err_invalidkey_msg:	Clé de réinitialisation de mot de passe invalide
 reset_err_rstconf_title:	Information
@@ -641,8 +625,6 @@ search_update:			Recherche des messages
 selmsg_update:			Parcourt les <a href="{TEMPLATE: selmsg_update_lnk}">messages envoyés aujourd&#39;hui</a>
 showposts_update:		Classe les messages par : <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Parcourt sa liste de sujets suveillés
-th_err_invid_title:		Identificateur de fil invalide
-th_err_invid_msg:		Vous avez suivi un lien invalide, le fil que vous essayez de lire n&#39;existe pas.
 thread_update:			Parcourt le forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:			Parcourt le fil (vue arborescente) <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
@@ -754,7 +736,6 @@ pm_no_space_msg:		La taille de votre dossier de messages privés a atteint son ma
 pm_space_indct_msg:		Votre dossier de MP est plein à {VAR: percent_full}%.
 th_expr_never:			Jamais
 th_expr_one_hr:			1 Heure
-th_expr_two_hr:			2 Heures
 th_expr_three_hr:		3 Heures
 th_expr_four_hr:		4 Heures
 th_expr_eight_hr:		8 Heures
@@ -817,10 +798,6 @@ p_VISIBLE:			Visible
 reported_in_thread:		Dans le fil
 help_back_to_top:		Retour en haut de la page
 help_return_to_index:		Retour à l&#39;index d&#39;aide
-forumsel_unread:		*(non lu)
-groupmgr_no_groups:		Aucun groupe à éditer
-msg_err_nosuchmsg_msg:		Il n&#39;existe pas de tel message dans ce fil
-msg_err_nosuchmsg_title:	Erreur
 imsg_err_message_title:		Message invalide
 imsg_err_message_msg:		Le message que vous essayez de voir n&#39;existe pas
 poll_edit:			Éditer
@@ -846,7 +823,6 @@ search_desc_order:		Ordre décroissant
 search_asc_order:		Ordre croissant
 search_logic:			Logique :
 search_sorting:			Trier les résultats par date et par :
-fud_query_stats:		Les requêtes SQL ont pris {VAR: ttl_time} seconde(s)<br>
 register_allow_pm_msg:		Autoriser les messages privés
 register_allow_pm_msg_desc:	Permettre aux autres utilisateurs de vous envoyer des messages privés via le forum.
 post_proceed:			Confirmer

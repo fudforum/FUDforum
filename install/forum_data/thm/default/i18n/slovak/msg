@@ -98,7 +98,6 @@ occupation:			Zamestnanie:
 off:				OFF
 on:				ON
 page_timings:			Celkovı èas potrebnı na vygenerovanie tejto stránky: {VAR: page_gen_time} sekundy
-fud_query_stats:		{VAR: q_time} MySQL dotazy zabrali {VAR: ttl_time} sekundy<br>
 pm:				Pošta
 poll:				Anketa:
 post_count:			Poèet príspevkov {VAR: u_pcount}
@@ -479,8 +478,6 @@ mklist_disc:			Ovál
 mklist_circle:			Kruh
 mklist_close:			Zatvori
 email_to:			Komu:
-email_name:			Meno:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Predmet:
 email_body:			Obsah:
@@ -545,8 +542,6 @@ email_err_unabletoemail_msg:	Systém emailov bol administrátorom vypnutı.
 email_error_unabletolocaddr:	Ospravedlòujeme sa, ale systém nemohol odosla email uivate¾ovi {VAR: usr_dst->alias} pretoe nemohol zisti/nájs jeho emailovú adresu.
 email_error_body:		Obsah správy je povinnı
 email_error_subject:		Predmet správy je povinnı
-email_error_emailrequired:	Email je povinnı
-email_error_invalidaddress:	Nesprávna emailová adresa
 email_error_namerequired:	Meno je povinné
 email_error_invaliduser:	Nesprávny uívate¾
 emailconf_err_invkey_title:	Chyba
@@ -561,7 +556,6 @@ iemail_frm_subject:		Vo fóre {VAR: frm_name} sa nachádza nová téma nazvaná {VAR:
 iemail_frm_bodyemail:		Ak si chcete tému prezrie choïte na:\n{VAR: goto_url['email']}\n\nAk si neeláte dostáva iadne ïalšie oznamy o novıch témach, choïte sem: {VAR: unsub_url['email']}
 iemail_participate:		Ak sa chcete zúèastni diskusie, choïte sem:
 ignore_list_err_info_title:	Informácie
-ignore_list_err_noign_msg:	Tohoto uívate¾a nemôete ignorova
 ignore_list_err_dup_msg:	Tento uívate¾ sa u nachádza na zozname ignorovanıch
 ignore_list_err_nu_title:	Uívate¾ nebol nájdenı
 ignore_list_err_nu_msg:		Uívate¾, ktorého ste chceli prida do svojho zoznamu ignorovanıch, nebol vo fóre nájdenı.
@@ -570,26 +564,18 @@ ignore_list_update:		Prehliada si vlastnı zoznam ignorovanıch
 index_update:			Prehliada si <a href="{ROOT}?t=index" class="GenLink">zoznam fór</a>
 list_referers_update:		Prehliada si zoznam ludí registrovanıch na základe referencií
 login_update:			Prihlasovací formulár
-msg_err_ininfo_title:		Nedostatoèné informácie
-msg_err_ininfo_msg:		Pri generovaní tejto stránky sa vyskytol problém
 msg_update:			Prehliadate si tému <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		CHYBA: Pošta je vypnutá
 pm_err_nopm_msg:		Systém privátnej pošty nemôete pouíva, lebo bol administrátorom vypnutı.
 pm_update:			Pouíva poštu
-post_err_notallowed_title:	Prístup zamietnutı
-post_err_notallowed_msg:	Nieste oprávnenı posiela príspevky
 post_err_lockedthread_title:	CHYBA: Téma je uzamknutá
 post_err_lockedthread_msg:	Táto téma je uzamknutá, iadne ïalšie príspevky niesu povolené
 err_coppa_title:		CHYBA: Vaše konto ešte nebolo potvrdené
 err_coppa_msg:			Nedostali sme ešte potvrdenie Vašich rodièov a/alebo zákonnıch zástupcov, ktoré by Vám umoòovalo uverejòovanie správ na fóre. Ak ste Váš COOPA formulár stratili <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">kliknite sem</a> na vydanie nového
 err_blockedaccnt_title:		CHYBA: Nemáte povolenie posiela príspevky
 err_blockedaccnt_msg:		Vaše konto bolo zablokované proti zasielaniu príspevkov
-post_err_notowner_title:	CHYBA
-post_err_notowner_msg:		Nieste vlastníkom tejto správy
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Túto správu u nie je moné editova
-post_err_noreplying_title:	CHYBA: Odpovedanie nie je povolené
-post_err_noreplying_msg:	Na túto tému nemôete odpoveda, pretoe je to buï oznam, alebo vıveska, ku ktorej moderátor zakázal odpovedanie.
 post_err_floodtrig_title:	CHYBA: Príliš ve¾a odoslanıch príspevkov do systému
 post_err_floodtrig_msg:		Prosím skúste znova o {VAR: tm} sekúnd
 post_err_attach_size:		<font class="ErrorText">Priloenı súbor je príliš ve¾kı (stanovenı limit je {VAR: MAX_F_SIZE} bajtov)</font><br>
@@ -601,7 +587,6 @@ post_topic_update:		Vytvárate novú tému vo fóre <a class="GenLink" href="{FULL_R
 post_error_generic:		Vyskytla sa chyba
 postcheck_max_images_err:	Maximálnu poèet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím zníte poèet obrázkov
 postcheck_subj_needed:		Predmet je povinnı
-postcheck_not_allowed_file:	Tento typ súboru nie je povolenı
 postcheck_no_such_user:		V tomto fóre sa nenachádza uívate¾ s menom "{VAR-HTML: v}"
 postcheck_ignored:		Uívate¾ovi "{VAR-HTML: v}" nemôete posla poštu, pretoe tento uívate¾ Vás ignoruje.
 postcheck_no_recepient:		Správu nie je moné posla, chıba príjemca
@@ -634,8 +619,6 @@ register_profile_update:	Prezerá si vlastnı profil
 register_register_update:	Registraèná Stránka
 report_err_nosuchmsg_title:	CHYBA
 report_err_nosuchmsg_msg:	Zadaná správa neexistuje
-report_err_cantreport_title:	CHYBA
-report_err_cantreport_msg:	Nemáte povolené oznamova správy moderátorovi
 reset_err_invalidkey_title:	CHYBA
 reset_err_invalidkey_msg:	Chybnı k¾úè pre resetnutie hesla
 reset_err_rstconf_title:	Informácia
@@ -647,8 +630,6 @@ search_update:			Vyh¾adáva správy
 selmsg_update:			Prehliada <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">dnešné príspevky</a>
 showposts_update:		Prezerá si príspevky od: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Prehliada si odoberané témy a fóra
-th_err_invid_title:		Chybné ID témy
-th_err_invid_msg:		Nasledovali ste chybnı odkaz, takáto téma neexistuje.
 thread_update:			Prehliada si fórum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Prehliada si tému (stromové zobrazenie) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Prezerá si profil uívate¾a <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a>
@@ -761,7 +742,6 @@ pm_no_space_msg:		Váš poštovı prièinok prekroèil maximálnu ve¾kos <b>{GVAR: MAX
 pm_space_indct_msg:		Vaša poštová schránka je na {VAR: percent_full}% plná.
 th_expr_never:			Nikdy
 th_expr_one_hr:			1 hodina
-th_expr_two_hr:			2 hodiny
 th_expr_three_hr:		3 hodiny
 th_expr_four_hr:		4 hodiny
 th_expr_eight_hr:		8 hodín
@@ -825,10 +805,6 @@ p_VISIBLE:			Vidie
 reported_in_thread:		V téme
 help_back_to_top:		spä na zaèiatok
 help_return_to_index:		Spä na úvod nápovedy
-forumsel_unread:		*(NEPREÈÍTANÉ)
-groupmgr_no_groups:		Nie sú iadne skupiny na zmenu
-msg_err_nosuchmsg_msg:		V tejto téme sa taká správa nenachádza
-msg_err_nosuchmsg_title:	Chyba
 imsg_err_message_title:		Nesprávna téma
 imsg_err_message_msg:		Správa, ktorú si chcete prezrie neexistuje.
 poll_edit:			Editova

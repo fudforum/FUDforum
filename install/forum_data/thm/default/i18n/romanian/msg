@@ -98,7 +98,6 @@ occupation:			Ocupatia:
 off:				OPRIT
 on:				PORNIT
 page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
-fud_query_stats:		{VAR: q_time} MySQL queries took {VAR: ttl_time} seconds<br>
 pm:				Mesaje personale
 poll:				Sondaj:
 post_count:			Mesaje trimise {VAR: u_pcount}
@@ -478,8 +477,6 @@ mklist_disc:			Disc
 mklist_circle:			Cerc
 mklist_close:			Inchide
 email_to:			La:
-email_name:			Nume:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Subiect:
 email_body:			Corpul mesajului:
@@ -544,8 +541,6 @@ email_err_unabletoemail_msg:	Sistemul de trimitere a email-urilor a fost dezacti
 email_error_unabletolocaddr:	Ne cerem scuze, sitemul nu poate trimite email-ul la {VAR-HTML: _POST['tx_name']} deoarece nu a putut fi gasit.
 email_error_body:		Continutul mesajului este camp obligatoriu
 email_error_subject:		Subiectul este obligatoriu
-email_error_emailrequired:	Adresa de email este obligatorie
-email_error_invalidaddress:	Adresa de email incorecta
 email_error_namerequired:	Numele este obligatoriu
 email_error_invaliduser:	Utilizator inexistent
 emailconf_err_invkey_title:	Eroare
@@ -560,7 +555,6 @@ iemail_frm_subject:		Tema noua in Forumul {VAR: frm_name} numita {VAR: thr_subje
 iemail_frm_bodyemail:		Pentru a vedea tema mergeti la:\n{VAR: goto_url['email']}\n\nPentru a nu mai primi notificari despre subiecte noi, mergeti aici: {VAR: unsub_url['email']}
 iemail_participate:		Pentru a participa la discutie, mergeti aici:
 ignore_list_err_info_title:	Informatii
-ignore_list_err_noign_msg:	Nu puteti ignora caest utilizator
 ignore_list_err_dup_msg:	Utilizatorul deja exista in lista de ignorare
 ignore_list_err_nu_title:	Utilizatorul nu a fost gasit
 ignore_list_err_nu_msg:		Utilizatorul pe care incercati sa-l ignorati nu poate fi gasit pe forum
@@ -569,26 +563,18 @@ ignore_list_update:		Navigare in lista de ignorare
 index_update:			Navigare in <a href="{TEMPLATE: index_update_lnk}">lista cu forumuri</a>
 list_referers_update:		Navigare referinte
 login_update:			Formular de autentificare
-msg_err_ininfo_title:		Informatii insuficiente
-msg_err_ininfo_msg:		Este o problema cu generarea paginii
 msg_update:			Navigare in tema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		EROARE: Mesajle personale sunt dezactivate
 pm_err_nopm_msg:		YNu puteti folosi mesajele personale, acestea au fost dezactivate de administrator.
 pm_update:			Folosirea mesajelor personale
-post_err_notallowed_title:	Permisiune respinsa
-post_err_notallowed_msg:	Nu aveti voie sa trimiteti mesaje
 post_err_lockedthread_title:	EROARE: Tema blocata
 post_err_lockedthread_msg:	Aceasta tema a fost blocata, nu se mai pot trimite mesaje
 err_coppa_title:		EROARE: Contul dumneavoastra nu este inca confirmat
 err_coppa_msg:			Nu s-a primit confirmarea de la un parinte/tutore. Daca a-ti pierdut formularul <a href="{TEMPLATE: err_coppa_msg_lnk}">apasati aici</a> pentru a-l descarca
 err_blockedaccnt_title:		EROARE: nu aveti voie sa trimiteti mesaje
 err_blockedaccnt_msg:		Contul dumneavoastra a fost blocat. Nu mai puteti trimite mesaje.
-post_err_notowner_title:	EROARE
-post_err_notowner_msg:		Nu sunteti proprietarul mesajului
 post_err_edttimelimit_title:	EROARE
 post_err_edttimelimit_msg:	Nu mai puteti modifica acest mesaj
-post_err_noreplying_title:	EROARE: Nu aveti voie sa raspundeti la mesaje
-post_err_noreplying_msg:	Nu puteti sa trimiteti raspunsuri la aceasta tema.
 post_err_floodtrig_title:	EROARE: Incercare de flood prin intermediul mesajului trimis.
 post_err_floodtrig_msg:		Va rugam sa incercati din nou in {VAR: tm} secunde
 post_err_attach_size:		<font class="ErrorText">Fisierul atasat este prea mare (peste limita de {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -600,7 +586,6 @@ post_topic_update:		Scrie tema noua in <a href="{TEMPLATE: post_topic_update_lnk
 post_error_generic:		Aveti o eroare
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} imagini puteti trimite
 postcheck_subj_needed:		Subictul este obligatoriu
-postcheck_not_allowed_file:	Acest tip de fisier nu este permis
 postcheck_no_such_user:		Nu este nici un utilizator numit "{VAR-HTML: v}" in acest forum
 postcheck_ignored:		Nu puteti trimite mesaje personale la "{VAR-HTML: v}", deoarece aceasta persoana va ignora.
 postcheck_no_recepient:		Nu pot trimite mesaj, lipseste destinatarul
@@ -633,8 +618,6 @@ register_profile_update:	Vizualizare profil
 register_register_update:	Pagina de inregistrare
 report_err_nosuchmsg_title:	EROARE
 report_err_nosuchmsg_msg:	Nici un mesaj de acest tip
-report_err_cantreport_title:	EROARE
-report_err_cantreport_msg:	Nu puteti raporta la moderator
 reset_err_invalidkey_title:	EROARE
 reset_err_invalidkey_msg:	Cheia de resetare a parolei este gresita
 reset_err_rstconf_title:	Informatie
@@ -646,8 +629,6 @@ search_update:			Cautare mesaje trimise
 selmsg_update:			Navigeaza <a href="{TEMPLATE: selmsg_update_lnk}">mesaje trimise astazi</a>
 showposts_update:		Vizualizare mesaje trimise de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Navigare in inscrieri
-th_err_invid_title:		Numarul de identificare a temei este incorect
-th_err_invid_msg:		A-ti urmarit o legatura inexistenta
 thread_update:			Navigare in forumul <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
@@ -759,7 +740,6 @@ pm_no_space_msg:		Directorul dumneavoastra cu mesaje personale a depasit <b>{GVA
 pm_space_indct_msg:		Directorul dumneavoastra este {VAR: percent_full}% plin.
 th_expr_never:			Niciodata
 th_expr_one_hr:			1 Ora
-th_expr_two_hr:			2 Ore
 th_expr_three_hr:		3 Ore
 th_expr_four_hr:		4 Ore
 th_expr_eight_hr:		8 Ore
@@ -822,10 +802,6 @@ p_VISIBLE:			Visibil
 reported_in_thread:		In tema
 help_back_to_top:		Inceputul paginii
 help_return_to_index:		Intoarcere la ajutor
-forumsel_unread:		*(NECITIT)
-groupmgr_no_groups:		Nici un grup de editat
-msg_err_nosuchmsg_msg:		Nu exista asemena mesaj in tema
-msg_err_nosuchmsg_title:	Eroare
 imsg_err_message_title:		Mesaj incorect
 imsg_err_message_msg:		Mesajul nu exista
 poll_edit:		Editare

@@ -98,7 +98,6 @@ occupation:			职业：
 off:				关闭
 on:				打开
 page_timings:			生成本页面共花费时间：{VAR: page_gen_time} 秒。
-fud_query_stats:		MySQL系统花费了{VAR: ttl_time} 秒<br>
 pm:				悄悄话
 poll:				调查：
 post_count:			发帖数： {VAR: u_pcount}
@@ -474,8 +473,6 @@ mklist_disc:			圆点
 mklist_circle:			圆圈
 mklist_close:			取消
 email_to:			至：
-email_name:			姓名：
-email_email:			电子邮箱：
 email_pg_title:			电子邮箱
 email_subject:			主题：
 email_body:			内容：
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
 email_error_unabletolocaddr:	对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
 email_error_body:		必须填写邮件内容
 email_error_subject:		必须填写邮件主题
-email_error_emailrequired:	必须填写邮件地址
-email_error_invalidaddress:	错误的邮件地址
 email_error_namerequired:	必须填写邮件接受者姓名
 email_error_invaliduser:	用户名错误
 emailconf_err_invkey_title:	错误
@@ -555,7 +550,6 @@ iemail_thr_bodyemail:		查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到
 iemail_frm_subject:		论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
 iemail_frm_bodyemail:		查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
 ignore_list_err_info_title:	信息
-ignore_list_err_noign_msg:	你无法拒绝这个用户
 ignore_list_err_dup_msg:	你已经把这用户添加到你的“被拒绝用户”名单中。
 ignore_list_err_nu_title:	没有找到这个用户
 ignore_list_err_nu_msg:		本论坛不存在你要添加的用户。
@@ -564,26 +558,18 @@ ignore_list_update:		浏览“被拒绝用户”名单
 index_update:			浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
 list_referers_update:		浏览被提名者
 login_update:			登录格式
-msg_err_ininfo_title:		信息不充分
-msg_err_ininfo_msg:		本页发生错误
 msg_update:			展开浏览 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		错误：无法发送悄悄话
 pm_err_nopm_msg:		系统管理员禁止你使用悄悄话系统。
 pm_update:			使用悄悄话功能
-post_err_notallowed_title:	你的申请被拒绝
-post_err_notallowed_msg:	你不能提交
 post_err_lockedthread_title:	错误：该帖子已被锁定
 post_err_lockedthread_msg:	这个主题已被锁定，不能回复
 err_coppa_title:		错误：你没有此项权限
 err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
 err_blockedaccnt_title:		错误：你被禁止登录
 err_blockedaccnt_msg:		这个账号被禁止登录
-post_err_notowner_title:	错误
-post_err_notowner_msg:		你不是这个帖子的作者
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
-post_err_noreplying_title:	错误：不允许回复
-post_err_noreplying_msg:	你不能回复这条信息，因为版主禁止在这里跟帖或发布通告。
 post_err_floodtrig_title:	错误：发布灌水帖子
 post_err_floodtrig_msg:		请在{VAR: tm}秒以内重试
 post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节)</font><br>
@@ -595,7 +581,6 @@ post_topic_update:		发表新主题 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-
 post_error_generic:		发生错误
 postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
 postcheck_subj_needed:		输入主题
-postcheck_not_allowed_file:	这种文件类型被禁止
 postcheck_no_such_user:		本论坛没有 "{VAR-HTML: v}" 用户
 postcheck_ignored:		"{VAR-HTML: v}"用户拒绝接受你的悄悄话。
 postcheck_no_recepient:		因为没有接受方，所以无法发送信息
@@ -628,8 +613,6 @@ register_profile_update:	查看个人信息
 register_register_update:	注册页
 report_err_nosuchmsg_title:	错误
 report_err_nosuchmsg_msg:	没有这样的信息
-report_err_cantreport_title:	错误
-report_err_cantreport_msg:	你没有向版主报告的权限。
 reset_err_invalidkey_title:	错误
 reset_err_invalidkey_msg:	密码提示错误
 reset_err_rstconf_title:	信息
@@ -641,8 +624,6 @@ search_update:			搜索
 selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
 showposts_update:		查看用户 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>发布的主题
 subscribed_update:		浏览自己预定的内容
-th_err_invid_title:		错误的主题id号
-th_err_invid_msg:		你输入的连接错误，相关主题并不存在。
 thread_update:			浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			浏览（以树状方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
@@ -754,7 +735,6 @@ pm_no_space_msg:		你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMS
 pm_space_indct_msg:		你的悄悄话信箱已占用{VAR: percent_full}%空间。
 th_expr_never:			从不
 th_expr_one_hr:			1个小时
-th_expr_two_hr:			2个小时
 th_expr_three_hr:		3个小时
 th_expr_four_hr:		4个小时
 th_expr_eight_hr:		8个小时
@@ -817,10 +797,6 @@ p_VISIBLE:			可见的
 reported_in_thread:		展开浏览
 help_back_to_top:		回到页首
 help_return_to_index:		返回帮助索引
-forumsel_unread:		*（含未读）
-groupmgr_no_groups:		没有要编辑的组
-msg_err_nosuchmsg_msg:		这个主题中没有这些内容
-msg_err_nosuchmsg_title:	出错
 imsg_err_message_title:		帖子出错
 imsg_err_message_msg:		你要查看的帖子不存在。
 poll_edit:			编辑

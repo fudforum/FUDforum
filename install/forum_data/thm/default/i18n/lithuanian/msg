@@ -99,7 +99,6 @@ occupation:			Pareigos:
 off:				IÐJUNGTA
 on:				ÁJUNGTA
 page_timings:			Puslapis sugeneruotas per: {VAR: page_gen_time} sekundþiø.
-fud_query_stats:		{VAR: q_time} MySQL uþklausos uþtruko {VAR: ttl_time} sekundþiø.<br>
 pm:				Asmeninës þinutës
 poll:				Apklausa:
 post_count:			Viso praneðimø {VAR: u_pcount}
@@ -480,8 +479,6 @@ mklist_disc:			Disc
 mklist_circle:			Circle
 mklist_close:			Uþdaryti
 email_to:			Kam:
-email_name:			Name:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Tema:
 email_body:			Turinys:
@@ -546,8 +543,6 @@ email_err_unabletoemail_msg:	The email system has been disabled by the administr
 email_error_unabletolocaddr:	Sorry, the system was unable to email {VAR: usr_dst->alias} because it was unable to locate his email address
 email_error_body:		The body is required
 email_error_subject:		Subject is required
-email_error_emailrequired:	Email is required
-email_error_invalidaddress:	Invalid email address
 email_error_namerequired:	Name is required
 email_error_invaliduser:	Invalid user
 emailconf_err_invkey_title:	Error
@@ -562,7 +557,6 @@ iemail_frm_subject:		New topic in forum {VAR: frm_name} called {VAR: thr_subject
 iemail_frm_bodyemail:		To view the topic goto:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
 iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	You can&#39;t ignore this user
 ignore_list_err_dup_msg:	You already have this user on your ignore list
 ignore_list_err_nu_title:	User not found
 ignore_list_err_nu_msg:		The user you&#39;ve tried to add to your ignore list was not found on the forum.
@@ -571,26 +565,18 @@ ignore_list_update:		Browsing own ignore list
 index_update:			Browsing the <a href="{FULL_ROOT}{ROOT}?t=index">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Prisijungimo langas
-msg_err_ininfo_title:		Insufficient Information
-msg_err_ininfo_msg:		There was a problem generating this page
 msg_update:			Browsing topic <a href="{FULL_ROOT}{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Private Messaging Disabled
 pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
 pm_update:			Using private messaging
-post_err_notallowed_title:	Permission Denied
-post_err_notallowed_msg:	You aren&#39;t allowed to post
 post_err_lockedthread_title:	KLAIDA: Tema uþdaryta
 post_err_lockedthread_msg:	This topic is locked, no more posting allowed
 err_coppa_title:		ERROR: Your account is not yet confirmed
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your coppa form <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">click here</a> to get it
 err_blockedaccnt_title:		ERROR: you aren&#39;t allowed to post
 err_blockedaccnt_msg:		Your account has been blocked from posting
-post_err_notowner_title:	ERROR
-post_err_notowner_msg:		You are not the owner of this message
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	You can no longer edit this message
-post_err_noreplying_title:	ERROR: Replying Not Allowed
-post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	ERROR: Post flood triggered.
 post_err_floodtrig_msg:		Please try again in {VAR: tm} seconds
 post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over allowed limit of {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -602,7 +588,6 @@ post_topic_update:		Writing new topic in <a href="{FULL_ROOT}{ROOT}?t=rview&amp;
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
-postcheck_not_allowed_file:	This file type isn&#39;t allowed
 postcheck_no_such_user:		There is no user named "{VAR-HTML: v}" this forum
 postcheck_ignored:		You cannot send a private message to "{VAR-HTML: v}", because this person is ignoring you.
 postcheck_no_recepient:		Cannot send a message, missing recipient
@@ -635,8 +620,6 @@ register_profile_update:	Viewing own profile
 register_register_update:	Registration Page
 report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	No Such Message
-report_err_cantreport_title:	ERROR
-report_err_cantreport_msg:	You aren&#39;t allowed to report to moderator
 reset_err_invalidkey_title:	ERROR
 reset_err_invalidkey_msg:	Invalid password reset key
 reset_err_rstconf_title:	Information
@@ -648,8 +631,6 @@ search_update:			Searching posts
 selmsg_update:			Browsing <a href="{FULL_ROOT}{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Today&#39;s Posts</a>
 showposts_update:		Viewing posts by: <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>
 subscribed_update:		Browsing own subscriptions
-th_err_invid_title:		Invalid topic ID
-th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
 thread_update:			Browsing forum <a href="{FULL_ROOT}{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a> profile
@@ -761,7 +742,6 @@ pm_no_space_msg:		Your private message folders exceed the allowed storage size o
 pm_space_indct_msg:		Jûsø privaèiø þinuèiø katalogai uþpildyti {VAR: percent_full}%.
 th_expr_never:			Be pabaigos
 th_expr_one_hr:			1 valanda
-th_expr_two_hr:			2 valandos
 th_expr_three_hr:		3 valandos
 th_expr_four_hr:		4 valandos
 th_expr_eight_hr:		8 valandos
@@ -825,10 +805,6 @@ p_VISIBLE:			Visible
 reported_in_thread:		In topic
 help_back_to_top:		back to top
 help_return_to_index:		Return to Help Index
-forumsel_unread:		*(UNREAD)
-groupmgr_no_groups:		No groups to edit
-msg_err_nosuchmsg_msg:		There is no such message in this topic
-msg_err_nosuchmsg_title:	Error
 imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit:			Edit

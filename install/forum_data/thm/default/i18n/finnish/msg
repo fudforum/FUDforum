@@ -99,7 +99,6 @@ occupation:			Ammatti:
 off:				EI
 on:				KYLLÄ
 page_timings:			Sivun luontiin käytetty kokonaisaika: {VAR: page_gen_time} sekuntia
-fud_query_stats:		{VAR: q_time} MySQL kyselyt kestivät {VAR: ttl_time} sekuntia<br>
 pm:				Yksityisviestit
 poll:				Gallup:
 post_count:			Viestejä yhteensä {VAR: u_pcount}
@@ -480,8 +479,6 @@ mklist_disc:			Pallo
 mklist_circle:			Ympyrä
 mklist_close:			Sulje
 email_to:			Vastaanottaja:
-email_name:			Nimi:
-email_email:			Sähköposti:
 email_pg_title:			Sähköposti
 email_subject:			Otsikko:
 email_body:			Teksti:
@@ -546,8 +543,6 @@ email_err_unabletoemail_msg:	Ylläpitäjä on estänyt sähköpostin lähetyksen.
 email_error_unabletolocaddr:	Sori, systeemi ei pystynyt lähettämään sähköpostia {VAR-HTML: _POST['tx_name']} koska ei löytänyt hänen osoitettaan
 email_error_body:		Viestin teksti on pakollinen
 email_error_subject:		Otsikko on pakollinen
-email_error_emailrequired:	Sähköpostiosoite on pakollinen
-email_error_invalidaddress:	Virheellinen sähköpostiosoite
 email_error_namerequired:	Nimi on pakollinen
 email_error_invaliduser:	Virheellinen käyttäjä
 emailconf_err_invkey_title:	Virhe
@@ -562,7 +557,6 @@ iemail_frm_subject:		Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_su
 iemail_frm_bodyemail:		Lue aihe täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista tässä foorumissa\nkäy täällä: {VAR: unsub_url['email']}
 iemail_participate:		Osallistuaksesi keskusteluun, mene tänne:
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Et voi torjua tätä käyttäjää
 ignore_list_err_dup_msg:	Tämä käyttäjä on jo torjuttujen listalla
 ignore_list_err_nu_title:	Käyttäjää ei löydy
 ignore_list_err_nu_msg:		Käyttäjää jonka yritit torjua ei löytynyt.
@@ -571,26 +565,18 @@ ignore_list_update:		Selaa omaa torjuttujen listaa
 index_update:			Selaa <a href="{TEMPLATE: index_update_lnk}">foorumi listaa</a>
 list_referers_update:		Selaa suosittelujaan
 login_update:			Sisäänkirjautuminen
-msg_err_ininfo_title:		Riittämättömät Tiedot
-msg_err_ininfo_msg:		Ongelma sivun generoinnissa
 msg_update:			Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
 pm_err_nopm_title:		VIRHE: Yksityisviestit poistettu käytöstä
 pm_err_nopm_msg:		Et voi käyttää yksityisviestejä koska ylläpitäjä on poistanut ne käytöstä.
 pm_update:			Käyttää yksityiviestintää
-post_err_notallowed_title:	Ei käyttöoikeutta
-post_err_notallowed_msg:	Sinulla ei ole tarvittavia oikeuksia viestin lähetykseen
 post_err_lockedthread_title:	VIRHE: Aihe Lukittu
 post_err_lockedthread_msg:	Tämä aihe on lukittu, uusia viestejä ei sallita
 err_coppa_title:		VIRHE: Käyttäjätiliä ei ole vielä hyväksytty
 err_coppa_msg:			Emme ole vastaanottaneet varmistusta vanhemmiltasi tai lailliselta huoltajaltasi, joten et voi vielä lähettää viestejä foorumille. Jos olet hukannut COPPA kaavakkeen, saat sen <a href="{TEMPLATE: err_coppa_msg_lnk}">täältä</a>.
 err_blockedaccnt_title:		VIRHE: Ei viestien lähetysoikeutta
 err_blockedaccnt_msg:		Et voi lähettää viestejä koska sinut on häädetty.
-post_err_notowner_title:	VIRHE
-post_err_notowner_msg:		Et ole tämän viestin kirjoittaja
 post_err_edttimelimit_title:	VIRHE
 post_err_edttimelimit_msg:	Et voi enää muokata tätä viestiä.
-post_err_noreplying_title:	VIRHE: Vastaaminen kielletty
-post_err_noreplying_msg:	Et voi vastata tämän aiheen viesteihin, koska se on joko tiedote tai kelluva viesti ja moderaattori on estänyt vastaamisen.
 post_err_floodtrig_title:	VIRHE: Viestitulva (message flood)
 post_err_floodtrig_msg:		Yritä uudelleen {VAR: tm} sekunnin päästä
 post_err_attach_size:		<font class="ErrorText">Liitetiedoston koko ylittää suurimman sallitun {VAR: MAX_F_SIZE} tavun rajan</font><br>
@@ -602,7 +588,6 @@ post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Sinulla on virhe
 postcheck_max_images_err:	Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
 postcheck_subj_needed:		Otsikko on pakollinen
-postcheck_not_allowed_file:	Tämä tiedostotyyppi on kielletty
 postcheck_no_such_user:		Käyttäjää nimellä "{VAR-HTML: v}" ei löydy tältä foorumilta
 postcheck_ignored:		Et voi lähettää yksityisviestiä käyttäjälle "{VAR-HTML: v}", koska hän on torjunut sinut.
 postcheck_no_recepient:		Viestiä ei voida lähettää, vastaanottaja puuttuu
@@ -635,8 +620,6 @@ register_profile_update:	Selaa omia käyttäjätietojaan
 register_register_update:	Rekisteröitymissivu
 report_err_nosuchmsg_title:	VIRHE
 report_err_nosuchmsg_msg:	Viestiä ei ole
-report_err_cantreport_title:	VIRHE
-report_err_cantreport_msg:	Sinulla ei ole oikeutta ilmiantaa viestejä
 reset_err_invalidkey_title:	VIRHE
 reset_err_invalidkey_msg:	Virheellinen salasanan varmistusavain
 reset_err_rstconf_title:	Info
@@ -648,8 +631,6 @@ search_update:			Etsii viestejä
 selmsg_update:			Selaa <a href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>
 showposts_update:		Selaa käyttäjän "<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>" viestejä
 subscribed_update:		Selaa omia tilauksiaan
-th_err_invid_title:		Virheellinen aihe ID
-th_err_invid_msg:		Aihetta ei ole olemassa. Tarkista linkki jota käytit.
 thread_update:			Selaa <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> foorumia
 tree_update:			Selaa aihetta (puu listaus) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
@@ -762,7 +743,6 @@ pm_no_space_msg:		Yksityisviestikansiosi sisältävät yhteensä <b>{VAR: fldr_size}
 pm_space_indct_msg:		Kansioiden käyttämä tila: {VAR: percent_full}%
 th_expr_never:			Ei koskaan
 th_expr_one_hr:			1 tunnissa
-th_expr_two_hr:			2 tunnissa
 th_expr_three_hr:		3 tunnissa
 th_expr_four_hr:		4 tunnissa
 th_expr_eight_hr:		8 tunnissa
@@ -826,10 +806,6 @@ p_VISIBLE:			Näkee Foorumin
 reported_in_thread:		Aiheessa
 help_back_to_top:		takaisin alkuun
 help_return_to_index:		Palaa hakemistoon
-forumsel_unread:		*(LUKEMATTOMIA)
-groupmgr_no_groups:		Ei muokattavia ryhmiä
-msg_err_nosuchmsg_msg:		Kyseistä viestiä ei löydy tästä aiheesta
-msg_err_nosuchmsg_title:	Virhe
 imsg_err_message_title:		Virheellinen Viesti
 imsg_err_message_msg:		Viestiä ei ole olemassa.
 poll_edit:			Muokkaa

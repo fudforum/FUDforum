@@ -98,7 +98,6 @@ occupation:			Ocupación:
 off:				DESACTIVADO
 on:				ACTIVADO
 page_timings:			Tiempo total tomado para generar la página: {VAR: page_gen_time} segundos
-fud_query_stats:		Las consultas MySQL tomaron {VAR: ttl_time} segundos<br>
 pm:				Mensajería privada
 poll:				Encuesta:
 post_count:			Total de Mensajes {VAR: u_pcount}
@@ -474,8 +473,6 @@ mklist_disc:			Disco
 mklist_circle:			Círculo
 mklist_close:			Cerrar
 email_to:			Para:
-email_name:			Nombre:
-email_email:			E-mail:
 email_pg_title:			E-mail
 email_subject:			Asunto:
 email_body:			Cuerpo de mensaje:
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	El sistema de e-mail ha sido deshabilitado por el a
 email_error_unabletolocaddr:	Lo siento, el sistema no pudo enviar un e-mail a {VAR-HTML: _POST['tx_name']} porque no fue capaz de encontrar su dirección de e-mail
 email_error_body:		Se requiere un cuerpo del mensaje
 email_error_subject:		Se requiere un asunto
-email_error_emailrequired:	Se requiere un e-mail
-email_error_invalidaddress:	Dirección de e-mail inválida
 email_error_namerequired:	Se requiere un nombre
 email_error_invaliduser:	Usuario inválido
 emailconf_err_invkey_title:	Error
@@ -555,7 +550,6 @@ iemail_thr_bodyemail:		Para ver respuestas no leídas vaya a {VAR: goto_url['emai
 iemail_frm_subject:		Nuevo hilo de discusión en el foro {VAR: frm_name} llamado {VAR: thr_subject} creado por {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver este hilo de discusión vaya a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Ud no puede ignorar a este usuario
 ignore_list_err_dup_msg:	Ud ya tiene a este usuario en su lista de ignorados
 ignore_list_err_nu_title:	Usuario no encontrado
 ignore_list_err_nu_msg:		El usuario que Ud ha tratado de agregar a su lista de ignorados no fue encontrado en el foro.
@@ -564,26 +558,18 @@ ignore_list_update:		Recorriendo lista de ignorados
 index_update:			Recorriendo la <a href="{TEMPLATE: index_update_lnk}">lista de foros</a>
 list_referers_update:		Recorriendo referencias
 login_update:			Formulario de Ingreso
-msg_err_ininfo_title:		Información Insuficiente
-msg_err_ininfo_msg:		Se presentó un problema al generar esta página
 msg_update:			Recorriendo hilo de discusión <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Mensajería Privada Deshabilitada
 pm_err_nopm_msg:		Ud no puede usar el sistema de mensajería privada, este ha sido deshabilitado por el administrador.
 pm_update:			Usando mensajería privada
-post_err_notallowed_title:	No Autorizado
-post_err_notallowed_msg:	Ud no tiene autorización para publicar
 post_err_lockedthread_title:	ERROR: Hilo de Discusión Bloqueado
 post_err_lockedthread_msg:	Este hilo de discusión esta bloqueado, no se permiten más mensajes
 err_coppa_title:		ERROR: Su cuenta aún no ha sido confirmada
 err_coppa_msg:			No hemos recibido una confirmación de su padre y/o tutor legal, la cual le permitiría publicar mensajes. Si Ud perdió su formulario coppa haga <a href="{FULL_ROOT}{ROOT}?t=coppa_fax&amp;{DEF: _RSID}">clic aquí</a> para obtenerlo
 err_blockedaccnt_title:		ERROR: Ud no tiene autorización para publicar
 err_blockedaccnt_msg:		Su cuenta ha sido bloqueada para publicación
-post_err_notowner_title:	ERROR
-post_err_notowner_msg:		Ud no es el dueño de este mensaje
 post_err_edttimelimit_title:	ERROR
 post_err_edttimelimit_msg:	Ud ya no puede editar este mensaje
-post_err_noreplying_title:	ERROR: No Puede Responder
-post_err_noreplying_msg:	Ud no puede publicar respuestas en este hilo de discusión, porque o es un anuncio o un mensaje sticky, para el cual el moderador deshabilitó las respuestas.
 post_err_floodtrig_title:	ERROR: Mecanismo contra publicación masiva activado.
 post_err_floodtrig_msg:		Por favor trate de nuevo en {VAR: tm} segundos
 post_err_attach_size:		<font class="ErrorText">Archivo adjunto es demasiado grande (sobre el límite permitido de {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -595,7 +581,6 @@ post_topic_update:		Escribiendo un nuevo tema en <a href="{TEMPLATE: post_topic_
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto
-postcheck_not_allowed_file:	Este tipo de archivo no está permitido
 postcheck_no_such_user:		No hay un usuario llamado "{VAR-HTML: v}" en este foro
 postcheck_ignored:		Ud no puede enviar un mensaje privado a "{VAR-HTML: v}", porque este usuario lo está ignorando.
 postcheck_no_recepient:		No se puede enviar mensaje, falta remitente
@@ -628,8 +613,6 @@ register_profile_update:	Viendo perfil propio
 register_register_update:	Página de registro
 report_err_nosuchmsg_title:	ERROR
 report_err_nosuchmsg_msg:	No Existe el Mensaje
-report_err_cantreport_title:	ERROR
-report_err_cantreport_msg:	Ud no puede reportar al moderador
 reset_err_invalidkey_title:	ERROR
 reset_err_invalidkey_msg:	Llave de actualización de clave inválida
 reset_err_rstconf_title:	Información
@@ -641,8 +624,6 @@ search_update:			Buscando mensajes
 selmsg_update:			Recorriendo <a href="{TEMPLATE: selmsg_update_lnk}">Mensajes de Hoy</a>
 showposts_update:		Viendo mensajes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Recorriendo subscripciones propias
-th_err_invid_title:		ID de hilo de discusión es inválida
-th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
 thread_update:			Recorriendo foro <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Recorriendo hilo de discusión (vista de árbol) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _RSID}">{VAR: frm->subject}</a>
 userinfo_update:		Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -754,7 +735,6 @@ pm_no_space_msg:		Sus carpetas de mensajería privada exceden el límite permitido
 pm_space_indct_msg:		Sus carpetas de mensajes privados estan llenas en un {VAR: percent_full}%.
 th_expr_never:			Nunca
 th_expr_one_hr:			1 Hora
-th_expr_two_hr:			2 Horas
 th_expr_three_hr:		3 Horas
 th_expr_four_hr:		4 Horas
 th_expr_eight_hr:		8 Horas
@@ -817,10 +797,6 @@ p_VISIBLE:			Visible
 reported_in_thread:		En hilo de discusión
 help_back_to_top:		Volver arriba
 help_return_to_index:		Volver al Indice de Ayuda
-forumsel_unread:		*(NO LEIDO)
-groupmgr_no_groups:		No hay grupos para editar
-msg_err_nosuchmsg_msg:		No existe ese mensaje en este hilo de discusión
-msg_err_nosuchmsg_title:	Error
 imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit:			Edit

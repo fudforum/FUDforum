@@ -99,7 +99,6 @@ occupation:			Yrke:
 off:				AV
 on:				P&Aring;
 page_timings:			Total tid for &aring; generere siden: {VAR: page_gen_time} sekunder
-fud_query_stats:		MySQL-s&oslash;k tok {VAR: ttl_time} sekunder<br>
 pm:				Private meldinger
 poll:				Avstemning:
 post_count:			Antall innlegg {VAR: u_pcount}
@@ -474,8 +473,6 @@ mklist_disc:			Disk
 mklist_circle:			Sirkel
 mklist_close:			N&aelig;rme
 email_to:			Til:
-email_name:			Navn:
-email_email:			E-postadresse:
 email_pg_title:			E-post
 email_subject:			Emne:
 email_body:			Melding:
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	E-postsystemet er stengt av administratorn.
 email_error_unabletolocaddr:	Systemet kunne dessverre ikke sende e-post til {VAR-HTML: _POST['tx_name']} ettersom det ikke kunne finne hans/hennes e-postadresse
 email_error_body:		Du kan ikke sende en tom melding
 email_error_subject:		Emne er obligatorisk
-email_error_emailrequired:	E-postadresse er obligatorisk
-email_error_invalidaddress:	Feilaktig e-postadresse
 email_error_namerequired:	Navn er obligatoriskt
 email_error_invaliduser:	Ugyldig medlem
 emailconf_err_invkey_title:	Feil
@@ -555,7 +550,6 @@ iemail_thr_bodyemail:		Gå til {VAR: goto_url['email']} for å vise uleste svar\n\
 iemail_frm_subject:		Ny tråd av {VAR: poster_login} med emnet {VAR: thr_subject} i forumet {VAR: frm_name}
 iemail_frm_bodyemail:		For å vise tråden gå til:\n{VAR: goto_url['email']}\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Du kan ikke ignorere dette medlemmet
 ignore_list_err_dup_msg:	Du har allerede dette medlemmet i listen din
 ignore_list_err_nu_title:	Kan ikke finne medlemmet
 ignore_list_err_nu_msg:		Kan ikke finne medlemmet du du fors&oslash;kte &aring; legge til  listen din i dette forumet.
@@ -564,26 +558,18 @@ ignore_list_update:		Viser egen liste over ignorerte medlemmer
 index_update:			Viser <a href="{TEMPLATE: index_update_lnk}">listen over forum</a>
 list_referers_update:		Viser refererede medlemmer
 login_update:			Logge inn
-msg_err_ininfo_title:		Mangelfull information
-msg_err_ininfo_msg:		Et problem oppstod da siden skulle vises
 msg_update:			Leser tr&aring;den med emnet <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FEIL: Private meldinger er ikke tillatt
 pm_err_nopm_msg:		Du kan ikke bruke systemet for private meldinger, ettersom administrator har stengt av for det.
 pm_update:			Bruker privatmeldinger
-post_err_notallowed_title:	Ikke tillatt
-post_err_notallowed_msg:	Du har ikke rett til &aring; skrive innlegg
 post_err_lockedthread_title:	FEIL: L&aring;st tr&aring;d
 post_err_lockedthread_msg:	Denne tr&aring;den er l&aring;st og tar ikke imot flere innlegg
 err_coppa_title:		FEIL: Din konto er ikke bekreftet enda
 err_coppa_msg:			Vi har ikke mottatt en bekreftelse av din forelder eller formynder. Derfor kan vi ikke la deg skrive innlegg. Dersom du har mistet ditt coppaformular kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">trykke her</a> for &aring; f&aring; et nytt
 err_blockedaccnt_title:		FEIL: du har ikke rett til &aring; skrive innlegg
 err_blockedaccnt_msg:		Du har blitt fratatt retten til &aring; skrive innlegg
-post_err_notowner_title:	FEIL
-post_err_notowner_msg:		Du er ikke denne meldingens forfatter
 post_err_edttimelimit_title:	FEIL
 post_err_edttimelimit_msg:	Du kan ikke redigere denne meldingen lenger
-post_err_noreplying_title:	FEIL: Det er ikke tillatt &aring; svare
-post_err_noreplying_msg:	Du har ikke rett til &aring; svare i denne tr&aring;den ettersom den er en kunngj&oslash;ring eller et klebrig innlegg, som moderatoren ikke gir tillatelse til &aring; svare p&aring;.
 post_err_floodtrig_title:	FEIL: 	Flood-beskyttelse sl&aring;tt p&aring;
 post_err_floodtrig_msg:		Vennligst pr&oslash;v p&aring; nytt om {VAR: tm} sekunder
 post_err_attach_size:		<font class="ErrorText">Vedlegget er for stort (over grensen p&aring; {VAR: MAX_F_SIZE} byte)</font><br>
@@ -595,7 +581,6 @@ post_topic_update:		Skriver ny tr&aring;d i <a href="{TEMPLATE: post_topic_updat
 post_error_generic:		En feil har oppst&aring;tt
 postcheck_max_images_err:	Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per innlegg, vennligst reduser antall bilder
 postcheck_subj_needed:		Emne obligatorisk
-postcheck_not_allowed_file:	Denne filtypen er ikke tillatt
 postcheck_no_such_user:		Medlemmet "{VAR-HTML: v}" finnes ikke i dette forumet
 postcheck_ignored:		Du kan ikke sende en privat melding til "{VAR-HTML: v}", ettersom han/hun har valgt &aring; ignorere deg.
 postcheck_no_recepient:		Kan ikke sende meldingen, mangler mottaker
@@ -628,8 +613,6 @@ register_profile_update:	Viser sin egen profil
 register_register_update:	Registreringsside
 report_err_nosuchmsg_title:	FEIL
 report_err_nosuchmsg_msg:	Ikke noe slikt innlegg
-report_err_cantreport_title:	FEIL
-report_err_cantreport_msg:	Du har ikke rett til &aring; rapportere til moderatoren
 reset_err_invalidkey_title:	FEIL
 reset_err_invalidkey_msg:	Ugyldig kode for nullstilling av passord
 reset_err_rstconf_title:	Informasjon
@@ -641,8 +624,6 @@ search_update:			S&oslash;ker blandt innleggene
 selmsg_update:			Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
 showposts_update:		Viser innlegg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Viser egne abonnement
-th_err_invid_title:		Feilaktig tr&aring;d-ID
-th_err_invid_msg:		Du har fulgt en feilaktig lenke, tr&aring;den du fors&oslash;ker &aring; lese eksisterer ikke.
 thread_update:			Leser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -754,7 +735,6 @@ pm_no_space_msg:		Dine private meldinger tar for &oslash;yeblikket for mye plass
 pm_space_indct_msg:		Dine mapper for private meldinger er fylt til {VAR: percent_full}%.
 th_expr_never:			Aldri
 th_expr_one_hr:			1 time
-th_expr_two_hr:			2 timer
 th_expr_three_hr:		3 timer
 th_expr_four_hr:		4 timer
 th_expr_eight_hr:		8 timer
@@ -817,10 +797,6 @@ p_VISIBLE:			Synlig
 reported_in_thread:		I tr&aring;den
 help_back_to_top:		tilbake til starten
 help_return_to_index:		tilbaka til hjelpindex
-forumsel_unread:		*(ULEST)
-groupmgr_no_groups:		Ingen grupper &aring; redigere
-msg_err_nosuchmsg_msg:		Et sikt innlegg finnes ikke i denna tr&aring;den
-msg_err_nosuchmsg_title:	Feil
 imsg_err_message_title:		Ugyldig innlegg
 imsg_err_message_msg:		Innlegget du fors&oslash;ker &aring; vise finnes ikke.
 poll_edit:			Redigere

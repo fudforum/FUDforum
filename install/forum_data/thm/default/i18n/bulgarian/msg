@@ -98,7 +98,6 @@ occupation:			професия:
 off:				изкл
 on:				вкл
 page_timings:			бПЕЛЕ, МЕНАУНДХЛН ГЮ ЯЗГДЮБЮМЕ МЮ РЮГХ ЯРПЮМХЖЮ: {VAR: page_gen_time} ЯЕЙСМДХ
-fud_query_stats:		За изпълнение на&nbsp; MySQL заявките отидоха {VAR: ttl_time} секунди<br>
 pm:				Лична поща
 poll:				Гласуване:
 post_count:			{VAR: u_pcount} съобщения
@@ -477,8 +476,6 @@ mklist_disc:			Номериране - дисково
 mklist_circle:			Номериране - точки
 mklist_close:			Затвори
 email_to:			На кой:
-email_name:			Име:
-email_email:			E-mail:
 email_pg_title:			E-mail
 email_subject:			Заглавие:
 email_body:			Текст:
@@ -543,8 +540,6 @@ email_err_unabletoemail_msg:	Е-mail системата е изключена от Администратора.
 email_error_unabletolocaddr:	За съжаление, не е било възможно да се изпрати e-mail съобщението до {VAR-HTML: _POST['tx_name']} защото e-mail адресът му е неизвестен&nbsp;
 email_error_body:		Задължително трябва да има текст
 email_error_subject:		Задължително трябва да има заглавие
-email_error_emailrequired:	Задължително трябва да има E-mail адрес&nbsp;
-email_error_invalidaddress:	Невалиден e-mail адрес
 email_error_namerequired:	Задължително трябва да има име
 email_error_invaliduser:	Невалиден потребител
 emailconf_err_invkey_title:	Грешка
@@ -558,7 +553,6 @@ iemail_thr_bodyemail:		Отиди на {VAR: goto_url['email']} за да видиш непрочетени
 iemail_frm_subject:		Нова тема във форум {VAR: frm_name} със заглавие {VAR: thr_subject} от {VAR: poster_login}
 iemail_frm_bodyemail:		Отиди на \n{VAR: goto_url['email']}\n за да разгледаш темата \n\nАко не желаеш повече да те известяваме за нови теми в този форум, отиди на \n{VAR: unsub_url['email']}
 ignore_list_err_info_title:	Информация
-ignore_list_err_noign_msg:	Не можеш да игнорираш този потребител
 ignore_list_err_dup_msg:	Вече имаш този потребител в твоята листа за игнорирани
 ignore_list_err_nu_title:	Потребителят не е намерен
 ignore_list_err_nu_msg:		Потребителят, когото се опитваш да добавиш към листата за игнорирани, не се намира във форума.
@@ -567,26 +561,18 @@ ignore_list_update:		Преглед на своята листа за игнорирани
 index_update:			Разглеждане на <a href="{TEMPLATE: index_update_lnk}">листата на форуми</a>
 list_referers_update:		Преглед на Рефералите
 login_update:			Вход във форума
-msg_err_ininfo_title:		Информацията е недостатъчна
-msg_err_ininfo_msg:		Изникна проблем със зареждането на тази страница
 msg_update:			Разглеждане на темата <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ГРЕШКА: Личната поща е изключена
 pm_err_nopm_msg:		Не можеш да използваш функцията за лични съобщения, тя е изключена от Администратора.
 pm_update:			Използване на лична поща
-post_err_notallowed_title:	Нямаш достъп
-post_err_notallowed_msg:	Нямаш разрешение да публикуваш
 post_err_lockedthread_title:	ГРЕШКА: Затворена тема&nbsp;
 post_err_lockedthread_msg:	Тази тема е затворена, не се допуска изпращане на повече съобщения
 err_coppa_title:		ГРЕШКА: Акаунта ти още не е потвърден
 err_coppa_msg:			Все още не сме получили разрешение от твоя родител или официален настойник за да публикуваш съобщения. Ако бланката за разрешение COPPA е изгубена <a href="{TEMPLATE: err_coppa_msg_lnk}">натисни тук</a> за да я имаш отново.
 err_blockedaccnt_title:		ГРЕШКА: Нямаш разрешение за публикация
 err_blockedaccnt_msg:		Акаунта ти е блокиран за публикации
-post_err_notowner_title:	ГРЕШКА
-post_err_notowner_msg:		Ти не си автора на това съобщение
 post_err_edttimelimit_title:	ГРЕШКА
 post_err_edttimelimit_msg:	Повече не можеш да променяш това съобщение
-post_err_noreplying_title:	ГРЕШКА: Не се разрешава да отговаряш
-post_err_noreplying_msg:	Не можеш да публикуваш отговори по тази тема, защото е или официално съобщение, или бележка, на които Модераторът е забранил да се отговаря.
 post_err_floodtrig_title:	ГРЕШКА: Претоварено - прекалено много желаещи да публикуват.
 post_err_floodtrig_msg:		Моля, опитай пак след {VAR: tm} секунди
 post_err_attach_size:		<font class="ErrorText">Прикаченият файл е прекалено голям (надвишава разрешения размер от {VAR: MAX_F_SIZE} байта)</font><br>
@@ -598,7 +584,6 @@ post_topic_update:		Започване на нова тема в <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Имаш грешка
 postcheck_max_images_err:	Максимално разрешено количество на изображения в една публикация е {GVAR: MAX_IMAGE_COUNT}, моля, намали броя на изображенията
 postcheck_subj_needed:		Заглавието е задължително
-postcheck_not_allowed_file:	Такъв формат на файла е забранен
 postcheck_no_such_user:		Няма потребител с името "{VAR-HTML: v}" на този форум
 postcheck_ignored:		Не можеш да изпращаш лични съобщения на "{VAR-HTML: v}" защото този потребител те игнорира.
 postcheck_no_recepient:		Не е възможно да се изпрати съобщението защото не е посочен получател
@@ -631,8 +616,6 @@ register_profile_update:	Преглед на собствения профил&nbsp;
 register_register_update:	Регистрационна страница
 report_err_nosuchmsg_title:	ГРЕШКА
 report_err_nosuchmsg_msg:	Няма таково съобщение
-report_err_cantreport_title:	ГРЕШКА
-report_err_cantreport_msg:	Не можеш да докладваш на Модератора
 reset_err_invalidkey_title:	ГРЕШКА
 reset_err_invalidkey_msg:	Недействителен ключ за смяна на паролата
 reset_err_rstconf_title:	Информация
@@ -644,8 +627,6 @@ search_update:			Търсене на съобщения
 selmsg_update:			Разглеждане на <a href="{TEMPLATE: selmsg_update_lnk}">днешни съобщения</a>
 showposts_update:		Преглед на съобщенията от <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Разглеждане на собствената абонаментна листа
-th_err_invid_title:		Недействителен ID на темата
-th_err_invid_msg:		Отиде на недействителен адрес. Темата която се опитваш да видиш, не съществува
 thread_update:			Разглеждане на форума <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Разглеждане (в разгърнат изглед) на темата <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Преглед на личния профил на <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -757,7 +738,6 @@ pm_no_space_msg:		Папките с личните ти съобщения превишават позволените <b>{GVAR
 pm_space_indct_msg:		Личните ти папки заемат {VAR: percent_full}% от позволеното място.
 th_expr_never:			Никога
 th_expr_one_hr:			1 Час
-th_expr_two_hr:			2 Часа
 th_expr_three_hr:		3 Часа
 th_expr_four_hr:		4 Часа
 th_expr_eight_hr:		8 Часа
@@ -820,10 +800,6 @@ p_VISIBLE:			Видим
 reported_in_thread:		По темата
 help_back_to_top:		върни се най-горе
 help_return_to_index:		Върни се на Help Index
-forumsel_unread:		*(НЕ ПРОЧЕТЕНО)
-groupmgr_no_groups:		Няма групи за редактиране
-msg_err_nosuchmsg_msg:		Няма такова съобщение по тази тема
-msg_err_nosuchmsg_title:	Грешка
 imsg_err_message_title:		Невалидно съобщение
 imsg_err_message_msg:		Съобщение, което се опитваш да разгледаш, не съществува&nbsp;
 poll_edit:			Промени

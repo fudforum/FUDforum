@@ -98,7 +98,6 @@ occupation:			Beroep:
 off:				Uit
 on:				Aan
 page_timings:			Totale tijd voor oproepen van de pagina: {VAR: page_gen_time} seconden
-fud_query_stats:		MySQL zoekvraag duurde {VAR: ttl_time} seconden<br>
 pm:				Privé Bericht
 poll:				Poll:
 post_count:			Post aantal {VAR: u_pcount}
@@ -476,8 +475,6 @@ mklist_disc:			Disc
 mklist_circle:			Cirkel
 mklist_close:			Gesloten
 email_to:			Naar:
-email_name:			Naam:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Onderwerp:
 email_body:			Bericht:
@@ -542,8 +539,6 @@ email_err_unabletoemail_msg:	Het email systeem is uitgeschakeld door de administ
 email_error_unabletolocaddr:	Sorry, het systeem was niet in staat om {VAR-HTML: _POST['tx_name']} te mailen omdat het niet in staat was dit mail adres te vinden
 email_error_body:		een bericht is vereist
 email_error_subject:		Onderwerp is vereist
-email_error_emailrequired:	Email is vereist
-email_error_invalidaddress:	ongeldig email adres
 email_error_namerequired:	Naam is vereist
 email_error_invaliduser:	ongeldig lid
 emailconf_err_invkey_title:	Fout
@@ -558,7 +553,6 @@ iemail_frm_subject:		Nieuw topic in forum {VAR: frm_name} genaamd {VAR: thr_subj
 iemail_frm_bodyemail:		om het topic te zien ga naar:\n{VAR: goto_url['email']}\n\nIndien u de verdere berichtgeving over nieuwe topics op dit forum wenst te schrappen ga dan naar hier: {VAR: unsub_url['email']}
 iemail_participate:		Om deel te nemen aan de discussie ga naar hier:
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Je kan dit lid niet negeren
 ignore_list_err_dup_msg:	U heeft dit lid al in uw negeer lijst
 ignore_list_err_nu_title:	lid niet gevonden
 ignore_list_err_nu_msg:		Het lid die u trachte toe te voegen aan uw negeer lijst kon niet op het forum gevonden worden.
@@ -567,22 +561,16 @@ ignore_list_update:		Browsing in eigen negeer lijst
 index_update:			Browsing door de <a href="{TEMPLATE: index_update_lnk}">forum lijst</a>
 list_referers_update:		Browsing door verwijzingen
 login_update:			inlog Formulier
-msg_err_ininfo_title:		Onvoldoende Informatie
-msg_err_ininfo_msg:		Er was een probleem bij het laden van deze pagina
 msg_update:			Browsing door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FOUT: Privé Berichtgeving Uitgeschakeld
 pm_err_nopm_msg:		U kan het privé berichtgeving systeem niet gebruiken, het is uitgeschakeld door de administrator.
 pm_update:			Gebruik van privé berichtgeving
-post_err_notallowed_title:	Permissie Ontzegt
-post_err_notallowed_msg:	U heeft niet de toestemming om te posten
 post_err_lockedthread_title:	FOUT: gesloten Topic
 post_err_lockedthread_msg:	Dit topic is gesloten, geen posts meer toegelaten
 err_coppa_title:		FOUT: Uw account is nog niet toegelaten
 err_coppa_msg:			We hebben geen toestemming ontvangen van uw voogd welke u zou toelaten om berichten te posten. Indien u uw coppa formulier heeft verloren <a href="{TEMPLATE: err_coppa_msg_lnk}">klik hier</a> om het te krijgen
 err_blockedaccnt_title:		FOUT: U heeft niet de toestemming om te posten
 err_blockedaccnt_msg:		Uw account is geblokeerd, u kan dus niet posten
-post_err_notowner_title:	FOUT
-post_err_notowner_msg:		U bent niet de auteur van dit bericht
 post_err_edttimelimit_title:	FOUT
 post_err_edttimelimit_msg:	U can dit bericht niet langer wijzigen
 post_err_floodtrig_title:	FOUT: Post flood ingeschakeld.
@@ -596,7 +584,6 @@ post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		u heeft een fout
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten per post, verminder het aantal foto&quot;s
 postcheck_subj_needed:		Onderwerp vereist
-postcheck_not_allowed_file:	Dit bestandstype is niet toegestaan
 postcheck_no_such_user:		Er is geen lid genaamd "{VAR-HTML: v}" in dit forum
 postcheck_ignored:		U kan geen privé berichten versturen naar "{VAR-HTML: v}", Omdat deze persoon u negeert.
 postcheck_no_recepient:		U kan geen bericht versturen, ontvanger ontbreekt
@@ -629,8 +616,6 @@ register_profile_update:	Bekijk eigen profiel
 register_register_update:	Registratie Pagina
 report_err_nosuchmsg_title:	FOUT
 report_err_nosuchmsg_msg:	onbekend bericht
-report_err_cantreport_title:	FOUT
-report_err_cantreport_msg:	U heeft niet te toestemming om te rapporteren aan de administrator
 reset_err_invalidkey_title:	FOUT
 reset_err_invalidkey_msg:	ongeldige paswoord reset sleutel
 reset_err_rstconf_title:	Informatie
@@ -642,8 +627,6 @@ search_update:			Zoeken van posts
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
 showposts_update:		Bekijk posts van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing in eigen inschrijvingen
-th_err_invid_title:		ongeldig topic ID
-th_err_invid_msg:		u volgde een ongeldig link, het topic dat u tracht te bekijken bestaat niet.
 thread_update:			Browsing door forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
@@ -755,7 +738,6 @@ pm_no_space_msg:		Uw privé bericht overschreidt de toegelaten opslagcapaciteit v
 pm_space_indct_msg:		Uw PM folders zijn {VAR: percent_full}% vol.
 th_expr_never:			Nooit
 th_expr_one_hr:			1 uur
-th_expr_two_hr:			2 uren
 th_expr_three_hr:		3 uren
 th_expr_four_hr:		4 uren
 th_expr_eight_hr:		8 uren
@@ -818,10 +800,6 @@ p_VISIBLE:			Zichtbaar
 reported_in_thread:		In topic
 help_back_to_top:		naar top
 help_return_to_index:		Terug naar help index
-forumsel_unread:		*(ONGELEZEN)
-groupmgr_no_groups:		Geen groepen om te editeren
-msg_err_nosuchmsg_msg:		Dergelijk bericht bestaat niet in dit topic
-msg_err_nosuchmsg_title:	FOUT
 imsg_err_message_title:		ongeldig bericht
 imsg_err_message_msg:		het bericht dat u wilt zien bestaat niet.
 poll_edit:			Editeer
@@ -882,8 +860,6 @@ pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
 member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 submit_reply:			Submit Reply
-post_err_noreplying_title:	ERROR: Replying Not Allowed
-post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_all_ext_allowed:		(unrestricted)
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} is currently offline

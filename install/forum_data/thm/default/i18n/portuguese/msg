@@ -98,7 +98,6 @@ occupation:			Ocupação:
 off:				DES
 on:				LIG
 page_timings:			Tempo total para gerar a página: {VAR: page_gen_time} segundos
-fud_query_stats:		Os queries do MYSQL levaram {VAR: ttl_time} segundos<br>
 pm:				Mensagens Privadas
 poll:				Sondagem:
 post_count:			Contador de posts {VAR: u_pcount}
@@ -477,8 +476,6 @@ mklist_disc:			Disco
 mklist_circle:			Circulo
 mklist_close:			Fechar
 email_to:			Para:
-email_name:			Nome:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			Assunto:
 email_body:			Mensagem:
@@ -543,8 +540,6 @@ email_err_unabletoemail_msg:	O sistema de E-mail foi desabilitado pelo administr
 email_error_unabletolocaddr:	Desculpe, o sistema não conseguiu enviar o E-mail {VAR-HTML: _POST['tx_name']} porque não conseguiu localizar o endereço de E-mail
 email_error_body:		O conteudo é obrigatório
 email_error_subject:		O assunto é obrigatório
-email_error_emailrequired:	O endereço de E-mail é obrigatório
-email_error_invalidaddress:	Endereço de E-mail inválido
 email_error_namerequired:	O nome é obrigatório
 email_error_invaliduser:	Utilizador inválido
 emailconf_err_invkey_title:	Erro
@@ -559,7 +554,6 @@ iemail_frm_subject:		Novo tópico no forum {VAR: frm_name} chamado {VAR: thr_subj
 iemail_frm_bodyemail:		Para ver o tópico vá a:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui: {VAR: unsub_url['email']}
 iemail_participate:		Para participar na discussão vá aqui 
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Não pode ignorar este utilizador
 ignore_list_err_dup_msg:	Já tem este utilizador na lista de ignorados
 ignore_list_err_nu_title:	Utilizador não encontrado
 ignore_list_err_nu_msg:		O utilizador que tentou adicionar á sua lista de ignorados, não existe neste forum
@@ -568,26 +562,18 @@ ignore_list_update:		A visualisar a sua lista de ignorados
 index_update:			A visualisar a <a href="{TEMPLATE: index_update_lnk}">lista de foruns</a>
 list_referers_update:		A visualisar referências
 login_update:			Formulário de Login
-msg_err_ininfo_title:		Informação insuficiente
-msg_err_ininfo_msg:		Houve um problema a gerar esta página
 msg_update:			A visualisar tópico <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRO: Mensgens privadas desabilitadas
 pm_err_nopm_msg:		Não pode utilizar o sistema de mensagens privadas, uma vez que foi desabilitado pelo administrador.
 pm_update:			A utilizar mensagens privadas
-post_err_notallowed_title:	Permissões negadas
-post_err_notallowed_msg:	Não tem permissões para colocar comentários
 post_err_lockedthread_title:	ERRO: Tópico Bloqueado
 post_err_lockedthread_msg:	Este tópico está bloqueado, não é permitido colocar comentários
 err_coppa_title:		ERRO: A sua conta ainda não foi confirmada
 err_coppa_msg:			Não foi recebida uma confirmação dos seus pais ou tutores legais, que permitam que coloque mensagens. Se perdeu o seu formulário <a href="{TEMPLATE: err_coppa_msg_lnk}">clique aqui</a> para o obter
 err_blockedaccnt_title:		ERRO: Não lhe é permitido colocar comentários 
 err_blockedaccnt_msg:		A sua conta foi bloqueada no que diz respeito a colocar comentários
-post_err_notowner_title:	ERRO
-post_err_notowner_msg:		Não é o dono desta mensagem
 post_err_edttimelimit_title:	ERRO
 post_err_edttimelimit_msg:	Já não pode editar esta mensagem
-post_err_noreplying_title:	ERRO: Respostas não permitidas
-post_err_noreplying_msg:	Não pode colocar respostas neste forum, porque é um anuncio ou uma mensagem sem resposta, em que o moderador desabilitou a possibilidade de resposta.
 post_err_floodtrig_title:	ERRO: Segurança contra floods activada.
 post_err_floodtrig_msg:		Por favor tente novamente em {VAR: tm} segundos
 post_err_attach_size:		<font class="ErrorText">O ficheiro em anexo é demasido grande (está em cima do limite por {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -599,7 +585,6 @@ post_topic_update:		A escrever novo tópico em <a href="{TEMPLATE: post_topic_upd
 post_error_generic:		tem um erro
 postcheck_max_images_err:	No máximo são permitidas {GVAR: MAX_IMAGE_COUNT} imagens por comentário, por favor diminua o n.º de imagens
 postcheck_subj_needed:		Assunto obrigatório
-postcheck_not_allowed_file:	Este tipo de ficheiro, não é permitido
 postcheck_no_such_user:		Não existe um utlizador chamado "{VAR-HTML: v}" neste forum
 postcheck_ignored:		Não pode enviar uma mensagem privada  para "{VAR-HTML: v}", porque a pessoa está a ignora-lo.
 postcheck_no_recepient:		Impossivel enviar mensagem, recipiente inexistente
@@ -632,8 +617,6 @@ register_profile_update:	A ver a sua ficha
 register_register_update:	Página de Registo
 report_err_nosuchmsg_title:	ERRO
 report_err_nosuchmsg_msg:	Não existe essa mensagem
-report_err_cantreport_title:	ERRO
-report_err_cantreport_msg:	Não tem permissão para reportar ao Moderador
 reset_err_invalidkey_title:	ERRO
 reset_err_invalidkey_msg:	Chave de cancelamento de Password inválida
 reset_err_rstconf_title:	Informação
@@ -645,8 +628,6 @@ search_update:			A procurar posts
 selmsg_update:			A visualisar <a href="{TEMPLATE: selmsg_update_lnk}">posts de Hoje</a>
 showposts_update:		A ver posts por: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		A visualisar as próprias subscrições
-th_err_invid_title:		ID de tópico inválido
-th_err_invid_msg:		Seguiu um link inválido, o tópico que está a tentar ver não existe.
 thread_update:			A visualisar forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			A visualisar tópico (vista de árvore) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Procurar em <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> perfil
@@ -758,7 +739,6 @@ pm_no_space_msg:		A pasta de mensagens privadas excedeu o espaço em disco por <b
 pm_space_indct_msg:		A pasta Mp está {VAR: percent_full}% cheia.
 th_expr_never:			Nunca
 th_expr_one_hr:			1 Hora
-th_expr_two_hr:			2 Horas
 th_expr_three_hr:		3 Horas
 th_expr_four_hr:		4 Horas
 th_expr_eight_hr:		8 Horas
@@ -821,10 +801,6 @@ p_VISIBLE:			Visivel
 reported_in_thread:		no tópico
 help_back_to_top:		voltar ao topo
 help_return_to_index:		voltar ao inicio da ajuda
-forumsel_unread:		*(Não Lida)
-groupmgr_no_groups:		Não há grupos para editar
-msg_err_nosuchmsg_msg:		Não existe essa mensagem neste tópico
-msg_err_nosuchmsg_title:	Erro
 imsg_err_message_title:		Mensagem inválida
 imsg_err_message_msg:		A mensagem que está a tentar visualisar não existe.
 poll_edit:			Editar

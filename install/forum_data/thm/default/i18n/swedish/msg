@@ -99,7 +99,6 @@ occupation:			Yrke:
 off:				AV
 on:				P&Aring;
 page_timings:			Total tid f&ouml;r att skapa sidan: {VAR: page_gen_time} sekunder
-fud_query_stats:		MySQL-s&ouml;kningar tog {VAR: ttl_time} sekunder<br>
 pm:				Privata meddelanden
 poll:				Gallup:
 post_count:			Antal inl&auml;gg {VAR: u_pcount}
@@ -474,8 +473,6 @@ mklist_disc:			Skiva
 mklist_circle:			Cirkel
 mklist_close:			N&auml;ra
 email_to:			Till:
-email_name:			Namn:
-email_email:			E-postadress:
 email_pg_title:			E-post
 email_subject:			Rubrik:
 email_body:			Meddelande:
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	E-postsystemet har st&auml;ngts av av administrator
 email_error_unabletolocaddr:	Systemet kunde tyv&auml;rr inte skicka e-post till {VAR-HTML: _POST['tx_name']} eftersom det inte hittade hans/hennes e-postadress
 email_error_body:		Du kan inte skicka ett tomt meddelande
 email_error_subject:		Rubriken &auml;r obligatorisk
-email_error_emailrequired:	E-postadressen &auml;r obligatorisk
-email_error_invalidaddress:	Felaktig e-postadress
 email_error_namerequired:	Namnet &auml;r obligatoriskt
 email_error_invaliduser:	Ogiltig medlem
 emailconf_err_invkey_title:	Fel
@@ -555,7 +550,6 @@ iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa 
 iemail_frm_subject:		Ny diskussion av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
 iemail_frm_bodyemail:		F&ouml;r att visa diskussionen g&aring; till:\n{VAR: goto_url['email']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya diskussioner i detta forum kan du g&aring; hit: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Info
-ignore_list_err_noign_msg:	Du kan inte ignorera den h&auml;r medlemmen
 ignore_list_err_dup_msg:	Du har redan den h&auml;r medlemmen p&aring; din lista
 ignore_list_err_nu_title:	Kan inte hitta medlemmen
 ignore_list_err_nu_msg:		Kan inte hitta medlemmen du f&ouml;rs&ouml;kte l&auml;gga till din lista i det h&auml;r forumet.
@@ -564,26 +558,18 @@ ignore_list_update:		Visar egen lista &ouml;ver ignorerade medlemmar
 index_update:			Visar <a href="{TEMPLATE: index_update_lnk}">listan &ouml;ver forum</a>
 list_referers_update:		Visar refererade medlemmar
 login_update:			Logga in
-msg_err_ininfo_title:		Otillr&auml;cklig information
-msg_err_ininfo_msg:		Ett problem uppkom n&auml;r sidan skulle g&ouml;ras
 msg_update:			L&auml;ser diskussionen med rubriken <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
-post_err_notallowed_title:	Inte till&aring;tet
-post_err_notallowed_msg:	Du har inte r&auml;tt att skriva inl&auml;gg
 post_err_lockedthread_title:	FEL: L&aring;st diskussion
 post_err_lockedthread_msg:	Den h&auml;r diskussionen &auml;r l&aring;st och inga fler inl&auml;gg tas emot
 err_coppa_title:		FEL: Ditt konto &auml;r inte bekr&auml;ftat &auml;nnu
 err_coppa_msg:			Vi har inte f&aring;tt en bekr&auml;ftelse av din f&ouml;r&auml;lder eller f&ouml;rmyndare. D&auml;rf&ouml;r kan vi inte l&aring;ta dig skriva inl&auml;gg. Ifall du tappade ditt coppaformul&auml;r kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">trycka h&auml;r</a> f&ouml;r att f&aring; ett nytt
 err_blockedaccnt_title:		FEL: du har inte r&auml;tt att skriva inl&auml;gg
 err_blockedaccnt_msg:		Du har fr&aring;ntagits r&auml;tten att skriva inl&auml;gg
-post_err_notowner_title:	FEL
-post_err_notowner_msg:		Du &auml;r inte detta meddelandets skribent
 post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
-post_err_noreplying_title:	FEL: Det &auml;r inte till&aring;tet att svara
-post_err_noreplying_msg:	Du har inte r&auml;tt att svara i den h&auml;r diskussionen eftersom den &auml;r antingen ett meddelande eller ett klibbigt inl&auml;gg, som moderatorn har f&ouml;rbjudit svar till.
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
 post_err_floodtrig_msg:		Var v&auml;nlig f&ouml;rs&ouml;k p&aring; nytt om {VAR: tm} sekunder
 post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&ouml;ver gr&auml;nsen p&aring; {VAR: MAX_F_SIZE} byte)</font><br>
@@ -595,7 +581,6 @@ post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a href="{TEMPLATE: post
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
 postcheck_subj_needed:		Rubrik obligatorisk
-postcheck_not_allowed_file:	Den h&auml;r filtypen &auml;r inte till&aring;ten
 postcheck_no_such_user:		Medlemmen "{VAR-HTML: v}" finns inte i detta forum
 postcheck_ignored:		Du kan inte skicka ett privat meddelande till "{VAR-HTML: v}", eftersom han/hon har valt att ignorera dig.
 postcheck_no_recepient:		Kan inte skicka meddelandet, ingen mottagare
@@ -628,8 +613,6 @@ register_profile_update:	Visar sin egen profil
 register_register_update:	Registreringssida
 report_err_nosuchmsg_title:	FEL
 report_err_nosuchmsg_msg:	Inget s&aring;dant inl&auml;gg
-report_err_cantreport_title:	FEL
-report_err_cantreport_msg:	Du har inte r&auml;tt att rapportera till moderatorn
 reset_err_invalidkey_title:	FEL
 reset_err_invalidkey_msg:	Ogiltig kod f&aring;r &aring;terst&auml;llning av l&ouml;senord
 reset_err_rstconf_title:	Information
@@ -641,8 +624,6 @@ search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inl&auml;gg</a>
 showposts_update:		Visar inl&auml;gg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Visar egna best&auml;llningar
-th_err_invid_title:		Felaktigt diskussions-ID
-th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, diskussionen du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
 thread_update:			L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
@@ -754,7 +735,6 @@ pm_no_space_msg:		Dina privata meddelanden tar f&ouml;r tillf&auml;llet f&ouml;r
 pm_space_indct_msg:		Dina mappar f&ouml;r privata meddelanden &auml;r fyllda till {VAR: percent_full}%.
 th_expr_never:			Aldrig
 th_expr_one_hr:			1 timme
-th_expr_two_hr:			2 timmar
 th_expr_three_hr:		3 timmar
 th_expr_four_hr:		4 timmar
 th_expr_eight_hr:		8 timmar
@@ -817,10 +797,6 @@ p_VISIBLE:			Synlig
 reported_in_thread:		I diskussionen
 help_back_to_top:		tillbaka till b&ouml;rjan
 help_return_to_index:		tillbaka till hj&auml;lpindex
-forumsel_unread:		*(OL&Auml;ST)
-groupmgr_no_groups:		Inga grupper att editera
-msg_err_nosuchmsg_msg:		Ett s&aring;dant inl&auml;gg finns inte i denna diskussion
-msg_err_nosuchmsg_title:	Fel
 imsg_err_message_title:		Ogiltigt inl&auml;gg
 imsg_err_message_msg:		Inl&auml;gget du f&ouml;rs&ouml;ker visa finns inte.
 poll_edit:			Editera

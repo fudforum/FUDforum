@@ -98,7 +98,6 @@ occupation:			Obsazení:
 off:				Vypnuto
 on:				Zapnuto
 page_timings:			Celkový èas potøebný k vygenerování této stránky: {VAR: page_gen_time} vteøin
-fud_query_stats:		MySQL dotazy zabraly {VAR: ttl_time} vteøin<br>
 pm:				Po¹ta
 poll:				Anketa:
 post_count:			Poèet pøíspìvkù {VAR: u_pcount}
@@ -477,8 +476,6 @@ mklist_disc:			Ovál
 mklist_circle:			Kruh
 mklist_close:			Zavøít
 email_to:			Pro (Komu):
-email_name:			Jméno:
-email_email:			Email:
 email_pg_title:			Email
 email_subject:			napis:
 email_body:			Obsah:
@@ -543,8 +540,6 @@ email_err_unabletoemail_msg:	Systém emailù by administrátorem vypnut.
 email_error_unabletolocaddr:	Omlouvám se, systém nebyl scopen odeslat mail pro {VAR-HTML: _POST['tx_name']} proto¾e nedokázal najít jeho adresu
 email_error_body:		Obsah je nutný
 email_error_subject:		nadpis je nutný
-email_error_emailrequired:	Email je nutný
-email_error_invalidaddress:	Nesprávná emailová adresa
 email_error_namerequired:	Jméno je nutné
 email_error_invaliduser:	Nesprávný u¾ivatel
 emailconf_err_invkey_title:	Chyba
@@ -559,7 +554,6 @@ iemail_frm_subject:		Nové téma ve fóru {VAR: frm_name} nazvané {VAR: thr_subject
 iemail_frm_bodyemail:		Pro zobrazení tématu jdìte na:\n{VAR: goto_url['email']}\n\nPro zastavení pøíjmu oznámení o nových tématech v tomto fóru, prosím, jdìte sem: {VAR: unsub_url['email']}
 iemail_participate:		Pro úèsat v diskusi jdìte sem:
 ignore_list_err_info_title:	Informace
-ignore_list_err_noign_msg:	Nemù¾ete ignorovat tohoto u¾ivatele
 ignore_list_err_dup_msg:	Tohoto u¾ivatele ji¾ na svém seznamu ignorovaných máte
 ignore_list_err_nu_title:	U¾ivatel nenalezen
 ignore_list_err_nu_msg:		U¾ivatel, kterého se sna¾íte pøidat na vá¹ seznam ignorovaných u¾ivatelù nebyl v tomto fóru nalezen.
@@ -568,26 +562,18 @@ ignore_list_update:		Prohlí¾íte si seznam ignorovaných u¾ivatelù
 index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}">seznam fór</a>
 list_referers_update:		Prohlí¾íte si pøivedené lidi
 login_update:			Pøihla¹ovací formuláø
-msg_err_ininfo_title:		Nedostatek informací
-msg_err_ininfo_msg:		Pøi generování této stránky se vyskytl problém
 msg_update:			Prohlí¾íte si téma <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		CHYBA: Po¹ta je vypnutá
 pm_err_nopm_msg:		Nemù¾ete pou¾ít po¹tovní systém, byl vypnut administrátorem.
 pm_update:			Pou¾íváte po¹tu
-post_err_notallowed_title:	Pøístup zamítnut
-post_err_notallowed_msg:	Nejste oprávnìn(a) zasílat pøíspìvky
 post_err_lockedthread_title:	CHYBA: Uzamèené téma
 post_err_lockedthread_msg:	Toto téma je uzamèeno, ¾ádné dal¹í pøíspìvky nejsou povoleny
 err_coppa_title:		CHYBA: Vá¹ úèet je¹tì není potvrzen
 err_coppa_msg:			Nedostali jsme potvrzení od va¹ich rodièù a/nebo zákonných opatrovníkù, které by vám umo¾òovalo zasílat zprávy. Pokud jste ztratil(a) svùj potvrzovací formuláø <a href="{TEMPLATE: err_coppa_msg_lnk}">kliknìte zde</a>
 err_blockedaccnt_title:		CHYBA: nemáte povolení zasílat pøíspìvky
 err_blockedaccnt_msg:		Vá¹ úèet byl zablokován proti zasílání pøíspìvkù
-post_err_notowner_title:	CHYBA
-post_err_notowner_msg:		Nejste vlastník této zprávy
 post_err_edttimelimit_title:	CHYBA
 post_err_edttimelimit_msg:	Ji¾ nemù¾ete mìnit tuto zprávu
-post_err_noreplying_title:	CHYBA: Odpovìï není povolena
-post_err_noreplying_msg:	Nemù¾ete zasílat odpovìdi na toto téma, proto¾e to je buï oznámení nebo vývìska, na kteru moderátor zakázal odpovìdi.
 post_err_floodtrig_title:	CHYBA: Pøíli¹ mnoho pøíspìvkù na systém.
 post_err_floodtrig_msg:		Prosím, zkuste opìt za {VAR: tm} vteøin
 post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {VAR: MAX_F_SIZE} bytù)</font><br>
@@ -599,7 +585,6 @@ post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_upda
 post_error_generic:		Máte chybu
 postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
 postcheck_subj_needed:		Nadpis nutný
-postcheck_not_allowed_file:	Tento typ souboru není povolen
 postcheck_no_such_user:		U¾ivatel "{VAR-HTML: v}" v tomto fóru neexistuje
 postcheck_ignored:		Nemù¾ete poslat po¹tu pro "{VAR-HTML: v}", proto¾e vás ignoruje.
 postcheck_no_recepient:		Nemohu poslat zprávu, chybí pøíjemce
@@ -632,8 +617,6 @@ register_profile_update:	Prohlí¾íte si vlastní profil
 register_register_update:	Strana s registrací
 report_err_nosuchmsg_title:	CHYBA
 report_err_nosuchmsg_msg:	®ádná taková zpráva není
-report_err_cantreport_title:	CHYBA
-report_err_cantreport_msg:	Nemáte oprávnìní pøednést pøíspìvek moderátorovi
 reset_err_invalidkey_title:	CHYBA
 reset_err_invalidkey_msg:	Chybný klíè k vynulování hesla
 reset_err_rstconf_title:	Informace
@@ -645,8 +628,6 @@ search_update:			Hledáte pøíspìvky
 selmsg_update:			Prohlí¾íte si <a href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
 showposts_update:		Prohlí¾íte si pøíspìvek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
-th_err_invid_title:		Chybné ID tématu
-th_err_invid_msg:		Následoval(a) jste chybný odkaz, toto téma neexistuje.
 thread_update:			Prohlí¾íte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -758,7 +739,6 @@ pm_no_space_msg:		Va¹e po¹ta pøekroèila povolenou velikost <b>{GVAR: MAX_PMSG_FL
 pm_space_indct_msg:		Va¹e po¹toví schránka je z {VAR: percent_full}% plná.
 th_expr_never:			Nikdy
 th_expr_one_hr:			1 hodina
-th_expr_two_hr:			2 hodiny
 th_expr_three_hr:		3 hodiny
 th_expr_four_hr:		4 hodiny
 th_expr_eight_hr:		8 hodin
@@ -821,10 +801,6 @@ p_VISIBLE:			Viditelný
 reported_in_thread:		V tématu
 help_back_to_top:		zpìt na zaèátek
 help_return_to_index:		Zpìt na úvod nápovìdy
-forumsel_unread:		*(NEPØEÈTENO)
-groupmgr_no_groups:		Nejsou ¾ádné skupiny ke zmìnìní
-msg_err_nosuchmsg_msg:		V tomto tématu není ¾ádná taková zpráva
-msg_err_nosuchmsg_title:	Chyba
 imsg_err_message_title:		Nesprávná zpráva
 imsg_err_message_msg:		Zpráva, kterou se sna¾íte zobrazit, neexistuje.
 poll_edit:			Zmìnit

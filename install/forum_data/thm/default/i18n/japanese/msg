@@ -99,7 +99,6 @@ occupation:			職業:
 off:				OFF
 on:				ON
 page_timings:			このページを生成するのにかかった時間: {VAR: page_gen_time} 秒
-fud_query_stats:		{VAR: q_time} MySQL 照会は {VAR: ttl_time} 秒かかりました。<br>
 pm:				プライベートメッセージ
 poll:				投票:
 post_count:			メッセージ数 {VAR: u_pcount}
@@ -480,8 +479,6 @@ mklist_disc:			ディスク
 mklist_circle:			丸
 mklist_close:			閉じる
 email_to:			宛先:
-email_name:			名前:
-email_email:			電子メール:
 email_pg_title:			電子メール
 email_subject:			件名:
 email_body:			本文:
@@ -546,8 +543,6 @@ email_err_unabletoemail_msg:	管理者により電子メールシステムが無
 email_error_unabletolocaddr:	Sorry, the system was unable to e-mail {VAR-HTML: _POST['tx_name']} because it was unable to determine the e-mail address
 email_error_body:		本文が必要です。
 email_error_subject:		件名が必要です。
-email_error_emailrequired:	ひとつ以上電子メールアドレスが必要です。
-email_error_invalidaddress:	無効な電子メールアドレスです。
 email_error_namerequired:	名前が必要です。
 email_error_invaliduser:	無効なユーザーです。
 emailconf_err_invkey_title:	エラー
@@ -562,7 +557,6 @@ iemail_frm_subject:		New topic in forum {VAR: frm_name}, called {VAR: thr_subjec
 iemail_frm_bodyemail:		To view the topic go to:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
 iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	情報
-ignore_list_err_noign_msg:	このユーザーを無視できません。
 ignore_list_err_dup_msg:	You already have this user on your ignore list
 ignore_list_err_nu_title:	ユーザーが見つかりません
 ignore_list_err_nu_msg:		The user you tried to add to your ignore list was not found.
@@ -571,28 +565,20 @@ ignore_list_update:		Browsing own ignore list
 index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			ログインフォーム
-msg_err_ininfo_title:		Insufficient Information
-msg_err_ininfo_msg:		There was a problem generating this page
 msg_update:			トピック <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> を閲覧する
 pm_err_nopm_title:		エラー: プライベートメッセージは無効です。
 pm_err_nopm_msg:		You cannot use the private messaging system. It has been disabled by the administrator.
 pm_update:			プライベートメッセージを使う
-post_err_notallowed_title:	Permission Denied
-post_err_notallowed_msg:	あなたは投稿を許可されていません。
 post_err_lockedthread_title:	エラー: ロックされたトピックです。
 post_err_lockedthread_msg:	このトピックはロックされています。投稿はもう許可されていません。
 err_coppa_title:		えらー: あなたのアカウントは確認が済んでいません。
 err_coppa_msg:			We have not received a confirmation from your parent and/or legal guardian, which would allow you to post messages. If you lost your COPPA form, <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to see it again.
 err_blockedaccnt_title:		エラー: あなたは投稿を許可されていません。
 err_blockedaccnt_msg:		あなたの投稿はブロックされました
-post_err_notowner_title:	エラー
-post_err_notowner_msg:		あなたは個のメッセージの所有者ではありません。
 post_err_edttimelimit_title:	エラー
 post_err_edttimelimit_msg:	もuうのメッセージを編集することができません
 post_err_noannontopics_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>匿名ユーザーはトピック作成を許可されていません。</fieldset><br />
 post_err_noannonposts_msg2:	<fieldset><legend>ERROR: 特権不十分</legend>名ユーザーは返信を許可されていません。</fieldset><br />
-post_err_noreplying_title:	エラー: 返信は許可されていません。
-post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	エラー: Post flood triggered.
 post_err_floodtrig_msg:		{VAR: tm} 秒後にもう一度試してください。
 post_err_attach_size:		<span class="ErrorText">添付ファイルが大きすぎます (許可された制限 {VAR: MAX_F_SIZE} バイトを超えています。</span><br>
@@ -604,7 +590,6 @@ post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_l
 post_error_generic:		There was an error
 postcheck_max_images_err:	No more than {GVAR: MAX_IMAGE_COUNT} images are allowed per message. Please reduce the number of images.
 postcheck_subj_needed:		件名が必要です。
-postcheck_not_allowed_file:	このファイルタイプは許可されていません。
 postcheck_no_such_user:		There is no user named "{VAR-HTML: v}" in this forum.
 postcheck_ignored:		You cannot send a private message to "{VAR-HTML: v}", because this person is ignoring you.
 postcheck_no_recepient:		Cannot send a message, missing recipient
@@ -637,8 +622,6 @@ register_profile_update:	私のプロフィールを閲覧
 register_register_update:	登録ページ
 report_err_nosuchmsg_title:	エラー
 report_err_nosuchmsg_msg:	メッセージはありません
-report_err_cantreport_title:	エラー
-report_err_cantreport_msg:	モデレータにメッセージ報告は許可されていません
 reset_err_invalidkey_title:	エラー
 reset_err_invalidkey_msg:	無効なパスワードリセットキーです
 reset_err_rstconf_title:	情報
@@ -650,8 +633,6 @@ search_update:			メッセージ検索中
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
 showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing own subscriptions
-th_err_invid_title:		無効なトピック ID
-th_err_invid_msg:		You have followed an invalid link. The topic you are trying to view does not exist.
 thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
@@ -765,7 +746,6 @@ pm_no_space_msg:		Your private message folders exceed the allowed storage size o
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
 th_expr_never:			永久
 th_expr_one_hr:			1 時間
-th_expr_two_hr:			2 時間
 th_expr_three_hr:		3 時間
 th_expr_four_hr:		4 時間
 th_expr_eight_hr:		8 時間
@@ -829,10 +809,6 @@ p_VISIBLE:			可視
 reported_in_thread:		トピック中
 help_back_to_top:		トップに戻る
 help_return_to_index:		ヘルプインデックスに戻る
-forumsel_unread:		*(UNREAD)
-groupmgr_no_groups:		There are no groups to edit.
-msg_err_nosuchmsg_msg:		このトピックにはメッセージがありません。
-msg_err_nosuchmsg_title:	エラー
 imsg_err_message_title:		無効なメッセージ
 imsg_err_message_msg:		閲覧しようとしているメッセージは存在しません。
 poll_edit:			編集

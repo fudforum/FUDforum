@@ -99,7 +99,6 @@ occupation:			Zawód:
 off:				Wy³±czone
 on:				W³±czone
 page_timings:			£±czny czas generowania strony wyniós³ {VAR: page_gen_time} sekund.
-fud_query_stats:		zapytañ MySQL zajê³o {VAR: ttl_time} sekund.<br>
 pm:				Prywatne wiadomo¶ci
 poll:				Ankieta:
 post_count:			Liczba wiadomo¶ci {VAR: u_pcount}
@@ -474,8 +473,6 @@ mklist_disc:			Dysk
 mklist_circle:			Okr±g
 mklist_close:			Zamknij
 email_to:			Do:
-email_name:			Nazwa:
-email_email:			E-mail:
 email_pg_title:			E-mail
 email_subject:			Temat:
 email_body:			Tre¶æ:
@@ -540,8 +537,6 @@ email_err_unabletoemail_msg:	System poczty elektronicznej zosta³ wy³±czony przez
 email_error_unabletolocaddr:	System nie by³ w stanie wys³aæ listu do {VAR-HTML: _POST['tx_name']}, poniewa¿ nie móg³ zlokalizowaæ tego adresu e-mail.
 email_error_body:		Tre¶æ listu jest wymagana
 email_error_subject:		Temat listu jest wymagany
-email_error_emailrequired:	Adres e-mail jest wymagany
-email_error_invalidaddress:	Nieprawid³owy adres e-mail
 email_error_namerequired:	Nazwa jest wymagana
 email_error_invaliduser:	Nieprawid³owy u¿ytkownik
 emailconf_err_invkey_title:	B³±d
@@ -555,7 +550,6 @@ iemail_thr_bodyemail:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do {VAR: 
 iemail_frm_subject:		Nowy w±tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} utworzony przez u¿ytkownika {VAR: poster_login}
 iemail_frm_bodyemail:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['email']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	Informacje
-ignore_list_err_noign_msg:	Nie mo¿esz zignorowaæ tego u¿ytkownika
 ignore_list_err_dup_msg:	Masz ju¿ tego u¿ytkownika ma swojej li¶cie ignorowanych
 ignore_list_err_nu_title:	U¿ytkownik nie zosta³ znaleziony
 ignore_list_err_nu_msg:		U¿ytkownik, ktorego próbowa³e¶ dodaæ do swojej listy ignorowanych, nie zosta³ znalezniony na forum.
@@ -564,26 +558,18 @@ ignore_list_update:		Przegl±danie w³asnej listy ignorowanych
 index_update:			Przegl±danie <a href="{TEMPLATE: index_update_lnk}">listy forum</a>
 list_referers_update:		Przegl±danie osób poleconych
 login_update:			Formularz logowania
-msg_err_ininfo_title:		Niewystarczaj±ce informacje
-msg_err_ininfo_msg:		Pojawi³ siê problem z wygenerowaniem tej strony
 msg_update:			Przegl±danie w±tku <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		B£¡D: Prywatne wiadomo¶ci zosta³y wy³±czone
 pm_err_nopm_msg:		Nie mo¿esz u¿yæ systemu prywatnych wiadomo¶ci, gdy¿ zosta³ wy³±czony przez administratora.
 pm_update:			Korzystanie z prywatnych wiadomo¶ci
-post_err_notallowed_title:	Brak uprawnieñ
-post_err_notallowed_msg:	Nie wolno Ci zamieszczaæ wiadomo¶ci
 post_err_lockedthread_title:	B£¡D: Zablokowany w±tek
 post_err_lockedthread_msg:	Ten w±tek jest zablokowany, wiêc nie wolno zamieszczaæ wiêcej wiadomo¶ci
 err_coppa_title:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
 err_coppa_msg:			Nie otrzymali¶my potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoli³oby ci zamieszczaæ wiadomo¶ci. Je¶li zgubi³e¶ swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">przejd¼ tutaj</a>, aby go otrzymaæ
 err_blockedaccnt_title:		B£AD: nie wolno Ci zamieszczaæ wiadomo¶ci
 err_blockedaccnt_msg:		Twoje konto zosta³o zablokowane i nie mo¿esz zamieszczaæ wiadomo¶ci
-post_err_notowner_title:	B£¡D
-post_err_notowner_msg:		Nie jeste¶ w³a¶cicielem tej wiadomo¶ci
 post_err_edttimelimit_title:	B£¡D
 post_err_edttimelimit_msg:	Nie mo¿esz ju¿ edytowaæ tej wiadomo¶ci
-post_err_noreplying_title:	B£¡D: Odpowiadanie jest niedozwolone
-post_err_noreplying_msg:	Nie mo¿esz zamieszczaæ odpowiedzi w tym w±tku, poniewa¿ jest to og³oszenie lub przyczepiona wiadomo¶æ, na które moderator zabroni³ odpowiadaæ.
 post_err_floodtrig_title:	B£¡D: Wykryto zbyt du¿± ilo¶æ zamieszczanych wiadomo¶ci.
 post_err_floodtrig_msg:		Spróbuj ponownie za {VAR: tm} sekund
 post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad dozwolone ograniczenie {VAR: MAX_F_SIZE} bajtów)</font><br>
@@ -595,7 +581,6 @@ post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_top
 post_error_generic:		Wiadomo¶æ nie zosta³a wys³ana, gdy¿ wyst±pi³ b³±d:
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
 postcheck_subj_needed:		Temat jest wymagany
-postcheck_not_allowed_file:	Ten typ pliku nie jest dozwolony
 postcheck_no_such_user:		Nie ma u¿ytkownika o nazwie "{VAR-HTML: v}" w tym forum
 postcheck_ignored:		Nie mo¿esz wys³aæ wiadomo¶ci do "{VAR-HTML: v}", poniewa¿ ta osoba ignoruje Ciê.
 postcheck_no_recepient:		Nie mo¿na wys³aæ wiadomo¶ci, gdy¿ brakuje adresata
@@ -628,8 +613,6 @@ register_profile_update:	Przegl±d w³asnego profilu
 register_register_update:	Strona rejestracji
 report_err_nosuchmsg_title:	B£¡D
 report_err_nosuchmsg_msg:	Nie ma takiej wiadomo¶ci
-report_err_cantreport_title:	B£¡D
-report_err_cantreport_msg:	Nie wolno Ci wysy³aæ zg³oszeñ moderatorowi
 reset_err_invalidkey_title:	B£¡D
 reset_err_invalidkey_msg:	Nieprawid³owy klucz przy zerowaniu has³a
 reset_err_rstconf_title:	Informacje
@@ -641,8 +624,6 @@ search_update:			Szukanie wiadomo¶ci
 selmsg_update:			Przegl±danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
 showposts_update:		Przegl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Przegl±danie w³asnych subskrypcji
-th_err_invid_title:		Nieprawid³owy identyfikator w±tku
-th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który próbujesz obejrzeæ nie istnieje.
 thread_update:			Przegl±danie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			Przegl±danie w±tku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:		Przegl±danie profilu u¿ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
@@ -754,7 +735,6 @@ pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami przekroczy³y dozwolo
 pm_space_indct_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami zajmuj± {VAR: percent_full}% dozwolonego miejsca.
 th_expr_never:			Nigdy
 th_expr_one_hr:			1 godzina
-th_expr_two_hr:			2 godziny
 th_expr_three_hr:		3 godziny
 th_expr_four_hr:		4 godziny
 th_expr_eight_hr:		8 godzin
@@ -817,10 +797,6 @@ p_VISIBLE:			Widoczny
 help_back_to_top:		wróæ na górê
 help_return_to_index:		Wróæ do g³ównej strony pomocy
 reported_in_thread:		W w±tku
-forumsel_unread:		*(NOWE)
-groupmgr_no_groups:		Brak grup do edycji
-msg_err_nosuchmsg_msg:		Nie ma takiej wiadomo¶ci w tym w±tku
-msg_err_nosuchmsg_title:	B³±d
 imsg_err_message_title:		Niepoprawna wiadomo¶æ
 imsg_err_message_msg:		Wiadomo¶æ, któr± chcesz obejrzeæ, nie istnieje.
 poll_edit:			Edytuj

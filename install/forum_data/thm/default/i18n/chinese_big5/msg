@@ -98,7 +98,6 @@ occupation:			職業：
 off:				關閉
 on:				打開
 page_timings:			生成本頁面共花費時間: {VAR: page_gen_time} 秒。
-fud_query_stats:		MySQL 系統花費了{VAR: ttl_time} 秒鐘時間<br>
 pm:				悄悄話
 poll:				調查:
 post_count:			點擊數 {VAR: u_pcount}
@@ -475,8 +474,6 @@ mklist_disc:			圓點
 mklist_circle:			圓圈
 mklist_close:			取消
 email_to:			至:
-email_name:			姓名:
-email_email:			電子郵箱:
 email_pg_title:			電子郵箱
 email_subject:			主題:
 email_body:			內容:
@@ -541,8 +538,6 @@ email_err_unabletoemail_msg:	系統管理員設置郵件系統無法使用。
 email_error_unabletolocaddr:	對不起，因為無法登錄對方的郵件服務器導致系統無法發送郵件{VAR-HTML: _POST['tx_name']}
 email_error_body:		必須填寫郵件內容
 email_error_subject:		必須填寫郵件主題
-email_error_emailrequired:	必須填寫郵件地址
-email_error_invalidaddress:	錯誤的郵件地址
 email_error_namerequired:	必須填寫郵件接受者姓名
 email_error_invaliduser:	用戶名錯誤
 emailconf_err_invkey_title:	錯誤
@@ -556,7 +551,6 @@ iemail_thr_bodyemail:		查看未讀的回復 {VAR: goto_url['email']}\n\n如果你不想收到
 iemail_frm_subject:		論壇新主題 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
 iemail_frm_bodyemail:		查看主題:\n{VAR: goto_url['email']}\n\n不再接受本論壇的新主題發布通知，請點擊: {VAR: unsub_url['email']}
 ignore_list_err_info_title:	信息
-ignore_list_err_noign_msg:	你無法拒絕這個用戶
 ignore_list_err_dup_msg:	你已經把這用戶添加到你的“被拒絕用戶”名單中。
 ignore_list_err_nu_title:	沒有找到這個用戶
 ignore_list_err_nu_msg:		本論壇不存在你要添加的用戶。
@@ -565,26 +559,18 @@ ignore_list_update:		瀏覽“被拒絕用戶”名單
 index_update:			瀏覽<a href="{TEMPLATE: index_update_lnk}">論壇列表</a>
 list_referers_update:		瀏覽被提名者
 login_update:			登錄格式
-msg_err_ininfo_title:		信息不充分
-msg_err_ininfo_msg:		本頁發生錯誤
 msg_update:			展開瀏覽 <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		錯誤：無法發送悄悄話
 pm_err_nopm_msg:		系統管理員禁止您使用悄悄話系統。
 pm_update:			使用悄悄話功能
-post_err_notallowed_title:	你的申請被拒絕
-post_err_notallowed_msg:	你不能提交
 post_err_lockedthread_title:	錯誤：該帖子已封閉
 post_err_lockedthread_msg:	這個主題已被封閉，不能回復
 err_coppa_title:		錯誤: 你沒有此項權限
 err_coppa_msg:			我們還沒有收到來自你父母或者法定監護人的關于同意你發布帖子的確認証明。 If you lost your coppa form <a href="{TEMPLATE: err_coppa_msg_lnk}">click here</a> to get it
 err_blockedaccnt_title:		錯誤: 你被禁止登錄
 err_blockedaccnt_msg:		這個賬號被禁止登錄
-post_err_notowner_title:	錯誤
-post_err_notowner_msg:		你不是這個帖子的作者
 post_err_edttimelimit_title:	錯誤
 post_err_edttimelimit_msg:	你不能再編輯這條信息
-post_err_noreplying_title:	錯誤：不允許回復
-post_err_noreplying_msg:	您不能回復這條信息，因為版主禁止在這里跟帖或發布通告。
 post_err_floodtrig_title:	錯誤：發布灌水帖子
 post_err_floodtrig_msg:		請在{VAR: tm}秒以內重試
 post_err_attach_size:		<font class="ErrorText">附件文件太大（超過了允許的最大{VAR: MAX_F_SIZE}字節)</font><br>
@@ -596,7 +582,6 @@ post_topic_update:		發表新主題 <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-
 post_error_generic:		發生錯誤
 postcheck_max_images_err:	一次提交圖片允許的最大數是{GVAR: MAX_IMAGE_COUNT} ，請盡量減少圖片數量。
 postcheck_subj_needed:		輸入主題
-postcheck_not_allowed_file:	這種文件類型被禁止
 postcheck_no_such_user:		本論壇沒有 "{VAR-HTML: v}" 用戶
 postcheck_ignored:		 "{VAR-HTML: v}"用戶拒絕接受你的悄悄話。
 postcheck_no_recepient:		因為沒有接受方，所以無法發送信息
@@ -629,8 +614,6 @@ register_profile_update:	查看個人信息
 register_register_update:	注冊頁
 report_err_nosuchmsg_title:	錯誤
 report_err_nosuchmsg_msg:	沒有這樣的信息
-report_err_cantreport_title:	錯誤
-report_err_cantreport_msg:	你沒有向版主報告的權限。
 reset_err_invalidkey_title:	錯誤
 reset_err_invalidkey_msg:	密碼提示錯誤
 reset_err_rstconf_title:	信息
@@ -642,8 +625,6 @@ search_update:			搜索
 selmsg_update:			瀏覽 <a href="{TEMPLATE: selmsg_update_lnk}">今天發布的主題</a>
 showposts_update:		查看用戶 <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>發布的主題
 subscribed_update:		瀏覽自己預定的內容
-th_err_invid_title:		錯誤的主題id號
-th_err_invid_msg:		你輸入的連接錯誤,相關主題并不存在。
 thread_update:			瀏覽論壇<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 tree_update:			瀏覽（以樹狀方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 個人信息
@@ -755,7 +736,6 @@ pm_no_space_msg:		你的悄悄話文件夾已經超出了系統限制的空間范圍 <b>{GVAR: MAX_PMS
 pm_space_indct_msg:		你的悄悄話信箱已占用{VAR: percent_full}%空間。
 th_expr_never:			從不
 th_expr_one_hr:			1個小時
-th_expr_two_hr:			2個小時
 th_expr_three_hr:		3個小時
 th_expr_four_hr:		4個小時
 th_expr_eight_hr:		8個小時
@@ -818,10 +798,6 @@ p_VISIBLE:			可見的
 reported_in_thread:		展開瀏覽
 help_back_to_top:		回到頁首
 help_return_to_index:		返回幫助索引
-forumsel_unread:		*(未讀)
-groupmgr_no_groups:		沒有要編輯的組
-msg_err_nosuchmsg_msg:		這個主題中沒有這些內容
-msg_err_nosuchmsg_title:	出錯
 imsg_err_message_title:		貼子出錯
 imsg_err_message_msg:		您要查看的貼子不存在.
 poll_edit:			編輯
