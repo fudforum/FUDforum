@@ -31,7 +31,7 @@ administrator:			Administrator
 allowed_files:			Erlaubte Dateitypen:
 announcement:			Ank&uuml;ndigung
 apply_spell_changes:		Rechtschreibkorrektur anwenden
-approved_avatar_msg:		Dein Avatar wurde vom Administrator genehmigt. Er sollte nun bei sämtlichen von Dir erstellten Beitr&auml;gen erscheinen. Falls Du ihn nicht siehst, oder stattdessen den alten Avatar, liegt es daran, daß der Browser die Seite im Cache gespeichert hat. Versuche ein- zweimal zu aktualisieren, das sollte in den meisten Fällen das Problem beheben.
+approved_avatar_msg:		Dein Avatar wurde vom Administrator genehmigt. Er sollte nun bei s&auml;mtlichen von Dir erstellten Beitr&auml;gen erscheinen. Falls Du ihn nicht siehst, oder stattdessen den alten Avatar, liegt es daran, da&szlig; der Browser die Seite im Cache gespeichert hat. Versuche ein- zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
 approved_avatar_title:		Dein pers&ouml;nlicher Avatar wurde genehmigt.
 attachment:			Anhang:
 avatar:				Avatar:
@@ -46,7 +46,7 @@ buddy_list_err_nouser:		Der Benutzer, den Du Deiner Buddyliste hinzuf&uuml;gen w
 buddy_list_err_nouser_title:	Kann Benutzer nicht hinzuf&uuml;gen
 buddy_list_update:		Durchsucht die eigene Buddyliste
 buddy_remove:			Entfernen
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			Trage den Login des Benutzers ein, den Du hinzuf&uuml;gen m&ouml;chtest
 buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator
@@ -117,7 +117,7 @@ email_to_friend_desc:		Verschicke die URL dieser Seite an Deine Freunde per Emai
 email_user:			Hier klicken, um eine Email an den Benutzer zu verschicken
 emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte &uuml;berpr&uuml;fe in Deiner Email, ob Du die URL auch richtig aufgerufen hast
 emailconf_err_invkey_title:	Fehler
-err_blockedaccnt_msg:		Dein Konto ist für das Erstellen von Beitr&auml;gen gesperrt worden
+err_blockedaccnt_msg:		Dein Konto ist f&uuml;r das Erstellen von Beitr&auml;gen gesperrt worden
 err_blockedaccnt_title:		FEHLER: Dir ist es nicht gestattet, Beitr&auml;ge zu erstellen
 err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche es Dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls Du Dein COPPA Formular verloren hast, klicke <a href="{TEMPLATE: err_coppa_msg_lnk}">hier</a> um es zu erhalten
 err_coppa_title:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
@@ -153,8 +153,8 @@ forum_icon:			Forums-Icon
 forum_new_messages:		Neue Beitr&auml;ge
 forum_none_messages:		Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
 forum_old_messages:		Keine neuen Beitr&auml;ge
-forum_rules:			Die Registrierung für dieses Forum ist kostenlos. Jedoch bestehen wir darauf, daß Du Dich an nachfolgende Vereinbarung h&auml;ltst. Wenn Du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfläche. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;rst Du, da&szlig; Du &uuml;ber 13 Jahre bist. Falls Du 13 oder darunter bist, verwende bitte <a class="GenLink" href="{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anstößigen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle übermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter für jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen" Schaltfl&auml;che sicherst Du uns verbindlich zu, da&szlig; Deine Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
-forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, daß die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn Du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls Du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine Email an <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, da&szlig; Du Dich an nachfolgende Vereinbarung h&auml;ltst. Wenn Du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;rst Du, da&szlig; Du &uuml;ber 13 Jahre bist. Falls Du 13 oder darunter bist, verwende bitte <a class="GenLink" href="{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen" Schaltfl&auml;che sicherst Du uns verbindlich zu, da&szlig; Deine Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
+forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, da&szlig; die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn Du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls Du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine Email an <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
 forum_terms:			Forumsregeln
 forumsel_goto_forum:		Gehe zum Forum:
 from:				Von:
@@ -394,7 +394,7 @@ pmuserloc_user:			Benutzer
 poll:				Abstimmung:
 poll_add_option:		Men&uuml;punkt hinzuf&uuml;gen:
 poll_addoption:			Men&uuml;punkt hinzuf&uuml;gen
-poll_blank_option:		Leere Menüpunkte können nicht hinzugefügt werden.
+poll_blank_option:		Leere Men&uuml;punkte k&ouml;nnen nicht hinzugef&uuml;gt werden.
 poll_create:			Erstellen
 poll_create_poll:		Abstimmung erstellen
 poll_day:			Tag
@@ -555,7 +555,7 @@ register_bday_desc:		Falls Du Deinen Geburtstag angibst, wird dieser allen Besuc
 register_bio:			Werdegang:
 register_bio_desc:		Ein paar Details &uuml;ber Dich, wie zum Beispiel Deine Interessen, Beruf usw...
 register_builtin:		Eingebaut
-register_change_passwd:		passwort &auml;ndern
+register_change_passwd:		Passwort &auml;ndern
 register_conf_msg:		Vielen Dank für Deine Registrierung,\nUm Dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald Dein Konto aktiviert ist, wirst Du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
 register_conf_subject:		Registrierungsbestätigung
@@ -616,7 +616,7 @@ register_required_desc:		Alle Felder sind erforderlich. Bitte beachte die Gro&sz
 register_reset:			Zur&uuml;cksetzen
 register_sel_avatar:		Avatar ausw&auml;hlen
 register_show_avatar:		Avatare anzeigen:
-register_show_avatar_desc:	Erm&ouml;glicht Dir, die Avatare der anderen zu verstecken während Du deren Beitr&auml;ge liest
+register_show_avatar_desc:	Erm&ouml;glicht Dir, die Avatare der anderen zu verstecken w&auml;hrend Du deren Beitr&auml;ge liest
 register_show_email:		Email Adresse anzeigen:
 register_show_email_desc:	W&auml;hle diese Option aus, wenn Du Deine Emailadresse &ouml;ffentlich anzeigen m&ouml;chtest.
 register_show_sig:		Signatur anzeigen:
@@ -632,7 +632,7 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen &amp; das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
+register_welcome_msg:		Vielen Dank für Deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
@@ -657,7 +657,7 @@ remail_subject:			Betreff:
 remail_your_email:		Deine Email:
 remail_your_name:		Dein Name:
 replies:			Antworten
-report_already_reported_msg:	Der Beitrag ist bereits gemeldet und wird demnächst vom Moderatorenteam begutachtet.
+report_already_reported_msg:	Der Beitrag ist bereits gemeldet und wird demn&auml;chst vom Moderatorenteam begutachtet.
 report_already_reported_title:	Bereits gemeldet	
 report_by:			von:
 report_empty_report:		Du kannst keine leere Meldung abschicken, gib bitte einen Grund an.
@@ -693,7 +693,7 @@ reset_remind_pass:		Passwort Hinweis
 reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, daß sobald Du Dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
 reset_reset_button:		Passwort zur&uuml;cksetzen
 reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an Dich verschickt, oder falls Du Deine Email noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an Dich versendet.
-reset_title:			Passwort zurücksetzen
+reset_title:			Passwort zur&uuml;cksetzen
 restore_to:			Wiederherstellen in:
 reveal_all_posts:		Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 reveal_post:			Beitrag anzeigen
@@ -736,7 +736,7 @@ show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
 showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Du bist gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
 spell_check_msg:		Rechtschreibung des Beitrages &uuml;berpr&uuml;fen
@@ -762,9 +762,9 @@ submit_reply:			Antwort abschicken
 subscribe:			Abonnieren
 subscribe_desc:			Benachrichtigungen &uuml;ber neue Themen in diesem Forum empfangen
 subscribed_forums:		Abonnierte Foren
-subscribed_forums_desc:		Den Filter für abonnierte Foren erzwingen (zeigt nur von Dir abonnierte Foren an)
+subscribed_forums_desc:		Den Filter f&uuml;r abonnierte Foren erzwingen (zeigt nur von Dir abonnierte Foren an)
 subscribed_threads:		Abonnierte Themen
-subscribed_threads_desc:	Den Filter für abonnierte Themen erzwingen (zeigt nur von Dir abonnierte Themen an)
+subscribed_threads_desc:	Den Filter f&uuml;r abonnierte Themen erzwingen (zeigt nur von Dir abonnierte Themen an)
 subscribed_update:		Durchsucht die eigenen Abonnements
 switch_to_thread_view:		Zur Baumansicht dieses Themas wechseln
 tabs_buddy_list:		Buddyliste
@@ -800,7 +800,7 @@ thr_exch_orig_forum:		Urspr&uuml;ngliches Forum:
 thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			Du bist gerade dabei, das <font color="#ff0000" size="4">KOMPLETTE THEMA</font>: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
 thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">anmelden</a>.
 thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
@@ -819,7 +819,7 @@ tree_update:			Durchsucht das Thema (Baumansicht) <a class="GenLink" href="{ROOT
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge
 unanswered_posts_desc:		Alle Beitr&auml;ge anzeigen, die keine Antworten haben
-unapproved_avatar_msg:		Der Administrator hat Deinen Avatar nicht genehmigt. Die h&auml;figste Ursache dafür ist das dieser zu gro&szlig; (Dateigr&ouml;&szlig;e und/oder Ausma&szlig;e)war oder einen unangemessenen Inhalt darstellte. Falls Du mehr Informationen über die Gr&uuml;nde der Ablehnung wssen m&ouml;chtest, nehme Kontakt zum Administrator auf.
+unapproved_avatar_msg:		Der Administrator hat Deinen Avatar nicht genehmigt. Die h&auml;figste Ursache daf&uuml;r ist das dieser zu gro&szlig; (Dateigr&ouml;&szlig;e und/oder Ausma&szlig;e)war oder einen unangemessenen Inhalt darstellte. Falls Du mehr Informationen &uuml;ber die Gr&uuml;nde der Ablehnung wssen m&ouml;chtest, nehme Kontakt zum Administrator auf.
 unapproved_avatar_title:	Dein Benutzeravatar wurde abgelehnt.
 unlock_thread:			Sperre des Themas aufheben
 unread_msg:			Dieses Thema enth&auml;lt noch ungelesene Beitr&auml;ge
@@ -827,7 +827,7 @@ unread_msg_locked:		Gesperrt mit ungelesenen Beitr&auml;gen
 unread_posts:			Ungelesene Beitr&auml;ge
 unread_posts_desc:		Alle ungelesenen Beitr&auml;ge anzeigen
 unsub_from_thread:		Das Abonnement f&uuml;r dieses Thema beenden
-unsub_from_thread_desc:		Den Empfang von Benachrichtigungen über neue Themen in diesem Forum beenden
+unsub_from_thread_desc:		Den Empfang von Benachrichtigungen &uuml;ber neue Themen in diesem Forum beenden
 unsubscribe:			Abonnement beenden
 unsubscribe_desc:		Den Empfang von Benachrichtigungen &uuml;ber neue Themen im Forum beenden
 updated_on:			Aktualisiert am:
@@ -900,7 +900,7 @@ unread_message:			Ungelesene Nachricht
 read_message:			Gelesene Nachricht
 threadt_more:			&lt;mehr&gt;
 threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
-threadt_disabled_desc:		Der Administrator hat die Baumansicht für Themen deaktiviert, benutze daher bitte die flache Ansicht.
+threadt_disabled_desc:		Der Administrator hat die Baumansicht f&uuml;r Themen deaktiviert, benutze daher bitte die flache Ansicht.
 threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
 register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige 
@@ -918,7 +918,7 @@ accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
 register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {VAR: reg_limit_reached} Sekunden und versuche danach noch einmal Dich zu registrieren.
 login_blocked_account_ttl:	Dein Konto wurde gesperrt.	
-login_blocked_account_msg:	Dein Konto ist in diesem Forum gesperrt worden, falls Du nicht schon den Grund dafür kennst, nehme zum /zu den Administrator(en) des Forums Kontakt auf.
+login_blocked_account_msg:	Dein Konto ist in diesem Forum gesperrt worden, falls Du nicht schon den Grund daf&uuml;r kennst, nehme zum /zu den Administrator(en) des Forums Kontakt auf.
 register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls Du einen <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> Benutzernamen hast, trage ihn hier ein.</font>
 im_affero:			Affero Benutzername
 register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
@@ -946,7 +946,7 @@ thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennz
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
 register_email_change_subject:	Bestätigung der geänderten Email Adresse
-register_email_change_msg:	Bitte bestätige Deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem Du die untere URL aufrufst:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du die neue Adresse bestätigt hast, wird Dein Konto wieder aktiviert werden.
+register_email_change_msg:	Bitte bestätige Deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem Du die untere URL aufrufst:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du die neue Adresse best&auml;tigt hast, wird Dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
@@ -959,7 +959,7 @@ post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->
 thread_printable_pdf:		Druckbares PDF erzeugen
 thread_syndicate:		Themen als Newsticker anderen Seiten zur Verf&uuml;gung stellen (Syndicate) (XML)
 reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Best&auml;tigung</b><br />An Dich wurde eine E-mail mit einer speziellen URL versendet, welche von Dir aufgesucht werden muß, bevor Dein Konto aktiviert werden kann. Falls Du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest Du Dich mit deinem Konto anmelden und sicherstellen, da&szlig; die angegebene E-mail Adresse korrekt ist. Sobald Du Dein Konto best&auml;tigt hast wirst Du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
+reg_conf_email:			<b>E-mail Best&auml;tigung</b><br />An Dich wurde eine E-mail mit einer speziellen URL versendet, welche von Dir aufgesucht werden mu&szlig;, bevor Dein Konto aktiviert werden kann. Falls Du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest Du Dich mit deinem Konto anmelden und sicherstellen, da&szlig; die angegebene E-mail Adresse korrekt ist. Sobald Du Dein Konto best&auml;tigt hast wirst Du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
 reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert wird mu&szlig; es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst Du eine E-mail erhalten, die Dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst Du Dich zwar mit Deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, da&szlig; Du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
 mnav_description:		Message Navigator
@@ -970,7 +970,7 @@ mnav_all_forums:		Durchsuche alle Foren
 mnav_submit:			Fange mit der Suche an
 mnav_no_range:			Du mu&szlig;t einen g&uuml;ltigen Datumsbereich angeben. Dieser Wert kann auch eine Flie&szlig;kommazahl sein (0.12) jedoch mu&szlig; er gr&ouml;&szlig;er als 0 sein.
 mnav_invalid_unit:		Du mu&szlig;t eine g&uuml;ltige Zeiteinheit angeben.
-mnav_invalid_date:		Der Datumsbereich, den Du angegeben hast ist gr&ouml;ßer als der vom Administrator gestattete, schr&auml;nke daher Deine Suche ein wenig ein.
+mnav_invalid_date:		Der Datumsbereich, den Du angegeben hast ist gr&ouml;&szlig;er als der vom Administrator gestattete, schr&auml;nke daher Deine Suche ein wenig ein.
 mnav_no_results:		Es gibt keine Beitr&auml;ge, die den Suchkriterien entsprechen.
 mnav_posted_by:			Erstellt von:
 mnav_more:			Mehr &raquo;&raquo;
@@ -999,7 +999,7 @@ merge_merge:			Ausgew&auml;hlte Themen zusammenf&uuml;hren
 merge_next:			N&auml;chste Themen
 merge_prev:			Vorherige Themen
 split_cp:			Bedienfeld zum Teilen von Themen
-groups_perms_header:		Rechte <font size="-1">(Bewege den Mauszeiger über die Rechte um deren Typ zu erkennen)</font>
+groups_perms_header:		Rechte <font size="-1">(Bewege den Mauszeiger &uuml;ber die Rechte um deren Typ zu erkennen)</font>
 register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} characters Zeichen.
 register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen

@@ -152,54 +152,53 @@ mehrfache Leerzeichen gewahrt bleiben. <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <p>
 <b>PHP Code</b><br>
-The <font color="#ff0000"><b>[php][/php]</b></font> tag allows you to post PHP scripts
-and have the forum automatically syntax highlight the code for easier readability.<br>
-<br>it used like this: <br>
+Der <font color="#ff0000"><b>[php][/php]</b></font> Tag ermöglicht es Dir, PHP Skripte zu posten
+und dabei vom Forum wegen der besseren Lesbarkeit die Syntax hervorheben zu lassen.<br>
+<br>Die Verwendung ist wie folgt: <br>
 <font color="#ff0000"><b>[code]</b></font>
 <pre>
-function hello()
+function hallo()
 {
-	echo "Hello World!";
+	echo "Hallo Welt!";
 }
 
-hello();
+hallo();
 </pre>
 <font color="#ff0000"><b>[/code]</b></font><br>
-<br>which produces:<br><br>
+<br>was ergibt:<br><br>
 <code><font color="#000000">
-<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hallo</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hallo Welt!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hallo</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 
-</font>
 </code>
 <p>
 
 <b>No Tag</b><br>
-The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
-and not have them converted to equivalent HTML.
+Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es Dir, den Text innerhalb
+der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht Dir, Beispiele f&uuml;r
+FUD Code zu nennen, ohne sie in die jeweiligen HTML Entsprechungen umwandeln zu lassen.
 <p>
 
 <b>Spoiler</b><br>
-The <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> tag allows you to hide a portion of message
-from being displayed. To see the hidden portion the users must click a link that will display the 
-hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually 
-reloaded, instead a hidden layer is made visible.<br>
+Der <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> Tag erm&ouml;glicht es Dir, einen Teil des Beitrages
+nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, 
+der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javaskript bewerkstelligt, womit die Seite nicht
+wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br>
 <br>
-Here is an example of this tag in action: <br>
+Hier ein Beispiel f&uuml;r diesen Tag in Aktion: <br>
 
-Visible part of the message
+Sichtbarer Teil des Beitrages
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br>Hidden part of the message</br>
+<br>Versteckter Teil des Beitrages</br>
 <font color="#ff0000"><b>[/spoiler]</b></font><br>
-More visible text.
+Mehr sichtbarer Text.
 
-<p>and the result:<p>
+<p>und das Ergebnis:<p>
 
-Visible part of the message<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
-Hidden part of the message<br />
+Sichtbarer Teil des Beitrages<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Spoiler anzeigen</a><div align="left" id="1482055279834293165" style="visibility: hidden;"><br />
+Versteckter Teil des Beitrages<br />
 </div></div><br />
-More visible text.
+Mehr sichtbarer Text.
 
 <p>
 
