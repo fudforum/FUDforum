@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.24 2003/04/08 17:27:50 hackie Exp $
+*   $Id: msg.php.t,v 1.25 2003/04/09 09:03:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,16 +54,12 @@
 		invl_inp_err();
 	}
 
-	if (_uid) {
-		$perm_q = "g.user_id IN("._uid.", 2147483647) AND resource_type='forum' AND resource_id=f.id";
-	} else {
-		$perm_q = "g.user_id=0 AND resource_type='forum' AND resource_id=f.id";
-	}
-
 	/* we create a BIG object frm, which contains data about forum, 
 	 * category, current thread, subscriptions, permissions, moderation status, 
 	 * rating possibilites and if we will need to update last_view field for registered user
 	 */
+	make_perms_query($fields, $join);
+
 	$frm = db_sab('SELECT 
 			c.name AS cat_name,
 			f.name AS frm_name,
@@ -71,22 +67,24 @@
 			t.id, t.forum_id, t.replies, t.rating, t.root_msg_id, t.moved_to, t.locked,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS mod,
-			g.p_VISIBLE as p_visible, g.p_READ as p_read, g.p_post as p_post, g.p_REPLY as p_reply, g.p_EDIT as p_edit, g.p_DEL as p_del, g.p_STICKY as p_sticky, g.p_POLL as p_poll, g.p_FILE as p_file, g.p_VOTE as p_vote, g.p_RATE as p_rate, g.p_SPLIT as p_split, g.p_LOCK as p_lock, g.p_MOVE as p_move, g.p_SML as p_sml, g.p_IMG as p_img,
 			tr.thread_id AS cant_rate,
 			r.last_view,
 			r.msg_id,
-			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
+			tv.pos AS th_pos, tv.page AS th_page,
+			m2.thread_id AS last_thread,
+			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}thread t
-			INNER JOIN {SQL_TABLE_PREFIX}msg	m ON m.id=t.root_msg_id
-			INNER JOIN {SQL_TABLE_PREFIX}forum	f ON f.id=t.forum_id
-			INNER JOIN {SQL_TABLE_PREFIX}cat	c ON f.cat_id=c.id
-			LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.user_id='._uid.' AND tn.thread_id='.$_GET['th'].'
-			LEFT  JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
-			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='._uid.'
-			LEFT  JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-			INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON '.$perm_q.'
-		WHERE t.id='.$_GET['th']. ' ORDER BY g.user_id ASC LIMIT 1');
+			INNER JOIN {SQL_TABLE_PREFIX}msg		m ON m.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum		f ON f.id=t.forum_id
+			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
+			INNER JOIN {SQL_TABLE_PREFIX}thread_view	tv ON tv.forum_id=t.forum_id AND tv.thread_id=t.id
+			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$_GET['th'].'
+			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
+			'.$join.'
+		WHERE t.id='.$_GET['th']);
 
 	if (!$frm) { /* bad thread, terminate request */
 		invl_inp_err();
@@ -107,6 +105,8 @@
 			exit;
 		}	
 	}	
+
+	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
 	
 	$_GET['start'] = isset($_GET['start']) ? (int)$_GET['start'] : 0;
 
@@ -126,10 +126,12 @@
 
 		if (($total - $_GET['th']) > $count) {
 			$first_unread_message_link = '{TEMPLATE: first_unread_message_link}';
+		} else {
+			$first_unread_message_link = '';
 		}
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
-		$subscribe_status = '';
+		$first_unread_message_link = $subscribe_status = '';
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: msg_update}', $frm->forum_id);
@@ -172,13 +174,15 @@
 		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
-		l.name AS level_name, l.pri AS level_pri, l.img AS level_img
+		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
 	FROM 
 		{SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	WHERE 
 		m.thread_id='.$_GET['th'].' AND m.approved=\'Y\'
 	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
@@ -198,17 +202,9 @@
 		user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
 	}
 
-	$page_pager = tmpl_create_pager($_GET['th'], $count, $total, '{ROOT}?t=msg&amp;th='.$_GET['th'].'&amp;prevloaded=1&amp;'._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
+	$page_pager = tmpl_create_pager($_GET['th'], $count, $total, '{ROOT}?t=msg&amp;th='.$_GET['th'].'&amp;prevloaded=1&amp;'._rsid.'&amp;rev='.$_GET['rev'].'&amp;reveal='.$_GET['reveal']);
 
-	$prev_thread_link = $next_thread_link = '';
-	get_prev_next_th_id($frm->forum_id, $frm->id, $prev_thread_link, $next_thread_link);
-		
-	if ($prev_thread_link) {
-		$prev_thread_link = '{TEMPLATE: prev_thread_link}';
-	}
-	if ($next_thread_link) {
-		$next_thread_link = '{TEMPLATE: next_thread_link}';
-	}
+	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 		
 /*{POST_PAGE_PHP_CODE}*/
 ?>

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.18 2003/04/08 14:14:38 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.19 2003/04/09 09:03:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: rev}&amp;reveal={VAR: reveal}&amp;count={VAR: count}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
@@ -37,7 +37,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: rev}&amp;reveal={VAR: reveal}&amp;count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
@@ -188,11 +188,11 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan=2><input type="radio" name="opt" value="{VAR: opt->id}">&nbsp;&nbsp;{VAR: opt->name}</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td colspan=2><input type="radio" name="opt" value="{VAR: k}">&nbsp;&nbsp;{VAR: v[0]}</td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_poll_result}
-<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td>{VAR: opt->name}</td><td><img src="{THEME_IMAGE_ROOT}/poll_pix.gif" alt="" height="10" width="{VAR: length}" /> {VAR: opt->count} / {VAR: length}%</td></tr>
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td>{VAR: v[0]}</td><td><img src="{THEME_IMAGE_ROOT}/poll_pix.gif" alt="" height="10" width="{VAR: length}" /> {VAR: v[1]} / {VAR: length}%</td></tr>
 {SECTION: END}
 
 {SECTION: dmsg_poll_buttons}
@@ -209,7 +209,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: mini_dmsg_poll}
 <p><table border=0 cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th nowrap colspan=3>{VAR: poll_obj->name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 </table><p>
 {SECTION: END}
@@ -218,10 +218,10 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 <p>
 <form action="{GVAR: __POLL_ACTION_URL}" method="post" style="padding: 0px; margin: 0px;">
 <table border=0 cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th nowrap colspan=3>{VAR: poll_obj->name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
-</table>{DEF: _hs}<input type="hidden" name="pl_view" value="{VAR: poll_obj->id}">{DEF: _hs}<input type="hidden" name="pl_msg" value="{VAR: obj->id}"></form><p>
+</table>{DEF: _hs}<input type="hidden" name="pl_view" value="{VAR: obj->poll_id}">{DEF: _hs}<input type="hidden" name="pl_msg" value="{VAR: obj->id}"></form><p>
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachments the file attachments list}
@@ -251,7 +251,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_report_to_mod_link}
-<div align="right"><font class="SmallText">[<a class="SmallText" href="{ROOT}?t=report&amp;msg_id={VAR: obj->id}">{MSG: report_to_mod}</a>]</font></div>
+<div align="right"><font class="SmallText">[<a class="SmallText" href="{ROOT}?t=report&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: report_to_mod}</a>]</font></div>
 {SECTION: END}
 
 {SECTION: dmsg_user_profile}
@@ -259,15 +259,15 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_email_link}
-<a class="GenLink" href="{ROOT}?t=email&amp;tx_name={VAR: encoded_login}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=email&amp;tx_name={VAR: encoded_login}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;msg_to_list={VAR: encoded_login}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=ppost&amp;msg_to_list={VAR: encoded_login}&amp;{DEF: _rsid}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: page_num}&amp;rev={VAR: rev}&amp;reveal={VAR: reveal}&amp;count={VAR: count}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}&amp;count={VAR: count}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
@@ -275,19 +275,19 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_delete_link}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;th={VAR: obj->thread_id}&amp;det_page={VAR: GLOBALS['__DRAW_MSG_SCRIPT_NAME']}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 /></a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;th={VAR: obj->thread_id}&amp;det_page={VAR: GLOBALS['__DRAW_MSG_SCRIPT_NAME']}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 /></a>&nbsp;
 {SECTION: END} 
 
 {SECTION: dmsg_edit_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={GVAR: start}&amp;msg_id={VAR: obj->id}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={GVAR: start}&amp;reply_to={VAR: obj->id}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;reply_to={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_quote_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={GVAR: start}&amp;reply_to={VAR: obj->id}&amp;quote=true"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;reply_to={VAR: obj->id}&amp;quote=true&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote.. type buttons}
@@ -308,7 +308,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
 <br />
-<div align="center">[<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;reveal={VAR: reveal}&amp;rev={VAR: rev}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
+<div align="center">[<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}

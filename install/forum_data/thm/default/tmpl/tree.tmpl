@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.17 2002/10/28 22:32:03 hackie Exp $
+*   $Id: tree.tmpl,v 1.18 2003/04/09 09:03:25 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -87,14 +87,6 @@
 
 {SECTION: post_reply}
 &nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: th}&amp;reply_to={VAR: thread->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: start}&amp;{VAR: returnto}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0 /></a>
-{SECTION: END}
-
-{SECTION: next_thread_link}
-<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=tree&amp;goto={VAR: next_th->id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
-{SECTION: END}
-
-{SECTION: prev_thread_link}
-<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=tree&amp;goto={VAR: prev_th->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
