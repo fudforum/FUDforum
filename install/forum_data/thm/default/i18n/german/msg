@@ -900,5 +900,5 @@ buddy_list_bday:		Heute wird {VAR: obj->login} {VAR: age}
 email_warning_msg:		Wenn Du Deine gegenw&auml;rtige Email Adresse &auml;nderst, wird Dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
 register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.
-unread_message:			Unread Message
-read_message:			Read Message
+unread_message:			Ungelesene Nachricht
+read_message:			Gelesene Nachricht
