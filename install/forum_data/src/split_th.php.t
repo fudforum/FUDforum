@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.42 2005/03/18 01:58:51 hackie Exp $
+* $Id: split_th.php.t,v 1.43 2005/03/20 15:31:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -68,9 +68,9 @@
 			/* sanity check */
 			if (!$a) {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: {FULL_ROOT}{ROOT}/t/'.$th_id.'/'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 				} else {
-					header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+					header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 				}
 				exit;
 			}
@@ -90,17 +90,16 @@
 				FROM {SQL_TABLE_PREFIX}thread t
 				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$forum.'
-				INNER JOIN {SQL_TABLE_PREFIX}msg m1 ON m1.id='.$end.'
-				INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=f2.last_post_id
-
+				LEFT JOIN {SQL_TABLE_PREFIX}msg m1 ON m1.id='.$end.'
+				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=f2.last_post_id
 		WHERE t.id='.$th);
 
 		/* sanity check */
 		if (!$data->replies) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/t/'.$th_id.'/'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}/t/'.$th.'/'._rsidl);
 			} else {
-				header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+				header('Location: {FULL_ROOT}{ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			}
 			exit;
 		}
