@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.tmpl,v 1.7 2003/10/10 14:39:24 hackie Exp $
+* $Id: report.tmpl,v 1.8 2003/10/28 15:27:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,7 +24,7 @@
 <form method="post" action="{TEMPLATE: REPORT_PAGE_lnk3}">
 <div align="center"><table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th>{MSG: report_report_post}</th></tr>
-<tr class="RowStyleB"><td><font class="GenText"><b>{MSG: report_reporting_about}</b></font><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td class="GenText" style="padding: 5px; padding-left: 20px;"><b>{MSG: report_subject}</b> {VAR: msg->subject} <br /><b>{MSG: report_by}</b> {VAR: user_login} <br /><b>{MSG: report_posted_on}</b> <font class="DateText">{DATE: msg->post_stamp %a, %d %B %Y %H:%M}</font></td></tr></table></td></tr>
+<tr class="RowStyleB"><td><font class="GenText"><b>{MSG: report_reporting_about}</b></font><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td class="repI"><b>{MSG: report_subject}</b> {VAR: msg->subject} <br /><b>{MSG: report_by}</b> {VAR: user_login} <br /><b>{MSG: report_posted_on}</b> <font class="DateText">{DATE: msg->post_stamp %a, %d %B %Y %H:%M}</font></td></tr></table></td></tr>
 <tr class="RowStyleB"><td><font class="GenText">{MSG: report_give_reason}</font><br />{TEMPLATE-DATA: reason_error}<textarea name="reason" cols=80 rows=25></textarea></td></tr>
 <tr class="RowStyleB"><td align=right><input type="submit" class="button" name="btn_report" value="{MSG: report_submit_report}"></td></tr>
 </table></div>

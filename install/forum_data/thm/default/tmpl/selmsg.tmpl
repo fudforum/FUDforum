@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.21 2003/10/27 13:24:17 hackie Exp $
+* $Id: selmsg.tmpl,v 1.22 2003/10/28 15:27:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,11 +24,11 @@
 {REF: is_perms.tmpl}
 
 {SECTION: status_indicator_on indicates that the particular filter option is enabled}
-<font style="font-size: xx-small; font-weight: bold; text-decoration: none;">(<font color="red">{MSG: on}</font>)</font>
+<font class="selmsgInd">(<font class="GenTextRed">{MSG: on}</font>)</font>
 {SECTION: END}
 
 {SECTION: status_indicator_off indicates that the particular filter option is disabled}
-<font style="font-size: xx-small; font-weight: bold; text-decoration: none;">({MSG: off})</font>
+<font class="selmsgInd">({MSG: off})</font>
 {SECTION: END}
 
 {SECTION: todays_posts todays posts link}
@@ -56,7 +56,7 @@
 {SECTION: END}
 
 {SECTION: forum_row forum heading row}
-<tr><th class="SelFS">{MSG: forum} <a class="thLnk" href="{TEMPLATE: forum_row_lnk}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
+<tr><th class="SelFS">{MSG: forum} <a class="thLnk" href="{TEMPLATE: forum_row_lnk}"><font class="lg">{VAR-HTML: r->name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.23 2003/10/28 03:13:26 hackie Exp $
+* $Id: forum.css.tmpl,v 1.24 2003/10/28 15:27:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,15 +20,15 @@ body {
 }
 
 text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText, .GenLink, 
-	.GenTextRed, .ErrorText, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
-	a.thLnk:active, a.thLnk:visited, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.pmH, td.miniMH,
+	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
+	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.pmH, td.miniMH,
 	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
 	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, div.LegendH, td.tabH, div.tabT,
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, td.tabI, td.tabA:hover,
 	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags, td.mvTc, td.pmNav,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .manvNoRes, font.lg, td.tt, table.tt, tr.tab, table.tab,
 	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited, td.rpasswdE, .curtime,
-	font.anon, font.reg, td.permYES, td.permNO
+	font.anon, font.reg, td.permYES, td.permNO, td.repI, div.UserControlPanel, font.selmsgInd
 {
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: 11px;
@@ -64,12 +64,17 @@ a.UserControlPanel {
 	text-decoration: none;
 }
 
+div.UserControlPanel {
+	margin-bottom: 5px;
+	text-align: right;
+}
+
 .CatLockedName {
 	font-size: 12px;
 	font-weight: bold;
 }
 
-.GenText, .GenLink, .MsgIg {
+.GenText, .GenLink, .MsgIg, td.repI {
 	color: #000000;
 }
 
@@ -138,7 +143,7 @@ a.thLnk:visited {
 	margin : 0px;
 }
 
-.ContentTable, .AnnonTable, .MsgTable {
+.ContentTable, .AnnonTable, .MsgTable, table.pad {
 	width : 100%;
 }
 
@@ -490,6 +495,28 @@ td.permYES, td.permNO {
 
 td.permNO {
 	color: blue;
+}
+
+font.regEW {
+	font-size: xx-small;
+	color: #005500;
+	font-weight: bold;
+}
+
+td.repI {
+	padding: 5px;
+	padding-left: 20px;
+}
+
+table.pad {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+font.selmsgInd {
+	font-size: xx-small;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 {PAGE: END}
