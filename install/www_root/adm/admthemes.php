@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.24 2003/05/05 12:54:30 hackie Exp $
+*   $Id: admthemes.php,v 1.25 2003/05/05 12:55:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,6 @@ function clean_code($path, $toks)
 
 	$saved = ($old_size - strlen($r));
 
-	echo basename($path) . " saved: " . $saved . " bytes<br>\n";
 	return $saved;
 }
 	$is_tok = extension_loaded('tokenizer');
