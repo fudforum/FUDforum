@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.10 2002/07/24 13:31:13 hackie Exp $
+*   $Id: admlock.php,v 1.11 2002/07/24 14:17:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,11 +39,12 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 	while ( $de = readdir($dp) ) 
 	{
 		if ( !$de ) break;
-		if ( is_dir($de) ) {
+		if ( @is_dir($de) ) {
 			if ( !@chmod($de, $dirp) ) echo "ERROR: ".getcwd()."/$de -> d (".sprintf("%o", $dirp).")<br>";
 			if ( $rec==TRUE ) chmoddir($de, $dirp, $filep, $rec);
 		}
 		else {
+			if( $de == 'maillist.php' ) continue;
 			if ( !@chmod($de, $filep) ) echo "ERROR: ".getcwd()."/$de -> f (".sprintf("%o", $dirp).")<br>";
 		}
 	}
