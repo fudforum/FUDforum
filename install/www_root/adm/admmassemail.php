@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmassemail.php,v 1.33 2005/02/20 18:41:03 hackie Exp $
+* $Id: admmassemail.php,v 1.34 2005/02/23 20:33:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -111,7 +111,7 @@
 <?php
 	echo '<tr class="field"><td valign=top>Send E-mails To</td><td><select name="group">';
 	echo '<option value="0">All Forum Members</option>';
-	echo '<option value="'.$all_mod.'">All Forum Moderators</option>';
+	echo '<option value="'.$all_mods.'">All Forum Moderators</option>';
 	echo '<option value="'.$all_grp_lead.'">All Group Leaders</option>';
 	if ($groups) {	
 		foreach ($groups as $k => $v) {
