@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.9 2003/04/08 09:49:18 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.10 2003/04/15 19:17:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,8 +30,9 @@ function is_post_error()
 
 function get_err($err, $br=0)
 {
-	if( isset($err) && isset($GLOBALS['__err_msg__'][$err]) )
-		return ($br?'{TEMPLATE: post_error_breakback}':'{TEMPLATE: post_error_breakfront}');
+	if(isset($err) && isset($GLOBALS['__err_msg__'][$err])) {
+		return ($br ? '{TEMPLATE: post_error_breakback}' : '{TEMPLATE: post_error_breakfront}');
+	}
 }
 		
 function post_check_images()
@@ -108,15 +109,13 @@ function check_ppost_form()
 
 function check_femail_form()
 {
-	if( empty($GLOBALS["HTTP_POST_VARS"]["femail"]) || validate_email($GLOBALS["HTTP_POST_VARS"]["femail"]) ) {
+	if (empty($_POST['femail']) || validate_email($_POST['femail'])) {
 		set_err('femail', '{TEMPLATE: postcheck_invalid_email}');
 	}
-	
-	if( empty($GLOBALS["HTTP_POST_VARS"]["subj"]) ) {
+	if (empty($_POST['subj'])) {
 		set_err('subj', '{TEMPLATE: postcheck_email_subject}');
 	}
-	
-	if( empty($GLOBALS["HTTP_POST_VARS"]["body"]) ) {
+	if (empty($_POST['body'])) {
 		set_err('body', '{TEMPLATE: postcheck_email_body}');
 	}
 

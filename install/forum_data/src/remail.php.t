@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.7 2003/03/24 12:24:57 hackie Exp $
+*   $Id: remail.php.t,v 1.8 2003/04/15 19:17:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,58 +15,65 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
-	if( !empty($done) ) check_return();
-	
-	if( empty($th) || !is_numeric($th) ) invl_inp_err();
-	
-	if( isset($usr) ) is_allowed_user();
-	
-	$thread = new fud_thread;
-	$thread->get_by_id($th);
+	if (isset($_POST['done'])) {
+		check_return($usr->returnto);
+	}
 
-	if( !is_perms(_uid, $thread->forum_id, 'READ') ) {
+	is_allowed_user($usr);
+
+	if ((isset($_GET['th']) && ($th = (int)$_GET['th'])) || (isset($_POST['th']) && ($th = (int)$_POST['th']))) {
+		$data = db_sab('SELECT m.subject, t.id, mm.id AS mod, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read
+				FROM {SQL_TABLE_PREFIX}thread t 
+				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id 
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
+				WHERE t.id='.$th);
+				
+	}
+	if (empty($data)) {
+		invl_inp_err();
+	}
+	if ($usr->is_mod != 'A' && !$data->mod && $data->p_read != 'Y') {
 		std_error('access');
-		exit;	
 	}
 
-	if ($GLOBALS['TREE_THREADS_ENABLE'] == 'N' || !strncmp($GLOBALS['DEFAULT_THREAD_VIEW'], 'msg', 3)) {
-		$def_thread_view = 'msg';
-	} else {
-		$def_thread_view = 'tree';
-	}
+/*{POST_HTML_PHP}*/
 
-	if( empty($body) ) {
-		$u = isset($usr) ? $usr->alias : $GLOBALS["ANON_NICK"];
-		$rid = isset($usr) ? $usr->id : '';
-		$bd = '{TEMPLATE: email_message}';
-	}
-
-	{POST_HTML_PHP}
-	if( !empty($GLOBALS["HTTP_POST_VARS"]["posted"]) && isset($usr) && !check_femail_form() ) {
-		$to = empty($fname) ? $femail : $fname.' <'.$femail.'>';
+	if (isset($_POST['posted']) && _uid && !check_femail_form()) {
+		$to = empty($POST['fname']) ? $_POST['femail'] : $_POST['fname'].' <'.$_POST['femail'].'>';
 		$from = $usr->alias. '<'.$usr->email.'>';
-		send_email(stripslashes($from), stripslashes($to), stripslashes($subj), stripslashes($body));
-	
-		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}', '{ROOT}?t='.d_thread_view.'&amp;th='.$th.'&amp;'._rsid);
-		exit;
+		send_email($from, $to, $_POST['subj'], $_POST['body']);
+
+		error_dialog('{TEMPLATE: remail_emailsent}', '{TEMPLATE: remail_sent_conf}');
+	} else if (!isset($_POST['posted'])) {
+		if ($TREE_THREADS_ENABLE == 'N' || !strncmp($DEFAULT_THREAD_VIEW, 'msg', 3)) {
+			$def_thread_view = 'msg';
+		} else {
+			$def_thread_view = 'tree';
+		}
 	}
+
+	$remail_error = is_post_error() ? '{TEMPLATE: remail_error}' : '';
 	
-	if( is_post_error() ) $error_data = '{TEMPLATE: remail_error}';
+	$body = isset($_POST['body']) ? htmlspecialchars($_POST['body']) : '{TEMPLATE: email_message}';
 	
-	$body = empty($body)?$bd:stripslashes($body);
-	$body_error = get_err('body');
-	if( isset($usr) ) {
+	if (_uid) {
 		$femail_error = get_err('femail');
-		$subject = empty($subj) ? $thread->subject:stripslashes($subj);
 		$subject_error = get_err('subj');
+		$body_error = get_err('body');
+
+		$fname = isset($_POST['fname']) ? htmlspecialchars($_POST['fname']) : '';
+		$femail = isset($_POST['femail']) ? htmlspecialchars($_POST['femail']) : '';
+		$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : $data->subject;
+
 		$form_data = '{TEMPLATE: registed_user}';	
-	}
-	else {
+	} else {
 		$form_data = '{TEMPLATE: anon_user}';
 	}
-	$return_field = create_return();
-	{POST_PAGE_PHP_CODE}
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: REMAIL_PAGE}
