@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.15 2003/04/25 13:26:34 hackie Exp $
+*   $Id: tmpllist.php,v 1.16 2003/04/25 13:32:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,9 +41,9 @@ function fetch_section($data, $file, $section, $type)
 	if ($type == 'MAIN') {
 		if (($p = strpos($data, '{PAGE: '.$section)) === FALSE) {
 			$p = strpos($data, '{MAIN_SECTION: '.$section);
-			$end = '{PAGE: END}';
-		} else {
 			$end = '{MAIN_SECTION: END}';
+		} else {
+			$end = '{PAGE: END}';
 		}
 	} else {
 		$p = strpos($data, '{SECTION: '.$section);
@@ -56,7 +56,7 @@ function fetch_section($data, $file, $section, $type)
 		return FALSE;
 	}
 	$ti = explode(' ', substr($data, $p, ($te - $p)), 3);
-	
+
 	if (($ef = strpos($data, $end, $te)) === FALSE) {
 		return FALSE;
 	}
