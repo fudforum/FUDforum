@@ -867,3 +867,4 @@ msg_err_nosuchmsg_title:	Hata
 imsg_err_message_title:		Geçersiz Ýleti
 imsg_err_message_msg:		Görüntülemeye çalýþtýðýnýz ileti yok.
 poll_edit: 			Düzelt
+unspecified:			UNSPECIFIED

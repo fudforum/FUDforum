@@ -868,3 +868,4 @@ msg_err_nosuchmsg_title:	Error
 imsg_err_message_title:		Invalid Message
 imsg_err_message_msg:		The message you are trying to view does not exist.
 poll_edit: 			Edit
+unspecified:			UNSPECIFIED

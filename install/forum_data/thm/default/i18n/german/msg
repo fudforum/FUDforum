@@ -867,3 +867,4 @@ msg_err_nosuchmsg_title:	Fehler
 imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den Du versuchst anzusehen, existiert nicht.
 poll_edit: 			Bearbeiten
+unspecified:			UNSPECIFIED

@@ -867,3 +867,5 @@ msg_err_nosuchmsg_title:	出错
 imsg_err_message_title:		贴子出错
 imsg_err_message_msg:		您要查看的贴子不存在.
 poll_edit: 			编辑
+unspecified:			UNSPECIFIED
+

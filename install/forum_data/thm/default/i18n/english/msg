@@ -249,6 +249,7 @@ month_11:			November
 month_12:			December
 male:				Male
 female:				Female
+unspecified:			UNSPECIFIED
 register_tree_view:		Tree View
 register_flat_view:		Flat View
 use_forum_default:		Use forum default
