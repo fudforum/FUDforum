@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.51 2003/09/18 16:49:24 hackie Exp $
+*   $Id: consist.php,v 1.52 2003/09/24 20:17:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -247,6 +247,21 @@ forum will be disabled.<br><br>
 	}
 	qf($c);		
 	draw_stat('Done: Checking forum & topic relations');
+
+	draw_stat('Validating Forum Order');
+	$cat = 0;
+	$c = q('SELECT id, cat_id, view_order FROM '.$tbl.'forum WHERE cat_id>0 ORDER BY cat_id, view_order');
+	while ($f = db_rowarr($c)) {
+		if ($cat != $f[1]) {
+			$i = 0;
+			$cat = $f[1];
+		}
+		++$i;
+		if ($i != $f[2]) {
+			q('UPDATE '.$tbl.'forum SET view_order='.$i.' WHERE id='.$f[0]);
+		}
+	}
+	draw_stat('Done: Validating Forum Order');
 
 	draw_stat('Checking thread_exchange');
 	delete_zero($tbl.'thr_exchange', 'SELECT te.id FROM '.$tbl.'thr_exchange te LEFT JOIN '.$tbl.'thread t ON t.id=te.th LEFT JOIN '.$tbl.'forum f ON f.id=te.frm WHERE t.id IS NULL or f.id IS NULL');
