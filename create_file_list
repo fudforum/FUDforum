@@ -74,7 +74,7 @@ function zlib_check()
 	}
 	
 	if( !extension_loaded('zlib') ) {
-		w_err("zlib extension required to decompress the archive is not loaded.<br>\nAttempts to load the extension, failed.\nPlease recompile your PHP with zlib support or load the zlib extension");
+		w_err("zlib extension required to decompress the archive is not loaded.\nAttempts to load the extension, failed.\nPlease recompile your PHP with zlib support or load the zlib extension\nIn the event you cannot load the zlib extension generate a non zlib version of the forum archive, by NOT passing the 2nd argument to the ".__FILE__." script\n");
 	}
 }
 
@@ -85,13 +85,22 @@ function zlib_check()
 	else if ( !is_dir($HTTP_SERVER_VARS['argv'][1]) )
 		w_err("Supplied Argument [".$HTTP_SERVER_VARS['argv'][1]."] is not a valid directory");
 
-	zlib_check();
+	if( isset($HTTP_SERVER_VARS['argv'][2]) ) {
+		zlib_check();
+	}	
 
 	$dir = $HTTP_SERVER_VARS['argv'][1];
 	$__archive='';
 	create_file_archive($dir, '');
 	
-	echo str_replace('<?', 'PHP_OPEN_TAG', gzcompress($__archive, 9));
+	$check_sum = md5($__archive);
+	
+	if( isset($HTTP_SERVER_VARS['argv'][2]) ) {
+		echo $check_sum.str_replace('<?', 'PHP_OPEN_TAG', gzcompress($__archive, 9));
+	}
+	else {
+		echo $check_sum.str_replace('<?', 'RAW_PHP_OPEN_TAG', $__archive);
+	}	
 	
 	close_err();
 ?>
