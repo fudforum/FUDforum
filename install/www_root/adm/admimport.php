@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.40 2004/10/06 16:36:15 hackie Exp $
+* $Id: admimport.php,v 1.41 2004/10/06 20:42:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@ function resolve_dest_path($path)
 							fwrite($fd, $readf($fp, 2000000));
 						}
 						if ($rem) {
-							 fwrite($fd, $readf($fp, $rem));
+							fwrite($fd, $readf($fp, $rem));
 						}
 					}
 					fclose($fd);
