@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.28 2003/04/08 09:04:19 hackie Exp $
+*   $Id: post.php.t,v 1.29 2003/04/08 09:40:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,8 @@
 	define('msg_edit', 1); define("_imsg_edit_inc_", 1);
 /*{PRE_HTML_PHP}*/
 	
-	$pl_id = $old_subject = $attach_control_error = '';
+	$pl_id = 0;
+	$old_subject = $attach_control_error = '';
 
 	/* redirect user where need be in moderated forums after they've seen
 	 * the moderation message.
@@ -141,7 +142,7 @@
 	 			qf($r);
 	 			$attach_count = count($attach_list);
 		 	}
-		 	$pl_id = $msg->poll_id;	
+		 	$pl_id = (int) $msg->poll_id;	
 		} else if ($reply_to || $th_id) {
 			$subj = $reply_to ? $msg->subject : $thr->subject;
 			reverse_FMT($subj);
@@ -186,7 +187,7 @@
 		$msg_show_sig		= isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : NULL;
 		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : NULL;
 		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : NULL;
-		$pl_id			= !empty($_POST['pl_id']) ? $_POST['pl_id'] : NULL;
+		$pl_id			= !empty($_POST['pl_id']) ? (int) $_POST['pl_id'] : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
 
@@ -231,9 +232,9 @@
 		}
 		
 		/* removal of a poll */
-		if (isset($_POST['pl_del'], $_POST['pl_id']) && ($MOD || $perms['p_poll'] == 'Y')) {
-			poll_delete((int)$_POST['pl_id']);
-			unset($_POST['pl_id']);
+		if (!empty($_POST['pl_del']) && $pl_id && ($MOD || $perms['p_poll'] == 'Y')) {
+			poll_delete($pl_id);
+			$pl_id = 0;
 		}
 		
 		if ($reply_to && $old_subject == $msg_subject) {
@@ -299,7 +300,7 @@
 			
 			/* Process Message Data */
 			$msg_post->poster_id = _uid;
-			$msg_post->poll_id = $_POST['pl_id'];
+			$msg_post->poll_id = $pl_id;
 			$msg_post->fetch_vars($_POST, 'msg_');
 		 	$msg_post->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
@@ -493,9 +494,9 @@
 	/* handle polls */
 	$poll = '';
 	if ($MOD || $perms['p_poll'] == 'Y') {
-		if (empty($_POST['pl_id'])) {
+		if (!$pl_id) {
 			$poll = '{TEMPLATE: create_poll}';
-		} else if (($poll = db_saq('SELECT id,name FROM {SQL_TABLE_PREFIX}poll WHERE id='.(int)$_POST['pl_id']))) {
+		} else if (($poll = db_saq('SELECT id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='.$pl_id))) {
 			$poll = '{TEMPLATE: edit_poll}';
 		}
 	}
@@ -507,6 +508,9 @@
 			if (!isset($_POST['prev_loaded'])) {
 				$thr_ordertype = $thr->ordertype;
 				$thr_orderexpiry = $thr->orderexpiry;
+			} else {
+				$thr_ordertype = isset($_POST['thr_ordertype']) ? $_POST['thr_ordertype'] : '';
+				$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? $_POST['thr_orderexpiry'] : '';
 			}
 
 			$thread_type_select = tmpl_draw_select_opt("NONE\nSTICKY\nANNOUNCE", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
