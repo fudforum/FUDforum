@@ -1,6 +1,6 @@
 action:				Acção
 add_to_buddy_list:		Adicionar à lista de amigos
-admin:				Admin 
+admin:				Admin
 admin_control_panel:		Admin Painel de Controlo
 administrator:			Administrador
 announcement:			Anúncio
@@ -35,8 +35,8 @@ gender:				Sexo:
 go:				Avançar
 goto_next_msg:			Ir para a proxima mensagem
 goto_prev_msg:			Ir para a mensagem anterior
-home:				Home
-homepage:			Homepage:
+home:				Início
+homepage:			página início:
 icq_control_panel:		Painel de mensagens do ICQ Online
 icq_message_form:		Formulario de mensagem ICQ:
 ignore_user:			Ignorar todos os posts deste utilizador 
@@ -56,9 +56,9 @@ lock_thread:			Fechar Tópico
 locked:				Fechado
 locked_with_new_posts:		Fechado(c/ posts não lidos)
 logged_in_list:			Lista de utilizadores a visitar o forum
-login:				Login
-login_header:			Login:
-logout:				Logout
+login:				Entrar
+login_header:			Utilizador:
+logout:				Sair
 mark_all_read:			marcar todas as mensagens como lidas
 mark_all_read_desc:		Todas a suas mensagens serão marcadas como lidas
 members:			Membros
@@ -96,17 +96,17 @@ no_unread_msg_unreg:		As mensagens lidas e não lidas só podem ser localizadas po
 num_pages:			Páginas ({VAR: ttl_pg}):
 num_votes:			{VAR: obj->total_votes} voto(s)
 occupation:			Ocupação:
-off:				OFF
-on:				ON
+off:				DES
+on:				LIG
 page_timings:			Tempo total para gerar a página: {VAR: page_gen_time} segundos
 fud_query_stats:		Os queries do MYSQL levaram {VAR: ttl_time} segundos<br>
 pm:				Mensagens Privadas
-poll:				Poll:
+poll:				Sondagem:
 post_count:			Contador de posts {VAR: u_pcount}
 post_count_l:			Contador de posts:
-poster:				Poster
-posts:				Posts
-posts_c:			Posts:
+poster:				Redactor
+posts:				Mensagens
+posts_c:			Mensagens:
 prev_thread:			Tópico anterior:
 usrinfo_private_message:	Mensagem Privada:
 profile:			Perfil
@@ -139,9 +139,9 @@ show_all_posts:			Mostrar todos os posts por {VAR: user_login}
 show_posts_by:			Mostrar posts por: {VAR: u_alias}
 size:				Tamanho:
 started_on:			Iniciado em
-status:				Status:
+status:				Estado:
 status_line:			Há <b>{VAR: st_obj->online_users_reg}</b> membros(s), <b>{VAR: st_obj->online_users_hidden}</b> membros invisiveis e  <b>{VAR: st_obj->online_users_anon}</b> convidado(s) a visitar esta página.
-sticky:				sticky:
+sticky:				fixo:
 stop_ignoring:			parar de ignorar este utilizador
 sub_to_thread:			Subscrever o tópico
 sub_to_thread_desc:		Receber notificação sobre novos posts neste tópico
@@ -268,21 +268,21 @@ yes:				Sim
 no:				Não
 edit_time_limit:		<br><b>Editar tempo limite</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutos
 no_edit_time_limit:		<br><b>Editar tempo limite</b>: <b>Ilimitado</b>
-pmuserloc_login:		Login:
+pmuserloc_login:		Utilizador:
 pmuserloc_email:		Email:
 pmuserloc_submit:		Submeter
 pmuserloc_user:			Utilizador
 pmuserloc_no_result:		Sem resultado
 register_builtin:		Construído em
 register_specify_url:		Especificar URL
-register_uploaded:		Upload Avatar
-register_login:			Login:
-register_password:		Password:
+register_uploaded:		Adicionar Avatar
+register_login:			Utilizador:
+register_password:		Senha:
 register_conf_pass:		Confirmar Password:
 register_email_desc:		Por favor tem de introduzir um endereço de E-mail válido. Pode escolher ocultar o email na secção preferências.
 register_name:			Nome:
 register_your_pass:		A sua Password:
-register_update:		Update
+register_update:		Actualizar
 register_avatar_type:		Tipo de Avatar:
 register_del_avatar:		Apagar Avatar
 register_avatar:		Avatar:
@@ -301,10 +301,10 @@ register_occupation:		Ocupação:
 register_interests:		Interesses:
 register_image:			Imagem:
 register_icq:			ICQ
-register_aim:			AIM Handle:
+register_aim:			AIM:
 register_yahoo:			Yahoo Messenger:
 register_msnm:			MSN Messenger:
-register_homepage:		Homepage:
+register_homepage:		Página Pessoal:
 register_bday:			Data de nascimento:
 register_bday_desc:		Se selecionar a data de nascimento todos os membros a poderão ver no seu perfil
 register_day:			Dia
@@ -337,18 +337,18 @@ register_notify_method_desc:	Se quiser receber notificações via ICQ certifique-s
 register_notify_js_error:	Escolheu notificação via ICQ, mas não especificou o n.º de ICQ. Será utilizado o Email por defeito;
 register_allow_email_msg:	Autorizar mensagens E-mail:
 register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via forum.
-buddy_status:			Status
+buddy_status:			Estado
 my_buddies:			Os meus amigos
 add_buddy:			Adicionar Amigo
 add:				Adicionar
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			Introduza o id do utlizador que quer adicionar.
 buddy_remove:			remover
 post_normal:			Normal
-post_sticky:			Sticky
+post_sticky:			Fixo
 post_annoncement:		Anunciar
 post_size:			Tamanho
 post_color:			Cor
-post_font:			Font
+post_font:			Fonte
 create_thread:			Criar Tópico
 submit_reply:			Submeter resposta
 edit_message:			Aplicar Alterações nas Mensagens
@@ -415,8 +415,8 @@ coppa_fax_telephone:		Telefone:
 coppa_fax_email:		Endereço de Email:
 coppa_fax_date:			Data:
 coppa_fax_questions:		Por favor contacte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> para qualquer questão
-coppa_fax_login:		Login
-coppa_fax_passwd:		Password
+coppa_fax_login:		Utilizador
+coppa_fax_passwd:		Senha
 coppa_fax_remail:		Email
 coppa_fax_name:			Nome
 login_not_logedin:		Não fez o login. Isto pode ter acontecido por diversas razões:
@@ -425,8 +425,8 @@ login_perm_denied:		Não tem permissão para aceder em modo anónimo, terá de fazer
 login_want_to_register:		Quer registar-se?
 login_forgot_passwd:		Esqueceu a password
 login_use_cookie:		Usar cookies<br><font class="SmallText">Se está a usar um terminal publico tal como um computador numa biblioteca, escola, ou cybercafé, é recomendado desactivar esta opção para maior segurança.<br>Se deixar esta opção activa então estará automaticamente logado no forum.
-login_login:			Login
-login_login_btn:		Login
+login_login:			Entrar
+login_login_btn:		Submeter
 login_name_required:		Login requer nome
 login_passwd_required:		Password requerida
 login_invalid_radius:		Combinação inválida de Login/password
@@ -439,11 +439,11 @@ reset_remind_pass:		Recuperador de Password
 reset_reset_conf:		A sua password será restaurada e enviada, no caso de não ter confirmado o seu email um formulário de pedido de confimação ser-lhe-á enviado.
 reset_error:			O email não foi encontrado na base de dados
 rpasswd_change_pass:		Alterar password
-rpasswd_login:			Login
+rpasswd_login:			Utilizador
 rpasswd_cur_pass:		Password actual:
 rpasswd_new_pass:		Nova Password:
 rpasswd_conf_pass:		Confirma Password:
-login_passwd:			Password:
+login_passwd:			Senha:
 reset_email:			Email:
 reset_reset_button:		Alterar Password
 rate_this_thread:		Taxa
@@ -537,8 +537,8 @@ tabs_referrals:			Referências
 tabs_buddy_list:		Lista de amigos
 tabs_ignore_list:		Lista de ignorados
 tabs_private_messaging:		Mensagens Privadas
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Você está prestes a <font color="#ff0000" size="4">APAGAR</font> a menssagem entítulada: <b>{VAR: data[3]}</b><p>
+thread_delete:			Você está prestes a <font color="#ff0000" size="4">APAGAR</font> o <font color="#ff0000" size="4">TÓPICO INTEIRO</font> entítulado: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>quer continuar?</b></font>
 delete_yes:			Sim
 delete_no:			Não
@@ -717,7 +717,7 @@ tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email enviado
 remail_email:			Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adicionar Opção:
-post_opt_html_on:		<b>HTML</b> is <b>ON</b>
+post_opt_html_on:		<b>HTML LIGADO</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> está <b>LIGADO</b></a>
 post_opt_images_on:		<b>Imagens</b> estão <b>Ligadas</b>
 post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smilies</b> estão <b>Ligados</b></a>
@@ -820,7 +820,7 @@ logedin_latest_post:		Ultima mensagem colocada no forum:
 register_show_avatar:		Mostrar Avatars:
 register_show_avatar_desc:	Permite-lhe esconder avatars de outros utilizadores enquanto vê as mensagens deles
 drawmsg_view_rest_post:		Mostrar o resto da mensagem
-post_re:			Re: 
+post_re:			Res:
 forumsel_goto_forum:		Ir para Forum:
 minimsg_thread_view:		Vista por Tópico
 split_th_post_by:		Colocado por:
@@ -833,10 +833,10 @@ split_th_split_unsel:		Dividir mensagens não seleccionadas
 split_th_messages:		Mensagens
 split_th_select:		Seleccionar
 report_report_post:		Colocar Relatório
-quicklogin_login:		Login
-quicklogin_password:		Password
+quicklogin_login:		Utilizador
+quicklogin_password:		Senha
 quicklogin_use_cookies:		Usa Cookies?
-quicklogin_login_btn:		Login
+quicklogin_login_btn:		Entrar
 post_notification_desc:		Notificar quando alguém responder a esta mensagem.
 maximize_category:		Maximizar Categoria
 no_view_perm:			Não tem as permissões necessárias para ver este tópico.
@@ -850,7 +850,7 @@ post_proc_reveal_spoiler:	- Mostrar Spoiler -
 register_jabber:		- Jabber Handle - :
 im_jabber:			- Jabber - :
 forum_contact:			Contacto
-forum_home:			Home
+forum_home:			Início
 post_cur_attached:		ficheiro anexado {VAR: i} file(s) 
 ppost_cur_attached:		ficheiro anexado {VAR: attach_count} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} vai ser ignorado
@@ -922,34 +922,34 @@ login_blocked_account_ttl:	A sua conta foi banida.
 login_blocked_account_msg:	A sua conta foi banida deste forum, se não sabe qual foi a razão para este acto, contacte o administrador do forum.
 register_affero:		Login para Affero:<br /><font class="SmallText">Se tem um login para <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> introduza-o.</font>
 im_affero:			Login para Affero
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
+register_err_avatardimtobig:	As dimensões do Avatar <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excedem as dimensões permitidas de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Descarregado {VAR: r->dlcount} vez(es)
+member_search:			<br>Ou use <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Encontrar Utilizador</a> para localizar a pessoa.
+post_all_ext_allowed:		(sem restrição)
+buddy_offline:			{VAR: r[2]} está desconectado
+buddy_online:			{VAR: r[2]} está conectado
+sml_no_smilies:			Não existem <i>emoticons</i>.
+login_unapproved_account_ttl:	Conta Desaprovada
+login_unapproved_account_msg:	O administrador do forum escolheu confirmar cada nova conta manualmente antes da activação. A sua conta ainda não foi confirmada, por tal não poderá aceder a algumas utilizades disponíveis para os membros registados até à sua aprovação.
+remove_from_buddy_list:		remover da lista de amigos
+iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Assunto:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Data:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Responder
+iemail_msg_quote:		Citar
+iemail_msg_view:		Vêr Tópico/Menssagem
+threadt_sticky:			fixo
+threadt_announce:		anúncio
+reported_no_messages:		Não existem mensagens reportadas.
+poll_no_polls:			Não existem sondagens acessíveis.
+no_unread_messages:		Não existem mensagens não lidas correspondentes à sua pesquisa.
+thread_mark_all_read:		marcar todas as mensagens não lidas do forum como lidas
+thread_mark_all_read_desc:	todas as mensagens não lidas deste forum serão marcadas como lidas
+private_no_messages:		Não existem mensagens nesta pasta
+register_email_change_subject:	Confirmação de alteração de E-mail
+register_email_change_msg:	Confirme, por favor, a sua nova conta de e-mail "{VAR: uent->email}" que substitui a sua antiga conta "{VAR: old_email}" visitando a URL abaixo:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAssim que confirmar o seu novo endereço de e-mail, a sua conta será reactivada.
+iemail_thread_unsub:		Remover subscrição desta conversa
+iemail_forum_unsub:		Remover subscrição deste forum
+primary_group_prefix:		Grupo primário para o forum:
+group_resources:		Este grupo controla as permissões dos seguintes sub-forums
 register_email:			Email
