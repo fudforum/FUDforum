@@ -47,6 +47,7 @@
 	<a style="font-size: x-small;" href="admdelfrm.php?<?php echo _rsidl; ?>">Deleted Forums</a><br>
 	<a style="font-size: x-small;" href="admannounce.php?<?php echo _rsidl; ?>">Announcement Manager</a><br>
 	<a style="font-size: x-small;" href="admprune.php?<?php echo _rsidl; ?>">Topic Pruning</a><br>
+	<a style="font-size: x-small;" href="admaprune.php?<?php echo _rsidl; ?>">Attachment Pruning</a><br>
 	<a style="font-size: x-small;" href="admmlist.php?<?php echo _rsidl; ?>">Mailing List Manager</a><br>
 	<a style="font-size: x-small;" href="admnntp.php?<?php echo _rsidl; ?>">Newsgroup Manager</a><br><br>
 
