@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: return.inc.t,v 1.16 2003/10/09 14:34:26 hackie Exp $
+* $Id: return.inc.t,v 1.17 2003/11/09 23:22:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,7 +23,12 @@ function check_return($returnto)
 			}
 			header('Location: {ROOT}/i/'.$pfx);
 		} else {
-			header('Location: {ROOT}'.$returnto);
+			/* unusual situation, path_info & normal themes are active */
+			if ($returnto[0] == '/') {
+				header('Location: {ROOT}'.$returnto);
+			} else {
+				header('Location: {ROOT}?'.$returnto);
+			}
 		}
 	} else {
 		if (!$returnto || !strncmp($returnto, 't=error', 7)) {
