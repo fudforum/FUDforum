@@ -678,7 +678,7 @@ thread_err_onlyregview_title:	Только зарегистрированные пользователи могут просм
 thread_err_onlyregview_msg:	Для того, чтобы просмотреть этот форум, вы должны <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">зарегистрироваться</a>, если же вы зарегистрировались ранее, то вам необходимо <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">войти в форум</a>.
 thread_update:			Просмотр форума <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Просмотр в режиме дерева темы <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		Просмотр персональной информации о <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a>
+userinfo_update:		Просмотр персональной информации о <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			ОШИБКА: Если вы не вошли на форум
 ERR_login_msg:			Вы не еще вошли на форум.<br><br>Если вы хотите зарегистрироваться - перейдите к <a href="{ROOT}?t=register&amp;{DEF: _rsid}">странице регистрации</a>.<br>Если вы хотите войди на форум - следуйте к <a href="{ROOT}?t=login&amp;{DEF: _rsid}">входной странице</a>.
 ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}

@@ -678,7 +678,7 @@ thread_err_onlyregview_title:	Tylko zarejestrowani u¿ytkownicy mog± ogl±daæ to f
 thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">zalogowaæ siê</a>.
 thread_update:			Przegl±danie forum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Przegl±danie w±tku (widok drzewiasty) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		Przegl±danie profilu u¿ytkownika <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a>
+userinfo_update:		Przegl±danie profilu u¿ytkownika <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			B£¡D: Nie jeste¶ zalogowany
 ERR_login_msg:			Nie jeste¶ zalogowany.<br><br>Je¶li chcesz siê zarejestrowaæ, przejd¼ do <a href="{ROOT}?t=register&amp;{DEF: _rsid}">formularza rejestracji</a><br>Je¶li chcesz siê zalogowaæ, przejd¼ do <a href="{ROOT}?t=login&amp;{DEF: _rsid}">formularza logowania siê</a>.
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}

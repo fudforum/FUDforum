@@ -680,7 +680,7 @@ thread_err_onlyregview_title:	Only registered users may view this forum
 thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">login</a>.
 thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}&#39;s</a> profile
+userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a> profile
 ERR_login_ttl:			ERROR: You are not logged in			
 ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
 ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}

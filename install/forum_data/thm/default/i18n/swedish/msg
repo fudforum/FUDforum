@@ -677,7 +677,7 @@ thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&
 thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			L&auml;ser tr&aring;den (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}s</a> profil
+userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
 ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningsformul&auml;ret</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}

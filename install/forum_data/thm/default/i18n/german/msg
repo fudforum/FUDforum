@@ -843,7 +843,7 @@ user_offline:			{VAR: obj->login} ist gerade offline
 user_online:			{VAR: obj->login} ist gerade online
 userinfo_referals:		Angeworbene Benutzer:
 userinfo_referals_count:	{VAR: referals} Mitglieder
-userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a>
+userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 usrinfo_last_post:		Letzter Beitrag:
 usrinfo_private_message:	Private Message:
 usrinfo_profile:		{VAR: u->alias}s Profil

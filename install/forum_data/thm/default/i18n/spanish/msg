@@ -678,7 +678,7 @@ thread_err_onlyregview_title:	Este foro sólo puede ser visto por usuarios regist
 thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
 thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _RSID}">{VAR: thread->subject}</a>
-userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}</a>
+userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			ERROR: Ud no ha ingresado
 ERR_login_msg:			Ud no ha ingresado, por favor ingrese<br><br>Si desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si desea ingresar por favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}">formulario de ingreso</a>
 ERR_login_url:			login.php?{DEF: _RSID}

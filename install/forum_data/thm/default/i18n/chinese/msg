@@ -677,7 +677,7 @@ thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
 thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">登录</a>.
 thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
-userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
+userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}的</a> 个人信息
 ERR_login_ttl:			错误：您尚未注册
 ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="{ROOT}?t=register&amp;{DEF: _rsid}">注册</a><br>请<a href="{ROOT}?t=login&amp;{DEF: _rsid}">注册</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
