@@ -622,9 +622,9 @@ register_err_notyouremail:	Noen har allerede registrert seg med denne e-postadre
 register_err_avatartobig:	Filen du pr&oslash;ver &aring; sende er for stor, over grensen p&aring; {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte
 register_err_avatarnotallowed:	Avataren du pr&oslash;ver &aring; sende er ikke tillatt. Kontroller at den er av godkjent filtype.
 register_conf_subject:		Bekreftelse av forumregistrering
-register_conf_msg:		Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
+register_conf_msg:		Takk for din registrering!\nGå til adressen under for &aring; aktivere din medlemskonto:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEtter at din konto er aktivert blir du innlogget p&aring; forumet og \nvideressendt til hovedsiden.
 register_welcome_subject:	Velkommen til forumet
-register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Takk for din registrering!\n\nHer er din innloggignsinformasjon for forumet:\n\nForumets URL: {TEMPLATE: index_update_lnk}\nBrukernavn: {VAR: uent->login}\nPassord: {VAR: HTTP_POST_VARS['reg_plaikkext_passwd']}\n\nMerk! Det er forskjell p&aring; sm&aring; og store bokstaver i passordet!\nVil du endre innstillingene og din profil kan du g&aring; til denne siden:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	FEIL: kan ikke registrere
 regsiter_err_cantreg_msg:	Kan ikke opprette brukerkonto, vennligst kontakt administratoren p&aring; adressen <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viser sin egen profil
@@ -638,7 +638,7 @@ reset_err_invalidkey_msg:	Ugyldig kode for nullstilling av passord
 reset_err_rstconf_title:	Informasjon
 reset_err_rstconf_msg:		Du vil motta instruksjoner per e-post innen f&aring; minutter
 reset_newpass_title:		Nullstill passord
-reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hei!\n\nDitt brukernavn og passord har blitt endret p&aring; din foresp&oslash;rsel.\nHer er din inloggingsinformasjon:\n\nBrukernavn: {VAR: ui[1]}\nPassord: {VAR: passwd}\n\nNoter deg at passordet ditt er endret til det overst&aring;ende. Om du vil\nendre passordet ditt kan du gj&oslash;re det i kontrollpanelet:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Ditt passord har blitt sendt til deg per e-post og burde komme frem innen et par minutter. Vennligst sjekk e-posten din for ditt brukernavn og passord.<br>.<br>.<br>
 search_update:			S&oslash;ker blandt innleggene
 selmsg_update:			Leser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens innlegg</a>
@@ -681,7 +681,7 @@ search_title:			S&oslash;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-post sendt
-remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
+remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		Legg til alternativ:
 post_opt_html_on:		<b>HTML</b>-kode er <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD-kode</b> er <b>P&Aring;</b></a>
@@ -891,7 +891,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -914,7 +914,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -923,7 +923,7 @@ register_email:			Email
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -949,7 +949,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

@@ -622,9 +622,9 @@ register_err_notyouremail:	Kto¶ jest ju¿ zarejestrowany z tym adresem e-mail i t
 register_err_avatartobig:	Plik, który próbujesz do³±czyæ, jest za du¿y, poniewa¿ przekracza ograniczenie {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtów
 register_err_avatarnotallowed:	Avatar, który próbujesz do³±czyæ, jest niedozwolony, wiêc sprawd¼ dozwolone typy plików.
 register_conf_subject:		Potwierdzenie rejestracji
-register_conf_msg:		Dziêkujemy za zarejestrowanie siê na {FULL_ROOT}.\nAby aktywowaæ swoje konto, przejd¼ pod adres:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na g³ówn± stronê naszego forum.
+register_conf_msg:		Dziêkujemy za zarejestrowanie siê na {FULL_ROOT}.\nAby aktywowaæ swoje konto, przejd¼ pod adres:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na g³ówn± stronê naszego forum.
 register_welcome_subject:	Potwierdzenie rejestracji na forum
-register_welcome_msg:		Dziêkujemy za zarejestrowanie siê.\n\nTutaj znajduj± siê szczegó³y twojego logowania siê na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa u¿ytkownika: {VAR: uent->login}\nHas³o: {VAR: _POST['reg_plaintext_passwd']}\n\nB±d¼ ¶wiadom(a), ¿e wielko¶æ liter w has³ach ma znaczenie!\nAby zmieniæ swoje ustawienia i profil, przejd¼ do tej strony:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Dziêkujemy za zarejestrowanie siê.\n\nTutaj znajduj± siê szczegó³y twojego logowania siê na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa u¿ytkownika: {VAR: uent->login}\nHas³o: {VAR: _POST['reg_plaintext_passwd']}\n\nB±d¼ ¶wiadom(a), ¿e wielko¶æ liter w has³ach ma znaczenie!\nAby zmieniæ swoje ustawienia i profil, przejd¼ do tej strony:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	B£¡D: rejestracja nie jest mo¿liwa
 regsiter_err_cantreg_msg:	Brak mo¿liwo¶ci stworzenia konta u¿ytkownika, dlatego skontaktuj siê z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
 register_profile_update:	Przegl±d w³asnego profilu
@@ -638,7 +638,7 @@ reset_err_invalidkey_msg:	Nieprawid³owy klucz przy zerowaniu has³a
 reset_err_rstconf_title:	Informacje
 reset_err_rstconf_msg:		W ci±gu paru minut powiniene¶ otrzymaæ e-mailem instrukcjê co dalej robiæ.
 reset_newpass_title:		Odzyskiwanie has³a
-reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, wysy³amy Ci nowe has³o.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. Je¶li ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, wysy³amy Ci nowe has³o.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. Je¶li ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Twoje has³o zosta³o wys³ane do Ciebie poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ...<br>&nbsp;<br>&nbsp;<br>
 search_update:			Szukanie wiadomo¶ci
 selmsg_update:			Przegl±danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
@@ -681,7 +681,7 @@ search_title:			Szukaj {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		List zosta³ wys³any
-remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({TEMPLATE: index_update_lnk}), która powinna Ciê zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: data->subject} i mo¿e byæ znaleziona tutaj: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n{VAR: usr->alias}\n
+remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({TEMPLATE: index_update_lnk}), która powinna Ciê zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: data->subject} i mo¿e byæ znaleziona tutaj: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n{VAR: usr->alias}\n
 poll_add_option:		Dodaj Opcjê:
 post_opt_html_on:		<b>HTML</b> jest <b>W³±czony</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUD Code</b> jest <b>W³±czony</b></a>
@@ -891,7 +891,7 @@ register_affero:		Nazwa u¿ytkownika systemu Affero: <br /><font class="SmallText
 im_affero:			Nazwa u¿ytkownika systemu Affero
 register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczaj± dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Ilo¶æ pobrañ: {VAR: r->dlcount}
-member_search:			<br>Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
+member_search:			<br>Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
 post_all_ext_allowed:		(nieograniczony)
 buddy_offline:			{VAR: r[2]} jest aktualnie roz³±czony(a)
 buddy_online:			{VAR: r[2]} jest aktualnie dostêpny(a)
@@ -914,7 +914,7 @@ thread_mark_all_read:		zaznacz wszystkie wiadomo¶ci jako przeczytane
 thread_mark_all_read_desc:	Wszystkie nieprzeczytane wiadomo¶ci na tym forum zostan± zaznaczone jako przeczytane
 private_no_messages:		Ten folder jest pusty
 register_email_change_subject:	Potwierdzenie zmiany adresu e-mail
-register_email_change_msg:	Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), który zast±pi obecny ({VAR: old_email}).\nW tym celu udaj siê pod poni¿szy adres:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
+register_email_change_msg:	Prosimy o potwierdzenie Twojego nowego adresu e-mail ({VAR: uent->email}), który zast±pi obecny ({VAR: old_email}).\nW tym celu udaj siê pod poni¿szy adres:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nGdy nowy adres e-mail zostanie potwierdzony, Twoje konto na forum zostanie ponownie aktywowane.
 iemail_thread_unsub:		Porzuæ subskrybcjê tego w±tku
 iemail_forum_unsub:		Porzuæ subskrybcjê tego forum
 primary_group_prefix:		Podstawowa grupa dla forum:
@@ -923,7 +923,7 @@ register_email:			E-mail
 register_admin_newuser_title:	Nowe konto na forum czeka na zatwierdzenie
 register_admin_newuser_msg:	Nowy u¿ytkownik ({VAR: uent->login}) w³a¶nie zarejestrowa³ siê na Forum Opoka.\nJako, ¿e zosta³o w³±czone zatwierdzanie nowych kont, nie zostanie ono\naktywowane bez potwierdzenia przez Ciebie albo innego administrator tego forum.\nCelem weryfikacji tego konta, udaj siê proszê pod poni¿szy adres:\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nUWAGA!! Wiadomo¶æ zosta³a wygenerowana automatycznie. Prosimy nie odpowiadaæ\nna ni±. Je¶li chcesz wy³±czyæ powiadamianie o rejestracji nowych u¿ytkowników,\nmo¿esz to zrobiæ przy u¿yciu Panelu administracyjnego, zmieniaj±c warto¶æ\ndla "New Account Notification".\n
 post_mod_msg_notify_title:	Nowa wiadomo¶æ na forum "{VAR: frm->name}" oczekuje zatwierdzenia
-post_mod_msg_notify_msg:	Nowa wiadomo¶æ zatytu³owana "{VAR: msg_post->subject}"\nzosta³a w³a¶nie wys³ana na forum, którego jeste¶ moderatorem.\nAby obejrzeæ wiadomo¶æ, udaj siê pod nastêpuj±cy adres adres:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nPowiadomienie generowane jest automatycznie. Prosimy nie odpowiadaæ na ten e-mail.\n
+post_mod_msg_notify_msg:	Nowa wiadomo¶æ zatytu³owana "{VAR: msg_post->subject}"\nzosta³a w³a¶nie wys³ana na forum, którego jeste¶ moderatorem.\nAby obejrzeæ wiadomo¶æ, udaj siê pod nastêpuj±cy adres adres:\n{FULL_ROOT}{ROOT}?t=modque\n\nPowiadomienie generowane jest automatycznie. Prosimy nie odpowiadaæ na ten e-mail.\n
 thread_printable_pdf:		Wygeneruj PDF do wydruku
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Potwierdzenie Rejestracji
@@ -949,7 +949,7 @@ mnav_month:			Miesi±c (Miesiêcy)
 mnav_title:			Przegl±darka wiadomo¶ci
 mnav_update:			Przegl±danie Wiadomo¶ci z u¿yciem <a href="{TEMPLATE: mnav_update_lnk}">Przegl±darki wiadomo¶ci</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Powiadomienie o nowej Prywatnej Wiadomo¶ci
-pm_notify_body_email:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytaæ wiadomo¶æ udaj siê pod adres:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomienia o Prywatnych Wiadomo¶ciach" w swoim profilu.
+pm_notify_body_email:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\nAby odczytaæ wiadomo¶æ udaj siê pod adres:\n{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomienia o Prywatnych Wiadomo¶ciach" w swoim profilu.
 pm_notify_body_icq:		Otrzyma³e¶(a¶) now± prywatn± wiadomo¶æ zatytu³owan± "{VAR: subject}" od "{VAR: from}" na forum "{GVAR: FORUM_TITLE}".\n\nAby nie otrzymywaæ powiadomieñ, wy³±cz opcjê "Powiadomiania o Prywatnych Wiadomo¶ciach" w swoim profilu.
 register_pm_notification:	Powiadomienia o Prywatnych Wiadomo¶ciach
 register_pm_notification_desc:	Gdy w³±czone, bêdziesz dostawaæ powiadomienia poprzez wybrany mechanizm powiadamiania jak tylko prywatna wiadomo¶æ zostanie do Ciebie wys³ana.

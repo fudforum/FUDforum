@@ -534,7 +534,7 @@ register_bio:			Werdegang:
 register_bio_desc:		Ein paar Details &uuml;ber dich, wie zum Beispiel deine Interessen, Beruf usw...
 register_builtin:		Eingebaut
 register_change_passwd:		Passwort &auml;ndern
-register_conf_msg:		Vielen Dank für deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
+register_conf_msg:		Vielen Dank für deine Registrierung,\nUm dein Konto zu aktivieren, gehe bitte auf die unten angegebene Adresse:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSobald dein Konto aktiviert ist, wirst du am System angemeldet und\nzur Hauptseite des Forums weitergeleitet.
 register_conf_pass:		Passwort best&auml;tigen:
 register_conf_subject:		Registrierungsbestätigung
 register_custom_avatar_rules:	Der Benutzeravatar wird erst nach der Billigung durch den Administrator angezeigt.<br><font class="SmallText">Der Avatar sollte nicht gr&ouml;&szlig;er als <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} Pixel</b> sein und muss das <b>jpg</b>, <b>gif</b> oder <b>png</b> Format besitzen.</font>
@@ -609,7 +609,7 @@ register_update:		Aktualisieren
 register_uploaded:		Avatar hochladen
 register_use_sig_default:	Standardm&auml;&szlig;ig Signatur verwenden:
 register_use_sig_default_desc:	Die Signatur automatisch jedem Beitrag hinzuf&uuml;gen
-register_welcome_msg:		Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Vielen Dank für deine Registrierung,\n\nHier sind die Anmeldedetails für das Forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nAnmeldename: {VAR: uent->login}\nPasswort: {VAR: _POST['reg_plaintext_passwd']}\n\nBitte achte beim Passwort auf Groß- und Kleinschreibung!\nUm die Einstellungen und das Profil zu verändern, gehe bitte auf diese Seite:\n{FULL_ROOT}{ROOT}?t=register\n
 register_welcome_subject:	Registrierungsbestätigung für das Forum
 register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
@@ -619,7 +619,7 @@ registered_on:			Registriert am {TEMPLATE: registered_on_date}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in einen E-Mail Klienten deiner Wahl kopieren, um sie an deine Freunde zu schicken.
 remail_done:			Fertig
-remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
+remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
 remail_emailsent:		Die E-Mail wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
@@ -663,7 +663,7 @@ reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung 
 reset_err_rstconf_title:	Information
 reset_error:			E-Mail Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die E-Mail auf Benutzername und Passwort.<br>.<br>.<br>
-reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornehmen:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornehmen:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
 reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
@@ -891,7 +891,7 @@ register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls du ein
 im_affero:			Affero Benutzername
 register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		{VAR: r->dlcount} mal heruntergeladen
-member_search:			<br>Oder verwende die <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Benutzersuche</a> um einen Benutzer ausfindig zu machen.
+member_search:			<br>Oder verwende die <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Benutzersuche</a> um einen Benutzer ausfindig zu machen.
 post_all_ext_allowed:		(unbegrenzt)
 buddy_offline:			{VAR: r[2]} ist gerade offline
 buddy_online:			{VAR: r[2]} ist gerade online
@@ -914,7 +914,7 @@ thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennz
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
 register_email_change_subject:	Bestätigung der geänderten E-Mail Adresse
-register_email_change_msg:	Bitte bestätige deine neue E-Mail Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem du die untere URL aufrufst:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
+register_email_change_msg:	Bitte bestätige deine neue E-Mail Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
@@ -923,7 +923,7 @@ register_email:			E-Mail
 register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
 register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
 post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
-post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
+post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
 thread_syndicate:		Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
 reg_conf_title:			Registrierungsbest&auml;tigung
@@ -949,7 +949,7 @@ mnav_month:			Monat(e)
 mnav_title:			Beitragsnavigator
 mnav_update:			Durchsuche Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
-pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
+pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in deinem Profil.
 pm_notify_body_icq:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachricht" in deinem Profil.
 register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
 register_pm_notification_desc:	Falls aktiviert, wirst du über die Benachrichtigungsmethode deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an dich gesendet worden ist.

@@ -623,9 +623,9 @@ register_err_notyouremail:	В системе уже зарегистрирован пользователь с таким ад
 register_err_avatartobig:	Загруженный вами файл картинки слишком велик и превышает установленный предел в {GVAR: CUSTOM_AVATAR_MAX_SIZE} байт
 register_err_avatarnotallowed:	Загруженный вами файл картинки не принадлежит к одному из допустимых в системе типов файлов.
 register_conf_subject:		Подтверждение регистрации
-register_conf_msg:		Спасибо за регистрацию,\nДля активации регистрации пожалуйста следуйте по приведенной ниже ссылке:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nПосле того, как регистрация активирована, вы автоматически войдете в форум\nи будете направлены на его главную страницу.
+register_conf_msg:		Спасибо за регистрацию,\nДля активации регистрации пожалуйста следуйте по приведенной ниже ссылке:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nПосле того, как регистрация активирована, вы автоматически войдете в форум\nи будете направлены на его главную страницу.
 register_welcome_subject:	Подтверждение регистрации в форуме
-register_welcome_msg:		Спасибо за регистрацию,\n\nНиже приведена информация о вашей регистрации:\n\nURL форума: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nИмейте ввиду, что пароли чувствительны к регистру символов!\nИзменить ваши персональные данные и настройки вы сможете по этому адресу:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Спасибо за регистрацию,\n\nНиже приведена информация о вашей регистрации:\n\nURL форума: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nИмейте ввиду, что пароли чувствительны к регистру символов!\nИзменить ваши персональные данные и настройки вы сможете по этому адресу:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	ОШИБКА: регистрация невозможна
 regsiter_err_cantreg_msg:	Невозможно зарегистрировать данного пользователя, пожалуйста сообщите об этом администратору по адресу <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Просмотр собственных данных и настроек
@@ -639,7 +639,7 @@ reset_err_invalidkey_msg:	Неверный ключ сброса пароля
 reset_err_rstconf_title:	Информация
 reset_err_rstconf_msg:		Вы получите инструкции на ваш адрес e-mail в течение следующий нескольких минут
 reset_newpass_title:		Сброс пароля
-reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Привет,\n\nПо вашему запросу вам были отправлены имя пользователя и пароль.\nНиже приведена информация о вашей регистрации:\n\nИмя пользователя: {VAR: ui[1]}\nПароль: {VAR: passwd}\n\nИмейте ввиду что ваш старый пароль был изменен на приведенный выше, и если\nвы хотите его сменить, то можете сделать это в панели управления по адресу:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Ваш пароль был отправлен вам на e-mail, и вы сможете получить его через несколько минут. Пожалуйста проверьте ваш почтовый ящик..<br>.<br>.<br>
 search_update:			Поиск сообщений
 selmsg_update:			Просмотр <a href="{TEMPLATE: selmsg_update_lnk}">сегодняшних сообщений</a>
@@ -682,7 +682,7 @@ search_title:			Поиск {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Электронное письмо отправлено
-remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: data->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ваш друг,\n\n{VAR: usr->alias}\n
+remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: data->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ваш друг,\n\n{VAR: usr->alias}\n
 poll_add_option:		Добавить вариант:
 post_opt_html_on:		<b>HTML</b> - <b>включен</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> - <b>включен</b></a>
@@ -891,7 +891,7 @@ register_affero:		Имя в системе Affero:<br /><font class="SmallText">Если у вас 
 im_affero:			Имя в системе Affero
 register_err_avatardimtobig:	Размер картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превышает максимально разрешенный, который составляет <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Загружено {VAR: r->dlcount} раз
-member_search:			<br>Или используйте возможность <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Поиска</a> для нахождения нужного пользователя.
+member_search:			<br>Или используйте возможность <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Поиска</a> для нахождения нужного пользователя.
 post_all_ext_allowed:		(нет ограничений)
 buddy_offline:			{VAR: r[2]} сейчас не в онлайне
 buddy_online:			{VAR: r[2]} сейчас в онлайне
@@ -914,7 +914,7 @@ thread_mark_all_read:		отметить все сообщения форума как прочитанные
 thread_mark_all_read_desc:	Все сообщения в этом форуме будут отмечены как прочитанные вами
 private_no_messages:		В этом каталоге нет сообщений
 register_email_change_subject:	Подтверждение смены адреса E-mail
-register_email_change_msg:	Требуется подтверждение смены старого адреса e-mail "{VAR: old_email}" на новый "{VAR: uent->email}". Для подтверждения перейдите по приведенной ниже ссылке:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПосле подтверждения вами нового адреса e-mail учетная запись на форуме будет изменена.
+register_email_change_msg:	Требуется подтверждение смены старого адреса e-mail "{VAR: old_email}" на новый "{VAR: uent->email}". Для подтверждения перейдите по приведенной ниже ссылке:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПосле подтверждения вами нового адреса e-mail учетная запись на форуме будет изменена.
 iemail_thread_unsub:		Отписаться от этой темы
 iemail_forum_unsub:		Отписаться от этого форума
 primary_group_prefix:		Первичная группа для форума:
@@ -923,7 +923,7 @@ register_email:			E-mail
 register_admin_newuser_title:	Зарегистрирован новый пользователь и ожидается утверждение его учетной записи
 register_admin_newuser_msg:	В форуме был зарегистрирован новый пользоватеть ({VAR: uent->login}), и, поскольку включен режим утверждения пользователей, его учетная запись не будет активизирована до ее утверждения вами или другим администратором форума. Для утверждения учетной записи перейдите по ссылке: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\nЕсли вы хотите выключить извещения о регистрации новых пользователей в дальнейщем, сделайте это в панели управления, изменив значения параметра "Извещение о новых пользователях".
 post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает утверждения
-post_mod_msg_notify_msg:	В модерируемый вами форум было отправлено новое сообщение, озаглавленное "{VAR: msg_post->subject}". Для просмотра сообщение следуйте ссылке: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\n
+post_mod_msg_notify_msg:	В модерируемый вами форум было отправлено новое сообщение, озаглавленное "{VAR: msg_post->subject}". Для просмотра сообщение следуйте ссылке: {FULL_ROOT}{ROOT}?t=modque\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\n
 thread_printable_pdf:		Сформировать PDF для печати
 thread_syndicate:		Сформировать XML
 reg_conf_title:			Подтверждение регистрации
@@ -949,7 +949,7 @@ mnav_month:			Месяцы
 mnav_title:			Навигатор по сообщениям
 mnav_update:			Просмотр сообщений, используя <a href="{TEMPLATE: mnav_update_lnk}">Навигатор по сообщениям</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Уведомление о новом личном сообщении
-pm_notify_body_email:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\nЧтобы посмотреть сообщение, кликните по ссылке: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
+pm_notify_body_email:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\nЧтобы посмотреть сообщение, кликните по ссылке: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
 pm_notify_body_icq:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
 register_pm_notification:	Уведомления о личных сообщениях
 register_pm_notification_desc:	Если отмечено, вы будете получать уведомления о новых личных сообщениях способом, указанным в качестве метода отправки извещений.

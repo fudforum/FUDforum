@@ -622,9 +622,9 @@ register_err_notyouremail:	Birisi bu e-mektup ile daha önce kaydolmuþ, fakat bu 
 register_err_avatartobig:	Yüklemeye çalýþtýðýnýz dosya izin verilenden daha büyük. Ýzin verilen sýnýr: {GVAR: CUSTOM_AVATAR_MAX_SIZE} b
 register_err_avatarnotallowed:	Yüklemeye çalýþtýðýnýz avatara izin verilmiyor. Ýzin verilen dosya tiplerini gözden geçirin.
 register_conf_subject:		Kayýt Doðrulama
-register_conf_msg:		Kayýt olduðunuz için teþekkürler,\nHesabýnýzý etkinleþtirmek için lütfen aþaðýdaki URL\'ye gidin:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabýnýz etkineþti mi foruma giriþ yapacak ve \nforumun ana sayfasýna yönlendirileceksiniz.
+register_conf_msg:		Kayýt olduðunuz için teþekkürler,\nHesabýnýzý etkinleþtirmek için lütfen aþaðýdaki URL\'ye gidin:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nBir kez hesabýnýz etkineþti mi foruma giriþ yapacak ve \nforumun ana sayfasýna yönlendirileceksiniz.
 register_welcome_subject:	Forum Kayýt Doðrulama
-register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}{FULL_ROOT}{ROOT}\nKullanýcý ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}{FULL_ROOT}{ROOT}\nKullanýcý ismi: {VAR: uent->login}\nParola: {VAR: _POST['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	HATA: kayýt olunamadý
 regsiter_err_cantreg_msg:	Kullanýcý hesabý yaratýlamadý, lütfen yönetici ile iletiþime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Kiþisel bilgilerine göz atýyor
@@ -638,7 +638,7 @@ reset_err_invalidkey_msg:	Geçersiz parola belirleme anahtarý
 reset_err_rstconf_title:	Bilgi
 reset_err_rstconf_msg:		Yapmanýz gerekenler bir kaç dakika içinde e-mektup adresinize ulaþacak.
 reset_newpass_title:		Parolayý Yeniden Belirle
-reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý denetim masasýndan yapabilirsiniz:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Selam,\n\nÝsteðiniz üzerine kayýt bilgileriniz gönderildi.\nGiriþ bilgileriniz:\n\nKullanýcý ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarýda belirtilen yeni parolanýzý deðiþtirmek isterseniz, kullanýcý denetim masasýndan yapabilirsiniz:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Parolanýz e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalý. Lütfen parolanýzý gözden geçirin ve giriþ yapýn..<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
 search_update:			Ýletileri arýyor
 selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü Ýletilerde</a> dolaþýyor
@@ -681,7 +681,7 @@ search_title:			Aranacak sözcükler {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mektup gönderildi
-remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: data->subject}" konulu zincire buradan ulaþabilirsin:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
+remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: data->subject}" konulu zincire buradan ulaþabilirsin:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode AÇIK</a></b>
@@ -891,7 +891,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Kullanýcý Ýsmi
 register_err_avatardimtobig:	<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutlarýn <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dýþýnda.
 pmsg_download_counter:		{VAR: r->dlcount} kez indirildi.
-member_search:			<br><a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
+member_search:			<br><a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Kullanýcý bul</a> özelliðini kullanabilirsiniz.
 post_all_ext_allowed:		(kýsýtsýz)
 buddy_offline:			{VAR: r[2]} þu anda baðlý deðil.
 buddy_online:			{VAR: r[2]} þu anda baðlý.
@@ -914,7 +914,7 @@ thread_mark_all_read:		tüm okunmamýþ forum iletilerini okundu olarak iþaretle
 thread_mark_all_read_desc:	Bu forumdaki tüm iletiler okundu olarak iþaretlenecek.
 private_no_messages:		Bu klasörde ileti yok.
 register_email_change_subject:	E-mektup adres deðiþiklik onayý.
-register_email_change_msg:	Lütfen yeni e-mektup adresiniz olarak belirttiðiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceðini, aþaðýdaki URL\'yi ziyaret ederek doðrulayýn:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladýktan sonra hesabýnýz tekrar etkin hale getirilecek.
+register_email_change_msg:	Lütfen yeni e-mektup adresiniz olarak belirttiðiniz "{VAR: uent->email}" adresinin eski adres olan "{VAR: old_email}" adresinin yerine geçeceðini, aþaðýdaki URL\'yi ziyaret ederek doðrulayýn:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nYeni adresinizi onayladýktan sonra hesabýnýz tekrar etkin hale getirilecek.
 iemail_thread_unsub:		Bu zincir aboneliðinden çýk
 iemail_forum_unsub:		Bu forum aboneliðinden çýk
 primary_group_prefix:		Bu forum için birincil grup:
@@ -922,7 +922,7 @@ group_resources:		Bu grup þu forumlarýn izinlerini kontrol ediyor:
 register_admin_newuser_title:	Yeni bir kullanýcý kayýt oldu ve hesabý onaylanmayý bekliyor.
 register_admin_newuser_msg:	({VAR: uent->login}) kullanýcý isimli yeni bir kullanýcý foruma kayýt olmuþ durumda, ve kayýt denetimi etkin durumda olduðu için yeni kullanýcýnýn hesabý siz veya diðer forum yöneticilerinden biri tarafýndan onaylanmadýðý sürece etkin hale getirilmeyecek. Yeni hesabý gözden geçirmek için bu adrese gidebilirsiniz: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nBu otomatik bir iletidir, lütfen yanýt yazmayýn.\nEðer gelecekte yeni kaydolan kullanýcýlar için bu tür uyarýlar almak istemiyorsanýz Admin Control Panel içindeki "New Account Notification" ayarýný deðiþtirerek bunu yapabilirsiniz.
 post_mod_msg_notify_title:	"{VAR: frm->name}" forumunda onay bekleyen yeni ileti
-post_mod_msg_notify_msg:	"{VAR: msg_post->subject}" baþlýklý yeni bir ileti denetlediðiniz forumlardan birine gönderilmiþ durumda. Bu iletiyi gözden geçirmek ve onaylamak için bu adrese gidin: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nBu otomatik bir iletidir, lütfen yanýt yazmayýn.\n
+post_mod_msg_notify_msg:	"{VAR: msg_post->subject}" baþlýklý yeni bir ileti denetlediðiniz forumlardan birine gönderilmiþ durumda. Bu iletiyi gözden geçirmek ve onaylamak için bu adrese gidin: {FULL_ROOT}{ROOT}?t=modque\n\nBu otomatik bir iletidir, lütfen yanýt yazmayýn.\n
 thread_printable_pdf:		Yazdýrýlabilir PDF Üret
 thread_syndicate:		Haber baþlýklarý (XML)
 reg_conf_title:			Kayýt Onayý
@@ -948,7 +948,7 @@ mnav_month:			Ay
 mnav_title:			Ýleti Gezgini
 mnav_update:			<a href="{TEMPLATE: mnav_update_lnk}">Ýleti Gezginini</a> kullanarak iletileri dolaþýyor.
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Yeni Özel Ýleti Uyarýsý
-pm_notify_body_email:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\nÝletiyi görüntülemek için buraya týklayýn: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
+pm_notify_body_email:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\nÝletiyi görüntülemek için buraya týklayýn: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
 pm_notify_body_icq:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafýndan gönderilmiþ "{VAR: subject}" konu baþlýklý yeni bir özel iletiniz var.\n\nBu tür uyarýlarý almak istemiyorsanýz kiþisel bilgiler bölümündeki "Özel Ýleti Uyarýsý" seçeneðini kapatýn.
 register_pm_notification:	Özel Ýleti Uyarýsý
 register_pm_notification_desc:	Size bir özel ileti gönderildiðinde belirttiðiniz yöntemle uyarý almanýzý saðlar.
