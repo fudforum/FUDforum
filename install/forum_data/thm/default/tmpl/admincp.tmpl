@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.7 2003/11/05 14:05:10 hackie Exp $
+* $Id: admincp.tmpl,v 1.8 2003/11/11 11:37:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
-| <a class="GenLink" href="adm/admapprove_avatar.php?{DEF: _rsid}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
+| <a class="GenLink" href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={DEF: __request_timestamp__}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
 {SECTION: END}
 
 {SECTION: group_mgr_lnk}
@@ -52,5 +52,5 @@
 {SECTION: END}
 
 {SECTION: accounts_pending_approval accounts pending administrator's approval}
-| <a class="GenLink" href="adm/admaccapr.php?{DEF: _rsid}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
+| <a class="GenLink" href="adm/admaccapr.php?S={DEF: s}&amp;SQ={DEF: __request_timestamp__}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}
