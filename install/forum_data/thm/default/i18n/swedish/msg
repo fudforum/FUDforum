@@ -179,7 +179,7 @@ user:				Medlem
 user_counter:			Vi har <b>{VAR: reg_users}</b> registrerade medlemmar.
 user_info:			Anv&auml;ndarinformation
 user_info_l:			Anv&auml;ndarinformation {VAR: u->alias}
-user_offline:			{VAR: obj->login}  &auml;r f&ouml;r tillf&auml;llet offline
+user_offline:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet offline
 user_online:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet online
 usrinfo_last_post:		Senaste inl&auml;gg:
 view_forum:			Visa forum
@@ -543,8 +543,8 @@ delete_yes:			Ja
 delete_no:			Nej
 error_invalidurl:		Ogiltig URL
 error_error:			Fel
-usrinfo_profile:		{VAR:  u->alias}s profil
-usrinfo_show_all_posts:		Visa alla inl&auml;gg av {VAR:  u->alias}
+usrinfo_profile:		{VAR: u->alias}s profil
+usrinfo_show_all_posts:		Visa alla inl&auml;gg av {VAR: u->alias}
 actions_update:			Spionerar p&aring; andra medlemmar, precis som du
 err_info:			Info
 buddy_list_err_cantadd:		Du kan l&auml;gga dig sj&auml;lv till kompislistan
