@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.25 2003/05/06 15:14:30 hackie Exp $
+*   $Id: nntp.inc,v 1.26 2003/05/06 18:24:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -682,7 +682,7 @@ class fud_nntp
 	        if (is_array($attch)) {
 	        	fputs($this->fs, "\r\n");
 	        	foreach ($attch as $fname => $file_data) {
-	                        fputs($this->fs, "begin-base64 644 ".$fname."\r\n".wordwrap(base64_encode($file_data), 60, "\r\n", 1)."\r\n====\r\n");
+	                        fputs($this->fs, uuencode($file_data, $fname));
 			}
 		}
 		
@@ -696,5 +696,42 @@ class fud_nntp
 		$this->close_connection();
 		return true;
 	}
+}
+
+function uuencode($in, $file_name)
+{
+	$out = 'begin 644 ' . $file_name . "\r\n"; 
+	$n = strlen($in);
+
+	for ($i = 0; $i < $n; $i += 3) {
+		if (!($i % 45)) {
+			if ($i) {
+				$out .= "\r\n";
+			}
+			if (($i + 45) < $n) {
+				$out .= 'M';
+			} else {
+				if (($c = ($n - $i))) {
+					$out .= chr(($c & 077) + 32);
+				} else {
+					$out .= '`';
+				}
+			}
+		}
+
+		$n1 = ($i + 1 < $n) ? ord($in[$i + 1]) : 0;
+		$n2 = ($i + 2 < $n) ? ord($in[$i + 2]) : 0;
+
+		$c = ord($in[$i]) >> 2;
+		$out .= $c ? chr(($c & 077) + 32) : '`';
+		$c = ((ord($in[$i]) << 4) & 060) | (($n1 >> 4) & 017);
+		$out .= $c ? chr(($c & 077) + 32) : '`';
+		$c = (($n1 << 2) & 074) | (($n2 >> 6) & 03);
+		$out .= $c ? chr(($c & 077) + 32) : '`';
+		$c = $n2 & 077;
+		$out .= $c ? chr(($c & 077) + 32) : '`';
+
+	}
+	return $out . "\r\n`\r\nend\r\n";
 }
 ?>
