@@ -1,10 +1,10 @@
-#!/usr/local/bin/php -d register_argc_argv=1 -q
+#!/usr/local/bin/php -q
 <?php
 /***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.12 2003/02/26 10:15:58 hackie Exp $
+*   $Id: nntp.php,v 1.13 2003/05/06 18:25:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,62 +19,65 @@
 	set_time_limit(600);
 	define('forum_debug', 1);
 
-	if( $HTTP_SERVER_VARS['argc'] < 2 ) exit("Missing Forum ID Paramater\n");	
-	if( !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) exit("Missing Forum ID Paramater\n");	
+	if (!ini_get("register_argc_argv")) {
+		exit("Enable the 'register_argc_argv' php.ini directive\n");	
+	}
+	if ($_SERVER['argc'] < 2) {
+		exit("Missing Forum ID Paramater\n");	
+	}
+	if (!($fid = (int)$_SERVER['argv'][1])) {
+		exit("Missing Forum ID Paramater\n");
+	}	
 	
-	/* Switch to the scripts directory */
-	chdir(dirname($HTTP_SERVER_VARS['argv'][0]));
+	if (strncmp($_SERVER['argv'][0], '.', 1)) {
+		require (dirname($_SERVER['argv'][0]) . '/GLOBALS.php');
+	} else {
+		require (getcwd() . '/GLOBALS.php');
+	}
 
-	include_once "GLOBALS.php";
-	
 	$GLOBALS['FILE_LOCK'] = 'N';
 	$GLOBALS['MODERATE_USER_REGS'] = 'N';
+
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
+	fud_use('th_adm.inc');
 	fud_use('wordwrap.inc');
 	fud_use('isearch.inc');
 	fud_use('replace.inc');
 	fud_use('forum.inc');
 	fud_use('rev_fmt.inc');
 	fud_use('iemail.inc');
-	fud_use('allperms.inc');
 	fud_use('post_proc.inc');
 	fud_use('is_perms.inc');
 	fud_use('users.inc');
 	fud_use('users_reg.inc');
 	fud_use('rhost.inc');
 	fud_use('attach.inc');
-	fud_use('mime.inc');
 	fud_use('fileio.inc');
-	fud_use('drawmsg.inc');
-	fud_use('util.inc');
 	fud_use('alt_var.inc');
 	fud_use('smiley.inc');
 	fud_use('nntp.inc', true);
 	fud_use('nntp_adm.inc', true);
-	
-	if( !isset($HTTP_SERVER_VARS['argv'][1]) || !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) 
-		exit("Missing Forum ID Paramater\n");	
-	
-	$nntp_adm = new fud_nntp_adm;
-	$nntp_adm->get($HTTP_SERVER_VARS['argv'][1]);
-	
+
+	define('sql_p', $GLOBALS['DBHOST_TBL_PREFIX']);
+
+	$nntp_adm = db_sab('SELECT * FROM '.sql_p.'nntp WHERE id='.$fid);
+
 	$nntp = new fud_nntp;
+
+	$nntp->server 		= $nntp_adm->server;
+	$nntp->newsgroup 	= $nntp_adm->newsgroup;
+	$nntp->port 		= $nntp_adm->port;
+	$nntp->timeout 		= $nntp_adm->timeout;
+	$nntp->auth 		= $nntp_adm->auth;
+	$nntp->user 		= $nntp_adm->login;
+	$nntp->pass 		= $nntp_adm->pass;
+	$nntp->create_users 	= $nntp_adm->create_users;
 	
-	$nntp->server = $nntp_adm->server;
-	$nntp->newsgroup = $nntp_adm->newsgroup;
-	$nntp->port = $nntp_adm->port;
-	$nntp->timeout = $nntp_adm->timeout;
-	$nntp->auth = $nntp_adm->auth;
-	$nntp->user = $nntp_adm->login;
-	$nntp->pass = $nntp_adm->pass;
-	$nntp->create_users = $nntp_adm->create_users;
-	
-	$frm = new fud_forum;
-	$frm->get($nntp_adm->forum_id);
+	$frm = db_sab('SELECT id, tag_style, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
 	
 	$lock = $nntp->get_lock();
 	$nntp->parse_msgs($frm, $nntp_adm, $nntp->read_start());
