@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: emailconf.php.t,v 1.19 2004/01/29 22:58:32 hackie Exp $
+* $Id: emailconf.php.t,v 1.20 2004/05/12 21:55:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,11 +26,13 @@
 			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 		}
 		q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt|131072, conf_key='0' WHERE id=".$uid);
+		if (!__fud_real_user__) {
+			$usr->ses_id = user_login($uid, $usr->ses_id, true);
+			$usr->users_opt = (int) q_singleval("SELECT users_opt FROM {SQL_TABLE_PREFIX}users WHERE id=".$uid);
+		}
 		if ($usr->users_opt & 2097152) {
 			header('Location: {FULL_ROOT}{ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
 			return;
-		} else if (!__fud_real_user__) {
-			$usr->ses_id = user_login($uid, $usr->ses_id, true);
 		}
 		check_return($usr->returnto);
 	} else {
