@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.20 2003/05/06 11:59:23 hackie Exp $
+*   $Id: nntp.inc,v 1.21 2003/05/06 12:38:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -628,8 +628,6 @@ class fud_nntp
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
 	{
-		fud_use('drawmsg.inc');
-	
 		if (!$this->connect()) {
 			$this->exit_handler();
 		}
@@ -638,9 +636,6 @@ class fud_nntp
 	        	$this->error = "Failed to recieve proper response to POST command, NNTP server replied: ".$this->lrc."\n";
 			$this->exit_handler();
 		}
-		
-		plain_text($body);
-		plain_text($subject);
 		
 		fputs($this->fs, "From: $from\r\n");
 	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");

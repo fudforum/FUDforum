@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.51 2003/05/05 22:18:26 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.52 2003/05/06 12:38:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -345,12 +345,15 @@ class fud_msg_edit extends fud_msg
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
-					u.alias, u.email, u.sig
+					u.alias, u.email, u.sig,
+					n.id AS nntp_id, ml.id AS mlist_id
 				FROM {SQL_TABLE_PREFIX}msg m 
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON f.last_post_id=m2.id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
+				LEFT JOIN {SQL_TABLE_PREFIX}mlist ml ON ml.forum_id=f.id
+				LEFT JOIN {SQL_TABLE_PREFIX}nntp n ON n.forum_id=f.id
 				WHERE m.id='.$id.' AND m.approved=\'N\'');
 
 		/* nothing to do or bad message id */
@@ -457,42 +460,35 @@ class fud_msg_edit extends fud_msg
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.
-		if ($mtf->mlist_msg_id) {
-			if ((list($mlist_id,$addr) = db_saq("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'"))) {
-				fud_use('email_msg_format.inc', true);
-				fud_use('mlist_post.inc', true);
-				
-				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
+		if ($mtf->nntp_id || $mtf->mlist_id) {
+			fud_use('email_msg_format.inc', true);
 
-				$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+			reverse_fmt($mtf->alias);
+			$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+			$body = $mtf->body . (($mtf->show_sig == 'Y' && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
+			plain_text($body);
+			plain_text($subject);
 
-				$body = $mtf->body . (($mtf->show_sig == 'Y' && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
-				plain_text($body);
-				
-				if ($mtf->reply_to) {
-					$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
-				} else {
-					$replyto_id = 0;
+			if ($mtf->reply_to) {
+				$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
+			} else {
+				$replyto_id = 0;
+			}
+
+			if ($mtf->attach_cnt) {
+				$r = uq("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mtf->id." AND private='N'");
+				while ($ent = db_rowarr($r)) {
+					$attach[$ent[1]][] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
 				}
-				
-				if ($mtf->attach_cnt) {
-					$r = q("SELECT {SQL_TABLE_PREFIX}attach.id, {SQL_TABLE_PREFIX}attach.original_name, {SQL_TABLE_PREFIX}mime.mime_hdr FROM {SQL_TABLE_PREFIX}attach INNER JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$mtf->id." AND private='N'");
-					while ($ent = db_rowarr($r)) {
-						$attach[$ent[1]][] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
-						$attach[$ent[1]][] = $ent[2];
-					}
-					qf($r);
-				} else {
-					$attach = null;
-				}
-				
-				mail_list_post($addr, $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, '');
-			} else if (($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'")) && !defined('sql_p')) {
+				qf($r);
+			} else {
+				$attach = null;
+			}
+
+			if ($mtf->nntp_id) {
 				fud_use('nntp.inc', true);
-				fud_use('nntp_adm.inc', true);
-				fud_use('email_msg_format.inc', true);
 				
-				$nntp_adm = db_sab('SELECT * FROM '.sql_p.'nntp WHERE id='.$nntp_id);
+				$nntp_adm = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}nntp WHERE id='.$mtf->nntp_id);
 				$nntp = new fud_nntp;
 				
 				$nntp->server = $nntp_adm->server;
@@ -503,29 +499,16 @@ class fud_msg_edit extends fud_msg
 				$nntp->login = $nntp_adm->login;
 				$nntp->pass = $nntp_adm->pass;
 
-				$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
-				$body = $mtf->body . (($mtf->show_sig == 'Y' && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
-				
-				if ($mtf->reply_to) {
-					$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
-				} else {
-					$replyto_id = 0;
-				}
-				
-				if ($mtf->attach_cnt) {
-					$r = q("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mtf->id." AND private='N'");
-					while ($ent = db_rowarr($r)) {
-						$attach[$ent[1]][] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
-					}
-					qf($r);
-				} else {
-					$attach = null;
-				}
-				
+				define('sql_p', '{SQL_TABLE_PREFIX}');
+
 				$lock = $nntp->get_lock();
 				$nntp->post_message($mtf->subject, $body, $from, $mtf->id, $replyto_id, $attach);
 				$nntp->close_connection();
 				$nntp->release_lock($lock);
+			} else {
+				fud_use('mlist_post.inc', true);
+				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
+				mail_list_post($addr, $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, '');
 			}
 		}
 	}
