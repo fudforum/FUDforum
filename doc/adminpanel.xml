@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.4 2002/07/02 15:08:37 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.5 2002/07/02 15:09:38 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -2482,7 +2482,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				default theme can be deleted. The default theme can only be disabled.
 			</para>
 		</sect2>
-	</sect>
+	</sect1>
 	
 	<sect1 id="admin.template_editor">
 		<title>Template Editor</title>
