@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phpBB2.php,v 1.8 2002/08/22 09:23:54 hackie Exp $
+*   $Id: phpBB2.php,v 1.9 2002/08/22 11:22:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -149,7 +149,7 @@ function print_status($str)
 
 function import_av_gal($dirn)
 {
-	print_status("\tfrom: $dir");
+	print_status("\tfrom: $dirn");
 	
 	$odir = getcwd();
 	chdir($dirn);
@@ -165,6 +165,11 @@ function import_av_gal($dirn)
 			case 'jpeg':
 			case 'png':
 			case 'gif':
+				if( file_exists($GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file) ) {
+					/* dupe avatar */
+					continue;	
+				}
+			
 				if( !copy($file, $GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file) ) {
 					print_status("Couldn't copy avatar (".getcwd().'/'.$file.") to (".$GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file.")");
 					exit;				
