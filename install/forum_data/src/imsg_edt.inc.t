@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.4 2002/06/26 22:39:34 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.5 2002/06/27 19:57:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,23 +51,12 @@ class fud_msg_edit extends fud_msg
 		if ( $frm->message_threshold && $frm->message_threshold < strlen($this->body) )
 			$thres_body = trim_html($this->body, $frm->message_threshold);
 		
-		if ( !db_locked() ) {
-			db_lock('
-				{SQL_TABLE_PREFIX}thread_view+, 
-				{SQL_TABLE_PREFIX}level+, 
-				{SQL_TABLE_PREFIX}cat+, 
-				{SQL_TABLE_PREFIX}users+, 
-				{SQL_TABLE_PREFIX}forum+, 
-				{SQL_TABLE_PREFIX}thread+, 
-				{SQL_TABLE_PREFIX}msg+
-			');
-			$ll = 1;
-		}
-		
 		/* length+offset are returned by ref, thank php-devs for dumbass syntax */
 		$file_id = write_body($this->body, $length, $offset);
 		if ( $thres_body ) $file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
-	
+		
+		
+		
 		$r = q("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
 			poster_id, 
@@ -136,8 +125,7 @@ class fud_msg_edit extends fud_msg
 				$thr->unlock();
 		}
 		
-		if ( $autoapprove && (empty($frm->moderated) || $frm->moderated != 'Y') ) $this->approve(NULL, TRUE);
-		if ( $ll && db_locked() ) db_unlock();
+		if ( $autoapprove && $frm->moderated != 'N' ) $this->approve(NULL, TRUE);
 
 		return $this->id;
 	}
@@ -324,7 +312,7 @@ class fud_msg_edit extends fud_msg
 	}	
 	
 	function approve($id=NULL, $unlock_safe=FALSE)
-	{
+	{	
 		if( !db_locked() ) {
 			db_lock('
 				{SQL_TABLE_PREFIX}thread_view+, 
@@ -338,12 +326,10 @@ class fud_msg_edit extends fud_msg
 			$ll = 1;
 		}
 		
-		if( $id ) 
-			$this->get_by_id($id);
-		else 
-			$id = $this->id;
+		if( $id ) $this->get_by_id($id);
+		if( empty($this->approved) ) $this->approved = q_singleval("SELECT approved FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->id);
 		
-		if ( q_singleval("SELECT approved FROM {SQL_TABLE_PREFIX}msg WHERE id=$id")!='Y' ) {
+		if ( $this->approved!='Y' ) {
 			$thr = new fud_thread;
 			$frm = new fud_forum;
 			
@@ -421,6 +407,7 @@ function write_body($data, &$len, &$offset)
 	$i=1;
 	while( $i<100 ) {
 		$fp = fopen('msg_'.$i, 'ab');
+		flock($fp, LOCK_EX);
 		if( !($off = ftell($fp)) ) $off = __ffilesize($fp);
 		if( !$off || sprintf("%u", $off+$len)<$MAX_FILE_SIZE ) break;
 		fclose($fp);

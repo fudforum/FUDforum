@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: th.inc.t,v 1.4 2002/06/27 19:57:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,11 +35,6 @@ class fud_thread
 	
 	function add($root, $forum_id, $locked=NULL, $is_sticky=NULL, $ordertype=NULL, $orderexpiry=NULL) 
 	{
-		if ( !db_locked() ) {
-			$ll = 1;
-			db_lock("{SQL_TABLE_PREFIX}thread+");
-		}
-		
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}thread(
 				forum_id, 
@@ -70,8 +65,6 @@ class fud_thread
 			)");
 		
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}thread", $r);
-		
-		if ( $ll ) db_unlock();
 		
 		return $this->id;
 	}
