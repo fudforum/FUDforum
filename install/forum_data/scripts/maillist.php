@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.10 2002/08/01 17:23:10 hackie Exp $
+*   $Id: maillist.php,v 1.11 2002/08/23 02:50:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -472,6 +472,12 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	// To prevent init user from being called
 	define('forum_debug', 1);
 
+	if( $HTTP_SERVER_VARS['argc'] < 2 ) exit("Missing Forum ID Paramater\n");	
+	if( !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) exit("Missing Forum ID Paramater\n");	
+	
+	/* Switch to the scripts directory */
+	chdir(dirname($HTTP_SERVER_VARS['argv'][0]));
+
 	include_once "GLOBALS.php";
 	fud_use('err.inc');
 	fud_use('db.inc');
@@ -492,9 +498,6 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	fud_use('attach.inc');
 	fud_use('mime.inc');
 	fud_use('mlist.inc', TRUE);
-	
-	if( !isset($HTTP_SERVER_VARS['argv'][1]) || !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) 
-		exit("Missing Forum ID Paramater\n");
 	
 	$mlist = new fud_mlist;
 	$mlist->get($HTTP_SERVER_VARS['argv'][1]);

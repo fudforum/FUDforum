@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.2 2002/08/23 01:38:40 hackie Exp $
+*   $Id: nntp.php,v 1.3 2002/08/23 02:50:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,8 +18,15 @@
 
 	set_time_limit(600);
 	define('forum_debug', 1);
+
+	if( $HTTP_SERVER_VARS['argc'] < 2 ) exit("Missing Forum ID Paramater\n");	
+	if( !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) exit("Missing Forum ID Paramater\n");	
 	
+	/* Switch to the scripts directory */
+	chdir(dirname($HTTP_SERVER_VARS['argv'][0]));
+
 	include_once "GLOBALS.php";
+	
 	$GLOBALS['FILE_LOCK'] = 'N';
 	fud_use('err.inc');
 	fud_use('db.inc');
@@ -39,8 +46,8 @@
 	fud_use('users_reg.inc');
 	fud_use('attach.inc');
 	fud_use('mime.inc');
-	fud_use('nntp.inc', TRUE);
-	fud_use('nntp_adm.inc', TRUE);
+	fud_use('nntp.inc', true);
+	fud_use('nntp_adm.inc', true);
 	
 	if( !isset($HTTP_SERVER_VARS['argv'][1]) || !is_numeric($HTTP_SERVER_VARS['argv'][1]) ) 
 		exit("Missing Forum ID Paramater\n");	
