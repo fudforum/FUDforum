@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.34 2004/01/29 18:51:48 hackie Exp $
+* $Id: rdf.php.t,v 1.35 2004/02/01 23:05:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,20 +58,29 @@ function multi_id($data)
 	return implode(',', $out);
 }
 
-/* build html encoding list */
-for ($i = 8; $i < 48; $i++) {
-	$e[chr($i)] = '&#' . $i . ';';
+if (function_exists('utf8_encode')) {
+	function fud_xml_encode($str)
+	{
+		return utf8_encode(str_replace('&nbsp;', ' ', $str));
+	}
+} else {
+	$enc_src = array('&', "\r", '&nbsp;', '<', '>');
+	$enc_dst = array('&amp;', '&#13;', ' ', '&lt;', '&gt;');
+
+	/* build html encoding list */
+	for ($i = 128; $i < 256; $i++) {
+		$enc_src[] = chr($i);
+		$enc_dst[] = '&#' . $i . ';';
+	}
+
+	function fud_xml_encode($str)
+	{
+		return str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str);
+	}
 }
-for ($i = 60; $i < 65; $i++) {
-	$e[chr($i)] = '&#' . $i . ';';
-}
-for ($i = 92; $i < 97; $i++) {
-	$e[chr($i)] = '&#' . $i . ';';
-}
-for ($i = 123; $i < 256; $i++) {
-	$e[chr($i)] = '&#' . $i . ';';
-}
-unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
+
+
+
 
 /*{POST_HTML_PHP}*/
 
@@ -126,8 +135,12 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND m.post_stamp <='.(int)$_GET['de'];
 			}
-			if ($lmt == " m.apr=1") {
-				$lmt .= ' AND m.post_stamp >= ' . (time() - 86400 * 5);
+			/* This is an optimization so that the forum does not need to 
+			 * go through the entire message db to fetch latest messages.
+			 * So, instead we set an arbitrary search limit if 5 days.
+			 */
+			if (isset($_GET['l']) && $lmt == " t.moved_to=0 AND m.apr=1") {
+				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
 			}
 
 			if ($FUD_OPT_2 & 33554432) {
@@ -193,7 +206,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 				}
 
 				if ($basic) {
-					$body = strtr(read_msg_body($r->foff, $r->length, $r->file_id), $e);
+					$body = fud_xml_encode(read_msg_body($r->foff, $r->length, $r->file_id));
 
 $basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."\" />\n";
 
@@ -291,6 +304,15 @@ $basic_rss_data .= '
 			if (isset($_GET['de'])) {
 				$lmt .= ' AND t.last_post_date <='.(int)$_GET['de'];
 			}
+
+			/* This is an optimization so that the forum does not need to 
+			 * go through the entire message db to fetch latest messages.
+			 * So, instead we set an arbitrary search limit if 5 days.
+			 */
+			if (isset($_GET['l']) && $lmt == " t.moved_to=0 AND m.apr=1") {
+				$lmt .= ' AND t.last_post_date >=' . (__request_timestamp__ - 86400 * 5);
+			}
+
 			if ($FUD_OPT_2 & 33554432) {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
