@@ -936,7 +936,7 @@ iemail_msg_subject:		<b>Rubrik:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Datum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Svara
 iemail_msg_quote:		Citera
-iemail_msg_view:		View Topic/Message
+iemail_msg_view:		L&auml;s diskussion/inl&auml;gg
 threadt_sticky:			klibbig
 threadt_announce:		meddelande
 reported_no_messages:		Det finns inga rapporterade meddelande.
@@ -952,9 +952,9 @@ iemail_forum_unsub:		Avbest&auml;ll det h&auml;r forumet
 primary_group_prefix:		Prim&auml;r grupp f&ouml;r forumet:
 group_resources:		Den h&auml;r gruppen kontrollerar r&auml;ttigheterna f&ouml;r f&ouml;ljande forum
 register_email:			E-post
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
+register_admin_newuser_title:	En ny medlem har registrerat sig och v&auml;ntar p&aring; att kontot skall bekr&auml;ftas
+register_admin_newuser_msg:	Den nya medlemmen {VAR: uent->login} har just registrerat sig p&aring; forumet. Eftersom kontobekr&auml;ftelsefunktionen &auml;r p&aring; m&aring;ste du eller n&aring;gon annan av forumadministrat&ouml;rerna bekr&auml;fta konto innan det kan aktiveras. G&aring; till {GVAR: WWW_ROOT}adm/admaccapr.php f&ouml;r att kontrollera kontot.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administrat&ouml;rens kontrollpanel. Funktionen heter "New Account Notification".
+post_mod_msg_notify_title:	Ett nytt meddelande i forumet "{VAR: frm->name}" v&auml;ntar p&aring; godk&auml;nnande
+post_mod_msg_notify_msg:	Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till {ROOT}?t=modque f&ouml;r att se meddelandet.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\n
+thread_printable_pdf:		G&ouml;r utskriftsv&auml;nlig PDF
+thread_syndicate:		Syndikera det h&auml;r forumet (XML)
