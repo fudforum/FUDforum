@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.28 2003/06/11 14:03:36 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.29 2003/07/19 18:37:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,7 +197,7 @@ function tags_to_html($str, $allow_img='Y')
 						$param .= "\n?>";
 					}
 
-					$ostr .= '<span name="php">'.trim(highlight_string($param, true)).'</span>';
+					$ostr .= '<span name="php">'.trim(@highlight_string($param, true)).'</span>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
