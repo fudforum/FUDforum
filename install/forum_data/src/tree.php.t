@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.17 2002/09/07 04:28:23 hackie Exp $
+*   $Id: tree.php.t,v 1.18 2002/09/10 05:24:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -210,7 +210,7 @@ if( @is_array($tree->kiddies) ) {
 			
 			$width = 6*($lev-1);
 				
-			if( _uid && $usr->last_read < $cur->post_stamp && $cur->post_stamp > $last_thread_read )
+			if( _uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $last_thread_read )
 				$read_indicator = '{TEMPLATE: tree_unread_message}';
 			else
 				$read_indicator = '{TEMPLATE: tree_read_message}';
@@ -257,7 +257,7 @@ if( @is_array($tree->kiddies) ) {
 	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));
 	un_register_fps();
 
-	if ( isset($usr) ) $usr->register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
+	if ( isset($usr) && $last_thread_read < $msg_obj->post_stamp ) $usr->register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
 	
 	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
 	

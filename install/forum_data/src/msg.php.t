@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.15 2002/09/07 04:28:23 hackie Exp $
+*   $Id: msg.php.t,v 1.16 2002/09/10 05:24:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -208,7 +208,7 @@
 	
 	un_register_fps();
 
-	if ( isset($usr) ) $usr->register_thread_view($thread->id, $obj2->post_stamp, $obj2->id);
+	if ( isset($usr) && q_singleval("SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id="._uid) < $obj2->post_stamp ) $usr->register_thread_view($thread->id, $obj2->post_stamp, $obj2->id);
 
 	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&amp;th=".$th."&amp;prevloaded=1&amp;"._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
 
