@@ -333,7 +333,7 @@ register_notification:		Wybierz domy¶lne powiadamianie:
 register_notification_desc:	Je¶li powiadamianie jest domy¶lnie w³±czone, mo¿e byæ wy³±czone przy zamieszczaniu wiadomo¶ci.
 register_notify_method:		Wybierz metodê powiadamiania:
 register_notify_method_desc:	Je¶li chcesz otrzymywaæ powiadamianie przez ICQ, upewnij siê, ¿e masz aktywne 'EmailExpress' w swoich ustawieniach ICQ.
-register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz okre¶lonego numeru ICQ. Zostanie w³±czone powiadamianie przez e-mail.
+register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz okre¶lonego numeru ICQ. Zostanie w³±czone powiadamianie przez e-mail
 register_allow_email_msg:	Zezwól na wysy³anie listów e-mail:
 register_allow_email_msg_desc:	Zezwól innym u¿ytkowników na wysy³anie Ci listów na e-mail poprzez forum.
 buddy_status:			Status
