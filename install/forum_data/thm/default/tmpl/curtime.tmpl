@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: curtime.tmpl,v 1.7 2004/04/25 20:18:25 hackie Exp $
+* $Id: curtime.tmpl,v 1.8 2004/05/22 18:36:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,5 +10,5 @@
 ***************************************************************************/
 
 {MAIN_SECTION: curtime Current time indicator}
-<br /><div align="center"><div class="curtime"><b>{MSG: current_time}:</b> {DATE: !__request_timestamp__ %a %b %e %H:%M:%S %Z %Y}</div></div>
+<br /><div class="ac"><span class="curtime"><b>{MSG: current_time}:</b> {DATE: !__request_timestamp__ %a %b %e %H:%M:%S %Z %Y}</span></div>
 {MAIN_SECTION: END}
