@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.40 2002/11/24 23:25:06 hackie Exp $
+*   $Id: core.inc,v 1.41 2002/11/25 00:27:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,10 +40,24 @@ if( empty($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']) )
 		$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI'] = $GLOBALS['REQUEST_URI'];
 
 if( !empty($GLOBALS['returnto']) ) $GLOBALS['returnto'] = stripslashes($GLOBALS['returnto']);
-if( !ini_get('register_globals') || !get_magic_quotes_gpc() ) fud_use('reg_globals.inc', TRUE);
+
+
+
+if (!($reg_globals=ini_get('register_globals')) || !($magic_quotes=get_magic_quotes_gpc())) {
+	fud_use('reg_globals.inc', true);
+	
+	if (!$reg_globals && !$magic_quotes) {
+		fud_variable_register('fud_request_add_gns');
+	} else if (!$magic_quotes) {
+		fud_variable_register('fud_request_add_slashes');
+	} else if (!$reg_globals) {
+		fud_variable_register('fud_request_add_globals');
+	}
+}
+
 define('__request_timestamp__', time());
 
-function fud_use($file, $static=FALSE)
+function fud_use($file, $static=false)
 {
 	if ( !$static && !defined('admin_form') && isset($GLOBALS['FUD_THEME']) ) 
 		$thm = 'theme/'.$GLOBALS['FUD_THEME']->name.'/';
