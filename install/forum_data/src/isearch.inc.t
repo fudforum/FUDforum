@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.8 2002/07/22 14:53:37 hackie Exp $
+*   $Id: isearch.inc.t,v 1.9 2002/07/29 23:32:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -207,7 +207,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	qf($r);
 	
 	if( empty($idlist) ) 
-		return q("SELECT id FROM hyper_index WHERE id=0");
+		return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
 	else
 		$idlist = substr($idlist, 0, -1);
 	
