@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.9 2002/07/31 15:20:23 hackie Exp $
+*   $Id: maillist.php,v 1.10 2002/08/01 17:23:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -534,7 +534,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		
 	fud_wordwrap($msg_post->body);
 	$msg_post->subject = addslashes(htmlspecialchars(apply_custom_replace($emsg->subject)));
-	if( !strlen($msg_post->subject) ) mlist_error_log("Blank Subject\n", $emsg->raw_msg, 'ERROR');
+	if( !strlen($msg_post->subject) ) mlist_error_log("Blank Subject", $emsg->raw_msg, 'ERROR');
 	
 	$msg_post->poster_id = intzero($emsg->match_user_to_post());
 	
