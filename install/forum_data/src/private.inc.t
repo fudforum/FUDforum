@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
+*   $Id: private.inc.t,v 1.10 2003/04/19 13:46:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@ class fud_pmsg
 			VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
-				".intzero($GLOBALS['recv_user_id'][0]).",
+				".(isset($GLOBALS['recv_user_id']) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
 				".strnull(addslashes($this->to_list)).",
 				".$this->ip_addr.",
 				".strnull($this->host_name).",

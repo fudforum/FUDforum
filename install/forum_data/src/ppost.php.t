@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.25 2003/04/18 13:03:41 hackie Exp $
+*   $Id: ppost.php.t,v 1.26 2003/04/19 13:46:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,8 +141,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	 		
 		}
 	} else {
-		if (isset($_POST['btn_action']) && $_POST['btn_action'] == 'draft') {
-			$_POST['btn_draft'] = 1;
+		if (isset($_POST['btn_action'])) {
+			if ($_POST['btn_action'] == 'draft') {
+				$_POST['btn_draft'] = 1;
+			} else if ($_POST['btn_action'] == 'send') {
+				$_POST['btn_submit'] = 1;
+			}
 		}
 
 		$msg_to_list = htmlspecialchars($_POST['msg_to_list']);
