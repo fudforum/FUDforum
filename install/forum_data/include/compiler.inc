@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.17 2002/08/22 02:29:21 hackie Exp $
+*   $Id: compiler.inc,v 1.18 2002/10/03 07:33:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@ function resolve_refs($file_name)
 		$str = filetomem($file1);
 		$GLOBALS['CURFILE'] = $file1;
 	}
-	else if ( !is_file($file2) ) {
+	else if ( is_file($file2) ) {
 		if ( defined('debug') ) 
 			echo "opening $file1 to resolve refs<br>\n";
 		$str = filetomem($file2);
