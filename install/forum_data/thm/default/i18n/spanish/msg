@@ -718,9 +718,9 @@ remail_emailsent:		E-mail fue enviado
 remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: thread->subject} puede encontrarlo aquí: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _RSID}\nDe {VAR: u}\n
 poll_add_option:		Agregar Opción:
 post_opt_html_on:		El código <b>HTML</b> está <b>HABILITADO</b>
-post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#style" target=_new>FUDcode</b> está <b>HABILITADO</a></b>
+post_opt_fud_on:		El <b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#style" target="_blank">FUDcode</b> está <b>HABILITADO</a></b>
 post_opt_images_on:		Las <b>Imágenes</b> están <b>HABILITADAS</b>
-post_opt_smilies_on:		Los <a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#sml" target=_new><b>smilies</b> están <b>HABILITADOS</b></a>
+post_opt_smilies_on:		Los <a href="{ROOT}?section=readingposting&t=help_index&{DEF: _RSID}#sml" target="_blank"><b>smilies</b> están <b>HABILITADOS</b></a>
 post_opt_html_off:		El código <b>HTML</b> está <b>DESHABILITADO</b>
 post_opt_fud_off:		El <b>FUDcode</b> está <b>DESHABILITADO</b>
 post_opt_images_off:		Las <b>Imágenes</b> están <b>DESHABILITADAS</b>

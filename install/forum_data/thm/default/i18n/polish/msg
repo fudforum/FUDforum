@@ -718,9 +718,9 @@ remail_emailsent:		List zosta³ wys³any
 remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({ROOT}?t=index), która powinna Cie zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: thread->subject} mo¿e byæ znaleziony tutaj: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\n{VAR: u}\n
 poll_add_option:		Dodaj Opcjê:
 post_opt_html_on:		<b>HTML</b> jest <b>W³±czony</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target=_new><b>FUD Code</b> jest <b>W³±czony</b></a>
+post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target="_blank"><b>FUD Code</b> jest <b>W³±czony</b></a>
 post_opt_images_on:		<b>Obrazki</b> s± <b>W³±czone</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target=_new><b>U¶mieszki</b> s± <b>W³±czone</b></a></a>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target="_blank"><b>U¶mieszki</b> s± <b>W³±czone</b></a></a>
 post_opt_html_off:		<b>HTML</b> jest <b>Wy³±czony</b>
 post_opt_fud_off:		<b>FUD Code</b> jest <b>Wy³±czony</b>
 post_opt_images_off:		<b>Obrazki</b> s± <b>Wy³±czone</b>

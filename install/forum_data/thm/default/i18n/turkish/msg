@@ -717,9 +717,9 @@ remail_emailsent:		E-mektup gönderildi
 remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: thread->subject}" konulu zincire buradan ulaþabilirsin:\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\nGönderen: {VAR: u}\n
 poll_add_option:		Seçenek Ekle:
 post_opt_html_on:		<b>HTML AÇIK</b>
-post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target=_new>FUDcode AÇIK</a></b>
+post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target="_blank">FUDcode AÇIK</a></b>
 post_opt_images_on:		<b>Resimler AÇIK</b>
-post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target=_new><b>Gülücükler AÇIK</b></a>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target="_blank"><b>Gülücükler AÇIK</b></a>
 post_opt_html_off:		<b>HTML KAPALI</b>
 post_opt_fud_off:		<b>FUDcode KAPALI</b>
 post_opt_images_off:		<b>Resimler KAPALI</b>
