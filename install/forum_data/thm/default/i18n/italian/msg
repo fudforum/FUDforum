@@ -713,7 +713,7 @@ search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: thread->subject}
 remail_emailsent:		L&#39;email è stata spedita
-remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: thread->subject}: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nDa {VAR: u}\n
+remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: thread->subject}: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nDa {VAR: u}\n
 poll_add_option:		Aggiungi risposta:
 post_opt_html_on:		L&#39;<b>HTML</b> è <b>ON</b>
 post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting&{DEF: _rsid}#style" target=_new>FUDcode</b> è <b>ON</a></b>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.6 2002/08/05 00:47:55 hackie Exp $
+*   $Id: remail.php.t,v 1.7 2003/03/24 12:24:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,12 +31,18 @@
 		exit;	
 	}
 
+	if ($GLOBALS['TREE_THREADS_ENABLE'] == 'N' || !strncmp($GLOBALS['DEFAULT_THREAD_VIEW'], 'msg', 3)) {
+		$def_thread_view = 'msg';
+	} else {
+		$def_thread_view = 'tree';
+	}
+
 	if( empty($body) ) {
 		$u = isset($usr) ? $usr->alias : $GLOBALS["ANON_NICK"];
 		$rid = isset($usr) ? $usr->id : '';
 		$bd = '{TEMPLATE: email_message}';
-	}	
-	
+	}
+
 	{POST_HTML_PHP}
 	if( !empty($GLOBALS["HTTP_POST_VARS"]["posted"]) && isset($usr) && !check_femail_form() ) {
 		$to = empty($fname) ? $femail : $fname.' <'.$femail.'>';

@@ -718,7 +718,7 @@ search_title:			Procurar por {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		Email enviado
-remail_email:			Olá,\n\nHá um tópico interessante sobre "{VAR: thread->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n O seu amigo,\n\n{VAR: u}\n
+remail_email:			Olá,\n\nHá um tópico interessante sobre "{VAR: thread->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n O seu amigo,\n\n{VAR: u}\n
 poll_add_option:		Adicionar Opção:
 post_opt_html_on:		<b>HTML</b> is <b>ON</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> está <b>LIGADO</b></a>

@@ -713,7 +713,7 @@ search_title:			S&ouml;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		E-posten skickad
-remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: thread->subject} hittar du här: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nAv {VAR: u}\n
+remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: thread->subject} hittar du här: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nAv {VAR: u}\n
 poll_add_option:		L&auml;gg till alternativ:
 post_opt_html_on:		<b>HTML</b>-kod &auml;r <b>P&Aring;</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD-kod</b> &auml;r <b>P&Aring;</b></a>

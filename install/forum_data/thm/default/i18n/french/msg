@@ -713,7 +713,7 @@ search_title:                   Recherche de {VAR-HTML: srch}
 thread_title:                   {VAR: frm->name}
 tree_title:                     {VAR: frm->name} => {VAR: thread->subject}
 remail_emailsent:               L&#39;e-mail a été envoyé
-remail_email:                   Je pense que tu vas être intéressé de lire cette page {GVAR: FORUM_TITLE} ( {ROOT}?t=index ).\nVoici le fil dont je disais que tu serais intéressé, {VAR: thread->subject} se trouve ici: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nDe {VAR: u}\n
+remail_email:                   Je pense que tu vas être intéressé de lire cette page {GVAR: FORUM_TITLE} ( {ROOT}?t=index ).\nVoici le fil dont je disais que tu serais intéressé, {VAR: thread->subject} se trouve ici: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\nDe {VAR: u}\n
 poll_add_option:                Ajouter une Option:
 post_opt_html_on:               <b>HTML</b> est <b>ACTIVÉ</b>
 post_opt_fud_on:                <b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUDcode</b> est <b>ACTIVÉ</a></b>

@@ -716,7 +716,7 @@ search_title:			Търси {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&amp;gt; {VAR: thread->subject}
 remail_emailsent:		Е-мейл съобщението е изпратено
-remail_email:			Здравей,\n\nИма интересна тема за "{VAR: thread->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Твой \n\n{VAR: u}\n
+remail_email:			Здравей,\n\nИма интересна тема за "{VAR: thread->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Твой \n\n{VAR: u}\n
 poll_add_option:		Добави Опцията:
 post_opt_html_on:		<b>HTML</b> е <b>разрешен</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> е <b>разрешен</b></a>

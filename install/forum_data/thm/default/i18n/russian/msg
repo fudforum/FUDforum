@@ -714,7 +714,7 @@ search_title:			Поиск {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		Электронное письмо отправлено
-remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: thread->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Ваш друг,\n\n{VAR: u}\n
+remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: thread->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{ROOT}?t={VAR: def_thread_view}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Ваш друг,\n\n{VAR: u}\n
 poll_add_option:		Добавить вариант:
 post_opt_html_on:		<b>HTML</b> - <b>включен</b>
 post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> - <b>включен</b></a>
