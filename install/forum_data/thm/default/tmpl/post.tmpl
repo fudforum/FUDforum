@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.24 2003/05/16 12:42:31 hackie Exp $
+*   $Id: post.tmpl,v 1.25 2003/06/06 20:56:32 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -148,14 +148,14 @@
 {TEMPLATE-DATA: loged_in_user}
 {TEMPLATE-DATA: post_password}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
 
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR-HTML: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB" valign="top">

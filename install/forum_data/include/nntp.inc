@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.30 2003/05/14 08:10:50 hackie Exp $
+*   $Id: nntp.inc,v 1.31 2003/06/06 20:56:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -226,7 +226,7 @@ class fud_nntp
 			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 		}
 		
-		$this->subject = trim(decode_header_value($this->headers['subject']));	
+		$this->subject = htmlspecialchars(trim(decode_header_value($this->headers['subject'])));	
 		
 		// Attempt to Get Poster's IP from fields commonly used to store it
 		if (isset($this->headers['nntp-posting-host'])) {

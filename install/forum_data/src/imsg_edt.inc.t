@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.62 2003/06/05 22:42:14 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.63 2003/06/06 20:56:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,7 +90,7 @@ class fud_msg_edit extends fud_msg
 			'".$this->ip_addr."',
 			".$this->host_name.",
 			".$this->post_stamp.",
-			".strnull(addslashes(htmlspecialchars($this->subject))).",
+			".strnull(addslashes($this->subject)).",
 			".intzero($this->attach_cnt).",
 			".intzero($this->poll_id).",
 			".strnull(addslashes($this->icon)).",
@@ -173,7 +173,7 @@ class fud_msg_edit extends fud_msg
 			smiley_disabled='".yn($this->smiley_disabled)."', 
 			updated_by=".$id.",
 			show_sig='".yn($this->show_sig)."', 
-			subject='".addslashes(htmlspecialchars($this->subject))."', 
+			subject='".addslashes($this->subject)."', 
 			attach_cnt=".intzero($this->attach_cnt).", 
 			poll_id=".intzero($this->poll_id).", 
 			update_stamp=".__request_timestamp__.", 
