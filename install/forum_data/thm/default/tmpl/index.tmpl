@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.32 2004/01/04 16:38:28 hackie Exp $
+* $Id: index.tmpl,v 1.33 2004/04/13 15:58:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc" colspan="6"><img src="blank.gif" alt="" width=16 height=16 /> <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
+<tr><td class="CatDesc CatLockPad" colspan="6"><font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
@@ -56,12 +56,12 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr>
-	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
-	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{TEMPLATE-DATA: forum_descr}{VAR: moderators}</td>
-	<td class="RowStyleB" align="center">{VAR: r[15]}</td>
-	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
-	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
+	<td class="RowStyleA wo">{TEMPLATE-DATA: forum_icon}</td>
+	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
+	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{TEMPLATE-DATA: forum_descr}{VAR: moderators}</td>
+	<td class="RowStyleB ac">{VAR: r[15]}</td>
+	<td class="RowStyleB ac">{VAR: r[16]}</td>
+	<td class="RowStyleA ac nw">{VAR: last_post}</td>
 </tr>
 {SECTION: END}
 
@@ -112,7 +112,7 @@
 {SECTION: END}
 
 {SECTION: mark_all_read}
-<div align=right><font class="SmallText">[<a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
+<div class="SmallText ar">[<a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</div>
 {SECTION: END}
 
 {SECTION: forum_icon_legend}
