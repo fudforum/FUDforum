@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.4 2002/07/08 23:15:19 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.5 2002/07/09 17:01:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -232,7 +232,7 @@ function get_id_by_login($login)
 
 function get_id_by_alias($alias)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(alias)='".strtolower($alias)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".$alias."'");
 }
 
 function get_id_by_radius($login, $passwd)
