@@ -1,0 +1,30 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_ses.tbl,v 1.3 2003/09/25 16:52:49 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}ses;
+
+CREATE TABLE {SQL_TABLE_PREFIX}ses
+(
+	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	ses_id		CHAR(32) NOT NULL DEFAULT 0,
+	sys_id		CHAR(32) NOT NULL DEFAULT 0,
+	user_id		INT NOT NULL DEFAULT 0,
+	action		VARCHAR(255),
+	forum_id        INT NOT NULL DEFAULT 0,
+	
+	time_sec	BIGINT NOT NULL DEFAULT 0,
+	
+	data		TEXT,
+	returnto	VARCHAR(255)
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}ses_i_s ON {SQL_TABLE_PREFIX}ses (ses_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}ses_i_u ON {SQL_TABLE_PREFIX}ses (user_id);
+CREATE INDEX {SQL_TABLE_PREFIX}ses_i_tu ON {SQL_TABLE_PREFIX}ses (time_sec, user_id);

@@ -1,0 +1,102 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_users.tbl,v 1.4 2003/09/25 16:52:49 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}users;
+
+CREATE TABLE {SQL_TABLE_PREFIX}users
+(
+	id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	login			VARCHAR(50) NOT NULL,
+	alias			VARCHAR(50) BINARY NOT NULL,
+	passwd			VARCHAR(32) NOT NULL,
+	name			VARCHAR(255) NOT NULL,
+
+	email			VARCHAR(255) NOT NULL,
+	location		VARCHAR(255),
+	interests		VARCHAR(255),
+	occupation		VARCHAR(255),
+	avatar			INT NOT NULL DEFAULT 0,
+	avatar_loc		TEXT,
+
+	icq			BIGINT,
+	aim			VARCHAR(255),
+	yahoo			VARCHAR(255),
+	msnm			VARCHAR(255),
+	jabber			VARCHAR(255),
+	affero			VARCHAR(255),
+
+	posts_ppg		INT NOT NULL DEFAULT 0,
+	time_zone		VARCHAR(255) NOT NULL DEFAULT 'America/Montreal',
+
+	bday			INT NOT NULL DEFAULT 0,
+	join_date		BIGINT NOT NULL DEFAULT 0,
+
+	conf_key		CHAR(32) NOT NULL DEFAULT '0',
+	user_image		VARCHAR(255),
+	theme			INT NOT NULL DEFAULT 0,
+
+	posted_msg_count	INT NOT NULL DEFAULT 0,
+	last_visit		BIGINT NOT NULL DEFAULT 0,
+	referer_id		INT NOT NULL DEFAULT 0,
+	last_read		BIGINT NOT NULL DEFAULT 0,
+	custom_status 		TEXT,
+	sig			TEXT,
+
+	level_id 		INT NOT NULL DEFAULT 0,
+	reset_key		VARCHAR(32) NOT NULL DEFAULT '0',
+	u_last_post_id 		INT NOT NULL DEFAULT 0,
+	home_page		VARCHAR(255), 
+	bio			TEXT,
+	cat_collapse_status	TEXT,
+	custom_color		VARCHAR(255) DEFAULT NULL,
+	buddy_list		TEXT,
+	ignore_list		TEXT,
+	group_leader_list	TEXT,
+	users_opt		INT NOT NULL DEFAULT 6585269
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_l ON {SQL_TABLE_PREFIX}users (login);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_e ON {SQL_TABLE_PREFIX}users (email);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_i_a ON {SQL_TABLE_PREFIX}users (alias);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_rk ON {SQL_TABLE_PREFIX}users (reset_key);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_lv ON {SQL_TABLE_PREFIX}users (last_visit);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_ck ON {SQL_TABLE_PREFIX}users (conf_key);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_ri ON {SQL_TABLE_PREFIX}users (referer_id);
+CREATE INDEX {SQL_TABLE_PREFIX}users_i_uo ON {SQL_TABLE_PREFIX}users (users_opt);
+
+# Opts
+# 1 display_email (ON/OFF)
+# 2 notify (ON/OFF)
+# 4 notify_method  (EMAIL/ICQ)
+# 8 ignore_admin (ON/OFF)
+# 16 email_messages (ON/OFF)
+# 32 pm_messages (ON/OFF)
+# 64 pm_notify (ON/OFF)
+# 128 default_topic_view (MSG/TREE)
+# 256 default_message_view (MSG/TREE)
+# 512 gender (UNSPECIFIED)
+# 1024 gender (MALE/FEMALE) 
+# 2048 append_sig (ON/OFF)
+# 4096 show_sigs (ON/OFF)
+# 8192 show_avatars (ON/OFF)
+# 16384 show_im (ON/OFF)
+# 32768 invisible_mode (ON/OFF)
+# 65536 blocked (ON/OFF)
+# 131072 email_conf (ON/OFF)
+# 262144 coppa (ON/OFF)
+# 524288 is_mod (ON/OFF)
+# 1048576 is_admin (ON/OFF)
+# 2097152 acc_status (A/P)
+# 4194304 avatar_approved (No Avatar)
+# 8388608 avatar_approved (ON/OFF) 
+
+# ALTER TABLE mm_users ADD users_opt INT NOT NULL DEFAULT 6585269, ADD INDEX(users_opt);
+# UPDATE mm_users SET users_opt=(CASE WHEN display_email='Y' THEN 1 ELSE 0 END) | (CASE WHEN notify='Y' THEN 2 ELSE 0 END) | (CASE WHEN notify_method='EMAIL' THEN 4 ELSE 0 END) | (CASE WHEN ignore_admin='Y' THEN 8 ELSE 0 END) | (CASE WHEN email_messages='Y' THEN 16 ELSE 0 END) | (CASE WHEN pm_messages='Y' THEN 32 ELSE 0 END) | (CASE WHEN pm_notify='Y' THEN 64 ELSE 0 END) | (CASE WHEN default_view='msg' OR default_view='msg_tree' THEN 128 ELSE 0 END) | (CASE WHEN default_view='tree' OR default_view='tree_msg' THEN 256 ELSE 0 END) | (CASE WHEN gender='UNSPECIFIED' THEN 512 ELSE 0 END) | (CASE WHEN gender='MALE' THEN 1024 ELSE 0 END) | (CASE WHEN append_sig='Y' THEN 2048 ELSE 0 END) | (CASE WHEN show_sigs='Y' THEN 4096 ELSE 0 END) | (CASE WHEN show_avatars='Y' THEN 8192 ELSE 0 END) | (CASE WHEN show_im='Y' THEN 16384 ELSE 0 END) | (CASE WHEN invisible_mode='Y' THEN 32768 ELSE 0 END) | (CASE WHEN blocked='Y' THEN 65536 ELSE 0 END) | (CASE WHEN email_conf='Y' THEN 131072 ELSE 0 END) | (CASE WHEN coppa='Y' THEN 262144 ELSE 0 END) | (CASE WHEN is_mod='Y' THEN 524288 ELSE 0 END) | (CASE WHEN is_mod='A' THEN 1048576 ELSE 0 END) | (CASE WHEN acc_status='A' THEN 2097152 ELSE 0 END) | (CASE WHEN avatar_approved='NO' THEN 4194304 ELSE 0 END) | (CASE WHEN avatar_approved='Y' THEN 8388608 ELSE 0 END);
+# ALTER TABLE mm_users DROP display_email, DROP notify, DROP notify_method, DROP ignore_admin, DROP email_messages, DROP pm_messages, DROP pm_notify, DROP default_view, DROP gender, DROP append_sig, DROP show_sigs, DROP show_avatars, DROP show_im, DROP invisible_mode, DROP blocked, DROP email_conf, DROP coppa, DROP is_mod, DROP acc_status, DROP avatar_approved;

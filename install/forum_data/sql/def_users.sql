@@ -1,0 +1,1 @@
+INSERT INTO {SQL_TABLE_PREFIX}users (login, alias, time_zone, theme, email, passwd, name, users_opt) VALUES('Anonymous Coward', 'Anonymous Coward', 'America/Montreal', 1, 'dev@null', '1', 'Anonymous Coward', 1|4|16|32|128|256|512|2048|4096|8192|16384|262144|2097152|4194304);
