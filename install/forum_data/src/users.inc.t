@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.117 2004/04/02 22:06:13 hackie Exp $
+* $Id: users.inc.t,v 1.118 2004/04/05 21:19:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -679,11 +679,6 @@ function init_user()
 	define('_rsidl', ($o2 & 32768 ? _rsid : str_replace('&amp;', '&', _rsid)));
 
 	return $u;
-}
-
-function user_alias_by_id($id)
-{
-	return q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
 }
 
 function user_register_forum_view($frm_id)
