@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.16 2003/10/15 16:40:00 hackie Exp $
+* $Id: admsysinfo.php,v 1.17 2003/12/08 15:27:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -34,7 +34,7 @@ function get_server_software()
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>System Configuration</h2>
-<table cellspacing=3 cellpadding=1 border=0>
+<table class="datatable">
 <tr>
 	<td><b>PHP built On:</b></td>
 	<td><?php echo php_uname(); ?></td>

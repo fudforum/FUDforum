@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdelfrm.php,v 1.16 2003/10/17 03:36:58 hackie Exp $
+* $Id: admdelfrm.php,v 1.17 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -51,8 +51,8 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Orphaned Forums</h2>
-<table cellspacing=1 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Name</td>
 	<td>Action</td>
 	<td>Reassign To Category</td>
@@ -62,7 +62,7 @@
 	$cat_sel = create_cat_select('dst_cat', '', 0);
 	$c = uq('SELECT id, name, descr FROM '.$tbl.'forum WHERE cat_id=0');
 	while ($r = db_rowarr($c)) {
-		$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		$bgcolor = ($i++%2) ? ' class="resultrow1"' : ' class="resultrow2"';
 		echo '<tr '.$bgcolor.'><td>'.$r[1].'<br><font size="-2">'.$r[2].'</font></td><td valign="top" nowrap><a href="admdelfrm.php?del='.$r[0].'&'._rsidl.'">Delete</a></td><td valign="top" nowrap><form method="post" action="admdelfrm.php">'._hs.$cat_sel.' <input type="submit" name="frm_submit" value="Reassign"><input type="hidden" name="frm_id" value="'.$r[0].'"></form></td></tr>';
 	}
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admannounce.php,v 1.13 2003/10/16 21:59:05 hackie Exp $
+* $Id: admannounce.php,v 1.14 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -84,8 +84,8 @@ function mk_date($y, $m, $d)
 <h2>Announcement System</h2>
 <form method="post" name="a_frm" action="admannounce.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable">
+	<tr class="field">
 		<td valign=top>Forums</td>
 		<td><table border=0 cellspacing=1 cellpadding=2>
 			<tr><td colspan=5"><input type="submit" name="btn_none" value="None"> <input type="submit" name="btn_all" value="All"></td></tr>
@@ -99,13 +99,13 @@ function mk_date($y, $m, $d)
 			if ($row < $rows) {
 				echo '<td colspan="'.($rows - $row).'"> </td></tr>';
 			}
-			echo '<tr><td bgcolor="#eeeeee" colspan='.$rows.'><font size=-2>'.$r[2].'</font></td></tr><tr bgcolor="#ffffff">';
+			echo '<tr class="fieldtopic"><td colspan='.$rows.'><font size=-2>'.$r[2].'</font></td></tr><tr class="field">';
 			$row = 1;
 			$old_c = $r[2];
 		}
 		if ($row >= $rows) {
 			$row = 2;
-			echo '</tr><tr bgcolor="#ffffff">';
+			echo '</tr><tr class="field">';
 		} else {
 			++$row;
 		}
@@ -116,11 +116,11 @@ function mk_date($y, $m, $d)
 		</td>
 	</tr>
 
-	<tr bgcolor="#fffee5">
+	<tr class="tutor">
 		<td colspan="2">All dates are in GMT, current GMT date/time is: <?php echo gmdate('r', __request_timestamp__); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Starting Date:</td>
 		<td>
 			<table border=0 cellspacing=1 cellpadding=0>
@@ -130,7 +130,7 @@ function mk_date($y, $m, $d)
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Ending Date:</td>
 		<td>
 			<table border=0 cellspacing=1 cellpadding=0>
@@ -140,17 +140,17 @@ function mk_date($y, $m, $d)
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Subject:</td>
 		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>">
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td valign=top>Message:</td>
 		<td><textarea cols=40 rows=10 name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td colspan=2 align=right>
 <?php
 			if ($edit) {
@@ -166,8 +166,8 @@ function mk_date($y, $m, $d)
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Subject</td>
 	<td>Body</td>
 	<td>Starting Date</td>
@@ -179,9 +179,9 @@ function mk_date($y, $m, $d)
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		$b = htmlspecialchars((strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text);
 		$st_dt = raw_date($r->date_started);

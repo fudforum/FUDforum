@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.12 2003/10/16 21:59:05 hackie Exp $
+* $Id: admext.php,v 1.13 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,16 +48,16 @@
 ?>
 <h2>Allowed Extensions</h2>
 <form method="post" action="admext.php">
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr>
-		<td colspan=2 bgcolor="#FFFFFF"><b>note:</b> if no file extension is entered, all files will be allowed</td>
+<table class="datatable solidtable">
+	<tr class="tutor">
+		<td colspan=2><b>note:</b> if no file extension is entered, all files will be allowed</td>
 	</tr>
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Extension:</td>
 		<td><input type="text" name="c_ext" value="<?php echo htmlspecialchars($c_ext); ?>">
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right>
 		<?php
 			if ($edit) {
@@ -73,8 +73,8 @@
 <?php echo _hs; ?>
 </form>
 
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Extension</td>
 	<td>Action</td>
 </tr>
@@ -83,9 +83,9 @@
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
-	        	$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-	        	$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}

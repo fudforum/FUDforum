@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admpdf.php,v 1.9 2003/11/25 08:35:41 hackie Exp $
+* $Id: admpdf.php,v 1.10 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -69,7 +69,7 @@
 ?>
 <h2>PDF Output Configuration</h2>
 <form method="post" action="admpdf.php"><?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
+<table class="datatable solidtable">
 <?php
 	print_bit_field('PDF Output Enabled', 'PDF_ENABLED');
 	print_bit_field('Complete Forum Output', 'PDF_ALLOW_FULL');
@@ -78,20 +78,20 @@
 	$names = "A0: 2380 x 3368\nA1: 1684 x 2380\nA2: 1190 x 1684\nA3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nA6: 297 x 421\nB5: 501 x 709\nletter: 612 x 792\nlegal: 612 x 1008\nledger: 1224 x 792";
 
 	$sel = create_select('CF_PDF_PAGE', $names, $opts, $PDF_PAGE);
-	echo '<tr bgcolor="#bff8ff"><td>Page Dimensions: <br><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
+	echo '<tr class="field"><td>Page Dimensions: <br><font size="-1">The sizes are in points, each point is 1/72 of an inch.</font></td><td valign="top">'.$sel.'</td></tr>';
 
 	print_reg_field('Horizontal Margin', 'PDF_WMARGIN', 1);
 	print_reg_field('Vertical Margin', 'PDF_HMARGIN', 1);
 	print_reg_field('Maximum CPU Time', 'PDF_MAX_CPU', 1);
 ?>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1">
 </form>
 <br>
 <table border=0 cellspacing=1 cellpadding=3>
 <tr><th><b>Quick PDF Tutorial</b></th></tr>
-<tr><td bgcolor="#fffee5">
+<tr class="tutor"><td>
 If enabled, this feature will allow forum visitors to generate PDF files based on the forum data for easy printing and other uses.<br />
 This facility supports 3 data retrieval modes, messages, topics & entire forums.<br />
 <b>Examples:</b>

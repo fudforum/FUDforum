@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.35 2003/10/16 21:59:05 hackie Exp $
+* $Id: compact.php,v 1.36 2003/12/08 15:27:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,13 +28,13 @@
 	if (!isset($_POST['conf'])) {
 ?>
 <form method="post" action="compact.php">
-<div align="center">
+<div class="alert">
 The compactor will rebuild the storage files were the message bodies are kept. While the compactor is running
 your forum will be temporarily inaccessible. This process may take a while to run, depending on your harddrive speed
-and the amount of messages your forum has.<br><br>
+and the amount of messages your forum has.
+</div>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
-</div>
 <?php echo _hs; ?>
 </form>
 <?php

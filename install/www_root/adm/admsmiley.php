@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.14 2003/10/16 21:59:05 hackie Exp $
+* $Id: admsmiley.php,v 1.15 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -81,40 +81,40 @@
 <h2>Smiley Management System</h2>
 
 <form name="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php">
-<table border=0 cellspacing=1 cellpadding=3>
+<table class="datatable solidtable">
 <?php
 	echo _hs;
 	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) { ?>
-		<tr bgcolor="#bff8ff">
+		<tr class="fieldtopic">
 			<td colspan=2><b>Smilies Upload (upload smiley into the system)</td>
 		</tr>
-		<tr bgcolor="#bff8ff">
+		<tr class="field">
 			<td>Smilies Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 		</tr>
 	<?php } else { ?>
-		<tr bgcolor="#bff8ff">
+		<tr class="field">
 			<td colspan=2><font color="#ff0000">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</font></td>
 		</tr>
 	<?php } ?>
 
 	<tr><td colspan=2>&nbsp;</td></tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldtopic">
 		<td colspan=2><a name="img"><b>Smilies Mangement</b></a></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Smiley Description:</td>
 		<td><input type="text" name="sml_descr" value="<?php echo htmlspecialchars($sml_descr); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Smiley Text:<br><font size=-1>Will be replaced with smiley,<br>use <b>~</b> to seperate multiple allowed codes</font></td>
 		<td><input type="text" name="sml_code" value="<?php echo htmlspecialchars($sml_code); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td valign=top><a name="sml_sel">Smiley Image:</a></td>
 		<td>
 			<input type="text" name="sml_img" value="<?php echo htmlspecialchars($sml_img); ?>"
@@ -128,7 +128,7 @@
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Preview Image:</td>
 		<td>
 			<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
@@ -139,7 +139,7 @@
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<?php
 			if (!$edit) {
 				echo '<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add Smiley"></td>';
@@ -153,8 +153,8 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 <?php } /* if (!isset($_GET['chpos'])) { */ ?>
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Smiley</td>
 	<td>Code</td>
 	<td>Description</td>
@@ -166,15 +166,16 @@
 	$chpos = isset($_GET['chpos']) ? (int)$_GET['chpos'] : '';
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
+
 		if (isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->vieworder) {
-				$bgcolor = ' bgcolor="#ffb5b5"';
+				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->vieworder - 1)) {
-				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&'._rsidl.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&'._rsidl.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->vieworder;
 		}
@@ -184,7 +185,7 @@
 	}
 
 	if (isset($lp)) {
-		echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'._rsidl.'">Place Here</a></td></tr>';
+		echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'._rsidl.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>

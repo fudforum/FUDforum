@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.10 2003/10/16 21:59:05 hackie Exp $
+* $Id: admlogin.php,v 1.11 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -40,13 +40,13 @@
 <h2>Login Blocker</h2>
 <form method="post" action="admlogin.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+	<tr class="field">
 		<td>Regex:</td>
 		<td><input type="text" name="login" value="<?php echo htmlspecialchars($login); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right>
 		<?php
 			if ($edit) {
@@ -60,8 +60,8 @@
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Regex</td>
 	<td>Action</td>
 </tr>
@@ -70,9 +70,9 @@
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
 	}

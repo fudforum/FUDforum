@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.12 2003/10/16 21:59:05 hackie Exp $
+* $Id: admavatar.php,v 1.13 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -57,33 +57,33 @@
 
 <form name="frm_avt" method="post" action="admavatar.php" enctype="multipart/form-data">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
+<table class="datatable solidtable">
 	<?php if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars')) { ?>
-		<tr bgcolor="#bff8ff">
+		<tr class="field">
 			<td colspan=2><b>Avatar Upload (upload avatars into the system)</td>
 		</tr>
-		<tr bgcolor="#bff8ff">
+		<tr class="field">
 			<td>Avatar Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 		</tr>
 	<?php } else { ?>
-		<tr bgcolor="#bff8ff">
+		<tr class="field">
 			<td colspan=2><font color="#ff0000">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</font></td>
 		</tr>
 	<?php } ?>
 
 	<tr><td colspan=2>&nbsp;</td></tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td colspan=2><a name="img"><b>Avatar Management</b></a></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Avatar Description:</td>
 		<td><input type="text" name="avt_descr" value="<?php echo htmlspecialchars($avt_descr); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td valign=top><a name="avt_sel">Avatar Image:</a></td>
 		<td>
 			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
@@ -97,7 +97,7 @@
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Preview Image:</td>
 		<td>
 			<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
@@ -108,7 +108,7 @@
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<?php
 			if (!$edit) {
 				echo '<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add Avatar"></td>';
@@ -121,8 +121,8 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Avatar</td>
 	<td>Description</td>
 	<td align="center">Action</td>
@@ -132,9 +132,9 @@
 	$i = 0;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr '.$bgcolor.'>
 				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border=0 /></td>

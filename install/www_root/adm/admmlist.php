@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.23 2003/10/16 21:59:05 hackie Exp $
+* $Id: admmlist.php,v 1.24 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -64,15 +64,16 @@ function format_regex(&$regex)
 		echo '<font color="#ff0000" size="+3">You MUST UNLOCK the forum\'s files before you can run the mailing list importing scripts.</font><p>';
 	}
 ?>
+<h2>Mailing List Manager</h2>
 <form method="post" name="frm_forum" action="admmlist.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable">
+	<tr class="field">
 		<td>Mailing List Email:<br><font size="-1">The email address of the mailing list.</font></td>
 		<td><input type="text" name="ml_name" value="<?php echo htmlspecialchars($ml_name); ?>" maxlength=255></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Forum:<br>
 			<font size="-1">Messages imported from the mailing list will be imported into this forum.
@@ -94,7 +95,7 @@ function format_regex(&$regex)
 		</select></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Moderate Mailing List Posts:<br>
 			<font size="-1">Any posts from the mailing list would 1st need to be approved by moderator(s) before
@@ -103,7 +104,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_mlist_post_apr', "No\nYes", "0\n1", ($ml_mlist_opt & 1 ? 1 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Syncronize Forum Posts to Mailing List:<br>
 			<font size="-1">If enabled, posts made by forum members inside the forum will be sent to the
@@ -113,7 +114,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_allow_frm_post', "No\nYes", "0\n2", ($ml_mlist_opt & 2 ? 2 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Moderate Forum Posts:<br>
 			<font size="-1">If enabled, any posts made by forum members in the forum would need to be 1st approved
@@ -122,7 +123,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_frm_post_apr', "No\nYes", "0\n4", ($ml_mlist_opt & 4 ? 4 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Allow Mailing List Attachments:<br>
 			<font size="-1">If enabled, ANY file attachment attached to a message on the mailing list will be
@@ -131,7 +132,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_allow_mlist_attch', "No\nYes", "0\n8", ($ml_mlist_opt & 8 ? 8 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Allow HTML in Mailing List Messages:<br>
 			<font size="-1">If enabled, HTML contained within mailing list messages that are imported will not be
@@ -140,7 +141,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_allow_mlist_html', "No\nYes", "0\n16", ($ml_mlist_opt & 16 ? 16 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Slow Reply Match:<br>
 			<font size="-1">Certain mail client do sent send necessary headers needed to determine if a message is
@@ -151,7 +152,7 @@ function format_regex(&$regex)
 		<td><?php draw_select('ml_complex_reply_match', "No\nYes", "0\n32", ($ml_mlist_opt & 32 ? 32 : 0)); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>
 			Create New Users:<br>
 			<font size="-1">When importing messages from the mailing list, should a new user be created for every mailing
@@ -166,18 +167,18 @@ function format_regex(&$regex)
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td colspan=2><font size="-1"><b>Optional</b> Subject Mangling<br><font size="-1">This field allows you to specify a regular expression, that
 		will be applied to the subjects of messages imported from the mailing list. This is useful to remove
 		automatically appended strings that are often used to identify mailing list messages. ex. [PHP]</font></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace mask:</td>
 		<td nowrap>/<input type="text" name="ml_subject_regex_haystack" value="<?php echo htmlspecialchars($ml_subject_regex_haystack); ?>">/<input type="text" name="ml_subject_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_subject_regex_haystack_opt)); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace with:</td>
 		<td><input type="text" name="ml_subject_regex_needle" value="<?php htmlspecialchars($ml_subject_regex_needle); ?>"></td>
 	</tr>
@@ -186,7 +187,7 @@ function format_regex(&$regex)
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td colspan=2><font size="-1"><b>Optional</b> Body Mangling<br><font size="-1">This field allows you to specify a regular expression, that
 		will be applied to the bodies of messages imported from the mailing list. It is recommended you use this option
 		to remove the automatically prepended text added by the mailing list to the bottom of each message. This text often
@@ -194,12 +195,12 @@ function format_regex(&$regex)
 		</td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace mask:</td>
 		<td nowrap>/<input type="text" name="ml_body_regex_haystack" value="<?php echo htmlspecialchars($ml_body_regex_haystack); ?>">/<input type="text" name="ml_body_regex_haystack_opt" size=3 value="<?php echo htmlspecialchars(stripslashes($ml_body_regex_haystack_opt)); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace with:</td>
 		<td><input type="text" name="ml_body_regex_needle" value="<?php echo htmlspecialchars($ml_body_regex_needle); ?>"></td>
 	</tr>
@@ -208,13 +209,13 @@ function format_regex(&$regex)
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td colspan=2><font size="-1"><b>Optional</b> Custom Headers<br><font size="-1">This field allows you to specify custom headers, that
 		will be appended to any existing headers sent by the forum when posting a message to the mailing list. To avoid problem
 		enter each header on a seperate line and do not place blank lines.</font></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td valign="top">Custom Headers:</td>
 		<td nowrap><textarea nowrap cols=50 rows=5><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
@@ -223,7 +224,7 @@ function format_regex(&$regex)
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right>
 			<?php if ($edit) { echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; } ?>
 			<input type="submit" value="<?php echo ($edit ? 'Update Mailing List Rule' : 'Add Mailing List Rule'); ?>" name="ml_submit">
@@ -232,9 +233,9 @@ function format_regex(&$regex)
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<br><br>
-<table border=0 cellspacing=3 cellpadding=2 width="100%">
-	<tr bgcolor="#e5ffe7">
+<br>
+<table class="resulttable fulltable">
+	<tr class="resulttopic">
 		<td nowrap>Mailing List Rule</td>
 		<td>Forum</td>
 		<td>Exec Line</td>
@@ -245,9 +246,9 @@ function format_regex(&$regex)
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		if ($edit == $r[0]) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
 		<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>

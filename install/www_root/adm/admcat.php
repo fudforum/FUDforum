@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.23 2003/11/13 10:04:23 hackie Exp $
+* $Id: admcat.php,v 1.24 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -78,37 +78,37 @@
 ?>
 <form method="post" action="admcat.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable">
+	<tr class="field">
 		<td>Category Name:</td>
 		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength=50></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Description:</td>
 		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength=255></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Collapsible</td>
 		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", $cat_opt & 1); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Default view: </td>
 		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", !($cat_opt & 2)); ?></td>
 	</tr>
 
 	<?php if (!$edit) { ?>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Insert position:</td>
 		<td><?php draw_select('cat_pos', "Last\nFirst", "LAST\nFIRST", $cat_pos); ?></td>
 	</tr>
 
 	<?php } ?>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right>
 <?php
 	if ($edit) {
@@ -129,8 +129,8 @@
 	}
 ?>
 <br>
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Category Name</td>
 	<td>Description</td>
 	<td>Collapsible</td>
@@ -143,15 +143,15 @@
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2""' : ' class="resultrow1"';
 		}
 		if (isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->view_order) {
-				$bgcolor = ' bgcolor="#ffb5b5"';
+				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'._rsidl.'">Place Here</a></font></td></tr>';
+				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'._rsidl.'">Place Here</a></font></td></tr>';
 			}
 			$lp = $r->view_order;
 		}
@@ -172,7 +172,7 @@
 		}
 	}
 	if (isset($lp)) {
-		echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'._rsidl.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'._rsidl.'">Place Here</a></font></td></tr>';
 	}
 ?>
 </table>

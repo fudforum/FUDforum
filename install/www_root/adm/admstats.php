@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.22 2003/10/18 20:49:14 hackie Exp $
+* $Id: admstats.php,v 1.23 2003/12/08 15:27:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -73,7 +73,7 @@ function get_sql_disk_usage()
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<div align="center" style="font-size: xx-large; font-weight: bold;">Statistics</div>
+<h2>Statistics</h2>
 <?php
 	if (isset($_POST['submitted'])) {
 		$start_tm = mktime(1, 1, 1, $_POST['s_month'], $_POST['s_day'], $_POST['s_year']);
@@ -181,7 +181,7 @@ function get_sql_disk_usage()
 		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
 	}
 ?>
-<table cellspacing=2 cellpadding=2 border=0 align="center">
+<table class="datatable">
 <form action="admstats.php" method="post">
 <tr>
 	<td valign="top"><b>From: </b></td>
@@ -213,62 +213,57 @@ function get_sql_disk_usage()
 ?>
 <br>
 <h4>Disk Usage</h4>
-<table width="100%" border=0 cellspacing=1 cellpadding=3 style="border: 1px #000000 solid;">
+<table class="resulttable fulltable">
 <?php
 	if ($GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR']) {
 ?>
-<tr>
+<tr class="field">
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['WWW_ROOT_DISK']/1024)); ?> Kb</td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td><b>Data Dir:</b><br><font size="-1"><b><?php echo $DATA_DIR; ?></b><br>this is where the forum's internal data files are stored</font></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
 </tr>
 <?php
 	} else { /* $GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR'] */
 ?>
 	<td><b>Forum Directories:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
 <?php
 	}
 ?>
-<tr bgcolor="#bff8ff">
-	<td colspan=2><b>Total Disk Usage:</b></td>
+<tr class="field">
+	<td><b>Total Disk Usage:</b></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
 </tr>
 <?php if ($sql_disk_usage) { ?>
-<tr bgcolor="#bff8ff">
-        <td colspan=2><b>MySQL Disk Usage:</b><br><font style="font-size: xx-small;">may not be 100% accurate, depends on MySQL version.</font></td>
+<tr class="field">
+        <td><b>MySQL Disk Usage:</b><br><font style="font-size: xx-small;">may not be 100% accurate, depends on MySQL version.</font></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $sql_disk_usage/1024)); ?> Kb</td>
 </tr>
 <?php } ?>
 </table>
 
 <h4>Forum Statistics</h4>
-<table width="100%" border=0 cellspacing=1 cellpadding=3 style="border: 1px #000000 solid;">
-<tr>
+<table class="resulttable fulltable">
+<tr class="field">
 	<td><b>Messages:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['MESSAGES']; ?></td>
-	<td colspan=2 width=100>&nbsp;</td>
+	<td width=100>&nbsp;</td>
+	<td></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Topics:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['THREADS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per topic</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Forums:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['FORUMS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
@@ -277,9 +272,8 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Categories:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['CATEGORIES']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
@@ -289,16 +283,15 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td><b>Private Messages:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['PRIVATE_MESSAGES']; ?></td>
-	<td colspan=2 width=100>&nbsp;</td>
+	<td width=100>&nbsp;</td>
+	<td></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Users:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['MEMBERS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
@@ -308,9 +301,8 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Moderators:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['MODERATORS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
@@ -319,17 +311,15 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>Administrators:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['ADMINS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
 </tr>
 
-<tr>
+<tr class="field">
 	<td valign="top"><b>User Groups:</b></td>
-	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['GROUPS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['GROUP_MEMBERS']/$forum_stats['GROUPS']); ?></b> members per group</font></td>

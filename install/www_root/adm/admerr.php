@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admerr.php,v 1.11 2003/10/09 14:34:31 hackie Exp $
+* $Id: admerr.php,v 1.12 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,12 +28,12 @@
 
 	if (@file_exists($GLOBALS['ERROR_PATH'].'fud_errors') && filesize($GLOBALS['ERROR_PATH'].'fud_errors')) {
 		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&'._rsid.'">clear log</a>]</h4>';
-		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
+		echo '<table class="resulttable"><tr class="resulttopic"><td>Time</td><td>Error Description</td></tr>';
 
 		$errors = file($GLOBALS['ERROR_PATH'].'fud_errors');
 		foreach ($errors as $error) {
 			list($time, $msg) = explode('] ', substr($error, 1));
-			echo '<tr><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
+			echo '<tr class="field"><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
 		}
 		echo '</table><br /><br />';
 		$err = 1;
@@ -46,7 +46,7 @@
 		$errors = file($GLOBALS['ERROR_PATH'].'sql_errors');
 		foreach ($errors as $error) {
 			list($time, $msg) = explode('] ', substr($error, 1));
-			echo '<tr><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
+			echo '<tr class="field"><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
 		}
 		echo '</table><br /><br />';
 		$err = 1;

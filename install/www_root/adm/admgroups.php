@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.38 2003/11/13 17:18:42 hackie Exp $
+* $Id: admgroups.php,v 1.39 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -188,7 +188,7 @@
 ?>
 <h2>Admin Group Manager: Add/Edit groups or group leaders</h2>
 <form method="post" action="admgroups.php">
-<table border=0 cellspacing=0>
+<table class="datatable field">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <tr><td>Group Name: </td><td>
@@ -279,8 +279,8 @@
 </table>
 </form>
 
-<table border=1 cellspacing=1 cellpadding=3>
-<tr style="font-size: x-small;">
+<table class="datatable fulltable">
+<tr class="tiny field">
 <td valign="top"><b>Group Name</b></td>
 <?php
 	$src = array('!\s!', '!([A-Za-z]{1})!\e');
@@ -311,7 +311,7 @@
 		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'._rsidl.'">Delete</a>]' : '';
 		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
 
-		echo '<tr style="font-size: x-small;"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
+		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
 			echo '<td nowrap align="center" title="'.$v2[1].'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.32 2003/12/03 17:15:08 hackie Exp $
+* $Id: admimport.php,v 1.33 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -228,15 +228,16 @@ function resolve_dest_path($path)
 		}
 	}
 ?>
-<h2><font color="#ff0000">Please note that import process will REMOVE ALL current forum data and replace it with the one from the file you enter.</font></h2>
-<table border=0 cellspacing=1 cellpadding=3>
+<h2>Import forum data</h2>
+<div class="alert">Please note that import process will REMOVE ALL current forum data and replace it with the one from the file you enter.</div>
 <form method="post" action="admimport.php">
+<table class="datatable solidtable">
 <?php echo _hs; ?>
-<tr bgcolor="#bff8ff">
+<tr class="field">
 	<td>Import Data Path<br><font size="-1">location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
 </tr>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Import Data"></td></tr>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Import Data"></td></tr>
 </form>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admipfilter.php,v 1.14 2003/10/16 21:59:05 hackie Exp $
+* $Id: admipfilter.php,v 1.15 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -57,12 +57,12 @@
 <h2>IP Filter System</h2>
 <form method="post" action="admipfilter.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+	<tr class="field">
 		<td>IP Address</td>
 		<td><input type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td>
 	</tr>
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right>
 		<?php
 			if ($edit) {
@@ -78,8 +78,8 @@
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>IP Mask</td>
 	<td>Action</td>
 </tr>
@@ -93,9 +93,9 @@
 	while ($r = db_rowarr($c)) {
 		$r[1] = str_replace('256', '*', $r[1]);
 		if ($edit == $r[0]) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&'._rsid.'">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&'._rsid.'">Delete</a>]</td></tr>';
 	}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admrdf.php,v 1.10 2003/11/25 08:35:41 hackie Exp $
+* $Id: admrdf.php,v 1.11 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -66,7 +66,7 @@
 ?>
 <h2>RDF Feed Configuration</h2>
 <form method="post" action="admrdf.php"><?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
+<table class="datatable solidtable">
 <?php
 	print_bit_field('RDF Feed Enabled', 'RDF_ENABLED');
 	print_bit_field('RDF Authentication', 'RDF_AUTH');
@@ -74,14 +74,14 @@
 	print_reg_field('Maximum number of result', 'RDF_MAX_N_RESULTS');
 	print_bit_field('Allow user data retrieval', 'RDF_ALLOW_USER_DATA');
 ?>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1">
 </form>
 <br>
-<table border=0 cellspacing=1 cellpadding=3>
+<table class="datatable">
 <tr><th><b>Quick RDF Tutorial</b></th></tr>
-<tr><td bgcolor="#fffee5">
+<tr><td class="tutor">
 If enabled, the RDF stream for your forum can be found at: <a href="<?php echo $rdf_url; ?>" target="_blank"><?php echo $rdf_url; ?></a><br />
 The streams has three modes of operation, which are tailored for a specific data that you wish to fetch. You
 can specify the mode by passing the 'mode' parameter via GET to the rdf script. The support modes are 'u', for

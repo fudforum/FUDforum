@@ -1,0 +1,138 @@
+body, body.popup {
+	background: #aabbaa;
+	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+	font-size: 11px;
+}
+
+body.popup {
+	vertical-align: top;
+	background: #ccddee;
+}
+a {
+	text-decoration: none;
+}
+a:active, a:hover {
+	color: red;
+}
+a:visited, a:link {
+	color: #224422;
+}
+.admin_fixed {
+	font-family: courier;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+table.maintable {
+	background: #ddefed;
+	border-spacing: 0px;
+	border: 0px;
+	padding: 0px;
+}
+
+table.linktable {
+	text-align: center;
+	border: 0px;
+	border-spacing: 0px;
+	padding: 0px;
+	font-size: small;
+}
+
+.linkdata {
+	vertical-align: text-top;
+}
+
+.maindata {
+	vertical-align: top;
+	background: #ccddee;
+	width: 100%;
+}
+span.linkhead {
+	color: red;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+span.linkgroup {
+	color: #339966;
+	font-weight: bold;
+	font-size: 11px;
+}
+.linktable a {
+	font-size: small;
+}
+
+.datatable {
+	border: 0px;
+	border-spacing: 1px;
+	padding:	3px;
+}
+
+.resulttable {
+	border: 0px;
+	border-spacing: 3px;
+	padding: 1px;
+}
+
+
+.fulltable {
+	border: 1px dashed black;
+	width: 100%;
+}
+
+.solidtable {
+	border-spacing: 0px;
+}
+.field {
+	background: #deeffe;
+}
+
+.field .fieldtopic {
+	background: #cddeed;
+}
+
+.field .field {
+	background: #dddeed;
+}
+
+.tiny {
+	font-size: x-small;
+}
+
+
+.fieldaction {
+	background: transparent;
+}
+
+.fieldtopic {
+	background: transparent;
+}
+
+.resulttopic {
+	background: #deefef;
+}
+
+.resultrow1 {
+	background: #d0d0d0;
+}
+
+.resultrow2 {
+	background: #f0f0f0;
+}
+
+.resultrow3 {
+	background: #00BB00;
+}
+
+.tutor {
+	background: #fffeee;
+}
+
+.alert {
+	margin: 11px;
+	color: red;
+	font-size: x-large;
+	font-weight: bold;
+	text-align: center;
+	border: 2px dashed red;
+}

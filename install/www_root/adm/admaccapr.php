@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.12 2003/10/16 21:59:05 hackie Exp $
+* $Id: admaccapr.php,v 1.13 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,12 +44,14 @@ function print_if_avail($descr, $value, $no_html=1)
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<div style="font-size: xx-large; font-weight: bold;">Account Approval</div>
-<table cellspacing=0 cellpadding=5 border=0><tr bgcolor="#bff8ff"><td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
+<h2>Account Approval</h2>
+<table class="datatable">
+<tr class="fieldtopic">
+<td><b>Account Information</b></td><td align="center"><b>Action</b></td></tr>
 <?php
 	$c = uq('SELECT * FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=2097152 AND (users_opt & 2097152) > 0');
 	while ($obj = db_rowobj($c)) {
-		echo '<tr><td style="font-size: smaller; border-bottom: 3px double black">'.
+		echo '<tr><td class="field">'.
 		print_if_avail('Login', $obj->login) .
 		print_if_avail('E-mail', $obj->email) .
 		print_if_avail('Name', $obj->name) .
@@ -64,7 +66,7 @@ function print_if_avail($descr, $value, $no_html=1)
 		print_if_avail('Birth Date', $obj->bday) .
 		print_if_avail('Signature', $obj->sig, 0) .
 		'</td>
-		<td valign="top" style="border-bottom: 3px double black">[ <a href="admaccapr.php?apr='.$obj->id.'&'._rsidl.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&'._rsidl.'">Delete Account</a> ]</td></tr>';
+		<td class="fieldaction">[ <a href="admaccapr.php?apr='.$obj->id.'&'._rsidl.'">Approve Account</a> | <a href="admaccapr.php?rm='.$obj->id.'&'._rsidl.'">Delete Account</a> ]</td></tr>';
 	}
 ?>
 </table>

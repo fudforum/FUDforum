@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.23 2003/10/17 00:58:13 hackie Exp $
+* $Id: admlog.php,v 1.24 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,8 +47,8 @@ function return_forum_name($id)
 ?>
 <h2>Admin Log</h2>
 <a href="admlog.php?clear=1&<?php echo _rsidl; ?>">Clear Log</a>
-<table border=1 cellspacing=1 cellpadding=3>
-<tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
+<table class="resulttable">
+<tr class="resulttopic"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
 	$c = q('SELECT u.users_opt, u.alias, al.* FROM '.$DBHOST_TBL_PREFIX.'action_log al LEFT JOIN '.$DBHOST_TBL_PREFIX.'users u ON al.user_id=u.id ORDER BY logtime DESC');
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.17 2003/11/28 14:59:22 hackie Exp $
+* $Id: admmodfrm.php,v 1.18 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -49,23 +49,25 @@
 	}
 ?>
 <html>
-<body bgcolor="#ffffff">
+<head>
+<link rel="StyleSheet" href="adm.css" type="text/css">
+<body class="popup">
 <h3>Allowing <?php echo $login; ?> to moderate:</h3>
 <form name="frm_mod" action="admmodfrm.php" method="post">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=2>
+<table class="datatable fulltable">
 <?php
 	$c = uq('SELECT CASE WHEN c.name IS NULL THEN \'DELETED FORUMS\' ELSE c.name END, f.name, f.id, mm.id FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'cat c ON c.id=f.cat_id LEFT JOIN '.$tbl.'mod mm ON mm.forum_id=f.id AND mm.user_id='.$usr_id.' ORDER BY c.view_order, f.view_order');
 	$pc = '';
 	while ($r = db_rowarr($c)) {
 		if ($pc != $r[0]) {
-			echo '<tr bgcolor="#e5ffe7"><td colspan=2>'.$r[0].'</td></tr>';
+			echo '<tr class="fieldtopic"><td colspan=2>'.$r[0].'</td></tr>';
 			$pc = $r[0];
 		}
-		echo '<tr><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').'>'.$r[1].'</td></tr>';
+		echo '<tr class="field"><td><input type="checkbox" name="mod_allow[]" value="'.$r[2].'"'.($r[3] ? ' checked': '').'>'.$r[1].'</td></tr>';
 	}
 ?>
-<tr>
+<tr class="fieldaction">
 	<td colspan=2 align=right><input type="submit" name="mod_submit" value="Apply"></td>
 </tr>
 </table>

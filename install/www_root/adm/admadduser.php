@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.14 2003/10/09 14:34:31 hackie Exp $
+* $Id: admadduser.php,v 1.15 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -114,28 +114,28 @@ function validate_input()
 ?>
 <form name="frm_usr" method="post" action="admadduser.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+	<tr class="fieldtopic">
 		<td colspan=2>Register a new forum user.</td>
 	</tr>
 
-	<tr bgcolor="#f1f1f1">
+	<tr class="field">
 		<td>Login:</td>
 		<td><?php if (isset($err_login)) { echo $err_login; } ?><input type="text" name="login" value="<?php echo $login; ?>" size="30"></td>
 	</tr>
-	<tr bgcolor="#f1f1f1">
+	<tr class="field">
 		<td>Password:</td>
 		<td><?php if (isset($err_passwd)) { echo $err_passwd; } ?><input type="text" name="passwd" value="<?php echo $passwd; ?>" size="30"></td>
 	</tr>
-	<tr bgcolor="#f1f1f1">
+	<tr class="field">
 		<td>E-mail:</td>
 		<td><?php if (isset($err_email)) { echo $err_email; } ?><input type="text" name="email" value="<?php echo $email; ?>" size="30"></td>
 	</tr>
-	<tr bgcolor="#f1f1f1">
+	<tr class="field">
 		<td>Real Name:</td>
 		<td><input type="text" name="name" value="<?php echo $name; ?>" size="30"></td>
 	</tr>
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldaction">
 		<td colspan=2 align=right><input type="submit" value="Add User" name="usr_add"></td>
 	</tr>
 </table>

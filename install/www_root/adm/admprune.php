@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.19 2003/10/16 21:59:05 hackie Exp $
+* $Id: admprune.php,v 1.20 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -86,16 +86,16 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 ?>
 <h2>Topic Prunning</h2>
 <form method="post" action="admprune.php">
-<table border=0 cellspacing=1 callpadding=3>
-<tr>
-	<td bgcolor="#bff8ff" nowrap>Topics with last post made:</td>
-	<td bgcolor="#bff8ff"><input type="text" name="thread_age"></td>
-	<td bgcolor="#bff8ff" nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
+<table class="datatable">
+<tr class="field">
+	<td nowrap>Topics with last post made:</td>
+	<td ><input type="text" name="thread_age"></td>
+	<td nowrap><?php draw_select("units", "Day(s)\nWeek(s)\nMonth(s)\nYear(s)", "86400\n604800\n2635200\n31622400", '86400'); ?>&nbsp;&nbsp;ago</td>
 </tr>
 
-<tr>
-	<td bgcolor="#bff8ff">Limit to forum:</td>
-	<td colspan=2 bgcolor="#bff8ff" nowrap>
+<tr class="field">
+	<td >Limit to forum:</td>
+	<td colspan=2 nowrap>
 	<?php
 		$oldc = '';
 		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
@@ -111,8 +111,8 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 	?>
 </tr>
 
-<tr>
-	<td bgcolor="#bff8ff" align=right colspan=3><input type="submit" name="btn_prune" value="Prune"></td>
+<tr class="field">
+	<td align=right colspan=3><input type="submit" name="btn_prune" value="Prune"></td>
 </tr>
 </table>
 <?php echo _hs; ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.16 2003/11/18 11:11:39 hackie Exp $
+* $Id: admreplace.php,v 1.17 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -72,13 +72,13 @@ function clean_rgx()
 <h2>Replacement Management System</h2>
 <form name="frm_rpl" method="post" action="admreplace.php">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+	<tr class="field">
 		<td>Replacement Type:</td>
 		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onChange="document.frm_rpl.submit();"'); ?></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace mask:</td>
 		<?php if (!$rpl_replace_opt) { ?>
 			<td>/<input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>">/<input type="text" name="rpl_preg_opt" size=3 value="<?php echo htmlspecialchars($rpl_preg_opt); ?>"></td>
@@ -87,7 +87,7 @@ function clean_rgx()
 		<?php } ?>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace with:</td>
 		<td><input type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>"></td>
 	</tr>
@@ -99,16 +99,16 @@ function clean_rgx()
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldtopic">
 		<td colspan=2><b><font size=-2>Optional with the Perl Regex</font></b><br><font size=-1>(Reverse replacement logic, e.g upon editing a post)</font></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace mask:</td>
 		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>">/<input type="text" name="rpl_from_post_opt" size=3 value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>"></td></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace with:<br></td>
 		<td><input type="text" name="rpl_to_msg" value="<?php echo htmlspecialchars($rpl_to_msg); ?>"></td>
 	</tr>
@@ -116,7 +116,7 @@ function clean_rgx()
 <?php
 	} /* !$rpl_replace_opt */
 ?>
-	<tr bgcolor="#bff8ff" align=right>
+	<tr class="fieldaction" align=right>
 		<td colspan=2>
 <?php
 			if ($edit) {
@@ -143,21 +143,21 @@ function clean_rgx()
 		<td colspan=2><br></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldtopic">
 		<td colspan=2><b><font size=-2>Test Area, tryout your regex here</font></b></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace mask:</td>
 		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars($regex_str); ?>">/<input type="text" name="regex_str_opt" size=3 value="<?php echo htmlspecialchars($regex_str_opt); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td>Replace with:</td>
 		<td><input type="text" name="regex_with" value="<?php echo htmlspecialchars($regex_with); ?>"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td valign=top>Test text:</td>
 		<td><textarea name="regex_src"><?php echo htmlspecialchars($regex_src); ?></textarea></td>
 	</tr>
@@ -165,7 +165,7 @@ function clean_rgx()
 	if (isset($_POST['btn_regex'])) {
 		$str = preg_replace('/'.$regex_str.'/'.$regex_str_opt, $regex_with, $regex_src);
 ?>
-	<tr bgcolor="#bff8ff">
+	<tr class="fieldresult">
 		<td valign=top>Result:</td>
 		<td>
 			<font size=-1>
@@ -185,7 +185,7 @@ function clean_rgx()
 	} /* isset($_POST['btn_regex']) */
 ?>
 
-	<tr bgcolor="#bff8ff" align=right>
+	<tr class="fieldaction" align=right>
 		<td colspan=2><input type="submit" name="btn_regex" value="Run"></td>
 	</tr>
 <?php } /* !$rpl_replace_opt */ ?>
@@ -193,8 +193,8 @@ function clean_rgx()
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
-<table border=0 cellspacing=3 cellpadding=2>
-<tr bgcolor="#e5ffe7">
+<table class="resulttable fulltable">
+<tr class="resulttopic">
 	<td>Replace Type</td>
 	<td>Replace</td>
 	<td>With</td>
@@ -207,9 +207,9 @@ function clean_rgx()
 	$i = 1;
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
-			$bgcolor = ' bgcolor="#ffb5b5"';
+			$bgcolor = ' class="resultrow1"';
 		} else {
-			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
 		if ($r->replace_opt) {
 			$rtype = 'Simple';

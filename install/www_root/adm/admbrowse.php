@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.13 2003/11/13 10:13:11 hackie Exp $
+* $Id: admbrowse.php,v 1.14 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -250,7 +250,7 @@ if (!function_exists('posix_getpwuid')) {
 	}
 ?>
 <br>
-<table cellspacing=2 cellpadding=2 border=0>
+<table class="datatable">
 	<form method="get" action="admbrowse.php"><input type="hidden" name="cur" value="<?php echo $cur_dir; ?>"><?php echo _hs; ?>
 	<tr style="font-size: x-small;">
 		<td>Directory Name:</td>
@@ -280,7 +280,7 @@ if (!function_exists('posix_getpwuid')) {
 </table>
 <br>
 <table border=0 cellspacing=1 cellpadding=3>
-<tr class="admin_fixed" bgcolor="#bff8ff"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
+<tr class="admin_fixed resulttopic"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
 <?php
 	$file_list = array();
 	$dir_list = array();

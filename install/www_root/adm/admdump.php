@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.37 2003/11/28 08:20:45 hackie Exp $
+* $Id: admdump.php,v 1.38 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -252,20 +252,20 @@ function sql_is_null($r, $n, $tbl='')
 		}
 ?>
 <h2>FUDforum Backup</h2>
-<table border=0 cellspacing=1 cellpadding=3>
 <form method="post" action="admdump.php">
 <?php echo _hs; ?>
-<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+<tr class="field">
 	<td>Backup Save Path<br><font size="-1">path on the disk, where you wish the forum data dump to be saved.</font></td>
 	<td><?php echo $path_error; ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
 </tr>
 <?php if($gz) { ?>
-<tr bgcolor="#bff8ff">
+<tr class="field">
 	<td>Use Gzip Compression<br><font size="-1">if you choose this option, the backup files will be compressed using Gzip compression. This may make the backup process a little slower, but will save a lot of harddrive space.</font></td>
 	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?>> Yes</td>
 </tr>
 <?php } ?>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>
+<tr class="fieldaction"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>
 <input type="hidden" name="submitted" value="1">
 </form>
 </table>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.72 2003/11/27 15:05:33 hackie Exp $
+* $Id: consist.php,v 1.73 2003/12/08 15:27:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -68,12 +68,12 @@ function delete_zero($tbl, $q)
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
 ?>
 <form method="post" action="consist.php">
-<div align="center">
+<div class="alert">
 Consistency check is a complex process which may take several minutes to run, while it is running your
-forum will be disabled.<br><br>
+forum will be disabled.
+</div>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
-</div>
 <?php echo _hs; ?>
 </form>
 <?php

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.10 2003/11/13 22:16:41 hackie Exp $
+* $Id: admforumicons.php,v 1.11 2003/12/08 15:27:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,28 +44,28 @@
 <form method="post" enctype="multipart/form-data" action="admforumicons.php">
 <input type="hidden" name="which_dir" value="<?php echo $which_dir; ?>">
 <?php echo _hs; ?>
-<table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+<table class="datatable solidtable">
+	<tr class="field">
 		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 		<td><input type="file" name="iconfile"></td>
 	</tr>
 
-	<tr bgcolor="#bff8ff"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
+	<tr class="fieldaction"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
 </table>
 </form>
 <?php
 	} else {
 ?>
 <table border=0 cellspacing=1 cellpadding=3>
-	<tr bgcolor="#bff8ff">
+	<tr class="field">
 		<td align=center><font color="red"><?php echo $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR; ?> is not writeable by the web server, file upload disabled.</td>
 	</tr>
 </table>
 <?php
 	}
 ?>
-<table border=0 cellspacing=3 cellpadding=2>
-<tr><td>Icon</td><td>Action</td></tr>
+<table class="resulttable">
+<tr class="resulttopic"><td>Icon</td><td>Action</td></tr>
 <?php
 	$i = 1;
 	$dp = opendir($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR);
@@ -74,7 +74,7 @@
 		if (!preg_match('!\.(gif|png|jpg|jpeg)$!i', $de)) {
 			continue;
 		}
-		$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'] . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'._rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
 	}
 	closedir($dp);
