@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.36 2004/02/18 18:55:43 hackie Exp $
+* $Id: rdf.php.t,v 1.37 2004/02/18 22:54:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,17 +58,15 @@ function multi_id($data)
 	return implode(',', $out);
 }
 
+$enc_src = array('<br>', '&', "\r", '&nbsp;', '<', '>');
+$enc_dst = array('<br />', '&amp;', '&#13;', ' ', '&lt;', '&gt;');
+
 if (function_exists('utf8_encode')) {
 	function fud_xml_encode($str)
 	{
-		// old quote tag hack
-		$str = str_replace('<br>', '<br />', $str);
-		return utf8_encode(str_replace('&nbsp;', ' ', $str));
+		return utf8_encode(htmlspecialchars(str_replace($GLOBALS['enc_src'], $GLOBALS['enc_dst'], $str)));
 	}
 } else {
-	$enc_src = array('&', "\r", '&nbsp;', '<', '>');
-	$enc_dst = array('&amp;', '&#13;', ' ', '&lt;', '&gt;');
-
 	/* build html encoding list */
 	for ($i = 128; $i < 256; $i++) {
 		$enc_src[] = chr($i);
