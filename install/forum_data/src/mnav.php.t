@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.5 2003/09/28 20:12:13 hackie Exp $
+*   $Id: mnav.php.t,v 1.6 2003/09/28 20:27:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,17 +95,9 @@
 					$mnav_data .= '{TEMPLATE: mnav_thread}';
 					$oldt = $r->thread_id;
 				}
-				$body = read_msg_body($r->foff, $r->length, $r->file_id);
-				/* remove stuff in quotes */
-				while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== false) {
-					$e = strpos($body, '<br></td></tr></table>', $p) + strlen('<br></td></tr></table>');
-					$body = substr($body, 0, $p) . substr($body, $e);
-				}
 
-				$body = strip_tags($body);
-				if (strlen($body) > $MNAV_MAX_LEN) {
-					$body = substr($body, 0, $MNAV_MAX_LEN) . '...';
-				}
+				$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
+
 				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: mnav_user}' : '{TEMPLATE: mnav_anon}';
 				
 				$mnav_data .= '{TEMPLATE: mnav_msg}';

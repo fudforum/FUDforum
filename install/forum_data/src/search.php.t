@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.23 2003/07/15 03:34:38 hackie Exp $
+*   $Id: search.php.t,v 1.24 2003/09/28 20:27:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -110,14 +110,12 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		WHERE 
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
-			'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ''));
+			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 	if (!$total) {
 		return;	
 	}
 
-	return uq('SELECT 
-			u.alias, 
-			f.name AS forum_name, f.id AS forum_id,
+	return uq('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
 			m.poster_id, m.id, m.thread_id, m.subject, m.poster_id, m.foff, m.length, m.post_stamp, m.file_id, m.icon
 		FROM {SQL_TABLE_PREFIX}search_cache sc
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
@@ -131,7 +129,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		WHERE 
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
-			'.($GLOBALS['usr']->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '').'
+			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').'
 		ORDER BY sc.n_match DESC, m.post_stamp '.$order.' LIMIT '.qry_limit($count, $start));
 }
 
@@ -153,10 +151,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$i = 0;
 			$search_data = '';
 			while ($r = db_rowobj($c)) {
-				$body = strip_tags(read_msg_body($r->foff, $r->length, $r->file_id));
-				if (strlen($body) > 80) {
-					$body = substr($body, 0, 80) . '...';
-				}
+				$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
 				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: registered_poster}' : '{TEMPLATE: unregistered_poster}';
 				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';
@@ -164,7 +159,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			qf($c);
 			un_register_fps();
 			$search_data = '{TEMPLATE: search_results}';
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			if ($USE_PATH_INFO == 'N') {
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
 			} else {
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.$forum_limiter.'/', '/'._rsid);

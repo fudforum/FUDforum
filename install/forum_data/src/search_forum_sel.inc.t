@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search_forum_sel.inc.t,v 1.2 2003/09/28 20:12:13 hackie Exp $
+*   $Id: search_forum_sel.inc.t,v 1.3 2003/09/28 20:27:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,5 +42,20 @@ qf($c);
 /* user has no permissions to any forum, so as far as they are concerned the search is disabled */
 if (!$forum_limit_data) {
 	std_error('disabled');	
+}
+
+function trim_body($body)
+{
+	/* remove stuff in quotes */
+	while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== false) {
+		$e = strpos($body, '<br></td></tr></table>', $p) + strlen('<br></td></tr></table>');
+		$body = substr($body, 0, $p) . substr($body, $e);
+	}
+
+	$body = strip_tags($body);
+	if (strlen($body) > $GLOBALS['MNAV_MAX_LEN']) {
+		$body = substr($body, 0, $GLOBALS['MNAV_MAX_LEN']) . '...';
+	}
+	return $body;
 }
 ?>
