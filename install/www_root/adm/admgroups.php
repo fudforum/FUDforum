@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.28 2003/10/01 02:45:50 hackie Exp $
+*   $Id: admgroups.php,v 1.29 2003/10/01 03:01:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@
 						}
 					}
 					$ih = $gr_inherit_id;
-					$ihl = array();
+					$ihl = array($edit=>1);
 					while (1) {
 						if (isset($ihl[$ih])) {
 							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission';
@@ -227,6 +227,7 @@
 		echo '</td></tr><tr><td>Inherit From: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
 
 		foreach ($gl as $k => $v) {
+			if ($k == $edit) continue;
 			echo '<option value="'.$k.'" '.($gr_inherit_id == $k ? ' selected' : '').'>'.$v['gn'].'</option>';
 		}
 
