@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admadduser.php,v 1.18 2004/04/24 22:22:36 hackie Exp $
+* $Id: admadduser.php,v 1.19 2004/05/22 19:00:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,7 +37,7 @@ function validate_input()
 }
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt=3');
+		$default_theme = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
 		if (strlen($_POST['login']) > $MAX_LOGIN_SHOW) {
 			$alias = substr($_POST['login'], 0, $MAX_LOGIN_SHOW);
 		} else {
