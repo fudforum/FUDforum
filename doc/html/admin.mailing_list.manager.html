@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Mailing List Manager</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="previous" href="admin.thread.prunning.html" title="Topic Prunning"><link rel="next" href="admin.newsgroup.manager.html" title="Newsgroup Manager"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-misc.html" title="Part III. Miscellaneous"><link rel="chapter" href="upgrading.html" title="Chapter 1. Upgrading FUD Forum 2"><link rel="chapter" href="fudcode.html" title="Chapter 2. FUDcode"><link rel="chapter" href="bug_reports.html" title="Chapter 3. Reporting Bugs"><link rel="part" href="forum-appendixes.html" title="Part IV. Appendixes"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.email" title="Mailing List Email"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.forum" title="Forum"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.mmlp" title="Moderate Mailing List Posts"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.sfpml" title="Synchronize Forum Posts to Mailing List"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.mfp" title="Moderate Forum Posts"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.amla" title="Allow Mailing List Attachment"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.ahmlm" title="Allow HTML in Mailing List Messages"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.srp" title="Slow Reply Match"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.sm" title="Subject Mangling (optional)"><link rel="subsection" href="admin.mailing_list.manager.html#admin.mailing_list.manager.bm" title="Body Mangling (optional)"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Mailing List Manager</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="admin.thread.prunning.html">Prev</a> </td><th width="60%" align="center">Chapter 1. Administrating FUD Forum 2</th><td width="20%" align="right"> <a accesskey="n" href="admin.newsgroup.manager.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.mailing_list.manager"></a>Mailing List Manager</h2></div></div><p>
+			This control panel allows the administrator to define mailing list rules that allow FUDforum to
+			archive messages from a mailing list as well as allow forum's own messages to be sent to the mailing
+			list.
+			
+			</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				This type of functionality requires your system to have a working procmail utility, which will
+				pipe appropriate messages from the mailing list to a particular forum.
+				</p></div><p>
+		</p><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.email"></a>Mailing List Email</h3></div></div><p>
+				The email address of the mailing list, if you specify that messages posted in the forum
+				are to be sent to the mailing list as well, those messages will be sent to this email address.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.forum"></a>Forum</h3></div></div><p>
+				Choose a forum, which will be associated with this particular mailing list, meaning that
+				messages from the mailing list will be imported into this forum.
+			</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				You can only assign 1 mailing list per forum, therefor the forum select will ONLY show
+				you the forums that are not yet associated with any other mailing lists or newsgroups.
+				</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.mmlp"></a>Moderate Mailing List Posts</h3></div></div><p>
+				This option specifies whether or not the moderator(s) will be required to approve messages
+				imported from the mailing list before they are made visible on the forum to the general public.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.sfpml"></a>Synchronize Forum Posts to Mailing List</h3></div></div><p>
+				Whether or not to forward messages that were posted on the forum to the mailing list. If selected
+				when a user posts a message, the forum will send the messages to the mailing list on behalf of 
+				the user.
+			</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				Many mailing lists will require people to be signed up before being able to post to the list,
+				which is most often done to prevent spammers from spamming the list. Therefor, the user unless already
+				subscribed, may receive an email from the list asking them to subscribe as a prerequisite to 
+				their messages appearing on the mailing list.
+				</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.mfp"></a>Moderate Forum Posts</h3></div></div><p>
+				Whether or not moderator(s) of this forum will be required to approve posts made by forum
+				members before those posts are synchronized to the mailing list.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.amla"></a>Allow Mailing List Attachment</h3></div></div><p>
+				If enabled, ANY file attachment attached to a message on the mailing list will be 
+				imported into the forum regardless of any limitations imposed on file attachments 
+				within the forum. 
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.ahmlm"></a>Allow HTML in Mailing List Messages</h3></div></div><p>
+				If enabled, HTML contained within mailing list messages that are imported will not be stripped. This
+				is not recommended because it may cause layout problems if the HTML is not valid as well as other
+				issues that result in allowing HTML, such as JavaScript, etc...
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.srp"></a>Slow Reply Match</h3></div></div><p>
+				Certain mail clients do not sent send necessary headers needed to determine if a message is a reply 
+				to an existing message. If this option is enabled and normally available reply headers are not 
+				there, the forum will try to determine if message is a reply by comparing the message's 
+				subject to subjects of existing messages in the forum.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.sm"></a>Subject Mangling (optional)</h3></div></div><p>
+				Often mailing list prepend a special string to the subject of every message so that 
+				it is easy to identify the messages coming from the mailing list. In the forum environment
+				those are quite useless, this option allows administrator to specify a regular expression 
+				that will be applied to the subject, allowing the administrator to change and/or filter 
+				certain strings from the subject.
+			</p><p>
+				The replacement is performed by PHP's preg_replace.
+			</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="admin.mailing_list.manager.sm.rm"></a>Replace mask</h4></div></div><p>
+					The string you wish to alter and/or replace.
+				</p><p>
+					The smaller text box on the right allows the administrator to specify various
+					regular expression flags to be used, such as 'i', 'm', etc...
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="admin.mailing_list.manager.sm.rw"></a>Replace with</h4></div></div><p>
+					Replace the string that matches above regular expression with this.
+				</p></div></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="admin.mailing_list.manager.bm"></a>Body Mangling (optional)</h3></div></div><p>
+				In most cases mailing lists will append a some sort of a string to the bottom of the message,
+				this usually contains information on the mailing list itself as well as how to 
+				subscribe/unsubscribe from the list. In the forum that text is not really needed, so you can use
+				this option to use regular expression to remove and/or change this or any other data from the message
+				body.
+			</p><p>
+				The replacement is performed by PHP's preg_replace.
+			</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="admin.mailing_list.manager.bm.rm"></a>Replace mask</h4></div></div><p>
+					The string you wish to alter and/or replace.
+				</p><p>
+					The smaller text box on the right allows the administrator to specify various
+					regular expression flags to be used, such as 'i', 'm', etc...
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="admin.mailing_list.manager.bm.rw"></a>Replace with</h4></div></div><p>
+					Replace the string that matches above regular expression with this.
+				</p></div></div><p>
+			At the bottom of the control panel there is a list of existing mailing list rules. Each entry
+			shows 3 pieces of information about the mailing list. 'Mailing List Rule', which an identifier
+			of the rule, the email address of the mailing list represents the value of this option. 
+			'Forum' the name of the forum associated with this mailing list rule. 'Exec Line' this field
+			contains the execution line to which procmail will need to pipe the messages from the mailing list.
+			
+			</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+				maillist.php is a PHP script, that requires you to have a PHP binary (cgi/cli). By default
+				PHP binary can be found on /usr/local/bin/php, however on some distributions that may not be
+				the case. If your PHP binary is not in /usr/local/bin/php, you will need to change the first
+				line of the maillist.php script from 
+				<pre class="screen">#!/usr/local/bin/php</pre>
+				to
+				<pre class="screen">#!/path/to/php/binary</pre>
+				</p></div><p>
+		</p><div class="example"><p class="title"><b>Example 1.2. Sample Procmail Mailing List Catcher</b></p><p>
+				The following is an example rule that can be used to catch all e-mails coming from
+				php-general mailing list, which is identified by having 'php-general@lists.php.net' 
+				in the To, Cc or Resent-To headers.
+			</p><pre class="programlisting">
+
+:0:
+* ^TO_.*php-general@lists.php.net 
+| /home/forum/test/maillist.php 1
+
+</pre></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="admin.thread.prunning.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="administrating_fud.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="admin.newsgroup.manager.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Topic Prunning </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Newsgroup Manager</td></tr></table></div></body></html>
