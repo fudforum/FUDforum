@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.32 2003/04/08 12:56:54 hackie Exp $
+*   $Id: post.php.t,v 1.33 2003/04/08 14:14:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -545,7 +545,7 @@
 	
 	/* handle file attachments */
 	if ($perms['p_file'] == 'Y') {
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments);
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error);
 	} else {
 		$file_attachments = '';
 	}

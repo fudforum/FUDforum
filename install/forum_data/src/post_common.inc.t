@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.inc.t,v 1.2 2003/04/07 16:04:57 hackie Exp $
+*   $Id: post_common.inc.t,v 1.3 2003/04/08 14:14:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,9 +59,9 @@ function draw_post_icons($msg_icon)
 	return ($data ? '{TEMPLATE: post_icons}' : '');
 }
 
-function draw_post_attachments($al, $max_as, $max_a)
+function draw_post_attachments($al, $max_as, $max_a, $attach_control_error)
 {
-	$data = '';
+	$attached_files = '';
 	$i = 0;
 
 	if (!empty($al) && count($al)) {
@@ -70,7 +70,7 @@ function draw_post_attachments($al, $max_as, $max_a)
 		while ($r = db_rowarr($c)) {
 			$sz = ( $r[1] < 100000 ) ? number_format($r[1]/1024,2).'KB' : number_format($r[1]/1048576,2).'MB';
 			$insert_uploaded_image = strncasecmp('image/', $r[3], 6) ? '' : '{TEMPLATE: insert_uploaded_image}';
-			$data .= '{TEMPLATE: attached_file}';
+			$attached_files .= '{TEMPLATE: attached_file}';
 			$i++;
 		}
 		qf($c);
@@ -95,6 +95,6 @@ function draw_post_attachments($al, $max_as, $max_a)
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
 	}
 
-	return ($data ? '{TEMPLATE: file_attachments}' : '');
+	return '{TEMPLATE: file_attachments}';
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.12 2003/04/08 12:56:53 hackie Exp $
+*   $Id: attach.inc.t,v 1.13 2003/04/08 14:14:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -161,23 +161,22 @@ function attach_finalize($attach_list, $mid, $private='N')
 	foreach ($attach_list as $key => $val) {
 		if (empty($val)) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id='.(int)$key);
-				@unlink($GLOBALS['FILE_STORE'].$key.'.atch');
-			} else {
-				$attach_count++;
-				$id_list .= $key.',';
-			}
-		}
-	
-		if (!empty($id_list)) {
-			$id_list = substr($id_list, 0, -1);
-			q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."','id','.atch'), message_id=".$mid." WHERE id IN(".$id_list.") AND private='".$private."'");
-			$id_list = " AND id NOT IN(".$id_list.")";
+			@unlink($GLOBALS['FILE_STORE'].$key.'.atch');
 		} else {
-			$id_list = '';
-		}	
-			
-		q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND private='".$private."'".$id_list);	
+			$attach_count++;
+			$id_list .= $key.',';
+		}
 	}
+	
+	if (!empty($id_list)) {
+		$id_list = substr($id_list, 0, -1);
+		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."','id','.atch'), message_id=".$mid." WHERE id IN(".$id_list.") AND private='".$private."'");
+		$id_list = " AND id NOT IN(".$id_list.")";
+	} else {
+		$id_list = '';
+	}	
+			
+	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND private='".$private."'".$id_list);	
 
 	if ($private == 'N' && ($atl = attach_rebuild_cache($mid))) {
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);
@@ -186,7 +185,7 @@ function attach_finalize($attach_list, $mid, $private='N')
 
 function attach_rebuild_cache($id)
 {
-	$c = uq('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN m.icon IS NULL THEN 'unknown.gif' ELSE m.icon END FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE message_id='.$id.' AND private=\'N\'');
+	$c = uq('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN m.icon IS NULL THEN \'unknown.gif\' ELSE m.icon END FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE message_id='.$id.' AND private=\'N\'');
 	while ($r = db_rowarr($c)) {
 		$ret[] = $r;	
 	}
