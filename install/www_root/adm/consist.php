@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.45 2003/07/14 16:28:08 hackie Exp $
+*   $Id: consist.php,v 1.46 2003/07/18 21:19:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -447,17 +447,28 @@ forum will be disabled.<br><br>
 	unset($lvl);
 
 	/* verify that last post ids are correct, needed for rare cases where MAX(id) != MAX(last_post_id) */
-	$c = uq('SELECT m.id, u.id, u.u_last_post_id FROM '.$tbl.'users u INNER JOIN '.$tbl.'msg m ON u.id=m.poster_id AND m.approved=\'Y\' GROUP BY m.poster_id ORDER BY m.post_stamp DESC');
-	$todo = array();
-	while ($r = db_rowarr($c)) {
-		if ($r[0] != $r[2]) {
-			$todo[$r[1]] = $r[0];
+	if (__dbtype__ == 'mysql') {
+		$c = uq('SELECT m.id, m.poster_id, u.u_last_post_id FROM '.$tbl.'users u INNER JOIN '.$tbl.'msg m ON u.id=m.poster_id AND m.approved=\'Y\' AND u.u_last_post_id>0 GROUP BY m.poster_id, m.id ORDER BY m.post_stamp DESC');
+		$todo = array();
+		while ($r = db_rowarr($c)) {
+			if ($r[0] != $r[2]) {
+				$todo[$r[1]] = $r[0];
+			}
 		}
+		qf($r);
+		foreach ($todo as $k => $v) {
+			q('UPDATE '.$tbl.'users SET u_last_post_id='.$v.' WHERE id='.$k);
+		}
+		unset($todo);
+	} else {
+		$c = q('SELECT MAX(post_stamp), poster_id FROM imp_msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
+		while (list($ps, $uid) = db_rowarr($c)) {
+			if (!$uid) { continue; }
+			q('UPDATE imp_users SET u_last_post_id=(SELECT id FROM imp_msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
+		}
+		qf($c);
 	}
-	qf($r);
-	foreach ($todo as $k => $v) {
-		q('UPDATE '.$tbl.'users SET u_last_post_id='.$v.' WHERE id='.$k);
-	}
+	
 	draw_stat('Done: Rebuilding user levels, message counts & last post ids');
 
 	draw_stat('Checking buddy list entries');
