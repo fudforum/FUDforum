@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.10 2003/04/14 09:48:57 hackie Exp $
+*   $Id: split_th.php.t,v 1.11 2003/04/14 10:05:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,6 +63,14 @@ function fud_str2int(&$i, $k)
 		
 		WHERE t.id='.$th);
 
+		/* sanity check */
+		if (!$data->replies) {
+			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			exit;
+		}
+
+		apply_custom_replace($_POST['new_title']);
+
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
 			if (isset($_POST['btn_selected'])) {
 				sort($_POST['sel_th']);
@@ -72,10 +80,16 @@ function fud_str2int(&$i, $k)
 				array_walk($_POST['sel_th'], 'fud_str2int');
 				$mids = implode(',', $_POST['sel_th']);
 				$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$th.' AND id NOT IN('.$mids.') AND approved=\'Y\'');
-				while ($r[] = db_rowarr($c));
+				while ($r = db_rowarr($c)) {
+					$a[] = $r[0];
+				}
 				qf($c);
-				array_pop($r);
-				$mids = implode(',', $r);
+				/* sanity check */
+				if (!isset($a)) {
+					header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+					exit;
+				}
+				$mids = implode(',', $a);
 			}
 		
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
@@ -166,8 +180,13 @@ function fud_str2int(&$i, $k)
 
 	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.approved='Y' ORDER BY m.post_stamp ASC");
 
+	$anon_alias = htmlspecialchars($ANON_NICK);
+
 	$msg_entry = '';
 	while ($r = db_rowobj($c)) {
+		if (!$r->alias) {
+			$r->alias = $anon_alias;
+		}
 		$msg_body = read_msg_body($r->foff, $r->length, $r->file_id);
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}
