@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.39 2003/11/24 15:59:07 hackie Exp $
+* $Id: post_proc.inc.t,v 1.40 2003/11/30 16:23:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,24 +132,24 @@ function tags_to_html($str, $allow_img=1)
 				case 'url':
 					if (!$parms) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-						if (strpos(strtolower($parms), 'javascript:') === false) {
-							$ostr .= '<a href="'.$parms.'" target="_blank">'.$parms.'</a>';
-						} else {
-							$ostr .= substr($str, $pos, ($cepos-$pos)+1);
-						}
-
-						$epos = $cepos;
-						$str[$cpos] = '<';
+					}
+					$url = $parms;
+					if (!strpos($url, '://')) {
+						$url = 'http://'. $url;
+					}
+					if (strpos(strtolower($parms), 'javascript:') !== false) {
+						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
-						if (strpos(strtolower($parms), 'javascript:') === false) {
-							$end_tag[$cpos] = '</a>';
-							$ostr .= '<a href="'.$parms.'" target="_blank">';
+						if ($url == $parms) {
+							$ostr .= '<a href="'.$url.'" target="_blank">'.$parms.'</a>';	
 						} else {
-							$ostr .= substr($str, $pos, ($cepos-$pos)+1);
-							$epos = $cepos;
-							$str[$cpos] = '<';
+							$end_tag[$cpos] = '</a>';
+							$ostr .= '<a href="'.$url.'" target="_blank">';
+							break;
 						}
 					}
+					$epos = $cepos;
+					$str[$cpos] = '<';
 					break;
 				case 'i':
 				case 'u':
