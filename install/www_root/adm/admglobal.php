@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.39 2003/09/18 23:16:53 hackie Exp $
+*   $Id: admglobal.php,v 1.40 2003/09/29 22:48:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,46 +19,17 @@
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
-	fud_use('tz.inc');
-	fud_use('cfg.inc', true);
 	fud_use('draw_select_opt.inc');
-	
-function draw_help($about)
-{
-	if (isset($GLOBALS['help_ar'][$about])) {
-		return '<br><font size="-1">'.$GLOBALS['help_ar'][$about].'</font>';
-	}
-}
-
-function print_yn_field($descr, $field)
-{
-	$str = !isset($GLOBALS[$field]) ? 'Y' : $GLOBALS[$field];
-	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': '.draw_help($field).'</td><td valign="top">'.create_select('CF_'.$field, "Yes\nNo", "Y\nN", $str).'</td></tr>';
-}
-	
-function print_string_field($descr, $field, $is_int=0)
-{
-	if (!isset($GLOBALS[$field])) {
-		$str = !$is_int ? '' : '0';
-	} else {
-		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
-	}
-	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': '.draw_help($field).'</td><td valign="top"><input type="text" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
-}
-
-function print_tag_style($descr, $field)
-{
-	$str = !isset($GLOBALS[$field]) ? 'FUD ML' : $GLOBALS[$field];
-	echo '<tr bgcolor="#bff8ff"><td>Tag Style: '.draw_help($field).'</td><td>'.create_select('CF_'.$field, "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $str).'</td></tr>';
-}
+	fud_use('users_adm.inc', true);
+	fud_use('tz.inc');
 
 function get_max_upload_size()
 {
 	$us = strtolower(ini_get('upload_max_filesize'));
 	$size = (int) $us;
-	if (strpos($us, 'm') !== FALSE) {
+	if (strpos($us, 'm') !== false) {
 		$size *= 1024 * 1024;
-	} else if (strpos($us, 'k') !== FALSE) {
+	} else if (strpos($us, 'k') !== false) {
 		$size *= 1024;
 	}
 	return $size;
@@ -73,17 +44,39 @@ function get_max_upload_size()
 		$GLOBALS['PRIVATE_ATTACH_SIZE'] = $max_attach_size;	
 	}
 
+	$help_ar = read_help();
+
 	if (isset($_POST['form_posted'])) {
-		/* make a list of the fields we need to change */
-		foreach ($_POST as $k => $v) {
-			if (strncmp($k, 'CF_', 3)) {
-				continue;
-			}
-			$k = substr($k, 3);
-			if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-				$ch_list[$k] = $v;
+		for ($i = 1; $i < 10; $i++) {
+			if (isset($GLOBALS['FUD_OPT_'.$i])) {
+				$GLOBALS['NEW_FUD_OPT_'.$i] = 0;
+			} else {
+				break;
 			}
 		}
+
+		/* make a list of the fields we need to change */
+		foreach ($_POST as $k => $v) {
+			if (!strncmp($k, 'CF_', 3)) {
+				$k = substr($k, 3);
+				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
+					$ch_list[$k] = $v;
+				}
+			} else if (!strncmp($k, 'FUD_OPT_', 8)) {
+				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
+			}
+		}
+
+		for ($i = 1; $i < 10; $i++) {
+			if (!isset($GLOBALS['FUD_OPT_'.$i])) {
+				break;
+			}
+
+			if ($GLOBALS['FUD_OPT_'.$i] != $GLOBALS['NEW_FUD_OPT_'.$i]) {
+				$ch_list['FUD_OPT_'.$i] = $GLOBALS['NEW_FUD_OPT_'.$i];
+			}
+		}
+
 		if (isset($ch_list)) {
 			change_global_settings($ch_list);
 
@@ -93,25 +86,29 @@ function get_max_upload_size()
 				fud_use('users_reg.inc');
 				rebuildmodlist();
 			}
-			if (isset($ch_list['USE_ALIASES']) && $ch_list['USE_ALIASES'] == 'N') {
+
+			/* handle enabling/disabling of aliases */
+			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & 128) {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET alias=login');
 				rebuildmodlist();
 			}
 
-			$q_data = NULL;
+			$q_data = array();
 			if (isset($ch_list['POSTS_PER_PAGE'])) {
 				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
 			}
-			if (isset($ch_list['DEFAULT_THREAD_VIEW'])) {
-				$q_data[] = 'default_view=\''.addslashes($ch_list['DEFAULT_THREAD_VIEW']).'\'';
-			}
 			if (isset($ch_list['ANON_NICK'])) {
-				$q_data[] = 'login=\''.addslashes($ch_list['ANON_NICK']).'\', alias=\''.addslashes(htmlspecialchars($ch_list['ANON_NICK'])).'\'';
+				$q_data[] = "login='".addslashes($ch_list['ANON_NICK'])."', alias='".addslashes(htmlspecialchars($ch_list['ANON_NICK']))."'";
 			}
 			if (isset($ch_list['SERVER_TZ'])) {
-				$q_data[] = 'time_zone=\''.addslashes($ch_list['SERVER_TZ']).'\'';
+				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
 			}
-			if (isset($q_data)) {
+			if (($FUD_OPT_2 ^ $NEW_FUD_OPT_2) & (4|8)) {
+				$opt  = $NEW_FUD_OPT_2 & 4 ? 128 : 0;
+				$opt |= $NEW_FUD_OPT_2 & 8 ? 256 : 0;
+				$q_data[] = 'users_opt=((users_opt|384) &~ 384) | '.$opt;
+			}
+			if ($q_data) {
 				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET '.implode(',', $q_data).' WHERE id=1');
 			}
 
@@ -121,87 +118,79 @@ function get_max_upload_size()
 			}
 		}
 	}
-	
-	$help_ar = read_help();
-	
-	$DISABLED_REASON = cfg_dec($DISABLED_REASON);
-
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Global Configuration</h2>
 <table border=0 cellspacing=1 cellpadding=3>
 <form method="post" action="admglobal.php">
 <?php
 	echo _hs;
-	print_string_field('Forum Title', 'FORUM_TITLE');
-	print_yn_field('Forum Enabled', 'FORUM_ENABLED');
-?>
-<tr bgcolor="#bff8ff"><td valign=top>Reason for Disabling:<?php echo draw_help('DISABLED_REASON'); ?></td><td><textarea name="CF_DISABLED_REASON" cols=40 rows=5><?php echo htmlspecialchars($DISABLED_REASON); ?></textarea></td></tr>
-<?php
-	print_yn_field('Allow Registration', 'ALLOW_REGISTRATION');
+	print_reg_field('Forum Title', 'FORUM_TITLE');
+	print_bit_field('Forum Enabled', 'FORUM_ENABLED');
+	print_reg_field('Reason for Disabling', 'DISABLED_REASON');
+	print_bit_field('Allow Registration', 'ALLOW_REGISTRATION');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Global</b></td></tr>
 <?php
-	print_string_field('WWW Root', 'WWW_ROOT');
-	print_string_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
-	print_string_field('Data Root', 'DATA_DIR');
+	print_reg_field('WWW Root', 'WWW_ROOT');
+	print_reg_field('WWW Root (disk path)', 'WWW_ROOT_DISK');
+	print_reg_field('Data Root', 'DATA_DIR');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Database Settings</b> </td></tr>
 <?php
-	print_string_field('Database Server', 'DBHOST');
-	print_string_field('Database Login', 'DBHOST_USER');
-	print_string_field('Database Password', 'DBHOST_PASSWORD');
-	print_string_field('Database Name', 'DBHOST_DBNAME');
-	print_yn_field('Use Persistent Connections', 'DBHOST_PERSIST');
+	print_reg_field('Database Server', 'DBHOST');
+	print_reg_field('Database Login', 'DBHOST_USER');
+	print_reg_field('Database Password', 'DBHOST_PASSWORD');
+	print_reg_field('Database Name', 'DBHOST_DBNAME');
+	print_bit_field('Use Persistent Connections', 'DBHOST_PERSIST');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Private Messaging</b> </td></tr>
 <?php
-	print_yn_field('Allow Private Messaging', 'PM_ENABLED');
-	print_string_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
-	print_string_field('Maximum Attachment Size (bytes)', 'PRIVATE_ATTACH_SIZE', 1);
-	print_yn_field('Allow Smilies', 'PRIVATE_MSG_SMILEY');
-	print_yn_field('Allow Images (fudcode only)', 'PRIVATE_IMAGES');
-	print_tag_style('Tag Style', 'PRIVATE_TAGS');
-	print_string_field('Maximum Private Messages Folder Size', 'MAX_PMSG_FLDR_SIZE', 1);
+	print_bit_field('Allow Private Messaging', 'PM_ENABLED');
+	print_reg_field('File Attachments in Private Messages', 'PRIVATE_ATTACHMENTS', 1);
+	print_reg_field('Maximum Attachment Size (bytes)', 'PRIVATE_ATTACH_SIZE', 1);
+	print_bit_field('Allow Smilies', 'PRIVATE_MSG_SMILEY');
+	print_bit_field('Allow Images (fudcode only)', 'PRIVATE_IMAGES');
+	print_bit_field('Tag Style', 'PRIVATE_TAGS');
+	print_reg_field('Maximum Private Messages Folder Size', 'MAX_PMSG_FLDR_SIZE', 1);
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Cookie & Session Settings</b> </td></tr>
 <?php
-	print_string_field('Cookie Path', 'COOKIE_PATH');
-	print_string_field('Cookie Domain', 'COOKIE_DOMAIN');
-	print_string_field('Cookie Name', 'COOKIE_NAME');
-	print_string_field('Cookie Timeout', 'COOKIE_TIMEOUT', 1);
-	print_string_field('Session Timeout', 'SESSION_TIMEOUT', 1);
-	print_yn_field('Enable URL sessions', 'SESSION_USE_URL');
+	print_reg_field('Cookie Path', 'COOKIE_PATH');
+	print_reg_field('Cookie Domain', 'COOKIE_DOMAIN');
+	print_reg_field('Cookie Name', 'COOKIE_NAME');
+	print_reg_field('Cookie Timeout', 'COOKIE_TIMEOUT', 1);
+	print_reg_field('Session Timeout', 'SESSION_TIMEOUT', 1);
+	print_bit_field('Enable URL sessions', 'SESSION_USE_URL');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Custom Avatar Settings</b> </td></tr>
 <?php
-	print_yn_field('Avatar Approval', 'CUSTOM_AVATAR_APPOVAL');
-	print_yn_field('Allow Flash (swf) avatars', 'AVATAR_ALLOW_SWF');
-?>
-<tr bgcolor="#bff8ff"><td>Custom Avatars:<?php echo draw_help('CUSTOM_AVATARS'); ?></td><td><?php draw_select('CF_CUSTOM_AVATARS', "OFF\nBuilt In Only\nURL Only\nUploaded Only\nBuilt In & URL\nBuilt In & Uploaded\nURL & Uploaded\nALL", "OFF\nBUILT\nURL\nUPLOAD\nBUILT_URL\nBUILT_UPLOAD\nURL_UPLOAD\nALL", $CUSTOM_AVATARS); ?></td></tr>
-<?php
-	print_string_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
-	print_string_field('Custom Avatar Max Dimentions', 'CUSTOM_AVATAR_MAX_DIM');
+	print_bit_field('Avatar Approval', 'CUSTOM_AVATAR_APPOVAL');
+	print_bit_field('Allow Flash (swf) avatars', 'CUSTOM_AVATAR_ALLOW_SWF');
+	print_bit_field('Custom Avatars', 'CUSTOM_AVATARS');
+	print_reg_field('Custom Avatar Max Size (bytes)', 'CUSTOM_AVATAR_MAX_SIZE', 1);
+	print_reg_field('Custom Avatar Max Dimentions', 'CUSTOM_AVATAR_MAX_DIM');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Signature Settings</b> </td></tr>
 <?php
-	print_yn_field('Allow Signatures', 'ALLOW_SIGS');
-	print_tag_style('Tag Style', 'FORUM_CODE_SIG');
-	print_yn_field('Allow Smilies', 'FORUM_SML_SIG');
-	print_yn_field('Allow Images (fudcode only)', 'FORUM_IMG_SIG');
-	print_string_field('Maximum number of images', 'FORUM_IMG_CNT_SIG', 1);
+	print_bit_field('Allow Signatures', 'ALLOW_SIGS');
+	print_bit_field('Tag Style', 'FORUM_CODE_SIG');
+	print_bit_field('Allow Smilies', 'FORUM_SML_SIG');
+	print_bit_field('Allow Images (fudcode only)', 'FORUM_IMG_SIG');
+	print_reg_field('Maximum number of images', 'FORUM_IMG_CNT_SIG', 1);
+	print_reg_field('Maximum signature length', 'FORUM_SIG_ML', 1);
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
@@ -211,101 +200,100 @@ function get_max_upload_size()
 		$pspell_support = '<font color="red">is enabled.</font>';
 	} else {
 		$pspell_support = '<font color="red">is disabled.<br>Please ask your administrator to enable pspell support.</font>';
-		$GLOBALS['SPELL_CHECK_ENABLED'] = 'N';
+		$GLOBALS['CF_SPELL_CHECK_ENABLED'] = 0;
 	}
-	print_yn_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
+	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Email Settings</b> </td></tr>
 <?php
-	print_yn_field('Allow Email', 'ALLOW_EMAIL');
-	print_yn_field('Use SMTP To Send Email', 'USE_SMTP');
-	print_string_field('SMTP Server', 'FUD_SMTP_SERVER');
-	print_string_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
-	print_string_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
-	print_string_field('SMTP Server Password', 'FUD_SMTP_PASS');
-	print_yn_field('Email Confirmation', 'EMAIL_CONFIRMATION');
-	print_string_field('Administrator Email', 'ADMIN_EMAIL');
-	print_string_field('Notify From', 'NOTIFY_FROM');
-	print_yn_field('Notify W/Body', 'NOTIFY_WITH_BODY');
+	print_bit_field('Allow Email', 'ALLOW_EMAIL');
+	print_bit_field('Use SMTP To Send Email', 'USE_SMTP');
+	print_reg_field('SMTP Server', 'FUD_SMTP_SERVER');
+	print_reg_field('SMTP Server Timeout', 'FUD_SMTP_TIMEOUT', 1);
+	print_reg_field('SMTP Server Login', 'FUD_SMTP_LOGIN');
+	print_reg_field('SMTP Server Password', 'FUD_SMTP_PASS');
+	print_bit_field('Email Confirmation', 'EMAIL_CONFIRMATION');
+	print_reg_field('Administrator Email', 'ADMIN_EMAIL');
+	print_reg_field('Notify From', 'NOTIFY_FROM');
+	print_bit_field('Notify W/Body', 'NOTIFY_WITH_BODY');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>General Settings</b> </td></tr>
 <?php
-	print_yn_field('New Account Moderation', 'MODERATE_USER_REGS');
-	print_yn_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');
-	print_yn_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
+	print_bit_field('New Account Moderation', 'MODERATE_USER_REGS');
+	print_bit_field('New Account Notification', 'NEW_ACCOUNT_NOTIFY');
+	print_bit_field('Public Host Resolving', 'PUBLIC_RESOLVE_HOST');
 
-	print_yn_field('Logged In Users List Enabled', 'LOGEDIN_LIST');
-	print_string_field('Logged In Users List Timeout (minutes)', 'LOGEDIN_TIMEOUT', 1);
-	print_string_field('Maximum number of logged in users to show', 'MAX_LOGGEDIN_USERS', 1);
-	print_yn_field('Allow Action List', 'ACTION_LIST_ENABLED');
-	print_yn_field('Online/Offline Status Indicator', 'ONLINE_OFFLINE_STATUS');
+	print_bit_field('Logged In Users List Enabled', 'LOGEDIN_LIST');
+	print_reg_field('Logged In Users List Timeout (minutes)', 'LOGEDIN_TIMEOUT', 1);
+	print_reg_field('Maximum number of logged in users to show', 'MAX_LOGGEDIN_USERS', 1);
+	print_bit_field('Allow Action List', 'ACTION_LIST_ENABLED');
+	print_bit_field('Online/Offline Status Indicator', 'ONLINE_OFFLINE_STATUS');
 
-	print_yn_field('COPPA', 'COPPA');
-	print_string_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
+	print_bit_field('COPPA', 'COPPA');
+	print_reg_field('Max Smilies Shown', 'MAX_SMILIES_SHOWN', 1);
 
-	print_string_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
-	print_string_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
+	print_reg_field('Maximum Shown Login Length', 'MAX_LOGIN_SHOW', 1);
+	print_reg_field('Maximum Shown Location Length', 'MAX_LOCATION_SHOW', 1);
 
-	print_string_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
-	print_string_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
-	print_string_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
+	print_reg_field('Posts Per Page', 'POSTS_PER_PAGE', 1);
+	print_reg_field('Topics Per Page', 'THREADS_PER_PAGE', 1);
+	print_reg_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 
-	print_yn_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
-?>
-	<tr bgcolor="#bff8ff"><td>Default Topic View:<?php echo draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View thread and message list\nTree View thread and message list".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nFlat thread listing/Tree message listing\nTree thread listing/Flat message listing":''), "msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), $DEFAULT_THREAD_VIEW); ?></td></tr>
-<?php	
-	print_string_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
-	print_string_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
-	print_string_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
+	print_bit_field('Allow Tree View of Thread Listing', 'TREE_THREADS_ENABLE');
+	print_bit_field('Default Topic View', 'DEFAULT_THREAD_VIEW');
+	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
+	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
+	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
 	
-	print_string_field('Word Wrap', 'WORD_WRAP', 1);
-	print_string_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
-	print_string_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
-	print_string_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
-	print_yn_field('Use Aliases', 'USE_ALIASES');
-	print_yn_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
-	print_yn_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
+	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
+	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
+	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
+	print_reg_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
+	print_bit_field('Use Aliases', 'USE_ALIASES');
+	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
+	print_bit_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 ?>
-<tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
+<tr bgcolor="#bff8ff"><td colspan=2>Server Time Zone: <font size="-1"> <?php echo $help_ar['SERVER_TZ'][0]; ?></font><br /><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php
-	print_yn_field('Forum Search Engine', 'FORUM_SEARCH');
-	print_string_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
-	print_yn_field('Member Search', 'MEMBER_SEARCH_ENABLED');
-	print_string_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
-	print_string_field('Maximum logged-in users', 'MAX_LOGGEDIN_USERS', 1);
-	print_string_field('Anonymous Username', 'ANON_NICK');
-	print_string_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
-	print_string_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
-	print_yn_field('Show Edited By', 'SHOW_EDITED_BY');
-	print_yn_field('Show Edited By Moderator', 'EDITED_BY_MOD');
-	print_string_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
-	print_yn_field('Display IP Publicly', 'DISPLAY_IP');
-	print_string_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
-	print_string_field('Number Of Moderators To Show', 'SHOW_N_MODS', 1);
-	print_yn_field('Public Stats', 'PUBLIC_STATS');
-	print_yn_field('Forum Info', 'FORUM_INFO');
-	print_string_field('Forum Info Cache Age', 'STATS_CACHE_AGE', 1);
-	print_string_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
-	print_yn_field('Enable Affero<br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
-	print_yn_field('Topic Rating', 'ENABLE_THREAD_RATING');
-	print_yn_field('Track referrals', 'TRACK_REFERRALS');
-	print_yn_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
-	print_yn_field('Moderator Notification', 'MODERATED_POST_NOTIFY');
-	print_string_field('Max History', 'MNAV_MAX_DATE', 1);
-	print_string_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
-	print_yn_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
-	print_yn_field('Show Syndication Link', 'SHOW_XML_LINK');
-	print_yn_field('Attachment Referrer Check', 'DWLND_REF_CHK');
+	print_bit_field('Forum Search Engine', 'FORUM_SEARCH');
+	print_reg_field('Search results cache', 'SEARCH_CACHE_EXPIRY', 1);
+	print_bit_field('Member Search', 'MEMBER_SEARCH_ENABLED');
+	print_reg_field('Members Per Page', 'MEMBERS_PER_PAGE', 1);
+	print_reg_field('Maximum logged-in users', 'MAX_LOGGEDIN_USERS', 1);
+	print_reg_field('Anonymous Username', 'ANON_NICK');
+	print_reg_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
+	print_reg_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
+	print_bit_field('Show Edited By', 'SHOW_EDITED_BY');
+	print_bit_field('Show Edited By Moderator', 'EDITED_BY_MOD');
+	print_reg_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
+	print_bit_field('Display IP Publicly', 'DISPLAY_IP');
+	print_reg_field('Max Image Count', 'MAX_IMAGE_COUNT', 1);
+	print_reg_field('Number Of Moderators To Show', 'SHOW_N_MODS', 1);
+	print_bit_field('Public Stats', 'PUBLIC_STATS');
+	print_bit_field('Forum Info', 'FORUM_INFO');
+	print_reg_field('Forum Info Cache Age', 'STATS_CACHE_AGE', 1);
+	print_reg_field('Registration Time Limit', 'REG_TIME_LIMIT', 1);
+	print_bit_field('Enable Affero<br><a href="http://www.affero.net/bbsteps.html" target=_blank>Click here for details</a>', 'ENABLE_AFFERO');
+	print_bit_field('Topic Rating', 'ENABLE_THREAD_RATING');
+	print_bit_field('Track referrals', 'TRACK_REFERRALS');
+	print_bit_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
+	print_bit_field('Moderator Notification', 'MODERATED_POST_NOTIFY');
+	print_reg_field('Max History', 'MNAV_MAX_DATE', 1);
+	print_reg_field('Max Message Preview Length', 'MNAV_MAX_LEN', 1);
+	print_bit_field('Show PDF Generation Link', 'SHOW_PDF_LINK');
+	print_bit_field('Show Syndication Link', 'SHOW_XML_LINK');
+	print_bit_field('Attachment Referrer Check', 'DWLND_REF_CHK');
+	print_bit_field('Show Reply Reference', 'SHOW_REPL_LNK');
 
 	if (function_exists('ob_gzhandler')) {
-		print_yn_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
-		print_string_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
+		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
+		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
 	}		
-	print_yn_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
+	print_bit_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>
