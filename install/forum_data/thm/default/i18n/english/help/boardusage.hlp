@@ -97,6 +97,7 @@ of operation.<br />
 		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
 		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
 		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>basic</i></td><td class="GenText">Output messages in a format parse-able by most RDF/RSS parsers.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
@@ -124,4 +125,4 @@ of operation.<br />
 </blockquote>
 <b>Example:</b><br />
 The following link will fetch 10 most recent messages from this forum:<br />
-<a href="rdf.php?mode=m&l=1&n=10" target="_blank">rdf.php?mode=m&l=1&n=10</a>
+<a href="rdf.php?mode=m&l=1&n=10&basic=1" target="_blank">rdf.php?mode=m&l=1&n=10&basic=1</a>

@@ -1,9 +1,9 @@
 <?php
 
 	/* path to the rdf file you wish to read */
-	$path_to_rdf = "http://bb.prohost.org/mm/rdf.php?mode=t&l=1";
+	$path_to_rdf = "";
 	/* parsing mode, what are we parsing, 'message', 'topic' or 'user' data */
-	$mode = 'topic';
+	$mode = 'message';
 
 /* This is a sample class that will be used to handle the data parsed from the 
  * RDF file that contains message information. The data is stored in the following
@@ -53,7 +53,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 			echo '<b>Author: </b>'.$this->author.'<br />';
 		}
 
-		if ($this->reply_to_id && $this->reply_to_title != $this->title) {
+		if (!isset($this->reply_to_id) && $this->reply_to_title != $this->title) {
 			echo '<b>In Reply To:</b> <a href="'.$this->forum_url.'?t=rview&amp;th='.$this->topic_id.'&amp;id='.$this->reply_to_id.'"> '.$this->reply_to_title.'</a><br />';
 		}
 
@@ -200,7 +200,7 @@ class fud_forum_rdf_msg
 	var	$parser, $ctag, $ctag_attr, $in_parser=FALSE, $forum_url=NULL;
 
 	var	$title, $topic_id, $topic_title, $message_id, $reply_to_id, $reply_to_title, $forum_id, $forum_title,
-		$category_title, $author, $author_id, $attachments, $poll_name, $total_votes, $poll_opts;
+		$category_title, $author, $author_id, $attachments, $poll_name, $total_votes, $poll_opts, $body;
 
 	var	$cur_poll_opt = 0, $cur_attach = 0;
 
@@ -245,7 +245,11 @@ class fud_forum_rdf_msg
 				case 'body':
 				case 'poll_name':
 				case 'total_votes':
-					$this->{$this->ctag} .= $cdata;
+					if (isset($this->{$this->ctag})) {
+						$this->{$this->ctag} .= $cdata;
+					} else {
+						$this->{$this->ctag} = $cdata;
+					}
 					break;
 
 				case 'a_title':

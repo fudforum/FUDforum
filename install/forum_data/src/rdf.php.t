@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.10 2003/05/23 06:45:00 hackie Exp $
+*   $Id: rdf.php.t,v 1.11 2003/05/24 13:45:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,6 +31,7 @@
 	}
 
 	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';
+	$basic = isset($_GET['basic']);
 
 /*{PRE_HTML_PHP}*/
 
@@ -89,6 +90,7 @@ function email_format($data)
 			 * o		- offset
 			 * n		- number of rows to get
 			 * l		- latest
+			 * basic	- output basic info parsable by all rdf parsers 
 			 */
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
@@ -144,17 +146,51 @@ function email_format($data)
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
-					echo '<?xml version="1.0" encoding="utf-8"?> 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
+					header('Content-Type: text/xml');
+					echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+					if ($basic) {
+						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/">';
+
+						echo '
+<channel rdf:about="'.__ROOT__.'">
+	<title>'.$FORUM_TITLE.' RDF feed</title>
+	<link>'.__ROOT__.'</link>
+	<description>'.$FORUM_TITLE.' RDF feed</description>
+	<items>
+		<rdf:Seq>
+';
+						$basic_rss_data = $basic_rss_header = '';
+					} else {
+						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">';
+						echo '
 <channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
 	<link>'.__ROOT__.'</link>
 	<description>'.$FORUM_TITLE.' RDF feed</description>
 </channel>';
+					}
+
 					$res = 1;
 				}
 
-				echo '
+				if ($basic) {
+					$body = read_msg_body($r->foff, $r->length, $r->file_id);
+					$body = preg_replace('!([^-A-Za-z0-9_:/=\s&;])!e', "'&#'.ord('\\1').';'", $body);
+				
+$basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."\" />\n";
+
+$basic_rss_data .= '				
+<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'">
+	<title>'.htmlspecialchars($r->subject).'</title>
+	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'</link>
+	<description>'.$body.'</description>
+	<dc:subject></dc:subject>
+	<dc:creator>'.$r->alias.'</dc:creator>
+	<dc:date>'.gmdate('Y-m-d\TH:i:s', $r->post_stamp).'-00:00</dc:date>
+</item>
+';
+				} else {
+					echo '
 <item>
 	<title>'.sp($r->subject).'</title>
 	<topic_id>'.$r->thread_id.'</topic_id>
@@ -169,40 +205,44 @@ function email_format($data)
 	<author_id>'.$r->poster_id.'</author_id>
 	<body>'.str_replace("\n", '', sp(read_msg_body($r->foff, $r->length, $r->file_id))).'</body>
 ';
-				if ($r->attach_cnt && $r->attach_cache) {
-					$al = @unserialize($r->attach_cache);
-					if (is_array($al) && @count($al)) {
-						echo '<content:items><rdf:Bag>';
-						foreach ($al as $a) {
-							echo '<rdf:li>
-								<content:item rdf:about="attachments">
-									<a_title>'.sp($r[1]).'</a_title>
-									<a_id>'.$r[0].'</a_id>
-									<a_size>'.$r[2].'</a_size>
-									<a_nd>'.$r[3].'</a_nd>
-								</content:item>
-							</rdf:li>';
+					if ($r->attach_cnt && $r->attach_cache) {
+						$al = @unserialize($r->attach_cache);
+						if (is_array($al) && @count($al)) {
+							echo '<content:items><rdf:Bag>';
+							foreach ($al as $a) {
+								echo '<rdf:li>
+									<content:item rdf:about="attachments">
+										<a_title>'.sp($r[1]).'</a_title>
+										<a_id>'.$r[0].'</a_id>
+										<a_size>'.$r[2].'</a_size>
+										<a_nd>'.$r[3].'</a_nd>
+									</content:item>
+								</rdf:li>';
+							}
+							echo '</rdf:Bag></content:items>';
+						}
+					}
+					if ($r->poll_name) {
+						echo '<content:items><rdf:Bag><poll_name>'.sp($r->poll_name).'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
+						if ($r->poll_cache) {
+							$pc = @unserialize($r->poll_cache);
+							if (is_array($pc) && count($pc)) {
+								foreach ($pc as $o) {
+									echo '<rdf:li>
+										<content:item rdf:about="poll_opt">
+											<opt_title><'.sp($o[0]).'></opt_title>
+											<opt_votes>'.$o[1].'</opt_votes>
+										</content:item></rdf:li>';
+								}
+							}
 						}
 						echo '</rdf:Bag></content:items>';
 					}
+					echo '</item>';
 				}
-				if ($r->poll_name) {
-					echo '<content:items><rdf:Bag><poll_name>'.sp($r->poll_name).'</poll_name><total_votes>'.$r->total_votes.'</total_votes>';
-					if ($r->poll_cache) {
-						$pc = @unserialize($r->poll_cache);
-						if (is_array($pc) && count($pc)) {
-							foreach ($pc as $o) {
-								echo '<rdf:li>
-									<content:item rdf:about="poll_opt">
-										<opt_title><'.sp($o[0]).'></opt_title>
-										<opt_votes>'.$o[1].'</opt_votes>
-									</content:item></rdf:li>';
-							}
-						}
-					}
-					echo '</rdf:Bag></content:items>';
-				}
-				echo '</item>';
+			}
+			if ($basic) {
+				echo $basic_rss_header . "\t\t</rdf:Seq>\n\t</items>\n</channel>\n" . $basic_rss_data;
 			}
 			qf($c);
 			break;

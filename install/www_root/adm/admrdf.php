@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admrdf.php,v 1.4 2003/05/20 15:16:09 hackie Exp $
+*   $Id: admrdf.php,v 1.5 2003/05/24 13:45:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,6 +101,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 		<tr><td><i>n</i></td><td>Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
 		<tr><td><i>o</i></td><td>Starting offset from which to begin fetching messages.</td></tr>
 		<tr><td><i>l</i></td><td>Order messages from newest to oldest.</td></tr>
+		<tr><td><i>basic</i></td><td>Output basic data parse-able by most RDF parsers.</td></tr>
 	</table>
 </blockquote>
 <h4><u><b>'t' mode (topics)</b></u></h4>
@@ -128,7 +129,7 @@ A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GL
 </blockquote>
 <b>Example:</b><br />
 The following link will fetch 10 most recent messages from your forum:<br />
-<a href="<?php echo $rdf_url; ?>?mode=m&l=1&n=10" target="_blank"><?php echo $rdf_url; ?>?mode=m&l=1&n=10</a>
+<a href="<?php echo $rdf_url; ?>?mode=m&l=1&n=10&basic=1" target="_blank"><?php echo $rdf_url; ?>?mode=m&l=1&n=10</a>
 </td></tr>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
