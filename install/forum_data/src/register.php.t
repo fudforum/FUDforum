@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.74 2003/09/27 13:13:54 hackie Exp $
+*   $Id: register.php.t,v 1.75 2003/09/27 13:15:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 /*{PRE_HTML_PHP}*/
 
 /* Create a list of avaliable themes */
-function create_theme_select($name, $def=NULL)
+function create_theme_select($name, $def=null)
 {
 	$theme_select_values = '';
 	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt IN(1,3) ORDER BY id ASC");
@@ -132,7 +132,7 @@ function register_form_check($user_id)
 
 	$_POST['reg_name'] = trim($_POST['reg_name']);
 	$_POST['reg_home_page'] = sanitize_url(trim($_POST['reg_home_page']));
-	$_POST['reg_user_image'] = isset($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : NULL;
+	$_POST['reg_user_image'] = isset($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : '';
 
 	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer */
 		$_POST['reg_icq'] = '';
@@ -294,7 +294,7 @@ function decode_uent(&$uent)
 		}
 	}
 	
-	$avatar_tmp = $avatar_arr = NULL;
+	$avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
 		if (!empty($_POST['avatar_tmp'])) {
@@ -305,7 +305,7 @@ function decode_uent(&$uent)
 		}
 		if (!is_avatar_upload_allowed() && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {
 			/* hack attempt for URL avatar */
-			$avatar_arr = NULL;
+			$avatar_arr = null;
 		} else if (is_avatar_upload_allowed() && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
 			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
@@ -656,19 +656,19 @@ function decode_uent(&$uent)
 			} else {
 				$sel_opt = $sel_val = '';
 
-				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar') && strpos($GLOBALS['CUSTOM_AVATARS'], 'BUILT') !== FALSE) {
+				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar') && strpos($GLOBALS['CUSTOM_AVATARS'], 'BUILT') !== false) {
 					$sel_opt .= "{TEMPLATE: register_builtin}\n";
 					$a_type = 'b';
 					$sel_val .= "b\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'UPLOAD') !== FALSE) {
+				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'UPLOAD') !== false) {
 					$sel_opt .= "{TEMPLATE: register_uploaded}\n";
 					if (!isset($a_type)) {
 						$a_type = 'u';
 					}
 					$sel_val .= "u\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'URL') !== FALSE) {
+				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'URL') !== false) {
 					$sel_opt .= "{TEMPLATE: register_specify_url}\n";
 					if (!isset($a_type)) {
 						$a_type = 'c';
