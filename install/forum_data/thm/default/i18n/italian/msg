@@ -679,7 +679,7 @@ error_title:			Pagina di errore
 index_title:			Benvenuto nel forum di TGM Online!
 search_title:			Ricerca {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: frm->subject}
+tree_title:			{VAR: frm->frm_name} => {VAR: frm->subject}
 remail_emailsent:		L&#39;email è stata spedita
 remail_email:			C&#39;è una pagina nel forum {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) che ti potrebbe interessare.\nEcco il topic che credo ti interessi, {VAR: data->subject}: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nDa {VAR: usr->alias}\n
 poll_add_option:		Aggiungi risposta:
