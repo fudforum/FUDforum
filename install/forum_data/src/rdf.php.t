@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.7 2003/05/16 14:28:06 hackie Exp $
+*   $Id: rdf.php.t,v 1.8 2003/05/20 08:56:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -413,6 +413,7 @@ function email_format($data)
 			break;
 	}
 	if (!empty($res)) {
+		un_register_fps();
 		echo '</rdf:RDF>';
 	} else {
 		exit('no data');
