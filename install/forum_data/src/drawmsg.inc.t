@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.95 2005/02/25 15:58:01 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.96 2005/03/07 21:52:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -339,13 +339,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	$rpl = '';
 	if (!$hide_controls) {
-		$ip_address = ($b & 1048576 || $usr->md || $o1 & 134217728) ? '{TEMPLATE: dmsg_ip_address}' : '';
-		$host_name = ($obj->host_name && $o1 & 268435456) ? '{TEMPLATE: dmsg_host_name}' : '';
-		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
-		$signature = ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864)) ? '{TEMPLATE: dmsg_signature}' : '';
-
-		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
-
 		if ($obj->reply_to && $obj->reply_to != $obj->id && $o2 & 536870912) {
 			if ($_GET['t'] != 'tree' && $_GET['t'] != 'msg') {
 				$lnk = d_thread_view;
@@ -357,22 +350,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$rpl = '{TEMPLATE: dmsg_num_wrap}';
 		}
 
-		if ($obj->user_id) {
-			$user_profile = '{TEMPLATE: dmsg_user_profile}';
-			$email_link = ($o1 & 4194304 && $a & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
-			$private_msg_link = $o1 & 1024 ? '{TEMPLATE: dmsg_private_msg_link}' : '';
-			$dmsg_user_info = '{TEMPLATE: dmsg_user_info}';
-		} else {
-			$user_profile = $email_link = $private_msg_link = '';
-			$dmsg_user_info = ($host_name || $ip_address) ? '{TEMPLATE: dmsg_anon_info}' : '';
-		}
-
 		/* little trick, this variable will only be available if we have a next link leading to another page */
 		if (empty($next_page)) {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}
-
-		$delete_link = $perms & 32 ? '{TEMPLATE: dmsg_delete_link}' : '';
 
 		if (_uid && ($perms & 16 || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60)))) {
 			$edit_link = '{TEMPLATE: dmsg_edit_link}';
@@ -386,10 +367,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		} else {
 			$reply_link = $quote_link = '';
 		}
-
-		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
-	} else {
-		$host_name = $ip_address = $dmsg_user_info = $msg_icon = $signature = $report_to_mod_link = $message_toolbar = '';
 	}
 
 	return '{TEMPLATE: message_entry}';
