@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.32 2003/05/29 13:14:35 hackie Exp $
+*   $Id: compiler.inc,v 1.33 2003/06/02 16:28:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@ function resolve_refs($file_name)
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === FALSE) {
 		$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
-		if (!($str = @file_get_contents($file1)) === FALSE) {
+		if (($str = @file_get_contents($file1)) === FALSE) {
 			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
 		}
 	}
@@ -360,13 +360,8 @@ function generate_file($php_file)
 	fclose($fp);
 }
 
-function build_msg($file)
+function parse_msgs($file)
 {
-	if (isset($GLOBALS['MSG_FILES'][$file])) {
-		return;
-	}
-	$GLOBALS['MSG_FILES'][$file] = 1;
-
 	$data = file($file);
 	foreach ($data as $k => $v) {
 		$m = trim(strtok($v, "\t"), ':');
@@ -377,10 +372,27 @@ function build_msg($file)
 			exit('duplicated message: '.$m.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$m]['line'].' in '.$GLOBALS['MSG'][$m]['file']);
 		}
 		$GLOBALS['MSG'][$m] = array('data' => resolve_sections(trim(strtok("\t"))), 'file' => $file, 'line'=> $k);
-		if (strpos($GLOBALS['MSG'][$m]['data'], '\n') !== FALSE) {
-			$drf = str_replace('\n', "\n", $GLOBALS['MSG'][$m]['data']);
-		}
 	}
+}
+
+function build_msg($file)
+{
+	if (isset($GLOBALS['MSG_FILES'][$file])) {
+		return;
+	}
+	$GLOBALS['MSG_FILES'][$file] = 1;
+
+	/* 
+	 * we 1st read in the default msg file for the equivalent translation and read it in
+	 * then we replace simular values from the actual msg file. This allows partial msg 
+	 * files to be used inside themes
+	 */
+	$ts = substr(strstr(dirname($file), '/'), 1);
+	$ts = $GLOBALS['DATA_DIR'] . 'theme/default/i18n/' . $ts . '/msg';
+	if (@file_exists($ts)) {
+		parse_msgs($ts);
+	}
+	parse_msgs($file);
 }
 
 function resolve_inc_refs($file)
@@ -570,8 +582,12 @@ function copyimages($thm)
 	}	
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
+		fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	}
+	if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img')) {
+		fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	}
 
 	umask($u);
 }
@@ -580,6 +596,10 @@ function copyhelp($thm)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help';
 	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help';
+	if ($thm->theme != 'default' && !@file_exists($src)) {
+		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/help';
+	}
+	
 	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
 
 	$u = umask(0);
