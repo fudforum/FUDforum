@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.35 2003/10/09 14:34:26 hackie Exp $
+* $Id: post_proc.inc.t,v 1.36 2003/10/17 00:11:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,6 +37,11 @@ function tags_to_html($str, $allow_img=1)
 	$pos = $old_pos = 0;
 
 	while (($pos = strpos($str, '[', $pos)) !== false) {
+		if (isset($GLOBALS['seps'][$str[$pos + 1]])) {
+			++$pos;
+			continue;
+		}
+
 		if (($epos = strpos($str, ']', $pos)) === false) {
 			break;
 		}
@@ -86,8 +91,8 @@ function tags_to_html($str, $allow_img=1)
 		$otag_l = strlen($otag);
 		$rf = 1;
 		while (($cpos = strpos($str, '[', $cpos)) !== false) {
-			if (isset($end_tag[$cpos])) {
-				$cpos++;
+			if (isset($end_tag[$cpos]) || isset($GLOBALS['seps'][$str[$cpos + 1]])) {
+				++$cpos;
 				continue;
 			}
 
@@ -96,11 +101,11 @@ function tags_to_html($str, $allow_img=1)
 			}
 
 			if (strcasecmp(substr($str, $cpos, $ctag_l), $ctag) == 0) {
-				$rf--;
+				--$rf;
 			} else if (strcasecmp(substr($str, $cpos, $otag_l), $otag) == 0) {
-				$rf++;
+				++$rf;
 			} else {
-				$cpos++;
+				++$cpos;
 				continue;
 			}
 
@@ -111,7 +116,7 @@ function tags_to_html($str, $allow_img=1)
 		}
 
 		if ($rf && $str[$cpos] == '<') { /* left over [ handler */
-			$pos++;
+			++$pos;
 			continue;
 		}
 

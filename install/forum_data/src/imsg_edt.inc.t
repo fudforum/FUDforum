@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.86 2003/10/16 21:59:04 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.87 2003/10/17 00:11:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -241,7 +241,7 @@ class fud_msg_edit extends fud_msg
 			while ($loc = db_rowarr($res)) {
 				@unlink($loc[0]);
 			}
-			unset$res);
+			unset($res);
 			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND attach_opt=0");
 		}
 
