@@ -717,9 +717,9 @@ remail_emailsent:		邮件已经发送
 remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n 发件人 {VAR: u}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
-post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting#style" target=_new>FUD代码：</b><b>开放</a></b>
+post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#style" target=_new>FUD代码：</b><b>开放</a></b>
 post_opt_images_on:		<b>贴图功能：</b><b>开放</b>
-post_opt_smilies_on:		<a href="{ROOT}?t=help_index&sect=readingposting#sml" target=_new><b>表情符号：</b> <b>开放</b></a>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&t=help_index&{DEF: _rsid}#sml" target=_new><b>表情符号：</b> <b>开放</b></a>
 post_opt_html_off:		<b>HTML</b> 代码： <b>关闭</b>
 post_opt_fud_off:		<b>FUD代码：</b><b>关闭</b>
 post_opt_images_off:		<b>贴图功能：</b><b>关闭</b>
