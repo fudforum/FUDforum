@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.43 2003/06/02 18:06:52 hackie Exp $
+*   $Id: msg.php.t,v 1.44 2003/06/04 19:49:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -167,7 +167,7 @@
 		$rate_thread = $thread_rating = '';
 	}
 
-	$post_reply = ($frm->locked == 'Y' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = ($frm->locked == 'N' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms['p_lock'] == 'Y') {

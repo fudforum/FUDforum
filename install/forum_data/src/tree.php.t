@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.29 2003/06/02 17:19:47 hackie Exp $
+*   $Id: tree.php.t,v 1.30 2003/06/04 19:49:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,7 +181,7 @@
 	}
 
 	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
-	$post_reply = ($frm->locked == 'Y' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = ($frm->locked == 'N' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.approved=\'Y\' ORDER BY m.post_stamp');
