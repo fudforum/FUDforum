@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.21 2003/05/12 14:35:27 hackie Exp $
+*   $Id: attach.inc.t,v 1.22 2003/05/31 00:27:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,9 +20,10 @@ function safe_attachment_copy($source, $id, $ext)
 	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';	
 	if (!$ext && !move_uploaded_file($source, $loc)) {
 		std_out('unable to move uploaded file', 'ERR');
-	} else if ($ext && !rename($source, $loc)) {
+	} else if ($ext && !copy($source, $loc)) {
 		std_out('unable to handle file attachment', 'ERR');
 	}
+	unlink($source);
 
 	@chmod($loc, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
 
