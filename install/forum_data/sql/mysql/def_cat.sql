@@ -1,1 +1,1 @@
-INSERT INTO {SQL_TABLE_PREFIX}cat VALUES (1,'Test Category','Just a test category','Y','OPEN',1);
+INSERT INTO {SQL_TABLE_PREFIX}cat VALUES (1,'Test Category',' - Just a test category','Y','OPEN',1);
