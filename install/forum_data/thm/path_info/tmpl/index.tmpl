@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.15 2004/10/21 15:52:36 hackie Exp $
+* $Id: index.tmpl,v 1.16 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,4 +47,12 @@
 
 {SECTION: mark_all_read_lnk}
 {ROOT}/mar/{DEF: _rsid}?SQ={GVAR: sq}
+{SECTION: END}
+
+{SECTION: idx_cat_path_lnk}
+{ROOT}/i/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_forum_path_lnk}
+{ROOT}/i/{VAR: cid}/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.44 2004/10/21 15:52:35 hackie Exp $
+* $Id: index.tmpl,v 1.45 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -128,6 +128,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: welcome_message}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+{TEMPLATE-DATA: cat_path}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE: index_table_heading}
 {TEMPLATE-DATA: forum_list_table_data}
@@ -187,4 +188,20 @@
 
 {SECTION: index_forum_entry_lnk}
 {ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_forum_path}
+&nbsp;&raquo; <a href="{TEMPLATE: idx_forum_path_lnk}">{VAR: cidxc[$cid][1]}</a>
+{SECTION: END}
+
+{SECTION: idx_forum_path_lnk}
+{ROOT}?t=i&amp;cat={VAR: cid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_cat_path}
+<br/><a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{TEMPLATE-DATA: cat_path}&nbsp;&raquo; <b>{VAR: cidxc[$cat_id][1]}</b>
+{SECTION: END}
+
+{SECTION: idx_cat_path_lnk}
+{ROOT}?t=i&amp;{DEF: _rsid}
 {SECTION: END}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.62 2004/10/21 15:52:35 hackie Exp $
+* $Id: index.php.t,v 1.63 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,15 @@ function url_tog_collapse($id, $c)
 /*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
-	$forum_list_table_data = '';
+	$forum_list_table_data = $cat_path = '';
+
+	if ($cat_id) {
+		$cid = $cat_id;
+		while (($cid = $cidxc[$cid][4]) > 0) {
+			$cat_path = '{TEMPLATE: idx_forum_path}' . $cat_path;
+		}
+		$cat_path = '{TEMPLATE: idx_cat_path}';
+	}
 
 	/* List of fetched fields & their ids
 	  0	msg.subject,

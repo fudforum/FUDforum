@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_forum_path.inc.t,v 1.1 2004/10/21 00:08:37 hackie Exp $
+* $Id: draw_forum_path.inc.t,v 1.2 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,15 +17,9 @@ function draw_forum_path($cid, $fn='', $fid=0, $tn='')
 	global $cat_par, $cat_cache;
 
 	$data = '';
-	$cats = array();
-	while ($cat_par[$cid] > 0) {
-		$cats[$cid] = $cat_cache[$cid][1];
-		$cid = $cat_par[$cid];
-	}
-
-	foreach ($cats as $cid => $cn) {
-		$data .= '{TEMPLATE: dfp_cat_link}';
-	}	
+	do {
+		$data = '{TEMPLATE: dfp_cat_link}' . $data;
+	} while (($cid = $cat_par[$cid]) > 0);
 
 	if ($fid) {
 		$data .= '{TEMPLATE: dfp_forum_lnk}';
