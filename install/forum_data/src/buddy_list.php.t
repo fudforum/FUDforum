@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.15 2003/04/10 11:00:43 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.16 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,10 +23,10 @@
 
 	if (isset($_POST['add_login'])) {
 		if (!($buddy_id = get_id_by_alias($_POST['add_login']))) {
-			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}', '{ROOT}?t=buddy_list&'._rsid);		
+			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');		
 		}
 		if ($buddy_id == _uid) {
-			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}', '{ROOT}?t=buddy_list&'._rsid);
+			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}');
 		}
 
 		if (!empty($usr->buddy_list)) {
@@ -36,7 +36,7 @@
 		if (!isset($usr->buddy_list[$buddy_id])) {
 			$usr->buddy_list = buddy_add(_uid, $buddy_id);
 		} else {
-			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}', '{ROOT}?t=buddy_list&'._rsid);
+			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_dup}');
 		}
 	}
 

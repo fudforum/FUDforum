@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.30 2003/04/09 14:11:42 hackie Exp $
+*   $Id: th.inc.t,v 1.31 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@ class fud_thread
 				{SQL_TABLE_PREFIX}thread.id='.$id, $this);
 
 		if (!$this->id) {
-			error_dialog('{TEMPLATE: th_err_invid_title}','{TEMPLATE: th_err_invid_msg}','', 'FATAL');
+			error_dialog('{TEMPLATE: th_err_invid_title}','{TEMPLATE: th_err_invid_msg}');
 		}
 	}
 

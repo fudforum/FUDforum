@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.4 2003/04/10 09:26:56 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.5 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,7 +57,7 @@ if (!$frm) {
 /* check that the user has permissions to access this forum */
 if ($frm->p_read != 'Y') {
 	if (!isset($_GET['logoff'])) {
-		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 	} else {
 		header('Location: {ROOT}');
 		exit;

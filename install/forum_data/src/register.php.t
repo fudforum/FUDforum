@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.38 2003/04/10 19:08:38 hackie Exp $
+*   $Id: register.php.t,v 1.39 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -411,7 +411,7 @@ function remove_old_avatar($avatar_str)
 
 			check_return($usr->returnto);
 		} else {
-			error_dialog('{TEMPLATE: register_err_cantreg_title}', '{TEMPLATE: regsiter_err_cantreg_msg}', '', 'FATAL');
+			error_dialog('{TEMPLATE: register_err_cantreg_title}', '{TEMPLATE: regsiter_err_cantreg_msg}');
 		}
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.35 2003/04/10 17:36:59 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.36 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -239,17 +239,22 @@ class fud_msg_edit extends fud_msg
 			$mid = $this->id;
 		}
 		
-		if (!($del = db_sab('SELECT {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}thread.replies, {SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, {SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip, {SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip, {SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}msg.id='.$mid))) {
-			exit('no such message');
+		if (!($del = db_sab('SELECT 
+				{SQL_TABLE_PREFIX}msg.*, 
+				{SQL_TABLE_PREFIX}thread.replies, 
+				{SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, 
+				{SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip, {SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip, {SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}msg.id='.$mid))) {
+			if (isset($ll)) {
+				db_unlock();
+			}
+			return;
 		}
 		
 		/* attachments */
 		if ($del->attach_cnt) {
 			$res = q('SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND private='N'");
-			if (db_count($res)) {
-				while ($loc = db_rowarr($res)) {
-					@unlink($loc[0]);
-				}
+			while ($loc = db_rowarr($res)) {
+				@unlink($loc[0]);
 			}
 			qf($res);
 			q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid." AND private='N'");
@@ -258,7 +263,7 @@ class fud_msg_edit extends fud_msg
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id='.$mid);
 		
 		if ($del->poll_id) {
-			fud_poll::delete($del->poll_id);
+			poll_delete($del->poll_id);
 		}
 		
 		/* check if thread */
@@ -269,40 +274,58 @@ class fud_msg_edit extends fud_msg
 			}
 			qf($rmsg);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$del->thread_id);
-			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
+			q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th='.$del->thread_id);
+			
+			/* we need to determine the last post id for the forum, it can be null */
+			$lpd = q_singleval('SELECT MAX(last_post_date) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$del->forum_id.' AND moved_to=0');
+			if (!$lpd) {
+				$lpi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$del->forum_id.' AND last_post_date='.$lpd.' AND moved_to=0');
+			} else {
+				$lpi = 0;
+			}
+			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$lpi.', thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
 		} else if (!$th_rm  && $del->approved == 'Y') {
-			q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='.$del->thread_id);
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id='.$del->forum_id);
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$del->reply_to.' WHERE thread_id='.$del->thread_id.' AND reply_to='.$mid);
+			
+			/* check if the message is the last in thread */
+			if ($del->thread_lip == $del->id) {
+				$lpd = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND approved=\'Y\'');
+				$lpi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND approved=\'Y\' AND post_stamp='.$lpd);
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='.$lpi.', last_post_date='.$lpd.', replies=replies-1 WHERE id='.$del->thread_id);
+			} else {
+				q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies-1 WHERE id='.$del->thread_id);
+			}
+
+			/* check if the message is the last in the forum */
+			if ($del->forum_lip == $del->id) {
+				if (!isset($lpi)) { /* mostly a pointless sanity check */
+					$lpd = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND approved=\'Y\'');
+					$lpi = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND approved=\'Y\' AND post_stamp='.$lpd);
+				}
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1,last_post_id='.$lpi.' WHERE id='.$del->forum_id);
+			} else {
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id='.$del->forum_id);
+			}
 		}
 
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
 
-		if ($del->poster_id && $del->approved == 'Y') {
-			fud_user::set_post_count($del->poster_id, -1);
-		}
+		if ($del->approved == 'Y') {
+			if ($del->poster_id) {
+				user_set_post_count($del->poster_id);
+			}
 
-		if (!$th_rm && $del->root_msg_id != $mid && $del->thread_lip == $mid) {
-			$mid = (int) q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$del->thread_id." AND approved='Y' ORDER BY post_stamp DESC LIMIT 1");
-			q('UPDATE {SQL_TABLE_PREFIX}thread SET last_post_id='.$mid.' WHERE id='.$del->thread_id);
-		}
-
-		if ($del->root_msg_id == $del->id && $del->approved == 'Y') {
-			$mid = (int) q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$del->forum_id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.',thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
-
-			if ($rebuild_view) {
+			if ($rebuild_view && isset($lpi)) {
 				rebuild_forum_view($del->forum_id);
-				$r = q('SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
-				if (($res = @db_rowarr($r))) {
-					do {
-						rebuild_forum_view($res[0]);
-					} while (($res = @db_rowarr($r)));
+				
+				/* needed for moved thread pointers */
+				$r = q('SELECT forum_id, id FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
+				while (($res = db_rowarr($r))) {
+					rebuild_forum_view($res[0]);
+					q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id='.$res[1]);
 				}
-			} else {
-				q('DELETE FROM {SQL_TABLE_PREFIX}thread WHERE root_msg_id='.$del->root_msg_id);
 			}
 		}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.17 2003/04/10 17:36:59 hackie Exp $
+*   $Id: err.inc.t,v 1.18 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 {
 	if (!$ses) {
-		$ses = $GLOBALS['usr']->sid;
+		$ses = (int) $GLOBALS['usr']->sid;
 	}
 	
 	if (!strcasecmp($level, 'FATAL')) {
@@ -58,7 +58,7 @@ function std_error($type)
 	if (is_array($err)) {
 		error_dialog($err[0], $err[1], $err[2]);
 	} else {
-		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}', '{ROOT}?t=index&'._rsid, 'FATAL');
+		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 	}
 }
 
@@ -75,7 +75,7 @@ function std_out($text, $level='INFO')
 
 function invl_inp_err()
 {
-	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}', NULL, 'FATAL');
+	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}');
 }
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.6 2003/04/07 14:23:14 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.7 2003/04/11 09:52:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 function is_allowed_user(&$usr)
 {
 	if ($GLOBALS['COPPA'] == 'Y' && $usr->coppa == 'Y') {
-		error_dialog('{TEMPLATE: err_coppa_title}', '{TEMPLATE: err_coppa_msg}', '');
+		error_dialog('{TEMPLATE: err_coppa_title}', '{TEMPLATE: err_coppa_msg}');
 	}
 
 	if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && $usr->email_conf == 'N') {
@@ -28,12 +28,12 @@ function is_allowed_user(&$usr)
 	}	
 	
 	if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && $usr->acc_status == 'P') {
-		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}', '');
+		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}');
 	}
 			
 	if ($usr->blocked == 'Y' || is_email_blocked($usr->email) || is_blocked_login($usr->login) || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
 		ses_delete($usr);
-		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}', ''); 
+		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}'); 
 	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.10 2003/04/10 11:00:43 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.11 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,10 +33,10 @@ function ignore_alias_fetch($al, &$is_mod)
 	
 	if (isset($_POST['add_login'])) {
 		if (!($ignore_id = ignore_alias_fetch($_POST['add_login'], $is_mod))) {
-			error_dialog('{TEMPLATE: ignore_list_err_nu_title}', '{TEMPLATE: ignore_list_err_nu_msg}', '');
+			error_dialog('{TEMPLATE: ignore_list_err_nu_title}', '{TEMPLATE: ignore_list_err_nu_msg}');
 		}
 		if ($is_mod) {
-			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_cantign_msg}', '');	
+			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_cantign_msg}');
 		}
 		if (!empty($usr->ignore_list)) {
 			$usr->ignore_list = @unserialize($usr->ignore_list);
@@ -44,7 +44,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		if (!isset($usr->ignore_list[$ignore_id])) {
 			ignore_add(_uid, $ignore_id);
 		} else {
-			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_err_dup_msg}', '');
+			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_err_dup_msg}');
 		}
 	}	
 

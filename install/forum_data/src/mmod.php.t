@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.10 2003/04/08 11:47:17 hackie Exp $
+*   $Id: mmod.php.t,v 1.11 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,35 +15,54 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
-	{POST_HTML_PHP}
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
 	
-	if (isset($_REQUEST['del']) && (int)$_REQUEST['del']) {
-		if (!($data = db_saq('SELECT {SQL_TABLE_PREFIX}thread.forum_id,{SQL_TABLE_PREFIX}msg.thread_id,{SQL_TABLE_PREFIX}msg.id,{SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}thread.root_msg_id,{SQL_TABLE_PREFIX}msg.reply_to,{SQL_TABLE_PREFIX}thread.replies FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}msg.id='.$_REQUEST['del']))) {
-			check_return($ses->returnto);		
+	if (isset($_GET['del'])) {
+		$del = (int) $_GET['del'];
+	} else if (isset($_POST['del'])) {
+		$del = (int) $_POST['del'];
+	} else {
+		$del = 0;
+	}
+	if (isset($_GET['th'])) {
+		$th = (int) $_GET['th'];
+	} else if (isset($_POST['th'])) {
+		$th = (int) $_POST['th'];
+	} else {
+		$th = 0;
+	}
+
+	if (isset($_POST['NO'])) {
+		check_return($usr->returnto);
+	}
+	
+	if ($del) {
+		if (!($data = db_saq('SELECT t.forum_id, m.thread_id, m.id, m.subject, t.root_msg_id, m.reply_to, t.replies FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id WHERE m.id='.$del))) {
+			check_return($usr->returnto);
 		}
-	} else if (isset($_REQUEST['th']) && (int)$_REQUEST['th']) {
+	} else if ($th) {
 		/* confirm that the thread is indeed a valid thread */
-		if (!($data = db_saq('SELECT forum_id,id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_REQUEST['th']))) {
-			check_return($ses->returnto);
+		if (!($data = db_saq('SELECT forum_id,id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th))) {
+			check_return($usr->returnto);
 		}
 	} else {
-		check_return($ses->returnto);
+		check_return($usr->returnto);
 	}
 
 	if (($usr->is_mod == 'A' || is_moderator($data[0], _uid))) {
 		$MOD = 1;
 	} else {
-		if (isset($_REQUEST['del']) && !is_perms(_uid, $data[0], 'DEL')) {
-			check_return($ses->returnto);
-		} else if (isset($_REQUEST['lock']) && !is_perms(_uid, $data[0], 'LOCK')) {
-			check_return($ses->returnto);
+		if (isset($del) && !is_perms(_uid, $data[0], 'DEL')) {
+			check_return($usr->returnto);
+		} else if (isset($_GET['lock']) && !is_perms(_uid, $data[0], 'LOCK')) {
+			check_return($usr->returnto);
 		} else {
-			check_return($ses->returnto);
+			check_return($usr->returnto);
 		}
 	}
 	
-	if (!empty($_REQUEST['del'])) {
+	if (!empty($del)) {
 		if (empty($_POST['confirm'])) {
 			if ($data[2] != $data[4]) {
 				$delete_msg = '{TEMPLATE: single_msg_delete}';
@@ -65,7 +84,7 @@
 				exit;
 			} else {
 				logaction(_uid, 'DELMSG', 0, addslashes($data[3]));
-				fud_msg_edit::delete(TRUE. $data[2], 0);
+				fud_msg_edit::delete(TRUE, $data[2], 0);
 			}
 		}
 		
@@ -73,23 +92,23 @@
 			if (!$data[5]) {
 				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
 			} else {
-				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$msg->reply_to);
+				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$data[5]);
 			}
 		} else {
 			$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-			$pos = q_singelval('SELECT replies + 1 FROM {SQL_TABLE_PREFIX}thread WHERE id='.$data[1]);
-			$start = (ceil((pos/$count))-1)*$count;
+			$pos = q_singleval('SELECT replies + 1 FROM {SQL_TABLE_PREFIX}thread WHERE id='.$data[1]);
+			$start = (ceil(($pos/$count))-1)*$count;
 			header('Location: {ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start='.$start);
 		}
 		exit;
 	} else {
-		if (isset($_REQUEST['lock'])) {
+		if (isset($_GET['lock'])) {
 			logaction(_uid, 'THRLOCK', $data[1]);
-			$th_lock($data[1], 'Y');
+			th_lock($data[1], 'Y');
 		} else {
 			logaction(_uid, 'THRUNLOCK', $data[1]);
-			$th_lock($data[1], 'N');	
+			th_lock($data[1], 'N');	
 		}
 	}
-	check_return($ses->returnto);
+	check_return($usr->returnto);
 ?>

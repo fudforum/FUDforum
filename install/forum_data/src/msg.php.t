@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.28 2003/04/10 17:37:00 hackie Exp $
+*   $Id: msg.php.t,v 1.29 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,7 @@
 
 	if ($perms['p_read'] == 'N') {
 		if (!isset($_GET['logoff'])) {
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 		} else {
 			header('Location: {ROOT}');
 			exit;
@@ -109,6 +109,9 @@
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
 	
 	$_GET['start'] = isset($_GET['start']) ? (int)$_GET['start'] : 0;
+	if ($_GET['start'] < 0) {
+		$_GET['start'] = 0;
+	}
 
 	$total = $frm->replies + 1;
 

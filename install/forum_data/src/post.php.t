@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.39 2003/04/10 11:00:43 hackie Exp $
+*   $Id: post.php.t,v 1.40 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,7 @@
 	
 	/* More Security */
 	if (isset($thr) && $usr->is_mod != 'A' && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
-		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}', '');
+		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
 	}
 
 	if (_uid) {
@@ -84,20 +84,20 @@
 		/* if not moderator, validate user permissions */
 		if (!$MOD) {
 			if (!$reply_to && !$msg_id && $perms['p_post'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 			} else if (($th_id || $reply_to) && $perms['p_reply'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 			} else if ($msg_id && $msg->poster_id != $usr->id && $perms['p_edit'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 			} else if ($msg_id && $EDIT_TIME_LIMIT && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
-				error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}', ''); 
+				error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}'); 
 			}
 		}
 	} else {
 		if (!$th_id && $perms['p_post'] != 'Y') {
-			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}', ''); 
+			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}'); 
 		} else if ($perms['p_reply'] != 'Y') {
-			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}', ''); 
+			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}'); 
 		}
 	}
 
@@ -176,7 +176,7 @@
 		}
 	} else { /* $_POST['prev_loaded'] */
 		if ($FLOOD_CHECK_TIME && !$MOD && !$msg_id && ($tm = flood_check())) {
-			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}', '');
+			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}');
 		}
 
 		/* import message options */

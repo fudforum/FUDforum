@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg.inc.t,v 1.7 2003/04/08 12:56:54 hackie Exp $
+*   $Id: imsg.inc.t,v 1.8 2003/04/11 09:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@ class fud_msg
 	{
 		qobj('SELECT {SQL_TABLE_PREFIX}msg.*,{SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}msg.id='.$id, $this);
 		if (!$this->id) {
-			error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}', '', 'FATAL');
+			error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}');
 		}
 		
 		$this->body = read_msg_body($this->foff, $this->length, $this->file_id);
