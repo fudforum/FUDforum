@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.10 2002/11/18 14:53:02 hackie Exp $
+*   $Id: tmpllist.php,v 1.11 2003/04/25 01:31:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,34 +18,57 @@
 	@set_time_limit(6000);
 	define('admin_form', 1);
 	
-	include_once "GLOBALS.php";
-	fud_use('db.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	list($ses, $usr) = initadm();
 
-function minimize($file)
+function minimize($file, $maxl)
 {
-	global $max_list;
-	
-	$tmp = str_replace('::', '', str_replace($file, '', $max_list));
-	if( $tmp == ':' ) $tmp = '';
-	
-	return $tmp;
+	if ($file == $maxl) {
+		return '';
+	} else if (($p = strpos($maxl, $file)) !== FALSE) {
+		return ($p ? str_replace(':'. $file, '', $maxl) : str_replace($file. ':', '', $maxl));
+	}
+	return $maxl;
 }
 
-function maximize($file)
+function maximize($file, $maxl)
 {
-	global $max_list;
-	
-	if( !$max_list ) 
-		$tmp = urlencode($file);
-	else
-		$tmp = $max_list.':'.urlencode($file);	
-
-	$tmp .= '#'.$file;
-
-	return $tmp;
+	return ($maxl ? $maxl . ':' . urlencode($file) : urlencode($file)) . '#'. $file;
 }
+
+function fetch_section($data, $file, $section, $type)
+{
+	if ($type == 'MAIN') {
+		if (($p = strpos($data, '{PAGE: '.$section)) === FALSE) {
+			$p = strpos($data, '{MAIN_SECTION: '.$section);
+			$end = '{PAGE: END}';
+		} else {
+			$end = '{MAIN_SECTION: END}';
+		}
+	} else {
+		$p = strpos($data, '{SECTION: '.$section);
+		$end = '{SECTION: END}';
+	}
+	if ($p === FALSE) {
+		return FALSE;
+	}
+	if (($te = strpos($data, $end, $p)) === FALSE) {
+		return FALSE;
+	}
+	$ti = explode(' ', substr($data, $p, ($te - $p)), 3);
+	
+	if (($ef = strpos($data, $end, $te)) === FALSE) {
+		return FALSE;
+	}
+
+	$ret['offset'] = ++$te;
+	$ret['len'] = $ef - $ret['offset'];
+	$ret['data'] = substr($data, $te, $ret['len']);
+	if (isset($ti[2]) && ($ti[2] = trim($ti[2]))) {
+		$ret['comment']	= $ti[2];
+	}
+	return $ret;
+}	
 
 function goto_tmpl($tmpl)
 {
@@ -56,82 +79,84 @@ function goto_tmpl($tmpl)
 	return $max_list.'#'.$tmpl;
 }
 
-function tmpllist_resolve_refernce($refs, &$file)
-{
-	global $deps;
-	
-	foreach($refs as $k => $v) {
-		if( is_array($deps[$k]) ) tmpllist_resolve_refernce($deps[$k], $file);
-		$file[$k] = $v;
-	}
-}
+	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
+	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
+	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
 
-	if ( empty($tname) || empty($tlang) ) {
-		header("Location: admthemesel.php?ret=tmpllist&"._rsidl."&rand=".get_random_value());
-		exit();
+	if (!$tname || !$tlang) {
+		header('Location: admthemesel.php?ret=tmpllist&'._rsidl);
+		exit;
 	}
 
-	if( empty($max_all) ) {
-		$max_list = stripslashes($max_list);
-		$tmp = explode(':', $max_list);
-		$max_opts = '';
-		foreach($tmp as $v) 
-			if( $v ) $max_opts[$v] = 1;
-	}
-	
-	$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
-	if( $edit ) {
-		if( empty($fl) ) 
-			exit("Missing template name<br>\n");
-		else if( !@file_exists($f_path) )
-			exit("Non-existent template<br>\n");
-		else if( !($data = @filetomem($f_path)) ) 
-			exit("Could not open template<br>\n");
-	
-		if( !empty($msec) ) {
-			$begin = '(PAGE|MAIN_SECTION)';
-			$tmpl_name = $msec;
-			$arg = 2;
-		}	
-		else if( !empty($sec) ) {
-			$begin = '(SECTION)';
-			$tmpl_name = $sec;
-			$arg = 2;
+	if (isset($_GET['max_list'])) {
+		$max_opts[strtok($_GET['max_list'], ':')] = 1;
+		while (($v = strtok(':'))) {
+			$max_opts[$v] = 1;
 		}
-		else
-			exit("Section parameter not avaliable<br>\n");		
+		$max_list = $_GET['max_list'];
+	} else {
+		$max_list = '';
+	}
 	
-		if( !preg_match('!{'.$begin.': '.$tmpl_name.'( .*?)?}(.*?){'.$begin.': END}!is', $data, $regs) ) 
-			exit("Couldn't locate template $tmpl_name inside $fl<br>\n");
+	
+	if (isset($_GET['fl'])) {
+		$fl = $_GET['fl'];
+		$sec = isset($_GET['sec']) ? $_GET['sec'] : '';
+		$msec = isset($_GET['msec']) ? $_GET['msec'] : '';
+	} else if (isset($_POST['fl'])) {
+		$fl = $_POST['fl'];
+		$sec = isset($_POST['sec']) ? $_POST['sec'] : '';
+		$msec = isset($_POST['msec']) ? $_POST['msec'] : '';
+	}
 
-		if( !$submitted ) { 
-			$tmpl_data = $regs[$arg+1];
+	if ($edit) {
+		if (!isset($fl)) {
+			exit('Missing template name<br>');
 		}
-		else {
-			$tmpl_data = trim(stripslashes(str_replace("\r", "", $tmpl_data)));
-			$tmpl_data_bk = $tmpl_data;
-			$tmpl_data = '{'.$regs[1].': '.$tmpl_name.' '.$regs[$arg]."}\n".$tmpl_data."\n{".$regs[1].": END}";
-	
-			$fp = fopen($f_path, "wb");
-			fwrite($fp, str_replace($regs[0], $tmpl_data, $data));
+		$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
+		if (!@file_exists($f_path)) {
+			exit('Non-existent template<br>');
+		} else if (!($data = @file_get_contents($f_path))) {
+			exit('Could not open template<br>');
+		}
+		$tmpl = $sec ? $sec : $msec;
+		$tmpl_type = $sec ? 'SECTION' : 'MAIN';
+		if (!$tmpl) {
+			exit('Section parameter not avaliable<br>');
+		}
+		if (($sdata = fetch_section($data, $f_path, $tmpl, $tmpl_type)) === FALSE) {
+			exit('Couldn\'t locate template "'.$tmpl.'" inside "'.$f_path.'"<br>');
+		}
+
+		if (!isset($_POST['submitted'])) {
+			$tmpl_data = $sdata['data'];
+		} else {
+			$data = substr_replace($data, str_replace("\r", '', $tmpl_data), $sdata['offset'], $sdata['len']);
+			if (!($fp = fopen($f_path, 'wb'))) {
+				exit('unable to save modifications to "'.$f_path.'"');
+			}
+			fwrite($fp, $data);
 			fclose($fp);
-			@chmod($f_path,0600);
-			$tmpl_data = $tmpl_data_bk;
 			fud_use('compiler.inc', true);
-			$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
-			while ( $obj = db_rowobj($r) )
-				compile_all($obj->theme, $obj->lang, $obj->name);
-			qf($r);
+			$c = q('SELECT theme FROM '.$tbl.'themes WHERE theme=\''.addslashes($tname).'\' AND lang=\''.addslashes($tlang).'\'');
+			while ($r = db_rowarr($c)) {
+				compile_all($tname, $tlang, $r[0]);
+			}
+			qf($c);
 			$update_ok = 1;
 		}
-		
-		$msg_list = '';
-		if( preg_match_all('!{MSG: (.*?)}!is', $tmpl_data, $regs, PREG_SET_ORDER) ) {
-			foreach($regs as $v) $msg_list .= urlencode($v[1]).':';
-			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&NO_TREE_LIST=1&msglist='.substr($msg_list, 0, -1).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+		$p = 0;
+		while (($p = strpos($tmpl_data, '{MSG: ', $p)) !== FALSE) {
+			$p += 5;
+			$e = strpos($tmpl_data, '}', $p);
+			$msg_list[] = substr($tmpl_data, $p, ($e - $p));
+			$p = $e;
+		}
+		if (isset($msg_list)) {
+			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
-	include('admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <script language="JavaScript" src="../lib.js"></script>
 <style>
@@ -170,76 +195,99 @@ function tmpllist_resolve_refernce($refs, &$file)
 <tr>
 <td nowrap>
 <?php	
-	$oldcwd = getcwd();
-	chdir($DATA_DIR.'thm/'.$tname.'/tmpl');
-	$dp = opendir('.');
-	readdir($dp); readdir($dp);
-	while( $file = readdir($dp) ) {
-		if( substr($file, -5) == '.tmpl' ) {
-			$fp = fopen($file, 'rb');
-				$data = fread($fp, __ffilesize($fp));
-			fclose($fp);
-			
-			preg_match('!{PHP_FILE: input: .*?; output: (.*?);}!', $data, $res);
-			
-			if( $res[1][0] == '@' || $res[1][0] == '!' ) 
-				$file = substr($res[1], 1);			
-			else
-				$file = $res[1];
-				
-			$file = str_replace(".inc", ".tmpl", $file);	
+	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
+	$pathl = $path . '/';
 
-			preg_match_all('!{REF: (.*?)}!s', $data, $matches, PREG_SET_ORDER);
-			foreach($matches as $v) $deps[$file][$v[1]] = 1;
+	if (!($dp = opendir($path))) {
+		exit('Unable to open template directory at: "'.$path.'"<br>');
+	}
+	readdir($dp); readdir($dp);
+	while ($f = readdir($dp)) {
+		if (substr($f, -5) != '.tmpl') {
+			continue;
 		}
-	}
-	
-	
-	$php_deps = array();
-	
-	foreach($deps as $k => $v) {
-		tmpllist_resolve_refernce($v, $deps[$k]);
-		$php_deps[str_replace('.php', '.tmpl', $k)] = $deps[$k];
-	}
-	unset($deps);
-	reset($php_deps);
+		$data = file_get_contents($pathl . $f);
 
-	rewinddir($dp);
-	readdir($dp); readdir($dp);
-	/* Drawing Code */
-	
-	$file_info_array = array();
-	
-	while ( $de = readdir($dp) ) {
-		if( substr($de,-5) != '.tmpl' ) continue;
+		/* fetch file name */
+		if (($p = strpos($data, '{PHP_FILE: input: ')) === FALSE) {
+			continue;
+		}
+		$p = strpos($data, '; output: ', $p) + 10;
+		if ($data[$p] == '@' || $data[$p] == '!') {
+			++$p;
+		}
+		$file = substr($data, $p, (strpos($data, ';', $p) - $p));
+		if (strpos($file, '.inc')) {
+			$file = str_replace('.inc', '.tmpl', $file);
+		} else {
+			$file = str_replace('.php', '.tmpl', $file);
+		}
 		
-		$data = filetomem($tmpl_dir.$de);
-		if ( !preg_match_all('!{(PAGE|MAIN_SECTION): (.*?)( .*?)?}.*?{(PAGE|MAIN_SECTION): END}!is', $data, $regs, PREG_SET_ORDER) ) continue;
-		
-		if( $max_all || $max_opts[$de] ) { 
-			$file_info_array[$de] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.minimize($de).'"><acronym title="minimize">[ - ]</acronym></a> <b>'.$de.'</b> <a name="'.$de.'">&nbsp;</a><br>';
-			foreach($regs as $v) {
-				$file_info_array[$de] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&edit=1&fl='.$de.'&msec='.urlencode($v[2]).'&max_list='.$max_list.'">'.$v[2].'</a>';
-				if( empty($edit) && $v[3] ) $file_info_array[$de] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'.$v[3].'</font>';
-				$file_info_array[$de] .= '<br>';
-				
-				$file_info_help[$v[2]] = $v[3];
-			}
-		
-			if ( preg_match_all('!{SECTION: (.*?)( .*?)?}.*?{SECTION: END}!s', $data, $regs, PREG_SET_ORDER) ) {
-				foreach($regs as $v) {
-					$file_info_array[$de] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&edit=1&fl='.$de.'&sec='.urlencode($v[1]).'&max_list='.$max_list.'">'.$v[1].'</a>';
-					if( empty($edit) && $v[2] ) $file_info_array[$de] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'.$v[2].'</font>';
-					$file_info_array[$de] .= '<br>';					
-					$file_info_help[$v[1]] = $v[2];
+		/* build dependency list */
+		$p = 0;
+		while (($p = strpos($data, '{REF: ', $p)) !== FALSE) {
+			$p += 5;
+			$deps[$file][substr($data, $p, (strpos($data, '}', $p) - $p))] = 1;
+		}
+
+		/* parse sections */
+		if (($p = strpos($data, '{PAGE: ')) === FALSE && ($p = strpos($data, '{MAIN_SECTION: ') === FALSE)) {
+			/* the file has not templetable data, skipping */
+			continue;
+		}
+		if (isset($max_opts[$file])) { /* we need to show sections inside this file */
+			$p = 0;
+			while (($p = strpos($data, '{', $p)) !== FALSE) {
+				$e = strpos($data, ':', ++$p);
+				$tag = substr($data, $p, ($e - $p));
+				switch ($tag) {
+					case 'SECTION':
+					case 'PAGE':
+					case 'MAIN_SECTION':
+						$e = strpos($data, '}', $p);
+						$e2 = strpos($data, '{'.$tag.': END}', $e);
+						if ($e === FALSE || $e2 === FALSE) {
+							exit('broken template file "'.$file.'"');
+						}
+
+						$d = explode(' ', substr($data, $p, ($e - $p)), 3);
+
+						if (!isset($file_info_array[$file])) {
+							$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.minimize($file, $max_list).'" title="minimize">[ - ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a><br>';
+						}
+						if ($tag != 'SECTION') {
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&edit=1&fl='.$file.'&msec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+						} else {
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&edit=1&fl='.$file.'&sec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+						}
+						if (isset($d[2]) && ($d[2] = trim($d[2]))) {
+							if (!$edit) {
+								$file_info_array[$file] .= '<font size="-1" color="#008800">&nbsp;&nbsp;-&gt;&nbsp;&nbsp;'.htmlspecialchars($d[2]).'</font>';
+							}
+							$file_info_help[$d[1]] = $d[2];
+						}
+						$file_info_array[$file] .= '<br>';
+						$p = $e2 + 6;
+						break;
+					default:
+						++$p;
+						break;
 				}
 			}
+		} else { /* just parse the title & help if avaliable */
+			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
-		else {
-			$file_info_array[$de] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.maximize($de).'"><acronym title="maximize">[ + ]</acronym></a> <b>'.$de.'</b> <a name="'.$de.'">&nbsp;</a>';
-		}	
 	}
 	closedir($dp);
+
+	foreach($deps as $k => $v) {
+		foreach ($v as $k2 => $v2) {
+			if (isset($deps[$k2])) {
+				$deps[$k] = array_merge($v, $deps[$k2]);
+			}
+		}
+	}
+	$php_deps =& $deps;
 
 	$deps_on = array();
 	foreach($php_deps as $k => $v) { 
@@ -259,7 +307,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 
 	foreach($file_info_array as $k => $v) {
 		echo $v;
-		if( ($max_all || $max_opts[$k]) && ($php_deps[$k] || $deps_on[$k]) ) {
+		if(isset($max_opts[$k]) && ($php_deps[$k] || $deps_on[$k]) ) {
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
 				foreach($php_deps[$k] as $k2 => $v2) {
@@ -314,4 +362,4 @@ function tmpllist_resolve_refernce($refs, &$file)
 </tr>
 <?php } ?>
 </table>
-<?php chdir($oldcwd); readfile('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
