@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_radio_opt.tmpl,v 1.5 2004/05/07 16:13:26 hackie Exp $
+* $Id: draw_radio_opt.tmpl,v 1.6 2004/11/03 16:53:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,10 +15,6 @@
 {TEMPLATE-DATA: checkboxes}
 {MAIN_SECTION: END}
 
-{SECTION: selected_checkbox selected checkbox}
-<input type="radio" name="{VAR: name}" value="{VAR: vls[$i]}" {VAR: normal_tmpl}>{VAR: nms[$i]}{VAR: sep}
-{SECTION: END}
-
-{SECTION: unselected_checkbox unselected checkbox}
-<input type="radio" name="{VAR: name}" value="{VAR: vls[$i]}" checked {VAR: selected_tmpl}>{VAR: nms[$i]}{VAR: sep}
+{SECTION: checkbox checkbox}
+<input type="radio" name="{VAR: name}" value="{VAR: vls[$i]}" {IF: $vls[$i] != $selected}{VAR: normal_tmpl}{ELSE}checked {VAR: selected_tmpl}{END}>{VAR: nms[$i]}{VAR: sep}
 {SECTION: END}
