@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: tmpllist.php,v 1.2 2002/06/18 14:20:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			if( $v ) $max_opts[$v] = 1;
 	}
 	
-	$f_path = $GLOBALS['DATA_DIR'].'themes/'.$tname.'/tmpl/'.$fl;
+	$f_path = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/tmpl/'.$fl;
 	if( $edit ) {
 		if( empty($fl) ) 
 			exit("Missing template name<br>\n");
@@ -171,7 +171,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 <td nowrap>
 <?php	
 	$oldcwd = getcwd();
-	chdir($DATA_DIR.'themes/'.$tname.'/tmpl');
+	chdir($DATA_DIR.'thm/'.$tname.'/tmpl');
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	while( $file = readdir($dp) ) {

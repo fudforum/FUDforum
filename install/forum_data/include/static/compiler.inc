@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.2 2002/06/17 23:21:12 hackie Exp $
+*   $Id: compiler.inc,v 1.3 2002/06/18 14:20:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,8 +27,8 @@ function resolve_refs($file_name)
 	if( isset($GLOBALS['file_cache'][$file_name]) ) return;
 	
 	/* Fetch file definition */
-	$file1 = $GLOBALS['DATA_DIR'].'themes/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
-	$file2 = $GLOBALS['DATA_DIR'].'themes/default/tmpl/'.$file_name;
+	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
+	$file2 = $GLOBALS['DATA_DIR'].'thm/default/tmpl/'.$file_name;
 	
 	if ( is_file($file1) ) {
 		$str = filetomem($file1);
@@ -306,8 +306,8 @@ function generate_file($php_file)
 			$file_data = str_replace('{THEME_ROOT_DISK}', $GLOBALS['__COMPILER__']['THEME_ROOT_DISK'], $file_data);
 		}
 		
-		$dir = $GLOBALS['WWW_ROOT_DISK'].'themes/'.$GLOBALS['__COMPILER__']['tname'].'/';
-		$themes_base = $GLOBALS['WWW_ROOT_DISK'].'themes/';
+		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
+		$themes_base = $GLOBALS['WWW_ROOT_DISK'].'theme/';
 		if ( !is_dir($themes_base) ) {
 			$u = umask(0);
 			mkdir($themes_base, 0777);
@@ -330,7 +330,7 @@ function generate_file($php_file)
 			$dst = substr($GLOBALS['file_cache'][$php_file]['dst'],1);
 		else
 			$dst = $GLOBALS['file_cache'][$php_file]['dst'];	
-	}	
+	}
 	
 	if ( $dst[0] == '#' ) {
 		$dst = substr($dst, 1);
@@ -418,19 +418,29 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	
 	$GLOBALS['__COMPILER__']['THEME_ROOT'] = $GLOBALS['WWW_ROOT'];
 	if ( $GLOBALS['__COMPILER__']['THEME_ROOT'][strlen($GLOBALS['__COMPILER__']['THEME_ROOT'])-1] != '/' ) $GLOBALS['__COMPILER__']['THEME_ROOT'] .= '/';
-	$GLOBALS['__COMPILER__']['THEME_ROOT'] .= 'themes/'.$tname;
-	$GLOBALS['__COMPILER__']['THEME_ROOT_DISK'] .= $GLOBALS['WWW_ROOT_DISK'].'themes/'.$tname;
+	$GLOBALS['__COMPILER__']['THEME_ROOT'] .= 'theme/'.$tname;
+	$GLOBALS['__COMPILER__']['THEME_ROOT_DISK'] .= $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$GLOBALS['__COMPILER__']['THEME_IMAGE_ROOT'] = $GLOBALS['__COMPILER__']['THEME_ROOT'].'/images';
 	
-	$file1 = $GLOBALS['DATA_DIR'].'themes/'.$GLOBALS['__COMPILER__']['tset'].'i18n/'.$GLOBALS['LANGUAGE'].'/charset';
-	$file2 = $GLOBALS['DATA_DIR'].'themes/default/i18n/'.$GLOBALS['LANGUAGE'].'/charset';
+	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'i18n/'.$GLOBALS['LANGUAGE'].'/charset';
+	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['LANGUAGE'].'/charset';
+	
+	
+	$u = umask(0);
+	if ( !is_dir($GLOBALS['WWW_ROOT_DISK'].'theme') ) 
+		mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', 0700);
+	
+	if ( !is_dir($GLOBALS['__COMPILER__']['THEME_ROOT_DISK']) ) 
+		mkdir($GLOBALS['__COMPILER__']['THEME_ROOT_DISK'], 0700);
+	
+	umask($u);
 	
 	$charset = ( is_file($file1) ) ? $file1 : $file2;
 	
 	$GLOBALS['char_set'] = trim(filetomem($charset));
 
-	$prim_msg_file = $GLOBALS['DATA_DIR'].'themes/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
-	$back_msg_file = $GLOBALS['DATA_DIR'].'themes/default/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
+	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
+	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['LANGUAGE'].'/msg';
 
 	/*
 	 * build the message array 
@@ -441,7 +451,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	 */
 	build_msg($back_msg_file);
 
-	chdir($GLOBALS['DATA_DIR'].'/themes/default/tmpl');
+	chdir($GLOBALS['DATA_DIR'].'/thm/default/tmpl');
 	$dir = opendir('.');
 	readdir($dir); readdir($dir);
 	while( $file = readdir($dir) ) {
@@ -508,34 +518,34 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 
 function copyimages($thm)
 {
-	if ( !is_dir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images') ) 
-		mkdir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images', 0777);
+	if ( !is_dir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images') ) 
+		mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', 0777);
 		
-	fudcopy($GLOBALS['DATA_DIR'].'themes/default/images', $GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'themes/default/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'themes/'.$thm->theme.'/images', $GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'themes/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
 }
 
 function copyhelp($thm)
 {
 	
 	$u = umask(0);
-	if ( !is_dir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/help') ) 
-		mkdir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/help', 0777);
+	if ( !is_dir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help') ) 
+		mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help', 0777);
 		
 	$oldpwd = getcwd();
 
-	chdir($GLOBALS['DATA_DIR'].'themes/'.$thm->theme.'/i18n/'.$thm->lang.'/help');
+	chdir($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help');
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	while ( $de = readdir($dp) ) {
 		if ( !is_file($de) || substr($de, -4) != '.hlp' ) continue;
 		$str = filetomem($de);
 		$str = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $str);
-		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/help/'.$de, 'wb');
+		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 'wb');
 		fwrite($fp, $str);
-		chmod($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/help/'.$de, 0666);
+		chmod($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 0666);
 		fclose($fp);
 	}
 	closedir($dp);

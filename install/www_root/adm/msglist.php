@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: msglist.php,v 1.2 2002/06/18 14:20:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,9 +30,9 @@
 		exit();
 	}
 
-$msgfile = $GLOBALS['DATA_DIR'].'themes/'.$tname.'/i18n/'.$tlang.'/msg';
+$msgfile = $GLOBALS['DATA_DIR'].'thm/'.$tname.'/i18n/'.$tlang.'/msg';
 if ( !@is_file($msgfile) ) {
-	$msgfile = $GLOBALS['DATA_DIR'].'themes/default/i18n/'.$tlang.'/msg';
+	$msgfile = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$tlang.'/msg';
 	$warn = 1;
 }
 
@@ -50,7 +50,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 function makedeps()
 {
 	$oldcwd = getcwd();
-	chdir($GLOBALS['DATA_DIR'].'themes/'.$GLOBALS['tname'].'/tmpl');
+	chdir($GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['tname'].'/tmpl');
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	while( $file = readdir($dp) ) {

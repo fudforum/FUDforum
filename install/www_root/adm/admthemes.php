@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admthemes.php,v 1.2 2002/06/18 14:20:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@ function cleandir($dir)
 		if ( !BQ("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE name='$nn'") ) 
 		{
 			fud_use('static/compiler.inc');
-			$root = $GLOBALS['DATA_DIR'].'themes/';
+			$root = $GLOBALS['DATA_DIR'].'thm/';
 			$root_nn = $root.$nn;
 			$u=umask(0);
 			if ( !@mkdir($root_nn, 0777) ) exit("can't create ($root_nn)<br>\n"); 
@@ -116,10 +116,10 @@ function cleandir($dir)
 	if ( $del && $del != 1 ) {
 		$thm->get($del);
 		$thm->delete();
-		cleandir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images');
-		rmdir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name.'/images');
-		cleandir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name);
-		rmdir($GLOBALS['WWW_ROOT_DISK'].'themes/'.$thm->name);
+		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name.'/images');
+		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name.'/images');
+		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
+		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
 		$obj = default_theme();
 		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
@@ -148,7 +148,7 @@ function cleandir($dir)
 	<select name="thm_theme">
 	<?
 		$oldpwd = getcwd();
-		chdir($DATA_DIR.'/themes');
+		chdir($DATA_DIR.'/thm');
 		$dp = opendir('.');
 		readdir($dp); readdir($dp);
 		while ( $de = readdir($dp) ) {
@@ -166,7 +166,7 @@ function cleandir($dir)
 	<td>
 	<?
 		$oldpwd = getcwd();
-		chdir($DATA_DIR.'/themes/default/i18n');
+		chdir($DATA_DIR.'/thm/default/i18n');
 		$dp = opendir('.');
 		readdir($dp); readdir($dp);
 		$selopt = '';
