@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.47 2004/03/19 17:49:48 hackie Exp $
+* $Id: admuser.php,v 1.48 2004/04/04 17:33:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -67,7 +67,7 @@
 				$user_theme_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
 				q("UPDATE ".$DBHOST_TBL_PREFIX."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
 
-				$url = '{ROOT}?t=reset&reset_key='.$reset_key;
+				$url = $WWW_ROOT . __fud_index_name__ . '?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
 				send_email($NOTIFY_FROM, $u->email, $reset_newpass_title, $reset_reset, "");
 			}
