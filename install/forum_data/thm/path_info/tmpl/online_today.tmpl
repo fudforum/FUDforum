@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: online_today.tmpl,v 1.2 2003/06/02 13:35:17 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@
 
 {SECTION: last_post last by a user}
 {DATE: r[7] %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[5]}&amp;{DEF: _rsid}">{VAR: r[6]}</a>
+<a href="{ROOT}/m/{VAR: r[5]}/{DEF: _rsid}">{VAR: r[6]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -43,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: reg_user_link registered user link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}">{VAR: user_login}</a>
+<a class="GenLink" href="{ROOT}/u/{VAR: r[2]}/{DEF: _rsid}">{VAR: user_login}</a>
 {SECTION: END}
 
 {PAGE: ONLINE_TODAY_PAGE List of users who were online today}
