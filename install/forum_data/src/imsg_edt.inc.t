@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.66 2003/09/18 14:16:47 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.67 2003/09/24 19:05:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -704,8 +704,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		}	
 		
 		if (isset($do_icq)) {
-			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
 			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
+			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
 		}
 	} else if ($id_type == 'frm') {
 		reverse_fmt($frm_name);
@@ -713,8 +713,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_frm_subject}';
 
 		if (isset($do_icq)) {
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
 			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
 		}
 		if (!isset($body_email) && isset($do_email)) {
 			$unsub_url['email'] = '{ROOT}?t=rview&unsub=1&frm_id='.$id;
