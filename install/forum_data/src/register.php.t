@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.62 2003/07/20 13:48:31 hackie Exp $
+*   $Id: register.php.t,v 1.63 2003/08/08 00:17:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -465,7 +465,7 @@ function decode_uent(&$uent)
 					 	if (!($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
 					 		$uent->avatar_approved = 'N';
 					 	}
-				 	} else if (empty($avatar_arr['leave'])) {
+					} else if (empty($avatar_arr['leave']) || !empty($avatar_arr['del'])) {
 				 		$uent->avatar_loc = '';
 				 	}
 				 	$uent->avatar = 0;
