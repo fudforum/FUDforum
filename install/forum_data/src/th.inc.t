@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.16 2002/09/29 20:03:09 hackie Exp $
+*   $Id: th.inc.t,v 1.17 2002/10/24 23:00:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -182,35 +182,39 @@ class fud_thread
 	
 	function get_notify_list($user_id)
 	{
-		$ctm = __request_timestamp__;
-		$tm = $ctm-604800;
-	
 		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}users.id AS user_id,
 				{SQL_TABLE_PREFIX}users.email,
 				{SQL_TABLE_PREFIX}users.icq,
-				{SQL_TABLE_PREFIX}read.last_view,
-				{SQL_TABLE_PREFIX}read.id,
-				{SQL_TABLE_PREFIX}users.notify_method 
+				{SQL_TABLE_PREFIX}users.notify_method,
+				{SQL_TABLE_PREFIX}group_cache.p_READ 
 			FROM 
 				{SQL_TABLE_PREFIX}thread_notify
 				INNER JOIN {SQL_TABLE_PREFIX}users 
 					ON {SQL_TABLE_PREFIX}thread_notify.user_id={SQL_TABLE_PREFIX}users.id 
-				LEFT JOIN {SQL_TABLE_PREFIX}read 
-					ON {SQL_TABLE_PREFIX}read.user_id={SQL_TABLE_PREFIX}thread_notify.user_id 
-					AND {SQL_TABLE_PREFIX}read.thread_id={SQL_TABLE_PREFIX}thread_notify.thread_id 
+				INNER JOIN {SQL_TABLE_PREFIX}read 
+					ON {SQL_TABLE_PREFIX}read.thread_id={SQL_TABLE_PREFIX}thread_notify.thread_id 
+					AND {SQL_TABLE_PREFIX}read.user_id={SQL_TABLE_PREFIX}thread_notify.user_id
+				LEFT JOIN {SQL_TABLE_PREFIX}group_cache
+					ON {SQL_TABLE_PREFIX}group_cache.user_id={SQL_TABLE_PREFIX}thread_notify.user_id
+					AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum'	
+					AND {SQL_TABLE_PREFIX}group_cache.resource_id=".$this->forum_id."
 			WHERE 
-				( {SQL_TABLE_PREFIX}read.msg_id=".$this->last_post_id." OR {SQL_TABLE_PREFIX}read.last_view < ".$tm." )
-				AND {SQL_TABLE_PREFIX}thread_notify.thread_id=".$this->id." 
-				AND {SQL_TABLE_PREFIX}thread_notify.user_id!=".intzero($user_id));
+				{SQL_TABLE_PREFIX}thread_notify.thread_id=".$this->id." 
+				AND {SQL_TABLE_PREFIX}thread_notify.user_id!=".intzero($user_id)."
+				AND {SQL_TABLE_PREFIX}read.msg_id=".$this->last_post_id);
 		
-		$p = forum_perm_array($this->forum_id);
-		$to=NULL;
+		$gen_user_read = q_singleval("SELECT p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND resource_id=".$this->forum_id);
+		
+		$to = array();
 		while ( $obj = db_rowobj($r) ) {
-			if ( !is_allowed($obj->user_id, $p) ) continue;
+			if (!$obj->p_READ) {
+				$obj->p_READ = $gen_user_read;
+			}
+			if ($obj->p_READ != 'Y') {
+				continue;
+			}	
 			
 			$to[$obj->notify_method][] = ( $obj->notify_method == 'EMAIL' ) ? $obj->email : $obj->icq.'@pager.icq.com';
-			if( $obj->last_view < $tm ) q("UPDATE {SQL_TABLE_PREFIX}read SET last_view=".$ctm." WHERE id=".$obj->id);
 		}
 		qf($r);
 		
