@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.10 2002/07/22 14:53:37 hackie Exp $
+*   $Id: admimport.php,v 1.11 2002/08/19 08:47:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,52 +67,9 @@ include('admpanel.php');
 	if( !$path_error && $path ) {
 		$data = read_dump($path);	
 
-		/* Process the MySQL Code */
-		$start = strpos($data, "\n----SQL_START----\n")+strlen("\n----SQL_START----\n");
+		/* Process the SQL Code */
 		$end = strpos($data, "\n----SQL_END----\n");
 	
-		$pos = $start;
-		$line_end = $i = 0;
-	
-	// deal with mySQL data
-		// In the event of pgsql drop all exting tables & sequences
-		if( __dbtype__ == 'pgsql' ) {
-			$tbl_list = get_fud_table_list();
-			foreach($tbl_list as $v) q("DROP TABLE $v");
-			$r = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".$GLOBALS['DBHOST_TBL_PREFIX']."'");
-			while( list(,$v) = db_rowobj($r) ) q("drop sequence $v");
-			qf($r);
-		}
-		
-		echo "Commencing restore of SQL data<br>\n";
-		flush();
-		while( $pos && $pos<$end ) {
-			$lend = strpos($data, "\n", $pos);
-			$qry = trim(substr($data, $pos, $lend-$pos));
-
-			if( $qry ) {
-				q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $qry));
-				$i++;
-			}	
-		
-			$pos = $lend+1;
-		
-			if( !($i%10000) ) {
-				echo "Processed ".$i." queries<br>\n";
-				flush();
-			}
-		}
-
-	// restore user from db is login names match
-		if( get_id_by_login(addslashes($usr->login)) ) {
-			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$usr->id);
-			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id,user_id,sys_id,time_sec) VALUES('".$ses->ses_id."',".$usr->id.",'".$ses->sys_id."',".__request_timestamp__.")");
-		}
-		else {
-			echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>There for you\'ll need to re-login once the import process is complete<br></font>';
-			flush();
-		}
-
 	/* Handle backed up files */
 		echo "Commencing restore of data files<br>\n";
 		flush();
@@ -131,25 +88,110 @@ include('admpanel.php');
 		
 			$path = resolve_dest_path($path);
 			if( !@is_dir($path) ) {
-				if( !mkdir($path, 0700) ) {
-					echo "NO DIR: $path<br>\n";
-					echo "$file<br>\n";
-					echo "$tmp<br>\n";
+				if( !@mkdir($path, 0700) ) {
+					echo "ERROR: Directory '$path' does not exist and the import script was unable to create it<br>\n";
+					flush();
 				}	
 			}
 			
-			$fp = fopen($path."/".$file, "wb");
-			fwrite($fp, substr($data, $st, $size));
-			fclose($fp);
-			@chmod($file_path, 0600);
+			$file_path = $path."/".$file;
 			
-			if( strlen(substr($data, $st, $size)) != $size ) {
-				echo "ERROR: Size mismatch on $file_path<br>\n";
+			if( ($fp = @fopen($file_path, "wb")) ) { 
+				$write_data = substr($data, $st, $size);
+			
+				if( strlen($write_data) != $size ) {
+					echo "ERROR: Size mismatch on $file_path<br>\n";
+					flush();
+				}
+				
+				if( fwrite($fp, $write_data) != $size ) {
+					echo "ERROR: Could not write $size bytes to $file_path<br>\n";
+					flush();	
+				}
+				fclose($fp);
+				@chmod($file_path, 0600);
 			}
-			
-			flush();
+			else {
+				echo "Unable to open $file_path for write<br>\n";
+				flush();
+			}
 			$pos = $st+$size;
 		}
+	
+		$start = strpos($data, "\n----SQL_START----\n")+strlen("\n----SQL_START----\n");
+		$pos = $start;
+		$line_end = $i = 0;
+	
+	// deal with SQL data
+		// In the event of drop all exting tables
+		$tbl_list = get_fud_table_list();
+		foreach($tbl_list as $v) q("DROP TABLE $v");
+		
+		/* If we are dealing with pgSQL drop all sequences too */
+		if( __dbtype__ == 'pgsql' ) {
+			$r = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".$GLOBALS['DBHOST_TBL_PREFIX']."'");
+			while( list($v) = db_rowarr($r) ) q("drop sequence $v");
+			qf($r);
+		}
+		
+		/* check if we are changing db structure */
+		preg_match("!define\('__dbtype__', '([a-z]*?)'\);!", filetomem($GLOBALS['DATA_DIR'].'src/db.inc.t'), $tmp);
+		$db_s_c = ( $tmp[1] == __dbtype__ ) ? 0 : 1;
+		
+		/* if we are chaning db structure,import it from files */
+		if( $db_s_c ) {
+			if( !($dp = opendir($GLOBALS['DATA_DIR'].'sql/'.__dbtype__)) ) {
+				exit("Couldn't open ".$GLOBALS['DATA_DIR'].'sql/'.$tmp[1]." directory<br>\n");
+			}
+			readdir($dp); readdir($dp); 
+			while( $file = readdir($dp) ) {
+				if( substr($file, -4) != '.tbl' ) continue;
+				
+				$tbl_data = filetomem($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/'.$file);
+				$tbl_data = preg_replace("!#.*?\n!", "", $tbl_data);
+				$tbl_data = preg_replace("!\s+!", " ", trim($tbl_data));
+				$tmp = explode(";", str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $tbl_data));
+				foreach($tmp as $qry) {
+					if( trim($qry) ) {
+						q(trim($qry));
+					}	
+				}
+			}
+			closedir($dp);
+		}
+		
+		echo "Commencing restore of SQL data<br>\n";
+		flush();
+		while( $pos && $pos<$end ) {
+			$lend = strpos($data, "\n", $pos);
+			$qry = trim(substr($data, $pos, $lend-$pos));
+
+			if( $qry ) {
+				if( !$db_s_c || !strncasecmp("INSERT INTO ", $qry, 12) ) {
+					echo "Q: ".$qry." LEN: ".($lend-$pos)."<br>\n";
+					q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $qry));
+					$i++;
+				}	
+			}	
+		
+			$pos = $lend+1;
+		
+			if( $i && !($i%10000) ) {
+				echo "Processed ".$i." queries<br>\n";
+				flush();
+			}
+		}
+
+	// restore user from db is login names match
+		if( get_id_by_login(addslashes($usr->login)) ) {
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$usr->id);
+			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id,user_id,sys_id,time_sec) VALUES('".$ses->ses_id."',".$usr->id.",'".$ses->sys_id."',".__request_timestamp__.")");
+		}
+		else {
+			echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>There for you\'ll need to re-login once the import process is complete<br></font>';
+			flush();
+		}
+
 		
 		echo "Recompiling Templates<br>\n";
 		flush();
