@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.39 2004/11/08 17:52:23 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.40 2004/11/14 18:32:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -194,10 +194,8 @@
 {IF: $u->users_opt & 32768}{ELSE}{TEMPLATE: usr_real_name}{END}
 {IF: ($level_name || $moderation || $level_image || $custom_tags)}{TEMPLATE: status}{ENDIF}
 {IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}{TEMPLATE: avatar}{ENDIF}
-{TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}
 {IF: $u->last_visit && !($u->users_opt & 32768)}{TEMPLATE: last_visit}{ENDIF}
-{TEMPLATE-DATA: last_visit}
 {TEMPLATE-DATA: polls}
 {IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}{TEMPLATE: user_image}{ENDIF}
 {TEMPLATE-DATA: email_link}
@@ -217,7 +215,6 @@
 {IF: $u->msnm}{TEMPLATE: im_msnm}{ENDIF}
 {IF: $u->jabber}{TEMPLATE: im_jabber}{ENDIF}
 {IF: ($FUD_OPT_2 & 2048 && $u->affero)}{TEMPLATE: usrinfo_affero}{ENDIF}
-{TEMPLATE-DATA: im_affero}
 <tr class="RowStyleC"><td class="nw ar GenText" colspan=2><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>
 {TEMPLATE: curtime}
