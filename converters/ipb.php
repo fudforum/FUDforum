@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.7 2005/03/11 16:13:42 hackie Exp $
+* $Id: ipb.php,v 1.8 2005/03/11 23:01:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -422,8 +422,10 @@ function make_avatar_loc($path, $disk, $web)
 
 		foreach ($ib_g[$g] as $k => $v) {
 			$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$k);
-			q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members (user_id, group_id, group_members_opt) 
-				SELECT id, {$gid}, {$v} FROM {$ipb}members WHERE mgroup=".$g);
+			$uid = mysql_fetch_row(mysql_query("SELECT id FROM {$ipb}members WHERE mgroup=".$g, $ib));
+			if ($uid && isset($ib_u[$uid[0]])) {
+				q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES({$ib_u[$uid[0]]}, {$gid}, {$v})");
+			}
 		}
 	}
 	unset($r); unset($ib_g, $users, $fl, $data, $u, $pt, $p, $v, $perms, $gid);
