@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.6 2002/08/23 00:11:37 hackie Exp $
+*   $Id: mmod.php.t,v 1.7 2002/09/23 20:13:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,7 +60,7 @@
 			else
 				$delete_msg = '{TEMPLATE: thread_delete}';	
 
-			exit('{TEMPLATE: delete_confirm_pg}');
+			?> {TEMPLATE: delete_confirm_pg} <?php exit;
 		}
 		
 		if ( !empty($YES) ) {
