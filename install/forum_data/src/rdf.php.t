@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.27 2003/10/16 21:59:05 hackie Exp $
+* $Id: rdf.php.t,v 1.28 2003/10/24 19:52:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,17 +38,14 @@
 		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
 
-	$GLOBALS['clean'] = array('[' => '&#91;', ']' => '&#93;');
-	$GLOBALS['email'] = array('.' => ' dot ', '@' => ' at ');
-
 function sp($data)
 {
-	return '<![CDATA[' . strtr($data, $GLOBALS['clean']) . ']]>';
+	return '<![CDATA[' . str_replace(array('[', ']'), array('&#91;', '&#93;'), $data) . ']]>';
 }
 
 function email_format($data)
 {
-	return strtr($data, $GLOBALS['email']);
+	return str_replace(array('.', '@'), array(' dot ', ' at '), $data);
 }
 
 /* build html encoding list */

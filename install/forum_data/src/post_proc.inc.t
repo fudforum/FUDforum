@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.36 2003/10/17 00:11:07 hackie Exp $
+* $Id: post_proc.inc.t,v 1.37 2003/10/24 19:52:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,7 +11,6 @@
 ***************************************************************************/
 
 $GLOBALS['seps'] = array(' '=>' ', "\n"=>"\n", "\r"=>"\r", "'"=>"'", '"'=>'"', '['=>'[', ']'=>']', '('=>'(', ';'=>';', ')'=>')', "\t"=>"\t", '='=>'=', '>'=>'>', '<'=>'<');
-$GLOBALS['chr_e'] = array('&amp;#0'=>'&#0','&amp;#1'=>'&#1','&amp;#2'=>'&#2','&amp;#3'=>'&#3','&amp;#4'=>'&#4','&amp;#5'=>'&#5','&amp;#6'=>'&#6','&amp;#7'=>'&#7','&amp;#8'=>'&#8','&amp;#9'=>'&#9');
 
 function fud_substr_replace($str, $newstr, $pos, $len)
 {
@@ -20,9 +19,10 @@ function fud_substr_replace($str, $newstr, $pos, $len)
 
 function char_fix(&$str)
 {
-	if (strpos($str, '&amp;#') !== false) {
-		$str = strtr($str, $GLOBALS['chr_e']);
-	}
+	$str = str_replace(
+		array('&amp;#0', '&amp;#1', '&amp;#2', '&amp;#3', '&amp;#4', '&amp;#5', '&amp;#6', '&amp;#7','&amp;#8','&amp;#9'),
+		array('&#0', '&#1', '&#2', '&#3', '&#4', '&#5', '&#6', '&#7', '&#8', '&#9'),
+		$str);
 }
 
 function tags_to_html($str, $allow_img=1)
@@ -245,7 +245,7 @@ function tags_to_html($str, $allow_img=1)
 				case 'list':
 					$tmp = substr($str, $epos, ($cpos-$epos));
 					$tmp_l = strlen($tmp);
-					$tmp2 = strtr($tmp, array('[*]' => '<li>', '<br />' => ''));
+					$tmp2 = str_replace(array('[*]', '<br />'), array('<li>', ''), $tmp);
 					$tmp2_l = strlen($tmp2);
 					$str = str_replace($tmp, $tmp2, $str);
 

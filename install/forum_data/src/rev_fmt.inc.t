@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rev_fmt.inc.t,v 1.6 2003/10/09 14:34:26 hackie Exp $
+* $Id: rev_fmt.inc.t,v 1.7 2003/10/24 19:52:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,10 +10,8 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-$GLOBALS['__REVERSE_ARRAY__'] = array('&amp;'=>'&', '&quot;'=>'"', '&lt;'=>'<', '&gt;'=>'>');
-
 function reverse_fmt(&$data)
 {
-	$data = strtr($data, $GLOBALS['__REVERSE_ARRAY__']);
+	$data = str_replace(array('&amp;', '&quot;', '&lt;', '&gt;'), array('&', '"', '<', '>'), $data);
 }
 ?>
