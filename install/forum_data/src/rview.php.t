@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rview.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: rview.php.t,v 1.2 2002/07/10 14:36:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,6 +18,8 @@
 	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}	
 	{POST_HTML_PHP}
+	
+	$HTTP_SERVER_VARS["QUERY_STRING"] = preg_replace('!t=([A-Za-z0-9]+)(&)?!', '', $HTTP_SERVER_VARS["QUERY_STRING"]);
 	
 	header("Location: {ROOT}?t=".d_thread_view.'&'.$HTTP_SERVER_VARS["QUERY_STRING"]);
 	exit;
