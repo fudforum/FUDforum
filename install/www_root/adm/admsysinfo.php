@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsysinfo.php,v 1.21 2004/11/29 16:05:40 hackie Exp $
+* $Id: admsysinfo.php,v 1.22 2005/03/06 18:29:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -94,10 +94,6 @@ function get_server_software()
 			<tr>
 				<td>Disabled Functions:</td>
 				<td><?php echo (($df=ini_get('disable_functions'))?$df:'none'); ?></td>
-			</tr>
-			<tr>
-				<td>Tokenizer Support:</td>
-				<td><?php echo extension_loaded('tokenizer') ? 'Yes' : 'No'; ?></td>
 			</tr>
 			<tr>
 				<td>PSpell Support:</td>

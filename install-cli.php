@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.11 2005/02/25 14:47:04 hackie Exp $
+* $Id: install-cli.php,v 1.12 2005/03/06 18:29:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -82,7 +82,7 @@ function validate_url($path)
 
 function module_check()
 {
-	$modules = array('zlib', 'mysql', 'pgsql', 'pcre', 'tokenizer', 'pspell', 'pdf', 'posix');
+	$modules = array('zlib', 'mysql', 'pgsql', 'pcre', 'pspell', 'posix');
 	foreach ($modules as $m) {
 		$status[$m] = extension_loaded($m);
 	}
