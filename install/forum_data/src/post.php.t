@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.27 2003/04/08 08:24:19 hackie Exp $
+*   $Id: post.php.t,v 1.28 2003/04/08 09:04:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,7 +181,15 @@
 		if ($FLOOD_CHECK_TIME && !$MOD && !$msg_id && ($tm = flood_check())) {
 			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}', '');
 		}
-		
+
+		/* import message options */
+		$msg_show_sig		= isset($_POST['msg_show_sig']) ? $_POST['msg_show_sig'] : NULL;
+		$msg_smiley_disabled	= isset($_POST['msg_smiley_disabled']) ? $_POST['msg_smiley_disabled'] : NULL;
+		$msg_poster_notif	= isset($_POST['msg_poster_notif']) ? $_POST['msg_poster_notif'] : NULL;
+		$pl_id			= !empty($_POST['pl_id']) ? $_POST['pl_id'] : NULL;
+		$msg_body		= $_POST['msg_body'];
+		$msg_subject		= $_POST['msg_subject'];
+
 		if ($perms['p_file'] == 'Y' || $MOD) {
 			$attach_count = 0;
 			
@@ -277,7 +285,7 @@
 			}
 		}
 		
-		if (isset($_POST['submitted']) && !isset($_POST['spell']) && !isset($_POST['preview'])) {
+		if (!empty($_POST['submitted']) && !isset($_POST['spell']) && !isset($_POST['preview'])) {
 			$_POST['btn_submit'] = 1;
 		}
 		
@@ -352,7 +360,7 @@
 	
 			/* deal with notifications */
 			if (_uid) {
-	 			if ($_POST['msg_poster_notif'] == 'Y') {
+	 			if (isset($_POST['msg_poster_notif'])) {
 	 				thread_notify_add(_uid, $msg_post->thread_id);
 	 			} else if ($msg_id) {
 	 				thread_notify_del(_uid, $msg_post->thread_id);
@@ -433,21 +441,21 @@
 		}
 	
 		$text_s = htmlspecialchars($text_s);
+
+		$spell = (isset($_POST['spell']) && function_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
 		
-		if (function_exists('pspell_config_create') && $usr->pspell_lang && $text) {
-			$text = check_data_spell($text, 'body');
+		if ($spell && $text) {
+			$text = check_data_spell($text, 'body', $usr->pspell_lang);
 		}
 		fud_wordwrap($text);
 
-		$sig = $subj = '';
-		if ($text_s) {
-			if (function_exists('pspell_config_create') && $usr->pspell_lang && empty($no_spell_subject) && strlen($text_s)) {
-				$subj .= check_data_spell($text_s,'subject');
-			} else {
-				$subj .= $text_s;
-			}
+		if ($spell && empty($no_spell_subject) && $text_s) {
+			$subj = check_data_spell($text_s, 'subject', $usr->pspell_lang);
+		} else {
+			$subj = $text_s;
 		}
-		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $msg_show_sig == 'Y') {
+
+		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && isset($msg_show_sig)) {
 			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !reply_to) {
 				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 			} else {
@@ -455,9 +463,11 @@
 			}
 		
 			$signature = $sig ? '{TEMPLATE: signature}' : '';
+		} else {
+			$signature = '';
 		}
 
-		$apply_spell_changes = isset($_POST['spell']) ? '{TEMPLATE: apply_spell_changes}' : '';
+		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
 
 		$preview_message = '{TEMPLATE: preview_message}';
 	} else {
@@ -538,8 +548,8 @@
 	}
 
 	if (_uid) {
-		$msg_poster_notif_check = $msg_poster_notif == 'Y' ? ' checked' : '';
-		$msg_show_sig_check = $msg_show_sig == 'Y' ? ' checked' : '';
+		$msg_poster_notif_check = isset($msg_poster_notif) ? ' checked' : '';
+		$msg_show_sig_check = isset($msg_show_sig) ? ' checked' : '';
 		$reg_user_options = '{TEMPLATE: reg_user_options}';
 	} else {
 		$reg_user_options = '';

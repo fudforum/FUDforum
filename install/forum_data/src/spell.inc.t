@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.6 2003/04/07 16:04:57 hackie Exp $
+*   $Id: spell.inc.t,v 1.7 2003/04/08 09:04:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@ function init_spell($type, $dict)
 
 function tokenize_string($data)
 {
-	if (!($len=strlen($data))) {
+	if (!($len = strlen($data))) {
 		return array();
 	}
 	$wa = array();
@@ -158,7 +158,11 @@ function tokenize_string($data)
 				}
 				break;
 			default:
-				$str .= $data[$i];	
+				if (isset($str)) {
+					$str .= $data[$i];
+				} else {
+					$str = $data[$i];
+				}
 		}
 		$i++;
 	}
@@ -231,7 +235,7 @@ function check_data_spell($data, $type, $dict)
 	if (!$data) {
 		return $data;
 	}
-	if (!init_spell(PSPELL_FAST, $dict)) {
+	if (!defined('__FUD_PSPELL_LINK__') && !init_spell(PSPELL_FAST, $dict)) {
 		return $data;
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.14 2003/04/08 08:24:18 hackie Exp $
+*   $Id: err.inc.t,v 1.15 2003/04/08 09:04:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,11 +94,14 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
 		echo $error_msg;
 	} else {
+		/* XXX: debug 
 		if (_uid && $GLOBALS['usr']->is_mod == 'A') {
 			echo $error_msg;
 		} else {
 			trigger_error('{TEMPLATE: err_inc_query_err}', E_USER_ERROR);
 		}
+		*/
+		echo $error_msg;
 	}
 	exit;
 }
