@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.4 2002/06/20 02:40:56 hackie Exp $
+*   $Id: selmsg.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,7 +116,7 @@ function ifstr($opt1, $opt2, $str)
 			'.$unread_join.'
 		WHERE
 			'.$qry_limit.'
-			{SQL_TABLE_PREFIX}msg.approved="Y"
+			{SQL_TABLE_PREFIX}msg.approved=\'Y\'
 			'.$forum_lmt.'
 			'.$thread_lmt.'
 			'.$reply_lmt.'
@@ -139,7 +139,7 @@ function ifstr($opt1, $opt2, $str)
 			'.$unread_join.'
 		WHERE
 			'.$qry_limit.'
-			{SQL_TABLE_PREFIX}msg.approved="Y"
+			{SQL_TABLE_PREFIX}msg.approved=\'Y\'
 			'.$forum_lmt.'
 			'.$thread_lmt.'
 			'.$reply_lmt.'
@@ -150,7 +150,7 @@ function ifstr($opt1, $opt2, $str)
 		{SQL_TABLE_PREFIX}forum.last_post_id,
 		{SQL_TABLE_PREFIX}thread.last_post_id, 
 		{SQL_TABLE_PREFIX}msg.post_stamp
-	LIMIT '.$start.','.$count);
+	LIMIT '.qry_limit($count, $start));
 	
 	
 	if( db_count($rid) ) {

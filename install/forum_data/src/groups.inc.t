@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.3 2002/06/19 00:19:46 hackie Exp $
+*   $Id: groups.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,14 +16,13 @@
 ***************************************************************************/
  if ( defined('_groups_inc_') ) return; else define('_groups_inc_', 1);
 
-$r = q("SHOW FIELDS FROM {SQL_TABLE_PREFIX}groups");
-while ( $obj = db_rowobj($r) ) {
-	if ( substr($obj->Field, 0, 2) == 'p_' ) {
-		$GLOBALS['__GROUPS_INC']['permlist'][$obj->Field] = $obj->Field;
+$r = get_field_list('{SQL_TABLE_PREFIX}groups');
+while ( list($field) = db_rowarr($r) ) {
+	if ( substr($field, 0, 2) == 'p_' ) {
+		$GLOBALS['__GROUPS_INC']['permlist'][$field] = $field;
 	}
 }
 QF($r);
-
 
 class fud_group
 {
@@ -47,7 +46,7 @@ class fud_group
 		
 		if ( !empty($name) ) $this->name = $name;
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}groups(
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}groups(
 			name,
 			inherit_id,
 			joinmode,
@@ -57,11 +56,11 @@ class fud_group
 		VALUES(
 			'".$this->name."',
 			".intzero($this->inherit_id).",
-			'".$this->joinmode."',
+			'".($this->joinmode?$this->joinmode:'NONE')."',
 			$resval
 			".$ret['vals']."
 		)");
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}groups", $r);
 		
 		if ( $res || $ramasks ) {
 			$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=1"));
@@ -72,9 +71,9 @@ class fud_group
 				if ( $v!='Y' ) $obj->{$k} = 'N';
 			}
 			$ret = mk_perm_insert_qry($obj, 'p_', 'u');
-			q("INSERT INTO {SQL_TABLE_PREFIX}group_members(user_id, group_id, approved, group_leader, ".$ret['fields'].") 
+			$r = q("INSERT INTO {SQL_TABLE_PREFIX}group_members(user_id, group_id, approved, group_leader, ".$ret['fields'].") 
 				VALUES(0, $this->id, 'Y', 'N', ".$ret['vals'].")");
-			$anon_id = db_lastid();
+			$anon_id = db_lastid("{SQL_TABLE_PREFIX}group_members", $r);
 		
 			$obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=2"));
 			reset($perms['perms']);
@@ -83,9 +82,9 @@ class fud_group
 				if ( $v!='Y' ) $obj->{$k} = 'N';
 			}
 			$ret = mk_perm_insert_qry($obj, 'p_', 'u');
-			q("INSERT INTO {SQL_TABLE_PREFIX}group_members(user_id, group_id, approved, group_leader, ".$ret['fields'].") 
-				VALUES(4294967295, $this->id, 'Y', 'N', ".$ret['vals'].")");
-			$reg_id = db_lastid();
+			$r = q("INSERT INTO {SQL_TABLE_PREFIX}group_members(user_id, group_id, approved, group_leader, ".$ret['fields'].") 
+				VALUES(2147483647, $this->id, 'Y', 'N', ".$ret['vals'].")");
+			$reg_id = db_lastid("{SQL_TABLE_PREFIX}group_members", $r);
 			$rval['anon_id'] = $anon_id;
 			$rval['reg_id'] = $reg_id;
 		}
@@ -111,7 +110,7 @@ class fud_group
 			$pf = substr($pf, 0, -2);
 			q("UPDATE {SQL_TABLE_PREFIX}group_members SET $pf WHERE group_id=$this->id");
 		}
-		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='".$this->name."', $fields, inherit_id=".intzero($this->inherit_id).", joinmode='".$this->joinmode."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='".$this->name."', $fields, inherit_id=".intzero($this->inherit_id).", joinmode='".($this->joinmode?$this->joinmode:'NONE')."' WHERE id=".$this->id);
 	}
 	
 	function get($id)
@@ -169,7 +168,7 @@ class fud_group
 
 	function add_resource_list($rslist)
 	{
-		if ( db_locked() ) { db_lock('{SQL_TABLE_PREFIX}groups+, {SQL_TABLE_PREFIX}group_resources+, {SQL_TABLE_PREFIX}group_members+'); $ll=1; }
+		if ( !db_locked() ) { db_lock('{SQL_TABLE_PREFIX}groups+, {SQL_TABLE_PREFIX}group_resources+, {SQL_TABLE_PREFIX}group_members+'); $ll=1; }
 		@reset($rslist);
 		
 		$cur_rslist = $this->get_resources_by_rsid();
@@ -200,8 +199,14 @@ class fud_group
 	
 	function add_resource($type, $id)
 	{
-		q("INSERT INTO {SQL_TABLE_PREFIX}group_resources ( group_id, resource_type, resource_id ) VALUES(".$this->id.", '$type', $id)");
-		return db_lastid();
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}group_resources+");
+		}
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}group_resources ( group_id, resource_type, resource_id ) VALUES(".$this->id.", '$type', $id)");
+		$res_id = db_lastid("{SQL_TABLE_PREFIX}group_resources", $r);
+		if ( $ll ) db_unlock();
+		return $res_id;
 	}
 	
 	function delete_resource($type, $id, $db_id=NULL)
@@ -210,7 +215,8 @@ class fud_group
 			q("DELETE FROM {SQL_TABLE_PREFIX}group_resources WHERE group_id=".$this->id." AND resource_type='$type' AND resource_id=$id");
 		else 
 			q("DELETE FROM {SQL_TABLE_PREFIX}group_resources WHERE id=$db_id");
-		return db_lastid();
+		
+		return true;
 	}
 	
 	function is_resource($type, $id)
@@ -220,7 +226,7 @@ class fud_group
 	
 	function add_leader($user_id)
 	{
-		if ( !$user_id || $user_id == '4294967295' ) return;
+		if ( !$user_id || $user_id == '2147483647' ) return;
 		
 		if( !($id=q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$this->id." AND user_id=".$user_id)) ) 
 			q("INSERT INTO {SQL_TABLE_PREFIX}group_members(group_id, user_id, group_leader, approved) VALUES(".$this->id.", ".$user_id.", 'Y', 'Y')");
@@ -231,7 +237,7 @@ class fud_group
 	
 	function delete_member($user_id)
 	{
-		if ( !$user_id || $user_id == '4294967295' ) return;
+		if ( !$user_id || $user_id == '2147483647' ) return;
 		q("DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$this->id." AND user_id=".$user_id);
 		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id=".$this->id." AND user_id=".$user_id);
 	}
@@ -384,13 +390,13 @@ class fud_group
 		if ( !db_locked() ) { db_lock('{SQL_TABLE_PREFIX}groups+, {SQL_TABLE_PREFIX}group_resources+, {SQL_TABLE_PREFIX}group_members+, {SQL_TABLE_PREFIX}group_cache+'); $ll=1; }
 		if ( empty($user_id) ) {
 			q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id=".$this->id);
-			$r=q("SELECT {SQL_TABLE_PREFIX}group_resources.resource_type, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}groups.*, {SQL_TABLE_PREFIX}group_members.*, {SQL_TABLE_PREFIX}group_members.id as MMID FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id INNER JOIN {SQL_TABLE_PREFIX}group_resources ON {SQL_TABLE_PREFIX}group_resources.group_id={SQL_TABLE_PREFIX}group_members.group_id WHERE {SQL_TABLE_PREFIX}group_members.group_id=".$this->id." AND {SQL_TABLE_PREFIX}group_members.approved='Y'");
+			$r=q("SELECT {SQL_TABLE_PREFIX}group_resources.resource_type, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}groups.*, {SQL_TABLE_PREFIX}group_members.*, {SQL_TABLE_PREFIX}group_members.id AS mmid FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id INNER JOIN {SQL_TABLE_PREFIX}group_resources ON {SQL_TABLE_PREFIX}group_resources.group_id={SQL_TABLE_PREFIX}group_members.group_id WHERE {SQL_TABLE_PREFIX}group_members.group_id=".$this->id." AND {SQL_TABLE_PREFIX}group_members.approved='Y'");
 		}
 		else {
 			q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=$user_id AND group_id=$this->id");
-			$r=q("SELECT {SQL_TABLE_PREFIX}group_resources.resource_type, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}groups.*, {SQL_TABLE_PREFIX}group_members.*, {SQL_TABLE_PREFIX}group_members.id as MMID FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id INNER JOIN {SQL_TABLE_PREFIX}group_resources ON {SQL_TABLE_PREFIX}group_resources.group_id={SQL_TABLE_PREFIX}group_members.group_id WHERE {SQL_TABLE_PREFIX}group_members.user_id=".$user_id." AND {SQL_TABLE_PREFIX}group_members.group_id=".$this->id." AND {SQL_TABLE_PREFIX}group_members.approved='Y'");
+			$r=q("SELECT {SQL_TABLE_PREFIX}group_resources.resource_type, {SQL_TABLE_PREFIX}group_resources.resource_id, {SQL_TABLE_PREFIX}groups.*, {SQL_TABLE_PREFIX}group_members.*, {SQL_TABLE_PREFIX}group_members.id AS mmid FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id INNER JOIN {SQL_TABLE_PREFIX}group_resources ON {SQL_TABLE_PREFIX}group_resources.group_id={SQL_TABLE_PREFIX}group_members.group_id WHERE {SQL_TABLE_PREFIX}group_members.user_id=".$user_id." AND {SQL_TABLE_PREFIX}group_members.group_id=".$this->id." AND {SQL_TABLE_PREFIX}group_members.approved='Y'");
 		}
-		
+
 		$ret = $this->resolve_perms();
 		while ( $obj = db_rowobj($r) ) {
 			$ins = 1;
@@ -423,9 +429,10 @@ class fud_group
 						$obj->{'u'.$k} = 'N';
 						$obj->{$k} = 'N';
 					}
-					else if ( $obj->{'u'.$k} == 'N' ) {
+					else if ( $obj->{'u'.$k} == 'N' )
 						$obj->{$k} = 'N';
-					}
+					else if ( $obj->{'u'.$k} == $v && $v == 'Y' )
+						$obj->{$k} = 'Y';
 				}
 				q("DELETE FROM {SQL_TABLE_PREFIX}group_cache 
 					WHERE 	user_id=".$obj->user_id." 
@@ -433,12 +440,12 @@ class fud_group
 						AND resource_id=$obj->resource_id");
 
 				$str = mk_perm_update_qry($obj, 'up_');
-				q("UPDATE {SQL_TABLE_PREFIX}group_members SET $str WHERE id=".$obj->MMID);
+				q("UPDATE {SQL_TABLE_PREFIX}group_members SET $str WHERE id=".$obj->mmid);
 			}
 			
 			if ( $ins ) {
 				$iq = mk_perm_insert_qry($obj, 'p_');
-				q("INSERT {SQL_TABLE_PREFIX}group_cache(user_id, resource_type, resource_id, group_id, ".$iq['fields'].") VALUES(".$obj->user_id.", '$obj->resource_type', $obj->resource_id, ".$this->id.", ".$iq['vals'].")");
+				q("INSERT INTO {SQL_TABLE_PREFIX}group_cache(user_id, resource_type, resource_id, group_id, ".$iq['fields'].") VALUES(".$obj->user_id.", '$obj->resource_type', $obj->resource_id, ".$this->id.", ".$iq['vals'].")");
 			}
 		}
 		if ( $ll ) db_unlock();

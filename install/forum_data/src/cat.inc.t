@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: cat.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,6 @@ class fud_cat
 	var $description=NULL;
 	var $allow_collapse=NULL;
 	var $default_view=NULL;
-	var $creation_date=NULL;
 	var $view_order=NULL;
 	
 	var $cat_list;

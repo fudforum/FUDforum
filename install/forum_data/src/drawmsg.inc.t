@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,7 +189,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
 	}
 	else if ( $obj->length ) {
-		$msg_body = read_msg_body($obj->offset,$obj->length, $obj->file_id);
+		$msg_body = read_msg_body($obj->foff,$obj->length, $obj->file_id);
 		$msg_body = '{TEMPLATE: dmsg_normal_message_body}';
 	}
 	else

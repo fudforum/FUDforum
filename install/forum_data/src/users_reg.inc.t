@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ class fud_user_reg extends fud_user
 		
 		$md5pass = md5($this->plaintext_passwd);
 		$tm = __request_timestamp__;		
-		q("INSERT INTO 
+		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}users (
 				login, 
 				passwd, 
@@ -115,8 +115,9 @@ class fud_user_reg extends fud_user
 				".strnull(addslashes($this->bio))."
 			)
 		");
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}users", $r);
 		if( $GLOBALS['EMAIL_CONFIRMATION'] == 'N' ) $this->email_confirm();
+		
 		db_unlock();
 		return $this->id;
 	}
@@ -214,17 +215,17 @@ class fud_user_reg extends fud_user
 
 function get_id_by_email($email)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE email='".$email."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(email)='".strtolower($email)."'");
 }
 
 function get_id_by_login($login)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".$login."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(login)='".strtolower($login)."'");
 }
 
 function get_id_by_radius($login, $passwd)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".$login."' AND passwd='".md5($passwd)."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE LOWER(login)='".strtolower($login)."' AND passwd='".md5($passwd)."'");
 }
 
 function check_user($id)

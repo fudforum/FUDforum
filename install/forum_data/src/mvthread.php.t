@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: mvthread.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	
 	if( !empty($thx) ) {
 		if( isset($reason_msg) ) {
-			fud_use('static/thrx_adm.inc');
+			fud_use('thrx_adm.inc', TRUE);
 			$thrx = new fud_thr_exchange;
 			$thrx->reason_msg = nl2br(htmlspecialchars($HTTP_POST_VARS['reason_msg']));
 			$thrx->th = $HTTP_POST_VARS['th'];
@@ -48,7 +48,7 @@
 		$frm_dst = new fud_forum_adm;
 		$thr = new fud_thread;
 		
-		db_lock('{SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+');
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+'); }
 		
 		$thr->get_by_id($th);
 		$frm_src->get($thr->forum_id);
@@ -75,7 +75,7 @@
 		
 		if( $frm_dst->last_post_id < $thr->last_post_id ) q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$thr->last_post_id." WHERE id=".$frm_dst->id);
 		
-		db_unlock();
+		if ( $ll ) db_unlock();
 		
 		logaction($usr->id, 'THRMOVE', $thr->id);
 		
@@ -93,7 +93,20 @@
 		$prev_cat = NULL;
 		$table_data = '';
 	
-		$r = q("SELECT {SQL_TABLE_PREFIX}forum.*,{SQL_TABLE_PREFIX}mod.user_id AS mod_id FROM {SQL_TABLE_PREFIX}forum LEFT JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id=".$usr->id." AND {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id WHERE {SQL_TABLE_PREFIX}forum.cat_id!=0 GROUP BY {SQL_TABLE_PREFIX}forum.id ORDER BY {SQL_TABLE_PREFIX}forum.cat_id, {SQL_TABLE_PREFIX}forum.view_order");
+		$r = q("SELECT 
+				DISTINCT({SQL_TABLE_PREFIX}forum.id),
+				{SQL_TABLE_PREFIX}forum.*,
+				{SQL_TABLE_PREFIX}mod.user_id AS mod_id 
+			FROM 
+				{SQL_TABLE_PREFIX}forum 
+				LEFT JOIN {SQL_TABLE_PREFIX}mod 
+					ON {SQL_TABLE_PREFIX}mod.user_id=".$usr->id." AND {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id 
+			WHERE 
+				{SQL_TABLE_PREFIX}forum.cat_id!=0 
+			ORDER BY 
+				{SQL_TABLE_PREFIX}forum.cat_id, 
+				{SQL_TABLE_PREFIX}forum.view_order");
+
 		while( $obj = db_rowobj($r) ) {
 			if( $obj->cat_id != $prev_cat ) {
 				$cat->get_cat($obj->cat_id);

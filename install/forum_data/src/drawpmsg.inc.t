@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@ function tmpl_drawpmsg(&$obj)
 	$msg_icon = empty($obj->icon) ? '{TEMPLATE: dpmsg_no_msg_icon}' : '{TEMPLATE: dpmsg_msg_icon}';	
 	
 	if( $obj->length ) 
-		$msg_body = read_pmsg_body($obj->offset,$obj->length);
+		$msg_body = read_pmsg_body($obj->foff,$obj->length);
 	else
 		$msg_body = '{TEMPLATE: dpmsg_no_msg_body}'; 
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 function is_perms($user_id, $r_id, $perm, $r_type='forum')
 {
 	if( $GLOBALS['usr']->is_mod == 'A' ) return TRUE;
-
+	$perm = strtolower($perm);
 	if( empty($user_id) ) $user_id = 0;
 
 	if( @is_object($GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type]) ) 
@@ -29,7 +29,7 @@ function is_perms($user_id, $r_id, $perm, $r_type='forum')
 		if( !is_result($r) ) $r = q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=1");
 	}
 	else {
-		$r=q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$user_id.",4294967295) AND resource_type='".$r_type."' AND resource_id=".$r_id." ORDER BY user_id LIMIT 1");
+		$r=q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$user_id.",2147483647) AND resource_type='".$r_type."' AND resource_id=".$r_id." ORDER BY user_id LIMIT 1");
 		if( !is_result($r) ) $r = q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=2");
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.3 2002/06/19 00:19:46 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,13 +25,17 @@ class fud_forum_adm extends fud_forum
 	
 	function add($pos)
 	{
-		db_lock('
-			{SQL_TABLE_PREFIX}forum+, 
-			{SQL_TABLE_PREFIX}groups+, 
-			{SQL_TABLE_PREFIX}group_resources+, 
-			{SQL_TABLE_PREFIX}group_members+,
-			{SQL_TABLE_PREFIX}group_cache+
-		');
+		if ( db_locked() ) {
+			$ll = 1;
+			db_lock('
+				{SQL_TABLE_PREFIX}forum+, 
+				{SQL_TABLE_PREFIX}groups+, 
+				{SQL_TABLE_PREFIX}group_resources+, 
+				{SQL_TABLE_PREFIX}group_members+,
+				{SQL_TABLE_PREFIX}group_cache+
+			');
+		}
+		
 		$max = $this->get_max_view($this->cat_id);
 		if ( $max > 0 ) {
 			$this->view_order = $max+1;
@@ -43,7 +47,7 @@ class fud_forum_adm extends fud_forum
 			$this->view_order = 1;
 		}
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}forum (
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}forum (
 			cat_id, 
 			name, 
 			descr, 
@@ -76,7 +80,7 @@ class fud_forum_adm extends fud_forum
 			".intzero($this->message_threshold)."
 		)");
 		
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}forum", $r);
 		$grp = new fud_group;
 		reset($GLOBALS['__GROUPS_INC']['permlist']);
 		while ( list($k,$v) = each($GLOBALS['__GROUPS_INC']['permlist']) ) {
@@ -85,16 +89,16 @@ class fud_forum_adm extends fud_forum
 		$grp->add('forum', $this->id, $this->name);
 		$grp->add_resource('forum', $this->id);
 		$grp->rebuild_cache();
-		db_unlock();
+		if ( $ll ) db_unlock();
 		
 		return $this->id;
 	}
 	
 	function sync()
 	{
-		if ( !DB_LOCKED ) { 
+		if ( !db_locked() ) { 
 			$ll=1; 
-			DB_LOCK('
+			db_lock('
 				{SQL_TABLE_PREFIX}forum+, 
 				{SQL_TABLE_PREFIX}groups+
 			'); 
@@ -118,21 +122,25 @@ class fud_forum_adm extends fud_forum
 		
 		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='$this->name' WHERE res='forum' AND res_id=$this->id");
 		
-		if ( $ll ) DB_UNLOCK();
+		if ( $ll ) db_unlock();
 	}
 	
 	function change_pos($old, $new, $cat_id)
 	{
-		db_lock('{SQL_TABLE_PREFIX}forum+');
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET view_order=42000000 WHERE cat_id=".$cat_id." AND view_order=".$old);
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock('{SQL_TABLE_PREFIX}forum+');
+		}
+		
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET view_order=2147483647 WHERE cat_id=".$cat_id." AND view_order=".$old);
 		
 		if ( $old > $new ) 
 			$this->move_up($new, $old, $cat_id);			
 		else 
 			$this->move_down($old, $new, $cat_id);
 		
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET view_order=".$new." WHERE cat_id=".$cat_id." AND view_order=42000000");
-		db_unlock();
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET view_order=".$new." WHERE cat_id=".$cat_id." AND view_order=2147483647");
+		if ( $ll ) db_unlock();
 	}
 	
 	function move_up($start, $max, $cat_id)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: db.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,17 +15,15 @@
 *
 ***************************************************************************/
 
-if ( !function_exists('error_handler') ) fud_use('err.inc');
-
 if ( !defined('_db_connection_ok_') ) {
 	$connect_func = ( $GLOBALS['MYSQL_PERSIST'] == 'Y' ) ? 'mysql_pconnect' : 'mysql_connect';
 		
 	if ( !($GLOBALS['__DB_INC__']['SQL_LINK']=$connect_func($GLOBALS['MYSQL_SERVER'], $GLOBALS['MYSQL_LOGIN'], $GLOBALS['MYSQL_PASSWORD'])) ) {
-		error_handler("db.inc", "unable to establish mysql connection on ".$GLOBALS['MYSQL_SERVER'], 0);
+		exit("db.inc is unable to establish mysql connection to ".$GLOBALS['DBHOST']);
 	}
 		
 	if ( !@mysql_select_db($GLOBALS['MYSQL_DB'],$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
-		error_handler("db.inc", "unable to connect to database", 0);
+		exit("db.inc is unable to open database ".$GLOBALS['DBHOST_DBNAME']);
 	}
 		
 	define('_db_connection_ok_', 1); 
@@ -177,7 +175,7 @@ function db_count($result)
 		return 0;
 }
 
-function db_lastid()
+function db_lastid($dummy=FALSE, $dummy2=FALSE)
 {
 	return mysql_insert_id($GLOBALS['__DB_INC__']['SQL_LINK']);
 }
@@ -249,5 +247,16 @@ function q_singleval($query)
 	list($val) = db_singlearr($r);
 	
 	return $val;
+}
+
+function get_field_list($tbl)
+{
+	$r = q("show fields from ".$tbl);
+	return $r;
+}
+
+function qry_limit($limit, $off)
+{
+	return $off.','.$limit;
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.2 2002/06/25 18:04:05 hackie Exp $
+*   $Id: tabs.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 if( isset($usr) ) {
 	$tablist = array(
-'{TEMPLATE: tabs_register}'=>array('register', 
+'{TEMPLATE: tabs_register}'=>'register', 
 '{TEMPLATE: tabs_subscriptions}'=>'subscribed',
 '{TEMPLATE: tabs_referrals}'=>'referals',
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
@@ -32,8 +32,8 @@ if( isset($usr) ) {
 	
 	reset($tablist);
 	while( list($tab_name, $tab) = each($tablist) ) {
-		$tab_url = '{ROOT}?t='.$tab.'&';
-		if( $tab == 'referals' ) $tab_url .= '&id='._uid.'&'._rsid;	
+		$tab_url = '{ROOT}?t='.$tab.'&'._rsid;
+		if( $tab == 'referals' ) $tab_url .= '&id='._uid;	
 		$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
 	}
 	

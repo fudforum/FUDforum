@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: msg.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,7 +141,7 @@
 		$thread->inc_view_count();
 	}
 
-	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".$start.",".$count);
+	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".qry_limit($count,$start));
 	if ( !db_count($msg_list) ) {
 		error_dialog('{TEMPLATE: msg_err_nosuchmsg_title}','{TEMPLATE: msg_err_nosuchmsg_msg}', '', 'FATAL');
 		exit();
@@ -152,7 +152,7 @@
 	qf($msg_list);
 	$id_list = substr($id_list, 0, -1).')';
 
-	$result = q('SELECT HIGH_PRIORITY
+	$result = q('SELECT 
 		{SQL_TABLE_PREFIX}msg.*, 
 		{SQL_TABLE_PREFIX}thread.locked,
 		{SQL_TABLE_PREFIX}thread.root_msg_id,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.3 2002/06/24 11:05:02 hackie Exp $
+*   $Id: iemail.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,7 +197,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$headers .= "Content-Type: multipart/alternative; boundary=\"------------$split\"\r\n";
 		$boundry = "\r\n--------------$split\r\n";
 		
-		$plain_text = read_msg_body($obj->offset,$obj->length, $obj->file_id);
+		$plain_text = read_msg_body($obj->foff,$obj->length, $obj->file_id);
 		$plain_text = $boundry."Content-Type: text/plain; charset=".$GLOBALS['CHARSET']."; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\nTo participate in the discussion, go here: ".$GLOBALS['WWW_ROOT'].'index.php?t=rview&th='.$id."&notify=1&opt=off\r\n";
 		
 		$mod = $GLOBALS['MOD'];

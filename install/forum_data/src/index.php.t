@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: index.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@ function index_view_perms($usr_id)
 	if( empty($usr_id) ) 
 		$usr_id = $usr_str = 0;
 	else 
-		$usr_str = $usr_id.',4294967295';
+		$usr_str = $usr_id.',2147483647';
 
 	$fl = '';
 	$tmp_arr = array();

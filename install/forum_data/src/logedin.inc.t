@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: logedin.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	
 		$tm_expire = __request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60);
 		
-		$annon = q_singleval("SELECT HIGH_PRIORITY count(*) FROM {SQL_TABLE_PREFIX}ses WHERE {SQL_TABLE_PREFIX}ses.time_sec>".$tm_expire." AND user_id>2000000000");
+		$annon = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}ses WHERE {SQL_TABLE_PREFIX}ses.time_sec>".$tm_expire." AND user_id>2000000000");
 		$r = q("SELECT id,login,is_mod,invisible_mode FROM {SQL_TABLE_PREFIX}users WHERE last_visit>".$tm_expire);
 		if( empty($annon) ) $annon = 0;
 

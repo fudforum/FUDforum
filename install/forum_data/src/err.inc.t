@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: err.inc.t,v 1.2 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,7 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
 
 /*
  * if severity is >0 the error handler will merely output the error the file 
@@ -106,4 +105,11 @@ function std_out($text, $level='INFO')
 	fclose($fp);
 	@chmod($GLOBALS['ERROR_PATH'].'std_out.log',0600);
 }
+
+function invl_inp_err()
+{
+	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}', NULL, 'FATAL');
+	exit;
+}
+
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: split_th.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -153,7 +153,7 @@
 	$msg_entry = '';
 	
 	while( $obj = db_rowobj($r) ) {
-		$msg_body = read_msg_body($obj->offset,$obj->length, $obj->file_id);
+		$msg_body = read_msg_body($obj->foff,$obj->length, $obj->file_id);
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}
 	un_register_fps();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ class fud_user_adm extends fud_user_reg
 
 	function delete_user()
 	{
-		db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+');
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+'); }
 		$this->de_moderate();
 		$u_entry = $this->id."\n".addslashes(htmlspecialchars(trim_show_len($this->login,'LOGIN')));
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
@@ -50,7 +50,7 @@ class fud_user_adm extends fud_user_reg
 		
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->id);
 
-		db_unlock();
+		if ( $ll ) db_unlock();
 	}
 
 	function block_user()

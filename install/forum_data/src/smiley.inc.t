@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: smiley.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,6 +30,8 @@ class fud_smiley
 	{
 		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}smiley+'); }
 		$this->vieworder = q_singleval("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
+		if( !$this->vieworder ) $this->vieworder = 1;
+		
 		q("INSERT INTO {SQL_TABLE_PREFIX}smiley(
 				img, 
 				descr, 
@@ -135,7 +137,7 @@ class fud_smiley
 	{
 		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}smiley+'); }
 		$maxvieworder = q_singleval("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
-		$TMPPOS = "4294967295";
+		$TMPPOS = "2147483647";
 		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=$TMPPOS WHERE id=$this->id");
 		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder-1 WHERE vieworder>$this->vieworder AND vieworder<$maxvieworder");
 		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder+1 WHERE vieworder>".($dv-1)." AND vieworder<$maxvieworder");

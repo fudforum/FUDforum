@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: cookies.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,13 +68,22 @@ class fud_session
 				q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$this->user_id);
 			else 
 				$this->user_id=0;
-
-			db_lock('{SQL_TABLE_PREFIX}ses+');
+			if ( db_locked() ) {
+				db_lock('{SQL_TABLE_PREFIX}ses+');
+				$ll = 1;
+			}
 				while ( bq("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'") );
-				if( empty($this->user_id) ) $this->user_id = q_singleval("SELECT IF(MAX(user_id)>2000000000,MAX(user_id)+1,2000000001) FROM {SQL_TABLE_PREFIX}ses");
-				q("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,data,sys_id,user_id) VALUES('".$ses_id."',".$this->tm.",'".addslashes($db_str)."', '".md5($GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].$GLOBALS["HTTP_SERVER_VARS"]["HTTP_X_FORWARDED_FOR"])."',".$this->user_id.")");
-				$this->id = db_lastid();
-			db_unlock();
+				if( empty($this->user_id) ) $this->user_id = q_singleval("SELECT 
+												CASE WHEN 
+													MAX(user_id)>2000000000
+												THEN
+													MAX(user_id)+1
+												ELSE
+													2000000001		
+												END FROM {SQL_TABLE_PREFIX}ses");
+				$r=q("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,data,sys_id,user_id) VALUES('".$ses_id."',".$this->tm.",'".addslashes($db_str)."', '".md5($GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].$GLOBALS["HTTP_SERVER_VARS"]["HTTP_X_FORWARDED_FOR"])."',".$this->user_id.")");
+				$this->id = db_lastid("{SQL_TABLE_PREFIX}ses", $r);
+			if ( $ll ) db_unlock();
 			
 			$this->ses_id = $ses_id;
 		} 

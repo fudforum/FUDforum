@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: online_today.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@
 		qf($r);
 
 		if( _uid ) {
-			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=4294967295 AND resource_type='forum' AND p_READ='Y'");
+			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=2147483647 AND resource_type='forum' AND p_READ='Y'");
 			while( list($fid) = db_rowarr($r) ) $limit[$fid] = $fid;
 			qf($r);
 		}

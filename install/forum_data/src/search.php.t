@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.4 2002/06/19 19:00:29 hackie Exp $
+*   $Id: search.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 			while ( ($obj = db_rowobj($r)) && $z<$ppg ) {
 				if ( $obj->thread_id != $prev_thread_id ) 
 			
-				$body = strip_tags(read_msg_body($obj->offset, $obj->length, $obj->file_id));
+				$body = strip_tags(read_msg_body($obj->foff, $obj->length, $obj->file_id));
 				if( strlen($body) > 80 ) $body = substr($body,0,80).'...';
 			
 				if ( !empty($obj->poster_id) ) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.4 2002/06/20 02:40:55 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	if ( !isset($total) ) $total = q_singleval("SELECT replies FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
 	
 	
-	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".$start.",".$count);
+	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".qry_limit($count,$start));
 	if( IS_RESULT($msg_list) ) {
 		$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
 		$m_count=0;
@@ -37,7 +37,7 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 		qf($msg_list);
 		$id_list = substr($id_list, 0, -1).')';
 
-		$result = q('SELECT HIGH_PRIORITY
+		$result = q('SELECT 
 			{SQL_TABLE_PREFIX}msg.*, 
 			{SQL_TABLE_PREFIX}thread.locked,
 			{SQL_TABLE_PREFIX}thread.root_msg_id,

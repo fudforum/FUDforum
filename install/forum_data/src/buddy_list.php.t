@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.4 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,13 +50,13 @@
 		exit();
 	}
 	
-	if ( isset($add) && is_numeric($add) && empty($done) && ($buddy_login=check_user($add)) ) {
+	if ( is_numeric($add) && empty($done) && ($buddy_login=check_user($add)) ) {
 		if( !check_buddy($usr->id, $add) ) $bud->add($usr->id, $add);
 		check_return();
 		exit();
 	}
 
-	if ( isset($del) && is_numeric($del) ) {
+	if ( is_numeric($del) ) {
 		$bud->get_buddy($usr->id, $del);
 		$bud->delete();	
 		if( !$returnto ) $returnto = '{ROOT}?t=buddy_list&'._rsid;

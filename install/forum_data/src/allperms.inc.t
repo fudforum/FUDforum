@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allperms.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: allperms.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ function get_all_perms($usr_id)
 	if( empty($usr_id) ) 
 		$usr_id = $usr_str = 0;
 	else 
-		$usr_str = $usr_id.',4294967295';
+		$usr_str = $usr_id.',2147483647';
 
 	$fl = '';
 	$tmp_arr = array();
@@ -56,7 +56,7 @@ function is_allowed($user_id, $p)
 {
 	if ( isset($p[$user_id]) && $p[$user_id] != 'Y' ) 
 		return 0;
-	else if ( $p[$user_id] != 'Y' && $p['4294967295'] == 'N' ) 
+	else if ( $p[$user_id] != 'Y' && $p['2147483647'] == 'N' ) 
 		return 0;
 	
 	return 1;

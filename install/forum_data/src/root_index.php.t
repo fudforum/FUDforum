@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.4 2002/06/19 00:08:19 hackie Exp $
+*   $Id: root_index.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,9 +16,10 @@
 ***************************************************************************/
 
 	include_once "GLOBALS.php";
-	{PRE_HTML_PHP}
-	{POST_HTML_PHP}
-	
+	fud_use('db.inc');
+{PRE_HTML_PHP}
+{POST_HTML_PHP}
+
 	$pg = ( !empty($HTTP_POST_VARS['t']) ) ? $HTTP_POST_VARS['t'] : $HTTP_GET_VARS['t'];
 	if ( empty($pg) ) $pg = 'index';
 	
@@ -29,6 +30,8 @@
 		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
 
 	$GLOBALS['FUD_THEME'] = db_singleobj($r);
+	fud_use('err.inc');
+	fud_use('init_errors.inc');
 	define('__fud_theme_id__', $GLOBALS['FUD_THEME']->id);
 	
 	setlocale(LC_ALL, $GLOBALS['FUD_THEME']->locale);

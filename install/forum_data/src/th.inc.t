@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: th.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,12 @@ class fud_thread
 	
 	function add($root, $forum_id, $locked=NULL, $is_sticky=NULL, $ordertype=NULL, $orderexpiry=NULL) 
 	{
-		q("INSERT INTO 
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}thread+");
+		}
+		
+		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}thread(
 				forum_id, 
 				root_msg_id, 
@@ -63,7 +68,11 @@ class fud_thread
 				".ifnull($ordertype, "'NONE'").",
 				".intzero($orderexpiry)."
 			)");
-		$this->id = db_lastid();
+		
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}thread", $r);
+		
+		if ( $ll ) db_unlock();
+		
 		return $this->id;
 	}
 	
@@ -129,7 +138,7 @@ class fud_thread
 	
 	function move($to_forum)
 	{
-		if ( defined('db_locked') && constant('db_locked') ) {
+		if ( !db_locked() ) {
 			db_lock('{SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+');
 			$local_lock = 1;
 		}
@@ -138,8 +147,8 @@ class fud_thread
 		q("UPDATE {SQL_TABLE_PREFIX}thread SET forum_id=".$to_forum." WHERE id=".$this->id);
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$msg_count." WHERE id=".$this->forum_id);
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+1,post_count=post_count+".$msg_count." WHERE id=".$to_forum);
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$to_forum." AND root_msg_id=".$this->root_msg_id." AND moved_to=".$this->forum_id);
-		if( $aff_rows=db_affected() ) q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$aff_rows." WHERE id=".$to_forum);
+		$r=q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$to_forum." AND root_msg_id=".$this->root_msg_id." AND moved_to=".$this->forum_id);
+		if( $aff_rows=db_affected($r) ) q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$aff_rows." WHERE id=".$to_forum);
 		q("UPDATE {SQL_TABLE_PREFIX}thread SET moved_to=".$to_forum." WHERE id!=".$this->id." AND root_msg_id=".$this->root_msg_id);
 		
 		q("INSERT INTO {SQL_TABLE_PREFIX}thread(
@@ -280,6 +289,8 @@ class fud_thread
 
 function rebuild_forum_view($forum_id, $page=0)
 {
+	
+	
 	if( !db_locked() ) {
 	        db_lock('{SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}forum+');
 		$local_lock=1;
@@ -288,18 +299,30 @@ function rebuild_forum_view($forum_id, $page=0)
 	$tm = __request_timestamp__;
 	
 	/* Remove expired moved thread pointers */
-	q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$forum_id." AND last_post_date<".($tm-86400*$GLOBALS['MOVED_THR_PTR_EXPIRY'])." AND moved_to!=0");
-	if( $aff_rows = db_affected() ) {
+	$r=q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$forum_id." AND last_post_date<".($tm-86400*$GLOBALS['MOVED_THR_PTR_EXPIRY'])." AND moved_to!=0");
+	if( $aff_rows = db_affected($r) ) {
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$aff_rows." WHERE id=".$forum_id);
 		$page = 0;
-	}	
+	}
+
+	if ( __dbtype__ == 'pgsql' ) {
+		qf(q("SELECT rebuild_thread_view($forum_id, $page, $tm)"));
+		return;
+	}
 
 	if( $page ) {
 		$r=q("SELECT 
-
 			{SQL_TABLE_PREFIX}thread_view.forum_id,
 			{SQL_TABLE_PREFIX}thread_view.thread_id AS id, 
-			IF(is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0), 4200000000, {SQL_TABLE_PREFIX}thread.last_post_id) AS sort_order_fld 
+			CASE WHEN
+				is_sticky='Y'
+				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
+			THEN
+				2147483647
+			ELSE
+				{SQL_TABLE_PREFIX}thread.last_post_id
+			END as sort_order_fld
+				
 		FROM 
 			{SQL_TABLE_PREFIX}thread_view 
 			INNER JOIN {SQL_TABLE_PREFIX}thread 
@@ -314,12 +337,23 @@ function rebuild_forum_view($forum_id, $page=0)
 			sort_order_fld DESC, 
 			{SQL_TABLE_PREFIX}thread.last_post_date DESC");
 		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id." AND page<".($page+1));
+		
 	}
 	else {
+		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id);
 		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}thread.id, 
 				{SQL_TABLE_PREFIX}thread.forum_id,
-				IF(is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." OR {SQL_TABLE_PREFIX}thread.orderexpiry=0), 4200000000, {SQL_TABLE_PREFIX}thread.last_post_id) AS sort_order_fld
+				CASE WHEN
+					is_sticky='Y' 
+					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." 
+					OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
+				THEN
+					2147483647
+				ELSE
+					{SQL_TABLE_PREFIX}thread.last_post_id
+				END AS sort_order_fld
+					
 			FROM 
 				{SQL_TABLE_PREFIX}thread
 				INNER JOIN {SQL_TABLE_PREFIX}msg
@@ -330,16 +364,41 @@ function rebuild_forum_view($forum_id, $page=0)
 				
 			ORDER BY 
 				sort_order_fld DESC, 
-				{SQL_TABLE_PREFIX}thread.last_post_date DESC");
-				
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id);	
+				{SQL_TABLE_PREFIX}thread.last_post_date DESC");		
 	}
 	
+	/* has to be db specific for speed */
+	$GLOBALS['_TH_INC_']['view_rebuild_func']($r);
+	
+	if( $local_lock ) db_unlock();
+}
+
+$GLOBALS['_TH_INC_']['view_rebuild_func'] = __dbtype__.'_thread_view_insert';
+
+function pgsql_thread_view_insert($r)
+{
+	$i=0;
+	$cnt = 0;
+	$page = 1;
+	
+	while ( $obj = db_rowobj($r) ) {
+		if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
+			$page++;
+			$cnt = 0;
+		}
+		
+		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
+		$i++;
+	}	
+}
+
+function mysql_thread_view_insert($r)
+{
 	$i=0;
 	$cnt = 0;
 	$page = 1;
 	$vlist = '';
-		
+	
 	while ( $obj = db_rowobj($r) ) {
 		if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
 			$vlist = substr($vlist, 0, -1);
@@ -350,6 +409,7 @@ function rebuild_forum_view($forum_id, $page=0)
 		}	
 
 		$vlist .= '('.$page.', '.$obj->forum_id.', '.$obj->id.', '.++$cnt.'),';
+		
 		$i++;
 	}
 	
@@ -358,7 +418,6 @@ function rebuild_forum_view($forum_id, $page=0)
 		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES $vlist");
 	}
 	qf($r);	
-	
-	if( $local_lock ) db_unlock();
 }
+
 ?>

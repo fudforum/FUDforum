@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: attach.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,8 +36,8 @@ class fud_attach
 		$ext = substr($original_name, strrpos($original_name, '.')+1);
 		if( !($mime_id = get_mime_by_ext($ext)) ) $mime_id = 0;
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto, location, original_name, message_id, owner, private, mime_type) VALUES('".$proto."', 'none://unset', '".$original_name."', ".intzero($message_id).", ".intzero($owner).", '".yn($private)."', ".$mime_id.")");
-		$id = db_lastid();
+		$r=q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto, location, original_name, message_id, owner, private, mime_type) VALUES('".$proto."', 'none://unset', '".$original_name."', ".intzero($message_id).", ".intzero($owner).", '".yn($private)."', ".$mime_id.")");
+		$id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
 		$this->message_id=$message_id;
 		if ( $proto == 'LOCAL' ) {
 			$loc = safe_attachment_copy($cur_location, $id);
@@ -80,7 +80,7 @@ class fud_attach
 	function delete()
 	{
 		if( !db_locked() ) {
-			$lock = 1;
+			$ll = 1;
 			db_lock('{SQL_TABLE_PREFIX}attach+');
 		}	
 		$r = q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
@@ -91,7 +91,7 @@ class fud_attach
 		}
 		qf($r);
 		q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
-		if( $lock ) db_unlock();
+		if( $ll ) db_unlock();
 	}
 	
 	function inc_dl_count()

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: showposts.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,8 +30,8 @@
 	
 	if ( isset($ses) ) $ses->update('{TEMPLATE: showposts_update}');
 
-	if ( empty($start) ) $start = 0;
-	if ( empty($count) ) $count = $THREADS_PER_PAGE;
+	if ( !is_numeric($start) ) $start = 0;
+	if ( !is_numeric($count) ) $count = $THREADS_PER_PAGE;
 	
 	$fids = get_all_perms(_uid);
 	
@@ -49,8 +49,7 @@
 			WHERE
 				".$qry_limit."
 				{SQL_TABLE_PREFIX}msg.approved='Y' AND 
-				{SQL_TABLE_PREFIX}msg.poster_id=".$id." 
-			ORDER BY {SQL_TABLE_PREFIX}msg.id");	
+				{SQL_TABLE_PREFIX}msg.poster_id=".$id);
 		
 		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}thread.id AS th_id, 
@@ -71,7 +70,7 @@
 				{SQL_TABLE_PREFIX}msg.poster_id=".$id." 
 			ORDER BY 
 				{SQL_TABLE_PREFIX}msg.id DESC 
-			LIMIT ".$start.",".$count);
+			LIMIT ".qry_limit($count, $start));
 		
 		$post_entry='';
 		while ( $obj = db_rowobj($r) ) $post_entry .= '{TEMPLATE: post_entry}';

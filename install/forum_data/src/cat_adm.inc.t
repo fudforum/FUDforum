@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat_adm.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: cat_adm.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,8 +37,6 @@ class fud_cat_adm extends fud_cat
 	function add_cat($pos)
 	{
 		
-		$creation_date = __request_timestamp__;		
-		
 		if( !db_locked() ) {
 			db_lock('{SQL_TABLE_PREFIX}cat+');
 			$local_lock = 1;
@@ -54,9 +52,9 @@ class fud_cat_adm extends fud_cat
 		}
 		else $this->view_order = 1;
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}cat (name, description, allow_collapse, default_view, creation_date, view_order) VALUES('".$this->name."','".$this->description."','".$this->allow_collapse."','".$this->default_view."','".$creation_date."','".$this->view_order."')");
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}cat (name, description, allow_collapse, default_view, view_order) VALUES('".$this->name."','".$this->description."','".$this->allow_collapse."','".$this->default_view."','".$this->view_order."')");
 		
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}cat", $r);
 		
 		if ( $local_lock ) db_unlock();
 		
@@ -76,7 +74,7 @@ class fud_cat_adm extends fud_cat
 		}
 
 		$max = $this->get_max_view();
-		q("UPDATE {SQL_TABLE_PREFIX}cat SET view_order=420000000 WHERE view_order=$cur");
+		q("UPDATE {SQL_TABLE_PREFIX}cat SET view_order=2147483647 WHERE view_order=$cur");
 		
 		if ( $new < $cur ) {
 			$this->make_space($new, $cur);			
@@ -85,7 +83,7 @@ class fud_cat_adm extends fud_cat
 			$this->move_down($cur, $new);
 		}
 		
-		q("UPDATE {SQL_TABLE_PREFIX}cat SET view_order=$new WHERE view_order=420000000");		
+		q("UPDATE {SQL_TABLE_PREFIX}cat SET view_order=$new WHERE view_order=2147483647");		
 		if ( $local_lock ) db_unlock();
 	}
 	
@@ -127,7 +125,6 @@ class fud_cat_adm extends fud_cat
 		$this->description = $this->cat_list[$this->cur_cat]->description;
 		$this->allow_collapse = $this->cat_list[$this->cur_cat]->allow_collapse;
 		$this->default_view = $this->cat_list[$this->cur_cat]->default_view;
-		$this->creation_date = $this->cat_list[$this->cur_cat]->creation_date;
 		$this->view_order = $this->cat_list[$this->cur_cat]->view_order;
 		
 		$this->cur_cat++;
@@ -149,13 +146,15 @@ class fud_cat_adm extends fud_cat
 		$GLOBALS[$prefix.'description'] = $this->description;
 		$GLOBALS[$prefix.'allow_collapse'] = $this->allow_collapse;
 		$GLOBALS[$prefix.'default_view'] = $this->default_view;
-		$GLOBALS[$prefix.'creation_date'] = $this->creation_date;
 		$GLOBALS[$prefix.'view_order'] = $this->view_order;
 	}
 
 	function delete($id)
 	{
-		db_lock('{SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}forum+');
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock('{SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}forum+');
+		}
 		
 		$view_order = q_singleval("SELECT view_order FROM {SQL_TABLE_PREFIX}cat WHERE id=".$id);
 		
@@ -165,7 +164,7 @@ class fud_cat_adm extends fud_cat
 		$this->move_down($view_order+1, $max);
 		
 		q("DELETE FROM {SQL_TABLE_PREFIX}cat WHERE id=".$id);
-		db_unlock();
+		if ( $ll ) db_unlock();
 	}
 
 }

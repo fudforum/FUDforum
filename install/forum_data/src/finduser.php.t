@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: finduser.php.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,14 +49,13 @@
 	$np = 1;
 	if ( !empty($btn_submit) ) {
 		if ( $usr_login )
-			$qry = "WHERE login LIKE '".addslashes($usr_login)."%'";
+			$qry = "WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."%'";
 		else if ( $usr_email ) 
-			$qry = "WHERE email LIKE '".addslashes($usr_email)."%'";
+			$qry = "WHERE LOWER(email) LIKE '".strtolower(addslashes($usr_email))."%'";
 		else 
 			$qry = '';	
 			
-		if ( $start || $count ) 
-			$lim = "LIMIT ".$start.", ".$count;
+		if ( $start || $count ) $lim = "LIMIT ".qry_limit($count, $start);
 		
 		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
 		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord." ".$lim);

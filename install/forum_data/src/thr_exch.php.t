@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	include_once "GLOBALS.php";
-	fud_use('static/thrx_adm.inc');
+	fud_use('thrx_adm.inc', TRUE);
 	{PRE_HTML_PHP}
 	
 	/* Verify that the user has the right to approve the thread */

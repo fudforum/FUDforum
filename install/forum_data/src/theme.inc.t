@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc.t,v 1.3 2002/06/19 00:08:19 hackie Exp $
+*   $Id: theme.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,13 +28,16 @@ class fud_theme
 	
 	function add()
 	{
-		db_lock('{SQL_TABLE_PREFIX}themes+');
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock('{SQL_TABLE_PREFIX}themes+');
+		}
 		if ( $this->t_default=='Y' ) {
 			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
 			$this->enabled = 'Y';
 		}
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}themes (
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}themes (
 			name,
 			theme,
 			lang, 
@@ -53,14 +56,14 @@ class fud_theme
 				".strnull($this->pspell_lang).",
 				'".yn($this->t_default)."'
 			)");
-		$this->id = db_lastid();
-		db_unlock();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}themes+", $r);
+		if ( $ll ) db_unlock();
 		return $this->id;
 	}
 	
 	function sync()
 	{
-		db_lock('{SQL_TABLE_PREFIX}themes+');
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}themes+'); }
 		if ( $this->t_default == 'Y' ) {
 			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
 			if ( $this->enabled != 'Y' ) $this->enabled = 'Y';
@@ -83,7 +86,7 @@ class fud_theme
 		if ( $this->t_default != 'Y' && !is_result(q("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'")) )
 			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='Y' WHERE id=1");
 		
-		db_unlock();
+		if ( $ll ) db_unlock();
 	}
 	
 	function get($id)

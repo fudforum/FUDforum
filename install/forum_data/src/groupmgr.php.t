@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -126,7 +126,7 @@ function draw_tmpl_perm_table($perm_arr)
 		
 		if ( $mbr->user_id == 0 ) 
 			$gr_member = '{TEMPLATE: group_mgr_anon}';
-		else if ( $mbr->user_id == '4294967295' ) 
+		else if ( $mbr->user_id == '2147483647' ) 
 			$gr_member = '{TEMPLATE: group_mgr_reged}';
 		else 
 			$gr_member = htmlspecialchars($mbr->login);		
@@ -178,7 +178,7 @@ function draw_tmpl_perm_table($perm_arr)
 			$delete_allowed = 0;
 			if ( $obj->user_id == 0 )
 				$member_name = '{TEMPLATE: group_mgr_anon}';
-			else if ( $obj->user_id == '4294967295' ) 
+			else if ( $obj->user_id == '2147483647' ) 
 				$member_name = '{TEMPLATE: group_mgr_reged}';
 			else { $member_name = htmlspecialchars($obj->login); $delete_allowed = 1; }
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@ class fud_msg_edit extends fud_msg
 		$file_id = write_body($this->body, $length, $offset);
 		if ( $thres_body ) $file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
 	
-		q("INSERT INTO {SQL_TABLE_PREFIX}msg (
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
 			poster_id, 
 			reply_to, 
@@ -82,7 +82,7 @@ class fud_msg_edit extends fud_msg
 			show_sig,
 			smiley_disabled,
 			file_id,
-			offset,
+			foff,
 			length,
 			file_id_preview,
 			offset_preview,
@@ -109,7 +109,7 @@ class fud_msg_edit extends fud_msg
 			".intzero($length_preview)."
 		)");
 
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}msg", $r);
 
 		$thr = new fud_thread;
 		if ( !$this->thread_id ) { /* new thread */
@@ -159,7 +159,7 @@ class fud_msg_edit extends fud_msg
 		}
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
 			file_id=".$file_id.", 
-			offset=".intzero($offset).", 
+			foff=".intzero($offset).", 
 			length=".intzero($length).", 
 			file_id_preview=".intzero($file_id_preview).",
 			offset_preview=".intzero($offset_preview).",

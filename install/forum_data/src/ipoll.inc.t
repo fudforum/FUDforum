@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,11 @@ class fud_poll
 	
 	function add()
 	{
-		q("INSERT INTO {SQL_TABLE_PREFIX}poll (
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}poll+");
+		}
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}poll (
 			name, 
 			owner, 
 			creation_date, 
@@ -41,8 +45,8 @@ class fud_poll
 			".intzero($this->expiry_date).",
 			0
 			)");
-		$this->id = db_lastid();
-		
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}poll", $r);
+		if ( $ll ) db_unlock();
 		return $this->id;
 	}
 	
@@ -91,8 +95,14 @@ class fud_poll_opt
 	
 	function add()
 	{
-		q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt (poll_id, name, count) VALUES (".$this->poll_id.",'".$this->name."',".intzero($this->count).")");
-		return db_lastid();
+		if ( !db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}poll_opt+");
+		}
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt (poll_id, name, count) VALUES (".$this->poll_id.",'".$this->name."',".intzero($this->count).")");
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}poll_opt", $r);
+		if ( $ll ) db_unlock();
+		return $this->id;
 	}
 	
 	function sync()

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: private.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,13 +37,18 @@ class fud_pmsg
 	var $show_sig='';
 	var $track='';
 	var $length='';
-	var $offset='';
+	var $foff='';
 	var $login='';
 	var $ref_msg_id='';	
 	var $body;
 	
 	function add($track='')
 	{
+		if ( db_locked() ) {
+			$ll = 1;
+			db_lock("{SQL_TABLE_PREFIX}pmsg+");
+		}
+	
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
 	
@@ -51,7 +56,7 @@ class fud_pmsg
 		
 		if( empty($this->mailed) ) $this->mailed = ( $this->folder_id=='SENT' ) ? 'Y' : 'N';
 		
-		q("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 			ouser_id,
 			duser_id,
 			to_list,
@@ -88,19 +93,20 @@ class fud_pmsg
 				".strnull($this->ref_msg_id)."
 			)");
 			
-		$this->id = db_lastid();
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}pmsg", $r);
 			
-		list($this->offset, $this->length) = write_pmsg_body($this->body);
+		list($this->foff, $this->length) = write_pmsg_body($this->body);
 		
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET offset=".$this->offset.", length=".$this->length.", folder_id='".$this->folder_id."' WHERE id=".$this->id);
-			
+		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET foff=".$this->foff.", length=".$this->length.", folder_id='".$this->folder_id."' WHERE id=".$this->id);
+		
 		if( $this->folder_id == 'SENT' && empty($track) ) $this->send_pmsg();
+		if ( $ll ) db_unlock();
 	}
 	
 	function send_pmsg()
 	{
 		while( list(, $v) = each($GLOBALS['recv_user_id']) ) {
-			q("INSERT INTO 
+			$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}pmsg 
 			(
 				to_list,
@@ -116,7 +122,7 @@ class fud_pmsg
 				show_sig,
 				smiley_disabled,
 				track,
-				offset,
+				foff,
 				length,
 				duser_id,
 				ref_msg_id
@@ -136,13 +142,13 @@ class fud_pmsg
 				'".yn($this->show_sig)."',
 				'".yn($this->smiley_disabled)."',
 				'".yn($this->track)."',
-				".$this->offset.",
+				".$this->foff.",
 				".$this->length.",
 				".$v.",
 				".strnull($this->ref_msg_id)."
 			)
 			");
-			$GLOBALS["send_to_array"][] = array($v,db_lastid());
+			$GLOBALS["send_to_array"][] = array($v, db_lastid("{SQL_TABLE_PREFIX}pmsg", $r));
 		}	
 	}
 	
@@ -155,7 +161,7 @@ class fud_pmsg
 	
 	function sync()
 	{
-		list($this->offset, $this->length) = write_pmsg_body($this->body);
+		list($this->foff, $this->length) = write_pmsg_body($this->body);
 		
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
@@ -180,7 +186,7 @@ class fud_pmsg
 				smiley_disabled='".yn($this->smiley_disabled)."',
 				track='".yn($this->track)."',
 				folder_id='".$this->folder_id."',
-				offset=".$this->offset.",
+				foff=".$this->foff.",
 				length=".$this->length."
 			WHERE
 				id=".$this->id);
@@ -219,7 +225,7 @@ class fud_pmsg
 	{
 		qobj("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}pmsg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}pmsg.duser_id="._uid." AND {SQL_TABLE_PREFIX}pmsg.id=".$id, $this);
 		if( !empty($this->id) && empty($re) ) 
-			$this->body = read_pmsg_body($this->offset, $this->length);
+			$this->body = read_pmsg_body($this->foff, $this->length);
 	}
 	
 	function send_notify_msg()
