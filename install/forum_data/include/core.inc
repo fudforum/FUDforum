@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.22 2002/08/25 20:52:22 hackie Exp $
+*   $Id: core.inc,v 1.23 2002/08/29 14:37:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,9 +45,9 @@ define('__request_timestamp__', time());
 
 function fud_use($file, $static=FALSE)
 {
-	if ( !$static && !defined('ADMIN_FORM') && isset($GLOBALS['FUD_THEME']) ) 
+	if ( !$static && !defined('admin_form') && isset($GLOBALS['FUD_THEME']) ) 
 		$thm = 'theme/'.$GLOBALS['FUD_THEME']->name.'/';
-	else if ( (defined('ADMIN_FORM') || !isset($GLOBALS['FUD_THEME'])) && !$static ) 
+	else if ( (defined('admin_form') || !isset($GLOBALS['FUD_THEME'])) && !$static ) 
 		$thm = 'theme/default/';
 	else $thm = '';
 	
