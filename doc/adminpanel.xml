@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.6 2002/07/09 18:46:29 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.7 2002/07/09 21:50:36 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -709,6 +709,23 @@
 						the specified nick name, would then be displayed on the forum instead of that user's login name.
 					</para>
 				</sect4>
+
+				<sect4 id="global.option.MULTI_HOST_LOGIN">
+					<title>Multiple Host Login</title>
+				
+					<para>
+						If enabled, this option would allow the user to have more then 1 simultaneous logged in sessions from 
+						different browsers/computers. This is useful, if many of your users use more then 1 computer to connect
+						to your forum and do not wish to re-login each time they switch between computers.
+					</para>
+					
+					<para>
+						By default this option is disabled, because a left over session on a computer could allow another
+						person with access to that computer use the forum under the logged in person's account. Normally, 
+						when a user logs in, all of that user's other sessions are immediately invalidated by this action.
+					</para>
+				</sect4>
+
 
 				<sect4 id="global.option.NOTIFY_WITH_BODY">
 					<title>Notify W/Body</title>
