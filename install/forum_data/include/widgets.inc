@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: widgets.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: widgets.inc,v 1.2 2003/04/23 00:53:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 		if ( isset($opt_tag[$i]) ) 
 			$tag = ' '.$opt_tag[$i];
 		else $tag = '';
-		$rval .= '<option value="'.$opt_val[$i].'"'.$selected.''.$tag.'>'.FMT($opt_nam[$i])."\n";
+		$rval .= '<option value="'.$opt_val[$i].'"'.$selected.''.$tag.'>'.htmlspecialchars($opt_nam[$i])."\n";
 	}
 	$rval .= '</select>';
 	return $rval;
@@ -67,7 +67,7 @@ function draw_select_ex($name, $options, $opt_val, $def_val, $html)
 	echo "<select name=\"$name\"".((strlen($html))?' '.$html:'').">\n";
 	for ( $i=0; $i<count($opt_nam); $i++ ) {
 		$selected = ( $def_val == $opt_val[$i] ) ? " selected" : "";
-		echo '<option value="'.$opt_val[$i].'"'.$selected.'>'.FMT($opt_nam[$i])."\n";
+		echo '<option value="'.$opt_val[$i].'"'.$selected.'>'.htmlspecialchars($opt_nam[$i])."\n";
 	}
 	echo "</select>";
 }
@@ -130,7 +130,7 @@ function create_radio_buttons($name, $options, $values, $def, $vertical=0)
 	
 	$rval = "";
 	for ( $i=0; $i<count($opt); $i++ ) {
-		$rval .= '<input type="radio" name="'.$name.'" value="'.$val[$i].'"'.(($val[$i] == $def)?' checked':'').'>'.FMT($opt[$i]);
+		$rval .= '<input type="radio" name="'.$name.'" value="'.$val[$i].'"'.(($val[$i] == $def)?' checked':'').'>'.htmlspecialchars($opt[$i]);
 		if ( $vertical ) 
 			$rval .= '<br>';
 		else 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.11 2003/04/21 17:42:40 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.12 2003/04/23 00:56:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,53 +14,67 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	fud_use('login.inc', true);
 
+	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'login_filter_cache';
+	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'email_filter_cache';
+	
 function is_ip_blocked($ip)
 {
-	if (!isset($GLOBALS['__FUD_IP_FILTER__'])) {
-		include $GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache';
-	}
 	if (!count($GLOBALS['__FUD_IP_FILTER__'])) {
 		return;
 	}
 	$block =& $GLOBALS['__FUD_IP_FILTER__'];
-	$ipp = explode('.', $ip);
+	list($a,$b,$c,$d) = explode('.', $ip);
 
-	if (isset($block[$ipp[0]]) && (isset($block[$ipp[1]]) || isset($block[256])) && (isset($block[$ipp[2]]) || isset($block[256])) && (isset($block[$ipp[3]]) || isset($block[256]))) {
-		return 1;
-	} else {
-		return;	
+	if (!isset($block[$a])) {
+		return;
 	}
+	if (isset($block[$a][$b][$c][$d])) {
+		return 1;
+	}
+
+	if (isset($block[$a][256])) {
+		$t = $block[$a][256];
+	} else if (isset($block[$a][$b])) {
+		$t = $block[$a][$b];
+	} else {
+		return;
+	}
+
+	if (isset($t[$c])) {
+		$t = $t[$c];
+	} else if (isset($t[256])) {
+		$t = $t[256];
+	} else {
+		return;
+	}
+
+	return (isset($t[$d]) || isset($t[256])) ? 1 : NULL;
+}
+
+function is_login_blocked($l)
+{
+	foreach ($GLOBALS['__FUD_LGN_FILTER__'] as $v) {
+		if (preg_match($v, $l)) {
+			return 1;
+		}
+	}
+	return;
 }
 
 function is_email_blocked($addr)
 {
-	if (!isset($GLOBALS['__FUD_EMAIL_FILTER__'])) {
-		include $GLOBALS['FORUM_SETTINGS_PATH'] . 'email_filter_cache';
-	}
 	if (!count($GLOBALS['__FUD_EMAIL_FILTER__'])) {
 		return;
 	}
-	$block =& $GLOBALS['__FUD_EMAIL_FILTER__'];
 	$addr = strtolower($addr);
-	$allowed = 0;
-	foreach ($block as $k => $v) {
-		if ($v[0] == '#') {
-			$not = 1;
-			$v = substr($v, 1);
-		} else {
-			$not = 0;
-		}
-		if (($k == 'SIMPLE' && (strpos($addr, $v) !== false)) || ($k == 'REGEX' && preg_match('!'.$v.'!', $addr))) {
-			if (!$not) {
-				return 1;
-			} else {
-				$allowed = 1;	
-			}
+	foreach ($GLOBALS['__FUD_EMAIL_FILTER__'] as $k => $v) {
+		if (($v == 'SIMPLE' && (strpos($addr, $k) !== false)) || ($v == 'REGEX && preg_match($k, $addr))) {
+			return 1;
 		}
 	}
-	return (($not && $allowed) || !$not) ? 0 : 1;
+	return;
 }
 
 function is_allowed_user(&$usr)

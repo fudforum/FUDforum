@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admemail.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admemail.php,v 1.5 2003/04/23 00:54:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,83 +16,66 @@
 ***************************************************************************/
 
 	define('admin_form', 1);
-	
-	include_once "GLOBALS.php";
-	
+
+	require('GLOBALS.php');
 	fud_use('widgets.inc', true);
-	fud_use('iemail.inc');
-	fud_use('util.inc');
+	fud_use('email_filter.inc', true);
 	fud_use('adm.inc', true);
 
-	list($ses, $usr) = initadm();
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	if ( !empty($btn_submit) ) {
-		$eml = new fud_email_block;
-		$eml->add($e_type, $e_string);
-		header("Location: admemail.php?"._rsidl);
-		exit();
+	if (isset($_POST['edit'], $_POST['btn_update']) && !empty($_POST['e_string'])) {
+		$e_type = $_POST['e_type'] == 'REGEX' ? "'REGEX'" : "'SIMPLE'";
+		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
+		q('UPDATE '.$tbl.'email_block SET type='.$e_type.', string='.$e_string.' WHERE id='.(int)$_POST['edit']);
+	} else if (isset($_POST['btn_submit']) && !empty($_POST['e_string'])) {
+		$e_type = $_POST['e_type'] == 'REGEX' ? "'REGEX'" : "'SIMPLE'";
+		$e_string = "'".addslashes(trim($_POST['e_string']))."'";
+		q('INSERT INTO '.$tbl.'email_block (type, string) VALUES('.$e_type.', '.$e_string.')');
+	} else if (isset($_GET['del'])) {
+		q('DELETE FROM '.$tbl.'email_block WHERE id='.(int)$_GET['del']);
+	} else {
+		$nada = 1;
 	}
-	
-	if ( !empty($edit) && empty($p_l) ) {
-		$eml = new fud_email_block;
-		$eml->get($edit);
-		$e_string = addslashes($eml->string);
-		$e_type = $eml->type;
+
+	if (!isset($nada) && db_affected()) {
+		email_cache_rebuild();
 	}
-	
-	if ( !empty($btn_cancel) ) {
-		header("Location: admemail.php?"._rsidl);
-		exit(); 
+
+	if (isset($_GET['edit'])) {
+		list($edit, $e_type, $e_string) = db_saq('SELECT id, type, string FROM '.$tbl.'email_block WHERE id='.(int)$_GET['edit']);
+	} else {
+		$edit = $e_type = $e_string = '';
 	}
-	
-	if ( !empty($edit) && !empty($btn_update) ) {
-		$eml = new fud_email_block;
-		$eml->get($edit);
-		$eml->sync($e_type, $e_string);
-		header("Location: admemail.php?"._rsidl);
-		exit();
-	}
-	
-	if ( !empty($del) ) {
-		$eml = new fud_email_block;
-		$eml->get($del);
-		$eml->delete();
-		header("Location: admemail.php?"._rsidl);
-		exit();
-	}
-	
-	cache_buster();
- include('admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Email Filter</h2>
-<form method="post">  
+<form method="post" action="admemail.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Type:</td>
-		<td><?php draw_select("e_type", "Simple\nRegexp", "SIMPLE\nREGEX", empty($e_type)?'':$e_type); ?></td>
+		<td><?php draw_select("e_type", "Simple\nRegexp", "SIMPLE\nREGEX", $e_type); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>String:</td>
-		<td><input type="text" name="e_string" value="<?php echo htmlspecialchars(stripslashes($e_string)); ?>"></td>
+		<td><input type="text" name="e_string" value="<?php echo htmlspecialchars($e_string); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 		<?php
-			if ( !empty($edit) ) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
-				echo '<input type="submit" name="btn_update" value="Update">';
-			}
-			else 
+			if ($edit) {
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+			} else {
 				echo '<input type="submit" name="btn_submit" value="Add">';
+			}
 		?>
 		</td>
 	</tr>
-	
 </table>
-<input type="hidden" name="p_l" value="1">
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
 
@@ -103,17 +86,16 @@
 	<td>Action</td>
 </tr>
 <?php
-	$el = new fud_email_block;
-	$el->getall();
-	$el->resete();
-	
-	$i=1;
-	while ( $obj = $el->eache() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		$ctl = "[<a href=\"admemail.php?edit=$obj->id&"._rsid."\">Edit</a>] [<a href=\"admemail.php?del=$obj->id&"._rsid."\">Delete</a>]";
-		echo "<tr$bgcolor><td>$obj->string</td><td>$obj->type</td><td>$ctl</td></tr>\n";
+	$c = uq('SELECT id, type, string FROM '.$tbl.'email_block');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		if ($edit == $r[0]) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[2]).'</td><td>'.$r[1].'</td><td>[<a href="admemail.php?edit='.$r[0].'&'._rsid.'">Edit</a>] [<a href="admemail.php?del='.$r[0].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
 ?>
 </table>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
