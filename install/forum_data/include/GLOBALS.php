@@ -42,12 +42,12 @@
 	$SESSION_TIMEOUT 	= "1800";	/* seconds */
 	
 
-	$MYSQL_SERVER 		= "";
-	$MYSQL_LOGIN		= "";
-	$MYSQL_PASSWORD		= "";
-	$MYSQL_DB		= ""; 
-	$MYSQL_PERSIST		= "N";     	/* boolean */
-	$MYSQL_TBL_PREFIX	= "fud2_";	/* do not modify this */
+	$DBHOST 		= "";
+	$DBHOST_USER		= "";
+	$DBHOST_PASSWORD		= "";
+	$DBHOST_DBNAME		= ""; 
+	$DBHOST_PERSIST		= "N";     	/* boolean */
+	$DBHOST_TBL_PREFIX	= "fud2_";	/* do not modify this */
 
 	$ADMIN_EMAIL 		= "";
 
