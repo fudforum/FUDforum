@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.26 2003/05/14 06:46:00 hackie Exp $
+*   $Id: admglobal.php,v 1.27 2003/05/15 18:21:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -273,4 +273,4 @@ function print_tag_style($descr, $field)
 </table>
 <input type="hidden" name="form_posted" value="1">
 </form>
-<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>                                                                
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -24,6 +24,7 @@
 	<a style="font-size: x-small;" href="admglobal.php?<?php echo _rsidl; ?>">Global Settings Manager</a><br>
 	<a style="font-size: x-small;" href="admreplace.php?<?php echo _rsidl; ?>">Replacement & Censorship System</a><br>
 	<a style="font-size: x-small;" href="admmime.php?<?php echo _rsidl; ?>">MIME Managment System</a><br>
+	<a style="font-size: x-small;" href="admrdf.php?<?php echo _rsidl; ?>">RDF Feed Managment</a><br>
 	
 <?php
 	if (strncasecmp('win', PHP_OS, 3)) {
