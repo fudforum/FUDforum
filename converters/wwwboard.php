@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: wwwboard.php,v 1.3 2004/01/27 01:04:42 hackie Exp $
+* $Id: wwwboard.php,v 1.4 2004/04/01 23:56:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -151,6 +151,9 @@ function print_msg($msg)
 		/* try to identify the user and if possible create a new user */
 		if (isset($msg['email'])) {
 			$id = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE email='".addslashes($msg['email'])."'");
+			if (!$id) {
+				$id = (int) q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE login='".addslashes($msg['user'])."'");
+			}
 			if (!$id) { /* add user */
 				$u->login = $u->name = $msg['user'];
 				$u->email = $msg['email'];
