@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.42 2004/05/11 17:31:44 hackie Exp $
+* $Id: msg.tmpl,v 1.44 2004/10/26 13:17:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,10 +27,7 @@
 {REF: thread_notify.tmpl}
 {REF: is_perms.tmpl}
 {REF: th_nav.tmpl}
-
-{SECTION: msg_forum_path forum location forum>thread>}
-<span class="GenText"><a name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk1}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></span>
-{SECTION: END}
+{REF: draw_forum_path.tmpl}
 
 {SECTION: thread_rating}
 &nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />) {MSG: vote}
@@ -98,7 +95,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
+<a name="page_top"> </a>
+{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)} {TEMPLATE-DATA: thread_rating}
 <table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
@@ -117,7 +115,7 @@
 {TEMPLATE-DATA: next_thread_link}
 </table>
 {TEMPLATE-DATA: rate_thread}
-{TEMPLATE-DATA: forum_select}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</div>
 {TEMPLATE-DATA: msg_page_focus}
@@ -162,14 +160,6 @@
 <script language="javascript" type="text/javascript">
 fud_msg_focus("{VAR: mid}");
 </script>
-{SECTION: END}
-
-{SECTION: msg_forum_path_lnk}
-{ROOT}?t=index&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: msg_forum_path_lnk1}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: split_thread_lnk}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.55 2004/07/02 16:54:28 hackie Exp $
+* $Id: tree.tmpl,v 1.59 2004/10/28 19:43:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@
 {REF: show.tmpl}
 {REF: th_nav.tmpl}
 {REF: th.tmpl}
+{REF: draw_forum_path.tmpl}
 
 {SECTION: tree_unread_message new message}
 <img src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
@@ -34,18 +35,6 @@
 
 {SECTION: tree_read_message read message}
 <img src="{THEME_IMAGE_ROOT}/read.png" alt="{MSG: read_message}" title="{MSG: read_message}" />
-{SECTION: END}
-
-{SECTION: msg_forum_path_lnk}
-{ROOT}?t=index&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: msg_forum_path_lnk2}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: msg_forum_path forum location forum>thread>}
-<span class="GenText"><a name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk2}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></span>
 {SECTION: END}
 
 {SECTION: thread_rating}
@@ -161,7 +150,7 @@
 {SECTION: tree_branch message with replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_branch_lnk}" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 </tr>
@@ -174,7 +163,7 @@
 {SECTION: tree_entry message without replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_entry_lnk}" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
@@ -186,7 +175,7 @@
 {SECTION: tree_branch_selected message with replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_branch_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
@@ -198,7 +187,7 @@
 {SECTION: tree_entry_selected message without replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_entry_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
@@ -207,7 +196,8 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
+<a name="page_top"> </a>
+{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)} {TEMPLATE-DATA: thread_rating}
 <table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
 <td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
@@ -225,7 +215,7 @@
 {TEMPLATE-DATA: next_thread_link}
 </table>
 {TEMPLATE-DATA: rate_thread}
-{TEMPLATE-DATA: forum_select}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</div>
 {TEMPLATE: curtime}
@@ -255,10 +245,6 @@
 
 {SECTION: tree_xml_link}
 [ <a href="{TEMPLATE: tree_xml_link_lnk}">{MSG: thread_syndicate}</a> ]
-{SECTION: END}
-
-{SECTION: tree_tab_width the width of the tab beside each message in pixels}
-15
 {SECTION: END}
 
 {SECTION: rate_thread_lnk3}

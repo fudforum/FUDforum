@@ -670,7 +670,7 @@ email_title:			Send e-post
 finduser_title:			S&oslash;k etter medlemmer
 help_title:			Hjelp
 login_title:			Logg inn
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Gallupeditor
 register_title:			Registrering
 reset_title:			Nullstill passord
@@ -679,7 +679,7 @@ error_title:			FEIL
 index_title:			Velkommen til forumet
 search_title:			S&oslash;k {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-post sendt
 remail_email:			Det fins en websida her {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) som du kanskje er interressert i &aring; lese.\nTråden som jeg tenkte kunne v&oelig;re av interresse, {VAR: data->subject} finner du her: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nAv {VAR: usr->alias}\n
 poll_add_option:		Legg til alternativ:
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

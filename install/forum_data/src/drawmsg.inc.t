@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.88 2004/06/07 15:24:53 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.91 2004/10/25 16:54:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,7 +22,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
 		q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);
 		poll_cache_rebuild($opt_id, $options);
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='.strnull(addslashes(@serialize($options))).' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='.strnull(addslashes(serialize($options))).' WHERE id='.$mid);
 	}
 
 	return 1;
@@ -48,10 +48,10 @@ if (isset($_GET['rev'])) {
 /* initialize buddy & ignore list for registered users */
 if (_uid) {
 	if ($usr->buddy_list) {
-		$usr->buddy_list = @unserialize($usr->buddy_list);
+		$usr->buddy_list = unserialize($usr->buddy_list);
 	}
 	if ($usr->ignore_list) {
-		$usr->ignore_list = @unserialize($usr->ignore_list);
+		$usr->ignore_list = unserialize($usr->ignore_list);
 		if (isset($usr->ignore_list[1])) {
 			$usr->ignore_list[0] =& $usr->ignore_list[1];
 		}
@@ -127,43 +127,32 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	$a = (int) $obj->users_opt;
 	$b =& $usr->users_opt;
 
+	$next_page = $next_message = $prev_message = '';
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
 		/* tree view is a special condition, we only show 1 message per page */
 		if ($_GET['t'] == 'tree') {
 			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
 			$next_message = $misc[1] ? '{TEMPLATE: dmsg_tree_next_message_next_page}' : '';
-			$next_page = '';
 		} else {
 			/* handle previous link */
 			if (!$m_num && $obj->id > $obj->root_msg_id) { /* prev link on different page */
-				$msg_start = $misc[0] - $misc[1];
 				$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
 			} else if ($m_num) { /* inline link, same page */
-				$msg_num = $m_num;
 				$prev_message = '{TEMPLATE: dmsg_prev_message}';
-			} else {
-				$prev_message = '';
 			}
 
 			/* handle next link */
 			if ($obj->id < $obj->last_post_id) {
 				if ($m_num && !($misc[1] - $m_num - 1)) { /* next page link */
-					$msg_start = $misc[0] + $misc[1];
 					$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
 					$next_page = '{TEMPLATE: dmsg_next_msg_page}';
 				} else {
-					$msg_num = $m_num + 2;
 					$next_message = '{TEMPLATE: dmsg_next_message}';
-					$next_page = '';
 				}
-			} else {
-				$next_page = $next_message = '';
 			}
 		}
-		$m_num++;
-	} else {
-		$next_page = $next_message = $prev_message = '';
+		++$m_num;
 	}
 
 	if (!$obj->user_id) {
@@ -176,8 +165,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 	/* check if the message should be ignored and it is not temporarily revelead */
 	if ($usr->ignore_list && !empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
-		$rev_url = make_reveal_link($obj->id);
-		$un_ignore_url = make_tmp_unignore_lnk($obj->poster_id);
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
 	}
 
@@ -209,16 +196,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 			$user_link = '{TEMPLATE: dmsg_reg_user_link}';
 
-			if ($obj->location) {
-				if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
-					$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
-				} else {
-					$location =& $obj->location;
-				}
-				$location = '{TEMPLATE: dmsg_location}';
-			} else {
-				$location = '{TEMPLATE: dmsg_no_location}';
-			}
+			$location = $obj->location ? '{TEMPLATE: dmsg_location}' : '{TEMPLATE: dmsg_no_location}';
 
 			if (_uid && _uid != $obj->user_id) {
 				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dmsg_buddy_link_add}' : '{TEMPLATE: dmsg_buddy_link_remove}';
@@ -259,11 +237,8 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	 * if there is no body show a 'no-body' message
 	 */
 	if (!$hide_controls && $obj->message_threshold && $obj->length_preview && $obj->length > $obj->message_threshold && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
-		$rev_url = make_reveal_link($obj->id);
-		$msg_body = read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview);
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
 	} else if ($obj->length) {
-		$msg_body = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		$msg_body = '{TEMPLATE: dmsg_normal_message_body}';
 	} else {
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
@@ -272,11 +247,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	/* draw file attachments if there are any */
 	$drawmsg_file_attachments = '';
 	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
-		$atch = @unserialize($obj->attach_cache);
+		$atch = unserialize($obj->attach_cache);
 		if (!empty($atch)) {
 			foreach ($atch as $v) {
 				$sz = $v[2] / 1024;
-				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
 				$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';
 			}
 			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
@@ -298,7 +272,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 
 	if ($obj->poll_cache) {
-		$obj->poll_cache = @unserialize($obj->poll_cache);
+		$obj->poll_cache = unserialize($obj->poll_cache);
 	}
 
 	/* handle poll votes */
@@ -334,7 +308,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		$poll_data = '';
 		foreach ($obj->poll_cache as $k => $v) {
-			$i++;
+			++$i;
 			if ($show_res) {
 				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
 				$poll_data .= '{TEMPLATE: dmsg_poll_result}';

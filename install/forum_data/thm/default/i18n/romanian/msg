@@ -675,7 +675,7 @@ email_title:			Formular de trimitere email
 finduser_title:			Cauta utilizator
 help_title:			Intrebari frecvente
 login_title:			Formular de autentificare
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor de sondaje
 register_title:			Formular de inregistrare
 reset_title:			Reseteaza Parola
@@ -684,7 +684,7 @@ error_title:			Formular erori
 index_title:			Bine a-ti venit la forum
 search_title:			Cauta {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Emailul a fost trimis
 remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adauga optiune:
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

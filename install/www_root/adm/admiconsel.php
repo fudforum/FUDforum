@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admiconsel.php,v 1.8 2004/06/07 15:24:53 hackie Exp $
+* $Id: admiconsel.php,v 1.11 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,29 +17,25 @@
 <title>Forum Icon Selection</title>
 <body bgcolor="#ffffff">
 <table border=0 cellspacing=1 cellpadding=2>
+<tr>
 <?php
-	$imp = $WWW_ROOT . 'images/forum_icons/';
-	$ima = array('.jpg' => 1, '.jpeg' => 1, '.gif' => 1, '.png' => 1);
+	$path = $WWW_ROOT . 'images/forum_icons/';
 
-	if (!($dp = opendir($WWW_ROOT_DISK . 'images/forum_icons'))) {
-		exit('ERROR: Unable to open icon directory for read');
-	}
-	readdir($dp); readdir($dp);
-	echo '<tr>';
-	$col = $i = 0;
-	while ($f = readdir($dp)) {
-		if (!isset($ima[strtolower(strchr($f, '.'))])) {
-			continue;
-		}
-		if (!($col++%9)) {
-			echo '</tr><tr>';
-		}
-		$bgcolor = !($i++%2) ? ' bgcolor="#f4f4f4"' : '';
+	if (($files = glob($WWW_ROOT_DISK. 'images/forum_icons/{*.jpg,*.gif,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT))) {
+		$col = $i = 0;
+		foreach ($files as $file) {
+			$f = basename($file);
+			if (!($col++%9)) {
+				echo '</tr><tr>';
+			}
+			$bgcolor = !($i++%2) ? ' bgcolor="#f4f4f4"' : '';
 
-		echo '<td align="center"'.$bgcolor.'><a href="javascript:window.opener.document.frm_forum.frm_forum_icon.value=\'images/forum_icons/'.$f.'\'; window.close();"><img src="'.$imp.$f.'" border=0><br><font size=-2>'.$f.'</font></a></td>';
+			echo '<td align="center"'.$bgcolor.'><a href="javascript:window.opener.document.frm_forum.frm_forum_icon.value=\'images/forum_icons/'.$f.'\'; window.close();"><img src="'.$path.$f.'" border=0><br><font size=-2>'.$f.'</font></a></td>';
+		}
+	} else if ($files === FALSE && !is_readable($path)) {
+		echo '<td>Unable to open '.$path.' for reading.</td>';
 	}
-	closedir($dp);
-	echo '</tr>';
 ?>
+</tr>
 </table>
 </html>

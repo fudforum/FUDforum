@@ -677,7 +677,7 @@ email_title:			S‰hkˆpostikaavake
 finduser_title:			Hae K‰ytt‰j‰
 help_title:			F.A.Q.
 login_title:			Sis‰‰nkirjautuminen
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Gallup Editori
 register_title:			Rekisterˆityminen
 reset_title:			Vaihda Salasana
@@ -686,7 +686,7 @@ error_title:			Virhe
 index_title:			Tervetuloa foorumille
 search_title:			Haku {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		S‰hkˆposti on l‰hetetty
 remail_email:			Hei,\n\nLˆysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehk‰ kiinnostaa sinua.\nLˆyd‰t sen t‰‰lt‰:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}\n
 poll_add_option:		Lis‰‰ Valinta:
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

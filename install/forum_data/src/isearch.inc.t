@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.38 2004/08/09 13:06:56 hackie Exp $
+* $Id: isearch.inc.t,v 1.42 2004/10/25 15:26:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,16 +44,14 @@ function mb_word_split($str)
 	return isset($m2) ? $m2 : array();
 }
 
-if (!function_exists("str_word_count")) {
-	function str_word_count($str, $a)
-	{
-		return explode(' ', trim(preg_replace(array('!\W!', '!\s+!'), array(' ', ' '), $str)));
-	}
-}
-
 function text_to_worda($text)
 {
 	$a = array();
+
+	/* if no good locale, default to splitting by spaces */
+	if (!$GLOBALS['good_locale']) {
+		$GLOBALS['usr']->lang = 'latvian';
+	}
 
 	while (1) {
 		reverse_fmt($text);
@@ -65,7 +63,7 @@ function text_to_worda($text)
 		
 			case 'japanese':
 				preg_match_all('!(\w)!u', $text, $tmp);
-				return array_unique($tmp[0]);
+				break;
 
 			case 'latvian':
 			case 'russian-1251':
@@ -74,6 +72,10 @@ function text_to_worda($text)
 
 			default:
 				$t1 = array_unique(str_word_count(strip_tags(strtolower($text)), 1));
+				if (!$t1) { /* fall through to split by special chars */
+					$GLOBALS['usr']->lang = 'latvian';
+					continue;		
+				} 
 				break;
 		}
 
@@ -85,7 +87,7 @@ function text_to_worda($text)
 			$a[] = "'".addslashes($v)."'";
 		}
 
-		error_reporting(E_ALL); /* restore error reporting */
+		error_reporting(2047); /* restore error reporting */
 
 		break;
 	}

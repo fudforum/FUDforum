@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.63 2004/08/16 19:51:06 hackie Exp $
+* $Id: admglobal.php,v 1.64 2004/10/06 14:56:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -210,7 +210,7 @@ function get_max_upload_size()
 
 <tr class="fieldtopic"><td colspan=2><br><b>Spell Checker</b> </td></tr>
 <?php
-	if (function_exists('pspell_new_config')) {
+	if (extension_loaded('pspell')) {
 		$pspell_support = '<font color="red">is enabled.</font>';
 	} else {
 		$pspell_support = '<font color="red">is disabled.<br>Please ask your administrator to enable pspell support.</font>';
@@ -306,7 +306,7 @@ function get_max_upload_size()
 	print_bit_field('Obfuscate e-mails in NNTP posts', 'NNTP_OBFUSCATE_EMAIL');
 	print_bit_field('Hide user profiles', 'HIDE_PROFILES_FROM_ANON');
 
-	if (function_exists('ob_gzhandler')) {
+	if (extension_loaded('zlib')) {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
 		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
 	}

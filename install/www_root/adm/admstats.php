@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.26 2004/06/07 15:24:55 hackie Exp $
+* $Id: admstats.php,v 1.31 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,23 +19,23 @@
 function dir_space_usage($dirp)
 {
 	$disk_space = 0;
-
-	if (!($dir = @opendir($dirp))) {
-		return;
-	}
-	readdir($dir); readdir($dir);
-
-	while ($f = readdir($dir)) {
-		$file = $dirp . '/' . $f;
-		if (@is_link($file)) {
-			continue;
-		} else if (@is_dir($file)) {
-			$disk_space += dir_space_usage($file);
-		} else if (@is_file($file)) {
-			$disk_space += filesize($file);
+	$dirs = array(realpath($dirp));
+	
+	while (list(,$v) = each($dirs)) {
+		if (!($files = glob($v.'/*', GLOB_NOSORT))) {
+			continue;	
+		}
+		foreach ($files as $f) {
+			if (is_link($f)) {
+				continue;
+			}
+			if (is_dir($f)) {
+				$dirs[] = $f;
+				continue;
+			}
+			$disk_space += filesize($f);
 		}
 	}
-	closedir($dir);
 
 	return $disk_space;
 }
@@ -120,19 +120,25 @@ function get_sql_disk_usage()
 		$g_title .= ' from <b>'.date('F d, Y', $start_tm).'</b> to <b>'.date('F d, Y', $end_tm).'</b>';
 
 		while ($r = db_rowarr($c)) {
-			$ds = date($fmt, $r[0]);
+			$ds = (int) date($fmt, $r[0]);
 			if (!isset($day_list[$ds])) {
 				$day_list[$ds] = 1;
-				$details[$ds] = $r[0];
+				if ($_POST['sep'] != 'month') {
+					$tm = $r[0];
+				} else {
+					$ts = getdate($r[0]);
+					$tm = mktime(0,1,1,$ts['mon'],1,$ts['year']);
+				}
+				$details[$ds] = $tm;
+				$r[0];
 			} else {
 				$day_list[$ds]++;
 			}
 		}
 
-		$tmp = $day_list;
-		rsort($tmp);
-		$max_value = current($tmp);
-		unset($tmp);
+		ksort($day_list, SORT_NUMERIC);
+
+		$max_value = max($day_list);
 
 		echo '<br><div align="center" style="font-size: small;">'.$g_title.' ('.$g_type.')</div>';
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
@@ -141,6 +147,8 @@ function get_sql_disk_usage()
 		$date_str = 'F d, Y';
 		if ($_POST['sep'] == 'hour') {
 			$date_str .= ' H:i';
+		} else if ($_POST['sep'] == 'year') {
+			$date_str = 'F Y';
 		}
 
 		foreach($day_list as $k => $v) {

@@ -676,7 +676,7 @@ email_title:			Emailov˝ Formul·r
 finduser_title:			Hæadanie uûÌvateæa
 help_title:			F.A.Q.
 login_title:			PrihlasovacÌ formul·r
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor Ankiet
 register_title:			RegistraËn˝ formul·r
 reset_title:			Resetnutie Hesla
@@ -685,7 +685,7 @@ error_title:			Formul·r ch˝bov˝ch hl·senÌ
 index_title:			Vitajte vo fÛre
 search_title:			Hæadaù {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email bol odoslan˝
 remail_email:			Dobr˝ deÚ,\n\nvo fÛre {GVAR: FORUM_TITLE} sa nach·dza zaujÌmav· tÈma "{VAR: data->subject}", ktor˙ by ste si mohli chcieù preËÌtaù. TÈmu si mÙûete prezrieù na adrese:\n {ROOT}?t={VAR: def_thread_view}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n V·ö priateæ,\n\n{VAR: usr->alias}\n
 poll_add_option:		Pridaù moûnosù:
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

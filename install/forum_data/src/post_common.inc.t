@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.19 2004/07/07 21:10:20 hackie Exp $
+* $Id: post_common.inc.t,v 1.20 2004/10/25 16:54:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,7 +66,7 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 	$i = 0;
 
 	if (!empty($al)) {
-		$enc = base64_encode(@serialize($al));
+		$enc = base64_encode(serialize($al));
 		$c = uq('SELECT a.id,a.fsize,a.original_name,m.mime_hdr
 		FROM {SQL_TABLE_PREFIX}attach a
 		LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id

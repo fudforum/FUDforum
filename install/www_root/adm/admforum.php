@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.35 2004/06/07 15:24:53 hackie Exp $
+* $Id: admforum.php,v 1.36 2004/10/22 21:14:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,7 +122,7 @@ if (!isset($_GET['chpos'])) {
 <table class="datatable">
 	<tr class="field">
 		<td>Forum Name:</td>
-		<td><input type="text" name="frm_name" value="<?php echo htmlspecialchars($frm_name); ?>" maxlength=100></td>
+		<td><input type="text" name="frm_name" value="<?php echo $frm_name; ?>" maxlength=100></td>
 	</tr>
 
 	<tr class="field">

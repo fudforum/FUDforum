@@ -674,7 +674,7 @@ email_title:			Formulário de Email
 finduser_title:			Procurar Utilizador
 help_title:			F.A.Q.
 login_title:			Formmulário de Login
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor de comentários
 register_title:			Formulário de Registo
 reset_title:			Cancelar Password
@@ -683,7 +683,7 @@ error_title:			Erro no Formulário
 index_title:			Bem vindo ao forum
 search_title:			Procurar por {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email enviado
 remail_email:			Olá,\n\nHá um tópico interessante sobre "{VAR: data->subject}" com o nome {GVAR: FORUM_TITLE} que talvez queira ler. Pode ver este tópico em:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n O seu amigo,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adicionar Opção:
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

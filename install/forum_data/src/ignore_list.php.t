@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.php.t,v 1.27 2004/06/07 15:24:53 hackie Exp $
+* $Id: ignore_list.php.t,v 1.28 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,7 +34,7 @@ function ignore_alias_fetch($al, &$is_mod)
 			error_dialog('{TEMPLATE: ignore_list_err_info_title}', '{TEMPLATE: ignore_list_cantign_msg}');
 		}
 		if (!empty($usr->ignore_list)) {
-			$usr->ignore_list = @unserialize($usr->ignore_list);
+			$usr->ignore_list = unserialize($usr->ignore_list);
 		}
 		if (!isset($usr->ignore_list[$ignore_id])) {
 			ignore_add(_uid, $ignore_id);
@@ -50,7 +50,7 @@ function ignore_alias_fetch($al, &$is_mod)
 		}
 
 		if (!empty($usr->ignore_list)) {
-			$usr->ignore_list = @unserialize($usr->ignore_list);
+			$usr->ignore_list = unserialize($usr->ignore_list);
 		}
 
 		if (($ignore_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'].' AND (users_opt & 1048576)=0')) && !isset($usr->ignore_list[$ignore_id])) {

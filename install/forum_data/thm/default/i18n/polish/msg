@@ -670,7 +670,7 @@ email_title:			Formularz wysy³ania listu
 finduser_title:			Znajd¼ U¿ytkownika
 help_title:			Pomoc
 login_title:			Formularz logowania
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Edytor Ankiet
 register_title:			Formularz rejestracji
 reset_title:			Wyzeruj has³o
@@ -679,7 +679,7 @@ error_title:			Formularz b³êdu
 index_title:			Witaj na naszym forum
 search_title:			Szukaj {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		List zosta³ wys³any
 remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({TEMPLATE: index_update_lnk}), która powinna Ciê zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: data->subject} i mo¿e byæ znaleziona tutaj: {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n{VAR: usr->alias}\n
 poll_add_option:		Dodaj Opcjê:
@@ -1022,3 +1022,4 @@ register_turing:		Wpisz kod widoczny poni¿ej:
 register_err_turing:		Kod sprawdzaj±cy jest nieprawid³owy.
 modque_cat:			Kategoria
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

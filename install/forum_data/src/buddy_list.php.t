@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.php.t,v 1.31 2004/01/04 16:38:26 hackie Exp $
+* $Id: buddy_list.php.t,v 1.32 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 		}
 
 		if (!empty($usr->buddy_list)) {
-			$usr->buddy_list = @unserialize($usr->buddy_list);
+			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
 		if (!isset($usr->buddy_list[$buddy_id])) {
@@ -42,7 +42,7 @@
 		}
 
 		if (!empty($usr->buddy_list)) {
-			$usr->buddy_list = @unserialize($usr->buddy_list);
+			$usr->buddy_list = unserialize($usr->buddy_list);
 		}
 
 		if (($buddy_id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE id='.$_GET['add'])) && !isset($usr->buddy_list[$buddy_id])) {

@@ -670,7 +670,7 @@ email_title:			邮件格式
 finduser_title:			查找用户
 help_title:			使用帮助
 login_title:			登录格式
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			调查编辑
 register_title:			注册
 reset_title:			重新输入密码
@@ -679,7 +679,7 @@ error_title:			格式错误
 index_title:			欢迎到来
 search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		邮件已经发送
 remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
 poll_add_option:		添加选项：
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

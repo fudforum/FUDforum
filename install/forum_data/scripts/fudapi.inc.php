@@ -705,7 +705,11 @@ function &_fud_msg_multi($arg, $query)
 
 function &_fud_simple_fetch_query($arg, $query)
 {
-	$arg = is_numeric($arg) ? array($arg) : $arg;
+        if ($arg) {    
+		$arg = is_numeric($arg) ? array($arg) : $arg;
+	} else {
+		$arg = array();
+	}
 	$result = array();
 
 	$r = uq(str_replace('{ARG}', implode(',', $arg), $query));

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.28 2004/06/07 15:24:55 hackie Exp $
+* $Id: msglist.php,v 1.33 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,40 +32,44 @@
 function makedeps()
 {
 	$path = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['tname'].'/tmpl';
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	while( $file = readdir($dp) ) {
-		if (substr($file, -5) == '.tmpl') {
-			$data = file_get_contents($path . '/' . $file);
 
-			// check for msgs int the php code
-			$s = $e = 0;
+	$files = glob($path . '/*.tmpl', GLOB_NOSORT);
+	if (!$files) {
+		echo "Could not get list of template files from {$path}<br/>";
+		return array();
+	}
 
-			while (($s = strpos($data, '{REF: ', $s)) !== false) {
-				$s += 6;
-				if (($e=strpos($data, '}', $s)) === false) {
-					break;
-				}
+	foreach ($files as $f) {
+		$data = file_get_contents($f);
+		$file = basename($f);
 
-				$dep = substr($data, $s, ($e - $s));
-				if (!isset($deps[$file][$dep])) {
-					$deps[$file][$dep] = $dep;
-				}
-				$s = $e;
+		// check for msgs int the php code
+		$s = $e = 0;
+
+		while (($s = strpos($data, '{REF: ', $s)) !== false) {
+			$s += 6;
+			if (($e = strpos($data, '}', $s)) === false) {
+				break;
 			}
 
-			while (($s = strpos($data, '{MSG: ', $s)) !== false) {
-				$s += 6;
-				if (($e=strpos($data, '}', $s)) === false) {
-					break;
-				}
-
-				$msg = substr($data, $s, ($e - $s));
-				if (!isset($tmplmsglist[$file][$msg])) {
-					$tmplmsglist[$file][$msg] = $msg;
-				}
-				$s = $e;
+			$dep = substr($data, $s, ($e - $s));
+			if (!isset($deps[$file][$dep])) {
+				$deps[$file][$dep] = $dep;
 			}
+			$s = $e;
+		}
+
+		while (($s = strpos($data, '{MSG: ', $s)) !== false) {
+			$s += 6;
+			if (($e = strpos($data, '}', $s)) === false) {
+				break;
+			}
+
+			$msg = substr($data, $s, ($e - $s));
+			if (!isset($tmplmsglist[$file][$msg])) {
+				$tmplmsglist[$file][$msg] = $msg;
+			}
+			$s = $e;
 		}
 	}
 
@@ -97,7 +101,9 @@ function makedeps()
 			if (($e = strpos($data, "\n", $s)) === false) {
 				continue;
 			}
-			$data = substr_replace($data, trim($_POST[$v]), $s, ($e - $s));
+			$_POST[$v] = str_replace(array("\r", "\n"), array("", "\\n"), trim($_POST[$v]));
+
+			$data = substr_replace($data, $_POST[$v], $s, ($e - $s));
 		}
 		if (!($fp = fopen($msgfile, 'wb'))) {
 			exit('unable to write to "'.$msgfile.'" message file');
@@ -106,7 +112,7 @@ function makedeps()
 		fclose($fp);
 		fud_use('compiler.inc', true);
 
-		$c = q("SELECT theme FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
+		$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
 		while ($r = db_rowarr($c)) {
 			compile_all($tname, $tlang, $r[0]);
 		}
@@ -194,12 +200,7 @@ if (isset($warn)) {
 
 			$txt = htmlspecialchars(trim(substr($data, $s, ($e - $s))));
 			if (strlen($txt) > 50) {
-				$rows = strlen($txt) / 50 + 2;
-				if ($rows > 20) {
-					$rows = 20;
-				}
-
-				$inptd = '<textarea name="'.$v.'" rows='.$rows.' cols=50>'.$txt.'</textarea>';
+				$inptd = '<textarea name="'.$v.'" rows=20 cols=60>'.$txt.'</textarea>';
 			} else {
 				$inptd = '<input type="text" name="'.$v.'" value="'.$txt.'" size=50>';
 			}

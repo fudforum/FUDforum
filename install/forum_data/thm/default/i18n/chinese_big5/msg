@@ -671,7 +671,7 @@ email_title:			郵件格式
 finduser_title:			查找用戶
 help_title:			使用幫助
 login_title:			登錄格式
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			調查編輯
 register_title:			注冊
 reset_title:			重新輸入密碼
@@ -680,7 +680,7 @@ error_title:			格式錯誤
 index_title:			歡迎到來
 search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		郵件已經發送
 remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
 poll_add_option:		添加選項：
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

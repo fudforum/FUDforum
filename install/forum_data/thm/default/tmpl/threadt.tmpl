@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.34 2004/07/02 16:54:28 hackie Exp $
+* $Id: threadt.tmpl,v 1.36 2004/10/22 22:56:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@
 <tr>
 <td class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB">{TEMPLATE-DATA: thread_icon}</td>
-<td class="tt" style="padding-left: {VAR: width}px">{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a href="{TEMPLATE: thread_row_lnk}" class="big">{VAR: cur->subject}</a>{VAR: sticky}
+<td class="tt" style="padding-left: {FUNC: (20 * ($lev - 1))}px">{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a href="{TEMPLATE: thread_row_lnk}" class="big">{VAR: cur->subject}</a>{VAR: sticky}
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_link} {MSG: thread_on} {TEMPLATE: threadt_msg_post_date}</div></td>
 </tr>
 {SECTION: END}
@@ -76,7 +76,7 @@
 {SECTION: max_depth_reached maximum allowed depth of thread reached}
 <tr>
 <td class="RowStyleB" colspan=2>&nbsp;</td>
-<td class="tt" style="padding-left: {VAR: width}px"><a href="{TEMPLATE: max_depth_reached_lnk}" class="big">{MSG: threadt_more}</a></td>
+<td class="tt" style="padding-left: {FUNC: ($width += 20)}px"><a href="{TEMPLATE: max_depth_reached_lnk}" class="big">{MSG: threadt_more}</a></td>
 </tr>
 {SECTION: END}
 
@@ -100,7 +100,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 <table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
-<td class="al wa">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
+<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
@@ -110,7 +110,7 @@
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
-{TEMPLATE-DATA: forum_select}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 {TEMPLATE-DATA: mark_all_read}
 {TEMPLATE: thread_legend}
 {TEMPLATE: curtime}
@@ -136,8 +136,4 @@
 
 {SECTION: announcement}
 <span class="AnClr"> ({MSG: threadt_announce})</span>
-{SECTION: END}
-
-{SECTION: threadt_tab_width}
-20
 {SECTION: END}

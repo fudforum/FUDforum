@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.38 2004/06/07 15:24:53 hackie Exp $
+* $Id: admimport.php,v 1.42 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ function resolve_dest_path($path)
 			} else {
 				$path_error = '<font color="#ff0000">the webserver has no permission to open <b>'.$_POST['path'].'</b> for reading</font><br>';
 			}
-		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !function_exists('gzopen')) {
+		} else if (($gz_file = preg_match('!\.gz$!', $_POST['path'])) && !extension_loaded('zlib')) {
 			$path_error = '<font color="#ff0000">The file <b>'.$_POST['path'].'</b> is compressed using gzip & your PHP does not have gzip extension install. Please decompress the file yourself and try again.</font><br>';
 		} else {
 			if (!$gz_file) {
@@ -100,7 +100,7 @@ function resolve_dest_path($path)
 							fwrite($fd, $readf($fp, 2000000));
 						}
 						if ($rem) {
-							 fwrite($fd, $readf($fp, $rem));
+							fwrite($fd, $readf($fp, $rem));
 						}
 					}
 					fclose($fd);
@@ -130,15 +130,11 @@ function resolve_dest_path($path)
 			preg_match("!define\('__dbtype__', '(mysql|pgsql)'\);!", file_get_contents($DATA_DIR.'src/db.inc.t'), $tmp);
 			if ($tmp[1] != __dbtype__) {
 				/* read the table definitions from appropriate SQL directory */
-				if (!($d = opendir($DATA_DIR.'sql'))) {
+				if (!($files = glob($DATA_DIR . 'sql/*.tbl', GLOB_NOSORT))) {
 					exit("Couldn't open ".$DATA_DIR."sql/ directory<br>\n");
 				}
-				readdir($d); readdir($d);
-				while ($f = readdir($d)) {
-					if (substr($f, -4) != '.tbl') {
-						continue;
-					}
-					$tbl_data = file_get_contents($DATA_DIR.'sql/'.$f);
+				foreach ($files as $f) {
+					$tbl_data = file_get_contents($f);
 					$tbl_data = preg_replace("!#.*?\n!", '', $tbl_data);
 					$tbl_data = preg_replace('!\s+!', ' ', trim($tbl_data));
 					$tmp = explode(';', str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $tbl_data));
@@ -151,7 +147,6 @@ function resolve_dest_path($path)
 						}
 					}
 				}
-				closedir($d);
 
 				/* copy appropriate db.inc.t */
 				copy($DATA_DIR.'sql/'.__dbtype__.'/db.inc', $DATA_DIR . '/src/db.inc.t');
