@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.30 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admthemes.php,v 1.31 2003/06/11 16:50:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -122,7 +122,9 @@ function clean_code($path, $toks)
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
 			exit('can\'t create ('.$root_nn.')<br>');
 		}
-		fudcopy($root . 'default/', $root_nn, '!.*!', true);
+		$ts = $_POST['base_template_set'] == 'path_info' ? 'path_info/' : 'default/';
+		
+		fudcopy($root . $ts, $root_nn, '!.*!', true);
 		umask($u);
 	}
 	
@@ -300,6 +302,14 @@ function update_locale()
 <form method="post">
 <table border=0 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td colspan=2>Create New Template Set</td></tr>
+<tr bgcolor="#bff8ff">
+	<td>Base Template Set:</td>
+	<td>
+	<select name="base_template_set">
+	<option value="default">Default</option>
+	<option value="path_info">Path Info</option>
+	</select></td>
+</tr>
 <tr bgcolor="#bff8ff">
 	<td>Name</td>
 	<td><input type="text" name="newname"></td>
