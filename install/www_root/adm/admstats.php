@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.27 2004/10/06 16:36:16 hackie Exp $
+* $Id: admstats.php,v 1.28 2004/10/14 15:01:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,16 +123,20 @@ function get_sql_disk_usage()
 			$ds = date($fmt, $r[0]);
 			if (!isset($day_list[$ds])) {
 				$day_list[$ds] = 1;
-				$details[$ds] = $r[0];
+				if ($_POST['sep'] == 'hour') {
+					$tm = $r[0];
+				} else {
+					$ts = getdate($r[0]);
+					$tm = mktime(0,1,1,$ts['mon'],1,$ts['year']);
+				}
+				$details[$ds] = $tm;
+				$r[0];
 			} else {
 				$day_list[$ds]++;
 			}
 		}
 
-		$tmp = $day_list;
-		rsort($tmp);
-		$max_value = current($tmp);
-		unset($tmp);
+		$max_value = max($day_list);
 
 		echo '<br><div align="center" style="font-size: small;">'.$g_title.' ('.$g_type.')</div>';
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
