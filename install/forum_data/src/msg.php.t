@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.76 2004/10/21 00:08:37 hackie Exp $
+* $Id: msg.php.t,v 1.77 2004/11/01 19:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -152,18 +152,6 @@
 		$rate_thread = $thread_rating = '';
 	}
 
-	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
-	$threaded_view = $FUD_OPT_3 & 2 ? '' : '{TEMPLATE: threaded_view}';
-	$email_page_to_friend = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_page_to_friend}' : '';
-
-	if ($perms & 4096) {
-		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
-	} else {
-		$lock_thread = '';
-	}
-
-	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
-
 	/* This is an optimization intended for topics with many messages */
 	q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND apr=1 ORDER BY id ASC LIMIT " . qry_limit($count, $_GET['start']));
 
@@ -218,9 +206,6 @@
 	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-
-	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: msg_pdf_link}' : '';
-	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: msg_xml_link}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

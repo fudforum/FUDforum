@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.33 2004/10/22 22:56:37 hackie Exp $
+* $Id: threadt.php.t,v 1.34 2004/11/01 19:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,20 +74,9 @@
 
 					if (isset($cur->subject) && empty($cur->sub_shown)) {
 						if ($TREE_THREADS_MAX_DEPTH > $lev) {
-							$thread_poll_indicator		= $cur->poll_id		? '{TEMPLATE: thread_poll_indicator}'	: '';
-							$thread_attach_indicator	= $cur->attach_cnt	? '{TEMPLATE: thread_attach_indicator}'	: '';
-							$thread_icon			= $cur->icon		? '{TEMPLATE: thread_icon}'		: '{TEMPLATE: thread_icon_none}';
-							$user_link			= $cur->poster_id	? '{TEMPLATE: reg_user_link}'		: '{TEMPLATE: unreg_user_link}';
-
 							if (isset($cur->subject[$TREE_THREADS_MAX_SUBJ_LEN])) {
 								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 							}
-							if ($lev == 1 && $cur->thread_opt > 1) {
-								$sticky = ($cur->thread_opt & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
-							} else {
-								$sticky = '';
-							}
-
 							if (_uid) {
 								if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
 									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';

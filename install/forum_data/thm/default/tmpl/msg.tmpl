@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.44 2004/10/26 13:17:26 hackie Exp $
+* $Id: msg.tmpl,v 1.45 2004/11/01 19:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -99,15 +99,19 @@
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)} {TEMPLATE-DATA: thread_rating}
 <table cellspacing=0 cellpadding=0 border=0 class="wa">
 <tr>
-<td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
-<td class="vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
+<td class="GenText al">{TEMPLATE: show_links}
+{IF: ($frm->replies && $perms & 2048)}{TEMPLATE: split_thread}{ENDIF}
+{IF: $perms & 4096}{IF: $frm->thread_opt & 1}{TEMPLATE: mod_unlock_thread}{ELSE}{TEMPLATE: mod_lock_thread}{END}{ENDIF}
+{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_page_to_friend}{ENDIF}
+{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
+<td class="vb ar">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
 <table border=0 cellspacing=0 cellpadding=0 class="wa">
 <tr>
 <td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText ar vb nw">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
+<td class="GenText ar vb nw">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
 </tr>
 </table>
 <table border=0 cellspacing=1 cellpadding=1 align="right">
@@ -117,7 +121,7 @@
 {TEMPLATE-DATA: rate_thread}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
-<div class="ar SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
 {TEMPLATE-DATA: msg_page_focus}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

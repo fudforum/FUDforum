@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.65 2004/10/25 15:26:38 hackie Exp $
+* $Id: tree.php.t,v 1.66 2004/11/01 19:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -213,14 +213,6 @@
 			$cur = &$stack[$stack_cnt-1];
 
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
-				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
-
-				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
-					$read_indicator = '{TEMPLATE: tree_unread_message}';
-				} else {
-					$read_indicator = '{TEMPLATE: tree_read_message}';
-				}
-
 				if (isset($cur->kiddies) && $cur->kiddie_count) {
 					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_branch_selected}' : '{TEMPLATE: tree_branch}';
 				} else {
@@ -261,13 +253,8 @@
 	}
 	$n = 0; $_GET['start'] = '';
 	$usr->md = $frm->md;
-	$message_data = tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg));
-	un_register_fps();
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-
-	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: tree_pdf_link}' : '';
-	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: tree_xml_link}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
