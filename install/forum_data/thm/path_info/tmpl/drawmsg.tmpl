@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.13 2004/01/09 04:17:17 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.14 2004/02/17 15:49:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,20 +13,12 @@
 {REF: fileio.tmpl}
 {REF: alt_var.tmpl}
 
-{SECTION: dmsg_prev_message_lnk}
-{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}
-{SECTION: END}
-
 {SECTION: dmsg_prev_message_prev_page_lnk}
 {ROOT}/m/0/{VAR: obj->thread_id}/{VAR: msg_start}/prevloaded{DEF: reveal_lnk}{DEF: unignore_tmp}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page_lnk}
 {ROOT}/mv/tree/{VAR: obj->thread_id}/{VAR: misc[0]}/{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: dmsg_next_message_lnk}
-{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page_lnk}
