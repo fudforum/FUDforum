@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.28 2003/05/02 15:42:31 hackie Exp $
+*   $Id: ppost.php.t,v 1.29 2003/05/04 21:04:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -216,7 +216,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 	}
 
-	if ((isset($_POST['btn_submit']) && !check_ppost_form()) || isset($_POST['btn_draft'])) {
+	if ((isset($_POST['btn_submit']) && !check_ppost_form($_POST['msg_subject'])) || isset($_POST['btn_draft'])) {
 		$msg_p = new fud_pmsg;
 		$msg_p->smiley_disabled = $msg_smiley_disabled ? 'Y' : 'N';
 		$msg_p->show_sig = $msg_show_sig ? 'Y' : 'N';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.10 2003/04/15 19:17:57 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.11 2003/05/04 21:04:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,50 +59,38 @@ function check_post_form()
 	return $GLOBALS['__error__'];
 } 
 
-function check_ppost_form()
+function check_ppost_form($msg_subject)
 {
-	global $msg_subject;
-	
-	if ( !strlen(trim($msg_subject)) ) {
+	if (!strlen(trim($msg_subject))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
 	
-	if ( post_check_images() ) {
+	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
-	
-	if ( isset($GLOBALS['ses']->at_name) && filter_ext($GLOBALS['ses']->at_name) ) {
-		set_err('msg_file', '{TEMPLATE: postcheck_not_allowed_file}');
-	}
-	
-	$GLOBALS['msg_to_list'] = $check = trim($GLOBALS['msg_to_list']);
-	reverse_FMT($check);
-	$list = explode(";", $check);
+	$list = explode(';', $_POST['msg_to_list']);
 	foreach($list as $v) {
 		$v = trim($v);
-		if( strlen($v) ) {
-			$r = q("SELECT {SQL_TABLE_PREFIX}users.pm_messages, {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.alias='".addslashes(htmlspecialchars($v))."'");	
-			if( !is_result($r) ) {
+		if (strlen($v)) {
+			if (!($obj = db_sab('SELECT u.pm_messages, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(htmlspecialchars($v)))))) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;
 			}
-			else {
-				$obj = db_singleobj($r);
-				if( !empty($obj->ignore_id) ) {
-					set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
-					break;
-				}
-				else if( $obj->pm_messages == 'N' && $GLOBALS['usr']->is_mod != 'A') {
-					set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
-					break;
-				}
-				else 
-					$GLOBALS['recv_user_id'][] = $obj->id;	
+			if (!empty($obj->ignore_id)) {
+				set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
+				break;
+			} else if ($obj->pm_messages == 'N' && $GLOBALS['usr']->is_mod != 'A') {
+				set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
+				break;
+			} else {
+				$GLOBALS['recv_user_id'][] = $obj->id;	
 			}		
 		}
 	}
 	
-	if( empty($GLOBALS['msg_to_list']) ) set_err('msg_to_list', '{TEMPLATE: postcheck_no_recepient}');
+	if (empty($_POST['msg_to_list'])) {
+		set_err('msg_to_list', '{TEMPLATE: postcheck_no_recepient}');
+	}
 
 	return $GLOBALS['__error__'];
 } 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.27 2003/05/01 18:34:35 hackie Exp $
+*   $Id: cookies.inc.t,v 1.28 2003/05/04 21:04:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@ function ses_get($id=0)
 function ses_anon_make()
 {
 	db_lock('{SQL_TABLE_PREFIX}ses WRITE');
-	while (bq("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'"));
+	while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}ses WHERE ses_id='".($ses_id = md5(get_random_value(128)))."'"));
 	$uid = q_singleval('SELECT CASE WHEN MAX(user_id)>2000000000 THEN MAX(user_id)+1 ELSE 2000000001 END FROM {SQL_TABLE_PREFIX}ses');
 	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,sys_id,user_id) VALUES('".$ses_id."',".__request_timestamp__.", '".ses_make_sysid()."', ".$uid.")");
 	db_unlock();

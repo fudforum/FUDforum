@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.25 2003/05/01 18:34:35 hackie Exp $
+*   $Id: login.php.t,v 1.26 2003/05/04 21:04:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,7 +134,7 @@ function error_check()
 				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', NULL, $ses_id);
 			}
 
-			if (isset($_POST['adm']) && $usr_d->is_mod == 'A') {
+			if (!empty($_POST['adm']) && $usr_d->is_mod == 'A') {
 				header('Location: adm/admglobal.php?S='.$ses_id);
 				exit;
 			}
@@ -156,7 +156,7 @@ function error_check()
 	$login_use_cookies = $GLOBALS['SESSION_USE_URL'] == 'Y' ? '{TEMPLATE: login_use_cookies}' : '';
 
 	if (!isset($_POST['adm'])) {
-		$_POST['adm'] = '';
+		$_POST['adm'] = isset($_GET['adm']) ? '1' : '';
 	}
 	
 /*{POST_PAGE_PHP_CODE}*/
