@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.18 2003/04/15 08:32:53 hackie Exp $
+*   $Id: thread.php.t,v 1.19 2003/04/16 10:45:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
 			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
-			WHERE tv.forum_id='.$frm_id.' AND tv.page='.(floor($start/$ppg)+1).' ORDER BY tv.pos ASC');
+			WHERE tv.forum_id='.$frm_id.' AND tv.page='.(floor($start/$THREADS_PER_PAGE)+1).' ORDER BY tv.pos ASC');
 	/* Field Defenitions 
 	 * 0 msg.attach_cnt
 	 * 1 msg.poll_id
@@ -167,7 +167,7 @@
 	}
 	qf($result);
 
-	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
+	$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>	

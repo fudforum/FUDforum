@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.6 2003/04/15 08:32:53 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.7 2003/04/16 10:45:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,5 +75,5 @@ if (_uid) {
 	$subscribe = '';
 	$MOD = 0;
 }
-$ppg = $usr->posts_ppg ? $usr->posts_ppg : $THREADS_PER_PAGE;
+$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 ?>
