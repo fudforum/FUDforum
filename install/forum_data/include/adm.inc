@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,7 +54,7 @@ function rebuildmodlist()
 {
 	$ar = array();
 	$ar2 = array();
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id,".$GLOBALS['MYSQL_TBL_PREFIX']."users.login,".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY forum_id");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id,".$GLOBALS['DBHOST_TBL_PREFIX']."users.login,".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY forum_id");
 	while ( $obj = db_rowobj($r) ) {
 		if( empty($ar[$obj->forum_id]) ) {
 			$ar[$obj->forum_id]='';
@@ -69,12 +69,12 @@ function rebuildmodlist()
 	
 	reset($ar);
 	while( list($k,$v) = each($ar) ) {
-		if( $k ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='".substr($v, 0, -1)."' WHERE id=".$k);	
+		if( $k ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='".substr($v, 0, -1)."' WHERE id=".$k);	
 	}
 
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mod ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
 	while( list($fid) = db_rowarr($r) ) 
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
 	qf($r);
 }
 ?>

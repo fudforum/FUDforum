@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: replace_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@ class fud_replace
 	
 	function add()
 	{
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."replace (type, replace_str, with_str, from_post, to_msg)
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."replace (type, replace_str, with_str, from_post, to_msg)
 			VALUES(
 				'".$this->type."',
 				'".$this->replace_str."',
@@ -41,23 +41,23 @@ class fud_replace
 	
 	function sync()
 	{
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."replace SET type='".$this->type."', replace_str='".$this->replace_str."', with_str='".$this->with_str."', from_post=".strnull($this->from_post).", to_msg=".strnull($this->to_msg)." WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."replace SET type='".$this->type."', replace_str='".$this->replace_str."', with_str='".$this->with_str."', from_post=".strnull($this->from_post).", to_msg=".strnull($this->to_msg)." WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."replace WHERE id=".$id, $this);
 		if ( !$this->id ) exit("no such replace entry\n");
 	}
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."replace WHERE id=".$this->id);
 	}
 	
 	function getall()
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace ORDER BY id");
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."replace ORDER BY id");
 		
 		if ( !is_result($res) ) return;
 		

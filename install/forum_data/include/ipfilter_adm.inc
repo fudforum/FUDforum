@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: ipfilter_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,12 +56,12 @@ class fud_ip_filter_adm extends fud_ip_filter
 	function add($ipaddr)
 	{
 		$this->set_ip($ipaddr);
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block (ca, cb, cc, cd) VALUES (".$this->ip[0].",".$this->ip[1].",".$this->ip[2].",".$this->ip[3].")");
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ip_block (ca, cb, cc, cd) VALUES (".$this->ip[0].",".$this->ip[1].",".$this->ip[2].",".$this->ip[3].")");
 	}
 	
 	function get($id)
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$id);
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ip_block WHERE id=".$id);
 		if ( !is_result($res) ) exit("no such filter\n");
 
 		$obj = db_singleobj($res);
@@ -92,12 +92,12 @@ class fud_ip_filter_adm extends fud_ip_filter
 	function sync($ipaddr)
 	{
 		$this->set_ip($ipaddr);
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block SET ca=".$this->ip[0].", cb=".$this->ip[1].", cc=".$this->ip[2].", cd=".$this->ip[3]." WHERE id=$this->id");
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."ip_block SET ca=".$this->ip[0].", cb=".$this->ip[1].", cc=".$this->ip[2].", cd=".$this->ip[3]." WHERE id=$this->id");
 	}
 	
 	function getall()
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block");
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ip_block");
 		
 		unset($this->iplist);
 		while ( $obj = db_rowobj($res) ) {
@@ -139,7 +139,7 @@ class fud_ip_filter_adm extends fud_ip_filter
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ip_block WHERE id=".$this->id);
 	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ext.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: ext.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,25 +25,25 @@ class fud_ext_block
 	
 	function add()
 	{
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block (ext) VALUES('".$this->ext."')");
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block (ext) VALUES('".$this->ext."')");
 		$this->mk_regexp();
 	}
 	
 	function sync()
 	{
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block SET ext='".$this->ext."' WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block SET ext='".$this->ext."' WHERE id=".$this->id);
 		$this->mk_regexp();
 	}
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block WHERE id=".$this->id);
 		$this->mk_regexp();
 	}
 	
 	function get($id)
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$id);
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block WHERE id=".$id);
 		
 		if ( !is_result($res) ) exit("no such extension\n");
 		$obj = db_singleobj($res);
@@ -64,7 +64,7 @@ class fud_ext_block
 	
 	function getall()
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block");
 				
 		unset($this->c_list);
 		while ( $obj = db_rowobj($res) ) {
@@ -96,7 +96,7 @@ class fud_ext_block
 	
 	function mk_regexp()
 	{
-		$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
+		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ext_block");
 		
 		if ( !is_result($r) ) {
 			$regexp = '';

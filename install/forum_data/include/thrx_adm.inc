@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thrx_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: thrx_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,10 +27,10 @@ class fud_thr_exchange
 	{
 		if ( !db_locked() ) {
 			$ll = 1;
-			db_lock($GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange+");
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange+");
 		}
-		$r = q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".$this->reason_msg."',".$this->th.",".$this->frm.",".$this->req_by.")");
-		$this->id = db_lastid($GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange", $r);
+		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".$this->reason_msg."',".$this->th.",".$this->frm.",".$this->req_by.")");
+		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange", $r);
 		if ( $ll ) db_unlock();
 		
 		return $this->id;
@@ -38,13 +38,13 @@ class fud_thr_exchange
 	
 	function get($id)
 	{
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange WHERE id=".$id, $this);
 		if( empty($this->id) ) exit("Invalid thread x-change id<br>\n");
 	}
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange WHERE id=".$this->id);
 	}
 }
 ?>

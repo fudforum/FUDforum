@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: login.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,17 +24,17 @@ class fud_login_block
 	
 	function add($login)
 	{
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins (login) VALUES('".$login."')");
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins (login) VALUES('".$login."')");
 	}
 	
 	function sync($login)
 	{
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins SET login='".$login."' WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins SET login='".$login."' WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins WHERE id=".$id);
+		$res = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins WHERE id=".$id);
 		if ( !is_result($res) ) exit("no such login block\n");
 		
 		$obj = db_singleobj($res);
@@ -44,12 +44,12 @@ class fud_login_block
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins WHERE id=".$this->id);	
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins WHERE id=".$this->id);	
 	}
 	
 	function getall()
 	{
-		$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins ORDER BY id");
+		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins ORDER BY id");
 		
 		unset($this->l_list);
 		while ( $obj = db_rowobj($r) ) {
@@ -85,9 +85,9 @@ class fud_login_block
 
 function is_blocked_login($login)
 {
-	if ( bq("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins WHERE login='".$login."'") ) return 1;
+	if ( bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins WHERE login='".$login."'") ) return 1;
 	
-	$r = q("SELECT login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."blocked_logins ORDER BY id");
+	$r = q("SELECT login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."blocked_logins ORDER BY id");
 	while ( list($reg) = db_rowarr($r) ) {
 		if ( !preg_match('/!.*!.*/', $reg, $regs) && !preg_match('!/.*/.*!', $reg, $regs) ) $reg = '!'.$reg.'!s';
 		if ( preg_match($reg, $login, $regs) ) { qf($r); return 1; }

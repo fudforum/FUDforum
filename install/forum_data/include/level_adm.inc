@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: level_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: level_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@ class fud_level
 	
 	function add()
 	{
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."level
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."level
 			(
 				name, 
 				post_count,
@@ -44,7 +44,7 @@ class fud_level
 	
 	function sync()
 	{
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."level SET 
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."level SET 
 			name='".$this->name."', 
 			post_count=$this->post_count,
 			pri='".$this->pri."',
@@ -54,12 +54,12 @@ class fud_level
 	
 	function get_by_id($id)
 	{
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."level WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."level WHERE id=".$id, $this);
 	}
 	
 	function delete()
 	{
-		q("DELETE from ".$GLOBALS['MYSQL_TBL_PREFIX']."level WHERE id=".$this->id);
+		q("DELETE from ".$GLOBALS['DBHOST_TBL_PREFIX']."level WHERE id=".$this->id);
 	}
 	
 	function fetch_vars($array, $prefix) 
@@ -76,7 +76,7 @@ class fud_level
 	
 	function get_all_levels()
 	{
-		$result = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."level ORDER BY post_count");
+		$result = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."level ORDER BY post_count");
 		
 		unset($this->level_list);
 		$this->cur_level = 0;

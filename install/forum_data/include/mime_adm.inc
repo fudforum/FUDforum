@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mime_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: mime_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ class fud_mime
 	
 	function get($id)
 	{
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mime WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mime WHERE id=".$id, $this);
 		if( empty($this->id) ) exit("ERROR: Couldn't find a MIME with an id of <b>$id</b> in the database<br>\n");
 	}
 	
@@ -33,10 +33,10 @@ class fud_mime
 	{
 		if ( !db_locked() ) {
 			$ll = 1;
-			db_lock($GLOBALS['MYSQL_TBL_PREFIX']."mime+");
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX']."mime+");
 		}
-		$r = q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."mime (fl_ext,mime_hdr,descr,icon) VALUES('".$this->fl_ext."','".$this->mime_hdr."','".$this->descr."','".$this->icon."')");
-		$this->id = db_lastid($GLOBALS['MYSQL_TBL_PREFIX']."mime", $r);
+		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."mime (fl_ext,mime_hdr,descr,icon) VALUES('".$this->fl_ext."','".$this->mime_hdr."','".$this->descr."','".$this->icon."')");
+		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mime", $r);
 		if ( $ll ) db_unlock();
 		
 		return $this->id;
@@ -44,12 +44,12 @@ class fud_mime
 	
 	function sync($id)
 	{
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."mime SET fl_ext='".$this->fl_ext."', mime_hdr='".$this->mime_hdr."', descr='".$this->descr."', icon='".$this->icon."' WHERE id=".$id);	
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."mime SET fl_ext='".$this->fl_ext."', mime_hdr='".$this->mime_hdr."', descr='".$this->descr."', icon='".$this->icon."' WHERE id=".$id);	
 	}
 	
 	function delete()
 	{
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mime WHERE id=".$this->id);
-		if( $this->icon != 'unknown.gif' && !bq("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mime WHERE icon='".$this->icon."' LIMIT 1") ) @unlink('../images/mime/'.$this->icon);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mime WHERE id=".$this->id);
+		if( $this->icon != 'unknown.gif' && !bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mime WHERE icon='".$this->icon."' LIMIT 1") ) @unlink('../images/mime/'.$this->icon);
 	}
 }
