@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.23 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admgroups.php,v 1.24 2003/06/04 14:00:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,8 +68,14 @@
 					/* handle resources */
 					if (!$forum_id) {
 						q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
-						foreach ($_POST['gr_resource'] as $v) {
-							q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+						if (!is_array($_POST['gr_resource'])) {
+							if (is_string($_POST['gr_resource'])) {
+								$_POST['gr_resource'] = array($_POST['gr_resource']);
+							}
+						} else {
+							foreach ($_POST['gr_resource'] as $v) {
+								q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+							}
 						}
 					}
 
