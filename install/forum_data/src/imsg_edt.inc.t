@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.27 2003/04/08 11:43:44 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.28 2003/04/08 11:47:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -127,11 +127,7 @@ class fud_msg_edit extends fud_msg
 	
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
 		} else {
-			if ($thr_locked == 'Y') {
-				th_lock($this->thread_id);
-			} else {
-				th_unlock($this->thread_id);
-			}
+			th_lock($this->thread_id, $thr_locked);
 		}
 		
 		if ($autoapprove && $moderated == 'Y') {

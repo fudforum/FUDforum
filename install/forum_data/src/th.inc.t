@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.26 2003/04/08 11:33:20 hackie Exp $
+*   $Id: th.inc.t,v 1.27 2003/04/08 11:47:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,33 +22,10 @@ class fud_thread
 	function add($root, $forum_id, $last_post_date, $locked, $is_sticky, $ordertype, $orderexpiry) 
 	{
 		return db_qid("INSERT INTO 
-			{SQL_TABLE_PREFIX}thread(
-				forum_id, 
-				root_msg_id, 
-				last_post_date, 
-				replies, 
-				views, 
-				rating, 
-				last_post_id,
-				locked, 
-				is_sticky,
-				ordertype,
-				orderexpiry
-			)
+			{SQL_TABLE_PREFIX}thread
+				(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, locked, is_sticky, ordertype, orderexpiry)
 			VALUES
-			(
-				".$forum_id.",
-				".$root.",
-				".$last_post_date.",
-				0,
-				0,
-				0,
-				".$root.",
-				'".$locked."',
-				'".$is_sticky."',
-				".$ordertype.",
-				".$orderexpiry."
-			)");
+				(".$forum_id.", ".$root.", ".$last_post_date.", 0, 0, 0, ".$root.", '".$locked."', '".$is_sticky."', ".$ordertype.", ".$orderexpiry.")");
 	}
 	
 	function get_by_id($id)
@@ -256,16 +233,11 @@ function rebuild_forum_view($forum_id, $page=0)
 	}
 }
 
-function th_lock($id)
+function th_lock($id, $lck='Y')
 {
-	q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='Y' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='".$lck."' WHERE id=".$id);
 }
 	
-function th_unlock($id)
-{
-	q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='N' WHERE id=".$id);
-}
-
 function th_inc_view_count($id)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id='.$id);

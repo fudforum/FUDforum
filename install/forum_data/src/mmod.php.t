@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.9 2003/03/31 11:29:59 hackie Exp $
+*   $Id: mmod.php.t,v 1.10 2003/04/08 11:47:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,10 +85,10 @@
 	} else {
 		if (isset($_REQUEST['lock'])) {
 			logaction(_uid, 'THRLOCK', $data[1]);
-			$th_lock($data[1]);
+			$th_lock($data[1], 'Y');
 		} else {
 			logaction(_uid, 'THRUNLOCK', $data[1]);
-			$th_unlock($data[1]);	
+			$th_lock($data[1], 'N');	
 		}
 	}
 	check_return($ses->returnto);
