@@ -650,7 +650,7 @@ register_err_avatarnotallowed:	Yüklemeye çalýþtýðýnýz avatara izin verilmiyor. Ý
 register_conf_subject:		Kayýt Doðrulama
 register_conf_msg:		Kayýt olduðunuz için teþekkürler,\nHesabýnýzý etkinleþtirmek için lütfen aþaðýdaki URL\'ye gidin:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nBir kez hesabýnýz etkineþti mi foruma giriþ yapacak ve \nforumun ana sayfasýna yönlendirileceksiniz.
 register_welcome_subject:	Forum Kayýt Doðrulama
-register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}index.php\nKullanýcý ismi: {VAR: usr->login}\nParola: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{ROOT}?t=register\n
+register_welcome_msg:		Kayýt olduðunuz için teþekkürler,\n\nÝþte forum için giriþ bilgileriniz:\n\nForum adresi: {GVAR: WWW_ROOT}{ROOT}\nKullanýcý ismi: {VAR: usr->login}\nParola: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nLütfen parolada BÜYÜK/küçük harf ayrýmýnýn yapýldýðýný aklýnýzdan çýkarmayýn!\nAyarlarýnýzda ve kiþisel bilgilerinizde deðiþiklik yapmak için, bu sayfaya gidebilirsiniz:\n{ROOT}?t=register\n
 register_err_cantreg_title:	HATA: kayýt olunamadý
 regsiter_err_cantreg_msg:	Kullanýcý hesabý yaratýlamadý, lütfen yönetici ile iletiþime geçin: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Kiþisel bilgilerini görüntülüyor
@@ -688,7 +688,7 @@ ERR_access_msg:			Yapmak istediðiniz için yeterli eriþim iznine sahip deðilsiniz
 ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
-ERR_registration_disabled_url:	{GVAR: WWW_ROOT}index.php?{DEF: _rsid}
+ERR_registration_disabled_url:	{GVAR: WWW_ROOT}{ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
 ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn<li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
 ERR_emailconf_url:		
