@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.40 2004/12/03 19:41:48 hackie Exp $
+* $Id: attach.inc.t,v 1.41 2004/12/07 21:07:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 		}
 	}
 
-	if (!empty($id_list)) {
+	if ($id_list) {
 		$id_list = substr($id_list, 0, -1);
 		$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."', id), '.atch')";
 		q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".$cc.", message_id=".$mid." WHERE id IN(".$id_list.") AND attach_opt=".$attach_opt);
