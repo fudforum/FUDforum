@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.40 2003/11/30 16:23:48 hackie Exp $
+* $Id: post_proc.inc.t,v 1.41 2003/11/30 19:41:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -135,13 +135,15 @@ function tags_to_html($str, $allow_img=1)
 					}
 					$url = $parms;
 					if (!strpos($url, '://')) {
-						$url = 'http://'. $url;
+						$url = 'http&#58;&#47;&#47;'. $url;
+					} else {
+						$url = str_replace('://', '&#58;&#47;&#47;', $url);
 					}
 					if (strpos(strtolower($parms), 'javascript:') !== false) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
 						if ($url == $parms) {
-							$ostr .= '<a href="'.$url.'" target="_blank">'.$parms.'</a>';	
+							$ostr .= '<a href="'.$url.'" target="_blank">'.str_replace('://', '&#58;&#47;&#47;', $parms).'</a>';
 						} else {
 							$end_tag[$cpos] = '</a>';
 							$ostr .= '<a href="'.$url.'" target="_blank">';
@@ -162,13 +164,13 @@ function tags_to_html($str, $allow_img=1)
 					break;
 				case 'email':
 					if (!$parms) {
-						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
+						$parms = str_replace('@', '&#64;', substr($str, $epos+1, ($cpos-$epos)-1));
 						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">'.$parms.'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
 					} else {
 						$end_tag[$cpos] = '</a>';
-						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">';
+						$ostr .= '<a href="mailto:'.str_replace('@', '&#64;', $parms).'" target="_blank">';
 					}
 					break;
 				case 'color':
@@ -548,7 +550,7 @@ function html_to_tags($fudml)
 	while ( preg_match('!<span name="notag">.*?</span>!is', $fudml) )
 		$fudml = preg_replace('!<span name="notag">(.*?)</span>!is', '[notag]\1[/notag]', $fudml);
 
-	$fudml = str_replace('<li>', '[*]', $fudml);
+	$fudml = str_replace(array('<li>','&#64;', '&#58;&#47;&#47;'), array('[*]', '@', '://'), $fudml);
 
 	/* unhtmlspecialchars */
 	reverse_fmt($fudml);
