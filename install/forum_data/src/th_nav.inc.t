@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_nav.inc.t,v 1.2 2003/04/09 09:03:17 hackie Exp $
+*   $Id: th_nav.inc.t,v 1.3 2003/04/15 10:00:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,9 +31,7 @@ function get_prev_next_th_id(&$frm, &$prev, &$next)
 				AND (tv.page * '.$GLOBALS['THREADS_PER_PAGE'].' + tv.pos) < '.($frm->th_page * $GLOBALS['THREADS_PER_PAGE'] + $frm->th_pos).'
 			ORDER BY tv.page DESC, tv.pos DESC LIMIT 1');
 
-		if ($p) {
-			$prev = '{TEMPLATE: prev_thread_link}';
-		}
+		$prev = $p ? '{TEMPLATE: prev_thread_link}' : '';
 	}
 	
 	if ($frm->last_thread == $frm->id) { /* this is the last thread in the forum */
@@ -49,9 +47,8 @@ function get_prev_next_th_id(&$frm, &$prev, &$next)
 				tv.forum_id='.$frm->forum_id.' AND tv.page IN ('.$cpg.', '.($cpg - 1).') AND t.moved_to=0
 				AND (tv.page * '.$GLOBALS['THREADS_PER_PAGE'].' + tv.pos) > '.($frm->th_page * $GLOBALS['THREADS_PER_PAGE'] + $frm->th_pos).'
 			ORDER BY tv.page ASC, tv.pos ASC LIMIT 1');
-		if ($n) {
-			$next = '{TEMPLATE: next_thread_link}';
-		}
+		
+		$next = $n ? '{TEMPLATE: next_thread_link}' : '';
 	}
 }
 ?>

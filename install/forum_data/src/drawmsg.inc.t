@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.37 2003/04/11 13:10:46 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.38 2003/04/15 10:00:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,6 +85,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		if ($_GET['t'] == 'tree') {
 			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
 			$next_message = $misc[1] ? '{TEMPLATE: dmsg_tree_next_message_next_page}' : '';
+			$next_page = '';
 		} else {
 			/* handle previous link */
 			if (!$m_num && $obj->id > $obj->root_msg_id) { /* prev link on different page */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.23 2003/04/08 17:27:50 hackie Exp $
+*   $Id: tree.php.t,v 1.24 2003/04/15 10:00:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,270 +15,248 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
-	if( !empty($goto) ) {
-		if( is_numeric($goto) ) {
-			$mid = $goto;
-			$th = q_singleval("SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id=".$mid);
-		}
-		else if( $goto == 'end' && is_numeric($th) ) {
-			list($mid) = db_singlearr(q("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th));	
-		}
-		else
+	if (!isset($_GET['th']) || !($th = (int)$_GET['th'])) {
+		$th = 0;
+	}
+	if (!isset($_GET['mid']) || !($mid = (int)$_GET['mid'])) {
+		$mid = 0;
+	}
+
+	if (isset($_GET['goto'])) {
+		if (($mid = (int)$_GET['goto'])) {
+			$th = q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
+		} else if ($_GET['goto'] == 'end' && $th) {
+			$mid = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
+		} else {
 			invl_inp_err();
-	}
-	
-	if( empty($th) || !is_numeric($th) ) {
-		std_error('systemerr');
-		exit;
-	}
-	
-	if ( !empty($notify) && isset($usr) ) {
-		$th_not = new fud_thread_notify;
-		if ( $opt == 'on' ) 
-			$th_not->add($usr->id, $th);
-		else
-			$th_not->delete($usr->id, $th);
-
-		header("Location: {ROOT}?t=tree&th=".$th."&mid=".$mid.'&'._rsidl.'&rand='.get_random_value());
-		exit();
-	}
-
-	$thread = new fud_thread;
-	$frm = new fud_forum;
-	$thread->get_by_id($th);
-	$frm->get($thread->forum_id);
-	if( empty($frm->cat_id) ) invl_inp_err();
-	if ( $thread->moved_to ) {
-		header("Location: {ROOT}?t=tree&goto=".$thread->root_msg_id."&"._rsidl);
-		exit();
-	}
-
-	if( isset($usr) && !empty($unread) ) {
-		if( ($lv = q_singleval("SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id)) ) {
-			if( $usr->last_read > $lv ) $lv = $usr->last_read;
-			if( ($new_msg_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND approved='Y' AND post_stamp>".$lv." ORDER BY id LIMIT 1")) ) {
-				header("Location: {ROOT}?t=tree&goto=".$new_msg_id.'&'._rsidl);
-				exit();
-			}
 		}
-		
-		header("Location: {ROOT}?t=tree&th=".$th.'&'._rsidl);
-		exit;
+	}
+	if (!$th) {
+		invl_inp_err();
+	}
+	if (!$mid && isset($_GET['unread']) && _uid) {
+		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.approved=\'Y\' AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp DESC LIMIT 1');
 	}
 
-	$GLOBALS['__RESOURCE_ID'] = $frm->id;	
-	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') ) {
-		if( !isset($HTTP_GET_VARS['logoff']) )
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		else {
-			header("Location: {ROOT}");
+	/* we create a BIG object frm, which contains data about forum, 
+	 * category, current thread, subscriptions, permissions, moderation status, 
+	 * rating possibilites and if we will need to update last_view field for registered user
+	 */
+	make_perms_query($fields, $join);
+
+	$frm = db_sab('SELECT 
+			c.name AS cat_name,
+			f.name AS frm_name,
+			m.subject,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.locked, t.root_msg_id,
+			tn.thread_id AS subscribed,
+			mo.forum_id AS mod,
+			tr.thread_id AS cant_rate,
+			r.last_view,
+			r2.last_view AS last_forum_view,
+			r.msg_id,
+			tv.pos AS th_pos, tv.page AS th_page,
+			m2.thread_id AS last_thread,
+			'.$fields.'
+		FROM {SQL_TABLE_PREFIX}thread t
+			INNER JOIN {SQL_TABLE_PREFIX}msg		m ON m.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum		f ON f.id=t.forum_id
+			INNER JOIN {SQL_TABLE_PREFIX}cat		c ON f.cat_id=c.id
+			INNER JOIN {SQL_TABLE_PREFIX}thread_view	tv ON tv.forum_id=t.forum_id AND tv.thread_id=t.id
+			INNER JOIN {SQL_TABLE_PREFIX}msg 		m2 ON f.last_post_id=m2.id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_notify 	tn ON tn.user_id='._uid.' AND tn.thread_id='.$th.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
+			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id=t.id AND tr.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid.'
+			'.$join.'
+		WHERE t.id='.$th);
+
+	if (!$frm) { /* bad thread, terminate request */
+		invl_inp_err();
+	}
+
+	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
+		header('Location: {ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
+		exit();
+	}
+
+	$perms = perms_from_obj($frm, $usr->is_mod);
+	$MOD = $frm->mod;
+	if ($perms['p_read'] == 'N') {
+		if (!isset($_GET['logoff'])) {
+			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+		} else {
+			header('Location: {ROOT}');
 			exit;
 		}	
 	}	
 
-	if( empty($mid) || !is_numeric($mid) ) $mid = $thread->root_msg_id;	
+	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
 	
-	$result = q("SELECT 
-		{SQL_TABLE_PREFIX}msg.*, 
-		{SQL_TABLE_PREFIX}thread.locked,
-		{SQL_TABLE_PREFIX}thread.forum_id,
-		{SQL_TABLE_PREFIX}avatar.img AS avatar, 
-		{SQL_TABLE_PREFIX}users.id AS user_id, 
-		{SQL_TABLE_PREFIX}users.alias AS login, 
-		{SQL_TABLE_PREFIX}users.display_email, 
-		{SQL_TABLE_PREFIX}users.avatar_approved,
-		{SQL_TABLE_PREFIX}users.avatar_loc,
-		{SQL_TABLE_PREFIX}users.email, 
-		{SQL_TABLE_PREFIX}users.posted_msg_count, 
-		{SQL_TABLE_PREFIX}users.join_date, 
-		{SQL_TABLE_PREFIX}users.location, 
-		{SQL_TABLE_PREFIX}users.sig,
-		{SQL_TABLE_PREFIX}users.icq,
-		{SQL_TABLE_PREFIX}users.jabber,
-		{SQL_TABLE_PREFIX}users.affero,
-		{SQL_TABLE_PREFIX}users.aim,
-		{SQL_TABLE_PREFIX}users.msnm,
-		{SQL_TABLE_PREFIX}users.invisible_mode,
-		{SQL_TABLE_PREFIX}users.email_messages,
-		{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
-		{SQL_TABLE_PREFIX}users.is_mod,
-		{SQL_TABLE_PREFIX}users.yahoo,
-		{SQL_TABLE_PREFIX}users.custom_status,
-		{SQL_TABLE_PREFIX}level.name AS level_name,
-		{SQL_TABLE_PREFIX}level.pri AS level_pri,
-		{SQL_TABLE_PREFIX}level.img AS level_img
+	if (_uid) {
+		/* Deal with thread subscriptions */
+		if (isset($_GET['notify'], $_GET['opt'])) {
+			if ($_GET['opt'] == 'on') {
+				thread_notify_add(_uid, $_GET['th']);
+				$frm->subscribed = 1;
+			} else {
+				thread_notify_del(_uid, $_GET['th']);
+				$frm->subscribed = 0;
+			}
+		}
+	}
+
+	if (!$mid) {
+		$mid = $frm->root_msg_id;
+	}
+
+	$msg_obj = db_sab('SELECT 
+		m.*, 
+		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+		f.message_threshold,
+		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
+		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
+		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
+		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
 	FROM 
-		{SQL_TABLE_PREFIX}msg 
-		LEFT JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}avatar 
-			ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id 
-		INNER JOIN {SQL_TABLE_PREFIX}thread
-			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id	
-		LEFT JOIN {SQL_TABLE_PREFIX}level
-			ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
+		{SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	WHERE 
-		{SQL_TABLE_PREFIX}msg.id=".$mid." AND {SQL_TABLE_PREFIX}msg.approved='Y'");
+		m.id='.$mid.' AND m.approved=\'Y\'');
 
-	$msg_obj = db_singleobj($result);
-	$mid = $msg_obj->id;
-
-	if ( isset($usr) && ($frm->is_moderator($usr->id) || $usr->is_mod == 'A') ) $MOD = 1;
-	
-	if ( _uid ) {
-		$last_thread_read = q_singleval("SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id="._uid);
+	if (!isset($_GET['prevloaded'])) {
+		th_inc_view_count($th);
+		if (_uid) {
+			if ($frm->last_view < $msg_obj->post_stamp) {
+				user_register_thread_view($th, $msg_obj->post_stamp, $mid);
+			}
+			if ($frm->last_forum_view < $msg_obj->post_stamp) {
+				user_register_forum_view($frm->forum_id);
+			}
+		}
+		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
+	} else {
+		$subscribe_status = '';
 	}
-	
-	if ( isset($thread) && empty($prevloaded) ) {
-		if ( isset($usr) ) $usr->register_forum_view($frm->id);
-		$thread->inc_view_count();
-	}
+	ses_update_status($usr->sid, '{TEMPLATE: tree_update}', $frm->id);
 
-	$frm_id = $frm->id;
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
+
 	$TITLE_EXTRA = ': {TEMPLATE: tree_title}';
 
-	$r = q("SELECT 
-			{SQL_TABLE_PREFIX}msg.*,
-			{SQL_TABLE_PREFIX}users.alias AS login,
-			{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
-			{SQL_TABLE_PREFIX}thread.root_msg_id
-		FROM 
-			{SQL_TABLE_PREFIX}msg 
-			INNER JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-		WHERE 
-			thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id");
-	
-	while ( $obj = db_rowobj($r) ) {
-		$arr[$obj->id] = $obj;
-		$arr[$obj->reply_to]->kiddie_count++;
-		$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
+	if ($ENABLE_THREAD_RATING == 'Y') {
+		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
+		if ($perms['p_rate'] == 'Y' && !$frm->cant_rate) {
+			$rate_thread = '{TEMPLATE: rate_thread}';
+		} else {
+			$rate_thread = '';
+		}
+	} else {
+		$rate_thread = $thread_rating = '';
+	}
+
+	if ($perms['p_lock'] == 'Y') {
+		$lock_thread = $frm->locked == 'N' ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
+	} else {
+		$lock_thread = '';
+	}
+
+	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
+	$post_reply = ($frm->locked == 'Y' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
+	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
+
+	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.approved=\'Y\' ORDER BY m.post_stamp');
+	while ($r = db_rowobj($c)) {
+		$arr[$r->id] = $r;
+		@$arr[$r->reply_to]->kiddie_count++;
+		@$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
 		
-		if ( $obj->reply_to == 0 ) {
-			$tree->kiddie_count++;
-			$tree->kiddies[] = &$arr[$obj->id];
+		if ($r->reply_to == 0) {
+			@$tree->kiddie_count++;
+			@$tree->kiddies[] = &$arr[$r->id];
 		}	
 	}
 	qf($r);
-
-	if ( isset($ses) ) $ses->update('{TEMPLATE: tree_update}', $GLOBALS['__RESOURCE_ID']);
-
-	if ( isset($frm) ) {
-		if ( !isset($cat) ) {
-			$cat = new fud_cat;
-			$cat->get_cat($frm->cat_id);
-		}
-		
-		if ( $thread->rating ) 
-			$thread_rating = '{TEMPLATE: thread_rating}';
-		else 
-			$thread_rating = '{TEMPLATE: no_thread_rating}';
-			
-		$msg_forum_path = '{TEMPLATE: msg_forum_path}';
-	}
-	
-	$returnto_str = urlencode('{ROOT}?t=tree&th='.$th.'&mid='.$mid.'&prevloaded=1&'._rsid);
-	$returnto = 'returnto='.$returnto_str;
-	
-	if( $MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'LOCK') )
-		$lock_thread = ( $thread->locked == 'Y' ) ?  '{TEMPLATE: mod_unlock_thread}' : '{TEMPLATE: mod_lock_thread}';
-	if( ($MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'SPLIT')) && $thread->replies )
-		$split_thread = '{TEMPLATE: split_thread}';
-
-	if( $ALLOW_EMAIL == 'Y' ) $email_page_to_friend = '{TEMPLATE: email_page_to_friend}';
-		
-	if ( isset($usr) ) $subscribe_status = ( q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$th." AND user_id=".$usr->id) ) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
-	if ( $thread->locked == 'N' ) $post_reply = '{TEMPLATE: post_reply}';
 	
 	$prev_msg = $next_msg = 0;
+	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';
+	$reveal = isset($_GET['reveal']) ? $_GET['reveal'] : '';
 
-if( @is_array($tree->kiddies) ) {
-
-	reset($tree->kiddies);
-	$stack[0] = &$tree;
-	$stack_cnt = $tree->kiddie_count;
-	$j=0;
-	$lev = 0;
+	if(is_array($tree->kiddies)) {
+		reset($tree->kiddies);
+		$stack[0] = &$tree;
+		$stack_cnt = $tree->kiddie_count;
+		$j = 0;
+		$lev = 0;
+		$prev_id = 0;
 	
-	$tree_data = '';
-	while ($stack_cnt>0) {
-		$cur = &$stack[$stack_cnt-1];
+		$tree_data = '';
+		while ($stack_cnt > 0) {
+			$cur = &$stack[$stack_cnt-1];
 		
-		if( isset($cur->subject) && empty($cur->sub_shown) ) {
-			if( $cur->poster_id )
-				$user_login = '{TEMPLATE: reg_user_link}';
-			else
-				$user_login = '{TEMPLATE: anon_user}';
-			
-			$width = 6*($lev-1);
+			if (isset($cur->subject) && empty($cur->sub_shown)) {
+				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
+				$width = 6 * ($lev - 1);
 				
-			if( _uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $last_thread_read )
-				$read_indicator = '{TEMPLATE: tree_unread_message}';
-			else
-				$read_indicator = '{TEMPLATE: tree_read_message}';
+				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
+					$read_indicator = '{TEMPLATE: tree_unread_message}';
+				} else {
+					$read_indicator = '{TEMPLATE: tree_read_message}';
+				}
 
-			if( isset($cur->kiddies) && $cur->kiddie_count ) {
-				if( $cur->id == $mid )
-					$tree_data .= '{TEMPLATE: tree_branch_selected}';
-				else 
-					$tree_data .= '{TEMPLATE: tree_branch}';
-			} else {
-				if( $cur->id == $mid )
-					$tree_data .= '{TEMPLATE: tree_entry_selected}';
-				else 
-					$tree_data .= '{TEMPLATE: tree_entry}';
+				if (isset($cur->kiddies) && $cur->kiddie_count) {
+					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_branch_selected}' : '{TEMPLATE: tree_branch}';
+				} else {
+					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_entry_selected}' : '{TEMPLATE: tree_entry}';
+				}
+				$cur->sub_shown = 1;
+			
+				if ($cur->id == $mid) {
+					$prev_msg = $prev_id;
+				}
+				if ($prev_id == $mid) {
+					$next_msg = $cur->id;
+				}
+			
+				$prev_id = $cur->id;
 			}
-			
-			if( $cur->id == $mid ) $prev_msg = $prev_id;
-			if( $prev_id == $mid ) $next_msg = $cur->id;
-			
-			$prev_id = $cur->id;
-			
-			$cur->sub_shown = 1;
+		
+			if (!isset($cur->kiddie_count)) {
+				$cur->kiddie_count = 0;
+			}
+		
+			if ($cur->kiddie_count && isset($cur->kiddie_pos)) {
+				++$cur->kiddie_pos;	
+			} else {
+				$cur->kiddie_pos = 0;
+			}
+		
+			if ($cur->kiddie_pos < $cur->kiddie_count) {
+				++$lev;
+				$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
+			} else { // unwind the stack if needed
+				unset($stack[--$stack_cnt]);
+				--$lev;
+			}
+		
+			unset($cur);
 		}
-		
-		if( !isset($cur->kiddie_count) ) $cur->kiddie_count = 0;
-		
-		if ( $cur->kiddie_count && isset($cur->kiddie_pos) )
-			++$cur->kiddie_pos;	
-		else
-			$cur->kiddie_pos = 0;
-		
-		if ( $cur->kiddie_pos < $cur->kiddie_count ) {
-			++$lev;
-			$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
-		}
-		else { // unwind the stack if needed
-			unset($stack[--$stack_cnt]);
-			--$lev;
-		}
-		
-		unset($cur);
 	}
-}
-	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));
+	$n = 0; $_GET['start'] = '';
+	$message_data = tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg));
 	un_register_fps();
 
-	if ( isset($usr) && $last_thread_read < $msg_obj->post_stamp ) {
-		user_register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
-	}
+	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 	
-	$prev_th = $prev_thread_link = $next_th = $next_thread_link = NULL;
-	get_prev_next_th_id($thread->forum_id, $thread->id, $prev_th, $next_th);
-
-	if ( $prev_th )	$prev_thread_link = '{TEMPLATE: prev_thread_link}';
-	if ( $next_th ) $next_thread_link = '{TEMPLATE: next_thread_link}';
-	
-	if ( _uid && ($MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'RATE')) && !bq("SELECT id FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id=".$thread->id." AND user_id="._uid) ) {
-		$returnto_dec = urldecode($returnto_str);
-		$rate_thread = '{TEMPLATE: rate_thread}';
-	}
-	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: TREE_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.29 2003/04/11 09:52:56 hackie Exp $
+*   $Id: msg.php.t,v 1.30 2003/04/15 10:00:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -154,7 +154,7 @@
 		$rate_thread = $thread_rating = '';
 	}
 
-	$post_reply = $frm->locked == 'Y' ? '{TEMPLATE: post_reply}' : '';
+	$post_reply = ($frm->locked == 'Y' || $perms['p_lock'] == 'Y') ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms['p_lock'] == 'Y') {
@@ -163,7 +163,7 @@
 		$lock_thread = '';
 	}
 
-	$split_thread = $perms['p_split'] == 'Y' ? '{TEMPLATE: split_thread}' : '';
+	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
 
 	if (!isset($_GET['prevloaded'])) {
 		if (_uid) {
