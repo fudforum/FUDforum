@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.5 2003/07/24 03:16:37 hackie Exp $
+*   $Id: msg.tmpl,v 1.6 2003/08/04 16:43:31 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -142,7 +142,7 @@
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
 <div align="right"><font class="SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</font></div>
-<div align="center">-=] <a href="#page_top">{MSG: back_to_top}</a> [=-</div>
+<div align="center">-=] <a href="{VAR: _SERVER['PHP_SELF']}#page_top">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE-DATA: msg_page_focus}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
