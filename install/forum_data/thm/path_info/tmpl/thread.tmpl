@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.5 2003/07/19 03:17:02 hackie Exp $
+*   $Id: thread.tmpl,v 1.6 2003/07/23 02:01:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -172,7 +172,7 @@
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
 <td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}" /></td>
-<td class="RowStyleB" colspan=10 align="center" class="GenText">{MSG: was_moved_msg}</td>
+<td class="RowStyleB" colspan="{VAR: moved_cols}" align="center" class="GenText">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
 
