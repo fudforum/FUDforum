@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.5 2002/09/17 01:33:31 hackie Exp $
+*   $Id: login.tmpl,v 1.6 2003/02/01 20:14:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,6 +23,8 @@
 {REF: return.tmpl}
 {REF: users_reg.tmpl}
 {REF: logaction.tmpl}
+{REF: iemail.tmpl}
+{REF: ipfilter.tmpl}
 
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
@@ -71,4 +73,12 @@
 
 {SECTION: login_title}
 {MSG: login_title}
+{SECTION: END}
+
+{SECTION: login_blocked_account_ttl}
+{MSG: login_blocked_account_ttl}
+{SECTION: END}
+
+{SECTION: login_blocked_account_msg}
+{MSG: login_blocked_account_msg}
 {SECTION: END}

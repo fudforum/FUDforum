@@ -922,3 +922,5 @@ err_mod_acc_msg:		账号在被激活之前必须得到系统管理员的确认，在得到确认之前，您的
 accounts_pending_approval:	您的账号暂时未被批准！
 saved:				珍藏夹
 register_err_time_limit:	每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册.
+login_blocked_account_ttl:	Your account has been banned.	
+login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).

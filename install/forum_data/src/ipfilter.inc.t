@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter.inc.t,v 1.4 2002/12/05 20:56:04 hackie Exp $
+*   $Id: ipfilter.inc.t,v 1.5 2003/02/01 20:14:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,16 +39,13 @@ class fud_ip_filter
 	
 	function is_blocked($ipaddr)
 	{
-		$ip = $this->mk_mask($ipaddr);		
-		return bq("SELECT id FROM 
-			{SQL_TABLE_PREFIX}ip_block 
-				WHERE 
-					ca=".$ip[0]." 
-					AND 
-					cb IN(".$ip[1].", 256) 
-					AND cc IN(".$ip[2].", 256) 
-					AND cd IN(".$ip[3].", 256) 
-				LIMIT 1");
+		$ip = explode('.', $ipaddr);
+		for ($i = 0; $i < 4; $i++) {
+			if (!($ip[$i] = intval($ip[$i]))) {
+				$ip[$i] = 256;
+			}
+		}
+		return bq("SELECT id FROM {SQL_TABLE_PREFIX}ip_block WHERE ca=".$ip[0]." AND cb IN(".$ip[1].", 256) AND cc IN(".$ip[2].", 256) AND cd IN(".$ip[3].", 256) LIMIT 1");
 	}
 
 }

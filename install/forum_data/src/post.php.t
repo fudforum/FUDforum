@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.22 2002/12/11 01:05:56 hackie Exp $
+*   $Id: post.php.t,v 1.23 2003/02/01 20:14:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,14 +26,6 @@
 	$attach_control_error=NULL;
 
 	if( isset($HTTP_POST_VARS['moderated_redr']) ) check_return();
-
-	/* INITIAL SECURITY CHECKS */
-	$flt = new fud_ip_filter;
-	if ( isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) && $flt->is_blocked($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) ) {
-		error_dialog('{TEMPLATE: post_err_notallowed_title}', '{TEMPLATE: post_err_notallowed_msg}', $returnto_d);
-		exit();
-	}
-	$flt=NULL;
 
 	if( $reply_to || $msg_id ) {
 		$mid = ($reply_to)?$reply_to:$msg_id;

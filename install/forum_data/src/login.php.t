@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.12 2002/10/03 08:29:22 hackie Exp $
+*   $Id: login.php.t,v 1.13 2003/02/01 20:14:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -107,10 +107,18 @@ function error_check()
 				$id = NULL;					
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
-		}
-		else {
+		} else {
+			fud_use('login.inc', true);
 			$usr = new fud_user_reg;
 			$usr->get_user_by_id($id);
+			
+			/* Perform check to ensure that the user is allowed to login */
+			
+			/* Login & E-mail Filter & IP */
+			if (is_blocked_login($usr->login) || is_email_blocked($usr->email) || $usr->blocked == 'Y' || (isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) && fud_ip_filter::is_blocked($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']))) {
+				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', $returnto_d);
+				exit();
+			}
 			
 			if ( !isset($ses) ) $ses = new fud_session;
 			$uck = empty($GLOBALS["HTTP_POST_VARS"]["use_cookie"]) ? 1 : NULL;
