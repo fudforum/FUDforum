@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.79 2003/10/01 21:51:52 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.80 2003/10/02 01:04:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -168,19 +168,18 @@ class fud_msg_edit extends fud_msg
 		 * current approach may seem a little redundant, but for (most) users who
 		 * do not have access to locking & sticky this eliminated a query.
 		 */
-		if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) || isset($_POST['thr_locked'])) {
-			$th_data = db_saq('SELECT orderexpiry, thread_opt, root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$this->thread_id);
-
+		$th_data = db_saq('SELECT orderexpiry, thread_opt, root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$this->thread_id);
+		$locked = (int) isset($_POST['thr_locked']);
+		if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) || (($th_data[1] ^ $locked) & 1)) {
 			$thread_opt = (int) $th_data[1];
-			$orderexpiry = (int) $_POST['thr_orderexpiry'];
+			$orderexpiry = isset($_POST['thr_orderexpiry']) ? (int) $_POST['thr_orderexpiry'] : 0;
 
 			/* confirm that user has ability to change lock status of the thread */
 			if ($perm & 4096) {
-				$locked = isset($_POST['thr_locked']) ? 1 : 0;
 				if ($locked && !($thread_opt & $locked)) {
-					$thread_opt = $thread_opt ^ 1;
-				} else if (!$locked && $thread_opt & 1) {
 					$thread_opt |= 1;
+				} else if (!$locked && $thread_opt & 1) {
+					$thread_opt &= ~1;
 				}
 			}
 
@@ -188,11 +187,11 @@ class fud_msg_edit extends fud_msg
 			if ($th_data[2] == $this->id && isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) && $perm & 64) {
 				if (!$_POST['thr_ordertype'] && $thread_opt>1) {
 					$orderexpiry = 0;
-					$thread_opt = $thread_opt ^ (4|2);
+					$thread_opt &= ~6;
 				} else if ($thread_opt < 2 && (int) $_POST['thr_ordertype']) {
-					$thread_opt |= (int) $_POST['thr_ordertype'];
+					$thread_opt |= $_POST['thr_ordertype'];
 				} else if (!($thread_opt & (int) $_POST['thr_ordertype'])) {
-					$thread_opt = $thread_opt ^ (4|2) | (int) $_POST['thr_ordertype'];
+					$thread_opt &= $_POST['thr_ordertype'] | 1;
 				}
 			}
 
