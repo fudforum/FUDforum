@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.15 2002/08/08 23:54:43 hackie Exp $
+*   $Id: compiler.inc,v 1.16 2002/08/09 10:19:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -533,15 +533,14 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 		if ( !preg_match($mask, $de, $regs) ) continue;
 		if ( is_dir($de) && $recur == TRUE ) {
 			$rdest = $dest.$de;
-			if ( !@mkdir($rdest, 0777) ) exit("can't mkdir ($rdest)<br>\n");
-			if ( $rdest[0] != '/' ) $rdest = '../'.$rdest;
+			if ( !@is_dir($rdest) && !@mkdir($rdest, 0777) ) exit("can't mkdir ($rdest)<br>\n");
 			fudcopy($de, $rdest, $mask, $recur);
 		}
 		else {
 			if ( !copy($de, $dest.$de) && !@file_exists($dest.$de) )
 				echo "can't copy in (".getcwd().") a file named (".$de.") to (".$dest.$de.")<br>\n";
 			else 
-				chmod($dest.$de, 0666);
+				@chmod($dest.$de, 0666);
 		}
 	}
 	chdir($oldpwd);
@@ -564,7 +563,7 @@ function copyhelp($thm)
 {
 	$u = umask(0);
 	if ( !@is_dir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help') ) {
-		if( !mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help', 0777) ) 
+		if( !@mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help', 0777) ) 
 			exit("Failed Creating: ".$GLOBALS['WWW_ROOT_DISK']."theme/".$thm->name."/help<br>\n");
 	}	
 		
@@ -581,8 +580,8 @@ function copyhelp($thm)
 		$str = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $str);
 		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 'wb');
 		fwrite($fp, $str);
-		chmod($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 0666);
 		fclose($fp);
+		@chmod($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 0666);
 	}
 	closedir($dp);
 	umask($u);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.13 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admthemes.php,v 1.14 2002/08/09 10:18:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,7 +77,7 @@ function cleandir($dir)
 			$root = $GLOBALS['DATA_DIR'].'thm/';
 			$root_nn = $root.$nn;
 			$u=umask(0);
-			if ( !@mkdir($root_nn, 0777) ) exit("can't create ($root_nn)<br>\n"); 
+			if ( !@is_dir($root_nn) && !@mkdir($root_nn, 0777) ) exit("can't create ($root_nn)<br>\n"); 
 			fudcopy($root.'default/', $root_nn, '!.*!', TRUE);
 			umask($u);
 		}
