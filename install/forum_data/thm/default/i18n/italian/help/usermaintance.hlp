@@ -1,89 +1,56 @@
-TOPIC_TITLE: <a name="register">Why Register?</a>
+TOPIC_TITLE: <a name="register">Perché mi devo registrare?</a>
 TOPIC_HELP:
-On most forums you will find it impossible to post new topics or reply to existing ones, unless the Admin 
-allows this explicitly. So, in order for you to be able to participate in the discussion, you would likely be 
-required to register. By registering you will also obtain access to many other features of the forum such as:
+Nella maggior parte dei forum non è possibile postare nuovi topic o rispondere a quelli già esistenti senza l'esplicita autorizzazione dell'amministratore; quindi, per poter partecipare alla discussione, ti viene richiesto di registrarti. La registrazione ti permette anche di usufruire di numerosi altri servizi collegati al forum, come ad esempio:
 <ul>
-	<li>Email/ICQ Notification, when someone replies to your messages
-	<li>Customized signature, avatar, personal tag etc...
-	<li>Ability to send private messages to one or more members of the forum
-	<li>You'll be able to choose a time zone so that forum's time is equivalent to that of the region you live in 
+	<li>notifica via e-mail o ICQ delle risposte ai messaggi che hai postato
+	<li>firma personalizzata, avatar, "personal tag" ecc.
+	<li>possibilità di scambiare messaggi personali con uno o più membri del forum
+	<li>scelta del fuso orario in modo che l'ora del forum corrisponda a quella della zona in cui vivi o in cui sei in vacanza... 
 </ul>
-Unless otherwise specified, the registration for the forum is completely free and requires only minimal information such as 
-your email address and a nick name of your choice.<br>
-If COPPA is enabled and you are under 13 years of age, you will need to have your legal guardian provide consent before your 
-account can be used to post messages. Upon completion of the registration process on COPPA enabled forums, members younger then 13 years of age 
-will be taken to a form, which their legal guardian will need to fill out and send to the appropriate address shown on that page.
+La registrazione è completamente gratutita: devi solo inserire nel modulo di registrazione poche essenziali informazioni, come il tuo indirizzo e-mail e il nickname che hai scelto.
 
-TOPIC_TITLE: <a name="cookies">How FUDforum uses cookies?</a>
+TOPIC_TITLE: <a name="cookies">Come utilizza i cookie FUDforum?</a>
 TOPIC_HELP:
-Normally FUDforum uses cookies to store a small bit of information that allows the forum to see if you are logged in or not. 
-If for some reason your browser does not support cookies, FUDforum will instead use sessions, which do not store any information 
-on your computer. During the login process you can choose to bypass the cookie system and opt for the session system, this is recommended 
-if you are using a public terminal. Doing so will prevent the possible identity theft, which may occur if you do not logout after using the forum. 
-In most cases however, you probably should leave cookies enabled as it is much more convenient in the long run. 
-For example, you will not need to login each time you visit the forum.
+Normalmente FUDforum usa dei cookie per memorizzare nel tuo computer le informazioni necessarie al forum per riconoscere quando sei o non sei autenticato. Se, per qualsiasi ragione, il tuo browser non supporta i cookie, al loro posto FUDforum userà le sessioni, che non registrano alcuna informazione sul tuo computer. Durante il procedimento di login, potrai scegliere se ignorare il sistema dei cookie e optare per l'uso delle sessioni, raccomandato nel caso si utilizzi un computer pubblico o condiviso. In questo modo, infatti, si evita la possibilità di un "furto di identità" che può verificarsi se ti dimentichi di disconnetterti dal forum ogni volta che lo usi. Lasciare attivi i cookie, però, è molto più comodo a lungo andare: se i cookie sono attivati, ad esempio, non devi autenticarti ogni volta che accedi al forum.
 
-
-TOPIC_TITLE: <a name="clrcookie">How to remove FUDforum cookie?</a>
+TOPIC_TITLE: <a name="clrcookie">Come faccio a cancellare il cookie di FUDforum?</a>
 TOPIC_HELP:
-To remove the cookie set by FUDforum, simply click the logout link and it will automatically delete the cookie.
+Per cancellare il cookie di FUDforum, basta semplicemente cliccare il link "termina" e il cookie verrà cancellato automaticamente.
 
-TOPIC_TITLE: <a name="updprofile">What's a profile?</a>
-TOPIC_HELP: As a forum member you have a personal profile inside which you can store various information about yourself, such as IM client ids, signature, 
-biography, etc... Your profile also stores various settings, which deal with the forum. Any time you are logged in you may change your profile settings, 
-you should be aware that most data inside your profile can be viewed by other forum members. So, you should try to not store any sensitive information 
-that you do not wish other people to see.<br>
-Your profile has an option <b>"Show Email Address"</b>, which if set to <b>NO</b> will hide your email address from view. You may want to use this option 
-if you do not want other people to see your email address.
+TOPIC_TITLE: <a name="updprofile">Che cos'è il profilo?</a>
+TOPIC_HELP: Come ogni membro del forum, avrai un profilo nel quale puoi inserire vari tipi di informazioni personali, come la firma, i dati anagrafici ecc. Inoltre nel profilo sono registrate le opzioni di visualizzazione del forum. Ogni volta che entri nel forum hai la possibilità di modificare le impostazioni del tuo profilo. Tieni presente che la maggior parte dei dati contenuti nel profilo possono essere visualizzati dagli altri utenti del forum, quindi non inserire le informazioni che non vuoi che vengano lette da altre persone. Il tuo profilo contiene l'opzione <B>Mostra indirizzo e-mail</B>: scegliendo NO, il tuo indirizzo email verrà nascosto; potrai quindi usare questa opzione se non vuoi che gli altri utenti visualizzino il tuo indirizzo email.
 
-TOPIC_TITLE: <a name="sigs">What's a signature?</a>
+TOPIC_TITLE: <a name="sigs">Che cos'è la signature?</a>
 TOPIC_HELP:
-Signature is a string of text that you may automatically append to the end of every message you post. In your profile you have an option, 
-<b>"Use Signature by default"</b> that will enable or disable this feature by default. However, on every post form you can change this option for 
-that particular post.<br>
-In addition to plain text, this string can contain (if allowed by administrator) various tidbits such as links to favorite URLs, 
-personal photos, etc...
+La signature (=firma) è una stringa di testo che puoi inserire automaticamente al termine di ogni messaggio. Nel tuo profilo esiste l'opzione <B>Usa signature di default</B> che attiverà e disattiverà l'uso automatico della signature.<BR>
+È comunque possibile scegliere di far comparire o meno la signature ogni volta che si posta, modificando l'opzione signature di quello specifico post. Oltre a semplici stringhe di testo, la signature può contenere varia fuffa (se consentito dall'amministratore), ad esempio link alle URL preferite, fotografie o altre immagini ecc.<BR>
+Se preferisci non visualizzare le signature degli altri utenti, puoi utilizzare l'opzione <B>Mostra signature</B> del tuo profilo scegliendo NO.
+
+TOPIC_TITLE: <a name="rstpasswd">Che cosa devo fare se mi dimentico la password?</a>
+TOPIC_HELP:
+Se non ti ricordi la tua password per accedere al forum,, vai alla pagina <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">reset password</a>, 
+inserisci il tuo indirizzo e-mail nella casella di testo e clicca sul tasto VAI: ti verrà spedita un' e-mail contenente un'URL, alla quale dovrai accedere: l'accesso all'URL comporta il reset della password, per cui ti verrà inviata una nuova e-mail con la tua password.<br>
 <br>
-If you do not wish to see the signatures of other people, you can turn them off by setting the <b>"Show Signature"</b> to <b>NO</b> in your profile.
+<b>Nota bene:</b> Le password vengono registrate in un formato criptato "one-way" detto MD5 HASH; si tratta di una criptazione a 128 bit di tipo militare, per cui non è possibile ripristinare le password. Ogni volta che inserisci un dato, questo viene criptato e confrontato con una versione criptata, per cui se ti dimentichi la password, non è possibile ripristinarla e quindi ad ogni richiesta di ripristino della password, il forum ne genererà casualmente una nuova.
 
-
-TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
+TOPIC_TITLE: <a name="cstat">Che cosa sono le Custom Tag e come faccio ad averne una?</a>
 TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">reset password page</a>, 
-on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
-your password will be reset and you will receive a new email with your password.<br>
-<br>
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 HASH.
-This is military grade 128-bit encryption, there is no way to restore your password.
-It works by encrypting the data every time you enter it and then comparing against
-encrypted version.
-Therefor if you forget your password it can not be restored back, so, upon a restore
-password request the forum will randomly generate you a new password.
+Le Custom Tag possono essere assegnate solo dall'amministratore, quindi per avere la tua Custom Tag contatta l'amministratore del forum.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they & how can I get one?</a>
+TOPIC_TITLE: <a name="avatars">Che cos'è un avatar?</a>
 TOPIC_HELP:
-Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
-
-TOPIC_TITLE: <a name="avatars">What's an avatar?</a>
-TOPIC_HELP:
-Avatars are images that appear below your user name on the messages that you've posted as well as your user information page. 
-FUDforum supports 3 types of avatars, some of which may or may not be enabled by the forum's administrator. You may choose an avatar for yourself 
-from your profile page.
+Gli avatar sono delle immagini che compaiono sia sotto il tuo nickname nei messaggi che hai postato sia nella tua pagina informazioni utente. Il forum supporta tre tipi di avatar, che possono essere attivati o meno dall'amministratore. Puoi scegliere il tuo avatar nella pagina del profilo.
 <ul>
-	<li><b>Built In</b> - These are the avatars the Admin has made available, you can choose one of those avatars and it will become your avatar as soon as 
-	you submit the change to your profile page.
-	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
-	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
+	<li><b>Built In</b> - sono gli avatar resi disponibili dall'amministratore: se scegli uno di questi, diventerà il tuo avatar non appena avrai effettuato la modifica nella pagina del tuo profilo.
+	<li><b>Upload Avatar</b> - se questa opzione è attivata dall'amministratore, puoi caricare l'immagine che hai scelto come avatar sul server; una volta caricata, l'immagine deve essere approvata dall'amministratore prima di diventare il tuo avatar.
+	<li><b>Specifica URL</b> - se questa opzione è attivata dall'amministratore, puoi indicare l'URL corrispondente all'immagine che hai scelto come avatar. Anche in questo caso, l'immagine deve essere approvata dall'amministratore prima di diventare il tuo avatar.
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded & URL avatars will always need to be approved prior to going live on the forum.
+<b>Nota bene:</b> potrai cambiare il tuo avatar a piacimento, ma gli avatar diversi da quelli predefiniti dovranno sempre essere prima approvati dall'amministratore prima di andare online sul forum.
 
-TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
+TOPIC_TITLE: <a name="blist">Che cos'è la buddy list?</a>
 TOPIC_HELP:
-A buddy list is your own little list of forum members with whom you wish to converse more frequently. By putting a person on your buddy list, 
-you will be able to see their birthday (if they entered one) as well as easily choose them as recipients of your Private Messages.
+La buddy list è la tua lista personale degli utenti del forum con cui parli più spesso. Inserendo una persona nella buddy list potrai vedere la data del suo compleanno (se l'ha inserita nel suo profilo) e sarà più facile sceglierla come destinatario dei tuoi messaggi privati.
 
-TOPIC_TITLE: <a name="ignlist">What does the ignore list do?</a>
+TOPIC_TITLE: <a name="ignlist">A che cosa serve la ignore list?</a>
 TOPIC_HELP:
-Ignore List is a database of forum members who's messages you do not wish to see as well as not allow these members to send you 
-private messages. On every message there is a quick link that would give you an opportunity to add the author of that message to your ignore list.
+La ignore list è un database degli utenti del forum di cui non vuoi visualizzare i messaggi e da cui non vuoi ricevere messaggi privati. Ogni messaggio che viene postato ha un link che permette di aggiungere l'autore del post alla tua ignore list. 

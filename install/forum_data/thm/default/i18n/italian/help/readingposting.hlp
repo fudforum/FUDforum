@@ -1,201 +1,179 @@
-TOPIC_TITLE: <a name="style">How to format text?</a>
+TOPIC_TITLE: <a name="style">Come si formatta il testo?</a>
 TOPIC_HELP:
-Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold,italics,etc...
+Nella maggior parte dei casi i messaggi di un forum sono composti da semplice testo; tuttavia, in alcune occasioni si può voler aggiungere della formattazione al testo, scrivendo in grassetto, in corsivo, ecc.
 <p>
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use FUDcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. FUDcode is very easy to use and is a lot more secure then HTML.
+Solitamente l'amministratore non permette l'utilizzo di HTML all'interno dei messaggi; in questo caso potete utilizzare FUDcode, che consiste di una serie di tag che permettono di applicare alcuni stili di formattazione al testo.
 <p>
-<b>Here is a list of the supported FUDcode tags & short examples on it's usage</b>
+<b>Ecco una lista dei tag di FUDcode e dei piccoli esempi di come utilizzarli</b>
+<p>
+<b>Inserimento di URL</b><br><br>
 
-<b>URL Hyperlinking</b><br><br>
-
-The forum can automatically pick up on many forms of URLs, for example:<br>
-	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
-will be automatically picked up as a URL and converted to a valid URL, which will look like this:
-	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
+Il forum può automaticamente convertire indirizzi in URL cliccabili. Ad esempio:<br>
+	<div align="Center"><font color="#FF0000">http://www.tgmonline.it</font></div><br>
+sarà automaticamente interpretato come URL e convertito in link cliccabile, il che vuol dire che diventerà una cosa del genere:
+	<div align="center"><a href="http://www.tgmonline.it" target=_blank>http://www.tgmonline.it</a></div><br>
 	
 	
-You can create a URL yourself by using FUD code also, this can be done in 2 ways, a simple way works like this:
-	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></div><br>
-this will result in a generation fo the following link:
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></div><br>
-You can add a description to your URL by using a different syntax inside the <font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600">My Homepage</font>[/URL]</b></font> this code will result in the following:<br>
-	<div align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></div><br>
+Puoi creare un URL per conto tuo utilizzando il FUDcode, in due modi. Il più semplice è questo:
+	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.lamiahomepage.com</font>[/URL]</font></b></div><br>
+che diventa:
+	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>http://www.lamiahomepage.com</a></div><br>
+Puoi anche aggiungere una descrizione all'URL utilizzando una sintassi leggermente diversa: <font color="#ff0000"><b>[URL=<font color="#006600">http://www.lamiahomepage.com</font>]<font color="#006600">La mia home page</font>[/URL]</b></font>. Ed ecco cosa diventa:<br>
+	<div align="center"><a href="http://www.lamiahomepage.com" target=_blank>La mia home page</a></div><br>
 <p>
-<b>Email Hyperlinking</b><br><br>
-         To create an email link simply type the email address as it would
- normally    appear, for example:<br>
-<div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
-       the forum will automatically understand this create a link.  In addition
-   it is also possible to create a real email hyperlink using this  format<br>
-<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font>Click here to email our tech support<font color="#ff0000"><b>[/email]</b></font><br></div>
+<b>Inserimento indirizzi email</b><br><br>
+         Per creare un link ad un indirizzo email è sufficiente scriverlo così com'è. Ad esempio:<br>
+<div align="Center"><font color="#ff0000"><b>forum@xenia.it</b></font></div><br>
+       viene interpretato automaticamente e trasformato in un link. Si può anche utilizzare la seguente sintassi<br>
+<div align="Center"><font color="#ff0000"><b>[email=<font color="#006600">forum@xenia.it</font>]</b></font>Clicca qui per scrivere all'amministratore del forum<font color="#ff0000"><b>[/email]</b></font><br></div>
 <br>
-<b>Text Styling</b><br>
-         There are a number of tags which you can use to style text, they 
-are:<br>
+<b>Formattazione del testo</b><br>
+         Ecco una serie di tag che possono essere utilizzati per inserire dello stile nel testo:<br>
 <br>
 <ul>
-  <li><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>
-         [/b]</b></font> produces <b>bold</b> text</li>
-  <li><font color="#ff0000"><b>[u]</b></font>underline<font color="#ff0000"><b>
-         [/u]</b></font> produces <u>underlined</u> text</li>
-  <li><font color="#ff0000"><b>[i]</b></font>italic<font color="#ff0000"><b>
-         [/i]</b></font> produces <i>italicized</i> text</li>
+  <li><font color="#ff0000"><b>[b]</b></font>grassetto<font color="#ff0000"><b>
+         [/b]</b></font> genera testo in <b>grassetto</b></li>
+  <li><font color="#ff0000"><b>[u]</b></font>sottolineato<font color="#ff0000"><b>
+         [/u]</b></font> genera testo <u>sottolineato</u></li>
+  <li><font color="#ff0000"><b>[i]</b></font>corsivo<font color="#ff0000"><b>
+         [/i]</b></font> genera testo in <i>corsivo</i></li>
 </ul>
-         It is also possible to control color/size and even font face.<br>
+         È anche possibile modificare colore, dimensione e aspetto dei caratteri del testo.<br>
 <ul>
-  <li><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>
-         [/color]</b></font> produces <font color="#ff0000">red text</font></li>
-  <li><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>
-        [/size]</b></font> produces text in the specified <font size="4">
-size</font></li>
-  <li><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>
-        [/font]</b></font> produces text using the named <font face="Courier New, Courier, monospace">
-        type face</font></li>
+  <li><font color="#ff0000"><b>[color=red]</b></font>testo rosso<font color="#ff0000"><b>
+         [/color]</b></font> diventa <font color="#ff0000">testo rosso</font></li>
+  <li><font color="#ff0000"><b>[size=4]</b></font>testo grande<font color="#ff0000"><b>
+        [/size]</b></font> diventa testo con la <font size="4">
+dimensione specificata</font></li>
+  <li><font color="#ff0000"><b>[font=courier]</b></font>testo<font color="#ff0000"><b>
+        [/font]</b></font> genera testo che utilizza il <font face="Courier New, Courier, monospace">
+        font scelto</font></li>
 </ul>
-        It is also possible to combine various formatting tags:<br>
-<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatted Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
-       this example produces:<br>
-<div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></div>
+        È anche possibile utilizzare diversi tag in combinazione tra loro:<br>
+<div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>testo formattato<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
+       diventa quindi:<br>
+<div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>testo formattato</b></i></u></font></div>
 <br>
 <br>
-<b>Text Alignment</b><br>
-FUDcode supports text alignment via the [align] tag, which allows your to align your text in 3 ways:
+<b>Allineamento del testo</b><br>
+FUDcode permette di allineare il testo con il tag [align], che permette di giustificare il testo in tre modi:
 <ul>
-	<li><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="center">centered text</div>
-	<li><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="left">left aligned</div>
-	<li><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font> produces:</li>
-		<div align="right">right aligned</div>	
+	<li><font color="#ff0000"><b>[align=center]</b></font>testo centrato<font color="#ff0000"><b>[/align]</b></font> genera:</li>
+		<div align="center">testo centrato</div>
+	<li><font color="#ff0000"><b>[align=left]</b></font>testo allineato a sinistra<font color="#ff0000"><b>[/align]</b></font> genera:</li>
+		<div align="left">testo allineato a sinistra</div>
+	<li><font color="#ff0000"><b>[align=right]</b></font>testo allineato a destra<font color="#ff0000"><b>[/align]</b></font> genera:</li>
+		<div align="right">testo allineato a destra</div>	
 </ul>
 <br>
 <br>
-<b>Various Lists</b><br>
-      You can create various kinds of lists using Form Code:<br>
+<b>Liste</b><br>
+      Puoi creare diverse tipologie di lista utilizzando FUDCode:<br>
 <br>
-      Un-ordered bulleted list:<br>
+      elenchi puntati non ordinati:<br>
 <font color="#ff0000"><b>[list]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
 <font color="#ff0000"><b>[/list]<br>
 </b></font><br>
-      would produce<br>
+      genera<br>
 <ul>
-  <li>first item</li>
-  <li>second item</li>
+  <li>primo elemento della lista</li>
+  <li>secondo elemento della lista</li>
 </ul>
-      It is possible to use various kinds of lists, for example to create 
-an  numerical  ordered list:<br>
+      È possibile utilizzare diverse tipologie di elenchi, ad esempio quelli numerati:<br>
 <font color="#ff0000"><b>[list type=1]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
-     which produces<br>
+     genera<br>
 <ol>
-  <li>first item</li>
-  <li>second item<br>
+  <li>primo elemento della lista</li>
+  <li>secondo elemento della lista<br>
   </li>
 </ol>
-     to create an A-Z list:<br>
+     Per creare una lista alfabetica:<br>
 <font color="#ff0000"><b>[list type=A]</b></font><br>
-<font color="#ff0000"><b>[*]</b></font>first item<br>
-<font color="#ff0000"><b>[*]</b></font>second item<br>
+<font color="#ff0000"><b>[*]</b></font>primo elemento della lista<br>
+<font color="#ff0000"><b>[*]</b></font>secondo elemento della lista<br>
 <font color="#ff0000"><b>[/list]</b></font><br>
 <br>
-     which produces:<br>
+     genera:<br>
 <ol type="a">
-  <li>first item</li>
-  <li>second item</li>
+  <li>primo elemento della lista</li>
+  <li>secondo elemento della lista</li>
 </ol>
-<b>Adding Images</b><br>
-    It is possible to include in-line images with the message. using the <font color="#ff0000"><b>
-    [img][/img]</b></font> tags. <br>
+<b>Inserimento di immagini</b><br>
+    È possibile inserire immagini all'interno di un messaggio utilizzando il tag <font color="#ff0000"><b>
+    [img][/img]</b></font>. <br>
 <br>
-    so, for example,<br>
-<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
-    will insert an image in the message as such:<br>
-<div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-    in addition you can create links to images by enclosing them inside a
-<font color="#ff0000"><b>    [url][/url]</b></font> tags such as<br>
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
-    which will create a linked image such as<br>
-<div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
+    Ad esempio,<br>
+<div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
+    inserisce un'immagine nel messaggio, in questo modo:<br>
+<div align="Center"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" width="488" height="81"><br></div>
+    In aggiunta puoi anche creare link alle immagini racchiudendoli nei tag <font color="#ff0000"><b>    [url][/url]</b></font> in questo modo<br>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.tgmonline.it</font>][img]</b></font>http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
+    che crea un'immagine con un link, come<br>
+<div align="Center"><a href="http://www.tgmonline.it"><img src="http://www.tgmonline.it/tgmfiles/Forumzone/manonesiste.gif" alt="image" width="488" height="81" border="0"></a><br></div><br>
 
-<br><b>Quoting other messages</b><br>
-  It is possible to quote something that has already been posted, by just 
-putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it. 
+<br><b>Quote di altri messaggi</b><br>
+  È possibile inserire parti di un messaggio già postato (quote), semplicemente inserendo i tag <font color="#ff0000"><b>[quote][/quote]</b></font>. 
 <br>
-<div align="Center"><font color="#ff0000"><b>[quote]</b></font>hello world<font color="#ff0000"><b>[/quote]</b></font><br></div>
-  would appear such as:<br>
+<div align="Center"><font color="#ff0000"><b>[quote]</b></font>ciao mondo<font color="#ff0000"><b>[/quote]</b></font><br></div>
+  apparirebbe come:<br>
 
-<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
+<table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">ciao mondo<br></td></tr></table>
 <p>
-<b>Computer Code and Pre-formatted Text</b><br>
- The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
-text exactly as it is, maintaining relational formatting such as tabs and multiple 
-spaces. <br>
+<b>Codice e testo pre-formattato</b><br>
+I tag <font color="#ff0000"><b>[code][/code]</b></font> permettono di inserire del testo esattamente com'è, mantenendo formattazioni già inserite, come spazi e tabulazioni. <br>
 <br>
- it used like this: <br>
+Può essere usato in questo modo: <br>
 <font color="#ff0000"><b>[code]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
 <font color="#ff0000"><b>[/code]</b></font><br>
 <br>
- which produces the text exactly as it was typed maintaining the formatting. 
+ che genera il testo esattamente come è stato inserito. 
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <br>
 
-You may also find that the administrator has enabled smilies, which allow
-you to use small icons to convey emotion, and the [img] code, which allows
-you to add pictures to your message.
 
-
-TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_TITLE: <a name="sml">Cosa sono gli smiley/faccine/emoticon?</a> 
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions & feelings.
-If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
-Clicking on a smiley, will insert that smiley into your message.<br>
-Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable Smilies</b> checkbox.<p>
+Gli smiley, detti anche faccine o emoticon, sono piccole icone che puoi inserire all'interno di un messaggio per trasmettere emozioni e sentimenti.
+Se gli smiley sono abilitati, sopra il testo del messaggio da postare troverai un elenco di icone presenti nel forum.
+Cliccando su uno di essi, verrà automaticamente inserito all'interno del messaggio.<br>
+Gli smiley vengono automaticamente convertiti in immagini dal forum. Se non vuoi che questo avvenga, clicca sul bottone 
+<b>Disabilita smiley</b>.<p>
 
-TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
+TOPIC_TITLE: <a name="polls">Come faccio a creare un sondaggio?</a>
 TOPIC_HELP:
-In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
-provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
-their votes.<br>
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
-and then poll you've created will be attached to the message.<br>
-You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
+In alcuni forum ti viene data la possibilità di inserire dei sondaggi nei tuoi messaggi. Il meccanismo di un sondaggio è molto semplice: c'è una domanda, una serie di risposte da scegliere; per questioni di accuratezza solo gli utenti registrati possono votare i sondaggi.<br>
+Quando clicchi sul link <b>CREA SONDAGGIO</b>, si aprirà una piccola schermata di pop-up con la possibilità di creare un sondaggio con risposte multiple. Quando hai terminato, clicca su <b>Modifica</b> e sarai riportato alla pagina del topic, dove il sondaggio sarà stato inserito nel tuo messaggio.<br>
+Potrai modificare il messaggio cliccando sul link <b>MODIFICA</b>, o cancellarlo cliccando su <b>CANCELLA</b>.
 <p>
-You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
+Puoi esprimere un solo voto per ogni sondaggio.
 
-TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
+TOPIC_TITLE: <a name="attach">Posso allegare file ai messaggi?</a>
 TOPIC_HELP:
-If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
-determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+Se consentito dall'amministratore del forum, potrai inserire uno o più file ai tuoi messaggi, siano essi normali che privati. Questa opzione è legata ai singoli forum: questo vuol dire che alcuin forum possono permettere l'aggiunta di file ai messaggi, altri no, a seconda delle scelte dell'amministratore.
 <br>
-The post form will list 3 rules which apply to your file attachments:<p>
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br>
-<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br>
-<b>Maximum Files per Message</b> - the number of files you can attach to your message.
+Ecco le tre regole base per l'inserimento di file allegati ai messaggi:<p>
+<b>Estensioni consentite</b> - un elenco di tipi di file che puoi allegare al messaggio, ad esempio jpg, gif, png<br>
+<b>Dimensione massima del file</b> - la dimensione massima di ogni file che puoi inserire nel messaggio<br>
+<b>Numero massimo di file per messaggio</b> - il numero di file che puoi allegare al messaggio.
 <p>
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
-open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
-<b>Upload File</b> button to attach the file to your message.<br>
-If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
+Per allegare un file, clicca sul tasto <b>Sfoglia</b> che si trova nella parte bassa del post di un messaggio. Il browser aprirà una schermata dalla quale poter selezionare il file presente sul tuo hard disk. Una volta selezionato il file, clicca su <b>Upload file</b>.<br>
+Se vuoi cancellare file allegati al messaggio, clicca sul bottone <b>Cancella</b> che trovi alla destra del nome del file.
 
 
-TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
+TOPIC_TITLE: <a name="msgico">Che cos'è l'icona di un messaggio?</a>
 TOPIC_HELP:
-Post icons are small images that you can choose to show beside your messages. They are most 
-commonly used to indicate the nature of your message or the feeling your are trying to convey.
-If you do not see those icons on the post form, it means the administrator has disabled this feature.
+Le icone dei messaggi sono piccole immagini che puoi scegliere di mostrare accanto ai tuoi messaggi. Sono per la maggior parte utilizzate per evidenziare la natura del messaggio e quello che stai cercando di comunicare.<BR>
+Se non vedi queste icone nella pagina di inserimento di un topic, vuol dire che l'amministratore ha disabilitato questa opzione.
 
-TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
+TOPIC_TITLE: <a name="edit">Posso modificare un mio messaggio?</a>
 TOPIC_HELP:
 If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
 time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br>
@@ -204,27 +182,21 @@ of editing.<br>
 If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
 that this message was edited.
 
-TOPIC_TITLE: <a name="mod">Who are the moderators & administrators?</a> 
+TOPIC_TITLE: <a name="mod">Chi sono i moderatori e gli amministratori?</a> 
 TOPIC_HELP:
-Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
-as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p>
-Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign & remove custom tags, block users and respond to various forum questions.
-If you encounter any bugs with the forum, Administrator is the person to contact.
-
-TOPIC_TITLE: <a name="cens">Censorship?</a>
-TOPIC_HELP:
-The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
-so the same things you cannot see, other people will also not be able to see.
-
-TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
-TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email or ICQ (select via your profile) 
-of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
-want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
+I moderatori sono utenti con qualche privilegio in più, che tengono sotto controllo uno o più forum. Solitamente hanno la possibilità di modificare, cancellare, approvare messaggi e fare annunci sul forum.<BR>
+Sono persone da contattare se vedi qualcosa di poco consono alla netiquette e alle regole del forum che stanno moderando. <BR>
 <p>
-If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
-Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
+Gli amministratori sono coloro che controllano il forum; possono fare QUALUNQUE COSA, quindi vedete di rivolgervi a loro con il dovuto rispetto :) Oltre ai privilegi di moderatore, l'amministratore può approvare avatar, assegnare o rimuovere le custom tag, bannare gli utenti, ecc.
+
+TOPIC_TITLE: <a name="cens">Censura?</a>
+TOPIC_HELP:
+L'amministratore può decidere di censurare talune parole, che saranno rimpiazzate dall'alternativa scelta da lui. La censura si applica a tutto il forum indistintamente.
+
+TOPIC_TITLE: <a name="not">Come posso essere avvisato di eventuali risposte ad un mio messaggio?</a> 
+TOPIC_HELP:
+Quando crei un nuovo topic o rispondi a uno già esistente, puoi scegliere se ricevere una notifica via email o ICQ (da selezionare nel proprio profilo)  di eventuali risposte al tuo messaggio. Puoi anche iscriverti ad un topic senza inserire alcuna reply, cliccando sul link <b>Iscriviti al topic</b> che trovi in cima alla pagina; puoi anche iscriverti ad un intero forum, in modo da essere avvisato ogni volta che viene creato un nuovo topic al suo interno.
 <p>
-The ability to receive notifications is limited to registered users.
+Se scegli di non ricevere più notifiche da un topic o da un forum, puoi cliccare sul link <b>Cancella la tua iscrizione</b>, che trovi nel forum o nel topic cui sei iscritto. In alternativa, puoi anche andare nella sezione <b>Iscrizioni</b> del tuo profilo utente e rimuovere i topic o i forum cui sei iscritto.
+<p>
+La possibilità di ricevere notifiche è limitata agli utenti registrati.

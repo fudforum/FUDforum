@@ -1,5 +1,7 @@
-<center>Disable Smilies</center>
-Will disable smilies in the post, this is useful if you 
-need to use the character combinations such as: :), :P.
-Normally they will be interpreted as smilies, but if you want 
-them appear as they are enable this option. 
+<center>Disabilita smiley</center>
+Disabilita gli smiley all'interno del messaggio, utile se 
+hai la necessità di utilizzare combinazioni di caratteri
+come :), :P.
+Solitamente esse vengono intepretate come smiley, 
+ma se vuoi che appaiano come semplice testo, tutto
+ciò che devi fare è abilitare questa opzione. 

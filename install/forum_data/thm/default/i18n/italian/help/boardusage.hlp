@@ -1,79 +1,63 @@
-TOPIC_TITLE: <a name="bsearch">How can I search?</a>
+TOPIC_TITLE: <a name="bsearch">Come posso effettuare delle ricerche?</a>
 TOPIC_HELP:
-Unless disabled by the administrator, you can <a href="{ROOT}?t=search&%_rsid%" class="GenLink">search for messages</a> that were posted inside the forum. You can search for a message by 
-specifying one or more keywords you wish to be found and choosing where to find those keywords, you can either search in subject alone 
-or do a full text search on both the message body & subject. You can also limit your search to a forum of your choice if you do not wish to search 
-in all the forums.<br>
-You can also search for other forum members, by their login name or email address via the <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">user search form</a>.
+A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi effettuare <a href="{ROOT}?t=search&%_rsid%" class="GenLink">ricerche di messaggi</a> che sono stati inseriti all'interno del forum. Puoi effettuare una ricerca specificando una o più 
+parole chiave che vuoi che siano trovate, e selezionare dove effettuare la ricerca, solo nel titolo del topic 
+o effettuando una ricerca completa all'interno del testo del messaggio. Puoi anche limitarti ad effettuare una ricerca all'interno di un singolo forum a tua scelta, se non vuoi passarli al setaccio
+tutti quanti.<br>
+Puoi anche ricercare altri utenti del forum, sia inserendo il loro nickname che il loro indirizzo di posta elettronica utilizzando la <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">pagina di ricerca utenti</a>.
 
 
-TOPIC_TITLE: <a name="email">Can I email other forum members?</a>
+TOPIC_TITLE: <a name="email">Posso inviare email agli altro utenti del forum?</a>
 <tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
-Unless disabled by the administrator, you will be able to get in touch with other forum members via email.<br>
-To send a member and email, you can either find them through the member list page and then click on the <b>Contact</b> button 
-or simply click on the <b>Email</b> button located near their every post. This will take you to a new page where you will have the opportunity to 
-enter you intended email subject & body. When you're done, simple click on the <b>Email</b> button and you're email will be sent.
+A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi tenerti in contatto con gli altri membri del forum inviando loro delle email.<br>
+Per inviare un'email ad un utente, puoi ricercarlo nella pagina degli utenti registrati del forum e selezionare il bottone <b>E-mail</b>, che trovi anche in ogni singolo messaggio scritto dall'utente nel forum. Così facendo accederai ad una pagina dove scrivere la tua email, specificando l'oggetto e il testo della lettera
+Quando hai scritto il tuo messaggio, sarà sufficiente cliccare sul tasto <b>Email</b> e la lettera verrà spedita al suo indirizzo di posta elettronica.
 <br><br>
-In addition to sending emails to forum members, you can also use the <b>Email to friend</b> link to recommend a particular page to your friend 
-by sending them a URL with the description. This link can be found on the topic & message view pages of the forum.
+Oltre a spedire email agli utenti del forum, puoi anche utilizzare il link <b>Email ad un amico</b> per segnalare una particolare pagina ad un tuo amico, 
+spedendogli l'indirizzo della pagina con una breve descrizione. Questo link si trova nella pagina iniziale di un topic.
 </td></tr></table></td></tr>
 
 
-TOPIC_TITLE: <a name="pmsg">What are private messages and how do I send them?</a> 
+TOPIC_TITLE: <a name="pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a> 
 TOPIC_HELP:
-If the administrator has not disabled Private Messaging system, you may send private messages to one or more registered 
-members of the forum. To access the PM system, simply click on the <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Private Messaging</a> link 
-which can be found at the top of the page's right corner. If you have any unread private messages, this link will indicate how many unread messages you have.
+Se l'amministratore non ha disabilitato la messaggistica privata, puoi spedire messaggi personali a uno o più utenti registrati
+del forum. Per accedere alla MP, tutto quello che devi fare è cliccare sul link <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Messaggistica Privata</a> 
+che si trova nell'angolo in alto a destra di ogni pagina. Se hai dei messaggi privati non letti, il link ti indicherà quanti sono con un numero tra parentesi.
 <p>
-<b>Sending a private message</b><br>
-Private messages are very similar to email, you specify the person(s) who you wish to send the message to, enter the subject & the message 
-and click send. There are 2 links available, that would allow you to easily find members who you wish to send your message to,
-<b>Select from Buddy List</b>, which will allow to select people from your buddy list, by listing all your buddies and <b>Find User</b>, which
-will allow to search the forum's entire member list for people to whom you wish to address your message.
-A copy of every sent message will be stored inside your <b>SENT</b> folder, for future reference, you can always delete those message should 
-your choose to do so.
+<b>Invio di un messaggio privato</b><br>
+I messaggi privati sono molto simili alle email: dovete specificare il/i destinatario/i cui vuoi invare il messaggio, specifixare l'oggetto e il testo 
+e cliccare sul tasto <B>Invia</B>. Trovate due link disponibili, che dovrebbero permettervi di trovare rapidamente gli utenti cui inviare i vostri messaggi, ossia <B>Trova utente</B>, che effettua una ricerca per login o per indirizzo emai, e
+<b>Seleziona dalla Buddy List</b>, che vi consente di selezionare dalle persone presenti nella vostra buddy list.
+Una copia di ogni messaggio inviato verrà salvata nella cartella <b>Posta Inviata</b>.
 <p>
-There are 3 other folders that you should be aware of:
+Ci sono altre tre cartelle:
 <p>
-<b>Inbox</b> folder contains any messages that you have received, each message has an read/unread indicator to allow you to see if you 
-have read this message or not. You will also be able to see who sent this message and if that person is currently online or not, the date when 
-the message was sent is also shown.
+<b>Posta ricevuta</b> contiene tutti i messaggi che avete ricevuto, ognuno dei quali contiene un indicatore che permette di capire se avete letto o no il messaggio
+Potete anche vedere chi vi ha spedito il messaggio, se la persona è attualmente online, e la data 
+nella quale il messaggio è stato spedito.
 <p>
-<b>Drafts</b> Folder contains the messages you have written but did not yet send yet. By clicking on the message you will go to edit mode, 
-which will allow you to further modify the message as well as send it if you choose to. Once the message is sent it will be moved from the DRAFTS 
-folder to your SENT folder.
+<b>Bozze</b> contiene i messaggi che avete scritto ma non avete ancora inviato. Cliccando sul messaggio entrerete nella finestra di modifica, 
+che vi permette di modificare il messaggio e, se lo desiderate, di spedirlo. Una volta che il messaggio viene spedito, esso verrà spostato dalla cartella Bozze
+alla cartella Posta Inviata.
 <p>
-<b>Trash</b> folder stores all the message you have marked for deletion, but did not delete as of yet. If you delete a message which is located 
-inside TRASH this message will become permanently deleted.
+<b>Cestino</b> contiene tutti i messaggi che avete deciso di cancellare dalle altre cartelle. Se cancellate un messaggio ANCHE dal cestino, allora sarà perso per sempre.
 <p>
-<b>Message Tracking</b><p>
-When you send a message you have the ability to request a read-receipt, when the recipient reads the message you will receive a system message 
-notifying you that your message has been read.<br>
-However, if you request such a receipt the recipient may choose to decline sending the read-receipt, so if you have requested a receipt and 
-did not receive it this does not necessarily mean your message was not read.
+<b>Traccia dei messaggi</b><p>
+Quando scrivi un messaggio, hai la possibilità di richiedere una "ricevuta di ritorno", così che quando il destinatario legge il messaggio, riceverai una comunicazione automatica che segnala l'avvenuta lettura.<br>
+Tuttavia, se richiedi una ricevuta di ritorno e il destinatario decide di non inviarla, non riceverai alcuna conferma dell'avvenuta lettura del messaggio anche se questo è stato effettivamente letto.
 
 
-TOPIC_TITLE: <a name="mlist">Member List?</a>
+TOPIC_TITLE: <a name="mlist">Elenco utenti?</a>
 TOPIC_HELP:
-The member list is a complete list of all the registered users on a forum. 
-You can sort the list in 3 ways: by login name alphabetically, by number of posts & the date of registration.
+L'elenco utenti è la lista completa degli utenti registrati al forum. Puoi ordinare la lista in tre modi possibili: per nickname, per numero di messaggi e per data di registrazione.
 <br><br>
-The member list also has a search capability, allowing you to find a particular member by either login name or email address.
+La lista degli utenti dispone anche di un motore di ricerca interno che vi permette di trovare un utente specificando, al solito, nickname o indirizzo di posta elettronica.
 
-TOPIC_TITLE:<a name="ann">What are announcements & sticky messages?</a>
+TOPIC_TITLE:<a name="ann">Cosa sono gli annunci e i messaggi <I>topped</I>?</a>
 TOPIC_HELP:
-These are special messages that can be created by administrators & moderators and stay at the top of a forum(s) for a period of time.
-Generally they are used to inform the users of the forum of a certain event or outline rules etc...
+Sono messaggi speciali che possono essere creati dall'amministratore e dai moderatori, in modo che stiano in cima alla lista di messaggi per un certo periodo di tempo. Generalmente vengono utilizzati per informare gli utenti di particolari eventi o iniziative, o per comunicazioni dallo staff.
 
 
-TOPIC_TITLE: <a name="rate">Can I rate topics?</a>
+TOPIC_TITLE: <a name="rate">Posso votare i topic?</a>
 TOPIC_HELP:
-You may have noticed that certain topics have a rating. If allowed by the administrator you can contribute your own rating of the topic.
-You can do so by going to the bottom of the message view page and choose a number between 1-5 (5 highest rating) from the 
-<b>Rate Topic</b> select box.
-
-TOPIC_TITLE: <a name="ref">What are referrals?</a>
-TOPIC_HELP:
-Referrals allows you to see, which forum members you or other members of the forum have referred. 
-The referrals are tracked automatically, when you give someone a URL to the forum and they register you will be credit 
-with the referral of that person. The list of people you have referred can be viewed from your profile, when you click on the <b>Referrals</b> tab.
+Avrai notato che alcuni topic hanno un giudizio espresso in stelline. Se l'amministratore lo consente, puoi anche tu contribuire con il tuo voto. Per farlo devi andare in fondo al messaggio e selezionare un numero da 1 a 5 (cinque per il voto più alto) dal menu a tendina <b>Esprimi un giudizio sul topic</b>.
