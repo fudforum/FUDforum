@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.31 2003/07/09 07:55:46 hackie Exp $
+*   $Id: tree.php.t,v 1.32 2003/07/09 14:41:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,6 +29,8 @@
 			$th = q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
 		} else if ($_GET['goto'] == 'end' && $th) {
 			$mid = q_singleval('SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
+		} else if ($th) {
+			$mid = (int)$_GET['goto'];
 		} else {
 			invl_inp_err();
 		}
