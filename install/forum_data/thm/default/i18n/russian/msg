@@ -993,8 +993,8 @@ mmd_mov_title:			Перенос тем
 mmd_move_threads_to:		Выберите форум, в который нужно перенести сообщения:
 mmd_abort_move:			Отмена
 mmd_move:			Перенести темы
-pmsg_pdf_btn:			Make PDF Archive
-search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+pmsg_pdf_btn:			Создать PDF-архив
+search_results_hdr:		В результате поиска найдено страниц: {VAR: total}
+thread_del_all:			Удалить отмеченные
+thread_mov_all:			Перенести отмеченные
 dmsg_ip:			IP:
