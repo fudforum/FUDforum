@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.28 2004/10/18 23:29:19 hackie Exp $
+* $Id: admcat.php,v 1.29 2004/10/19 00:06:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,8 +33,8 @@
 			$edit = '';
 		} else {
 			$cat->add($_POST['cat_pos']);
-			rebuild_forum_cat_order();
 		}
+		rebuild_forum_cat_order();
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT parent, name, description, cat_opt FROM '.$tbl.'cat WHERE id='.$edit))) {
 		foreach ($c as $k => $v) {
@@ -64,8 +64,8 @@
 		}
 		db_unlock();
 	}
-	if (isset($_GET['chpos'], $_GET['newpos'])) {
-		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos']);
+	if (isset($_GET['chpos'], $_GET['newpos'],$_GET['par'])) {
+		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], (int)$_GET['par']);
 		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
 	}
@@ -190,7 +190,7 @@
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
+				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&par='.$r->parent.'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
 			}
 			$lp = $r->view_order;
 		} else if ($cpid > -1) {
@@ -212,7 +212,7 @@
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&cpid='.$r->id.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
 	}
 	if ($lp && $parent == $cpid) {
-		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&par='.$parent.'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
 	}
 ?>
 </table>
