@@ -182,7 +182,6 @@ user_offline:			{VAR: obj->login} ðobrîd nav On-Line reþîmâ
 user_online:			{VAR: obj->login} ðobrîd On-Line reþîmâ
 usrinfo_last_post:		Pçdçjais ieraksts:
 view_forum:			Foruma pârskats
-view_last_msg:			Pçdçjais foruma ieraksta pârskats
 view_results:			Rezultâtu pârskats
 view_thread:			Tçmas pârskats
 views:				Pârskati
@@ -265,7 +264,6 @@ finduser_joindate:		Pieslçgðanâs datums
 finduser_action:		Darbîbas
 yes:				Jâ
 no:				Nç
-register_email			E-pasts
 edit_time_limit:		<br><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
 no_edit_time_limit:		<br><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
 pmuserloc_login:		Vârds:
@@ -694,7 +692,6 @@ ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìini
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
 ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: usr_d->email} nav Jûsu E-pasta adrese <a href="{ROOT}?t=register&amp;{DEF: _rsid}">spediet ðeit</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
 ERR_user_msg:			Tâda lietotâja datu bâzç nav
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -839,7 +836,6 @@ quicklogin_password:		Parole
 quicklogin_use_cookies:		Izmantot Cookies?
 quicklogin_login_btn:		Ieiet
 post_notification_desc:		Paziòot man par ienâkoðajâm atbildçm uz publikâciju.
-post_proc_all_ext_allowed:	(Bez ierobeþojuma)
 maximize_category:		Izplest kategoriju
 no_view_perm:			Jums nav piekïuves tiesîbu ðai tçmai.
 report_empty_report:		Tukðumu nav vçrts un arî nevar nosûtît.
@@ -869,7 +865,7 @@ msg_err_nosuchmsg_msg:		Norâdîtajâ tçmâ ðadas publikâcijas nav
 msg_err_nosuchmsg_title:	Kïûda
 imsg_err_message_title:		Nepieïaujama publikâcija
 imsg_err_message_msg:		Jûsu izvçlçtâs publikâcijas nav.
-poll_edit: 			Labot
+poll_edit:			Labot
 register_err_not_valid_img:	Norâdîtajâ URL nozîmîtes nav
 pmsg_recepient:			Saòçmçjs
 register_err_taken_alias:	Pseidonîms kuru vçlaties izmantot ir aizòemts, nomainiet to.

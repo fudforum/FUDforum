@@ -263,7 +263,6 @@ finduser_joindate:		Data di registrazione
 finduser_action:		Azione
 yes:				Sì
 no:				No
-register_email			Email
 edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minuti
 no_edit_time_limit:		<br><b>Tempo limite per la modifica</b>: <b>illimitato</b>
 pmuserloc_login:		Login:
@@ -691,7 +690,6 @@ ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registraz
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non è stato confermato
 ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -836,7 +834,6 @@ quicklogin_password:		Password
 quicklogin_use_cookies:		Utilizzi i cookie?
 quicklogin_login_btn:		Login
 post_notification_desc:		Segnala quando qualcuno risponde a questo messaggio.
-post_proc_all_ext_allowed:	(senza restrizioni)
 maximize_category:		Espandi la categoria
 no_view_perm:			Non disponi dei permessi necessari per visualizzare questo topic.
 report_empty_report:		Non puoi spedire una segnalazione senza specificare una motivazione.
@@ -866,7 +863,7 @@ msg_err_nosuchmsg_msg:		Non ci sono messaggi in questo topic
 msg_err_nosuchmsg_title:	Errore
 imsg_err_message_title:		Messaggio non valido
 imsg_err_message_msg:		Il messaggio che stai cercando di visualizzare non esiste.
-poll_edit: 			Modifica
+poll_edit:			Modifica
 register_err_not_valid_img:	L&#39;URL che hai inserito non contiene un&#39;immagine valida
 postcheck_pm_disabled:		Non puoi inviare un messaggio privato a "{VAR-HTML: v}", perchè non accetta messaggi privati.
 polllist_vote:			Vota
@@ -894,7 +891,6 @@ pmsg_recepient:			Destinatario
 register_err_taken_alias:	Username già utilizzato
 register_alias:			Alias
 register_alias_desc:		Se vuoi uno username differente dal tuo login, specificalo qui.
-register_alias_asc:		TRANSLATE-ME
 register_allow_pm_msg:		Messaggi Privati
 register_allow_pm_msg_desc:	Abilita la messaggistica privata
 register_msg_tree_view:		Flat thread listing/Tree message listing

@@ -6,7 +6,6 @@ ERR_disabled_ttl:		Deaktivierte Funktion
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_emailconf_msg:		Du hast Dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls Du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht Deine richtige Emailadresse ist, klicke <a href="{ROOT}?t=register&amp;{DEF: _rsid}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
-ERR_emailconf_url:		
 ERR_login_msg:			Du bist nicht angemeldet, bitte hole das jetzt nach<br><br>Falls Du Dich registrieren willst, gehe bitte zur <a href="{ROOT}?t=register&amp;{DEF: _rsid}">Registrierungsseite</a><br>Falls Du Dich anmelden willst, gehe bitte zur <a href="{ROOT}?t=login&amp;{DEF: _rsid}">Anmeldeseite</a>
 ERR_login_ttl:			FEHLER: Du bist nicht angemeldet
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -361,7 +360,7 @@ p_SML:				Smilies verwenden
 p_SPLIT:			Themen aufteilen
 p_STICKY:			Angeheftete Beitr&auml;ge
 p_READ:				Read
-p_VISIBLE:                    	Sichtbar
+p_VISIBLE:			Sichtbar
 p_VOTE:				Abstimmen
 page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
 fud_query_stats:		MySQL Abfragen ben&ouml;tigten {VAR: ttl_time} Sekunden<br>
@@ -379,10 +378,10 @@ pmsg_author:			Verfasser
 pmsg_delete:			L&ouml;schen
 pmsg_forwarded:			weitergeleitet
 pmsg_new_messages:		Ungelesene private Message
-pmsg_next_msg:		N&auml;chste Message
+pmsg_next_msg:			N&auml;chste Message
 pmsg_none:			keine
 pmsg_old_messages:		Private Message lesen
-pmsg_prev_msg:		Vorherige Message
+pmsg_prev_msg:			Vorherige Message
 pmsg_replied:			beantwortet
 pmsg_selected:			Ausgew&auml;hlt
 pmsg_subject:			Betreff
@@ -454,7 +453,7 @@ post_format_tools:		Formatierungshilfen:
 post_forum:			Forum:
 post_icons:			Beitrags-Icon:
 post_list_smilies:		Alle Smileys anzeigen
-post_locked:                    Thema gesperrt
+post_locked:			Thema gesperrt
 post_logedin_user:		Angemeldeter Benutzer:
 post_logout:			Abmelden
 post_mod_opt:			Moderatoren Optionen:
@@ -478,7 +477,6 @@ post_poll_delete:		L&ouml;schen
 post_poll_edit:			Bearbeiten
 post_preview:			Beitragsvorschau
 post_preview_btn:		Beitragsvorschau
-post_proc_all_ext_allowed:	(uneingeschr&auml;nkt)
 post_proc_reveal_spoiler:	Spoiler anzeigen
 post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
@@ -567,7 +565,6 @@ register_custom_avatar_url:	URL zum Benutzeravatar:
 register_day:			Tag
 register_def_thread_view:	Standard Themenansicht:
 register_del_avatar:		Avatar l&ouml;schen
-register_email			Email
 register_email_desc:		Bitte eine g&uuml;ltige Emailadresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
 register_err_adminpasswd:	Du mu&szlig;t Dein ADMINISTRATOR Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen
 register_err_avatarnotallowed:	Der Avatar, den Du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
@@ -866,7 +863,7 @@ msg_err_nosuchmsg_msg:		Einen solchen Beitrag gibt es in diesem Thema nicht
 msg_err_nosuchmsg_title:	Fehler
 imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den Du versuchst anzusehen, existiert nicht.
-poll_edit: 			Bearbeiten
+poll_edit:			Bearbeiten
 unspecified:			Nicht angegeben
 register_err_not_valid_img:	Die angegebene Url enth&auml;t kein g&uuml;ltiges Bild
 pmsg_recepient:			Empf&auml;nger
