@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.inc.t,v 1.3 2003/04/08 14:14:27 hackie Exp $
+*   $Id: post_common.inc.t,v 1.4 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@ function draw_post_icons($msg_icon)
 	$rl = (int) $GLOBALS['POST_ICONS_PER_ROW'];
 
 	$none_checked = !$msg_icon ? ' checked' : '';
-	
+
 	if ($d = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons')) {
 		readdir($d); readdir($d);
 		while ($f = readdir($d)) {

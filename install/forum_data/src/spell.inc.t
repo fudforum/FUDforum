@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.7 2003/04/08 09:04:19 hackie Exp $
+*   $Id: spell.inc.t,v 1.8 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -123,7 +123,7 @@ function tokenize_string($data)
 				if ($data[$i+1] == '/' && $data[$i+2] == '/') {
 					$tmp_string = substr($data,$i+3);
 					$regs = array();
-					if (preg_match("!([A-Za-z0-9\-_\.\%\?\&=/]+)!is", $tmp_string, $regs)) {
+					if (preg_match('!([A-Za-z0-9\-_\.\%\?\&=/]+)!is', $tmp_string, $regs)) {
 						$wa[] = array('token'=>$str.'//'.$regs[1], 'check'=>0);
 						unset($str);
 						                                         
@@ -150,7 +150,7 @@ function tokenize_string($data)
 				}
 				
 				$regs = array();
-				if (preg_match("!(\&[A-Za-z]{2,5}\;)!", substr($data,$i,6), $regs)) {
+				if (preg_match('!(\&[A-Za-z]{2,5}\;)!', substr($data,$i,6), $regs)) {
 					$wa[] = array('token'=>$regs[1], 'check'=>0);
 					$i += strlen($regs[1])-1; 
 				} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.43 2003/04/17 11:53:46 hackie Exp $
+*   $Id: post.php.t,v 1.44 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,22 +52,20 @@
 
 	/* replying or editing a message */
 	if ($reply_to || $msg_id) {
-		$msg = new fud_msg_edit;
-		$msg->get_by_id(($reply_to ? $reply_to : $msg_id));
+		$msg = msg_get($reply_to ? $reply_to : $msg_id));
 	 	$th_id = $msg->thread_id;
 	}
 
-	$frm = new fud_forum;
 	if ($th_id) {
 		$thr = new fud_thread;
 		$thr->get_by_id($th_id);	
-		$frm->get($thr->forum_id);
+		$frm_id = $thr->forum_id;
 	} else if ($frm_id) {
-		$frm->get($frm_id);
 		$th_id = NULL;
 	} else {
 		std_error('systemerr');
 	}
+	$frm = db_sab('SELECT id, tag_style, max_file_attachments, passwd_posting, post_passwd, message_threshold, moderated FROM {SQL_TABLE_PREFIX}forum WHERE id='.$frm_id);
 	
 	/* fetch permissions & moderation status */
 	$perms = init_single_user_perms($frm->id, $usr->is_mod, $MOD);

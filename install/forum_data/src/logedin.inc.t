@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.16 2003/04/06 13:36:48 hackie Exp $
+*   $Id: logedin.inc.t,v 1.17 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,22 +47,22 @@ function rebuild_stats_cache($last_msg_id)
 
 $logedin = $forum_info = '';
 
-if ($GLOBALS['LOGEDIN_LIST'] == 'Y' || $GLOBALS['FORUM_INFO'] == 'Y') {
-	if (!($st_obj = db_sab('SELECT sc.*,m.subject AS last_msg_subject, u.alias AS last_user_alias FROM {SQL_TABLE_PREFIX}stats_cache sc INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=sc.last_user_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id='.$last_msg_id.' WHERE sc.cache_age>'.(__request_timestamp__ - $GLOBALS['STATS_CACHE_AGE'])))) {
+if ($LOGEDIN_LIST == 'Y' || $FORUM_INFO == 'Y') {
+	if (!($st_obj = db_sab('SELECT sc.*,m.subject AS last_msg_subject, u.alias AS last_user_alias FROM {SQL_TABLE_PREFIX}stats_cache sc INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=sc.last_user_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id='.$last_msg_id.' WHERE sc.cache_age>'.(__request_timestamp__ - $STATS_CACHE_AGE)))) {
 		$st_obj =& rebuild_stats_cache($last_msg_id);
 	} else if ($st_obj->online_users_text) {
 		$st_obj->online_users_text = @unserialize($st_obj->online_users_text);
 	}
 
-	$i_spy = $GLOBALS['ACTION_LIST_ENABLED'] == 'Y' ? '{TEMPLATE: i_spy}' : '';
+	$i_spy = $ACTION_LIST_ENABLED == 'Y' ? '{TEMPLATE: i_spy}' : '';
 
-	if ($GLOBALS['LOGEDIN_LIST'] == 'Y' && @count($st_obj->online_users_text)) {
+	if ($LOGEDIN_LIST == 'Y' && @count($st_obj->online_users_text)) {
 		foreach($st_obj->online_users_text as $k => $v) {
 			$logedin .= '{TEMPLATE: online_user_link}' . '{TEMPLATE: online_user_separator}';
 		}
 		$logedin = '{TEMPLATE: logedin}';
 	}
-	if ($GLOBALS['FORUM_INFO'] == 'Y') {
+	if ($FORUM_INFO == 'Y') {
 		$last_msg = $last_msg_id ? '{TEMPLATE: last_msg}' : '';
 		$forum_info = '{TEMPLATE: forum_info}';
 	}

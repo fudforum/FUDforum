@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa.php.t,v 1.3 2003/04/02 01:46:35 hackie Exp $
+*   $Id: coppa.php.t,v 1.4 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,10 +15,10 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: coppa_conf}';
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	$coppa = __request_timestamp__-409968000;
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: COPPA_PAGE}

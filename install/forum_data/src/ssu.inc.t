@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ssu.inc.t,v 1.3 2003/04/12 13:54:30 hackie Exp $
+*   $Id: ssu.inc.t,v 1.4 2003/04/20 22:27:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,6 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
 function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 {
 	if ($GLOBALS['PM_ENABLED'] == 'Y') {
