@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.6 2003/08/04 16:43:31 hackie Exp $
+*   $Id: tree.tmpl,v 1.7 2003/08/04 16:44:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -186,7 +186,7 @@
 <tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
 {TEMPLATE-DATA: message_data}
 </table>
-<div align=center class="GenText">[<a href="#tree_view" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
+<div align=center class="GenText">[<a href="{VAR: _SERVER['PHP_SELF']}#tree_view" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width=1> </th><th width="100%">{MSG: subject}</th><th nowrap align="center">{MSG: poster}</th><th nowrap align="center">{MSG: date}</th></tr>
