@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admrdf.php,v 1.6 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admrdf.php,v 1.7 2003/10/03 19:01:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,37 +20,44 @@
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
-	require($DATA_DIR . 'include/RDF.php');
-
-function print_yn_field($descr, $help, $field)
-{
-	$str = !isset($GLOBALS[$field]) ? 'N' : $GLOBALS[$field];
-	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$help.'</font></td><td valign="top">'.create_select('CF_'.$field, "Yes\nNo", "Y\nN", $str).'</td></tr>';
-}
 	
-function print_string_field($descr, $help, $field, $is_int=0)
-{
-	if (!isset($GLOBALS[$field])) {
-		$str = !$is_int ? '' : '0';
-	} else {
-		$str = !$is_int ? htmlspecialchars($GLOBALS[$field]) : (int)$GLOBALS[$field];
-	}
-	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$help.'</td><td valign="top"><input type="text" name="CF_'.$field.'" value="'.$str.'"></td></tr>';
-}
-
+	$help_ar = read_help();
 
 	if (isset($_POST['form_posted'])) {
+		$NEW_FUD_OPT_2 = 0;
+
 		foreach ($_POST as $k => $v) {
-			if (strncmp($k, 'CF_', 3)) {
-				continue;
-			}
-			$k = substr($k, 3);
-			if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
-				$ch_list[$k] = $v;
+			if (!strncmp($k, 'CF_', 3)) {
+				$k = substr($k, 3);
+				if (!isset($GLOBALS[$k]) || $GLOBALS[$k] != $v) {
+					$ch_list[$k] = is_numeric($v) ? (int) $v : $v;
+				}
+			} else if (!strncmp($k, 'FUD_OPT_2', 9)) {
+				$NEW_FUD_OPT_2 |= (int) $v;
 			}
 		}
+
+		if (($NEW_FUD_OPT_2 ^ $FUD_OPT_2) & (33554432|16777216|67108864)) {
+			if (!($NEW_FUD_OPT_2 & 33554432)) {
+				$FUD_OPT_2 &= ~33554432;
+			} else {
+				$FUD_OPT_2 |= 33554432;
+			}
+			if (!($NEW_FUD_OPT_2 & 16777216)) {
+				$FUD_OPT_2 &= ~16777216;
+			} else {
+				$FUD_OPT_2 |= 16777216;
+			}
+			if (!($NEW_FUD_OPT_2 & 67108864)) {
+				$FUD_OPT_2 &= ~67108864;
+			} else {
+				$FUD_OPT_2 |= 67108864;
+			}
+			$ch_list['FUD_OPT_2'] = $FUD_OPT_2;
+		}
+
 		if (isset($ch_list)) {
-			change_global_settings($ch_list, 'RDF.php');
+			change_global_settings($ch_list);
 			/* put the settings 'live' so they can be seen on the form */
 			foreach ($ch_list as $k => $v) {
 				$GLOBALS[$k] = $v;
@@ -66,11 +73,11 @@ function print_string_field($descr, $help, $field, $is_int=0)
 <form method="post" action="admrdf.php">
 <table border=0 cellspacing=1 cellpadding=3>
 <?php
-	print_yn_field('RDF Feed Enabled', 'Whether or not to enable RDF feed of the forum\'s data', 'RDF_ENABLED');
-	print_yn_field('RDF Authentication', 'Whether or not to perform permission checks to determine if the user has access the requested data.', 'AUTH');
-	print_string_field('User id', 'By default when perform authentication, the forum will treat validate the user as anonymous, however of increased or lowered permission you can specify exactly which user will the RDF feed be authenticated as. This field allows you to enter the id of that user.', 'AUTH_ID');
-	print_string_field('Maximum number of result', 'The maximum number of results that can be fetched within a single request through the RDF feed', 'MAX_N_RESULTS');
-	print_yn_field('Allow user data retrieval', 'Whether or not to allow user profile data to be fetched via RDF', 'RDF_ALLOW_USER_DATA');
+	print_bit_field('RDF Feed Enabled', 'RDF_ENABLED');
+	print_bit_field('RDF Authentication', 'RDF_AUTH');
+	print_reg_field('User id', 'RDF_AUTH_ID');
+	print_reg_field('Maximum number of result', 'RDF_MAX_N_RESULTS');
+	print_bit_field('Allow user data retrieval', 'RDF_ALLOW_USER_DATA');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Change Settings"></td></tr>
 </table>
