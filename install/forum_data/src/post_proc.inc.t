@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.7 2002/08/21 12:30:42 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.8 2002/08/23 07:01:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -193,12 +193,14 @@ function tags_to_html($str, $allow_img='Y')
 					$diff = $tmp2_l - $tmp_l;
 					$cpos += $diff;
 					
-					foreach($end_tag as $key => $val) {
-						if( $key < $epos ) continue;
+					if( is_array($end_tag) ) {
+						foreach($end_tag as $key => $val) {
+							if( $key < $epos ) continue;
 						
-						$end_tag[$key+$diff] = $val;
-						unset($end_tag[$key]);
-					}
+							$end_tag[$key+$diff] = $val;
+							unset($end_tag[$key]);
+						}
+					}	
 					
 					switch( strtolower($parms) )
 					{
