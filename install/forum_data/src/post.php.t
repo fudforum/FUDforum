@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.9 2002/08/03 18:02:04 hackie Exp $
+*   $Id: post.php.t,v 1.10 2002/08/06 02:18:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -426,9 +426,7 @@
 					$returnto = $returnto_d;
 		 	}
 		 	
-		 	if ( empty($msg_id) && ($frm->moderated == 'N' || $MOD) )
-			 	check_return();
-			else {
+			if( !empty($msg_id) && $frm->moderated == 'Y' && !$MOD ) {
 				$ret = create_return();
 				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME']->theme.'/usercp.inc', "rb");
 				$data = fread($fp, __ffilesize($fp));
@@ -437,7 +435,9 @@
 				eval(substr($data, $s, (strrpos($data, '?>')-$s)));
 				
 				exit('{TEMPLATE: moderated_forum_post}');
-			}	
+			}
+			else
+				check_return();
 					
 		} /* Form submitted and user redirected to own message */
 	} /* $prevloaded is SET, this form has been submitted */

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.7 2002/08/05 05:58:21 hackie Exp $
+*   $Id: post.tmpl,v 1.8 2002/08/06 02:18:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -268,7 +268,8 @@
 {SECTION: moderated_forum_post}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable" align="center">
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th>{MSG: post_moderated_forum_ttl}</th></tr>
 <tr class="RowStyleA" align="center">
 	<td class="GenText">
@@ -280,6 +281,7 @@
 	</td>
 </tr>
 </table>
+</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
