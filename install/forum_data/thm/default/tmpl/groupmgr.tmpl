@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.24 2004/05/20 22:09:02 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.25 2004/06/23 12:50:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,9 @@
 </table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
 <script>
 <!--
-document.groupmgr.gr_member.focus();
+if (document.groupmgr.gr_member) {
+	document.groupmgr.gr_member.focus();
+}
 //-->
 </script>
 <br /><br />
