@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.28 2003/05/04 21:04:04 hackie Exp $
+*   $Id: cookies.inc.t,v 1.29 2003/06/03 17:19:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,8 +31,8 @@ function ses_get($id=0)
 			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
 			/* renew cookie */
 			setcookie($GLOBALS['COOKIE_NAME'], $_COOKIE[$GLOBALS['COOKIE_NAME']], __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		} else if (isset($_REQUEST['S']) && $GLOBALS['SESSION_USE_URL'] == 'Y') {
-			$q_opt = "s.ses_id='".addslashes($_REQUEST['S'])."' AND sys_id='".ses_make_sysid()."'";
+		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['SESSION_USE_URL'] == 'Y') {
+			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."' AND sys_id='".ses_make_sysid()."'";
 		} else {
 			return;
 		}

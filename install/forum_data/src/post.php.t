@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.63 2003/06/02 17:19:47 hackie Exp $
+*   $Id: post.php.t,v 1.64 2003/06/03 17:19:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,22 +40,22 @@ function flood_check()
 
 	/* we do this because we don't want to take a chance that data is passed via cookies */
 	if (isset($_GET['reply_to']) || isset($_POST['reply_to'])) {
-		$reply_to = (int) $_REQUEST['reply_to'];
+		$reply_to = (int) (isset($_GET['reply_to']) ? $_GET['reply_to'] : $_POST['reply_to']);
 	} else {
 		$reply_to = 0;
 	}
 	if (isset($_GET['msg_id']) || isset($_POST['msg_id'])) {
-		$msg_id = (int) $_REQUEST['msg_id'];
+		$msg_id = (int) (isset($_GET['msg_id']) ? $_GET['msg_id'] : $_POST['msg_id']);
 	} else {
 		$msg_id = 0;
 	}
 	if (isset($_GET['th_id']) || isset($_POST['th_id'])) {
-		$th_id = (int) $_REQUEST['th_id'];
+		$th_id = (int) (isset($_GET['th_id']) ? $_GET['th_id'] : $_POST['th_id']);
 	} else {
 		$th_id = 0;
 	}
 	if (isset($_GET['frm_id']) || isset($_POST['frm_id'])) {
-		$frm_id = (int) $_REQUEST['frm_id'];
+		$frm_id = (int) (isset($_GET['frm_id']) ? $_GET['frm_id'] : $_POST['frm_id']);
 	} else {
 		$frm_id = 0;
 	}
