@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.38 2004/01/16 18:15:01 hackie Exp $
+* $Id: maillist.php,v 1.39 2004/02/10 14:08:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -410,9 +410,9 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	/* for anonymous users prefix 'contact' link */
 	if (!$msg_post->poster_id) {
 		if ($frm->forum_opt & 16) {
-			$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($this->from_name) ? $this->from_name : '')}]{$this->from_email}[/email]\n\n".$msg_post->body;
+			$msg_post->body = "[b]Originally posted by:[/b] [email={(!empty($emsg->from_name) ? $emsg->from_name : '')}]{$emsg->from_email}[/email]\n\n".$msg_post->body;
 		} else {
-			$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $this->from_email)."\n\n".$msg_post->body;
+			$msg_post->body = "Originally posted by: ".str_replace('@', '&#64', $emsg->from_email)."\n\n".$msg_post->body;
 		}
 	}
 
