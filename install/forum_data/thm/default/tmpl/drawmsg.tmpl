@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.71 2004/07/02 16:54:27 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.72 2004/10/22 23:33:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -15,11 +15,11 @@
 {REF: imsg.tmpl}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: msg_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width=16 height=11 /></a>
+<a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: m_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={FUNC: ($misc[0] - $misc[1])}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
@@ -35,11 +35,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: msg_num}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
+<a href="javascript://" onClick="chng_focus(\'#msg_num_{FUNC: ($m_num + 2)}\');"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={FUNC: ($misc[0] + $misc[1])}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
@@ -67,11 +67,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk2}
-{ROOT}?{VAR: rev_url}
+{ROOT}?{FUNC:  make_reveal_link($obj->id)}
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk3}
-{ROOT}?{VAR: un_ignore_url}
+{ROOT}?{FUNC: make_tmp_unignore_lnk($obj->poster_id)}
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message ignored message row (this gets draw if this message is ignored due to ignored user)}
@@ -146,7 +146,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_location}
-<br /><b>{MSG: location} </b>{VAR: location}
+<br /><b>{MSG: location} </b>{FUNC: (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW'] ? substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...' : $obj->location)}
 {SECTION: END}
 
 {SECTION: dmsg_no_location}
@@ -286,7 +286,7 @@
 <li />
 <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="at" /></a>
 <span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
-<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})<p /></span>
+<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})<p /></span>
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}
@@ -334,7 +334,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page_lnk}
-{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}{DEF: reveal_lnk}{DEF: unignore_tmp}
+{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={FUNC: ($misc[0] + $misc[1])}{DEF: reveal_lnk}{DEF: unignore_tmp}
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
@@ -386,15 +386,15 @@
 {SECTION: END}
 
 {SECTION: dmsg_normal_message_body}
-<span class="MsgBodyText">{VAR: msg_body}</span>
+<span class="MsgBodyText">{FUNC: read_msg_body($obj->foff, $obj->length, $obj->file_id)}</span>
 {SECTION: END}
 
 {SECTION: dmsg_short_message_body_lnk}
-{ROOT}?{VAR: rev_url}
+{ROOT}?{FUNC: make_reveal_link($obj->id)}
 {SECTION: END}
 
 {SECTION: dmsg_short_message_body}
-<span class="MsgBodyText">{VAR: msg_body}</span>
+<span class="MsgBodyText">{FUNC: read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview)}</span>
 <br /><div class="ac">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
