@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.7 2002/07/08 23:15:19 hackie Exp $
+*   $Id: register.php.t,v 1.8 2002/07/09 23:48:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -176,7 +176,7 @@ function register_form_check($user_id)
 	
 	/* Alias Check */
 	if( $GLOBALS['USE_ALIASES'] == 'Y' && $GLOBALS['HTTP_POST_VARS']['reg_alias'] ) {
-		if( get_id_by_alias($GLOBALS['HTTP_POST_VARS']['reg_alias']) != $GLOBALS['usr']->id )
+		if( ($val=get_id_by_alias($GLOBALS['HTTP_POST_VARS']['reg_alias'])) && $val != $GLOBALS['usr']->id )
 			set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');	
 	}
 		
