@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.23 2003/04/22 20:34:29 hackie Exp $
+*   $Id: compact.php,v 1.24 2003/04/22 20:35:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,7 +215,7 @@ function eta_calc($start, $pos, $pc)
 
 	db_unlock();
 
-	printf("Done in %.2f minutes<br>\n", (time() - $stm) / 60));
+	printf("Done in %.2f minutes<br>\n", (time() - $stm) / 60);
 
 	if ($FORUM_ENABLED == 'Y') {
 		echo '<br>Re-enabling the forum.<br>';
