@@ -661,21 +661,16 @@ userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->
 ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
 ERR_disabled_ttl:		機能は無効です。
 ERR_disabled_msg:		この機能はシステム管理者により無効にされています
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			エラー: 不十分な許可
 ERR_access_msg:			この操作を行なう必要な許可がありません。
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	登録は無効です。
 ERR_registration_disabled_msg:	The administrator has disabled registration. Please try again later.
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
 ERR_emailconf_msg:		You have not confirmed your account via e-mail yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation e-mail, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">click here</a><li>If {VAR: usr_d->email} is not your correct e-mail address, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			エラー: No such user
 ERR_user_msg:			There is no such user
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		エラー: システムエラー
 ERR_systemerr_msg:		A system error has occurred. Please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		 
 email_title:			電子メールフォーム
 finduser_title:			ユーザー検索
 help_title:			FAQ

@@ -651,21 +651,16 @@ tree_update:			Parcourt le fil (vue arborescente) <a href="{ROOT}?t=tree&amp;th=
 userinfo_update:		Regarde le profil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
 ERR_disabled_ttl:		Fonctionnalité désactivée
 ERR_disabled_msg:		Cette fonctionnalité a été désactivée par l&#39;administrateur du forum
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ERREUR : Privilèges insuffisants
 ERR_access_msg:			Vous n&#39;avez pas les privilèges nécessaires pour effectuer cette opération
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Inscription désactivée
 ERR_registration_disabled_msg:	L&#39;administrateur a désactivé l&#39;inscription, veuillez réessayer plus tard
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		ERREUR : Votre compte n&#39;a pas encore été confirmé
 ERR_emailconf_msg:		Vous n&#39;avez pas encore confirmé votre inscription par e-mail<br><table border=0><tr><td><ol><li>Si vous n&#39;avez pas reçu d&#e-mail de confirmation,<a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">cliquez ici<li>Si {VAR: usr_d->email} n&#39;est pas votre adresse e-mail correcte, <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">cliquez ici</a></ol></td></tr></table>
 ERR_user_ttl:			ERREUR : l&#39;utilisateur n&#39;existe pas
 ERR_user_msg:			Cet utilisateur n&#39;existe pas
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERREUR : Erreur système
 ERR_systemerr_msg:		Une erreur système s&#39;est produite. Veuillez rapporter cet incident à l&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>.
-ERR_systemerr_url:		
 email_title:			E-mail
 finduser_title:			Chercher un utilisateur
 help_title:			F.A.Q. (Foire Aux Questions, questions fréquemment posées)

@@ -656,21 +656,16 @@ tree_update:			Navigare teme <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->su
 userinfo_update:		Vizualizati profilul utilizatorului <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a>
 ERR_disabled_ttl:		Optiune dezactivata
 ERR_disabled_msg:		Optiune dezactivata de administratorul sistemului
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			EROARE: Permisiune insuficienta
 ERR_access_msg:			Nu aveti permisiune pentru a executa aceasta actiune
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Inregistrarea dezactivata
 ERR_registration_disabled_msg:	Administratorul a dezactivat inregistrarea, va rugam sa reveniti mai tarziu
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		EROARE: Contul dumneavoastra nu este inca confirmat
 ERR_emailconf_msg:		Nu v-ati confirmat inca contul prin email<br><table border=0><tr><td><ol><li>Daca nu a-ti primit email-ul de confirmare apasati <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">aici</a>
 ERR_user_ttl:			EROARE: Nici un asemenea utilizator
 ERR_user_msg:			Nici un asemenea utilizator
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		EROARE: Eroare de sistem
 ERR_systemerr_msg:		Eroare de sistem, va rugam sa o raportati la <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
 email_title:			Formular de trimitere email
 finduser_title:			Cauta utilizator
 help_title:			Intrebari frecvente

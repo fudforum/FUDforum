@@ -658,21 +658,16 @@ tree_update:			Browsing topic (tree view) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;
 userinfo_update:		Looking at <a href="{FULL_ROOT}{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a> profile
 ERR_disabled_ttl:		Disabled feature
 ERR_disabled_msg:		This feature has been disabled by the system administrator
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			KLAIDA: Nepakanka teisiø
 ERR_access_msg:			You do not have the required permissions to perform this action
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
-ERR_registration_disabled_url:	{FULL_ROOT}{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		KLAIDA: Your account is not yet confirmed
 ERR_emailconf_msg:		You have not confirmed your account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;S={VAR: ses_id}">click here</a><li>If {VAR: usr_d->email} is not your correct email address <a href="{FULL_ROOT}{ROOT}?t=register&amp;S={VAR: ses_id}">click here</a></ol></td></tr></table>
 ERR_user_ttl:			KLAIDA: Nëra tokio nario
 ERR_user_msg:			There is no such user
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		KLAIDA: Sistemos klaida
 ERR_systemerr_msg:		System error has occurred, please report it to the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		
 email_title:			Email'o forma
 finduser_title:			Rasti nará
 help_title:			F.A.Q.

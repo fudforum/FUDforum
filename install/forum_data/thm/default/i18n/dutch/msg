@@ -652,21 +652,16 @@ tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_l
 userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
 ERR_disabled_ttl:		uitgeschakeld feature
 ERR_disabled_msg:		dit feature is uitgeschakeld door de administrator
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			FOUT: onvoldoende permissies
 ERR_access_msg:			u heeft niet de vereiste permissies om deze handeling uit te voeren
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registratie uitgeschakeld
 ERR_registration_disabled_msg:	De administrator heeft de registratie uitgeschakeld, probeer later opnieuw
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		FOUT: U lidmaatschap is nog niet bevestigd
 ERR_emailconf_msg:		U heeft uw account nog niet bevestigd via email<br><table border=0><tr><td><ol><li>Indien u geen bevestigings&shy;email  ontvangen heeft<a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">klik hier</a><li>If {VAR: usr_d->email} is niet jouw correcte email adres <a href="{TEMPLATE: msg_register_lnk}">klik hier</a></ol></td></tr></table>
 ERR_user_ttl:			FOUT: onbekend lid
 ERR_user_msg:			dit is een onbekend lid
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		FOUT: Systeem FOUT
 ERR_systemerr_msg:		Er is een Systeem FOUT is opgetreden, rapporteer dit aub aan de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		
 email_title:			Email Formulier
 finduser_title:			Vind lid
 help_title:			F.A.Q.

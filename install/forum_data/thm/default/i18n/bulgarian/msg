@@ -654,21 +654,16 @@ tree_update:			Разглеждане (в разгърнат изглед) на темата <a href="{TEMPLATE: tr
 userinfo_update:		Преглед на личния профил на <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Изключена опция
 ERR_disabled_msg:		Тази опция е изключена от системния администратор
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ГРЕШКА: Недостатъчно ниво за достъп
 ERR_access_msg:			Нямаш изискваните разрешения за да вършиш тази операция
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Регистрацията е изключена
 ERR_registration_disabled_msg:	Администраторът забранява регистрацията, опитай пак по-късно
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		ГРЕШКА: Акаунтът ти все още не е потвърден
 ERR_emailconf_msg:		Все още не си потвърдил регистрацията си по e-mail<br><table border=0><tr><td><ol><li>Ако не си получил e-mail съобщението за потвърждение <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">натисни тук</a><li>Ако {VAR: usr_d->email} не е действителния ти e-mail адрес, <a href="{TEMPLATE: msg_register_lnk}">натисни тук</a></ol></td></tr></table>
 ERR_user_ttl:			ГРЕШКА: Несъществуващ потребител
 ERR_user_msg:			Такъв потребител не съществува
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ГРЕШКА: Системна грешка
 ERR_systemerr_msg:		Стана системна грешка, моля съобщи за нея на <a href="mailto:{GVAR: ADMIN_EMAIL}">уебмастера</a>&amp;&#39;у.
-ERR_systemerr_url:		
 email_title:			Форма за е-mail съобщение
 finduser_title:			Намери потребител
 help_title:			F.A.Q.

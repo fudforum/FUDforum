@@ -651,21 +651,16 @@ tree_update:			<a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rs
 userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_disabled_ttl:		Engellenmiþ Özellik
 ERR_disabled_msg:		Bu özellik sistem yöneticisi tarafýndan engellenmiþ durumda.
-ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_access_ttl:			HATA: Yetersiz Eriþim Ýzni
 ERR_access_msg:			Yapmak istediðiniz için yeterli eriþim iznine sahip deðilsiniz.
-ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
-ERR_registration_disabled_url:	{GVAR: WWW_ROOT}{FULL_ROOT}{ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
 ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: usr_d->email} adresi sizin doðru adresiniz deðilse <a href="{TEMPLATE: msg_register_lnk}">buraya týklayýn</a></ol></td></tr></table>
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok
-ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		HATA: Sistem Hatasý
 ERR_systemerr_msg:		Sistem hatasý oluþtu, lütfen <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster&#39;a</a> bildirin.
-ERR_systemerr_url:		
 email_title:			E-mektup formu
 finduser_title:			Kullanýcý bul
 help_title:			S.S.S.

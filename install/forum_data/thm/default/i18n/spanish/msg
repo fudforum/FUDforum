@@ -651,21 +651,16 @@ tree_update:			Recorriendo hilo de discusión (vista de árbol) <a href="{FULL_ROO
 userinfo_update:		Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Función deshabilitada
 ERR_disabled_msg:		Esta función ha sido deshabilitada por el administrador del sistema
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _RSID}
 ERR_access_ttl:			ERROR: Permisos insuficientes
 ERR_access_msg:			Ud no tiene los permisos requeridos para realizar esta acción
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _RSID}
 ERR_registration_disabled_ttl:	Registro deshabilitado
 ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, por favor vuelva a intentar más tarde
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _RSID}
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
 ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: usr_d->email} no es su dirección de e-mail correcta <a href="{FULL_ROOT}{ROOT}?t=register&amp;{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
 ERR_user_ttl:			ERROR: No existe ese usuario
 ERR_user_msg:			No existe ese usuario
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _RSID}
 ERR_systemerr_ttl:		ERROR: Error de Sistema
 ERR_systemerr_msg:		Se ha producido un error de sistema, por favor repórtelo al <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		
 email_title:			Formulario de E-mail
 finduser_title:			Encontrar Usuario
 help_title:			F.A.Q.

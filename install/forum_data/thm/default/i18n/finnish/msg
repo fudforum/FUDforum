@@ -658,21 +658,16 @@ tree_update:			Selaa aihetta (puu listaus) <a href="{TEMPLATE: tree_update_lnk}"
 userinfo_update:		Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
 ERR_disabled_ttl:		Toiminto ei ole käytössä
 ERR_disabled_msg:		Ylläpitäjä on poistanut tämän toiminnon käytöstä
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			VIRHE: Käyttöoikeudet riittämättömät
 ERR_access_msg:			Sinulla ei ole vaadittuja käyttöoikeuksia suorittaaksesi tämän toiminnon
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Rekisteröinti ei ole käytössä
 ERR_registration_disabled_msg:	Ylläpitäjä on poistanut rekisteröinnin käytöstä. Yritä myöhemmin uudelleen
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		VIRHE: Käyttäjätiliäsi ei ole vahvistettu
 ERR_emailconf_msg:		Et ole vahvistanut käyttäjätiliäsi vielä.<br><table border=0><tr><td><ol><li>Jos et ole saanut vahvistussähköpostia <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">klikkaa tätä</a><li>Jos {VAR: usr_d->email} ei ole oikea sähköpostiosoitteesi <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">klikkaa tätä</a></ol></td></tr></table>
 ERR_user_ttl:			VIRHE: Käyttäjää ei ole
 ERR_user_msg:			Käyttäjää ei ole olemassa
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		VIRHE: Systeemivirhe
 ERR_systemerr_msg:		On tapahtunut systeemivirhe. Ole hyvä ja raportoi se <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterille</a>.
-ERR_systemerr_url:		 
 email_title:			Sähköpostikaavake
 finduser_title:			Hae Käyttäjä
 help_title:			F.A.Q.

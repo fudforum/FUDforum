@@ -657,21 +657,16 @@ tree_update:			Prehliada si tému (stromové zobrazenie) <a class="GenLink" href="
 userinfo_update:		Prezerá si profil uívate¾a <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}&#39;s</a>
 ERR_disabled_ttl:		Vypnuté monosti 
 ERR_disabled_msg:		Táto monos bola vypnutá administrátorom
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			CHYBA: Nedostatoèné právomoci
 ERR_access_msg:			Nemáte dostatoèné právomoci na vykonanie tejto akcie
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrácia je vypnutá
 ERR_registration_disabled_msg:	Administrátor vypol registraènı systém, prosím skúste neskor
-ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vaše konto ešte nebolo potvrdené
 ERR_emailconf_msg:		Zatia¾ ste nepotvrdili Vaše konto prostredníctvom emailu<br><br><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikaènı email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;S={VAR: ses_id}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{FULL_ROOT}{ROOT}?t=register&amp;S={VAR: ses_id}">kliknite sem</a></ol></div></td></tr></table>
 ERR_user_ttl:			CHYBA: Uívate¾ neexistuje
 ERR_user_msg:			Zadanı uívate¾ neexistuje
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		CHYBA: Systémová Chyba
 ERR_systemerr_msg:		V systéme sa vyskytla chyba, prosím oznámte to <a href="mailto:{GVAR: ADMIN_EMAIL}">administrátorovi</a>.
-ERR_systemerr_url:		
 email_title:			Emailovı Formulár
 finduser_title:			H¾adanie uívate¾a
 help_title:			F.A.Q.

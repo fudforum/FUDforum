@@ -651,21 +651,16 @@ tree_update:			浏览（以树状方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR:
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 个人信息
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
-ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_access_ttl:			错误：权限不够
 ERR_access_msg:			你没有权利进行此项操作
-ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止，请重试！
-ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误：此账号无效
 ERR_emailconf_msg:		你注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">请点击这里</a><li>如果 {VAR: usr_d->email} 邮件地址有误<a href="{TEMPLATE: msg_register_lnk}">请点击这里</a></ol></td></tr></table>
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
-ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		系统错误
 ERR_systemerr_msg:		发生系统错误，请报告错误给管理人员。
-ERR_systemerr_url:		
 email_title:			邮件格式
 finduser_title:			查找用户
 help_title:			使用帮助

@@ -655,21 +655,16 @@ tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: t
 userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Vypnutá vlastnost
 ERR_disabled_msg:		Tato vlastnost byla vypnuta administrátorem
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			CHYBA: Nedostateèné pravomoci
 ERR_access_msg:			Nemáte dostateèné pravomoci na provedení této akce
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrace vypnuta
 ERR_registration_disabled_msg:	Administrátor vypnul registraci, prosím, zkuste to pozdìji
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vá¹ úèet je¹tì není potvrzen
 ERR_emailconf_msg:		Je¹tì jste nepotvrdil(a) svùj úèet pøes email<br><table border=0><tr><td><ol><li>Pokud jste je¹tì nedostal(a) potvrzující email <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">kliknìte zde</a><li>Pokud {VAR: usr_d->email} není va¹e správná emailová adresa <a href="{TEMPLATE: msg_register_lnk}">kliknìte zde</a></ol></td></tr></table>
 ERR_user_ttl:			CHYBA: ®ádný takový u¾ivatel není
 ERR_user_msg:			®ádný takový u¾ivatel není
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		CHYBA: Systémová chyba
 ERR_systemerr_msg:		Objevila se chyba v systému, prosím, nahla¹te to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmasterovi</a>.
-ERR_systemerr_url:		
 email_title:			Emailový formuláø
 finduser_title:			Hledání u¾ivatele
 help_title:			Nápovìda

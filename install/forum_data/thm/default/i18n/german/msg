@@ -1,20 +1,15 @@
 ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um diese Aktion auszuf&uuml;hren
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_systemerr_msg:		Ein Systemfehler ist aufgetreten, bitte berichte dem <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> davon.
 ERR_systemerr_ttl:		FEHLER: Systemfehler
-ERR_systemerr_url:		
 ERR_user_msg:			Es gibt diesen Benutzer nicht
 ERR_user_ttl:			FEHLER: Benutzer existiert nicht
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 action:				Aktion
 action_latest_post:		Letzter Beitrag
 actions_update:			Beschn&uuml;ffelt andere Leute, so wie du gerade

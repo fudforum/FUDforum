@@ -651,21 +651,16 @@ tree_update:			Przegl±danie w±tku (widok drzewiasty) <a href="{TEMPLATE: tree_up
 userinfo_update:		Przegl±danie profilu u¿ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_disabled_ttl:		Wy³±czona funkcja
 ERR_disabled_msg:		Ta funkcja zosta³a wy³±czona przez administratora systemu.
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			B£¡D: Niewystarczaj±ce uprawnienia
 ERR_access_msg:			Nie masz wymaganych uprawnieñ, aby wykonaæ tê operacjê.
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Rejestracja jest wy³±czona
 ERR_registration_disabled_msg:	Administrator wy³±czy³ rejestracjê, wiêc spróbuj ponownie pó¼niej.
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
 ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;{DEF: _rsid}">przejd¼ tutaj</a>.<li>Je¶li {VAR: usr_d->email} nie jest Twoim poprawnym adresem, <a href="{TEMPLATE: msg_register_lnk}">przejd¼ tutaj</a></ol></td></tr></table>
 ERR_user_ttl:			B£¡D: Brak takiego u¿ytkownika
 ERR_user_msg:			Nie ma takiego u¿ytkownika
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		B£¡D: B³±d systemu
 ERR_systemerr_msg:		Wyst±pi³ b³±d systemu, dlatego zg³o¶ go do <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
-ERR_systemerr_url:		
 email_title:			Formularz wysy³ania listu
 finduser_title:			Znajd¼ U¿ytkownika
 help_title:			Pomoc

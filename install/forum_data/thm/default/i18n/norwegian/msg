@@ -651,21 +651,16 @@ tree_update:			Leser tr&aring;den (tr&aring;det visning) <a href="{FULL_ROOT}{RO
 userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_disabled_ttl:		Avstengt funksjon
 ERR_disabled_msg:		Denne funksjonen er lukket av administratoren
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			FEIL: Ikke tilstrekkelige rettigheter
 ERR_access_msg:			Du har ikke de rettigheter som er n&oslash;dvendig for &aring; gj&oslash;re dette
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrering stengt
 ERR_registration_disabled_msg:	Administratoren har stengt registreringen, pr&oslash;v p&aring; nytt senere
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		FEIL: Din brukerkonto er enda ikke bekreftet
 ERR_emailconf_msg:		Du har ikke bekreftet din brukerkonto via e-post <br><table border=0><tr><td><ol><li>Dersom du ikke har f&aring;tt en bekreftelse per e-post <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">trykk her</a><li>Hvis {VAR: usr_d->email} ikke er din riktige e-postadresse <a href="{TEMPLATE: msg_register_lnk}">trykk her</a></ol></td></tr></table>
 ERR_user_ttl:			FEIL: Finner ikke et slikt medlem
 ERR_user_msg:			Det finnes ikke et slikt medlem
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}&{DEF: _rsid}
 ERR_systemerr_ttl:		FEIL: Systemfeil
 ERR_systemerr_msg:		En systemfeil har oppst&aring;tt, vennligst rapporter feilen til <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>.
-ERR_systemerr_url:		
 email_title:			Send e-post
 finduser_title:			S&oslash;k etter medlemmer
 help_title:			Hjelp

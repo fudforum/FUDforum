@@ -652,21 +652,16 @@ tree_update:			瀏覽（以樹狀方式） <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR:
 userinfo_update:		查看 <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a> 個人信息
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此項功能已經被系統管理員關閉。
-ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_access_ttl:			錯誤: 權限不夠
 ERR_access_msg:			您沒有權利進行此項操作
-ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	注冊失敗
 ERR_registration_disabled_msg:	注冊功能被系統管理員禁止,請重試！
-ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		錯誤: 此賬號無效
 ERR_emailconf_msg:		您注冊的賬號尚未進行郵件確認<br><table border=0><tr><td><ol><li>如果你沒有收到確認郵件 <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">請點擊</a><li>如果 {VAR: usr_d->email} 郵件地址有誤<a href="{TEMPLATE: msg_register_lnk}">請點擊</a></ol></td></tr></table>
 ERR_user_ttl:			錯誤：沒有這個用戶
 ERR_user_msg:			沒有這個用戶
-ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		系統錯誤
 ERR_systemerr_msg:		發生系統錯誤,請報告錯誤：<a href="mailto:{GVAR: ADMIN_EMAIL}">網管</a>.
-ERR_systemerr_url:		
 email_title:			郵件格式
 finduser_title:			查找用戶
 help_title:			使用幫助

@@ -649,21 +649,16 @@ tree_update:			Legge il topic (vista ad albero) <a href="{FULL_ROOT}{ROOT}?t=tre
 userinfo_update:		Guarda il profilo di <a href="{FULL_ROOT}{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_disabled_ttl:		Opzione non attiva
 ERR_disabled_msg:		Questa opzione è stata disabilitata dall&#39;amministratore
-ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_access_ttl:			ERRORE: permessi non sufficienti
 ERR_access_msg:			Non disponi dei permessi necessari per eseguire questa azione
-ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Registrazione non attiva
 ERR_registration_disabled_msg:	L&#39;amministratore ha disabilitato la registrazione, riprova più tardi
-ERR_registration_disabled_url:	{TEMPLATE: index_update_lnk}&{DEF: _rsid}
 ERR_emailconf_ttl:		ERRORE: Il tuo account non è stato confermato
 ERR_emailconf_msg:		Non hai ancora confermato il tuo account via email<br><table border=0><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{FULL_ROOT}{ROOT}?t=reset&email={VAR: usr_d->email}&{DEF: _rsid}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{FULL_ROOT}{ROOT}?t=register&{DEF: _rsid}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:			ERRORE: Nessun utente
 ERR_user_msg:			Non esiste questo utente
-ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERRORE: Errore di sistema
 ERR_systemerr_msg:		Se è verificato un errore di sistema, per cortesia segnalalo all&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">amministratore</a>.
-ERR_systemerr_url:		
 email_title:			Email
 finduser_title:			Trova utenti
 help_title:			F.A.Q.
