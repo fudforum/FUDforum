@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.33 2004/05/20 22:47:50 hackie Exp $
+* $Id: private.inc.t,v 1.34 2004/06/07 15:31:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -215,13 +215,14 @@ function pmsg_move($mid, $fid, $validate)
 	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET fldr='.$fid.' WHERE duser_id='._uid.' AND id='.$mid);
 }
 
-function pmsg_del($mid, $fldr=null)
+function pmsg_del($mid, $fldr=0)
 {
-	if (is_null($fldr) && is_null(($fldr = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid)))) {
+	if (!$fldr && !($fldr = q_singleval('SELECT fldr FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid))) {
 		return;
 	}
+
 	if ($fldr != 5) {
-		pmsg_move($mid, 5, false);
+		pmsg_move($mid, 5, 0);
 	} else {
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
 		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');

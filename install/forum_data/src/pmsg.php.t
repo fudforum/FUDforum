@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.41 2004/05/16 16:58:24 hackie Exp $
+* $Id: pmsg.php.t,v 1.42 2004/06/07 15:31:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,7 @@
 		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? (int) $_POST['moveto'] : 0;
 		foreach ($sel as $m) {
 			if ($move_to) {
-				pmsg_move((int)$m, $move_to, false);
+				pmsg_move((int)$m, $move_to, 0);
 			} else {
 				pmsg_del((int)$m);
 			}
