@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.69 2003/06/26 13:09:35 hackie Exp $
+*   $Id: core.inc,v 1.70 2003/07/24 01:21:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,6 +101,12 @@ function get_ip()
 	return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 }
 
+function __ffilesize($fp)
+{
+	$st = fstat($fp);
+	return (isset($st['size']) ? $st['size'] : $st[7]);
+}
+
 if (!function_exists('file_get_contents')) {
 	function file_get_contents($fname)
 	{
@@ -108,18 +114,12 @@ if (!function_exists('file_get_contents')) {
 			return FALSE;
 		}
 		/* this handles urls */
-		if (!($size = @filesize($fname))) {
+		if (!($size = @__ffilesize($fp))) {
 			$size = 10 * 1024 * 1024;
 		}
 		$data = fread($fp, $size);
 		fclose($fp);
 		return $data;
 	}
-}
-
-function __ffilesize($fp)
-{
-	$st = fstat($fp);
-	return (isset($st['size']) ? $st['size'] : $st[7]);
 }
 ?>
