@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.35 2004/11/24 19:53:36 hackie Exp $
+* $Id: private.inc.t,v 1.36 2004/12/02 20:58:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -164,9 +164,8 @@ function set_nrf($nrf, $id)
 
 function write_pmsg_body($text)
 {
-	if (!db_locked()) {
-		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}pmsg WRITE');
+	if (($ll = !db_locked())) {
+		db_lock('{SQL_TABLE_PREFIX}fl_pm WRITE');
 	}
 
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
@@ -181,7 +180,7 @@ function write_pmsg_body($text)
 	}
 	fclose($fp);
 
-	if (isset($ll)) {
+	if ($ll) {
 		db_unlock();
 	}
 

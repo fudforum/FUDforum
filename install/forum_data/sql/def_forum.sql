@@ -1,5 +1,6 @@
 INSERT INTO {SQL_TABLE_PREFIX}forum (cat_id, name, date_created, max_attach_size, view_order) VALUES(1, 'TestForum', UNIX_TIMESTAMP, 1024, 1);
 CREATE TABLE {SQL_TABLE_PREFIX}fl_1 (id INT);
+CREATE TABLE {SQL_TABLE_PREFIX}fl_pm (id INT);
 INSERT INTO {SQL_TABLE_PREFIX}fc_view (c, f) VALUES(1, 1);
 INSERT INTO {SQL_TABLE_PREFIX}groups (name, forum_id, groups_opt) VALUES('Global Anonymous Access', 0, 1|2|262144);
 INSERT INTO {SQL_TABLE_PREFIX}groups (name, forum_id, groups_opt) VALUES('Global Registered Access', 0, 1|2|4|8|128|256|512|1024|16384|32768|262144);
