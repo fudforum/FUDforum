@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.48 2005/02/18 17:14:21 hackie Exp $
+* $Id: db.inc,v 1.49 2005/02/26 22:01:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,7 +42,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	}
 	$error_msg .= "Server Version: ".$server_version."<br />\n";
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
+		$error_msg .= "[Referring Page] ".htmlspecialchars($_SERVER['HTTP_REFERER'])."<br />\n";
 	}
 
 	if (!error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors')) {
