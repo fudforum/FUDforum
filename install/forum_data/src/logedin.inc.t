@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.7 2002/07/11 21:49:08 hackie Exp $
+*   $Id: logedin.inc.t,v 1.8 2002/07/22 17:53:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,9 +61,9 @@
 		$reg_users = q_singleval("select count(*) FROM {SQL_TABLE_PREFIX}users");
 		
 		if( !_uid )
-			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum INNER JOIN {SQL_TABLE_PREFIX}group_cache ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}group_cache.resource_id AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum' WHERE p_READ='Y' AND user_id=0");
+			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum INNER JOIN {SQL_TABLE_PREFIX}group_cache ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}group_cache.resource_id AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum' WHERE cat_id!=0 AND p_READ='Y' AND user_id=0");
 		else
-			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum ".($GLOBALS['usr']->is_mod != 'A' ? " WHERE id IN(".get_all_perms(_uid).")" : ''));
+			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE ".($GLOBALS['usr']->is_mod != 'A' ? " id IN(".get_all_perms(_uid).") AND " : '')." cat_id!=0");
 		
 		if( $lmid ) {
 			$lsubj = q_singleval("SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id=".$lmid);
