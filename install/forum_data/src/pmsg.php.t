@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.36 2004/02/13 15:34:18 hackie Exp $
+* $Id: pmsg.php.t,v 1.37 2004/04/10 21:16:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,7 +156,7 @@
 	}
 
 	if ($FUD_OPT_2 & 32768) {
-		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/', _rsid);
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/', '/' . _rsid);
 	} else {
 		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;folder_id=' . $folder_id . '&amp;'. _rsid);
 	}
