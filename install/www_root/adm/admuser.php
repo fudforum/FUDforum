@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.49 2004/04/21 21:04:50 hackie Exp $
+* $Id: admuser.php,v 1.50 2004/04/21 21:17:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -240,7 +240,7 @@ administration permissions to the forum. This individual will be able to do anyt
 			default:
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
 				while ($r = db_rowarr($c)) {
-					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'._rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
+					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'.__adm_rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
 				}
 				unset($c);
 				exit;
@@ -298,16 +298,16 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr class="field"><td>Registeration IP:</td><td>' . long2ip($u->reg_ip) . '</td></tr>';
 	}
 
-	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
-	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'.__adm_rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
+	echo '<tr class="field"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . __adm_rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 
-	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
-	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use signature:</td><td>'.($u->users_opt & 67108864 ? 'No' : 'Yes').' [<a href="admuser.php?act=sig&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr class="field"><td>Can use private messaging:</td><td>'.($u->users_opt & 33554432 ? 'No' : 'Yes').' [<a href="admuser.php?act=pm&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 
 	if ($FUD_OPT_1 & 1048576) {
-		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+		echo '<tr class="field"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . __adm_rsidl .'">Toggle</a>]</td></tr>';
 	}
 
 	echo '<tr class="field"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
@@ -324,12 +324,12 @@ administration permissions to the forum. This individual will be able to do anyt
 	unset($c);
 ?>
 	<a name="mod_here"> </a>
-	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . _rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
+	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . __adm_rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 	<tr class="field"><td valign=top>Custom Tags:</td><td valign="top">
 <?php
 	$c = uq('SELECT name, id FROM '.$DBHOST_TBL_PREFIX.'custom_tags WHERE user_id='.$usr_id);
 	while ($r = db_rowarr($c)) {
-		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . _rsidl . '">Delete</a>]<br>';
+		echo $r[0] . ' [<a href="admuser.php?act=nada&usr_id='.$usr_id.'&deltag=' . $r[1] . '&' . __adm_rsidl . '">Delete</a>]<br>';
 	}
 ?>
 	<form name="extra_tags" action="admuser.php" method="post">
@@ -359,15 +359,15 @@ administration permissions to the forum. This individual will be able to do anyt
 	<td colspan=2>
 <?php
 	if ($FUD_OPT_1 & 1024) {
-		echo '<a href="../'.__fud_index_name__.'?t=ppost&'._rsidl.'&toi='.$usr_id.'">Send Private Message</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=ppost&'.__adm_rsidl.'&toi='.$usr_id.'">Send Private Message</a> | ';
 	}
 	if ($FUD_OPT_1 & 4194304) {
-		echo '<a href="../'.__fud_index_name__.'?t=email&toi='.$usr_id.'&'._rsidl.'">Send Email</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=email&toi='.$usr_id.'&'.__adm_rsidl.'">Send Email</a> | ';
 	} else {
 		echo '<a href="mailto:'.$u->email.'">Send Email</a> | ';
 	}
 
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'._rsidl.'">See Posts</a><br /><a href="admuser.php?act=reset&usr_id='.$usr_id.'&'._rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'._rsidl.'">Delete User</a> | <a href="admprune.php?usr_id='.$usr_id.'&'._rsidl.'">Delete All messages by this user.</a></td></tr>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr_id.'&'.__adm_rsidl.'">See Posts</a><br /><a href="admuser.php?act=reset&usr_id='.$usr_id.'&'.__adm_rsidl.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete User</a> | <a href="admprune.php?usr_id='.$usr_id.'&'.__adm_rsidl.'">Delete All messages by this user.</a></td></tr>';
 }
 ?>
 </table>

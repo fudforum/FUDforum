@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.17 2004/04/19 19:12:25 hackie Exp $
+* $Id: admavatar.php,v 1.18 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -220,7 +220,7 @@ function import_avatars($path)
 					} else {
 						document.prev_icon.src='../blank.gif';
 					}">
-			[<a href="#avt_sel" onClick="javascript:window.open('admavatarsel.php?<?php echo _rsidl; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
+			[<a href="#avt_sel" onClick="javascript:window.open('admavatarsel.php?<?php echo __adm_rsidl; ?>', 'admavatarsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT AVATAR</a>]
 		</td>
 	</tr>
 
@@ -280,7 +280,7 @@ function import_avatars($path)
 		echo '<tr '.$bgcolor.'>
 				<td><img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$r[1].'" alt="'.$r[2].'" border=0 /></td>
 				<td>'.$r[2].'</td>
-				<td>[<a href="admavatar.php?edit='.$r[0].'&'._rsidl.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td>
+				<td>[<a href="admavatar.php?edit='.$r[0].'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admavatar.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td>
 			</tr>';
 	}
 ?>

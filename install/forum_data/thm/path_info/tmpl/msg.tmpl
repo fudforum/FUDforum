@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.13 2004/01/04 16:38:30 hackie Exp $
+* $Id: msg.tmpl,v 1.14 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -41,11 +41,11 @@
 {SECTION: END}
 
 {SECTION: mod_lock_thread_lnk}
-{ROOT}/lk/{VAR: _GET['th']}/lock/{DEF: _rsid}
+{ROOT}/lk/{VAR: _GET['th']}/lock/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: mod_unlock_thread_lnk}
-{ROOT}/lk/{VAR: _GET['th']}/unlock/{DEF: _rsid}
+{ROOT}/lk/{VAR: _GET['th']}/unlock/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: email_page_to_friend_lnk}
@@ -57,11 +57,11 @@
 {SECTION: END}
 
 {SECTION: sub_from_thread_lnk}
-{ROOT}/mn/msg/{VAR: _GET['th']}/1/on/{VAR: _GET['start']}/{DEF: _rsid}
+{ROOT}/mn/msg/{VAR: _GET['th']}/1/on/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: unsub_to_thread_lnk}
-{ROOT}/mn/msg/{VAR: _GET['th']}/1/off/{VAR: _GET['start']}/{DEF: _rsid}
+{ROOT}/mn/msg/{VAR: _GET['th']}/1/off/{VAR: _GET['start']}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: threaded_view_lnk}

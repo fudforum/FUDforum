@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.tmpl,v 1.13 2004/04/03 00:46:42 hackie Exp $
+* $Id: subscribed.tmpl,v 1.14 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,7 @@
 {SECTION: END}
 
 {SECTION: subscribed_forum_entry_lnk1}
-{ROOT}?t=subscribed&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}
+{ROOT}?t=subscribed&amp;frm_id={VAR: r[0]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry_lnk}
@@ -71,5 +71,5 @@
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry_lnk1}
-{ROOT}?t=subscribed&amp;th={VAR: r[0]}&amp;{DEF: _rsid}
+{ROOT}?t=subscribed&amp;th={VAR: r[0]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}

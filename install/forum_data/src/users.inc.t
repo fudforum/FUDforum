@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.119 2004/04/20 18:12:29 hackie Exp $
+* $Id: users.inc.t,v 1.120 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -571,7 +571,7 @@ function init_user()
 	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 	header("Pragma: no-cache");
 
-	$sq = 0; $sq_r = 1;
+	$sq = 0;
 	/* fetch an object with the user's session, profile & theme info */
 	if (!($u = ses_get())) {
 		/* new anon user */
@@ -590,7 +590,6 @@ function init_user()
 			}
 		} else {
 			$sq =& $u->sq;
-			$sq_r = 0;
 		}
 	}
 	if ($u->data) {
@@ -629,58 +628,34 @@ function init_user()
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 	define('_uid', __fud_real_user__ && ($uo & 131072) && !($uo & 2097152) ? $u->id : 0);
 
-	if (!$sq_r) {
-		switch ($GLOBALS['t']) {
-			case 'tree':
-			case 'msg':
-			case 'post':
-			case 'ppost':
-			case 'selmsg':
-			case 'reported':
-			case 'modque':
-			case 'split_th':
-			case 'rview':
-			case 'usrinfo':
-				$u->sq = $sq = regen_sq($u->id);
-				if (!$GLOBALS['is_post']) {
-					$_GET['SQ'] = $sq;
-				} else {
-					$_POST['SQ'] = $sq;
-				}
-				break;
-		}
-	}
+	$GLOBALS['sq'] = $sq;
 
 	/* define constants used to track URL sessions & referrals */
 	if ($o1 & 128) {
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'"><input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . '/' . s . ($sq ? '/?SQ='.$sq : ''));
+				define('_rsid', __fud_real_user__ . '/' . s);
 			} else {
-				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s.($sq ? '&amp;SQ='.$sq : ''));
+				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s);
 			}
 		} else {
 			if ($o2 & 32768) {
-				define('_rsid', s . ($sq ? '/?SQ='.$sq : ''));
+				define('_rsid', s);
 			} else {
-				define('_rsid',  'S='.s.($sq ? '&amp;SQ='.$sq : ''));
+				define('_rsid',  'S='.s);
 			}
 		}
 	} else {
 		define('s', ''); define('_hs', '<input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . ($sq ? '/?SQ='.$sq : ''));
+				define('_rsid', __fud_real_user__);
 			} else {
-				define('_rsid',  'rid='.__fud_real_user__. ($sq ? '&amp;SQ='.$sq : ''));
+				define('_rsid', 'rid='.__fud_real_user__);
 			}
 		} else {
-			if ($o2 & 32768) {
-				define('_rsid', ($sq ? '?SQ='.$sq : ''));
-			} else {
-				define('_rsid', ($sq ? 'SQ='.$sq : ''));
-			}
+			define('_rsid', '');
 		}
 	}
 	define('_rsidl', ($o2 & 32768 ? _rsid : str_replace('&amp;', '&', _rsid)));

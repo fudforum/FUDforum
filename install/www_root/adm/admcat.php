@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.25 2004/01/04 16:38:32 hackie Exp $
+* $Id: admcat.php,v 1.26 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -125,7 +125,7 @@
 		}
 		echo '</form>';
 	} else {
-		echo '<a href="admcat.php?'._rsidl.'">Cancel</a><br>';
+		echo '<a href="admcat.php?'.__adm_rsidl.'">Cancel</a><br>';
 	}
 ?>
 <br>
@@ -151,7 +151,7 @@
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'._rsidl.'">Place Here</a></font></td></tr>';
+				echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
 			}
 			$lp = $r->view_order;
 		}
@@ -164,15 +164,15 @@
 			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
 			<td>'.($r->cat_opt & 2 ? 'Open' : 'Collapsed').'</td>
-			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'._rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'._rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td>
-			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'._rsidl.'">Change</a>]</td></tr>';
+			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'.__adm_rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td>
+			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
 
 		if (isset($_GET['chpos']) && $_GET['chpos'] == ($r->view_order -1)) {
 
 		}
 	}
 	if (isset($lp)) {
-		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'._rsidl.'">Place Here</a></font></td></tr>';
+		echo '<tr class="field"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&'.__adm_rsidl.'">Place Here</a></font></td></tr>';
 	}
 ?>
 </table>

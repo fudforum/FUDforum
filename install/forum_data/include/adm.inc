@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.30 2004/04/15 21:02:57 hackie Exp $
+* $Id: adm.inc,v 1.31 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,6 +18,7 @@ if (!defined('shell_script')) {
 	fud_use('db.inc');
 	fud_use('cookies.inc');
 	fud_use('users.inc');
+	define('__adm_rsidl', _rsidl.'&'.$GLOBALS['sq']);
 	if (isset($t)) {
 		$GLOBALS['FUD_OPT_2'] |= 32768;
 	}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.6 2004/01/04 16:38:29 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.7 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,7 +12,7 @@
 {PHP_FILE: input: drawpmsg.inc.t; output: drawpmsg.inc;}
 
 {SECTION: dpmsg_buddy_link_lnk}
-{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}
+{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq_lnk}
@@ -48,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_msg_toolbar_lnk}
-{ROOT}/pdm/btn_delete/{VAR: obj->id}/{DEF: _rsid}
+{ROOT}/pdm/btn_delete/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dpmsg_msg_toolbar_lnk2}
@@ -68,5 +68,5 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link_remove_lnk}
-{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}
+{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}

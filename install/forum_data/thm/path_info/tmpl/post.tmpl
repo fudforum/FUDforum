@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.10 2004/04/13 18:48:14 hackie Exp $
+* $Id: post.tmpl,v 1.11 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -39,7 +39,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: loged_in_user_lnk}
-{ROOT}/l/1/{DEF: _rsid}
+{ROOT}/l/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: create_poll_lnk1}

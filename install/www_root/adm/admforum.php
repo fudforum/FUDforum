@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.33 2004/04/21 21:04:49 hackie Exp $
+* $Id: admforum.php,v 1.34 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -115,7 +115,7 @@ function get_max_upload_size()
 <?php
 if (!isset($_GET['chpos'])) {
 ?>
-<a href="admcat.php?<?php echo _rsidl; ?>">Back to categories</a><br>
+<a href="admcat.php?<?php echo __adm_rsidl; ?>">Back to categories</a><br>
 
 <form method="post" name="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
@@ -172,7 +172,7 @@ if (!isset($_GET['chpos'])) {
 
 	<tr class="field">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
-		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?<?php echo _rsidl; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
+		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php?<?php echo __adm_rsidl; ?>', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
 
 <?php if (!$edit) { ?>
@@ -201,15 +201,15 @@ if (!isset($_GET['chpos'])) {
 	}
 	echo '</form>';
 } else {
-	echo '<a href="admforum.php?cat_id='.$cat_id.'&'._rsidl.'">Cancel</a>';
+	echo '<a href="admforum.php?cat_id='.$cat_id.'&'.__adm_rsidl.'">Cancel</a>';
 }
 ?>
 <table class="datatable">
 <tr class="fieldtopic"><td valign="top" nowrap>Reorder All Forums by:</td></tr>
 <tr><td class="field"><font size=-2>
-	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
-	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
-	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
+	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
+	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
+	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo __adm_rsidl; ?>">Descending</a> ]<br />
 </font></td></tr>
 </table>
 <br>
@@ -237,15 +237,15 @@ if (!isset($_GET['chpos'])) {
 			if ($_GET['chpos'] == $r->view_order) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
-				echo '<tr class="field"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'._rsidl.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->view_order;
 		}
 		$cat_name = !$move_ct ? $cat_name : '<form method="post" action="admforum.php">'._hs.'<input type="hidden" name="frm_id" value="'.$r->id.'"><input type="hidden" name="cat_id" value="'.$cat_id.'"><input type="submit" name="btn_chcat" value="Move To: "> '.$move_ct.'</form>';
-		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'._rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'._rsidl.'">Change</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'.__adm_rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Change</a>]</td></tr>';
 	}
 	if (isset($lp)) {
-		echo '<tr class="field""><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'._rsidl.'">Place Here</a></td></tr>';
+		echo '<tr class="field""><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'.__adm_rsidl.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.26 2004/04/19 20:28:37 hackie Exp $
+* $Id: admmlist.php,v 1.27 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -252,7 +252,7 @@ function format_regex(&$regex)
 		}
 		echo '<tr'.$bgcolor.'><td>'.htmlspecialchars($r[1]).'</td><td>'.$r[2].'</td>
 		<td nowrap><font size="-1">'.$GLOBALS['DATA_DIR'].'scripts/maillist.php '.$r[0].'</font></td>
-		<td>[<a href="admmlist.php?edit='.$r[0].'&'._rsidl.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';
+		<td>[<a href="admmlist.php?edit='.$r[0].'&'.__adm_rsidl.'">Edit</a>] [<a href="admmlist.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
 ?>
 </table>

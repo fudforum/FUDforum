@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.17 2004/04/19 19:12:25 hackie Exp $
+* $Id: admsmiley.php,v 1.18 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -125,7 +125,7 @@
 						} else {
 							document.prev_icon.src='../blank.gif';
 						}">
-			[<a href="javascript://" onClick="javascript:window.open('admsmileysel.php?<?php echo _rsidl; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
+			[<a href="javascript://" onClick="javascript:window.open('admsmileysel.php?<?php echo __adm_rsidl; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
 		</td>
 	</tr>
 
@@ -176,17 +176,17 @@
 			if ($_GET['chpos'] == $r->vieworder) {
 				$bgcolor = ' class="resultrow2"';
 			} else if ($_GET['chpos'] != ($r->vieworder - 1)) {
-				echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&'._rsidl.'">Place Here</a></td></tr>';
+				echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&'.__adm_rsidl.'">Place Here</a></td></tr>';
 			}
 			$lp = $r->vieworder;
 		}
 		echo '<tr '.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border=0></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
-			<td nowrap>[<a href="admsmiley.php?edit='.$r->id.'&'._rsidl.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&'._rsidl.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&'._rsidl.'">Change Position</a>]</td>
+			<td nowrap>[<a href="admsmiley.php?edit='.$r->id.'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&'.__adm_rsidl.'">Change Position</a>]</td>
 			</tr>';
 	}
 
 	if (isset($lp)) {
-		echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'._rsidl.'">Place Here</a></td></tr>';
+		echo '<tr class="field"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'.__adm_rsidl.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>

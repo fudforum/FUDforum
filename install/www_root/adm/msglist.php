@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.26 2004/04/21 21:04:50 hackie Exp $
+* $Id: msglist.php,v 1.27 2004/04/21 21:17:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,7 +19,7 @@
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=msglist&'._rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=msglist&'.__adm_rsidl);
 		exit;
 	}
 
@@ -115,7 +115,7 @@ function makedeps()
 		if (isset($_POST['NO_TREE_LIST'])) {
 			exit('<html><script>window.close();</script></html>');
 		}
-		exit('<br><a href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'">Back to control panel</a>');
+		exit('<br><a href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'">Back to control panel</a>');
 	}
 
 if (!isset($_GET['NO_TREE_LIST'])) {
@@ -156,10 +156,10 @@ if (isset($warn)) {
 		$list = $msgnamelist = '';
 		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
-			$list .='<tr><td><img src="../blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
+			$list .='<tr><td><img src="../blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
 		}
 		$msgnamelist = substr($msgnamelist, 0, -1);
-		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.$msgnamelist.'&fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
+		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&msglist='.$msgnamelist.'&fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
 		if (isset($filedeps[$file])) {
 			echo '<tr><td class="depson">'.$tab.'<b>&raquo; Used By:</b></td></tr>'."\n";
 			foreach($filedeps[$file] as $v) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmime.php,v 1.16 2004/04/19 19:12:25 hackie Exp $
+* $Id: admmime.php,v 1.17 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -90,7 +90,7 @@
 					document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/mime/' + document.frm_sml.mime_icon.value;
 				} else {
 					document.prev_icon.src='../blank.gif';
-				}"> [<a href="#mime_sel" onClick="javascript:window.open('admmimesel.php?<?php echo _rsidl; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
+				}"> [<a href="#mime_sel" onClick="javascript:window.open('admmimesel.php?<?php echo __adm_rsidl; ?>', 'admmimesel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">select MIME icon</a>]</td>
 </tr>
 
 <tr class="field">
@@ -134,7 +134,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2""' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&'._rsidl.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';
+		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$GLOBALS['WWW_ROOT'].'images/mime/'.$r[1].'" border=0></td><td>'.$r[2].'</td><td>'.$r[4].'</td><td>'.$r[3].'</td><td nowrap>[<a href="admmime.php?edit='.$r[0].'&'.__adm_rsidl.'#img">Edit</a>] [<a href="admmime.php?del='.$r[0].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
 ?>
 </table>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.13 2004/04/19 19:12:25 hackie Exp $
+* $Id: admforumicons.php,v 1.14 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -76,7 +76,7 @@
 			continue;
 		}
 		$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
-		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'] . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'._rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
+		echo '<tr'.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'] . $ICONS_DIR . '/' . $de.'"></td><td><a href="admforumicons.php?del='.urlencode($de).'&'.__adm_rsidl.'&which_dir='.$which_dir.'">Delete</a></td></tr>';
 	}
 	closedir($dp);
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.27 2004/01/30 01:50:19 hackie Exp $
+* $Id: admgrouplead.php,v 1.28 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,7 +19,7 @@
 	$gr_leader = isset($_GET['gr_leader']) ? $_GET['gr_leader'] : (isset($_POST['gr_leader']) ? $_POST['gr_leader'] : '');
 
 	if (!$group_id) {
-		header('Location: '.$WWW_ROOT.'adm/admgroups.php?'._rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admgroups.php?'.__adm_rsidl);
 		exit;
 	}
 
@@ -73,7 +73,7 @@
 				/* more then 1 user found, draw a selection form */
 				echo '<html><body bgcolor="#ffffff">There are '.$cnt.' users matching your search mask:<br><table border=0 cellspacing=0 cellpadding=3>';
 				while ($r = db_rowarr($c)) {
-					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&'._rsidl.'">'.$r[1].'</a></td></tr>';
+					echo '<tr><td><a href="admgrouplead.php?gr_leader='.urlencode($r[1]).'&group_id='.$group_id.'&'.__adm_rsidl.'">'.$r[1].'</a></td></tr>';
 				}
 				unset($c);
 				echo '</table></body></html>';
@@ -84,7 +84,7 @@
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<a href="admgroups.php?<?php echo _rsidl; ?>">Back to Groups</a>
+<a href="admgroups.php?<?php echo __adm_rsidl; ?>">Back to Groups</a>
 <form method="post" action="admgrouplead.php"><?php echo _hs; ?>
 <input type="hidden" value="<?php echo $group_id; ?>" name="group_id">
 <table border=0 cellspacing=0 cellpadding=3>
@@ -98,8 +98,8 @@
 	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND (gm.group_members_opt & 131072) > 0');
 	while ($r = db_rowarr($c)) {
 		echo '<tr><td>'.$r[1].'</td><td>
-		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'&ug=1">Remove Group Leader Permission</a>]
-		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]
+		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'.__adm_rsidl.'&ug=1">Remove Group Leader Permission</a>]
+		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'.__adm_rsidl.'">Remove From Group</a>]
 		</td></tr>';
 	}
 ?>

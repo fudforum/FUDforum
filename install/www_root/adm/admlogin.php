@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlogin.php,v 1.13 2004/04/21 21:04:49 hackie Exp $
+* $Id: admlogin.php,v 1.14 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -74,7 +74,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'._rsidl.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'._rsidl.'">Delete</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admlogin.php?edit='.$r[1].'&'.__adm_rsidl.'">Edit</a>] [<a href="admlogin.php?del='.$r[1].'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

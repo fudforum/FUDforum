@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.60 2004/04/13 21:00:18 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.61 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -63,7 +63,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk}
-{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}
+{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_lnk2}
@@ -174,7 +174,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_add_lnk}
-{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}
+{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_bd_il}
@@ -186,7 +186,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove_lnk}
-{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}
+{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove add this user to your buddy list link}
@@ -194,7 +194,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list_lnk}
-{ROOT}?t=ignore_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}
+{ROOT}?t=ignore_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
@@ -202,7 +202,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list_lnk}
-{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}
+{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
@@ -349,7 +349,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_delete_link_lnk}
-{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;{DEF: _rsid}
+{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_delete_link}

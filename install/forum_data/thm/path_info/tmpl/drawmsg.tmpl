@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.14 2004/02/17 15:49:54 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.15 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -46,19 +46,19 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_add_lnk}
-{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}
+{ROOT}/bl/{VAR: obj->user_id}/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove_lnk}
-{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}
+{ROOT}/bl/{VAR: obj->user_id}/0/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list_lnk}
-{ROOT}/il/{VAR: obj->user_id}/0/1/{DEF: _rsid}
+{ROOT}/il/{VAR: obj->user_id}/0/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list_lnk}
-{ROOT}/il/{VAR: obj->user_id}/1/{DEF: _rsid}
+{ROOT}/il/{VAR: obj->user_id}/1/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: dmsg_im_icq_lnk}
@@ -94,7 +94,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_delete_link_lnk}
-{ROOT}/d/{VAR: obj->id}/{DEF: _rsid}
+{ROOT}/d/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END} 
 
 {SECTION: dmsg_edit_link_lnk}

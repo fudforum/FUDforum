@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.43 2004/04/19 20:28:37 hackie Exp $
+* $Id: admgroups.php,v 1.44 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -319,8 +319,8 @@
 			$grl = 'No Leaders';
 		}
 
-		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'._rsidl.'">Delete</a>]' : '';
-		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
+		$del_link = !$v['forum_id'] ? '[<a href="admgroups.php?del='.$k.'&'.__adm_rsidl.'">Delete</a>]' : '';
+		$user_grp_mgr = ($k > 2) ? ' '.$del_link.'<br>[<a href="admgrouplead.php?group_id='.$k.'&'.__adm_rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$k.'&'.__adm_rsidl.'" target=_new>Manage Users</a>]' : '';
 
 		echo '<tr class="tiny field"><td><a name="g'.$k.'">'.$v['gn'].'</a></td>';
 		foreach ($hdr as $v2) {
@@ -332,7 +332,7 @@
 			}
 			echo '</td>';
 		}
-		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$k.'&'._rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+		echo '<td valign="middle" align="center">'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$k.'&'.__adm_rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
 	}
 ?>
 </table>

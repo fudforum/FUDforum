@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.43 2004/04/21 21:04:49 hackie Exp $
+* $Id: admthemes.php,v 1.44 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -353,9 +353,9 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>]
-			'.($is_tok ? '[<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
-			'.($r->id != 1 ? '[<a href="admthemes.php?'._rsidl.'&del='.$r->id.'">Delete</a>]' : '').'
+			<td nowrap>[<a href="admthemes.php?'.__adm_rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>]
+			'.($is_tok ? '[<a href="admthemes.php?'.__adm_rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
+			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsidl.'&del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';
 	}

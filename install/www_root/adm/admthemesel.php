@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.18 2004/01/04 16:38:32 hackie Exp $
+* $Id: admthemesel.php,v 1.19 2004/04/21 21:17:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 	fud_use('adm.inc', true);
 
 	if (isset($_POST['tname'], $_POST['tlang'], $_POST['ret'])) {
-		header('Location: '.$_POST['ret'].'.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'._rsidl);
+		header('Location: '.$_POST['ret'].'.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'.__adm_rsidl);
 		exit;
 	}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlevel.php,v 1.20 2004/04/21 21:04:49 hackie Exp $
+* $Id: admlevel.php,v 1.21 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,7 +44,7 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Rank Manager</h2>
-<div align="center"><font size="+1" color="#ff0000">If you've made any modification to the user ranks<br>YOU MUST RUN CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&<?php echo _rsidl; ?>">clicking here</a> &lt;&lt;</font></div>
+<div align="center"><font size="+1" color="#ff0000">If you've made any modification to the user ranks<br>YOU MUST RUN CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&<?php echo __adm_rsidl; ?>">clicking here</a> &lt;&lt;</font></div>
 <form method="post" name="lev_form" action="admlevel.php">
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <?php echo _hs; ?>
@@ -97,7 +97,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align=center>'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&'._rsidl.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&'._rsidl.'">Delete</a></td></tr>';
+		echo '<tr'.$bgcolor.'><td>'.$r->name.'</td><td align=center>'.$r->post_count.'</td><td><a href="admlevel.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit</a> | <a href="admlevel.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a></td></tr>';
 	}
 ?>
 </table>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.37 2004/04/13 21:00:18 hackie Exp $
+* $Id: msg.tmpl,v 1.38 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -178,11 +178,11 @@ fud_msg_focus("{VAR: mid}");
 {SECTION: END}
 
 {SECTION: mod_lock_thread_lnk}
-{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;lock=1
+{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;lock=1&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: mod_unlock_thread_lnk}
-{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;unlock=1
+{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;unlock=1&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: email_page_to_friend_lnk}
@@ -194,11 +194,11 @@ fud_msg_focus("{VAR: mid}");
 {SECTION: END}
 
 {SECTION: sub_from_thread_lnk}
-{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: _GET['start']}
+{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=on&amp;start={VAR: _GET['start']}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: unsub_to_thread_lnk}
-{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: _GET['start']}
+{ROOT}?t=msg&amp;th={VAR: _GET['th']}&amp;notify={VAR: usr->id}&amp;{DEF: _rsid}&amp;opt=off&amp;start={VAR: _GET['start']}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: threaded_view_lnk}

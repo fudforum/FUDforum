@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.31 2004/04/21 21:04:50 hackie Exp $
+* $Id: tmpllist.php,v 1.32 2004/04/21 21:17:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -88,7 +88,7 @@ function goto_tmpl($tmpl)
 	$edit = isset($_POST['edit']) ? $_POST['edit'] : (isset($_GET['edit']) ? $_GET['edit'] : '');
 
 	if (!$tname || !$tlang) {
-		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=tmpllist&'._rsidl);
+		header('Location: '.$WWW_ROOT.'adm/admthemesel.php?ret=tmpllist&'.__adm_rsidl);
 		exit;
 	}
 
@@ -159,7 +159,7 @@ function goto_tmpl($tmpl)
 			$p = $e;
 		}
 		if (isset($msg_list)) {
-			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
+			$msg_list = ' <font size="-1">[ <a href="#" onClick="javascript: window_open(\'msglist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&NO_TREE_LIST=1&msglist='.urlencode(implode(':', $msg_list)).'\', \'tmpl_msg\', 600,300);">Edit Text Messages</a> ]</font>';
 		}
 	}
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -262,12 +262,12 @@ function goto_tmpl($tmpl)
 						$d = explode(' ', substr($data, $p, ($e - $p)), 3);
 
 						if (!isset($file_info_array[$file])) {
-							$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.minimize($file, $max_list).'" title="minimize">[ - ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a><br>';
+							$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.minimize($file, $max_list).'" title="minimize">[ - ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a><br>';
 						}
 						if ($tag != 'SECTION') {
-							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&edit=1&fl='.$file.'&msec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="msec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&edit=1&fl='.$file.'&msec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
 						} else {
-							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&edit=1&fl='.$file.'&sec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
+							$file_info_array[$file] .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a class="sec" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&edit=1&fl='.$file.'&sec='.urlencode($d[1]).'&max_list='.$max_list.'">'.$d[1].'</a>';
 						}
 						if (isset($d[2]) && ($d[2] = trim($d[2]))) {
 							if (!$edit) {
@@ -284,7 +284,7 @@ function goto_tmpl($tmpl)
 				}
 			}
 		} else { /* just parse the title & help if avaliable */
-			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
+			$file_info_array[$file] = '<a class="file_name" href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.maximize($file, $max_list).'" title="maximize">[ + ]</a> <b>'.$file.'</b> <a name="'.$file.'">&nbsp;</a>';
 		}
 	}
 	closedir($dp);
@@ -320,7 +320,7 @@ function goto_tmpl($tmpl)
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
 				foreach($php_deps[$k] as $k2 => $v2) {
-					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
 				}
 
 				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br>'.$deps;
@@ -329,7 +329,7 @@ function goto_tmpl($tmpl)
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
 				foreach($deps_on[$k] as $k2) {
-					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'.__adm_rsidl.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
 				}
 
 				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br>'.$dp;

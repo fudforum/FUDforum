@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.11 2004/01/04 16:38:27 hackie Exp $
+* $Id: admincp.tmpl,v 1.12 2004/04/21 21:17:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
-| <a href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
+| <a href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
 {SECTION: END}
 
 {SECTION: group_mgr_lnk}
@@ -52,5 +52,5 @@
 {SECTION: END}
 
 {SECTION: accounts_pending_approval accounts pending administrator's approval}
-| <a href="adm/admaccapr.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
+| <a href="adm/admaccapr.php?S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}

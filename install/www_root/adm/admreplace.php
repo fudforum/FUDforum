@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.18 2004/01/04 16:38:32 hackie Exp $
+* $Id: admreplace.php,v 1.19 2004/04/21 21:17:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -224,7 +224,7 @@ function clean_rgx()
 		} else {
 			echo '<td>'.htmlspecialchars($r->from_post).'</td><td>'.htmlspecialchars($r->to_msg).'</td>';
 		}
-		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td></tr>';
+		echo '<td>[<a href="admreplace.php?edit='.$r->id.'&'.__adm_rsidl.'">Edit</a>] [<a href="admreplace.php?del='.$r->id.'&'.__adm_rsidl.'">Delete</a>]</td></tr>';
 	}
 ?>
 </table>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.19 2004/04/15 21:02:57 hackie Exp $
+* $Id: indexdb.php,v 1.20 2004/04/21 21:17:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -80,7 +80,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		echo '<br>Re-enabling the forum.<br>';
 		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
-		echo '<br><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsidl.'">Global Settings Manager</a> and re-enable it.</font>';
+		echo '<br><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'.__adm_rsidl.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admclose.html');
