@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.8 2002/07/09 19:13:38 hackie Exp $
+*   $Id: admimport.php,v 1.9 2002/07/09 19:52:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,7 +138,7 @@ include('admpanel.php');
 				}	
 			}
 			
-			$fp = fopen($file, "wb");
+			$fp = fopen($path."/".$file, "wb");
 			fwrite($fp, substr($data, $st, $size));
 			fclose($fp);
 			@chmod($file_path, 0600);
