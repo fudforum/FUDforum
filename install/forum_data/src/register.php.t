@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.140 2005/03/10 16:48:36 hackie Exp $
+* $Id: register.php.t,v 1.141 2005/03/10 16:51:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -572,7 +572,7 @@ function decode_uent(&$uent)
 
 	$avatar_type = '';
 	$chr_fix = array('reg_sig', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests'); 
-	if ($GLOBALS['FUD_OPT_2'] & 128) {
+	if ($FUD_OPT_2 & 128) {
 		$chr_fix[] = 'reg_alias';
 	}
 	if (!__fud_real_user__) {
