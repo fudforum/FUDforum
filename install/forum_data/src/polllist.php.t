@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.8 2003/05/02 13:17:16 hackie Exp $
+*   $Id: polllist.php.t,v 1.9 2003/05/07 23:13:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
 				WHERE 
-					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1)'));
+					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1'));
 	$poll_entries = $pager = '';
 	if ($ttl) {
 		$c = uq('SELECT 

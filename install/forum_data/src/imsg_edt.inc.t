@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.54 2003/05/07 01:43:00 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.55 2003/05/07 23:14:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -489,7 +489,7 @@ class fud_msg_edit extends fud_msg
 				}
 				qf($r);
 			} else {
-				$attach = null;
+				$attach_mime = $attach = null;
 			}
 
 			if ($mtf->nntp_id) {

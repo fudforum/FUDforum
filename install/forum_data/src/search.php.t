@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.16 2003/05/02 13:32:13 hackie Exp $
+*   $Id: search.php.t,v 1.17 2003/05/07 23:13:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,7 +69,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$wl[] = $r[0];
 		}
 		qf($c);
-		if ($logic == 'AND' && count($wl) != count($qu)) {
+		if ($logic == 'AND' && (!isset($wl) || count($wl) != count($qu))) {
 			return;
 			db_unlock();
 		}
