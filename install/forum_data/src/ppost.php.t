@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.32 2003/05/13 11:21:59 hackie Exp $
+*   $Id: ppost.php.t,v 1.33 2003/05/13 15:49:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -350,6 +350,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	
 	$cur_ppage = tmpl_cur_ppage('', $folders);
 
+	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
+		$spell_check_button = '{TEMPLATE: spell_check_button}';
+	} else {
+		$spell_check_button = '';
+	}
+
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
@@ -410,12 +416,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	} else {
 		$disable_smileys = '';
-	}
-
-	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
-		$spell_check_button = '{TEMPLATE: spell_check_button}';
-	} else {
-		$spell_check_button = '';
 	}
 
 	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {

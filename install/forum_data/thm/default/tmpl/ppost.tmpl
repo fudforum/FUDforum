@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.20 2003/05/13 11:21:59 hackie Exp $
+*   $Id: ppost.tmpl,v 1.21 2003/05/13 15:49:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -42,7 +42,7 @@
 {SECTION: END}
 
 {SECTION: apply_spell_changes}
-<input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;&nbsp;
+<input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
 {SECTION: END}
 
 {SECTION: signature}
@@ -54,7 +54,7 @@
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
 <tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
-<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';"></td></tr>
+<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';">&nbsp;<input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value=\'draft\';"></td></tr>
 </table></div><br />
 {SECTION: END}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.54 2003/05/13 11:21:59 hackie Exp $
+*   $Id: post.php.t,v 1.55 2003/05/13 15:49:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -452,7 +452,13 @@ function flood_check()
 	} else {
 		$label = '{TEMPLATE: submit_reply}';
 	}	
-	
+
+	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
+		$spell_check_button = '{TEMPLATE: spell_check_button}';
+	} else {
+		$spell_check_button = '';
+	}
+
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
@@ -601,11 +607,7 @@ function flood_check()
 		$post_smilies = $disable_smileys = '';
 	}
 	
-	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
-		$spell_check_button = '{TEMPLATE: spell_check_button}';
-	} else {
-		$spell_check_button = '';
-	}
+	
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
