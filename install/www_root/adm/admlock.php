@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.8 2002/07/24 13:27:50 hackie Exp $
+*   $Id: admlock.php,v 1.9 2002/07/24 13:28:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,14 +63,12 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 				$fileperms = 0666;
 				$FILE_LOCK = "N";
 				
-				unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
+				if( @file_exists($GLOBALS['ERROR_PATH'].'FILE_LOCK') ) unlink($GLOBALS['ERROR_PATH'].'FILE_LOCK');
 			}
 			else {
 				$dirperms = 0700;
 				$fileperms = 0600;
 				$FILE_LOCK = "Y";
-				
-				touch($GLOBALS['ERROR_PATH'].'FILE_LOCK');
 			}
 
 			chmoddir($GLOBALS['WWW_ROOT_DISK'], $dirperms, $fileperms, TRUE);
