@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+#   $Id: fud_users.tbl,v 1.2 2002/06/21 15:30:08 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	interests		CHAR(255),
 	occupation		CHAR(255),
 	display_email		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
-	notify			ENUM('N', 'Y') NOT NULL DEFAULT 'N',
+	notify			ENUM('Y', 'N') NOT NULL DEFAULT 'N',
 	notify_method		ENUM('EMAIL', 'ICQ') NOT NULL DEFAULT 'EMAIL',
 	ignore_admin		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
 	email_messages		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
@@ -53,7 +53,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	conf_key		CHAR(32) NOT NULL DEFAULT '0',
 	user_image		CHAR(255),
 	theme			INT UNSIGNED NOT NULL DEFAULT 0,
-	coppa			ENUM('Y', 'N') DEFAULT 'Y',
+	coppa			ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 	
 	posted_msg_count	INT UNSIGNED NOT NULL DEFAULT 0,
 	last_visit		INT UNSIGNED NOT NULL DEFAULT 0,
