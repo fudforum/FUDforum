@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.39 2004/04/21 21:25:47 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.40 2004/04/23 19:03:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -149,10 +149,10 @@
 {MAIN_SECTION: private_message_entry draws a single private message}
 <tr><td><table cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
-<td valign="top" align="left" class="MsgR1"><font class="MsgSubText">{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}</font></td>
-<td valign="top" align="right" class="MsgR1"><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font></td>
+<td class="MsgR1 al vt MsgSubText">{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}</td>
+<td class="MsgR1 vt ar DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan=2><table border="0" cellspacing="0" cellpadding="0" class="ContentTable">
+<tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
 <td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: profile_link}{TEMPLATE-DATA: dmsg_user_info}</td>
@@ -162,7 +162,7 @@
 </tr>
 <tr><td class="MsgR3" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>
 {TEMPLATE-DATA: msg_toolbar}
-<tr><td class="MsgR2" align="center" colspan=2>{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
+<tr><td class="MsgR2 ac" colspan=2>{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
 </table></td></tr>
 {MAIN_SECTION: END}
 
@@ -179,9 +179,9 @@
 {SECTION: END}
 
 {SECTION: dpmsg_msg_toolbar buttons for replying,editing,deliting and forwarding the message}
-<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
-<td nowrap align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
-<td nowrap align="right"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
+<tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 class="wa"><tr>
+<td class="nw al">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
+<td class="nw ar"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
 </tr></table></td></tr>
 {SECTION: END}
 

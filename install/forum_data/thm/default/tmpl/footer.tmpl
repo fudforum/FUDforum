@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: footer.tmpl,v 1.11 2004/04/17 19:22:07 hackie Exp $
+* $Id: footer.tmpl,v 1.12 2004/04/23 19:03:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,14 +10,11 @@
 ***************************************************************************/
 
 {MAIN_SECTION: footer forum's footer}
-</td></tr></table>
-<table width="100%" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground" align="center">
+</td></tr></table><div class="ForumBackground ac foot">
 <b>.::</b> <a href="mailto:{GVAR: ADMIN_EMAIL}">{MSG: forum_contact}</a> <b>::</b> <a href="{TEMPLATE: footer_lnk}">{MSG: forum_home}</a> <b>::.</b>
 <p>
 <span class="SmallText">Powered by: FUDforum {GVAR: FORUM_VERSION}<br />Copyright &copy;2001-2004 <a href="http://fudforum.org/">FUD Forum Bulletin Board Software</a></span>
-</td></tr></table>
-</body>
-</html>
+</div></body></html>
 {MAIN_SECTION: END}
 
 {MAIN_SECTION: footer_plain forum's footer for plain pages such as popups}

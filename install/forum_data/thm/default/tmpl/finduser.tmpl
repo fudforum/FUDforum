@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.32 2004/04/23 14:11:02 hackie Exp $
+* $Id: finduser.tmpl,v 1.33 2004/04/23 19:03:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,7 +27,7 @@
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
 <form method="get" name="fufrm" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{VAR-HTML: usr_login}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"><br />
 <font class="SmallText">{MSG: finduser_help}</font></td></tr>
@@ -37,9 +37,9 @@
 document.fufrm.usr_login.focus();
 //-->
 </script>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-<th width="100%"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
+<th class="wa"><a class="thLnk" href="{TEMPLATE: FINDUSER_PAGE_lnk}">{MSG: finduser_user}</a></th><th nowrap><a href="{TEMPLATE: FINDUSER_PAGE_lnk1}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{TEMPLATE: FINDUSER_PAGE_lnk2}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
 </tr>
 {TEMPLATE-DATA: find_user_data}
 </table>
@@ -50,11 +50,11 @@ document.fufrm.usr_login.focus();
 {PAGE: END}
 
 {SECTION: find_user_no_results}
-<tr class="RowStyleA"><td colspan="{VAR: colspan}" width="100%" class="GenText">{MSG: finduser_no_such_user}</td></tr>
+<tr class="RowStyleA"><td colspan="{VAR: colspan}" class="wa GenText">{MSG: finduser_no_such_user}</td></tr>
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td class="nw GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td class="ac nw">{VAR: r->posted_msg_count}</td><td class="DateText nw">{DATE: r->join_date %a, %d %B %Y}</td><td class="nw GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
@@ -97,7 +97,7 @@ document.fufrm.usr_login.focus();
 {SECTION: END}
 
 {SECTION: findu_admin_opts}
-<td class="SmallText" nowrap><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
+<td class="SmallText nw"><a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=1&amp;SQ={GVAR: sq}">{MSG: findu_edit}</a> || <a href="{GVAR: WWW_ROOT}adm/admuser.php?usr_id={VAR: r->id}&amp;S={DEF: s}&amp;act=del&amp;SQ={GVAR: sq}">{MSG: findu_delete}</a> || {TEMPLATE-DATA: admi}</td>
 {SECTION: END}
 
 {SECTION: find_user_entry_lnk}
