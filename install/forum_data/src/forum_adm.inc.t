@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.7 2002/08/13 11:34:58 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.8 2002/10/31 19:08:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -245,7 +245,8 @@ class fud_forum_adm extends fud_forum
 			{SQL_TABLE_PREFIX}groups+, 
 			{SQL_TABLE_PREFIX}group_resources+, 
 			{SQL_TABLE_PREFIX}group_members+,
-			{SQL_TABLE_PREFIX}group_cache+
+			{SQL_TABLE_PREFIX}group_cache+,
+			{SQL_TABLE_PREFIX}thr_exchange+
 			');
 			
 		$result = q("SELECT cat_id, view_order FROM {SQL_TABLE_PREFIX}forum WHERE id=".$id);
