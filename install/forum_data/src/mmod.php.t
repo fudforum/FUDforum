@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: mmod.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,7 +86,7 @@
 					break;
 				default:
 					$count = !empty($usr->posts_ppg) ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
-					$pos = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id<=".$msg->id." AND approved='Y'");
+					$pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id<=".$msg->id." AND approved='Y'");
 					$start = (ceil(($pos/$count))-1)*$count;
 					header('Location: {ROOT}?t=msg&th='.$thread->id.'&'._rsid.'&start='.$start);
 					exit;

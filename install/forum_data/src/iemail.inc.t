@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: iemail.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,20 +30,20 @@ class fud_email_block
 	
 	function add($type, $string)
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}email_block(type, string) VALUES('".$type."', '".$string."')");
+		q("INSERT INTO {SQL_TABLE_PREFIX}email_block(type, string) VALUES('".$type."', '".$string."')");
 	} 
 	
 	function sync($type, $string)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}email_block SET type='".$type."', string='".$string."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}email_block SET type='".$type."', string='".$string."' WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$id);
-		if ( !IS_RESULT($res) ) exit("no such email block");
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$id);
+		if ( !is_result($res) ) exit("no such email block");
 		
-		$obj = DB_SINGLEOBJ($res);
+		$obj = db_singleobj($res);
 		
 		$this->id 	= $obj->id;
 		$this->type	= $obj->type;
@@ -52,19 +52,19 @@ class fud_email_block
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}email_block WHERE id=".$this->id);
 	}
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
 		
 		unset($this->e_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->e_list[] = $obj;
 		}
 		if ( isset($this->e_list) ) reset($this->e_list);
-		QF($res); 
+		qf($res); 
 	}
 	
 	function counte()
@@ -93,10 +93,10 @@ class fud_email_block
 function is_email_blocked($addr)
 {
 
-	if ( BQ("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE string='".$addr."'") ) return 1;
+	if ( bq("SELECT * FROM {SQL_TABLE_PREFIX}email_block WHERE string='".$addr."'") ) return 1;
 
-	$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}email_block ORDER BY id");
+	while ( $obj = db_rowobj($r) ) {
 		if ( $obj->type == 'SIMPLE' ) {
 			$reg = $obj->string;
 			$reg = str_replace('.', '\.', $reg);
@@ -112,7 +112,7 @@ function is_email_blocked($addr)
 			}	
 		}
 	}
-	QF($r);
+	qf($r);
 	
 	return 0;
 }
@@ -147,7 +147,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	
 	
 	if ( $GLOBALS['NOTIFY_WITH_BODY'] == 'Y' ) {
-		$r = Q("SELECT 
+		$r = q("SELECT 
 			{SQL_TABLE_PREFIX}msg.*, 
 			{SQL_TABLE_PREFIX}thread.locked,
 			{SQL_TABLE_PREFIX}thread.forum_id,
@@ -190,7 +190,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		WHERE 
 			{SQL_TABLE_PREFIX}msg.id=".$msg_id." AND {SQL_TABLE_PREFIX}msg.approved='Y'");
 		
-		$obj = DB_SINGLEOBJ($r);
+		$obj = db_singleobj($r);
 		unset($obj->ip_addr);
 		$headers  = "MIME-Version: 1.0\r\n";
 		$split = get_random_value(128);

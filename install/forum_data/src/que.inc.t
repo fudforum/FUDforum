@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: que.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: que.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,12 +22,12 @@ class fud_modque
 	
 	function get($forum_id)
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE forum_id=$forum_id AND approved='N'");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}msg WHERE forum_id=$forum_id AND approved='N'");
 		unset($this->list);
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			$this->list[] = $obj;
 		}
-		QF($r);
+		qf($r);
 	}
 	
 	function resetm()

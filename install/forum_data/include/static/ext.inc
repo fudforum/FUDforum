@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ext.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: ext.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,28 +25,28 @@ class fud_ext_block
 	
 	function add()
 	{
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block (ext) VALUES('".$this->ext."')");
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block (ext) VALUES('".$this->ext."')");
 		$this->mk_regexp();
 	}
 	
 	function sync()
 	{
-		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block SET ext='".$this->ext."' WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block SET ext='".$this->ext."' WHERE id=".$this->id);
 		$this->mk_regexp();
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$this->id);
 		$this->mk_regexp();
 	}
 	
 	function get($id)
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$id);
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block WHERE id=".$id);
 		
-		if ( !IS_RESULT($res) ) exit("no such extension\n");
-		$obj = DB_SINGLEOBJ($res);
+		if ( !is_result($res) ) exit("no such extension\n");
+		$obj = db_singleobj($res);
 		
 		$this->id	= $obj->id;
 		$this->ext	= $obj->ext;
@@ -64,13 +64,13 @@ class fud_ext_block
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
 				
 		unset($this->c_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->c_list[] = $obj;
 		}
-		QF($res);
+		qf($res);
 	}
 	
 	function resetc()
@@ -96,21 +96,21 @@ class fud_ext_block
 	
 	function mk_regexp()
 	{
-		$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
+		$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ext_block");
 		
-		if ( !IS_RESULT($r) ) {
+		if ( !is_result($r) ) {
 			$regexp = '';
 		}
 		else { 
 			$regexp = '.*\.(';
-			while ( $obj = DB_ROWOBJ($r) ) {
+			while ( $obj = db_rowobj($r) ) {
 				if( $obj->ext == '*' ) {
 					$regexp = '';
 					break;
 				}
 				$regexp .= $obj->ext.'|';
 			}
-			QF($r);
+			qf($r);
 		}
 		
 		if( !empty($regexp) ) $regexp = substr($regexp, 0, -1).')';

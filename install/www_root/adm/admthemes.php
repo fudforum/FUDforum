@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.2 2002/06/18 14:20:38 hackie Exp $
+*   $Id: admthemes.php,v 1.3 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@ function cleandir($dir)
 	}
 	
 	if ( $nn=$HTTP_POST_VARS['newname'] ) {
-		if ( !BQ("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE name='$nn'") ) 
+		if ( !bq("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE name='$nn'") ) 
 		{
 			fud_use('static/compiler.inc');
 			$root = $GLOBALS['DATA_DIR'].'thm/';
@@ -121,7 +121,7 @@ function cleandir($dir)
 		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
 		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
 		$obj = default_theme();
-		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
 		exit();
 	}
@@ -170,6 +170,7 @@ function cleandir($dir)
 		$dp = opendir('.');
 		readdir($dp); readdir($dp);
 		$selopt = '';
+		if ( !$thm_lang ) $thm_lang = 'english';
 		while ( $de = readdir($dp) ) {
 			if ( $de == 'CVS' || !is_dir($de) ) continue;
 			$sel = $thm_lang == $de ? ' selected' : '';
@@ -249,8 +250,8 @@ function update_locale()
 </tr>
 	
 <?
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes ORDER BY id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes ORDER BY id");
+	while ( $obj = db_rowobj($r) ) {
 		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
 		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
 		
@@ -271,7 +272,7 @@ function update_locale()
 			<td nowrap>$act</td>
 		</tr>\n";
 	}
-	QF($r);
+	qf($r);
 
 ?>
 </table>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: core.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ ignore_user_abort(true);
 
 function rls_db_lck()
 {
-	if( connection_status() && !empty($GLOBALS['__DB_INC__']['SQL_LINK']) && db_locked() ) DB_UNLOCK();
+	if( connection_status() && !empty($GLOBALS['__DB_INC__']['SQL_LINK']) && db_locked() ) db_unlock();
 	return;
 }
 

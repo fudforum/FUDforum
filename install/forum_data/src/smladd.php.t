@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smladd.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: smladd.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,10 +21,10 @@
 	{POST_HTML_PHP}
 	$col_count = 4;
 	$col_pos=-1;
-	$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder");
+	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder");
 	$smiley_www = 'images/smiley_icons/';
 	
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		if ( ++$col_pos > $col_count ) { 
 			$sml_smiley_row .= '{TEMPLATE: sml_smiley_row}';  
 			$sml_smiley_entry=''; 
@@ -34,7 +34,7 @@
 		$sml_smiley_entry .= '{TEMPLATE: sml_smiley_entry}';
 	}
 	if ( $col_pos ) $sml_smiley_row .= '{TEMPLATE: sml_smiley_row}';
-	QF($r);
+	qf($r);
 	
 	{POST_PAGE_PHP_CODE}
 ?>

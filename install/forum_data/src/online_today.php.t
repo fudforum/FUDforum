@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: online_today.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,18 +26,18 @@
 	
 	$limit = array();
 	if( $usr->is_mod != 'A' ) {
-		$r = Q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum' AND p_READ='Y'");
-		while( list($fid) = DB_ROWARR($r) ) $limit[$fid] = $fid;
-		QF($r);
+		$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum' AND p_READ='Y'");
+		while( list($fid) = db_rowarr($r) ) $limit[$fid] = $fid;
+		qf($r);
 
 		if( _uid ) {
-			$r = Q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=4294967295 AND resource_type='forum' AND p_READ='Y'");
-			while( list($fid) = DB_ROWARR($r) ) $limit[$fid] = $fid;
-			QF($r);
+			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=4294967295 AND resource_type='forum' AND p_READ='Y'");
+			while( list($fid) = db_rowarr($r) ) $limit[$fid] = $fid;
+			qf($r);
 		}
 	}
 
-	$r = Q("SELECT 
+	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}users.login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}users.id,
@@ -60,7 +60,7 @@
 			{SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}users.last_visit");
 		
 	$user_entries='';
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		switch( $obj->is_mod )
 		{
 			case 'A':
@@ -84,7 +84,7 @@
 		
 		$user_entries .= '{TEMPLATE: user_entry}';
 	}
-	QF($r);	
+	qf($r);	
 
 	{POST_PAGE_PHP_CODE}
 ?>

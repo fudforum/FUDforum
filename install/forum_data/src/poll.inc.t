@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: poll.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ class fud_poll
 	
 	function add()
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}poll (
+		q("INSERT INTO {SQL_TABLE_PREFIX}poll (
 			name, 
 			owner, 
 			creation_date, 
@@ -38,43 +38,43 @@ class fud_poll
 			'".$this->name."',
 			".$this->owner.",
 			".__request_timestamp__.",
-			".INTZERO($this->expiry_date).",
+			".intzero($this->expiry_date).",
 			0
 			)");
-		$this->id = DB_LASTID();
+		$this->id = db_lastid();
 		
 		return $this->id;
 	}
 	
 	function sync()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}poll SET 
+		q("UPDATE {SQL_TABLE_PREFIX}poll SET 
 			name='".$this->name."',
-			expiry_date=".INTZERO($this->expiry_date).",
-			max_votes=".INTZERO($this->max_votes)."
+			expiry_date=".intzero($this->expiry_date).",
+			max_votes=".intzero($this->max_votes)."
 		WHERE id=".$this->id);
 	}
 	
 	function get($id) 
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$id, $this);
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}poll WHERE id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}poll WHERE id=".$this->id);
 	}
 	
 	function regvote($user_id)
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id) VALUES(".$this->id.", ".$user_id.")");
+		q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id) VALUES(".$this->id.", ".$user_id.")");
 	}
 	
 	function voted($user_id)
 	{
-		return Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$this->id." AND user_id=".$user_id);
+		return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$this->id." AND user_id=".$user_id);
 	}
 }
 
@@ -90,23 +90,23 @@ class fud_poll_opt
 	
 	function add()
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt (poll_id, name, count) VALUES (".$this->poll_id.",'".$this->name."',".INTZERO($this->count).")");
-		return DB_LASTID();
+		q("INSERT INTO {SQL_TABLE_PREFIX}poll_opt (poll_id, name, count) VALUES (".$this->poll_id.",'".$this->name."',".intzero($this->count).")");
+		return db_lastid();
 	}
 	
 	function sync()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}poll_opt SET name='".$this->name."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}poll_opt SET name='".$this->name."' WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE id=".$id, $this);
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE id=".$this->id);
 	}
 	
 	function fetch_vars($array, $prefix)
@@ -116,21 +116,21 @@ class fud_poll_opt
 	
 	function increase()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id=".$this->id);
 	}
 	
 	function get_poll($pl_id) 
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$pl_id." ORDER BY id");
-		if ( !IS_RESULT($res) ) return;
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$pl_id." ORDER BY id");
+		if ( !is_result($res) ) return;
 		
 		unset($this->all);
 		$this->all_c = 0;
-		while ( $obj=DB_ROWOBJ($res) ) {
+		while ( $obj=db_rowobj($res) ) {
 			$this->all[] = $obj;
 		}
 		
-		QF($res);
+		qf($res);
 	}
 	
 	function reset_opt()

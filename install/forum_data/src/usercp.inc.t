@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: usercp.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 		$rid = $GLOBALS["usr"]->id;
 		
 		if ( $GLOBALS['PM_ENABLED']=='Y' ) {
-			$c = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$GLOBALS["usr"]->id." AND folder_id='INBOX' AND read_stamp=0");
+			$c = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$GLOBALS["usr"]->id." AND folder_id='INBOX' AND read_stamp=0");
 			$private_msg = ( $c ) ? '{TEMPLATE: private_msg_unread}' : '{TEMPLATE: private_msg_empty}';
 		}
 	}

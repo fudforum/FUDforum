@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admlevel.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,16 +65,16 @@
 	}
 	
 	if( !empty($rebuild_levels) ) {
-		DB_LOCK($GLOBALS['MYSQL_TBL_PREFIX'].'users+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'level+');
+		db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'users+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'level+');
 
 		$pl = 2000000000;
-		$r = Q("SELECT id,post_count,name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."level ORDER BY post_count DESC");
-		while( $obj = DB_ROWOBJ($r) ) {
-			Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET level_id=".$obj->id." WHERE posted_msg_count<".$pl." AND posted_msg_count>=".$obj->post_count);
+		$r = q("SELECT id,post_count,name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."level ORDER BY post_count DESC");
+		while( $obj = db_rowobj($r) ) {
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET level_id=".$obj->id." WHERE posted_msg_count<".$pl." AND posted_msg_count>=".$obj->post_count);
 			$pl = $obj->post_count;
 		}
-		QF($r);
-		DB_UNLOCK();
+		qf($r);
+		db_unlock();
 	}
 
 	$img_path = '../images/';

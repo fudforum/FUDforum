@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admcat.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,7 +90,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Collapsible</td>
-		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", YN($cat_allow_collapse)); ?></td>
+		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", yn($cat_allow_collapse)); ?></td>
 	</tr>
 		
 	<tr bgcolor="#bff8ff">

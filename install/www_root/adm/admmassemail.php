@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admmassemail.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 	
 	if ( $btn_submit ) {
 		if ( !$ignore_override ) $ignore_override_q = " WHERE ignore_admin='N'";
-		$r = Q("SELECT email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users".$ignore_override_q);
+		$r = q("SELECT email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users".$ignore_override_q);
 		$email_block = 50;
 		$email_block_stat = 0;
 		$send_to = $GLOBALS['ADMIN_EMAIL'];
@@ -37,7 +37,7 @@
 		$subject = stripslashes($subject);
 		$body = stripslashes($body);
 		
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			$bcc .= $obj->email.', ';
 			if ( !(++$email_block_stat%$email_block) ) {
 				$email_block_stat=0;
@@ -52,7 +52,7 @@
 			mail($send_to, $subject, $body, "From: ".$ADMIN_EMAIL."\r\nReply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\nX-Mailer: FUDforum\r\nBcc: ".$bcc);
 		}
 		
-		QF($r);
+		qf($r);
 	}
 	
 	cache_buster();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,32 +18,32 @@
 	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 	
-	if ( empty($usr) || (!empty($group_id) && !BQ("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr->id." AND group_leader='Y'") && $usr->is_mod!='A') ) {
+	if ( empty($usr) || (!empty($group_id) && !bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$usr->id." AND group_leader='Y'") && $usr->is_mod!='A') ) {
 		std_error('access');
 		exit;	
 	}
 	
 	if( $usr->is_mod != 'A' ) { 
-		$r = Q("SELECT group_id, name FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE user_id=".$usr->id." AND group_leader='Y'");
-		if( !($group_count = DB_COUNT($r)) ) {
-			QF($r);
+		$r = q("SELECT group_id, name FROM {SQL_TABLE_PREFIX}group_members INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE user_id=".$usr->id." AND group_leader='Y'");
+		if( !($group_count = db_count($r)) ) {
+			qf($r);
 			std_error('access');
 			exit;	
 		}
 	}
 	else {
-		$r = Q("SELECT id AS group_id, name FROM {SQL_TABLE_PREFIX}groups WHERE id>2");
-		$group_count = DB_COUNT($r);
+		$r = q("SELECT id AS group_id, name FROM {SQL_TABLE_PREFIX}groups WHERE id>2");
+		$group_count = db_count($r);
 	}	
 	
 	if( empty($group_id) && $group_count ) {
-		list($group_id,) = DB_ROWARR($r);
-		DB_SEEK($r,0);
+		list($group_id,) = db_rowarr($r);
+		db_seek($r,0);
 	}
 	
 	if( !empty($group_count) && $group_count>1 ) {
 		$vl = $kl = '';
-		while( list($gid,$gname) = DB_ROWARR($r) ) {
+		while( list($gid,$gname) = db_rowarr($r) ) {
 			$vl .= $gid."\n";
 			$kl .= $gname."\n";
 		}
@@ -53,7 +53,7 @@
 		$group_selection = tmpl_draw_select_opt($vl, $kl, $group_id, '', '');
 		$group_selection = '{TEMPLATE: group_selection}';
 	}
-	QF($r);
+	qf($r);
 	
 	{POST_HTML_PHP}
 
@@ -97,14 +97,14 @@ function draw_tmpl_perm_table($perm_arr)
 			$gr_member = stripslashes($gr_member);
 			if( empty($mbr->id) ) 
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
-			else if( BQ("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id." AND user_id=".$mbr->id) )
+			else if( bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id." AND user_id=".$mbr->id) )
 				$login_error = '{TEMPLATE: groupmgr_already_exists}';
 			else {
 				$grp->add_member($mbr->id, $perms_arr);
 			}
 		}
 		else {
-			$usr_id = Q_SINGLEVAL("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=$group_id AND id=$edit");
+			$usr_id = q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=$group_id AND id=$edit");
 			$grp->update_member($usr_id, $perms_arr);
 		}
 
@@ -138,7 +138,7 @@ function draw_tmpl_perm_table($perm_arr)
 		}
 		$perms = $perms_new;
 	}
-	else if( $grp->id>2 && ($luser_id = Q_SINGLEVAL("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id)) ) {
+	else if( $grp->id>2 && ($luser_id = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$grp->id)) ) {
 		$mbr = $grp->get_member_by_ent_id($luser_id);
 		$perms = perm_obj_to_arr($mbr, 'up_');
 		reset($perms);
@@ -161,7 +161,7 @@ function draw_tmpl_perm_table($perm_arr)
 			$member_input = '{TEMPLATE: member_edit}';
 		}
 	
-		$r = Q("SELECT 
+		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}group_members.id AS MMID, 
 				{SQL_TABLE_PREFIX}group_members.*, 
 				{SQL_TABLE_PREFIX}groups.*, 
@@ -172,7 +172,7 @@ function draw_tmpl_perm_table($perm_arr)
 					ON {SQL_TABLE_PREFIX}group_members.user_id={SQL_TABLE_PREFIX}users.id  INNER JOIN {SQL_TABLE_PREFIX}groups ON {SQL_TABLE_PREFIX}group_members.group_id={SQL_TABLE_PREFIX}groups.id WHERE group_id=$grp->id AND {SQL_TABLE_PREFIX}group_members.group_leader='N' ORDER BY {SQL_TABLE_PREFIX}group_members.id");
 	
 		$group_members_list = '';
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			$perm_table = draw_tmpl_perm_table($obj);
 			$rand = get_random_value();
 			$delete_allowed = 0;
@@ -187,7 +187,7 @@ function draw_tmpl_perm_table($perm_arr)
 			else
 				$group_members_list .= '{TEMPLATE: group_const_entry}';
 		}
-		QF($r);
+		qf($r);
 		
 		$group_control_panel = '{TEMPLATE: group_control_panel}';
 	}

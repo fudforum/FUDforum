@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@ function tmpl_create_forum_select()
 		$qry_limit = " WHERE {SQL_TABLE_PREFIX}forum.id IN (".$lmt.") ";
 	}		
 		
-	$frmres = Q("SELECT 
+	$frmres = q("SELECT 
 		{SQL_TABLE_PREFIX}forum.id,
 		{SQL_TABLE_PREFIX}forum.name,
 		".$frm_sel."
@@ -56,10 +56,10 @@ function tmpl_create_forum_select()
 	");
 	
 	$prev_cat_id = 0;
-	if ( DB_COUNT($frmres) ) {
+	if ( db_count($frmres) ) {
 		$selection_options = '';
 		
-		while ( $obj = DB_ROWOBJ($frmres) ) {
+		while ( $obj = db_rowobj($frmres) ) {
 			if ( $prev_cat_id != $obj->cat_id ) {
 				$prev_cat_id = $obj->cat_id;
 				$selection_options .= '{TEMPLATE: category_option}';
@@ -69,7 +69,7 @@ function tmpl_create_forum_select()
 			$selection_options .= ( isset($GLOBALS['usr']) && $obj->last_view < $obj->msg_post_stamp ) ? '{TEMPLATE: unread_forum_option}' : '{TEMPLATE: forum_option}';
 		}
 	}
-	QF($frmres);
+	qf($frmres);
 
 	return '{TEMPLATE: forum_select}';
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -414,14 +414,14 @@ function filter_ext($file_name)
 function tmpl_list_ext()
 {
 	$ext='';
-	$r = Q("SELECT ext FROM {SQL_TABLE_PREFIX}ext_block");
-	while ( $obj = DB_ROWOBJ($r) ) $ext .= '{TEMPLATE: allowed_extension}';
+	$r = q("SELECT ext FROM {SQL_TABLE_PREFIX}ext_block");
+	while ( $obj = db_rowobj($r) ) $ext .= '{TEMPLATE: allowed_extension}';
 	if( empty($ext) ) {
 		$obj->ext = '{TEMPLATE: post_proc_all_ext_allowed}';
 		$ext .= '{TEMPLATE: allowed_extension}';
 	}
 	
-	QF($r);
+	qf($r);
 	
 	return $ext;
 }

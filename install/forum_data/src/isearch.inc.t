@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: isearch.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,8 +18,8 @@
 
 function delete_msg_index($msg_id)
 {
-	Q("DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id=".$msg_id);
-	Q("DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id=".$msg_id);
+	q("DELETE FROM {SQL_TABLE_PREFIX}index WHERE msg_id=".$msg_id);
+	q("DELETE FROM {SQL_TABLE_PREFIX}title_index WHERE msg_id=".$msg_id);
 }	
 	
 function index_text($subj, $body, $msg_id)
@@ -46,7 +46,7 @@ function index_text($subj, $body, $msg_id)
 	
 	if ( !db_locked() ) {
 		$ll=1;
-		DB_LOCK('{SQL_TABLE_PREFIX}search+,
+		db_lock('{SQL_TABLE_PREFIX}search+,
 			 {SQL_TABLE_PREFIX}index+,
 			 {SQL_TABLE_PREFIX}title_index+
 			');
@@ -55,16 +55,16 @@ function index_text($subj, $body, $msg_id)
 	for ( $i=0; $i<$a; $i++ ) {
 		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
 		
-		$r=Q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
-		if ( !DB_COUNT($r) ) {
-			Q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
-			$id = DB_LASTID();
+		$r=q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
+		if ( !db_count($r) ) {
+			q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
+			$id = db_lastid();
 		}
-		else list($id) = DB_ROWARR($r);
-		QF($r);
+		else list($id) = db_rowarr($r);
+		qf($r);
 		
-		if ( !BQ("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE word_id=".$id." AND msg_id=".$msg_id) ) {
-			Q("INSERT INTO {SQL_TABLE_PREFIX}index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
+		if ( !bq("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE word_id=".$id." AND msg_id=".$msg_id) ) {
+			q("INSERT INTO {SQL_TABLE_PREFIX}index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
 		}
 	}
 	
@@ -72,38 +72,38 @@ function index_text($subj, $body, $msg_id)
 	$w = explode(' ', $subj);
 	for ( $i=0; $i<count($w); $i++ ) {
 		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
-		$r=Q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
-		if ( !DB_COUNT($r) ) {
-			Q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
-			$id = DB_LASTID();
+		$r=q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
+		if ( !db_count($r) ) {
+			q("INSERT INTO {SQL_TABLE_PREFIX}search(word) VALUES('".$w[$i]."')");
+			$id = db_lastid();
 		}
-		else list($id) = DB_ROWARR($r);
-		QF($r);
+		else list($id) = db_rowarr($r);
+		qf($r);
 		
-		if ( !BQ("SELECT id FROM {SQL_TABLE_PREFIX}title_index WHERE word_id=$id AND msg_id=".$msg_id) ) {
-			Q("INSERT INTO {SQL_TABLE_PREFIX}title_index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
+		if ( !bq("SELECT id FROM {SQL_TABLE_PREFIX}title_index WHERE word_id=$id AND msg_id=".$msg_id) ) {
+			q("INSERT INTO {SQL_TABLE_PREFIX}title_index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
 		}
 	}
 	
-	if ( !empty($ll) ) DB_UNLOCK();
+	if ( !empty($ll) ) db_unlock();
 }
 
 function re_build_index()
 {
-	DB_LOCK('{SQL_TABLE_PREFIX}search+, {SQL_TABLE_PREFIX}index+, {SQL_TABLE_PREFIX}title_index+, {SQL_TABLE_PREFIX}msg+');
-	Q("DELETE FROM {SQL_TABLE_PREFIX}search");
-	Q("DELETE FROM {SQL_TABLE_PREFIX}index");
-	Q("DELETE FROM {SQL_TABLE_PREFIX}title_index");
-	$r = Q("SELECT id,subject,thread_id,length,offset,file_id FROM {SQL_TABLE_PREFIX}msg ORDER BY thread_id,id ASC");
-	if( !($cnt=DB_COUNT($r)) ) {
-		QF($r);
-		DB_UNLOCK();
+	db_lock('{SQL_TABLE_PREFIX}search+, {SQL_TABLE_PREFIX}index+, {SQL_TABLE_PREFIX}title_index+, {SQL_TABLE_PREFIX}msg+');
+	q("DELETE FROM {SQL_TABLE_PREFIX}search");
+	q("DELETE FROM {SQL_TABLE_PREFIX}index");
+	q("DELETE FROM {SQL_TABLE_PREFIX}title_index");
+	$r = q("SELECT id,subject,thread_id,length,offset,file_id FROM {SQL_TABLE_PREFIX}msg ORDER BY thread_id,id ASC");
+	if( !($cnt=db_count($r)) ) {
+		qf($r);
+		db_unlock();
 		return;
 	}
 
 	$th_id=$i=0;
 	$old_suject=$subj=NULL;
-	while( $obj = DB_ROWOBJ($r) ) {
+	while( $obj = db_rowobj($r) ) {
 		if( $th_id != $obj->thread_id ) {
 			
 			$th_id = $obj->thread_id;
@@ -128,7 +128,7 @@ function re_build_index()
 		index_text($subj, $body, $obj->id);
 	}
 	un_register_fps();
-	DB_UNLOCK();
+	db_unlock();
 }
 
 function search($str, $fld, $start, $count, $forum_limiter='')
@@ -158,20 +158,20 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 
 	if( $GLOBALS['usr']->is_mod != 'A' ) {
 		if( is_numeric($forum_limiter) ) {
-			if( !is_perms(_uid, $forum_limiter, 'READ') ) return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+			if( !is_perms(_uid, $forum_limiter, 'READ') ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
 
 			$forum_limiter_sql = " {SQL_TABLE_PREFIX}forum.id=".$forum_limiter." AND ";
 		}
 		else if( $forum_limiter[0]=='c' && is_numeric(substr($forum_limiter,1)) ) {
 			$fids = get_all_perms(_uid);
-			if( empty($fids) ) return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+			if( empty($fids) ) return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
 		
 			$forum_limiter_sql = " {SQL_TABLE_PREFIX}cat.id=".substr($forum_limiter,1)." AND ";
 		}
 		else {
 			$fids = get_all_perms(_uid);
 			if( empty($fids) ) 
-				return Q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
+				return q("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE id=0");
 			else
 				$forum_limiter_sql = '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ';	
 		}
@@ -179,7 +179,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	else
 		$forum_limiter_sql = '';	
 	
-	$r = Q("SELECT 
+	$r = q("SELECT 
 		{SQL_TABLE_PREFIX}users.login,
 		{SQL_TABLE_PREFIX}forum.name AS forum_name, 
 		{SQL_TABLE_PREFIX}forum.id AS forum_id,

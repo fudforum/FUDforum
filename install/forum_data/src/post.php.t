@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: post.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -130,8 +130,8 @@
 	 			
 	 		if ( $msg->attach_cnt ) {
 	 			$attach_count=0;
-	 			$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");
-	 			while ( $obj = DB_ROWOBJ($r) ) {
+	 			$r = q("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");
+	 			while ( $obj = db_rowobj($r) ) {
 	 				$afile['name'] = $obj->original_name;
 	 				$afile['db_id'] = $obj->id;
 	 				$afile['size'] = filesize($obj->location);
@@ -139,7 +139,7 @@
 	 				$attach_list[$obj->id] = $afile;
 	 				$attach_count++;
 	 			}
-	 			QF($r);
+	 			qf($r);
 		 	}
 		 	$pl_id = $msg->poll_id;	
 		}
@@ -314,7 +314,7 @@
 			$msg_post->poster_id = (isset($usr))?$usr->id:0;
 			$msg_post->poll_id = $pl_id;
 			$msg_post->fetch_vars($HTTP_POST_VARS, 'msg_');
-		 	$msg_post->smiley_disabled = YN($msg_smiley_disabled);
+		 	$msg_post->smiley_disabled = yn($msg_smiley_disabled);
 		 	$msg_post->attach_cnt = empty($attach_cnt)?0:$attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			

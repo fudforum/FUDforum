@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: getfile.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,7 +34,7 @@
 			exit;
 		}
 		else if( $file->private != 'Y') {
-			$forum_id = Q_SINGLEVAL("SELECT forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$file->message_id);
+			$forum_id = q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$file->message_id);
 			if( !is_perms(_uid, $forum_id, 'p_READ') ) {
 				std_error('access');
 				exit;
@@ -44,7 +44,7 @@
 
 	reverse_FMT($file->original_name);
 
-	$header = Q_SINGLEVAL("SELECT mime_hdr FROM {SQL_TABLE_PREFIX}mime WHERE id=".$file->mime_type);
+	$header = q_singleval("SELECT mime_hdr FROM {SQL_TABLE_PREFIX}mime WHERE id=".$file->mime_type);
 	if( empty($header) ) $header = 'application/ocet-stream';
 	
 	if( preg_match('!^(audio|video|image)/!i', $header) && !strstr($HTTP_SERVER_VARS['HTTP_USER_AGENT'], 'MSIE') )

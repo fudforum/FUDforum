@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: referals.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,13 +25,13 @@
 	$returnto = urlencode($GLOBALS["REQUEST_URI"]);
 
 	if( $id ) {
-		$r = Q("SELECT id,login, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
-		if( ($ttl=DB_COUNT($r)) ) {
-			list($r_id,$r_login) = DB_SINGLEARR($r);
-			$res = Q("SELECT login,id,join_date,posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$id);
+		$r = q("SELECT id,login, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
+		if( ($ttl=db_count($r)) ) {
+			list($r_id,$r_login) = db_singlearr($r);
+			$res = q("SELECT login,id,join_date,posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$id);
 			$i=0;
 			$refered_entry_data = '';
-			while ( $obj = DB_ROWOBJ($res) ) {
+			while ( $obj = db_rowobj($res) ) {
 				$user_login = htmlspecialchars($obj->login);
 				if( $GLOBALS['PM_ENABLED'] == 'Y' && isset($usr) ) 
 					$pm_link = '{TEMPLATE: pm_link}';
@@ -54,7 +54,7 @@
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
 				$i++;		
 			}
-			QF($res);
+			qf($res);
 		}
 	}	
 

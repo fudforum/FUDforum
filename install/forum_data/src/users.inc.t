@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: users.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,7 +79,7 @@ class fud_user
 	
 	function get_user_by_id($id) 
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}users WHERE id=".$id, $this);
 		if( empty($this->id) ) return;
 		return $this->id;
 	}
@@ -87,46 +87,46 @@ class fud_user
 	function set_post_count($val, $mid='')
 	{
 		if( !db_locked() ) {
-			DB_LOCK('{SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}msg+');
+			db_lock('{SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}level+, {SQL_TABLE_PREFIX}msg+');
 			$local_lock=1;
 		}
 	
-		if( empty($mid) ) $mid = Q_SINGLEVAL("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$this->id." AND approved='Y'");
-		$pcount = Q_SINGLEVAL("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->id)+$val;
-		$level_id = Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count<=".$pcount." ORDER BY post_count DESC LIMIT 1");
+		if( empty($mid) ) $mid = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$this->id." AND approved='Y'");
+		$pcount = q_singleval("SELECT posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->id)+$val;
+		$level_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count<=".$pcount." ORDER BY post_count DESC LIMIT 1");
 		
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id=".INTZERO($mid).", posted_msg_count=posted_msg_count+".INTZERO($val).",level_id=".INTZERO($level_id)." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id=".intzero($mid).", posted_msg_count=posted_msg_count+".intzero($val).",level_id=".intzero($level_id)." WHERE id=".$this->id);
 		
-		if( $local_lock ) DB_UNLOCK();
+		if( $local_lock ) db_unlock();
 	}
 	
 	function register_thread_view($thread_id, $msg_id='')
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread_id." AND user_id=".$this->id);
-		$obj = DB_SINGLEOBJ($r); 
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread_id." AND user_id=".$this->id);
+		$obj = db_singleobj($r); 
 
 		if ( $obj ) {
 			$msg_id = ( $msg_id > $obj->msg_id ) ? $msg_id : $obj->msg_id;
-			Q("UPDATE {SQL_TABLE_PREFIX}read SET last_view=".__request_timestamp__.", msg_id=".INTZERO($msg_id)." WHERE id=".$obj->id);
+			q("UPDATE {SQL_TABLE_PREFIX}read SET last_view=".__request_timestamp__.", msg_id=".intzero($msg_id)." WHERE id=".$obj->id);
 		}
 		else {
-			Q("INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES(".$thread_id.", ".$this->id.", ".INTZERO($msg_id).", ".__request_timestamp__.")");
+			q("INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES(".$thread_id.", ".$this->id.", ".intzero($msg_id).", ".__request_timestamp__.")");
 		}
 	}
 	
 	function register_forum_view($frm_id)
 	{
-		$id = Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id=".$frm_id." AND user_id=".$this->id);
+		$id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id=".$frm_id." AND user_id=".$this->id);
 
 		if ( $id ) 
-			Q("UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view=".__request_timestamp__." WHERE id=".$id);
+			q("UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view=".__request_timestamp__." WHERE id=".$id);
 		else 
-			Q("INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES(".$frm_id.", ".$this->id.",".__request_timestamp__.")");
+			q("INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES(".$frm_id.", ".$this->id.",".__request_timestamp__.")");
 	}
 	
 	function mark_all_read()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET last_read=".__request_timestamp__." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET last_read=".__request_timestamp__." WHERE id=".$this->id);
 	}
 }
 
@@ -161,7 +161,7 @@ function init_user()
 	if( !empty($u) ) {
 		set_tz($u->time_zone);
 		define('d_thread_view', $u->default_view);
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET last_visit=".__request_timestamp__." WHERE id=".$u->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET last_visit=".__request_timestamp__." WHERE id=".$u->id);
 		$rv[1] = $u;
 	}
 	else {

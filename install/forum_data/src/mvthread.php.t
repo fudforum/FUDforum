@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: mvthread.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,20 +48,20 @@
 		$frm_dst = new fud_forum_adm;
 		$thr = new fud_thread;
 		
-		DB_LOCK('{SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+');
+		db_lock('{SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}cat+, {SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}msg+');
 		
 		$thr->get_by_id($th);
 		$frm_src->get($thr->forum_id);
 		$frm_dst->get($to);
 		
 		if ( !$frm_src->is_moderator($usr->id) && $usr->is_mod!='A' ) {
-			DB_UNLOCK();
+			db_unlock();
 			std_error('access');
 			exit();
 		}
 		
 		if ( !$frm_dst->is_moderator($usr->id) && $usr->is_mod!='A' ) {
-			DB_UNLOCK();
+			db_unlock();
 			std_error('access');
 			exit();
 		}
@@ -69,13 +69,13 @@
 		$thr->move($to);
 		
 		if ( $frm_src->last_post_id == $thr->last_post_id ) {
-			$mid = INTZERO(Q_SINGLEVAL("SELECT MAX({SQL_TABLE_PREFIX}msg.id) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$frm_src->id." AND moved_to=0 AND approved='Y'"));
-			Q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$mid." WHERE id=".$frm_src->id);
+			$mid = intzero(q_singleval("SELECT MAX({SQL_TABLE_PREFIX}msg.id) FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$frm_src->id." AND moved_to=0 AND approved='Y'"));
+			q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$mid." WHERE id=".$frm_src->id);
 		}
 		
-		if( $frm_dst->last_post_id < $thr->last_post_id ) Q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$thr->last_post_id." WHERE id=".$frm_dst->id);
+		if( $frm_dst->last_post_id < $thr->last_post_id ) q("UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id=".$thr->last_post_id." WHERE id=".$frm_dst->id);
 		
-		DB_UNLOCK();
+		db_unlock();
 		
 		logaction($usr->id, 'THRMOVE', $thr->id);
 		
@@ -93,8 +93,8 @@
 		$prev_cat = NULL;
 		$table_data = '';
 	
-		$r = Q("SELECT {SQL_TABLE_PREFIX}forum.*,{SQL_TABLE_PREFIX}mod.user_id AS mod_id FROM {SQL_TABLE_PREFIX}forum LEFT JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id=".$usr->id." AND {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id WHERE {SQL_TABLE_PREFIX}forum.cat_id!=0 GROUP BY {SQL_TABLE_PREFIX}forum.id ORDER BY {SQL_TABLE_PREFIX}forum.cat_id, {SQL_TABLE_PREFIX}forum.view_order");
-		while( $obj = DB_ROWOBJ($r) ) {
+		$r = q("SELECT {SQL_TABLE_PREFIX}forum.*,{SQL_TABLE_PREFIX}mod.user_id AS mod_id FROM {SQL_TABLE_PREFIX}forum LEFT JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id=".$usr->id." AND {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id WHERE {SQL_TABLE_PREFIX}forum.cat_id!=0 GROUP BY {SQL_TABLE_PREFIX}forum.id ORDER BY {SQL_TABLE_PREFIX}forum.cat_id, {SQL_TABLE_PREFIX}forum.view_order");
+		while( $obj = db_rowobj($r) ) {
 			if( $obj->cat_id != $prev_cat ) {
 				$cat->get_cat($obj->cat_id);
 				$table_data .= '{TEMPLATE: cat_entry}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,8 +35,8 @@ function convert_bdate($val, $month_fmt)
 		std_error('user');
 	}
 
-	$r = Q("SELECT name AS level_name, pri AS level_pri, img AS level_img FROM {SQL_TABLE_PREFIX}level WHERE id=".$u->level_id);
-	$obj = DB_SINGLEOBJ($r);
+	$r = q("SELECT name AS level_name, pri AS level_pri, img AS level_img FROM {SQL_TABLE_PREFIX}level WHERE id=".$u->level_id);
+	$obj = db_singleobj($r);
 
 	if ( $obj->level_pri ) {
 		if( !empty($obj->level_name) ) $level_name = '{TEMPLATE: level_name}';
@@ -51,13 +51,13 @@ function convert_bdate($val, $month_fmt)
 		$qry_limit = "{SQL_TABLE_PREFIX}forum.id IN (".$lmt.") AND ";
 	}	
 	
-	$r = Q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name FROM {SQL_TABLE_PREFIX}mod LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id WHERE ".$qry_limit." {SQL_TABLE_PREFIX}mod.user_id=".$u->id);
-	if( DB_COUNT($r) ) {
+	$r = q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name FROM {SQL_TABLE_PREFIX}mod LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id WHERE ".$qry_limit." {SQL_TABLE_PREFIX}mod.user_id=".$u->id);
+	if( db_count($r) ) {
 		$moderation_entry = '';
-		while ( $ar = DB_ROWOBJ($r) ) $moderation_entry .= '{TEMPLATE: moderation_entry}';
+		while ( $ar = db_rowobj($r) ) $moderation_entry .= '{TEMPLATE: moderation_entry}';
 		$moderation = '{TEMPLATE: moderation}';
 	}
-	QF($r);
+	qf($r);
 	
 	$user_info = htmlspecialchars($u->login);
 	{POST_HTML_PHP}
@@ -70,8 +70,8 @@ function convert_bdate($val, $month_fmt)
 	if( $avg > $u->posted_msg_count ) $avg = $u->posted_msg_count;
 	
 	if( !empty($u->u_last_post_id) ) {
-		$r = Q("SELECT {SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}msg.id,{SQL_TABLE_PREFIX}msg.post_stamp,{SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$u->u_last_post_id);
-		$m_obj = DB_SINGLEOBJ($r);
+		$r = q("SELECT {SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}msg.id,{SQL_TABLE_PREFIX}msg.post_stamp,{SQL_TABLE_PREFIX}thread.forum_id FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$u->u_last_post_id);
+		$m_obj = db_singleobj($r);
 		if( $usr->is_mod == 'A' || is_perms(_uid, $m_obj->forum_id, 'READ') ) 
 			$last_post = '{TEMPLATE: last_post}';
 		else
@@ -81,7 +81,7 @@ function convert_bdate($val, $month_fmt)
 	if ( $u->user_image && strstr($u->user_image, '://') ) $user_image = '{TEMPLATE: user_image}';
 	
 	if( $u->avatar ) 
-		$avatar_img = 'images/avatars/'.Q_SINGLEVAL("SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$u->avatar);
+		$avatar_img = 'images/avatars/'.q_singleval("SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$u->avatar);
 	else if ( $u->avatar_approved == 'Y' ) 
 		$avatar_img = ($u->avatar_loc) ? $u->avatar_loc : 'images/custom_avatars/'.$u->id;
 		
@@ -94,7 +94,7 @@ function convert_bdate($val, $month_fmt)
 		$email_link = '{TEMPLATE: email_form_link}';
 	}	
 	
-	if( ($referals = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$u->id)) )
+	if( ($referals = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$u->id)) )
 		$referals = '{TEMPLATE: referals}'; 		
 	else
 		$referals = '';	

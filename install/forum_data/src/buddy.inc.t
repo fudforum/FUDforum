@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: buddy.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,19 +25,19 @@ class fud_buddy
 	function add($user_id, $bud_id)
 	{
 		if ( !$user_id ) $user_id = $this->user_id;
-		Q("INSERT INTO {SQL_TABLE_PREFIX}buddy (bud_id, user_id) VALUES (".$bud_id.", ".$user_id.")");
+		q("INSERT INTO {SQL_TABLE_PREFIX}buddy (bud_id, user_id) VALUES (".$bud_id.", ".$user_id.")");
 	}
 	
 	function delete($id='')
 	{
 		if ( !strlen($id) ) $id = $this->id;
-		Q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
 	}	
 
 	function get($id)
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
-		$obj = DB_SINGLEOBJ($r);
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id);
+		$obj = db_singleobj($r);
 		if ( !$obj ) { exit("no such buddy"); };
 		
 		$this->id 	= $obj->id;
@@ -49,8 +49,8 @@ class fud_buddy
 	
 	function get_buddy($user_id, $id)
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id." AND user_id=".$user_id);
-		$obj = DB_SINGLEOBJ($r);
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}buddy WHERE id=".$id." AND user_id=".$user_id);
+		$obj = db_singleobj($r);
 		if ( !$obj ) { exit("no such buddy"); };
 		
 		$this->id 	= $obj->id;
@@ -63,8 +63,8 @@ class fud_buddy
 
 function check_buddy($user_id, $bud_id)
 {
-	$r = Q("SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$user_id." AND bud_id=".$bud_id);
-	$obj = DB_SINGLEOBJ($r);
+	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$user_id." AND bud_id=".$bud_id);
+	$obj = db_singleobj($r);
 	
 	return $obj;
 }

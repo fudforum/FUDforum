@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: stats.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: stats.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,8 +15,8 @@
 *
 ***************************************************************************/
 $page_gen_time = (db_getmicrotime() - $GLOBALS['PAGE_TIME']);
-$q_time = QUERY_COUNT();
-$ttl_time = TOTAL_TIME();
+$q_time = query_count();
+$ttl_time = total_time();
 
 if ( isset($usr) && $usr->is_mod == 'A' )
 	$page_stats = '{TEMPLATE: admin_page_stats}';

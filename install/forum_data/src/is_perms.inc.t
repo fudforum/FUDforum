@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,15 +25,15 @@ function is_perms($user_id, $r_id, $perm, $r_type='forum')
 		return ($GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type]->{'p_'.$perm}=='Y'?TRUE:FALSE);
 	
 	if ( empty($user_id) ) {
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".$user_id." AND resource_type='".$r_type."' AND resource_id=".$r_id);
-		if( !IS_RESULT($r) ) $r = Q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=1");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".$user_id." AND resource_type='".$r_type."' AND resource_id=".$r_id);
+		if( !is_result($r) ) $r = q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=1");
 	}
 	else {
-		$r=Q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$user_id.",4294967295) AND resource_type='".$r_type."' AND resource_id=".$r_id." ORDER BY user_id LIMIT 1");
-		if( !IS_RESULT($r) ) $r = Q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=2");
+		$r=q("SELECT * FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$user_id.",4294967295) AND resource_type='".$r_type."' AND resource_id=".$r_id." ORDER BY user_id LIMIT 1");
+		if( !is_result($r) ) $r = q("SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id=2");
 	}
 	
-	$GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type] = DB_SINGLEOBJ($r);
+	$GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type] = db_singleobj($r);
 	return ($GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type]->{'p_'.$perm}=='Y'?TRUE:FALSE);
 }
 ?>

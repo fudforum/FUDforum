@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thrx_adm.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: thrx_adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,19 +25,19 @@ class fud_thr_exchange
 	
 	function add()
 	{
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".$this->reason_msg."',".$this->th.",".$this->frm.",".$this->req_by.")");
-		$this->id = DB_LASTID();
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".$this->reason_msg."',".$this->th.",".$this->frm.",".$this->req_by.")");
+		$this->id = db_lastid();
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$id, $this);
 		if( empty($this->id) ) exit("Invalid thread x-change id<br>\n");
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thr_exchange WHERE id=".$this->id);
 	}
 }
 ?>

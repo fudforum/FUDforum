@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,7 +72,7 @@
 	
 	{POST_HTML_PHP}
 	
-	$res = Q("SELECT 
+	$res = q("SELECT 
 			{SQL_TABLE_PREFIX}user_ignore.ignore_id,
 			{SQL_TABLE_PREFIX}user_ignore.id as ignoreent_id,
 			{SQL_TABLE_PREFIX}users.id,
@@ -87,10 +87,10 @@
 		WHERE 
 			{SQL_TABLE_PREFIX}user_ignore.user_id=".$usr->id);
 	
-	if( DB_COUNT($res) ) {
+	if( db_count($res) ) {
 		$returnto = urlencode($GLOBALS["REQUEST_URI"]);
 		$ignore_user = '';
-		while( $obj = DB_ROWOBJ($res) ) {
+		while( $obj = db_rowobj($res) ) {
 			if( $obj->ignore_id ) {
 				$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';	
 				
@@ -105,7 +105,7 @@
 		
 		$ignore_list = '{TEMPLATE: ignore_list}';
 	}
-	QF($res);
+	qf($res);
 	
 	{POST_PAGE_PHP_CODE}
 ?>

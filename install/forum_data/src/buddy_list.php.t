@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@
 
 	{POST_HTML_PHP}
 	
-	$res = Q("SELECT 
+	$res = q("SELECT 
 			{SQL_TABLE_PREFIX}buddy.id as bud_id,
 			{SQL_TABLE_PREFIX}users.id,
 			{SQL_TABLE_PREFIX}users.login,
@@ -85,9 +85,9 @@
 		WHERE 
 			{SQL_TABLE_PREFIX}buddy.user_id=".$usr->id);
 	
-	if( DB_COUNT($res) ) {
+	if( db_count($res) ) {
 		$buddies='';
-		while( $obj = DB_ROWOBJ($res) ) {
+		while( $obj = db_rowobj($res) ) {
 			$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
 			$online_status = ( $obj->invisible_mode=='Y' && $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__ ) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			
@@ -104,7 +104,7 @@
 		}
 		$buddies = '{TEMPLATE: buddy_list}';
 	}
-	QF($res);
+	qf($res);
 	
 	{POST_PAGE_PHP_CODE}
 ?>

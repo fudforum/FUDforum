@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: actions.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,18 +28,18 @@
 	
 	$limit = array();
 	if( $usr->is_mod != 'A' ) {
-		$r = Q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum' AND p_READ='Y'");
-		while( list($fid) = DB_ROWARR($r) ) $limit[$fid] = $fid;
-		QF($r);
+		$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum' AND p_READ='Y'");
+		while( list($fid) = db_rowarr($r) ) $limit[$fid] = $fid;
+		qf($r);
 
 		if( _uid ) {
-			$r = Q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=4294967295 AND resource_type='forum' AND p_READ='Y'");
-			while( list($fid) = DB_ROWARR($r) ) $limit[$fid] = $fid;
-			QF($r);
+			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id!="._uid." AND user_id=4294967295 AND resource_type='forum' AND p_READ='Y'");
+			while( list($fid) = db_rowarr($r) ) $limit[$fid] = $fid;
+			qf($r);
 		}
 	}
 	
-	$r = Q("SELECT 
+	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}ses.action,
 			{SQL_TABLE_PREFIX}ses.user_id,
 			{SQL_TABLE_PREFIX}users.login,
@@ -60,7 +60,7 @@
 		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}ses.time_sec DESC");
 		
 	$action_data='';
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		if( $obj->invisible_mode == 'Y' ) continue;
 
 		if ( strlen($obj->login) ) {
@@ -101,7 +101,7 @@
 				
 		$action_data .= '{TEMPLATE: action_entry}';
 	}
-	QF($r);	
+	qf($r);	
 
 	{POST_PAGE_PHP_CODE}
 ?>

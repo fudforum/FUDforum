@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msgreport.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: msgreport.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,13 +18,13 @@
 	
 function submit_msg_report($user_id, $msg_id, $reason)
 {
-	Q("INSERT INTO {SQL_TABLE_PREFIX}msg_report(user_id, msg_id, reason, stamp)
+	q("INSERT INTO {SQL_TABLE_PREFIX}msg_report(user_id, msg_id, reason, stamp)
 		VALUES(".$user_id.", ".$msg_id.", '".$reason."', ".__request_timestamp__.")");
 }
 
 function delete_msg_report($id, $usr_id)
 {
-	if ( !BQ("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report
+	if ( !bq("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report
 		LEFT JOIN {SQL_TABLE_PREFIX}msg
 			ON {SQL_TABLE_PREFIX}msg_report.msg_id={SQL_TABLE_PREFIX}msg.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread
@@ -39,14 +39,14 @@ function delete_msg_report($id, $usr_id)
 		return 0;
 	}
 	
-	Q("DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id=$id");
+	q("DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id=$id");
 	
 	return 1;
 }
 
 function get_report($id, $usr_id)
 {
-	if ( !($obj=DB_SINGLEOBJ(Q("SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg_report
+	if ( !($obj=db_singleobj(q("SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg_report
 		LEFT JOIN {SQL_TABLE_PREFIX}msg
 			ON {SQL_TABLE_PREFIX}msg_report.msg_id={SQL_TABLE_PREFIX}msg.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread

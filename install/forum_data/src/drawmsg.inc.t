@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,9 +17,9 @@
 
 function build_ignore_list()
 {
-	$r = Q("SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS["usr"]->id);
-	while( list($id,$ignore_id) = DB_ROWARR($r) ) $GLOBALS['__IGNORE_LIST__'][$ignore_id] = $id;
-	QF($r);
+	$r = q("SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS["usr"]->id);
+	while( list($id,$ignore_id) = db_rowarr($r) ) $GLOBALS['__IGNORE_LIST__'][$ignore_id] = $id;
+	qf($r);
 }
 
 if( isset($GLOBALS['rev']) ) {
@@ -204,21 +204,21 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	if ( $obj->poll_id ) {
 		$show_res=1;
 		
-		$poll_obj = DB_SINGLEOBJ(Q("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$obj->poll_id));
+		$poll_obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$obj->poll_id));
 
-		if( _uid && $GLOBALS["pl_view"] != $obj->poll_id && $obj->locked == 'N' && is_perms(_uid, $__RESOURCE_ID, 'VOTE') && !BQ("SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$poll_obj->id." AND user_id="._uid) ) $show_res=0;
+		if( _uid && $GLOBALS["pl_view"] != $obj->poll_id && $obj->locked == 'N' && is_perms(_uid, $__RESOURCE_ID, 'VOTE') && !bq("SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$poll_obj->id." AND user_id="._uid) ) $show_res=0;
 		
 		/* determine if poll is expired or reach max count */
 			
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id);
-		$total_votes = Q_SINGLEVAL("SELECT sum(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id." GROUP BY poll_id");
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id);
+		$total_votes = q_singleval("SELECT sum(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id." GROUP BY poll_id");
 		
 		$i=0;
 		if ( !$show_res && $poll_obj->max_votes && $total_votes >= $poll_obj->max_votes ) $show_res = 1;
 		if ( !$show_res && $poll_obj->expiry_date && ($poll_obj->creation_date + $poll_obj->expiry_date) <= __request_timestamp__ ) $show_res = 1;
 		
 		$poll_data='';
-		while ( $opt = DB_ROWOBJ($res) ) {
+		while ( $opt = db_rowobj($res) ) {
 			$i++;
 			if ( $show_res || !empty($hide_controls) ) {
 				$length = ( $opt->count ) ? round($opt->count/$total_votes*100) : 0;
@@ -228,7 +228,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
 		}
 			
-		QF($res);
+		qf($res);
 			
 		if ( !$show_res && empty($hide_controls) ) {
 			if( $total_votes ) $view_poll_results_button = '{TEMPLATE: dmsg_view_poll_results_button}';
@@ -239,10 +239,10 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	}
 
 	if ( $obj->attach_cnt ) {
-		$a_result = Q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='N'");
-		if ( DB_COUNT($a_result) ) {
+		$a_result = q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='N'");
+		if ( db_count($a_result) ) {
 			$drawmsg_file_attachments='';
-			while ( $a_obj = DB_ROWOBJ($a_result) ) {
+			while ( $a_obj = db_rowobj($a_result) ) {
 				if( file_exists($GLOBALS["FILE_STORE"].$a_obj->id.".atch") ) {
 					$sz = filesize($GLOBALS["FILE_STORE"].$a_obj->id.".atch")/1024;
 					$sz = $sz<1000 ? number_format($sz,2).'KB' : number_format($sz/1024,2).'MB';
@@ -252,7 +252,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 			}
 			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
 		}
-		QF($a_result);	
+		qf($a_result);	
 	}
 		
 	if ( $obj->update_stamp ) {

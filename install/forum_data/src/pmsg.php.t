@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: pmsg.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,7 +54,7 @@
 		
 	if ( empty($folder_id) ) $folder_id = "INBOX";
 	
-	$r = Q("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.invisible_mode,{SQL_TABLE_PREFIX}users.login,{SQL_TABLE_PREFIX}ses.time_sec FROM {SQL_TABLE_PREFIX}pmsg INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}ses ON {SQL_TABLE_PREFIX}users.id={SQL_TABLE_PREFIX}ses.user_id WHERE duser_id=".$usr->id." AND folder_id='".$folder_id."' ORDER BY post_stamp DESC");
+	$r = q("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.invisible_mode,{SQL_TABLE_PREFIX}users.login,{SQL_TABLE_PREFIX}ses.time_sec FROM {SQL_TABLE_PREFIX}pmsg INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}ses ON {SQL_TABLE_PREFIX}users.id={SQL_TABLE_PREFIX}ses.user_id WHERE duser_id=".$usr->id." AND folder_id='".$folder_id."' ORDER BY post_stamp DESC");
 
 	if ( isset($ses) && empty($post_form) ) $ses->update('{TEMPLATE: pm_update}');
 	
@@ -68,7 +68,7 @@
 	
 	$select_options_cur_folder = tmpl_draw_select_opt("INBOX\nDRAFT\nSENT\nTRASH", "{TEMPLATE: inbox}\n{TEMPLATE: draft}\n{TEMPLATE: sent}\n{TEMPLATE: trash}", $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
 	
-	$disk_usage = Q_SINGLEVAL("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id);
+	$disk_usage = q_singleval("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id);
 	$percent_full = ceil($disk_usage/$MAX_PMSG_FLDR_SIZE*100);
 	$full_indicator = ceil($percent_full*1.69);
 
@@ -89,7 +89,7 @@
 	}
 	
 	$private_msg_entry = '';
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		switch ( $obj->folder_id ) 
 		{
 			case 'INBOX':
@@ -127,7 +127,7 @@
 		
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
 	}
-	QF($r);
+	qf($r);
 	
 	$btn_action = ( $folder_id == 'TRASH' ) ? '{TEMPLATE: restore_to}' : '{TEMPLATE: move_to}';
 	while( list($k, $v) = each($folders) ) {

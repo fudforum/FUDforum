@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admgrouplead.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,13 +42,13 @@
 		$grp->get($group_id);
 		$usr = new fud_user;
 		if ( !($usr_id = get_id_by_login($gr_leader)) ) {
-			$r = Q("SELECT login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '$gr_leader%' LIMIT 100");
-			if ( DB_COUNT($r) ) {
+			$r = q("SELECT login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '$gr_leader%' LIMIT 100");
+			if ( db_count($r) ) {
 				echo "<html>
 					$gr_leader isn't found, perhaps you mean one of these?<br>
 					<table border=0 cellspacing=0 cellpadding=3>
 					";
-				while ( $obj = DB_ROWOBJ($r) ) {
+				while ( $obj = db_rowobj($r) ) {
 					echo "<tr><td><a href=\"admgrouplead.php?gr_leader=".urlencode($obj->login)."&group_id=$group_id&"._rsid."\">$obj->login</a></td></tr>";
 				}
 				echo "</table>";

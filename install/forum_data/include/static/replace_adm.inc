@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace_adm.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: replace_adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,44 +28,44 @@ class fud_replace
 	
 	function add()
 	{
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."replace (type, replace_str, with_str, from_post, to_msg)
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."replace (type, replace_str, with_str, from_post, to_msg)
 			VALUES(
 				'".$this->type."',
 				'".$this->replace_str."',
 				'".$this->with_str."',
-				".STRNULL($this->from_post).",
-				".STRNULL($this->to_msg)."
+				".strnull($this->from_post).",
+				".strnull($this->to_msg)."
 			)");
 		
 	}
 	
 	function sync()
 	{
-		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."replace SET type='".$this->type."', replace_str='".$this->replace_str."', with_str='".$this->with_str."', from_post=".STRNULL($this->from_post).", to_msg=".STRNULL($this->to_msg)." WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."replace SET type='".$this->type."', replace_str='".$this->replace_str."', with_str='".$this->with_str."', from_post=".strnull($this->from_post).", to_msg=".strnull($this->to_msg)." WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$id, $this);
+		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$id, $this);
 		if ( !$this->id ) exit("no such replace entry\n");
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace WHERE id=".$this->id);
 	}
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace ORDER BY id");
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."replace ORDER BY id");
 		
-		if ( !IS_RESULT($res) ) return;
+		if ( !is_result($res) ) return;
 		
 		unset($this->r_list); 
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->r_list[] = $obj;
 		}
-		QF($res);
+		qf($res);
 	}
 	
 	function countrpl()

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admoptimizer.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -107,7 +107,7 @@ function optimize_file($file)
 	}
 	
 	/* Cleanup of SQL query syntax */
-	//$file_af = preg_replace('!Q\((.*?)\);!se', "trim(preg_replace('!\s+!s', ' ', 'Q(\\1);'))", $file_af);
+	//$file_af = preg_replace('!Q\((.*?)\);!se', "trim(preg_replace('!\s+!s', ' ', 'q(\\1);'))", $file_af);
 
 	$file_len = strlen($file_af);
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mime.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: mime.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,6 +17,6 @@
 
 function get_mime_by_ext($ext)
 {
-	return Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".$ext."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mime WHERE fl_ext='".$ext."'");
 }
 ?>

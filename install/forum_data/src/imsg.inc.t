@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: imsg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ class fud_msg
 		
 	function get_by_id($id)
 	{
-		QOBJ("SELECT {SQL_TABLE_PREFIX}msg.*,{SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}msg.id=".$id, $this);
+		qobj("SELECT {SQL_TABLE_PREFIX}msg.*,{SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}msg.id=".$id, $this);
 		if( empty($this->id) ) error_dialog('{TEMPLATE: imsg_err_message_title}', '{TEMPLATE: imsg_err_message_msg}', '', 'FATAL');
 		
 		$this->body = read_msg_body($this->offset,$this->length, $this->file_id);
@@ -55,7 +55,7 @@ class fud_msg
 	
 	function get_thread($th_id)
 	{
-		QOBJ("SELECT {SQL_TABLE_PREFIX}msg.* FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.id=".$th_id, $this);
+		qobj("SELECT {SQL_TABLE_PREFIX}msg.* FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.id=".$th_id, $this);
 		
 		
 		$this->body = read_msg_body($this->offset,$this->length, $this->file_id);

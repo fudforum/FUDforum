@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: smiley.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,9 +28,9 @@ class fud_smiley
 	
 	function add()
 	{
-		if ( !db_locked() ) { $ll=1; DB_LOCK('{SQL_TABLE_PREFIX}smiley+'); }
-		$this->vieworder = Q_SINGLEVAL("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
-		Q("INSERT INTO {SQL_TABLE_PREFIX}smiley(
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}smiley+'); }
+		$this->vieworder = q_singleval("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
+		q("INSERT INTO {SQL_TABLE_PREFIX}smiley(
 				img, 
 				descr, 
 				code,
@@ -42,37 +42,37 @@ class fud_smiley
 				'".$this->code."',
 				$this->vieworder
 			)");
-		if ( $ll ) DB_UNLOCK();
+		if ( $ll ) db_unlock();
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE id=".$id, $this);
 		if( empty($this->id) ) exit("no such smiley\n");
 	}
 	
 	function get_by_vieworder($vieworder)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE vieworder=".$vieworder, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE vieworder=".$vieworder, $this);
 		if( empty($this->id) ) exit("no such smiley\n");
 	}
 	
 	function sync()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET img='".$this->img."', descr='".$this->descr."', code='".$this->code."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET img='".$this->img."', descr='".$this->descr."', code='".$this->code."' WHERE id=".$this->id);
 	}
 	
 	function delete()
 	{
-		if ( !db_locked() ) { $ll=1; DB_LOCK('{SQL_TABLE_PREFIX}smiley+'); }
-		$sml = DB_SINGLEOBJ(Q("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE id=$this->id"));
-		Q("DELETE FROM {SQL_TABLE_PREFIX}smiley WHERE id=".$this->id);
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder-1 WHERE vieworder>$sml->vieworder");
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}smiley+'); }
+		$sml = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}smiley WHERE id=$this->id"));
+		q("DELETE FROM {SQL_TABLE_PREFIX}smiley WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder-1 WHERE vieworder>$sml->vieworder");
 		/* fix up the vieworder */
 		if( @is_writable('../images/smiley_icons/'.$this->img) ) 
 			unlink('../images/smiley_icons/'.$this->img);
 
-		if ( $ll ) DB_UNLOCK();
+		if ( $ll ) db_unlock();
 	}
 	
 	function fetch_vars($array, $prefix)
@@ -98,11 +98,11 @@ class fud_smiley
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder");
-		if ( !IS_RESULT($res) ) return;
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder");
+		if ( !is_result($res) ) return;
 		
 		unset($this->s_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->s_list[] = $obj;
 		}
 	}
@@ -133,14 +133,14 @@ class fud_smiley
 	
 	function chpos($dv)
 	{
-		if ( !db_locked() ) { $ll=1; DB_LOCK('{SQL_TABLE_PREFIX}smiley+'); }
-		$maxvieworder = Q_SINGLEVAL("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
+		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}smiley+'); }
+		$maxvieworder = q_singleval("SELECT MAX(vieworder)+1 FROM {SQL_TABLE_PREFIX}smiley");
 		$TMPPOS = "4294967295";
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=$TMPPOS WHERE id=$this->id");
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder-1 WHERE vieworder>$this->vieworder AND vieworder<$maxvieworder");
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder+1 WHERE vieworder>".($dv-1)." AND vieworder<$maxvieworder");
-		Q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=$dv WHERE id=$this->id");
-		if ( $ll ) DB_UNLOCK();
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=$TMPPOS WHERE id=$this->id");
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder-1 WHERE vieworder>$this->vieworder AND vieworder<$maxvieworder");
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=vieworder+1 WHERE vieworder>".($dv-1)." AND vieworder<$maxvieworder");
+		q("UPDATE {SQL_TABLE_PREFIX}smiley SET vieworder=$dv WHERE id=$this->id");
+		if ( $ll ) db_unlock();
 	}
 }
 
@@ -157,9 +157,9 @@ function smiley_to_post($text)
 {
 	$text_l=strtolower($text);
 
-        $res = Q("SELECT * FROM {SQL_TABLE_PREFIX}smiley");
+        $res = q("SELECT * FROM {SQL_TABLE_PREFIX}smiley");
 	$smiley_www = 'images/smiley_icons/';
-        while ( $obj = DB_ROWOBJ($res) ) {
+        while ( $obj = db_rowobj($res) ) {
 		if ( empty($obj->code) ) continue;
                                       
 		$sml_codes = array();
@@ -185,24 +185,24 @@ function smiley_to_post($text)
 			}
 		}
 	}
-	QF($res);
+	qf($res);
 	
 	return $text;
 }
 
 function post_to_smiley($text)
 {
-	$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}smiley");
+	$res = q("SELECT * FROM {SQL_TABLE_PREFIX}smiley");
 	
 	$smiley_www = 'images/smiley_icons/';
-	while ( $obj = DB_ROWOBJ($res) ) {
+	while ( $obj = db_rowobj($res) ) {
 		if ( empty($obj->code) ) continue;
 		
 		$needle = ($a=strpos($obj->code, '~')) ? substr($obj->code,0,$a) : $obj->code;
 
 		$text = str_replace('<img src="'.$smiley_www.$obj->img.'" border=0 alt="'.$obj->descr.'">', $needle, $text);
 	}
-	QF($res);
+	qf($res);
 	
 	return $text;
 }

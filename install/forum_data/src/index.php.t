@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: index.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,8 +72,8 @@ function index_view_perms($usr_id)
 
 	$fl = '';
 	$tmp_arr = array();
-	$r = Q("SELECT user_id,resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' AND p_VISIBLE='Y' ORDER BY user_id");
-	while( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT user_id,resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' AND p_VISIBLE='Y' ORDER BY user_id");
+	while( $obj = db_rowobj($r) ) {
 		if( $obj->user_id == $usr_id ) {
 			if( $obj->p_READ == 'N' ) $GLOBALS['NO_VIEW_PERMS'][$obj->resource_id] = $obj->resource_id;
 		
@@ -85,7 +85,7 @@ function index_view_perms($usr_id)
 			$fl .= $obj->resource_id.',';	
 		}	
 	}	
-	QF($r);
+	qf($r);
 	unset($tmp_arr);
 	
 	if( !empty($fl) ) $fl = substr($fl, 0, -1);
@@ -118,7 +118,7 @@ function index_view_perms($usr_id)
 		$qry_limit = " WHERE {SQL_TABLE_PREFIX}forum.id IN (".$lmt.")";
 	}	
 	
-	$frmres = Q("SELECT {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name AS cat_name, {SQL_TABLE_PREFIX}cat.default_view, {SQL_TABLE_PREFIX}cat.allow_collapse, {SQL_TABLE_PREFIX}forum.*, ".$frm_sel." {SQL_TABLE_PREFIX}msg.id AS msg_id, {SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp, {SQL_TABLE_PREFIX}users.id AS user_id, {SQL_TABLE_PREFIX}users.login AS user_login
+	$frmres = q("SELECT {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name AS cat_name, {SQL_TABLE_PREFIX}cat.default_view, {SQL_TABLE_PREFIX}cat.allow_collapse, {SQL_TABLE_PREFIX}forum.*, ".$frm_sel." {SQL_TABLE_PREFIX}msg.id AS msg_id, {SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp, {SQL_TABLE_PREFIX}users.id AS user_id, {SQL_TABLE_PREFIX}users.login AS user_login
 		FROM 
 			{SQL_TABLE_PREFIX}cat
 			INNER JOIN {SQL_TABLE_PREFIX}forum 
@@ -134,7 +134,7 @@ function index_view_perms($usr_id)
 		");
 	$cat=0;	
 	
-	while ( $data = DB_ROWOBJ($frmres) ) {
+	while ( $data = db_rowobj($frmres) ) {
 		if( $cat != $data->cat_id ) {
 			if ( $data->allow_collapse == 'Y' ) {
 				set_collapse($data->cat_id, (($data->default_view=='COLLAPSED')?'1':'0'));
@@ -213,7 +213,7 @@ function index_view_perms($usr_id)
 		$forum_list_table_data .= '{TEMPLATE: index_forum_entry}';
 	}
 	
-	QF($frmres);
+	qf($frmres);
 
 	if( isset($usr) ) {
 		$mark_read_link = '{ROOT}?t=markread&'._rsid.'&returnto='.urlencode('{ROOT}?t=index&'._rsid.'&c='.(isset($c)?$c:''));

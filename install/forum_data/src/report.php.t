@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: report.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,17 +33,17 @@
 	}
 	unset($flt);
 	
-	$r = Q("SELECT {SQL_TABLE_PREFIX}thread.forum_id, {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$msg_id);
-	if( !DB_COUNT($r) ) { QF($r); invl_inp_err(); }
+	$r = q("SELECT {SQL_TABLE_PREFIX}thread.forum_id, {SQL_TABLE_PREFIX}msg.*, {SQL_TABLE_PREFIX}users.login FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id=".$msg_id);
+	if( !db_count($r) ) { qf($r); invl_inp_err(); }
 
-	$msg = DB_SINGLEOBJ($r);
+	$msg = db_singleobj($r);
 
 	if( !is_perms(_uid, $msg->forum_id, 'p_READ') ) {
 		std_error('access');		
 		exit;
 	}
 
-	if( BQ("SELECT id FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id=".$msg->id." AND user_id="._uid) ) {
+	if( bq("SELECT id FROM {SQL_TABLE_PREFIX}msg_report WHERE msg_id=".$msg->id." AND user_id="._uid) ) {
 		error_dialog('{TEMPLATE: report_already_reported_title}', '{TEMPLATE: report_already_reported_msg}', $returnto);		
 		exit();
 	}

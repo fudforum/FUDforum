@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,8 +66,8 @@
 <?php
 	$a=0;
 	
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NULL AND avatar_approved='N' ORDER BY id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NULL AND avatar_approved='N' ORDER BY id");
+	while ( $obj = db_rowobj($r) ) {
 		if ( $MOGRIFY_BIN ) {
 			$fix_it = ' [<a href="admapprove_avatar.php?fixit='.$obj->id.'&'._rsid.'">Fix It</a>]';
 		}
@@ -88,10 +88,10 @@
 		echo '<tr bgcolor="#bff8ff"><td align=center>(local)<br><img src="'.$avatar_dir.$obj->id.'?rnd='.get_random_value().'" border=0></td></tr>';
 		
 	}
-	QF($r);
+	qf($r);
 
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NOT NULL AND avatar_approved='N' ORDER BY id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NOT NULL AND avatar_approved='N' ORDER BY id");
+	while ( $obj = db_rowobj($r) ) {
 		$a=1;
 		echo '<tr bgcolor="#bff8ff"><td>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -106,7 +106,7 @@
 		</td></tr>';
 		echo '<tr bgcolor="#bff8ff"><td align=middle>'.$obj->avatar_loc.'<br><img src="'.$obj->avatar_loc.'" border=0></td></tr>';
 	}
-	QF($r);
+	qf($r);
 ?>
 </table>
 <?php if( empty($a) ) echo 'There is nothing to approve.'; ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_notify.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: forum_notify.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,12 +26,12 @@ class fud_forum_notify
 		if ( strlen($user_id) ) $this->user_id = $user_id;
 		if ( strlen($forum_id) ) $this->forum_id = $forum_id;
 		
-		if ( IS_RESULT($r=Q("SELECT id FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$this->forum_id." AND user_id=".$this->user_id)) ) {
-			list($id) = DB_SINGLEARR($r);
+		if ( is_result($r=q("SELECT id FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$this->forum_id." AND user_id=".$this->user_id)) ) {
+			list($id) = db_singlearr($r);
 			return $id;
 		}
 		
-		Q("INSERT INTO {SQL_TABLE_PREFIX}forum_notify(user_id, forum_id)
+		q("INSERT INTO {SQL_TABLE_PREFIX}forum_notify(user_id, forum_id)
 			VALUES (
 				".$this->user_id.",
 				".$this->forum_id."
@@ -42,12 +42,12 @@ class fud_forum_notify
 	function delete($user_id, $forum_id)
 	{
 		if ( $id ) $this->id = $id;
-		Q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$forum_id." AND user_id=".$user_id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$forum_id." AND user_id=".$user_id);
 	}		
 }
 
 function is_forum_notified($user_id, $forum_id)
 {
-	return BQ("SELECT * FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$forum_id." AND user_id=".$user_id);
+	return bq("SELECT * FROM {SQL_TABLE_PREFIX}forum_notify WHERE forum_id=".$forum_id." AND user_id=".$user_id);
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.2 2002/06/18 14:20:24 hackie Exp $
+*   $Id: admdump.php,v 1.3 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -124,25 +124,25 @@ include('admpanel.php');
 		closedir($dir);
 		chdir($curdir);
 	
-		$r = Q("show tables");
+		$r = q("show tables");
 		$prefix_len = strlen($MYSQL_TBL_PREFIX);
 		
-		while ( list($tbl_name) = DB_ROWARR($r) ) {
+		while ( list($tbl_name) = db_rowarr($r) ) {
 			if( substr($tbl_name, 0, $prefix_len) != $MYSQL_TBL_PREFIX ) continue;
 			$locklist .= $tbl_name.'+,';
 		}
-		DB_SEEK($r, 0);
+		db_seek($r, 0);
 		$locklist = substr($locklist, 0, -1);
-		DB_LOCK($locklist);
+		db_lock($locklist);
 
-		while( list($tbl_name) = DB_ROWARR($r) ) {
+		while( list($tbl_name) = db_rowarr($r) ) {
 			if( substr($tbl_name, 0, $prefix_len) != $MYSQL_TBL_PREFIX ) continue;
 		
 			echo "Processing table: $tbl_name .... ";
 			flush();
 			
-			$r2 = Q("SELECT * FROM ".$tbl_name);
-			if( DB_COUNT($r2) ) {
+			$r2 = q("SELECT * FROM ".$tbl_name);
+			if( db_count($r2) ) {
 				$field_data = array();
 				for( $i=0; $i<mysql_num_fields($r2); $i++ ) {
 					$field_info = mysql_fetch_field($r2);
@@ -150,11 +150,11 @@ include('admpanel.php');
 				}
 				while( $obj = mysql_fetch_object($r2, MYSQL_ASSOC) ) $write_func($fp, make_insrt_qry($obj, $tbl_name, $field_data)."\n");
 			}	
-			QF($r2);
+			qf($r2);
 			echo "DONE<br>\n";
 			flush();
 		}
-		QF($r);
+		qf($r);
 
 		$write_func($fp, "\n----SQL_END----\n");
 	
@@ -168,7 +168,7 @@ include('admpanel.php');
 		else
 			fclose($fp);
 		
-		DB_UNLOCK();
+		db_unlock();
 		
 		@chmod($HTTP_POST_VARS['path'], 0600);
 			

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: showposts.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@
 	if( !empty($fids) || $usr->mod=='A' ) {
 		$qry_limit = ( $usr->mod != 'A' ) ? "{SQL_TABLE_PREFIX}forum.id IN (".$fids.") AND " : '';
 	
-		$total = Q_SINGLEVAL("SELECT 
+		$total = q_singleval("SELECT 
 				count(*) 
 			FROM 
 				{SQL_TABLE_PREFIX}msg 
@@ -52,7 +52,7 @@
 				{SQL_TABLE_PREFIX}msg.poster_id=".$id." 
 			ORDER BY {SQL_TABLE_PREFIX}msg.id");	
 		
-		$r = Q("SELECT 
+		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}thread.id AS th_id, 
 				{SQL_TABLE_PREFIX}forum.name AS forum_name, 
 				{SQL_TABLE_PREFIX}forum.id as fid, 
@@ -74,8 +74,8 @@
 			LIMIT ".$start.",".$count);
 		
 		$post_entry='';
-		while ( $obj = DB_ROWOBJ($r) ) $post_entry .= '{TEMPLATE: post_entry}';
-		QF($r);
+		while ( $obj = db_rowobj($r) ) $post_entry .= '{TEMPLATE: post_entry}';
+		qf($r);
 	
 		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=showposts&id='.$id.'&start='.$start.'&'._rsid);
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: emailconf.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,13 +22,13 @@
 	{POST_HTML_PHP}
 
 	if ( !empty($conf_key) ) {
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'");
-		if ( !IS_RESULT($r) ) {
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'");
+		if ( !is_result($r) ) {
 			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}', NULL, 'FATAL');
 			exit();
 		}
 		
-		$conf_usr = DB_SINGLEOBJ($r);
+		$conf_usr = db_singleobj($r);
 		$usr = new fud_user_reg;
 		$ses = new fud_session;
 		$ses->cookie_get_session();

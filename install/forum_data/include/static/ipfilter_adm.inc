@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter_adm.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: ipfilter_adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,15 +56,15 @@ class fud_ip_filter_adm extends fud_ip_filter
 	function add($ipaddr)
 	{
 		$this->set_ip($ipaddr);
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block (ca, cb, cc, cd) VALUES (".$this->ip[0].",".$this->ip[1].",".$this->ip[2].",".$this->ip[3].")");
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block (ca, cb, cc, cd) VALUES (".$this->ip[0].",".$this->ip[1].",".$this->ip[2].",".$this->ip[3].")");
 	}
 	
 	function get($id)
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$id);
-		if ( !IS_RESULT($res) ) exit("no such filter\n");
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$id);
+		if ( !is_result($res) ) exit("no such filter\n");
 
-		$obj = DB_SINGLEOBJ($res);
+		$obj = db_singleobj($res);
 		$this->set_ip_list($obj->ca, $obj->cb, $obj->cc, $obj->cd);
 		$this->id = $obj->id;
 		
@@ -92,18 +92,18 @@ class fud_ip_filter_adm extends fud_ip_filter
 	function sync($ipaddr)
 	{
 		$this->set_ip($ipaddr);
-		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block SET ca=".$this->ip[0].", cb=".$this->ip[1].", cc=".$this->ip[2].", cd=".$this->ip[3]." WHERE id=$this->id");
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block SET ca=".$this->ip[0].", cb=".$this->ip[1].", cc=".$this->ip[2].", cd=".$this->ip[3]." WHERE id=$this->id");
 	}
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block");
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block");
 		
 		unset($this->iplist);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->iplist[] = $obj;
 		}
-		QF($res);		
+		qf($res);		
 		if ( isset($this->iplist) ) reset($this->iplist);
 	}
 	
@@ -139,7 +139,7 @@ class fud_ip_filter_adm extends fud_ip_filter
 	
 	function delete()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ip_block WHERE id=".$this->id);
 	}
 }
 ?>

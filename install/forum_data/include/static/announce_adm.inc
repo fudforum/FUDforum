@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: announce_adm.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: announce_adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,14 +29,14 @@ class fud_announce_adm
 	
 	function get_filtered($forum_id, $today)
 	{
-		$res = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.subject, ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.text FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums ON ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.id=".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums.ann_id AND ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums.forum_id=".$forum_id." WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.date_started>=".$today." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.date_ended>".$today);
+		$res = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.subject, ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.text FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums ON ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.id=".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums.ann_id AND ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums.forum_id=".$forum_id." WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.date_started>=".$today." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."announce.date_ended>".$today);
 		
 		unset($this->a_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->a_list[] = $obj;
 		}
 		
-		QF($res);
+		qf($res);
 	}
 	
 	function counta()
@@ -57,39 +57,39 @@ class fud_announce_adm
 
 	function add()
 	{
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."announce (date_started, date_ended, subject, text) VALUES(".$this->date_stared.",".$this->date_ended.",'".$this->subject."','".$this->text."')");
-		$this->id = DB_LASTID();
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."announce (date_started, date_ended, subject, text) VALUES(".$this->date_stared.",".$this->date_ended.",'".$this->subject."','".$this->text."')");
+		$this->id = db_lastid();
 	}
 	
 	function sync()
 	{
-		Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."announce SET date_started=".$this->date_stared.", date_ended=".$this->date_ended.", subject='".$this->subject."', text='".$this->text."' WHERE id=".$this->id);
+		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."announce SET date_started=".$this->date_stared.", date_ended=".$this->date_ended.", subject='".$this->subject."', text='".$this->text."' WHERE id=".$this->id);
 	}
 	
 	function add_forum($frm_id)
 	{
-		Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums(ann_id, forum_id) VALUES(".$this->id.", ".$frm_id.")");
+		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums(ann_id, forum_id) VALUES(".$this->id.", ".$frm_id.")");
 	}
 	
 	function rm_forum($frm_id)
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id." AND forum_id=".$frm_id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id." AND forum_id=".$frm_id);
 	}
 	
 	function rm_all_forums()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
 	}
 	
 	function get_frm_list() 
 	{
 		if ( isset($this->frm_list) ) unset($this->frm_list);
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
 		
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->frm_list[$obj->forum_id] = $obj;
 		}
-		QF($res);
+		qf($res);
 	}
 
 	function reset_forums()
@@ -111,19 +111,19 @@ class fud_announce_adm
 	
 	function delete()
 	{
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
-		Q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce WHERE id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ann_forums WHERE ann_id=".$this->id);
+		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce WHERE id=".$this->id);
 	}
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce");
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce");
 		
 		unset($this->a_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->a_list[] = $obj;
 		}
-		QF($res);
+		qf($res);
 	}
 	
 	function reseta()
@@ -151,11 +151,11 @@ class fud_announce_adm
 	
 	function get($id)
 	{
-		$res = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce WHERE id=".$id);
+		$res = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."announce WHERE id=".$id);
 		
-		if ( !IS_RESULT($res) ) exit("no such annoucement\n");
+		if ( !is_result($res) ) exit("no such annoucement\n");
 		
-		$obj = DB_SINGLEOBJ($res);
+		$obj = db_singleobj($res);
 		
 		$this->id 		= $obj->id;
 		$this->date_started	= $obj->date_started;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admuser.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@ if( !empty($act) ) {
 			break;
 		case 'coppa':
 			$val = (strtoupper($usr->coppa)=='Y') ? 'N' : 'Y';
-			Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
 			
 			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
 			exit();
@@ -133,21 +133,21 @@ if( !empty($act) ) {
 	
 	if ( !empty($usr_email) ) {
 		$usr_email = str_replace("*","%",$usr_email);
-		$r = Q("SELECT id, email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
-		if( !DB_COUNT($r) ) 
+		$r = q("SELECT id, email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
+		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
-			if ( DB_COUNT($r) > 1 ) {
-				echo "There are ".DB_COUNT($r)." users that match this email mask:<br>\n";
+			if ( db_count($r) > 1 ) {
+				echo "There are ".db_count($r)." users that match this email mask:<br>\n";
 				echo "<table border=0 cellspacing=0 cellpadding=3><tr><td>email</td><td>User</td></tr>";
-				while ( $obj = DB_ROWOBJ($r) ) {
+				while ( $obj = db_rowobj($r) ) {
 					echo "<tr><td><a href=\"admuser.php?"._rsid."&usr_email=$obj->email\">$obj->email</a></td><td>$obj->login</td></tr>";
 				}
 				echo "</table>";
 				exit();
 			}
 			else {
-				list($usr->id) = DB_ROWARR($r);
+				list($usr->id) = db_rowarr($r);
 				$usr->get_user_by_id($usr->id);
 			}
 		}	
@@ -155,19 +155,19 @@ if( !empty($act) ) {
 	
 	if( !empty($usr_login) ) {
 		$usr_login = str_replace("*","%",$usr_login);
-		$r = Q("SELECT id, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '".addslashes($usr_login)."'");
-		if( !DB_COUNT($r) ) 
+		$r = q("SELECT id, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '".addslashes($usr_login)."'");
+		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
-			if ( DB_COUNT($r) > 1 ) {
-				echo "There are ".DB_COUNT($r)." users that match this mask:<br>\n";
-				while ( $obj = DB_ROWOBJ($r) ) {
+			if ( db_count($r) > 1 ) {
+				echo "There are ".db_count($r)." users that match this mask:<br>\n";
+				while ( $obj = db_rowobj($r) ) {
 					echo "<a href=\"admuser.php?"._rsid."&usr_login=$obj->login\">$obj->login</a><br>";
 				}
 				exit();
 			}
 			else {
-				list($usr->id) = DB_ROWARR($r);
+				list($usr->id) = db_rowarr($r);
 				$usr->get_user_by_id($usr->id);
 			}
 		}	
@@ -175,7 +175,7 @@ if( !empty($act) ) {
 	
 	if( !empty($user_id) && !empty($login_name) ) {
 		if( !($id = get_id_by_login($login_name)) ) 
-			Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET login='".$login_name."' WHERE id=".$user_id);
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET login='".$login_name."' WHERE id=".$user_id);
 		else if( $id != $user_id )
 			$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
 			
@@ -187,7 +187,7 @@ if( !empty($act) ) {
 			$passwd_error = '<font color="#FF0000">Not allowed changing root password here, use the normal profile control panel</font><br>';
 		else {
 			$md5p = md5($login_passwd);
-			Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET passwd='".$md5p."' WHERE id=".$user_id);
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET passwd='".$md5p."' WHERE id=".$user_id);
 			$login_passwd = NULL;
 		}
 	}

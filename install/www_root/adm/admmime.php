@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmime.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admmime.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,9 +151,9 @@
 	<td align="center">Action</td>
 </tr>
 <?php
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mime");
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mime");
 	$i=1;
-	while( $obj = DB_ROWOBJ($r) ) {
+	while( $obj = db_rowobj($r) ) {
 		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
 		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
 		echo '<tr'.$bgcolor.' valign="top"><td><img src="'.$web_path.$obj->icon.'" border=0></td><td>'.$obj->mime_hdr.'</td><td>'.$obj->descr.'</td><td>'.$obj->fl_ext.'</td><td nowrap>[<a href="admmime.php?edit='.$obj->id.'&'._rsid.'#img">Edit</a>] [<a href="admmime.php?del='.$obj->id.'&'._rsid.'">Delete</a>]</td></tr>';

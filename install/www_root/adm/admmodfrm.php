@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admmodfrm.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@
 		}
 		$usr->end_mod();
 		
-		if( $usr->is_mod != 'A' ) Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET is_mod='".(($mod)?'Y':'N')."' WHERE id=".$usr->id);
+		if( $usr->is_mod != 'A' ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET is_mod='".(($mod)?'Y':'N')."' WHERE id=".$usr->id);
 		
 		/* mod rebuild */	
 		rebuildmodlist();
@@ -58,15 +58,15 @@
 		while( list($k,$v) = each($ar) ) {
 			if( $k ) {
 				$v = substr($v, 0, -1);
-				Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
+				q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
 			}
 		}
 
-		$r = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
-		while( list($fid) = DB_ROWARR($r) ) {
-			Q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
+		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
+		while( list($fid) = db_rowarr($r) ) {
+			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
 		}
-		QF($r);
+		qf($r);
 
 		exit("<html><script language=\"JavaScript\">\nwindow.opener.location='admuser.php?usr_login=$usr->login&"._rsid."'; window.close();\n</script></html>");
 	}

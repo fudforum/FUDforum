@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: finduser.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,15 +59,15 @@
 			$lim = "LIMIT ".$start.", ".$count;
 		
 		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord." ".$lim);
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord." ".$lim);
 		$find_user_data = '';
-		if ( !DB_COUNT($res) ){
+		if ( !db_count($res) ){
 			$find_user_data = '{TEMPLATE: find_user_no_results}';
 		}
 		else {
 			$np = 0;
 			$i=0;
-			while ( $obj = DB_ROWOBJ($res) ) {
+			while ( $obj = db_rowobj($res) ) {
 				$pm_link = ( $GLOBALS['PM_ENABLED'] == 'Y' && isset($usr) ) ? '{TEMPLATE: pm_link}' : '';
 				$homepage_link = strlen($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
 				$email_link = ($GLOBALS["ALLOW_EMAIL"]=='Y' && $obj->email_messages=='Y') ? '{TEMPLATE: email_link}' : '';
@@ -77,11 +77,11 @@
 			}
 		}
 		
-		QF($res);
+		qf($res);
 	}
 
 	if ( empty($np) ) {
-		$total = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}users ".(isset($qry)?$qry:''));
+		$total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users ".(isset($qry)?$qry:''));
 		if ( $total && !empty($btn_submit) ) $pager = tmpl_create_pager($start, $count, $total, '{ROOT}?t=finduser&usr_login='.urlencode($usr_login).'&'._rsid.'&usr_email='.$usr_email.'&pc='.(empty($pc)?'':$pc).'&us='.(empty($us)?'':$us).'&btn_submit=Find&js_redr='.(empty($js_redr)?'':$js_redr).'&append='.(empty($append)?'':$append));
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: Yabb_dc.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: Yabb_dc.php,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -114,7 +114,7 @@ function mdytostamp($str)
 	return mktime(0,0,0,$m,$d,$y);
 }
 
-function INT_YN($s)
+function INT_yn($s)
 {
 	return (empty($s)?'N':'Y');
 }
@@ -168,7 +168,7 @@ function getyabbgroupname($str)
 	chdir($YABB_DIR);
 
 /* Import YaBB Avatars */
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."avatar");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."avatar");
 	
 	print_status('Import Avatars');
 	$avatar_n = 0;
@@ -191,7 +191,7 @@ function getyabbgroupname($str)
 					exit;				
 				}
 				@chmod($GLOBALS['IMG_ROOT_DISK'].'avatars/'.$file, 0666);
-				Q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."avatar (img,descr) VALUES('".addslashes($file)."','".addslashes($dir.' '.$file)."')"); 	
+				q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."avatar (img,descr) VALUES('".addslashes($file)."','".addslashes($dir.' '.$file)."')"); 	
 		        	$avatar_n++;
 		        	break;
 		} 
@@ -241,7 +241,7 @@ function getyabbgroupname($str)
 			exit;
 		}
 		@chmod($IMG_ROOT_DISK.'smiley_icons/kiss.gif', 0666);
-		Q("INSERT INTO ".$MYSQL_TBL_PREFIX."smiley (img,code,descr) VALUES('kiss.gif',':-*','Kiss')");
+		q("INSERT INTO ".$MYSQL_TBL_PREFIX."smiley (img,code,descr) VALUES('kiss.gif',':-*','Kiss')");
 	}	
 	
 	if( @file_exists("cheesy.gif") ) {
@@ -250,7 +250,7 @@ function getyabbgroupname($str)
 			exit;
 		}
 		@chmod($IMG_ROOT_DISK.'smiley_icons/cheesy.gif', 0666);
-		Q("INSERT INTO ".$MYSQL_TBL_PREFIX."smiley (img,code,descr) VALUES('cheesy.gif',';D','Cheesy')");
+		q("INSERT INTO ".$MYSQL_TBL_PREFIX."smiley (img,code,descr) VALUES('cheesy.gif',';D','Cheesy')");
 	}	
 	
 	chdir($YABB_DIR);
@@ -260,8 +260,8 @@ function getyabbgroupname($str)
 	print_status('Finished Importing Smilies');
 
 /* Import YaBB Users */
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."users");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."custom_tags");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."users");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."custom_tags");
 	
 	print_status('Importing Users');
 	$n_users = 0;
@@ -274,7 +274,7 @@ function getyabbgroupname($str)
 		$u_name = $uid;
 		$u_email = trim($user_data[2]);		
 		
-		if( BQ("SELECT id FROM ".$MYSQL_TBL_PREFIX."users WHERE login='".addslashes($u_name)."' OR email='".$u_email."'") ) {
+		if( bq("SELECT id FROM ".$MYSQL_TBL_PREFIX."users WHERE login='".addslashes($u_name)."' OR email='".$u_email."'") ) {
 			print_status("\tuser: ".$obj->username);
 			print_status("\t\tWARNING: Cannot import user ".$u_name.", user with this email and/or login already exists");
 			continue;
@@ -304,7 +304,7 @@ function getyabbgroupname($str)
 		$avatar_loc = trim($user_data[14]);
 		if( $avatar_loc && $avatar_loc != 'blank.gif' ) {
 			if( strpos($avatar_loc, '://') ) { /* This is a built-in avatar */
-				$avatar_id = Q_SINGLEVAL("SELECT id FROM ".$MYSQL_TBL_PREFIX."avatar WHERE img='".addslashes($avatar_loc)."'");
+				$avatar_id = q_singleval("SELECT id FROM ".$MYSQL_TBL_PREFIX."avatar WHERE img='".addslashes($avatar_loc)."'");
 				$avatar_loc = '';
 			}
 			$avatar_approved='Y';
@@ -315,7 +315,7 @@ function getyabbgroupname($str)
 			$avatar_approved = 'NO';
 		}
 		
-		Q("INSERT INTO ".$MYSQL_TBL_PREFIX."users 
+		q("INSERT INTO ".$MYSQL_TBL_PREFIX."users 
 			(
 				login,
 				passwd,
@@ -342,28 +342,28 @@ function getyabbgroupname($str)
 				".time().",
 				'".$append_sig."',
 				'".$u_email."',
-				".INTNULL(trim($user_data[8])).",
+				".intnull(trim($user_data[8])).",
 				'".addslashes($from)."',
 				'".addslashes($sig)."',
 				'".addslashes(trim($user_data[9]))."',
 				'".addslashes(trim($user_data[10]))."',
 				'".addslashes(trim($user_data[4]))."',
 				'".$gender."',
-				'".INTZERO($avatar_id)."',
+				'".intzero($avatar_id)."',
 				'".$avatar_approved."',
 				'".$avatar_loc."',
-				'".INT_YN(!trim($user_data[15]))."',
+				'".INT_yn(!trim($user_data[15]))."',
 				'Y',
 				'N'
 				)"
 			);
 			
-		$users_db[$uid] = DB_LASTID();
+		$users_db[$uid] = db_lastid();
 		
 		if( ($c_tag = trim($user_data[7])) ) {
-			Q("INSERT INTO ".$MYSQL_TBL_PREFIX."custom_tags (name,user_id) VALUES('".addslashes($c_tag)."',".$users_db[$uid].")");
+			q("INSERT INTO ".$MYSQL_TBL_PREFIX."custom_tags (name,user_id) VALUES('".addslashes($c_tag)."',".$users_db[$uid].")");
 			
-			if( $c_tag == 'Administrator' ) Q("UPDATE ".$MYSQL_TBL_PREFIX."users SET is_mod='A' WHERE id=".$users_db[$uid]);
+			if( $c_tag == 'Administrator' ) q("UPDATE ".$MYSQL_TBL_PREFIX."users SET is_mod='A' WHERE id=".$users_db[$uid]);
 		}	
 		
 		$n_users++;
@@ -377,13 +377,13 @@ function getyabbgroupname($str)
 	print_status('Finished Importing ('.$n_users.') Users');
 	
 /* Import YaBB Categories */
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."cat");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_resources");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."groups WHERE id>2");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."forum");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_members");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."cat");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_resources");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."groups WHERE id>2");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."forum");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_members");
 
-	print_status('Importing Categories '.DB_COUNT($r));
+	print_status('Importing Categories '.db_count($r));
 	
 	$categories = file($YABB_CFG['vardir'].'/cat.txt');
 	$i=1;
@@ -399,7 +399,7 @@ function getyabbgroupname($str)
 		$forums[$i] = explode("\n", trim(substr($cat_data, $pos)));
 		$forums[$i][catname_id] = $catid;
 		
-		Q("INSERT INTO ".$MYSQL_TBL_PREFIX."cat (name,view_order) VALUES('".addslashes($cat_name)."',".$i++.")");
+		q("INSERT INTO ".$MYSQL_TBL_PREFIX."cat (name,view_order) VALUES('".addslashes($cat_name)."',".$i++.")");
 	}
 	unset($categories); unset($catid); unset($cat_data); unset($cat_name);
 	
@@ -445,7 +445,7 @@ function getyabbgroupname($str)
 	
 /* Import YaBB Moderators */
 	print_status('Importing Moderators');
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."mod");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."mod");
 	
 	$mod_count=0;
 	while( list($k,$v) = each($forum_mods) ) {
@@ -455,7 +455,7 @@ function getyabbgroupname($str)
 				continue;
 			}
 		
-			Q("INSERT INTO ".$MYSQL_TBL_PREFIX."mod (user_id,forum_id) VALUES(".$users_db[$v2].",".$k.")");
+			q("INSERT INTO ".$MYSQL_TBL_PREFIX."mod (user_id,forum_id) VALUES(".$users_db[$v2].",".$k.")");
 			$mod_count++;
 		}
 	}
@@ -467,10 +467,10 @@ function getyabbgroupname($str)
 	print_status('Importing Threads');
 	$thread_count=0;
 	
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_notify");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_rate_track");
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_view");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_notify");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_rate_track");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_view");
 	
 	chdir($YABB_CFG['boardsdir']);
 		
@@ -483,9 +483,9 @@ function getyabbgroupname($str)
 			if( ($v2=trim($v2)) ) {
 				$th_id = substr($v2, 0, strpos($v2, '|'));
 				
-				Q("INSERT INTO ".$MYSQL_TBL_PREFIX."thread (forum_id) VALUES(".$k.")");
+				q("INSERT INTO ".$MYSQL_TBL_PREFIX."thread (forum_id) VALUES(".$k.")");
 				
-				$thread_ref[$th_id] = DB_LASTID();
+				$thread_ref[$th_id] = db_lastid();
 				$thread_count++;
 			}
 		}
@@ -499,7 +499,7 @@ function getyabbgroupname($str)
 
 	print_status('Importing Messages');
 		
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."msg");	
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."msg");	
 	$msg_count=0;
 	chdir($YABB_CFG['datadir']);
 	
@@ -513,7 +513,7 @@ function getyabbgroupname($str)
 			$msg_data = explode('|', $thread_msg_list[$i]);
 			
 			$fileid = write_body(yabbctofudcode($msg_data[8]), $len, $off);
-			Q("INSERT INTO ".$MYSQL_TBL_PREFIX."msg
+			q("INSERT INTO ".$MYSQL_TBL_PREFIX."msg
 			(
 				thread_id,
 				poster_id,
@@ -530,19 +530,19 @@ function getyabbgroupname($str)
 			VALUES
 			(
 				".$v.",
-				".INTZERO($users_db[$msg_data[4]]).",
-				".INTZERO(yabbstamp($msg_data[3])).",
+				".intzero($users_db[$msg_data[4]]).",
+				".intzero(yabbstamp($msg_data[3])).",
 				'".addslashes($msg_data[0])."',
 				'Y',
 				'Y',
 				'Y',
 				'".$msg_data[7]."',
-				".INTZERO($off).",
-				".INTZERO($len).",
+				".intzero($off).",
+				".intzero($len).",
 				$fileid
 			)");
 			
-			if( !$i ) Q("UPDATE ".$MYSQL_TBL_PREFIX."thread SET root_msg_id=".DB_LASTID()." WHERE id=".$v);
+			if( !$i ) q("UPDATE ".$MYSQL_TBL_PREFIX."thread SET root_msg_id=".db_lastid()." WHERE id=".$v);
 			$msg_count++;
 		}
 	}
@@ -557,17 +557,17 @@ function getyabbgroupname($str)
 	
 	print_status('Importing User Ranks');
 	
-	Q("DELETE FROM ".$MYSQL_TBL_PREFIX."level");
+	q("DELETE FROM ".$MYSQL_TBL_PREFIX."level");
 	
 	$user_groups = file($YABB_CFG['vardir'].'/membergroups.txt');
 
 	$user_group_levels = parse_yabb_config($YABB_CFG['vardir'].'/memstat.pl');
 	
-	Q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[2]))."',0)");
-	Q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[3]))."',".intval($user_group_levels['stufe2']).")");
-	Q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[4]))."',".intval($user_group_levels['stufe3']).")");
-	Q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[5]))."',".intval($user_group_levels['stufe4']).")");
-	Q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[6]))."',".intval($user_group_levels['stufe5']).")");
+	q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[2]))."',0)");
+	q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[3]))."',".intval($user_group_levels['stufe2']).")");
+	q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[4]))."',".intval($user_group_levels['stufe3']).")");
+	q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[5]))."',".intval($user_group_levels['stufe4']).")");
+	q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (name,post_count) VALUES('".addslashes(getyabbgroupname($user_groups[6]))."',".intval($user_group_levels['stufe5']).")");
 	
 	unset($user_group_levels); unset($user_groups);
 	
@@ -595,9 +595,9 @@ function getyabbgroupname($str)
 		change_global_val('CUSTOM_AVATARS', 'OFF', $global_config);
 	
 	if( !intval($YABB_SETTINGS['enable_guest_login']) )
-		Q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET up_VISIBLE='N', up_READ='N' WHERE user_id=0");
+		q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET up_VISIBLE='N', up_READ='N' WHERE user_id=0");
 	else if( intval($YABB_SETTINGS['enable_guestposting']) ) 
-		Q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET up_POST='Y', up_REPLY='Y', up_FILE='Y', up_SML='Y', up_IMG='Y' WHERE user_id=0");
+		q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET up_POST='Y', up_REPLY='Y', up_FILE='Y', up_SML='Y', up_IMG='Y' WHERE user_id=0");
 	
 	write_global_config($global_config);	 
 	 

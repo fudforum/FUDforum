@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admforum.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,7 +131,7 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>Password Posting<br><font size=-2>Posting is only allowed with a knowledge of a password</font></td>
-		<td><?php draw_select('frm_passwd_posting', "No\nYes", "N\nY", YN($frm_passwd_posting)); ?></td>
+		<td><?php draw_select('frm_passwd_posting', "No\nYes", "N\nY", yn($frm_passwd_posting)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -143,12 +143,12 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td valign="top">Anonymous Forum<br><br><font size=2>All poster names are hidden</font></td>
-		<td><?php draw_select('frm_anon_forum', "No\nYes", "N\nY", YN($frm_anon_forum)); ?></td>
+		<td><?php draw_select('frm_anon_forum', "No\nYes", "N\nY", yn($frm_anon_forum)); ?></td>
 	</tr>
 -->	
 	<tr bgcolor="#bff8ff">
 		<td>Moderated Forum</td>
-		<td><?php draw_select('frm_moderated', "No\nYes", "N\nY", YN($frm_moderated)); ?></td>
+		<td><?php draw_select('frm_moderated', "No\nYes", "N\nY", yn($frm_moderated)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">

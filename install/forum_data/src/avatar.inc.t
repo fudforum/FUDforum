@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: avatar.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: avatar.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,22 +26,22 @@ class fud_avatar
 	
 	function add()
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}avatar(img, descr) VALUES('".$this->img."','".$this->descr."')");
+		q("INSERT INTO {SQL_TABLE_PREFIX}avatar(img, descr) VALUES('".$this->img."','".$this->descr."')");
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$id, $this);
 	}
 	
 	function sync()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}avatar SET img='".$this->img."', descr='".$this->descr."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}avatar SET img='".$this->img."', descr='".$this->descr."' WHERE id=".$this->id);
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$this->id);
 	}
 	
 	function fetch_vars($array, $prefix)
@@ -58,15 +58,15 @@ class fud_avatar
 	
 	function getall()
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}avatar");
-		if ( !IS_RESULT($res) ) return;
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}avatar");
+		if ( !is_result($res) ) return;
 		
 		unset($this->s_list);
-		while ( $obj = DB_ROWOBJ($res) ) {
+		while ( $obj = db_rowobj($res) ) {
 			$this->s_list[] = $obj;
 		}
 		
-		QF($res);
+		qf($res);
 	}
 	
 	function resets()
@@ -95,7 +95,7 @@ class fud_avatar
 	
 	function avt_count()
 	{
-		return Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar");
+		return q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar");
 	}
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: cat.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ class fud_cat
 
 	function get_cat($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}cat WHERE id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}cat WHERE id=".$id, $this);
 		return $this->id;
 	}
 }

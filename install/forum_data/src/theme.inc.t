@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: theme.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,13 +27,13 @@ class fud_theme
 	
 	function add()
 	{
-		DB_LOCK('{SQL_TABLE_PREFIX}themes+');
+		db_lock('{SQL_TABLE_PREFIX}themes+');
 		if ( $this->t_default=='Y' ) {
-			Q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
+			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
 			$this->enabled = 'Y';
 		}
 		
-		Q("INSERT INTO {SQL_TABLE_PREFIX}themes (
+		q("INSERT INTO {SQL_TABLE_PREFIX}themes (
 			name,
 			theme,
 			lang, 
@@ -47,55 +47,55 @@ class fud_theme
 				'$this->theme',
 				'$this->lang',
 				'$this->locale',
-				'".YN($this->enabled)."',
-				'".YN($this->t_default)."'
+				'".yn($this->enabled)."',
+				'".yn($this->t_default)."'
 			)");
-		$this->id = DB_LASTID();
-		DB_UNLOCK();
+		$this->id = db_lastid();
+		db_unlock();
 		return $this->id;
 	}
 	
 	function sync()
 	{
-		DB_LOCK('{SQL_TABLE_PREFIX}themes+');
+		db_lock('{SQL_TABLE_PREFIX}themes+');
 		if ( $this->t_default == 'Y' ) {
-			Q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
+			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='N' WHERE t_default='Y'");
 			if ( $this->enabled != 'Y' ) $this->enabled = 'Y';
 			
 		}
 
-		Q("UPDATE {SQL_TABLE_PREFIX}themes SET 
+		q("UPDATE {SQL_TABLE_PREFIX}themes SET 
 			name='$this->name', 
 			theme='$this->theme', 
 			lang='$this->lang', 
 			locale='$this->locale', 
-			enabled='".YN($this->enabled)."',
-			t_default='".YN($this->t_default)."'
+			enabled='".yn($this->enabled)."',
+			t_default='".yn($this->t_default)."'
 		WHERE id=$this->id");
 		
-		if ( $this->enabled != 'Y' && !IS_RESULT(Q("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y'")) )
-			Q("UPDATE {SQL_TABLE_PREFIX}themes SET enabled='Y' WHERE id=1");
+		if ( $this->enabled != 'Y' && !is_result(q("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y'")) )
+			q("UPDATE {SQL_TABLE_PREFIX}themes SET enabled='Y' WHERE id=1");
 		
-		if ( $this->t_default != 'Y' && !IS_RESULT(Q("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'")) )
-			Q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='Y' WHERE id=1");
+		if ( $this->t_default != 'Y' && !is_result(q("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'")) )
+			q("UPDATE {SQL_TABLE_PREFIX}themes SET t_default='Y' WHERE id=1");
 		
-		DB_UNLOCK();
+		db_unlock();
 	}
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$id", $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$id", $this);
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}themes WHERE id=$this->id");
+		q("DELETE FROM {SQL_TABLE_PREFIX}themes WHERE id=$this->id");
 	}
 }
 
 function default_theme()
 {
-	$obj = DB_SINGLEOBJ(Q("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'"));
+	$obj = db_singleobj(q("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'"));
 	
 	return $obj;
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: forum.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ class fud_forum
 	
 	function get($id)
 	{
-		QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}forum WHERE {SQL_TABLE_PREFIX}forum.id=".$id, $this);
+		qobj("SELECT * FROM {SQL_TABLE_PREFIX}forum WHERE {SQL_TABLE_PREFIX}forum.id=".$id, $this);
 		if( empty($this->id) ) invl_inp_err();
 			
 		return $id;		
@@ -54,32 +54,32 @@ class fud_forum
 	
 	function is_moderator($user_id)
 	{
-		return Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$user_id." AND forum_id=".$this->id);
+		return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$user_id." AND forum_id=".$this->id);
 	}
 	
 	function inc_reply_count($val)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+".$val." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+".$val." WHERE id=".$this->id);
 	}
 	
 	function dec_reply_count($val)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$val." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-".$val." WHERE id=".$this->id);
 	}
 	
 	function inc_thread_count($val)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+".$val." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count+".$val." WHERE id=".$this->id);
 	}
 	
 	function dec_thread_count($val)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$val." WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$val." WHERE id=".$this->id);
 	}
 	
 	function get_notify_list($user_id)
 	{
-		$r = Q("SELECT 
+		$r = q("SELECT 
 				{SQL_TABLE_PREFIX}users.email, 
 				{SQL_TABLE_PREFIX}users.icq, 
 				{SQL_TABLE_PREFIX}users.notify_method 
@@ -93,13 +93,13 @@ class fud_forum
 		
 		$p = forum_perm_array($this->id);
 		$to=NULL;
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			if ( !is_allowed($obj->user_id, $p) ) continue;
 			
 			$to[$obj->notify_method][] = ( $obj->notify_method == 'EMAIL' ) ? $obj->email : $obj->icq.'@pager.icq.com';
 		}
 
-		QF($r);
+		qf($r);
 				
 		return $to;
 	}

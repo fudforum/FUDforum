@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: attach.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,8 +36,8 @@ class fud_attach
 		$ext = substr($original_name, strrpos($original_name, '.')+1);
 		if( !($mime_id = get_mime_by_ext($ext)) ) $mime_id = 0;
 		
-		Q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto, location, original_name, message_id, owner, private, mime_type) VALUES('".$proto."', 'none://unset', '".$original_name."', ".INTZERO($message_id).", ".INTZERO($owner).", '".YN($private)."', ".$mime_id.")");
-		$id = DB_LASTID();
+		q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto, location, original_name, message_id, owner, private, mime_type) VALUES('".$proto."', 'none://unset', '".$original_name."', ".intzero($message_id).", ".intzero($owner).", '".yn($private)."', ".$mime_id.")");
+		$id = db_lastid();
 		$this->message_id=$message_id;
 		if ( $proto == 'LOCAL' ) {
 			$loc = safe_attachment_copy($cur_location, $id);
@@ -49,10 +49,10 @@ class fud_attach
 		else
 			$tbl = '{SQL_TABLE_PREFIX}msg';
 		
-		Q("UPDATE {SQL_TABLE_PREFIX}attach SET location='".addslashes($loc)."' WHERE id=".$id);
+		q("UPDATE {SQL_TABLE_PREFIX}attach SET location='".addslashes($loc)."' WHERE id=".$id);
 		if ( $message_id ) {
-			QOBJ("SELECT count(*) AS a_count FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$message_id, $cObj);
-			Q("UPDATE ".$tbl." SET attach_cnt=".$cObj->a_count." WHERE id=".$this->message_id);
+			qobj("SELECT count(*) AS a_count FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$message_id, $cObj);
+			q("UPDATE ".$tbl." SET attach_cnt=".$cObj->a_count." WHERE id=".$this->message_id);
 		}
 		
 		return $id;
@@ -60,7 +60,7 @@ class fud_attach
 		
 	function get($id,$private='')
 	{
-		$obj = QOBJ("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE id=".$id." AND private='".YN($private)."'", $this);
+		$obj = qobj("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE id=".$id." AND private='".yn($private)."'", $this);
 	}
 	
 	function replace($original_name, $cur_location)
@@ -69,7 +69,7 @@ class fud_attach
 		$ext = substr($original_name, strrpos($original_name, '.')+1);
 		if( !($mime_id = get_mime_by_ext($ext)) ) $mime_id = 0;
 		
-		Q("UPDATE {SQL_TABLE_PREFIX}attach SET mime_type=".$mime_id.", proto='".$proto."', original_name='".$original_name."', location='".$cur_location."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}attach SET mime_type=".$mime_id.", proto='".$proto."', original_name='".$original_name."', location='".$cur_location."' WHERE id=".$this->id);
 		if ( $proto == 'LOCAL' ) {
 			$loc = $GLOBALS['FILE_STORE'].$this->id.'.atch';
 			if ( file_exists($loc) ) unlink($loc);
@@ -81,22 +81,22 @@ class fud_attach
 	{
 		if( !db_locked() ) {
 			$lock = 1;
-			DB_LOCK('{SQL_TABLE_PREFIX}attach+');
+			db_lock('{SQL_TABLE_PREFIX}attach+');
 		}	
-		$r = Q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
-		if( DB_COUNT($r) ) {
-			list($loc) = DB_ROWARR($r);
+		$r = q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
+		if( db_count($r) ) {
+			list($loc) = db_rowarr($r);
 			if( file_exists($loc) ) 
 				unlink($loc);
 		}
-		QF($r);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
-		if( $lock ) DB_UNLOCK();
+		qf($r);
+		q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id=".$this->id);
+		if( $lock ) db_unlock();
 	}
 	
 	function inc_dl_count()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id=".$this->id);
 	}
 	
 }

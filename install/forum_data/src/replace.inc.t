@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: replace.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,33 +23,33 @@ function apply_custom_replace($text)
 
 function make_replace_array()
 {
-	$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL");
-	if ( !IS_RESULT($res) ) return;
+	$res = q("SELECT * FROM {SQL_TABLE_PREFIX}replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL");
+	if ( !is_result($res) ) return;
 	
 	$arr['pattern'] = array();
 	$arr['replace'] = array();
 	
-	while ( $obj = DB_ROWOBJ($res) ) {
+	while ( $obj = db_rowobj($res) ) {
 		if ( strlen($obj->with_str) && strlen($obj->replace_str) ) { 
 			$arr['pattern'][] = $obj->replace_str;
 			$arr['replace'][] = $obj->with_str;
 		}	
 	}
 	
-	QF($res);
+	qf($res);
 	
 	return $arr;
 }
 
 function make_reverse_replace_array()
 {
-	$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}replace");
-	if ( !IS_RESULT($res) ) return;
+	$res = q("SELECT * FROM {SQL_TABLE_PREFIX}replace");
+	if ( !is_result($res) ) return;
 	
 	$arr['pattern'] = array();
 	$arr['replace'] = array();
 	
-	while ( $obj = DB_ROWOBJ($res) ) {
+	while ( $obj = db_rowobj($res) ) {
 		if ( $obj->type == 'PERL' && strlen($obj->from_post) && strlen($obj->to_msg) ) {
 			$arr['pattern'][] = $obj->from_post;
 			$arr['replace'][] = $obj->to_msg;
@@ -61,7 +61,7 @@ function make_reverse_replace_array()
 			$arr['replace'][] = $obj->replace_str;
 		}
 	}
-	QF($res);
+	qf($res);
 
 	return $arr;
 }

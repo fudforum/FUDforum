@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: reported.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,7 @@
 	
 	$mod_limiter = ( $usr->is_mod != 'A' ) ? 'INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id='._uid : '';
 	
-	$r=Q("SELECT 
+	$r=q("SELECT 
 			{SQL_TABLE_PREFIX}msg.*,
 			fud_msg_2.subject AS thread_subject,
 			{SQL_TABLE_PREFIX}thread.root_msg_id,
@@ -96,7 +96,7 @@
 	
 	$MOD = 1;
 	$reported_message='';
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		if( !empty($obj->report_user_id) ) {
 			$user_login = htmlspecialchars($obj->report_user_login);
 			$user_login = '{TEMPLATE: reported_reg_user_link}';
@@ -115,7 +115,7 @@
 		
 		$reported_message .= '{TEMPLATE: reported_message}';
 	}
-	QF($r);
+	qf($r);
 	un_register_fps();
 	
 	{POST_PAGE_PHP_CODE}

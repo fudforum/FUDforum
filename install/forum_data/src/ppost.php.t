@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: ppost.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,7 @@
 		exit;		
 	}
 
-	if( ($fldr_size = Q_SINGLEVAL("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id)) > $MAX_PMSG_FLDR_SIZE ) {
+	if( ($fldr_size = q_singleval("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id)) > $MAX_PMSG_FLDR_SIZE ) {
 		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}', '{ROOT}?t=pmsg&'._rsid, '');
 		exit;
 	}
@@ -113,7 +113,7 @@
 				if( !empty($forward) && !preg_match("!^Fwd: !", $msg_subject) )
 					$msg_subject = 'Fwd: '.$msg_subject;	
 			
-				if( !empty($quote) ) $msg_to_list = Q_SINGLEVAL("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
+				if( !empty($quote) ) $msg_to_list = q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
 			}	
 		}
 		else if( !empty($reply) && is_numeric($reply) ) {
@@ -123,7 +123,7 @@
 			if( !empty($msg_r->id) ) {
 				$msg_subject = $msg_r->subject;
 			
-				$msg_to_list = Q_SINGLEVAL("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
+				$msg_to_list = q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
 			
 				unset($msg_r);
 			
@@ -136,9 +136,9 @@
 		}
 		
 		if ( !empty($msg_r->attach_cnt) && ( !empty($msg_id) || !empty($forward) ) ) {
-	 		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_r->id." AND private='Y'");
+	 		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_r->id." AND private='Y'");
 	 		$attach_count=0;
-	 		while ( $obj = DB_ROWOBJ($r) ) {
+	 		while ( $obj = db_rowobj($r) ) {
 	 			$afile['name'] = $obj->original_name;
 	 			$afile['db_id'] = $obj->id;
 	 			$afile['size'] = filesize($obj->location);
@@ -146,7 +146,7 @@
 	 			$attach_list[$obj->id] = $afile;
 	 			$attach_count++;
 	 		}
-	 		QF($r);
+	 		qf($r);
 		 }
 		 
 		 if( !empty($reply_to) ) 
@@ -228,7 +228,7 @@
 	if( !empty($HTTP_POST_VARS["btn_submit"]) || !empty($HTTP_POST_VARS['btn_draft']) ) {
 		$msg_p = new fud_pmsg;
 		fetch_vars('msg_', $msg_p, $HTTP_POST_VARS);
-		$msg_p->smiley_disabled = YN($msg_smiley_disabled);
+		$msg_p->smiley_disabled = yn($msg_smiley_disabled);
 		$msg_p->attach_cnt = isset($attach_cnt)?$attach_cnt:0;
 		$msg_p->body = $HTTP_POST_VARS['msg_body'];
 		$msg_p->folder_id = isset($HTTP_POST_VARS["btn_submit"])?'SENT':'DRAFT';
@@ -310,7 +310,7 @@
 						unlink($GLOBALS['TMP'].$v['tmp']);	
 				}
 				else if( !empty($v['db_id']) && count($GLOBALS["send_to_array"]) ) {
-					if( $forward && !BQ("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_p->id." AND id=".$v['db_id']) ) {
+					if( $forward && !bq("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_p->id." AND id=".$v['db_id']) ) {
 						unset($at_obj);
 						$at_obj = new fud_attach();
 						$at_obj->add($usr->id, $msg_p->id, addslashes($v['name']), $GLOBALS['FILE_STORE'].$v['db_id'].'.atch', 'Y');
@@ -535,7 +535,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	if( !empty($msg_ref_msg_id) ) {
 		$ref_id = substr($msg_ref_msg_id,1);
 		$POST_FORM = 1;
-		$r = Q("SELECT 
+		$r = q("SELECT 
 			{SQL_TABLE_PREFIX}pmsg.*,
 			{SQL_TABLE_PREFIX}users.id AS user_id,
 			{SQL_TABLE_PREFIX}users.login,
@@ -554,7 +554,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 			{SQL_TABLE_PREFIX}pmsg.id='".$ref_id."'
 		");
 		fud_use('drawpmsg.inc');	
-		$reference_msg = tmpl_drawpmsg(DB_SINGLEOBJ($r));
+		$reference_msg = tmpl_drawpmsg(db_singleobj($r));
 		$reference_msg = '{TEMPLATE: reference_msg}';
 	}
 	

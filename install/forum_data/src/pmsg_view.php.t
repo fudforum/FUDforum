@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@
 	
 	$cur_ppage = tmpl_cur_ppage($msg->folder_id, $msg->subject);
 
-	$r = Q("SELECT 
+	$r = q("SELECT 
 		{SQL_TABLE_PREFIX}pmsg.*,
 		{SQL_TABLE_PREFIX}avatar.img AS avatar,
 		{SQL_TABLE_PREFIX}users.id AS user_id,
@@ -83,15 +83,15 @@
 		duser_id=".$usr->id." AND 
 		{SQL_TABLE_PREFIX}pmsg.id='".$id."'
 	");	
-	$obj = DB_SINGLEOBJ($r);
+	$obj = db_singleobj($r);
 		
 	/* Next Msg */
-	if( ($nid =  Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id>".$id." ORDER BY id DESC LIMIT 1")) ) {
+	if( ($nid =  q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id>".$id." ORDER BY id DESC LIMIT 1")) ) {
 		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';		
 	}	
 	
 	/* Prev Msg */
-	if( ($pid = Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id<".$id." ORDER BY id ASC LIMIT 1")) ) {
+	if( ($pid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id<".$id." ORDER BY id ASC LIMIT 1")) ) {
 		$dpmsg_prev_message = '{TEMPLATE: dpmsg_prev_message}';
 	}	
 		

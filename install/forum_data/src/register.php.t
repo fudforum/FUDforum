@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: register.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,12 +33,12 @@
 function create_theme_select($name, $def=NULL)
 { /* here because only used on register form */
 	$theme_select_values = '';
-	$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y' ORDER BY t_default");
-	while ( $theme = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE enabled='Y' ORDER BY t_default");
+	while ( $theme = db_rowobj($r) ) {
 		$selected = $theme->id == $def ? ' selected' : '';
 		$theme_select_values .= '{TEMPLATE: theme_select_value}';
 	}
-	QF($r);
+	qf($r);
 
 	return '{TEMPLATE: theme_select}';
 }
@@ -367,7 +367,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 				$usr->avatar_approved = 'NO';
 			}
 			else if( $avatar_arr['leave'] > 0 ) {
-				$avatar_approved = Q_SINGLEVAL("SELECT avatar_approved FROM {SQL_TABLE_PREFIX}users WHERE id=".$usr->id);
+				$avatar_approved = q_singleval("SELECT avatar_approved FROM {SQL_TABLE_PREFIX}users WHERE id=".$usr->id);
 			}	
 			
 			if ( $usr->avatar_approved == 'N' && $GLOBALS['CUSTOM_AVATAR_APPOVAL'] == 'N' ) $usr->avatar_approved = 'Y';
@@ -428,7 +428,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		}
 		
 		if ( strlen($usr->avatar) ) {
-			$reg_avatar_img = 'images/avatars/'.Q_SINGLEVAL("SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$usr->avatar);
+			$reg_avatar_img = 'images/avatars/'.q_singleval("SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id=".$usr->avatar);
 		}
 	}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,12 +47,12 @@
 			$qry = '';	
 			
 		$returnto = urlencode('{ROOT}?t=finduser&btn_submit=Find&start='.$start.'&'._rsid.'&count='.$count);
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord);
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}users ".$qry." ORDER BY ".$ord);
 		$find_user_data = '';
 		
-		if ( DB_COUNT($res) ){
+		if ( db_count($res) ){
 			$i=0;
-			while ( $obj = DB_ROWOBJ($res) ) {
+			while ( $obj = db_rowobj($res) ) {
 				if ( $overwrite )
 					$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addslashes(htmlspecialchars($obj->login)).'\'; window.close();';
 				else 
@@ -65,7 +65,7 @@
 		else 
 			$find_user_data = '{TEMPLATE: no_result_entry}';
 		
-		QF($res);
+		qf($res);
 	}
 
 	{POST_PAGE_PHP_CODE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allperms.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: allperms.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,8 +24,8 @@ function get_all_perms($usr_id)
 
 	$fl = '';
 	$tmp_arr = array();
-	$r = Q("SELECT user_id,resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' AND p_READ='Y' AND p_VISIBLE='Y' ORDER BY user_id");
-	while( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT user_id,resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN(".$usr_str.") AND resource_type='forum' AND p_READ='Y' AND p_VISIBLE='Y' ORDER BY user_id");
+	while( $obj = db_rowobj($r) ) {
 		if( $obj->user_id == $usr_id ) {
 			$fl .= $obj->resource_id.',';
 			$tmp_arr[$obj->resource_id] = 1;
@@ -33,7 +33,7 @@ function get_all_perms($usr_id)
 		else if( empty($tmp_arr[$obj->resource_id]) )
 			$fl .= $obj->resource_id.',';	
 	}	
-	QF($r);
+	qf($r);
 	unset($tmp_arr);
 	
 	if( !empty($fl) ) $fl = substr($fl, 0, -1);
@@ -43,11 +43,11 @@ function get_all_perms($usr_id)
 
 function forum_perm_array($forum_id)
 {
- 	$r = Q("SELECT p_READ, user_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_type='forum' AND resource_id=$forum_id AND user_id>0");
-	while ( $obj = DB_ROWOBJ($r) ) {
+ 	$r = q("SELECT p_READ, user_id FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_type='forum' AND resource_id=$forum_id AND user_id>0");
+	while ( $obj = db_rowobj($r) ) {
 		$p[$obj->user_id] = $obj->p_READ;
 	}
-	QF($r);
+	qf($r);
 	
 	return $p;
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admlog.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,8 +43,8 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY logtime DESC");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY logtime DESC");
+	while ( $obj = db_rowobj($r) ) {
 		$logtime = "<td>".gmdate("Y M d G:m:i (g A)", $obj->logtime)."</td>";
 		switch ( $obj->a_res ) {
 			case "THRMOVE":

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.2 2002/06/18 14:20:39 hackie Exp $
+*   $Id: tmpllist.php,v 1.3 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,10 +119,10 @@ function tmpllist_resolve_refernce($refs, &$file)
 			@chmod($f_path,0600);
 			$tmpl_data = $tmpl_data_bk;
 			fud_use('static/compiler.inc');
-			$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
-			while ( $obj = DB_ROWOBJ($r) )
+			$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
+			while ( $obj = db_rowobj($r) )
 				compile_all($obj->theme, $obj->lang, $obj->name);
-			QF($r);
+			qf($r);
 			exit('<br><a href="tmpllist.php?S='._rsid.'">Back to control panel</a>');
 		}
 		

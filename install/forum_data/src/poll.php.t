@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: poll.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@
 	
 	if ( !empty($pl_id) ) {
 		if( !strlen($frm_id) ) 
-			$frm_id = Q_SINGLEVAL("SELECT forum_id FROM {SQL_TABLE_PREFIX}poll LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}poll.id=".$pl_id);
+			$frm_id = q_singleval("SELECT forum_id FROM {SQL_TABLE_PREFIX}poll LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}poll.id=".$pl_id);
 		if ( $frm_id ) {
 			$frm->get($frm_id);
 			$MOD=NULL;

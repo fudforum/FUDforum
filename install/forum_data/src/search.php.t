@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: search.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,14 +34,14 @@
 		$i = 0;
 		$r = search($srch, $field, $start, $ppg, $forum_limiter);
 		
-		if ( !($total=DB_COUNT($r)) ) {
+		if ( !($total=db_count($r)) ) {
 			$search_data = '{TEMPLATE: no_search_results}';
 		}
 		else {
-			if( $start && $start<DB_COUNT($r) ) DB_SEEK($r,$start);
+			if( $start && $start<db_count($r) ) db_seek($r,$start);
 		
 			$z=$prev_thread_id=0;
-			while ( ($obj = DB_ROWOBJ($r)) && $z<$ppg ) {
+			while ( ($obj = db_rowobj($r)) && $z<$ppg ) {
 				if ( $obj->thread_id != $prev_thread_id ) 
 			
 				$body = strip_tags(read_msg_body($obj->offset, $obj->length, $obj->file_id));
@@ -61,7 +61,7 @@
 				$z++;
 			}
 			un_register_fps();
-			QF($r);
+			qf($r);
 			
 			$search_data = '{TEMPLATE: search_results}';
 		}
@@ -77,10 +77,10 @@
 	else
 		$qry_limiter = '';
 
-	$r = Q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}cat.id AS cat_id,{SQL_TABLE_PREFIX}cat.name AS cat_name FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id ".$qry_limiter." ORDER BY {SQL_TABLE_PREFIX}cat.view_order,{SQL_TABLE_PREFIX}forum.view_order");
+	$r = q("SELECT {SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}cat.id AS cat_id,{SQL_TABLE_PREFIX}cat.name AS cat_name FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id ".$qry_limiter." ORDER BY {SQL_TABLE_PREFIX}cat.view_order,{SQL_TABLE_PREFIX}forum.view_order");
 	$old_cat = $forum_limit_data = '';
-	if( DB_COUNT($r) ) {
-		while( $obj = DB_ROWOBJ($r) ) {
+	if( db_count($r) ) {
+		while( $obj = db_rowobj($r) ) {
 			$selected = (('c'.$obj->cat_id)==$forum_limiter)?' selected':'';
 			if( $old_cat != $obj->cat_id ) {
 				$forum_limit_data .= '{TEMPLATE: forum_limit_cat_option}';
@@ -90,7 +90,7 @@
 			$forum_limit_data .= '{TEMPLATE: forum_limit_frm_option}';
 		}
 	}
-	QF($r);	
+	qf($r);	
 	
 	$search_options = tmpl_draw_radio_opt('field', "all\nsubject", "{TEMPLATE: search_entire_msg}\n{TEMPLATE: search_subect_only}", $field, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: selmsg.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -100,7 +100,7 @@ function ifstr($opt1, $opt2, $str)
 	else
 		$qry_limit = '';		
 		
-	$total = Q_SINGLEVAL('SELECT
+	$total = q_singleval('SELECT
 			count(*)
 		FROM
 			{SQL_TABLE_PREFIX}msg
@@ -124,7 +124,7 @@ function ifstr($opt1, $opt2, $str)
 			'.$date_limit.'
 			'.(isset($id_limit)?$id_limit:''));
 
-	$rid = Q('SELECT 
+	$rid = q('SELECT 
 			{SQL_TABLE_PREFIX}msg.id 
 		FROM
 			{SQL_TABLE_PREFIX}msg
@@ -153,14 +153,14 @@ function ifstr($opt1, $opt2, $str)
 	LIMIT '.$start.','.$count);
 	
 	
-	if( DB_COUNT($rid) ) {
+	if( db_count($rid) ) {
 		$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
 		$m_count=0;
-		while ( list($msgp_id) = DB_ROWARR($rid) ) { $id_list .= $msgp_id.','; $m_count++; }
-		QF($rid);
+		while ( list($msgp_id) = db_rowarr($rid) ) { $id_list .= $msgp_id.','; $m_count++; }
+		qf($rid);
 		$id_list = substr($id_list, 0, -1).')';
 	
-		$r = Q('SELECT 
+		$r = q('SELECT 
 			{SQL_TABLE_PREFIX}msg.*, 
 			{SQL_TABLE_PREFIX}forum.id AS frm_id,
 			{SQL_TABLE_PREFIX}forum.message_threshold,
@@ -221,7 +221,7 @@ function ifstr($opt1, $opt2, $str)
 	$url_param = _rsid.'&unread='.(isset($unread)?$unread:'').'&reply_count='.$reply_count.'&date='.(isset($date)?$date:'').'&frm_id='.(isset($frm_id)?$frm_id:'').'&th='.(isset($th)?$th:'').'&rand='.get_random_value();
 	
 	if ( !empty($mark_page_read) && isset($usr) ) {
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			if ( $dth_id != $obj->th_id ) { 
 				if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $msg_id);
 				if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
@@ -304,18 +304,18 @@ function ifstr($opt1, $opt2, $str)
 
 	if ( $unread && $total ) {
 		$LAST_ID=NULL;
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			if ( $LAST_ID < $obj->id ) $LAST_ID = $obj->id;
 		}
-		DB_SEEK($r, 0);
+		db_seek($r, 0);
 		$LAST_ID = 'last_id='.$LAST_ID;
 		$more_unread_messages = '{TEMPLATE: more_unread_messages}';
 	}
 	
-	if ( ($m_count = DB_COUNT($r)) ) {
+	if ( ($m_count = db_count($r)) ) {
 		$m_count--;
 		$message_data='';
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			if ( $dfrm_id != $obj->frm_id ) { 
 				if( isset($usr) ) {
 					unset($frm);

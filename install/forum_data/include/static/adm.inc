@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: adm.inc,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,8 +54,8 @@ function rebuildmodlist()
 {
 	$ar = array();
 	$ar2 = array();
-	$r = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id,".$GLOBALS['MYSQL_TBL_PREFIX']."users.login,".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY forum_id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id,".$GLOBALS['MYSQL_TBL_PREFIX']."users.login,".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY forum_id");
+	while ( $obj = db_rowobj($r) ) {
 		if( empty($ar[$obj->forum_id]) ) {
 			$ar[$obj->forum_id]='';
 			$ar2[$obj->forum_id]=0;
@@ -65,6 +65,6 @@ function rebuildmodlist()
 		$ar2[$obj->forum_id]++;	
 		$ar[$obj->forum_id] .= $obj->id."\n".htmlspecialchars(trim_show_len($obj->login,'LOGIN'))."\n\n";
 	}
-	QF($r);
+	qf($r);
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: msg.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,11 +33,11 @@
 		$mid = '';
 		if( $goto != 'end' ) {
 			if( !is_numeric($goto) ) invl_inp_err();
-			$pos = Q_SINGLEVAL("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND id<=".$goto." AND approved='Y'");
+			$pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND id<=".$goto." AND approved='Y'");
 			$mid = '#msg_'.$msg->id;
 		}	
 		else
-			$pos = Q_SINGLEVAL("SELECT replies+1 FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
+			$pos = q_singleval("SELECT replies+1 FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
 	
 		$start = (ceil(($pos/$count))-1)*$count;
 		if ( $start < 0 ) $start = 0;
@@ -83,12 +83,12 @@
 		}
 	
 		if ( !empty($unread) ) {
-			$r=Q("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id);
-			if ( IS_RESULT($r) ) {
-				list($msg_id) = DB_SINGLEARR($r);
-				$rr=Q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." ORDER BY id LIMIT 1");
-				if ( IS_RESULT($rr) ) {
-					list($new_msg_id) = DB_SINGLEARR($rr);
+			$r=q("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id=".$usr->id);
+			if ( is_result($r) ) {
+				list($msg_id) = db_singlearr($r);
+				$rr=q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$thread->id." AND id>".$msg_id." ORDER BY id LIMIT 1");
+				if ( is_result($rr) ) {
+					list($new_msg_id) = db_singlearr($rr);
 					header("Location: {ROOT}?t=msg&goto=".$new_msg_id.'&'._rsid);
 					exit();
 				}
@@ -132,7 +132,7 @@
 				
 	if ( isset($usr) ) {
 		if( $total-$start > $count ) $first_unread_message_link = '{TEMPLATE: first_unread_message_link}';
-		$subscribe_status = ( Q_SINGLEVAL("SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$th." AND user_id=".$usr->id) ) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
+		$subscribe_status = ( q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$th." AND user_id=".$usr->id) ) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	}
 	if ( $thread->locked == 'N' ) $post_reply = '{TEMPLATE: post_reply}';
 
@@ -141,18 +141,18 @@
 		$thread->inc_view_count();
 	}
 
-	$msg_list = Q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".$start.",".$count);
-	if ( !DB_COUNT($msg_list) ) {
+	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".$start.",".$count);
+	if ( !db_count($msg_list) ) {
 		error_dialog('{TEMPLATE: msg_err_nosuchmsg_title}','{TEMPLATE: msg_err_nosuchmsg_msg}', '', 'FATAL');
 		exit();
 	}
 	$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
 	$m_count=0;
-	while ( list($msgp_id) = DB_ROWARR($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
-	QF($msg_list);
+	while ( list($msgp_id) = db_rowarr($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
+	qf($msg_list);
 	$id_list = substr($id_list, 0, -1).')';
 
-	$result = Q('SELECT HIGH_PRIORITY
+	$result = q('SELECT HIGH_PRIORITY
 		{SQL_TABLE_PREFIX}msg.*, 
 		{SQL_TABLE_PREFIX}thread.locked,
 		{SQL_TABLE_PREFIX}thread.root_msg_id,
@@ -203,11 +203,11 @@
 	
 	$message_data='';
 	
-	while ( $obj = DB_ROWOBJ($result) ) {
+	while ( $obj = db_rowobj($result) ) {
 		$message_data .= tmpl_drawmsg($obj, $m_count, true);
 		$mid = $obj->id;
 	}
-	QF($result);
+	qf($result);
 	
 	un_register_fps();
 
@@ -215,9 +215,9 @@
 
 	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&th=".$th."&prevloaded=1&"._rsid.'&rev='.$rev.'&reveal='.$reveal);
 
-	list($pg, $ps)= DB_SINGLEARR(Q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
+	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
 
-	$r = Q('SELECT 
+	$r = q('SELECT 
 			{SQL_TABLE_PREFIX}msg.id AS msg_id,
 			{SQL_TABLE_PREFIX}thread_view.pos,
 			{SQL_TABLE_PREFIX}thread.id,
@@ -234,20 +234,20 @@
 				AND {SQL_TABLE_PREFIX}thread_view.pos IN ('.($ps-1).', '.($ps+1).') 
 			ORDER BY pos');
 	$prev_th = $next_th = NULL;
-	switch ( DB_COUNT($r) ) 
+	switch ( db_count($r) ) 
 	{
 		case 2:
-			$next_th = DB_ROWOBJ($r);
-			$prev_th = DB_ROWOBJ($r);
+			$next_th = db_rowobj($r);
+			$prev_th = db_rowobj($r);
 			break;
 		case 1:
-			$tmp_th = DB_ROWOBJ($r);
+			$tmp_th = db_rowobj($r);
 			if( $tmp_th->pos > $ps ) {
 				$prev_th = $tmp_th;
 			}
 			else {
 				$next_th = $tmp_th;
-				if( $pg > 1 ) $prev_th = DB_SINGLEOBJ(Q('SELECT 
+				if( $pg > 1 ) $prev_th = db_singleobj(q('SELECT 
 						{SQL_TABLE_PREFIX}msg.id AS msg_id,
 						{SQL_TABLE_PREFIX}thread_view.pos,
 						{SQL_TABLE_PREFIX}thread.id,
@@ -269,7 +269,7 @@
 	if ( $prev_th )	$prev_thread_link = '{TEMPLATE: prev_thread_link}';
 	if ( $next_th ) $next_thread_link = '{TEMPLATE: next_thread_link}';
 		
-	if ( _uid && ($MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'RATE')) && !BQ("SELECT id FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id=".$thread->id." AND user_id="._uid) ) 
+	if ( _uid && ($MOD || is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'RATE')) && !bq("SELECT id FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id=".$thread->id." AND user_id="._uid) ) 
 		$rate_thread = '{TEMPLATE: rate_thread}';
 
 	{POST_PAGE_PHP_CODE}

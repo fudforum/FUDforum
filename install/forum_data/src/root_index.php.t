@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.2 2002/06/18 14:20:38 hackie Exp $
+*   $Id: root_index.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,11 +24,11 @@
 	
 
 	if ( !$usr->theme )
-		$r = Q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
+		$r = q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
 	else
-		$r = Q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
+		$r = q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
 
-	$theme = DB_SINGLEOBJ($r);
+	$theme = db_singleobj($r);
 	
 	setlocale(LC_ALL, $theme->locale);
 	if ( preg_match('/[^A-Za-z0-9_]/', $pg) ) exit("<html>This is an invalid request</html>\n");

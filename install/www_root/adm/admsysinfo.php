@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admsysinfo.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@ function get_os()
 </tr>
 <tr>
 	<td><b>MySQL Version:</b></td>
-	<td><?php echo Q_SINGLEVAL("SELECT VERSION()"); ?></td>
+	<td><?php echo q_singleval("SELECT VERSION()"); ?></td>
 </tr>
 <tr>
 	<td><b>PHP Version:</b></td>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,100 +20,100 @@ class fud_user_adm extends fud_user_reg
 
 	function delete_user()
 	{
-		DB_LOCK('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+');
+		db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+');
 		$this->de_moderate();
 		$u_entry = $this->id."\n".addslashes(htmlspecialchars(trim_show_len($this->login,'LOGIN')));
-		Q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
+		q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
 		
 		$tags = new fud_custom_tag;
 		$tags->delete_user($this->id);
 		
-		Q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}forum_read WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE ignore_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE bud_id=".$this->id);
-		Q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}forum_read WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE ignore_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE bud_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE user_id=".$this->id);
 		
 		/* Delete the private messages of this user */
 		
-		$r = Q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$this->id);
-		while( list($pid) = DB_ROWARR($r) ) {
+		$r = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$this->id);
+		while( list($pid) = db_rowarr($r) ) {
 			$pmsg = new fud_pmsg;
 			$pmsg->get($pid);
 			$pmsg->del_pmsg('TRASH');
 		}
 		
-		Q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->id);
 
-		DB_UNLOCK();
+		db_unlock();
 	}
 
 	function block_user()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET blocked='Y' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET blocked='Y' WHERE id=".$this->id);
 	}
 	
 	function unblock_user()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET blocked='N' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET blocked='N' WHERE id=".$this->id);
 	}
 	
 	function start_mod()
 	{
-		DB_LOCK('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}mod+');
+		db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}mod+');
 	}
 	
 	function end_mod()
 	{
-		DB_UNLOCK();
+		db_unlock();
 	}
 	
 	function mk_moderator($forum_id)
 	{	
-		if ( !BQ("SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id) ) {
+		if ( !bq("SELECT id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$forum_id) ) {
 			exit("no such forum to moderate\n");
 		}
 		
-		Q("INSERT INTO {SQL_TABLE_PREFIX}mod(user_id, forum_id) VALUES(".$this->id.", ".$forum_id.")");
+		q("INSERT INTO {SQL_TABLE_PREFIX}mod(user_id, forum_id) VALUES(".$this->id.", ".$forum_id.")");
 	}
 	
 	function rm_moderator($forum_id)
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id." AND forum_id=".$forum_id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id." AND forum_id=".$forum_id);
 	}
 	
 	function de_moderate()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id);
 	}
 	
 	function mk_admin()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET is_mod='A' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET is_mod='A' WHERE id=".$this->id);
 	}
 	
 	function de_admin()
 	{
-		$is_mod = ( BQ("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id." LIMIT 1") ) ? 'Y' : 'N';
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET is_mod='".$is_mod."' WHERE id=".$this->id);
+		$is_mod = ( bq("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$this->id." LIMIT 1") ) ? 'Y' : 'N';
+		q("UPDATE {SQL_TABLE_PREFIX}users SET is_mod='".$is_mod."' WHERE id=".$this->id);
 	}
 	
 	function getmod()
 	{
-		$result = Q("SELECT {SQL_TABLE_PREFIX}mod.id AS id, {SQL_TABLE_PREFIX}mod.user_id AS user_id, {SQL_TABLE_PREFIX}forum.id AS forum_id, {SQL_TABLE_PREFIX}forum.name AS name FROM {SQL_TABLE_PREFIX}mod, {SQL_TABLE_PREFIX}forum WHERE {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id AND {SQL_TABLE_PREFIX}mod.user_id=".$this->id);
+		$result = q("SELECT {SQL_TABLE_PREFIX}mod.id AS id, {SQL_TABLE_PREFIX}mod.user_id AS user_id, {SQL_TABLE_PREFIX}forum.id AS forum_id, {SQL_TABLE_PREFIX}forum.name AS name FROM {SQL_TABLE_PREFIX}mod, {SQL_TABLE_PREFIX}forum WHERE {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id AND {SQL_TABLE_PREFIX}mod.user_id=".$this->id);
 		
 		unset($this->mod_list);
 		$this->mod_cur = 0;
 		
-		while ( $obj=DB_ROWOBJ($result) ) {
+		while ( $obj=db_rowobj($result) ) {
 			$this->mod_list[$this->mod_cur++] = $obj;
 		}
-		QF($result);
+		qf($result);
 		
 		return $this->mod_cur;
 	}
@@ -138,27 +138,27 @@ class fud_user_adm extends fud_user_reg
 	
 	function get_custom_tags()
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}custom_tags WHERE user_id=".$this->id);
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}custom_tags WHERE user_id=".$this->id);
 		
 		unset($this->custom_tags);
 		$z = 0;
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			$this->custom_tags[$z++] = $obj;
 		}
-		QF($r);
+		qf($r);
 		
 		return $this->custom_tags;
 	}
 	
 	function approve_avatar()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET avatar_approved='Y' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET avatar_approved='Y' WHERE id=".$this->id);
 		send_status_update($this, '{TEMPLATE: approved_avatar_title}', '{TEMPLATE: approved_avatar_msg}');
 	}
 	
 	function unapprove_avatar()
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}users SET avatar_approved='NO', avatar_loc=NULL WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}users SET avatar_approved='NO', avatar_loc=NULL WHERE id=".$this->id);
 		send_status_update($this, '{TEMPLATE: unapproved_avatar_title}', '{TEMPLATE: unapproved_avatar_msg}');
 	}
 }

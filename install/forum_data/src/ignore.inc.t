@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: ignore.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,19 +25,19 @@ class fud_ignore
 	function add($user_id, $ignore_id)
 	{
 		if ( !$user_id ) $user_id = $this->user_id;
-		Q("INSERT INTO {SQL_TABLE_PREFIX}user_ignore (ignore_id, user_id) VALUES (".$ignore_id.", ".$user_id.")");
+		q("INSERT INTO {SQL_TABLE_PREFIX}user_ignore (ignore_id, user_id) VALUES (".$ignore_id.", ".$user_id.")");
 	}
 	
 	function delete($id='')
 	{
 		if ( !strlen($id) ) $id = $this->id;
-		Q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id);
 	}	
 
 	function get($id)
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id);
-		$obj = DB_SINGLEOBJ($r);
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id);
+		$obj = db_singleobj($r);
 		if ( !$obj ) { exit("no such ignore"); };
 		
 		$this->id 	= $obj->id;
@@ -49,8 +49,8 @@ class fud_ignore
 	
 	function get_ignore($user_id, $id)
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id." AND user_id=".$user_id);
-		$obj = DB_SINGLEOBJ($r);
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}user_ignore WHERE id=".$id." AND user_id=".$user_id);
+		$obj = db_singleobj($r);
 		if ( !$obj ) { exit("no such ignore"); };
 		
 		$this->id 		= $obj->id;
@@ -63,15 +63,15 @@ class fud_ignore
 
 function check_ignore($user_id, $ignore_id)
 {
-	$r = Q("SELECT {SQL_TABLE_PREFIX}user_ignore.id,{SQL_TABLE_PREFIX}users.is_mod FROM {SQL_TABLE_PREFIX}user_ignore INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id WHERE user_id=".$user_id." AND ignore_id=".$ignore_id);
-	if( !IS_RESULT($r) ) {
-		$is_mod = Q_SINGLEVAL("SELECT is_mod FROM {SQL_TABLE_PREFIX}users WHERE id=".$ignore_id);
+	$r = q("SELECT {SQL_TABLE_PREFIX}user_ignore.id,{SQL_TABLE_PREFIX}users.is_mod FROM {SQL_TABLE_PREFIX}user_ignore INNER JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id WHERE user_id=".$user_id." AND ignore_id=".$ignore_id);
+	if( !is_result($r) ) {
+		$is_mod = q_singleval("SELECT is_mod FROM {SQL_TABLE_PREFIX}users WHERE id=".$ignore_id);
 		if( $is_mod == 'A' ) return 1;
 			
 		return;
 	}
 	
-	list($id,$is_mod) = DB_SINGLEARR($r);
+	list($id,$is_mod) = db_singlearr($r);
 	
 	if( $is_mod == 'A' ) return 1;
 	else return $id;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,7 +56,7 @@ function tmpl_drawpmsg(&$obj)
 	
 		if ( isset($GLOBALS['usr']) && $obj->user_id > 0 && $obj->user_id != _uid ) {
 			$buddy_link = '{TEMPLATE: dpmsg_buddy_link}';
-			if ( $obj->is_mod != 'A' && !BQ("SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS['usr']->id." AND ignore_id=".$obj->user_id) ) $ignore_link = '{TEMPLATE: dpmsg_add_user_ignore_list}';
+			if ( $obj->is_mod != 'A' && !bq("SELECT id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS['usr']->id." AND ignore_id=".$obj->user_id) ) $ignore_link = '{TEMPLATE: dpmsg_add_user_ignore_list}';
 		}
 	
 		if ( $obj->level_pri ) {
@@ -90,10 +90,10 @@ function tmpl_drawpmsg(&$obj)
 		$msg_toolbar = '{TEMPLATE: dpmsg_msg_toolbar}';
 	
 		if ( $obj->attach_cnt ) {
-			$a_result = Q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='Y'");
-			if ( DB_COUNT($a_result) ) {
+			$a_result = q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='Y'");
+			if ( db_count($a_result) ) {
 				$file_attachments='';
-				while ( $a_obj = DB_ROWOBJ($a_result) ) {
+				while ( $a_obj = db_rowobj($a_result) ) {
 					if( file_exists($GLOBALS["FILE_STORE"].$a_obj->id.".atch") ) {
 						$sz = filesize($GLOBALS["FILE_STORE"].$a_obj->id.".atch")/1024;
 						$sz = $sz<1000 ? number_format($sz,2).'KB' : number_format($sz/1024,2).'MB';
@@ -103,7 +103,7 @@ function tmpl_drawpmsg(&$obj)
 				}
 				$file_attachments = '{TEMPLATE: dpmsg_file_attachments}';
 			}
-			QF($a_result);	
+			qf($a_result);	
 		}
 		if ( $GLOBALS["ALLOW_SIGS"] == 'Y' && $obj->show_sig == 'Y' && $GLOBALS["usr"]->show_sigs=='Y' && $obj->sig) $signature = '{TEMPLATE: dpmsg_signature}';
 	}

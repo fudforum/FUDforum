@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admprune.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,7 +51,7 @@
 						ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id
 					INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id
 					WHERE last_post_date<".$back_t." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id=".$cat_id;
-			$cat_name = Q_SINGLEVAL("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat WHERE id=".$cat_id);					
+			$cat_name = q_singleval("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat WHERE id=".$cat_id);					
 			$msg = '<font color="red"> from all forums in category '.$cat_name.'</font>';
 		}
 		else if ( $forumsel ) {
@@ -60,12 +60,12 @@
 					INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum 
 						ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id
 					WHERE last_post_date<".$back_t." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id=".$forumsel;
-			$frm_name = Q_SINGLEVAL("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum WHERE id=".$forumsel);
+			$frm_name = q_singleval("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum WHERE id=".$forumsel);
 			$msg = '<font color="red"> from '.$frm_name.'</font>';
 		}
 		
 		if ( !$btn_conf && !$btn_cancel ) { /* confirmation dialog */
-			$v = Q_SINGLEVAL("SELECT count(*) ".$QRY_TAIL);
+			$v = q_singleval("SELECT count(*) ".$QRY_TAIL);
 			$str_time = strftime("%Y-%m-%d %T", $back_t);
 			exit('
 			<html>
@@ -88,7 +88,7 @@
 			header("Location: admprune.php?"._rsid."&rand=".get_random_value());
 		}
 		else if ( $btn_conf ) { /* prune here */
-			DB_LOCK($GLOBALS['MYSQL_TBL_PREFIX'].'thread_view+, 
+			db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'thread_view+, 
 				'.$GLOBALS['MYSQL_TBL_PREFIX'].'cat+, 
 				'.$GLOBALS['MYSQL_TBL_PREFIX'].'level+, 
 				'.$GLOBALS['MYSQL_TBL_PREFIX'].'forum+, 
@@ -104,15 +104,15 @@
 				'.$GLOBALS['MYSQL_TBL_PREFIX'].'msg_report+, 
 				'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_rate_track+');
 			
-			$r = Q("SELECT root_msg_id, forum_id ".$QRY_TAIL);
-			while ( $obj = DB_ROWOBJ($r) ) {
+			$r = q("SELECT root_msg_id, forum_id ".$QRY_TAIL);
+			while ( $obj = db_rowobj($r) ) {
 				if ( !isset($idlist[$obj->forum_id]) ) $idlist[$obj->forum_id] = $obj->forum_id;
 				$msg = new fud_msg_edit;
 				$msg->get_by_id($obj->root_msg_id);
 				$msg->delete(FALSE);
 				unset($msg);
 			}
-			QF($r);
+			qf($r);
 
  			if ( isset($idlist) ) {
 				reset($idlist);
@@ -120,7 +120,7 @@
 					rebuild_forum_view($v);
 				}
 			}
-			DB_UNLOCK();
+			db_unlock();
 		}
 		header("Location: admprune.php?"._rsid."&rand=".get_random_value());
 	}
@@ -140,14 +140,14 @@ include('admpanel.php');
 	<td bgcolor="#bff8ff">Limit to forum:</td>
 	<td colspan=2 bgcolor="#bff8ff" nowrap>
 	<?php 
-		$r = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.name as cat_name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id as cat_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
+		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.name as cat_name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id as cat_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
 		echo '<select name="forumsel">';
 		echo '<option value="0">- All Forums -';
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			if ( $cat_name != $obj->cat_name ) { echo '<option value="cat_'.$obj->cat_id.'">'.$obj->cat_name; $cat_name = $obj->cat_name; }
 			echo '<option value="'.$obj->id.'">&nbsp;&nbsp;-&nbsp;'.$obj->name.'</option>';
 		}
-		QF($r);
+		qf($r);
 		echo '</select>';
 	?>
 </tr>

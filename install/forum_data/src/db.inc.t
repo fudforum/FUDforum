@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: db.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,32 +31,32 @@ if ( !defined('_db_connection_ok_') ) {
 	define('_db_connection_ok_', 1); 
 }
 
-function YN($val) 
+function yn($val) 
 {
 	return ( strlen($val) && strtolower($val) != 'n' ) ? 'Y' : 'N';
 } 
 
-function INTNULL($val)
+function intnull($val)
 {
 	return ( strlen($val) ) ? $val : 'NULL';
 }
 
-function INTZERO($val)
+function intzero($val)
 {
 	return ( !empty($val) ) ? $val : '0';
 }
 
-function IFNULL($val, $alt)
+function ifnull($val, $alt)
 {
 	return ( strlen($val) ) ? "'".$val."'" : $alt;
 }
 
-function STRNULL($val)
+function strnull($val)
 {
 	return ( strlen($val) ) ? "'".$val."'" : 'NULL';
 }
 
-function DB_LOCK($tables)
+function db_lock($tables)
 {
 	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
 		exit("recursive lock");
@@ -83,16 +83,16 @@ function DB_LOCK($tables)
 	$sql_str = substr($sql_str, 0, strlen($sql_str)-1);
 	$query = "LOCK TABLES".$sql_str;
 	
-	if ( !Q($query) ) {
-		exit("DB_LOCK() error (".mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']).")\n"); 
+	if ( !q($query) ) {
+		exit("db_lock() error (".mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']).")\n"); 
 	}
 	
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;	
 }
 
-function DB_UNLOCK()
+function db_unlock()
 {
-	if ( !Q('UNLOCK TABLES',$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
+	if ( !q('UNLOCK TABLES',$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
 		exit("DB_UNLOCK FAILED\n");
 	}
 	
@@ -110,12 +110,12 @@ function db_locked()
 	return isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])?$GLOBALS['__DB_INC_INTERNALS__']['db_locked']:NULL;
 }
 
-function DB_AFFECTED()
+function db_affected()
 {
 	return mysql_affected_rows($GLOBALS['__DB_INC__']['SQL_LINK']);	
 }
 
-function Q($query)
+function q($query)
 {
 	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['query_count']) )
 		$GLOBALS['__DB_INC_INTERNALS__']['query_count'] = 1;
@@ -128,8 +128,8 @@ function Q($query)
 	if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
 		$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
 		error_handler("db.inc", "query failed: %( $query )% because %( $error_reason )%", 1);
-		echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".Q_SINGLEVAL("SELECT VERSION()")."<br>\n";
-		if( db_locked() ) DB_UNLOCK();
+		echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
+		if( db_locked() ) db_unlock();
 		exit;
 	}
 	$te = db_getmicrotime(); 
@@ -141,17 +141,17 @@ function Q($query)
 	return $result; 
 }
 
-function QF($result)
+function qf($result)
 {
 	mysql_free_result($result);
 }
 
-function QUERY_COUNT()
+function query_count()
 {
 	return $GLOBALS['__DB_INC_INTERNALS__']['query_count'];
 }
 
-function LAST_QUERY($filter='')
+function last_query($filter='')
 {
 	if ( $filter ) 
 		return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
@@ -159,17 +159,17 @@ function LAST_QUERY($filter='')
 		return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
 }
 
-function LAST_TIME()
+function last_time()
 {
 	return $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 }
 
-function TOTAL_TIME()
+function total_time()
 {
 	return $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'];
 }
 
-function DB_COUNT($result)
+function db_count($result)
 {
 	if ( $n=@mysql_num_rows($result) ) 
 		return $n;
@@ -177,36 +177,36 @@ function DB_COUNT($result)
 		return 0;
 }
 
-function DB_LASTID()
+function db_lastid()
 {
 	return mysql_insert_id($GLOBALS['__DB_INC__']['SQL_LINK']);
 }
 
-function DB_SEEK($result,$pos)
+function db_seek($result,$pos)
 {
 	return mysql_data_seek($result,$pos);
 }
-function DB_ROWOBJ($result)
+function db_rowobj($result)
 {
 	return mysql_fetch_object($result);
 }
 
-function DB_ROWARR($result)
+function db_rowarr($result)
 {
 	return mysql_fetch_row($result);
 }
 
-function BQ($query)
+function bq($query)
 {
-	$res = Q($query);
-	if ( IS_RESULT($res) ) { QF($res); return 1; }
+	$res = q($query);
+	if ( is_result($res) ) { qf($res); return 1; }
 	return 0;
 }
 
-function QOBJ($qry, &$obj)
+function qobj($qry, &$obj)
 {
-	$r = Q($qry);
-	$robj = DB_SINGLEOBJ($r);
+	$r = q($qry);
+	$robj = db_singleobj($r);
 	if ( !$robj ) return;
 
 	reset($robj);
@@ -217,36 +217,36 @@ function QOBJ($qry, &$obj)
 	return $robj;
 }
 
-function IS_RESULT($res)
+function is_result($res)
 {
-	if ( DB_COUNT($res) ) 
+	if ( db_count($res) ) 
 		return $res;
 	
-	QF($res);
+	qf($res);
 
 	return;
 }
 
-function DB_SINGLEOBJ($res)
+function db_singleobj($res)
 {
-	$obj = DB_ROWOBJ($res);
-	QF($res);
+	$obj = db_rowobj($res);
+	qf($res);
 	return $obj;
 }
 
-function DB_SINGLEARR($res)
+function db_singlearr($res)
 {
-	$arr = DB_ROWARR($res);
-	QF($res);
+	$arr = db_rowarr($res);
+	qf($res);
 	return $arr;
 }
 
-function Q_SINGLEVAL($query)
+function q_singleval($query)
 {
-	$r = Q($query);
-	if( !IS_RESULT($r) ) return;
+	$r = q($query);
+	if( !is_result($r) ) return;
 	
-	list($val) = DB_SINGLEARR($r);
+	list($val) = db_singlearr($r);
 	
 	return $val;
 }

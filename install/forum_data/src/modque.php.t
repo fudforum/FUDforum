@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.2 2002/06/18 16:12:36 hackie Exp $
+*   $Id: modque.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 		exit();
 	}
 	
-	$r = Q("SELECT 
+	$r = q("SELECT 
 		{SQL_TABLE_PREFIX}msg.*,
 		{SQL_TABLE_PREFIX}thread.locked,
 		{SQL_TABLE_PREFIX}thread.forum_id,
@@ -105,7 +105,7 @@
 	$MOD = 1;
 	
 	$modque_message='';	
-	while ( $obj = DB_ROWOBJ($r) ) {
+	while ( $obj = db_rowobj($r) ) {
 		$GLOBALS["returnto"] = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]);
 		if ( empty($prev_thread_id) || $prev_thread_id != $obj->thread_id ) {
 			$prev_thread_id = $obj->thread_id;
@@ -114,8 +114,8 @@
 		$message = tmpl_drawmsg($obj);
 		$modque_message .= '{TEMPLATE: modque_message}';
 	}
-	if ( !DB_COUNT($r) ) $modque_message = '{TEMPLATE: no_modque_msg}';
-	QF($r);
+	if ( !db_count($r) ) $modque_message = '{TEMPLATE: no_modque_msg}';
+	qf($r);
 	un_register_fps();
 	
 	{POST_PAGE_PHP_CODE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,13 +85,13 @@ function check_ppost_form()
 	while ( list(, $v) = each($list) ) {
 		$v = trim($v);
 		if( strlen($v) ) {
-			$r = Q("SELECT {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.login='".addslashes($v)."'");	
-			if( !IS_RESULT($r) ) {
+			$r = q("SELECT {SQL_TABLE_PREFIX}users.id,{SQL_TABLE_PREFIX}user_ignore.ignore_id FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ON {SQL_TABLE_PREFIX}user_ignore.user_id={SQL_TABLE_PREFIX}users.id AND {SQL_TABLE_PREFIX}user_ignore.ignore_id=".$GLOBALS["usr"]->id." WHERE {SQL_TABLE_PREFIX}users.login='".addslashes($v)."'");	
+			if( !is_result($r) ) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;
 			}
 			else {
-				$obj = DB_SINGLEOBJ($r);
+				$obj = db_singleobj($r);
 				if( !empty($obj->ignore_id) ) {
 					set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
 					break;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ilogin.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: ilogin.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,39 +25,39 @@ class fud_login_block
 	
 	function add($login)
 	{
-		Q("INSERT INTO {SQL_TABLE_PREFIX}blocked_logins (login) VALUES('".$login."')");
+		q("INSERT INTO {SQL_TABLE_PREFIX}blocked_logins (login) VALUES('".$login."')");
 	}
 	
 	function sync($login)
 	{
-		Q("UPDATE {SQL_TABLE_PREFIX}blocked_logins SET login='".$login."' WHERE id=".$this->id);
+		q("UPDATE {SQL_TABLE_PREFIX}blocked_logins SET login='".$login."' WHERE id=".$this->id);
 	}
 	
 	function get($id)
 	{
-		$res = Q("SELECT * FROM {SQL_TABLE_PREFIX}blocked_logins WHERE id=".$id);
-		if ( !IS_RESULT($res) ) exit("no such login block\n");
+		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}blocked_logins WHERE id=".$id);
+		if ( !is_result($res) ) exit("no such login block\n");
 		
-		$obj = DB_SINGLEOBJ($res);
+		$obj = db_singleobj($res);
 		$this->id 	= $obj->id;
 		$this->login	= addslashes($obj->login);
 	}
 	
 	function delete()
 	{
-		Q("DELETE FROM {SQL_TABLE_PREFIX}blocked_logins WHERE id=".$this->id);	
+		q("DELETE FROM {SQL_TABLE_PREFIX}blocked_logins WHERE id=".$this->id);	
 	}
 	
 	function getall()
 	{
-		$r = Q("SELECT * FROM {SQL_TABLE_PREFIX}blocked_logins ORDER BY id");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}blocked_logins ORDER BY id");
 		
 		unset($this->l_list);
-		while ( $obj = DB_ROWOBJ($r) ) {
+		while ( $obj = db_rowobj($r) ) {
 			$this->l_list[] = $obj;
 		}
 		if ( isset($this->l_list) ) reset($this->l_list); 
-		QF($r);
+		qf($r);
 	}
 	
 	function resetl()
@@ -86,14 +86,14 @@ class fud_login_block
 
 function is_blocked_login($login)
 {
-	if ( BQ("SELECT id FROM {SQL_TABLE_PREFIX}blocked_logins WHERE login='".$login."'") ) return 1;
+	if ( bq("SELECT id FROM {SQL_TABLE_PREFIX}blocked_logins WHERE login='".$login."'") ) return 1;
 	
-	$r = Q("SELECT login FROM {SQL_TABLE_PREFIX}blocked_logins ORDER BY id");
-	while ( list($reg) = DB_ROWARR($r) ) {
+	$r = q("SELECT login FROM {SQL_TABLE_PREFIX}blocked_logins ORDER BY id");
+	while ( list($reg) = db_rowarr($r) ) {
 		if ( !preg_match('/!.*!.*/', $reg, $regs) && !preg_match('!/.*/.*!', $reg, $regs) ) $reg = '!'.$reg.'!s';
-		if ( preg_match($reg, $login, $regs) ) { QF($r); return 1; }
+		if ( preg_match($reg, $login, $regs) ) { qf($r); return 1; }
 	}
-	QF($r);
+	qf($r);
 	
 	return;
 }

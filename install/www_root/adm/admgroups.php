@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: admgroups.php,v 1.2 2002/06/18 18:26:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,7 +77,7 @@
 		}
 		
 		/* determine how long this could take */
-		if ( Q_SINGLEVAL("SELECT COUNT(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members WHERE group_id=$grp->id") > 100 ) $dlg = 1;
+		if ( q_singleval("SELECT COUNT(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members WHERE group_id=$grp->id") > 100 ) $dlg = 1;
 		if ( $dlg ) {
 			$ts = __request_timestamp__;
 			echo "<html>
@@ -183,8 +183,8 @@
 			                                                                                                                                                                           
 		}
 		
-		$r = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
-		while ( $obj = DB_ROWOBJ($r) ) {
+		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
+		while ( $obj = db_rowobj($r) ) {
 			$rsname = "forum:$obj->id";
 			if ( isset($rslist['forum'][$obj->id]) ) 
 				$selected = ' selected';
@@ -203,8 +203,8 @@
 	<select name="gr_inherit_id">
 	<option value="0">No where</option>
 	<?php
-		$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
-		while ( $obj = DB_ROWOBJ($r) ) {
+		$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
+		while ( $obj = db_rowobj($r) ) {
 			if ( !empty($edit) && $edit==$obj->id ) continue;
 			if ( !empty($edit) && $obj->id==$grp->inherit_id ) 
 				$selected = ' selected';
@@ -284,22 +284,22 @@ if ( !$edit ) {
 <?php
 
 	$grp_p = new fud_group;
-	$r = Q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
-	while ( $obj = DB_ROWOBJ($r) ) {
+	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
+	while ( $obj = db_rowobj($r) ) {
 		$grp_p->id = $obj->id;
 		$pret = $grp_p->resolve_perms();
 		$str = draw_perm_table($pret);
 		
-		$ur = Q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
-		if ( $cnt=DB_COUNT($ur) ) {
+		$ur = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
+		if ( $cnt=db_count($ur) ) {
 			$sel =  "<font size=-1>(total: $cnt)</font><br><select>";
-			while ( $uobj = DB_ROWOBJ($ur) ) {
+			while ( $uobj = db_rowobj($ur) ) {
 				$sel .= '<option>'.$uobj->login.'</option>';
 			}
 			$sel .= '</select>';
 		}
 		else $sel = 'No Leaders';
-		QF($ur);
+		qf($ur);
 		
 		if ( $obj->res == 'NONE' )
 			$del_link = "[<a href=\"admgroups.php?del=$obj->id&rnd=".get_random_value()."&"._rsid."\">Delete</a>]<br>";
@@ -312,7 +312,7 @@ if ( !$edit ) {
 		echo "<tr style=\"font-size: x-small;\">
 			<td>$obj->name</td> $str <td valign=middle align=middle>$sel</td> <td nowrap>[<a href=\"admgroups.php?edit=$obj->id&rand=".get_random_value()."&"._rsid."\">Edit</a>] $user_grp_mgr</td></tr>";
 	}
-	QF($r);
+	qf($r);
 ?>
 </table>
 <?php require('admclose.html'); ?>

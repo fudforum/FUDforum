@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: thread.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,9 +79,9 @@
 		$lread_f = ' LEFT JOIN {SQL_TABLE_PREFIX}read ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}read.thread_id AND {SQL_TABLE_PREFIX}read.user_id='.$usr->id.' ';
 	}else $lread_s=$lread_f='';
 
-	$result = Q('SELECT {SQL_TABLE_PREFIX}thread.*, '.$lread_s.' {SQL_TABLE_PREFIX}msg.attach_cnt, {SQL_TABLE_PREFIX}msg.poll_id, {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}users.id AS starter_id, {SQL_TABLE_PREFIX}msg.icon AS th_icon, fud_users_2.id AS last_poster_id, fud_users_2.login AS last_poster_login, fud_msg_2.id AS last_post_id, fud_msg_2.post_stamp AS last_post_stamp, {SQL_TABLE_PREFIX}msg.post_stamp AS creation_date FROM {SQL_TABLE_PREFIX}thread_view INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}users.id = {SQL_TABLE_PREFIX}msg.poster_id LEFT JOIN {SQL_TABLE_PREFIX}msg AS fud_msg_2 ON fud_msg_2.id={SQL_TABLE_PREFIX}thread.last_post_id LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_2 ON fud_users_2.id=fud_msg_2.poster_id '.$lread_f.' WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$frm->id.' AND {SQL_TABLE_PREFIX}thread_view.page='.(floor($start/$ppg)+1).' ORDER BY {SQL_TABLE_PREFIX}thread_view.pos ASC');
+	$result = q('SELECT {SQL_TABLE_PREFIX}thread.*, '.$lread_s.' {SQL_TABLE_PREFIX}msg.attach_cnt, {SQL_TABLE_PREFIX}msg.poll_id, {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}users.login, {SQL_TABLE_PREFIX}users.id AS starter_id, {SQL_TABLE_PREFIX}msg.icon AS th_icon, fud_users_2.id AS last_poster_id, fud_users_2.login AS last_poster_login, fud_msg_2.id AS last_post_id, fud_msg_2.post_stamp AS last_post_stamp, {SQL_TABLE_PREFIX}msg.post_stamp AS creation_date FROM {SQL_TABLE_PREFIX}thread_view INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}users.id = {SQL_TABLE_PREFIX}msg.poster_id LEFT JOIN {SQL_TABLE_PREFIX}msg AS fud_msg_2 ON fud_msg_2.id={SQL_TABLE_PREFIX}thread.last_post_id LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_2 ON fud_users_2.id=fud_msg_2.poster_id '.$lread_f.' WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$frm->id.' AND {SQL_TABLE_PREFIX}thread_view.page='.(floor($start/$ppg)+1).' ORDER BY {SQL_TABLE_PREFIX}thread_view.pos ASC');
 
-	if ( !DB_COUNT($result) ) {
+	if ( !db_count($result) ) {
 		$no_messages = '{TEMPLATE: no_messages}';
 	}
 	else {
@@ -90,9 +90,9 @@
 	$POSTS_PER_PAGE = ($usr->posts_ppg)?$usr->posts_ppg:$GLOBALS['POSTS_PER_PAGE'];
 	
 	$thread_list_table_data='';
-	while ( $obj = DB_ROWOBJ($result) ) {
+	while ( $obj = db_rowobj($result) ) {
 		if ( $obj->moved_to ) {
-			list($name, $d_frm_id) = DB_SINGLEARR(Q("SELECT name, id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$obj->moved_to));
+			list($name, $d_frm_id) = db_singlearr(q("SELECT name, id FROM {SQL_TABLE_PREFIX}forum WHERE id=".$obj->moved_to));
 			$thread_list_table_data .= '{TEMPLATE: thread_row_moved}';
 			continue;
 		}
@@ -187,7 +187,7 @@
 		$thread_list_table_data .= '{TEMPLATE: thread_row}';
 	}
 	
-	QF($result); 	
+	qf($result); 	
 }
 
 	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&frm_id='.$frm_id.'&'._rsid);
