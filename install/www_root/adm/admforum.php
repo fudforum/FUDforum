@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.12 2003/05/16 06:36:13 hackie Exp $
+*   $Id: admforum.php,v 1.13 2003/05/26 08:44:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,7 +138,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
-		<td>Max Attachment Size:<br><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher then that.</font></td>
+		<td>Max Attachment Size:<br><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
 		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength=100 size=5>kb</td>
 	</tr>
 	
