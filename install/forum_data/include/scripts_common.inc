@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.1 2003/05/06 21:46:32 hackie Exp $
+*   $Id: scripts_common.inc,v 1.2 2003/05/06 21:58:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,15 +21,12 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id)
 	$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE email='".addslashes($from_email)."'");
 
 	/* If user was not found via email, try to look the user up by login */
-	if (empty($user_id)) {
-		if (empty($from_name)) {
-			return 0;
-		}
+	if (empty($user_id) && !empty($from_name)) {
 		$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($from_name)."'");
 	}	
 
 	if (empty($user_id)) {
-		$user_id = $create_users == 'Y' ? create_new_user() : 0;
+		$user_id = $create_users == 'Y' ? create_new_user($from_name, $from_email) : 0;
 	} 
 
 	return $user_id;	
@@ -92,7 +89,7 @@ function create_new_user($from_name, $from_email)
 	return $id;
 }
 
-function get_fud_reply_id($complex, $forum_id, $subject, &$reply_to, &$thread_id, &$data)
+function get_fud_reply_id($complex, $forum_id, $subject, $data)
 {
 	if (!empty($data)) {
 		foreach ($data as $reply_id) {
@@ -108,14 +105,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, &$reply_to, &$thread_id
 		}
 	}
 
-	if (empty($r)) {
-		$reply_to = $thread_id = $data = '';
-	} else {
-		$reply_to = $r[0];
-		$thread_id = $r[1];
-	}
-
-	return $reply_to;
+	return !empty($r) ? array((int)$r[0], (int)$r[1]) : array(0, 0);
 }
 
 function parse_ip($str)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.27 2003/05/06 21:46:32 hackie Exp $
+*   $Id: nntp.inc,v 1.28 2003/05/06 21:58:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -409,7 +409,7 @@ class fud_nntp
 			$msg_post->show_sig = 'N';
 
 			/* try to determine whether this message is a reply or a new thread */
-			get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $msg_post->reply_to, $msg_post->thread_id, $this->reply_to_msg_id);
+			list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $this->reply_to_msg_id);
 
 			$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
 
