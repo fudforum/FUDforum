@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.43 2004/01/28 03:05:36 hackie Exp $
+* $Id: nntp.inc,v 1.44 2004/03/09 19:37:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -394,7 +394,7 @@ class fud_nntp
 				}
 			}
 
-			$msg_post->body = apply_custom_replace($this->body);
+			$msg_post->body = apply_custom_replace($msg_post->body);
 			if ($frm->forum_opt & 16) {
 				$msg_post->body = tags_to_html($msg_post->body, 'N');
 			} else {
