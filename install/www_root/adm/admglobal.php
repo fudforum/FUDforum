@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.27 2003/05/15 18:21:34 hackie Exp $
+*   $Id: admglobal.php,v 1.28 2003/05/16 06:36:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,6 +51,27 @@ function print_tag_style($descr, $field)
 	$str = !isset($GLOBALS[$field]) ? 'FUD ML' : $GLOBALS[$field];
 	echo '<tr bgcolor="#bff8ff"><td>Tag Style: '.draw_help($field).'</td><td>'.create_select('CF_'.$field, "FUD ML\nHTML\nNone", "ML\nHTML\nNONE", $str).'</td></tr>';
 }
+
+function get_max_upload_size()
+{
+	$us = strtolower(ini_get('upload_max_filesize'));
+	$size = (int) $us;
+	if (strpos($us, 'm') !== FALSE) {
+		$size *= 1024 * 1024;
+	} else if (strpos($us, 'k') !== FALSE) {
+		$size *= 1024;
+	}
+	return $size;
+}
+
+	$max_attach_size = get_max_upload_size();
+	if (isset($_POST['CF_PRIVATE_ATTACH_SIZE'])) {
+		if ($_POST['CF_PRIVATE_ATTACH_SIZE'] > $max_attach_size) {
+			$_POST['CF_PRIVATE_ATTACH_SIZE'] = $max_attach_size;
+		}
+	} else if ($GLOBALS['PRIVATE_ATTACH_SIZE'] > $max_attach_size) {
+		$GLOBALS['PRIVATE_ATTACH_SIZE'] = $max_attach_size;	
+	}
 
 	if (isset($_POST['form_posted'])) {
 		/* make a list of the fields we need to change */

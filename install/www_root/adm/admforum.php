@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.11 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admforum.php,v 1.12 2003/05/16 06:36:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,6 +14,18 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
+function get_max_upload_size()
+{
+	$us = strtolower(ini_get('upload_max_filesize'));
+	$size = (int) $us;
+	if (strpos($us, 'm') !== FALSE) {
+		$size *= 1024 * 1024;
+	} else if (strpos($us, 'k') !== FALSE) {
+		$size *= 1024;
+	}
+	return $size;
+}
 
 	require('GLOBALS.php');
 
@@ -26,6 +38,7 @@
 	fud_use('logaction.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	$max_upload_size = get_max_upload_size();
 	
 	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
 		exit('no such category');
@@ -35,6 +48,9 @@
 
 	if (isset($_POST['frm_submit'])) {
 		$frm = new fud_forum;
+		if ($_POST['frm_max_attach_size'] > $max_upload_size) {
+			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
+		}
 
 		if (!$edit) {
 			fud_use('groups_adm.inc', true);
@@ -60,7 +76,7 @@
 
 		/* some default values for new forums */
 		$frm_pos = 'LAST';
-		$frm_max_attach_size = '1024';
+		$frm_max_attach_size = floor($max_upload_size / 1024);
 		$frm_message_threshold = '0';
 		$frm_max_file_attachments = '1';
 		$frm_moderated = $frm_passwd_posting = 'N';
@@ -122,7 +138,7 @@ if (!isset($_GET['chpos'])) {
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
-		<td>Max Attachment Size:</td>
+		<td>Max Attachment Size:<br><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher then that.</font></td>
 		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength=100 size=5>kb</td>
 	</tr>
 	
