@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.9 2003/04/24 18:22:14 hackie Exp $
+*   $Id: admdelfrm.php,v 1.10 2003/05/02 17:26:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@
 
 	/* restore forum */
 	if (isset($_POST['frm_id'], $_POST['dst_cat'])) {
-		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '.$tbl.'cat WHERE id='.(int)$_POST['dst_cat']) + 1;
+		$pos = (int) q_singleval('SELECT MAX(view_order) FROM '.$tbl.'forum WHERE cat_id='.(int)$_POST['dst_cat']) + 1;
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
 	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
 		/* user considers deleting a forum, give them final confirmation check */
