@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.73 2003/10/01 21:51:53 hackie Exp $
+*   $Id: users.inc.t,v 1.74 2003/10/02 13:18:23 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -614,16 +614,9 @@ function user_alias_by_id($id)
 
 function user_register_forum_view($frm_id)
 {
-	if (__dbtype__ == 'mysql') {
-		q('REPLACE INTO {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.', forum_id='.$frm_id.', user_id='._uid);
-	} else {
-		db_lock('{SQL_TABLE_PREFIX}forum_read WRITE');
-		if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id='.$frm_id.' AND user_id='._uid)) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.')');
-		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
-		}
-		db_unlock();
+	q('UPDATE SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
+	if (!db_affected()) {
+		db_li('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.')', $ef);
 	}
 }
 
@@ -632,16 +625,9 @@ function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
 	if (!$tm) {
 		$tm = __request_timestamp__;
 	}
-	if (__dbtype__ == 'mysql') {
-		q('REPLACE INTO {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.', thread_id='.$thread_id.', user_id='._uid);
-	} else {
-		db_lock('{SQL_TABLE_PREFIX}read WRITE');
-		if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$thread_id.' AND user_id='._uid)) {
-			q('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')');
-		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
-		}
-		db_unlock();
+
+	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')', $ef)) {
+		q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
 	}
 }
 
