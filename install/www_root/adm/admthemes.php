@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.44 2004/04/21 21:17:46 hackie Exp $
+* $Id: admthemes.php,v 1.45 2004/04/27 21:14:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -128,6 +128,14 @@ function clean_code($path, $toks)
 		umask($u);
 	}
 
+	if (isset($_GET['rebuild_all'])) {
+		$r = q('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes');
+		while (($data = db_rowarr($r))) {
+			compile_all($data[0], $data[1], $data[2]);
+		}
+		unset($r);
+	}
+
 	if (isset($_POST['thm_theme']) && !$edit) {
 		$thm = new fud_theme;
 		$thm->add();
@@ -189,7 +197,7 @@ function clean_code($path, $toks)
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Theme Management</h2>
+<h2>Theme Management [ <a href="admthemes.php?rebuild_all=1&<?php echo __adm_rsidl; ?>">Rebuild all Themes</a> ]</h2>
 
 <form name="admthm" action="admthemes.php" method="post">
 <?php echo _hs; ?>
