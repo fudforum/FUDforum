@@ -542,7 +542,7 @@ rating:				Bewertung
 referals_action:		Aktion
 referals_none:			Keine Anwerbungen bisher.
 referals_post_count:		Anzahl der Beitr&auml;ge
-referals_refered_by:		Von <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b> angeworbene Mitglieder
+referals_refered_by:		Von <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b> angeworbene Mitglieder
 referals_registered_on:		Registriert am
 referals_update:		Durchsucht die Anwerbungen
 refresh_list:			Liste aktualisieren

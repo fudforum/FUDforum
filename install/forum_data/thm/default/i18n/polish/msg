@@ -212,7 +212,7 @@ list_referes_referrals:		Osoby polecone
 list_referes_members:		Osoby polecone
 list_referes_member:		U¿ytkownik
 referals_none:			Brak poleconych osób.
-referals_refered_by:		U¿ytkownicy forum poleceni przez u¿ytkownika: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b>
+referals_refered_by:		U¿ytkownicy forum poleceni przez u¿ytkownika: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
 referals_post_count:		Liczba wiadomo¶ci
 referals_registered_on:		Data rejestracji
 referals_action:		Akcja

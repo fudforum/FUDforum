@@ -211,7 +211,7 @@ list_referes_referrals:		Referencias
 list_referes_members:		Miembros referidos
 list_referes_member:		Miembro
 referals_none:			No hay referencias aún.
-referals_refered_by:		Miembros del foro referidos por: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _RSID}" class="th_lnk">{VAR: r_login}</a></b>
+referals_refered_by:		Miembros del foro referidos por: <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _RSID}" class="thLnk">{VAR: r_login}</a></b>
 referals_post_count:		Total de Mensajes
 referals_registered_on:		Registrado El
 referals_action:		Acción

@@ -211,7 +211,7 @@ list_referes_referrals:		Tanıtım
 list_referes_members:		Tanıtım Yapılan Üyeler
 list_referes_member:		Üye
 referals_none:			Henüz tanıtım yapmamış durumdasınız.
-referals_refered_by:		<b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="th_lnk">{VAR: r_login}</a></b> tarafından tanıtım yapılan üyeler.
+referals_refered_by:		<b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b> tarafından tanıtım yapılan üyeler.
 referals_post_count:		İleti Sayısı
 referals_registered_on:		Kayıt tarihi:
 referals_action:		Eylem
