@@ -920,3 +920,4 @@ err_mod_acc_ttl:		Unverified Account
 err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account has been validated by the administrator you will not be able to utilize the full capabilities of your account.
 accounts_pending_approval:	Accounts Pending Approval
 saved:				Saved
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.

@@ -126,6 +126,8 @@
 	$FILE_LOCK		= "N";		/* boolean */
 	
 	$MODERATE_USER_REGS	= "N";		/* boolean */
+	
+	$REG_TIME_LIMIT		= "60";		/* seconds */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */

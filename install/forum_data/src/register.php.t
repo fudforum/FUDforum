@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.24 2002/12/05 16:18:36 hackie Exp $
+*   $Id: register.php.t,v 1.25 2003/01/15 11:54:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,6 +38,17 @@ function create_theme_select($name, $def=NULL)
 	qf($r);
 
 	return '{TEMPLATE: theme_select}';
+}
+
+function check_registration_time_limit()
+{
+	$last_reg_id = q_singleval("SELECT MAX(id) FROM {SQL_TABLE_PREFIX}users");
+	$last_reg_time = q_singleval("SELECT join_date FROM {SQL_TABLE_PREFIX}users WHERE id=".$last_reg_id);
+	if (($last_reg_time + $GLOBALS['REG_TIME_LIMIT']) > time()) {
+		return (($last_reg_time + $GLOBALS['REG_TIME_LIMIT']) - time());
+	} else {
+		return 0;
+	}
 }
 
 function fetch_img($url)
@@ -94,6 +105,11 @@ function fetch_img($url)
 function register_form_check($user_id)
 {
 	if( empty($GLOBALS['error']) ) $GLOBALS['error'] = 0;
+
+	if (!$user_id && ($reg_limit_reached = check_registration_time_limit())) {
+		set_err('reg_time_limit', '{TEMPLATE: register_err_time_limit}');
+		$GLOBALS['error'] = 1;
+	}
 
 	/* General clean up */
 	if( isset($GLOBALS['HTTP_POST_VARS']['reg_plaintext_passwd']) ) 
@@ -564,10 +580,11 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 if( empty($usr->id) ) {
 	$reg_login_err = draw_err('reg_login');
 	$reg_plaintext_passwd_err = draw_err('reg_plaintext_passwd');
+	$reg_time_limit_err = draw_err('reg_time_limit');
 	$user_info_heading = '{TEMPLATE: new_user}';
 	$submit_button = '{TEMPLATE: register_button}';
-}
-else { 
+} else { 
+	$reg_time_limit_err = '';
 	if( $usr->email_conf!='N' && $GLOBALS['EMAIL_CONFIRMATION']=='Y' ) 
 		$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 	else

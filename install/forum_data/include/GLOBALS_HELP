@@ -337,3 +337,7 @@ MODERATE_USER_REGS
 Whether or not every new registration will need to be approved by the administrator
 before the new account is activated.
 
+REG_TIME_LIMIT
+This limit allows you to define how often can a registration can occur. Set the
+value of this field to -1 if you do not wish to limit registrations.
+

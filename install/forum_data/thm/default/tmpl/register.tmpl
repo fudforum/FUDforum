@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.14 2002/08/25 04:03:00 hackie Exp $
+*   $Id: register.tmpl,v 1.15 2003/01/15 11:54:13 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,6 +40,7 @@
 {REF: iemail.tmpl}
 
 {SECTION: new_user new user section is shown to a new user tring to register}
+{VAR: reg_time_limit_err}
 <tr><td class="RowStyleA">{MSG: register_login}{VAR: reg_login_err}</td><td class="RowStyleA"><input type="text" size=25 name="reg_login" value="{VAR: reg_login}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {TEMPLATE-DATA: reg_alias_t}
 <tr><td class="RowStyleA">{MSG: register_password}{VAR: reg_plaintext_passwd_err}</td><td class="RowStyleA"><input type="password" name="reg_plaintext_passwd" size=25 maxlength=16></td></tr>
@@ -417,4 +418,8 @@
 
 {SECTION: email_warning_msg}
 <br /><font style="font-size: xx-small; color: 005500;"><b>{MSG: email_warning_msg}</b></font>
+{SECTION: END}
+
+{SECTION: register_err_time_limit}
+<tr><td class="RowStyleA" colspan="2" align="center"><font color="red" size="+2">{MSG: register_err_time_limit}</font></td></tr>
 {SECTION: END}
