@@ -376,3 +376,6 @@ Whether or not to show a link (beside the message subject) to the message that t
 
 {{{ALLOW_EMAIL	FUD_OPT_2	1073741824
 Enable/disable the forum's built-in email client.}}}
+
+{{{SESSION_COOKIES	FUD_OPT_3	1
+Make the cookie last only for as long as the browser window is open. If a security is a major concern, turn this option on.}}}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.45 2003/10/09 14:34:31 hackie Exp $
+* $Id: admglobal.php,v 1.46 2003/10/30 03:10:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -171,6 +171,7 @@ function get_max_upload_size()
 	print_reg_field('Cookie Timeout', 'COOKIE_TIMEOUT', 1);
 	print_reg_field('Session Timeout', 'SESSION_TIMEOUT', 1);
 	print_bit_field('Enable URL sessions', 'SESSION_USE_URL');
+	print_bit_field('Use Session Cookies', 'SESSION_COOKIES');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
