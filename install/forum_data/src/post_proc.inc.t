@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.45 2003/12/04 14:25:00 hackie Exp $
+* $Id: post_proc.inc.t,v 1.46 2003/12/05 13:08:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -131,27 +131,24 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					break;
 				case 'url':
 					if (!$parms) {
-						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
+						$url = substr($str, $epos+1, ($cpos-$epos)-1);
+					} else {
+						$url = $parms;
 					}
-					$url = $parms;
-					if (!strpos($url, '://') && $url[0] != '/' && strncmp($url, '../', 3)) {
+
+					if (!strncasecmp($url, 'www.', 4)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
+					} else if (strpos(strtolower($url), 'javascript:') !== false) {
+						$ostr .= substr($str, $pos, $cepos - $pos + 1);
+						$epos = $cepos;
+						$str[$cpos] = '<';
+						break;
 					} else {
 						$url = str_replace('://', '&#58;&#47;&#47;', $url);
 					}
-					if (strpos(strtolower($parms), 'javascript:') !== false) {
-						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
-					} else {
-						if ($url == $parms) {
-							$ostr .= '<a href="'.$url.'" target="_blank">'.str_replace('://', '&#58;&#47;&#47;', $parms).'</a>';
-						} else {
-							$end_tag[$cpos] = '</a>';
-							$ostr .= '<a href="'.$url.'" target="_blank">';
-							break;
-						}
-					}
-					$epos = $cepos;
-					$str[$cpos] = '<';
+
+					$end_tag[$cpos] = '</a>';
+					$ostr .= '<a href="'.$url.'" target="_blank">';
 					break;
 				case 'i':
 				case 'u':
@@ -514,12 +511,12 @@ function html_to_tags($fudml)
 		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
-	
+
 	while (preg_match('!<font (color|face|size)=".+?">.*?</font>!is', $fudml)) {
 		$fudml = preg_replace('!<font (color|face|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
 	}
 	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
-		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</ol>!is', '[list type=\2]\3[/list]', $fudml);
+		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', '[list type=\2]\3[/list]', $fudml);
 	}
 
 	$fudml = str_replace(
@@ -529,7 +526,7 @@ function html_to_tags($fudml)
 		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
 	),
 	array(
-		'[b]', '[b]', '[i]', '[/i]', '[/u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
+		'[b]', '[/b]', '[i]', '[/i]', '[/u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
 		'[code]', '[/code]', '[align=center]', '[align=left]', '[align=right]', '[/align]', '[list]', '[/list]',
 		'[notag]', '[/notag]', '[*]', '@', '://', '', '[pre]', '[/pre]'
 	), 
