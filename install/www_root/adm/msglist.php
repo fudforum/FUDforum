@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msglist.php,v 1.30 2004/10/06 17:01:06 hackie Exp $
+* $Id: msglist.php,v 1.31 2004/10/06 18:59:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -110,7 +110,7 @@ function makedeps()
 		fclose($fp);
 		fud_use('compiler.inc', true);
 
-		$c = q("SELECT theme FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
+		$c = q("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='".addslashes($tname)."' AND lang='".addslashes($tlang)."'");
 		while ($r = db_rowarr($c)) {
 			compile_all($tname, $tlang, $r[0]);
 		}
