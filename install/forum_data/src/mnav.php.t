@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.15 2004/01/04 16:38:27 hackie Exp $
+* $Id: mnav.php.t,v 1.16 2004/01/08 19:24:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,7 @@
 	}
 	$forum_limiter = isset($_GET['forum_limiter']) ? $_GET['forum_limiter'] : '';
 	$rng = isset($_GET['rng']) ? (float) $_GET['rng'] : 1;
+	$rng2 = isset($_GET['rng2']) ? (float) $_GET['rng2'] : 0;
 	$unit = isset($_GET['u']) ? (int) $_GET['u'] : 86400;
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 
@@ -50,6 +51,12 @@
 	} else if (isset($_GET['u'])) {
 		$tm = __request_timestamp__ - $mage;
 
+		if ($rng2 > 0) {
+			$date_limit = ' AND m.post_stamp < '.(__request_timestamp__ - ($rng2 * $unit));
+		} else {
+			$date_limit = '';
+		}
+
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
@@ -58,7 +65,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE
-					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
+					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)'));
 		if (!$total) {
 			$mnav_pager = '';
@@ -75,7 +82,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
 				WHERE
-					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
+					m.post_stamp > '.$tm.' '.$date_limit.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) > 0)').'
 					ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
 
@@ -103,9 +110,9 @@
 			/* handle pager if needed */
 			if ($total > $ppg) {
 				if ($FUD_OPT_2 & 32768) {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$unit.'/', '/'._rsid);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$rng2.'/'.$unit.'/', '/'._rsid);
 				} else {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter.'&mbsp;rng2='.$rng2);
 				}
 			} else {
 				$mnav_pager = '';

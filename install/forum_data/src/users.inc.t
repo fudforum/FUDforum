@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.108 2004/01/04 16:38:27 hackie Exp $
+* $Id: users.inc.t,v 1.109 2004/01/08 19:24:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -616,8 +616,9 @@ function init_user()
 					$_GET['t'] = 'mnav';
 					if (isset($p[1])) {
 						$_GET['rng'] = isset($p[1]) ? $p[1] : 0;
-						$_GET['u'] = isset($p[2]) ? $p[2] : 0;
-						$_GET['start'] = isset($p[3]) ? $p[3] : 0;
+						$_GET['rng2'] = isset($p[2]) ? $p[2] : 0;
+						$_GET['u'] = isset($p[3]) ? $p[3] : 0;
+						$_GET['start'] = isset($p[4]) ? $p[4] : 0;
 					}
 					break;
 
