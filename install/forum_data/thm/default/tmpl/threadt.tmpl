@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.27 2004/01/04 16:38:28 hackie Exp $
+* $Id: threadt.tmpl,v 1.28 2004/04/13 18:55:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -99,15 +99,15 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-<table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
-<td align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
-<td valign="bottom" align="right" class="GenText" nowrap>{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+<table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
+<td class="al wa">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
+<td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
 <tr>
-<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
 {TEMPLATE-DATA: forum_select}
