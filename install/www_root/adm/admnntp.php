@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.4 2002/08/23 01:44:27 hackie Exp $
+*   $Id: admnntp.php,v 1.5 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,13 +19,13 @@
 
 	include_once "GLOBALS.php";
 	
-	fud_use("widgets.inc", TRUE);
+	fud_use("widgets.inc", true);
 	fud_use("util.inc");
 	fud_use('cookies.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('objutil.inc');	
 	fud_use('logaction.inc');
-	fud_use('nntp_adm.inc', TRUE);
+	fud_use('nntp_adm.inc', true);
 
 	list($ses, $usr) = initadm();
 	

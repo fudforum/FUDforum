@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.10 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admgroups.php,v 1.11 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,10 +20,10 @@
 	include_once "GLOBALS.php";
 	
 	fud_use('db.inc');
-	fud_use('widgets.inc', TRUE);	
+	fud_use('widgets.inc', true);	
 	fud_use('groups.inc');
 	fud_use('forum.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	
 	list($ses, $adm) = initadm();
 	

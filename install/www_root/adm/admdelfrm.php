@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.6 2002/08/13 11:34:58 hackie Exp $
+*   $Id: admdelfrm.php,v 1.7 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@
 	fud_use('fileio.inc');
 	fud_use('cat.inc');
 	fud_use('util.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('groups.inc');
 	fud_use('ipoll.inc');
 	

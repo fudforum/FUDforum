@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.12 2002/07/29 11:58:44 hackie Exp $
+*   $Id: admlock.php,v 1.13 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@
 	define('_rsid', 'S='.S);
 	define('_hs', '<input type="hidden" name="S" value="'.S.'">');
 
-function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
+function chmoddir($dirn, $dirp, $filep, $rec=false)
 {
 	$oldcwd = getcwd();
 	if ( !@chdir($dirn) ) {
@@ -41,7 +41,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 		if ( !$de ) break;
 		if ( @is_dir($de) ) {
 			if ( !@chmod($de, $dirp) ) echo "ERROR: ".getcwd()."/$de -> d (".sprintf("%o", $dirp).")<br>";
-			if ( $rec==TRUE ) chmoddir($de, $dirp, $filep, $rec);
+			if ( $rec==true ) chmoddir($de, $dirp, $filep, $rec);
 		}
 		else {
 			if( $de == 'maillist.php' || $de == 'nntp.php' ) continue;
@@ -73,14 +73,14 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 				$FILE_LOCK = "Y";
 			}
 
-			chmoddir($GLOBALS['WWW_ROOT_DISK'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['INCLUDE'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['DATA_DIR'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['ERROR_PATH'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['MSG_STORE_DIR'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['FILE_STORE'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, TRUE);
-			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, TRUE);
+			chmoddir($GLOBALS['WWW_ROOT_DISK'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['INCLUDE'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['DATA_DIR'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['ERROR_PATH'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['MSG_STORE_DIR'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['FILE_STORE'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['TMP'], $dirperms, $fileperms, true);
+			chmoddir($GLOBALS['FORUM_SETTINGS_PATH'], $dirperms, $fileperms, true);
 			
 			$global_config = read_global_config();
 			change_global_val('FILE_LOCK', $FILE_LOCK, $global_config);

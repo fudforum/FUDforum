@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.8 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admprune.php,v 1.9 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,12 +20,12 @@
 
 	include_once "GLOBALS.php";
 	
-	fud_use('widgets.inc', TRUE);
+	fud_use('widgets.inc', true);
 	fud_use('util.inc');
 	fud_use('forum.inc');
 	fud_use('cat.inc');
 	fud_use('fileio.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('th.inc');
@@ -110,7 +110,7 @@
 				if ( !isset($idlist[$obj->forum_id]) ) $idlist[$obj->forum_id] = $obj->forum_id;
 				$msg = new fud_msg_edit;
 				$msg->get_by_id($obj->root_msg_id);
-				$msg->delete(FALSE);
+				$msg->delete(false);
 				unset($msg);
 			}
 			qf($r);

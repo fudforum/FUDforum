@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.8 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admstats.php,v 1.9 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 	
 	fud_use('db.inc');
 	fud_use('draw_select_opt.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	
 	list($ses, $usr) = initadm();
 

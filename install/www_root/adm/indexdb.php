@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
+*   $Id: indexdb.php,v 1.4 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,8 +24,8 @@
 	fud_use('isearch.inc');
 	fud_use('fileio.inc');
 	fud_use('rev_fmt.inc');
-	fud_use('adm.inc', TRUE);
-	fud_use('glob.inc', TRUE);
+	fud_use('adm.inc', true);
+	fud_use('glob.inc', true);
 	
 	list($ses, $usr) = initadm();
         

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.7 2002/08/07 12:18:43 hackie Exp $
+*   $Id: tmpllist.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	
 	include_once "GLOBALS.php";
 	fud_use('db.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	list($ses, $usr) = initadm();
 
 function minimize($file)
@@ -117,7 +117,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			fclose($fp);
 			@chmod($f_path,0600);
 			$tmpl_data = $tmpl_data_bk;
-			fud_use('compiler.inc', TRUE);
+			fud_use('compiler.inc', true);
 			$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
 			while ( $obj = db_rowobj($r) )
 				compile_all($obj->theme, $obj->lang, $obj->name);

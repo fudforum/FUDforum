@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.4 2002/09/10 06:40:23 hackie Exp $
+*   $Id: admerr.php,v 1.5 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	include_once "GLOBALS.php";
 	
 	fud_use('db.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	
 	list($ses, $usr) = initadm();
 	

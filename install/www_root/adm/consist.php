@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.15 2002/08/13 09:42:15 hackie Exp $
+*   $Id: consist.php,v 1.16 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,11 +21,11 @@
 	include_once "GLOBALS.php";
 	
 	fud_use('db.inc');
-	fud_use('glob.inc', TRUE);
-	fud_use('adm.inc', TRUE);
-	fud_use('widgets.inc', TRUE);
-	fud_use('ext.inc', TRUE);
-	fud_use('level_adm.inc', TRUE);
+	fud_use('glob.inc', true);
+	fud_use('adm.inc', true);
+	fud_use('widgets.inc', true);
+	fud_use('ext.inc', true);
+	fud_use('level_adm.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
@@ -303,7 +303,7 @@ forum will be disabled.<br><br>
 		++$cnt;
 		$thr = new fud_thread;
 		qobj("SELECT root_msg_id,id,forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id=".$obj->id, $thr);
-		$thr->delete(FALSE);
+		$thr->delete(false);
 		unset($thr);
 	}
 	qf($r);
@@ -316,7 +316,7 @@ forum will be disabled.<br><br>
 		++$cnt;
 		$msg = new fud_msg_edit;
 		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$obj->id, $msg);
-		$msg->delete(FALSE);
+		$msg->delete(false);
 		unset($msg);
 	}
 	qf($r);

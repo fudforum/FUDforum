@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.7 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,9 +25,9 @@
 	fud_use('cookies.inc');
 	fud_use('users.inc');
 	fud_use('ssu.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('util.inc');
-	fud_use('util_adm.inc', TRUE);
+	fud_use('util_adm.inc', true);
 	
 	list($ses, $usr) = initadm();
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.15 2002/09/18 20:43:03 hackie Exp $
+*   $Id: compact.php,v 1.16 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,9 +25,9 @@
 	
 	fud_use('db.inc');
 	fud_use('fileio.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('private.inc');
-	fud_use('glob.inc', TRUE);
+	fud_use('glob.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('replace.inc');

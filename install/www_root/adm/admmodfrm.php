@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.7 2002/07/31 23:26:29 hackie Exp $
+*   $Id: admmodfrm.php,v 1.8 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 	fud_use('cat.inc');
 	fud_use('forum.inc');
 	fud_use('util.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('users.inc');
 	fud_use('rev_fmt.inc');
 	

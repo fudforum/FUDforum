@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admoptimizer.php,v 1.6 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admoptimizer.php,v 1.7 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 	include_once "GLOBALS.php";
 	
 	fud_use('db.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	
 	list($ses, $usr) = initadm();
 
@@ -69,7 +69,7 @@ function optimize_file($file)
 
 	$pos=0;
 	while( $pos = strpos($data, 'function', $pos) ) {
-		if( ($fe = strpos($data, '(', $pos)) === FALSE ) break;
+		if( ($fe = strpos($data, '(', $pos)) === false ) break;
 		
 		$fe_name = trim(substr($data, $pos+9, ($fe-$pos-9)));
 		

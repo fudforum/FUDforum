@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.12 2002/08/19 09:17:08 hackie Exp $
+*   $Id: admimport.php,v 1.13 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 	
 	include_once "GLOBALS.php";
 	fud_use('db.inc');
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('users_reg.inc');
 	
 	list($ses, $usr) = initadm();
@@ -195,7 +195,7 @@ include('admpanel.php');
 		echo "Recompiling Templates<br>\n";
 		flush();
 		
-		fud_use('compiler.inc', TRUE);
+		fud_use('compiler.inc', true);
 		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE enabled='Y'");
 		while ( $obj = db_rowobj($r) )
 			compile_all($obj->theme, $obj->lang, $obj->name);

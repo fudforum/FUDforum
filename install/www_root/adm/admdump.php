@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.14 2002/09/17 09:33:42 hackie Exp $
+*   $Id: admdump.php,v 1.15 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -155,10 +155,10 @@ function sql_is_null($r, $n, $tbl='')
 {
 	if( __dbtype__ == 'pgsql' ) {
 		$res = q_singleval("select a.attnotnull from pg_class c, pg_attribute a WHERE c.relname = '".$tbl."' AND a.attname = '".sql_field_name($r, $n)."' AND a.attnum > 0 AND a.attrelid = c.oid");
-		return ( $res == 't' ? TRUE : FALSE );
+		return ( $res == 't' ? true : false );
 	}
 	else 
-		return ( strstr(mysql_field_flags($r,$n), 'not_null') ? TRUE : FALSE );
+		return ( strstr(mysql_field_flags($r,$n), 'not_null') ? true : false );
 }
 
 include('admpanel.php'); 

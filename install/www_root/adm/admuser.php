@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.11 2002/09/04 01:27:05 hackie Exp $
+*   $Id: admuser.php,v 1.12 2002/09/18 20:52:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,9 +19,9 @@
 	
 	include_once "GLOBALS.php";
 	
-	fud_use('adm.inc', TRUE);
+	fud_use('adm.inc', true);
 	fud_use('users.inc');	
-	fud_use('widgets.inc', TRUE);
+	fud_use('widgets.inc', true);
 	fud_use('util.inc');
 	fud_use('customtags.inc');
 	fud_use('private.inc');
