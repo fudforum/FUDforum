@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.7 2002/11/24 00:19:05 hackie Exp $
+*   $Id: VB2.php,v 1.8 2003/01/06 12:23:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -162,6 +162,11 @@ function append_perm_str($perm, $who)
 	$r = Q2("SELECT *,user.userid AS userid FROM user LEFT JOIN userfield ON user.userid=userfield.userid LEFT JOIN customavatar ON user.userid=customavatar.userid");
 	print_status('Importing '.db_count($r).' Users');
 	while( $obj = db_rowobj($r) ) {
+		if( bq("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->username)."' OR email='".addslashes($obj->email)."'") ) {
+			print_status("\t\tWARNING: Cannot import user ".$obj->username.", user with this email and/or login already exists");
+			continue;
+		}
+	
 		$ppg = $obj->maxposts > 0 ? $obj->maxposts : $VB2SET['maxposts'];
 	
 		if( $obj->avatarid && bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
