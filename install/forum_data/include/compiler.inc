@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.33 2003/06/02 16:28:01 hackie Exp $
+*   $Id: compiler.inc,v 1.34 2003/06/02 19:38:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -389,10 +389,11 @@ function build_msg($file)
 	 */
 	$ts = substr(strstr(dirname($file), '/'), 1);
 	$ts = $GLOBALS['DATA_DIR'] . 'theme/default/i18n/' . $ts . '/msg';
+
+	parse_msgs($file);
 	if (@file_exists($ts)) {
 		parse_msgs($ts);
 	}
-	parse_msgs($file);
 }
 
 function resolve_inc_refs($file)
