@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&o
 post_err_attach_ext:		<font class="ErrorText">Filen du f&ouml;rs&ouml;ker skicka &auml;r inte av till&aring;ten typ.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka fler filer &auml;n vad som &auml;r till&aring;tet.</font><br>
 post_err_passwd:		Fel l&ouml;senord
-post_reply_update:		Svarar p&aring; <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> i {VAR: frm->name}
-post_edit_update:		Editerar <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> i {VAR: frm->name}
-post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Svarar p&aring; <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
+post_edit_update:		Editerar <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
+post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
 postcheck_subj_needed:		Rubrik obligatorisk
@@ -674,7 +674,7 @@ th_err_invid_title:		Felaktigt tr&aring;d-ID
 th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, tr&aring;den du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
 thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
 thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">logga in</a>.
-thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			L&auml;ser tr&aring;den (tr&aring;dad visning) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
@@ -702,7 +702,7 @@ email_title:			Skicka e-post
 finduser_title:			S&ouml;k efter medlemmar
 help_title:			Hjälp
 login_title:			Logga in
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			Unders&ouml;kningseditor
 register_title:			Registrering
 reset_title:			&Aring;terst&auml;ll l&ouml;senord
@@ -710,8 +710,8 @@ rpasswd_title:			&Auml;ndra l&ouml;senord
 error_title:			FEL
 index_title:			V&auml;lkommen till forumet
 search_title:			S&ouml;k {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		E-posten skickad
 remail_email:			Det finns en websida här {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) som du kanske är intresserad av att läsa.\nTråden som jag tänkte att du skulle vara intresserad av, {VAR: thread->subject} hittar du här: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nAv {VAR: u}\n
 poll_add_option:		L&auml;gg till alternativ:
@@ -741,9 +741,9 @@ thr_exch_decline:		godk&auml;nn inte tr&aring;d
 thr_exch_orig_forum:		Ursprungligt forum:
 thr_exch_dest_forum:		Nytt forum:
 thr_exch_no_threads:		Inga tr&aring;dar att granska.
-thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av tr&aring;den <b>{VAR: thr_name}</b> till forumet <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av tr&aring;den <b>{VAR: thr_name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Sänd
-exch_decline_ttl:		Flyttningen av tr&aring;den {VAR: thr_name} till forumet {VAR: frm->name} godk&auml;ndes inte.
+exch_decline_ttl:		Flyttningen av tr&aring;den {VAR: thr_name} till forumet {VAR-HTML: frm->name} godk&auml;ndes inte.
 ppost_original_msg:		meddelande som du skickar vidare eller svarar p&aring;
 split_thread:			Splittra tr&aring;d
 groupmgr_no_user:		Det finns ingen medlem med anv&auml;ndarnamnet "{VAR-HTML: gr_member}"

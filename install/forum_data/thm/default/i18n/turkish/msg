@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin verilen
 post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalýþtýðýnýz dosya tipi izin verilen tipler arasýnda yok.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ýzin verilenden daha fazla dosya yüklemeye çalýþýyorsunuz.</font><br>
 post_err_passwd:		Yanlýþ parola.
-post_reply_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
-post_edit_update:		{VAR: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
-post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a> forumunda yeni tartýþma açýyor.
+post_reply_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> konulu iletiye yanýt yazýyor. 
+post_edit_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
+post_topic_update:		<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda yeni tartýþma açýyor.
 post_error_generic:		Bir hata oluþtu
 postcheck_max_images_err:	Ýleti baþýna en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayýsýný azaltýn.
 postcheck_subj_needed:		Konu bölümü zorunlu
@@ -674,7 +674,7 @@ th_err_invid_title:		Geçersiz zincir ID\'si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalýþtýðýnýz zincir yok.
 thread_err_onlyregview_title:	Sadece kayýtlý kullanýcýlar bu forumu görüntüleyebilir.
 thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">kayýt olmanýz</a>, kayýt olduysanýz <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">giriþ yapmanýz</a> gerekiyor.
-thread_update:			<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a> forumunda dolaþýyor
+thread_update:			<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a> forumunda dolaþýyor
 tree_update:			<a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a> zincirinde dolaþýyor (aðaç görünümü)
 userinfo_update:			<a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a> kullanýcýsýnýn kiþisel bilgilerine bakýyor
 ERR_login_ttl:			HATA: Giriþ yapmamýþ durumdasýnýz			
@@ -702,7 +702,7 @@ email_title:			E-mektup formu
 finduser_title:			Kullanýcý bul
 help_title:			S.S.S.
 login_title:			Giriþ formu
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			Anket düzenleyici
 register_title:			Kayýt formu
 reset_title:			Parolayý yeniden belirle
@@ -710,8 +710,8 @@ rpasswd_title:			Parola deðiþtirme formu
 error_title:			Hata formu
 index_title:			Hoþgeldiniz
 search_title:			Aranacak sözcükler {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		E-mektup gönderildi
 remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: thread->subject}" konulu zincire buradan ulaþabilirsin:\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\nGönderen: {VAR: u}\n
 poll_add_option:		Seçenek Ekle:
@@ -741,9 +741,9 @@ thr_exch_decline:		Reddet
 thr_exch_orig_forum:		Özgün Forum:
 thr_exch_dest_forum:		Hedef Forum:
 thr_exch_no_threads:		Onay bekleyen zincir yok.
-thr_exch_decl_reason:		<b>{VAR: thr_name}</b> zincirinin <b>{VAR: frm->name}</b> forumuna taþýnma isteðinin reddedilme sebebi:
+thr_exch_decl_reason:		<b>{VAR: thr_name}</b> zincirinin <b>{VAR-HTML: frm->name}</b> forumuna taþýnma isteðinin reddedilme sebebi:
 thr_exch_submit:		Gönder
-exch_decline_ttl:		{VAR: thr_name} zincirinin {VAR: frm->name} forumuna taþýnmasý reddedildi.
+exch_decline_ttl:		{VAR: thr_name} zincirinin {VAR-HTML: frm->name} forumuna taþýnmasý reddedildi.
 ppost_original_msg:		yönlendirdiðiniz veya yanýtladýðýnýz ileti
 split_thread:			Zinciri Böl
 groupmgr_no_user:		"{VAR-HTML: gr_member}" kullanýcý isminde bir kullanýcý yok.

@@ -28,7 +28,7 @@ flat_view:			Return to the default flat view
 forum:				Forum:
 forum_icon:			Forum Icon
 forum_new_messages:		New messages
-forum_none_messages:		Only registered forum members can track read & unread messages
+forum_none_messages:		Only registered forum members can track read &amp; unread messages
 forum_old_messages:		No new messages
 from:				From:
 gender:				Gender:
@@ -92,7 +92,7 @@ no_subscribed_forums:		No subscribed forums
 no_subscribed_threads:		No subscribed topics
 no_unread_locked:		This topic has been locked
 no_unread_msg:			This topic has no unread messages
-no_unread_msg_unreg:		The read & unread messages are only tracked for registered users
+no_unread_msg_unreg:		The read &amp; unread messages are only tracked for registered users
 num_pages:			Pages ({VAR: ttl_pg}):
 num_votes:			{VAR: total_votes} vote(s)
 occupation:			Occupation:
@@ -651,7 +651,7 @@ register_err_avatarnotallowed:	The avatar you are trying to upload is not allowe
 register_conf_subject:		Registration Confirmation
 register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
 register_welcome_subject:	Forum Registration Confirmation
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nPassword: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings & profile, go to this page:\n{ROOT}?t=register\n
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nPassword: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nPlease be aware that passwords are case sensitive!\nTo modify your settings &amp; profile, go to this page:\n{ROOT}?t=register\n
 register_err_cantreg_title:	ERROR: unable to register
 regsiter_err_cantreg_msg:	Unable to create user account, please contact the administrator at <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Viewing own profile

@@ -619,9 +619,9 @@ post_err_attach_size:		<font class="ErrorText">Archivo adjunto es demasiado gran
 post_err_attach_ext:		<font class="ErrorText">El archivo que Ud está tratando de subir no corresponde a los tipo de archivo permitidos.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ud esta tratando de subir más archivos de los permitidos.</font><br>
 post_err_passwd:		Clave incorrecta.
-post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR: frm->name}
-post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR: frm->name}
-post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Respondiendo a <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
+post_edit_update:		Editando <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
+post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto
@@ -675,7 +675,7 @@ th_err_invid_title:		ID de hilo de discusión es inválida
 th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
 thread_err_onlyregview_title:	Este foro sólo puede ser visto por usuarios registrados
 thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&{DEF: _RSID}" class="GenLink">ingresar</a>.
-thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_update:			Recorriendo foro <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _RSID}">{VAR: thread->subject}</a>
 userinfo_update:		Viendo el perfil de <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			ERROR: Ud no ha ingresado
@@ -703,7 +703,7 @@ email_title:			Formulario de E-mail
 finduser_title:			Encontrar Usuario
 help_title:			F.A.Q.
 login_title:			Formulario de ingreso
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			Editor de la encuesta
 register_title:			Formulario de registro
 reset_title:			Actualizar Clave
@@ -711,8 +711,8 @@ rpasswd_title:			Formulario de Cambio de Clave
 error_title:			Formulario de error
 index_title:			Bienvenido al foro
 search_title:			Buscar {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		E-mail fue enviado
 remail_email:			Hay una página web en {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) que podría ser de su interés.\nEste es el hilo de discusión que creí que podría interesarle, {VAR: thread->subject} puede encontrarlo aquí: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _RSID}\nDe {VAR: u}\n
 poll_add_option:		Agregar Opción:
@@ -742,9 +742,9 @@ thr_exch_decline:		rechazar hilo de discusión
 thr_exch_orig_forum:		Foro de origen:
 thr_exch_dest_forum:		Foro de destino:
 thr_exch_no_threads:		No hay hilos de discusión esperando aprobación.
-thr_exch_decl_reason:		Razón para rechazar el ingreso del hilo de discusión <b>{VAR: thr_name}</b> en el foro <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Razón para rechazar el ingreso del hilo de discusión <b>{VAR: thr_name}</b> en el foro <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Enviar
-exch_decline_ttl:		Mudanza del hilo de discusión {VAR: thr_name} al foro {VAR: frm->name} fué rechazada.
+exch_decline_ttl:		Mudanza del hilo de discusión {VAR: thr_name} al foro {VAR-HTML: frm->name} fué rechazada.
 ppost_original_msg:		mensaje que está reeenviando o respondiendo
 split_thread:			Dividir Hilo de discusión
 groupmgr_no_user:		No existe un usuario con nombre de usuario "{VAR-HTML: gr_member}"

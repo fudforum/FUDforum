@@ -619,9 +619,9 @@ post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad d
 post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie pokrywa siê z dozwolonymi typami plików.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br>
 post_err_passwd:		Nieprawid³owe has³o.
-post_reply_update:		Odpowiadanie na w±tek <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> na forum {VAR: frm->name}
-post_edit_update:		Edycja wiadomo¶ci <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> na forum {VAR: frm->name}
-post_topic_update:		Tworzenie nowego w±tku na forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Odpowiadanie na w±tek <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
+post_edit_update:		Edycja wiadomo¶ci <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> na forum {VAR-HTML: frm->name}
+post_topic_update:		Tworzenie nowego w±tku na forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Pojawi³ siê pewien b³±d
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
 postcheck_subj_needed:		Temat jest wymagany
@@ -675,7 +675,7 @@ th_err_invid_title:		Nieprawid³owy identyfikator w±tku
 th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który próbujesz obejrzeæ nie istnieje.
 thread_err_onlyregview_title:	Tylko zarejestrowani u¿ytkownicy mog± ogl±daæ to forum
 thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">zalogowaæ siê</a>.
-thread_update:			Przegl±danie forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_update:			Przegl±danie forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Przegl±danie w±tku (widok drzewiasty) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Przegl±danie profilu u¿ytkownika <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			B£¡D: Nie jeste¶ zalogowany
@@ -703,7 +703,7 @@ email_title:			Formularz wysy³ania listu
 finduser_title:			Znajd¼ U¿ytkownika
 help_title:			Pomoc
 login_title:			Formularz logowania
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			Edytor G³osowañ
 register_title:			Formularz rejestracji
 reset_title:			Wyzeruj has³o
@@ -711,8 +711,8 @@ rpasswd_title:			Formularz zmiany has³a
 error_title:			Formularz b³êdu
 index_title:			Witaj na naszym forum
 search_title:			Szukaj {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		List zosta³ wys³any
 remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({ROOT}?t=index), która powinna Cie zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: thread->subject} mo¿e byæ znaleziony tutaj: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\n{VAR: u}\n
 poll_add_option:		Dodaj Opcjê:
@@ -742,9 +742,9 @@ thr_exch_decline:		odrzuæ przeniesienie w±tku
 thr_exch_orig_forum:		Oryginalne Forum:
 thr_exch_dest_forum:		Docelowe Forum:
 thr_exch_no_threads:		Brak w±tków czekaj±cych na akceptacjê.
-thr_exch_decl_reason:		Przyczyna odrzucenia przeniesienia w±tku <b>{VAR: thr_name}</b> na forum <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Przyczyna odrzucenia przeniesienia w±tku <b>{VAR: thr_name}</b> na forum <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Wy¶lij
-exch_decline_ttl:		Przenoszenie w±tku {VAR: thr_name} na forum {VAR: frm->name} zosta³o odrzucone.
+exch_decline_ttl:		Przenoszenie w±tku {VAR: thr_name} na forum {VAR-HTML: frm->name} zosta³o odrzucone.
 ppost_original_msg:		wiadomo¶æ, któr± przesy³asz dalej lub na któr± odpowiadasz
 split_thread:			Podziel w±tek
 groupmgr_no_user:		Nie ma u¿ytkownika o nazwie "{VAR-HTML: gr_member}"
