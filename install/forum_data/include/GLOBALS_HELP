@@ -121,7 +121,7 @@ The maximum number of bytes of private messages that a user can have at a time.}
 {{{ALLOW_SIGS	FUD_OPT_1	32768
 Enable/disable user signatures in posts.}}}
 
-{{{FORUM_CODE_SIG	FUD_OPT_1	"FUD ML\nHTML\nNone"	"131072\n0\n65536"
+{{{FORUM_CODE_SIG	FUD_OPT_1	"FUD ML\nHTML\nNone"	"65536\n0\n131072"
 This setting specifies what kind of text formatting to allow in signatures.}}}
 
 {{{FORUM_SML_SIG	FUD_OPT_1	262144
