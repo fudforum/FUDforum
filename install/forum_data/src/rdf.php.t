@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.5 2003/05/15 18:28:49 hackie Exp $
+*   $Id: rdf.php.t,v 1.6 2003/05/15 18:37:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -345,7 +345,6 @@ function email_format($data)
 					LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					LEFT JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
 					LEFT JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
-					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id=u.id AND mm.forum_id=t.forum_id
 					'.$join.'
 					WHERE
 						' . $lmt . ' ORDER BY ' . $order_by . ' DESC LIMIT ' . qry_limit($limit, $offset));
