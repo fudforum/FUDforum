@@ -99,7 +99,8 @@ num_votes:			{VAR: total_votes} r&ouml;ster
 occupation:			Yrke:
 off:				AV
 on:				P&Aring;
-page_timings:			MySQL-s&ouml;kningar tog {VAR: ttl_time} sekunder<br>Total tid f&ouml;r att skapa sidan: {VAR: page_gen_time} sekunder
+page_timings:			Total tid f&ouml;r att skapa sidan: {VAR: page_gen_time} sekunder
+fud_query_stats:		MySQL-s&ouml;kningar tog {VAR: ttl_time} sekunder<br>
 pm:				Privata meddelanden
 poll:				Unders&ouml;kning:
 post_count:			Antal inl&auml;gg {VAR: u->posted_msg_count}

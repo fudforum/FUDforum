@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.10 2002/07/30 14:34:37 hackie Exp $
+*   $Id: index.php.t,v 1.11 2002/07/30 22:56:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,6 +17,7 @@
 
 /*#? The Forum Display Page*/
 
+	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 function set_collapse($id, $val)
@@ -28,10 +29,8 @@ function set_collapse($id, $val)
 function reload_collapse($str)
 {
 	$arr = explode('_', $str);	
-	$arr_n = count($arr);
-	
-	for ( $i=0; $i<$arr_n; $i++ ) {
-		list($key, $val) = explode(':', $arr[$i]);
+	foreach( $arr as $line ) {
+		list($key, $val) = explode(':', $line);
 		if ( empty($key) ) continue;
 		$GLOBALS['collapse'][$key] = $val;
 	}

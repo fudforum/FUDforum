@@ -98,7 +98,8 @@ num_votes:			{VAR: total_votes} oy
 occupation:			Ýþ:
 off:				kapalý
 on:				açýk
-page_timings:			MySQL eriþimi toplam {VAR: ttl_time} saniye sürdü.<br>Sayfanýn oluþturulmasý toplam {VAR: page_gen_time} saniye sürdü.
+page_timings:			Sayfanýn oluþturulmasý toplam {VAR: page_gen_time} saniye sürdü.
+fud_query_stats:		MySQL eriþimi toplam {VAR: ttl_time} saniye sürdü.<br>
 pm:				Özel Ýletiler
 poll:				Oylama:
 post_count:			Ýleti Sayýsý {VAR: u->posted_msg_count}

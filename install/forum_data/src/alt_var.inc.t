@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: alt_var.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: alt_var.inc.t,v 1.2 2002/07/30 22:56:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,10 +15,16 @@
 *
 ***************************************************************************/
 
-function alt_var()
+function alt_var($key)
 {
-	$key = func_get_arg(0);
-	if ( empty($GLOBALS['_ALTERNATOR_'][$key]) || $GLOBALS['_ALTERNATOR_'][$key] == func_num_args() ) $GLOBALS['_ALTERNATOR_'][$key] = 1;
-	return func_get_arg($GLOBALS['_ALTERNATOR_'][$key]++);
+	if( !isset($GLOBALS['_ALTERNATOR_'][$key]) ) {
+		$GLOBALS['_ALTERNATOR_'][$key]['p'] = 0;
+		$GLOBALS['_ALTERNATOR_'][$key]['t'] = func_num_args()-1;
+		for($i=1;$i<$GLOBALS['_ALTERNATOR_'][$key]['t']+1; $i++ ) $GLOBALS['_ALTERNATOR_'][$key]['v'][] = func_get_arg($i);
+	}
+	else if( $GLOBALS['_ALTERNATOR_'][$key]['p'] == $GLOBALS['_ALTERNATOR_'][$key]['t'] )
+		$GLOBALS['_ALTERNATOR_'][$key]['p'] = 0;
+
+	return $GLOBALS['_ALTERNATOR_'][$key]['v'][$GLOBALS['_ALTERNATOR_'][$key]['p']++];
 }
 ?>

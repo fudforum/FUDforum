@@ -98,7 +98,8 @@ num_votes:			{VAR: total_votes} 选票
 occupation:			职业：
 off:				关闭
 on:				打开
-page_timings:			MySQL 系统花费了{VAR: ttl_time} 秒钟时间<br>生成本页面共花费时间: {VAR: page_gen_time} 秒。
+page_timings:			生成本页面共花费时间: {VAR: page_gen_time} 秒。
+fud_query_stats:		MySQL 系统花费了{VAR: ttl_time} 秒钟时间<br>
 pm:				悄悄话
 poll:				调查:
 post_count:			点击数 {VAR: u->posted_msg_count}

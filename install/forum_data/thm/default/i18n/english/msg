@@ -98,7 +98,8 @@ num_votes:			{VAR: total_votes} vote(s)
 occupation:			Occupation:
 off:				OFF
 on:				ON
-page_timings:			MySQL queries took {VAR: ttl_time} seconds<br>Total time taken to generate the page: {VAR: page_gen_time} seconds
+page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
+fud_query_stats:		MySQL queries took {VAR: ttl_time} seconds<br>
 pm:				Private Messaging
 poll:				Poll:
 post_count:			Post Count {VAR: u->posted_msg_count}

@@ -99,7 +99,8 @@ num_votes:			{VAR: total_votes} g³osów
 occupation:			Zawód:
 off:				Wy³±czone
 on:				W³±czone
-page_timings:			zapytañ MySQL zajê³o {VAR: ttl_time} sekund.<br>£±czny czas generowania strony wyniós³ {VAR: page_gen_time} sekund.
+page_timings:			£±czny czas generowania strony wyniós³ {VAR: page_gen_time} sekund.
+fud_query_stats:		zapytañ MySQL zajê³o {VAR: ttl_time} sekund.<br>
 pm:				Prywatne wiadomo¶ci
 poll:				G³osowanie:
 post_count:			Liczba wiadomo¶ci {VAR: u->posted_msg_count}

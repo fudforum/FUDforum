@@ -363,7 +363,8 @@ p_STICKY:			Angeheftete Beitr&auml;ge
 p_READ:				Read
 p_VISIBLE:                    	Sichtbar
 p_VOTE:				Abstimmen
-page_timings:			MySQL Abfragen ben&ouml;tigten {VAR: ttl_time} Sekunden<br>Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
+page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: page_gen_time} Sekunden
+fud_query_stats:		MySQL Abfragen ben&ouml;tigten {VAR: ttl_time} Sekunden<br>
 permission_denied_msg:		Deine Benutzerrechte gestatten es Dir nicht, den von Dir geplanten Vorgang durchzuf&uuml;hren.
 permission_denied_title:	Zugriff verweigert!
 pm:				Private Messages

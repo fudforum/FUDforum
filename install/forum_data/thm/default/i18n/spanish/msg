@@ -98,7 +98,8 @@ num_votes:			{VAR: total_votes} voto(s)
 occupation:			Ocupación:
 off:				DESACTIVADO
 on:				ACTIVADO
-page_timings:			Las consultas MySQL tomaron {VAR: ttl_time} segundos<br>Tiempo total tomado para generar la página: {VAR: page_gen_time} segundos
+page_timings:			Tiempo total tomado para generar la página: {VAR: page_gen_time} segundos
+fud_query_stats:		Las consultas MySQL tomaron {VAR: ttl_time} segundos<br>
 pm:				Mensajería privada
 poll:				Encuesta:
 post_count:			Total de Mensajes {VAR: u->posted_msg_count}

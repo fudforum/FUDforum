@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.7 2002/07/30 14:34:37 hackie Exp $
+*   $Id: search.php.t,v 1.8 2002/07/30 22:56:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,6 +15,7 @@
 *
 ***************************************************************************/
 
+	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 	if( $GLOBALS['FORUM_SEARCH'] != 'Y' ) std_error('disabled');
@@ -35,16 +36,13 @@
 	if ( !empty($srch) ) {
 		$i = 0;
 		
-		$r = search($srch, $field, $start, $ppg, $forum_limiter);
+		$r = search($srch, $field, $start, $ppg, $forum_limiter, $total);
 		
-		if ( !($total=db_count($r)) ) {
+		if ( !$total )
 			$search_data = '{TEMPLATE: no_search_results}';
-		}
 		else {
-			if( $start && $start<db_count($r) ) db_seek($r,$start);
-		
-			$z=$prev_thread_id=0;
-			while ( ($obj = db_rowobj($r)) && $z<$ppg ) {
+			$prev_thread_id=0;
+			while ( ($obj = db_rowobj($r)) ) {
 				if ( $obj->thread_id != $prev_thread_id ) 
 			
 				$body = strip_tags(read_msg_body($obj->foff, $obj->length, $obj->file_id));
@@ -61,7 +59,6 @@
 			
 				++$i;
 				$search_data .= '{TEMPLATE: search_entry}';
-				$z++;
 			}
 			un_register_fps();
 			qf($r);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.7 2002/07/30 14:34:37 hackie Exp $
+*   $Id: tree.php.t,v 1.8 2002/07/30 22:56:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,6 +15,7 @@
 *
 ***************************************************************************/
 
+	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 	if( !empty($goto) ) {
@@ -151,8 +152,13 @@
 	
 	while ( $obj = db_rowobj($r) ) {
 		$arr[$obj->id] = $obj;
+		$arr[$obj->reply_to]->kiddie_count++;
 		$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
-		if ( $obj->reply_to == 0 ) $tree->kiddies[] = &$arr[$obj->id];
+		
+		if ( $obj->reply_to == 0 ) {
+			$tree->kiddie_count++;
+			$tree->kiddies[] = &$arr[$obj->id];
+		}	
 	}
 	qf($r);
 
@@ -191,15 +197,16 @@ if( @is_array($tree->kiddies) ) {
 
 	reset($tree->kiddies);
 	$stack[0] = &$tree;
+	$stack_cnt = $tree->kiddie_count;
 	$j=0;
 	$lev = 0;
 	
 	$tree_data = '';
 	while (1) {
-		if ( count($stack) < 1 ) break;
-		if ( !isset($cur) ) $cur = &$stack[count($stack)-1];
+		if ( $stack_cnt < 1 ) break;
+		if ( !isset($cur) ) $cur = &$stack[$stack_cnt-1];
 		
-		if( isset($cur->subject) && strlen($cur->subject) && empty($cur->sub_shown) ) {
+		if( isset($cur->subject) && empty($cur->sub_shown) ) {
 			if( $cur->poster_id ) {
 				$user_login = htmlspecialchars(trim_show_len($cur->login,'LOGIN'));
 				$user_login = '{TEMPLATE: reg_user_link}';
@@ -209,8 +216,9 @@ if( @is_array($tree->kiddies) ) {
 				$user_login = '{TEMPLATE: anon_user}';
 			}	
 			
-			$width = 6*($lev-1);				
-			if( isset($cur->kiddies) && count($cur->kiddies) ) {
+			$width = 6*($lev-1);
+				
+			if( isset($cur->kiddies) && $cur->kiddie_count ) {
 				if( $cur->id == $mid )
 					$tree_data .= '{TEMPLATE: tree_branch_selected}';
 				else 
@@ -231,28 +239,23 @@ if( @is_array($tree->kiddies) ) {
 			$cur->sub_shown = 1;
 		}
 		
-		if ( isset($cur->kiddies) && $cur->kiddies ) {
-			if ( empty($cur->kiddie_count) ) {
-				$cur->kiddie_count = count($cur->kiddies);
-				$cur->kiddie_pos = 0;
-			}
-			else {
-				++$cur->kiddie_pos;
-			}
+		if( !isset($cur->kiddie_count) ) $cur->kiddie_count = 0;
+		
+		if ( $cur->kiddie_count && isset($cur->kiddie_pos) )
+			++$cur->kiddie_pos;	
+		else
+			$cur->kiddie_pos = 0;
+		
+		if ( $cur->kiddie_pos < $cur->kiddie_count ) {
+			++$lev;
+			$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
+		}
+		else { // unwind the stack if needed
+			unset($stack[--$stack_cnt]);
+			--$lev;
 		}
 		
-		if ( isset($cur->kiddie_pos) && isset($cur->kiddie_count) && $cur->kiddie_pos < $cur->kiddie_count ) {
-			++$lev;
-			$stack[count($stack)] = &$cur->kiddies[$cur->kiddie_pos];
-			unset($cur);
-			continue;
-		}
-		else { /* unwind the stack if needed */
-			unset($cur);
-			unset($stack[count($stack)-1]);
-			--$lev;
-			continue;
-		}
+		unset($cur);
 	}
 }
 	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));

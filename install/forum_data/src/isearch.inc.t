@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.9 2002/07/29 23:32:30 hackie Exp $
+*   $Id: isearch.inc.t,v 1.10 2002/07/30 22:56:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -129,7 +129,7 @@ function re_build_index()
 	if ( $ll ) db_unlock();
 }
 
-function search($str, $fld, $start, $count, $forum_limiter='')
+function search($str, $fld, $start, $count, $forum_limiter='', &$total)
 {
 	$w = explode(" ", $str);
 	$qr = '';
@@ -155,7 +155,7 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 	
 	if( !db_count($r) ) return $r;
 	$qr='';
-	while( list($id) = DB_ROWARR($r) ) $qr .= $id.',';
+	while( list($id) = db_rowarr($r) ) $qr .= $id.',';
 	QF($r);
 	
 	$qr = $field.".word_id IN ( ".substr($qr, 0, -1).")";
@@ -195,13 +195,15 @@ function search($str, $fld, $start, $count, $forum_limiter='')
 		".$field.".msg_id 
 	ORDER BY rev_match DESC");
 	
-	if ( !db_count($r) ) return $r;
+	if ( !($total=db_count($r)) ) return $r;
 	
 	$idlist = '';
 	$wc = count($qry_uniq);
 	
+	$i=0;
+	db_seek($r, $start);
 	while ( $obj = db_rowobj($r) ) {
-		if( $GLOBALS['LOGIC'] == 'AND' && $wc > $obj->rev_match ) continue;
+		if( ($GLOBALS['LOGIC'] == 'AND' && $wc > $obj->rev_match) || ($i++ > $count) ) break;
 		$idlist .= $obj->msg_id.',';
 	}
 	qf($r);
