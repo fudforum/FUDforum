@@ -299,7 +299,7 @@ register_location:		Географическое положение:
 register_occupation:		Род деятельности:
 register_interests:		Интересы:
 register_image:			Картинка:
-register_icq:			Номер ICQ:
+ICQ
 register_aim:			Псевдоним AIM:
 register_yahoo:			Сеть сообщений Yahoo:
 register_msnm:			Сеть сообщений MSN:
@@ -340,8 +340,7 @@ buddy_status:			Статус
 my_buddies:			Список контактов
 add_buddy:			Добавить в список контактов
 add:				Добавить
-buddy_search:			Введите имя пользователя, которого вы хотите добавить в список,<br>или воспользуйтесь <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">Поиском пользователя</a> для его поиска.
-buddy_remove:			удалить
+Enter the login of the user you wish to add.buddy_remove:			удалить
 post_normal:			Нормальный
 post_sticky:			Стикер
 post_annoncement:		Анонс
@@ -536,8 +535,8 @@ tabs_referrals:			Приглашенные
 tabs_buddy_list:		Список контактов
 tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
-single_msg_delete:		Вы собираетесь <font color="#ff0000" size="4">УДАЛИТЬ</font> сообщение на теме: <b>{VAR: msg->subject}</b><p>
-thread_delete:			Вы собираетесь <font color="#ff0000" size="4">ПОЛНОСТЬЮ УДАЛИТЬ ТЕМУ</font>, озаглавленную: <b>{VAR: msg->subject}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b></font>
 delete_yes:			Да
 delete_no:			Нет

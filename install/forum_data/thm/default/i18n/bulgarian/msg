@@ -301,7 +301,7 @@ register_location:		Местоживеене:
 register_occupation:		Професия:
 register_interests:		Интереси:
 register_image:			Изображение:
-register_icq:			ICQ номер:
+ICQ
 register_aim:			AIM :
 register_yahoo:			Yahoo:
 register_msnm:			MSN:
@@ -342,8 +342,7 @@ buddy_status:			Статут
 my_buddies:			Контактна листа
 add_buddy:			Добави в контактната листа
 add:				Добави
-buddy_search:			Въведи потребителското име на човека, когото желаеш да добавиш в листата.<br>Или използвай <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">Търси потребителя</a> опцията за намиране на определен човек.
-buddy_remove:			Премахни
+Enter the login of the user you wish to add.buddy_remove:			Премахни
 post_normal:			Нормален
 post_sticky:			Табелка
 post_annoncement:		Официално съобщение
@@ -538,8 +537,8 @@ tabs_referrals:			Реферали
 tabs_buddy_list:		Контактна листа
 tabs_ignore_list:		Листа на игнорираните
 tabs_private_messaging:		Лична поща
-single_msg_delete:		Смяташ да <font color="#ff0000" size="4">ИЗТРИЕШ</font> съобщение по темата: <b>{VAR: msg->subject}</b><p>
-thread_delete:			Смяташ да <font color="#ff0000" size="4">ПРЕМАХНЕШ НАПЪЛНО ТЕМАТА</font>, със заглавие: <b>{VAR: msg->subject}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Наистина ли искаш да продължиш?</b></font>
 delete_yes:			Да
 delete_no:			Не

@@ -299,7 +299,7 @@ register_location:		Miejsce zamieszkania:
 register_occupation:		Zawód:
 register_interests:		Zainteresowania:
 register_image:			Adres obrazka:
-register_icq:			Numer ICQ:
+ICQ
 register_aim:			Pseudonim AIM:
 register_yahoo:			Komunikator Yahoo:
 register_msnm:			Komunikator MSN:
@@ -340,8 +340,7 @@ buddy_status:			Status
 my_buddies:			Moi Znajomi
 add_buddy:			Dodawanie Znajomych
 add:				Dodaj
-buddy_search:			Wprowad¼ nazwê u¿ytkownika, którego chcesz dodaæ.<br>Mo¿esz tak¿e skorzystaæ z funkcji <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">Znajd¼ U¿ytkownika</a>, aby znale¼æ osobê.
-buddy_remove:			usuñ
+Enter the login of the user you wish to add.buddy_remove:			usuñ
 post_normal:			Normalna
 post_sticky:			Przyczepiona
 post_annoncement:		Og³oszenie
@@ -536,8 +535,8 @@ tabs_referrals:			Osoby polecone
 tabs_buddy_list:		Lista znajomych
 tabs_ignore_list:		Lista ignorowanych
 tabs_private_messaging:		Prywatne wiadomo¶ci
-single_msg_delete:		Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> wiadomo¶æ o temacie: <b>{VAR: msg->subject}</b><p>
-thread_delete:			Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> <font color="#ff0000" size="4">CA£Y W¡TEK</font> o temacie: <b>{VAR: msg->subject}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Czy chcesz kontynuowaæ?</b></font>
 delete_yes:			Tak
 delete_no:			Nie
