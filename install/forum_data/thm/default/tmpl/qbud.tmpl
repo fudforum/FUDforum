@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.12 2004/10/29 18:45:44 hackie Exp $
+* $Id: qbud.tmpl,v 1.13 2004/11/08 16:45:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,11 +20,11 @@
 {SECTION: END}
 
 {SECTION: buddy_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td class="ac"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{FUNC: ($all ? ' checked' : '')}></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td class="ac"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{IF: $all} checked{ENDIF}></td></tr>
 {SECTION: END}
 
 {SECTION: buddy_list}
-<tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{VAR: all_d}</a>]</th></tr>
+<tr><th class="wa">{MSG: qbud_nick_name}</th><th class="nw">{MSG: qbud_selected} [<a class="thLnk" href="{TEMPLATE: buddy_list_lnk}">{IF: $all}{TEMPLATE: pmsg_none}{ELSE}{TEMPLATE: pmsg_all}{ENDI}</a>]</th></tr>
 {TEMPLATE-DATA: buddies}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText ar"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
 {SECTION: END}
@@ -33,11 +33,12 @@
 {TEMPLATE: header_plain}
 <form action="{TEMPLATE: QBUD_PAGE_lnk3}" name="qbud" method="post">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: qbud_data}
+{IF: $buddies}{TEMPLATE: buddy_list}{ELSE}{TEMPLATE: no_buddies}{END}
 </table>
 </form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
+
 {SECTION: pmsg_none}
 {MSG: pmsg_none}
 {SECTION: END}
@@ -47,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: buddy_list_lnk}
-{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={VAR: all_v}
+{ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={IF: $all}{ELSE}1{ENDI}
 {SECTION: END}
 
 {SECTION: QBUD_PAGE_lnk3}

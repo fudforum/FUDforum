@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.6 2004/01/04 16:38:32 hackie Exp $
+* $Id: qbud.tmpl,v 1.7 2004/11/08 16:45:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: buddy_list_lnk}
-{ROOT}/qb/1/{DEF: _rsid}
+{ROOT}/qb/{IF: $all}{ELSE}1{ENDI}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: QBUD_PAGE_lnk3}

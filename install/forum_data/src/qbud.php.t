@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.php.t,v 1.18 2004/10/29 18:45:43 hackie Exp $
+* $Id: qbud.php.t,v 1.19 2004/11/08 16:45:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 		std_error('login');
 	}
 
-	$all = !empty($_GET['all']) ? 1 : 0;
+	$all = !empty($_GET['all']);
 
 	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = addcslashes(implode(';', $_POST['names']), '"\\');
@@ -40,18 +40,10 @@ window.close();
 /*{POST_HTML_PHP}*/
 
 	$buddies = '';
-	if ($all) {
-		$all_v = '';
-		$all_d = '{TEMPLATE: pmsg_none}';
-	} else {
-		$all_v = '1';
-		$all_d = '{TEMPLATE: pmsg_all}';
-	}
 	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid.' AND b.user_id>1');
 	while ($r = db_rowarr($c)) {
 		$buddies .= '{TEMPLATE: buddy_entry}';
 	}
-	$qbud_data = $buddies ? '{TEMPLATE: buddy_list}' : '{TEMPLATE: no_buddies}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

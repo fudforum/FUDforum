@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.137 2004/10/25 16:32:20 hackie Exp $
+* $Id: users.inc.t,v 1.138 2004/11/08 16:45:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -465,7 +465,7 @@ function init_user()
 
 			case 'qb':
 				$_GET['t'] = 'qbud';
-				if (isset($p[1])) {
+				if (!empty($p[1])) {
 					$_GET['all'] = 1;
 				}
 				break;
