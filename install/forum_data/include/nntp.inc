@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.55 2004/12/08 16:22:28 hackie Exp $
+* $Id: nntp.inc,v 1.56 2004/12/13 23:46:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -171,7 +171,7 @@ class fud_nntp
 		foreach($hdr as $v) {
 			$hk = substr($v, 0, ($p = strpos($v, ':')));
 			// Skip non-valid header lines
-			if (empty($hk) || ($v[++$p] != ' ' && $v[$p] != "\t")) {
+			if (empty($hk) || (isset($v[++$p]) && $v[$p] != ' ' && $v[$p] != "\t")) {
 				continue;
 			}
 
