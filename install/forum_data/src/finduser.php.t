@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.33 2003/11/21 15:45:59 hackie Exp $
+* $Id: finduser.php.t,v 1.34 2003/11/21 16:27:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,6 +79,11 @@
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}
 
+	if ($FUD_OPT_2 & 32768) {
+		$ul = $usr_login ? urlencode($usr_login) : 0;
+		$ue = $usr_email ? urlencode($usr_email) : 0;
+	}
+
 	$pager = '';
 	if (!$qry) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users ' . $qry);
@@ -95,19 +100,13 @@
 
 				$pg2 = '';
 
-				if ($usr_login) {
-					$pg2 .= ($usr_login ? urlencode($usr_login) : 0) . '/';
-				} else if ($usr_email) {
-					$pg2 .= '/' . ($usr_email ? urlencode($usr_email) : 0) . '/';
-				}
+				$pg2 .= ($usr_login ? urlencode($usr_login) : 0) . '/';
+				$pg2 .= ($usr_email ? urlencode($usr_email) : 0) . '/';
+
 				if (isset($_GET['js_redr'])) {
-					$pg2 .= '/';
+					$pg2 .= '1/';
 				}
-				if ($pg2) {
-					$pg2 .= _rsid;
-				} else {
-					$pg2 = '/' . _rsid;
-				}
+				$pg2 .= _rsid;
 
 				$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
 			} else {
