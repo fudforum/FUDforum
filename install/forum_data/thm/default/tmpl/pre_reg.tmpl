@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pre_reg.tmpl,v 1.7 2003/10/10 13:45:01 hackie Exp $
+* $Id: pre_reg.tmpl,v 1.8 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,7 +20,7 @@
 {PAGE: PREREG_PAGE forum rules to which a user must agree prior to registering}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{ROOT}?t=pre_reg" name="sub">{DEF: _hs}
+<form method="post" action="{TEMPLATE: PREREG_PAGE_lnk3}" name="sub">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: prereg_info}</th></tr>
 <tr class="RowStyleA" align="center"><td class="GenText">{VAR: msg_file}
@@ -39,4 +39,8 @@
 
 {SECTION: forum_rules}
 {MSG: forum_rules}
+{SECTION: END}
+
+{SECTION: PREREG_PAGE_lnk3}
+{ROOT}?t=pre_reg
 {SECTION: END}

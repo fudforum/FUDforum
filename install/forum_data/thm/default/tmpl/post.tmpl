@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.29 2003/10/10 14:31:51 hackie Exp $
+* $Id: post.tmpl,v 1.30 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -121,7 +121,7 @@
 <tr class="RowStyleA" align="center">
 	<td class="GenText">
 		{MSG: post_moderated_forum}
-		<br /><br /><form action="{ROOT}?t=post" method="post">{DEF: _hs}
+		<br /><br /><form action="{TEMPLATE: moderated_forum_post_lnk3}" method="post">{DEF: _hs}
 		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
 		<input type="hidden" name="moderated_redr" value="1">
 		</form>
@@ -136,7 +136,7 @@
 {PAGE: POST_PAGE message posting form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form action="{ROOT}?t=post" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+<form action="{TEMPLATE: POST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
@@ -392,4 +392,12 @@
 
 {SECTION: edit_poll_lnk1}
 {ROOT}?t=poll&amp;{DEF: _rsid}&amp;pl_id={VAR: poll[0]}&amp;frm_id={VAR: frm->id}
+{SECTION: END}
+
+{SECTION: moderated_forum_post_lnk3}
+{ROOT}?t=post
+{SECTION: END}
+
+{SECTION: POST_PAGE_lnk3}
+{ROOT}?t=post
 {SECTION: END}

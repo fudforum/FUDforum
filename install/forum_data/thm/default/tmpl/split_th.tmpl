@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.tmpl,v 1.9 2003/10/09 14:34:28 hackie Exp $
+* $Id: split_th.tmpl,v 1.10 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,7 +48,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form name="split_th" action="{ROOT}?t=split_th" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
+<form name="split_th" action="{TEMPLATE: SPLIT_TH_PAGE_lnk3}" method="post">{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width="100%" colspan=2>{MSG: split_cp}</th></tr>
 <tr class="RowStyleA">
@@ -92,4 +92,8 @@
 {SECTION: END}
 
 {SECTION: sel_opt_selected}
+{SECTION: END}
+
+{SECTION: SPLIT_TH_PAGE_lnk3}
+{ROOT}?t=split_th
 {SECTION: END}

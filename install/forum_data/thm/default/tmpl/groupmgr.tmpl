@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.13 2003/10/10 14:20:16 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.14 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -29,7 +29,7 @@
 
 {SECTION: group_selection allows group manager to choose which group to edit}
 <br /><br />
-<form method="post" action="{ROOT}?t=groupmgr">
+<form method="post" action="{TEMPLATE: group_selection_lnk3}">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: group_mgr_heading}</th></tr>
 <tr class="RowStyleA">
@@ -45,7 +45,7 @@
 <br />
 {TEMPLATE-DATA: indicator}
 <br />
-<form method="post" action="{ROOT}?t=groupmgr" name="groupmgr">
+<form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: member_input}
 <tr class="RowStyleB">
@@ -282,4 +282,12 @@
 
 {SECTION: group_const_entry_lnk}
 {ROOT}?t=groupmgr&amp;{DEF: _rsid}&amp;edit={VAR: obj->mmid}&amp;group_id={VAR: obj->group_id}
+{SECTION: END}
+
+{SECTION: group_selection_lnk3}
+{ROOT}?t=groupmgr
+{SECTION: END}
+
+{SECTION: group_control_panel_lnk3}
+{ROOT}?t=groupmgr
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.15 2003/10/10 14:20:16 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.16 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -58,7 +58,7 @@
 {TEMPLATE-DATA: tabs}
 {TEMPLATE-DATA: ignore_list}
 <br /><br />
-<form name="buddy_add" action="{ROOT}?t=ignore_list" method="post">{DEF: _hs}<div align="center">
+<form name="buddy_add" action="{TEMPLATE: IGNORELIST_PAGE_lnk3}" method="post">{DEF: _hs}<div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th nowrap>{MSG: add_ignore}</th></tr>
 <tr class="RowStyleA">
@@ -120,4 +120,8 @@
 
 {SECTION: ignore_anon_user_lnk}
 {ROOT}?t=ignore_list&amp;del={VAR: r[1]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: IGNORELIST_PAGE_lnk3}
+{ROOT}?t=ignore_list
 {SECTION: END}

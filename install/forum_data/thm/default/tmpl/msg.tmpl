@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.25 2003/10/10 13:58:18 hackie Exp $
+* $Id: msg.tmpl,v 1.26 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -80,7 +80,7 @@
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
-<table border=0 cellspacing=0 cellpadding=0><tr><form action="{ROOT}?t=ratethread" name="vote_frm" method="post"><td nowrap>
+<table border=0 cellspacing=0 cellpadding=0><tr><form action="{TEMPLATE: rate_thread_lnk3}" name="vote_frm" method="post"><td nowrap>
 <select name="sel_vote" onChange="javascript: if ( !this.value ) return false; document.vote_frm.submit();">
 <option>{MSG: rate_thread}</option>
 <option value="1">1 {MSG: rate_worst}</option>
@@ -217,4 +217,8 @@ window.location.hash = "{VAR: mid}";
 
 {SECTION: msg_xml_link_lnk}
 {ROOT}?t=help_index&amp;section=boardusage#syndicate
+{SECTION: END}
+
+{SECTION: rate_thread_lnk3}
+{ROOT}?t=ratethread
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.4 2003/10/09 14:34:27 hackie Exp $
+* $Id: mklist.tmpl,v 1.5 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,7 +24,7 @@
 
 {PAGE: MKLIST_PAGE a popup assistant for creating lists using FUDcode}
 {TEMPLATE: header_plain}
-<form name="list" method="post" action="{ROOT}?t=mklist">
+<form name="list" method="post" action="{TEMPLATE: MKLIST_PAGE_lnk3}">
 <table border=0 cellspacing=2 cellpadding=0 width="99%" class="dashed">
 <tr>
 	<td>{MSG: mklist_type}</td>
@@ -81,4 +81,8 @@
 
 {SECTION: mklist_circle}
 {MSG: mklist_circle}
+{SECTION: END}
+
+{SECTION: MKLIST_PAGE_lnk3}
+{ROOT}?t=mklist
 {SECTION: END}

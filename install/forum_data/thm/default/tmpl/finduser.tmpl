@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.24 2003/10/10 14:20:16 hackie Exp $
+* $Id: finduser.tmpl,v 1.25 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,7 +26,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form method="get" action="{ROOT}">{DEF: _hs}
+<form method="get" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
 <tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td></tr>
@@ -123,4 +123,8 @@
 
 {SECTION: action_field_lnk}
 {ROOT}?t=showposts&amp;id={VAR: r->id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: FINDUSER_PAGE_lnk3}
+{ROOT}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.tmpl,v 1.2 2003/10/09 14:34:27 hackie Exp $
+* $Id: merge_th.tmpl,v 1.3 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,7 +28,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <br />{TEMPLATE-DATA: admin_cp}
-<form name="merge_th" action="{ROOT}?t=merge_th" method="post">{DEF: _hs}
+<form name="merge_th" action="{TEMPLATE: MERGE_TH_PAGE_lnk3}" method="post">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width="100%" colspan=2>{MSG: merge_topics_cp}</th></tr>
 <tr class="RowStyleA">
@@ -67,4 +67,8 @@
 
 {SECTION: sel_opt_selected}
 <option value="{VAR: r[0]}" selected>{VAR: r[1]}</option>
+{SECTION: END}
+
+{SECTION: MERGE_TH_PAGE_lnk3}
+{ROOT}?t=merge_th
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.7 2003/10/10 14:20:16 hackie Exp $
+* $Id: qbud.tmpl,v 1.8 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,7 +31,7 @@
 
 {PAGE: QBUD_PAGE buddy selector popup}
 {TEMPLATE: header_plain}
-<form action="{ROOT}?t=qbud" name="qbud" method="post">{DEF: _hs}
+<form action="{TEMPLATE: QBUD_PAGE_lnk3}" name="qbud" method="post">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: qbud_data}
 </table>
@@ -48,4 +48,8 @@
 
 {SECTION: buddy_list_lnk}
 {ROOT}?t=qbud&amp;{DEF: _rsid}&amp;all={VAR: all_v}
+{SECTION: END}
+
+{SECTION: QBUD_PAGE_lnk3}
+{ROOT}?t=qbud
 {SECTION: END}

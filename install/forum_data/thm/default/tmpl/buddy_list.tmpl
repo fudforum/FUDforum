@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.17 2003/10/10 14:20:16 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.18 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -68,7 +68,7 @@
 {TEMPLATE-DATA: tabs}
 {TEMPLATE-DATA: buddies}
 <br /><br />
-<form name="buddy_add" action="{ROOT}?t=buddy_list" method="post">{DEF: _hs}<div align="center">
+<form name="buddy_add" action="{TEMPLATE: BUDDYLIST_PAGE_lnk3}" method="post">{DEF: _hs}<div align="center">
 <table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th nowrap>{MSG: add_buddy}</th></tr>
 <tr class="RowStyleA">
@@ -126,4 +126,8 @@
 
 {SECTION: buddy_lnk2}
 {ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[1]}
+{SECTION: END}
+
+{SECTION: BUDDYLIST_PAGE_lnk3}
+{ROOT}?t=buddy_list
 {SECTION: END}

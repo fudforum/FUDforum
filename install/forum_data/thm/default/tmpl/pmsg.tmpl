@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.14 2003/10/10 14:20:16 hackie Exp $
+* $Id: pmsg.tmpl,v 1.15 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -92,7 +92,7 @@
 {TEMPLATE: pmsg_disk_usage}
 <div align="right"><a class="GenLink" href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div><img src="blank.gif" alt="" width=1 height=2 />
 {TEMPLATE-DATA: tabs}
-<form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
+<form action="{TEMPLATE: PMSG_PAGE_lnk3}" method="post" name="priv_frm">{DEF: _hs}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB"><td colspan=6 class="GenText" align="right">
 {MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">
@@ -226,4 +226,8 @@
 
 {SECTION: PMSG_PAGE_lnk1}
 {ROOT}?t=pmsg&amp;folder_id={VAR: folder_id}&amp;{DEF: _rsid}&amp;all={VAR: all_v}
+{SECTION: END}
+
+{SECTION: PMSG_PAGE_lnk3}
+{ROOT}?t=pmsg
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.14 2003/10/10 13:58:18 hackie Exp $
+* $Id: search.tmpl,v 1.15 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -67,7 +67,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-<form method="get" action="{ROOT}">{DEF: _hs}<input type="hidden" name="t" value="search">
+<form method="get" action="{TEMPLATE: SEARCH_PAGE_lnk3}">{DEF: _hs}<input type="hidden" name="t" value="search">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=3 width="100%">{MSG: search_forum_search}</th></tr>
 <tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText">{MSG: search_for}</td><td colspan=2><input type="text" name="srch" value="{VAR-HTML: srch}"></td></tr>
@@ -138,4 +138,8 @@
 
 {SECTION: registered_poster_lnk}
 {ROOT}?t=usrinfo&amp;id={VAR: r->poster_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: SEARCH_PAGE_lnk3}
+{ROOT}
 {SECTION: END}

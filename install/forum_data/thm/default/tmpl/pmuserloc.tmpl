@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.tmpl,v 1.7 2003/10/09 14:34:27 hackie Exp $
+* $Id: pmuserloc.tmpl,v 1.8 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,7 +17,7 @@
 
 {PAGE: PMUSERLOC_PAGE find user popup used by private message post form}
 {TEMPLATE: header_plain}
-<form action="{ROOT}" method="get">{DEF: _hs}
+<form action="{TEMPLATE: PMUSERLOC_PAGE_lnk3}" method="get">{DEF: _hs}
 <table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
 <tr>
 	<td>{MSG: pmuserloc_login}</td>
@@ -51,4 +51,8 @@
 
 {SECTION: no_result_entry}
 <tr><td colspan=2>{MSG: pmuserloc_no_result}</td>
+{SECTION: END}
+
+{SECTION: PMUSERLOC_PAGE_lnk3}
+{ROOT}
 {SECTION: END}

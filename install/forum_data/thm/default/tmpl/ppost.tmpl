@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.25 2003/10/10 14:33:26 hackie Exp $
+*   $Id: ppost.tmpl,v 1.26 2003/10/10 14:39:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -95,7 +95,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: cur_ppage}
 {TEMPLATE-DATA: tabs}
-<form action="{ROOT}?t=ppost" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
+<form action="{TEMPLATE: PPOST_PAGE_lnk3}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true; document.post_form.btn_draft.disabled = true;">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
@@ -199,4 +199,8 @@
 
 {SECTION: PPOST_PAGE_lnk2}
 {ROOT}?t=qbud&amp;{DEF: _rsid}&amp;1=1
+{SECTION: END}
+
+{SECTION: PPOST_PAGE_lnk3}
+{ROOT}?t=ppost
 {SECTION: END}

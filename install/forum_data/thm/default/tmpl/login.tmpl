@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.13 2003/10/10 14:20:16 hackie Exp $
+* $Id: login.tmpl,v 1.14 2003/10/10 14:39:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,7 +23,7 @@
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{ROOT}?t=login">
+<form method="post" action="{TEMPLATE: LOGIN_PAGE_lnk3}">
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=3>{MSG: login_title}</th></tr>
@@ -103,4 +103,8 @@
 
 {SECTION: LOGIN_PAGE_lnk1}
 {ROOT}?t=reset&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: LOGIN_PAGE_lnk3}
+{ROOT}?t=login
 {SECTION: END}
