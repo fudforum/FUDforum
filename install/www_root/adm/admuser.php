@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.21 2003/04/23 17:18:29 hackie Exp $
+*   $Id: admuser.php,v 1.22 2003/04/23 17:21:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -253,7 +253,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo '<tr bgcolor="#f1f1f1"><td>Birthday:</td><td>' . strftime('%B, %d, %Y', strtotime($u->bday)) . '</td></tr>';
 	}
 
-	echo '<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
+	echo '<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->is_mod != 'A' ? 'N' : '<b><font size="+2" color="red">Y</font>').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Blocked:</td><td>'.$u->blocked.' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.$u->email_conf.' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
