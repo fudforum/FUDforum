@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.21 2003/05/12 14:59:13 hackie Exp $
+*   $Id: db.inc,v 1.22 2003/05/16 10:46:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,8 +15,36 @@
 *
 ***************************************************************************/
 
-if (!function_exists('fud_sql_error_handler')) {
-	fud_use('err.inc'); 
+function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
+{
+	if (db_locked()) {
+		if ((__dbtype__ == 'mysql' && $query != 'UNLOCK TABLES') || (__dbtype__ == 'pgsql' && $query != 'COMMIT WORK')) {
+			db_unlock();
+		}
+	}
+
+	if (!isset($_SERVER['PATH_TRANSLATED'])) {
+		$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
+	}
+
+	$error_msg = "(".basename($_SERVER['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
+	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
+	$error_msg .= "Server Version: ".$server_version."<br />\n";
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
+	}
+
+	if (!error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors')) {
+		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
+		echo $error_msg;
+	} else {
+		if (defined('forum_debug') || (_uid && $GLOBALS['usr']->is_mod == 'A')) {
+			echo $error_msg;
+		} else {
+			trigger_error('SQL Error has occurred, please contact the <a href="mailto:'.$GLOBALS['ADMIN_EMAIL'].'?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log', E_USER_ERROR);
+		}
+	}
+	exit;
 }
 
 if (!defined('FUD_SQL_LNK')) {
