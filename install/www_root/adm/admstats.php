@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.24 2004/01/04 16:38:32 hackie Exp $
+* $Id: admstats.php,v 1.25 2004/02/03 00:15:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,7 +48,7 @@ function get_sql_disk_usage()
 	}
 
 	$sql_size = 0;
-	$c = uq('SHOW TABLE STATUS FROM '.$GLOBALS['DBHOST_DBNAME'].' LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
+	$c = uq('SHOW TABLE STATUS FROM `'.$GLOBALS['DBHOST_DBNAME'].'` LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
 	while ($r = db_rowobj($c)) {
 		$sql_size += $r->Data_length + $r->Index_length;
 	}
