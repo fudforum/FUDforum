@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.17 2003/05/07 23:13:48 hackie Exp $
+*   $Id: search.php.t,v 1.18 2003/05/15 18:53:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,7 +43,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			break;
 		}
 		$qu[$v] = $v;
-		$qr .= " '".$v."',";
+		$qr .= " '".addslashes($v)."',";
 	}
 	if (!$qr) {
 		return;
