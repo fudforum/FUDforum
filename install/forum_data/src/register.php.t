@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.112 2004/04/02 18:24:18 hackie Exp $
+* $Id: register.php.t,v 1.113 2004/04/05 21:03:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,19 +11,6 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-
-/* Create a list of available themes */
-function create_theme_select($name, $def=null)
-{
-	$theme_select_values = '';
-	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
-	while ($t = db_rowarr($r)) {
-		$selected = $t[0] == $def ? ' selected' : '';
-		$theme_select_values .= '{TEMPLATE: theme_select_value}';
-	}
-
-	return '{TEMPLATE: theme_select}';
-}
 
 function fetch_img($url, $user_id)
 {
@@ -49,11 +36,6 @@ function fetch_img($url, $user_id)
 }
 	/* intialize error status */
 	$GLOBALS['error'] = 0;
-
-function check_passwd($id, $passwd)
-{
-	return q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$id." AND passwd='".md5($passwd)."'");
-}
 
 function sanitize_url($url)
 {
@@ -91,7 +73,7 @@ function register_form_check($user_id)
 
 		$_POST['reg_plaintext_passwd'] = trim($_POST['reg_plaintext_passwd']);
 
-		if (strlen($_POST['reg_plaintext_passwd']) < 6 ) {
+		if (strlen($_POST['reg_plaintext_passwd']) < 6) {
 			set_err('reg_plaintext_passwd', '{TEMPLATE: register_err_shortpasswd}');
 		}
 
@@ -122,7 +104,7 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (empty($_POST['reg_confirm_passwd']) || !check_passwd((!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id), $_POST['reg_confirm_passwd'])) {
+		if (empty($_POST['reg_confirm_passwd']) || !q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".(!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id)." AND passwd='".md5($_POST['reg_confirm_passwd'])."'")) {
 			if (!empty($_POST['mod_id'])) {
 				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
 			} else {
@@ -778,7 +760,13 @@ function decode_uent(&$uent)
 
 	$post_options = tmpl_post_options('sig');
 
-	$theme_select = create_theme_select('reg_theme', $reg_theme);
+	$theme_select = '';
+	$r = uq("SELECT id, name FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=1 AND (theme_opt & 1) > 0 ORDER BY ((theme_opt & 2) > 0) DESC");
+	while ($t = db_rowarr($r)) {
+		$selected = $t[0] == $reg_theme ? ' selected' : '';
+		$theme_select .= '{TEMPLATE: theme_select_value}';
+	}
+	$theme_select = '{TEMPLATE: theme_select}';
 
 	$views[384] = '{TEMPLATE: register_flat_view}';
 	if (!($FUD_OPT_3 & 2)) {
