@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: help_index.php.t,v 1.3 2003/04/20 10:45:19 hackie Exp $
+*   $Id: help_index.php.t,v 1.4 2003/08/04 17:08:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,7 +48,13 @@
 		$end_of_str = strstr($str, 'TOPIC_TITLE:');
 		$topic_help = substr($str, 0, strlen($str)-strlen($end_of_str));
 		$str = $end_of_str;
-		$topic_help = str_replace('%_rsid%', _rsid, $topic_help);
+		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+			$rs = str_replace('/', '&amp;', _rsid);
+		} else {
+			$rs = _rsid;
+		}
+		$topic_help = str_replace('%_rsid%', $rs, $topic_help);
+		
 		$help_section_data .= '{TEMPLATE: help_section}';
 	}
 /*{POST_PAGE_PHP_CODE}*/
