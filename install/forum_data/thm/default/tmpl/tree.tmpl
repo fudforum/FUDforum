@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.16 2002/10/09 22:45:39 hackie Exp $
+*   $Id: tree.tmpl,v 1.17 2002/10/28 22:32:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,6 +32,7 @@
 {REF: alt_var.tmpl}
 {REF: is_perms.tmpl}
 {REF: show.tmpl}
+{REF: th_nav.tmpl}
 
 {SECTION: tree_unread_message new message}
 <img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 alt="{MSG: unread_message}" title="{MSG: unread_message}" />
@@ -89,11 +90,11 @@
 {SECTION: END}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=tree&amp;goto={VAR: next_th->msg_id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
+<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=tree&amp;goto={VAR: next_th->id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=tree&amp;goto={VAR: prev_th->msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
+<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=tree&amp;goto={VAR: prev_th->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}

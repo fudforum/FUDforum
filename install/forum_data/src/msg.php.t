@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.17 2002/09/17 01:29:06 hackie Exp $
+*   $Id: msg.php.t,v 1.18 2002/10/28 22:32:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Message Display Generator */
 	{PRE_HTML_PHP}
 		
 	$count = !empty($usr->posts_ppg) ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
@@ -218,57 +217,9 @@
 
 	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&amp;th=".$th."&amp;prevloaded=1&amp;"._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
 
-	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
-
-	$r = q('SELECT 
-			{SQL_TABLE_PREFIX}msg.id AS msg_id,
-			{SQL_TABLE_PREFIX}thread_view.pos,
-			{SQL_TABLE_PREFIX}thread.id,
-			{SQL_TABLE_PREFIX}msg.subject 
-		FROM 
-			{SQL_TABLE_PREFIX}thread_view 
-			INNER JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
-			INNER JOIN {SQL_TABLE_PREFIX}msg 
-				ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-			WHERE 
-				{SQL_TABLE_PREFIX}thread_view.forum_id='.$thread->forum_id.' 
-				AND {SQL_TABLE_PREFIX}thread_view.page='.$pg.' 
-				AND {SQL_TABLE_PREFIX}thread_view.pos IN ('.($ps-1).', '.($ps+1).') 
-			ORDER BY pos');
-	$prev_th = $next_th = NULL;
-	switch ( db_count($r) ) 
-	{
-		case 2:
-			$next_th = db_rowobj($r);
-			$prev_th = db_rowobj($r);
-			break;
-		case 1:
-			$tmp_th = db_rowobj($r);
-			if( $tmp_th->pos > $ps ) {
-				$prev_th = $tmp_th;
-			}
-			else {
-				$next_th = $tmp_th;
-				if( $pg > 1 ) $prev_th = db_singleobj(q('SELECT 
-						{SQL_TABLE_PREFIX}msg.id AS msg_id,
-						{SQL_TABLE_PREFIX}thread_view.pos,
-						{SQL_TABLE_PREFIX}thread.id,
-						{SQL_TABLE_PREFIX}msg.subject 
-					FROM 
-						{SQL_TABLE_PREFIX}thread_view 
-						INNER JOIN {SQL_TABLE_PREFIX}thread 
-							ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
-						INNER JOIN {SQL_TABLE_PREFIX}msg 
-							ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-						WHERE 
-							{SQL_TABLE_PREFIX}thread_view.forum_id='.$thread->forum_id.' 
-							AND {SQL_TABLE_PREFIX}thread_view.page='.($pg-1).' 
-							AND {SQL_TABLE_PREFIX}thread_view.pos='.$GLOBALS['THREADS_PER_PAGE']));
-			}		
-			break;
-	}
-	
+	$prev_th = $prev_thread_link = $next_th = $next_thread_link = NULL;
+	get_prev_next_th_id($thread->forum_id, $thread->id, $prev_th, $next_th);
+		
 	if ( $prev_th )	$prev_thread_link = '{TEMPLATE: prev_thread_link}';
 	if ( $next_th ) $next_thread_link = '{TEMPLATE: next_thread_link}';
 		

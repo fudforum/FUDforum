@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.10 2002/10/09 22:45:39 hackie Exp $
+*   $Id: msg.tmpl,v 1.11 2002/10/28 22:32:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,6 +34,7 @@
 {REF: imsg.tmpl}
 {REF: thread_notify.tmpl}
 {REF: is_perms.tmpl}
+{REF: th_nav.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
 <font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
@@ -87,11 +88,11 @@
 {SECTION: END}
 
 {SECTION: next_thread_link}
-<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: next_th->msg_id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
+<tr><td class="GenText" align=right>{MSG: next_thread}</td><td class="GenText" align=left><a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: next_th->id}&amp;{DEF: _rsid}">{VAR: next_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: prev_thread_link}
-<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=msg&amp;goto={VAR: prev_th->msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
+<tr><td align=right class="GenText">{MSG: prev_thread}</td><td class="GenText" align=left><a href="{ROOT}?t=msg&amp;goto={VAR: prev_th->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: prev_th->subject}</a></td></tr>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
