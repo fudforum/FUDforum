@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.tmpl,v 1.2 2004/04/07 16:30:09 hackie Exp $
+* $Id: ip.tmpl,v 1.3 2004/04/23 19:20:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,7 +26,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 
-<div align="center"><table cellspacing=0 cellpadding=0 class="MiniTable"><tr><td><fieldset>
+<div class="ctb"><table cellspacing=0 cellpadding=0 class="MiniTable"><tr><td><fieldset>
 	<legend>{MSG: ip_search_by_ip}</legend>
 <form method="post" action="{TEMPLATE: ip_form_url}">{DEF: _hs}
 <font class="SmallText">{MSG: ip_search_syntax}<br /></font>
@@ -58,11 +58,11 @@
 {SECTION: ip_users}
 <table cellspacing="2" cellpadding="2" class="MiniTable">
 <tr>
-	<td valign="top"><table cellspacing="0" cellpadding="2" class="ContentTable">
+	<td class="vt"><table cellspacing="0" cellpadding="2" class="ContentTable">
 		<tr><th>{MSG: ip_users_using}</th></tr>{TEMPLATE-DATA: user_list}
 	</table></td>
 	<td width="50"> </td>
-	<td valign="top">{MSG: ip_whois_title}<div style="overflow: auto; margin: 0px; padding: 2px; width: 600px; height: 400px"><pre>{FUNC: fud_whois($ip)}</pre></div></td>
+	<td class="vt">{MSG: ip_whois_title}<div class="ip"><pre>{FUNC: fud_whois($ip)}</pre></div></td>
 </tr>
 </table>
 {SECTION: END}

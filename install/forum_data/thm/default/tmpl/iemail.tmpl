@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.14 2004/03/07 21:01:53 hackie Exp $
+* $Id: iemail.tmpl,v 1.15 2004/04/23 19:20:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,7 +15,7 @@
 
 {SECTION: iemail_body}
 {TEMPLATE: header_plain}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
 	<td width="33%">{MSG: iemail_msg_subject}</td>
 	<td width="33%">{MSG: iemail_msg_author}</td>
@@ -38,7 +38,7 @@
 {SECTION: END}
 
 {SECTION: iemail_poll_tbl}
-<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<table cellspacing=1 cellpadding=2 class="PollTable">
 <tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
 {TEMPLATE-DATA: iemail_poll}
 </table><p>
@@ -57,8 +57,8 @@
 
 {SECTION: iemail_attach_entry file attachment entry row}
 <tr>
-<td valign="middle"><a href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: iemail_attach_entry_lnk}">{VAR: v[1]}</a><br />
+<td class="vm"><a href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
+<td><font class="GenText fb">{MSG: attachment}</font> <a href="{TEMPLATE: iemail_attach_entry_lnk}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
