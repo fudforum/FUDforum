@@ -1,0 +1,69 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: draw_pager.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: draw_pager.inc.t; output: draw_pager.inc;}
+
+{MAIN_SECTION: page_pager The Page Selector (found on thread/msg and other pages)}
+<font class="SmallText"><b>{MSG: num_pages} 
+[{TEMPLATE-DATA: page_pager_data}]
+</b></font>
+{MAIN_SECTION: END}
+
+{SECTION: prev_n_first_page previous page and first page links}
+&nbsp;<a href="{VAR: page_first_url}" class="PagerLink">&laquo;</a>&nbsp;&nbsp;<a href="{VAR: page_prev_url}" class="PagerLink">&lt;</a>&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: last_page_n_next last page and next page links}
+&nbsp;&nbsp;<a href="{VAR: page_next_url}" class="PagerLink">&gt;</a>&nbsp;&nbsp;<a href="{VAR: page_last_url}" class="PagerLink">&raquo;</a>
+{SECTION: END}
+
+{SECTION: page_entry page link}
+<a href="{VAR: page_page_url}" class="PagerLink">{VAR: st}</a>{TEMPLATE: page_separator}
+{SECTION: END}
+
+{SECTION: current_page selected page}
+{VAR: st}{TEMPLATE: page_separator}
+{SECTION: END}
+
+{SECTION: page_separator}
+&nbsp;&nbsp;
+{SECTION: END}
+
+{MAIN_SECTION: page_pager_js The Page Selector (found on thread/msg and other pages) for javascript pager}
+<font class="SmallText"><b>{MSG: num_pages} 
+[{TEMPLATE-DATA: page_pager_data}]
+</b></font>
+{MAIN_SECTION: END}
+
+{SECTION: prev_n_first_page_js previous page and first page links}
+&nbsp;<a href="javascript://" onClick="{VAR: page_first_url}" class="PagerLink">&laquo;</a>&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_prev_url}" class="PagerLink">&lt;</a>&nbsp;&nbsp;
+{SECTION: END}
+
+{SECTION: last_page_n_next_js last page and next page links}
+&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_next_url}" class="PagerLink">&gt;</a>&nbsp;&nbsp;<a href="javascript://" onClick="{VAR: page_last_url}" class="PagerLink">&raquo;</a>
+{SECTION: END}
+
+{SECTION: page_entry_js page link}
+<a href="javascript://" onClick="{VAR: page_page_url}" class="PagerLink">{VAR: st}</a>{TEMPLATE: page_separator}
+{SECTION: END}
+
+{SECTION: current_page_js selected page}
+{VAR: st}{TEMPLATE: page_separator}
+{SECTION: END}
+
+{SECTION: page_separator_js}
+&nbsp;&nbsp;
+{SECTION: END}

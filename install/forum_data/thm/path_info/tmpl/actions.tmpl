@@ -1,0 +1,76 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: actions.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: actions.php.t; output: actions.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: alt_var.tmpl}
+{REF: ulink.tmpl}
+{REF: is_perms.tmpl}
+
+{SECTION: last_post last by a user}
+{DATE: r[10] %a, %d %B %Y %H:%M}<br />
+<a href="{ROOT}/m/{VAR: r[8]}/{DEF: _rsid}">{VAR: r[9]}</a>
+{SECTION: END}
+
+{SECTION: last_post_na no last post}
+{MSG: na}
+{SECTION: END}
+
+{SECTION: action_entry iSpy user list row}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="GenText">{VAR: user_login}</td>
+	<td class="GenText">{VAR: action}</td>
+	<td class="DateText">{DATE: r[6] %H:%M:%S}</td>
+	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: anon_user anon user name}
+{GVAR: ANON_NICK}
+{SECTION: END}
+
+{SECTION: reg_user_link registered user link}
+<a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: user_login}</a>
+{SECTION: END}
+
+{PAGE: ACTION_PAGE iSpy User Action List}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<br />{TEMPLATE-DATA: admin_cp}
+<div align="center" class="GenText">[<a href="{ROOT}/a/{DEF: _rsid}" class="GenLink">{MSG: refresh_list}</a>]</div>
+<p>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: user}</th><th>{MSG: action}</th><th>{MSG: time}</th><th>{MSG: action_latest_post}</th></tr>
+{TEMPLATE-DATA: action_data}
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: actions_update}
+{MSG: actions_update}
+{SECTION: END}
+
+{SECTION: no_view_perm}
+{MSG: no_view_perm}
+{SECTION: END}

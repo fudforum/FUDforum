@@ -1,0 +1,67 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: report.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: report.php.t; output: report.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: return.tmpl}
+{REF: allowed_user_lnk.tmpl}
+
+{PAGE: REPORT_PAGE report message to moderator/administrator form}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<form method="post" action="{ROOT}?t=report">
+<div align="center"><table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+<tr><th>{MSG: report_report_post}</th></tr>
+<tr class="RowStyleB"><td><font class="GenText"><b>{MSG: report_reporting_about}</b></font><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td class="GenText" style="padding: 5px; padding-left: 20px;"><b>{MSG: report_subject}</b> {VAR: msg->subject} <br /><b>{MSG: report_by}</b> {VAR: user_login} <br /><b>{MSG: report_posted_on}</b> <font class="DateText">{DATE: msg->post_stamp %a, %d %B %Y %H:%M}</font></td></tr></table></td></tr>
+<tr class="RowStyleB"><td><font class="GenText">{MSG: report_give_reason}</font><br />{TEMPLATE-DATA: reason_error}<textarea name="reason" cols=80 rows=25></textarea></td></tr>
+<tr class="RowStyleB"><td align=right><input type="submit" class="button" name="btn_report" value="{MSG: report_submit_report}"></td></tr>
+</table></div>
+<input type="hidden" name="msg_id" value="{VAR: msg_id}">{DEF: _hs}</form>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}	
+
+{SECTION: report_err_nosuchmsg_title}
+{MSG: report_err_nosuchmsg_title}
+{SECTION: END}
+
+{SECTION: report_err_nosuchmsg_msg}
+{MSG: report_err_nosuchmsg_msg}
+{SECTION: END}
+
+{SECTION: report_err_cantreport_title}
+{MSG: report_err_cantreport_title}
+{SECTION: END}
+
+{SECTION: report_err_cantreport_msg}
+{MSG: report_err_cantreport_msg}
+{SECTION: END}
+
+{SECTION: report_empty_report}
+<font class="ErrorText">{MSG: report_empty_report}</font><br />
+{SECTION: END}
+
+{SECTION: report_already_reported_title}
+{MSG: report_already_reported_title}
+{SECTION: END}
+
+{SECTION: report_already_reported_msg}
+{MSG: report_already_reported_msg}
+{SECTION: END}

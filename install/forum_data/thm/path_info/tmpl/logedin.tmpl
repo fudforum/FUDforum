@@ -1,0 +1,58 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: logedin.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: logedin.inc.t; output: !logedin.inc;}
+{REF: ulink.tmpl}
+
+{MAIN_SECTION: loged_in_list loggedin user list}
+<br /><img src="blank.gif" alt="" height=2 width=1 />
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+{TEMPLATE-DATA: logedin}
+{TEMPLATE-DATA: forum_info}
+</table>
+{MAIN_SECTION: END}
+
+{SECTION: logedin}
+<tr><th width="100%">{MSG: logged_in_list} {TEMPLATE-DATA: i_spy}</th></tr>
+<tr><td class="RowStyleA">
+<font class="SmallText">{MSG: status_line}&nbsp;&nbsp;&nbsp;<font class="adminColor">[{MSG: administrator}]</font>&nbsp;&nbsp;<font class="modsColor">[{MSG: moderator}]</font></font><br />
+{VAR: logedin}
+</td></tr>
+{SECTION: END}
+
+{SECTION: i_spy logged in users list}
+[<a href="{ROOT}?t=actions&amp;{DEF: _rsid}" class="thLnk">{MSG: what_ppl_doing}</a>] [<a href="{ROOT}?t=online_today&amp;{DEF: _rsid}" class="thLnk">{MSG: logedin_todays_visitors}</a>]
+{SECTION: END}
+
+{SECTION: online_user_separator}
+&nbsp;
+{SECTION: END}
+
+{SECTION: online_user_link}
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}" class="GenLink">{VAR: v}</a>
+{SECTION: END}
+
+{SECTION: last_msg latest message on the forum}
+<br />{MSG: logedin_latest_post} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: last_msg_id}&amp;{DEF: _rsid}"><b>{VAR: st_obj->last_msg_subject}</b></a>
+{SECTION: END}
+
+{SECTION: forum_info}
+<tr><td class="RowStyleB"><font class="SmallText">
+{MSG: message_counter}<br />
+{MSG: user_counter}<br />
+{MSG: newest_user} <a href="{ROOT}?t=usrinfo&amp;id={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}" class="GenLink"><b>{VAR: st_obj->last_user_alias}</b></a>{TEMPLATE-DATA: last_msg}
+</font></td></tr>
+{SECTION: END}

@@ -1,0 +1,44 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: minimsg.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: minimsg.inc.t; output: @minimsg.inc;}
+
+{REF: fileio.tmpl}
+{REF: imsg.tmpl}
+{REF: draw_pager.tmpl}
+{REF: drawmsg.tmpl}
+
+{MAIN_SECTION: minimsg_form list of messages in the thread you're replying to}
+<br /><br />
+<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<tr><td align="center" bgcolor="#efefef">{MSG: minimsg_thread_view}</td></tr>
+<tr><td>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+{TEMPLATE-DATA: message_data}
+</table>
+</td></tr>
+<tr><td>{TEMPLATE-DATA: minimsg_pager}</td></tr>
+</table>
+<input type="hidden" name="minimsg_pager_switch" value="{VAR: start}">
+{MAIN_SECTION: END}
+
+{MAIN_SECTION: minimsg_hidden display list of message in the thread you're replying to link}
+<br /><br />
+<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
+<tr><td align=middle>[<a href="javascript: document.post_form.submit();">Reveal Thread</a>]</td></tr>
+</table>
+<input type="hidden" name="minimsg_pager_switch" value="{VAR: start}">
+{MAIN_SECTION: END}

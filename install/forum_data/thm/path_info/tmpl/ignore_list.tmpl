@@ -1,0 +1,108 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: ignore_list.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: ignore_list.php.t; output: ignore_list.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: ignore.tmpl}
+{REF: return.tmpl}
+{REF: tabs.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: homepage_link}
+<a class="GenLink" href="{VAR: r[6]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 alt="" /></a>
+{SECTION: END}
+
+{SECTION: email_link}
+<a href="{ROOT}?t=email&amp;toi={VAR: r[2]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 alt="" /></a>
+{SECTION: END}
+
+{SECTION: ignore_user info about an ignored user}
+<tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
+	<td width="100%" class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}">{VAR: r[3]}</a>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: r[0]}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
+	<td align="center">{VAR: r[5]}</td>
+	<td align="center" nowrap>{DATE: r[4] %a, %d %B %Y %H:%M}</td>
+	<td class="GenText" nowrap><a href="{ROOT}?t=showposts&amp;{DEF: _rsid}&amp;id={VAR: r[2]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" border=0 /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: ignore_anon_user info about an ignored user}
+<tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
+	<td width="100%" colspan=4 class="GenText"><font color="#00AA00">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{ROOT}?t=ignore_list&amp;del={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
+</tr>
+{SECTION: END}
+
+
+{SECTION: ignore_list}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: ignore_users}</th><th nowrap align="center">{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
+{TEMPLATE-DATA: ignore_list}
+</table>
+{SECTION: END}
+
+{PAGE: IGNORELIST_PAGE ignore users control panel}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+{TEMPLATE-DATA: tabs}
+{TEMPLATE-DATA: ignore_list}
+<br /><br />
+<form name="buddy_add" action="{ROOT}?t=ignore_list" method="post">{DEF: _hs}<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+<tr><th nowrap>{MSG: add_ignore}</th></tr>
+<tr class="RowStyleA">
+<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: ignore_member_search}</font><p>
+<input type="text" name="add_login" value="" maxlength=100 size=25> <input type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
+</table></div></form>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: ignore_list_err_info_title}
+{MSG: ignore_list_err_info_title}
+{SECTION: END}
+
+{SECTION: ignore_list_err_noign_msg}
+{MSG: ignore_list_err_noign_msg}
+{SECTION: END}
+
+{SECTION: ignore_list_err_dup_msg}
+{MSG: ignore_list_err_dup_msg}
+{SECTION: END}
+
+{SECTION: ignore_list_err_nu_title}
+{MSG: ignore_list_err_nu_title}
+{SECTION: END}
+
+{SECTION: ignore_list_err_nu_msg}
+{MSG: ignore_list_err_nu_msg}
+{SECTION: END}
+
+{SECTION: ignore_list_cantign_msg}
+{MSG: ignore_list_cantign_msg}
+{SECTION: END}
+
+{SECTION: ignore_list_update}
+{MSG: ignore_list_update}
+{SECTION: END}
+
+{SECTION: ignore_member_search}
+{MSG: member_search}
+{SECTION: END}

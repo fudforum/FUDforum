@@ -1,0 +1,75 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: remail.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: remail.php.t; output: remail.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: iemail.tmpl}
+{REF: return.tmpl}
+{REF: postcheck.tmpl}
+{REF: allowed_user_lnk.tmpl}
+{REF: alt_var.tmpl}
+
+{PAGE: REMAIL_PAGE email to friend page}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<div align=center>
+{TEMPLATE-DATA: remail_error}
+<form action="{ROOT}?t=remail" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan=2>{MSG: remail_email_topic}</th></tr>
+{TEMPLATE-DATA: form_data}
+</table>
+{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}"></form>
+</div>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: email_message}
+{MSG: remail_email}
+{SECTION: END}
+
+{SECTION: registed_user}
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_your_name}</td><td width="100%">{VAR: usr->alias}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_your_email}</td><td width="100%">{VAR: usr->email}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{VAR-HTML: fname}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap><font class="SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></font></td><td valign="top"><input type="text" name="femail" value="{VAR-HTML: femail}">{TEMPLATE-DATA: femail_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap><font class="SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></font></td><td nowrap valign="top"><input type="text" name="subj" value="{VAR: subject}">{TEMPLATE-DATA: subject_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" valign="top" nowrap>{MSG: remail_message}<font class="SmallText"><br /><i>{MSG: remail_required}</i></font></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea>{TEMPLATE-DATA: body_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" colspan=2 align="right"><input type="submit" class="button" name="submit" value="{MSG: remail_send_now}"></td></tr>
+{SECTION: END}
+
+{SECTION: anon_user}
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" align="center"><font class="SmallText">{MSG: remail_anon_opt}</font></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText"><textarea name="body" rows="19" cols="78">{VAR: body}</textarea></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText" align="right"><input type="submit" class="button" name="done" value="{MSG: remail_done}"></td></tr>
+{SECTION: END}
+
+{SECTION: remail_error}
+<h4 align="center"><font class="ErrorText">{MSG: remail_error}</font></h4>
+{SECTION: END}
+
+{SECTION: remail_emailsent}
+{MSG: remail_emailsent}
+{SECTION: END}
+
+{SECTION: remail_sent_conf}
+{MSG: remail_sent_conf}
+{SECTION: END}

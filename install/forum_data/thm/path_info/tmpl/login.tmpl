@@ -1,0 +1,103 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: login.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: login.php.t; output: login.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: return.tmpl}
+{REF: users_reg.tmpl}
+{REF: logaction.tmpl}
+{REF: allowed_user_lnk.tmpl}
+
+{PAGE: LOGIN_PAGE}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<form method="post" action="{ROOT}?t=login">
+<div align="center">
+<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
+<tr><th colspan=3>{MSG: login_title}</th></tr>
+<tr class="RowStyleA"><td class="RowStyleA" colspan=3><font class="GenText">{VAR: login_error_msg} {MSG: login_not_logedin}</font>
+<ol>
+<li><font class="GenText">{MSG: login_cookie_expired}</font>
+<li><font class="GenText">{MSG: login_perm_denied}</font>
+</ol></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{ROOT}?t=register&amp;{DEF: _rsid}">{MSG: login_want_to_register}</a></td></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&amp;{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
+{TEMPLATE-DATA: login_use_cookies}
+<tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
+</table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: _POST['adm']}"></form>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: login_use_cookies}
+<tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
+{SECTION: END}
+
+{SECTION: login_error_msg}
+<p align="center" class="ErrorText">{VAR: _GET['msg']}</div></p>
+{SECTION: END}
+
+{SECTION: login_error_text}
+<font class="ErrorText">{VAR: GLOBALS['_ERROR_MSG_'][$type]}</font><br />
+{SECTION: END}
+
+{SECTION: login_name_required}
+{MSG: login_name_required}
+{SECTION: END}
+
+{SECTION: login_passwd_required}
+{MSG: login_passwd_required}
+{SECTION: END}
+
+{SECTION: login_invalid_radius}
+{MSG: login_invalid_radius}
+{SECTION: END}
+
+{SECTION: login_update}
+{MSG: login_update}
+{SECTION: END}
+
+{SECTION: login_title}
+{MSG: login_title}
+{SECTION: END}
+
+{SECTION: login_blocked_account_ttl}
+{MSG: login_blocked_account_ttl}
+{SECTION: END}
+
+{SECTION: login_blocked_account_msg}
+{MSG: login_blocked_account_msg}
+{SECTION: END}
+
+{SECTION: login_unapproved_account_ttl}
+{MSG: login_unapproved_account_ttl}
+{SECTION: END}
+
+{SECTION: login_unapproved_account_msg}
+{MSG: login_unapproved_account_msg}
+{SECTION: END}
+
+{SECTION: ERR_emailconf_ttl}
+{MSG: ERR_emailconf_ttl}
+{SECTION: END}
+
+{SECTION: ERR_emailconf_msg}
+{MSG: ERR_emailconf_msg}
+{SECTION: END}

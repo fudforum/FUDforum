@@ -1,0 +1,59 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: groups.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: groups.inc.t; output: groups.inc;}
+
+{MAIN_SECTION: groups_na_perms a permission which group manager cannot modify}
+<td align="center">{MSG: na}</td>
+{MAIN_SECTION: END}
+
+{MAIN_SECTION: groups_perm_selection a dropdown that allows the group manager to select perms for users in the group}
+<td align="center">
+	<select name="{VAR: sel_name}" style="font-size: x-small">
+		{TEMPLATE-DATA: perm_selection_inherit_row}
+		<option value="Y"{VAR: selyes}>{MSG: groupmgr_yes}</option>
+		<option value="N"{VAR: selno}>{MSG: groupmgr_no}</option>
+	</select>
+</td>
+{MAIN_SECTION: END}
+
+{SECTION: groups_perm_selection_inherit_row}
+<option value="I">{MSG: groupmgr_inherit}</option>
+{SECTION: END}
+
+{SECTION: groups_perm_yes}
+{VAR: nam}<font color="#FF0000"> <b>({MSG: groupmgr_yes})</b></font>
+{SECTION: END}
+
+{SECTION: groups_perm_no}
+{VAR: name}<font color="#0000FF"> <b>({MSG: groupmgr_no})</b></font>
+{SECTION: END}
+
+{SECTION: groups_perm_inherit}
+<font color="#00FF00">{MSG: groupmgr_inherit}</font>
+{SECTION: END}
+
+{SECTION: groups_perm_inherit_from}
+<font color="#00FF00">{MSG: groupmgr_inherit}</font> <b>-></b>&nbsp;
+{SECTION: END}
+
+{SECTION: groups_header_entry}
+<td align="center">{VAR: k}</td>
+{SECTION: END}
+
+{SECTION: groups_draw_perm_entry}
+<td nowrap><font size=-1>{VAR: inherit}{VAR: perm_str}<br />{VAR: val}</font></td>
+{SECTION: END}

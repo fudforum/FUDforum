@@ -1,0 +1,69 @@
+***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: online_today.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: online_today.php.t; output: online_today.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: alt_var.tmpl}
+{REF: ulink.tmpl}
+
+{SECTION: last_post last by a user}
+{DATE: r[7] %a, %d %B %Y %H:%M}<br />
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[5]}&amp;{DEF: _rsid}">{VAR: r[6]}</a>
+{SECTION: END}
+
+{SECTION: last_post_na no last post}
+{MSG: na}
+{SECTION: END}
+
+{SECTION: user_entry info about a user who was online today}
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
+	<td class="GenText">{VAR: user_login}</td>
+	<td class="DateText">{DATE: r[3] %H:%M:%S}</td>
+	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: reg_user_link registered user link}
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}">{VAR: user_login}</a>
+{SECTION: END}
+
+{PAGE: ONLINE_TODAY_PAGE List of users who were online today}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<br />{TEMPLATE-DATA: admin_cp}
+<p>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: user}</th><th>{MSG: online_today_last_visit}</th><th>{MSG: action_latest_post}</th></tr>
+{TEMPLATE-DATA: user_entries}
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: online_today_update}
+{MSG: online_today_update}
+{SECTION: END}
+
+{SECTION: no_view_perm}
+{MSG: no_view_perm}
+{SECTION: END}

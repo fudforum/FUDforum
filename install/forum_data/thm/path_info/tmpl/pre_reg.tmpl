@@ -1,0 +1,47 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: pre_reg.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: pre_reg.php.t; output: pre_reg.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+
+
+{PAGE: PREREG_PAGE forum rules to which a user must agree prior to registering}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<form method="post" action="{ROOT}?t=pre_reg" name="sub" style="padding: 0px; margin: 0px;">{DEF: _hs}
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: prereg_info}</th></tr>
+<tr class="RowStyleA" align="center"><td class="GenText">{VAR: msg_file}
+<br /><input type="hidden" name="coppa" value="{VAR: _GET['coppa']}"><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}"> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}"></td></tr>
+</table></form>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}
+{SECTION: forum_terms}
+{MSG: forum_terms}
+{SECTION: END}
+
+{SECTION: forum_rules_13}
+{MSG: forum_rules_13}
+{SECTION: END}
+
+{SECTION: forum_rules}
+{MSG: forum_rules}
+{SECTION: END}

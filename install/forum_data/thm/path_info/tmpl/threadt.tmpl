@@ -1,0 +1,185 @@
+/***************************************************************************
+*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+*   email                : forum@prohost.org
+*
+*   $Id: threadt.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+****************************************************************************
+
+****************************************************************************
+*
+*       This program is free software; you can redistribute it and/or modify
+*       it under the terms of the GNU General Public License as published by
+*       the Free Software Foundation; either version 2 of the License, or
+*       (at your option) any later version.
+*
+***************************************************************************/
+
+{PHP_FILE: input: threadt.php.t; output: threadt.php;}
+{REF: security.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: announcement.tmpl}
+{REF: draw_pager.tmpl}
+{REF: forumsel.tmpl}
+{REF: show.tmpl}
+{REF: forum_notify.tmpl}
+{REF: thread_view_common.tmpl}
+
+{SECTION: thread_legend}
+<br />
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
+	<tr><td align=left class="RowStyleB">
+		<table border=0 cellspacing=0 cellpadding=0 align=left>
+			<tr>
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" border=0 /></td><td class="SmallText">{MSG: new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0 alt="{MSG: no_new_posts}" /></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 alt="{MSG: locked_with_new_posts}" /></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 alt="{MSG: locked}" /></td><td class="SmallText">{MSG: locked}</td></tr>
+				</table>
+				</td>
+				
+				<td>
+				<table border=0 cellspacing=0 cellpadding=2>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 alt="{MSG: moved}" /></td><td class="SmallText">{MSG: moved}</td></tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	</td></tr>
+</table>	
+{SECTION: END}
+
+{SECTION: flat_view switch to flat view link}
+<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
+{SECTION: END}
+
+{SECTION: thread_icon}
+<img src="images/message_icons/{VAR: cur->icon}" border=0 alt="{VAR: cur->icon}" />
+{SECTION: END}
+
+{SECTION: unreg_user_link}
+{GVAR: ANON_NICK}
+{SECTION: END}
+
+{SECTION: reg_user_link}
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}">{VAR: cur->alias}</a>
+{SECTION: END}
+
+{SECTION: thread_row}
+<tr>		
+<td width=1 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_read_status}</td>
+<td class="RowStyleB" width=1 style="border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_icon}</td>
+<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{VAR: cur->subject}</a></td>
+<td class="RowStyleB" nowrap style="border-bottom: 1px solid white;">{TEMPLATE-DATA: user_link}</td>
+<td class="RowStyleB" nowrap style="border-right: 1px solid black; border-bottom: 1px solid white;"><font class="DateText">{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</font></td>
+</tr>
+{SECTION: END}
+
+{SECTION: thread_row_moved a row indicating that the thread has been moved}
+<tr>
+<td classs="RowStyleB" class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
+<td width=1 class="RowStyleB" style="border-bottom: 1px solid white;"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}" /></td>
+<td class="RowStyleB" colspan=3 align="center" class="GenText" style="border-right: 1px solid black; border-bottom: 1px solid white;">{MSG: was_moved_msg}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: tree_tab image used to show the position of each msg inside the tree}
+<img border=0 src="blank.gif" alt="" width="{VAR: width}" height=1 />
+{SECTION: END}
+
+{SECTION: max_depth_reached maximum allowed depth of thread reached}
+<tr>
+<td class="RowStyleB" colspan=2 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
+<td class="RowStyleA" class="GenText" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{MSG: threadt_more}</a></td>
+<td class="RowStyleB" colspan=2 style="border-right: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
+</tr>
+{SECTION: END}
+
+{SECTION: thread_list}
+<table border="0" cellspacing="0" cellpadding="2" style="border-width: 0px 0px 1px 0px; border-color: white; border-style: solid;">
+<tr>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th width="100%">{MSG: thread_thread}</th>
+	<th nowrap>{MSG: msg_author}</th>
+	<th nowrap>{MSG: started_on}</th>
+</tr>
+{TEMPLATE-DATA: announcements}
+{TEMPLATE-DATA: thread_list_table_data}
+</table>
+{SECTION: END}
+
+{SECTION: thread_list_wmsg}
+<tr><td colspan=5 style="border-width: 0px 0px 1px 0px; border-style: solid;"><img src="blank.gif" width=1 height=1 alt="spacer" /></td></tr>
+{TEMPLATE-DATA: thread_list_table_data}
+<tr><td colspan=5 style="border-width: 1px 0px 0px 0px; border-style: solid;"><img src="blank.gif" width=1 height=1 alt="spacer" /></td></tr>
+{SECTION: END}
+
+{SECTION: thread_sep}
+<tr><td colspan=5 bgcolor="white" style="border-width: 1px 0px 1px 0px; border-style: solid;"><img src="blank.gif" width=1 height=1 alt="spacer" /></td></tr>
+{SECTION: END}
+
+{PAGE: THREAD_PAGE shows the threads in a particular forum}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
+<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
+<td valign="bottom" align="right" class="GenText">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+</tr></table><img src="blank.gif" alt="" height=2 border=0 />
+{TEMPLATE: thread_list}
+<img src="blank.gif" alt="" width=1 height=2 /><br />
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<tr>
+<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
+</tr>
+</table>
+{TEMPLATE-DATA: forum_select}
+{TEMPLATE-DATA: mark_all_read}
+{TEMPLATE: thread_legend}
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: threadt_update}
+{MSG: threadt_update}
+{SECTION: END}
+
+{SECTION: threadt_disabled_ttl}
+{MSG: threadt_disabled_ttl}
+{SECTION: END}
+
+{SECTION: threadt_disabled_desc}
+{MSG: threadt_disabled_desc}
+{SECTION: END}
+
+{SECTION: sticky}
+<font class="SmallText"> (<b>{MSG: threadt_sticky}</b>)</font>
+{SECTION: END}
+
+{SECTION: announcement}
+<font class="SmallText"> (<b>{MSG: threadt_announce}</b>)</font>
+{SECTION: END}
