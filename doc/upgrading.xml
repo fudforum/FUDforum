@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- $Id: upgrading.xml,v 1.1 2002/07/03 15:55:06 hackie Exp $ -->
+<chapter id="upgrading">
+<title>Upgrading FUD Forum 2</title>
+	<para>
+		&FUDforum; is easily upgradeable to the next stable or development release via an upgrade script
+		that can be freely downloaded from FUDforum's website. The upgrade script is a single file, that once
+		run via the web browser, will upgrade your existing forum to the release for which the upgrade
+		script was downloaded for.
+		
+		<note>
+		<simpara>
+			Each time an upgrade script runs it creates/updates a special file, UPGRADE_STATUS inside the errors
+			directory. This file will prevent the same upgrade script from running twice or running of an upgrade
+			script that will attempt to upgrade a forum to a version older then the current one. 
+			If you find it necessary to run the same upgrade script more then once, use the file manager 
+			to remove this file before running the upgrade script.
+		</simpara>	
+		</note>
+	</para>
+	
+	<para>
+		Announcements about new FUDforum releases as well as list of major changes done in the release can be
+		found on <ulink url="http://fud.prohost.org/forum/"><citetitle>FUDforum's 
+		support forum</citetitle></ulink>, the <ulink url="http://fud.prohost.org/CHANGELOG"><citetitle>detailed 
+		changelog</citetitle></ulink> is also available.
+	</para>
+	
+	<sect1 id="upgrading.2X">
+		<title>Upgrading 2.X and 1.9X series FUDforum</title>
+		
+		<para>
+			To upgrade from 2.X or 1.9X to the latest stable or development release is a very easy process
+			that can be accomplished in a few minutes by following the steps outlined below.
+		</para>
+		
+		<sect2 id="upgrading.2X.download">
+			<title>Download Upgrade Script</title>
+			
+			<para>
+				You can download the latest stable or development release from the FUDforum's 
+				<ulink url="http://fud.prohost.org/download.php"><citetitle>download page</citetitle></ulink>,
+				the upgrade scripts are always available in 3 compression formats: bzip2, gzip and zip.
+			</para>
+			
+			<para>
+				The upgrade script to the latest stable release can be found under the 
+				'Upgrade from 1.9.8+ &amp; 2.0+ to FUDforum [version number]' sub-heading.
+				The upgrade script to the latest development release can be found under the 
+				'Upgrade from 1.9.8+ &amp; 2.0+ to FUDforum [version number] (Development Release)' sub-heading.	
+			</para>
+			
+			<para>
+				If you wish to get an upgrade script to the very latest development release, you can do so
+				via FUDforum's anonymous CVS, by doing the following:
+			<example>
+				<title>Downloading FUDforum upgrade script from CVS</title>
+			        <programlisting>
+<![CDATA[
+cvs -z3 -d :pserver:anonymous@asuka.prohost.org:/forum21 checkout fud21_upgrade
+]]>
+Once the files are retrieved, run the following commands to create the upgrade script
+<![CDATA[
+cd fud21_install
+chmod 644 upgrade.php
+chmod 755 create_file_list
+./create_file_list install >> upgrade.php
+]]>
+                                </programlisting>
+			</example>
+			<note>
+				<simpara>
+				You will need to have php binary installed on your system in order to generate the install.php installation script.
+				If you already have a php binary in your system, but it is not inside <literal>/usr/local/bin/php</literal>, modify the
+				1st line inside the install.php script to reflect the proper path of the php binary on your system.
+				</simpara>
+			</note>
+			</para>
+			
+			<para>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/upgrade.php
+			</para>
+		</sect2>
+		
+		<sect2 id="upgrading.2X.running">
+			<title>Running the Upgrade Script</title>
+			
+			<para>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/upgrade.php 
+				URL with your web browser, this will begin the execution of the upgrade script.
+				The script will output various progress indicators, letting you know of what is it doing
+				at the moment. 
+				
+				<note>
+				<simpara>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</simpara>
+				</note>
+			</para>
+			
+			<para>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</para>
+			
+			<para>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the upgrade.php script you've placed inside the forum's web directory
+				in the <link linkend="upgrading.2X.download">1st step</link>.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="upgrading.1Xto2X">
+		<title>Upgrading from 1.2.8 to 2.0.2 series FUDforum</title>
+		
+		<para>
+			Because of the many differences between the 1.X and 2.X series FUDforum, there is a special script
+			you need to use to upgrade. This upgrade script will convert from version 1.2.8 to 2.0.2.
+			<important>
+			<simpara>
+				It is very important that you make sure that your old forum is running version 1.2.8, other
+				wise the upgrade script will fail. If you see that your forum is older, you will first need
+				to <link linkend="upgrading.1X">upgrade to version 1.2.8</link> before continuing to upgrade to 2.0.2.
+				
+			</simpara>
+			</important>
+		</para>
+		
+		<sect2 id="upgrading.1Xto2X.download">
+			<title>Download Upgrade Script</title>
+			
+			<para>
+				This upgrade script is available from the FUDforum's <ulink url="http://fud.prohost.org/download.php"><citetitle>download page</citetitle></ulink> in 3 
+				compression formats: bzip2, gzip and zip.
+			</para>
+			
+			<para>
+				The links to download this script can be found under the 
+				'Upgrade from 1.2.8 to FUDforum 2.0.2' sub-heading.
+			</para>
+			
+			<para>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/upgrade.php
+			</para>
+		</sect2>
+		
+		<sect2 id="upgrading.1Xto2X.running">
+			<title>Running the Upgrade Script</title>
+			
+			<para>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/upgrade.php 
+				URL with your web browser, this will begin the execution of the upgrade script.
+				The script will output various progress indicators, letting you know of what is it doing
+				at the moment. 
+				
+				<note>
+				<simpara>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</simpara>
+				</note>
+			</para>
+			
+			<para>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</para>
+			
+			<para>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the upgrade.php script you've placed inside the forum's web directory
+				in the <link linkend="upgrading.1Xto2X.download">1st step</link>.
+			</para>
+			
+			<para>
+				You should also consider upgrading from 2.0.2 to the later stable release if one is available
+				by following instructions in the 
+				<link linkend="upgrading.2X">Upgrading 2.X and 1.9X series FUDforum</link> section of the manual.
+			</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="upgrading.1X">
+		<title>Upgrading from 1.X to 1.2.8 FUDforum</title>
+		
+		<para>
+			If you find that you are running a FUDforum release older then 1.2.8 you will need to upgrade
+			your forum to version 1.2.8 before you can perform any other upgrades.
+		</para>
+		
+		<sect2 id="upgrading.1X.download">
+			<title>Download Upgrade Script</title>
+			
+			<para>
+				This upgrade script is available from the FUDforum's <ulink url="http://fud.prohost.org/download.php"><citetitle>download page</citetitle></ulink> in 2
+				compression formats: bzip2 and gzip.
+			</para>
+			
+			<para>
+				The download links for the upgrade scripts are:
+				<ulink url="http://fud.prohost.org/download/update-v1.2.8.php.tar.bz2"><citetitle>update-v1.2.8.php.tar.bz2</citetitle></ulink>
+				<ulink url="http://fud.prohost.org/download/update-v1.2.8.php.tar.gz"><citetitle>update-v1.2.8.php.tar.gz</citetitle></ulink>
+			</para>
+			
+			<para>
+				Now that you have the upgrade script on your server, decompress it and place it inside your
+				forum's main web directory, so that you can access the upgrade script by going to 
+				http://you_forum_url/update-v1.2.8.php
+			</para>
+		</sect2>
+		
+		<sect2 id="upgrading.1X.running">
+			<title>Running the Upgrade Script</title>
+			
+			<para>
+				Now that the upgrade script has been positioned, open the http://you_forum_url/update-v1.2.8.php
+				URL with your web browser. You will then need to enter the full path on the disk where the
+				GLOBALS.php file can be found. Once you've entered the forum submit the form, which will begin
+				the upgrade process. The script will output various progress indicators, letting you know 
+				of what is it doing at the moment. 
+				
+				<note>
+				<simpara>
+					If you have output buffering enabled or using buffering modules such as mod_gzip you
+					may not see any output of the upgrade script until it finishes.
+				</simpara>
+				</note>
+			</para>
+			
+			<para>
+				Upon the completion of the upgrade script, you will need to run a consistency checker to 
+				rebuilt various caches and verify consistency of your forum's data. The upgrade script will
+				try to automatically to run the consistency checker by popping up a new window using JavaScript.
+				If for some reason such window does not appear click on the 'MUST click here' link, which will
+				execute the consistency checker in the current window.
+			</para>
+			
+			<para>
+				Once the consistency checker finishes running, the upgrade process is complete. The only thing
+				left to do, is to remove the update-v1.2.8.php script you've placed inside the forum's web directory
+				in the <link linkend="upgrading.1X.download">1st step</link>.
+			</para>
+			
+			<para>
+				Once you've upgraded to version 1.2.8 you can now upgrade to the <link linkend="upgrading.1Xto2X">2X series</link> FUDforum.
+			</para>
+		</sect2>
+	</sect1>
+</chapter>
