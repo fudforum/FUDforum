@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.117 2004/05/12 18:25:59 hackie Exp $
+* $Id: register.php.t,v 1.118 2004/05/13 19:23:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -293,7 +293,7 @@ function decode_uent(&$uent)
 		if (!empty($_POST['avatar_tmp'])) {
 			list($avatar_arr['file'], $avatar_arr['del'], $avatar_arr['leave']) = explode("\n", base64_decode($_POST['avatar_tmp']));
 		}
-		if (isset($_POST['btn_detach']) && isset($avatar_arr)) {
+		if (isset($_POST['btn_detach'], $avatar_arr)) {
 			$avatar_arr['del'] = 1;
 		}
 		if (!($FUD_OPT_1 & 8) && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {

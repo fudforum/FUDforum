@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.66 2004/04/02 22:06:13 hackie Exp $
+* $Id: ppost.php.t,v 1.67 2004/05/13 19:23:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -169,7 +169,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			}
 		}
 		/* remove file attachment */
-		if (isset($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
+		if (isset($_POST['file_del_opt'], $attach_list[$_POST['file_del_opt']])) {
 			if ($attach_list[$_POST['file_del_opt']]) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */

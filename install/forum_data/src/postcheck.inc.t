@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.18 2004/04/02 22:06:13 hackie Exp $
+* $Id: postcheck.inc.t,v 1.19 2004/05/13 19:23:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@ function is_post_error()
 
 function get_err($err, $br=0)
 {
-	if(isset($err) && isset($GLOBALS['__err_msg__'][$err])) {
+	if (isset($err, $GLOBALS['__err_msg__'][$err])) {
 		return ($br ? '{TEMPLATE: post_error_breakback}' : '{TEMPLATE: post_error_breakfront}');
 	}
 }
