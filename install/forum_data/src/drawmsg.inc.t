@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.50 2003/07/09 10:12:56 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.51 2003/07/09 10:15:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -376,7 +376,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	if (!$hide_controls) {
-		if ($usr->is_mod == 'A' || $GLOBALS['DISPLAY_IP'] == 'Y') {
+		if ($usr->is_mod != 'N' || $GLOBALS['DISPLAY_IP'] == 'Y') {
 			$ip_address = '{TEMPLATE: dmsg_ip_address}';
 		} else {
 			$ip_address = '';
