@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.75 2004/01/04 16:38:33 hackie Exp $
+* $Id: consist.php,v 1.76 2004/02/19 03:53:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -213,16 +213,16 @@ forum will be disabled.
 		if (!$r[0]) {
 			if (!($root = q_singleval('SELECT id FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp LIMIT 1'))) {
 				q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
+				continue;
 			} else {
 				q('UPDATE '.$tbl.'thread SET root_msg_id='.$root.' WHERE id='.$r[2]);
 			}
+		}
+		$r2 = db_saq('SELECT id, post_stamp FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp DESC LIMIT 1');
+		if (!$r2) {
+			q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
 		} else {
-			$r2 = db_saq('SELECT id, post_stamp FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp DESC LIMIT 1');
-			if (!$r2) {
-				q('DELETE FROM '.$tbl.'thread WHERE id='.$r[2]);
-			} else {
-				q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$r[2]);
-			}
+			q('UPDATE '.$tbl.'thread SET last_post_id='.$r2[0].', last_post_date='.$r2[1].' WHERE id='.$r[2]);
 		}
 	}
 	draw_stat('Done: Checking thread last & first post ids');
