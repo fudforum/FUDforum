@@ -807,7 +807,7 @@ thread_delete:			Du bist gerade dabei, das <font color="#ff0000" size="4">GESAMT
 thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">anmelden</a>.
 thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
-thread_first_unread_msg:	Hier klicken, um zm ersten ungelesenen Beitrag dieses Themas zu gelangen
+thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
 thread_thread:			Thema
 thread_title:			{VAR-HTML: frm->name}
@@ -916,7 +916,7 @@ back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
 pm_err_disabled_title:		Private Messages deaktiviert
 pm_err_disabled_msg:		Du kannst keine privaten Messages verschicken, solange Du nicht die &#39;Private Messages erlauben&#39; Option in Deinem Profil aktivierst.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
+err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
+err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst Du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
+accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
+saved:				Abgespeichert
