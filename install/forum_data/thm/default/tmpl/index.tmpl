@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.26 2003/12/19 12:36:44 hackie Exp $
+* $Id: index.tmpl,v 1.27 2003/12/19 15:10:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc" colspan="6">* <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
+<tr><td class="CatDesc" colspan="6"><img src="blank.gif" width=16 height=16 /> <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
@@ -72,15 +72,15 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" />
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_old_messages}" />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" />
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: forum_new_messages}" />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" />
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
 {SECTION: last_post}
@@ -104,11 +104,11 @@
 {SECTION: END}
 
 {SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
-+
+<img src="{THEME_IMAGE_ROOT}/max.png" />
 {SECTION: END}
 
 {SECTION: collapse_indicator_MIN an indicator showing that this category can be collapsed}
--
+<img src="{THEME_IMAGE_ROOT}/min.png" />
 {SECTION: END}
 
 {SECTION: mark_all_read}
@@ -119,8 +119,8 @@
 <br />
 <div class="RowStyleB"><font class="SmallText">
 <div class="LegendH"><b>{MSG: legend}</b></div>
-<img src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
 </font></div>
 {SECTION: END}
 
