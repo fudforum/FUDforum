@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.22 2004/11/16 15:46:04 hackie Exp $
+* $Id: mnav.php.t,v 1.23 2004/11/17 16:53:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,15 +41,15 @@
 
 	$mnav_time_unit = tmpl_draw_select_opt("60\n3600\n86400\n604800\n2635200", "{TEMPLATE: mnav_minute}\n{TEMPLATE: mnav_hour}\n{TEMPLATE: mnav_day}\n{TEMPLATE: mnav_week}\n{TEMPLATE: mnav_month}", $unit, '', '');
 
+	$mnav_pager = '';
 	if (!$rng) {
-		$mnav_pager = $rng = ''; $unit = 86400;
+		$rng = ''; $unit = 86400;
 		$mnav_data = '{TEMPLATE: mnav_no_range}';
 	} else if ($unit <= 0) {
-		$mnav_pager = $rng = ''; $unit = 86400;
+		$rng = ''; $unit = 86400;
 		$mnav_data = '{TEMPLATE: mnav_invalid_unit}';
 	} else if (($mage = round($rng * $unit)) > ($MNAV_MAX_DATE * 86400) && $MNAV_MAX_DATE > 0) {
 		$mnav_data = '{TEMPLATE: mnav_invalid_date}';
-		$mnav_pager = '';
 	} else if (isset($_GET['u'])) {
 		$tm = __request_timestamp__ - $mage;
 
@@ -103,7 +103,6 @@
 		}
 
 		if (!$total) {
-			$mnav_pager = '';
 			$mnav_data = '{TEMPLATE: mnav_no_results}';
 		} else {
 			$mnav_data .= '{TEMPLATE: mnav_end_results}';
@@ -115,12 +114,10 @@
 				} else {
 					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter.'&mbsp;rng2='.$rng2);
 				}
-			} else {
-				$mnav_pager = '';
 			}
 		}
 	} else {
-		$mnav_pager = $mnav_data = '';
+		$mnav_data = '';
 	}
 /*{POST_PAGE_PHP_CODE}*/
 ?>
