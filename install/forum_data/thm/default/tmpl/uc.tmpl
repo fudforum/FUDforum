@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.3 2004/04/20 19:23:38 hackie Exp $
+* $Id: uc.tmpl,v 1.4 2004/04/20 22:39:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -74,16 +74,12 @@
 {SECTION: END}
 
 {SECTION: uc_new_pm}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="3">{MSG: uc_new_pm}</th></tr>
 <tr>
 	<th class="wa">{MSG: subject}</th>
 	<th class="nw">{MSG: pmsg_author}</th>
 	<th class="nw">{MSG: pmsg_time}</th>
 </tr>
 {TEMPLATE-DATA: uc_new_pms}
-</table>
-<p>
 {SECTION: END}
 
 {SECTION: uc_forum_entry_lnk}
@@ -129,10 +125,6 @@
 {SECTION: END}
 
 {SECTION: uc_sub_forums}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th colspan="4">{MSG: uc_new_cat_forum}</th>
-</tr>
 <tr>
         <th class="wa">{MSG: uc_cat_forum}</th>
 	<th nowrap>{MSG: posts}</th>
@@ -140,8 +132,6 @@
         <th nowrap>{MSG: last_post}</th>
 </tr>
 {TEMPLATE-DATA: uc_sub_forum}
-</table>
-<p>
 {SECTION: END}
 
 {SECTION: uc_first_unread_msg_link_lnk}
@@ -194,10 +184,6 @@
 {SECTION: END}
 
 {SECTION: uc_sub_topics}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th colspan="4">{MSG: uc_sub_topics}</th>
-</tr>
 <tr>
         <th class="wa">{MSG: thread_thread}</th>
 	<th nowrap>{MSG: replies}</th>
@@ -205,7 +191,6 @@
         <th nowrap>{MSG: last_post}</th>
 </tr>
 {TEMPLATE-DATA: uc_sub_topic}
-</table>
 {SECTION: END}
 
 {PAGE: UC_PAGE user control panel}
@@ -220,7 +205,21 @@
 {TEMPLATE-DATA: uc_buddy_ents}
 </table></td>
 
-	<td class="wa vt">{TEMPLATE-DATA: uc_new_pms}{TEMPLATE-DATA: uc_sub_forum}{TEMPLATE-DATA: uc_sub_topic}</td>
+	<td class="wa vt">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan="3">{MSG: uc_new_pm}</th></tr>	
+{TEMPLATE-DATA: uc_new_pms}
+</table>
+<p>	
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan="4">{MSG: uc_new_cat_forum}</th></tr>
+{TEMPLATE-DATA: uc_sub_forum}
+</table>
+<p>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th colspan="4">{MSG: uc_sub_topics}</th></tr>	
+{TEMPLATE-DATA: uc_sub_topic}</td>
+</table>
 </tr>
 </table>
 
