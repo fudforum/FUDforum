@@ -258,7 +258,7 @@ Include the message body and subject inside the email notification.}}}
 Allow users to specify a nick name, that will be used instead of a login name to identify those users on the forum.}}}
 
 {{{MULTI_HOST_LOGIN	FUD_OPT_2	256
-This option allows users to login into the forum from different computers/browsers and not terminate their existing sessions on other computers/browsers.}}}
+This option allows users to login into the forum from different computers/browsers and not terminate their existing sessions on other computers/browsers. WARNING: If you enable this option it is highly recommended that you disable URL sessions.}}}
 
 {{{POLLS_PER_PAGE
 How many polls to display per page on the poll listing.}}}
