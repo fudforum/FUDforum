@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.50 2005/02/27 00:37:17 hackie Exp $
+* $Id: post.tmpl,v 1.51 2005/03/04 04:32:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR-HTML: usr->login} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText nw">{MSG: post_logedin_user}</td><td class="GenText wa">{VAR: usr->alias} [<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
