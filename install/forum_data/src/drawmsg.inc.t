@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.26 2003/04/08 12:56:54 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.27 2003/04/08 16:40:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,6 +101,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				if ($m_num && !($misc[1] - $n_num - 1)) { /* next page link */
 					$msg_start = $misc[0] + $misc[1];
 					$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
+					$next_page = '{TEMPLATE: dmsg_next_msg_page}';
 				} else {
 					$msg_num = $m_num + 1;
 					$next_message = '{TEMPLATE: dmsg_next_message}';
@@ -188,7 +189,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
 		$level_image = $obj->level_pri != 'a' ? '{TEMPLATE: dmsg_level_image}' : '';
 	} else {
-			$level_name = $level_image = '';
+		$level_name = $level_image = '';
 	}
 
 	/* show im buttons if need be */
@@ -221,69 +222,75 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	} else {
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
 	}
+
+	if ($obj->poll_cache) {
+		$obj->poll_cache = @unserialize($obj->poll_cache);
+	}
 	
 	/* handle poll votes */
 	if (!empty($_GET['poll_opt']) && ($_GET['poll_opt'] = (int)$_GET['poll_opt']) && $obj->locked != 'Y' && $perms['vote'] == 'Y') {
-		register_vote($_GET['poll_opt']);
+		register_vote($obj->poll_cache, $obj->poll_id, $_GET['poll_opt'], $obj->id);
 		unset($_GET['poll_opt']);
 	}
 	
 	/* display poll if there is one */
 	if ($obj->poll_id) {
-		
-	
+		/* we need to determine if we allow the user to vote or see poll results */
 		$show_res = 1;
 		
-		$poll_obj = db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}poll WHERE id=".$obj->poll_id));
+		$n_votes = 0;
+		foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
 
-		if( _uid && $GLOBALS["pl_view"] != $obj->poll_id && $obj->locked == 'N' && is_perms(_uid, $__RESOURCE_ID, 'VOTE') && !bq("SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id=".$poll_obj->id." AND user_id="._uid) ) $show_res=0;
-		
-		/* determine if poll is expired or reach max count */
-			
-		$res = q("SELECT * FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id);
-		$total_votes = q_singleval("SELECT sum(count) FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id=".$poll_obj->id." GROUP BY poll_id");
-		
-		$i=0;
-		if ( !$show_res && $poll_obj->max_votes && $total_votes >= $poll_obj->max_votes ) $show_res = 1;
-		if ( !$show_res && $poll_obj->expiry_date && ($poll_obj->creation_date + $poll_obj->expiry_date) <= __request_timestamp__ ) $show_res = 1;
-		
-		$poll_data='';
-		while ( $opt = db_rowobj($res) ) {
-			$i++;
-			if ( $show_res || !empty($hide_controls) ) {
-				$length = ( $opt->count ) ? round($opt->count/$total_votes*100) : 0;
-				$poll_data .= '{TEMPLATE: dmsg_poll_result}';
+		/* various conditions that may prevent poll voting */		
+		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && $_REQUEST['pl_view'] != $obj->poll_id) {
+			/* check if the user had previously voted */
+			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$obj->poll_id.' AND user='._uid)) {
+				/* check if the poll has expired */
+				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
+					/* check if the max # of poll votes was reached */
+					if (!$obj->max_votes || $n_votes < $obj->max_votes) {
+						$show_res = 0;
+					}
+				}
 			}
-			else 
-				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
 		}
-			
-		qf($res);
-			
-		if ( !$show_res && empty($hide_controls) ) {
-			if( $total_votes ) $view_poll_results_button = '{TEMPLATE: dmsg_view_poll_results_button}';
+		
+		$i = 0;
+		
+		$poll_data = '';
+		foreach ($obj->poll_cache as $k => $v) {
+			$i++;
+			if ($show_res) {
+				$length = $v[1] ? round($v[1] / $total_votes * 100) : 0;
+				$poll_data .= '{TEMPLATE: dmsg_poll_result}';	
+			} else {
+				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
+			}
+		}
+		
+		if (!$show_res) {
+			$view_poll_results_button = $n_votes ? '{TEMPLATE: dmsg_view_poll_results_button}' : '';
 			$poll_buttons = '{TEMPLATE: dmsg_poll_buttons}';
+			$poll = '{TEMPLATE: dmsg_poll}';
+		} else {
 			$poll = '{TEMPLATE: mini_dmsg_poll}';
 		}
-		
-		$poll = empty($hide_controls) ? '{TEMPLATE: dmsg_poll}' : '{TEMPLATE: mini_dmsg_poll}';
+	} else {
+		$poll = '';
 	}
 
-	if ( $obj->attach_cnt ) {
-		$a_result = q("SELECT {SQL_TABLE_PREFIX}attach.id,original_name,dlcount,icon,fsize FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE message_id=".$obj->id." AND private='N'");
-		if ( db_count($a_result) ) {
-			$drawmsg_file_attachments='';
-			while ( $a_obj = db_rowobj($a_result) ) {
-				if( file_exists($GLOBALS["FILE_STORE"].$a_obj->id.".atch") ) {
-					$sz = $a_obj->fsize/1024;
-					$sz = $sz<1000 ? number_format($sz,2).'KB' : number_format($sz/1024,2).'MB';
-					if( empty($a_obj->icon) ) $a_obj->icon = 'unknown.gif';
-					$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';	
-				}					
+	/* draw file attachments if there are any */
+	$drawmsg_file_attachments = '';
+	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
+		$atch = @unserialize($obj->attach_cache);
+		if (is_array($atch) && count($atch)) {
+			foreach ($atch as $v) {
+				$sz = $atch[2] / 1024;
+				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
+				$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';
 			}
 			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
 		}
-		qf($a_result);	
 	}
 		
 	/* Determine if the message was updated and if this needs to be shown */
@@ -300,42 +307,47 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	if ($hide_controls) {
-		if ($obj->sig && $GLOBALS["ALLOW_SIGS"] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs=='Y') {
+		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs == 'Y') {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
 			$signature = '';
 		}
-	
+
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
-	
+
 		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
-			$encoded_login = urlencode($obj->login);
-			if( $GLOBALS["ALLOW_EMAIL"] == 'Y' && $obj->email_messages == 'Y' ) $email_link = '{TEMPLATE: dmsg_email_link}';
-			if( $GLOBALS['PM_ENABLED']=='Y' ) $private_msg_link = '{TEMPLATE: dmsg_private_msg_link}';
-		}
-		
-		if ($msg_count && $pager && ($GLOBALS['__MSG_COUNT__']-1) == $msg_count && $obj->id!=$obj->last_post_id) {
-			$page_num = $start+$count;
-			$next_page = '{TEMPLATE: dmsg_next_msg_page}';
+			$email_link = ($GLOBALS['ALLOW_EMAIL'] == 'Y' && $obj->email_messages == 'Y') ? '{TEMPLATE: dmsg_email_link}' : '';
+			$private_msg_link = $GLOBALS['PM_ENABLED'] == 'Y' ? '{TEMPLATE: dmsg_private_msg_link}' : '';
 		} else {
+			$user_profile = $email_link = $private_msg_link = '';
+		}
+
+		/* little trick, this variable will only be avaliable if we have a next link leading to another page */
+		if (isset($next_page)) {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}
-		
-		if ( $GLOBALS["MOD"] || is_perms(_uid, $__RESOURCE_ID, 'DEL') ) $delete_link = '{TEMPLATE: dmsg_delete_link}';
-		if ( isset($GLOBALS["usr"]) && (_uid == $obj->poster_id || $GLOBALS["MOD"] || is_perms(_uid, $__RESOURCE_ID, 'EDIT')) ) {
-			if ( $GLOBALS["MOD"] || is_perms(_uid, $__RESOURCE_ID, 'EDIT') || !$GLOBALS['EDIT_TIME_LIMIT'] || (__request_timestamp__-$obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT']*60) ) $edit_link = '{TEMPLATE: dmsg_edit_link}';
+
+		$delete_link = ($GLOBALS['MOD'] || $perms['p_del'] == 'Y') ? '{TEMPLATE: dmsg_delete_link}' : '';
+
+		if (($GLOBALS['MOD'] || $perms['p_edit'] == 'Y') || (_uid == $obj->poster_id && (!$GLOBALS['EDIT_TIME_LIMIT'] || __request_timestamp__ - $obj->post_stamp < $GLOBALS['EDIT_TIME_LIMIT'] * 60))) {
+			$edit_link = '{TEMPLATE: dmsg_edit_link}';
+		} else {
+			$edit_link = '';
 		}
-		
-		if( $GLOBALS["MOD"] || $obj->locked=='N' ) {
+
+		if ($GLOBALS['MOD'] || $obj->locked == 'N') {
 			$reply_link = '{TEMPLATE: dmsg_reply_link}';
 			$quote_link = '{TEMPLATE: dmsg_quote_link}';
-		}	
+		} else {
+			$reply_link = $quote_link = '';
+		}
 		
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	} else {
-		$signature = $report_to_mod_link = $next_page = $message_toolbar = '';
+		$signature = $report_to_mod_link = $message_toolbar = '';
 	}
+
 	return '{TEMPLATE: message_entry}';
 }		
 ?>

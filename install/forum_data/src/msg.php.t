@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.22 2003/04/07 08:42:24 hackie Exp $
+*   $Id: msg.php.t,v 1.23 2003/04/08 16:40:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,8 @@
 			g.p_VISIBLE as p_visible, g.p_READ as p_read, g.p_post as p_post, g.p_REPLY as p_reply, g.p_EDIT as p_edit, g.p_DEL as p_del, g.p_STICKY as p_sticky, g.p_POLL as p_poll, g.p_FILE as p_file, g.p_VOTE as p_vote, g.p_RATE as p_rate, g.p_SPLIT as p_split, g.p_LOCK as p_lock, g.p_MOVE as p_move, g.p_SML as p_sml, g.p_IMG as p_img,
 			tr.thread_id AS cant_rate,
 			r.last_view,
-			r.msg_id
+			r.msg_id,
+			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
 		FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m ON m.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum	f ON f.id=t.forum_id
@@ -83,6 +84,7 @@
 			LEFT  JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
 			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g ON '.$perm_q.'
 		WHERE t.id='.$_GET['th']. ' ORDER BY g.user_id ASC LIMIT 1');
 
