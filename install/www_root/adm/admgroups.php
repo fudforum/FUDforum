@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.41 2004/01/04 16:38:32 hackie Exp $
+* $Id: admgroups.php,v 1.42 2004/01/26 16:44:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -171,6 +171,18 @@
 			$gr_inherit_id = $gl[$edit]['inherit_id'];
 			$perm = $gl[$edit]['groups_opt'];
 			$permi = $gl[$edit]['groups_opti'];
+
+			/* handle inheritences */
+			if ($gr_inherit_id) {
+				$ip =& $gl[$gr_inherit_id]['groups_opt'];
+				foreach ($hdr as $v2) {
+					if ($ip & $v2[0]) {
+						$perm |= $v2[0];
+					} else {
+						$perm = $perm &~ $v2[0];
+					}
+				}			
+			}
 		} else {
 			/* default form values */
 			$gr_ramasks = $gr_name = '';

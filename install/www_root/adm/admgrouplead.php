@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.25 2004/01/04 16:38:32 hackie Exp $
+* $Id: admgrouplead.php,v 1.26 2004/01/26 16:44:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,14 +45,26 @@
 				break;
 			case 1:
 				$r = db_rowarr($c);
-				if (__dbtype__ == 'mysql') {
-					q('REPLACE INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
-				} else {
-					$opt = q_singleval('groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
-					if (!db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id)) {
-						q("UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt=".$opt." WHERE user_id=".$r[0]." AND group_id=".$group_id);
+				
+				$opts = 65536|131072;
+				$tgi = $group_id;
+				$inh = db_saq("SELECT groups_opti, inherit_id FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$tgi);
+				$ih_bits = (int) $inh[0];
+				do {
+					$tmp = db_saq("SELECT groups_opti, inherit_id, groups_opt FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$inh[1]);
+					$ip_perms = $ih_bits &~ (int)$tmp[0];
+					$opts |= (int)$tmp[2] & $ip_perms;
+					$ih_bits = $ih_bits &~ $ip_perms;
+					if (!$tgi || !$ih_bits) {
+						break;
 					}
+					$inh[1] = $tmp[1];
+				} while (($inh = db_saq("SELECT groups_opti, inherit_id FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$tgi)));
+
+				if (!db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) VALUES('.$group_id.', '.$r[0].', '.$opts.')', $err)) {
+					q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET group_members_opt=".$opts." WHERE user_id=".$r[0]." AND group_id=".$group_id);
 				}
+
 				rebuild_group_ldr_cache($r[0]);
 				grp_rebuild_cache(array($r[0]));
 				$gr_leader = '';
