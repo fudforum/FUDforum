@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.23 2003/10/02 14:00:16 hackie Exp $
+*   $Id: groups.inc.t,v 1.24 2003/10/03 13:55:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -112,7 +112,8 @@ function group_perm_array()
 		'p_LOCK' => array(4096, 'Lock/Unlock topics'),
 		'p_MOVE' => array(8192, 'Move topics'),
 		'p_SML' => array(16384, 'Use smilies/emoticons'),
-		'p_IMG' => array(32768, 'Use [img] tags')
+		'p_IMG' => array(32768, 'Use [img] tags'),
+		'p_SEARCH' => array(262144, 'Can Search')
 	);
 }
 ?>

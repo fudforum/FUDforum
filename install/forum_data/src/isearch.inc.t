@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.22 2003/10/02 00:28:51 hackie Exp $
+*   $Id: isearch.inc.t,v 1.23 2003/10/03 13:55:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -71,8 +71,8 @@ function index_text($subj, $body, $msg_id)
 	}
 
 	if (isset($w1)) {
-		db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
+		db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w1).')', $ef);
 	}
-	db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}title_index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w2).')', $ef);
+	db_li('INSERT '.$del.' INTO {SQL_TABLE_PREFIX}index (word_id, msg_id) SELECT id, '.$msg_id.' FROM {SQL_TABLE_PREFIX}search WHERE word IN('.implode(',', $w2).')', $ef);
 }
 ?>

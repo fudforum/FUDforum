@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.28 2003/10/01 21:51:52 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.29 2003/10/03 13:55:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -190,7 +190,8 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 'p_LOCK'=>'{TEMPLATE: p_LOCK}',
 'p_MOVE'=>'{TEMPLATE: p_MOVE}',
 'p_SML'=>'{TEMPLATE: p_SML}',
-'p_IMG'=>'{TEMPLATE: p_IMG}');
+'p_IMG'=>'{TEMPLATE: p_IMG}',
+'p_SEARCH'=>'{TEMPLATE: p_SEARCH}');
 
 	$perm_sel_hdr = $perm_select = $tmp = '';
 	$i = 0;
@@ -202,7 +203,8 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			}
 			$perm_select .= '{TEMPLATE: groups_perm_selection}';
 		} else {
-			$perm_select .= '{TEMPLATE: groups_na_perms}';
+			/* only show the permissions the user can modify */
+			continue;
 		}
 		$tmp .= '{TEMPLATE: groups_header_entry}';
 

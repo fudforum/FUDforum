@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.32 2003/10/01 03:42:57 hackie Exp $
+*   $Id: admgroups.php,v 1.33 2003/10/03 13:55:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -301,7 +301,7 @@
 </tr>
 <?php
 	/* fetch all group leaders */
-	$c = uq('SELECT gm.group_id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON gm.user_id=u.id WHERE gm.group_members_opt >=131072');
+	$c = uq('SELECT gm.group_id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON gm.user_id=u.id WHERE gm.group_members_opt>=131072 AND gm.group_members_opt & 131072');
 	while ($r = db_rowarr($c)) {
 		$gll[$r[0]][] = $r[1];
 	}

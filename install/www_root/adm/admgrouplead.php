@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.17 2003/10/01 03:38:53 hackie Exp $
+*   $Id: admgrouplead.php,v 1.18 2003/10/03 13:55:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,10 +28,14 @@
 		exit;
 	}	
 
-	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_members WHERE user_id='.(int)$_GET['del']);
-		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_cache WHERE user_id='.(int)$_GET['del']);
-		rebuild_group_ldr_cache((int)$_GET['del']);
+	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
+		if (isset($_GET['ug'])) {
+			q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET group_members_opt=group_members_opt &~ 131072 WHERE user_id=".$del." AND group_id=".$group_id);
+		} else {
+			q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_members WHERE user_id=".$del." AND group_id=".$group_id);
+			grp_rebuild_cache(array($del));
+		}
+		rebuild_group_ldr_cache($del);
 	} else if ($gr_leader) {
 		$srch = addslashes(str_replace('\\', '\\\\', htmlspecialchars($gr_leader)));
 
@@ -46,7 +50,7 @@
 				break;
 			case 1:
 				$r = db_rowarr($c);
-				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
+				q('REPLACE INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
 				rebuild_group_ldr_cache($r[0]);
 				grp_rebuild_cache(array($r[0]));
 				$gr_leader = '';
@@ -79,7 +83,10 @@
 <?php
 	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND gm.group_members_opt & 131072');
 	while ($r = db_rowarr($c)) {
-		echo '<tr><td>'.$r[1].'</td><td>[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]</td></tr>';
+		echo '<tr><td>'.$r[1].'</td><td>
+		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'&ug=1">Remove Group Leader Permission</a>]
+		[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]
+		</td></tr>';
 	}
 	qf($c);
 ?>
