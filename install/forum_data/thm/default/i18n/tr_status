@@ -1,0 +1,44 @@
+#!/usr/local/bin/php -q
+<?php
+
+function diff_lines($MAIN, $file)
+{
+	$diff_lines = 0;
+	$tmp = file($file);
+	$tmp = array_reverse($tmp);
+	foreach($tmp as $line) {
+		list($key, $val) = explode(':', $line);
+		if ($MAIN[$key] == trim($val)) {
+			$diff_lines++;
+		} else {
+			break;
+		}
+	}	
+	
+	return $diff_lines;
+}
+
+	$MAIN = array();
+
+	$tmp = file("english/msg");
+	$tmp = array_reverse($tmp);
+	foreach($tmp as $line) {
+		list($key, $val) = explode(':', $line);
+		$MAIN[$key] = trim($val);
+	}
+	
+	$dir = opendir('.');
+	readdir($dir); readdir($dir); 
+	while ($file = readdir($dir)) {
+		if (!is_dir($file) || is_link($file) || $file == 'english' || !@file_exists($file."/msg")) {
+			continue;
+		}
+		
+		if (($diff_ln = diff_lines($MAIN, $file."/msg"))) {
+			echo ucfirst($file) . " translation is:		" . $diff_ln . " line(s) behind\n";
+		} else {
+			echo ucfirst($file) . " translation is:		up to date\n";
+		}
+	}
+	closedir($dir);
+?>
