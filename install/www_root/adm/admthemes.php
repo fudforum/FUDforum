@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.54 2004/11/24 19:53:43 hackie Exp $
+* $Id: admthemes.php,v 1.55 2005/03/06 18:27:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,107 +10,6 @@
 * (at your option) any later version.
 **/
 
-function get_func_usage(&$toks)
-{
-	foreach ($toks as $k => $tok) {
-		if (is_array($tok) && $tok[0] == T_FUNCTION) {
-			$fc = is_array($toks[$k+2]) ? $toks[$k+2][1] : $toks[$k+3][1];
-			$func[$fc] = -1;
-			$func_pos[$fc] = $k;
-		}
-	}
-
-	if (!isset($func)) {
-		return 0;
-	}
-
-	foreach ($toks as $tok) {
-		if (is_array($tok) && $tok[0] == T_STRING && isset($func[$tok[1]])) {
-			$func[$tok[1]]++;
-		}
-	}
-
-	krsort($func);
-
-	$job = 0;
-	foreach ($func as $k => $v) {
-		if ($v) {
-			break;
-		}
-		$job = 1;
-		$i = 0;
-		$j = $func_pos[$k];
-		$n = count($toks);
-		for ($j; $j < $n; $j++) {
-			if ($toks[$j] === '{') {
-				++$i;
-			} else if ($toks[$j] === '}') {
-				--$i;
-				if ($i < 1) {
-					break;
-				}
-			}
-			unset($toks[$j]);
-		}
-		unset($toks[$j]);
-	}
-
-	return $job;
-}
-
-function clean_code($path, $toks)
-{
-	$old_size = filesize($path);
-	$s = 0;
-	$r = '';
-	foreach ($toks as $k => $tok) {
-		if (!is_array($tok)) {
-			$r .= $tok;
-			continue;
-		}
-		switch ($tok[0]) {
-			case T_COMMENT:
-			case T_ML_COMMENT:
-				break;
-
-			case T_WHITESPACE:
-				if (!$s) {
-					$r .= ' ';
-					$s = 1;
-				}
-				break;
-
-			case T_AS:
-			case T_LOGICAL_OR:
-			case T_EXTENDS:
-				$s = 0;
-				$r .= ' ';
-
-			case T_FUNCTION:
-			case T_CASE:
-			case T_CLASS:
-			case T_NEW:
-			case T_ECHO:
-			case T_RETURN:
-				$r .= $tok[1].' ';
-				break;
-
-			default:
-				$r .= $tok[1];
-		}
-	}
-
-	if (!($fp = fopen($path, 'w'))) {
-		exit("unable to write to ".$path."<br>\n");
-	}
-	fwrite($fp, $r);
-	fclose($fp);
-
-	$saved = ($old_size - strlen($r));
-
-	return $saved;
-}
-	$is_tok = extension_loaded('tokenizer');
 	$meml = (($meml = ini_get("memory_limit")) && (int)$meml < 10);
 
 	require('./GLOBALS.php');
@@ -171,26 +70,8 @@ function clean_code($path, $toks)
 		$thm_enabled = $c['theme_opt'] & 1;
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
-	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['optimize']))) {
-		/* optimize *.php files */
-		$files = glob($WWW_ROOT_DISK . 'theme/' . $t_name . '/*.php', GLOB_NOSORT);
-		foreach ($files as $f) {
-			if ($meml && filesize($f) > 150000) { // not enough memory to tokenize large PHP scripts
-				continue; 
-			}
-			$toks = token_get_all(file_get_contents($f));
-			while (get_func_usage($toks));
-			clean_code($f, $toks);
-		}
-
-		$files = glob($DATA_DIR . 'include/theme/' . $t_name . '/*.inc', GLOB_NOSORT);
-		foreach ($files as $f) {
-			if ($meml && filesize($f) > 150000) { // not enough memory to tokenize large PHP scripts
-				continue; 
-			}
-			clean_code($f, token_get_all(file_get_contents($f)));
-		}
 	}
+
 	if (!$edit) {
 		$c = get_class_vars('fud_theme');
 		foreach ($c as $k => $v) {
@@ -368,7 +249,6 @@ function update_locale()
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td nowrap>[<a href="admthemes.php?'.__adm_rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'.__adm_rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>]
-			'.($is_tok ? '[<a href="admthemes.php?'.__adm_rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
 			'.($r->id != 1 ? '[<a href="admthemes.php?'.__adm_rsidl.'&del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';
