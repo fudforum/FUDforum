@@ -1,5 +1,5 @@
 php_value output_buffering 64000
-php_value variables_order GPC
+php_value variables_order GPCS
 php_flag implicit_flush 0
 php_flag register_globals 0
 php_flag register_argc_argv 0
