@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.71 2005/02/24 16:52:47 hackie Exp $
+* $Id: post_proc.inc.t,v 1.72 2005/03/04 03:36:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,10 +19,18 @@ function fud_substr_replace($str, $newstr, $pos, $len)
 
 function char_fix(&$str)
 {
-	$str = str_replace(
-		array('&amp;#0', '&amp;#1', '&amp;#2', '&amp;#3', '&amp;#4', '&amp;#5', '&amp;#6', '&amp;#7','&amp;#8','&amp;#9'),
-		array('&#0', '&#1', '&#2', '&#3', '&#4', '&#5', '&#6', '&#7', '&#8', '&#9'),
-		$str);
+	$src = array('&amp;#0', '&amp;#1', '&amp;#2', '&amp;#3', '&amp;#4', '&amp;#5', '&amp;#6', '&amp;#7','&amp;#8','&amp;#9');
+	$dst = array('&#0', '&#1', '&#2', '&#3', '&#4', '&#5', '&#6', '&#7', '&#8', '&#9');
+
+	foreach ($src as $k => $v) {
+		if (strpos($str, $v) === false) {
+			unset($src[$k], $dst[$v]);
+		}
+	}
+
+	if ($src) {
+		$str = str_replace($src, $dst, $str);
+	}
 }
 
 function tags_to_html($str, $allow_img=1, $no_char=0)
