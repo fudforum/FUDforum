@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.85 2003/10/01 22:49:47 hackie Exp $
+*   $Id: post.php.t,v 1.86 2003/10/01 23:54:10 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -391,7 +391,7 @@ function flood_check()
 				$msg_post->approve($msg_post->id, true);
 			}
 
-			if (_uid) {
+			if (_uid && !$msg_id) {
 				/* deal with notifications */
 	 			if (isset($_POST['msg_poster_notif'])) {
 	 				thread_notify_add(_uid, $msg_post->thread_id);
