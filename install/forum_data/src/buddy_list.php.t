@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.12 2003/04/02 15:39:11 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.13 2003/04/02 16:06:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-		
+
 	if (!_uid) {
 		std_error('login');
 		exit();
@@ -62,9 +62,9 @@
 /*{POST_HTML_PHP}*/
 
 	$c = uq('SELECT 
-			{SQL_TABLE_PREFIX}buddy.id as bud_id,
+			{SQL_TABLE_PREFIX}buddy.id,
 			{SQL_TABLE_PREFIX}users.id,
-			{SQL_TABLE_PREFIX}users.alias AS login,
+			{SQL_TABLE_PREFIX}users.alias,
 			{SQL_TABLE_PREFIX}users.join_date,
 			{SQL_TABLE_PREFIX}users.bday,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
