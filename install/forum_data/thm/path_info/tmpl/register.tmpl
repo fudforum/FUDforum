@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.10 2004/01/04 16:38:32 hackie Exp $
+* $Id: register.tmpl,v 1.11 2004/04/13 18:48:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,11 +32,11 @@
 {REF: allowed_user_lnk.tmpl}
 
 {SECTION: change_passwd_link_lnk1}
-{ROOT}/rp/{DEF: _rsid}
+{FULL_ROOT}{ROOT}/rp/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: built_in_avatar_lnk1}
-{ROOT}/as/{DEF: _rsid}
+{FULL_ROOT}{ROOT}/as/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: REGISTER_PAGE_lnk3}

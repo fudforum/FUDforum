@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.9 2004/01/04 16:38:31 hackie Exp $
+* $Id: post.tmpl,v 1.10 2004/04/13 18:48:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -43,11 +43,11 @@
 {SECTION: END}
 
 {SECTION: create_poll_lnk1}
-{ROOT}/po/{VAR: frm->id}/{DEF: _rsid}
+{FULL_ROOT}{ROOT}/po/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: edit_poll_lnk1}
-{ROOT}/po/{VAR: frm->id}/{VAR: poll[0]}/{DEF: _rsid}
+{FULL_ROOT}{ROOT}/po/{VAR: frm->id}/{VAR: poll[0]}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: moderated_forum_post_lnk3}
