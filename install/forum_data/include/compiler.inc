@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.59 2004/07/02 15:42:49 hackie Exp $
+* $Id: compiler.inc,v 1.60 2004/07/02 16:54:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -406,11 +406,15 @@ function build_msg($file)
 	if (file_exists($file)) {
 		if (preg_match('!thm/([^/]+)/i18n!', $file, $m)) {
 			parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/messages'), '', 1);
+			if (file_exists($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/date_formats.tmpl')) {
+				parse_sections(@file_get_contents($GLOBALS['DATA_DIR'] . 'thm/'.$m[1].'/tmpl/date_formats.tmpl'), '', 1);
+			}
 		}
 		parse_msgs($file);
 	}
 	if ($ts != $file && file_exists($ts)) {
 		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/messages'), '', 1);
+		parse_sections(file_get_contents($GLOBALS['DATA_DIR'] . 'thm/default/tmpl/date_formats.tmpl'), '', 1);
 		parse_msgs($ts);
 	}
 }
@@ -554,6 +558,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$list = glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl');
 	foreach ($list as $fe) {
 		$file = basename($fe);
+		if ($file == 'date_formats.tmpl') continue;
 
 		resolve_compile($file);
 		if (isset($GLOBALS['file_cache'][$file]['inline'])) {

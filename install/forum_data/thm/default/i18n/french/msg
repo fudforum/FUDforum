@@ -112,7 +112,7 @@ rate_thread:			Donner une note à ce Fil
 refresh_list:			Rafraîchir la liste
 register:			S&#39;inscrire
 registered:			Inscrit(e) :
-registered_on:			Inscrit(e) le {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Inscrit(e) le {TEMPLATE: registered_on_date}
 replies:			Réponses
 report_to_mod:			Rapporter un message au modérateur
 reported_messages:		Messages rapportés
@@ -179,7 +179,7 @@ vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Voter
 vote_for_thread:		Vote
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> a été déplacé vers <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> par le modérateur
-welcome_message:		Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+welcome_message:		Bienvenue <b>{VAR: usr->alias}</b>, votre dernière visite a eu lieu le {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Montrer ce que les autres sont en train de faire
 reported_del_report:		Détruire un rapport
 reported_reason:		Raison
@@ -378,8 +378,8 @@ forum_terms:			Forum
 forum_rules:			L&#39;inscription à ce forum est gratuite ! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton "J&#39;accepte" à la fin de la page. Note : En pressant le bouton "J&#39;accepte", vous déclarez avoir plus de 13 ans. Si vous n&#39;avez pas encore 13 ans, vous devez utiliser le formulaire d&#39;autorisation parentale.<p>Bien que les administrateurs et modérateurs de ce forum s&#39;assurent d&#39;écarter tout message qui ne serait pas jugé décent ou approprié sur l&#39;un des forums, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être tenus pour responsables ou blâmables pour le contenu de quelque message que ce soit.<p>En cliquant sur le bouton "J&#39;accepte", vous garantissez que vous n&#39;avez pas l&#39;intention de poster de messages à caractère obscène, vulgaire, en relation avec la sexualité, de propos haineux, menaces, ou violant toute loi en aucune façon. <p>Les responsables de ce forum ont le pouvoir et le droit d&#39;effacer, éditer, corriger, déplacer, ou même fermer n&#39;importe quel fil / message pour quelque raison que ce soit et sans préavis.<p>
 forum_rules_13:			Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d&#39;un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d&#39;un parent ou tuteur par fax ou lettre. C&#39;est seulement après réception de ce document que la personne de moins de 13 ans sera effectivement inscrite et pourra interagir sur le forum.<p> Si vous désirez cependant commencer la procédure d&#39;inscription immédiatement (avant que le document signé ne nous parvienne), veuillez cliquer sur le bouton "J&#39;accepte" ci-dessous. Si vous préférez annuler la procédure d&#39;inscription, cliquez sur le bouton "Annuler" afin de retourner à la page d&#39;index des forums. <p>Une copie du formulaire d&#39;autorisation parentale est disponible ici. Pour plus d&#39;informations à propos de la procédure d&#39;inscription, veuillez envoyer un e-mail à <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmation COPPA
-coppa_before:			Avant {DATE: coppa %B %e, %Y}
-coppa_after:			Après {DATE: coppa %B %e, %Y}
+coppa_before:			Avant {TEMPLATE: coppa_date}
+coppa_after:			Après {TEMPLATE: coppa_date}
 coppa_link:			Cliquez sur le lien correspondant à votre date de naissance
 coppa:				Un parent ou tuteur légal doit faxer ou envoyer par la poste une autorisation signée a l&#39;administrateur de ce forum avant qu&#39;une personne de moins de 13 ans ne puisse valider son inscription.<p>Pour de plus amples informations, contactez <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Information
@@ -481,7 +481,7 @@ email_pg_title:			e-mail
 email_subject:			Sujet :
 email_body:			Contenu :
 email_submit:			e-mail
-ppost_quote_msg:		{VAR: msg_to_list} a écrit le {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} a écrit le {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Citation :
 ppost_to:			À :
 ppost_from_buddy_list:		Sélectionner dans la liste d&#39;amis
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Veuillez saisir une adresse e-mail valide pour votre co
 postcheck_email_subject:	Vous ne pouvez pas envoyer d&#39;e-mail sans sujet.
 postcheck_email_body:		Vous ne pouvez pas envoyer d&#39;e-mail sans contenu.
 private_msg_notify_subj:	Notification de lecture du message : {VAR: m->subject}
-private_msg_notify_body:	<br>{VAR: usr->login} a lu votre message privé intitulé "{VAR: m->subject}" le {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_body:	<br>{VAR: usr->login} a lu votre message privé intitulé "{VAR: m->subject}" le {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		Parcourt la liste des utilisateurs parrainés
 register_err_short_login:	Le nom d&#39;utilisateur que vous avez choisi est trop court. Un nom d&#39;utilisateur doit comporter au moins 4 caractères
 register_err_login_notallowed:	Ce nom d&#39;utilisateur n&#39;est pas autorisé
@@ -753,7 +753,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Vous êtes en train d&#39;éditer: <b>{VAR: grp->name}</b>
 rate_worst:			Mauvais
 rate_best:			Excellent
-post_quote_msg:			{VAR: msg->login} a écrit le {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} a écrit le {TEMPLATE: make_report_date}
 post_quote:			Citation :
 userinfo_referals:		Utilisateurs parrainés:
 userinfo_referals_count:	{VAR: referals} Membres
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	L&#39;administrateur du forum a choisi de passer e
 remove_from_buddy_list:		Retirer de la liste d&#39;amis
 iemail_msg_author:		<b>Auteur :</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Sujet :</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date :</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Date :</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Répondre
 iemail_msg_quote:		Citer
 iemail_msg_view:		Voir le message

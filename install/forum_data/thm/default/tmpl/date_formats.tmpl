@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: date_formats.tmpl,v 1.1 2004/06/21 14:51:58 hackie Exp $
+* $Id: date_formats.tmpl,v 1.2 2004/07/02 16:54:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -119,4 +119,24 @@
 
 {SECTION: ignore_list_date}
 {DATE: r[4] %a, %d %B %Y %H:%M}
+{SECTION: END}
+
+{SECTION: registered_on_date}
+{DATE: u_reg_date %a, %d %B %Y}
+{SECTION: END}
+
+{SECTION: welcome_message_date}
+{DATE: usr->last_visit %a, %d %B %Y %H:%M}
+{SECTION: END}
+
+{SECTION: coppa_date}
+{DATE: coppa %B %e, %Y}
+{SECTION: END}
+
+{SECTION: ppost_quote_msg_date}
+{DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+{SECTION: END}
+
+{SECTION: private_msg_notify_body_date}
+{DATE: m->post_stamp %a, %d %B %Y %H:%M}
 {SECTION: END}

@@ -463,7 +463,7 @@ post_preview:			Beitragsvorschau
 post_preview_btn:		Beitragsvorschau
 post_proc_reveal_spoiler:	Spoiler anzeigen
 post_quote:			Zitat:
-post_quote_msg:			{VAR: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} schrieb am {TEMPLATE: make_report_date}
 post_re:			Re: 
 post_reply_update:		Antwortet auf <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
@@ -489,7 +489,7 @@ ppost_find_User:		Benutzer suchen
 ppost_from_buddy_list:		Aus der Buddyliste ausw&auml;hlen
 ppost_original_msg:		Nachricht, die du weiterleitest oder beantwortest
 ppost_quote:			Zitat:
-ppost_quote_msg:		{VAR: msg_to_list} schrieb am {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} schrieb am {TEMPLATE: ppost_quote_msg_date}
 ppost_save_draft:		Entwurf speichern
 ppost_send:			Verschicken
 ppost_to:			An:
@@ -499,7 +499,7 @@ prereg_agree:			Zustimmen
 prereg_disagree:		Ablehnen
 prereg_info:			Information
 prev_thread:			Vorheriges Thema:
-private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat deine private Nachricht, "{VAR: m->subject}", am {DATE: m->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
+private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat deine private Nachricht, "{VAR: m->subject}", am {TEMPLATE: private_msg_notify_body_date} gelesen<br>
 private_msg_notify_subj:	Benachrichtigung lesen zu: {VAR: m->subject}
 profile:			Profil
 profile_desc:			Hier klicken um zum Benutzermen&uuml; zu gelangen
@@ -615,7 +615,7 @@ register_yahoo:			Yahoo Messenger:
 register_year:			Jahr
 register_your_pass:		Dein Passwort:
 registered:			Registriert:
-registered_on:			Registriert am {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Registriert am {TEMPLATE: registered_on_date}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 remail_anon_opt:		Diesen Beitrag in einen E-Mail Klienten deiner Wahl kopieren, um sie an deine Freunde zu schicken.
 remail_done:			Fertig
@@ -821,7 +821,7 @@ vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
 was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
-welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war am {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, dein letzter Besuch war am {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Nachricht schreiben
 yes:				Ja
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	Der Administrator dieses Forums hat sich daf&uuml;
 remove_from_buddy_list:		von der Buddyliste entfernen
 iemail_msg_author:		<b>Verfasser:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Betreff:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Datum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Datum:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Antwort
 iemail_msg_quote:		Zitat
 iemail_msg_view:		Thema/Nachricht ansehen

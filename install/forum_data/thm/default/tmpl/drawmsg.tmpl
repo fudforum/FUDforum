@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.70 2004/06/21 14:51:58 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.71 2004/07/02 16:54:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,6 @@
 {REF: fileio.tmpl}
 {REF: alt_var.tmpl}
 {REF: imsg.tmpl}
-{REF: date_formats.tmpl}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
 <a href="javascript://" onClick="chng_focus(\'#msg_num_{VAR: msg_num}\');"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width=16 height=11 /></a>

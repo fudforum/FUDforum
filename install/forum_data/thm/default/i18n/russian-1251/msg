@@ -113,7 +113,7 @@ rate_thread:			Дать оценку теме
 refresh_list:			Обновить список
 register:			Регистрация
 registered:			Зарегистрирован:
-registered_on:			Дата регистрации: {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Дата регистрации: {TEMPLATE: registered_on_date}
 replies:			Ответы
 report_to_mod:			Известить модератора
 reported_messages:		Извещения о сообщениях
@@ -180,7 +180,7 @@ vote:				Голосов: {VAR: frm->n_rating}
 vote_button:			Проголосовать
 vote_for_thread:		Оценить
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> перенесено модератором в форум <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {TEMPLATE: welcome_message_date}
 what_ppl_doing:			показать кто чем занимается
 reported_del_report:		Удалить отчет
 reported_reason:		Причина
@@ -379,8 +379,8 @@ forum_terms:			Правила форума
 forum_rules:			Регистрация на этом форуме является свободной. Мы надеемся, что вы ознакомитесь с приведенными ниже правилами и положениями. Если вы согласны с ними - нажмите кнопку <b>Согласен</b>. Примечание: Нажимая на кнопку, вы подтверждаете, что ваш возраст превышает 13 лет.<p>Несмотря на то, что администраторы и модераторы этого форума следят за соблюдением правил и за чистотой форума, они не всегда имеют возможность полностью просмотреть каждое сообщение. Все сообщения выражают точку зрения их авторов и ни владелец ни разработчики форума не несут никакой ответственности за опубликованную информацию.<p>Нажимая кнопку <b>Согласен</b>, вы гарантируете, что не будете публиковать сообщений непристойного, вульгарного, сексуально-ориентированного, угрожающего характера или каким-либо образом нарушающих текущее законодательство.<p>Владельцы форума имеют право удалить, изменить, перенести или закрыть любую тему по любой причине.<p>
 forum_rules_13:			Все пользователи в возрасте до 13 лет должны получить разрешение от родителей или опекунов на участие в форуме. Мы приветствуем участие в форуме детей, но тем не менее ожидаем подписанное разрешение факсом или по почте, прежде чем предоставим вам право участия.<p>Если вы желаете продолжить регистрацию до момента получения нами разрешения, нажмите кнопку <b>Согласен</b>. В противном случае нажмите кнопку <b>Не согласен</b> для возврата к списку форумов.<p>Копия формы может быть получена <a href="{TEMPLATE: err_coppa_msg_lnk}">по этой ссылке</a>. Для получения дополнительной информации о процессе регистрации вы можете обратиться по адресу <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Подтверждение COPPA
-coppa_before:			После {DATE: coppa %B %e, %Y}
-coppa_after:			Ранее {DATE: coppa %B %e, %Y}
+coppa_before:			После {TEMPLATE: coppa_date}
+coppa_after:			Ранее {TEMPLATE: coppa_date}
 coppa_link:			Выберите ссылку, правильно указывающую на дату вашего рождения
 coppa:				Для завершения регистрации детей в возрасте до 13 лет требуется получение факсом или по почте подписанного разрешения от родителей или опекунов.<p>Адрес для получения дополнительной информации: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Информация
@@ -482,7 +482,7 @@ email_pg_title:			Email
 email_subject:			Тема:
 email_body:			Текст:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} написал(а) {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} написал(а) {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Цитата:
 ppost_to:			Кому:
 ppost_from_buddy_list:		Выбор из списка контактов
@@ -607,7 +607,7 @@ postcheck_invalid_email:	Пожалуйста введите правильный адрес email.
 postcheck_email_subject:	Невозможно послать сообщение если не указана тема.
 postcheck_email_body:		Невозможно послать сообщение если текст сообщения отсутствует.
 private_msg_notify_subj:	Чтение извещения о: {VAR: m->subject}
-private_msg_notify_body:	Привет,<br>{VAR: usr->login} прочел ваше личное сообщение, "{VAR: m->subject}", от {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_body:	Привет,<br>{VAR: usr->login} прочел ваше личное сообщение, "{VAR: m->subject}", от {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		Просмотр приглашенных
 register_err_short_login:	Выбрано слишком короткое имя пользователя. Минимальная длина имени - 4 символа
 register_err_login_notallowed:	Недопустимое имя пользователя
@@ -754,7 +754,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Редактируемая группа: <b>{VAR: grp->name}</b>
 rate_worst:			Так себе
 rate_best:			Лучшая
-post_quote_msg:			{VAR: msg->login} писал(а) {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} писал(а) {TEMPLATE: make_report_date}
 post_quote:			Цитата:
 userinfo_referals:		Приглашенные:
 userinfo_referals_count:	{VAR: referals} пользователей
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	Администратором форума был включен режим, когда уч
 remove_from_buddy_list:		удалить из списка контактов
 iemail_msg_author:		<b>Автор:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Тема:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Дата:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Дата:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Ответ
 iemail_msg_quote:		Цитата
 iemail_msg_view:		Просмотр темы/сообщения

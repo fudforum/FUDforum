@@ -113,7 +113,7 @@ rate_thread:			Оцени темата
 refresh_list:			Обнови списъка
 register:			Регистрация
 registered:			Регистриран:
-registered_on:			Регистриран на: {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Регистриран на: {TEMPLATE: registered_on_date}
 replies:			Отговори:
 report_to_mod:			Съобщи на модератора
 reported_messages:		Докладвани съобщения
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} гласа
 vote_button:			Гласувай
 vote_for_thread:		Гласувай
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> е преместено на <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
-welcome_message:		Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+welcome_message:		Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {TEMPLATE: welcome_message_date}
 what_ppl_doing:			покажи кой какво прави
 reported_del_report:		Изтрий доклада
 reported_reason:		Причина
@@ -381,8 +381,8 @@ forum_terms:			Условия на форума
 forum_rules:			пЕЦХЯРПЮЖХЪРЮ Б РНГХ ТНПСЛ Е ЯБНАНДМЮ. лНКЪ, ЯКЕДБЮИ ОПЮБХКЮРЮ Х ОНКХРХЙЮРЮ, ЙЮЙБХРН ЯЮ ОН-МЮДНКС. юЙН ЯХ ЯЗЦКЮЯЕМ Я РЪУ - МЮРХЯМХ  <b>яЗЦКЮЯЕМ</b>. гЮАЕКЕФЙЮ: мЮРХЯЙЮИЙХ РСЙ ОНДРБЗПФДЮБЮЬ, ВЕ ЯХ ОН-ЦНКЪЛ НР 13 ЦНДХМХ. юЙН ЯХ МЮ 13 ХКХ ОН-ЛКЮД, ХГОНКГБЮИ РЮГХ АКЮМЙЮ<p>лЮЙЮП ВЕ ЮДЛХМХЯРПЮРНПХРЕ Х ЛНДЕПЮРНПХРЕ НР РНГХ ТНПСЛ ЫЕ ЯЕ ЦПХФЮР ДЮ ОЮГЪР ТНПСЛЮ ВХЯР НР МЕФЕКЮМХРЕ ЯЗНАЫЕМХЪ, МЪЛЮЛЕ БЗГЛНФМНЯР ДЮ ОПЕЦКЕФДЮЛЕ БЯХВЙХ ЯЗНАЫЕМХЪ. бЯХВЙХ ОСАКХЙЮЖХХ НРПЮГЪБЮР ЦКЕДМЮРЮ РНВЙЮ МЮ ЮБРНПЮ Х МХРН ЯНАЯРБЕМХЖХРЕ, МХРН ДЕБЕКНОЗПХРЕ МЮ ТНПСЛЮ МЕ МНЯЪР МХЙЮЙБЮ НРЦНБНПМНЯР ГЮ ЯЗДЗПФЮМХЕРН МЮ ЯЗНАЫЕМХЪРЮ.<p>мЮРХЯЙЮИЙХ <b>яЗЦКЮЯЕМ</b>, ЦЮПЮМРХПЮЬ, ВЕ МЪЛЮ ДЮ ОСАКХЙСБЮЬ  МЕОПХЯРНИМХ, БСКЦЮПМХ, ЯЕЙЯСЮКМН-НПХЕМРХПЮМХ, МЮЙЗПМЪБЮЫХ ДНЯРНИМЯРБНРН  ХКХ МЮПСЬЮБЮЫХ ГЮЙНМХ ЯЗНАЫЕМХЪ.<p>яНАЯРБЕМХЖХРЕ МЮ ТНПСЛЮ ХЛЮР ОПЮБН ДЮ ОПЕЛЮУБЮР, ХГЛЕМЪР, ОПЕЛЕЯРБЮР ХКХ ГЮЙПХБЮР ЙНЪ-РН ДЮ Е РЕЛЮ ОН БЯЪЙЮ ОПХВХМЮ.<p>
 forum_rules_13:			Всички потребители по-млади от 13 години трябва да получат разрешение от родител или настойник за да участват във форума. Приветстваме всеки участник под 13 години при условие, че родител или настойник изпрати по факс или поща подписанното разрешение, за да получите право на участие във форума.<p>Ако желаете да започнете процеса на регистрацията преди да сме получили разрешението, натиснете <b>Съгласен</b>. Ако искате да се откажете от регистрацията, натиснете <b>Не съм съгласен</b> за да се върнете към&nbsp; форума.<p>Бланката за разрешението има <a href="{TEMPLATE: err_coppa_msg_lnk}">тук</a>. За повече информация относно процеса на регистрацията пишете на <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA подтвърждение
-coppa_before:			Преди {DATE: coppa %B %e, %Y}
-coppa_after:			След {DATE: coppa %B %e, %Y}
+coppa_before:			Преди {TEMPLATE: coppa_date}
+coppa_after:			След {TEMPLATE: coppa_date}
 coppa_link:			Изберете съответствието на рождената Ви дата
 coppa:				За приключване на регистрацията на лицата под 13 години е необходимо подписано разрешение от родител или настойник.<p>За допълнителна информация: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Информация
@@ -484,7 +484,7 @@ email_pg_title:			E-mail
 email_subject:			Заглавие:
 email_body:			Текст:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} написа на {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} написа на {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Цитат:
 ppost_to:			За:
 ppost_from_buddy_list:		Избери от контактната листа
@@ -609,7 +609,7 @@ postcheck_invalid_email:	Моля, въведи валиден e-mail адрес на твоя приятел.
 postcheck_email_subject:	Не можеш да изпращаш е-мейл ако отсътства заглавие.
 postcheck_email_body:		Не можеш да изпращаш е-мейл ако липсва текст на съобщението.
 private_msg_notify_subj:	Виж обратна разписка за: {VAR: m->subject}
-private_msg_notify_body:	Здравей,<br>{VAR: usr->login} прочел изпратеното от теб лично съобщение "{VAR: m->subject}" на {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_body:	Здравей,<br>{VAR: usr->login} прочел изпратеното от теб лично съобщение "{VAR: m->subject}" на {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		Преглед на реферали
 register_err_short_login:	Потребителското ти име е много късо. Трябва да бъде най-малко 4 символа
 register_err_login_notallowed:	Не се допуска това потребителско име
@@ -756,7 +756,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Редактираш група: <b>{VAR: grp->name}</b>
 rate_worst:			Най-лошо
 rate_best:			Най-добро
-post_quote_msg:			{VAR: msg->login} написа на {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} написа на {TEMPLATE: make_report_date}
 post_quote:			Цитирам:
 userinfo_referals:		Поканени потребители:
 userinfo_referals_count:	{VAR: referals} участника
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	The administrator of the forum had chosen to confi
 remove_from_buddy_list:		remove from buddy list
 iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message

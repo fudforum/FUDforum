@@ -113,7 +113,7 @@ rate_thread:			Votar Tópico
 refresh_list:			Actualizar a lista
 register:			Registo
 registered:			Registado:
-registered_on:			Registado em {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Registado em {TEMPLATE: registered_on_date}
 replies:			Respostas
 report_to_mod:			Informar mensagem ao moderator
 reported_messages:		mensagens informadas
@@ -180,7 +180,7 @@ vote:				{VAR: frm->n_rating} Voto(s)
 vote_button:			Voto
 vote_for_thread:		Voto
 was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foi movido para <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> pelo moderador
-welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {DATE: usr->last_visit %a, %d %B %Y %H:%M}
+welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Mostrar o que os membros estão a fazer
 reported_del_report:		Apagar relatório
 reported_reason:		Razão
@@ -381,8 +381,8 @@ forum_terms:			Termos de uso do Forum
 forum_rules:			O registo neste forum é gratuito! Nós insistimos que siga as regras e politicas mencionadas. Se concordar com os termos, por favor faça clique no botão Concordo no final da página. Nota: Ao pressionar o botão declara que tem mais de 13 anos. Se não tiver mais de 13 anos, por favor use este formulario de registo.<p>Embora os administradores e moderadores deste forum tentem manter de fora todas as mensagens desagradaveis, é impossivel para nós previsualisar todas as mensagens. Todas as mensagens expressam o ponto de vista do autor, e nem os proprietários do forum ou os seus programadores poderão ser responsabilisados pelo conteúdo de qualquer mensagem.<p>Ao pressionar o botão Concordo, garante não colocar qualquer mensagem obscena, com orientação sexual, ameaças, ou outras que violem a Lei. <p>Os proprietários deste forum têm o direito de remover, editar, mover ou fechar qualquer tópico .<p>
 forum_rules_13:			Todos os utilizadores com menos de 13 anos têm de ter autorização dos encarregados de educação no para poderem ser membros do forum. Quando nós dermos as boas-vindas à participação dos membros com menos de 13 anos, teremos de ter em nosso poder o formulario por fax ou e-mail dos encarregados de educação com a autorização antes de aceitarmos o novo membro.<p>Para começar o registo antes de enviar a autorizaçaõ, pressione o botão Concordo. Para cancelar o processo de registo, pressione o botão Cancelar para voltar ao index do forum. <p>A copia do formulario de autorização pode ser obtida aqui. Para mais informação sobre o processo de registo, por favor envia um e-mail para <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmação COPPA
-coppa_before:			Antes de {DATE: coppa %B %e, %Y}
-coppa_after:			Depois de {DATE: coppa %B %e, %Y}
+coppa_before:			Antes de {TEMPLATE: coppa_date}
+coppa_after:			Depois de {TEMPLATE: coppa_date}
 coppa_link:			Clique no link que corresponde à sua data de nascimento
 coppa:				O encarregado de educação deverá enviar um e-mail com o formulário de autorização devidamente preenchido e assinado ao administrador antes de um utilizador com menos de 13 anos possa completar o processo de registo.<p>Para mais informações é favor contactar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informação
@@ -484,7 +484,7 @@ email_pg_title:			Email
 email_subject:			Assunto:
 email_body:			Mensagem:
 email_submit:			Email
-ppost_quote_msg:		{VAR: msg_to_list} escrita em {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} escrita em {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Disse:
 ppost_to:			Para:
 ppost_from_buddy_list:		Escolha amigo a partir da lista
@@ -610,7 +610,7 @@ postcheck_invalid_email:	Por favor introduza um E-mail válido para o seu amigo.
 postcheck_email_subject:	Não pode mandar um E-mail sem conter um assunto.
 postcheck_email_body:		Não pode mandar um E-mail sem conter uma mensagem
 private_msg_notify_subj:	Notificação de leitura para: {VAR: m->subject}
-private_msg_notify_body:	Olá,<br>{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_body:	Olá,<br>{VAR: usr->login} Leu a sua mensagem privada, "{VAR: m->subject}", em {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		A visualisar referências
 register_err_short_login:	O login que escolheu é demasiado curto. O login tem que ter pelo menos 4 caracteres de tamanho
 register_err_login_notallowed:	Este login não é permitido
@@ -757,7 +757,7 @@ group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{T
 group_mgr_indicator:		Está a Editar: <b>{VAR: grp->name}</b>
 rate_worst:			Pior
 rate_best:			Melhor
-post_quote_msg:			{VAR: msg->login} Escreveu em {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote_msg:			{VAR: msg->login} Escreveu em {TEMPLATE: make_report_date}
 post_quote:			- Disse - :
 userinfo_referals:		Utilizadores Referidos:
 userinfo_referals_count:	{VAR: referals} Membros
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	O administrador do forum escolheu confirmar cada n
 remove_from_buddy_list:		remover da lista de amigos
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Assunto:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Data:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Responder
 iemail_msg_quote:		Citar
 iemail_msg_view:		Vêr Tópico/Menssagem

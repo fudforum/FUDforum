@@ -114,7 +114,7 @@ rate_thread:			Ocena W±tku
 refresh_list:			Od¶wie¿ Listê
 register:			Zarejestruj siê
 registered:			Do³±czy³(a):
-registered_on:			Zarejestrowany w dniu {DATE: u_reg_date %a, %d %B %Y}
+registered_on:			Zarejestrowany w dniu {TEMPLATE: registered_on_date}
 replies:			Odpowiedzi
 report_to_mod:			zg³o¶ wiadomo¶æ moderatorowi
 reported_messages:		Zg³oszone wiadomo¶ci
@@ -378,8 +378,8 @@ forum_terms:			Zasady Forum
 forum_rules:			Rejestracja na tym forum jest darmowa. Wymagane jest zaakceptowanie nastêpuj±cego warunku:<br>U¿ytkownik forum obwi±zany jest do niezamieszczania wiadomo¶ci uznanych powszechnie za obra¼liwe, wulgarne, pe³nych nienawi¶ci, pogró¿ek oraz w jakikolwiek inny sposób ³ami±ce prawo.<p>Wszystkie wiadomo¶ci wyra¿aj± pogl±dy autora. W³a¶ciciel, ani twórcy forum nie bêd± odpowiedzialni za ich tre¶æ.<p>Ponadto w³a¶ciciele tego forum zastrzegaj± sobie prawo do usuwania, edytowania, przenoszenia lub zamykania w±tków bez podania przyczyny.<br>
 forum_rules_13:			Wszyscy u¿ytkownicy poni¿ej 13 roku ¿ycia musz± uzyskaæ zgodê od swoich rodziców lub prawnych opiekunów, je¶li chc± zarejestrowaæ siê na tym forum. Chocia¿ nie mamy nic przeciwko udzielaniu siê na forum osób o wieku poni¿ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowa³ nam lub przes³a³ listem podpisan± zgodê zanim za³o¿ymy konto.<p>Je¶li chcesz rozpocz±æ proces rejestracji naci¶nij przycisk "Akceptujê" umieszczony poni¿ej. Je¶li chcesz zrezygnowaæ z rejestracji, naci¶nij przycisk "Anuluj", a powrócisz na g³ówn± stronê forum. <p>Kopia formularza pozwolenia mo¿e byæ pobrana z tego miejsca. Wiêcej informacji o procesie rejestracji mo¿na uzyskaæ wysy³aj±c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Potwierdzenie systemu COPPA
-coppa_before:			Przed {DATE: coppa %B %e, %Y}
-coppa_after:			Po {DATE: coppa %B %e, %Y}
+coppa_before:			Przed {TEMPLATE: coppa_date}
+coppa_after:			Po {TEMPLATE: coppa_date}
 coppa_link:			Wybierz odsy³acz, który odpowiada Twojej dacie urodzenia.
 coppa:				Rodzic lub prawny opiekun musi wys³ac list lub faks z podpisan± zgod± do administratora tego forum, zanim u¿ytkownik w wieku poni¿ej 13 lat mo¿e zakoñczyæ proces rejestracji.<p>Aby uzyskaæ wiêcej informacji na ten temat, skontaktuj siê z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informacje
@@ -481,7 +481,7 @@ email_pg_title:			E-mail
 email_subject:			Temat:
 email_body:			Tre¶æ:
 email_submit:			Wy¶lij
-ppost_quote_msg:		U¿ytkownik {VAR: msg_to_list} zamie¶ci³ dnia {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote_msg:		U¿ytkownik {VAR: msg_to_list} zamie¶ci³ dnia {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:			Cytuj:
 ppost_to:			Do:
 ppost_from_buddy_list:		wybierz z listy znajomych
@@ -606,7 +606,7 @@ postcheck_invalid_email:	Wprowad¼ poprawny adres e-mail Twojego znajomego.
 postcheck_email_subject:	Nie mo¿esz wys³aæ listu bez tematu.
 postcheck_email_body:		Nie mo¿esz wys³aæ listu bez tre¶ci.
 private_msg_notify_subj:	Powiadomienie przeczytania wiadomo¶ci o temacie: {VAR: m->subject}
-private_msg_notify_body:	Witaj,<br>{VAR: usr->login} przeczyta³(a) Twoj± prywatn± wiadomo¶æ, "{VAR: m->subject}", dnia {DATE: m->post_stamp %a, %d %B %Y %H:%M}<br>
+private_msg_notify_body:	Witaj,<br>{VAR: usr->login} przeczyta³(a) Twoj± prywatn± wiadomo¶æ, "{VAR: m->subject}", dnia {TEMPLATE: private_msg_notify_body_date}<br>
 referals_update:		Przegl±danie osób poleconych
 register_err_short_login:	Nazwa u¿ytkownika, która zosta³a wybrana, jest za krótka. Nazwa u¿ytkownika musi mieæ co najmniej 4 znaki
 register_err_login_notallowed:	Ta nazwa u¿ytkownika nie jest dozwolona
@@ -901,7 +901,7 @@ login_unapproved_account_msg:	Administrator zdecydowa³ siê zatwierdzaæ rêcznie w
 remove_from_buddy_list:		usuñ z listy znajomych
 iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Temat:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Data:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:		<b>Data:</b> {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Odpowiedz
 iemail_msg_quote:		Cytuj
 iemail_msg_view:		Obejrzyj W±tek/Wiadomo¶æ
