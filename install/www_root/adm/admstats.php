@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.11 2002/10/25 00:59:28 hackie Exp $
+*   $Id: admstats.php,v 1.12 2003/03/24 13:29:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -127,6 +127,10 @@ function get_sql_disk_usage()
 				$g_type = 'yearly';
 				$fmt='Y';
 				break;
+			case 'hour':
+				$g_type = 'hourly';
+				$fmt='YmdG';
+				break;
 			default:
 				$g_type = 'daily';
 				$fmt='Ymd';
@@ -147,7 +151,7 @@ function get_sql_disk_usage()
 				$r = q("SELECT join_date FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE join_date>".$start_tm." AND join_date<".$end_tm);
 				break;
 		}			
-			
+	
 		while( list($mps) = db_rowarr($r) ) {
 			$ds = date($fmt, $mps);
 			if( !isset($day_list[$ds][0]) ) 
@@ -170,9 +174,15 @@ function get_sql_disk_usage()
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
 		$ttl=0;
 		$unit = ceil($max_value/100);
-		foreach($day_list as $k => $v) {
+		if ($sep == 'hour') {
+			$date_str = 'F d, Y H:i';
+		} else {
+			$date_str = 'F d, Y';
+		}
+		
+		foreach($day_list as $v) {
 			$len = round($v[0]/$unit)*3;
-			echo '<tr><td style="font-size: xx-small;">'.date("F d, Y", $v[1]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.$len.'></td><td style="font-size: xx-small;">('.$v[0].')</td></tr>';
+			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $v[1]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.$len.'></td><td style="font-size: xx-small;">('.$v[0].')</td></tr>';
 			$ttl += $v[0];
 		}
 		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan=2 align="right">'.$ttl.'</td></tr>';
@@ -204,7 +214,7 @@ function get_sql_disk_usage()
 </tr>
 <tr>
 	<td valign="top"><b>Level of detail: </b></td>
-	<td colspan=3><select name="sep"><?php echo tmpl_draw_select_opt("day\nweek\nmonth\nyear", "Day\nWeek\nMonth\nYear", $sep, '', ''); ?></select></td>
+	<td colspan=3><select name="sep"><?php echo tmpl_draw_select_opt("hour\nday\nweek\nmonth\nyear", "Hour\nDay\nWeek\nMonth\nYear", $sep, '', ''); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>Graph Data: </b></td>
