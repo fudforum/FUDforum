@@ -1,34 +1,34 @@
 TOPIC_TITLE: Benutzerverwaltung
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#register" class="GenLink">Warum Registrieren?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#cookies" class="GenLink">Wie verwendet das FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#clrcookie" class="GenLink">Wie l&ouml;scht man FUDForum Cookies?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#updprofile" class="GenLink">Was ist ein Profil?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#sigs" class="GenLink">Was ist eine Signatur?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#rstpasswd" class="GenLink">Was beim Verlust des Passwortes zu tun ist</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#cstat" class="GenLink">Individueller R&auml;nge, was sie sind und wie man sie erlangt</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#avatars" class="GenLink">Was ist ein Avatar?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#blist" class="GenLink">Was ist eine Buddyliste?</a><br>
-<a href="{ROOT}?t=help_index&section=usermaintance&%_RSID%#ignlist" class="GenLink">F&uuml;r was ist die Ignorierliste da?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#register" class="GenLink">Warum Registrieren?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cookies" class="GenLink">Wie verwendet das FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#clrcookie" class="GenLink">Wie l&ouml;scht man FUDForum Cookies?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#updprofile" class="GenLink">Was ist ein Profil?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#sigs" class="GenLink">Was ist eine Signatur?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#rstpasswd" class="GenLink">Was beim Verlust des Passwortes zu tun ist</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#cstat" class="GenLink">Individueller R&auml;nge, was sie sind und wie man sie erlangt</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#avatars" class="GenLink">Was ist ein Avatar?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#blist" class="GenLink">Was ist eine Buddyliste?</a><br>
+<a href="{ROOT}?t=help_index&section=usermaintance&%_rsid%#ignlist" class="GenLink">F&uuml;r was ist die Ignorierliste da?</a><br>
 
 TOPIC_TITLE: Allgemeine Boardnutzung
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#bsearch" class="GenLink">Wie kann ich suchen?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#email" class="GenLink">Kann ich anderen Mitgliedern eine Email schreiben?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#pmsg" class="GenLink">Was sind private Messages und wie verschicke ich sie?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#mlist" class="GenLink">Mitgliederliste?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#ann" class="GenLink">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#rate" class="GenLink">Kann ich Themen bewerten?</a><br>
-<a href="{ROOT}?t=help_index&section=boardusage&%_RSID%#ref" class="GenLink">Was sind Anwerbungen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#bsearch" class="GenLink">Wie kann ich suchen?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#email" class="GenLink">Kann ich anderen Mitgliedern eine Email schreiben?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#pmsg" class="GenLink">Was sind private Messages und wie verschicke ich sie?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#mlist" class="GenLink">Mitgliederliste?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ann" class="GenLink">Was sind Ank&uuml;ndigungen und angeheftete Beitr&auml;ge?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#rate" class="GenLink">Kann ich Themen bewerten?</a><br>
+<a href="{ROOT}?t=help_index&section=boardusage&%_rsid%#ref" class="GenLink">Was sind Anwerbungen?</a><br>
 
 TOPIC_TITLE: Beitr&auml;ge lesen und verfassen
 TOPIC_HELP:
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#style" class="GenLink">Wie formatiert man Text?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#sml" class="GenLink">Was sind Smileys/Emoticons?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#polls" class="GenLink">Wie erstelle ich Umfragen?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#attach" class="GenLink">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#msgico" class="GenLink">Was ist ein Beitrags-Icon?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#edit" class="GenLink">Kann ich meinen Beitrag bearbeiten?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#mod" class="GenLink">Wer sind die Moderatoren und Administratoren?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#cens" class="GenLink">Zensur?</a><br>
-<a href="{ROOT}?t=help_index&section=readingposting&%_RSID%#not" class="GenLink">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#style" class="GenLink">Wie formatiert man Text?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#sml" class="GenLink">Was sind Smileys/Emoticons?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#polls" class="GenLink">Wie erstelle ich Umfragen?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#attach" class="GenLink">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#msgico" class="GenLink">Was ist ein Beitrags-Icon?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#edit" class="GenLink">Kann ich meinen Beitrag bearbeiten?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#mod" class="GenLink">Wer sind die Moderatoren und Administratoren?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#cens" class="GenLink">Zensur?</a><br>
+<a href="{ROOT}?t=help_index&section=readingposting&%_rsid%#not" class="GenLink">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a><br>
