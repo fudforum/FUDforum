@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.50 2003/11/18 11:21:50 hackie Exp $
+* $Id: cookies.inc.t,v 1.51 2003/11/18 11:22:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,12 +17,12 @@ function ses_make_sysid()
 			return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
 		} else {
 			$pfx = '';
-			foreach (array('HTTP_ACCEPT', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE') as $v) {
+			foreach (array('HTTP_ACCEPT', 'HTTP_ACCEPT_CHARSET', 'HTTP_ACCEPT_ENCODING', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_X_FORWARDED_FOR') as $v) {
 				if (isset($_SERVER[$v])) {
 					$pfx .= $_SERVER[$v];
 				}
 			}
-			return md5($_SERVER['HTTP_USER_AGENT'].$pfx.(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
+			return md5($_SERVER['HTTP_USER_AGENT'].$pfx);
 		}
 	}
 }
