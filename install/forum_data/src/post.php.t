@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.124 2004/12/03 19:41:48 hackie Exp $
+* $Id: post.php.t,v 1.125 2005/01/31 19:32:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,7 +75,7 @@ function flood_check()
 	$frm->forum_opt = (int) $frm->forum_opt;
 
 	/* fetch permissions & moderation status */
-	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
+	$MOD = (int) ($is_a || ($usr->users_opt & 524288 && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid.' AND forum_id='.$frm->id)));
 	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), $is_a);
 
 	/* More Security */
