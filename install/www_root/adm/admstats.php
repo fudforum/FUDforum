@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.9 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admstats.php,v 1.10 2002/10/25 00:53:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -309,7 +309,7 @@ function get_sql_disk_usage()
 	<td align="right" valign="top"><?php echo $forum_stats['MODERATORS']; ?></td>
 	<td width=100>&nbsp;</td>
 	<td><font size="-1">
-		<b><?php echo @sprintf("%.2f", $forum_stats['MODERATORS']/$forum_stats['MEMBERS']); ?>%</b> of all users<br>
+		<b><?php echo @sprintf("%.2f", ($forum_stats['MODERATORS']/$forum_stats['MEMBERS'])*100); ?>%</b> of all users<br>
 		<b><?php echo @sprintf("%.2f", $forum_stats['MODERATORS']/$forum_stats['FORUMS']); ?></b> per forum
 	</font></td>
 </tr>
