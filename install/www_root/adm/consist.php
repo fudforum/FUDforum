@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.67 2003/11/13 19:09:41 hackie Exp $
+* $Id: consist.php,v 1.68 2003/11/24 13:41:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -230,11 +230,12 @@ forum will be disabled.<br><br>
 	draw_stat('Checking forum & topic relations');
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
-		$r = db_saq('select MAX(last_post_id), SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.forum_id='.$f[0]);
+		$r = db_saq('select SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.forum_id='.$f[0]);
 		if (!$r[2]) {
 			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
 		} else {
-			q('UPDATE '.$tbl.'forum SET thread_count='.$r[2].', post_count='.($r[1] + $r[2]).', last_post_id='.(int)$r[0].' WHERE id='.$f[0]);
+			$lpi = q_singleval('SELECT MAX(root_msg_id) FROM '.$tbl.'thread WHERE forum_id='.$f[0].' AND moved_to=0');
+			q('UPDATE '.$tbl.'forum SET thread_count='.$r[1].', post_count='.($r[0] + $r[1]).', last_post_id='.(int)$lpi.' WHERE id='.$f[0]);
 		}
 	}
 	unset($c);
