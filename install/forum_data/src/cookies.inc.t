@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.49 2003/11/14 10:50:18 hackie Exp $
+* $Id: cookies.inc.t,v 1.50 2003/11/18 11:21:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 function ses_make_sysid()
 {
 	if (!($GLOBALS['FUD_OPT_1'] & 256)) {
-		if (!($GLOBALS['FUD_OPT_3'] & 16) || strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') === false) {
+		if (!($GLOBALS['FUD_OPT_3'] & 16) || strpos($_SERVER['HTTP_USER_AGENT'], 'AOL') !== false) {
 			return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
 		} else {
 			$pfx = '';
