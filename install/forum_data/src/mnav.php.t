@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.1 2003/07/15 03:34:38 hackie Exp $
+*   $Id: mnav.php.t,v 1.2 2003/07/15 03:51:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,6 +26,10 @@
 	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 
 /*{POST_HTML_PHP}*/
+
+	$TITLE_EXTRA = ': {TEMPLATE: mnav_title}';
+
+	ses_update_status($usr->sid, '{TEMPLATE: mnav_update}');
 
 	if ($forum_limiter) {
 		if ($forum_limiter[0] != 'c') {

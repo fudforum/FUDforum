@@ -979,3 +979,5 @@ mnav_hour:			Hour(s)
 mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
+mnav_title:			Message Navigator
+mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
