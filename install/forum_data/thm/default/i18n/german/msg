@@ -916,45 +916,45 @@ err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
 err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst Du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
-register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
-login_blocked_account_ttl:	Your account has been banned.	
-login_blocked_account_msg:	Your account has been banned from this forum, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
-register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
+register_err_time_limit:	Die Beschr&auml;nkung auf eine Registrierung pro {GVAR: REG_TIME_LIMIT} Sekunden ist erreicht worden. Bitte warte {VAR: reg_limit_reached} Sekunden und versuche danach noch einmal Dich zu registrieren.
+login_blocked_account_ttl:	Dein Konto wurde gesperrt.	
+login_blocked_account_msg:	Dein Konto ist in diesem Forum gesperrt worden, falls Du nicht schon den Grund dafür kennst, nehme zum /zu den Administrator(en) des Forums Kontakt auf.
+register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls Du einen <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> Benutzernamen hast, trage ihn hier ein.</font>
+im_affero:			Affero Benutzername
+register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		{VAR: r->dlcount} mal heruntergeladen
+member_search:			<br>Oder verwende die <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Benutzersuche</a> um einen Benutzer ausfindig zu machen.
+post_all_ext_allowed:		(unbegrenzt)
+buddy_offline:			{VAR: r[2]} ist gerade offline
+buddy_online:			{VAR: r[2]} ist gerade online
+sml_no_smilies:			Keine Emoticons vorhanden.
+login_unapproved_account_ttl:	Unbest&auml;tigtes Konto
+login_unapproved_account_msg:	Der Administrator dieses Forums hat sich daf&uuml;r entschieden, jedes neue Konto vor der Aktivierung eigenh&auml;ndig zu billigen. Dein Konto ist bisher noch nicht gebilligt worden, weswegen es Dir nicht m&ouml;glich sein wird, auf einige Optionen zuzugreifen, die bereits registrierten Mitgliedern zur Verf&uuml;gung stehen, bis Dein Konto gebilligt worden ist.
+remove_from_buddy_list:		von der Buddyliste entfernen
+iemail_msg_author:		<b>Verfasser:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Betreff:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Datum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Antwort
+iemail_msg_quote:		Zitat
+iemail_msg_view:		Thema/Nachricht ansehen
+threadt_sticky:			angeheftet
+threadt_announce:		Ank&uuml;ndigung
+reported_no_messages:		Es sind keine Beitr&auml;ge gemeldet worden.
+poll_no_polls:			Es gibt keine zug&auml;nglichen Abstimmungen.
+no_unread_messages:		Es gibt keine ungelesenen Beitr&auml;ge, die den Suchkriterien entsprechen.
+thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennzeichnen
+thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
+private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
+register_email_change_subject:	Bestätigung der geänderten Email Adresse
+register_email_change_msg:	Bitte bestätige Deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem Du die untere URL aufrufst:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du die neue Adresse bestätigt hast, wird Dein Konto wieder aktiviert werden.
+iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
+iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
+primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
+group_resources:		Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
 register_email:			Email
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
+register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
+register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor Du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere Email Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst Du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
+post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
+post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von Dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten gehe zu: {ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
+thread_printable_pdf:		Druckbares PDF erzeugen
+thread_syndicate:		Themen als Newsticker anderen Seiten zur Verf&uuml;gung stellen (Syndicate) (XML)

@@ -79,50 +79,50 @@ Die Anwerbungen werden automatisch aufgezeichnet, sobald Du die Forums URL weite
 Anwerbung dieser Personen wird Dir dann zugeschrieben. Eine Auflistung aller Leute, die von Dir angeworben worden sind, kannst Du in Deinem Profil durch Klicken des 
 <b>Anwerbungen</b> Men&uuml;s anzeigen lassen.
 
-TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
+TOPIC_TITLE: <a name="syndicate">Das Forum als Newsticker verf&uuml;gbar machen (Syndicate)</a>
 TOPIC_HELP:
-If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (rdf). The RDF feed works primarily
-in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
-will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
-of operation.<br />
+Falls vom Administrator gestattet, ermöglicht das FUDforum mittels XML (rdf) eine Reihe von Daten als Syndicate zug&auml;nglich zu machen. Das RDF Feed funktioniert haupts&auml;chlich
+In 3 Modi, Empfang von Beitr&auml;gen, Themen and Benutzern. Jeder Betriebsmodus unterst&uuml;tzt eine Reihe von ver&auml;nderbaren Parametern, die
+es Dir gestatten festzulegen welche Art von Daten abgegriffen werden sollen. Unten ist eine Beschreibung der unterst&uuml;tzten Parameter für jeden
+Betriebsmodus.<br />
 <br /><br />
-<h4><u><b>'m' mode (messages)</b></u></h4>
+<h4><u><b>'m' Modus (Beitr&auml;ge)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
-		<tr><td class="GenText"><i>th<i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single message with the specified id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Beitr&auml;ge der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Beitr&auml;ge des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>th<i></td><td class="GenText">Nur Beitr&auml;ge des Themas mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Einen einzelnen Beitrag mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Beitr&auml;ge die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Beitr&auml;ge die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Beiträge abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Beitr&auml;ge abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Beitr&auml;ge vom &auml;ltesten zum neusten sortieren.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'t' mode (topics)</b></u></h4>
+<h4><u><b>'t' Modus (Themen)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching topics.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order topics from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Nur Themen der Kategorie mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Nur Themen des Forums mit dieser id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Ein einzelnes Thema mit der angegebenen id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Nur Themen die nach dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Nur Themen die vor dem angegebenen Datum erstellt wurden (Unix Zeitstempel).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Themen abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Themen abgerufen werden sollen.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Themen vom &auml;ltesten zum neusten sortieren.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
+<h4><u><b>'u' Modus (Benutzer) <i>**K&ouml;nnte deaktiviert sein**</i></b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
-		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
-		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching users.</td></tr>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Benutzer nach der Beitragsanzahl anordnen, von der gr&ouml;&szlig;ten zur kleinsten.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Benutzer nach der Registrierung anordnen, von der &auml;ltesten zur neusten.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Nur Benutzer anzeigen die momentan online sind.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Nicht mehr als <i>n</i> Benutzer abrufen (kann nicht h&ouml;her als das insgesamte Maximum sein).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Startpunkt (Offset) ab dem Benutzer abgerufen werden sollen.</td></tr>
 	</table>
 </blockquote>
-<b>Example:</b><br />
-The following link will fetch 10 most recent messages from this forum:<br />
-<a href="rdf.php?mode=m&l=1&n=10" target="_blank">rdf.php?mode=m&l=1&n=10</a>
+<b>Beispiel:</b><br />
+Der folgende Link ruft die aktuellsten 10 Beitr&auml;ge dieses Forums ab:<br />
+<a href="rdf.php?mode=m&l=1&n=10&basic=1" target="_blank">rdf.php?mode=m&l=1&n=10&basic=1</a>
