@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.52 2003/10/05 22:18:42 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.53 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -188,7 +188,7 @@ function get_id_by_login($login)
 function usr_email_unconfirm($id)
 {
 	$conf_key = md5(__request_timestamp__ . $id . get_random_value());
-	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt &~ 131072, conf_key='".$conf_key."' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=users_opt & ~ 131072, conf_key='".$conf_key."' WHERE id=".$id);
 	return $conf_key;
 }
 
@@ -247,7 +247,7 @@ function rebuildmodlist()
 			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k);
 		}
 	}
-	q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ 524288 WHERE users_opt>=524288 AND (users_opt & 524288) > 0');
+	q('UPDATE '.$tbl.'users SET users_opt=users_opt & ~ 524288 WHERE users_opt>=524288 AND (users_opt & 524288) > 0');
 	if (isset($u)) {
 		q('UPDATE '.$tbl.'users SET users_opt=users_opt|524288 WHERE id IN('.implode(',', $u).') AND (users_opt & 1048576)=0');
 	}

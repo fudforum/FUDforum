@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.16 2003/10/02 15:27:24 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.17 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -66,7 +66,7 @@
 	$private_message_entry = tmpl_drawpmsg($m, $usr, false);
 
 	if (!$m->read_stamp && $m->pmsg_opt & 16) {
-		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', pmsg_opt=(pmsg_opt &~ 4) |8 WHERE id='.$m->id);
+		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', pmsg_opt=(pmsg_opt & ~ 4) |8 WHERE id='.$m->id);
 		if ($m->ouser_id != _uid && $m->pmsg_opt & 4 && !isset($_GET['dr'])) {
 			$track_msg = new fud_pmsg;
 			$track_msg->ouser_id = $track_msg->duser_id = $m->ouser_id;

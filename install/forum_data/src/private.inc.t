@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.26 2003/10/05 22:18:42 hackie Exp $
+*   $Id: private.inc.t,v 1.27 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -165,7 +165,7 @@ class fud_pmsg
 
 function set_nrf($nrf, $id)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt &~ 96) | ".$nrf." WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt & ~ 96) | ".$nrf." WHERE id=".$id);
 }
 
 function write_pmsg_body($text)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.20 2003/10/05 22:19:50 hackie Exp $
+*   $Id: admgrouplead.php,v 1.21 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -30,7 +30,7 @@
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
 		if (isset($_GET['ug'])) {
-			q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET group_members_opt=group_members_opt &~ 131072 WHERE user_id=".$del." AND group_id=".$group_id);
+			q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET group_members_opt=group_members_opt & ~ 131072 WHERE user_id=".$del." AND group_id=".$group_id);
 		} else {
 			q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_members WHERE user_id=".$del." AND group_id=".$group_id);
 			grp_rebuild_cache(array($del));

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.13 2003/10/05 22:19:56 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.14 2003/10/06 18:39:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -88,7 +88,7 @@ class fud_nntp_adm
 		WHERE id=".$id);
 
 		if ($old_frm_id != $this->forum_id && $nntp_opt & 1) {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt &~ 2 WHERE id='.$old_frm_id);
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$old_frm_id);
 		}
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($this->nntp_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
 	}
@@ -101,7 +101,7 @@ function nntp_del($id)
 	}
 	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
 	if ($d[0] & 1) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt &~ 2 WHERE id='.$d[1]);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt & ~ 2 WHERE id='.$d[1]);
 	}
 }
 ?>

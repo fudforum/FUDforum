@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.41 2003/10/01 21:51:52 hackie Exp $
+*   $Id: th.inc.t,v 1.42 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 function th_lock($id, $lck)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=(thread_opt|1)".(!$lck ? '&~1' : '')." WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=(thread_opt|1)".(!$lck ? '& ~ 1' : '')." WHERE id=".$id);
 }
 
 function th_inc_view_count($id)

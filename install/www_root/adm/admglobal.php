@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.43 2003/10/05 22:19:50 hackie Exp $
+*   $Id: admglobal.php,v 1.44 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -112,7 +112,7 @@ function get_max_upload_size()
 				/* only allow threaded topic view if it is selected & it's enabled */
 				$opt  = $NEW_FUD_OPT_2 & 4 && $NEW_FUD_OPT_2 & 512 ? 128 : 0;
 				$opt |= $NEW_FUD_OPT_2 & 8 ? 256 : 0;
-				$q_data[] = 'users_opt=(users_opt &~ 384) | '.$opt;
+				$q_data[] = 'users_opt=(users_opt & ~ 384) | '.$opt;
 			}
 			if ($q_data) {
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET '.implode(',', $q_data).' WHERE id=1');

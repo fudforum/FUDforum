@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admaccapr.php,v 1.9 2003/10/05 22:19:50 hackie Exp $
+*   $Id: admaccapr.php,v 1.10 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['apr']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
-			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt &~ 2097152 WHERE id='.(int)$_GET['apr']);
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ 2097152 WHERE id='.(int)$_GET['apr']);
 			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
 		}
 	} else if (isset($_GET['rm'])) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc,v 1.5 2003/10/05 22:19:56 hackie Exp $
+*   $Id: users_adm.inc,v 1.6 2003/10/06 18:39:39 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -66,12 +66,12 @@ function usr_adm_avatar($id, $del=0)
 	include_once($GLOBALS['DATA_DIR'] . 'include/theme/' . $ud->name . '/avatar_msg.inc');
 
 	if (!$del) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET users_opt=(users_opt|4194304|16777216) &~ (4194304|16777216) | 8388608 WHERE id='.$id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET users_opt=(users_opt|4194304|16777216) & ~ (4194304|16777216) | 8388608 WHERE id='.$id);
 		if (db_affected()) {
 			send_status_update($id, $ud->login, $ud->email, $GLOBALS['approved_avatar_title'], $GLOBALS['approved_avatar_msg']);
 		}
 	} else {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET users_opt=(users_opt|8388608|16777216) &~ (8388608|16777216) | 4194304, avatar_loc=NULL WHERE id='.$id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET users_opt=(users_opt|8388608|16777216) & ~ (8388608|16777216) | 4194304, avatar_loc=NULL WHERE id='.$id);
 		if (db_affected()) {
 			send_status_update($id, $ud->login, $ud->email, $GLOBALS['unapproved_avatar_title'], $GLOBALS['unapproved_avatar_msg']);
 		}

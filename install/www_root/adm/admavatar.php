@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admavatar.php,v 1.9 2003/10/05 22:19:50 hackie Exp $
+*   $Id: admavatar.php,v 1.10 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,7 +25,7 @@
 		if (($im = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']))) {
 			q('DELETE FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']);
 			if (db_affected()) {
-				q('UPDATE '.$tbl.'users SET avatar_loc=NULL, avatar=0, users_opt=(users_opt &~ (8388608|16777216)) | 4194304 WHERE avatar='.(int)$_GET['del']);
+				q('UPDATE '.$tbl.'users SET avatar_loc=NULL, avatar=0, users_opt=(users_opt & ~ (8388608|16777216)) | 4194304 WHERE avatar='.(int)$_GET['del']);
 			}
 			@unlink($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/'.$im);
 		}

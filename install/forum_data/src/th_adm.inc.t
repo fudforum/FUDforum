@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_adm.inc.t,v 1.6 2003/10/01 21:51:52 hackie Exp $
+*   $Id: th_adm.inc.t,v 1.7 2003/10/06 18:37:57 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -86,7 +86,7 @@ function rebuild_forum_view($forum_id, $page=0)
 	/* De-announce expired announcments and sticky messages */
 	$r = q("SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE {SQL_TABLE_PREFIX}thread.forum_id=".$forum_id." AND thread_opt>=2 AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<=".$tm);
 	while ($tid = db_rowarr($r)) {
-		q("UPDATE {SQL_TABLE_PREFIX}thread SET orderexpiry=0, thread_opt=thread_opt &~ (2|4) WHERE id=".$tid[0]);
+		q("UPDATE {SQL_TABLE_PREFIX}thread SET orderexpiry=0, thread_opt=thread_opt & ~ (2|4) WHERE id=".$tid[0]);
 	}
 	qf($r);
 
