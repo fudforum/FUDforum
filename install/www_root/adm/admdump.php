@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.29 2003/09/30 03:57:50 hackie Exp $
+*   $Id: admdump.php,v 1.30 2003/10/03 18:31:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -139,7 +139,7 @@ function sql_is_null($r, $n, $tbl='')
 		exit('Authorization Required.');
 	}
 	if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
-		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_SERVER['PHP_AUTH_USER']).'\' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND is_mod=\'A\'')) {
+		if (!q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_SERVER['PHP_AUTH_USER']).'\' AND passwd=\''.md5($_SERVER['PHP_AUTH_PW']).'\' AND users_opt>=1048576 AND users_opt & 1048576')) {
 			header('WWW-Authenticate: Basic realm="Private"');
 			header('HTTP/1.0 401 Unauthorized');
 			exit('Authorization Required.');

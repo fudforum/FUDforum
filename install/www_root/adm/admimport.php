@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.20 2003/07/18 21:43:09 hackie Exp $
+*   $Id: admimport.php,v 1.21 2003/10/03 18:31:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,7 +111,7 @@ function resolve_dest_path($path)
 			}
 			/* If we are dealing with pgSQL drop all sequences too */
 			if (__dbtype__ == 'pgsql') {
-				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."'");
+				$c = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".str_replace("_", "\\_", $DBHOST_TBL_PREFIX)."'");
 				while($r = db_rowarr($c)) {
 					q('drop sequence '.$r[0]);
 				}
@@ -168,7 +168,7 @@ function resolve_dest_path($path)
 					}
 				}
 			}
-			q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'ses');
+			q('DELETE FROM '.$DBHOST_TBL_PREFIX.'ses');
 
 			/* we need to restore sequence numbers for postgreSQL */
 			foreach($tbl_list as $v) {
@@ -181,8 +181,8 @@ function resolve_dest_path($path)
 			}
 
 			/* Try to restore the current admin's account by seeing if he exists in the imported database */
-			if (($uid = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.$usr->login.'\' AND is_mod=\'A\''))) {
-				q('INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
+			if (($uid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".$usr->login."' AND users_opt>=1048576 AND users_opt & 1048576"))) {
+				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'ses (ses_id, user_id, time_sec) VALUES(\''.$usr->ses_id.'\', '.$uid.', '.__request_timestamp__.')');
 			} else {
 				echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>Therefor you\'ll need to re-login once the import process is complete<br></font>';
 				flush();
@@ -192,7 +192,7 @@ function resolve_dest_path($path)
 			flush();
 
 			fud_use('compiler.inc', true);
-			$c = uq('SELECT theme, lang, name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE enabled=\'Y\'');
+			$c = uq('SELECT theme, lang, name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE enabled=\'Y\'');
 			while ($r = db_rowarr($c)) {
 				compile_all($r[0], $r[1], $r[2]);
 			}
@@ -200,17 +200,17 @@ function resolve_dest_path($path)
 
 			/* we now need to correct cached paths for file attachments and avatars */
 			echo "Correcting Avatar Paths<br>\n";
-			if (($old_path = q_singleval('SELECT location FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'attach LIMIT 1'))) {
+			if (($old_path = q_singleval('SELECT location FROM '.$DBHOST_TBL_PREFIX.'attach LIMIT 1'))) {
 				preg_match('!(.*)/!', $old_path, $m);
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'attach SET location=REPLACE(location, \''.addslashes($m[1]).'/\', \''.addslashes($GLOBALS['FILE_STORE']).'\')');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'attach SET location=REPLACE(location, \''.addslashes($m[1]).'/\', \''.addslashes($GLOBALS['FILE_STORE']).'\')');
 			}
 
 			echo "Correcting Attachment Paths<br>\n";
-			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE avatar_approved!=\'NO\' LIMIT 1'))) {
+			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE avatar_approved!=\'NO\' LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
 				
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE avatar_approved!=\'NO\'');
+				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE avatar_approved!=\'NO\'');
 			}
 			
 			echo '<b>Import process is now complete</b><br>';
