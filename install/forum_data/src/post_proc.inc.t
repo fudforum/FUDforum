@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.38 2003/11/14 10:50:19 hackie Exp $
+* $Id: post_proc.inc.t,v 1.39 2003/11/24 15:59:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -184,7 +184,7 @@ function tags_to_html($str, $allow_img=1)
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
 					reverse_nl2br($param);
 
-					$ostr .= '<pre>'.$param.'</pre>';
+					$ostr .= '<div class="pre"><pre>'.$param.'</pre></div>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -326,10 +326,10 @@ function tags_to_html($str, $allow_img=1)
 		}
 
 		// check if it's inside the pre tag
-		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
+		if (($ts = strpos($ostr, '<div class="pre"><pre>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
-		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
+		if (($te = strpos($ostr, '</pre></div>', $pos)) == false) {
 			$te = strlen($ostr);
 		}
 		if ($te < $ts) {
@@ -425,10 +425,10 @@ function tags_to_html($str, $allow_img=1)
 		}
 
 		// check if it's inside the pre tag
-		if (($ts = strpos($ostr, '<pre>', $pos)) === false) {
+		if (($ts = strpos($ostr, '<div class="pre"><pre>', $pos)) === false) {
 			$ts = strlen($ostr);
 		}
-		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
+		if (($te = strpos($ostr, '</pre></div>', $pos)) == false) {
 			$te = strlen($ostr);
 		}
 		if ($te < $ts) {
@@ -506,8 +506,8 @@ function html_to_tags($fudml)
 	while( preg_match('!<div align="(center|left|right)">.*?</div>!is', $fudml) )
 		$fudml = preg_replace('!<div align="(center|left|right)">(.*?)</div>!is', '[align=\1]\2[/align]', $fudml);
 
-	while ( preg_match('!<pre>.*?</pre>!is', $fudml) )
-		$fudml = preg_replace('!<pre>(.*?)</pre>!is', '[code]\1[/code]', $fudml);
+	while ( preg_match('!<div class="pre"><pre>.*?</pre></div>!is', $fudml) )
+		$fudml = preg_replace('!<div class="pre"><pre>(.*?)</pre></div>!is', '[code]\1[/code]', $fudml);
 
 	if( preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml) )
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="\\1">!is', '[img]\1[/img]', $fudml);
