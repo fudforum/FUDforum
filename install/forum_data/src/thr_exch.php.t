@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.php.t,v 1.26 2004/11/22 16:52:02 hackie Exp $
+* $Id: thr_exch.php.t,v 1.27 2004/11/24 19:02:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -95,8 +95,8 @@
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON thx.frm=f2.id
 			 INNER JOIN {SQL_TABLE_PREFIX}users u ON thx.req_by=u.id
-			 LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.'
-			 WHERE '.($is_a ? '1=1' : ' mm.id IS NOT NULL'));
+			 LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f2.id AND mm.user_id='._uid.
+			 ($is_a ? '' : ' WHERE mm.id IS NOT NULL'));
 
 		while ($obj = db_rowobj($r)) {
 			$thr_exch_data .= '{TEMPLATE: thr_exch_entry}';
