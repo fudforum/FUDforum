@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admforum.php,v 1.4 2002/07/20 14:22:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -109,7 +109,7 @@
 ?>
 <h2>Editing forums for <?php echo $cat->name; ?></h2>
 <?php if ( empty($chpos) ) { ?> 
-<a href="admcat.php">Back to categories</a><br>
+<a href="admcat.php?<?php echo _rsid; ?>">Back to categories</a><br>
 
 <form method="post" name="frm_forum" action="admforum.php">
 <?php echo _hs; ?>
