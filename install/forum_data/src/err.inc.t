@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.6 2002/08/28 18:11:08 hackie Exp $
+*   $Id: err.inc.t,v 1.7 2002/08/28 20:30:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,12 @@ function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 	$ref = !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ? $GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"] : '';
 		
 	if ( $level == 'FATAL' ) {
-		$error_msg = "[$level] $title<br />\n$msg<br />\n$returnto<br />\n$ref<br />\n".$GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'].':'.$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']."<br />\n";
+		$error_msg = "[Error Level: $level] $title<br />\n";
+		$error_msg .= "[Message Sent to User] ".trim($msg)."<br />\n";
+		$error_msg .= "[User's IP] ".$GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']."<br />\n";
+		$error_msg .= "[Requested URL] http://".$GLOBALS['HTTP_SERVER_VARS']['HTTP_HOST'].$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']."<br />\n";
+		if( !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ) $error_msg .= "[Referring Page] ".$GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]."<br />\n";
+		
 		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 
@@ -80,7 +85,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 {
 	if( db_locked() ) db_unlock();
 	
-	$error_msg = "(".__FILE__.":".__LINE__.") ".$error_number.": ".$error_string."<br />\n";
+	$error_msg = "(".basename($HTTP_SERVER_VARS['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
 	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
 	$error_msg .= "Server Version: ".$server_version."<br />\n";
 	
