@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.8 2003/09/30 04:26:16 hackie Exp $
+*   $Id: admadduser.php,v 1.9 2003/09/30 12:57:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
-	$error = null;
+	$error = 0;
 
 function errorify($err)
 {
@@ -32,12 +32,7 @@ function validate_input()
 		$GLOBALS['err_login'] = errorify('Login cannot be blank');
 		return 1;
 	}
-	
-	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($_POST['login'])."'")) {
-		$GLOBALS['err_login'] = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
-		return 1;
-	}
-	
+
 	if (empty($_POST['passwd'])) {
 		$GLOBALS['err_passwd'] = errorify('Password cannot be blank');
 		return 1;
@@ -47,49 +42,56 @@ function validate_input()
 		$GLOBALS['err_email'] = errorify('E-mail cannot be blank');
 		return 1;
 	}	
-	
-	if (q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE email='".addslashes($_POST['email'])."'")) {
-		$GLOBALS['err_email'] = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
-		return 1;
-	}
-	
+
 	return 0;
 }
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
 		$default_theme = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt=3');
-		$alias = addslashes(htmlspecialchars($_POST['login']));
-		db_lock($DBHOST_TBL_PREFIX.'users WRITE');
-	
-		if ($FUD_OPT_2 & 128) {
-			$i = 0;
-			while (q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".(!$i ? $alias : $alias . '_' . $i)."'")) {
-				++$i;
-			}
-			if ($i) {
-				$alias .= '_' . $i;
-			}
+		if (strlen($_POST['login']) > $MAX_LOGIN_SHOW) {
+			$alias = substr($_POST['login'], 0, $MAX_LOGIN_SHOW);
+		} else {
+			$alias = $_POST['login'];
+		}
+		$alias = addslashes(htmlspecialchars($alias));
+
+		$users_opt = (4488117 ^ 2097152) | 131072;
+		if (!($FUD_OPT_2 & 4)) {
+			$users_opt ^= 128;
+		}
+		if (!($FUD_OPT_2 & 8)) {
+			$users_opt ^= 256;
 		}
 
-//		$users_opt = 4488117 ^ 2097152 | 131072 | 
-		
-		$user_added = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
+		$i = 0;
+		$al = $alias;
+		while (($user_added = db_li("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
 			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			'".addslashes($_POST['login'])."',
-			'".$alias."',
-			'".md5($_POST['passwd'])."',
-			'".addslashes($_POST['name'])."',
-			'".addslashes($_POST['email'])."',
-			'".$SERVER_TZ."',
-			".__request_timestamp__.",
-			".$default_theme.",
-			".$users_opt.",
-			".__request_timestamp__."
-			)");
-			
-		db_unlock();
+			'".addslashes($_POST['login'])."', '".$al."', '".md5($_POST['passwd'])."', 
+			'".addslashes($_POST['name'])."', '".addslashes($_POST['email'])."', '".$SERVER_TZ."', 
+			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")", 
+			$ef, 1)) === null) {
+			if ($ef == 2) {
+				$error = 1;
+				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
+				break;
+			} else if ($ef == 3) {
+				$error = 1;
+				$err_email = errorify('Email ('.htmlspecialchars($_POST['email']).') is already in use.');
+				break;
+			} else if ($ef == 4) {
+				$al = $alias . '_' . ++$i;
+			} else {
+				$error = 1;
+			}
+			if ($error) {
+				break;
+			}
+		}
 		$login = $passwd = $email = $name = '';
-	} else {
+	} 
+
+	if ($error) {
 		$login = isset($_POST['login']) ? htmlspecialchars($_POST['login']) : '';
 		$passwd = isset($_POST['passwd']) ? htmlspecialchars($_POST['passwd']) : '';
 		$email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
@@ -100,8 +102,8 @@ function validate_input()
 ?>
 <h2>Add User</h2>
 <?php
-	if (!empty($error)) {
-		echo '<h1 color="red">Error Has Occured</h1>';
+	if ($error) {
+		echo '<h1 style="color: red">Error Has Occured</h1>';
 	} else if (!empty($user_added)) {
 		echo '<font size="+1" color="green">User ('.$_POST['login'].') was successfully added.<font><br>';
 	}
