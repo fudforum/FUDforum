@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.11 2003/10/16 21:59:04 hackie Exp $
+* $Id: post_common.inc.t,v 1.12 2003/11/01 20:13:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -53,14 +53,17 @@ function draw_post_icons($msg_icon)
 	return ($data ? '{TEMPLATE: post_icons}' : '');
 }
 
-function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private='')
+function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private='', $msg_id)
 {
 	$attached_files = '';
 	$i = 0;
 
 	if (!empty($al) && count($al)) {
 		$enc = base64_encode(@serialize($al));
-		$c = uq('SELECT a.id,a.fsize,a.original_name,m.mime_hdr FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE a.id IN('.implode(',', $al).')');
+		$c = uq('SELECT a.id,a.fsize,a.original_name,m.mime_hdr 
+		FROM {SQL_TABLE_PREFIX}attach a 
+		LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id 
+		WHERE a.id IN('.implode(',', $al).') AND message_id IN(0, '.$msg_id.') AND attach_opt='.($private ? 1 : 0));
 		while ($r = db_rowarr($c)) {
 			$sz = ( $r[1] < 100000 ) ? number_format($r[1]/1024,2).'KB' : number_format($r[1]/1048576,2).'MB';
 			$insert_uploaded_image = strncasecmp('image/', $r[3], 6) ? '' : '{TEMPLATE: insert_uploaded_image}';
