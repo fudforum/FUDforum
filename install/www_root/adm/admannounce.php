@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.5 2003/04/29 13:19:35 hackie Exp $
+*   $Id: admannounce.php,v 1.6 2003/05/02 16:39:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,8 +63,8 @@ function mk_date($y, $m, $d)
 		}
 	} else {
 		$edit = $a_subject = $a_text = '';
-		list($d_year, $d_month, $d_day) = explode(' ', strftime('%Y %m %d', __request_timestamp__));
-		list($d2_year, $d2_month, $d2_day) =  explode(' ', strftime('%Y %m %d', (__request_timestamp__ + 86400)));
+		list($d_year, $d_month, $d_day) = explode(' ', gmdate('Y m d', __request_timestamp__));
+		list($d2_year, $d2_month, $d2_day) =  explode(' ', gmdate('Y m d', (__request_timestamp__ + 86400)));
 	}
 	
 	if (isset($_POST['btn_submit'])) {
@@ -122,6 +122,10 @@ function mk_date($y, $m, $d)
 ?>
 		</tr></table>
 		</td>
+	</tr>
+
+	<tr bgcolor="#fffee5">
+		<td colspan="2">All dates are in GMT, current GMT date/time is: <?php echo gmdate('r', __request_timestamp__); ?></td>	
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
@@ -189,9 +193,9 @@ function mk_date($y, $m, $d)
 		}
 		$b = (strlen($r->text) > 25) ? substr($r->text, 0, 25).'...' : $r->text;
 		$st_dt = raw_date($r->date_started);
-		$st_dt = gmdate('F j, Y', mktime(0, 0, 0, $st_dt[1], $st_dt[2], $st_dt[0]));
+		$st_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $st_dt[1], $st_dt[2], $st_dt[0]));
 		$en_dt = raw_date($r->date_ended);
-		$en_dt = gmdate('F j, Y', mktime(0, 0, 0, $en_dt[1], $en_dt[2], $en_dt[0]));
+		$en_dt = gmdate('F j, Y', gmmktime(1, 1, 1, $en_dt[1], $en_dt[2], $en_dt[0]));
 		echo '<tr'.$bgcolor.'><td>'.$r->subject.'</td><td>'.$b.'</td><td>'.$st_dt.'</td><td>'.$en_dt.'</td><td>[<a href="admannounce.php?edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admannounce.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
 	qf($c);

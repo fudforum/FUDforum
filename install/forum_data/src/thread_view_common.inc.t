@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.10 2003/05/02 16:25:17 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.11 2003/05/02 16:39:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,10 +80,7 @@ if (_uid) {
 if ($_GET['t'] == 'threadt') {
 	$ann_cols = '5';
 } else {
-	$ann_cols = $ENABLE_THREAD_RATING == 'Y' ? 9 : 8;
-	if ($MOD) {
-		$ann_cols += 1;
-	}
+	$ann_cols = ($ENABLE_THREAD_RATING == 'Y' ? 9 : 8) + $MOD;
 }
 
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
