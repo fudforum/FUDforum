@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_pager.inc.t,v 1.9 2003/10/01 21:51:51 hackie Exp $
+*   $Id: draw_pager.inc.t,v 1.10 2003/10/03 01:36:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,7 +26,7 @@ if ($FUD_OPT_2 & 32768) {
 function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=false)
 {
 	if (!$count) {
-		$count = $GLOBALS['POSTS_PER_PAGE'];
+		$count =& $GLOBALS['POSTS_PER_PAGE'];
 	}
 	if ($total <= $count) {
 		return;
@@ -117,7 +117,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js_pager=false)
 {
 	if (!$count) {
-		$count = $GLOBALS['POSTS_PER_PAGE'];
+		$count =& $GLOBALS['POSTS_PER_PAGE'];
 	}
 	if ($total <= $count) {
 		return;
