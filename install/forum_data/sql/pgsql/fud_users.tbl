@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.8 2002/08/28 17:39:17 hackie Exp $
+#   $Id: fud_users.tbl,v 1.9 2002/08/30 13:11:41 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 (
 	id			SERIAL PRIMARY KEY,
 	login			VARCHAR(50) NOT NULL,
-	alias			VARCHAR(50) NOT NULL DEFAULT '',
+	alias			VARCHAR(50) NOT NULL DEFAULT RANDOM(),
 	passwd			VARCHAR(32) NOT NULL,
 	name			VARCHAR(255) NOT NULL,
 	
