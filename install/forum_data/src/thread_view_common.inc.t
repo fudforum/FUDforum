@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.35 2004/06/07 15:24:53 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.36 2004/06/11 14:21:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ if (!isset($_GET['frm_id']) || (!($frm_id = (int)$_GET['frm_id']))) {
 	invl_inp_err();
 }
 
-if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
+if (!isset($_GET['start']) || ($start = (int)$_GET['start']) < 1) {
 	$start = 0;
 }
 
