@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.21 2004/01/04 16:38:32 hackie Exp $
+* $Id: admprune.php,v 1.22 2004/03/19 17:49:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,6 +20,14 @@
 	fud_use('ipoll.inc');
 	fud_use('attach.inc');
 	fud_use('th_adm.inc');
+
+	if (isset($_GET['usr_id'])) {
+		$usr_id = (int) $_GET['usr_id'];
+	} else if (isset($_POST['usr_id'])) {
+		$usr_id = (int) $_POST['usr_id'];
+	} else {
+		$usr_id = 0;
+	}
 
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
 		/* figure out our limit if any */
@@ -43,19 +51,27 @@
 
 		if (!isset($_POST['btn_conf'])) {
 			/* count the number of messages & topics that will be affected */
-			$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
-			$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
+			if (!$usr_id) {
+				$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
+				$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
+				$umsg = '';
+			} else {
+				$topic_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."thread t INNER JOIN ".$DBHOST_TBL_PREFIX."msg m ON t.root_msg_id=m.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
+				$msg_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."msg m INNER JOIN ".$DBHOST_TBL_PREFIX."thread t ON m.thread_id=t.id WHERE m.poster_id=".$usr_id." AND t.last_post_date<".$back.$lmt);
+				$umsg = ' <font color="red">posted by "'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'"</font>';
+			}
 ?>
 <html>
 <body bgcolor="white">
 <div align=center>You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
-which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br><br>
+which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $umsg . $msg; ?><br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
 			<input type="hidden" name="btn_prune" value="1">
 			<?php echo _hs; ?>
 			<input type="hidden" name="thread_age" value="<?php echo $_POST['thread_age']; ?>">
 			<input type="hidden" name="units" value="<?php echo $_POST['units']; ?>">
+			<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 			<input type="hidden" name="forumsel" value="<?php echo $_POST['forumsel']; ?>">
 			<input type="submit" name="btn_conf" value="Yes">
 			<input type="submit" name="btn_cancel" value="No">
@@ -67,12 +83,22 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			exit;
 		} else {
 			db_lock($DBHOST_TBL_PREFIX.'thr_exchange WRITE, '.$DBHOST_TBL_PREFIX.'thread_view WRITE, '.$DBHOST_TBL_PREFIX.'level WRITE, '.$DBHOST_TBL_PREFIX.'forum WRITE, '.$DBHOST_TBL_PREFIX.'forum_read WRITE, '.$DBHOST_TBL_PREFIX.'thread WRITE, '.$DBHOST_TBL_PREFIX.'msg WRITE, '.$DBHOST_TBL_PREFIX.'attach WRITE, '.$DBHOST_TBL_PREFIX.'poll WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt_track WRITE, '.$DBHOST_TBL_PREFIX.'users WRITE, '.$DBHOST_TBL_PREFIX.'thread_notify WRITE, '.$DBHOST_TBL_PREFIX.'msg_report WRITE, '.$DBHOST_TBL_PREFIX.'thread_rate_track WRITE');
-
-			$c = q('SELECT root_msg_id, forum_id FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
-			while ($r = db_rowarr($c)) {
-				fud_msg_edit::delete(false, $r[0], 1);
-				$frm_list[$r[1]] = $r[1];
+			if (!$usr_id) {
+				$c = q('SELECT root_msg_id, forum_id FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
+				while ($r = db_rowarr($c)) {
+					fud_msg_edit::delete(false, $r[0], 1);
+					$frm_list[$r[1]] = $r[1];
+				}
+			} else {
+				$msg_tbl = $DBHOST_TBL_PREFIX."msg";
+				$th_tbl = $DBHOST_TBL_PREFIX."thread";
+				$c = q("SELECT {$msg_tbl}.id, {$th_tbl}.forum_id FROM {$msg_tbl} INNER JOIN {$th_tbl} ON {$msg_tbl}.thread_id={$th_tbl}.id WHERE poster_id=".$usr_id." AND last_post_date<".$back.$lmt);
+				while ($r = db_rowarr($c)) {
+					fud_msg_edit::delete(false, $r[0]);
+					$frm_list[$r[1]] = $r[1];
+				}
 			}
+			
 			unset($r);
 			foreach ($frm_list as $v) {
 				rebuild_forum_view($v);
@@ -87,6 +113,14 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 <h2>Topic Prunning</h2>
 <form method="post" action="admprune.php">
 <table class="datatable">
+<?php
+	if ($usr_id) {
+		echo '<tr class="field">';
+		echo '<td nowrap>By Author:</td>';
+		echo '<td colspan="2">'.q_singleval("SELECT alias FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".$usr_id).'</td>';
+		echo '</tr>';
+	}
+?>
 <tr class="field">
 	<td nowrap>Topics with last post made:</td>
 	<td ><input type="text" name="thread_age"></td>
@@ -116,5 +150,6 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 </tr>
 </table>
 <?php echo _hs; ?>
+<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 </form>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
