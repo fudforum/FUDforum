@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.82 2003/09/30 02:57:59 hackie Exp $
+*   $Id: register.php.t,v 1.83 2003/09/30 04:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -394,9 +394,9 @@ function decode_uent(&$uent)
 			$uent->add_user();
 
 			if ($FUD_OPT_2 & 1) {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
+				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			} else {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
+				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
 			}
 
 			/* we notify all admins about the new user, so that they can approve him */
@@ -406,7 +406,7 @@ function decode_uent(&$uent)
 					$admins[] = $r[0];
 				}
 				qf($c);
-				send_email($GLOBALS['NOTIFY_FROM'], $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
+				send_email($NOTIFY_FROM, $admins, '{TEMPLATE: register_admin_newuser_title}', '{TEMPLATE: register_admin_newuser_msg}', '');
 			}
 
 			/* login the new user into the forum */
@@ -501,7 +501,7 @@ function decode_uent(&$uent)
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
 			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && $uent->users_opt & 1048576) {
 				$conf_key = usr_email_unconfirm($uent->id);
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
+				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
 			if (!$mod_id) {
 				check_return($usr->returnto);

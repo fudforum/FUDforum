@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.12 2003/09/30 02:31:39 hackie Exp $
+*   $Id: reset.php.t,v 1.13 2003/09/30 04:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@ function usr_reset_passwd($id)
 		if (($ui = db_saq("SELECT email, login, id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".addslashes($_GET['reset_key'])."'"))) {
 			$passwd = usr_reset_passwd($ui[2]);
 			db_unlock();
-			send_email($GLOBALS['NOTIFY_FROM'], $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
+			send_email($NOTIFY_FROM, $ui[0], '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_newpass_msg}');
 			ses_putvar((int)$usr->sid, '{TEMPLATE: reset_login_notify}');
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/l/'._rsidl);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.80 2003/09/30 03:57:50 hackie Exp $
+*   $Id: post.php.t,v 1.81 2003/09/30 04:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -172,7 +172,7 @@ function flood_check()
 				$msg_body = post_to_smiley(str_replace("\r", '', $msg->body));
 				
 				if (!strlen($msg->login)) {
-					$msg->login = $GLOBALS['ANON_NICK'];
+					$msg->login =& $ANON_NICK;
 				}
 				reverse_fmt($msg->login);
 				
@@ -411,10 +411,10 @@ function flood_check()
 					}
 					qf($c);
 					if (isset($modl)) {
-						send_email($GLOBALS['NOTIFY_FROM'], $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
+						send_email($NOTIFY_FROM, $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}
 				}
-				$data = file_get_contents($GLOBALS['INCLUDE'].'theme/'.$usr->theme_name.'/usercp.inc');
+				$data = file_get_contents($INCLUDE.'theme/'.$usr->theme_name.'/usercp.inc');
 				$s = strpos($data, '<?php') + 5;
 				eval(substr($data, $s, (strrpos($data, '?>') - $s)));
 				?>

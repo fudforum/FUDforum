@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.37 2003/09/30 04:02:22 hackie Exp $
+*   $Id: login.php.t,v 1.38 2003/09/30 04:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@
 		}
 		
 		ses_delete($usr->sid);
-		if ($GLOBALS['FUD_OPT_2'] & 32768) {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}'. $returnto);
 		} else {
 			header('Location: {ROOT}?'. $returnto);
@@ -71,7 +71,7 @@
 	}
 	
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
-		if ($GLOBALS['FUD_OPT_2'] & 32768) {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/re/'._rsidl);
 		} else {
 			header('Location: {ROOT}?t=register&'._rsidl);
@@ -135,7 +135,7 @@ function error_check()
 
 			/* Login & E-mail Filter & IP */
 			if (is_login_blocked($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->users_opt & 65536 || is_ip_blocked(get_ip())) {
-				setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+				setcookie($COOKIE_NAME.'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $COOKIE_PATH, $COOKIE_DOMAIN);
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 
@@ -153,11 +153,11 @@ function error_check()
 				exit;
 			}
 
-			if ($GLOBALS['FUD_OPT_1'] & 128) {
+			if ($FUD_OPT_1 & 128) {
 				if (strpos($usr->returnto, s) !== false) {
 					$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 				} else {
-					if ($GLOBALS['FUD_OPT_2'] & 32768) {
+					if ($FUD_OPT_2 & 32768) {
 						$usr->returnto .= $ses_id . '/';
 					} else {
 						$usr->returnto .= '&S=' . $ses_id;
