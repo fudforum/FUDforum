@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.21 2003/01/29 09:57:42 hackie Exp $
+*   $Id: tree.php.t,v 1.22 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,6 +97,7 @@
 		{SQL_TABLE_PREFIX}users.sig,
 		{SQL_TABLE_PREFIX}users.icq,
 		{SQL_TABLE_PREFIX}users.jabber,
+		{SQL_TABLE_PREFIX}users.affero,
 		{SQL_TABLE_PREFIX}users.aim,
 		{SQL_TABLE_PREFIX}users.msnm,
 		{SQL_TABLE_PREFIX}users.invisible_mode,

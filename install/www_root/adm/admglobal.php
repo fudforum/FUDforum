@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.18 2003/01/15 11:54:13 hackie Exp $
+*   $Id: admglobal.php,v 1.19 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,6 +197,7 @@ else
 <tr bgcolor="#bff8ff"><td>Public Stats:<?php draw_help('PUBLIC_STATS'); ?></td><td><?php draw_select('CF_PUBLIC_STATS', "Yes\nNo", "Y\nN", $CF_PUBLIC_STATS); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Forum Info:<?php draw_help('FORUM_INFO'); ?></td><td><?php draw_select('CF_FORUM_INFO', "Yes\nNo", "Y\nN", $CF_FORUM_INFO); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Registration Time Limit:<?php draw_help('REG_TIME_LIMIT'); ?></td><td><input type="text" name="CF_REG_TIME_LIMIT" value="<?php echo $REG_TIME_LIMIT; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Enable Affero:<?php draw_help('ENABLE_AFFERO'); ?></td><td><?php draw_select('CF_ENABLE_AFFERO', "Yes\nNo", "Y\nN", $CF_ENABLE_AFFERO); ?></td></tr>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 </table>
 <input type="hidden" name="form_posted" value="1">

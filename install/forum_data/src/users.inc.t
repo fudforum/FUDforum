@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.17 2002/11/21 21:42:45 hackie Exp $
+*   $Id: users.inc.t,v 1.18 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,6 +43,7 @@ class fud_user
 	var $yahoo=NULL;
 	var $msnm=NULL;
 	var $jabber=NULL;
+	var $affero=NULL;
 	
 	var $avatar=NULL;
 	var $avatar_loc=NULL;

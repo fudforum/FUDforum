@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.11 2002/11/21 21:42:45 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.12 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,6 +60,7 @@ class fud_user_reg extends fud_user
 				yahoo,
 				msnm,
 				jabber,
+				affero,
 				append_sig, 
 				posts_ppg, 
 				time_zone, 
@@ -106,6 +107,7 @@ class fud_user_reg extends fud_user
 				".strnull($this->yahoo).",
 				".strnull($this->msnm).",
 				".strnull($this->jabber).",
+				".strnull($this->affero).",
 				'".yn($this->append_sig)."',
 				'".$this->posts_ppg."',
 				'".$this->time_zone."',
@@ -179,6 +181,7 @@ class fud_user_reg extends fud_user
 				yahoo=".strnull($this->yahoo).",
 				msnm=".strnull($this->msnm).",
 				jabber=".strnull($this->jabber).",
+				affero=".strnull($this->affero).",
 				append_sig='".yn($this->append_sig)."',
 				show_sigs='".yn($this->show_sigs)."',
 				show_avatars='".yn($this->show_avatars)."',

@@ -115,6 +115,7 @@
 	$MAX_LOCATION_SHOW	= "25";
 	$DEFAULT_THREAD_VIEW 	= "msg";    	/* toggle msg:tree:tree_msg:msg_tree */
 	$SHOW_N_MODS		= "2";
+	$ENABLE_AFFERO		= "N";		/* boolean */
 	
 	$TREE_THREADS_ENABLE	= "N";		/* boolean */
 	$TREE_THREADS_MAX_DEPTH	= "15";

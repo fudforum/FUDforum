@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.19 2002/11/21 20:49:14 hackie Exp $
+*   $Id: selmsg.php.t,v 1.20 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -174,6 +174,7 @@ function ifstr($opt1, $opt2, $str)
 			{SQL_TABLE_PREFIX}users.sig,
 			{SQL_TABLE_PREFIX}users.icq,
 			{SQL_TABLE_PREFIX}users.jabber,
+			{SQL_TABLE_PREFIX}users.affero,
 			{SQL_TABLE_PREFIX}users.aim,
 			{SQL_TABLE_PREFIX}users.msnm,
 			{SQL_TABLE_PREFIX}users.yahoo,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.10 2003/02/11 16:55:44 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.11 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -140,6 +140,12 @@ function convert_bdate($val, $month_fmt)
 		$im_yahoo = '{TEMPLATE: im_yahoo}';
 	}	
 	if ( strlen($u->msnm) ) $im_msnm = '{TEMPLATE: im_msnm}';
+	
+	if ($GLOBALS['ENABLE_AFFERO'] == 'Y' && $u->affero) {
+		$im_affero = '{TEMPLATE: usrinfo_affero}';
+	} else {
+		$im_affero = '';
+	}
 	
 	{POST_PAGE_PHP_CODE}
 ?>

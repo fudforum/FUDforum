@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.14 2003/01/17 09:28:50 hackie Exp $
+#   $Id: fud_users.tbl,v 1.15 2003/03/05 13:46:36 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -46,6 +46,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	yahoo			VARCHAR(255),
 	msnm			VARCHAR(255),
 	jabber			VARCHAR(255),
+	affero			VARCHAR(255),
 	
 	append_sig		VARCHAR(1) NOT NULL DEFAULT 'Y',
 	CONSTRAINT		append_sig_cnt CHECK (append_sig='Y' OR append_sig='N'),

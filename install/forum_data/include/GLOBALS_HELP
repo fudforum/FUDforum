@@ -341,3 +341,7 @@ REG_TIME_LIMIT
 This limit allows you to define how often can a registration can occur. Set the
 value of this field to -1 if you do not wish to limit registrations.
 
+ENABLE_AFFERO
+Enable affero, this will result in an Affero button being shown beside each
+message, allowing users to give feedback via the Affero system.
+

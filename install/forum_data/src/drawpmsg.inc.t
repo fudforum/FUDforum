@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.11 2002/09/12 21:47:04 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.12 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,6 +69,13 @@ function tmpl_drawpmsg(&$obj)
 			if ( $obj->yahoo ) 	{ $im_yahoo = urlencode($obj->yahoo); $im_yahoo = '{TEMPLATE: dpmsg_im_yahoo}'; }
 			if ( $obj->msnm ) 	$im_msnm =  '{TEMPLATE: dpmsg_im_msnm}';
 			if ( $obj->jabber ) 	$im_jabber =  '{TEMPLATE: dpmsg_im_jabber}';
+			if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
+				if ($obj->affero) {
+					$im_affero = '{TEMPLATE: drawpmsg_affero_reg}';
+				} else {
+					$im_affero = '{TEMPLATE: drawpmsg_affero_reg}';
+				}
+			}
 		}
 	
 		if( $obj->ouser_id != $GLOBALS["usr"]->id ) {

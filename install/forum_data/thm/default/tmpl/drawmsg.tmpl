@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.15 2003/02/25 15:31:38 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.16 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -338,6 +338,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {TEMPLATE-DATA: im_yahoo}
 {TEMPLATE-DATA: im_msnm}
 {TEMPLATE-DATA: im_jabber}
+{TEMPLATE-DATA: im_affero}
 </div></td>
 <td class="{TEMPLATE-DATA: msg_bg_color_alt}" valign="top" width="100%">
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
@@ -376,4 +377,12 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: dmsg_no_msg_body}
 {MSG: no_msg_body}
+{SECTION: END}
+
+{SECTION: drawmsg_affero_reg}
+<a href="http://svcs.affero.net/rm.php?r={VAR-URL: obj->affero}&amp;ll={VAR: obj->forum_id}.{VAR-URL: GLOBALS['FORUM_TITLE']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['FORUM_TITLE']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" border=0 /></a>
+{SECTION: END}
+
+{SECTION: drawmsg_affero_noreg}
+<a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll={VAR: obj->forum_id}.{VAR-URL: GLOBALS['FORUM_TITLE']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['FORUM_TITLE']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" border=0 /></a>
 {SECTION: END}

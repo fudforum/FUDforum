@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.15 2003/01/15 11:54:13 hackie Exp $
+*   $Id: register.tmpl,v 1.16 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -133,6 +133,10 @@
 <br /><font class="ErrorText">{VAR: GLOBALS['err_msg'][$err_name]}</font>
 {SECTION: END}
 
+{SECTION: register_affero}
+<tr><td class="RowStyleA">{MSG: register_affero}</td><td class="RowStyleA"><input type="text" name="reg_affero" value="{VAR: reg_affero}" maxLength=32 size=25></td></tr>
+{SECTION: END}
+
 {PAGE: REGISTER_PAGE registration AND profile page}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -151,6 +155,7 @@
 <tr><td class="RowStyleA">{MSG: register_yahoo}</td><td class="RowStyleA"><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxLength=32 size=25></td></tr>
 <tr><td class="RowStyleA">{MSG: register_msnm}</td><td class="RowStyleA"><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxLength=32 size=25></td></tr>
 <tr><td class="RowStyleA">{MSG: register_jabber}</td><td class="RowStyleA"><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxLength=32 size=25></td></tr>
+{TEMPLATE-DATA: register_affero}
 <tr><td class="RowStyleA">{MSG: register_homepage}</td><td class="RowStyleA"><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxLength=255></td></tr>
 {TEMPLATE-DATA: avatar_type_sel}
 {TEMPLATE-DATA: avatar}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.7 2002/11/21 22:33:11 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.8 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,6 +61,7 @@
 		{SQL_TABLE_PREFIX}users.msnm,
 		{SQL_TABLE_PREFIX}users.yahoo,
 		{SQL_TABLE_PREFIX}users.jabber,
+		{SQL_TABLE_PREFIX}users.affero,
 		{SQL_TABLE_PREFIX}users.invisible_mode,
 		{SQL_TABLE_PREFIX}users.email_messages,
 		{SQL_TABLE_PREFIX}users.custom_status,

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.11 2002/08/07 12:18:43 hackie Exp $
+*   $Id: modque.php.t,v 1.12 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,6 +75,7 @@
 		{SQL_TABLE_PREFIX}users.is_mod,
 		{SQL_TABLE_PREFIX}users.icq,
 		{SQL_TABLE_PREFIX}users.jabber,
+		{SQL_TABLE_PREFIX}users.affero,
 		{SQL_TABLE_PREFIX}users.aim,
 		{SQL_TABLE_PREFIX}users.msnm,
 		{SQL_TABLE_PREFIX}users.yahoo,

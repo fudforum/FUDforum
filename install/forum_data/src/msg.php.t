@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.18 2002/10/28 22:32:02 hackie Exp $
+*   $Id: msg.php.t,v 1.19 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -175,6 +175,7 @@
 		{SQL_TABLE_PREFIX}users.custom_status,
 		{SQL_TABLE_PREFIX}users.icq,
 		{SQL_TABLE_PREFIX}users.jabber,
+		{SQL_TABLE_PREFIX}users.affero,
 		{SQL_TABLE_PREFIX}users.aim,
 		{SQL_TABLE_PREFIX}users.msnm,
 		{SQL_TABLE_PREFIX}users.yahoo,

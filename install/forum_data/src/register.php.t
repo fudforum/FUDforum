@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.25 2003/01/15 11:54:13 hackie Exp $
+*   $Id: register.php.t,v 1.26 2003/03/05 13:46:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -240,7 +240,7 @@ function draw_err($err_name)
 
 function clean_variables()
 {
-	$vars = array('reg_avatar_loc','reg_login','reg_alias','reg_email','reg_name','reg_location','reg_occupation','reg_interests','reg_user_image','reg_icq','reg_aim','reg_yahoo','reg_home_page','reg_msnm','reg_avatar','b_month','b_day','b_year','reg_gender','reg_bio','reg_sig','reg_invisible_mode','reg_notify','reg_notify_method','reg_posts_ppg','reg_theme', 'reg_jabber');
+	$vars = array('reg_avatar_loc','reg_login','reg_alias','reg_email','reg_name','reg_location','reg_occupation','reg_interests','reg_user_image','reg_icq','reg_aim','reg_yahoo','reg_home_page','reg_msnm','reg_avatar','b_month','b_day','b_year','reg_gender','reg_bio','reg_sig','reg_invisible_mode','reg_notify','reg_notify_method','reg_posts_ppg','reg_theme', 'reg_jabber', 'reg_affero');
 	foreach($vars as $v) {
 		if( !isset($GLOBALS["HTTP_POST_VARS"][$v]) ) $GLOBALS[$v]=$GLOBALS["HTTP_POST_VARS"][$v]=NULL;		
 	}
@@ -576,6 +576,12 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	reverse_FMT($reg_alias);
 
 	$reg_alias_t = ($GLOBALS['USE_ALIASES'] != 'Y' ? '' : '{TEMPLATE: reg_alias}');
+
+	if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
+		$register_affero = '{TEMPLATE: register_affero}';
+	} else {
+		$register_affero = '';
+	}
 
 if( empty($usr->id) ) {
 	$reg_login_err = draw_err('reg_login');
