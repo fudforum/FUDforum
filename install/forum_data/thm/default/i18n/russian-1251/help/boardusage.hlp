@@ -105,50 +105,50 @@ TOPIC_HELP:
 регистрируется, пройдя по этой ссылке. Список приглашенных вами пользователей
 расположен в ваших персональных настройках на закладке <b>Приглашенные</b>.
 
-TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
+TOPIC_TITLE: <a name="syndicate">Формирование XML</a>
 TOPIC_HELP:
-If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (rdf). The RDF feed works primarily
-in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
-will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
-of operation.<br />
+Если данная возможность была включена администратором, FUDforum позволяет вам излекать различные данные из форумов и формировать
+документ в формате XML (rdf). Извлечение данных и передача в RDF имеет 3 основных режима: извлечение информации о сообщениях,
+о темах и о пользователях. В каждом из режимов имеется ряд параметров, позволяющих определить, какого рода данные вы хотите получить.
+Ниже приведен список параметров и объяснено их назначение.<br />
 <br /><br />
-<h4><u><b>'m' mode (messages)</b></u></h4>
+<h4><u><b>режи 'm' (messages - сообщения)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
-		<tr><td class="GenText"><i>th<i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single message with the specified id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение сообщений только из категории с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение сообщений только из форума с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>th<i></td><td class="GenText">Извлечение сообщений только из темы с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Извлечение одиночного сообщения с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Извлечение сообщений, отправленных после указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Извлечение сообщений, отправленных до указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Извлечь не более <i>n</i> сообщений (не больше максимума).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Начальное смещение (количество пропущенных сообщений).</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Сортировка сообщений от новых к старым.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'t' mode (topics)</b></u></h4>
+<h4><u><b>режим 't' (topics - темы)</b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
-		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
-		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
-		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching topics.</td></tr>
-		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order topics from newest to oldest.</td></tr>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Извлечение тем только из категории с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Извлечение тем только из форума с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Извлечение одиночной темы с указанным номером.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные после указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Извлечение тем, содержащих сообщения, отправленные до указанной даты (в формате unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Извлечь не более <i>n</i> тем (не больше максимума).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Начальное смещение (количество пропущенных тем).</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Сортировка тем от новых к старым.</td></tr>
 	</table>
 </blockquote>
-<h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
+<h4><u><b>режим 'u' (users - пользователи) <i>**может быть отключено**</i></b></u></h4>
 <blockquote>
 	<table border=0 cellspacing=1 cellpadding=3>
-		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
-		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
-		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>
-		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
-		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching users.</td></tr>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Сортировка по количеству отправленных сообщений, начиная с наибольшего.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Сортировка по дате регистрации, начиная с последних зарегистрированных.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Показывать только пользователей, находящихся в настоящее время в онлайне.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Извлечь не более <i>n</i> пользователей (не больше максимума).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Начальное смещение (количество пропущенных пользователей).</td></tr>
 	</table>
 </blockquote>
-<b>Example:</b><br />
-The following link will fetch 10 most recent messages from this forum:<br />
+<b>Пример:</b><br />
+По следующей ссылке извлекаются последние 10 сообщение в этом форуме:<br />
 <a href="rdf.php?mode=m&l=1&n=10" target="_blank">rdf.php?mode=m&l=1&n=10</a>

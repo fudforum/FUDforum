@@ -535,9 +535,9 @@ tabs_referrals:			Приглашенные
 tabs_buddy_list:		Список контактов
 tabs_ignore_list:		Список игнорируемых
 tabs_private_messaging:		Личная почта
-single_msg_delete:		Вы хотите <font color="#ff0000" size="4">УДАЛИТЬ</font> сообщение с заголовком: <b>{VAR: data[3]}</b><p>
-thread_delete:			Вы хотите <font color="#ff0000" size="4">УДАЛИТЬ ВСЮ ТЕМУ</font> с заголовком: <b>{VAR: data[3]}</b><p>
-delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b></font>
+single_msg_delete:		<font color="#ff0000" size="4">УДАЛЕНИЕ</font> сообщения на тему <b>{VAR: data[3]}</b><p>
+thread_delete:			<font color="#ff0000" size="4">ПОЛНОЕ УДАЛЕНИЕ</font> темы: <b>{VAR: data[3]}</b><p>
+delete_proceed:			<font size="3"><b>Вы действительно хотите продолжить?</b><br></font>
 delete_yes:			Да
 delete_no:			Нет
 error_invalidurl:		Недопустимый URL
@@ -817,7 +817,7 @@ logedin_latest_post:		Последнее сообщение в форуме:
 register_show_avatar:		Показывать картинки:
 register_show_avatar_desc:	Показывать картинки других пользователей при просмотре их сообщений
 drawmsg_view_rest_post:		Показать остальное
-post_re:			Re:
+post_re:			Re: 
 forumsel_goto_forum:		Переход к форуму:
 minimsg_thread_view:		Просмотр темы
 split_th_post_by:		Отправитель:
@@ -845,7 +845,7 @@ pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
 post_proc_reveal_spoiler:	Укажите помеху
 register_jabber:		Псевдоним сети Jabber:
-im_jabber:			Jabber:
+im_jabber:			Jabber: 
 forum_contact:			Обратная связь
 forum_home:			Начало
 post_cur_attached:		количество вложенных файлов: {VAR: i}
@@ -916,20 +916,20 @@ err_mod_acc_ttl:		Непроверенный пользователь
 err_mod_acc_msg:		Администратор установил режим ручного просмотра всех учетных записей пользователей перед их активацией. Пока ваша учетная запись не будет проверена администратором, вы не сможете использовать все возможности форума.
 accounts_pending_approval:	Ожидающие утверждения пользователи
 saved:				Сохранено
-register_err_time_limit:	Лимит на 1 регистрацию в {GVAR: REG_TIME_LIMIT} секунд превышен. Пожалуйста, подождите {VAR: reg_limit_reached} и попробуйте пройти регистрацию снова.
-login_blocked_account_ttl:	Ваш аккаунт был заблокирован.
-login_blocked_account_msg:	Ваш аккаунт заблокирован в этом форуме, если вы еще не знаете причину &mdash; обратитесь к администратору(ам) форума.
-register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Имя пользователя Affero
-register_err_avatardimtobig:	Размеры персональной картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превысили допустимые размеры <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Скачано {VAR: r->dlcount} раз(а)
-member_search:			<br>Или воспользуйтесь <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">поиском пользователя</a>.
-post_all_ext_allowed:		(неограничено)
-buddy_offline:			{VAR: r[2]} в оффлайне
-buddy_online:			{VAR: r[2]} в онлайне
+register_err_time_limit:	Превышен лимит на 1 регистрацию в течение {GVAR: REG_TIME_LIMIT} секунд. Пожалуйста подождите {VAR: reg_limit_reached} секунд и попробуйте еще раз.
+login_blocked_account_ttl:	Ваша учетная запись была заблокирована.	
+login_blocked_account_msg:	Ваша учетная запись в этом форуме была заблокирована, if do not already know the reason behind this action contact the forum&#39;s administrator(s).
+register_affero:		Имя в системе Affero:<br /><font class="SmallText">Если у вас имеется зарегистрированное имя в системе <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> - введите его здесь.</font>
+im_affero:			Имя в системе Affero
+register_err_avatardimtobig:	Размер картинки <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> превышает максимально разрешенный, который составляет <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Загружено {VAR: r->dlcount} раз
+member_search:			<br>Или используйте возможность <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Поиска</a> для нахождения нужного пользователя.
+post_all_ext_allowed:		(нет ограничений)
+buddy_offline:			{VAR: r[2]} сейчас не в онлайне
+buddy_online:			{VAR: r[2]} сейчас в онлайне
 sml_no_smilies:			Нет доступных смайликов.
-login_unapproved_account_ttl:	Неподтвержденный аккаунт
-login_unapproved_account_msg:	Администратор этого форума вручную подтверждает каждый новый аккаунт перед тем, как он будет активирован. Ваш аккаунт пока не подтвержден, поэтому вы не будете иметь доступа к тем функциям, которые доступны только зарегистрированным пользователям до тех пор, пока ваш аккаунт не будет подтвержден.
+login_unapproved_account_ttl:	Неутвержденный пользователь
+login_unapproved_account_msg:	Администратором форума был включен режим, когда учетная запись каждого нового пользователя должна быть им проверена и утверждена для ее активизации. Утверждения вашей учетной записи от администратора пока не получено, и вы временно не можете использовать все возможности форума, доступные зарегистрированым пользователям.
 remove_from_buddy_list:		удалить из списка контактов
 iemail_msg_author:		<b>Автор:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Тема:</b> {VAR: obj->subject}
@@ -941,24 +941,20 @@ threadt_sticky:			стикер
 threadt_announce:		анонс
 reported_no_messages:		Нет извещений о сообщениях.
 poll_no_polls:			Нет доступных голосований.
-no_unread_messages:		Нет непрочитанных сообщений, удовлетворяющих вашему запросу.
-thread_mark_all_read:		отметить все сообщения в этом форуме как прочитанные
-thread_mark_all_read_desc:	Все сообщения в этом форуме отмечены как прочитанные
-private_no_messages:		Нет сообщений в этой папке
-register_email_change_subject:	Подтверждение смены E-mail
-register_email_change_msg:	Пожалуйста, подтвердите e-mail "{VAR: uent->email}", который заменит старый e-mail "{VAR: old_email}", перейдя по следующей ссылке:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nКак только вы подтвердите новый e-mail, ваш аккаунт будет вновь активирован.
+no_unread_messages:		Не найдено соответствующих вашему запросу непрочитанных сообщений.
+thread_mark_all_read:		отметить все сообщения форума как прочитанные
+thread_mark_all_read_desc:	Все сообщения в этом форуме будут отмечены как прочитанные вами
+private_no_messages:		В этом каталоге нет сообщений
+register_email_change_subject:	Подтверждение смены адреса E-mail
+register_email_change_msg:	Требуется подтверждение смены старого адреса e-mail "{VAR: old_email}" на новый "{VAR: uent->email}". Для подтверждения перейдите по приведенной ниже ссылке:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nПосле подтверждения вами нового адреса email учетная запись на форуме будет изменена.
 iemail_thread_unsub:		Отписаться от этой темы
 iemail_forum_unsub:		Отписаться от этого форума
-primary_group_prefix:		Основная группа для этого форума:
-group_resources:		Эта группа содержит разрешения для следующих форумов
+primary_group_prefix:		Первичная группа для форума:
+group_resources:		Данная группа контролирует доступ к следующим форумам
 register_email:			Email
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
+register_admin_newuser_title:	Зарегистрирован новый пользователь и ожидается утверждение его учетной записи
+register_admin_newuser_msg:	В форуме был зарегистрирован новый пользоватеть ({VAR: uent->login}), и, поскольку включен режим утверждения пользователей, его учетная запись не будет активизирована до ее утверждения вами или другим администратором форума. Для утверждения учетной записи перейдите по ссылке: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\nЕсли вы хотите выключить извещения о регистрации новых пользователей в дальнейщем, сделайте это в панели управления, изменив значения параметра "Извещение о новых пользователях".
+post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает утверждения
+post_mod_msg_notify_msg:	В модерируемый вами форум было отправлено новое сообщение, озаглавленное "{VAR: msg_post->subject}". Для просмотра сообщение следуйте ссылке: {ROOT}?t=modque\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\n
+thread_printable_pdf:		Сформировать PDF для печати
+thread_syndicate:		Сформировать XML
