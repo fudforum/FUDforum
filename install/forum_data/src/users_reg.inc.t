@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.40 2003/09/27 13:25:54 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.41 2003/09/27 14:03:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ class fud_user_reg extends fud_user
 		}
 
 		if (isset($_COOKIES['frm_referer_id']) && (int)$_COOKIES['frm_referer_id']) {
-			$ref_id = $_COOKIES['frm_referer_id'];
+			$ref_id = (int)$_COOKIES['frm_referer_id'];
 		} else {
 			$ref_id = 0;
 		}
@@ -78,7 +78,6 @@ class fud_user_reg extends fud_user
 				msnm,
 				jabber,
 				affero,
-				append_sig, 
 				posts_ppg, 
 				time_zone, 
 				bday, 
@@ -87,14 +86,11 @@ class fud_user_reg extends fud_user
 				user_image, 
 				join_date, 
 				location, 
-				avatar, 
 				theme, 
-				coppa, 
 				occupation, 
 				interests,
 				referer_id,
 				last_read,
-				avatar_loc,
 				sig,
 				home_page,
 				bio,
@@ -119,13 +115,11 @@ class fud_user_reg extends fud_user
 				".ssn(htmlspecialchars($this->user_image)).",
 				".__request_timestamp__.",
 				".ssn(htmlspecialchars($this->location)).",
-				0,
 				".iz($this->theme).",
 				".ssn(htmlspecialchars($this->occupation)).",
 				".ssn(htmlspecialchars($this->interests)).",
 				".iz($ref_id).",
 				".__request_timestamp__.",
-				'',
 				".ssn($this->sig).",
 				".ssn(htmlspecialchars($this->home_page)).",
 				".ssn(htmlspecialchars($this->bio)).",

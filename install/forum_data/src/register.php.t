@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.76 2003/09/27 13:25:54 hackie Exp $
+*   $Id: register.php.t,v 1.77 2003/09/27 14:03:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -118,8 +118,12 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (empty($_POST['reg_confirm_passwd']) || (empty($_POST['mod_id']) && !check_passwd($user_id, $_POST['reg_confirm_passwd'])) || (!empty($_POST['mod_id']) && !check_passwd(_uid, $_POST['reg_confirm_passwd']))) {
-			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
+		if (empty($_POST['reg_confirm_passwd']) || !check_passwd((!empty($_POST['mod_id']) ? __fud_real_user__ : $user_id), $_POST['reg_confirm_passwd'])) {
+			if (!empty($_POST['mod_id'])) {
+				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
+			} else {
+				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
+			}
 		}
 		
 		/* E-mail validity check */
@@ -277,6 +281,14 @@ function decode_uent(&$uent)
 		$mod_id = '';
 	}
 
+	if (isset($_GET['reg_coppa'])) {
+		$reg_coppa = (int)$_GET['reg_coppa'];	
+	} else if (isset($_POST['mod_id'])) {
+		$reg_coppa = (int)$_POST['reg_coppa'];	
+	} else {
+		$reg_coppa = '';
+	}
+
 	/* allow the root to modify settings other lusers */
 	if (_uid && $usr->users_opt & 1048576 && $mod_id) {
 		if (!($uent =& usr_reg_get_full($mod_id))) {
@@ -390,6 +402,11 @@ function decode_uent(&$uent)
 		$uent->users_opt |= 16777216;
 
 		if (!__fud_real_user__) { /* new user */
+			/* handle coppa passed to us by pre_reg form */
+			if ((int)$_POST['reg_coppa']) {
+				$uent->users_opt |= 262144;
+			}
+
 			$uent->add_user();
 
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
@@ -575,10 +592,7 @@ function decode_uent(&$uent)
 
 		$uent->users_opt = 4488117;
 
-		/* handle coppa passed to us by pre_reg form */
-		if (isset($_GET['reg_coppa']) && !$_GET['reg_coppa']) {
-			$uent->users_opt ^= 262144;
-		}
+		
 
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
 
