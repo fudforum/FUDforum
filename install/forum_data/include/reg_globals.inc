@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_globals.inc,v 1.2 2002/07/22 14:53:44 hackie Exp $
+*   $Id: reg_globals.inc,v 1.3 2002/09/26 01:04:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,9 +29,11 @@ function mod_arr_val(&$val, $key, $fmt_func)
 		$GLOBALS[$key] = $val;
 	}
 	else {	
-		foreach($val as $k => $v) {
-			if( !isset($GLOBALS[$key]) ) $GLOBALS[$key][$k] = $fmt_func ? $fmt_func($v) : $v;
-		}
+		if( !isset($GLOBALS[$key]) ) {
+			foreach($val as $k => $v) {
+				$GLOBALS[$key][$k] = $fmt_func ? $fmt_func($v) : $v;
+			}	
+		}	
 	}
 }
 
