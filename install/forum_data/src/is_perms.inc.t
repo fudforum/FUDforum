@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.13 2003/04/14 12:15:20 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.14 2003/04/14 12:34:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@ function &get_all_read_perms($uid)
 {
 	$r = q("SELECT resource_id, p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum'");
 	while ($ent = db_rowarr($r)) {
-		$limit[$ent[0]] = $ent[1] == 'Y' ? 1 : 0;
+		$limit[$ent[0]] = $ent[1] == 'Y' ? $ent[0] : 0;
 	}
 	qf($r);
 
@@ -67,13 +67,13 @@ function &get_all_read_perms($uid)
 		$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND p_READ='Y'");
 		while ($ent = db_rowarr($r)) {
 			if (!isset($limit[$ent[0]])) {
-				$limit[$ent[0]] = 1;
+				$limit[$ent[0]] = $ent[0];
 			}
 		}
 		qf($r);
 		$r = q('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid);
 		while ($ent = db_rowarr($r)) {
-			$limit[$ent[0]] = 1;
+			$limit[$ent[0]] = $ent[0];
 		}
 		qf($r);
 	}

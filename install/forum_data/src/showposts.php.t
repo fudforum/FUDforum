@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.8 2003/04/02 21:30:43 hackie Exp $
+*   $Id: showposts.php.t,v 1.9 2003/04/14 12:34:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,48 +30,45 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: show_posts_by}';
 	
-	$ses->update('{TEMPLATE: showposts_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: showposts_update}');
 
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
 	
 	if ($usr->is_mod != 'A') {
-		$fids = get_all_perms(_uid);
+		$fids = implode(',', get_all_read_perms(_uid));
 	}
 
 	if (isset($_GET['so']) && !strcasecmp($_GET['so'], 'asc')) {
 		$SORT_ORDER = 'ASC';
+		$SORT_ORDER_R = 'DESC';
 	} else {
 		$SORT_ORDER = 'DESC';
+		$SORT_ORDER_R = 'ASC';
 	}
 	
 	$post_entry = '';
 	if ($fids || $usr->is_mod == 'A') {
-		$qry_limit = $usr->is_mod != 'A' ? '{SQL_TABLE_PREFIX}forum.id IN ('.$fids.') AND ' : '';
+		$qry_limit = $usr->is_mod != 'A' ? 'f.id IN ('.$fids.') AND ' : '';
 	
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
-		$total = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE ".$qry_limit." {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}msg.poster_id=".$uid);
+		$total = q_singleval("SELECT count(*) 
+					FROM {SQL_TABLE_PREFIX}msg m 
+					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
+					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id 
+					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+					WHERE ".$qry_limit." m.approved='Y' AND m.poster_id=".$uid);
 		
-		$c = q("SELECT 
-				{SQL_TABLE_PREFIX}forum.name, 
-				{SQL_TABLE_PREFIX}forum.id, 
-				{SQL_TABLE_PREFIX}msg.subject, 
-				{SQL_TABLE_PREFIX}msg.id, 
-				{SQL_TABLE_PREFIX}msg.post_stamp 
-			FROM 
-				{SQL_TABLE_PREFIX}msg 
-			LEFT JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}forum 
-				ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-			WHERE 
-				".$qry_limit."
-				{SQL_TABLE_PREFIX}msg.approved='Y' AND 
-				{SQL_TABLE_PREFIX}msg.poster_id=".$uid." 
-			ORDER BY 
-				{SQL_TABLE_PREFIX}msg.post_stamp ".$SORT_ORDER." 
-			LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
+		$c = uq("SELECT 
+				f.name, f.id, 
+				m.subject, m.id, m.post_stamp 
+			FROM {SQL_TABLE_PREFIX}msg m
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+			WHERE ".$qry_limit." m.approved='Y' AND m.poster_id=".$uid." 
+			ORDER BY m.post_stamp ".$SORT_ORDER." LIMIT ".qry_limit($THREADS_PER_PAGE, $start));
 		
 		while ($r = db_rowarr($c)) {
 			$post_entry .= '{TEMPLATE: post_entry}';
