@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admreplace.php,v 1.15 2003/10/16 21:59:05 hackie Exp $
+* $Id: admreplace.php,v 1.16 2003/11/18 11:11:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -37,7 +37,7 @@ function clean_rgx()
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
 		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET
-			rpl_replace_opt='.(int)$_POST['rpl_replace_opt'].',
+			replace_opt='.(int)$_POST['rpl_replace_opt'].',
 			replace_str=\''.addslashes($_POST['rpl_replace_str']).'\',
 			with_str=\''.addslashes($_POST['rpl_with_str']).'\',
 			from_post=\''.addslashes($_POST['rpl_from_post']).'\',
