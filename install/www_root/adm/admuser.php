@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.13 2002/12/05 21:04:18 hackie Exp $
+*   $Id: admuser.php,v 1.14 2002/12/11 18:51:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,6 +26,7 @@
 	fud_use('customtags.inc');
 	fud_use('private.inc');
 	fud_use('logaction.inc');
+	fud_use('iemail.inc');
 	
 	list($ses, $usr_adm) = initadm();
 	
@@ -59,6 +60,21 @@ if( !empty($act) ) {
 			
 			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			exit();
+			break;
+		case 'reset':
+			$user_theme_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE ".(!$usr->theme ? "t_default='Y'" : "id=".$usr->theme));
+			include_once($GLOBALS['INCLUDE'] . "theme/".$user_theme_name."/rst.inc");
+			
+			if ( $EMAIL_CONFIRMATION == 'Y' && $usr->email_conf == 'N' ) {
+				$conf_key = $usr->email_unconfirm();
+				$url = '{ROOT}?t=emailconf&conf_key='.$conf_key;
+				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, $register_conf_subject, $reset_confirmation, "");
+			} else {
+				$key = $usr->reset_key();
+				$url = '{ROOT}?t=reset&reset_key='.$key;
+				send_email($GLOBALS['NOTIFY_FROM'], $usr->email, $reset_newpass_title, $reset_reset, "");
+			}
+			header("Location: admuser.php?"._rsidl."&usr_login=".urlencode($usr->alias));
 			break;
 		case 'econf':
 			$eusr = new fud_user_adm();
@@ -325,7 +341,7 @@ if( !empty($act) ) {
 	else
 		echo '<a href="mailto:'.$usr->email.'">Send Email</a> | ';
 	
-	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../'.__fud_index_name__.'?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="admuser.php?act=reset&usr_id='.$usr->id.'&'._rsid.'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
 	
 	} else if ( !empty($usr_login) || !empty($usr_email) ) { ?>
 	<tr>
