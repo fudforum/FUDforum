@@ -51,8 +51,6 @@ function make_lang_arr($path)
 		foreach ($curl as $k => $v) {
 			$ct = $tabs - floor((strlen($k) + 1) / 8);
 			if ($v[strlen($k) + 1] != "\t") {
-				var_dump($k, $v, $v[strlen($k) + 1]);
-				exit;
 				$curl[$k] = preg_replace('!^'.$k.':\s+!', $k . ':' . str_repeat("\t", $ct), $v);
 			}
 		}

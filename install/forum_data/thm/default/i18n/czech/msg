@@ -906,7 +906,6 @@ threadt_disabled_ttl:		Stromové zobrazení vláken bylo vypnuto.
 threadt_disabled_desc:		Administrátor vypnul stromové zobrazení vláken, pou¾ijte místo toho ploché zobrazení.
 threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Potvrzení smazání tématu/zprávy
-err_inc_query_err:		Vyskytla se SQL chyba. Prosím, kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrátora</a> fóra a nechte ho prohlédnout SQL logy fóra
 spell_alts:			¾ádné alternativy
 insert_uploaded_image:		Vlo¾it obrázek do tìla zprávy
 finduser_help:			Vyhledávací systém automaticky pøidává * masku k va¹emu dotazu. Napøíklad pro vyhledání v¹ech u¾ivatelù, jejich¾ u¾ivatelské jméno zaèína na &#39;a&#39; napi¹te &#39;a&#39; do vyhldávácího formuláøe.
@@ -953,3 +952,7 @@ iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
 register_email:			Email
+register_admin_newuser_title:	A new user has registered and their account is pending confirmation
+register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
+post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n

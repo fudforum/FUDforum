@@ -905,7 +905,6 @@ threadt_disabled_ttl:		Разгърнатия изглед на темата е изключен.
 threadt_disabled_desc:		Администраторът изключи разгърнатия изглед на темата. Моля, използвай плосък такъв.
 threadt_update:			Разглеждане (разгърнат изглед) на форума <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Потвърждение за Изтриване на Тема/Съобщение&nbsp;
-err_inc_query_err:		Станала е SQL Грешка, моля, обърни се към <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">Администратора</a> на форума и изчакай да видят записа на грешката на SQL заявката във форума.
 spell_alts:			няма други възможности
 insert_uploaded_image:		Insert image into message body
 finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
@@ -953,3 +952,7 @@ iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
 register_email:			Email
+register_admin_newuser_title:	A new user has registered and their account is pending confirmation
+register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
+post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n

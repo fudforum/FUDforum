@@ -905,7 +905,6 @@ threadt_more:			&lt;plus&gt;
 register_msg_tree_view:		Liste des fils plate/Liste des messages en arborescence
 register_tree_msg_view:		Liste des fils en arborescence/Liste des messages plate
 mmod_delete_cofirm_ttl:		Confirmation de suppression du sujet/message
-err_inc_query_err:		Une erreur SQL est survenue, veuillez contacter l&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrateur</a> du forum et indiquez-lui de consulter les journaux de requêtes SQL des forums
 spell_alts:			aucune alternative
 insert_uploaded_image:		Insérer l&#39;image dans le corps du message
 finduser_help:			Le moteur de recherche va automatiquement ajouter un masque * à votre requête. Par exemple, pour rechercher tous les utilisateurs dont le nom commence par un &#39;a&#39;, entrez &#39;a&#39; dans la zone de recherche.
@@ -953,3 +952,7 @@ iemail_forum_unsub:		Se désabonner de ce forum
 primary_group_prefix:		Groupe primaire pour le forum:
 group_resources:		Ce groupe controle les permissions des forums suivants
 register_email:			E-mail
+register_admin_newuser_title:	A new user has registered and their account is pending confirmation
+register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
+post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
