@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.33 2003/04/11 14:53:48 hackie Exp $
+*   $Id: th.inc.t,v 1.34 2003/04/14 09:48:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,13 +19,17 @@ class fud_thread
 {
 	var $id, $forum_id, $root_msg_id, $last_post_date, $replies, $views, $rating, $last_post_id, $locked, $is_sticky, $ordertype, $orderexpiry, $subject, $db_thread;
 	
-	function add($root, $forum_id, $last_post_date, $locked, $is_sticky, $ordertype, $orderexpiry) 
+	function add($root, $forum_id, $last_post_date, $locked, $is_sticky, $ordertype, $orderexpiry, $replies=0, $lpi=0) 
 	{
+		if (!$lpi) {
+			$lpi = $root;
+		}
+
 		return db_qid("INSERT INTO 
 			{SQL_TABLE_PREFIX}thread
 				(forum_id, root_msg_id, last_post_date, replies, views, rating, last_post_id, locked, is_sticky, ordertype, orderexpiry)
 			VALUES
-				(".$forum_id.", ".$root.", ".$last_post_date.", 0, 0, 0, ".$root.", '".$locked."', '".$is_sticky."', ".$ordertype.", ".$orderexpiry.")");
+				(".$forum_id.", ".$root.", ".$last_post_date.", ".$replies.", 0, 0, ".$lpi.", '".$locked."', '".$is_sticky."', ".$ordertype.", ".$orderexpiry.")");
 	}
 	
 	function get_by_id($id)
@@ -193,5 +197,10 @@ function th_inc_post_count($id, $r, $lpi=0, $lpd=0)
 	} else {
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$r.' WHERE id='.$id);
 	}
+}
+
+function th_frm_last_post_id($id, $th)
+{
+	return (int) q_singleval('SELECT t.last_post_id FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON tv.thread_id=t.id WHERE tv.forum_id='.$data->forum_id.' AND tv.page=1 AND t.id!='.$th.' WHERE t.moved_to=0');
 }
 ?>

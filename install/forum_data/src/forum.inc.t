@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.8 2003/04/08 19:12:56 hackie Exp $
+*   $Id: forum.inc.t,v 1.9 2003/04/14 09:48:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,5 +86,7 @@ function frm_updt_counts($frm_id, $replies, $threads, $last_post_id)
 	q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count+'.$replies.$threads.$last_post_id.' WHERE id='.$frm_id);
 }
 
-if ( defined('admin_form') && !defined("_forum_adm_inc_") ) fud_use('forum_adm.inc');
+if (defined('admin_form') && !defined('_forum_adm_inc_')) {
+	fud_use('forum_adm.inc');
+}
 ?>
