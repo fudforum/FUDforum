@@ -33,6 +33,22 @@
  *	topic_id	- link to topic
  */
 
+if (!function_exists('file_get_contents')) {
+	function file_get_contents($fname)
+	{
+		if (!($fp = @fopen($fname, 'rb'))) {
+			return false;
+		}
+		/* this handles urls */
+		if (!($size = @__ffilesize($fp))) {
+			$size = 2 * 1024 * 1024;
+		}
+		$data = fread($fp, $size);
+		fclose($fp);
+		return $data;
+	}
+}
+
 class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 {
 	function handle_fud_data()
