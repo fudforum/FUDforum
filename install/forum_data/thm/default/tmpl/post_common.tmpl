@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.19 2004/11/24 19:53:39 hackie Exp $
+* $Id: post_common.tmpl,v 1.20 2005/02/07 15:09:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,6 +132,7 @@
 {SECTION: END}
 
 {SECTION: attachment_list list of all the attached files}
+{IF: $i}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 	<th>{MSG: post_file_name}</th>
@@ -141,17 +142,18 @@
 {TEMPLATE-DATA: attached_files}
 </table>
 <input type="hidden" name="file_del_opt" value="">
-<input type="hidden" name="file_array" value="{VAR: enc}">
+{ENDIFI}
+{IF: isset($enc)}<input type="hidden" name="file_array" value="{VAR: enc}">{ENDIF}
 {SECTION: END}
 
 {SECTION: file_attachments}
 <tr class="RowStyleB"><td class="GenText vt nw">{MSG: file_attachments}</td><td>
-{TEMPLATE-DATA: attachment_list}
+{TEMPLATE: attachment_list}
 {VAR: attach_control_error}
 <span class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
-{TEMPLATE-DATA: attached_status}
+{IF: $i}{TEMPLATE: attached_status}{ENDIFI}
 </span><p>
-{TEMPLATE-DATA: upload_file}
+{IF: (($i + 1) <= $max_a)}{TEMPLATE: upload_file}{ENDIF}
 </td></tr>
 {SECTION: END}
 

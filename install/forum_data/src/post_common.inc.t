@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.23 2004/12/03 19:41:48 hackie Exp $
+* $Id: post_common.inc.t,v 1.24 2005/02/07 15:09:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,15 +80,6 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 			$i++;
 		}
 	}
-
-	if ($i) {
-		$attachment_list = '{TEMPLATE: attachment_list}';
-		$attached_status = '{TEMPLATE: attached_status}';
-	} else {
-		$attached_status = $attachment_list = '';
-	}
-
-	$upload_file = (($i + 1) <= $max_a) ? '{TEMPLATE: upload_file}' : '';
 
 	if (!$private && $GLOBALS['MOD'] && $GLOBALS['frm']->forum_opt & 32) {
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
