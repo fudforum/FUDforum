@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.51 2003/12/22 12:27:28 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.52 2003/12/22 13:22:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -145,7 +145,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_ip_address}
-<b>IP:</b> <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" target="_blank">{VAR: obj->ip_addr}</a>
+<b>IP:</b> <a href="http://ws.arin.net/cgi-bin/whois.pl?queryinput={VAR: obj->ip_addr}" target="_blank">{VAR: obj->ip_addr}</a>
 {SECTION: END}
 
 {SECTION: dmsg_host_name}
