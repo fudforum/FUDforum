@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.9 2002/10/14 23:40:36 hackie Exp $
+*   $Id: tmpllist.php,v 1.10 2002/11/18 14:53:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -122,7 +122,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			while ( $obj = db_rowobj($r) )
 				compile_all($obj->theme, $obj->lang, $obj->name);
 			qf($r);
-			exit('<br><a href="tmpllist.php?S='._rsid.'">Back to control panel</a>');
+			$update_ok = 1;
 		}
 		
 		$msg_list = '';
@@ -165,6 +165,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 	text-decoration: dashed;
 }
 </style>
+
 <table width="100%" border=1 cellspacing=2 cellpadding=2>
 <tr>
 <td nowrap>
@@ -283,6 +284,11 @@ function tmpllist_resolve_refernce($refs, &$file)
 </td>
 <?php if($edit) { ?>
 <td width="100%" valign="top">
+<?php
+	if ($update_ok) {
+		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br><br>';
+	}	
+?>
 <font color="#008800"><b>Explanation:</b> <?php if($file_info_help[$msec.$sec]) echo $file_info_help[$msec.$sec]; ?></font><br>
 <table cellspacing=2 cellpadding=1 border=0>
 <form method="post" action="tmpllist.php?tname=<?php echo $tname; ?>&tlang=<?php echo $tlang; ?>" name="tmpledit">
