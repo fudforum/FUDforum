@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.16 2003/05/28 16:49:25 hackie Exp $
+*   $Id: rdf.php.t,v 1.17 2003/06/03 12:34:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -157,7 +157,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['=']);
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 					'.$join.'
 				WHERE 
-					' . $lmt  . (isset($GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
@@ -315,7 +315,7 @@ $basic_rss_data .= '
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
 					'.$join.'
 				WHERE 
-					' . $lmt  . (isset($GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
+					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
