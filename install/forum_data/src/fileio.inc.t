@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: fileio.inc.t,v 1.10 2004/01/04 16:38:26 hackie Exp $
+* $Id: fileio.inc.t,v 1.11 2004/06/09 15:23:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,6 +29,10 @@ function un_register_fps()
 
 function read_msg_body($off, $len, $file_id)
 {
+	if (!$len) {
+		return;
+	}
+
 	$fp = register_fp($file_id);
 	fseek($fp, $off);
 	return fread($fp, $len);
