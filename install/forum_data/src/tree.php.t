@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.55 2004/04/08 13:34:13 hackie Exp $
+* $Id: tree.php.t,v 1.56 2004/04/09 20:54:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -188,16 +188,18 @@
 
 	$arr = array();
 	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.id');
+	error_reporting(0);
 	while ($r = db_rowobj($c)) {
 		$arr[$r->id] = $r;
-		@$arr[$r->reply_to]->kiddie_count++;
-		@$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
+		$arr[$r->reply_to]->kiddie_count++;
+		$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
 
 		if ($r->reply_to == 0) {
-			@$tree->kiddie_count++;
-			@$tree->kiddies[] = &$arr[$r->id];
+			$tree->kiddie_count++;
+			$tree->kiddies[] = &$arr[$r->id];
 		}
 	}
+	error_reporting(e_all);
 
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';
