@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: create_file_list,v 1.10 2003/07/24 23:06:47 hackie Exp $
+*   $Id: create_file_list,v 1.11 2003/10/13 22:46:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,6 +81,8 @@ function w_err($msg, $exit=true)
 	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
 		w_err('zlib extension required to compress the archive is not loaded.');
 	}	
+
+	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);
 
 	$archive = create_file_archive($_SERVER['argv'][1], getcwd());
 	$check_sum = md5($archive);
