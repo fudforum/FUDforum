@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.81 2003/10/02 03:09:08 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.82 2003/10/02 19:37:01 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -434,7 +434,11 @@ class fud_msg_edit extends fud_msg
 			$notify_type = 'thr';
 		}
 		while ($r = db_rowarr($c)) {
-			$to[$r[2]][] = $r[2] & 16 ? $r[0] : $r[1].'@pager.icq.com';
+			if ($r[2] & 16) {
+				$to['EMAIL'] = $r[0];
+			} else {
+				$to['ICQ'] = $r[1].'@pager.icq.com';
+			}
 			if (isset($r[4]) && is_null($r[3])) {
 				$tl[] = $r[4];
 			}
@@ -706,8 +710,8 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_frm_subject}';
 
 		if (isset($do_icq)) {
-			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
+			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		}
 		if (!isset($body_email) && isset($do_email)) {
 			$unsub_url['email'] = '{ROOT}?t=rview&unsub=1&frm_id='.$id;
