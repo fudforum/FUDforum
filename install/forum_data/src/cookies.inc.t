@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.58 2003/11/27 23:47:37 hackie Exp $
+* $Id: cookies.inc.t,v 1.59 2003/12/01 19:25:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -105,7 +105,7 @@ function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 
 function ses_putvar($ses_id, $data)
 {
-	$cond = is_int($ses_id) ? 'id='.$ses_id : "ses_id='".$ses_id."'";
+	$cond = is_int($ses_id) ? 'id='.(int)$ses_id : "ses_id='".$ses_id."'";
 
 	if (empty($data)) {
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE '.$cond);
