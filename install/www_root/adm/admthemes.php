@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.22 2003/04/24 01:25:30 hackie Exp $
+*   $Id: admthemes.php,v 1.23 2003/04/24 21:31:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,119 +16,58 @@
 ***************************************************************************/
 
 	define('admin_form', 1);
-	
+
 	require('GLOBALS.php');
-	
 	fud_use('widgets.inc', true);
 	fud_use('adm.inc', true);
-	@fud_use('theme.inc');
 	fud_use('compiler.inc', true);
-	
-	if (!function_exists('default_theme')) {
-		echo "<html>Can't locate theme header, compiling default theme<br>";
-		compile_all('default', 'english', 'default');
-		echo('<a href="admthemes.php?'._rsid.'&rand='.get_random_value().'">Try again</a></html>');
-		exit();
-	}
+	fud_use('theme.inc', true);
 
-function cleandir($dir)
-{
-	if( !@is_dir($dir) ) {
-		echo "Couldn't delete $dir, directory does not exist<br>\n";
-		return;
-	}
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$od = getcwd();
-	chdir($dir);
-	
-	$dp = opendir('.');
-	readdir($dp); readdir($dp);
-	 
-	while ($file = readdir($dp)) {
-		if ($file == 'GLOBALS.php' || $file == 'oldfrm_upgrade.php' || @is_link($file)) {
-			continue;
-		}
-	
-		if (@is_dir($file)) {
-			cleandir($file);
-		} else if (!unlink($file)) {
-			echo "Couldn't remove (<b>".realpath($file)." -> ".$file."</b>)<br>\n";
-		}
-	}
-	
-	closedir($dp);
-	chdir($od);
-	rmdir($dir);
-}
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-/*
-	list($ses, $usr) = initadm();
-*/	
-	$thm = new fud_theme;
-	
-	if (isset($_POST['btn_cancel'])) {
-		header('Location: admthemes.php?'._rsidl.'&rand='.get_random_value());
-		exit();
-	}
-	
-	if (isset($_POST['newname'])) {
-		if (!q_singleval("SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE name='".$_POST['newname']."'")) {
-			$root = $DATA_DIR . 'thm/';
-			$root_nn = $root . $_POST['newname'];
-			$u = umask(0);
-			if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
-				exit("can't create ($root_nn)<br>\n");
-			}
-			fudcopy($root.'default/', $root_nn, '!.*!', true);
-			umask($u);
+	if (isset($_POST['newname']) && !q_singleval('SELECT id FROM '.$tbl.'themes WHERE name=\''.addslashes($_POST['newname']).'\'')) {
+		$root = $DATA_DIR . 'thm/';
+		$root_nn = $root . $_POST['newname'];
+		$u = umask(0);
+		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
+			exit('can\'t create ('.$root_nn.')<br>');
 		}
-		header('Location: admthemes.php?'._rsidl.'&rand='.get_random_value());
-		exit();
+		fudcopy($root . 'default/', $root_nn, '!.*!', true);
+		umask($u);
 	}
 	
-	if (!isset($_POST['btn_cancel']) && isset($_POST['thm_theme']) && !isset($_REQUEST['edit'])) {
-		fetch_vars('thm_', $thm, $_POST);
+	if (isset($_POST['thm_theme']) && !$edit) {
+		$thm = new fud_theme;
 		$thm->add();
 		compile_all($thm->theme, $thm->lang, $thm->name);
-		header("Location: admthemes.php?"._rsidl.'&rand='.get_random_value());
-		exit();
-	} else if (isset($_POST['edit']) && (int)$_POST['edit'] && isset($_POST['thm_theme'])) {
-		$thm->get($_POST['edit']);
-		$thm->enabled = '';
-		$thm->t_default = '';
-		fetch_vars('thm_', $thm, $_POST);
-		if ($thm->id == 1) {	
+	} else if (isset($_POST['edit'])) {
+		$thm = new fud_theme;
+		if ($edit == 1) {
 			$thm->name = 'default';
 		}
 		$thm->sync();
 		compile_all($thm->theme, $thm->lang, $thm->name);
-		header('Location: admthemes.php?'._rsidl.'&rand='.get_random_value());
-		exit();
+	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$tbl.'themes WHERE id='.(int)$_GET['rebuild']))) {
+		compile_all($data[0], $data[1], $data[2]);
+	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'themes WHERE id='.$edit))) {
+		foreach ($c as $k => $v) {
+			${'thm_'.$k} = $v;
+		}
+	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
+		fud_theme::delete((int)$_GET['del']);
 	}
-
-	if (isset($_GET['rebuild']) && (int)$_GET['rebuild']) {
-		$thm->get($_GET['rebuild']);
-		compile_all($thm->theme, $thm->lang, $thm->name);
-		header('Location: admthemes.php?'._rsidl.'&rand='.get_random_value());
-		exit();
-	}
-
-	if (isset($_GET['edit']) && (int)$_GET['edit'] && !isset($_POST['prevloaded'])) {
-		$thm->get($_GET['edit']);
-		export_vars('thm_', $thm);
-	}
-	
-	if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
-		$thm->get($_GET['del']);
-		$thm->delete();
-
-		cleandir($WWW_ROOT_DISK . 'theme/' . $thm->name);
-
-		header('Location: admthemes.php?'._rsidl.'&rand='.get_random_value());
-		exit();
+	if (!$edit) {
+		$c = get_class_vars('fud_theme');
+		foreach ($c as $k => $v) {
+			${'thm_'.$k} = '';
+		}
+		$thm_locale = 'english';
+		$thm_pspell_lang = 'en';
 	}
 	
-	include('admpanel.php');
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Theme Management</h2>
 
@@ -137,11 +76,15 @@ function cleandir($dir)
 <table border=0 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff">
 	<td>Name:</td>
-	<?php if ( isset($edit) && $edit == 1 ) { ?>
-	<td><?php echo htmlspecialchars($thm_name); ?></td>
-	<?php } else { ?>
-	<td><input type="text" name="thm_name" value="<?php echo htmlspecialchars($thm_name); ?>"></td>
-	<?php } ?>
+	<td>
+<?php
+	if ($edit && $edit == 1) {
+		echo htmlspecialchars($thm_name);
+	} else {
+		echo '<input type="text" name="thm_name" value="'.htmlspecialchars($thm_name).'">';
+	}
+?>
+	</td>
 </tr>
 
 <tr bgcolor="#bff8ff">
@@ -149,13 +92,14 @@ function cleandir($dir)
 	<td>
 	<select name="thm_theme">
 	<?php
-		$dp = opendir($DATA_DIR.'/thm');
+		$dp = opendir($DATA_DIR . '/thm');
 		readdir($dp); readdir($dp);
-		while ( $de = readdir($dp) ) {
-			$dr = $DATA_DIR.'/thm/'.$de;
-			if ( $de == 'CVS' || !is_dir($dr) || !is_dir($dr.'/tmpl') ) continue;
-			$sel = $thm_theme == $de ? ' selected' : '';
-			echo '<option'.$sel.'>'.$de.'</option>';
+		while ($de = readdir($dp)) {
+			$dr = $DATA_DIR . '/thm/' . $de;
+			if ($de == 'CVS' || !@is_dir($dr) || !@is_dir($dr.'/tmpl')) {
+				continue;
+			}
+			echo '<option'.($thm_theme == $de ? ' selected' : '').'>'.$de.'</option>';
 		}
 		closedir($dp);
 	?></select>
@@ -165,21 +109,21 @@ function cleandir($dir)
 	<td>Language</td>
 	<td>
 	<?php
-		$dp = opendir($DATA_DIR.'/thm/default/i18n');
+		$dp = opendir($DATA_DIR . '/thm/default/i18n');
 		readdir($dp); readdir($dp);
 		$selopt = '';
-		if ( !$thm_lang ) $thm_lang = 'english';
-		while ( $de = readdir($dp) ) {
-			$dr = $DATA_DIR.'/thm/default/i18n/'.$de;
-			if ( $de == 'CVS' || !is_dir($dr) ) continue;
-			$sel = $thm_lang == $de ? ' selected' : '';
-			$selopt .= '<option'.$sel.'>'.$de.'</option>';
-			$locales[$de]['locale'] = trim(file_get_contents($dr.'/locale'));
-			$pspell_file = $dr.'/pspell_lang';
-			if ( file_exists($pspell_file) )
-				$locales[$de]['pspell_lang'] = trim(file_get_contents($pspell_file));
-			else
-				$locales[$de]['pspell_lang'] = 'en';
+		if (!$thm_lang) {	
+			$thm_lang = 'english';
+		}
+		while ($de = readdir($dp)) {
+			$dr = $DATA_DIR . '/thm/default/i18n/' . $de;
+			if ($de == 'CVS' || !@is_dir($dr)) {
+				continue;
+			}
+			$selopt .= '<option'.($thm_lang == $de ? ' selected' : '').'>'.$de.'</option>';
+			$locales[$de]['locale'] = trim(file_get_contents($dr . '/locale'));
+			$pspell_file = $dr . '/pspell_lang';
+			$locales[$de]['pspell_lang'] = @file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
 		}
 		closedir($dp);
 		
@@ -193,9 +137,8 @@ function cleandir($dir)
 <script>
 function update_locale()
 {
-	switch( document.admthm.thm_lang.value )
-	{
-		<?echo $cases; ?>
+	switch (document.admthm.thm_lang.value) {
+		<?php echo $cases; ?>
 	}
 }
 </script>
@@ -208,13 +151,13 @@ function update_locale()
 
 <tr bgcolor="#bff8ff">
 	<td>Locale:</td>
-	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale?$thm_locale:'english'); ?>" size=7></td>
+	<td><input type="text" name="thm_locale" value="<?php echo htmlspecialchars($thm_locale); ?>" size=7></td>
 </tr>
 
 <tr bgcolor="#bff8ff">
 	<td>pSpell Language:</td>
 	<td>
-		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars(!$thm_pspell_lang&&!$edit?'en':$thm_pspell_lang); ?>" size=4>
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars($thm_pspell_lang); ?>" size=4>
 		[<a href="javascript://" onClick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
 	</td>
 </tr>
@@ -225,7 +168,7 @@ function update_locale()
 	</td>
 </tr>
 <tr bgcolor="#bff8ff">
-<?php if ( !$edit ) { ?>
+<?php if (!$edit) { ?>
 		<td colspan=2 align=right><input type="submit" name="btn_submit" value="Add"></td>
 <?php } else { ?>
 	<td colspan=2 align=right>
@@ -264,34 +207,30 @@ function update_locale()
 	<td>Default</td>
 	<td>Action</td>
 </tr>
-	
 <?php
-	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes ORDER BY id");
-	while ( $obj = db_rowobj($r) ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		
-		$act = '[<a href="admthemes.php?'._rsid.'&edit='.$obj->id.'&rand='.get_random_value().'">Edit</a>]';
-		$act .= '[<a href="admthemes.php?'._rsid.'&rebuild='.$obj->id.'">Rebuild Theme</a>]';
-		
-		if ( $obj->id != 1 ) $act .= '[<a href="admthemes.php?'._rsid.'&del='.$obj->id.'&rand='.get_random_value().'">Delete</a>]';
-		
-		
-		
-	
-		echo "<tr$bgcolor>
-			<td>".htmlspecialchars($obj->name)."</td>
-			<td>".htmlspecialchars($obj->theme)."</td>
-			<td>".htmlspecialchars($obj->lang)."</td>
-			<td>".htmlspecialchars($obj->locale)."</td>
-			<td>".((!$obj->pspell_lang)?'<font color="green">disabled</font>':htmlspecialchars($obj->pspell_lang))."</td>
-			<td>".($obj->enabled=='Y'?'Yes':'<font color="green">No</font>')."</td>
-			<td>".$obj->t_default."</td>
-			<td nowrap>$act</td>
-		</tr>\n";
-	}
-	qf($r);
+	$i = 1;
+	$c = uq('SELECT * FROM '.$tbl.'themes ORDER BY id');
+	while ($r = db_rowobj($c)) {
+		if ($edit == $r->id) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
 
+		echo '<tr '.$bgcolor.'>
+			<td>'.htmlspecialchars($r->name).'</td>
+			<td>'.htmlspecialchars($r->theme).'</td>
+			<td>'.htmlspecialchars($r->lang).'</td>
+			<td>'.htmlspecialchars($r->locale).'</td>
+			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
+			<td>'.($r->enabled == 'Y' ? 'Yes' : '<font color="green">No</font>').'</td>
+			<td>'.$r->t_default.'</td>
+			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>] [<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]
+			'.($r->id != 1 ? '[<a href="admthemes.php?'._rsid.'&del='.$r->id.'">Delete</a>]' : '').'
+			</td>
+		</tr>';
+	}
+	qf($c);
 ?>
 </table>
-<?php readfile('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

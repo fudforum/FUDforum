@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.1 2003/04/24 21:30:02 hackie Exp $
+*   $Id: theme.inc,v 1.2 2003/04/24 21:34:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -133,14 +133,14 @@ function cleandir($dir)
 	$dp = opendir($dir);
 	readdir($dp); readdir($dp);
 	while ($f = readdir($dp)) {
-		if ($file == 'GLOBALS.php' || $file == 'oldfrm_upgrade.php' || @is_link($dir . '/' .$file)) {
+		if ($f == 'GLOBALS.php' || $f == 'oldfrm_upgrade.php' || @is_link($dir . '/' .$f)) {
 			continue;
 		}
 
-		if (@is_dir($dir . '/' . $file)) {
-			cleandir($dir . '/' . $file);
-		} else if (!@unlink($dir . '/' . $file)) {
-			echo 'Couldn\'t remove (<b>'.$dir . '/' . $file.'</b>)<br>';
+		if (@is_dir($dir . '/' . $f)) {
+			cleandir($dir . '/' . $f);
+		} else if (!@unlink($dir . '/' . $f)) {
+			echo 'Couldn\'t remove (<b>'.$dir . '/' . $f.'</b>)<br>';
 		}
 	}
 
