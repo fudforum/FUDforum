@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread.tbl,v 1.2 2002/07/05 13:31:55 hackie Exp $
+#   $Id: fud_thread.tbl,v 1.3 2003/05/03 18:16:18 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread
 	replies		INT UNSIGNED NOT NULL DEFAULT 0,
 	views		INT UNSIGNED NOT NULL DEFAULT 0,
 	rating		TINYINT UNSIGNED NOT NULL DEFAULT 0,
+	n_rating	INT UNSIGNED NOT NULL DEFAULT 0,
 	last_post_id	INT UNSIGNED NOT NULL DEFAULT 0,
 	locked		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
 	moved_to	INT UNSIGNED NOT NULL DEFAULT 0,
@@ -27,5 +28,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread
 	orderexpiry	INT UNSIGNED NOT NULL DEFAULT 0,
 	
 	INDEX(forum_id,last_post_date,moved_to),
-	INDEX(is_sticky,orderexpiry)
+	INDEX(is_sticky,orderexpiry),
+	INDEX(root_msg_id),
+	INDEX(replies)
 )

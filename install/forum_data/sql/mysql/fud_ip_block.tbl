@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_ip_block.tbl,v 1.2 2003/02/01 18:10:32 hackie Exp $
+#   $Id: fud_ip_block.tbl,v 1.3 2003/05/03 18:16:18 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -16,10 +16,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}ip_block
 	ca		INT UNSIGNED NOT NULL,
 	cb		INT UNSIGNED NOT NULL,
 	cc		INT UNSIGNED NOT NULL,
-	cd		INT UNSIGNED NOT NULL,
-		
-	INDEX(ca),
-	INDEX(cb),
-	INDEX(cc),
-	INDEX(cd)
+	cd		INT UNSIGNED NOT NULL
 )

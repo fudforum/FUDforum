@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_poll.tbl,v 1.2 2002/06/27 18:09:15 hackie Exp $
+#   $Id: fud_poll.tbl,v 1.3 2003/05/03 18:16:18 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -18,5 +18,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}poll
 	creation_date	INT UNSIGNED NOT NULL DEFAULT 0,
 	expiry_date	INT UNSIGNED NOT NULL DEFAULT 0,
 	
-	max_votes	INT UNSIGNED
+	max_votes	INT UNSIGNED,
+	total_votes	INT UNSIGNED NOT NULL DEFAULT 0,
+	forum_id	INT UNSIGNED NOT NULL DEFAULT 0,
+	
+	index(owner)
 )

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.14 2003/03/29 11:40:27 hackie Exp $
+*   $Id: db.inc,v 1.15 2003/05/03 18:16:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,9 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+#define('fud_query_stats', 1);
 
-if (!function_exists("fud_sql_error_handler")) {
+if (!function_exists('fud_sql_error_handler')) {
 	fud_use('err.inc'); 
 }
 
@@ -27,11 +28,12 @@ if (!defined('FUD_SQL_LNK')) {
 	mysql_select_db($GLOBALS['DBHOST_DBNAME'], FUD_SQL_LNK) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), q_singleval("SELECT VERSION()")));
 		
 	define('__dbtype__', 'mysql');
+	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
 
 function yn($val) 
 {
-	return (strcasecmp($val,'n') ? 'Y' : 'N');
+	return (strcasecmp($val, 'n') ? 'Y' : 'N');
 } 
 
 function intnull($val)
@@ -56,33 +58,12 @@ function strnull($val)
 
 function db_lock($tables)
 {
-	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
+	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
+	} else {
+		q('LOCK TABLES '.$tables);
+		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
-
-	$tables = str_replace("\t", '', $tables);
-	
-	$tbl_arr = explode(',', $tables);
-	$tbl_n = count($tbl_arr);
-	
-	$sql_str='';
-	for ( $i=0; $i<$tbl_n; $i++ ) {
-		$tbl_arr[$i] = trim($tbl_arr[$i]);
-		if ( substr($tbl_arr[$i], -1) == '+' ) {
-			$mode = ' WRITE';
-			$tbl_arr[$i] = substr($tbl_arr[$i], 0, strlen($tbl_arr[$i])-1);
-		}
-		else {
-			$mode = ' READ';
-		}
-		$sql_str .= ' '.$tbl_arr[$i].$mode.',';
-	}
-	
-	$sql_str = substr($sql_str, 0, strlen($sql_str)-1);
-	
-	q("LOCK TABLES".$sql_str);
-	
-	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;	
 }
 
 function db_unlock()
@@ -108,7 +89,7 @@ function db_affected()
 	return mysql_affected_rows(FUD_SQL_LNK);	
 }
 
-if (!defined("fud_query_stats")) {
+if (!defined('fud_query_stats')) {
 	if (!defined('debug')) {
 		function q($query)
 		{
@@ -137,7 +118,7 @@ if (!defined("fud_query_stats")) {
 		function last_query($filter='')
 		{
 			if ($filter) {
-				return str_replace("\t", "", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
+				return str_replace("\t", " ", str_replace("\n", " ", $GLOBALS['__DB_INC_INTERNALS__']['last_query']));
 			} else {
 				return $GLOBALS['__DB_INC_INTERNALS__']['last_query'];
 			}
@@ -162,15 +143,20 @@ if (!defined("fud_query_stats")) {
 		
 		$e = gettimeofday(); 
 
+		echo '<pre>'.preg_replace('!\s+!', ' ', $query).'</pre>';
+
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));
 		$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] += $GLOBALS['__DB_INC_INTERNALS__']['last_time'];
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
+		echo '<pre>query count: '.$GLOBALS['__DB_INC_INTERNALS__']['query_count'].' time taken: '.$GLOBALS['__DB_INC_INTERNALS__']['last_time'].'</pre>';
+		echo '<pre>Affected rows: '.db_affected().'</pre>';
+		echo '<pre>total sql time: '.$GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'].'</pre>';
 		
 		return $result; 
 	}
 	function uq($query)
 	{
-		q($query);
+		return q($query);
 	}
 	function query_count()
 	{
@@ -200,7 +186,7 @@ function qf(&$result)
 }
 function db_count($result)
 {
-	return (int) @mysql_num_rows(result);
+	return (int) @mysql_num_rows($result);
 }
 function db_lastid($dummy=FALSE, $dummy2=FALSE)
 {
@@ -275,8 +261,7 @@ function q_singleval($query)
 
 function get_field_list($tbl)
 {
-	$r = q("show fields from ".$tbl);
-	return $r;
+	return uq('show fields from ' . $tbl);
 }
 
 function qry_limit($limit, $off)
@@ -286,11 +271,11 @@ function qry_limit($limit, $off)
 
 function get_fud_table_list()
 {
-	$ret = array();
-	$r = uq("show tables LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	$r = uq("SHOW TABLES LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
 	while (list($ret[]) = db_rowarr($r));
 	qf($r);
-	
+	array_pop($ret);
+
 	return $ret;	
 }
 
@@ -303,24 +288,37 @@ function optimize_tables($tbl_list=NULL)
 	q('OPTIMIZE TABLE '. implode(', ', $tbl_list));
 }
 
-function sql_concat()
-{
-	if( !func_num_args() ) return;
-	
-	return 'CONCAT(' . implode(',', func_get_args()) . ')';
-}
-
 function db_saq($q)
 {
-	return @mysql_fetch_row(q($r));
+	return @mysql_fetch_row(q($q));
+}
+function db_sab($q)
+{
+	return @mysql_fetch_object(q($q));
 }
 function db_qid($q)
 {
 	q($q);
 	return mysql_insert_id(FUD_SQL_LNK);
 }
-function db_arr_assoc($r)
+function db_arr_assoc($q)
 {
-	return mysql_fetch_array($r, MYSQL_ASSOC);
+	return mysql_fetch_array(q($q), MYSQL_ASSOC);
+}
+function ssn($str)
+{
+	if (is_null($str) || $str === '') {
+		return 'NULL';
+	} else {
+		return "'" . addslashes($str) . "'";
+	}
+}
+function in($str)
+{
+	return (!(int)$str) ? 'NULL' : (int)$str;
+}
+function iz($str)
+{
+	return (int)$str;
 }
 ?>

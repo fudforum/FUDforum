@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_groups.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#   $Id: fud_groups.tbl,v 1.2 2003/05/03 18:16:18 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -16,8 +16,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}groups
 	name		CHAR(255) NOT NULL,
 	inherit_id	INT UNSIGNED NOT NULL DEFAULT 0,
 	joinmode	ENUM('NONE', 'PUBLIC', 'MODERATED') NOT NULL DEFAULT 'NONE',
-	res		CHAR(100) NOT NULL DEFAULT 'NONE',
-	res_id		INT UNSIGNED NOT NULL DEFAULT 0,
+	forum_id	INT UNSIGNED NOT NULL DEFAULT 0,
 	
 	p_VISIBLE	ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
 	p_READ		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
@@ -34,7 +33,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}groups
 	p_LOCK		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
 	p_MOVE		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
 	p_SML		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
-	p_IMG		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',	
-
-	INDEX(res, res_id)
+	p_IMG		ENUM('I', 'Y', 'N') NOT NULL DEFAULT 'N',
+	
+	INDEX(forum_id),
+	INDEX(inherit_id)
 )
