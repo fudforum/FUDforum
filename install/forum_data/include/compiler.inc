@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.56 2004/03/15 15:20:57 hackie Exp $
+* $Id: compiler.inc,v 1.57 2004/04/19 19:12:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -462,6 +462,32 @@ function fud_mkdir($dir, $perms=0700)
 	}
 }
 
+if (!function_exists('glob')) {
+function glob($str)
+{
+	$dir = dirname($str);
+	$match = '!' . ltrim(str_replace($dir, '', $str), '/\\') . '$!';
+	$match = str_replace(array('.', '*'), array('\\.','.*'), $match);
+	$list = array();
+
+	$d = opendir($dir);
+	readdir($d); readdir($d); 
+	
+	while (($f = readdir($d))) {
+		if (!preg_match($match, $f)) {
+			continue;
+		}
+		$list[] = $dir . '/' . $f;
+	}
+
+	closedir($d);
+
+	sort($list);
+
+	return $list;
+}
+}
+
 function compile_all($tset='default', $lang='english', $tname='default')
 {
 	$oldmask = umask(0133);
@@ -525,12 +551,9 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	 */
 	build_msg($back_msg_file);
 
-	$dir = opendir($GLOBALS['DATA_DIR'].'/thm/default/tmpl');
-	readdir($dir); readdir($dir);
-	while ($file = readdir($dir)) {
-		if (substr($file, -5) != '.tmpl') {
-			continue;
-		}
+	$list = glob($GLOBALS['DATA_DIR'].'/thm/default/tmpl/*.tmpl');
+	foreach ($list as $fe) {
+		$file = basename($fe);
 
 		resolve_compile($file);
 		if (isset($GLOBALS['file_cache'][$file]['inline'])) {
@@ -549,7 +572,6 @@ function compile_all($tset='default', $lang='english', $tname='default')
 		}
 		unset($GLOBALS['INCLUDE_LIST']);
 	}
-	closedir($dir);
 
 	@umask($oldmask);
 	$thm = new cmpl_local_theme;
