@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.9 2002/08/08 16:06:18 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.10 2002/08/13 17:09:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,7 +26,7 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	/* get total */
 	if ( !isset($total) ) $total = q_singleval("SELECT replies FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th) + 1;
 
-	if( $reply_to && !isset($minimsg_pager_switch) ) {
+	if( $reply_to && !isset($minimsg_pager_switch) && $total > $count ) {
 		$start = ($total - intzero(q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND approved='Y' AND id>=".$reply_to)));
 		$msg_order_by = 'ASC';
 	}
