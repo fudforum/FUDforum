@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.35 2004/01/04 16:38:27 hackie Exp $
+* $Id: thread.php.t,v 1.36 2004/02/13 23:11:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
-	$result = uq('SELECT
+	$result = q('SELECT
 		m.attach_cnt, m.poll_id, m.subject, m.icon, m.post_stamp,
 		u.alias, u.id,
 		u2.id, u2.alias,
@@ -71,6 +71,10 @@
 			$r[18] = (int) $r[18];
 
 			if ($r[14]) {
+				/* additional security check for moved forums */
+				if (!($usr->users_opt & 1048576) && !th_moved_perm_chk($r[11])) {
+					continue;
+				}
 				$thread_list_table_data .= '{TEMPLATE: thread_row_moved}';
 				continue;
 			}
