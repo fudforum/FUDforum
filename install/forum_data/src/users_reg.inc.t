@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.32 2003/07/20 13:48:31 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.33 2003/07/23 02:45:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -194,7 +194,7 @@ class fud_user_reg extends fud_user
 			email='".addslashes($this->email)."',
 			display_email='".YN($this->display_email)."',
 			notify='".YN($this->notify)."',
-			notify='".YN($this->pm_notify)."',
+			pm_notify='".YN($this->pm_notify)."',
 			notify_method='".$this->notify_method."',
 			ignore_admin='".YN($this->ignore_admin)."',
 			email_messages='".YN($this->email_messages)."',
