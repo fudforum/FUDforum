@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: preface.xml,v 1.2 2002/07/01 21:22:35 hackie Exp $ -->
+<!-- $Id: preface.xml,v 1.3 2002/08/03 19:10:04 hackie Exp $ -->
 
 <preface id="preface">
 	<title>Preface</title>
@@ -8,7 +8,7 @@
 		<simpara>
 			&FUDforum; is web based forum software designed in PHP, utilizing MySQL or PostgreSQL back-end 
 			released under the &gpl; Open Source license. It is designed to work on any web server that 
-			supports PHP, which makes it usable on virtually very OS. The forum includes i18n and 
+			supports PHP, which makes it usable on virtually very OS. The forum includes &url.i18n; and 
 			templating support allowing for a complete customization of it's output as well as a very 
 			capably group based permission system.
 		</simpara>

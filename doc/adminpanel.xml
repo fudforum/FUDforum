@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.11 2002/08/02 03:29:19 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.12 2002/08/03 19:10:03 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -3019,7 +3019,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		<para>
 			The following, are the non HTML template entities that can be found inside the template.
 			<itemizedlist>
-				<listitem><para><emphasis role="bold">{MSG: msg_key}</emphasis> Reference to a message inside the i18n messages file.</para></listitem>
+				<listitem><para><emphasis role="bold">{MSG: msg_key}</emphasis> Reference to a message inside the &url.i18n; messages file.</para></listitem>
 				<listitem><para><emphasis role="bold">{VAR: var_key}</emphasis> PHP variable</para></listitem>
 				<listitem><para><emphasis role="bold">{DEF: var_key}</emphasis> PHP define</para></listitem>
 				<listitem><para><emphasis role="bold">{VAR-HTML: var_key}</emphasis> PHP variable that will be encoded using htmlspecialchars() function</para></listitem>
@@ -3064,13 +3064,13 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 		<title>Message Editor</title>
 		
 		<para>
-			&FUDforum; included i18n support, which allows the administrator to easily pick a language other then English for 
-			their forum. The i18n supports also makes it extremely easy to translate the forum into languages that are
+			&FUDforum; included &url.i18n; support, which allows the administrator to easily pick a language other then English for 
+			their forum. The &url.i18n; supports also makes it extremely easy to translate the forum into languages that are
 			not yet included in the main distribution.
 		</para>
 		
 		<para>
-			The i18n support is accomplished by keeping all of the text displayed on the forum in a special file, which
+			The &url.i18n; support is accomplished by keeping all of the text displayed on the forum in a special file, which
 			can be edited via this control panel or manually with a text editor.
 			
 			<note>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.6 2002/08/02 23:02:59 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.7 2002/08/03 19:10:03 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
 	<para>
-		&FUDforum; includes numerous features, this section will briefly overview most of those features to give you 
+		&FUDforum; includes numerous features. This chapter will briefly overview most of those features to give you 
 		an idea about the full capabilities of &FUDforum;.
 	</para>
 	
@@ -31,8 +31,7 @@
 		</para>
 		
 		<para>
-			The <link linkend="admin.template_editor">controls for the templating system</link> can be found inside 
-			the admin control panel.
+			The <link linkend="admin.template_editor">Template Editor</link> can be found inside the admin control panel.
 		</para>
 	</sect1>
 	
@@ -40,7 +39,7 @@
 		<title>i18n Support</title>
 		
 		<para>
-			&FUDforum; has full i18n support, that allows an easy translation of the forum into a language of your choice.
+			&FUDforum; has full &url.i18n; support, that allows an easy translation of the forum into a language of your choice.
 			Currently &FUDforum; is distributed with 8 languages: English, French, German, Swedish, Polish, Turkish, Spanish and Chinese.
 		</para>
 		
@@ -57,25 +56,25 @@
 		<para>
 			&FUDforum; supports a highly capable permissions system, which can be used to control what forum users can and cannot do.
 			Using this system you can grant special access rights to certain users, block users from seeing and/or accessing certain
-			forum etc... 
+			forum etc.
 		</para>
 		
 		<para>
-			This system also includes support for "group managers" have the ability to manage users in the groups they control. This
+			This system also includes support for "group managers" who have the ability to manage users in the groups they control. This
 			option allows the admin to delegate responsibility to trustworthy forum members.
 		</para>
 		
 		<para>
-			The Group Management is done via two control panels, the <link linkend="admin.group_control_panel">administrative group manager</link>, which allows 
+			The Group Management is done via two control panels. The first control panel is the <link linkend="admin.group_control_panel">administrative group manager</link>, which allows 
 			the admin(s) to add/remove groups as well as assign group managers and specify what permissions the group managers can assign
-			and/or take away. This control panel also allows the admin to make groups inherit permissions from other groups, thus not 
-			needing to specify new permission every time for similar groups.
+			and/or take away. This control panel also allows the admin to make groups inherit permissions from other groups,
+			which eliminates the need to specify new permission every time for similar groups.
 		</para>
 		
 		<para>
 			The second control panel, the <link linkend="mod.groups">user group manager</link>, which allows the group manager(s) 
-			and the admin(s) to add and remove users from a group as well as change the permissions of the users inside the group 
-			can be a accessed via a link available to all Administrators and Group Managers on most forum pages.
+			and the admin(s) to add and remove users from a group as well as set permissions for individual users.
+			It can be a accessed via a link available to all Administrators and Group Managers on most forum pages.
 		</para>
 	</sect1>
 	
@@ -83,7 +82,7 @@
 		<title>Private Messaging</title>
 		
 		<para>
-			&FUDforum; includes a private messaging system that <link linkend="global.option.PM_ENABLED">if enabled</link> via 
+			&FUDforum; includes a private messaging (PM) system that <link linkend="global.option.PM_ENABLED">if enabled</link> via 
 			the <link linkend="admin.global_settings_manager">global control panel</link> allows forum members to send private 
 			messages to one another. 
 		</para>
@@ -106,7 +105,7 @@
 		<title>File Attachments</title>
 		
 		<para>
-			If permitted by the admin users may attach files to their forum &amp; private messages. The amount of files that the user 
+			If permitted by the admin, users may attach files to their forum &amp; private messages. The amount of files that the user 
 			can attach as well as their maximum size can be defined by the admin on a forum by forum basis via the 
 			<link linkend="admin.category_forum_management">forum control panel</link>. The ability to attach files to private messages can be defined by the admin
 			via the <link linkend="global.pm.options">private messaging system controls</link>.
@@ -116,8 +115,8 @@
 			In addition to specifying the size and the quantity limits the administrator may also indicate what file types
 			can be attached to the messages using the <link linkend="admin.file_filter">file attachment control panel</link>. 
 			The attached files will be matched against the <link linkend="admin.mime_managment_system">&FUDforum; MIME listing</link> 
-			so that a proper file icon can be assigned to the file as well as allowing the file download form to send the 
-			proper header to the browser allowing it to interpret the file properly.
+			so that (1) a proper file icon can be assigned to the file, (2) the file download form can send the proper 
+			header to the browser, and (3) the browser can interpret the file properly.
 		</para>
 		
 		<para>
@@ -130,12 +129,14 @@
 		<title>Polls</title>
 		
 		<para>
-			&FUDforum; supports a complete polling system, which allows users, if permitted to add polls to their messages.
+			&FUDforum; supports a complete polling system, which mnay enable users to add polls to their messages.
+			Permissions to create and vote on polls is controlable by the admins via the 
+			<link linkend="mod.groups">group management system</link>.
 		</para>
 		
 		<para>
-			Polls are quick multiple choice questioners, which can be used to gather user options on a matter at hand. The forum tracks
-			the votes and ensures that people cannot vote more then once to prevent ballot stuffing.
+			Polls contain multiple choice questions, which can be used to gather user opinions on poll issues or questions.
+			The forum tracks the votes and ensures that people cannot vote more then once to prevent ballot stuffing.
 		</para>
 	</sect1>
 	
@@ -155,8 +156,8 @@
 		</para>
 		
 		<para>
-			Each forum member has access to their own subscription control panel, which can be used to see what subscriptions they
-			currently have and allow the user to unsubscribe from any of the subscribed to content.
+			Each forum member has access to a personal subscription control panel, which can be used to see what 
+			subscriptions they currently have and allow the user to unsubscribe from any of the subscribed to content.
 		</para>
 		
 		<para>
@@ -191,9 +192,20 @@
 		<title>Full Text Search</title>
 		
 		<para>
-			&FUDforum; includes a full text search that allows users to search the posted messages by entering on or more
+			&FUDforum; includes a full text search that allows users to search the posted messages by entering one or more
 			keywords. The user has the option of limiting the search to a particular forum or category or they can search the entire 
-			forum. In addition the user may specify whether to search the in the entire message or just in the message subject.
+			forum. A user may either limit a search to a particular forum or category or search the entire forum.
+		</para>
+		
+		<para>
+			The search form allows the user to specify whether to use the strict AND logic, which will find only
+			the messages containing all of the specified keywords. Or to use the more relaxed OR logic, which will
+			find any message that matches at least one of the specified terms in the query.
+		</para>
+		
+		<para>
+			The search results can be sorted by date, allowing the user to specify whether the most recent messages
+			should be shown first or last.
 		</para>
 	</sect1>
 	
@@ -206,7 +218,7 @@
 		</para>
 		
 		<para>
-			The forum also keeps track of the currently online users, and indicator is placed beside each message showing whether the author of the
+			The forum also keeps track of the currently online users, an indicator is placed beside each message showing whether the author of the
 			message is currently online or not. This too can be disabled via the <link linkend="admin.action_log_viewer">global control panel</link>.
 		</para>
 	</sect1>
@@ -216,7 +228,7 @@
 		
 		<para>
 			FUDcode is a series of text formatting tags that allow users to style the text of their messages &amp; signatures.
-			More information about this features as well as the complete list of supported tags can be found 
+			More information about these features as well as the complete list of supported tags can be found 
 			<link linkend="fudcode">here</link>.
 		</para>
 	</sect1>
@@ -225,7 +237,7 @@
 		<title>Smilies/Emoticons</title>
 		
 		<para>
-			Smilies are commonly used codes to represent emotions, such as :) for example is generally used to indicate happiness. 
+			Smilies are commonly used codes to represent emotions, such as :-) to indicate happiness. 
 			&FUDforum; has a list of  30 commonly uses smiley codes that will be replaced with image representing the corresponding 
 			emotion the author is trying to convey. The administrator can add/edit/delete the supported smilies via the 
 			<link linkend="admin.smilies">smilies control panel</link>.
