@@ -1,18 +1,13 @@
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: th_adm.inc.t,v 1.8 2003/10/09 14:34:27 hackie Exp $
 *
-*   $Id: th_adm.inc.t,v 1.7 2003/10/06 18:37:57 hackie Exp $
-****************************************************************************
-
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
 
 function th_add($root, $forum_id, $last_post_date, $thread_opt, $orderexpiry, $replies=0, $lpi=0)

@@ -1,18 +1,13 @@
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: widgets.inc,v 1.8 2003/10/09 14:34:25 hackie Exp $
 *
-*   $Id: widgets.inc,v 1.7 2003/10/05 22:19:56 hackie Exp $
-****************************************************************************
-
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
 	fud_use('rev_fmt.inc');
 

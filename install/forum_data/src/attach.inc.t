@@ -1,18 +1,13 @@
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: attach.inc.t,v 1.30 2003/10/09 14:34:26 hackie Exp $
 *
-*   $Id: attach.inc.t,v 1.29 2003/10/01 21:51:51 hackie Exp $
-****************************************************************************
-
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
 
 function safe_attachment_copy($source, $id, $ext)

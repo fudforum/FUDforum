@@ -1,18 +1,13 @@
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: rpasswd.php.t,v 1.10 2003/10/09 14:34:26 hackie Exp $
 *
-*   $Id: rpasswd.php.t,v 1.9 2003/10/01 21:51:52 hackie Exp $
-****************************************************************************
-
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
 
 	define('plain_form', 1);

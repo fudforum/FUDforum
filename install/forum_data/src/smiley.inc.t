@@ -1,18 +1,13 @@
 <?php
 /***************************************************************************
-*   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
-*   email                : forum@prohost.org
+* copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: smiley.inc.t,v 1.11 2003/10/09 14:34:27 hackie Exp $
 *
-*   $Id: smiley.inc.t,v 1.10 2003/10/01 21:51:52 hackie Exp $
-****************************************************************************
-
-****************************************************************************
-*
-*	This program is free software; you can redistribute it and/or modify
-*	it under the terms of the GNU General Public License as published by
-*	the Free Software Foundation; either version 2 of the License, or
-*	(at your option) any later version.
-*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
 ***************************************************************************/
 
 $GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, " "=>1, "]"=>1, "["=>1, "<"=>1, ">"=>1, "'"=>1, '"'=>1, "("=>1, ")"=>1, "."=>1, ","=>1, "!"=>1, "?"=>1);
