@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.53 2003/10/01 21:51:52 hackie Exp $
+*   $Id: msg.php.t,v 1.54 2003/10/02 20:58:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -168,7 +168,7 @@
 	}
 
 	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
-	$email_page_to_friend = $FUD_OPT_1 & 4194304 ? '{TEMPLATE: email_page_to_friend}' : '';
+	$email_page_to_friend = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms & 4096) {
 		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';

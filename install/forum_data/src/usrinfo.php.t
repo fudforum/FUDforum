@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.21 2003/10/01 21:51:53 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.22 2003/10/02 20:58:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -85,7 +85,7 @@ function convert_bdate($val, $month_fmt)
 
 	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';
-	} else if ($FUD_OPT_1 & 4194304) {
+	} else if ($FUD_OPT_2 & 1073741824) {
 		$encoded_login = urlencode($u->alias);
 		$email_link = '{TEMPLATE: email_form_link}';
 	} else {

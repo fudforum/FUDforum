@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.25 2003/10/02 20:41:27 hackie Exp $
+*   $Id: finduser.php.t,v 1.26 2003/10/02 20:58:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -65,7 +65,7 @@
 	while ($r = db_rowobj($c)) {
 		$pm_link = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
-		$email_link = ($FUD_OPT_1 & 4194304 && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
+		$email_link = ($FUD_OPT_2 & 1073741824 && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
 
 		if ($adm) {
 			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: widgets.inc,v 1.5 2003/05/16 16:05:42 hackie Exp $
+*   $Id: widgets.inc,v 1.6 2003/10/02 20:58:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 		if ( isset($opt_tag[$i]) ) 
 			$tag = ' '.$opt_tag[$i];
 		else $tag = '';
-		$rval .= '<option value="'.$opt_val[$i].'"'.$selected.''.$tag.'>'.htmlspecialchars($opt_nam[$i])."\n";
+		$rval .= '<option value="'.$opt_val[$i].'"'.$selected.''.$tag.'>'.htmlspecialchars($opt_nam[$i])."</option>\n";
 	}
 	$rval .= '</select>';
 	return $rval;
@@ -48,26 +48,6 @@ function create_select($name, $options, $opt_val, $def_val, $js='', $extraval=''
 function draw_select($name, $options, $opt_val, $def_val, $js='')
 {
 	echo create_select($name, $options, $opt_val, $def_val, $js);
-}
-
-function draw_select_ex($name, $options, $opt_val, $def_val, $html)
-{
-	$options = str_replace("\t", "", $options);
-	$opt_val = str_replace("\t", "", $opt_val);
-	
-	$opt_nam = explode("\n", $options);
-	$opt_val = explode("\n", $opt_val);
-	
-	if ( count($opt_nam) != count($opt_val) ) {
-		exit("option count doesn't match value count\n");
-	}
-	
-	echo "<select name=\"$name\"".((strlen($html))?' '.$html:'').">\n";
-	for ( $i=0; $i<count($opt_nam); $i++ ) {
-		$selected = ( $def_val == $opt_val[$i] ) ? " selected" : "";
-		echo '<option value="'.$opt_val[$i].'"'.$selected.'>'.htmlspecialchars($opt_nam[$i])."\n";
-	}
-	echo "</select>";
 }
 
 function create_checkbox($name, $value, $state) 
@@ -89,7 +69,7 @@ function create_month_select($name, $allow_null, $def)
 	
 	for ( $i=1; $i<13; $i++ ) {
 		$month = date("F", mktime(1, 1, 1, $i, 1, 0));
-		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected':'').'>'.$month."\n"; 
+		$rval .= '<option value="'.$i.'"'.(($i==$def)?' selected':'').'>'.$month."</option>\n"; 
 	}
 	$rval .= '</select>';
 	return $rval;

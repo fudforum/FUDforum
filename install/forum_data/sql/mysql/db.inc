@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.27 2003/10/02 03:46:19 hackie Exp $
+*   $Id: db.inc,v 1.28 2003/10/02 20:58:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-define('fud_query_stats', 1);
+#define('fud_query_stats', 1);
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {

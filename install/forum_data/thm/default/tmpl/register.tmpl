@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.27 2003/07/20 13:48:32 hackie Exp $
+*   $Id: register.tmpl,v 1.28 2003/10/02 20:58:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -177,7 +177,7 @@
 <tr><td class="RowStyleA">{MSG: register_gender}</td><td class="RowStyleA"><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
 <tr><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><font class="SmallText">{MSG: register_bio_desc}</font></td><td class="RowStyleA"><textarea name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
 <tr><th colspan=2>{MSG: register_prefs}</th></tr>
-<tr><td valign="top" class="RowStyleA">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}</td><td class="RowStyleA">{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
+<tr><td valign="top" class="RowStyleA">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}{TEMPLATE-DATA: sig_len_limit}</td><td class="RowStyleA">{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
 <tr><td class="RowStyleA">{MSG: register_timezone}</td><td class="RowStyleA"><select name="reg_time_zone" class="SmallText">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr><td class="RowStyleA">{MSG: register_ignore_admin}</td><td class="RowStyleA">{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
 <tr><td class="RowStyleA">{MSG: register_invisible_mode}<br /><font class="SmallText">{MSG: register_invisible_mode_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
@@ -448,4 +448,12 @@
 
 {SECTION: register_admin_newuser_msg}
 {MSG: register_admin_newuser_msg}
+{SECTION: END}
+
+{SECTION: register_err_sig_too_long}
+{MSG: register_err_sig_too_long}
+{SECTION: END}
+
+{SECTION: register_sig_limit}
+<b>Maximum Length: </b>{MSG: register_sig_limit}
 {SECTION: END}

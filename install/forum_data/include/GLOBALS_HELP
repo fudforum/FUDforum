@@ -162,9 +162,6 @@ Set this to 0 to disable word wrapping.
 {{{FLOOD_CHECK_TIME
 The minimum time delay before a user can post a message.}}}
 
-{{{ALLOW_EMAIL	FUD_OPT_1	4194304
-Enable/disable the forum's built-in email client.}}}
-
 {{{SERVER_TZ
 Server time zone, specified in time offset from UTC.}}}
 
@@ -378,3 +375,6 @@ PDF generation process can be fairly cpu intensive process. This setting allows 
 
 {{{SHOW_REPL_LNK	FUD_OPT_2	536870912
 Whether or not to show a link (beside the message subject) to the message that the current message is a reply to.}}}
+
+{{{ALLOW_EMAIL	FUD_OPT_2	1073741824
+Enable/disable the forum's built-in email client.}}}
