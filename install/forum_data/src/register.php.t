@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.10 2002/07/22 14:53:37 hackie Exp $
+*   $Id: register.php.t,v 1.11 2002/07/25 19:12:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -232,7 +232,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		foreach($leave_arr as $v) $leave[$v] = 1;
 	}
 	
-	foreach($arr as $k) {
+	foreach($arr as $k => $v) {
 		if ( isset($leave[$k]) ) $GLOBALS['_BK_'][$k] = $arr[$k];
 		if ( $who == 'DB' ) 
 			$GLOBALS['MYSQL_DATA'][$k] = htmlspecialchars($arr[$k]);
