@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.11 2002/07/31 21:56:50 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.12 2002/08/01 14:43:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,8 +19,8 @@ function build_ignore_list()
 {
 	$GLOBALS['__IGNORE_LIST__'] = array();
 
-	$r = q("SELECT ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS["usr"]->id);
-	while( list($ignore_id) = db_rowarr($r) ) $GLOBALS['__IGNORE_LIST__'][$ignore_id] = $ignore_id;
+	$r = q("SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS["usr"]->id);
+	while( list($id,$ignore_id) = db_rowarr($r) ) $GLOBALS['__IGNORE_LIST__'][$ignore_id] = $id;
 	qf($r);
 }
 
