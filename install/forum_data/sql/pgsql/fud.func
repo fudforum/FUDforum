@@ -19,9 +19,9 @@ BEGIN
 					is_sticky=''''Y''''
 					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
 				THEN
-					2147483647
+					4294967294
 				ELSE
-					{SQL_TABLE_PREFIX}thread.last_post_id
+					{SQL_TABLE_PREFIX}thread.last_post_date
 				END as sort_order_fld
 			FROM 
 				{SQL_TABLE_PREFIX}thread_view 
@@ -35,7 +35,7 @@ BEGIN
 					{SQL_TABLE_PREFIX}msg.approved=''''Y''''
 			ORDER BY 
 				sort_order_fld DESC, 
-				{SQL_TABLE_PREFIX}thread.last_post_date DESC'';
+				{SQL_TABLE_PREFIX}thread.last_post_id DESC'';
 	ELSE
 		origpage := 0;
 		qry := ''DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=''|| forum_id;
@@ -48,9 +48,9 @@ BEGIN
 					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>''|| tm  ||''
 					OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
 				THEN
-					2147483647
+					4294967294
 				ELSE
-					{SQL_TABLE_PREFIX}thread.last_post_id
+					{SQL_TABLE_PREFIX}thread.last_post_date
 				END AS sort_order_fld
 					
 			FROM 
@@ -63,7 +63,7 @@ BEGIN
 				
 			ORDER BY 
 				sort_order_fld DESC, 
-				{SQL_TABLE_PREFIX}thread.last_post_date DESC'';
+				{SQL_TABLE_PREFIX}thread.last_post_id DESC'';
 	END IF;
 	
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.4 2002/06/27 19:57:45 hackie Exp $
+*   $Id: th.inc.t,v 1.5 2002/06/29 17:38:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -311,9 +311,9 @@ function rebuild_forum_view($forum_id, $page=0)
 				is_sticky='Y'
 				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
 			THEN
-				2147483647
+				4294967294
 			ELSE
-				{SQL_TABLE_PREFIX}thread.last_post_id
+				{SQL_TABLE_PREFIX}thread.last_post_date
 			END as sort_order_fld
 				
 		FROM 
@@ -328,9 +328,8 @@ function rebuild_forum_view($forum_id, $page=0)
 				{SQL_TABLE_PREFIX}msg.approved='Y'
 		ORDER BY 
 			sort_order_fld DESC, 
-			{SQL_TABLE_PREFIX}thread.last_post_date DESC");
+			{SQL_TABLE_PREFIX}thread.last_post_id DESC");
 		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id." AND page<".($page+1));
-		
 	}
 	else {
 		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id);
@@ -342,9 +341,9 @@ function rebuild_forum_view($forum_id, $page=0)
 					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." 
 					OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
 				THEN
-					2147483647
+					4294967294
 				ELSE
-					{SQL_TABLE_PREFIX}thread.last_post_id
+					{SQL_TABLE_PREFIX}thread.last_post_date
 				END AS sort_order_fld
 					
 			FROM 
@@ -357,7 +356,7 @@ function rebuild_forum_view($forum_id, $page=0)
 				
 			ORDER BY 
 				sort_order_fld DESC, 
-				{SQL_TABLE_PREFIX}thread.last_post_date DESC");		
+				{SQL_TABLE_PREFIX}thread.last_post_id DESC");		
 	}
 	
 	/* has to be db specific for speed */
