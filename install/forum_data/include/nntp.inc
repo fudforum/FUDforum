@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.2 2002/07/29 12:52:41 hackie Exp $
+*   $Id: nntp.inc,v 1.3 2002/07/29 13:03:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -363,14 +363,17 @@ class fud_nntp
 		
 		$user->email = addslashes($this->from_email);
 		$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
-		$user->display_email = 'N';
-		$user->notify = 'N';
-		$user->coppa = 'N';
+		$user->default_view = 'msg';
+		$user->notify_method = 'EMAIL';
+		$user->gender = 'UNSPECIFIED';
+		$user->email_messages = 'Y';
+		$user->pm_messages = 'Y';
+		$user->show_avatars = 'Y';
+		$user->show_sigs = 'Y';
 		$user->name = addslashes($this->from_name);
 		$user->time_zone = addslashes($GLOBALS['SERVER_TZ']);
 		$user->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
 		$user->theme = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y' LIMIT 1");
-		$user->gender = 'UNSPECIFIED';
 		
 		$this->user_id = $user->add_user();
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET email_conf='Y' WHERE id=".$this->user_id);
