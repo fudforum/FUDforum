@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.13 2002/10/24 01:03:52 hackie Exp $
+*   $Id: nntp.inc,v 1.14 2002/10/24 21:01:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -530,6 +530,25 @@ class fud_nntp
 		fwrite($fp, $val);
 		fclose($fp);
 		umask($u);
+	}
+
+	function decode_string($str, $encoding)
+	{
+		switch( $encoding )
+		{
+			case 'quoted-printable':
+				// Remove soft line breaks
+				$str = preg_replace("!=\r?\n!", '', $str);
+			        // Replace encoded characters
+	        		return preg_replace('!=([A-Fa-f0-9]{2})!e', "chr(hexdec('\\1'))", $str);
+				break;
+			case 'base64':
+				return base64_decode($str);
+				break;
+			default:
+				return $str;	
+				break;
+		}
 	}
 
 	function decode_header_value($val)
