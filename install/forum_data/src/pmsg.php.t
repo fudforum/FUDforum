@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.39 2004/05/07 16:23:06 hackie Exp $
+* $Id: pmsg.php.t,v 1.40 2004/05/12 16:31:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -49,9 +49,9 @@
 		unset($c);
 	}
 
-	if (isset($_GET['folder_id']) && isset($folders[$_GET['folder_id']])) {
+	if (isset($_GET['folder_id'], $folders[$_GET['folder_id']])) {
 		$folder_id = $_GET['folder_id'];
-	} else if (isset($_POST['folder_id']) && isset($folders[$_POST['folder_id']])) {
+	} else if (isset($_POST['folder_id'], $folders[$_POST['folder_id']])) {
 		$folder_id = $_POST['folder_id'];
 	} else {
 		$folder_id = 1;
@@ -77,11 +77,7 @@
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
 
-	if (($all_v = empty($_GET['all']))) {
-		$desc = '{TEMPLATE: pmsg_all}';
-	} else {
-		$desc = '{TEMPLATE: pmsg_none}';
-	}
+	$desc = ($all_v = empty($_GET['all'])) ? '{TEMPLATE: pmsg_all}' : '{TEMPLATE: pmsg_none}';
 
 	$ttl = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=".$folder_id);
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;

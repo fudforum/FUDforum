@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ulink.inc.t,v 1.7 2004/01/04 16:38:27 hackie Exp $
+* $Id: ulink.inc.t,v 1.8 2004/05/12 16:31:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -16,12 +16,14 @@ function draw_user_link($login, $type, $custom_color='')
 		return '{TEMPLATE: ulink_custom_color}';
 	}
 
-	if (!($type & 1572864)) {
-		return '{TEMPLATE: ulink_reg_user}';
-	} else if ($type & 1048576) {
-		return '{TEMPLATE: ulink_adm_user}';
-	} else if ($type & 524288) {
-		return '{TEMPLATE: ulink_mod_user}';
+	switch ($type & 1572864) {
+		case 0:
+		default:
+			return '{TEMPLATE: ulink_reg_user}';
+		case 1048576:
+			return '{TEMPLATE: ulink_adm_user}';
+		case 524288:
+			return '{TEMPLATE: ulink_mod_user}';
 	}
 }
 ?>
