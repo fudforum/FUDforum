@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.60 2003/05/18 09:18:54 hackie Exp $
+*   $Id: post.php.t,v 1.61 2003/05/18 10:38:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -376,7 +376,6 @@ function flood_check()
 			 	}
 			} else {
 				std_error('systemerr');
-				exit();
 			}
 
 			/* write file attachments */

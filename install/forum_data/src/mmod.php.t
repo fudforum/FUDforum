@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.14 2003/05/02 12:35:43 hackie Exp $
+*   $Id: mmod.php.t,v 1.15 2003/05/18 10:38:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,14 +72,22 @@
 
 				fud_msg_edit::delete(TRUE, $data[2], 1);
 
-				header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
-				exit;
+				if (strpos($usr->returnto, 'selmsg') === FALSE) {
+					header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
+					exit;
+				} else {
+					check_return($usr->returnto);
+				}
 			} else {
 				logaction(_uid, 'DELMSG', 0, addslashes($data[3]));
 				fud_msg_edit::delete(TRUE, $data[2], 0);
 			}
 		}
-		
+
+		if (strpos($usr->returnto, 'selmsg') !== FALSE) {
+			check_return($usr->returnto);		
+		}
+
 		if (d_thread_view == 'tree') {
 			if (!$data[5]) {
 				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
