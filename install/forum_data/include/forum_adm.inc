@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.20 2004/12/15 16:55:01 hackie Exp $
+* $Id: forum_adm.inc,v 1.21 2004/12/15 19:02:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,8 +156,6 @@ function frm_delete($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	db_lock($tbl.'forum WRITE, '.$tbl.'mod WRITE, '.$tbl.'nntp WRITE, '.$tbl.'mlist WRITE, '.$tbl.'thread WRITE, '.$tbl.'ann_forums WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE, '.$tbl.'group_members WRITE, '.$tbl.'group_cache WRITE');
-
 	q('DELETE FROM '.$tbl.'ann_forums WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'mod WHERE forum_id='.$id);
@@ -169,8 +167,6 @@ function frm_delete($id)
 	$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
 	q("DROP TABLE ".$tbl."fl_".$id);
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
-
-	db_unlock();
 
 	if ($gid) {
 		fud_use('groups_adm.inc', true);
