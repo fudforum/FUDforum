@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.19 2003/04/29 20:43:13 hackie Exp $
+*   $Id: admdump.php,v 1.20 2003/04/29 23:10:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ function make_insrt_qry($obj, $tbl, $field_data)
 	return 'INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
 }
 
-function backup_dir($dirp, $key, $fp, $write_func, $keep_dir='')
+function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
 	if (!($d = opendir($dirp))) {
 		echo 'Could not open "'.$dirp.'" for reading<br>';
@@ -60,24 +60,32 @@ function backup_dir($dirp, $key, $fp, $write_func, $keep_dir='')
 	}
 	readdir($d); readdir($d);
 	$path = $dirp . '/';
-	$dpath = $keep_dir ? basename($dirp) . '/' . $key : $key;
+	$dpath = str_replace($path, $GLOBALS[$keep_dir], $keep_dir . '/');
 	while ($f = readdir($d)) {
 		switch (filetype($path . $f)) {
 			case 'file':
 				if ($f != 'GLOBALS.php') {
-					if (!@is_readable($file)) {
+					if (!@is_readable($path . $f)) {
 						echo "WARNING: unable to open '".$path . $f."' for reading<br>\n";
 						break;
 					}
-					$fd = file_get_contents($path . $f);
-					$ln = strlen($fd);
-					
-					$write_func($fp, '//'.$f.'//'.$dpath.'//'.$ln."//\n".$fd."\n");
+					$ln = filesize($path . $f);
+					if ($ln < 2000000) {
+						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n" . file_get_contents($path . $f) . "\n");
+					} else {
+						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n");
+						$fp2 = fopen($path . $f, 'rb');
+						while (($buf = fread($fp2, 2000000))) {
+							$write_func($fp, $buf);
+						}
+						fclose($fp2);
+						$write_func($fp, "\n");
+					}
 				}
 				break;
 			case 'dir':
 				if ($f != 'tmp') {
-					backup_dir($path . $f, $key, $fp, $write_func, $dirp);
+					backup_dir($path . $f, $fp, $write_func, $keep_dir);
 				}
 				break;
 		}
@@ -187,7 +195,7 @@ function sql_is_null($r, $n, $tbl='')
 			flush();
 			if ($num_entries) {
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
-				/* get field defenitions */
+				// get field defenitions
 				$r = q('SELECT * FROM '.$tbl_name.' LIMIT 1');
 				$nf = sql_num_fields($r);
 				for ($i = 0; $i < $nf; $i++) {
@@ -205,12 +213,12 @@ function sql_is_null($r, $n, $tbl='')
 		}
 
 		$write_func($fp, "\n----SQL_END----\n");
-	
+
 		echo "Compressing forum datafiles<br>\n";
 		flush();
-		backup_dir(realpath($DATA_DIR), 'DATA_DIR');
+		backup_dir(realpath($DATA_DIR), $fp, $write_func, 'DATA_DIR');
 		if ($DATA_DIR != $WWW_ROOT_DISK) {
-			backup_dir(realpath($WWW_ROOT_DISK.'images/'), 'IMG_ROOT_DISK');
+			backup_dir(realpath($WWW_ROOT_DISK.'images/'), $fp, $write_func, 'WWW_ROOT_DISK');
 		}
 	
 		if (isset($_POST['compress'])) {
@@ -220,6 +228,7 @@ function sql_is_null($r, $n, $tbl='')
 		}
 		
 		db_unlock();
+		echo "HERE<Br>\n";
 		
 		echo "Backup Process is Complete<br>";
 		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
