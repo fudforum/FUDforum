@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.51 2004/06/07 17:10:35 hackie Exp $
+* $Id: selmsg.php.t,v 1.52 2004/07/14 13:52:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -198,15 +198,16 @@ function path_info_lnk($var, $val)
 		}
 		un_register_fps();
 		unset($c);
+
+		if ($thl) {
+			q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id IN('.implode(',', $thl).')');
+		}
 	} else {
 		$message_data = '';
 	}
 
 	if (_uid && $mark_read) {
 		ses_putvar((int)$usr->sid, $mark_read);
-	}
-	if ($thl) {
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id IN('.implode(',', $thl).')');
 	}
 
 	if (!$unread_limit && $total > $count) {
