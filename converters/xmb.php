@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: xmb.php,v 1.5 2004/01/27 01:04:42 hackie Exp $
+* $Id: xmb.php,v 1.6 2004/09/27 12:48:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -244,9 +244,9 @@ function html_clean($str)
 
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET
 			is_mod='{$is_mod}',
-			join_date={$obj->regdate},
-			last_visit={$obj->lastvisit},
-			last_read={$obj->lastvisit},
+			join_date=".(int)$obj->regdate.",
+			last_visit=".(int)$obj->lastvisit.",
+			last_read=".(int)$obj->lastvisit.",
 			blocked='{$blocked}',
 			avatar_approved='{$avatar_approved}',
 			avatar_loc='{$avatar_loc}',
