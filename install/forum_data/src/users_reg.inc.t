@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.10 2002/08/19 08:47:50 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.11 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,6 +38,8 @@ class fud_user_reg extends fud_user
 		$this->alias = stripslashes($this->alias);
 		if( isset($this->alias[$GLOBALS['MAX_LOGIN_SHOW']+1]) ) $this->alias = substr($this->alias, 0, $GLOBALS['MAX_LOGIN_SHOW']);
 		$this->alias = addslashes(htmlspecialchars($this->alias));
+		
+		$acc_status = ($GLOBALS['MODERATE_USER_REGS'] == 'N') ? 'A' : 'P';
 				
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}users (
@@ -83,7 +85,8 @@ class fud_user_reg extends fud_user
 				sig,
 				default_view,
 				home_page,
-				bio
+				bio,
+				acc_status
 			)
 			VALUES (
 				'".$this->login."',
@@ -128,7 +131,8 @@ class fud_user_reg extends fud_user
 				".strnull($this->sig).",
 				'".$this->default_view."',
 				".strnull(addslashes($this->home_page)).",
-				".strnull(addslashes($this->bio))."
+				".strnull(addslashes($this->bio)).",
+				'".$acc_status."'
 			)
 		");
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}users", $r);

@@ -916,3 +916,6 @@ back_to_top:			Back to Top
 iemail_participate:		To participate in the discussion, go here:
 pm_err_disabled_title:		Private Messaging Disabled
 pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
+err_mod_acc_ttl:		Unverified Account
+err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
+accounts_pending_approval:	Accounts Pending Approval

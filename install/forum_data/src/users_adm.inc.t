@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.8 2002/10/21 09:07:46 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.9 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,6 +67,11 @@ class fud_user_adm extends fud_user_reg
 	function block_user()
 	{
 		q("UPDATE {SQL_TABLE_PREFIX}users SET blocked='Y' WHERE id=".$this->id);
+	}
+	
+	function approve_reg()
+	{
+		q("UPDATE {SQL_TABLE_PREFIX}users SET acc_status='A' WHERE id=".$this->id);
 	}
 	
 	function unblock_user()

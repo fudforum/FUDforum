@@ -917,3 +917,6 @@ finduser_help:			O motor de busca vai adicionar automaticamente uma * mascara a 
 back_to_top:			Voltar ao Topo
 pm_err_disabled_title:		Mensagens privadas foram desabilitadas
 pm_err_disabled_msg:		Não pode enviar mensagens privadas até que active a opção &#39;Permitir mensagens privadas&#39; no seu perfil.
+err_mod_acc_ttl:		Unverified Account
+err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
+accounts_pending_approval:	Accounts Pending Approval

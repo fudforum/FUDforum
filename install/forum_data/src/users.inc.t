@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.16 2002/11/18 17:21:46 hackie Exp $
+*   $Id: users.inc.t,v 1.17 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,6 +80,7 @@ class fud_user
 	var $level_id=NULL;
 	var $u_last_post_id=NULL;
 	var $cat_collapse_status=NULL;
+	var $acc_status=NULL;
 	
 	function get_user_by_id($id) 
 	{

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.tmpl,v 1.3 2002/08/05 00:47:55 hackie Exp $
+*   $Id: admincp.tmpl,v 1.4 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,7 +17,7 @@
 {PHP_FILE: input: admincp.inc.t; output: @admincp.inc;}
 
 {MAIN_SECTION: admin_cp Administrator Control Panel}
-<br /><font class="GenText"><b>{MSG: admin}:</b></font> {TEMPLATE-DATA: mod_que} {TEMPLATE-DATA: reported_msgs} {TEMPLATE-DATA: thr_exch} {TEMPLATE-DATA: custom_avatar_queue} {TEMPLATE-DATA: group_mgr}
+<br /><font class="GenText"><b>{MSG: admin}:</b></font> {TEMPLATE-DATA: mod_que} {TEMPLATE-DATA: reported_msgs} {TEMPLATE-DATA: thr_exch} {TEMPLATE-DATA: custom_avatar_queue} {TEMPLATE-DATA: group_mgr} {TEMPLATE-DATA: accounts_pending_approval}
 {MAIN_SECTION: END}
 
 {SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
@@ -38,4 +38,8 @@
 
 {SECTION: mod_que link to form for approving messages in moderated forums}
 <a class="GenLink" href="{ROOT}?t=modque&amp;{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
+{SECTION: END}
+
+{SECTION: accounts_pending_approval accounts pending administrator's approval}
+| <a class="GenLink" href="adm/admaccapr.php?{DEF: _rsid}">{MSG: accounts_pending_approval}</a> <span class="GenText" style="color: #ff0000">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}

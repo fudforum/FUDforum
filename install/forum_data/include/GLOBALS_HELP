@@ -324,9 +324,6 @@ Whether or not to allow the tree view of the thread listing. This is a fairly
 CPU intensive page compared to all other forum pages, so use this option with 
 caution.
 
-TREE_THREADS_PER_PAGE
-How many threads to show per page on the thread listing in tree mode.
-
 TREE_THREADS_MAX_DEPTH
 Maximum depth of the tree to allow, this option will prevent long trees from
 scrolling far of the users screen making the page unreadable.
@@ -335,4 +332,8 @@ TREE_THREADS_MAX_SUBJ_LEN
 At which point to cutoff subjects of messages on thread listing in tree mode. 
 This options allows you to save on screen space if you want to show large thread
 trees.
+
+MODERATE_USER_REGS
+Whether or not every new registration will need to be approved by the administrator
+before the new account is activated.
 

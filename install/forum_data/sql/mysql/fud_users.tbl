@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.8 2002/09/26 05:18:11 hackie Exp $
+#   $Id: fud_users.tbl,v 1.9 2002/11/21 21:42:45 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -73,6 +73,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	home_page		CHAR(255), 
 	bio			TEXT,
 	cat_collapse_status	TEXT,
+	acc_status		ENUM('A', 'P') NOT NULL DEFAULT 'A',
 	
 	UNIQUE(login),
 	UNIQUE(email),
@@ -81,5 +82,6 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	INDEX(last_visit),
 	INDEX(conf_key),
 	INDEX(referer_id),
-	INDEX(avatar_approved)
+	INDEX(avatar_approved),
+	INDEX(acc_status)
 )

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.15 2002/10/29 00:19:11 hackie Exp $
+*   $Id: admglobal.php,v 1.16 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -156,6 +156,7 @@ else
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>General Settings</b> </td></tr>
+<tr bgcolor="#bff8ff"><td>New Account Moderation:<?php draw_help('MODERATE_USER_REGS'); ?></td><td><?php draw_select('CF_MODERATE_USER_REGS', "Yes\nNo", "Y\nN", $CF_MODERATE_USER_REGS); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Max Smilies Shown:<?php draw_help('MAX_SMILIES_SHOWN'); ?></td><td><input type="text" name="CF_MAX_SMILIES_SHOWN" value="<?php echo $CF_MAX_SMILIES_SHOWN; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Public Host Resolving:<?php draw_help('PUBLIC_RESOLVE_HOST'); ?></td><td><?php draw_select('CF_PUBLIC_RESOLVE_HOST', "Yes\nNo", "Y\nN", $CF_PUBLIC_RESOLVE_HOST); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Maximum Shown Login Length:<?php draw_help('MAX_LOGIN_SHOW'); ?></td><td><input type="text" name="CF_MAX_LOGIN_SHOW" value="<?php echo $CF_MAX_LOGIN_SHOW; ?>"></td></tr>

@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.9 2002/10/07 20:49:42 hackie Exp $
+*   $Id: nntp.php,v 1.10 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,7 @@
 	include_once "GLOBALS.php";
 	
 	$GLOBALS['FILE_LOCK'] = 'N';
+	$GLOBALS['MODERATE_USER_REGS'] = 'N';
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('imsg.inc');

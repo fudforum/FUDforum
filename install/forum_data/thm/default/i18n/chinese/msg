@@ -917,3 +917,6 @@ back_to_top:			返回顶部
 iemail_participate:		参与讨论, 点此:
 pm_err_disabled_title:		不能发送悄悄话
 pm_err_disabled_msg:		您当前设置为不能发送悄悄话！可以在个人信息中修改设置，以激活悄悄话功能.
+err_mod_acc_ttl:		Unverified Account
+err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
+accounts_pending_approval:	Accounts Pending Approval

@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.20 2002/10/07 20:49:42 hackie Exp $
+*   $Id: maillist.php,v 1.21 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -511,6 +511,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$forum_id = $mlist->forum_id;
 
 	$GLOBALS['CREATE_NEW_USERS'] = $mlist->create_users;
+	$GLOBALS['MODERATE_USER_REGS'] = "N";
 
 	$frm = new fud_forum;
 	$frm->get($forum_id);

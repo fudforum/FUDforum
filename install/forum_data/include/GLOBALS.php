@@ -124,6 +124,8 @@
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
 
 	$FILE_LOCK		= "N";		/* boolean */
+	
+	$MODERATE_USER_REGS	= "N";		/* boolean */
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
  */

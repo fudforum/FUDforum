@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.5 2002/07/22 18:06:34 hackie Exp $
+*   $Id: admincp.inc.t,v 1.6 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 if( _uid ) {
-	$thr_exch = $group_mgr = $reported_msgs = $custom_avatar_queue = $mod_que = '';
+	unset($thr_exch,$admin_cp,$accounts_pending_approval,$group_mgr,$reported_msgs,$custom_avatar_queue,$mod_que);
 
 	if( $usr->is_mod == 'Y' || $usr->is_mod == 'A' ) {
 		if( $GLOBALS["usr"]->is_mod == 'A' ) {
@@ -28,6 +28,10 @@ if( _uid ) {
 				
 			if( $thr_exchc = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange") )
 				$thr_exch = '{TEMPLATE: thr_exch}';
+			
+			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE acc_status='P'"))) {
+				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
+			}
 				
 			$q_limit = '';	
 		}	
@@ -47,6 +51,8 @@ if( _uid ) {
 	if( $usr->is_mod=='A' || bq("SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE user_id="._uid." AND group_leader='Y' LIMIT 1") )
 		$group_mgr = '{TEMPLATE: group_mgr}';
 	
-	if( $thr_exch || $group_mgr || $reported_msgs || $custom_avatar_queue || $mod_que ) $admin_cp = '{TEMPLATE: admin_cp}';
+	if ($thr_exch || $accounts_pending_approval || $group_mgr || $reported_msgs || $custom_avatar_queue || $mod_que) {
+		$admin_cp = '{TEMPLATE: admin_cp}';
+	} 
 }	
 ?>

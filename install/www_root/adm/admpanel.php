@@ -25,8 +25,8 @@
 	<a style="font-size: x-small;" href="admreplace.php?<?php echo _rsid; ?>">Replacement & Censorship System</a><br>
 	<a style="font-size: x-small;" href="admmime.php?<?php echo _rsid; ?>">MIME Managment System</a><br>
 	
-<?php	
-	if( substr(getcwd(), 0, 1) == '/' ) {
+<?php
+	if (strcasecmp("win", PHP_OS)) {
 		echo '<a style="font-size: x-small;" href="admbrowse.php?'._rsid.'">File Manager</a><br>';
 		echo '<a style="font-size: x-small;" href="admlock.php?'._rsid.'">Lock/Unlock Forum\'s Files</a><br>';
 	}
@@ -47,6 +47,7 @@
 	<b>User Management</b><br>
 	<a style="font-size: x-small;" href="admuser.php?<?php echo _rsid; ?>">Moderator/User Manager</a><br>
 	<a style="font-size: x-small;" href="admadduser.php?<?php echo _rsid; ?>">Add User</a><br>
+	<a style="font-size: x-small;" href="admaccapr.php?<?php echo _rsid; ?>">Account Approval</a><br>
 	<a style="font-size: x-small;" href="admgroups.php?<?php echo _rsid; ?>">Groups Manager</a><br>
 	<a style="font-size: x-small;" href="admmassemail.php?<?php echo _rsid; ?>">Mass Email</a><br>
 	<a style="font-size: x-small;" href="admlevel.php?<?php echo _rsid; ?>">Rank Manager</a><br><br>

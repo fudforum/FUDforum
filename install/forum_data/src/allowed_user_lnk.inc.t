@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.2 2002/11/21 21:42:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,6 +25,9 @@ function is_allowed_user()
 
 	if ( $GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && $usr->email_conf == 'N' ) 
 		{ std_error('emailconf'); exit(); }	
+	
+	if ( $GLOBALS['MODERATE_USER_REGS'] == 'Y' && $usr->acc_status == 'P' )
+		{ error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}', $returnto_d); exit(); }
 			
 	if ( $usr->blocked == 'Y' || is_email_blocked($usr->email) ) 
 		{ error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}', $returnto_d, 'FATAL'); exit(); }

@@ -917,3 +917,6 @@ back_to_top:			powrót na górê
 iemail_participate:		By wzi±æ udzia³ w dyskusji, przejd¼ tu:
 pm_err_disabled_title:		Prywatne wiadomo¶ci s± wy³±czone
 pm_err_disabled_msg:		Nie mo¿esz wysy³aæ prywatnych wiadomo¶ci, dopóki nie uaktywnisz opcji &#39;Zezwól na Prywatne Wiadomo¶ci&#39; w twoim profilu.
+err_mod_acc_ttl:		Unverified Account
+err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
+accounts_pending_approval:	Accounts Pending Approval
