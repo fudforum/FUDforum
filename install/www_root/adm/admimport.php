@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.6 2002/07/06 19:21:43 hackie Exp $
+*   $Id: admimport.php,v 1.7 2002/07/07 22:37:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,6 +75,15 @@ include('admpanel.php');
 		$line_end = $i = 0;
 	
 	// deal with mySQL data
+		// In the event of pgsql drop all exting tables & sequences
+		if( __dbtype__ == 'pgsql' ) {
+			$tbl_list = get_fud_table_list();
+			while( list(,$v) = each($tbl_list) ) q("DROP TABLE $v");
+			$r = q("SELECT relname from pg_class where relkind='S' AND relname ~ '^".$GLOBALS['DBHOST_TBL_PREFIX']."'");
+			while( list(,$v) = db_rowobj($r) ) q("drop sequence $v");
+			qf($r);
+		}
+		
 		echo "Commencing restore of SQL data<br>\n";
 		flush();
 		while( $pos && $pos<$end ) {
