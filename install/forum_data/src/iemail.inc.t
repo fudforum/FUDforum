@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.8 2002/07/29 19:10:35 hackie Exp $
+*   $Id: iemail.inc.t,v 1.9 2002/07/29 20:13:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,7 +151,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	$icq = str_replace("www.", "www'+'.", $icq);
 
 	$goto_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&goto=".$msg_id."';";
-	$goto_url['email'] = $GLOBALS['WWW_ROOT'].'{ROOT}?t=rview&goto='.$msg_id;
+	$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
 	
 	
 	if ( $GLOBALS['NOTIFY_WITH_BODY'] == 'Y' ) {
@@ -208,7 +208,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$CHARSET = '{TEMPLATE: CHARSET}';
 		
 		$plain_text = read_msg_body($obj->foff,$obj->length, $obj->file_id);
-		$plain_text = $boundry."Content-Type: text/plain; charset=$CHARSET; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\nTo participate in the discussion, go here: ".$GLOBALS['WWW_ROOT'].'{ROOT}?t=rview&th='.$id."&notify=1&opt=off\r\n";
+		$plain_text = $boundry."Content-Type: text/plain; charset=$CHARSET; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\nTo participate in the discussion, go here: ".'{ROOT}?t=rview&th='.$id."&notify=1&opt=off\r\n";
 		
 		$mod = $GLOBALS['MOD'];
 		$GLOBALS['MOD'] = 1;
@@ -227,7 +227,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 		
 		if( !$body_email ) {
-			$unsub_url['email'] = $GLOBALS['WWW_ROOT'].'{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
+			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}	
 		
@@ -243,7 +243,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		
 		if( !$body_email ) {
-			$unsub_url['email'] = $GLOBALS['WWW_ROOT'].'{ROOT}?t=thread&unsub=1&frm_id='.$id;
+			$unsub_url['email'] = '{ROOT}?t=thread&unsub=1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}	
 	}	
