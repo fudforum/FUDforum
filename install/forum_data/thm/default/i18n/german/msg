@@ -31,7 +31,7 @@ administrator:			Administrator
 allowed_files:			Erlaubte Dateitypen:
 announcement:			Ank&uuml;ndigung
 apply_spell_changes:		Rechtschreibkorrektur anwenden
-approved_avatar_msg:		Dein Avatar wurde vom Administrator genehmigt. Er sollte nun bei s&auml;mtlichen von Dir erstellten Beitr&auml;gen erscheinen. Falls Du ihn nicht siehst, oder stattdessen den alten Avatar, liegt es daran, da&szlig; der Browser die Seite im Cache gespeichert hat. Versuche ein- zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
+approved_avatar_msg:		Dein Avatar wurde vom Administrator genehmigt. Er sollte nun in s&auml;mtlichen von Dir erstellten Beitr&auml;gen erscheinen. Falls Du ihn nicht siehst oder stattdessen den alten Avatar, liegt es daran, da&szlig; der Browser die Seite im Cache gespeichert hat. Versuche ein- zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
 approved_avatar_title:		Dein pers&ouml;nlicher Avatar wurde genehmigt.
 attachment:			Anhang:
 avatar:				Avatar:
@@ -50,13 +50,13 @@ buddy_search:			Trage den Login des Benutzers ein, den Du hinzuf&uuml;gen m&ouml
 buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator
-coppa:				Ein Elternteil oder Vormund mu&szlig; eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Ein Elternteil oder Vormund mu&szlig; eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen, bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_after:			Nach dem {DATE: coppa %e %B, %Y}
 coppa_before:			Vor dem {DATE: coppa %e %B, %Y}
 coppa_conf:			COPPA Best&auml;tigung
 coppa_fax_conf:			Ich habe die Informationen meines Kindes begutachtet und die Handhabung der Privatssph&auml;re auf der Webseite gelesen. Mir ist bekannt, da&szlig; die Informationen im Profil durch das Benutzen eines Passwortes ge&auml;ndert werden k&ouml;nnen. Mir ist bekannt, da&szlig; ich um vollst&auml;ndige Entfernung des Benutzerprofils bitten kann.
 coppa_fax_date:			Datum:
-coppa_fax_email:		Email Adresse:
+coppa_fax_email:		Emailadresse:
 coppa_fax_instructions2:	Bitte drucken Sie dieses Formular aus, unterschreiben und schicken es an:
 coppa_fax_instructions:		Anleitung f&uuml;r ein Elternteil oder Vormund
 coppa_fax_login:		Login:
@@ -69,14 +69,14 @@ coppa_fax_questions:		Bitte nehmen Sie Kontakt zu <a href="mailto:{GVAR: ADMIN_E
 coppa_fax_reg_form:		Registrierungsformular
 coppa_fax_relation:		Bezug zum Kind:
 coppa_fax_remail:		Email:
-coppa_fax_sign:			Bitte unterschreiben sie das Formular und schicken es an uns
+coppa_fax_sign:			Bitte unterschreiben Sie das Formular und schicken es an uns
 coppa_fax_telephone:		Telefon:
 coppa_link:			Klicke auf den Link, der zu Deinem Geburtsdatum passt
 core_adm_login_msg:		<br>Administratoren k&ouml;nnen sich <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hier</a> einloggen
 core_err_invinp_err:		Du bist einem toten Link gefolgt, bitte benachrichtige den <a href="mailto:{GVAR: ADMIN_EMAIL}">Webmaster</a> dar&uuml;ber
 core_err_invinp_title:		Ung&uuml;ltige Eingabe
 create_thread:			Thema erstellen
-cur_ppage_pm:			Private Messages
+cur_ppage_pm:			Private Nachrichten
 current_time:			aktuelle Zeit
 custom_avatar_queue:		Zu &uuml;berpr&uuml;fende Benutzeravatare
 date:				Datum
@@ -86,7 +86,7 @@ delete_no:			Nein
 delete_proceed:			<font size="3"><b>M&ouml;chtest Du weitermachen?</b></font>
 delete_yes:			Ja
 deny_recipt:			Empfangsbest&auml;tigung verweigern
-deny_recipt_desc:		Keine Best&auml;tigung verschicken, da&szlig; die Message gelesen wurde
+deny_recipt_desc:		Keine Best&auml;tigung verschicken, da&szlig; die Nachricht gelesen wurde
 disable_smilies:		Smileys in diesem Beitrag deaktivieren
 download_counter:		{VAR: v[3]} mal heruntergeladen
 draft:				Entwurf
@@ -119,7 +119,7 @@ emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte
 emailconf_err_invkey_title:	Fehler
 err_blockedaccnt_msg:		Dein Konto ist f&uuml;r das Erstellen von Beitr&auml;gen gesperrt worden
 err_blockedaccnt_title:		FEHLER: Dir ist es nicht gestattet, Beitr&auml;ge zu erstellen
-err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche es Dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls Du Dein COPPA Formular verloren hast, klicke <a href="{TEMPLATE: err_coppa_msg_lnk}">hier</a> um es zu erhalten
+err_coppa_msg:			Wir haben noch keine Best&auml;tigung von einem Elternteil oder einem gesetzlichen Vormund erhalten, welche Dir erlauben w&uuml;rde, Beitr&auml;ge zu erstellen. Falls Du Dein COPPA Formular verloren hast, klicke <a href="{TEMPLATE: err_coppa_msg_lnk}">hier</a> um es zu erhalten
 err_coppa_title:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 err_inc_criticalmsg:		Es ist ein Fehler aufgetreten, aber ungl&uuml;cklicherweise gibt es ein Problem mit dem Benachrichtigungssystem f&uuml;r Fehler
 err_inc_criticaltitle:		KRITISCHER FEHLER
@@ -149,7 +149,7 @@ folder:				Ordner:
 forum:				Forum:
 forum_contact:			Kontakt
 forum_home:			Forumsindex
-forum_icon:			Forums-Icon
+forum_icon:			Forumsicon
 forum_new_messages:		Neue Beitr&auml;ge
 forum_none_messages:		Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
 forum_old_messages:		Keine neuen Beitr&auml;ge
@@ -321,7 +321,7 @@ mvthread_submit_req:		Anfrage abschicken
 my_buddies:			Meine Buddies
 na:				n/a
 new_posts:			Neue Beitr&auml;ge
-new_private_messages:		Du hast <span class="GenText" style="color: #ff0000">({VAR: c})</span> ungelesene private Messages
+new_private_messages:		Du hast <span class="GenText" style="color: #ff0000">({VAR: c})</span> ungelesene private Nachrichten
 new_thread:			Ein neues Thema erstellen
 newest_user:			Das neuste registrierte Mitglied ist
 next_page:			N&amul;chste Seite
@@ -366,22 +366,22 @@ page_timings:			Insgesamt ben&ouml;tigte Zeit, um die Seite zu erzeugen: {VAR: p
 fud_query_stats:		MySQL Abfragen ben&ouml;tigten {VAR: ttl_time} Sekunden<br>
 permission_denied_msg:		Deine Benutzerrechte gestatten es Dir nicht, den von Dir geplanten Vorgang durchzuf&uuml;hren.
 permission_denied_title:	Zugriff verweigert!
-pm:				Private Messages
-pm_err_nopm_msg:		Du kannst das System f&uuml;r private Messages nicht verwenden, das es vom Administrator deaktiviert worden ist.
-pm_err_nopm_title:		FEHLER: Private Messages deaktiviert
-pm_no_space_msg:		Deine Ordner f&uuml;r private Messages &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Messages belegen.<br><br><font class="ErrorText">Entferne einige alte Messages, um wieder Platz zu schaffen</font>.
+pm:				Private Nachrichten
+pm_err_nopm_msg:		Du kannst das System f&uuml;r private Nachrichten nicht verwenden, das es vom Administrator deaktiviert worden ist.
+pm_err_nopm_title:		FEHLER: Private Nachrichten deaktiviert
+pm_no_space_msg:		Deine Ordner f&uuml;r private Nachrichten &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>{GVAR: MAX_PMSG_FLDR_SIZE} Bytes</b>, weil sie momentan <b>{VAR: fldr_size} Bytes</b> mit Nachrichten belegen.<br><br><font class="ErrorText">Entferne einige alte Nachrichten, um wieder Platz zu schaffen</font>.
 pm_no_space_title:		Kein freier Platz mehr &uuml;brig!
-pm_space_indct_msg:		Deine PM Ordner sind zu {VAR: percent_full}% belegt.
-pm_update:			Benutzt das System f&uuml;r private Messages
+pm_space_indct_msg:		Deine PN Ordner sind zu {VAR: percent_full}% belegt.
+pm_update:			Benutzt das System f&uuml;r private Nachrichten
 pmsg_all:			alle
 pmsg_author:			Verfasser
 pmsg_delete:			L&ouml;schen
 pmsg_forwarded:			weitergeleitet
-pmsg_new_messages:		Ungelesene private Message
-pmsg_next_msg:			N&auml;chste Message
+pmsg_new_messages:		Ungelesene private Nachrichten
+pmsg_next_msg:			N&auml;chste Nachrichten
 pmsg_none:			keine
-pmsg_old_messages:		Private Message lesen
-pmsg_prev_msg:			Vorherige Message
+pmsg_old_messages:		Private Nachrichten lesen
+pmsg_prev_msg:			Vorherige Nachricht
 pmsg_replied:			beantwortet
 pmsg_selected:			Ausgew&auml;hlt
 pmsg_subject:			Betreff
@@ -493,10 +493,10 @@ post_topic_update:		Erstellt neues Thema in <a href="{TEMPLATE: post_topic_updat
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
-postcheck_ignored:		Du kannst keine private Message an "{VAR-HTML: v}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
+postcheck_ignored:		Du kannst keine private Nachricht an "{VAR-HTML: v}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r Deinen Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
-postcheck_no_recepient:		Kann die Message nicht versenden, weil kein Empf&auml;nger angegeben ist
+postcheck_no_recepient:		Kann die Nachricht nicht versenden, weil kein Empf&auml;nger angegeben ist
 postcheck_no_such_user:		Es gibt keinen Benutzer mit Namen "{VAR-HTML: v}" in diesem Forum
 postcheck_not_allowed_file:	Dieser Dateityp ist nicht gestattet
 postcheck_subj_needed:		Betreff erforderlich
@@ -512,13 +512,13 @@ ppost_quote_msg:		{VAR: msg_to_list} schrieb am {DATE: msg_r->post_stamp %a, %d 
 ppost_save_draft:		Entwurf speichern
 ppost_send:			Verschicken
 ppost_to:			An:
-ppost_track_msg:		Diese Message weiterverfolgen
+ppost_track_msg:		Diese Nachricht weiterverfolgen
 ppost_track_msg_desc:		Benachrichtigung sobald das Thema gelesen wird.
 prereg_agree:			Zustimmen
 prereg_disagree:		Ablehnen
 prereg_info:			Information
 prev_thread:			Vorheriges Thema:
-private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat Deine private Message, "{VAR: m->subject}", am {DATE: m->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
+private_msg_notify_body:	Hallo,<br>{VAR: usr->login} hat Deine private Nachricht, "{VAR: m->subject}", am {DATE: m->post_stamp %a, %d %B %Y %H:%M} gelesen<br>
 private_msg_notify_subj:	Benachrichtigung lesen zu: {VAR: m->subject}
 profile:			Profil
 profile_2:			Profil:
@@ -546,7 +546,7 @@ referals_update:		Durchsucht die Anwerbungen
 refresh_list:			Liste aktualisieren
 register:			Registrieren
 register_aim:			AIM Benutzername:
-register_allow_email_msg:	Email Messages erlauben:
+register_allow_email_msg:	Email Nachrichten erlauben:
 register_allow_email_msg_desc:	Anderen Benutzern erlauben, Dir Emails &uuml;ber das FUD Forum zu schicken.
 register_avatar:		Avatar:
 register_avatar_type:		Avatar Typ:
@@ -728,7 +728,7 @@ sel_unread_messages:		Ungelesene Beitr&auml;ge
 sel_unread_messages_desc:	Den Filter f&uuml;r ungelesene Beitr&auml;ge erzwingen (zeigt nur ungelesene Beitr&auml;ge an)
 selmsg_update:			Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beitr&auml;ge</a>
 send:				Verschicken
-send_pm_desc:			Eine private Message an diesen Benutzer verschicken
+send_pm_desc:			Eine private Nachricht an diesen Benutzer verschicken
 sender_email:			Email des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
@@ -769,7 +769,7 @@ subscribed_update:		Durchsucht die eigenen Abonnements
 switch_to_thread_view:		Zur Baumansicht dieses Themas wechseln
 tabs_buddy_list:		Buddyliste
 tabs_ignore_list:		Ignorierliste
-tabs_private_messaging:		Private Messages
+tabs_private_messaging:		Private Nachricht
 tabs_referrals:			Anwerbungen
 tabs_register:			Einstellungen
 tabs_subscriptions:		Abonnements
@@ -842,7 +842,7 @@ userinfo_referals:		Angeworbene Benutzer:
 userinfo_referals_count:	{VAR: referals} Mitglieder
 userinfo_update:		Betrachtet das Profil von <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 usrinfo_last_post:		Letzter Beitrag:
-usrinfo_private_message:	Private Message:
+usrinfo_private_message:	Private Nachricht:
 usrinfo_profile:		{VAR: u->alias}s Profil
 usrinfo_show_all_posts:		Alle Beitr&auml;ge von {VAR: u->alias} anzeigen
 view_forum:			Forum ansehen
@@ -852,10 +852,10 @@ views:				Aufrufe
 vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> verschoben worden
+was_moved_msg:			<a href="{FULL_ROOT}{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
-writing_pm:			Eine private Message schreiben
+writing_pm:			Eine private Nachricht schreiben
 yes:				Ja
 forumsel_unread:		*(Ungelesen)
 groupmgr_no_groups:		Keine Gruppen zu bearbeiten
@@ -870,9 +870,9 @@ pmsg_recepient:			Empf&auml;nger
 register_err_taken_alias:	Der Alias, welchen Du verwenden m&ouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen.
 register_alias:			Alias
 register_alias_desc:		Wenn Du m&ouml;chtest, da&szlig; Dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
-register_allow_pm_msg:		Private Messages erlauben	
-register_allow_pm_msg_desc:	Anderen Benutzern erlauben, Dir &uuml;ber das FUDForum private Messages zu schicken.
-postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Messages verschicken, weil diese Person das nicht m&ouml;chte.
+register_allow_pm_msg:		Private Nachrichten erlauben	
+register_allow_pm_msg_desc:	Anderen Benutzern erlauben, Dir &uuml;ber das FUDForum private Nachrichten zu schicken.
+postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Nachrichten verschicken, weil diese Person das nicht m&ouml;chte.
 polllist_vote:			Abstimmen
 polllist_view_results:		Ergebnisse ansehen
 polllist_name:			Titel der Abstimmung
@@ -910,8 +910,8 @@ insert_uploaded_image:		Ein Bild in den Beitrag einf&uuml;gen
 finduser_help:			Die Suchmaschine f&uuml;gt automatisch eine * Maske Deiner Anfrage hinzu. Um zum Bsp. alle Benutzer zu suchen, deren Login mit einem &#39;a&#39; beginnt, tr&auml;gt man &#39;a&#39; in die Sucheingabe ein.
 back_to_top:			Zur&uuml;ck zum Anfang
 iemail_participate:		Zur Teilnahme an der Diskussion geht es hier entlang:
-pm_err_disabled_title:		Private Messages deaktiviert
-pm_err_disabled_msg:		Du kannst keine privaten Messages verschicken, solange Du nicht die &#39;Private Messages erlauben&#39; Option in Deinem Profil aktivierst.
+pm_err_disabled_title:		Private Nachrichten deaktiviert
+pm_err_disabled_msg:		Du kannst keine privaten Nachrichten verschicken, solange Du nicht die &#39;Private Nachrichten erlauben&#39; Option in Deinem Profil aktivierst.
 err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
 err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst Du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
@@ -946,7 +946,7 @@ thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennz
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
 register_email_change_subject:	Bestätigung der geänderten Email Adresse
-register_email_change_msg:	Bitte bestätige Deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem Du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du die neue Adresse best&auml;tigt hast, wird Dein Konto wieder aktiviert werden.
+register_email_change_msg:	Bitte bestätige Deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem Du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald Du die neue Adresse bestätigt hast, wird Dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
@@ -955,14 +955,14 @@ register_email:			Email
 register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
 register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor Du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere Email Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst Du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
 post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
-post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von Dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
+post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von Dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
-thread_syndicate:		Themen als Newsticker anderen Seiten zur Verf&uuml;gung stellen (Syndicate) (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Best&auml;tigung</b><br />An Dich wurde eine E-mail mit einer speziellen URL versendet, welche von Dir aufgesucht werden mu&szlig;, bevor Dein Konto aktiviert werden kann. Falls Du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest Du Dich mit deinem Konto anmelden und sicherstellen, da&szlig; die angegebene E-mail Adresse korrekt ist. Sobald Du Dein Konto best&auml;tigt hast wirst Du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
-reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert wird mu&szlig; es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst Du eine E-mail erhalten, die Dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst Du Dich zwar mit Deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
+thread_syndicate:		Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
+reg_conf_title:			Registrierungsbest&auml;tigung
+reg_conf_email:			<b>Email Best&auml;tigung</b><br />An Dich wurde eine Email mit einer speziellen URL versendet, welche von Dir aufgesucht werden mu&szlig;, bevor Dein Konto aktiviert werden kann. Falls Du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest Du Dich mit deinem Konto anmelden und sicherstellen, da&szlig; die angegebene E-mail Adresse korrekt ist. Sobald Du Dein Konto best&auml;tigt hast, wirst Du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
+reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor Dein Konto aktiviert wird, mu&szlig; es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst Du eine E-mail erhalten, die Dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst Du Dich zwar mit Deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, da&szlig; Du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
-mnav_description:		Message Navigator
+mnav_description:		Beitragsnavigator
 mnav_date_limit:		Datumsbereich:
 mnav_time_unit:			Zeiteinheit des Datums:
 mnav_forum_limit:		Suche nur in:
@@ -970,7 +970,7 @@ mnav_all_forums:		Durchsuche alle Foren
 mnav_submit:			Fange mit der Suche an
 mnav_no_range:			Du mu&szlig;t einen g&uuml;ltigen Datumsbereich angeben. Dieser Wert kann auch eine Flie&szlig;kommazahl sein (0.12) jedoch mu&szlig; er gr&ouml;&szlig;er als 0 sein.
 mnav_invalid_unit:		Du mu&szlig;t eine g&uuml;ltige Zeiteinheit angeben.
-mnav_invalid_date:		Der Datumsbereich, den Du angegeben hast ist gr&ouml;&szlig;er als der vom Administrator gestattete, schr&auml;nke daher Deine Suche ein wenig ein.
+mnav_invalid_date:		Der Datumsbereich, den Du angegeben hast ist gr&ouml;&szlig;er als der vom Administrator gestattete, schr&auml;nke daher Deine Suche etwas ein.
 mnav_no_results:		Es gibt keine Beitr&auml;ge, die den Suchkriterien entsprechen.
 mnav_posted_by:			Erstellt von:
 mnav_more:			Mehr &raquo;&raquo;
@@ -979,13 +979,13 @@ mnav_hour:			Stunde(n)
 mnav_day:			Tag(e)
 mnav_week:			Woche(n)
 mnav_month:			Monat(e)
-mnav_title:			Message Navigator
-mnav_update:			Durchsuche Beitr&auml;ge mittels des <a href="{TEMPLATE: mnav_update_lnk}">Message Navigators</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Message
-pm_notify_body_email:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
-pm_notify_body_icq:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
-register_pm_notification:	Benachrichtigung &uuml;ber private Message
-register_pm_notification_desc:	Falls aktiviert, wirst Du über die Benachrichtigungsmethode Deiner Wahl eine Mitteilung erhalten, sobald eine Private Message an Dich gesendet worden ist.
+mnav_title:			Beitragsnavigator
+mnav_update:			Durchsuche Beitr&auml;ge mit Hilfe des <a href="{TEMPLATE: mnav_update_lnk}">Beitragsnavigators</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Nachricht
+pm_notify_body_email:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachrichten" in Deinem Profil.
+pm_notify_body_icq:		Du hast eine neue private Nachricht mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Nachricht" in Deinem Profil.
+register_pm_notification:	Benachrichtigung &uuml;ber private Nachricht
+register_pm_notification_desc:	Falls aktiviert, wirst Du über die Benachrichtigungsmethode Deiner Wahl eine Mitteilung erhalten, sobald eine private Nachricht an Dich gesendet worden ist.
 findu_admin_opts_header:	Admin Optionen
 findu_unban:			Bann aufheben
 findu_ban:			Verbannen
@@ -993,15 +993,15 @@ findu_edit:			Bearbeiten
 findu_delete:			L&ouml;schen
 dmsg_reply_to:			antworten auf {VAR: obj->reply_to}
 merge_topics:			Themen zusammenf&uuml;hren
-merge_topics_cp:		Bedienfeld zum Zusammenf&uuml;hren von Themen
-merge_topics_tpl:		Themen zum zusammenf&uuml;hren ausw&auml;hlen <font class="SmallText">(Du mu&szlig;t mehr als ein Thema ausw&auml;hlen)</font>
+merge_topics_cp:		Men&uuml; zum Zusammenf&uuml;hren von Themen
+merge_topics_tpl:		Themen zum Zusammenf&uuml;hren ausw&auml;hlen <font class="SmallText">(Du mu&szlig;t mehr als ein Thema ausw&auml;hlen)</font>
 merge_merge:			Ausgew&auml;hlte Themen zusammenf&uuml;hren
 merge_next:			N&auml;chste Themen
 merge_prev:			Vorherige Themen
-split_cp:			Bedienfeld zum Teilen von Themen
+split_cp:			Men&uuml; zum Teilen von Themen
 groups_perms_header:		Rechte <font size="-1">(Bewege den Mauszeiger &uuml;ber die Rechte um deren Typ zu erkennen)</font>
-register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} characters Zeichen.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} characters <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
+register_err_sig_too_long:	Deine Signatur &uuml;berschreitet die maximal erlaubte L&auml;nge von {GVAR: FORUM_SIG_ML} Zeichen.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} Zeichen <a href="javascript: alert(\'Deine Signatur ist \'+document.fud_register.reg_sig.value.length+\' Zeichen lang. Die maximal erlaubte Signaturlänge beträgt {GVAR: FORUM_SIG_ML}\');" class="SmallText">&Uuml;berpr&uuml;fe die Signaturl&auml;nge</a>
 p_SEARCH:			Kann suchen
 adm_account_accepted:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Administrator gebilligt und ist jetzt aktiviert. Du kannst jetzt auf das {GVAR: FORUM_TITLE}\' Forum als best&auml;tigter Benutzer zugreifen.
 adm_account_accepted_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde akzeptiert.
@@ -1009,17 +1009,17 @@ adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Admin
 adm_account_rejected_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			an
 userinfo_buddy:			Buddy:
-register_email_addr:		E-mail Address:
-reset_suffix:			\n\nIf you received this message in error, please ignore it. If you are receiving multiple copies of this e-mail, which you have not requested, please contact the forum administrator at {GVAR: ADMIN_EMAIL}\n\nThis request was initiated from: {VAR: _SERVER['REMOTE_ADDR']}.\n\n
+register_email_addr:		Emailadresse:
+reset_suffix:			\n\nFalls Du diese Nachricht unbeabsichtigt erhalten hast, ignoriere sie bitte. Falls Du mehrfache Kopien dieser Email erhalten hast und um diese Du gar nicht gebeten hast, so kontaktiere bitte den Forumsadministrator an {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von: {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
 usrinfo_last_visit:		Letzter Besuch:
-mnav_newer:			newer then
-mnav_older:			older then
-ip_search_by_ip:		Search users by IP
-ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
-ip_search:			Search
-ip_analyze_usage:		Analyze IP usage
-ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
-ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
-ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
+mnav_newer:			neuer als
+mnav_older:			&auml;lter als
+ip_search_by_ip:		Benutzer nach deren IP suchen
+ip_search_syntax:		Unterst&uuml;tzte Syntax: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:			Suche
+ip_analyze_usage:		IP Nutzung analysieren
+ip_analyze_usage_descr:		Bitte gebe den genauen Benutzernnamen des Benutzers an.
+ip_users_using:			Benutzer, die die IP Adresse &#39;{VAR: ip}&#39; benutzt haben
+ip_all_ips:			Alle IP(s), die von &#39;{VAR: user}&#39; verwendet worden sind
 ip_title:			IP Browser
-userinfo_real_name:		Real Name:
+userinfo_real_name:		Tats&auml;chlicher Name:
