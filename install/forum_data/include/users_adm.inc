@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.12 2004/05/20 22:26:59 hackie Exp $
+* $Id: users_adm.inc,v 1.13 2004/05/20 22:39:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -43,11 +43,11 @@ function usr_delete($id)
 	q('UPDATE '.$tbl.'msg SET poster_id=0 WHERE poster_id IN('.implode(',', $id).')');
 
 	/* Delete the private messages of this user */
-	$c = uq('SELECT id FROM '.$tbl.'pmsg WHERE duser_id IN('.implode(',', $id).')');
+	$c = q('SELECT id FROM '.$tbl.'pmsg WHERE duser_id IN('.implode(',', $id).')');
 	while ($r = db_rowarr($c)) {
 		pmsg_del($r[0], 5);
 	}
-	q('UPDATE '.$tbl.'pmsg SET ouser_id=0 AND read_stamp=post_stamp WHERE ouser_id='.$id);
+	q('UPDATE '.$tbl.'pmsg SET ouser_id=0, read_stamp=post_stamp WHERE ouser_id='.implode(',', $id));
 	q('DELETE FROM '.$tbl.'users WHERE id IN('.implode(',', $id).')');
 
 	if (isset($ll)) {
