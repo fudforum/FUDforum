@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.44 2003/04/30 23:58:13 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.45 2003/05/01 00:34:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -295,10 +295,11 @@ class fud_msg_edit extends fud_msg
 
 			/* check if the message is the last in the forum */
 			if ($del->forum_lip == $del->id) {
-				if (!isset($lpi)) { /* mostly a pointless sanity check */
-					list($lpi, $lpd) = db_saq('SELECT id, post_stamp FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$del->thread_id.' AND approved=\'Y\' AND id!='.$del->id.' ORDER BY post_stamp DESC LIMIT 1');
+				$lp = db_saq('SELECT {SQL_TABLE_PREFIX}thread.last_post_id, {SQL_TABLE_PREFIX}thread.last_post_date FROM {SQL_TABLE_PREFIX}thread_view INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread_view.forum_id={SQL_TABLE_PREFIX}thread.forum_id AND {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$del->forum_id.' AND {SQL_TABLE_PREFIX}thread_view.page=1 AND {SQL_TABLE_PREFIX}thread.moved_to=0 ORDER BY {SQL_TABLE_PREFIX}thread.last_post_date DESC LIMIT 1');
+				if (!isset($lpd) || $lp[1] > $lpd) {
+					$lpi = $lp[0];
 				}
-				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1,last_post_id='.$lpi.' WHERE id='.$del->forum_id);
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1, last_post_id='.$lpi.' WHERE id='.$del->forum_id);
 			} else {
 				q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-1 WHERE id='.$del->forum_id);
 			}
@@ -311,7 +312,7 @@ class fud_msg_edit extends fud_msg
 				user_set_post_count($del->poster_id);
 			}
 
-			if ($rebuild_view && isset($lpi)) {
+			if ($rebuild_view) {
 				rebuild_forum_view($del->forum_id);
 				
 				/* needed for moved thread pointers */
