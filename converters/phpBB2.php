@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.17 2004/01/04 16:38:25 hackie Exp $
+* $Id: phpBB2.php,v 1.18 2004/01/27 01:00:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -62,8 +62,10 @@ function phpbb_decode_ip($int_ip)
 }
 
 	define('IN_PHPBB', 1);
+	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 
 	/* prevent session initialization */
+	unset($_SERVER['REMOTE_ADDR']);
 	define('forum_debug', 1);
 
 	set_time_limit(-1);
@@ -75,7 +77,6 @@ function phpbb_decode_ip($int_ip)
 	if ($gl === FALSE) {
 		exit("This script must be placed in FUDforum's main web directory.\n");
 	}
-	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 
 	if ($FUD_OPT_2 & 8388608 && !__WEB__) {
 		exit("Since you are running conversion script via the console you must UNLOCK forum's files first.\n");
