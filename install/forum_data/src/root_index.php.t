@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.16 2003/05/12 23:26:20 hackie Exp $
+*   $Id: root_index.php.t,v 1.17 2003/05/13 06:26:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,5 +45,5 @@
 	}
 
 	define('__index_page_start__', true);
-	require($GLOBALS['DATA_DIR'] . fud_theme . $t . '.php');
+	require($WWW_ROOT_DISK . fud_theme . $t . '.php');
 ?>
