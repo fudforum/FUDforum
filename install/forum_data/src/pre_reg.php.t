@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.php.t,v 1.8 2003/09/27 14:03:52 hackie Exp $
+*   $Id: pre_reg.php.t,v 1.9 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,17 +18,17 @@
 /*{PRE_HTML_PHP}*/
 
 	if (isset($_POST['disagree'])) {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?'._rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/i/'._rsidl);
+		} else {
+			header('Location: {ROOT}?'._rsidl);
 		}
 		exit;
 	} else if (isset($_POST['agree'])) {
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($GLOBALS['COPPA'] != 'Y' ? 'N' : (int)$_POST['coppa']));
+		if ($FUD_OPT_2 & 32768) {
+			header('Location: {ROOT}/re/' . ($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0) .'/'._rsidl);
 		} else {
-			header('Location: {ROOT}/re/' . ($GLOBALS['COPPA'] != 'Y' ? 'N' : (int)$_POST['coppa']) .'/'._rsidl);	
+			header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($FUD_OPT_1 & 1048576 ?(int)$_POST['coppa'] : 0));
 		}
 		exit;
 	}
@@ -38,10 +38,10 @@
 /*{POST_HTML_PHP}*/
 
 	if (!isset($_GET['coppa'])) {
-		$_GET['coppa'] = 'N';
+		$_GET['coppa'] = 0;
 	}
 		
-	$msg_file = $_GET['coppa'] == 'Y' ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
+	$msg_file = $_GET['coppa'] ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

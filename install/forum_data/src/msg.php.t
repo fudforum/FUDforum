@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.50 2003/09/28 11:38:50 hackie Exp $
+*   $Id: msg.php.t,v 1.51 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,10 +95,10 @@
 		invl_inp_err();
 	}
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
-		if ($USE_PATH_INFO == 'N') {
-			header('Location: {ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/m/'.$frm->root_msg_id.'/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
 		}
 		exit();
 	}
@@ -110,10 +110,10 @@
 		if (!isset($_GET['logoff'])) {
 			std_error('perms');
 		} else {
-			if ($USE_PATH_INFO == 'N') {
-				header('Location: {ROOT}?' . _rsidl);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/i/' . _rsidl);
+			} else {
+				header('Location: {ROOT}?' . _rsidl);
 			}
 			exit;
 		}	
@@ -156,7 +156,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
 
-	if ($ENABLE_THREAD_RATING == 'Y') {
+	if ($FUD_OPT_2 & 4096) {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
 		if ($perms & 1024 && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
@@ -168,7 +168,7 @@
 	}
 
 	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
-	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
+	$email_page_to_friend = $FUD_OPT_1 & 4194304 ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	if ($perms & 4096) {
 		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
@@ -222,17 +222,17 @@
 		}
 	}
 
-	if ($USE_PATH_INFO == 'N') {
-		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);
+	if ($FUD_OPT_2 & 32768) {
+		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', reveal_lnk . unignore_tmp . _rsid);
 	} else {
-		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', reveal_lnk . unignore_tmp . _rsid);	
+		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);		
 	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 
-	$pdf_link = $SHOW_PDF_LINK == 'Y' ? '{TEMPLATE: msg_pdf_link}' : '';
-	$xml_link = $SHOW_XML_LINK == 'Y' ? '{TEMPLATE: msg_xml_link}' : '';
-	
+	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: msg_pdf_link}' : '';
+	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: msg_xml_link}' : '';
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MSG_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.39 2003/09/28 13:23:42 hackie Exp $
+*   $Id: tree.php.t,v 1.40 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,10 +81,10 @@
 	}
 
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
-		if ($USE_PATH_INFO == 'N') {
-			header('Location: {ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/mv/tree/'.$frm->root_msg_id.'/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
 		}
 		exit();
 	}
@@ -95,10 +95,10 @@
 		if (!isset($_GET['logoff'])) {
 			std_error('perms');
 		} else {
-			if ($USE_PATH_INFO == 'N') {
-				header('Location: {ROOT}?t=index&' . _rsidl);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/i/' . _rsidl);
+			} else {
+				header('Location: {ROOT}?t=index&' . _rsidl);
 			}
 			exit;
 		}	
@@ -163,7 +163,7 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: tree_title}';
 
-	if ($ENABLE_THREAD_RATING == 'Y') {
+	if ($FUD_OPT_2 & 4096) {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
 		if ($perms & 1024 && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
@@ -182,7 +182,7 @@
 
 	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
 	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
-	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
+	$email_page_to_friend = $FUD_OPT_1 & 4194304 ? '{TEMPLATE: email_page_to_friend}' : '';
 
 	$c = uq('SELECT m.poster_id, m.subject, m.reply_to, m.id, m.poll_id, m.attach_cnt, m.post_stamp, u.alias, u.last_visit FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='.$th.' AND m.apr=1 ORDER BY m.post_stamp');
 	while ($r = db_rowobj($c)) {
@@ -267,8 +267,8 @@
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
 
-	$pdf_link = $SHOW_PDF_LINK == 'Y' ? '{TEMPLATE: tree_pdf_link}' : '';
-	$xml_link = $SHOW_XML_LINK == 'Y' ? '{TEMPLATE: tree_xml_link}' : '';
+	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: tree_pdf_link}' : '';
+	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: tree_xml_link}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

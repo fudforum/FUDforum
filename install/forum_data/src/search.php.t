@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.24 2003/09/28 20:27:37 hackie Exp $
+*   $Id: search.php.t,v 1.25 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($FORUM_SEARCH != 'Y') {
+	if (!($FUD_OPT_1 & 16777216)) {
 		std_error('disabled');
 	}
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
@@ -159,10 +159,10 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			qf($c);
 			un_register_fps();
 			$search_data = '{TEMPLATE: search_results}';
-			if ($USE_PATH_INFO == 'N') {
-				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.$forum_limiter.'/', '/'._rsid);
+			} else {
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
 			}
 		}
 	} else {

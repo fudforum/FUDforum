@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.13 2003/09/30 01:42:28 hackie Exp $
+*   $Id: usercp.inc.t,v 1.14 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,5 +31,5 @@
 			$private_msg = '';
 		}
 	}
- 	$member_search = ($MEMBER_SEARCH_ENABLED == 'Y' || $usr->users_opt & 1048576) ? '{TEMPLATE: member_search}' : '';
+ 	$member_search = ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576) ? '{TEMPLATE: member_search}' : '';
 ?>

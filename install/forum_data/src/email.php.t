@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.10 2003/09/27 16:05:58 hackie Exp $
+*   $Id: email.php.t,v 1.11 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 		std_error('login');
 	}
 	
-	if ($ALLOW_EMAIL == 'N') {
+	if (!($FUD_OPT_1 & 4194304)) {
 		error_dialog('{TEMPLATE: email_err_unabletoemail_title}', '{TEMPLATE: email_err_unabletoemail_msg}');
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.21 2003/06/23 20:46:34 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.22 2003/09/30 02:50:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -133,7 +133,7 @@ function make_perms_uob(&$obj)
 
 	$login_error = '';
 	$gr_member = isset($_POST['gr_member']) ? $_POST['gr_member'] : '';
-	$find_user = $MEMBER_SEARCH_ENABLED == 'Y' ? '{TEMPLATE: grp_find_user}' : '';
+	$find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: grp_find_user}' : '';
 
 	if (isset($_POST['btn_submit'])) {
 		if (empty($_POST['edit'])) {
