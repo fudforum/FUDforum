@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.67 2004/05/13 19:23:37 hackie Exp $
+* $Id: ppost.php.t,v 1.68 2004/06/07 16:03:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,10 +55,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}');
 	}
 
-	$attach_control_error = null;
+	$attach_control_error = '';
 	$pm_find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: pm_find_user}' : '';
 
-	$attach_count = 0; $file_array = '';
+	$attach_count = 0;
+	$attach_list = array();
 
 	if (!isset($_POST['prev_loaded'])) {
 		/* setup some default values */
@@ -160,12 +161,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		}
 	}
 
-	if (isset($attach_list)) {
-		$attach_count = count($attach_list);
+	if ($attach_list) {
 		$enc = base64_encode(@serialize($attach_list));
 		foreach ($attach_list as $v) {
-			if (!$v) {
-				$attach_count--;
+			if ($v) {
+				$attach_count++;
 			}
 		}
 		/* remove file attachment */
@@ -182,9 +182,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$attach_count--;
 			}
 		}
-	} else {
-		$attach_count = 0;
-		$file_array = '';
 	}
 
 	/* deal with newly uploaded files */
@@ -258,16 +255,17 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$msg_p->sync();
 		}
 
-		if (isset($attach_list)) {
+		if ($attach_list) {
 			attach_finalize($attach_list, $msg_p->id, 1);
 
 			/* we need to add attachments to all copies of the message */
 			if (!isset($_POST['btn_draft'])) {
+				$atl = array();
 				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND attach_opt=1');
 				while ($r = db_rowarr($c)) {
 					$atl[$r[0]] = "'".addslashes($r[1])."', ".$r[2].", ".$r[3];
 				}
-				if (isset($atl)) {
+				if ($atl) {
 					foreach ($GLOBALS['send_to_array'] as $mid) {
 						foreach ($atl as $k => $v) {
 							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, attach_opt, message_id, original_name, mime_type, fsize, location) VALUES(' . $mid[0] . ', 1, ' . $mid[1] . ', ' . $v .', \'\')');
@@ -401,7 +399,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private, $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
+		$file_attachments = draw_post_attachments($attach_list, round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private, $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
 	} else {
 		$file_attachments = '';
 	}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.114 2004/06/07 15:24:53 hackie Exp $
+* $Id: post.php.t,v 1.115 2004/06/07 16:03:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@ function flood_check()
 		}
 		$frm_id = $thr->forum_id;
 	} else if ($frm_id) {
-		$th_id = null;
+		$thr = $th_id = null;
 	} else {
 		std_error('systemerr');
 	}
@@ -79,7 +79,7 @@ function flood_check()
 	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), ($usr->users_opt & 1048576));
 
 	/* More Security */
-	if (isset($thr) && !($perms & 4096) && $thr->thread_opt & 1) {
+	if ($thr && !($perms & 4096) && $thr->thread_opt & 1) {
 		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
 	}
 
@@ -116,6 +116,9 @@ function flood_check()
 	if (isset($_GET['prev_loaded'])) {
 		$_POST['prev_loaded'] = $_GET['prev_loaded'];
 	}
+
+	$attach_list = array();
+	$msg_subject = $msg_body = '';
 
 	/* Retrieve Message */
 	if (!isset($_POST['prev_loaded'])) {
@@ -201,11 +204,10 @@ function flood_check()
 
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
-				$attach_list = @unserialize(base64_decode($_POST['file_array']));
-				if (($attach_count = count($attach_list))) {
+				if (($attach_list = @unserialize(base64_decode($_POST['file_array'])))) {
 					foreach ($attach_list as $v) {
-						if (!$v) {
-							--$attach_count;
+						if ($v) {
+							$attach_count++;
 						}
 					}
 				}
@@ -377,7 +379,7 @@ function flood_check()
 			}
 
 			/* write file attachments */
-			if ($perms & 256 && isset($attach_list)) {
+			if ($perms & 256 && $attach_list) {
 				attach_finalize($attach_list, $msg_post->id);
 			}
 
@@ -534,9 +536,6 @@ function flood_check()
 	}
 
 	$msg_subect_err = get_err('msg_subject');
-	if (!isset($msg_subject)) {
-		$msg_subject = '';
-	}
 
 	/* handle polls */
 	$poll = '';
@@ -549,9 +548,9 @@ function flood_check()
 	}
 
 	/* sticky/announcment controls */
-	if ($perms & 64 && (!isset($thr) || $msg_id == $thr->root_msg_id)) {
+	if ($perms & 64 && (!$thr || $msg_id == $thr->root_msg_id)) {
 		if (!isset($_POST['prev_loaded'])) {
-			if (!isset($thr)) {
+			if (!$thr) {
 				$thr_ordertype = $thr_orderexpiry = '';
 			} else {
 				$thr_ordertype = ($thr->thread_opt|1) ^ 1;
@@ -572,7 +571,7 @@ function flood_check()
 
 	/* thread locking controls */
 	if ($perms & 4096) {
-		if (!isset($_POST['prev_loaded']) && isset($thr)) {
+		if (!isset($_POST['prev_loaded']) && $thr) {
 			$thr_locked_checked = $thr->thread_opt & 1 ? ' checked' : '';
 		} else if (isset($_POST['prev_loaded'])) {
 			$thr_locked_checked = isset($_POST['thr_locked']) ? ' checked' : '';
@@ -592,8 +591,8 @@ function flood_check()
 
 	$post_options = tmpl_post_options($frm->forum_opt, $perms);
 	$message_err = get_err('msg_body', 1);
-	$msg_body = isset($msg_body) ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
-	if (!empty($msg_subject)) {
+	$msg_body = $msg_body ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
+	if ($msg_subject) {
 		$msg_subject = htmlspecialchars($msg_subject);
 		char_fix($msg_subject);
 	}
@@ -610,7 +609,7 @@ function flood_check()
 			}
 			$frm->max_file_attachments = 100;
 		}
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error, 0, $msg_id);
+		$file_attachments = draw_post_attachments($attach_list, $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error, 0, $msg_id);
 	} else {
 		$file_attachments = '';
 	}
