@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.43 2003/12/02 21:21:53 hackie Exp $
+* $Id: post_proc.inc.t,v 1.44 2003/12/03 21:38:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -134,7 +134,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
 					}
 					$url = $parms;
-					if (!strpos($url, '://')) {
+					if (!strpos($url, '://') && $url[0] != '/' && strncmp($url, '../', 3)) {
 						$url = 'http&#58;&#47;&#47;'. $url;
 					} else {
 						$url = str_replace('://', '&#58;&#47;&#47;', $url);
