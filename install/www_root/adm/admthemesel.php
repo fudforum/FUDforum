@@ -2,15 +2,13 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.22 2004/10/06 16:43:22 hackie Exp $
+* $Id: admthemesel.php,v 1.23 2004/10/06 17:01:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
-
-	@set_time_limit(6000);
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -28,13 +26,11 @@
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
-<input type="hidden" name="ret" value="<?php echo $ret; ?>">
+<input type="hidden" name="ret" value="<?php echo $ret; ?>"><?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
 <td>Template Set:</td><td><select name="tname">
 <?php
-	echo _hs;
-	
 	$files = glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR);
 	foreach ($files as $file) {
 		if (!file_exists($file . '/tmpl')) {
