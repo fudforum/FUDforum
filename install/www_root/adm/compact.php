@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.25 2003/04/22 23:03:05 hackie Exp $
+*   $Id: compact.php,v 1.26 2003/04/30 13:25:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,7 +115,7 @@ function eta_calc($start, $pos, $pc)
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$base = $magic_file_id = 10000001;
 	$base -= 1;
-	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg') / 10);
+	$pc = round(q_singleval('SELECT count(*) FROM '.$tbl.'msg WHERE m.file_id<'.$magic_file_id) / 10);
 	$i = 0;
 	$stm = time();
 
