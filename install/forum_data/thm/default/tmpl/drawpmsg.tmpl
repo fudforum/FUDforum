@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.14 2003/05/02 15:22:06 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.15 2003/05/06 14:43:15 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -73,11 +73,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_aim}
-<a href="aim:goim?screenname={VAR: im_aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim.gif" border=0 alt="" /></a>&nbsp;
+<a href="aim:goim?screenname={VAR: obj->aim}&amp;message=Hi.+Are+you+there?"><img src="{THEME_IMAGE_ROOT}/aim.gif" border=0 alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_yahoo}
-<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: im_yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo.gif" border=0 alt="" /></a>&nbsp;
+<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: obj->yahoo}&amp;.src=pg"><img src="{THEME_IMAGE_ROOT}/yahoo.gif" border=0 alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_im_msnm}
