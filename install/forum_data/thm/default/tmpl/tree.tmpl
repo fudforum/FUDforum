@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.46 2004/04/13 19:05:02 hackie Exp $
+* $Id: tree.tmpl,v 1.47 2004/04/13 21:00:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -226,8 +226,8 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 </table>
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
+<br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</div>
-<div class="ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
