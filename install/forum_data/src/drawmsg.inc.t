@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.51 2003/07/09 10:15:13 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.52 2003/09/19 19:31:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -400,6 +400,12 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 
 		$report_to_mod_link = '{TEMPLATE: dmsg_report_to_mod_link}';
+
+		if ($obj->reply_to && $obj->reply_to != $obj->id) {
+			$rpl = '{TEMPLATE: dmsg_reply_to}';
+		} else {
+			$rpl = '';
+		}
 
 		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';

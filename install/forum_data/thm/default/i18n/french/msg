@@ -991,3 +991,4 @@ findu_unban:			Autoriser
 findu_ban:			Interdire
 findu_edit:			Éditer
 findu_delete:			Supprimer
+dmsg_reply_to:			reply to {VAR: obj->reply_to}

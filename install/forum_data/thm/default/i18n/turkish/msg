@@ -991,3 +991,4 @@ findu_ban:			Yasakla
 findu_edit:			Düzenle
 findu_delete:			Sil
 register_email:			Email
+dmsg_reply_to:			reply to {VAR: obj->reply_to}

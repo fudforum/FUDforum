@@ -991,3 +991,4 @@ findu_unban:			½â·â
 findu_ban:			·â
 findu_edit:			±à¼­
 findu_delete:			É¾³ı
+dmsg_reply_to:			reply to {VAR: obj->reply_to}
