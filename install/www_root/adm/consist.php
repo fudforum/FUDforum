@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.83 2004/05/20 22:15:08 hackie Exp $
+* $Id: consist.php,v 1.84 2004/05/20 22:49:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -153,11 +153,10 @@ forum will be disabled.
 
 	draw_stat('Checking if all private messages have users');
 	$dpm = array();
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE (pm.pmsg_opt & 16)=0 AND u.id IS NULL');
-	while ($r = db_rowarr($c)) {
-		$dpm[] = $r[0];
-	}
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE ((pm.pmsg_opt & 16) > 0 AND pm.pmsg_opt>=16) AND u.id IS NULL');
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm 
+		LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id 
+		LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id
+		WHERE (pm.pmsg_opt & 16) AND (u.id IS NULL OR u2.id IS NULL)');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];
 	}
