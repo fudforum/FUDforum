@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.6 2002/09/18 21:53:15 hackie Exp $
+*   $Id: admerr.php,v 1.7 2003/04/28 18:37:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,58 +16,52 @@
 ***************************************************************************/
 	
 	define('admin_form', 1);
-	
-	include_once "GLOBALS.php";
-	
-	fud_use('db.inc');
-	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
-	
-	fud_use('th.inc');
-	fud_use('imsg.inc');
-	fud_use('fileio.inc');
-	fud_use('err.inc');
 
-	if( !empty($HTTP_GET_VARS['clear_sql_log']) && file_exists($GLOBALS['ERROR_PATH'].'sql_errors') ) {
-		unlink($GLOBALS['ERROR_PATH'].'sql_errors');
+	require('GLOBALS.php');
+	fud_use('adm.inc', true);
+
+	if (!empty($_GET['clear_sql_log'])) {
+		@unlink($GLOBALS['ERROR_PATH'].'sql_errors');
+	} else if (!empty($_GET['clear_fud_log'])) {
+		@unlink($GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 	
-	if( !empty($HTTP_GET_VARS['clear_fud_log']) && file_exists($GLOBALS['ERROR_PATH'].'fud_errors') ) {
-		unlink($GLOBALS['ERROR_PATH'].'fud_errors');
-	}
-	
-	include('admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Error Log Browser</h2>
 
 <?php
-	if( @file_exists($GLOBALS['ERROR_PATH'].'fud_errors') && filesize($GLOBALS['ERROR_PATH'].'fud_errors') ) {
+	$err = 0;
+
+	if (@file_exists($GLOBALS['ERROR_PATH'].'fud_errors') && filesize($GLOBALS['ERROR_PATH'].'fud_errors')) {
 		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
 		
 		$errors = file($GLOBALS['ERROR_PATH'].'fud_errors');
-		foreach( $errors as $error ) {
-			list($time,$msg) = explode('] ', substr($error, 1));
+		foreach ($errors as $error) {
+			list($time, $msg) = explode('] ', substr($error, 1));
 			echo '<tr><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
 		}
 		echo '</table><br /><br />';
+		$err = 1;
 	}
 
-	if( @file_exists($GLOBALS['ERROR_PATH'].'sql_errors') && filesize($GLOBALS['ERROR_PATH'].'sql_errors') ) {
+	if (@file_exists($GLOBALS['ERROR_PATH'].'sql_errors') && filesize($GLOBALS['ERROR_PATH'].'sql_errors')) {
 		echo '<h4>SQL Error Log [<a href="admerr.php?clear_sql_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
 		
 		$errors = file($GLOBALS['ERROR_PATH'].'sql_errors');
-		foreach( $errors as $error ) {
-			list($time,$msg) = explode('] ', substr($error, 1));
+		foreach ($errors as $error) {
+			list($time, $msg) = explode('] ', substr($error, 1));
 			echo '<tr><td nowrap valign="top">'.$time.'</td><td>'.base64_decode($msg).'</td></tr>';
 		}
 		echo '</table><br /><br />';
+		$err = 1;
 	}
 
-	if( !isset($errors) ) 
-		echo "<h4>Error logs are currently empty</h4><br />";
+	if (!$err) {
+		echo '<h4>Error logs are currently empty</h4><br />';
+	}
 
-	require('admclose.html'); 
+	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
