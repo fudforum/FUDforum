@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.5 2002/07/24 12:39:04 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.6 2002/07/29 20:48:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -255,7 +255,10 @@ function tags_to_html($str, $allow_img='Y')
 		$ue = $pos;
 		while ( 1 ) {
 			++$ue;
-			if( $ostr[$ue] == '&' && ($ostr[$ue+3] == ';' || $ostr[$ue+4] == ';' || $ostr[$ue+5] == ';') ) break;
+			if( $ostr[$ue] == '&' ) {
+				if( $ostr[$ue+4] == ';' ) {$ue += 4; continue;}
+				if( $ostr[$ue+3] == ';' || $ostr[$ue+5] == ';' ) break;
+			}	
 			
 			if ( isset($GLOBALS['seps'][$ostr[$ue]]) || !isset($ostr[$ue]) ) break;
 		}
