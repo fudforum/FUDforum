@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.28 2003/04/08 11:47:17 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.29 2003/04/08 12:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,6 +58,9 @@ class fud_msg_edit extends fud_msg
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
 		
+		poll_cache_rebuild($this->poll_id, $poll_cache);
+		$poll_cache = ($poll_cache ? @serialize($poll_cahce) : NULL);
+
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
 			poster_id, 
@@ -77,7 +80,8 @@ class fud_msg_edit extends fud_msg
 			file_id_preview,
 			offset_preview,
 			length_preview,
-			mlist_msg_id
+			mlist_msg_id,
+			poll_cache
 		) VALUES(
 			".$this->thread_id.",
 			".$this->poster_id.",
@@ -97,7 +101,8 @@ class fud_msg_edit extends fud_msg
 			".$file_id_preview.",
 			".$offset_preview.",
 			".$length_preview.",
-			".strnull($this->mlist_msg_id)."
+			".strnull($this->mlist_msg_id).",
+			".strnull(addslashes($poll_cache))."
 		)");
 
 		if ((!empty($GLOBALS['MOD']) || $lock_perm == 'Y') && isset($_POST['thr_locked'])) {
@@ -152,6 +157,9 @@ class fud_msg_edit extends fud_msg
 		} else {
 			$file_id_preview = $offset_preview = $length_preview = 0;
 		}
+	
+		poll_cache_rebuild($this->poll_id, $poll_cache);
+		$poll_cache = ($poll_cache ? @serialize($poll_cahce) : NULL);
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
 			file_id=".$file_id.", 
@@ -168,7 +176,8 @@ class fud_msg_edit extends fud_msg
 			attach_cnt=".intzero($this->attach_cnt).", 
 			poll_id=".intzero($this->poll_id).", 
 			update_stamp=".__request_timestamp__.", 
-			icon=".strnull($this->icon)." 
+			icon=".strnull($this->icon)." ,
+			poll_cache=".strnull(addslashes($poll_cache))."
 		WHERE id=".$this->id);
 		
 		/* determine wether or not we should deal with locked & sticky stuff 

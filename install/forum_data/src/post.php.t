@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.31 2003/04/08 11:23:54 hackie Exp $
+*   $Id: post.php.t,v 1.32 2003/04/08 12:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -290,7 +290,7 @@
 			$_POST['btn_submit'] = 1;
 		}
 		
-		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd']) {
+		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 		
@@ -351,7 +351,7 @@
 
 			/* write file attachments */
 			if ($perms['p_file'] == 'Y' && isset($attach_list)) {
-				fud_attach::finalize($attach_list, $msg_post->id);
+				attach_finalize($attach_list, $msg_post->id);
 			}	
 			
 			if (!$msg_id && ($frm->moderated == 'N' || $MOD)) {

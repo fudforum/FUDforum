@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.25 2003/04/06 13:36:48 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.26 2003/04/08 12:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,20 +15,26 @@
 *
 ***************************************************************************/
 
-
-
 /* Handle poll votes if any are present */
-function register_vote($opt_id)
+function register_vote(&$options, $poll_id, $opt_id, $mid)
 {
-	if (($data = db_rowarr('SELECT p.id, pot.user_id FROM {SQL_TABLE_PREFIX}poll_opt po INNER JOIN {SQL_TABLE_PREFIX}poll p ON po.poll_id=p.id LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.' WHERE po.id='.$opt_id))) {
-		if ($data[1]) { /* user already voted */
-			return;
-		}	
-		db_lock('SQL_TABLE_PREFIX}poll_opt_track WRITE');
-		q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id) VALUES('.$data[0].', '._uid.')');
-		db_unlock();
-		q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
+	/* invalid option */
+	if (!isset($options[$opt_id])) {
+		return;
 	}
+	/* already voted */
+	if (q_singleval('SELECT is FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$poll_id.' AND user_id='._uid)) {
+		return;
+	}
+
+	db_lock('SQL_TABLE_PREFIX}poll_opt_track WRITE');
+	q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')');
+	db_unlock();
+	
+	q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
+	poll_cache_rebuild($opt_id, $options);
+	q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='.strnull(addslashes(@serialize($options))).' WHERE id='.$mid);
+
 	return;
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg.inc.t,v 1.6 2003/03/31 11:29:59 hackie Exp $
+*   $Id: imsg.inc.t,v 1.7 2003/04/08 12:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,6 +39,27 @@ class fud_msg
 		
 		$this->body = read_msg_body($this->foff, $this->length, $this->file_id);
 		un_register_fps();
+	}
+}
+
+function poll_cache_rebuild($poll_id, &$data)
+{
+	if (!$poll_id) {
+		$data = NULL;
+		return;
+	}
+
+	if (!$data) { /* rebuild from cratch */
+		$c = uq('SELECT id, name, count FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$poll_id);
+		while ($r = db_rowarr($c)) {
+			$data[$r[0]] = array($r[1], $r[2]);
+		}
+		qf($c);
+		if (!$data) {
+			$data = NULL;
+		}
+	} else { /* register single vote */
+		$data[$poll_id][1] += 1;
 	}
 }
 

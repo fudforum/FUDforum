@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.29 2003/04/08 11:23:55 hackie Exp $
+*   $Id: users.inc.t,v 1.30 2003/04/08 12:56:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -125,7 +125,7 @@ function register_thread_view($thread_id, $tm=0, $msg_id=0)
 
 function user_set_post_count($uid)
 {
-	$pd = db_saq(SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id='.$uid." AND approved='Y'");
+	$pd = db_saq("SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$uid." AND approved='Y'");
 	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pd[1].' ORDER BY post_count DESC LIMIT 1');
 	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$pd[0].', posted_msg_count='.$pd[1].',level_id='.$level_id.' WHERE id='.$uid);
 }
