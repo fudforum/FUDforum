@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.14 2003/04/14 12:34:25 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.15 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,7 +48,7 @@ function init_single_user_perms($id, $is_mod, &$MOD)
 	}
 	if ($is_mod == 'A' || ($is_mod == 'Y' && is_moderator($id, _uid))) { /* administrator or moderator */
 		$MOD = 1;
-		
+		return array('p_visible'=>'Y', 'p_read'=>'Y', 'p_post'=>'Y', 'p_reply'=>'Y', 'p_edit'=>'Y', 'p_del'=>'Y', 'p_sticky'=>'Y', 'p_poll'=>'Y', 'p_file'=>'Y', 'p_vote'=>'Y', 'p_rate'=>'Y', 'p_split'=>'Y', 'p_lock'=>'Y', 'p_move'=>'Y', 'p_sml'=>'Y', 'p_img'=>'Y');
 	} else { /* regular user */
 		$MOD = 0;
 		return db_arr_assoc('SELECT p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_type=\'forum\' AND resource_id='.$id.' ORDER BY user_id ASC LIMIT 1');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.17 2003/04/10 09:26:56 hackie Exp $
+*   $Id: thread.php.t,v 1.18 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,14 +19,8 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: thread_update}', $frm_id);
 
-	if (_uid) {
-		$lread_s = ',r.last_view ';
-		$lread_f = ' LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid;
-	} else {
-		$MOVE = $DEL = $lread_s = $lread_f = '';
-	}
-	
 /*{POST_HTML_PHP}*/
+
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
 	$result = uq('SELECT 
@@ -35,8 +29,8 @@
 		u2.id, u2.alias,
 		m2.id, m2.post_stamp, 
 		f.id, f.name,
-		t.id, t.moved_to, t.root_msg_id, t.replies, t.locked, t.rating, t.is_sticky, t.ordertype, t.views
-		'.(_uid ? ',r.last_view ' : '').' 
+		t.id, t.moved_to, t.root_msg_id, t.replies, t.locked, t.rating, t.is_sticky, t.ordertype, t.views,
+		r.last_view
 		FROM {SQL_TABLE_PREFIX}thread_view tv
 			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
@@ -44,7 +38,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u	ON u.id=m.poster_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id 
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
-			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid : '').'
+			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
 			WHERE tv.forum_id='.$frm_id.' AND tv.page='.(floor($start/$ppg)+1).' ORDER BY tv.pos ASC');
 	/* Field Defenitions 
 	 * 0 msg.attach_cnt
@@ -133,17 +127,15 @@
 			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
 
 			$thread_read_status = $first_unread_msg_link = '';
-			if (_uid) {
-				if ($usr->last_read < $r[10] && $r[10] > $r[22]) {
-					if ($r[17] == 'Y') {
-						$thread_read_status = '{TEMPLATE: thread_unread_locked}';
-					} else {
-						$thread_read_status = '{TEMPLATE: thread_unread}';
-					}
-					/* do not show 1st unread message link if thread has no replies */
-					if ($r[16]) {
-						$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
-					}
+			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[22]) {
+				if ($r[17] == 'Y') {
+					$thread_read_status = '{TEMPLATE: thread_unread_locked}';
+				} else {
+					$thread_read_status = '{TEMPLATE: thread_unread}';
+				}
+				/* do not show 1st unread message link if thread has no replies */
+				if ($r[16]) {
+					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
 				}
 			}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.41 2003/04/14 11:35:23 hackie Exp $
+*   $Id: post.php.t,v 1.42 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,7 +73,7 @@
 	$perms = init_single_user_perms($frm->id, $usr->is_mod, $MOD);
 	
 	/* More Security */
-	if (isset($thr) && $usr->is_mod != 'A' && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
+	if (isset($thr) && $perms['p_lock'] != 'Y' && $thr->locked=='Y') {
 		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}');
 	}
 
@@ -187,7 +187,7 @@
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
 
-		if ($perms['p_file'] == 'Y' || $MOD) {
+		if ($perms['p_file'] == 'Y') {
 			$attach_count = 0;
 			
 			/* restore the attachment array */
@@ -231,7 +231,7 @@
 		}
 		
 		/* removal of a poll */
-		if (!empty($_POST['pl_del']) && $pl_id && ($MOD || $perms['p_poll'] == 'Y')) {
+		if (!empty($_POST['pl_del']) && $pl_id && $perms['p_poll'] == 'Y') {
 			poll_delete($pl_id);
 			$pl_id = 0;
 		}
@@ -489,39 +489,38 @@
 	
 	/* handle polls */
 	$poll = '';
-	if ($MOD || $perms['p_poll'] == 'Y') {
+	if ($perms['p_poll'] == 'Y') {
 		if (!$pl_id) {
 			$poll = '{TEMPLATE: create_poll}';
 		} else if (($poll = db_saq('SELECT id, name FROM {SQL_TABLE_PREFIX}poll WHERE id='.$pl_id))) {
 			$poll = '{TEMPLATE: edit_poll}';
 		}
 	}
-	
-	$admin_options = $mod_post_opts = '';
-	/* sticky/announcment controls */
-	if ($MOD || $perms['p_sticky'] == 'Y') {
-		if (!isset($thr) || ($thr->root_msg_id == $msg->id && !$reply_to)) {
-			if (!isset($_POST['prev_loaded'])) {
-				if (!isset($thr)) {
-					$thr_ordertype = $thr_orderexpiry = '';
-				} else {
-					$thr_ordertype = $thr->ordertype;
-					$thr_orderexpiry = $thr->orderexpiry;
-				}
-			} else {
-				$thr_ordertype = isset($_POST['thr_ordertype']) ? $_POST['thr_ordertype'] : '';
-				$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? $_POST['thr_orderexpiry'] : '';
-			}
 
-			$thread_type_select = tmpl_draw_select_opt("NONE\nSTICKY\nANNOUNCE", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-			$thread_expiry_select = tmpl_draw_select_opt("1000000000\n3600\n7200\n14400\n28800\n57600\n86400\n172800\n345600\n604800\n1209600\n2635200\n5270400\n10540800\n938131200", "{TEMPLATE: th_expr_never}\n{TEMPLATE: th_expr_one_hr}\n{TEMPLATE: th_expr_three_hr}\n{TEMPLATE: th_expr_four_hr}\n{TEMPLATE: th_expr_eight_hr}\n{TEMPLATE: th_expr_sixteen_hr}\n{TEMPLATE: th_expr_one_day}\n{TEMPLATE: th_expr_two_day}\n{TEMPLATE: th_expr_four_day}\n{TEMPLATE: th_expr_one_week}\n{TEMPLATE: th_expr_two_week}\n{TEMPLATE: th_expr_one_month}\n{TEMPLATE: th_expr_two_month}\n{TEMPLATE: th_expr_four_month}\n{TEMPLATE: th_expr_one_year}", $thr_orderexpiry, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-		
-			$admin_options = '{TEMPLATE: admin_options}';
+	/* sticky/announcment controls */
+	if ($perms['p_sticky'] == 'Y' && (!isset($thr) || ($thr->root_msg_id == $msg->id && !$reply_to))) {
+		if (!isset($_POST['prev_loaded'])) {
+			if (!isset($thr)) {
+				$thr_ordertype = $thr_orderexpiry = '';
+			} else {
+				$thr_ordertype = $thr->ordertype;
+				$thr_orderexpiry = $thr->orderexpiry;
+			}
+		} else {
+			$thr_ordertype = isset($_POST['thr_ordertype']) ? $_POST['thr_ordertype'] : '';
+			$thr_orderexpiry = isset($_POST['thr_orderexpiry']) ? $_POST['thr_orderexpiry'] : '';
 		}
-	}	
+
+		$thread_type_select = tmpl_draw_select_opt("NONE\nSTICKY\nANNOUNCE", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+		$thread_expiry_select = tmpl_draw_select_opt("1000000000\n3600\n7200\n14400\n28800\n57600\n86400\n172800\n345600\n604800\n1209600\n2635200\n5270400\n10540800\n938131200", "{TEMPLATE: th_expr_never}\n{TEMPLATE: th_expr_one_hr}\n{TEMPLATE: th_expr_three_hr}\n{TEMPLATE: th_expr_four_hr}\n{TEMPLATE: th_expr_eight_hr}\n{TEMPLATE: th_expr_sixteen_hr}\n{TEMPLATE: th_expr_one_day}\n{TEMPLATE: th_expr_two_day}\n{TEMPLATE: th_expr_four_day}\n{TEMPLATE: th_expr_one_week}\n{TEMPLATE: th_expr_two_week}\n{TEMPLATE: th_expr_one_month}\n{TEMPLATE: th_expr_two_month}\n{TEMPLATE: th_expr_four_month}\n{TEMPLATE: th_expr_one_year}", $thr_orderexpiry, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+		
+		$admin_options = '{TEMPLATE: admin_options}';
+	} else {
+		$admin_options = '';
+	}
 
 	/* thread locking controls */
-	if ($MOD || $perms['p_lock'] == 'Y') {
+	if ($perms['p_lock'] == 'Y') {
 		if (!isset($_POST['prev_loaded']) && isset($thr)) {
 			$thr_locked_checked = $thr->locked == 'Y' ? ' checked' : '';
 		} else if (isset($_POST['prev_loaded'])) {
@@ -530,6 +529,8 @@
 			$thr_locked_checked = '';
 		}
 		$mod_post_opts = '{TEMPLATE: mod_post_opts}';
+	} else {
+		$mod_post_opts = '';
 	}
 	
 	/* message icon selection */
@@ -540,11 +541,7 @@
 	
 	$post_options = tmpl_post_options($frm);
 	$message_err = get_err('msg_body', 1);
-	if (isset($msg_body)) {
-		$msg_body = str_replace("\r", "", $msg_body);
-	} else {
-		$msg_body = '';
-	}
+	$msg_body = isset($msg_body) ? str_replace("\r", '', $msg_body) : '';
 	
 	/* handle file attachments */
 	if ($perms['p_file'] == 'Y') {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.39 2003/04/14 19:42:35 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.40 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -201,12 +201,12 @@ class fud_msg_edit extends fud_msg
 
 			/* Determine if any work needs to be done */
 			if (isset($thr_locked, $is_sticky)) {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET is_sticky='".yn($is_sticky)."', ordertype=".ifnull($ordertype, "'NONE'").", orderexpiry=".intzero($this->orderexpiry).", locked='".yn($thr_locked)."' WHERE id=".$this->id);
+				q("UPDATE {SQL_TABLE_PREFIX}thread SET is_sticky='".yn($is_sticky)."', ordertype=".ifnull($ordertype, "'NONE'").", orderexpiry=".intzero($this->orderexpiry).", locked='".yn($thr_locked)."' WHERE id=".$this->thread_id);
 				rebuild_forum_view($frm_id);
 			} else if (isset($thr_locked)) {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='".yn($thr_locked)."' WHERE id=".$this->id);
+				q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='".yn($thr_locked)."' WHERE id=".$this->thread_id);
 			} else {
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET is_sticky='".yn($is_sticky)."', ordertype=".ifnull($ordertype, "'NONE'").", orderexpiry=".intzero($orderexpiry)." WHERE id=".$this->id);
+				q("UPDATE {SQL_TABLE_PREFIX}thread SET is_sticky='".yn($is_sticky)."', ordertype=".ifnull($ordertype, "'NONE'").", orderexpiry=".intzero($orderexpiry)." WHERE id=".$this->thread_id);
 				rebuild_forum_view($frm_id);
 			}
 		}

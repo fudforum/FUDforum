@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.18 2003/04/11 09:52:56 hackie Exp $
+*   $Id: err.inc.t,v 1.19 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,7 +91,9 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	$error_msg = "(".basename($_SERVER['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
 	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
 	$error_msg .= "Server Version: ".$server_version."<br />\n";
-	if( !empty($_SERVER['HTTP_REFERER']) ) $error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
+	}
 	
 	if( !error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors') ) {
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.13 2003/04/06 15:52:04 hackie Exp $
+*   $Id: threadt.php.t,v 1.14 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -86,6 +86,9 @@
 							$thread_icon			= $cur->icon		? '{TEMPLATE: thread_icon}'		: '{TEMPLATE: thread_icon_none}';
 							$user_link			= $cur->poster_id	? '{TEMPLATE: reg_user_link}'		: '{TEMPLATE: unreg_user_link}';
 							
+							if (strlen($cur->subject) > $TREE_THREADS_MAX_SUBJ_LEN) {
+								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
+							}
 							if ($lev == 1 && $cur->is_sticky == 'Y') {
 								$cur->subject .= ($cur->ordertype == 'STICKY' ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
 							} 
@@ -98,10 +101,6 @@
 								}
 							} else {
 								$thread_read_status = '{TEMPLATE: thread_read_unreg}';
-							}
-						
-							if (strlen($cur->subject) > $TREE_THREADS_MAX_SUBJ_LEN) {
-								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 							}
 						
 							$width = 20 * ($lev - 1);

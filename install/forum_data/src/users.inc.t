@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.36 2003/04/11 11:29:12 hackie Exp $
+*   $Id: users.inc.t,v 1.37 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,17 +23,6 @@ class fud_user
 	    $ignore_admin, $bday, $blocked, $home_page, $sig, $bio, $posted_msg_count, $last_visit, $last_event, $email_conf, $conf_key,
 	    $coppa, $user_image, $join_date, $theme, $last_read, $default_view, $mod_list, $mod_cur, $is_mod, $level_id, $u_last_post_id,
 	    $cat_collapse_status, $acc_status, $ignore_list, $buddy_list;
-	
-	function mark_all_read()
-	{
-		if (!($tm = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg'))) {
-			$tm = __request_timestamp__;
-		}
-
-		q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$this->id);
-		q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id='.$this->id);
-		q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id,thread_id,msg_id,last_view) SELECT '.$this->id.',id,last_post_id,'.$tm.' FROM {SQL_TABLE_PREFIX}thread');
-	}
 }
 
 function user_copy_object($osrc, &$odst)
@@ -120,6 +109,27 @@ function user_set_post_count($uid)
 	$pd[0] = (int) $pd[0]; $pd[1] = (int) $pd[1];
 	$level_id = (int) q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}level WHERE post_count <= '.$pd[1].' ORDER BY post_count DESC LIMIT 1');
 	q('UPDATE {SQL_TABLE_PREFIX}users SET u_last_post_id='.$pd[0].', posted_msg_count='.$pd[1].', level_id='.$level_id.' WHERE id='.$uid);
+}
+
+function user_mark_all_read($id)
+{
+	if (!($tm = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg'))) {
+		$tm = __request_timestamp__;
+	}
+
+	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$id);
+}
+
+function user_mark_forum_read($id, $fid)
+{
+	if (!($tm = q_singleval('SELECT MAX(last_post_date) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid))) {
+		$tm = __request_timestamp__;
+	}
+	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$id);
+
+	db_lock('{SQL_TABLE_PREFIX}read WRITE, {SQL_TABLE_PREFIX}thread WRITE');
+	q('INSERT INTO {SQL_TABLE_PREFIX}read (user_id,thread_id,msg_id,last_view) SELECT '.$id.',id,last_post_id,'.$tm.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
+	db_unlock();
 }
 
 if (defined('admin_form')) { 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.5 2003/04/11 09:52:56 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.6 2003/04/15 08:32:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,9 +20,7 @@ if (!isset($_GET['frm_id']) || (!($frm_id = (int)$_GET['frm_id']))) {
 	invl_inp_err();
 }
 
-if (isset($_REQUEST['start'])) {
-	$start = (int) $_REQUEST['start'];
-} else {
+if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 	$start = 0;
 }
 
@@ -34,9 +32,7 @@ if (isset($_REQUEST['start'])) {
 make_perms_query($fields, $join);
 
 $frm = db_sab('SELECT 
-			f.id,
-			f.name,
-			f.thread_count,
+			f.id, f.name, f.thread_count,
 			c.name AS cat_name,
 			fn.forum_id AS subscribed,
 			m.forum_id AS mod,
@@ -74,11 +70,10 @@ if (_uid) {
 		$frm->subscribed = 0;
 	}
 	$subscribe = $frm->subscribed ? '{TEMPLATE: unsubscribe_link}' : '{TEMPLATE: subscribe_link}';
-	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $THREADS_PER_PAGE;
 	$MOD = ($usr->is_mod == 'A' || $frm->mod) ? 1 : 0;
 } else {
 	$subscribe = '';
-	$ppg = $THREADS_PER_PAGE;
 	$MOD = 0;
 }
+$ppg = $usr->posts_ppg ? $usr->posts_ppg : $THREADS_PER_PAGE;
 ?>
