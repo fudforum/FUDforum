@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
+*   $Id: login.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -28,7 +28,7 @@
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{ROOT}?t=login">
+<form method="post" action="{ROOT}/l/{DEF: _rsid}">
 <div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=3>{MSG: login_title}</th></tr>

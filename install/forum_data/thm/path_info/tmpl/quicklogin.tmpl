@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: quicklogin.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: quicklogin.tmpl,v 1.2 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -18,7 +18,7 @@
 
 {MAIN_SECTION: quick_login_on}
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
-<form name="quick_login_form" method="post" action="{ROOT}?t=login">{DEF: _hs}
+<form name="quick_login_form" method="post" action="{ROOT}/l/{DEF: _rsid}">
 <table border=0 align="right" cellspacing=0 cellpadding=3>
 <tr class="SmallText">
 	<td>{MSG: quicklogin_login}</td>

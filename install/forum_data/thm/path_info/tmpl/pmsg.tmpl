@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -97,7 +97,7 @@
 {TEMPLATE: pmsg_disk_usage}
 <div align="right"><a class="GenLink" href="{ROOT}/pmm/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" border=0 alt="" /></a></div><img src="blank.gif" alt="" width=1 height=2 border=0 />
 {TEMPLATE-DATA: tabs}
-<form action="{ROOT}?t=pmsg" method="post" name="priv_frm">{DEF: _hs}
+<form action="{ROOT}/pdm/{DEF: _rsid}" method="post" name="priv_frm">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB"><td colspan=6 class="GenText" align="right">
 {MSG: folder} <select name="folder_id" onChange="javascript: document.priv_frm.submit();">

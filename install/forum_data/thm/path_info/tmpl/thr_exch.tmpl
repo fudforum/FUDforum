@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.tmpl,v 1.2 2003/06/02 13:51:03 hackie Exp $
+*   $Id: thr_exch.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: thr_move_decline}
-<form method="post" action="{ROOT}?t=thr_exch" name="thr_exch">
+<form method="post" action="{ROOT}/te/{DEF: _rsid}" name="thr_exch">
 {DEF: _hs}<input type="hidden" name="decl" value="{VAR: decl}">
 <tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br /><textarea name="reason" cols=60 rows=10></textarea><br /><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
 </form>

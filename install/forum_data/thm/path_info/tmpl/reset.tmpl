@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: reset.tmpl,v 1.2 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,14 +27,14 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <div align="center">
-<form method="post" action="{ROOT}?t=reset">
+<form method="post" action="{ROOT}/rst/{DEF: _rsid}">
 <table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
 <tr><th colspan=2>{MSG: reset_remind_pass}</th></tr>
 <tr class="RowStyleA"><td colspan=2 class="RowStyleA"><font class="GenText">{MSG: reset_reset_conf}</font></td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: reset_email}</td><td>{TEMPLATE-DATA: no_such_email}<input type="text" name="email" value="{VAR: email}"></td></tr>
 <tr class="RowStyleA"><td colspan=2 nowrap align="right"><input type="submit" class="button" name="reset_passwd" value="{MSG: reset_reset_button}"></td></tr>
 </table>
-{DEF: _hs}</form>
+</form>
 </div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

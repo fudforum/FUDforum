@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rpasswd.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: rpasswd.tmpl,v 1.2 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,7 +21,7 @@
 
 {PAGE: RPASSWD_PAGE change password popup}
 {TEMPLATE: header_plain}
-<form method="post" action="{ROOT}?t=rpasswd"><div align="center">
+<form method="post" action="{ROOT}/rp/{DEF: _rsid}"><div align="center">
 <table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 {TEMPLATE-DATA: rpasswd_error}
 <tr><th colspan=2>{MSG: rpasswd_change_pass}</th></tr>
@@ -30,7 +30,7 @@
 <tr class="RowStyleB"><td>{MSG: rpasswd_new_pass}</td><td><input type="password" name="passwd1" value=""></td></tr>
 <tr class="RowStyleB"><td>{MSG: rpasswd_conf_pass}</td><td><input type="password" name="passwd2" value=""></td></tr>
 <tr class="RowStyleB"><td align=right colspan=2><input type="submit" class="button" value="{MSG: go}" name="btn_submit"></td></tr>
-</table></div>{DEF: _hs}</form>
+</table></div></form>
 {TEMPLATE: footer_plain}
 {PAGE: END}
 

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: remail.tmpl,v 1.2 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -31,12 +31,12 @@
 {TEMPLATE: usercp}
 <div align=center>
 {TEMPLATE-DATA: remail_error}
-<form action="{ROOT}?t=remail" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
+<form action="{ROOT}/ef/{VAR: th}/{DEF: _rsid}" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: remail_email_topic}</th></tr>
 {TEMPLATE-DATA: form_data}
 </table>
-{DEF: _hs}<input type="hidden" name="th" value="{VAR: th}"></form>
+</form>
 </div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

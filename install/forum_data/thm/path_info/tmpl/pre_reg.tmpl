@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: pre_reg.tmpl,v 1.2 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,11 +25,11 @@
 {PAGE: PREREG_PAGE forum rules to which a user must agree prior to registering}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form method="post" action="{ROOT}?t=pre_reg" name="sub" style="padding: 0px; margin: 0px;">{DEF: _hs}
+<form method="post" action="{ROOT}/pr/{VAR: _GET['coppa']}/{DEF: _rsid}" name="sub" style="padding: 0px; margin: 0px;">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th>{MSG: prereg_info}</th></tr>
 <tr class="RowStyleA" align="center"><td class="GenText">{VAR: msg_file}
-<br /><input type="hidden" name="coppa" value="{VAR: _GET['coppa']}"><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}"> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}"></td></tr>
+<br /><input type="submit" class="button" name="agree" value="{MSG: prereg_agree}"> <input type="submit" class="button" name="disagree" value="{MSG: prereg_disagree}"></td></tr>
 </table></form>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}

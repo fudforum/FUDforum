@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.2 2003/06/02 14:11:52 hackie Exp $
+*   $Id: post.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -125,9 +125,8 @@
 <tr class="RowStyleA" align="center">
 	<td class="GenText">
 		{MSG: post_moderated_forum}
-		<br /><br /><form action="{ROOT}?t=post" method="post">{DEF: _hs}
+		<br /><br /><form action="{ROOT}/r/moderated_redr/1/{DEF: _rsid}" method="post">
 		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
-		<input type="hidden" name="moderated_redr" value="1">
 		</form>
 	</td>
 </tr>
@@ -140,7 +139,7 @@
 {PAGE: POST_PAGE message posting form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-<form action="{ROOT}?t=post" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
+<form action="{ROOT}/r/prev_loaded/1/{DEF: _rsid}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
 {TEMPLATE-DATA: post_error}
 {TEMPLATE-DATA: preview_message}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
@@ -179,7 +178,6 @@
 <input type="hidden" name="msg_id" value="{VAR: msg_id}">
 <input type="hidden" name="pl_id" value="{VAR: pl_id}">
 <input type="hidden" name="old_subject" value="{VAR: old_subject}">
-<input type="hidden" name="prev_loaded" value="1">
 </form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

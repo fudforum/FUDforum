@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.2 2003/06/02 15:19:32 hackie Exp $
+*   $Id: register.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -142,7 +142,7 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: tabs}
-<form method="post" action="{ROOT}?t=register" name="fud_register" enctype="multipart/form-data" style="padding: 0px; margin: 0px;">
+<form method="post" action="{ROOT}/re/{DEF: _rsid}" name="fud_register" enctype="multipart/form-data" style="padding: 0px; margin: 0px;">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: register_required}<br /><font size="-2">{MSG: register_required_desc}</font></th></tr>
 {TEMPLATE-DATA: user_info_heading}
@@ -195,7 +195,6 @@
 <tr><td class="RowStyleA">Theme:</td><td class="RowStyleA">{TEMPLATE-DATA: theme_select}</td></tr>
 <tr class="RowStyleC"><td colspan=2 align="center">{TEMPLATE-DATA: submit_button}&nbsp;<INPUT TYPE="reset" class="button" NAME="Reset" VALUE="{MSG: register_reset}"></td></tr>
 </table>
-{DEF: _hs}
 <input type="hidden" name="prev_loaded" value="1">
 <input type="hidden" name="mod_id" value="{VAR: mod_id}">
 <input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}">
