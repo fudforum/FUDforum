@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.14 2002/10/24 21:01:39 hackie Exp $
+*   $Id: nntp.inc,v 1.15 2003/02/06 19:38:12 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,11 +119,17 @@ class fud_nntp
 			return false;
 		}
 		
+		$ret = $this->cmd("MODE reader");
+
+		if( !$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret) ) {
+			$this->error = "Failed to recieve proper response from NNTP Server when setting 'MODE reader', got ".$this->lrc."\n";
+			return false;
+		}
+		
 		if( ($this->cmd("GROUP ".$this->newsgroup) != 211) ) {
 			$this->error = "Unable to use ".$this->newsgroup." newsgroup NTTP Msg: ".$this->lrc."\n";
 			return false;
-		}
-		else {
+		} else {
 			$tmp = explode(" ", $this->lrc);
 			$this->group_na = $tmp[1];
 			$this->group_first = $tmp[2];
