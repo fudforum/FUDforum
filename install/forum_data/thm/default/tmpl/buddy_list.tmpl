@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.23 2004/04/23 14:11:02 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.24 2004/04/23 18:33:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,17 +47,17 @@
 
 {SECTION: buddy buddy row entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td align="center">{TEMPLATE-DATA: online_status}</td>
-	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{TEMPLATE: buddy_lnk}">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
-	<td align="center">{VAR: r[6]}</td>
-	<td align="center" nowrap>{DATE: r[3] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="ac">{TEMPLATE-DATA: online_status}</td>
+	<td class="GenText wa">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{TEMPLATE: buddy_lnk}">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
+	<td class="ac">{VAR: r[6]}</td>
+	<td class="ac nw">{DATE: r[3] %a, %d %B %Y %H:%M}</td>
+	<td class="GenText nw"><a href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: buddy_list the buddy list table}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: buddy_status}</th><th>{MSG: my_buddies}</th><th nowrap align="center">{MSG: referals_post_count}</th><th nowrap align="center">{MSG: referals_registered_on}</th><th nowrap align="center">{MSG: referals_action}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: buddy_status}</th><th>{MSG: my_buddies}</th><th class="nw ac">{MSG: referals_post_count}</th><th class="ac nw">{MSG: referals_registered_on}</th><th class="ac nw">{MSG: referals_action}</th></tr>
 {TEMPLATE-DATA: buddies}
 </table>
 {SECTION: END}
@@ -68,11 +68,11 @@
 {TEMPLATE-DATA: tabs}
 {TEMPLATE-DATA: buddies}
 <br /><br />
-<form name="buddy_add" action="{TEMPLATE: BUDDYLIST_PAGE_lnk3}" method="post">{DEF: _hs}<div align="center">
-<table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
+<form name="buddy_add" action="{TEMPLATE: BUDDYLIST_PAGE_lnk3}" method="post">{DEF: _hs}<div class="ctb">
+<table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th nowrap>{MSG: add_buddy}</th></tr>
 <tr class="RowStyleA">
-<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: buddy_member_search}</font><p>
+<td class="GenText nw Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: buddy_member_search}<p>
 <input type="text" tabindex="1" name="add_login" value="" maxlength=100 size=25> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
 <script>
