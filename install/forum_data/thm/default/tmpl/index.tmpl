@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.28 2003/12/19 18:20:44 hackie Exp $
+* $Id: index.tmpl,v 1.29 2003/12/20 13:14:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -116,12 +116,11 @@
 {SECTION: END}
 
 {SECTION: forum_icon_legend}
-<br />
-<div class="RowStyleB"><font class="SmallText">
-<div class="LegendH"><b>{MSG: legend}</b></div>
+<fieldset>
+        <legend>{MSG: legend}</legend>
 <img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
-</font></div>
+</fieldset>
 {SECTION: END}
 
 {SECTION: welcome_message}

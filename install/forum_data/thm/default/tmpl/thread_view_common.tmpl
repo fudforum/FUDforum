@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.16 2003/12/19 18:20:44 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.17 2003/12/20 13:14:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -121,13 +121,12 @@
 {SECTION: END}
 
 {SECTION: thread_legend}
-<br />
-<div class="RowStyleB"><font class="SmallText">
-<div class="LegendH"><b>{MSG: legend}</b></div>
+<fieldset>
+        <legend>{MSG: legend}</legend>
 <img src="{THEME_IMAGE_ROOT}/unread.png" width=32 height=32 alt="{MSG: new_posts}" /> {MSG: new_posts}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/read.png" width=32 height=32 alt="{MSG: no_new_posts}" /> {MSG: no_new_posts}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/unreadlocked.png" width=32 height=32 alt="{MSG: locked_with_new_posts}" /> {MSG: locked_with_new_posts}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/readlocked.png" width=32 height=32 alt="{MSG: locked}" /> {MSG: locked}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/moved.png" width=32 height=32 alt="{MSG: moved}" /> {MSG: moved}
-</font></div>
+</fieldset>
 {SECTION: END}
