@@ -216,7 +216,7 @@ function ie_png_hack()
 {
 	var i = document.images.length - 1;
 	while ((img = document.images[i--])) {
-		if (img.src.indexOf(".png") > -1) {
+		if (img.src.indexOf(".png") > -1 && img.src.indexOf("/images/") > -1 && img.src.indexOf("/theme/") > -1) {
 			img.src = img.src.replace(/\.png$/i, ".gif");
 		}
 	}
