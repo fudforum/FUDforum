@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.73 2004/06/11 14:06:55 hackie Exp $
+* $Id: msg.php.t,v 1.74 2004/06/11 14:24:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,23 +117,16 @@
 	}
 
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
-
-	$_GET['start'] = isset($_GET['start']) ? (int)$_GET['start'] : 0;
-	if ($_GET['start'] < 0) {
-		$_GET['start'] = 0;
-	}
-
+	$_GET['start'] = (isset($_GET['start']) && $_GET['start'] > 0) ? (int)$_GET['start'] : 0;
 	$total = $frm->replies + 1;
 
 	if (_uid) {
 		/* Deal with thread subscriptions */
 		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->sq)) {
-			if ($_GET['opt'] == 'on') {
+			if (($frm->subscribed = ($_GET['opt'] == 'on'))) {
 				thread_notify_add(_uid, $_GET['th']);
-				$frm->subscribed = 1;
 			} else {
 				thread_notify_del(_uid, $_GET['th']);
-				$frm->subscribed = 0;
 			}
 		}
 
