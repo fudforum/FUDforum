@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.16 2002/09/26 04:14:03 hackie Exp $
+*   $Id: index.php.t,v 1.17 2002/09/26 04:45:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -106,7 +106,7 @@ function index_view_perms($usr_id)
 	if ( !empty($c) ) {
 		reload_collapse($c);
 		if( _uid && $usr->cat_collapse_status != $c && !preg_match('![^0-9:_]!', $c) ) 
-			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".$c."' WHERE id=".$id);
+			q("UPDATE {SQL_TABLE_PREFIX}users SET cat_collapse_status='".$c."' WHERE id="._uid);
 	}	
 		
 	if ( isset($ses) ) $ses->update('{TEMPLATE: index_update}');
