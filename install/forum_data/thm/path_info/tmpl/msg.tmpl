@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.9 2003/10/09 21:08:03 hackie Exp $
+* $Id: msg.tmpl,v 1.10 2003/10/09 21:27:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -97,30 +97,15 @@
 {PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-
-<table width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr>
-<td valign="bottom" align="left" width="100%">
-<font class="GenText">
-{TEMPLATE-DATA: msg_forum_path}
-{TEMPLATE-DATA: thread_rating}
-<br />{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}
-{TEMPLATE-DATA: lock_thread}
-{TEMPLATE-DATA: email_page_to_friend}
-{TEMPLATE-DATA: first_unread_message_link}
-{TEMPLATE-DATA: subscribe_status}
+{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
 {TEMPLATE-DATA: admin_cp}
-</font>
-</td>
-<td align="right" class="GenText" valign="bottom" nowrap>
-{TEMPLATE: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}
-</td>
+<table cellspacing=0 cellpaddong=0 border=0 width="100%">
+<tr>
+<td align="left" class="GenText">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
+<td valign="bottom" align="right">{TEMPLATE: threaded_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
-<tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 /></td></tr>
 </table>
-
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable" style="border: 1px solid black">
 {TEMPLATE-DATA: message_data}
 </table>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
