@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.72 2005/03/04 03:36:35 hackie Exp $
+* $Id: post_proc.inc.t,v 1.73 2005/03/04 03:54:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,7 +24,7 @@ function char_fix(&$str)
 
 	foreach ($src as $k => $v) {
 		if (strpos($str, $v) === false) {
-			unset($src[$k], $dst[$v]);
+			unset($src[$k], $dst[$k]);
 		}
 	}
 
