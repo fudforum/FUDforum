@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cfg.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: cfg.inc,v 1.2 2003/04/29 18:29:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,16 +17,11 @@
 
 function cfg_enc($str)
 {
-	$str = str_replace("\n", '<{LF}>', $str);
-	$str = str_replace("\r", '<{CF}>', $str);
-	return $str;
+	return str_replace("\n", '<{LF}>', str_replace("\r", '<{CF}>', $str));
 }
 
 function cfg_dec($str)
 {
-	$str = str_replace('<{LF}>', "\n", $str);
-	$str = str_replace('<{CF}>', "\r", $str);
-		
-	return $str;
+	return str_replace('<{LF}>', "\n", str_replace('<{CF}>', "\r", $str));
 }
 ?>

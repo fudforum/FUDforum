@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.3 2003/04/29 18:02:41 hackie Exp $
+*   $Id: glob.inc,v 1.4 2003/04/29 18:29:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,11 +50,11 @@ function change_global_settings($list)
 			$settings = substr_replace(settings, "\t\$$k\t= \"$v\";\n", $p, 0);
 		} else {
 			$p = strpos($settings, '"', $p) + 1;
-			if ($v == 'Y' || $v = 'N') {
+			if ($v == 'Y' || $v == 'N') {
 				$settings[$p] = $v;
 			} else {
-				$e = strpos($settings, '";', ++$p);
-				$settings = subatr_replace($settings, $v, $p, ($e - $p));
+				$e = strpos($settings, '";', $p);
+				$settings = substr_replace($settings, $v, $p, ($e - $p));
 			}
 		}
 	}
