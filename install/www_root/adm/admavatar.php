@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admavatar.php,v 1.15 2004/03/18 00:34:28 hackie Exp $
+* $Id: admavatar.php,v 1.16 2004/04/16 01:18:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -72,6 +72,7 @@ function import_avatars($path)
 }
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+	
 
 	if (!empty($_GET['del']) && ($im = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']))) {
 		q('DELETE FROM '.$tbl.'avatar WHERE id='.(int)$_GET['del']);
@@ -121,14 +122,14 @@ function import_avatars($path)
 
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['avt_img'])) {
 		$old_img = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_POST['edit']);
-		q('UPDATE '.$tbl.'avatar SET gallery='.strnull(addslashes($av_gal)).', img='.strnull(addslashes($_POST['avt_img'])).', descr='.strnull(addslashes($_POST['avt_descr'])).' WHERE id='.(int)$_POST['edit']);
+		q('UPDATE '.$tbl.'avatar SET gallery='.strnull(addslashes($avt_gal)).', img='.strnull(addslashes($_POST['avt_img'])).', descr='.strnull(addslashes($_POST['avt_descr'])).' WHERE id='.(int)$_POST['edit']);
 		if (db_affected() && $old_img != $_POST['avt_img']) {
 			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']);
 			$new_loc = '<img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$_POST['avt_img'].'" '.$size[3].' />';
 			q('UPDATE '.$tbl.'users SET avatar_loc=\''.$new_loc.'\' WHERE avatar='.(int)$_POST['edit']);
 		}
 	} else if (isset($_POST['btn_submit']) && !empty($_POST['avt_img'])) {
-		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.strnull(addslashes($_POST['avt_img'])).', '.strnull(addslashes($_POST['avt_descr'])).', '.strnull(addslashes($av_gal)).')');
+		q('INSERT INTO '.$tbl.'avatar (img, descr, gallery) VALUES ('.strnull(addslashes($_POST['avt_img'])).', '.strnull(addslashes($_POST['avt_descr'])).', '.strnull(addslashes($avt_gal)).')');
 	}
 
 	// fetch a list of avaliable galleries
@@ -169,11 +170,11 @@ function import_avatars($path)
 		<tr><td colspan=2>&nbsp;</td></tr>
 	
 		<tr class="field">
-			<td colspan=2><b>Avatar Upload (upload avatars into the system)</td>
+			<td colspan=2><b>Avatar Upload</b> (upload avatars into the system)</td>
 		</tr>
 		<tr class="field">
 			<td>Avatar Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
-			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
+			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"> <input type="hidden" name="tmp_var" value=""></td>
 		</tr>
 	<?php } else { ?>
 		<tr class="field">
@@ -191,7 +192,7 @@ function import_avatars($path)
 		<td>Avatar Description:</td>
 		<td><input type="text" name="avt_descr" value="<?php echo htmlspecialchars($avt_descr); ?>"></td>
 	</tr>
-	
+
 	<tr class="field">
 		<td>Gallery Name (optional):</td>
 		<td><input type="text" name="avt_gal_m" value="">
