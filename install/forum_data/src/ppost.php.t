@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.39 2003/06/09 17:39:52 hackie Exp $
+*   $Id: ppost.php.t,v 1.40 2003/06/18 17:50:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,7 +98,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
 				}
 
-				if ($quote && strncmp($msg_subject, 'Re: ', 4)) {
+				if ($quote) {
 					switch ($PRIVATE_TAGS) {
 						case 'ML':
 							$msg_body = '{TEMPLATE: fud_quote}';
@@ -110,7 +110,9 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 							$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
 					}
 				
-					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
+					if (strncmp($msg_subject, 'Re: ', 4)) {
+						$old_subject = $msg_subject = 'Re: ' . $msg_subject;
+					}
 					$msg_ref_msg_id = 'R'.$reply;
 					unset($msg_r);
 				} else if ($forward && strncmp($msg_subject, 'Fwd: ', 5)) {
