@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.23 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admuser.php,v 1.24 2003/05/19 10:07:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@
 			$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
 			if ($EMAIL_CONFIRMATION == 'Y' && $u->email_conf == 'N') {
 				$conf_key = usr_email_unconfirm($u->id);
-				$url = '{ROOT}?t=emailconf&conf_key='.$conf_key;
+				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
 				
 				send_email($GLOBALS['NOTIFY_FROM'], $u->email, $GLOBALS['register_conf_subject'], $GLOBALS['reset_confirmation'], "");
 			} else {
