@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.6 2003/04/15 14:43:05 hackie Exp $
+*   $Id: polllist.php.t,v 1.7 2003/04/16 10:35:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@
 	$poll_entries = $pager = '';
 	if ($ttl) {
 		$c = uq('SELECT 
-				p.owner, p.name, (p.creation_date + p.expiry_date) AS poll_expiry_date, p.creation_date, p.id AS poid, p.max_votes, p.total_votes,
+				p.owner, p.name, (CASE WHEN expiry_date = 0 THEN 0 ELSE (p.creation_date + p.expiry_date) END) AS poll_expiry_date, p.creation_date, p.id AS poid, p.max_votes, p.total_votes,
 				u.alias, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.invisible_mode,
 				m.id,
 				t.locked,
@@ -79,13 +79,14 @@
 				$obj->total_votes = '0';
 			}
 			$vote_lnk = '';
-			if(!$obj->cant_vote && $obj->poll_expiry_date < __request_timestamp__) {
+			if(!$obj->cant_vote && (!$obj->poll_expiry_date || $obj->poll_expiry_date < __request_timestamp__)) {
 				if ($obj->mod || ($obj->p_vote == 'Y' && ($obj->locked == 'N' || $obj->p_lock == 'Y'))) {
 					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
 						$vote_lnk = '{TEMPLATE: vote_lnk}';
 					}
 				}
 			}
+			$view_res_lnk = $obj->total_votes ? '{TEMPLATE: poll_view_res_lnk}' : '';
 
 			if ($obj->owner && ($obj->invisible_mode == 'N' || $usr->is_mod == 'A') && $ONLINE_OFFLINE_STATUS == 'Y') {
 				$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';

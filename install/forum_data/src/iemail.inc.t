@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.16 2003/04/10 17:36:59 hackie Exp $
+*   $Id: iemail.inc.t,v 1.17 2003/04/16 10:35:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -146,11 +146,8 @@ function make_email_message(&$body, &$obj)
 	if ($obj->poll_cache) {
 		$pl = @unserialize($obj->poll_cache);
 		if (is_array($pl) && count($pl)) {
-			$n_votes = 0;
-			foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
-		
 			foreach ($pl as $k => $v) {
-				$length = ($v[1] && $n_votes) ? round($v[1] / $n_votes * 100) : 0;
+				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
 				$iemail_poll .= '{TEMPLATE: iemail_poll_result}';	
 			}
 			$iemail_poll = '{TEMPLATE: iemail_poll_tbl}';
@@ -178,7 +175,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
 		if ($GLOBALS['NOTIFY_WITH_BODY'] == 'Y') {
 			
-			$obj = db_sab("SELECT p.name AS poll_name, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
+			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
 		
 			$headers  = "MIME-Version: 1.0\r\n";
 			$split = get_random_value(128)                                                                            ;
