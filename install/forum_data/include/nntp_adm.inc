@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.2 2002/08/21 12:58:14 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.3 2002/10/06 23:23:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ class fud_nntp_adm
 	
 	// General Settings
 	var $forum_id=NULL, $id=NULL;
-	var $nntp_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_nttp_attch=NULL, $complex_reply_match=NULL;
+	var $nntp_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_nttp_attch=NULL, $complex_reply_match=NULL, $create_users=NULL;
 	
 	function get($id)
 	{
@@ -47,7 +47,8 @@ class fud_nntp_adm
 			pass,
 			timeout,
 			newsgroup,
-			auth
+			auth,
+			create_users
 			)
 			VALUES(
 			".$this->forum_id.",
@@ -62,7 +63,8 @@ class fud_nntp_adm
 			'".addslashes($this->pass)."',
 			".intval($this->timeout).",
 			'".addslashes($this->newsgroup)."',
-			'".$this->auth."'
+			'".$this->auth."',
+			'".yn($this->create_users)."'
 			)");
 
 		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mlist", $r);
@@ -86,7 +88,8 @@ class fud_nntp_adm
 			pass='".addslashes($this->pass)."',
 			timeout=".intval($this->timeout).",
 			newsgroup='".addslashes($this->newsgroup)."',
-			auth='".$this->auth."'
+			auth='".$this->auth."',
+			create_users='".yn($this->create_users)."'
 		WHERE id=".$this->id);
 			
 		$this->Update_forum_settings();	

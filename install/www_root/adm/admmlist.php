@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.10 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admmlist.php,v 1.11 2002/10/06 23:23:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,7 +85,7 @@ function format_regex(&$regex, &$opts)
 	}
 	else { /* Set the some default values */
 		$ml_mlist_post_apr = $ml_allow_mlist_html = $ml_complex_reply_match = 'N';
-		$ml_frm_post_apr = $ml_allow_mlist_attch = 'Y';
+		$ml_frm_post_apr = $ml_create_users = $ml_allow_mlist_attch = 'Y';
 	}
 	
 	cache_buster();
@@ -188,6 +188,17 @@ function format_regex(&$regex, &$opts)
 			messages in the forum.</font>
 		</td>
 		<td><?php draw_select('ml_complex_reply_match', "No\nYes", "N\nY", yn($ml_complex_reply_match)); ?></td>
+	</tr>
+	
+	<tr bgcolor="#bff8ff">
+		<td>
+			Create New Users:<br>
+			<font size="-1">When importing messages from the mailing list, should a new user be created for every mailing
+			list author, who cannot be matched against an existing forum user. If this option is set to 'No', then all 
+			imported mailing list messages who's authors cannot be matched against existing forum members will be attributed
+			to the anonymous user.</font>
+		</td>
+		<td><?php draw_select('ml_create_users', "Yes\nNo", "Y\nN", yn($ml_create_users)); ?></td>
 	</tr>
 	
 	<tr>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.8 2002/09/12 22:29:53 hackie Exp $
+*   $Id: nntp.inc,v 1.9 2002/10/06 23:23:23 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ class fud_nntp
 	var $server=NULL, $port=119, $user=NULL, $pass=NULL, $timeout=25, $auth_mode=NULL, $newsgroup=NULL;
 	var $error=NULL, $lrc=NULL;
 	var $fs=NULL;
-	var $group_na=NULL, $group_first=NULL, $group_last=NULL;
+	var $group_na=NULL, $group_first=NULL, $group_last=NULL, create_users=NULL;
 	// Per Message Varaibles
 	var $headers=NULL, $body=NULL;
 	var $raw_msg=NULL;
@@ -322,7 +322,13 @@ class fud_nntp
 			$this->user_id = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($this->from_name)."'");
 		}	
 		
-		if( empty($this->user_id) ) $this->user_id = $this->create_new_user();
+		if( empty($this->user_id) ) {
+			if ($this->create_users == 'Y') {
+				$this->user_id = $this->create_new_user();
+			} else {
+				$this->user_id = 0;
+			}
+		} 
 		
 		return $this->user_id;	
 	}

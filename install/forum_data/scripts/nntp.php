@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.5 2002/10/03 07:30:51 hackie Exp $
+*   $Id: nntp.php,v 1.6 2002/10/06 23:23:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,6 +68,7 @@
 	$nntp->auth = $nntp_adm->auth;
 	$nntp->user = $nntp_adm->login;
 	$nntp->pass = $nntp_adm->pass;
+	$nntp->create_users = $nntp_adm->create_users;
 	
 	$frm = new fud_forum;
 	$frm->get($nntp_adm->forum_id);

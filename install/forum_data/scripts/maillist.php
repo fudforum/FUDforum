@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.16 2002/10/03 07:30:51 hackie Exp $
+*   $Id: maillist.php,v 1.17 2002/10/06 23:23:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -302,7 +302,13 @@ class fud_emsg
 			$this->user_id = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".addslashes($this->from_name)."'");
 		}	
 		
-		if( empty($this->user_id) ) $this->user_id = $this->create_new_user();
+		if( empty($this->user_id) ) {
+			if ($GLOBALS['CREATE_NEW_USERS'] == 'Y') {
+				$this->user_id = $this->create_new_user();
+			} else {
+				$this->user_id = 0;
+			}	
+		}	
 		
 		return $this->user_id;	
 	}
@@ -507,6 +513,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$mlist = new fud_mlist;
 	$mlist->get($HTTP_SERVER_VARS['argv'][1]);
 	$forum_id = $mlist->forum_id;
+
+	$GLOBALS['CREATE_NEW_USERS'] = $mlist->create_users;
 
 	$frm = new fud_forum;
 	$frm->get($forum_id);

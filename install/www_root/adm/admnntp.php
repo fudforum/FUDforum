@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.5 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admnntp.php,v 1.6 2002/10/06 23:23:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@
 	}
 	else { /* Set the some default values */
 		$nntp_nntp_post_apr = $nntp_complex_reply_match = 'N';
-		$nntp_frm_post_apr = $nntp_allow_nntp_attch = 'Y';
+		$nntp_frm_post_apr = $nntp_create_users = $nntp_allow_nntp_attch = 'Y';
 		$nntp_timeout = 25;
 		$nntp_port = 119;
 	}
@@ -206,6 +206,17 @@
 			messages in the forum.</font>
 		</td>
 		<td><?php draw_select('nntp_complex_reply_match', "No\nYes", "N\nY", yn($nntp_complex_reply_match)); ?></td>
+	</tr>
+	
+	<tr bgcolor="#bff8ff">
+		<td>
+			Create New Users:<br>
+			<font size="-1">When importing messages from a newsgroup , should a new user be created for every newsgroup
+			author, who cannot be matched against an existing forum user. If this option is set to 'No', then all 
+			imported newsgroup messages who's authors cannot be matched against existing forum members will be attributed
+			to the anonymous user.</font>
+		</td>
+		<td><?php draw_select('nntp_create_users', "No\nYes", "N\nY", yn($nntp_create_users)); ?></td>
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
