@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.33 2004/11/30 00:39:42 hackie Exp $
+* $Id: reported.php.t,v 1.34 2004/11/30 16:09:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +50,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 		ORDER BY mr.id');
 
-	$perms = perms_from_obj($r, 1);
+	$perms = 2147483647;
 	$reported_message = '';
 	$_GET['start'] = $prev_thread_id = $n = 0;
 
