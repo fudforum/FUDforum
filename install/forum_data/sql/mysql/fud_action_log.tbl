@@ -1,0 +1,23 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_action_log.tbl,v 1.1 2002/06/26 19:49:28 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}action_log;
+
+CREATE TABLE {SQL_TABLE_PREFIX}action_log
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	logtime		INT UNSIGNED NOT NULL,
+	logaction	CHAR(100),
+	user_id		INT UNSIGNED NOT NULL,
+	a_res		CHAR(100),
+	a_res_id	INT UNSIGNED NOT NULL DEFAULT 0,
+	
+	INDEX(user_id, logtime)
+)

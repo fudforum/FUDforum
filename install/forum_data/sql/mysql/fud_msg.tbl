@@ -1,0 +1,47 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_msg.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}msg;
+
+CREATE TABLE {SQL_TABLE_PREFIX}msg
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	thread_id	INT UNSIGNED NOT NULL,
+	poster_id	INT UNSIGNED NOT NULL DEFAULT 0,
+	reply_to	INT UNSIGNED NOT NULL DEFAULT 0,
+	ip_addr		CHAR(15) NOT NULL DEFAULT '0.0.0.0',
+	host_name	CHAR(255),
+	post_stamp	INT UNSIGNED NOT NULL,
+	update_stamp	INT UNSIGNED NOT NULL DEFAULT 0,
+
+	updated_by	INT UNSIGNED NOT NULL DEFAULT 0,
+	icon		CHAR(100),
+
+	subject		CHAR(100) NOT NULL,
+	attach_cnt	INT UNSIGNED NOT NULL DEFAULT 0,
+	poll_id		INT UNSIGNED NOT NULL DEFAULT 0,
+	approved	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	show_sig	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	smiley_disabled	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	foff		INT UNSIGNED NOT NULL DEFAULT 0,
+	length		INT UNSIGNED NOT NULL DEFAULT 0,
+	file_id		INT UNSIGNED NOT NULL DEFAULT 1,
+	offset_preview  INT UNSIGNED NOT NULL DEFAULT 0,
+	length_preview	INT UNSIGNED NOT NULL DEFAULT 0,
+	file_id_preview	INT UNSIGNED NOT NULL DEFAULT 0,
+
+	INDEX(thread_id,approved),
+	INDEX(post_stamp),
+	INDEX(poster_id,approved),
+	INDEX(approved),
+	INDEX(attach_cnt),
+	INDEX(poll_id),
+	INDEX(ip_addr, post_stamp)
+)

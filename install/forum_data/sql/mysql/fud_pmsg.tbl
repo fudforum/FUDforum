@@ -1,0 +1,43 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_pmsg.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}pmsg;
+
+CREATE TABLE {SQL_TABLE_PREFIX}pmsg
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	to_list		TEXT,
+	ouser_id	INT UNSIGNED NOT NULL,
+	duser_id	INT UNSIGNED NOT NULL DEFAULT 0,
+	ip_addr		CHAR(15) NOT NULL DEFAULT '0.0.0.0',
+	host_name	CHAR(255),
+	post_stamp	INT UNSIGNED NOT NULL DEFAULT 0,
+	read_stamp	INT UNSIGNED NOT NULL DEFAULT 0,
+
+	icon		CHAR(100),
+	mailed		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	
+	folder_id	ENUM('INBOX','SENT','DRAFT','TRASH', 'PROC') NOT NULL DEFAULT 'PROC',
+	
+	subject		CHAR(100) NOT NULL,
+	attach_cnt	INT UNSIGNED NOT NULL DEFAULT 0,
+	show_sig	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	smiley_disabled	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	track		ENUM('Y', 'N', 'SENT') NOT NULL DEFAULT 'N',
+	
+	foff		INT UNSIGNED NOT NULL DEFAULT 0,
+	length		INT UNSIGNED NOT NULL DEFAULT 0,
+
+	nrf_status 	ENUM('N','R','F') NOT NULL DEFAULT 'N',
+	ref_msg_id	CHAR(11),
+	
+	INDEX(duser_id,folder_id,read_stamp), 	# general message retrival
+	INDEX(duser_id, folder_id, id)		# used for the previous/next links on drawpmsg
+)

@@ -1,0 +1,21 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_replace.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}replace;
+
+CREATE TABLE {SQL_TABLE_PREFIX}replace
+(
+	id 		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	type		ENUM('REPLACE', 'PERL') NOT NULL DEFAULT 'REPLACE',
+	replace_str	CHAR(255) NOT NULL,
+	with_str	CHAR(255) NOT NULL,
+	from_post	CHAR(255),
+	to_msg		CHAR(255)
+)

@@ -1,0 +1,22 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_thread_rate_track.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}thread_rate_track;
+
+CREATE TABLE {SQL_TABLE_PREFIX}thread_rate_track
+(
+	id		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	thread_id	INT UNSIGNED NOT NULL DEFAULT 0,
+	user_id		INT UNSIGNED NOT NULL DEFAULT 0,
+	stamp		INT UNSIGNED NOT NULL DEFAULT 0,
+	rating		TINYINT UNSIGNED NOT NULL DEFAULT 0,
+	
+	INDEX(thread_id,user_id)
+)
