@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.88 2003/11/14 10:50:20 hackie Exp $
+* $Id: users.inc.t,v 1.89 2003/11/14 11:11:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -392,7 +392,7 @@ function init_user()
 				case 'bl': /* buddy list */
 					$_GET['t'] = 'buddy_list';
 					if (isset($p[1])) {
-						if ($p[2]) {
+						if (!empty($p[2])) {
 							$_GET['add'] = $p[1];
 						} else {
 							$_GET['del'] = $p[1];
@@ -406,7 +406,7 @@ function init_user()
 				case 'il': /* ignore list */
 					$_GET['t'] = 'ignore_list';
 					if (isset($p[1])) {
-						if ($p[2]) {
+						if (!empty($p[2])) {
 							$_GET['add'] = $p[1];
 						} else {
 							$_GET['del'] = $p[1];
