@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.13 2004/10/21 15:09:55 hackie Exp $
+* $Id: index.tmpl,v 1.14 2004/10/21 15:22:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,7 +22,11 @@
 {REF: quicklogin.tmpl}
 
 {SECTION: index_category_allow_collapse_Y_lnk}
-{ROOT}/i/{VAR: cat_id}/{FUNC: url_tog_collapse($k, $cs)}/{DEF: _rsid}
+{ROOT}/i/{VAR: cat_id}/{FUNC: ($col = url_tog_collapse($k, $cs))}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: index_to_cat_lnk}
+{ROOT}/i/{VAR: k}/{VAR: col}/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}

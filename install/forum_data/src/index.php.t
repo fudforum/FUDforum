@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.60 2004/10/21 15:09:55 hackie Exp $
+* $Id: index.php.t,v 1.61 2004/10/21 15:22:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -148,6 +148,7 @@ function url_tog_collapse($id, $c)
 					}
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 				} else {
+					$col = '';
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 				}
 			
