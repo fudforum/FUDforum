@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.53 2003/05/16 18:54:53 hackie Exp $
+*   $Id: register.php.t,v 1.54 2003/05/18 09:04:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -140,9 +140,9 @@ function register_form_check($user_id)
 	
 	/* Alias Check */
 	if ($GLOBALS['USE_ALIASES'] == 'Y' && isset($_POST['reg_alias'])) {
-		if ($_POST['reg_alias'] = trim($_POST['reg_alias'])) {
+		if (($_POST['reg_alias'] = trim($_POST['reg_alias']))) {
 			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
-				$_POST['reg_alias'] = substr($_POST['alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
+				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
 			}
 			if (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['reg_alias']))."' AND id!=".$user_id)) {
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
