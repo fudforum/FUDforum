@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.7 2003/05/05 15:02:37 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.8 2003/05/06 12:07:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -117,9 +117,7 @@ class fud_nntp_adm
 		if ($old_frm_id != $this->forum_id && $frm_post_apr == 'Y') {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'N\' WHERE id='.$old_frm_id);
 		}
-		if ($this->frm_post_apr == 'Y') {
-			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'Y\' WHERE id='.$this->forum_id);
-		}
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\''.yn($this->frm_post_apr).'\' WHERE id='.$this->forum_id);
 
 		if (isset($ll)) {
 			db_unlock();
