@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.39 2004/04/22 23:07:47 hackie Exp $
+* $Id: finduser.php.t,v 1.40 2004/04/27 16:28:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,6 +58,7 @@
 		$pm_link = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
 		$email_link = ($FUD_OPT_2 & 1073741824 && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
+		$econf = $r->users_opt & 131072 ? '' : '{TEMPLATE: findu_no_conf}';
 
 		if ($adm) {
 			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.34 2004/04/25 20:18:25 hackie Exp $
+* $Id: finduser.tmpl,v 1.35 2004/04/27 16:28:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@ document.fufrm.usr_login.focus();
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td class="nw GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td class="ac nw">{VAR: r->posted_msg_count}</td><td class="DateText nw">{DATE: r->join_date %a, %d %B %Y}</td><td class="nw GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td class="nw GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a>{TEMPLATE-DATA: econf}</td><td class="ac nw">{VAR: r->posted_msg_count}</td><td class="DateText nw">{DATE: r->join_date %a, %d %B %Y}</td><td class="nw GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
@@ -130,4 +130,8 @@ document.fufrm.usr_login.focus();
 
 {SECTION: FINDUSER_PAGE_lnk3}
 {ROOT}
+{SECTION: END}
+
+{SECTION: findu_no_conf}
+&nbsp;&nbsp;({MSG: findu_no_conf})
 {SECTION: END}
