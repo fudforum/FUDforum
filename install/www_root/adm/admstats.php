@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.16 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admstats.php,v 1.17 2003/10/03 18:26:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,7 +181,7 @@ function get_sql_disk_usage()
 		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '.$tbl.'forum');
 		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '.$tbl.'cat');
 		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users');
-		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users WHERE is_mod=\'A\'');
+		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users WHERE users_opt>=1048576 AND users_opt & 1048576');
 		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '.$tbl.'mod');
 		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '.$tbl.'groups');
 		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');

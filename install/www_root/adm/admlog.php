@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.18 2003/09/30 03:57:50 hackie Exp $
+*   $Id: admlog.php,v 1.19 2003/10/03 18:26:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,24 +55,19 @@ function return_forum_name($id)
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?php
-	$c = q('SELECT u.is_mod, u.alias, al.* FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'action_log al LEFT JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u ON al.user_id=u.id ORDER BY logtime DESC');
+	$c = q('SELECT u.users_opt, u.alias, al.* FROM '.$DBHOST_TBL_PREFIX.'action_log al LEFT JOIN '.$DBHOST_TBL_PREFIX.'users u ON al.user_id=u.id ORDER BY logtime DESC');
 
 	while ($obj = db_rowobj($c)) {
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
 		
-		switch ($obj->is_mod) {
-			case 'A':
-				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
-				break;
-			case 'M':
-				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
-				break;
-			case null:
-				$user_info = 'User is no longer in the system.';
-				break;	
-			default:
-				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
-				break;
+		if ($obj->users_opt == null) {
+			$user_info = 'User is no longer in the system.';
+		} else if ($obj->users_opt & 1048576) {
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';		
+		} else if ($obj->users_opt & 524288) {
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';		
+		} else {
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 		}
 		echo '<tr><td>'.$user_info.'</td>';
 
