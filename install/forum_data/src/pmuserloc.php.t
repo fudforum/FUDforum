@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmuserloc.php.t,v 1.21 2004/11/24 19:53:35 hackie Exp $
+* $Id: pmuserloc.php.t,v 1.22 2005/02/27 02:39:19 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,7 +28,15 @@
 
 	$usr_login = isset($_GET['usr_login']) ? trim($_GET['usr_login']) : '';
 	$overwrite = isset($_GET['overwrite']) ? (int)$_GET['overwrite'] : 0;
+
 	$js_redr = $_GET['js_redr'];
+	switch ($js_redr) {
+		case 'post_form.msg_to_list':
+		case 'groupmgr.gr_member':
+			break;
+		default:
+			exit;
+	}
 
 	$find_user_data = '';
 	if ($usr_login) {
