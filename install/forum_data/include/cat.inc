@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.13 2004/10/19 00:40:39 hackie Exp $
+* $Id: cat.inc,v 1.14 2004/10/20 16:53:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,11 +48,8 @@ class fud_cat
 
 	function sync($id)
 	{
-		$old_p = q_singleval("SELECT parent FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat WHERE id=".$id);
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET parent=".$this->parent.", name='".addslashes($this->name)."',description='".addslashes($this->description)."', cat_opt=".$this->cat_opt." WHERE id=".$id);
-		if ($old_p != $this->parent) {
-			cat_rebuild_order();
-		}
+		cat_rebuild_order();
 	}
 }
 
@@ -103,7 +100,8 @@ function rebuild_forum_cat_order()
 		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');
 	}
 
-	$c = uq("SELECT c.id, f.id, c.parent FROM ".$tbl."cat c INNER JOIN ".$tbl."forum f ON f.cat_id=c.id
+	/* we use left join to catch categories without any forums, but with sub-categories */
+	$c = uq("SELECT c.id, f.id, c.parent FROM ".$tbl."cat c LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
 			ORDER BY c.parent, c.view_order, f.view_order");
 	$ol = array();
 	while ($r = db_rowarr($c)) {
@@ -114,16 +112,17 @@ function rebuild_forum_cat_order()
 	}
 	q("DELETE FROM ".$tbl."fc_view");
 	
-	$lvl = array(0); 
+	$lvl = array(0);
 	$i = $l = 0;
 	while (1) {
 		while (list(,$v) = each($ol[$l])) {
-			q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
+			if ($v[1]) { // only insert when we have a category & forum
+				q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
+			}
 			if (isset($ol[$v[0]])) {
 				$lvl[] = $l;
 				$l = $v[0];
 				$i++;
-				continue;
 			}
 		}
 		if ($i < 1) {
@@ -132,6 +131,70 @@ function rebuild_forum_cat_order()
 		$l = array_pop($lvl);
 		$i--;
 	}
+	$p = $ol = array();
+
+	/* build a category association cache */
+	$c = uq("SELECT id, parent, name FROM ".$tbl."cat c ORDER BY parent, view_order");
+	while ($r = db_rowarr($c)) {
+		if (!isset($ol[$r[1]])) {
+			$ol[$r[1]] = array();
+		}
+		$ol[$r[1]][] = $r;
+	}
+
+	$cat_cache = $lvl = array(0);
+	$i = $l = 0;
+
+	while (1) {
+		while (list(,$v) = each($ol[$l])) {
+			$cat_cache[$v[0]] = array($i, $v[2], array());
+			if ($v[1]) {
+				$cat_cache[$v[1]][2][] = $v[0];
+			}
+
+			if (isset($ol[$v[0]])) {
+				$lvl[] = $l;
+				$l = $v[0];
+				$i++;
+			}
+		}
+		if ($i < 1) {
+			break;
+		}
+		$l = array_pop($lvl);
+		$i--;
+	}
+
+	/* create full child/parent associations */
+	end($cat_cache);
+	while (($v = prev($cat_cache))) {
+		if ($v[2]) {
+			$children = array();
+			foreach ($v[2] as $c) {
+				$children[] = $c;
+				if ($cat_cache[$c][2]) {
+					$children = array_merge($children, $cat_cache[$c][2]);
+				}
+			}
+			$cat_cache[key($cat_cache)][2] = $children;
+		}
+	}
+
+	/* remove garbage data */
+	unset($cat_cache[0]);
+	foreach ($cat_cache as $k => $v) {
+		if (!$v[2]) {
+			unset($cat_cache[$k][2]);
+			continue;
+		}
+	}
+
+	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
+	$fp = fopen($cache_file.'.tmp', "w");
+	fwrite($fp, '<?php $cat_cache = '.var_export($cat_cache, 1).'; ?>');
+	fclose($fp);
+	rename($cache_file.'.tmp', $cache_file);
+
 	unset($ol);
 
 	if (isset($ll)) {
