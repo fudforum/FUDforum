@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.24 2003/07/18 14:29:15 hackie Exp $
+*   $Id: admdump.php,v 1.25 2003/07/18 17:29:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@ function make_insrt_qry($obj, $tbl, $field_data)
 		$kv .= $field_data[$k]['name'].',';
 	}	
 
-	return 'INSERT INTO '.$GLOBALS['DBHOST_TBL_PREFIX'].' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
+	return 'INSERT INTO '.$tbl.' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
 }
 
 function backup_dir($dirp, $fp, $write_func, $keep_dir)
