@@ -1,5 +1,3 @@
-#PATH OF SYSTEM FILES AND DIRECTORIES 
-
 {{{FORUM_TITLE
 The title of the forum. This title will appear inside the HTML <title> tag.}}}
 
