@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.7 2002/10/29 00:16:10 hackie Exp $
+*   $Id: threadt.php.t,v 1.8 2002/11/04 18:54:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,16 +89,16 @@
 			{SQL_TABLE_PREFIX}users.alias
 			FROM
 				{SQL_TABLE_PREFIX}thread_view
-			INNER JOIN mm_thread 
-				ON mm_thread_view.thread_id=mm_thread.id
+			INNER JOIN {SQL_TABLE_PREFIX}thread 
+				ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg
-				ON mm_thread.id={SQL_TABLE_PREFIX}msg.thread_id AND {SQL_TABLE_PREFIX}msg.approved='Y'
+				ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id AND {SQL_TABLE_PREFIX}msg.approved='Y'
 			LEFT JOIN {SQL_TABLE_PREFIX}users
 				 ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
-			LEFT JOIN mm_read 
-				ON mm_thread.id=mm_read.thread_id AND mm_read.user_id="._uid."
+			LEFT JOIN {SQL_TABLE_PREFIX}read 
+				ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}read.thread_id AND {SQL_TABLE_PREFIX}read.user_id="._uid."
 			WHERE
-				mm_thread_view.forum_id=".$frm->id." AND mm_thread_view.page=".($start + 1)."
+				{SQL_TABLE_PREFIX}thread_view.forum_id=".$frm->id." AND {SQL_TABLE_PREFIX}thread_view.page=".($start + 1)."
 			ORDER by pos ASC");
 	
 	if ( !db_count($r) ) {
