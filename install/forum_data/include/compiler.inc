@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.55 2004/02/12 03:50:58 hackie Exp $
+* $Id: compiler.inc,v 1.56 2004/03/15 15:20:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -613,6 +613,9 @@ function copyimages($thm)
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
 	}
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+
 	if ($thm->theme != 'default') {
 		if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
 			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
@@ -621,8 +624,6 @@ function copyimages($thm)
 			fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
 		}
 	}
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
 
 	umask($u);
 }
