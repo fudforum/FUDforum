@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.19 2003/05/19 10:50:05 hackie Exp $
+*   $Id: search.php.t,v 1.20 2003/06/02 18:43:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -193,7 +193,11 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			qf($c);
 			un_register_fps();
 			$search_data = '{TEMPLATE: search_results}';
-			$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=search&amp;srch='.urlencode($srch).'&amp;field='.$field.'&amp;'._rsid.'&amp;search_logic='.$search_logic.'&amp;sort_order='.$sort_order.'&amp;forum_limiter='.$forum_limiter);
+			} else {
+				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'.urlencode($srch).'/'.$field.'/'.$search_logic.'/'.$sort_order.'/'.$forum_limiter.'/', '/'._rsid);
+			}
 		}
 	} else {
 		$search_data = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.52 2003/06/02 18:06:52 hackie Exp $
+*   $Id: users.inc.t,v 1.53 2003/06/02 18:43:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -411,6 +411,14 @@ function init_user()
 
 				case 's':
 					$_GET['t'] = 'search';
+					if (isset($p[1])) {
+						$_GET['srch'] = urldecode($p[1]);
+						$_GET['field'] = $p[2];
+						$_GET['search_logic'] = $p[3];
+						$_GET['sort_order'] = $p[4];
+						$_GET['forum_limiter'] = $p[5];
+						$_GET['start'] = $p[6];
+					}
 					break;
 
 				case 'p':
