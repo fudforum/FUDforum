@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.56 2004/02/18 17:20:17 hackie Exp $
+* $Id: post_proc.inc.t,v 1.57 2004/03/20 21:03:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -244,7 +244,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					break;
 				case 'quote':
 					if (!$parms) {
-						$parms = 'Quote:';
+						$parms = '{TEMPLATE: post_quote}';
 					}
 					$ostr .= '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>'.$parms.'</b></td></tr><tr><td class="quote"><br />';
 					$end_tag[$cpos] = '<br /></td></tr></table>';
