@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.54 2003/10/02 20:58:29 hackie Exp $
+*   $Id: msg.php.t,v 1.55 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -200,6 +200,8 @@
 	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 
 	$obj2 = $message_data = '';
+
+	$usr->md = $frm->md;
 
 	$m_num = 0;
 	while ($obj = db_rowobj($result)) {

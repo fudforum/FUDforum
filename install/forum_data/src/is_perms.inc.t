@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.23 2003/10/01 21:51:52 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.24 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -22,7 +22,7 @@ function &get_all_read_perms($uid, $mod)
 
 	$r = uq('SELECT resource_id, group_cache_opt FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='._uid);
 	while ($ent = db_rowarr($r)) {
-		$limit[$ent[0]] = $ent & 2;
+		$limit[$ent[0]] = $ent[1] & 2;
 	}
 	qf($r);
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.38 2003/10/01 21:51:52 hackie Exp $
+*   $Id: selmsg.php.t,v 1.39 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -198,7 +198,7 @@ function path_info_lnk($var, $val)
 			if (_uid && $r->last_view < $r->post_stamp && $r->post_stamp > $usr->last_read && !isset($mark_read[$r->thread_id])) {
 				$mark_read[$r->thread_id] = $r->id;
 			}
-
+			$usr->md = $r->md;
 			$message_data .= tmpl_drawmsg($r, $usr, $perms, false, $n, '');
 		}
 		un_register_fps();

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.20 2003/10/01 21:51:52 hackie Exp $
+*   $Id: reported.php.t,v 1.21 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -61,6 +61,7 @@
 	$n = 0;
 	$_GET['start'] = 0;
 
+	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
 		$user_login = $obj->report_user_id ? '{TEMPLATE: reported_reg_user_link}' : '{TEMPLATE: reported_anon_user}';
 		if (empty($prev_thread_id) || $prev_thread_id != $obj->thread_id) {

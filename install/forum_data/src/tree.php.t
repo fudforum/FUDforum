@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.42 2003/10/02 20:58:29 hackie Exp $
+*   $Id: tree.php.t,v 1.43 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -262,6 +262,7 @@
 		}
 	}
 	$n = 0; $_GET['start'] = '';
+	$usr->md = $frm->md;
 	$message_data = tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg));
 	un_register_fps();
 

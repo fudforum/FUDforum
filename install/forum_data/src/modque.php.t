@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.26 2003/10/01 21:51:52 hackie Exp $
+*   $Id: modque.php.t,v 1.27 2003/10/02 21:44:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -80,6 +80,7 @@
 	$GLOBALS['MOD'] = 1;
 	$_GET['start'] = 0;
 
+	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
 		if (!$prev_thread_id || $prev_thread_id != $obj->thread_id) {
 			$prev_thread_id = $obj->thread_id;
