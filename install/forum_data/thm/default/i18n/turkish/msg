@@ -892,10 +892,10 @@ search_or:			OR
 search_desc_order:		Descending Order		
 search_asc_order:		Ascending Order
 search_logic:			Search Logic:
-search_sorting:			Sort Results By Date In:post_proceed:			Proceed
+search_sorting:			Sort Results By Date In:
+post_proceed:			Proceed
 post_moderated_forum:		You have made a post in a moderated forum, which means your post will not be made visible on the forum until it is approved by one of the forum&#39;s moderator(s) and/or administrator(s).
 post_moderated_forum_ttl:	Moderated Forum Notice
-post_proceed:			Proceed
 buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
 email_warning_msg:		If you change your current email address, your account will be marked uncofirmed until you confirm it via e-mail.
 register_show_im:		Show IM indicators
