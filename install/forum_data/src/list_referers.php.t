@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: list_referers.php.t,v 1.20 2004/11/24 19:53:35 hackie Exp $
+* $Id: list_referers.php.t,v 1.21 2004/11/25 19:25:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,10 +28,10 @@
 
 		$c = q('SELECT u2.alias, u2.id, count(*) AS cnt FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON u2.id=u.referer_id WHERE u.referer_id > 0 AND u2.id IS NOT NULL GROUP BY u2.id ORDER BY cnt, u.alias DESC LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
 		while ($r = db_rowarr($c)) {
-			$referer_entry_data = '';
+			$refered_entry_data = '';
 			$c2 = uq('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$r[1]);
 			while ($r2 = db_rowarr($c2)) {
-				$referer_entry_data .= '{TEMPLATE: refered_entry}';
+				$refered_entry_data .= '{TEMPLATE: refered_entry}';
 			}
 			$referer_entry_data .= '{TEMPLATE: referer_entry}';
 		}
