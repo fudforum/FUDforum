@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.11 2002/12/05 01:17:51 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.12 2002/12/05 23:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -160,6 +160,22 @@ function tags_to_html($str, $allow_img='Y')
 					reverse_nl2br($param);
 					
 					$ostr .= '<pre>'.$param.'</pre>';
+					$epos = $cepos;
+					$str[$cpos] = '<';
+					break;
+				case 'php':
+					if (!function_exists("version_compare") || !version_compare(PHP_VERSION, "4.2.0", ">=")) {
+						break;
+					}
+					$param = substr($str, $epos+1, ($cpos-$epos)-1);
+					reverse_FMT($param);
+					reverse_nl2br($param);
+					
+					if (!strpos($param, '<?')) {
+						$param = '<?php '.$param.'?>';
+					}
+					
+					$ostr .= '<span name="php">'.highlight_string($param, true).'</span>';
 					$epos = $cepos;
 					$str[$cpos] = '<';
 					break;
@@ -369,6 +385,11 @@ function html_to_tags($fudml)
 
 	reverse_nl2br($fudml);
 
+	while ( preg_match('!<span name="php">(.*?)</span>!is', $fudml, $res) ) {
+		$res[1] = strip_tags($res[1]);
+		$fudml = preg_replace('!<span name="php">.*?</span>!is', '[php]'.$res[1].'[/php]', $fudml);
+	}
+
 	if( preg_match('!<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id=".*?" style="visibility: hidden;">!is', $fudml) ) {	
 		$fudml = preg_replace('!\<div class\="dashed" style\="padding: 3px;" align\="center" width\="100%"\>\<a href\="javascript://" OnClick\="javascript: layerVis\(\'.*?\', 1\);">{TEMPLATE: post_proc_reveal_spoiler}\</a\>\<div align\="left" id\=".*?" style\="visibility: hidden;"\>!is', '[spoiler]', $fudml);
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
@@ -421,7 +442,7 @@ function html_to_tags($fudml)
 	
 	while ( preg_match('!<span name="notag">.*?</span>!is', $fudml) ) 
 		$fudml = preg_replace('!<span name="notag">(.*?)</span>!is', '[notag]\1[/notag]', $fudml);
-	
+		
 	$fudml = str_replace('<li>', '[*]', $fudml);
 		
 	/* unhtmlspecialchars */
