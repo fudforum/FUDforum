@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.13 2003/04/25 16:40:42 hackie Exp $
+*   $Id: admgroups.php,v 1.14 2003/04/25 17:01:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,18 +38,17 @@
 				break; 
 			}
 		}
-		if (!count($_POST['gr_resource']) && !$edit || ($edit > 2)) {
+		if (!isset($_POST['gr_resource']) && !$edit || ($edit > 2)) {
 			$error_reason = 'You must assign at least 1 resource to this group';
 			$error = 1;
 		}
 
 		if (!$error) {
-			foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
-				$perms[$k] = $_POST[$k];
+			foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $v) {
+				$perms[$v] = $_POST[$v];
 			}
-
-			if (!edit) { /* create new group */
-				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], ($_POST['gr_ramasks'] == 'Y' ? 1 : 0), (int)$_POST['gr_inherit_id']);
+			if (!$edit) { /* create new group */
+				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], ($_POST['gr_ramasks'] == 'Y' ? 1 : 0), $perms, (int)$_POST['gr_inherit_id']);
 				if (!$gid) {
 					$error_reason = 'Failed to add group';
 					$error = 1;
@@ -66,6 +65,7 @@
 				}
 				group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
 				$edit = '';
+				$_POST['gr_resource'] = NULL;
 			}
 			if ($gid) {
 				grp_rebuild_cache($gid);
@@ -76,8 +76,8 @@
 	if (isset($_GET['del'])) {
 		group_delete((int)$_GET['del']);
 	}
-	
-	if (isset($_GET['edit']) && ($data = db_sab('SELECT * FROM '.$tbl.'groups WHERE id='.$edit))) {
+
+	if (isset($_GET['edit']) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
 		$gr_name = $data->name;
 		$gr_inherit_id = $data->inherit_id;
 		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
@@ -102,7 +102,7 @@
 		echo '<font color="red">'.$error_reason.'</font><br>';
 	}
 ?>
-
+<h2>Admin Group Manager: Add/Edit groups or group leaders</h2>
 <form method="post" action="admgroups.php">
 <table border=0 cellspacing=0>
 <?php echo _hs; ?>
@@ -119,7 +119,7 @@
 <?php
 	if (!$edit || $edit > 2) {
 		echo '<tr><td valign=top>Group Resources: </td><td>';
-		if ($edit && $obj->no_del) {
+		if ($edit && $data->no_del) {
 			echo 'FORUM: '.$data->fname;
 		} else {
 			echo '<select MULTIPLE name="gr_resource[]" size=10>';
