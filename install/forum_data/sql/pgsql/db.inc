@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.28 2003/10/01 02:46:37 hackie Exp $
+*   $Id: db.inc,v 1.29 2003/10/02 03:29:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,11 +87,6 @@ function get_version()
 	}
 	return __FUD_SQL_VERSION__;
 }
-
-function yn($val) 
-{
-	return (strcasecmp($val, 'y') ? 'N' : 'Y');
-} 
 
 function intnull($val)
 {

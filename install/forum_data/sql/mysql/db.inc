@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.25 2003/10/01 02:46:37 hackie Exp $
+*   $Id: db.inc,v 1.26 2003/10/02 03:29:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-#define('fud_query_stats', 1);
+define('fud_query_stats', 1);
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
@@ -77,11 +77,6 @@ function get_version()
 	}
 	return __FUD_SQL_VERSION__;
 }
-
-function yn($val) 
-{
-	return (strcasecmp($val, 'y') ? 'N' : 'Y');
-} 
 
 function intnull($val)
 {
@@ -333,6 +328,15 @@ function db_li($q, &$ef, $li=0)
 		return null;
 	} else {
 		die(fud_sql_error_handler($query, mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), get_version()));
+	}
+}
+
+function ins_m($tbl, $flds, $vals, $type=0)
+{
+	if (!$type) {
+		q("INSERT IGNORE INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
+	} else {
+		q("INSERT INTO ".$tbl." (".$flds.") VALUES (".implode('),(', $vals).")");
 	}
 }
 ?>
