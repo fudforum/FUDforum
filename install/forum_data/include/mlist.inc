@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.7 2003/01/27 12:18:48 hackie Exp $
+*   $Id: mlist.inc,v 1.8 2003/05/06 21:46:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,19 +17,35 @@
 
 class fud_mlist
 {
-	var $id=NULL, $forum_id=NULL, $name=NULL;
-	var $create_users=NULL, $mlist_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_mlist_attch=NULL, $allow_mlist_html=NULL, $complex_reply_match=NULL;
-	var $subject_regex_haystack=NULL, $subject_regex_needle=NULL, $body_regex_haystack=NULL, $body_regex_needle=NULL, $additional_headers=NULL;
+	var $id, $forum_id, $name;
+	var $create_users='Y', $mlist_post_apr='N', $allow_frm_post='N', $frm_post_apr='Y', $allow_mlist_attch='Y', $allow_mlist_html='N', $complex_reply_match='N';
+	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
 
-	function get($id)
+	function fud_mlist()
 	{
-		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist WHERE id=".$id, $this);
-		if( empty($this->id) ) exit("Fatal Error, no mailing list with id of $id\n");
+		if (isset($_POST) && count($_POST)) {
+			$el = array_keys(get_object_vars($this));
+			foreach ($el as $v) {
+		        	if (isset($_POST['ml_' . $v])) {
+					$this->{$v} = $_POST['ml_' . $v];
+				}
+			}
+			if ($this->subject_regex_haystack) {
+				$this->subject_regex_haystack = '/' . $this->subject_regex_haystack . '/' . $_POST['ml_subject_regex_haystack_opt'];
+			}
+			if ($this->body_regex_haystack) {
+				$this->body_regex_haystack = '/' . $this->body_regex_haystack . '/' . $_POST['ml_body_regex_haystack_opt'];
+			}
+		}
 	}
-	
+
 	function add()
 	{
-		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist(
+		if (!db_locked()) {
+			$ll = 1;
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WRITE');
+		}
+		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist(
 			forum_id,
 			name,
 			mlist_post_apr,
@@ -47,47 +63,62 @@ class fud_mlist
 			)
 			VALUES(
 			".$this->forum_id.",
-			'".$this->name."',
+			'".addslashes($this->name)."',
 			'".yn($this->mlist_post_apr)."',
 			'".yn($this->allow_frm_post)."',
 			'".yn($this->frm_post_apr)."',
 			'".yn($this->allow_mlist_attch)."',
 			'".yn($this->allow_mlist_html)."',
 			'".yn($this->complex_reply_match)."',
-			'".$this->subject_regex_haystack."',
-			'".$this->subject_regex_needle."',
-			'".$this->body_regex_haystack."',
-			'".$this->body_regex_needle."',
+			'".addslashes($this->subject_regex_haystack)."',
+			'".addslashes($this->subject_regex_needle)."',
+			'".addslashes($this->body_regex_haystack)."',
+			'".addslashes($this->body_regex_needle)."',
 			'".yn($this->create_users)."',
-			'".$this->additional_headers."'
+			'".addslashes($this->additional_headers)."'
 			)");
-
-		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mlist", $r);
-		$this->Update_forum_settings();
-		
+		if ($this->frm_post_apr == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'Y\' WHERE id='.$this->forum_id);
+		}
+		if (isset($ll)) {
+			db_unlock();
+		}
 		return $this->id;
 	}
 	
-	function sync()
+	function sync($id)
 	{
+		if (!db_locked()) {
+			$ll = 1;
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WRITE');
+		}
+		list($old_frm_id, $frm_post_apr) = db_saq('SELECT forum_id, frm_post_apr FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WHERE id='.$id);
+
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist SET
 			forum_id=".$this->forum_id.",
-			name='".$this->name."',
+			name='".addslashes($this->name)."',
 			mlist_post_apr='".yn($this->mlist_post_apr)."',
 			allow_frm_post='".yn($this->allow_frm_post)."',
 			frm_post_apr='".yn($this->frm_post_apr)."',
 			allow_mlist_attch='".yn($this->allow_mlist_attch)."',
 			allow_mlist_html='".yn($this->allow_mlist_html)."',
 			complex_reply_match='".yn($this->complex_reply_match)."',
-			subject_regex_haystack='".$this->subject_regex_haystack."',
-			subject_regex_needle='".$this->subject_regex_needle."',
-			body_regex_haystack='".$this->body_regex_haystack."',
-			body_regex_needle='".$this->body_regex_needle."',
-			additional_headers='".$this->additional_headers."',
+			subject_regex_haystack='".addslashes($this->subject_regex_haystack)."',
+			subject_regex_needle='".addslashes($this->subject_regex_needle)."',
+			body_regex_haystack='".addslashes($this->body_regex_haystack)."',
+			body_regex_needle='".addslashes($this->body_regex_needle)."',
+			additional_headers='".addslashes($this->additional_headers)."',
 			create_users='".yn($this->create_users)."'
-		WHERE id=".$this->id);
-		
-		$this->Update_forum_settings();
+		WHERE id=".$id);
+
+		if ($old_frm_id != $this->forum_id && $frm_post_apr == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'N\' WHERE id='.$old_frm_id);
+		}
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\''.yn($this->frm_post_apr).'\' WHERE id='.$this->forum_id);
+
+		if (isset($ll)) {
+			db_unlock();
+		}
 	}
 	
 	function del($id='')
@@ -99,18 +130,6 @@ class fud_mlist
 			$this->frm_post_apr = 'N';
 			$this->update_forum_settings();
 		}
-	}
-	
-	function update_forum_settings()
-	{
-		if( !db_locked() ) {
-			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX']."forum+");
-		}
-		
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderated='".yn($this->frm_post_apr)."' WHERE id=".$this->forum_id);
-		
-		if( $ll ) db_unlock();
 	}
 }
 ?>

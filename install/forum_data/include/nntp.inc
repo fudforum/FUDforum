@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.26 2003/05/06 18:24:00 hackie Exp $
+*   $Id: nntp.inc,v 1.27 2003/05/06 21:46:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -166,15 +166,6 @@ class fud_nntp
 		return true;
 	}
 	
-	function parse_ip($str)
-	{
-		if (preg_match('!([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})!', $str, $m)) {
-			return $m[1];
-		} else {
-			return;	
-		}
-	}
-	
 	function close_connection()
 	{
 		if (@is_resource($this->fs)) {
@@ -235,15 +226,15 @@ class fud_nntp
 			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 		}
 		
-		$this->subject = trim($this->decode_header_value($this->headers['subject']));	
+		$this->subject = trim(decode_header_value($this->headers['subject']));	
 		
 		// Attempt to Get Poster's IP from fields commonly used to store it
 		if (isset($this->headers['nntp-posting-host'])) {
-			$this->ip = $this->parse_ip($this->headers['nntp-posting-host']);
+			$this->ip = parse_ip($this->headers['nntp-posting-host']);
 		} else if (isset($this->headers['x-trace'])) {
-			$this->ip = $this->parse_ip($this->headers['x-trace']);
+			$this->ip = parse_ip($this->headers['x-trace']);
 		} else if (isset($this->headers['path'])) {
-			$this->ip = $this->parse_ip($this->headers['path']);
+			$this->ip = parse_ip($this->headers['path']);
 		}
 	}
 	
@@ -363,111 +354,6 @@ class fud_nntp
 		exit($this->close_connection());
 	}
 	
-	function match_user_to_post()
-	{
-		/* Try to identify user by email */
-		$this->user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE email='".addslashes($this->from_email)."'");
-
-		/* If user was not found via email, try to look the user up by login */
-		if (empty($this->user_id)) {
-			if (!isset($this->from_name)) {
-				return 0;
-			}
-			$this->user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($this->from_name)."'");
-		}	
-		
-		if (empty($this->user_id)) {
-			$this->user_id = ($this->create_users == 'Y') ? $this->create_new_user() : 0;
-		} 
-
-		return $this->user_id;	
-	}
-	
-	function create_new_user()
-	{
-		/* Since we assume every user created from a mailing list is already 'confirmed' 
-	 	   this disables sending of the email confirmation
-	 	*/
-		$GLOBALS['EMAIL_CONFIRMATION'] == 'Y';
-	
-		db_lock(sql_p.'users WRITE, '.sql_p.'themes WRITE');
-
-		$login = empty($this->from_name) ? $this->from_email : $this->from_name;
-
-		/* 
-		 * This code ensures that creation of user does not fail in the event another user on the forum 
-		 * is already signed up under the same login name and/or alias
-		 */	
-
-		$i = 1;
-	
-		$user = new fud_user_reg;
-	
-		$user->login = $login;
-
-		while (q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($user->login)."'")) {
-			$user->login = $login.'['.$i++.']';
-		}
-
-		$alias = $user->alias = htmlspecialchars($user->login);
-	
-		if ($GLOBALS['USE_ALIASES'] == 'Y') {
-			while (q_singleval("SELECT id FROM ".sql_p."users WHERE alias='".addslashes($user->alias)."'")) {
-				$user->alias = $alias.'['.$i++.']';
-			}
-		}
-	
-		$GLOBALS['EMAIL_CONFIRMATION'] = 'N';
-		
-		$user->email = $this->from_email;
-		$user->plaintext_passwd = substr(md5(get_random_value()), 0, 8);
-		$user->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
-		$user->notify_method = 'EMAIL';
-		$user->gender = 'UNSPECIFIED';
-		$user->email_messages = 'Y';
-		$user->pm_messages = 'Y';
-		$user->show_avatars = 'Y';
-		$user->show_sigs = 'Y';
-		$user->name = $this->from_name;
-		$user->time_zone = $GLOBALS['SERVER_TZ'];
-		$user->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
-		$user->theme = q_singleval("SELECT id FROM ".sql_p."themes WHERE t_default='Y' LIMIT 1");
-		
-		$this->user_id = $user->add_user();
-		q("UPDATE ".sql_p."users SET email_conf='Y' WHERE id=".$this->user_id);
-		
-		db_unlock();
-		
-		return $this->user_id;
-	}
-	
-	function get_fud_reply_id($complex, $forum_id)
-	{
-		if (!empty($this->reply_to_msg_id)) {
-			foreach ($this->reply_to_msg_id as $reply_id) {
-				if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($reply_id)."'"))) {
-					break;
-				}
-			}
-		}
-		if (!$this->reply_to && $complex == 'Y') {
-			// This is slow, but only way to match 'rouge' replies in the event no reference fields are avaliable
-			if (preg_match('!(Re|Wa)\s*:(.*)$!i', $this->subject, $matches)) {
-				$r = db_saq('SELECT m.id, m.thread_id FROM '.sql_p.'msg m INNER JOIN '.sql_p.'thread t ON m.thread_id=t.id WHERE t.forum_id='.$forum_id.' AND m.subject='.strnull(addslashes(trim($matches[2]))));
-			}
-		}
-
-		if (empty($r)) {
-			$this->reply_to = $this->thread_id = $this->reply_to_msg_id = '';
-		} else {
-			$this->reply_to = $r[0];
-			$this->thread_id = $r[1];
-		}
-
-		return $this->reply_to;
-	}
-	
-	
 	function parse_msgs($frm, $nntp_adm, $start_id=0)
 	{
 		if (!$this->connect()) {
@@ -514,21 +400,17 @@ class fud_nntp
 			}
 			
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
-			$msg_post->poster_id = intzero($this->match_user_to_post());
-	
+			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->create_users, $this->user_id);
 			$msg_post->ip_addr = $this->ip;
 			$msg_post->mlist_msg_id = addslashes($this->msg_id);
-			
 			$msg_post->attach_cnt = 0;
 			$msg_post->smiley_disabled = 'Y';
 			$msg_post->poll_id = 0;
 			$msg_post->show_sig = 'N';
 
 			/* try to determine whether this message is a reply or a new thread */
-			if ($this->get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id)) {
-				$msg_post->reply_to = $this->reply_to;
-				$msg_post->thread_id = $this->thread_id;
-			}
+			get_fud_reply_id($nntp_adm->complex_reply_match, $frm->id, $msg_post->subject, $msg_post->reply_to, $msg_post->thread_id, $this->reply_to_msg_id);
+
 			$msg_post->add($frm->id, $frm->message_threshold, 'N', 'N', 'N', FALSE);
 
 			// Handle File Attachments
@@ -591,58 +473,6 @@ class fud_nntp
 		fwrite($fp, $val);
 		fclose($fp);
 		umask($u);
-	}
-
-	function decode_string($str, $encoding)
-	{
-		switch ($encoding) {
-			case 'quoted-printable':
-				// Remove soft line breaks
-				$str = preg_replace("!=\r?\n!", '', $str);
-			        // Replace encoded characters
-	        		return preg_replace('!=([A-Fa-f0-9]{2})!e', "chr(hexdec('\\1'))", $str);
-				break;
-			case 'base64':
-				return base64_decode($str);
-				break;
-			default:
-				return $str;	
-				break;
-		}
-	}
-
-	function decode_header_value($val)
-	{
-		// check if string needs to be decoded
-		if (strpos($val, '?') === FALSE) {
-			return trim($val);	
-		}
-
-		// Decode String
-		if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*(.*)!i', $val, $m)) {
-			$newval = '';
-			
-			$c = count($m[4]);
-			for ($i = 0; $i < $c; $i++) {
-				$ec_type = strtolower($m[4][$i]);
-			
-				if ($ec_type == 'q') {
-					$newval .= $this->decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable');	
-				} else if ($ec_type == 'b') {
-					$newval .= $this->decode_string($m[5][$i], 'base64');
-				}
-
-				if (!empty($m[5][$i])) {
-					$newval .= ' '.$m[6][$i];
-				}
-				if (!empty($m[1][$i])) {
-					$newval = $m[1][$i].$newval;
-				}
-			}
-			$val = trim($newval);
-		}
-			
-		return trim($val);
 	}
 
 	function post_message($subject, $body, $from, $forum_msg_id, $reply_to='', $attch='')
