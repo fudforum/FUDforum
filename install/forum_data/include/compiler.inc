@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.8 2002/06/27 18:23:36 hackie Exp $
+*   $Id: compiler.inc,v 1.9 2002/06/29 08:07:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,11 +16,6 @@
 ***************************************************************************/
 	
 	@set_time_limit(6000);
-
-$GLOBALS['__COMPILER__']['ROOT'] = $GLOBALS['WWW_ROOT'];
-if ( $GLOBALS['__COMPILER__']['ROOT'][strlen($GLOBALS['__COMPILER__']['ROOT'])-1] != '/' ) $GLOBALS['__COMPILER__']['ROOT'] .= '/';
-
-$GLOBALS['__COMPILER__']['ROOT'] .= 'index.php';
 
 function resolve_refs($file_name)
 {
@@ -439,6 +434,10 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['__COMPILER__']['tset'] = $tset;
 	$GLOBALS['__COMPILER__']['lang'] = $lang;
 	$GLOBALS['__COMPILER__']['tname'] = $tname;
+	
+	$GLOBALS['__COMPILER__']['ROOT'] = $GLOBALS['WWW_ROOT'];
+	if ( substr($GLOBALS['__COMPILER__']['ROOT'], -1) != '/' ) $GLOBALS['__COMPILER__']['ROOT'] .= '/';
+	$GLOBALS['__COMPILER__']['ROOT'] .= 'index.php';
 	
 	$GLOBALS['__COMPILER__']['THEME_ROOT'] = $GLOBALS['WWW_ROOT'];
 	if ( $GLOBALS['__COMPILER__']['THEME_ROOT'][strlen($GLOBALS['__COMPILER__']['THEME_ROOT'])-1] != '/' ) $GLOBALS['__COMPILER__']['THEME_ROOT'] .= '/';
