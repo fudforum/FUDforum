@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.17 2002/08/19 08:47:50 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.18 2002/09/09 21:02:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -197,9 +197,9 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	else
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
 	
-	if( !empty($GLOBALS['opt']) && $obj->locked != 'Y' ) {
-		register_vote($GLOBALS['opt']);
-		$GLOBALS['opt']=NULL;
+	if( !empty($GLOBALS['HTTP_POST_VARS']['opt']) && $obj->locked != 'Y' && is_numeric($GLOBALS['HTTP_POST_VARS']['opt']) ) {
+		register_vote($GLOBALS['HTTP_POST_VARS']['opt']);
+		$GLOBALS['HTTP_POST_VARS']['opt']=NULL;
 	}	
 	
 	$__RESOURCE_ID = $obj->forum_id;
