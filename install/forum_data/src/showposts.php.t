@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.php.t,v 1.25 2004/05/18 18:33:14 hackie Exp $
+* $Id: showposts.php.t,v 1.26 2004/06/11 20:29:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@
 		$start = 0;
 	}
 
-	if (!($usr->users_opt & 1048576)) {
+	if (!($ADM = ($usr->users_opt & 1048576))) {
 		$fids = implode(',', array_keys(get_all_read_perms(_uid, ($usr->users_opt & 524288)), 2));
 	}
 
@@ -44,7 +44,7 @@
 	}
 
 	$post_entry = '';
-	if ($usr->users_opt & 1048576 || $fids) {
+	if ($ADM || $fids) {
 		$qry_limit = $usr->users_opt & 1048576 ? '' : 'f.id IN ('.$fids.') AND ';
 
 		$c = uq("SELECT /*!40000 SQL_CALC_FOUND_ROWS */ f.name, f.id, m.subject, m.id, m.post_stamp
