@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.3 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admnntp.php,v 1.4 2002/08/23 01:44:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,7 +108,7 @@
 				if( $nntp_auth == 'ORIGINAL' )
 					$opt1 = ' selected';
 				else if ( $nntp_auth == 'SIMPLE' )
-					$opt1 = ' selected';
+					$opt2 = ' selected';
 				
 				echo '<option value="ORIGINAL"'.$opt1.'>Original</option><option value="SIMPLE"'.$opt2.'>Simple</option>';
 			?>
