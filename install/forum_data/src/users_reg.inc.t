@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.55 2003/10/16 21:59:05 hackie Exp $
+* $Id: users_reg.inc.t,v 1.56 2003/10/18 20:59:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -108,7 +108,7 @@ class fud_user_reg extends fud_user
 				".ssn(urlencode($this->jabber)).",
 				".ssn(urlencode($this->affero)).",
 				".iz($this->posts_ppg).",
-				".ssn($this->time_zone).",
+				'".addslashes($this->time_zone)."',
 				".iz($this->bday).",
 				".__request_timestamp__.",
 				'".$this->conf_key."',
@@ -149,7 +149,7 @@ class fud_user_reg extends fud_user
 			jabber=".ssn(urlencode($this->jabber)).",
 			affero=".ssn(urlencode($this->affero)).",
 			posts_ppg='".iz($this->posts_ppg)."',
-			time_zone=".ssn($this->time_zone).",
+			time_zone='".addslashes($this->time_zone)."',
 			bday=".iz($this->bday).",
 			user_image=".ssn(htmlspecialchars($this->user_image)).",
 			location=".ssn(htmlspecialchars($this->location)).",
