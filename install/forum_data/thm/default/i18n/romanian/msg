@@ -342,7 +342,7 @@ buddy_status:			Statut
 my_buddies:			Prietenii mei
 add_buddy:			Adauga prieteni
 add:				Adauga
-buddy_search:			Alegeti numele de utilizator.<br>Sau folositi <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">cautare utilizator</a> pentru a gasi o persoana.
+buddy_search:			Enter the login of the user you wish to add.
 buddy_remove:			sterge
 post_normal:			Normal
 post_sticky:			Sticky
@@ -922,43 +922,43 @@ login_blocked_account_ttl:	Contul dumneavoastra a fost blocat.
 login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, daca nu stiti motivul contactati administratorul.
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
+pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
+member_search:			<br>Sau foloseste optiunea <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Cauata persoana</a> pentru a gasi o persoana.
+post_all_ext_allowed:		(nerestrictionat)
+register_err_avatardimtobig:	Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+buddy_offline:			{VAR: r[2]} este offline
+buddy_online:			{VAR: r[2]} este online
+sml_no_smilies:			Nici o "emotie" disponibila.
+login_unapproved_account_ttl:	Cont care nu a fost acceptat.
+login_unapproved_account_msg:	Administratorul acestui forum a ales sa confirme fiecare cont nou manual.
+remove_from_buddy_list:		serge din lista cu prieteni
+iemail_msg_author:		<b>Autor:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Subiect:</b> {VAR: obj->subject}
+iemail_msg_date:		<b>Data:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_reply:		Raspunde
+iemail_msg_quote:		Citeaza
+iemail_msg_view:		Vizualizare Tema
 threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
-register_admin_newuser_title:	A new user has registered and their account is pending confirmation
-register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
-post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
-thread_printable_pdf:		Generate printable PDF
-thread_syndicate:		Syndicate this forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
+threadt_announce:		anunt
+reported_no_messages:		Nu sunt mesaje raportate.
+poll_no_polls:			Nu sunt sondaje accesibile.
+no_unread_messages:		Nu sunt mesaje necitite care sa se potriveasca criteriilor dumneavoastra.
+thread_mark_all_read:		marcheaza toate mesajele ca citite
+thread_mark_all_read_desc:	Toate mesajele necitite din acest forum vor fi marcate ca citite
+private_no_messages:		nu sunt mesaje in acest director
+register_email_change_subject:	Confirmarea schimbarii adresei de email
+register_email_change_msg:	Va rugam sa confirmati noua adresa de email "{VAR: uent->email}" care inlocuieste vechea adresa de email "{VAR: old_email}" apasand pe legatura de mai jos:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOdata ce confirmati noua adresa, contul dumneavoastra va fi redisponibil.
+iemail_thread_unsub:		Anuleaza inregistrarea la aceasta discutie
+iemail_forum_unsub:		Anuleaza inregistrarea la acest forum
+primary_group_prefix:		Grupul primar al forumului:
+group_resources:		Acest grup controleaza permisiunile forumului
+register_admin_newuser_title:	S-a inregistrat un nou utilizator si contul sau asteapta confirmare
+register_admin_newuser_msg:	Un nou utilizator ({VAR: uent->login}) abia s-a inregistrat.
+post_mod_msg_notify_title:	Mesaj nou care asteapta aprobare in forumul "{VAR: frm->name}" 
+post_mod_msg_notify_msg:	Un nou mesaj intitulat "{VAR: msg_post->subject}" au fost postati intr-un forum moderat. Pentru a revedea mesajul mergeti apsati aici: {ROOT}?t=modque\n\nAcesta este un proces automat, nu raspundeti la acest email.\n
+thread_printable_pdf:		Genereaza fisier printabil
+thread_syndicate:		Sorteaza forumul (XML)
+reg_conf_title:			Confirmarea inregistrarii
+reg_conf_email:			<b>Confirmarea adresei de email</b><br />V-a fost trimis un email care contine o adresa URL de unde va puteti activa contul.
+reg_conf_account:		<b>Confirmarea contului</b><br/>Inainte de a se activa contul, acesta trebuie sa fie aprobat de administrator.
+forum_banned_user:		Activitatile anterioare au facut ca contul dumneavoastra sa fie blocat permanent. Va multumim ca a-ti alesl acest forum. La revedere.
