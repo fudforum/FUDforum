@@ -128,7 +128,7 @@ err_info:			Info
 error_error:			Fehler
 error_invalidurl:		Ung&uuml;ltige URL
 error_title:			Fehlerseite
-exch_decline_ttl:		Das Verschieben des Themas {VAR: thr_name} ins Forum {VAR: frm->name} wurde abgelehnt.
+exch_decline_ttl:		Das Verschieben des Themas {VAR: thr_name} ins Forum {VAR-HTML: frm->name} wurde abgelehnt.
 faq:				F.A.Q.
 female:				Weiblich
 file_attachments:		Dateianhang:
@@ -315,7 +315,7 @@ msg_err_ininfo_title:		Information reicht nicht aus
 msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">anmelden</a>.
 msg_err_onlyreg_title:		Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 msg_thread:			Thema
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 msg_update:			Durchsucht das Thema <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
@@ -422,7 +422,7 @@ post_count:			Anzahl der Beitr&auml;ge {VAR: u->posted_msg_count}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		UMFRAGE ERSTELLEN
 post_cur_attached:		Momentan {VAR: attach_count} Dateianh&auml;nge 
-post_edit_update:		Bearbeitet <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
+post_edit_update:		Bearbeitet <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du versuchst, mehr Dateien hochzuladen als erlaubt sind.</font><br>
 post_err_attach_size:		<font class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -483,14 +483,14 @@ post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
 post_quote_msg:			{VAR-HTML: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_re:			Re: 
-post_reply_update:		Antwortet auf <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_reply_update:		Antwortet auf <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
 post_smiley:			Smiley K&uuml;rzel:
 post_sticky:			Angeheftet
 post_thread_expiry:		Ablaufdatum des Themas:
 post_thread_type:		Art des Themas:
 post_title:			Titel:
-post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
@@ -794,7 +794,7 @@ th_expr_two_hr:			2 Stunden
 th_expr_two_month:		2 Monate
 th_expr_two_week:		2 Wochen
 thr_exch_accept:		Thema akzeptieren
-thr_exch_decl_reason:		Begr&uuml;ndung f&uuml;r das Nicht-Verschieben von <b>{VAR: thr_name}</b> ins Forum <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Begr&uuml;ndung f&uuml;r das Nicht-Verschieben von <b>{VAR: thr_name}</b> ins Forum <b>{VAR-HTML: frm->name}</b>
 thr_exch_decline:		Thema ablehnen
 thr_exch_dest_forum:		Zielforum:
 thr_exch_no_threads:		Keine Themen, die genehmigt werden m&uuml;ssen.
@@ -809,14 +809,14 @@ thread_exchange:		Themenwechsel
 thread_first_unread_msg:	Hier klicken, um zm ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
 thread_thread:			Thema
-thread_title:			{VAR: frm->name}
-thread_update:			Durchsucht Forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_title:			{VAR-HTML: frm->name}
+thread_update:			Durchsucht Forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 threads:			Themen
 time:				Zeit
 todays_posts:			Heutige Beitr&auml;ge
 todays_posts_desc:		Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
 trash:				M&uuml;ll
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 tree_update:			Durchsucht das Thema (Baumansicht) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge

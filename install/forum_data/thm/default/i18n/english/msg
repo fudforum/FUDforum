@@ -619,9 +619,9 @@ post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over 
 post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn\'t match the allowed file types.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_edit_update:		Editing <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
-post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Replying to <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editing <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		Writing new topic in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
@@ -675,7 +675,7 @@ th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You\'ve followed an invalid link, the topic you are trying to view does not exist.
 thread_err_onlyregview_title:	Only registered users may view this forum
 thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">register</a>, if you are already registered you\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
-thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_update:			Browsing forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			Browsing topic (tree view) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Looking at <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}\'s</a> profile
 ERR_login_ttl:			ERROR: You are not logged in			
@@ -703,7 +703,7 @@ email_title:			Email Form
 finduser_title:			Find User
 help_title:			F.A.Q.
 login_title:			Login Form
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			Poll Editor
 register_title:			Register Form
 reset_title:			Reset Password
@@ -711,8 +711,8 @@ rpasswd_title:			Change Password Form
 error_title:			Error Form
 index_title:			Welcome to the forum
 search_title:			Search For {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		Email was sent
 remail_email:			There is a web page on {GVAR: FORUM_TITLE} ( {ROOT}?t=index ) that you may be interested in reading.\nHere is the topic I thought you\'d be interested in, {VAR: thread->subject} can be found here: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\nFrom {VAR: u}\n
 poll_add_option:		Add Option:
@@ -742,9 +742,9 @@ thr_exch_decline:		decline topic
 thr_exch_orig_forum:		Original Forum:
 thr_exch_dest_forum:		Destination Forum:
 thr_exch_no_threads:		No topics waiting approval.
-thr_exch_decl_reason:		Reason for declining topic <b>{VAR: thr_name}</b> into forum <b>{VAR: frm->name}</b>
+thr_exch_decl_reason:		Reason for declining topic <b>{VAR: thr_name}</b> into forum <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Submit
-exch_decline_ttl:		Moving of topic {VAR: thr_name} into forum {VAR: frm->name} was declined.
+exch_decline_ttl:		Moving of topic {VAR: thr_name} into forum {VAR-HTML: frm->name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
 split_thread:			Split Topic
 groupmgr_no_user:		There is no user with a login of "{VAR-HTML: gr_member}"

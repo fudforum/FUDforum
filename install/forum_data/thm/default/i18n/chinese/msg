@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VA
 post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置font><br>
 post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br>
 post_err_passwd:		密码错误。
-post_reply_update:		回复 <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR: frm->name}
-post_edit_update:		编辑<a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR: frm->name}
-post_topic_update:		发表新主题 <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		回复 <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR-HTML: frm->name}
+post_edit_update:		编辑<a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR-HTML: frm->name}
+post_topic_update:		发表新主题 <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		发生错误
 postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
 postcheck_subj_needed:		输入主题
@@ -674,7 +674,7 @@ th_err_invid_title:		错误的主题id号
 th_err_invid_msg:		你输入的连接错误,相关主题并不存在。
 thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
 thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">登录</a>.
-thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
 ERR_login_ttl:			错误：您尚未注册
@@ -702,7 +702,7 @@ email_title:			邮件格式
 finduser_title:			查找用户
 help_title:			使用帮助
 login_title:			登录格式
-msg_title:			{VAR: frm->name} => {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 poll_title:			调查编辑
 register_title:			注册
 reset_title:			重新输入密码
@@ -710,8 +710,8 @@ rpasswd_title:			修改密码页面
 error_title:			格式错误
 index_title:			欢迎到来
 search_title:			搜索 {VAR-HTML: srch}
-thread_title:			{VAR: frm->name}
-tree_title:			{VAR: frm->name} => {VAR: thread->subject}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		邮件已经发送
 remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n 发件人 {VAR: u}\n
 poll_add_option:		添加选项：
@@ -741,9 +741,9 @@ thr_exch_decline:		拒绝该主题
 thr_exch_orig_forum:		转出的论坛:
 thr_exch_dest_forum:		目标论坛:
 thr_exch_no_threads:		没有需要批复的主题。
-thr_exch_decl_reason:		拒绝主题 <b>{VAR: thr_name}</b> 转入<b>{VAR: frm->name}</b>论坛的理由。
+thr_exch_decl_reason:		拒绝主题 <b>{VAR: thr_name}</b> 转入<b>{VAR-HTML: frm->name}</b>论坛的理由。
 thr_exch_submit:		发布
-exch_decline_ttl:		把主题 {VAR: thr_name} 转移至{VAR: frm->name} 论坛的要求被拒绝。
+exch_decline_ttl:		把主题 {VAR: thr_name} 转移至{VAR-HTML: frm->name} 论坛的要求被拒绝。
 ppost_original_msg:		你正在发送或者回复的信息
 split_thread:			把主题分开
 groupmgr_no_user:		此账号不存在 "{VAR-HTML: gr_member}"
