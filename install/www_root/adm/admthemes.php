@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.7 2002/06/28 20:25:07 hackie Exp $
+*   $Id: admthemes.php,v 1.8 2002/07/02 18:13:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -143,7 +143,7 @@ function cleandir($dir)
 </tr>
 
 <tr bgcolor="#bff8ff">
-	<td valign=top>Theme:</td>
+	<td valign=top>Template Set:</td>
 	<td>
 	<select name="thm_theme">
 	<?
@@ -244,7 +244,7 @@ function update_locale()
 
 <form method="post">
 <table border=0 cellspacing=1 cellpadding=3>
-<tr bgcolor="#bff8ff"><td colspan=2>Create New Theme</td></tr>
+<tr bgcolor="#bff8ff"><td colspan=2>Create New Template Set</td></tr>
 <tr bgcolor="#bff8ff">
 	<td>Name</td>
 	<td><input type="text" name="newname"></td>
