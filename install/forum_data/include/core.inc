@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.89 2003/12/01 08:41:54 hackie Exp $
+* $Id: core.inc,v 1.90 2003/12/01 21:20:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -61,7 +61,10 @@ function fud_use($file, $static=false)
 		include_once $GLOBALS['INCLUDE'] . $file;
 		return;
 	}
-	include_once $GLOBALS['INCLUDE'] . (defined('fud_theme') ? fud_theme : 'theme/default/') . $file;
+	if (!defined('fud_theme')) {
+		define('fud_theme', 'theme/default/');
+	}
+	include_once $GLOBALS['INCLUDE'] . fud_theme . $file;
 }
 
 function get_random_value($bitlength=32)
