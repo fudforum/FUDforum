@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.16 2003/09/30 01:42:28 hackie Exp $
+*   $Id: admmassemail.php,v 1.17 2003/09/30 13:56:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
 		if (!$_POST['group']) {
-			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($POST['ignore_override']) ? '' : 'WHERE ignore_admin=\'N\''));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($POST['ignore_override']) ? '' : 'WHERE !(users_opt & 8)'));
 		} else if (!isset($groups[$_POST['group']])) {
 			echo '<font color="+1" color="red">Invalid group id</font><br />';
 			$err = 1;
@@ -43,7 +43,7 @@
 
 		$email_block = 50;
 		$email_block_stat = 0;
-		$send_to = $GLOBALS['ADMIN_EMAIL'];
+		$send_to = $ADMIN_EMAIL;
 		$to = array();
 		
 		if (!($FUD_OPT_1 & 512)) {
