@@ -21,16 +21,16 @@ function insertTag(obj, stag, etag)
 {
 	if (navigator.userAgent.indexOf("MSIE") > -1 && !OPERA) {
 		insertTagIE(obj, stag, etag);
-	} else if (window.getSelection) {
-		insertTagMoz(obj, stag, etag);	
+	} else if (window.getSelection && navigator.userAgent.indexOf("Safari") == -1) {
+		insertTagMoz(obj, stag, etag);
 	} else {
-		insertTagNS(obj, stag, etag);	
+		insertTagNS(obj, stag, etag);
 	}
 }
 
 function insertTagNS(obj, stag, etag)
 {
-	obj.value = obj.value+stag+etag;	
+	obj.value = obj.value+stag+etag;
 }
 
 function insertTagMoz(obj, stag, etag)
