@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.28 2004/11/24 19:53:39 hackie Exp $
+* $Id: login.tmpl,v 1.29 2005/02/25 01:28:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,10 +48,6 @@ document.login.login.focus();
 
 {SECTION: login_use_cookies}
 <tr class="RowStyleB"><td colspan=3 class="al"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</span></td></tr>
-{SECTION: END}
-
-{SECTION: login_error_msg}
-<p class="ac ErrorText">{VAR: _GET['msg']}</div></p>
 {SECTION: END}
 
 {SECTION: login_error_text}
