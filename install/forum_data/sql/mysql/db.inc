@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.2 2002/06/26 22:40:52 hackie Exp $
+*   $Id: db.inc,v 1.3 2002/07/04 19:56:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -263,5 +263,27 @@ function get_field_list($tbl)
 function qry_limit($limit, $off)
 {
 	return $off.','.$limit;
+}
+
+function get_fud_table_list()
+{
+	$ret = array();
+	$p_len = strlen($GLOBALS['DBHOST_TBL_PREFIX']);
+	
+	$r = mysql_list_tables($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK']);
+	while( list($name) = DB_ROWARR($r) ) {
+		if( substr($name, 0, $p_len) != $GLOBALS['DBHOST_TBL_PREFIX'] ) continue;
+		$ret[] = $name;
+	}	
+	QF($r);
+	
+	return $ret;	
+}
+
+function optimize_tables($tbl_list=NULL)
+{
+	if( !$tbl_list ) $tbl_list = get_fud_table_list();
+
+	while(list(,$v) = each($tbl_list) ) q("OPTIMIZE TABLE ".$v);
 }
 ?>

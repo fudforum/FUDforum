@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.1 2002/06/26 20:32:40 hackie Exp $
+*   $Id: db.inc,v 1.2 2002/07/04 19:56:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -283,4 +283,21 @@ function qry_limit($limit, $off)
 	return $limit.','.$off;
 }
 
+function get_fud_table_list()
+{
+	$ret = array();
+
+	$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	while( list($name) = DB_ROWARR($r) ) $ret[] = $name;
+	QF($r);
+	
+	return $ret;	
+}
+
+function optimize_tables($tbl_list=NULL)
+{
+	if( !$tbl_list ) $tbl_list = get_fud_table_list();
+
+	while(list(,$v) = each($tbl_list) ) q("VACUUM ANALYZE ".$v);
+}
 ?>
