@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.28 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admthemes.php,v 1.29 2003/05/16 08:31:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -117,7 +117,7 @@ function clean_code($path, $toks)
 
 	if (isset($_POST['newname']) && !q_singleval('SELECT id FROM '.$tbl.'themes WHERE name=\''.addslashes($_POST['newname']).'\'')) {
 		$root = $DATA_DIR . 'thm/';
-		$root_nn = $root . $_POST['newname'];
+		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);
 		if (!@is_dir($root_nn) && !@mkdir($root_nn, 0777)) {
 			exit('can\'t create ('.$root_nn.')<br>');
