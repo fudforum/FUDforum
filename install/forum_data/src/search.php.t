@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.44 2004/06/14 16:35:14 hackie Exp $
+* $Id: search.php.t,v 1.45 2004/06/21 14:56:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,7 +42,12 @@ if (!function_exists("str_word_count")) {
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
 	if (strncmp($GLOBALS['usr']->lang, 'chinese', 7)) {
-		$w = array_unique(str_word_count($qry, 1));
+		/* special handling for CP* locales that *nix cannot handle */ 
+		if ($GLOBALS['usr']->lang == 'latvian' || $GLOBALS['usr']->lang == 'russian-1251') {
+			$w = array_unique(explode(' ', $qry));
+		} else {
+			$w = array_unique(str_word_count($qry, 1));
+		}
 		$qr = ''; $i = 0;
 		foreach ($w as $v) {
 			if (strlen($v) <= 2) {

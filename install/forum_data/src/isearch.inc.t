@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.35 2004/06/14 16:50:43 hackie Exp $
+* $Id: isearch.inc.t,v 1.36 2004/06/21 14:56:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -60,9 +60,16 @@ if (!function_exists("str_word_count")) {
 	}
 }
 		reverse_fmt($subj);
-		$t1 = array_unique(str_word_count(strip_tags(strtolower($subj)), 1));
 		reverse_fmt($body);
-		$t2 = array_unique(str_word_count(strip_tags(strtolower($body)), 1));
+
+		/* special handling for CP* locales that *nix cannot handle */ 
+		if ($GLOBALS['usr']->lang == 'latvian' || $GLOBALS['usr']->lang == 'russian-1251') {
+			$t2 = array_unique(explode(' ', strip_tags(strtolower($body))));
+			$t1 = array_unique(explode(' ', strip_tags(strtolower($subj))));
+		} else {
+			$t2 = array_unique(str_word_count(strip_tags(strtolower($body)), 1));
+			$t1 = array_unique(str_word_count(strip_tags(strtolower($subj)), 1));
+		}
 
 		foreach ($t1 as $v) {
 			if (isset($v[51]) || !isset($v[2])) continue;
