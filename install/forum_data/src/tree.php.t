@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.61 2004/06/11 14:24:02 hackie Exp $
+* $Id: tree.php.t,v 1.62 2004/10/10 18:28:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
@@ -103,6 +103,10 @@
 			header('Location: {FULL_ROOT}{ROOT}?t=index&' . _rsidl);
 		}
 		exit;
+	}
+
+	if (!_uid) {
+		header("Last-Modified: " .  gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 	}
 
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
