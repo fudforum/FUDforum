@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: spell.inc.t,v 1.2 2002/06/19 00:08:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,30 +25,17 @@ function spell_check_w($word)
 	return pspell_check($GLOBALS["SPELL_LINK"], $word);
 }
 
-function init_spell($type='')
+function init_spell($type='PSPELL_FAST')
 {
-	if( !strlen($type) ) $type = 'PSPELL_FAST';
-
-	switch( $GLOBALS['LANGUAGE'] ) 
-	{
-		case 'english':
-			$lng = 'en';
-			break;
-		case 'german':
-			$lng = 'de';
-			break;
-		case 'swedish':
-			$lng = 'sv';
-			break;
-		case 'polish':
-			$lng = 'pl';
-			break;
-	}
+	$lng = q_singleval("SELECT pspell_lang FROM {SQL_TABLE_PREFIX}themes WHERE id=".__fud_theme_id__);
+	if ( !$lng ) return false;
 
 	$pspell_config = pspell_config_create($lng);
 	pspell_config_mode($pspell_config, $type);
 	pspell_config_ignore($pspell_config, 1);
 	$GLOBALS["SPELL_LINK"] = pspell_new_config($pspell_config);
+	
+	return true;
 }
 
 function tokenize_string($data)
@@ -249,7 +236,7 @@ function reasemble_string($wa)
 
 function check_data_spell($data,$type)
 {
-	init_spell();
+	if ( !init_spell() ) return $data;
 	$wa = tokenize_string($data);
 	$wa = spell_check_ar($wa,$type);
 	$data = reasemble_string($wa);

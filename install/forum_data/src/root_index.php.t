@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.3 2002/06/18 18:26:09 hackie Exp $
+*   $Id: root_index.php.t,v 1.4 2002/06/19 00:08:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,15 +24,16 @@
 	
 
 	if ( !$usr->theme )
-		$r = q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE t_default='Y'");
 	else
-		$r = q("SELECT name, locale FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
+		$r = q("SELECT * FROM {SQL_TABLE_PREFIX}themes WHERE id=$usr->theme");
 
-	$theme = db_singleobj($r);
+	$GLOBALS['FUD_THEME'] = db_singleobj($r);
+	define('__fud_theme_id__', $GLOBALS['FUD_THEME']->id);
 	
-	setlocale(LC_ALL, $theme->locale);
+	setlocale(LC_ALL, $GLOBALS['FUD_THEME']->locale);
 	if ( preg_match('/[^A-Za-z0-9_]/', $pg) ) exit("<html>This is an invalid request</html>\n");
 	
 	define('__index_page_start__', TRUE);
-	require('theme/'.$theme->name.'/'.$pg.'.php');
+	require('theme/'.$GLOBALS['FUD_THEME']->name.'/'.$pg.'.php');
 ?>

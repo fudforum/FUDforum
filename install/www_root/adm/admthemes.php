@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.3 2002/06/18 18:26:10 hackie Exp $
+*   $Id: admthemes.php,v 1.4 2002/06/19 00:08:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -175,7 +175,12 @@ function cleandir($dir)
 			if ( $de == 'CVS' || !is_dir($de) ) continue;
 			$sel = $thm_lang == $de ? ' selected' : '';
 			$selopt .= '<option'.$sel.'>'.$de.'</option>';
-			$locales[$de] = trim(filetomem($de.'/locale'));
+			$locales[$de]['locale'] = trim(filetomem($de.'/locale'));
+			$pspell_file = $de.'/pspell_lang';
+			if ( file_exists($pspell_file) )
+				$locales[$de]['pspell_lang'] = trim(filetomem($pspell_file));
+			else
+				$locales[$de]['pspell_lang'] = 'en';
 		}
 		closedir($dp);
 		chdir($oldpwd);
@@ -183,7 +188,9 @@ function cleandir($dir)
 		reset($locales);
 		$cases = '';
 		while ( list($k, $v) = each($locales) ) {
-			$cases .= "case '$k': document.admthm.thm_locale.value = '$v'; break;\n";
+			$cases .= "case '$k': document.admthm.thm_locale.value = '".$v['locale']."'; ";
+			$cases .= "document.admthm.thm_pspell_lang.value='".$v['pspell_lang']."'; ";
+			$cases .= "break;\n";
 		}
 	?>
 <script>
@@ -201,9 +208,20 @@ function update_locale()
 	</select>
 	</td>
 </tr>
+
 <tr bgcolor="#bff8ff">
-	<td>Locale:</td><td><input type="text" name="thm_locale" value="<? echo htmlspecialchars($thm_locale?$thm_locale:'english'); ?>" size=7></td>
+	<td>Locale:</td>
+	<td><input type="text" name="thm_locale" value="<? echo htmlspecialchars($thm_locale?$thm_locale:'english'); ?>" size=7></td>
 </tr>
+
+<tr bgcolor="#bff8ff">
+	<td>pSpell Language:</td>
+	<td>
+		<input type="text" name="thm_pspell_lang" value="<?php echo htmlspecialchars(!$thm_pspell_lang&&!$edit?'en':$thm_pspell_lang); ?>" size=4>
+		[<a href="javascript://" onClick="javascript: document.admthm.thm_pspell_lang.value=''">disable</a>]
+	</td>
+</tr>
+
 <tr bgcolor="#bff8ff">
 	<td colspan=2>
 	<?php draw_checkbox('thm_t_default', 'Y', $thm_t_default);?> Default <? draw_checkbox('thm_enabled', 'Y', $thm_enabled); ?> Enabled
@@ -244,6 +262,7 @@ function update_locale()
 	<td>Theme</td>
 	<td>Language</td>
 	<td>Locale</td>
+	<td>pSpell Lang</td>
 	<td>Enabled</td>
 	<td>Default</td>
 	<td>Action</td>
@@ -267,7 +286,8 @@ function update_locale()
 			<td>".htmlspecialchars($obj->theme)."</td>
 			<td>".htmlspecialchars($obj->lang)."</td>
 			<td>".htmlspecialchars($obj->locale)."</td>
-			<td>".$obj->enabled."</td>
+			<td>".((!$obj->pspell_lang)?'<font color="green">disabled</font>':htmlspecialchars($obj->pspell_lang))."</td>
+			<td>".($obj->enabled=='Y'?'Yes':'<font color="green">No</font>')."</td>
 			<td>".$obj->t_default."</td>
 			<td nowrap>$act</td>
 		</tr>\n";
