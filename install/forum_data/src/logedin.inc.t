@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.18 2003/05/07 21:56:29 hackie Exp $
+*   $Id: logedin.inc.t,v 1.19 2003/05/14 06:14:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,9 +56,13 @@ if ($LOGEDIN_LIST == 'Y' || $FORUM_INFO == 'Y') {
 
 	$i_spy = $ACTION_LIST_ENABLED == 'Y' ? '{TEMPLATE: i_spy}' : '';
 
-	if ($LOGEDIN_LIST == 'Y' && @count($st_obj->online_users_text)) {
-		foreach($st_obj->online_users_text as $k => $v) {
-			$logedin .= '{TEMPLATE: online_user_link}' . '{TEMPLATE: online_user_separator}';
+	if ($LOGEDIN_LIST == 'Y') {
+		if (@count($st_obj->online_users_text)) {
+			foreach($st_obj->online_users_text as $k => $v) {
+				$logedin .= '{TEMPLATE: online_user_link}' . '{TEMPLATE: online_user_separator}';
+			}
+		} else {
+			$logedin = '';
 		}
 		$logedin = '{TEMPLATE: logedin}';
 	}
