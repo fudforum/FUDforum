@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.15 2003/04/16 10:35:52 hackie Exp $
+*   $Id: modque.php.t,v 1.16 2003/05/08 00:45:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,11 +45,12 @@
 	}
 
 	ses_update_status($usr->sid, '', 0);
-	
+
+	/*{POST_HTML_PHP}*/	
+
 	/* for sanity sake, we only select up to POSTS_PER_PAGE messages, simply because otherwise the form will 
 	 * become unmanageable.
 	 */
-	
 	$r = uq("SELECT 
 		m.*, 
 		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
@@ -76,7 +77,7 @@
 		f.moderated='Y' AND m.approved='N'
 	ORDER BY f.view_order, m.post_stamp DESC LIMIT ".$POSTS_PER_PAGE);
 	
-/*{POST_HTML_PHP}*/
+
 	
 	$prev_thread_id = $modque_message = '';
 	$m_num = 0;
