@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.13 2002/11/18 16:04:19 hackie Exp $
+*   $Id: ppost.php.t,v 1.14 2003/02/01 20:18:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,15 +43,6 @@
 	$returnto = urlencode("{ROOT}?t=ppost&"._rsid);
 	$returnto_d = $returnto;
 	$attach_control_error=NULL;
-
-	/* INITIAL SECURITY CHECKS */
-	
-	$flt = new fud_ip_filter;
-	if ( isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) && $flt->is_blocked($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) ) {
-		error_dialog('{TEMPLATE: post_err_notallowed_title}', '{TEMPLATE: post_err_notallowed_msg}', $returnto_d);
-		exit();
-	}
-	unset($flt);
 
 	if ( !isset($usr) ) std_error('login');
 	is_allowed_user();
