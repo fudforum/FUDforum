@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: create_file_list,v 1.5 2003/05/07 18:38:28 hackie Exp $
+*   $Id: create_file_list,v 1.6 2003/05/07 18:39:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -73,7 +73,7 @@ function w_err($msg, $exit=true)
 		w_err("Supplied Argument [".$_SERVER['argv'][1]."] is not a valid directory");
 	}
 
-	if (isset($_SERVER['argv'][2]) && extension_loaded('zlib')) {
+	if (isset($_SERVER['argv'][2]) && !extension_loaded('zlib')) {
 		w_err('zlib extension required to compress the archive is not loaded.');
 	}	
 
