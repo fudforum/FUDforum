@@ -3,7 +3,6 @@ add_to_buddy_list:		仲間リストに追加
 admin:				管理
 admin_control_panel:		管理コントロールパネル
 administrator:			管理者
-announcement:			アナウンス
 attachment:			添付:
 avatar:				アバター:
 average_post_count:		合計 {VAR: u->posted_msg_count} 個のメッセージ (平均一日 {VAR: avg} 通)
@@ -443,7 +442,6 @@ report_submit_report:		報告送信
 search_entire_msg:		Entire Message
 search_subect_only:		件名のみ
 search_forum:			フォーラム
-search_subject:			件名
 search_posted_on:		投稿日
 search_no_results:		結果なし
 search_all_forums:		すべてのフォーラムを検索

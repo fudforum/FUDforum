@@ -3,7 +3,6 @@ add_to_buddy_list:		add to buddy list
 admin:				Admin 
 admin_control_panel:		Admin Control Panel
 administrator:			Administrator
-announcement:			Announcement
 attachment:			Attachment:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Messages(s) ({VAR: avg} average messages per day)
@@ -443,7 +442,6 @@ report_submit_report:		Submit Report
 search_entire_msg:		Entire Message
 search_subect_only:		Subject Only
 search_forum:			Forum
-search_subject:			Subject
 search_posted_on:		Posted On
 search_no_results:		No Results
 search_all_forums:		Search All Forums

@@ -21,7 +21,6 @@ admin:				Admin
 admin_control_panel:		Administratormen&uuml;
 administrator:			Administrator
 allowed_files:			Erlaubte Dateitypen:
-announcement:			Ank&uuml;ndigung
 apply_spell_changes:		Rechtschreibkorrektur anwenden
 approved_avatar_msg:		Dein Avatar wurde vom Administrator genehmigt. Er sollte nun in s&auml;mtlichen von dir erstellten Beitr&auml;gen erscheinen. Falls du ihn nicht siehst oder stattdessen den alten Avatar, liegt es daran, dass der Browser die Seite im Cache gespeichert hat. Versuche ein- zweimal zu aktualisieren, das sollte in den meisten F&auml;llen das Problem beheben.
 approved_avatar_title:		Dein pers&ouml;nlicher Avatar wurde genehmigt.
@@ -666,7 +665,6 @@ search_in_forum:		Suchen im Forum:
 search_no_results:		Kein Ergebnis
 search_posted_on:		Erstellt am
 search_subect_only:		Nur Betreff
-search_subject:			Betreff
 search_title:			Suche nach {VAR-HTML: srch}
 search_update:			Sucht nach Beitr&auml;gen
 sel_todays_posts:		Heutige Beitr&auml;ge

@@ -3,7 +3,6 @@ add_to_buddy_list:		aduaga la lista cu prieteni
 admin:				Administrator 
 admin_control_panel:		Panou de Control Administrator
 administrator:			Administrator
-announcement:			Anunt
 attachment:			Atasament:
 avatar:				Imagime:
 average_post_count:		{VAR: u->posted_msg_count} mesaje ({VAR: avg} mesaje trimise pe zi)
@@ -441,7 +440,6 @@ report_submit_report:		Trimite raport
 search_entire_msg:		Tot mesajul
 search_subect_only:		Doar subiectul
 search_forum:			Forum
-search_subject:			Subiect
 search_posted_on:		Trimis la data de
 search_no_results:		Nici un rezultat
 search_all_forums:		Cauta in tote forumurile

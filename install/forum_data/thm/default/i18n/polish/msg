@@ -3,7 +3,6 @@ add_to_buddy_list:		Dodaj do listy znajomych
 admin:				Administrator 
 admin_control_panel:		Panel administracyjny
 administrator:			Administrator
-announcement:			Og³oszenie
 attachment:			Za³±cznik:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} wiadomo¶ci (¶rednio {VAR: avg} wiadomo¶ci dziennie)
@@ -437,7 +436,6 @@ report_submit_report:		Wy¶lij zg³oszenie
 search_entire_msg:		Ca³± wiadomo¶æ
 search_subect_only:		Tylko temat
 search_forum:			Forum
-search_subject:			Temat
 search_posted_on:		Zamieszczona dnia
 search_no_results:		Brak wyników.
 search_all_forums:		Przeszukaj wszystkie fora

@@ -3,7 +3,6 @@ add_to_buddy_list:		ádëti á bièiuliø sàraðà
 admin:				Administravimas 
 admin_control_panel:		Administratoriaus langas
 administrator:			Administratorius
-announcement:			Praneðimas
 attachment:			Priedas:
 avatar:				Logotipas:
 average_post_count:		{VAR: u->posted_msg_count} praneðimø. (Vidutiniðkai {VAR: avg} praneðimø per dienà.)
@@ -443,7 +442,6 @@ report_submit_report:		Submit Report
 search_entire_msg:		Visuose praneðimuose
 search_subect_only:		Tik praneðimø temose
 search_forum:			Forumas
-search_subject:			Tema
 search_posted_on:		Sukurta
 search_no_results:		Nerasta
 search_all_forums:		Ieðkoti visuose forumuose

@@ -3,7 +3,6 @@ add_to_buddy_list:		加入好友列表
 admin:				管理
 admin_control_panel:		管理界面
 administrator:			系统管理员
-announcement:			公告
 attachment:			附件：
 avatar:				头像：
 average_post_count:		{VAR: u->posted_msg_count} 帖子(日均发帖数{VAR: avg} )
@@ -437,7 +436,6 @@ report_submit_report:		完成
 search_entire_msg:		全文搜索
 search_subect_only:		主题搜索
 search_forum:			论坛
-search_subject:			主题
 search_posted_on:		提交
 search_no_results:		没有查询结果
 search_all_forums:		搜索所有论坛

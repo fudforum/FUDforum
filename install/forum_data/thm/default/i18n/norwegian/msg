@@ -3,7 +3,6 @@ add_to_buddy_list:	   	legg til kontaktlisten
 admin:				Admin
 admin_control_panel:		Administrators kontrollpanel
 administrator:			Administrator
-announcement:			Melding
 attachment:			Vedlegg:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} innegg ({VAR: avg} innlegg per dag i gjennomsnitt)
@@ -437,7 +436,6 @@ report_submit_report:		Send rapport
 search_entire_msg:		Hele innlegget
 search_subect_only:		Bare emnet
 search_forum:			Forum
-search_subject:			Emne
 search_posted_on:		Postet dato
 search_no_results:		Ingen resultater
 search_all_forums:		S&oslash;k i alle forum

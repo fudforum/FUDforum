@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.php.t,v 1.24 2005/03/05 18:46:59 hackie Exp $
+* $Id: poll.php.t,v 1.25 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,8 +113,8 @@
 
 /*{POST_HTML_PHP}*/
 
-	$pl_expiry_date_data = tmpl_draw_select_opt("0\n3600\n21600\n43200\n86400\n259200\n604800\n2635200\n31536000", "{TEMPLATE: poll_unlimited}\n1 {TEMPLATE: poll_hour}\n6 {TEMPLATE: poll_hours}\n12 {TEMPLATE: poll_hours}\n1 {TEMPLATE: poll_day}\n3 {TEMPLATE: poll_days}\n1 {TEMPLATE: poll_week}\n1 {TEMPLATE: poll_month}\n1 {TEMPLATE: poll_year}", $pl_expiry_date, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$pl_max_votes_data = tmpl_draw_select_opt("0\n10\n50\n100\n200\n500\n1000\n10000\n100000", "{TEMPLATE: poll_unlimited}\n10\n50\n100\n200\n500\n1000\n10000\n100000", $pl_max_votes, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$pl_expiry_date_data = tmpl_draw_select_opt("0\n3600\n21600\n43200\n86400\n259200\n604800\n2635200\n31536000", "{TEMPLATE: poll_unlimited}\n1 {TEMPLATE: poll_hour}\n6 {TEMPLATE: poll_hours}\n12 {TEMPLATE: poll_hours}\n1 {TEMPLATE: poll_day}\n3 {TEMPLATE: poll_days}\n1 {TEMPLATE: poll_week}\n1 {TEMPLATE: poll_month}\n1 {TEMPLATE: poll_year}", $pl_expiry_date);
+	$pl_max_votes_data = tmpl_draw_select_opt("0\n10\n50\n100\n200\n500\n1000\n10000\n100000", "{TEMPLATE: poll_unlimited}\n10\n50\n100\n200\n500\n1000\n10000\n100000", $pl_max_votes);
 
 	if ($frm->group_cache_opt & 16384) {
 		$checked = isset($_POST['pl_smiley_disabled']) ? ' checked' : '';

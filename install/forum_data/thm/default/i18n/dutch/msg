@@ -3,7 +3,6 @@ add_to_buddy_list:		voeg toe aan je buddy lijst
 admin:				Admin 
 admin_control_panel:		Admin Control Panel
 administrator:			Administrator
-announcement:			mededeling
 attachment:			Bijvoegsel:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post(s) ({VAR: avg} average posts per day)
@@ -439,7 +438,6 @@ report_submit_report:		verzend Rapport
 search_entire_msg:		Volledig bericht
 search_subect_only:		Onderwerp enkel
 search_forum:			Forum
-search_subject:			Onderwerp
 search_posted_on:		Gepost op
 search_no_results:		Geen resultaten
 search_all_forums:		Doorzoek alle forums

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.45 2005/03/09 20:56:19 hackie Exp $
+* $Id: groupmgr.php.t,v 1.46 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,7 +56,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		if (!$group_id) {
 			$group_id = (int)$vl;
 		}
-		$group_selection = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id, '', '');
+		$group_selection = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $group_id);
 		$group_selection = '{TEMPLATE: group_selection}';
 	}
 

@@ -3,7 +3,6 @@ add_to_buddy_list:		lis‰‰ kavereihin
 admin:				Yll‰pito
 admin_control_panel:		Yll‰pidon Kontrollipaneeli
 administrator:			Yll‰pit‰j‰
-announcement:			Tiedote
 attachment:			Liitetiedosto:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} viesti(‰) (keskim‰‰rin {VAR: avg} viesti‰ p‰iv‰ss‰)
@@ -443,7 +442,6 @@ report_submit_report:		L‰het‰ Ilmianto
 search_entire_msg:		Koko viesti
 search_subect_only:		Vain otsikko
 search_forum:			Foorumi
-search_subject:			Otsikko
 search_posted_on:		L‰hetetty
 search_no_results:		Ei tuloksia
 search_all_forums:		Hae kaikista foorumeista

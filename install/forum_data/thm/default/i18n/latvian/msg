@@ -3,7 +3,6 @@ add_to_buddy_list:		pievienot kontaktu sarakstam
 admin:				Admins
 admin_control_panel:		Administratîvais centrs
 administrator:			Administrators
-announcement:			Sludinâjums
 attachment:			Pielikums:
 avatar:				Bildîtes:
 average_post_count:		{VAR: u->posted_msg_count} (vidçji {VAR: avg} dienâ)
@@ -438,7 +437,6 @@ report_submit_report:		Informçt
 search_entire_msg:		Visu publikâciju
 search_subect_only:		Tikai tçma
 search_forum:			Forums
-search_subject:			Tçma
 search_posted_on:		Nosûtîðanas datums
 search_no_results:		Rezultâtu nav
 search_all_forums:		Visi forumi

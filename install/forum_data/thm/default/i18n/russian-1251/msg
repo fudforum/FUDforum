@@ -3,7 +3,6 @@ add_to_buddy_list:		добавить в список контактов
 admin:				Админ
 admin_control_panel:		Административный центр
 administrator:			Администратор
-announcement:			Анонс
 attachment:			Вложение:
 avatar:				Картинка:
 average_post_count:		{VAR: u->posted_msg_count} (в среднем {VAR: avg} в день)
@@ -438,7 +437,6 @@ report_submit_report:		Известить
 search_entire_msg:		Сообщение полностью
 search_subect_only:		Только тема
 search_forum:			Форум
-search_subject:			Тема
 search_posted_on:		Дата отправки
 search_no_results:		Нет результатов
 search_all_forums:		Все форумы

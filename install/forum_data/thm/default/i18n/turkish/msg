@@ -3,7 +3,6 @@ add_to_buddy_list:		Arkadaþ listesine ekle
 admin:				Yönetici
 admin_control_panel:		Yönetici Denetim Masasý
 administrator:			Yönetici
-announcement:			Duyuru
 attachment:			Ek:
 avatar:				Avatar:
 average_post_count:		Ýleti sayýsý: {VAR: u->posted_msg_count} Günlük ortalama ileti sayýsý: ({VAR: avg})
@@ -437,7 +436,6 @@ report_submit_report:		Bildirimi gönder
 search_entire_msg:		Tüm iletide
 search_subect_only:		Sadece baþlýkta
 search_forum:			Forum
-search_subject:			Konu
 search_posted_on:		Gönderilme Tarihi
 search_no_results:		Bulunamadý
 search_all_forums:		Tüm forumlar

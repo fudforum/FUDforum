@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: avatarsel.php.t,v 1.13 2004/11/24 19:53:34 hackie Exp $
+* $Id: avatarsel.php.t,v 1.14 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 
 	if (count($galleries) > 1) {
 		$gal = isset($_POST['gal'], $galleries[$_POST['gal']]) ? $_POST['gal'] : 'default';
-		$select = tmpl_draw_select_opt(implode("\n", $galleries), implode("\n", array_keys($galleries)), $gal, '', '');
+		$select = tmpl_draw_select_opt(implode("\n", $galleries), implode("\n", array_keys($galleries)), $gal);
 		$select = '{TEMPLATE: avatarsel_gal_sel}';
 	} else {
 		$gal = 'default';

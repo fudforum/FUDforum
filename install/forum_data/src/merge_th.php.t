@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.22 2005/03/09 21:10:41 hackie Exp $
+* $Id: merge_th.php.t,v 1.23 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,7 +124,7 @@
 		$kl .= $r[1] . "\n";
 	}
 
-	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $frm, '', '');
+	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $frm);
 
 	$page = !empty($_POST['page']) ? (int) $_POST['page'] : 1;
 	if ($page > 1 && isset($_POST['prev'])) {
@@ -137,13 +137,13 @@
 	if (isset($_POST['sel_th'])) {
 		$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id IN(".implode(',', $_POST['sel_th']).")");
 		while ($r = db_rowarr($c)) {
-			$thread_sel .= '{TEMPLATE: sel_opt_selected}';
+			$thread_sel .= '{TEMPLATE: m_sel_opt_selected}';
 		}
 		unset($_POST['sel_th']);
 	}
 	$c = uq("SELECT t.id, m.subject FROM {SQL_TABLE_PREFIX}thread_view tv INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=t.root_msg_id WHERE tv.forum_id={$frm} AND page={$page} ORDER BY pos");
 	while ($r = db_rowarr($c)) {
-		$thread_sel .= '{TEMPLATE: sel_opt}';
+		$thread_sel .= '{TEMPLATE: m_sel_opt}';
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

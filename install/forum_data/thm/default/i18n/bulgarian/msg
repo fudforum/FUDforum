@@ -3,7 +3,6 @@ add_to_buddy_list:		добави в контактна листа
 admin:				Админ
 admin_control_panel:		Административeн контролeн панел
 administrator:			Администратор
-announcement:			Официално съобщение
 attachment:			Прикрепен файл:
 avatar:				Аватар:
 average_post_count:		средно {VAR: u->posted_msg_count} съобщения за ден ({VAR: avg} средно количество на съобщенията за ден)
@@ -440,7 +439,6 @@ report_submit_report:		Прати
 search_entire_msg:		В цялото съобщение
 search_subect_only:		По заглавието
 search_forum:			Форум
-search_subject:			Заглавие
 search_posted_on:		Публикувано на
 search_no_results:		Няма резултати
 search_all_forums:		Във всички форуми

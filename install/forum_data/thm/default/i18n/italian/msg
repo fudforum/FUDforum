@@ -3,7 +3,6 @@ add_to_buddy_list:		aggiungi alla lista amici
 admin:				Amministrazione
 admin_control_panel:		Pannello di controllo Amministrazione
 administrator:			Amministratore
-announcement:			Annuncio
 attachment:			Allegato:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Post ({VAR: avg} media di post giornalieri)
@@ -437,7 +436,6 @@ report_submit_report:		Invia segnalazione
 search_entire_msg:		Messaggio completo
 search_subect_only:		Solo oggetto
 search_forum:			Forum
-search_subject:			Oggetto
 search_posted_on:		Inviato 
 search_no_results:		Nessun risultato
 search_all_forums:		Cerca in tutti i forum

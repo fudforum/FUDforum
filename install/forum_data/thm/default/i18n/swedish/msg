@@ -3,7 +3,6 @@ add_to_buddy_list:		l&auml;gg till kompislistan
 admin:				Admin
 admin_control_panel:		Administratorns kontrollpanel
 administrator:			Administratör
-announcement:			Meddelande
 attachment:			Bilaga:
 avatar:				Visningsbild:
 average_post_count:		{VAR: u->posted_msg_count} inl&auml;gg ({VAR: avg} inl&auml;gg per dag i medeltal)
@@ -437,7 +436,6 @@ report_submit_report:		Skicka rapport
 search_entire_msg:		Hela inl&auml;gget
 search_subect_only:		Endast rubriken
 search_forum:			Forum
-search_subject:			Rubrik
 search_posted_on:		Postningsdatum
 search_no_results:		Inga resultat
 search_all_forums:		S&ouml;k i alla forum

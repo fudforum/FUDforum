@@ -3,7 +3,6 @@ add_to_buddy_list:		agregar a lista de amigos
 admin:				Admin 
 admin_control_panel:		Panel de Control del Admin
 administrator:			Administrador
-announcement:			Anuncio
 attachment:			Archivo adjunto:
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Mensaje(s) ({VAR: avg} promedio por día)
@@ -437,7 +436,6 @@ report_submit_report:		Enviar Reporte
 search_entire_msg:		En todo el Mensaje
 search_subect_only:		Sólo Asunto
 search_forum:			Foro
-search_subject:			Asunto
 search_posted_on:		Publicado el
 search_no_results:		No hubo resultados
 search_all_forums:		Buscar en todos los Foros

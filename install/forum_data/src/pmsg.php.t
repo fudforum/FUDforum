@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.49 2005/03/12 18:08:11 hackie Exp $
+* $Id: pmsg.php.t,v 1.50 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,7 +62,7 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
-	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
+	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id);
 
 	$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
 	$percent_full = ceil($disk_usage / $MAX_PMSG_FLDR_SIZE * 100);
@@ -153,7 +153,7 @@
 		}
 		$tmp = $folders;
 		unset($tmp[$folder_id]);
-		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($tmp)), implode("\n", $tmp), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
+		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($tmp)), implode("\n", $tmp), '');
 		$private_tools = '{TEMPLATE: private_tools}';
 	}
 

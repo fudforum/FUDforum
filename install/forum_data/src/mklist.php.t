@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.php.t,v 1.15 2004/12/03 19:41:48 hackie Exp $
+* $Id: mklist.php.t,v 1.16 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -55,7 +55,7 @@
 
 /*{POST_HTML_PHP}*/
 
-	$tp_select_data = tmpl_draw_select_opt("OL:1\nOL:a\nUL:square\nUL:disc\nUL:circle", "{TEMPLATE: mklist_numerical}\n{TEMPLATE: mklist_aplha}\n{TEMPLATE: mklist_square}\n{TEMPLATE: mklist_disc}\n{TEMPLATE: mklist_circle}", (isset($_POST['tp']) ? $_POST['tp'] : (isset($_GET['tp']) ? $_GET['tp'] : '')), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$tp_select_data = tmpl_draw_select_opt("OL:1\nOL:a\nUL:square\nUL:disc\nUL:circle", "{TEMPLATE: mklist_numerical}\n{TEMPLATE: mklist_aplha}\n{TEMPLATE: mklist_square}\n{TEMPLATE: mklist_disc}\n{TEMPLATE: mklist_circle}", (isset($_POST['tp']) ? $_POST['tp'] : (isset($_GET['tp']) ? $_GET['tp'] : '')));
 	if (!empty($_POST['opt_list'])) {
 		list($list_tag, $list_type) = explode(':', trim($_POST['tp']), 2);
 		$list_entry_data = '';

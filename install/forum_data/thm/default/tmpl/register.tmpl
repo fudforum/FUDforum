@@ -1,7 +1,6 @@
-
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.57 2005/03/18 01:13:22 hackie Exp $
+* $Id: register.tmpl,v 1.58 2005/03/18 01:58:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -69,12 +68,6 @@
 <tr class="RowStyleA"><td>{MSG: register_email_addr}{FUNC: draw_err('reg_email')}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{FUNC: draw_err('reg_name')}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
 <tr><td colspan=2 class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}"></td></tr>
-{SECTION: END}
-
-{SECTION: sel_opt}
-{SECTION: END}
-
-{SECTION: sel_opt_selected}
 {SECTION: END}
 
 {SECTION: avatar_type_sel avatar type select, allows to choose avatar type (upload/url...)}

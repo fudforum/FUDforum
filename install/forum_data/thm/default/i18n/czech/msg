@@ -3,7 +3,6 @@ add_to_buddy_list:		pøidat do seznamu pøátel
 admin:				Administrace 
 admin_control_panel:		Administraèní panel
 administrator:			Administrátor
-announcement:			Oznámení
 attachment:			Pøíloha:
 avatar:				Ikona u¾ivatele:
 average_post_count:		{VAR: u->posted_msg_count} Pøíspìvkù (prùmìrnì {VAR: avg} dennì)
@@ -440,7 +439,6 @@ report_submit_report:		Odeslat oznámení
 search_entire_msg:		Celá zpráva
 search_subect_only:		Jen nadpis
 search_forum:			Fórum
-search_subject:			Nadpis
 search_posted_on:		Zasláno dne
 search_no_results:		®ádné výsledky
 search_all_forums:		Hledat ve v¹ech fórech
