@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
+*   $Id: poll.php.t,v 1.15 2003/10/07 12:23:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,7 +57,7 @@
 	$frm->group_cache_opt = (int) $frm->group_cache_opt;
 	$frm->forum_opt = (int) $frm->forum_opt;
 
-	if (!$frm || (empty($frm->md) && $usr->users_opt & 1048576 && (!($frm->group_cache_opt & 4096) || (!empty($frm->old_poll) && !($frm->group_cache_opt & 16) && $frm->owner != _uid) || (empty($frm->old_poll) && !($frm->group_cache_opt & 4))))) {
+	if (!$frm || (!$frm->md && !($usr->users_opt & 1048576) && (!empty($frm->old_poll) && (!($frm->group_cache_opt & 4096) || (!($frm->group_cache_opt & 16) && $frm->owner != _uid))) && !($frm->group_cache_opt & 4))) {
 		std_error('access');
 	}
 
