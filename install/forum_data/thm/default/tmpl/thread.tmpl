@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.8 2002/08/05 00:47:55 hackie Exp $
+*   $Id: thread.tmpl,v 1.9 2002/08/10 02:19:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -79,11 +79,11 @@
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
-<a class="GenLink" href="{ROOT}?t=thread&amp;unsub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}"><acronym title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</acronym></a>
+<a class="GenLink" href="{ROOT}?t=thread&amp;unsub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
 {SECTION: END}
 
 {SECTION: subscribe_link}
-<a class="GenLink" href="{ROOT}?t=thread&amp;sub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}"><acronym title="{MSG: subscribe_desc}">{MSG: subscribe}</acronym></a>
+<a class="GenLink" href="{ROOT}?t=thread&amp;sub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
 {SECTION: END}
 
 {SECTION: new_thread_link}
