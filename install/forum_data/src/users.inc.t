@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.78 2003/10/03 02:03:12 hackie Exp $
+*   $Id: users.inc.t,v 1.79 2003/10/06 20:00:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -653,7 +653,13 @@ function user_mark_all_read($id)
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
-	q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
+	if (__dbtype__ == 'mysql') {
+		q('REPLACE INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid);
+	} else {
+		if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (user_id, thread_id, msg_id, last_view) SELECT '.$id.', id, last_post_id, '.__request_timestamp__.' FROM {SQL_TABLE_PREFIX}thread WHERE forum_id='.$fid)) {
+			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", thread_id=id, msg_id=last_post_id, last_view=".__request_timestamp__." WHERE user_id=".$id." SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid);
+		}
+	}
 }
 
 if (!defined('forum_debug')) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.21 2003/10/06 18:37:57 hackie Exp $
+*   $Id: admgrouplead.php,v 1.22 2003/10/06 20:00:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -50,7 +50,14 @@
 				break;
 			case 1:
 				$r = db_rowarr($c);
-				q('REPLACE INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
+				if (__dbtype__ == 'mysql') {
+					q('REPLACE INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
+				} else {
+					$opt = q_singleval('groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
+					if (!db_li('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id)) {
+						q("UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt=".$opt." WHERE user_id=".$r[0]." AND group_id=".$group_id);
+					}
+				}
 				rebuild_group_ldr_cache($r[0]);
 				grp_rebuild_cache(array($r[0]));
 				$gr_leader = '';
