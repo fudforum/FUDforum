@@ -812,7 +812,7 @@ report_already_reported_msg:	Модератор уже был извещен об указанном сообщении и 
 register_err_toomanyimages:	Вы пытаетесь использовать большее количество картинок в подписи, чем максимально допустимое: {GVAR: FORUM_IMG_CNT_SIG}.
 pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
-post_proc_reveal_spoiler:	Укажите помеху
+post_proc_reveal_spoiler:	Показать скрытый текст
 register_jabber:		Псевдоним сети Jabber:
 im_jabber:			Jabber:
 forum_contact:			Обратная связь
