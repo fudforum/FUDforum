@@ -188,7 +188,7 @@ views:				点击
 vote:				{VAR: thread->vote_count()} 投票
 vote_button:			投票
 vote_for_thread:		调查
-was_moved_msg:			<a href="{VAR: D_THREAD_VIEW}.php?goto={VAR: obj->root_msg_id}&{VAR: _RSID}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="thread.php?frm_id={VAR: d_frm_id}&{VAR: _RSID}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: D_THREAD_VIEW}&goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> 已经被版主移至<a href="{ROOT}?t=thread&frm_id={VAR: d_frm_id}&{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		欢迎！ <b>{VAR: user_login}</b>, 你最后一次访问是 {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			显示浏览者的操作
 reported_del_report:		删除报告
@@ -210,7 +210,7 @@ list_referes_referrals:		被提名者
 list_referes_members:		被提名的用户
 list_referes_member:		用户
 referals_none:			目前还没有被提名的人。
-referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="usrinfo.php?id={VAR: r_id}&{VAR: _RSID}">{VAR: r_login}</a></b>
+referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&id={VAR: r_id}&{DEF: _rsid}">{VAR: r_login}</a></b>
 referals_post_count:		点击数
 referals_registered_on:		登录
 referals_action:		操作
@@ -285,7 +285,7 @@ register_avatar_type:		头像类型:
 register_del_avatar:		删除头像
 register_avatar:		头像:
 register_sel_avatar:		选择头像
-register_custom_avatar_rules:	只有经过系统管理员允许后，才能出现定制的头像。<br><font class="SmallText">头像不能大于<b>{VAR: GLOBALS['CUSTOM_AVATAR_MAX_DIM']} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
+register_custom_avatar_rules:	只有经过系统管理员允许后，才能出现定制的头像。<br><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
 register_custom_avatar_url:	定制头像地址:
 register_preview:		预览
 register_custom_avatar_upload:	定制头像文件:
@@ -339,7 +339,7 @@ buddy_status:			级别
 my_buddies:			我的好友
 add_buddy:			添加好友
 add:				添加
-buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="#" class="GenLink" onClick="javascript: window_open('pmuserloc.php?{VAR: _RSID}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
+buddy_search:			请填入你要添加的好友账号。<br>或者使用<a href="{ROOT}?t=#" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 250,250);">用户列表</a> 查找好友。
 buddy_remove:			移动
 post_normal:			正常
 post_sticky:			在线
@@ -552,7 +552,7 @@ buddy_list_err_nouser_title:	无法添加
 buddy_list_update:		浏览我的好友列表
 core_err_invinp_title:		输入错误
 core_err_invinp_err:		你输入了一个错误的链接,请更正<a href="mailto:{VAR: ADMIN_EMAIL}">网管</a>
-core_adm_login_msg:		<br><a href="{VAR: GLOBALS['WWW_ROOT']}adm/admloginuser.php">管理员登陆</a>
+core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理员登陆</a>
 email_err_unabletoemail_title:	错误:无法发送邮件
 email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
 email_err_unabletoemailu_msg:	电子邮件系统被系统管理员关闭。
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	无效的地址。请检查并确认您的填写的是正确的地址信息。
 err_inc_criticaltitle:		紧急错误
 err_inc_criticalmsg:		发生错误,但是很不幸的是错误报告系统本身也存在问题。
 finduser_update:		搜索用户
-help_index_update:		阅读<a href="help_index.php" class="GenLink">使用帮助</a>
+help_index_update:		阅读<a href="{ROOT}?t=help_index" class="GenLink">使用帮助</a>
 iemail_thr_subject:		新的回复 {VAR: thr_subject} 由{VAR: poster_login}
 iemail_thr_bodyemail:		查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到关于这个主题新的回复通知，请点击: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		查看未读的回复\n{VAR: goto_url['icq']}\n\如果你不想收到关于这个主题:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	没有找到这个用户
 ignore_list_err_nu_msg:		本论坛不存在你要添加的用户。
 ignore_list_cantign_msg:	你无法拒绝该用户
 ignore_list_update:		浏览“被拒绝用户”名单
-index_update:			浏览<a href="index.php" class="GenLink">论坛列表</a>
+index_update:			浏览<a href="{ROOT}?t=index" class="GenLink">论坛列表</a>
 list_referers_update:		浏览被提名者
 login_update:			登录格式
 msg_err_onlyreg_title:		只有注册用户可以查看这个论坛。
-msg_err_onlyreg_msg:		要查看这个论坛，你必须注册<a href="register.php?{VAR: _RSID}" class="GenLink">注册</a>, 如果已经注册，请\'ll need to <a href="login.php?{VAR: _RSID}" class="GenLink">登录</a>.
+msg_err_onlyreg_msg:		要查看这个论坛，你必须注册<a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请\'ll need to <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">登录</a>.
 msg_err_ininfo_title:		信息不充分
 msg_err_ininfo_msg:		本页发生错误
-msg_update:			展开浏览 <a class="GenLink" href="msg.php?th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			展开浏览 <a class="GenLink" href="{ROOT}?t=msg&th={VAR: thread->id}">{VAR: thread->subject}</a>
 pm_err_nopm_title:		错误：无法发送悄悄话
 pm_err_nopm_msg:		系统管理员禁止您使用悄悄话系统。
 pm_update:			使用悄悄话功能
@@ -598,7 +598,7 @@ post_err_notallowed_msg:	你不能提交
 post_err_lockedthread_title:	错误：该帖子已封闭
 post_err_lockedthread_msg:	这个主题已被封闭，不能回复
 err_coppa_title:		错误: 你没有此项权限
-err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 If you lost your coppa form <a href="coppa_fax.php?{VAR: _RSID}">click here</a> to get it
+err_coppa_msg:			我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认证明。 If you lost your coppa form <a href="{ROOT}?t=coppa_fax&{DEF: _rsid}">click here</a> to get it
 err_blockedaccnt_title:		错误: 你被禁止登录
 err_blockedaccnt_msg:		这个账号被禁止登录
 post_err_notowner_title:	错误
@@ -606,9 +606,9 @@ post_err_notowner_msg:		你不是这个帖子的作者
 post_err_edttimelimit_title:	错误
 post_err_edttimelimit_msg:	你不能再编辑这条信息
 post_err_noannontopics_title:	错误：你的权限不够
-post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="register.php?{VAR: _RSID}">注册</a><br>登录请点击 <a href="login.php?{VAR: _RSID}&returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannontopics_msg:	匿名用户不允许发布主题<br><br>注册，请点击 <a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>登录请点击 <a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">登录</a>
 post_err_noannonposts_title:	错误：你的权限不够
-post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="register.php?{VAR: _RSID}">注册</a><br>登录，请点击<a href="login.php?{VAR: _RSID}&returnto={VAR-URL: returnto_d}">登录</a>
+post_err_noannonposts_msg:	匿名用户不允许回复<br><br>注册，请点击 <a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>登录，请点击<a href="{ROOT}?t=login&{DEF: _rsid}&returnto={VAR-URL: returnto_d}">登录</a>
 post_err_noreplying_title:	错误：不允许回复
 post_err_noreplying_msg:	您不能回复这条信息，因为版主禁止在这里跟帖或发布通告。
 post_err_floodtrig_title:	错误：发布灌水帖子
@@ -617,11 +617,11 @@ post_err_attach_size:		<font class="ErrorText">附件文件太大（超过了允许的最大{VA
 post_err_attach_ext:		<font class="ErrorText">你正在上传的文件类型不符合论坛对上传文件类型的设置font><br>
 post_err_attach_filelimit:	<font class="ErrorText">你正在上传的文件超过了限制的数量。</font><br>
 post_err_passwd:		密码错误。
-post_reply_update:		回复 <a class="GenLink" href="msg.php?goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR: frm->name}
-post_edit_update:		编辑<a class="GenLink" href="msg.php?goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR: frm->name}
-post_topic_update:		发表新主题 <a class="GenLink" href="thread.php?frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		回复 <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> 在 {VAR: frm->name}
+post_edit_update:		编辑<a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> 在 {VAR: frm->name}
+post_topic_update:		发表新主题 <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 post_error_generic:		发生错误
-postcheck_max_images_err:	一次提交图片允许的最大数是{VAR: GLOBALS['MAX_IMAGE_COUNT']} ，请尽量减少图片数量。
+postcheck_max_images_err:	一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
 postcheck_subj_needed:		输入主题
 postcheck_not_allowed_file:	这种文件类型被禁止
 postcheck_no_such_user:		本论坛没有 "{VAR-HTML: v}" 用户
@@ -644,12 +644,12 @@ register_err_needname:		你必须输入你的姓名才能完成此次注册。
 register_err_enterpasswd:	你必须输入密码才能进行修改。
 register_err_adminpasswd:	你必须输入系统管理员密码才能完成这些修改。
 register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
-register_err_avatartobig:	你正在上传的文件太大，超过了{VAR: GLOBALS['CUSTOM_AVATAR_MAX_SIZE']} 字节的最大限制。
+register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:		注册确认
-register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{VAR: GLOBALS['WWW_ROOT']}emailconf.php?conf_key={VAR: usr->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
 register_welcome_subject:	论坛注册确认
-register_welcome_msg:		谢谢注册,\n\n这是您注册的详细资料:\n\n论坛 URL: {VAR: GLOBALS['WWW_ROOT']}\n账号：{VAR: usr->login}\n密码：{VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\n请注意密码区分大小写!\n要更改您的设置或者个人信息，请点击：\n{VAR: GLOBALS['WWW_ROOT']}/register.php\n
+register_welcome_msg:		谢谢注册,\n\n这是您注册的详细资料:\n\n论坛 URL: {GVAR: WWW_ROOT}\n账号：{VAR: usr->login}\n密码：{VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\n请注意密码区分大小写!\n要更改您的设置或者个人信息，请点击：\n{ROOT}?t=register\n
 register_err_cantreg_title:	错误：无法注册
 regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	查看个人信息
@@ -663,40 +663,40 @@ reset_err_invalidkey_msg:	密码提示错误
 reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会您将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
-reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: parr['usr']->login}\n密码: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{VAR: GLOBALS['WWW_ROOT']}register.php\n\n
+reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息:\n\n账号：{VAR: parr['usr']->login}\n密码: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密码，请在个人信息中修改:\n{ROOT}?t=register\n\n
 reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。
 search_update:			搜索
-selmsg_update:			浏览 <a class="GenLink" href="selmsg.php?date=today&rid={VAR: usr->id}">今天发布的主题</a>
-showposts_update:		查看用户 <a class="GenLink" href="usrinfo.php?id={VAR: u->id}">{VAR: user_login}</a>发布的主题
+selmsg_update:			浏览 <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">今天发布的主题</a>
+showposts_update:		查看用户 <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_login}</a>发布的主题
 subscribed_update:		浏览自己预定的内容
 th_err_invid_title:		错误的主题id号
 th_err_invid_msg:		你输入的连接错误,相关主题并不存在。
 thread_err_onlyregview_title:	只有注册用户允许查看这个论坛
-thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="register.php?{VAR: _RSID}" class="GenLink">注册</a>, 如果已经注册，请<a href="login.php?{VAR: _RSID}" class="GenLink">登录</a>.
-thread_update:			浏览论坛<a class="GenLink" href="thread.php?frm_id={VAR: frm->id}">{VAR: frm->name}</a>
-tree_update:			浏览（以树状方式） <a class="GenLink" href="tree.php?th={VAR: thread->id}&{VAR: _RSID}">{VAR: thread->subject}</a>
-userinfo_update:		查看 <a class="GenLink" href="usrinfo.php?id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
+thread_err_onlyregview_msg:	要查看本论坛，你必须<a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">注册</a>, 如果已经注册，请<a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">登录</a>.
+thread_update:			浏览论坛<a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+tree_update:			浏览（以树状方式） <a class="GenLink" href="{ROOT}?t=tree&th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+userinfo_update:		查看 <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}的</a> 个人信息
 ERR_login_ttl:			错误：您尚未注册
-ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="register.php?{VAR: GLOBALS['_RSID']}">注册</a><br>请<a href="login.php?{VAR: GLOBALS['_RSID']}">注册</a>
-ERR_login_url:			login.php?{VAR: GLOBALS['_RSID']}
+ERR_login_msg:			您尚未登录，请登录<br><br>请<a href="{ROOT}?t=register&{DEF: _rsid}">注册</a><br>请<a href="{ROOT}?t=login&{DEF: _rsid}">注册</a>
+ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
 ERR_disabled_ttl:		被禁止的功能
 ERR_disabled_msg:		此项功能已经被系统管理员关闭。
-ERR_disabled_url:		{VAR: GLOBALS['HTTP_REFERER']}?{VAR: GLOBALS['_RSID']}
+ERR_disabled_url:		{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_access_ttl:			错误: 权限不够
 ERR_access_msg:			您没有权利进行此项操作
-ERR_access_url:			{VAR: GLOBALS['HTTP_REFERER']}?{VAR: GLOBALS['_RSID']}
+ERR_access_url:			{GVAR: HTTP_REFERER}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止,请重试！
-ERR_registration_disabled_url:	{VAR: GLOBALS['WWW_ROOT']}?{VAR: GLOBALS['_RSID']}
+ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误: 此账号无效
-ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="reset.php?email={VAR: GLOBALS['usr']->email}&{VAR: GLOBALS['_RSID']}">请点击<li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="register.php?{VAR: GLOBALS['_RSID']}">请点击</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击<li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&{DEF: _rsid}">请点击</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
-ERR_user_url:			{VAR: GLOBALS['HTTP_REFERER']}&{VAR: GLOBALS['_RSID']}
+ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		系统错误
-ERR_systemerr_msg:		发生系统错误,请报告错误：<a href="mailto:{VAR: GLOBALS["ADMIN_EMAIL"]}">网管</a>.
-ERR_systemerr_url:		{VAR: GLOBALS['returnto_d']}
+ERR_systemerr_msg:		发生系统错误,请报告错误：<a href="mailto:{GVAR: ADMIN_EMAIL}">网管</a>.
+ERR_systemerr_url:		{GVAR: returnto_d}
 email_title:			邮件格式
 finduser_title:			查找用户
 help_title:			使用帮助
@@ -712,12 +712,12 @@ search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR: frm->name}
 tree_title:			{VAR: frm->name} => {VAR: thread->subject}
 remail_emailsent:		邮件已经发送
-remail_email:			这个页面的内容{VAR: GLOBALS["FORUM_TITLE"]} ( {VAR: GLOBALS["WWW_ROOT"]} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {VAR: GLOBALS["WWW_ROOT"]}{VAR: GLOBALS['DEFAULT_THREAD_VIEW']}.php?th={VAR: thread->id}&{VAR: _RSID}\n 发件人 {VAR: u}\n
+remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感兴趣\n这里是你可能感兴趣的主题,{VAR: thread->subject} 清点击: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n 发件人 {VAR: u}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
-post_opt_fud_on:		<b><a href="help_index.php?sect=readingposting#style" target=_new>FUD代码：</b><b>开放</a></b>
+post_opt_fud_on:		<b><a href="{ROOT}?t=help_index&sect=readingposting#style" target=_new>FUD代码：</b><b>开放</a></b>
 post_opt_images_on:		<b>贴图功能：</b><b>开放</b>
-post_opt_smilies_on:		<a href="help_index.php?sect=readingposting#sml" target=_new><b>表情符号：</b> <b>开放</b></a>
+post_opt_smilies_on:		<a href="{ROOT}?t=help_index&sect=readingposting#sml" target=_new><b>表情符号：</b> <b>开放</b></a>
 post_opt_html_off:		<b>HTML</b> 代码： <b>关闭</b>
 post_opt_fud_off:		<b>FUD代码：</b><b>关闭</b>
 post_opt_images_off:		<b>贴图功能：</b><b>关闭</b>
@@ -781,7 +781,7 @@ p_LOCK:				封闭帖子
 p_MOVE:				转移帖子
 p_SML:				应用表情符号
 p_IMG:				应用图像标签
-group_mgr_search:		<a href="#" class="GenLink" onClick="javascript: window_open(\'pmuserloc.php?{VAR: _RSID}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">查找用户</a>
+group_mgr_search:		<a href="{ROOT}?t=#" class="GenLink" onClick="javascript: window_open('{ROOT}?t='pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">查找用户</a>
 group_mgr_indicator:		正在编辑: <b>{VAR: grp->name}</b>
 rate_worst:			最差的
 rate_best:			最好的
@@ -852,7 +852,7 @@ forum_home:			主页
 post_cur_attached:		正在粘贴{VAR: attach_count} file(s)
 ppost_cur_attached:		正在粘贴 {VAR: attach_count} file(s)
 ignored_anon_post:		{VAR: user_login} 被拒绝
-ignored_user_post:		您被拒绝提交信息<a href="usrinfo.php?{VAR: _RSID}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
+ignored_user_post:		您被拒绝提交信息<a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
 smladd_close_window:		关闭窗口
 post_list_smilies:		显示所有表情符号
 p_VISIBLE:			可见的
