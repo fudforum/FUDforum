@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.52 2004/01/16 18:35:45 hackie Exp $
+* $Id: compiler.inc,v 1.53 2004/01/29 18:24:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -215,6 +215,7 @@ function resolve_sections($str)
 				break;
 
 			case 'ROOT':
+			case 'FULL_ROOT':
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
@@ -475,13 +476,9 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];
 
-	if (substr($GLOBALS['WWW_ROOT'], -1) != '/') {
-		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . '/index.php';
-		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . '/theme/' . $tname;
-	} else {
-		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . 'index.php';
-		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . 'theme/' . $tname;
-	}
+	$cmpl['ROOT'] = 'index.php';
+	$cmpl['FULL_ROOT'] = $GLOBALS['WWW_ROOT']{strlen($GLOBALS['WWW_ROOT']) - 1} == '/' ? $GLOBALS['WWW_ROOT'] : $GLOBALS['WWW_ROOT'].'/';
+	$cmpl['THEME_ROOT'] = 'theme/' . $tname;
 
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
