@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Installing FUDforum</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="installation.html" title="Chapter 3. Installation"><link rel="previous" href="install.fudforum.sources.html" title="Downloading FUDforum"><link rel="next" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-appendixes.html" title="Part III. Appendixes"><link rel="chapter" href="fudcode.html" title="Chapter 1. FUDcode"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"><link rel="subsection" href="install.script.html#install.wizard.step1" title="Step #1: Path of System Files and Directories"><link rel="subsection" href="install.script.html#install.wizard.step2" title="Step #2: MySQL Settings"><link rel="subsection" href="install.script.html#install.wizard.step3" title="Step #3: Cookie Domain"><link rel="subsection" href="install.script.html#install.wizard.step4" title="Step #4: Forum Language"><link rel="subsection" href="install.script.html#install.wizard.step5" title="Step #5: Admin Account"><link rel="subsection" href="install.script.html#install.wizard.finish" title="Installation Complete"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Installing FUDforum</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="install.fudforum.sources.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Installation</th><td width="20%" align="right"> <a accesskey="n" href="forum-administration.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install.script"></a>Installing FUDforum</h2></div></div><p>
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type"><title>Installing FUDforum</title><meta name="generator" content="DocBook XSL Stylesheets V1.50.1-EXP2"><link rel="home" href="index.html" title="FUDforum 2 Documentation"><link rel="up" href="installation.html" title="Chapter 3. Installation"><link rel="previous" href="install.fudforum.sources.html" title="Downloading FUDforum"><link rel="next" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="preface" href="preface.html" title="Preface"><link rel="part" href="getting-started.html" title="Part I. Getting Started"><link rel="chapter" href="introduction.html" title="Chapter 1. Introduction"><link rel="chapter" href="features.html" title="Chapter 2. FUDforum 2 Features"><link rel="chapter" href="installation.html" title="Chapter 3. Installation"><link rel="part" href="forum-administration.html" title="Part II. Forum Management &amp; Administration"><link rel="chapter" href="administrating_fud.html" title="Chapter 1. Administrating FUD Forum 2"><link rel="chapter" href="mod_options.html" title="Chapter 2. Moderation Options"><link rel="part" href="forum-appendixes.html" title="Part III. Appendixes"><link rel="chapter" href="fudcode.html" title="Chapter 1. FUDcode"><link rel="appendix" href="GPL.html" title="Appendix A. GNU General Public License"><link rel="appendix" href="fdl.html" title="Appendix B. GNU Free Documentation License"><link rel="subsection" href="install.script.html#install.wizard.step1" title="Step #1: Path of System Files and Directories"><link rel="subsection" href="install.script.html#install.wizard.step2" title="Step #2: Database Settings"><link rel="subsection" href="install.script.html#install.wizard.step3" title="Step #3: Cookie Domain"><link rel="subsection" href="install.script.html#install.wizard.step4" title="Step #4: Forum Language"><link rel="subsection" href="install.script.html#install.wizard.step5" title="Step #5: Admin Account"><link rel="subsection" href="install.script.html#install.wizard.finish" title="Installation Complete"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Installing FUDforum</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="install.fudforum.sources.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Installation</th><td width="20%" align="right"> <a accesskey="n" href="forum-administration.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="install.script"></a>Installing FUDforum</h2></div></div><p>
 			Now that you have the FUDforum installation script, install.php, copy the script into a web 
 			browseable directory. It is recommended to copy the script into the web directory where you 
 			intend to install the forum. 
@@ -53,7 +53,7 @@ Windows: c:\\web\\my website\\forum\\
 					If you for whatever reason, you choose to keep this directory in a location where it can be accessed with a web 
 					browser, consider using your webserver's security settings to block access to regular users to this directory.
 					For example, .htaccess rules on Apache such as:
-					</p><div class="example"><p class="title"><b>Example 3.4. Securing directory with .htaccess</b></p><pre class="programlisting">
+					</p><div class="example"><p class="title"><b>Example 3.5. Securing directory with .htaccess</b></p><pre class="programlisting">
 
 &lt;Location /&gt;
 	Order Deny,Allow
@@ -69,31 +69,33 @@ Windows: c:\\web\\my website\\forum\\
 					The simplest method is to run command <tt>chmod 777 /home/user/directory</tt> in your shell account.
 				</p><p>
 					If you do not not have a shell account you can assign proper permissions to a directory by using your FTP client.
-					<div class="example"><p class="title"><b>Example 3.5. Changing permissions with CuteFTP</b></p><div class="orderedlist"><ol type="1"><li><p>Select the directory</p></li><li><p>Press CTRL+SHIFT+A</p></li><li><p>Enter 777 in the manual textbox</p></li><li><p>Press OK</p></li></ol></div></div>
+					<div class="example"><p class="title"><b>Example 3.6. Changing permissions with CuteFTP</b></p><div class="orderedlist"><ol type="1"><li><p>Select the directory</p></li><li><p>Press CTRL+SHIFT+A</p></li><li><p>Enter 777 in the manual textbox</p></li><li><p>Press OK</p></li></ol></div></div>
 					
-					<div class="example"><p class="title"><b>Example 3.6. Changing permissions with WS_FTP</b></p><div class="orderedlist"><ol type="1"><li><p>Right click on the directory</p></li><li><p>Choose the chmod UNIX option</p></li><li><p>In the dialog that appeared check all the checkboxes</p></li><li><p>Press OK</p></li></ol></div></div>
+					<div class="example"><p class="title"><b>Example 3.7. Changing permissions with WS_FTP</b></p><div class="orderedlist"><ol type="1"><li><p>Right click on the directory</p></li><li><p>Choose the chmod UNIX option</p></li><li><p>In the dialog that appeared check all the checkboxes</p></li><li><p>Press OK</p></li></ol></div></div>
 				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step1.forum_www_root"></a>Forum WWW Root</h4></div></div><p>
 					Enter the URL to your forum, after the forum is installed, visitors will be able to access the forum by
 					going to this URL. Any files places inside <a href="install.script.html#install.step1.server_root" title="Server Root">Server Root</a> 
 					should be accessible by going to this URL.
 				</p></div><p>
 				Once you've entered all the values, click on the next link to proceed 
-				to <a href="install.script.html#install.wizard.step2" title="Step #2: MySQL Settings">step #2</a> of the installation.
-			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="install.wizard.step2"></a>Step #2: MySQL Settings</h3></div></div><p>
+				to <a href="install.script.html#install.wizard.step2" title="Step #2: Database Settings">step #2</a> of the installation.
+			</p></div><div class="sect2"><div class="titlepage"><div><h3 class="title"><a name="install.wizard.step2"></a>Step #2: Database Settings</h3></div></div><p>
 				Now that the forum's files were successfully decompressed, you will now need to 
-				specify the MySQL database settings for your forum. 
-			</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.mysql_server"></a>MySQL Server</h4></div></div><p>
+				specify the database settings for your forum. 
+			</p><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_type"></a>Database Type</h4></div></div><p>
+					Which database system to use to store the forum's data, MySQL or PostgreSQL.
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_server"></a>Database Server</h4></div></div><p>
 					This is the IP address or a UNIX domain socket that will be used to connect
-					to the MySQL server you intend to use.
+					to the database server you intend to use.
 				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 					For optimal performance, we recommend using UNIX domain sockets.
-					</p></div><div class="example"><p class="title"><b>Example 3.7. MySQL Server</b></p><pre class="screen">Standard IP 127.0.0.1</pre><pre class="screen">UNIX Domain Socket :/tmp/mysql.sock</pre></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.mysql_login"></a>MySQL Login</h4></div></div><p>
-					Login name for your mysql account.
-				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.mysql_paswd"></a>MySQL Password</h4></div></div><p>
-					Password for your mysql account.
-				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.mysql_db"></a>MySQL Database</h4></div></div><p>
-					The name of the MySQL database, where the forum's MySQL tables will be stored.
-				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.mysql_prefix"></a>FUDforum SQL Table Prefix</h4></div></div><p>
+					</p></div><div class="example"><p class="title"><b>Example 3.8. Database Server</b></p><pre class="screen">Standard IP 127.0.0.1</pre><pre class="screen">UNIX Domain Socket :/tmp/mysql.sock</pre></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_login"></a>Database Login</h4></div></div><p>
+					Login name for your database account.
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_paswd"></a>Database Password</h4></div></div><p>
+					Password for your database account.
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_db"></a>Database Name</h4></div></div><p>
+					The name of the database, where the forum's data will be stored.
+				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="install.step2.db_prefix"></a>FUDforum SQL Table Prefix</h4></div></div><p>
 					A alphanumeric string that will be prepended to all FUDforum's table names.
 					This is done to prevent conflicts with your existing tables, which may
 					share same names as the tables used by FUDforum. As well as allow you to
