@@ -958,53 +958,53 @@ post_mod_msg_notify_title:	Ett nytt meddelande i forumet "{VAR: frm->name}" v&au
 post_mod_msg_notify_msg:	Ett nytt meddelande med rubriken "{VAR: msg_post->subject}" har nyligen skrivits i ett forum som du modererar. Gå till {ROOT}?t=modque f&ouml;r att se meddelandet.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\n
 thread_printable_pdf:		G&ouml;r utskriftsv&auml;nlig PDF
 thread_syndicate:		Syndikera det h&auml;r forumet (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+reg_conf_title:			Registreringsverifiering
+reg_conf_email:			<b>E-postsverifiering</b><br />Ett e-postmeddelande har skickats till dig med en unik web-adress som du måste besöka för att få ditt konto aktiverat. Om du inte får detta meddelande inom de kommande minuterna, vänligen logga in med ditt konto och verifiera att e-postadressen du angett stämmer. När du verifierat ditt konto kommer du att kunna använda forumets funktioner för registrerade användare.
+reg_conf_account:		<b>Kontoverifiering</b><br />Innan ditt konto aktiveras, måste det godkännas av en administratör, när väl det sker kommer du att få ett e-postmeddelande vilket meddelar dig om att ditt konto aktiverats. Medan kontot är oaktiverat kan du logga in med ditt konto, du kommer dock inte att kunna nyttja alla funktioner.
+forum_banned_user:		Handligar gjorda av dig har resulterat i att du permanent bannlysts från detta forum. Adjö.
+mnav_description:		Meddelandenavigatorn
+mnav_date_limit:		Ålder:
+mnav_time_unit:			Tidsenhet för datum:
+mnav_forum_limit:		Sök bara i:
+mnav_all_forums:		Sök alla forum
+mnav_submit:			Starta Sökning
+mnav_no_range:			Du måste ange en gilig ålder. Detta värde kan kan vara under 1 (t ex 0.12) men det måste vara mer än noll.
+mnav_invalid_unit:		Du måste ange en gilitg tidsenhet.
+mnav_invalid_date:		Åldern du angett är större än den administratören godkännt, vänligen gör åldern mindre.
+mnav_no_results:		Inga meddelanden hittades matchande din förfrågan.
+mnav_posted_by:			Postat Av:
+mnav_more:			Mer &raquo;&raquo;
+mnav_minute:			Minut(er)
+mnav_hour:			Timme/ar
+mnav_day:			Dag(ar)
+mnav_week:			Vecka/or
+mnav_month:			Månad(er)
+mnav_title:			Meddelandenavigatorn
+mnav_update:			Bläddra Meddelanden användandes <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Du har ett Nytt Privat Meddelande
+pm_notify_body_email:		Du har ett nytt privat meddelande titulerat "{VAR: subject}" från "{VAR: from}" på "{GVAR: FORUM_TITLE}" forumet.\nFör att läsa detta meddelande klicka här: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att sluta mottaga meddelanden som detta, stäng av "Meddela mig när jag får Privata Meddelanden" i din profil.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
-dmsg_reply_to:			is a reply to message #{VAR: obj->reply_to}
-merge_topics:			Merge Topics
-merge_topics_cp:		Merge Topic Control Panel
-merge_topics_tpl:		Select Topics To Merge <font class="SmallText">(you must select more then 1 topic)</font>
-merge_merge:			Merge Selected Topics
-merge_next:			Next Topics
-merge_prev:			Previous Topics
-split_cp:			Thread Split Control Panel
-groups_perms_header:		Permissions <font size="-1">(move mouse over the permission to see permission type)</font>
-register_err_sig_too_long:	Your signature exceeds the maximum allowed length of {GVAR: FORUM_SIG_ML} characters.
-register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Your Signature is \'+document.fud_register.reg_sig.value.length+\' characters long. The maximum allowed signature length is {GVAR: FORUM_SIG_ML}\');" class="SmallText">Check Signature Length</a>
-p_SEARCH:			Can Search
-adm_account_accepted:		Your account \'{VAR: GLOBALS['r']->login}\' was approved by the administrator and is now active. You may now access the {GVAR: FORUM_TITLE}\' forum as a confirmed registered user.
-adm_account_accepted_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was accepted.
-adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined by the administrator and is now active. If you would like to know the reason behind this decision feel free to contact the administrator at \'{GVAR: ADMIN_EMAIL}\'.
-adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
-thread_on:			on
+register_pm_notification:	Meddela mig när jag får Privata Meddelanden
+register_pm_notification_desc:	Välj det här alternativet för att få ett meddelande med vald metod när ett privat meddelande skickas till dig.
+findu_admin_opts_header:	Admin Alternativ.
+findu_unban:			Upphäv Bannlysning
+findu_ban:			Bannlys
+findu_edit:			Redigera
+findu_delete:			Radera
+dmsg_reply_to:			är ett svar till meddelandet #{VAR: obj->reply_to}
+merge_topics:			Sammanfoga Ämnen
+merge_topics_cp:		Inställningar för Sammanfogade Ämnen
+merge_topics_tpl:		Välj Ämnen Att Sammanfoga <font class="SmallText">(du måste välja mer än 1 ämne)</font>
+merge_merge:			Sammanfoga Valda Ämnen
+merge_next:			Nästa Ämnen
+merge_prev:			Föregående Ämnen
+split_cp:			Inställningar för Splittade Ämnen
+groups_perms_header:		Rättigheter <font size="-1">(flytta musen över rättigheten för att se rättighetstypen)</font>
+register_err_sig_too_long:	Din signatur överskrider maxlängden på {GVAR: FORUM_SIG_ML} tecken.
+register_sig_limit:		{GVAR: FORUM_SIG_ML} <a href="javascript: alert(\'Din Signatur är \'+document.fud_register.reg_sig.value.length+\' tecken lång. Maxlängden är {GVAR: FORUM_SIG_ML}\');" class="SmallText">Kontrollera Signaturlängd</a>
+p_SEARCH:			Kan Söka
+adm_account_accepted:		Ditt konto \'{VAR: GLOBALS['r']->login}\' godkänndes av administratören och är nu aktivt. Du kan nu komma åt {GVAR: FORUM_TITLE}\' forumet som en verifierad registrerad användare.
+adm_account_accepted_s:		Din kontoförfrågan för \'{GVAR: FORUM_TITLE}\' accepterades.
+adm_account_rejected:		Ditt konto \'{VAR: GLOBALS['r']->login}\' nekades av administratören och är inte aktivt. Om du vill veta varför detta beslut fattades, kontakta administratören på \'{GVAR: ADMIN_EMAIL}\'.
+adm_account_rejected_s:		Din kontoförfrågan på \'{GVAR: FORUM_TITLE}\' nekades.
+thread_on:			på
