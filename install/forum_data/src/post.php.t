@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.69 2003/06/11 14:38:43 hackie Exp $
+*   $Id: post.php.t,v 1.70 2003/07/11 16:33:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,7 +134,11 @@ function flood_check()
 				$msg_show_sig = $msg->show_sig == 'Y' ? $msg->show_sig : NULL;
 			}
 			if ($msg_id || $reply_to || $th_id) {
-				$msg_poster_notif = is_notified(_uid, $msg->thread_id) ? 'Y' : NULL;
+				if (($usr->notify == 'Y' && !q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$msg->thread_id." AND poster_id="._uid)) || is_notified(_uid, $msg->thread_id)) {
+					$msg_poster_notif = 'Y';
+				} else {
+					$msg_poster_notif = NULL;
+				}
 			} else {
 				$msg_poster_notif = $usr->notify == 'Y' ? $usr->notify : NULL;
 			}
