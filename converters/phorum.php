@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.3 2002/06/24 10:59:59 hackie Exp $
+*   $Id: phorum.php,v 1.4 2002/07/01 16:04:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,6 +56,8 @@
 	
 	$phdb =  mysql_connect($GLOBALS['PHORUM']['DatabaseServer'], $GLOBALS['PHORUM']['DatabaseUser'], $GLOBALS['PHORUM']['DatabasePassword']);
 	
+	if( !isset($DBHOST_TBL_PREFIX) ) $DBHOST_TBL_PREFIX = $MYSQL_TBL_PREFIX;
+	
 	if( isset($HTTP_SERVER_VARS['REMOTE_ADDR']) ) echo '<pre>';
 	$start_time = time();
 
@@ -90,14 +92,14 @@ function INT_yn($s)
 
 /* Import phorum categories */
 
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."cat");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."cat");
 	$r = Q2("SELECT * FROM ".$PHORUM['main_table']." WHERE folder=1 ORDER BY id");
 	print_status('Importing Categories');
 	$i=1;
 	$cat_count=0;
 	while( $obj = db_rowobj($r) ) {
 		print_status($obj->name);
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."cat (id,name,view_order) VALUES(".$obj->id.",'".addslashes($obj->name)."',".$i++.")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."cat (id,name,view_order) VALUES(".$obj->id.",'".addslashes($obj->name)."',".$i++.")");
 		$cat_count++;
 	}
 	qf($r);
@@ -105,7 +107,7 @@ function INT_yn($s)
 	/* check if top level is needed */
 	$r=Q2("SELECT id FROM ".$PHORUM['main_table']." WHERE folder=0 AND parent=0");
 	if ( db_count($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."cat (name,view_order) VALUES('".addslashes('Top Level Category (please rename)')."',".$i++.")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."cat (name,view_order) VALUES('".addslashes('Top Level Category (please rename)')."',".$i++.")");
 		$TOP_LEVEL_CATID = db_lastid();
 		$cat_count++;
 	}
@@ -116,11 +118,11 @@ function INT_yn($s)
 	
 	print_status('Importing Forums '.db_count($r));
 	
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."groups WHERE id>2");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_members");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_resources");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."group_cache");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."forum");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."groups WHERE id>2");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_members");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_resources");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."group_cache");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum");
 	$r = Q2("SELECT * FROM ".$PHORUM['main_table']." WHERE folder=0 ORDER BY parent, id");
 	
 	$i=1;
@@ -143,10 +145,10 @@ function INT_yn($s)
 		}
 		
 		$id = $frm->add($i);
-		q("UPDATE ".$MYSQL_TBL_PREFIX."forum SET id=$obj->id, view_order=".($i++)." WHERE id=$id");
-		$gid = q_singleval("SELECT id FROM ".$MYSQL_TBL_PREFIX."groups WHERE res='forum' AND res_id=$id");
-		q("UPDATE ".$MYSQL_TBL_PREFIX."groups SET res_id=$obj->id WHERE id=$gid");
-		q("UPDATE ".$MYSQL_TBL_PREFIX."group_resources SET resource_id=$obj->id WHERE group_id=$gid");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."forum SET id=$obj->id, view_order=".($i++)." WHERE id=$id");
+		$gid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."groups WHERE res='forum' AND res_id=$id");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."groups SET res_id=$obj->id WHERE id=$gid");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."group_resources SET resource_id=$obj->id WHERE group_id=$gid");
 		
 		$anon_post = 0;
 		if ( $obj->security < 2 ) {
@@ -164,21 +166,21 @@ function INT_yn($s)
 			if ( $anon_post ) $str_a .= ", up_FILE='Y'";
 		}
 
-		q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET $str_a WHERE group_id=$gid AND user_id=0");
-		q("UPDATE ".$MYSQL_TBL_PREFIX."group_members SET $str_r WHERE group_id=$gid AND user_id=4294967295");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET $str_a WHERE group_id=$gid AND user_id=0");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."group_members SET $str_r WHERE group_id=$gid AND user_id=4294967295");
 	}
 	qf($r);
 	print_status('Finished Importing Forums');
 
 /* import phorum users */
 
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."users");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."users");
 	$r = Q2("SELECT * FROM ".$PHORUM['main_table']."_auth GROUP BY login ORDER BY id DESC");
 	print_status('Importing users '.db_count($r));
 	while ( $obj = db_rowobj($r) ) {
 		print_status($obj->name);
 		$append_sig = ( $obj->sig ) ? 'Y' : 'N';
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."users 
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
 			(
 				id,
 				login,
@@ -217,21 +219,21 @@ function INT_yn($s)
 
 /* import phorum moderators */
 
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."mod");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."mod");
 	$r = Q2("SELECT * FROM ".$PHORUM['main_table']."_moderators");
 	print_status('Importing Moderators '.db_count($r));
 	while ( $obj = db_rowobj($r) ) {
-		q("UPDATE ".$MYSQL_TBL_PREFIX."users SET is_mod='A' WHERE id=$obj->user_id");
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."mod (user_id, forum_id) VALUES($obj->user_id, $obj->forum_id)");
+		q("UPDATE ".$DBHOST_TBL_PREFIX."users SET is_mod='A' WHERE id=$obj->user_id");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."mod (user_id, forum_id) VALUES($obj->user_id, $obj->forum_id)");
 	} 
 	qf($r);
 	print_status('Finished Importing Moderators');
 
 /* import phorum threads, messages & file attachments */
 	
-	q("DELETE FROM  ".$MYSQL_TBL_PREFIX."thread");
-	q("DELETE FROM  ".$MYSQL_TBL_PREFIX."msg");
-	q("DELETE FROM  ".$MYSQL_TBL_PREFIX."attach");
+	q("DELETE FROM  ".$DBHOST_TBL_PREFIX."thread");
+	q("DELETE FROM  ".$DBHOST_TBL_PREFIX."msg");
+	q("DELETE FROM  ".$DBHOST_TBL_PREFIX."attach");
 	
 	$oldumask = umask(0);
 	
@@ -246,7 +248,7 @@ function INT_yn($s)
 		echo "SELECT * FROM ".$tobj->table_name." WHERE parent=0 ORDER BY thread, parent\n";
 		print_status("Importing (".db_count($r).") threads for ".$tobj->table_name);
 		while ( $obj = db_rowobj($r) ) {
-			q("INSERT INTO ".$MYSQL_TBL_PREFIX."thread (forum_id) VALUES(".$forum_id.")");
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (forum_id) VALUES(".$forum_id.")");
 			$thread_arr[$obj->id] = db_lastid();
 		}
 		qf($r);
@@ -276,7 +278,7 @@ function INT_yn($s)
 		while ( $obj = db_rowobj($r) ) {
 			$fileid = write_body(tags_to_html($obj->body), $len, $off);
 			
-			q("INSERT INTO ".$MYSQL_TBL_PREFIX."msg
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
 			(
 				thread_id,
 				poster_id,
@@ -309,9 +311,9 @@ function INT_yn($s)
 		}
 		qf($r);
 		
-		$r = q("SELECT MIN(id) as id,thread_id FROM ".$MYSQL_TBL_PREFIX."msg GROUP BY thread_id");
+		$r = q("SELECT MIN(id) as id,thread_id FROM ".$DBHOST_TBL_PREFIX."msg GROUP BY thread_id");
 		while( $obj = db_rowobj($r) ) 
-			q("UPDATE ".$MYSQL_TBL_PREFIX."thread SET root_msg_id=".$obj->id." WHERE id=".$obj->thread_id);
+			q("UPDATE ".$DBHOST_TBL_PREFIX."thread SET root_msg_id=".$obj->id." WHERE id=".$obj->thread_id);
 		qf($r);
 		
 		unset($thread_arr);
@@ -332,9 +334,9 @@ function INT_yn($s)
 				$mime = get_mime_by_ext(substr(strrchr($obj->filename, '.'), 1));
 				if( !$mime ) $mime = 40;
 			
-				$owner = q_singleval("SELECT poster_id FROM ".$MYSQL_TBL_PREFIX."msg WHERE id=".$obj->message_id);
+				$owner = q_singleval("SELECT poster_id FROM ".$DBHOST_TBL_PREFIX."msg WHERE id=".$obj->message_id);
 			
-				q("INSERT INTO ".$MYSQL_TBL_PREFIX."attach
+				q("INSERT INTO ".$DBHOST_TBL_PREFIX."attach
 				(
 					original_name,
 					message_id,
@@ -359,7 +361,7 @@ function INT_yn($s)
 			
 				chmod($FILE_STORE.$attach_id.'.atch', 0666);
 			
-				q("UPDATE ".$MYSQL_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);
+				q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);
 			}		
 			qf($r);
 		}
@@ -382,10 +384,10 @@ function INT_yn($s)
 	
 	write_global_config($global_config);
 	
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."ext_block");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ext_block");
 	$allowed_ext = explode(';', $GLOBALS['PHORUM']['AttachmentFileTypes']);
 	while( list(,$v) = each($allowed_ext) ) {
-		if( ($v=trim($v)) ) q("INSERT INTO ".$MYSQL_TBL_PREFIX."ext_block (ext) VALUES('".addslashes($v)."')");
+		if( ($v=trim($v)) ) q("INSERT INTO ".$DBHOST_TBL_PREFIX."ext_block (ext) VALUES('".addslashes($v)."')");
 	}
 	
 	print_status('Finished Importing Forum Settings');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: VB2.php,v 1.3 2002/07/01 16:04:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,6 +63,7 @@
 	$vb2db = mysql_connect($servername,$dbusername,$dbpassword);
 
 	if( isset($HTTP_SERVER_VARS['REMOTE_ADDR']) ) echo '<pre>';
+	if( !isset($DBHOST_TBL_PREFIX) ) $DBHOST_TBL_PREFIX = $MYSQL_TBL_PREFIX;
 	$start_time = time();
 
 function Q2($str)
@@ -120,7 +121,7 @@ function append_perm_str($perm, $who)
 	qf($r);
 
 /* Import Avatar Gallery */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."avatar");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar");
 
 	$r = Q2("SELECT * FROM avatar");
 	print_status('Importing '.db_count($r).' Avatars From Avatar Gallery');
@@ -131,7 +132,7 @@ function append_perm_str($perm, $who)
 			continue;			
 		}
 		
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."avatar (
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar (
 			id,
 			descr,
 			img
@@ -153,17 +154,17 @@ function append_perm_str($perm, $who)
 	print_status('Finished Importing Avatars');
 
 /* Import Users */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."custom_tags");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."custom_tags");
 	
 	$r = Q2("SELECT *,user.userid AS userid FROM user LEFT JOIN userfield ON user.userid=userfield.userid LEFT JOIN customavatar ON user.userid=customavatar.userid");
 	print_status('Importing '.db_count($r).' Users');
 	while( $obj = db_rowobj($r) ) {
 		$ppg = $obj->maxposts > 0 ? $obj->maxposts : $VB2SET['maxposts'];
 	
-		if( $obj->avatarid && bq("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
+		if( $obj->avatarid && bq("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."avatar WHERE id=".$obj->avatarid) ) {
 			$avatar = $obj->avatarid;
 			$avatar_approved = 'Y';
 		}
@@ -179,7 +180,7 @@ function append_perm_str($perm, $who)
 			$avatar = 0;
 		}
 		
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."users (
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."users (
 			id,
 			login,
 			passwd,
@@ -247,7 +248,7 @@ function append_perm_str($perm, $who)
 			$bl = explode(' ', $obj->buddylist);
 			while( list(,$v) = each($bl) ) {
 				$v = intval(trim($v));
-				q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy (bud_id,user_id) VALUES(".$v.", ".$obj->userid.")");
+				q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy (bud_id,user_id) VALUES(".$v.", ".$obj->userid.")");
 			}
 		}
 		
@@ -256,13 +257,13 @@ function append_perm_str($perm, $who)
 			$il = explode(' ', $obj->ignorelist);
 			while( list(,$v) = each($il) ) {
 				$v = intval(trim($v));
-				q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore (ignore_id,user_id) VALUES(".$v.", ".$obj->userid.")");
+				q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore (ignore_id,user_id) VALUES(".$v.", ".$obj->userid.")");
 			}
 		}
 		
 		/* Deal with custom titles */
 		if( $obj->customtitle ) 
-			q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."custom_tags (name,user_id) VALUES('".addslashes($obj->usertitle)."',".$obj->userid.")");
+			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."custom_tags (name,user_id) VALUES('".addslashes($obj->usertitle)."',".$obj->userid.")");
 	}
 	qf($r);
 	print_status('Finished Importing Users');
@@ -285,10 +286,10 @@ $group_map = array(
 'canpostattachment'=>'p_FILE'
 );
 
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups WHERE id>2");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_cache");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members");
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_resources");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups WHERE id>2");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_cache");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_resources");
 	
 	print_status('Importing Permissions for all anonymous & registered users');
 	$r = Q2("select * from usergroup where usergroupid<3 ORDER BY usergroupid");
@@ -297,18 +298,18 @@ $group_map = array(
 		$data='';
 		while( list($k,$v) = each($group_map) ) $data .= $v."='".INT_yn($obj->{$k})."',";
 		$data = substr($data, 0, -1);
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."groups SET ".$data." WHERE id=".$obj->usergroupid);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."groups SET ".$data." WHERE id=".$obj->usergroupid);
 	}
 	qf($r);
 
 /* Import Categories */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat");
 
 	$r = Q2("SELECT * FROM forum WHERE parentid=-1 AND active=1 ORDER BY displayorder");
 	print_status('Importing '.db_count($r).' Categories');
 	$i=1;
 	while( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."cat (
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."cat (
 			id,
 			name,
 			description,
@@ -326,7 +327,7 @@ $group_map = array(
 	print_status('Finished Importing Categories');
 	
 /* Import Forums */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
 	$r = Q2("SELECT * FROM forum WHERE cancontainthreads=1 AND active=1 ORDER BY displayorder,forumid");
 	print_status('Importing '.db_count($r).' Forums');
 	$i=1;
@@ -349,33 +350,33 @@ $group_map = array(
 		$frm->moderated = INT_yn($obj->moderatenew);
 		$id = $frm->add($i);
 				
-		$gid = q_singleval("SELECT id FROM ".$MYSQL_TBL_PREFIX."groups WHERE res='forum' AND res_id=".$id);
-		q("UPDATE ".$MYSQL_TBL_PREFIX."groups SET res_id=".$obj->forumid." WHERE id=".$gid);
-		q("UPDATE ".$MYSQL_TBL_PREFIX."group_resources SET resource_id=".$obj->forumid." WHERE group_id=".$gid);
-		q("UPDATE ".$MYSQL_TBL_PREFIX."forum SET id=".$obj->forumid." WHERE id=".$id);
+		$gid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."groups WHERE res='forum' AND res_id=".$id);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."groups SET res_id=".$obj->forumid." WHERE id=".$gid);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."group_resources SET resource_id=".$obj->forumid." WHERE group_id=".$gid);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."forum SET id=".$obj->forumid." WHERE id=".$id);
 	}
 	qf($r);
 	print_status('Finished Importing Forums');
 
 /* Import Moderators */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod");
 	$r = Q2("select userid,forumid from moderator");
 	print_status('Importing '.db_count($r).' Moderators');
 	while( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."mod (user_id,forum_id) VALUES(".$obj->userid.",".$obj->forumid.")");
+		q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."mod (user_id,forum_id) VALUES(".$obj->userid.",".$obj->forumid.")");
 	}
 	qf($r);
 	print_status('Finished Importing Moderators');
 
 /* Import Threads */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread");
 	$r = Q2("SELECT * FROM thread");
 	print_status('Importing '.db_count($r).' Threads');
 	while( $obj = db_rowobj($r) ) {
 		
 		$ordertype = $obj->sticky ? 'STICKY' : 'NONE';
 		
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."thread (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (
 			id,
 			forum_id,
 			last_post_id,
@@ -397,13 +398,13 @@ $group_map = array(
 	print_status('Finished Importing Threads');
 	
 /* Import Messages */
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg");
 	$r = Q2("SELECT * FROM post ORDER BY threadid,postid");
 	print_status('Importing '.db_count($r).' Messages');
 	$th_id = 0;
 	while( $obj = db_rowobj($r) ) {
 		if( $th_id != $obj->threadid ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread SET root_msg_id=".$obj->postid." WHERE id=".$obj->threadid);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET root_msg_id=".$obj->postid." WHERE id=".$obj->threadid);
 			$th_id = $obj->threadid;
 		}
 		
@@ -411,7 +412,7 @@ $group_map = array(
 		if( $obj->allowsmilie ) $obj->pagetext = smiley_to_post($obj->pagetext);
 		$fileid = write_body($obj->pagetext, $len, $off);
 		
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."msg (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg (
 			id,
 			thread_id,
 			poster_id,
@@ -449,9 +450,9 @@ $group_map = array(
 	print_status('Finished Importing Messages');
 
 	
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."poll");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."poll_opt");
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."poll_opt_track");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."poll");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."poll_opt");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."poll_opt_track");
 	
 	$r = Q2("SELECT poll.*,thread.threadid,postuserid FROM thread INNER JOIN poll ON thread.pollid=poll.pollid");
 	
@@ -460,7 +461,7 @@ $group_map = array(
 	while ( $obj = db_rowobj($r) ) {	
 		$vote_length = ( $obj->active ) ? 0 : $obj->vote_start;
 		
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."poll (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll (
 			id,
 			name,
 			owner,
@@ -475,8 +476,8 @@ $group_map = array(
 			".$vote_length."
 		)");
 		
-		$mid = q_singleval("SELECT root_msg_id FROM ".$MYSQL_TBL_PREFIX."thread WHERE id=".$obj->threadid);
-		q("UPDATE ".$MYSQL_TBL_PREFIX."msg SET poll_id=".$obj->pollid." WHERE id=".$mid);
+		$mid = q_singleval("SELECT root_msg_id FROM ".$DBHOST_TBL_PREFIX."thread WHERE id=".$obj->threadid);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."msg SET poll_id=".$obj->pollid." WHERE id=".$mid);
 		
 		$opts = array();
 		$vots = array();
@@ -487,7 +488,7 @@ $group_map = array(
 		$n_opt = count($opts);
 		
 		while ( list($k,$v) = each($opts) ) {
-			q("INSERT INTO ".$MYSQL_TBL_PREFIX."poll_opt (
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt (
 				poll_id,
 				name,
 				count
@@ -503,7 +504,7 @@ $group_map = array(
 	
 	$r = Q2("SELECT * FROM pollvote");
 	while( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."poll_opt_track (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."poll_opt_track (
 			poll_id,
 			user_id
 			)
@@ -517,13 +518,13 @@ $group_map = array(
 	
 /* Import File Attachments */
 
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."attach");	
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."attach");	
 	
 	$r = Q2("SELECT attachment.*, post.postid FROM post INNER JOIN attachment ON post.attachmentid=attachment.attachmentid");
 	print_status('Importing '.db_count($r).' File Attachments');
 	$umask = umask(0177);
 	while ( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."attach (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."attach (
 			id,
 			original_name,
 			owner,
@@ -554,11 +555,11 @@ $group_map = array(
 	print_status('Finished Importing File Attachments');
 	
 /* Import Thread Subscriptions */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."thread_notify");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_notify");
 	$r = Q2("SELECT * FROM subscribethread");	
 	print_status('Importing '.db_count($r).' Thread Subscriptions');
 	while ( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."thread_notify (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_notify (
 			user_id,
 			thread_id
 			) 
@@ -570,11 +571,11 @@ $group_map = array(
 	qf($r);
 	print_status('Finished Importing Thread Subscriptions');
 	
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."forum_notify");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum_notify");
 	$r = Q2("SELECT * FROM subscribeforum");	
 	print_status('Importing '.db_count($r).' Forum Subscriptions');
 	while ( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."forum_notify (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."forum_notify (
 			user_id,
 			forum_id
 			) 
@@ -587,11 +588,11 @@ $group_map = array(
 	print_status('Finished Importing Forum Subscriptions');
 	
 /* Importing User Ranks */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."level");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."level");
 	$r = Q2("select * from usertitle");
 	print_status('Importing '.db_count($r).' User Ranks');
 	while ( $obj = db_rowobj($r) ) {
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."level (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."level (
 			name,
 			post_count
 			)
@@ -604,7 +605,7 @@ $group_map = array(
 	print_status('Finished Importing User Ranks');
 
 /* Import Private Messages */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."pmsg");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."pmsg");
 	$r = q("select * from privatemessage");
 	print_status('Importing '.db_count($r).' Private Messages');
 	while( $obj = db_rowobj($r) ) {
@@ -612,7 +613,7 @@ $group_map = array(
 	
 		$folder = $obj->fromuserid == $obj->touserid ? 'SENT' : 'INBOX';
 	
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."pmsg (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."pmsg (
 			ouser_id,
 			duser_id,
 			post_stamp,
@@ -644,25 +645,25 @@ $group_map = array(
 	
 /* Import Allowed File Extensions */
 
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."ext_block");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ext_block");
 	$ext = explode(' ', $VB2SET['attachextensions']);
 	print_status('Importing '.count($ext).' Allowed File Extensions');
 	while( list(,$v) = each($ext) )
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."ext_block (ext) VALUES('".addslashes($v)."')");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."ext_block (ext) VALUES('".addslashes($v)."')");
 	unset($ext);
 	print_status('Finished Importing Allowed File Extensions');
 	
 /* Import Banned Email Address' */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."email_block");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."email_block");
 	$email = explode(' ', $VB2SET['banemail']);
 	print_status('Importing '.count($email).' Banned E-mail address\'');
 	while( list(,$v) = each($email) ) 
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."email_block (string) VALUES('".addslashes($v)."')");		
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."email_block (string) VALUES('".addslashes($v)."')");		
 	unset($email);
 	print_status('Finished Importing Banned E-mail address\'');
 	
 /* Import Banned IP Maskes */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."ip_block");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ip_block");
 	$ip = explode(' ', $VB2SET['banip']);
 	print_status('Importing '.count($ip).' Banned IP masks');
 	while( list(,$v) = each($ip) ) {
@@ -671,7 +672,7 @@ $group_map = array(
 		for( $i=0; $i<4; $i++ ) 
 			if( empty($tmp[$i]) ) $tmp[$i] = 255;
 			
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."ip_block (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."ip_block (
 			ca,
 			cb,
 			cc,
@@ -688,12 +689,12 @@ $group_map = array(
 	print_status('Finished Importing Banned IP masks');
 
 /* Import Blocked Words */
-	q("DELETE FROM ".$MYSQL_TBL_PREFIX."replace");
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."replace");
 	$rp_words = explode(' ', $VB2SET['censorwords']);
 	print_status('Importing '.count($rp_words).' Censored Words');
 	while( list(,$v) = each($rp_words) ) {
 		$r = str_repeat($VB2SET['censorchar'], strlen($v));
-		q("INSERT INTO ".$MYSQL_TBL_PREFIX."replace (
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."replace (
 			type,
 			replace_str,
 			with_str
@@ -712,7 +713,7 @@ $group_map = array(
 	$r = Q2("SELECT userid FROM usergroup INNER JOIN user ON user.usergroupid=usergroup.usergroupid WHERE cancontrolpanel=1");
 	print_status('Importing '.db_count($r).' Administrators');
 	while( list($uid) = db_rowarr($r) ) 
-		q("UPDATE ".$MYSQL_TBL_PREFIX."users SET is_mod='A' WHERE id=".$uid);
+		q("UPDATE ".$DBHOST_TBL_PREFIX."users SET is_mod='A' WHERE id=".$uid);
 	qf($r);
 	print_status('Finished Importing Administrators');
 
