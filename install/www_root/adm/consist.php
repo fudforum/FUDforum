@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.100 2004/12/20 15:02:26 hackie Exp $
+* $Id: consist.php,v 1.101 2005/01/19 14:36:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -630,7 +630,7 @@ forum will be disabled.
 
 	draw_stat('Validating User/Theme Relations');
 	if (__dbtype__ == 'pgsql' || $FUD_OPT_3 & 1024) {
-		q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 3) > 0 ) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0) )');
+		q('UPDATE '.$tbl.'users SET theme=(SELECT id FROM '.$tbl.'themes thm WHERE (theme_opt & 3) > 0 ) WHERE theme NOT IN( (SELECT id FROM '.$tbl.'themes WHERE (theme_opt & 1) > 0) )');
 	} else {
 		$te = array();
 		$c = uq('SELECT u.id FROM '.$tbl.'users u LEFT JOIN '.$tbl.'themes thm ON thm.id=u.theme WHERE thm.id IS NULL');
