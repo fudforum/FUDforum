@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.16 2003/05/02 13:17:16 hackie Exp $
+*   $Id: split_th.php.t,v 1.17 2003/05/12 14:35:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@
 		}
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
-			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th_id.'&'._rsidl);
+			header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			exit;
 		}
 

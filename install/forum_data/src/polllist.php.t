@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.9 2003/05/07 23:13:48 hackie Exp $
+*   $Id: polllist.php.t,v 1.10 2003/05/12 14:35:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,7 +72,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
 				WHERE 
-					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
+					'.$usr_lmt.' '.($usr->is_mod != 'A' ? '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : ' 1=1').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
 
 		while ($obj = db_rowobj($c)) {
 			if (!$obj->total_votes) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.29 2003/05/04 21:04:04 hackie Exp $
+*   $Id: ppost.php.t,v 1.30 2003/05/12 14:35:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -287,7 +287,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));
 						}
 					}
-					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.__FUD_SQL_CONCAT__.'(\''.$FILE_STORE.'\', id, \'.atch\') WHERE id IN('.implode(',', $aidl).')');
+					$cc = __FUD_SQL_CONCAT__.'('.__FUD_SQL_CONCAT__."('".$GLOBALS['FILE_STORE']."', id), '.atch')";
+					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.$cc.' WHERE id IN('.implode(',', $aidl).')');
 				}
 			}
 		}	
