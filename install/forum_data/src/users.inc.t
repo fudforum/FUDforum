@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.56 2003/06/02 19:15:22 hackie Exp $
+*   $Id: users.inc.t,v 1.57 2003/06/02 19:51:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -475,10 +475,6 @@ function init_user()
 
 				case 'tr':
 					$_GET['t'] = 'ratethread';
-					break;
-
-				case 'tttt': /* test case for testing avalibility of PATH_INFO */
-					exit('tttt');
 					break;
 
 				case 'gm':
