@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.65 2004/02/13 15:34:18 hackie Exp $
+* $Id: ppost.php.t,v 1.66 2004/04/02 22:06:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -379,6 +379,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 
 	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
+	$session_error = get_err('msg_session');
+	if ($session_error) {
+		$post_error = $session_error;
+	}
 
 	$to_err = get_err('msg_to_list');
 	$msg_subect_err = get_err('msg_subject');

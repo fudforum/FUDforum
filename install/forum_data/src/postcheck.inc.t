@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.inc.t,v 1.17 2004/01/04 16:38:27 hackie Exp $
+* $Id: postcheck.inc.t,v 1.18 2004/04/02 22:06:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,6 +51,11 @@ function check_post_form()
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
 
+	if (defined('fud_bad_sq')) {
+		unset($_POST['submitted']);
+		set_err('msg_session', '{TEMPLATE: postcheck_session_invalid}');
+	}
+
 	return $GLOBALS['__error__'];
 }
 
@@ -87,6 +92,11 @@ function check_ppost_form($msg_subject)
 		set_err('msg_to_list', '{TEMPLATE: postcheck_no_recepient}');
 	}
 
+	if (defined('fud_bad_sq')) {
+		unset($_POST['btn_action']);
+		set_err('msg_session', '{TEMPLATE: postcheck_session_invalid}');
+	}
+
 	return $GLOBALS['__error__'];
 }
 
@@ -100,6 +110,10 @@ function check_femail_form()
 	}
 	if (empty($_POST['body'])) {
 		set_err('body', '{TEMPLATE: postcheck_email_body}');
+	}
+	if (defined('fud_bad_sq')) {
+		unset($_POST['posted']);
+		set_err('msg_session', '{TEMPLATE: postcheck_session_invalid}');
 	}
 
 	return $GLOBALS['__error__'];

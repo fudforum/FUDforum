@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.116 2004/04/02 18:24:18 hackie Exp $
+* $Id: users.inc.t,v 1.117 2004/04/02 22:06:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,72 +25,14 @@ function init_user()
 			$_GET['rid'] = array_pop($p);
 		}
 		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'] . '?' . $_SERVER['QUERY_STRING'];
-	}
 
-	header("Expires: Mon, 21 Jan 1980 06:01:01 GMT");
-	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
-	header("Pragma: no-cache");
-
-	$sq = 0;
-	/* fetch an object with the user's session, profile & theme info */
-	if (!($u = ses_get())) {
-		/* new anon user */
-		$u = ses_anon_make();
-		$sq_r = 1;
-	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* store the last visit date for registered user */
-		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
-		if ($GLOBALS['FUD_OPT_3'] & 1) {
-			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		/* continuation of path info parsing */
+		if (!isset($p[0])) {
+			$p[0] = 'i';
 		}
-		if (!$u->sq || __request_timestamp__ - $u->last_visit > 300) {
-			$u->sq = $sq = regen_sq($u->id);
-			if (!$GLOBALS['is_post']) {
-				$_GET['SQ'] = $sq;
-			} else {
-				$_POST['SQ'] = $sq;
-			}
-			$sq_r = 1;
-		} else {
-			$sq =& $u->sq;
-			$sq_r = 0;
-		}
-	}
-	if ($u->data) {
-		$u->data = @unserialize($u->data);
-	}
-	$u->users_opt = (int) $u->users_opt;
-
-	/* this should allow path_info & normal themes to work properly within 1 forum */
-	if ($o2 & 32768 && !($u->theme_opt & 4)) {
-		$o2 ^= 32768;
-	}
-
-	/* handle PM disabling for users */
-	if (!($u->users_opt & 1048576) && $u->users_opt & 33554432) {
-		$o1 = $o1 &~ 1024;
-	}
-
-	/* set timezone */
-	@putenv('TZ=' . $u->time_zone);
-	/* set locale */
-	setlocale(LC_ALL, $u->locale);
-
-	/* view format for threads & messages */
-	define('d_thread_view', $u->users_opt & 256 ? 'msg' : 'tree');
-	define('t_thread_view', $u->users_opt & 128 ? 'thread' : 'threadt');
-
-	/* theme path */
-	@define('fud_theme', 'theme/' . ($u->theme_name ? $u->theme_name : 'default') . '/');
-
-	/* define _uid, which, will tell us if this is a 'real' user or not */
-	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
-	define('_uid', __fud_real_user__ && ($u->users_opt & 131072) && !($u->users_opt & 2097152) ? $u->id : 0);
-
-	/* continuation of path info parsing */
-	if (isset($p, $p[0])) {
 		switch ($p[0]) {
 			case 'm': /* goto specific message */
-				$_GET['t'] = d_thread_view;
+				$_GET['t'] = 0;
 				$_GET['goto'] = $p[1];
 				if (isset($p[2])) {
 					$_GET['th'] = $p[2];
@@ -121,7 +63,7 @@ function init_user()
 				break;
 
 			case 't': /* view thread */
-				$_GET['t'] = d_thread_view;
+				$_GET['t'] = 0;
 				$_GET['th'] = $p[1];
 				if (isset($p[2])) {
 					$_GET['start'] = $p[2];
@@ -132,7 +74,7 @@ function init_user()
 				break;
 
 			case 'f': /* view forum */
-				$_GET['t'] = t_thread_view;
+				$_GET['t'] = 1;
 				$_GET['frm_id'] = $p[1];
 				if (isset($p[2])) {
 					$_GET['start'] = $p[2];
@@ -330,7 +272,7 @@ function init_user()
 				break;
 
 			case 'pv':
-				$_GET['t'] = d_thread_view;
+				$_GET['t'] = 0;
 				$_GET['goto'] = $p[1];
 				$_POST['pl_view'] = $p[2];
 				break;
@@ -609,20 +551,80 @@ function init_user()
 				$_GET['t'] = 'index';
 				break;
 		}
+		$GLOBALS['t'] = $_GET['t'];
+	} else if (isset($_GET['t'])) {
+		$GLOBALS['t'] = $_GET['t'];
+	} else if (isset($_POST['t'])) {
+		$GLOBALS['t'] = $_POST['t'];
 	} else {
-		if (isset($_GET['t'])) {
-			$GLOBALS['t'] = $_GET['t'];
-		} else if (isset($_POST['t'])) {
-			$GLOBALS['t'] = $_POST['t'];
+		$GLOBALS['t'] = 'index';
+	}
+
+	header("Expires: Mon, 21 Jan 1980 06:01:01 GMT");
+	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
+	header("Pragma: no-cache");
+
+	$sq = 0; $sq_r = 1;
+	/* fetch an object with the user's session, profile & theme info */
+	if (!($u = ses_get())) {
+		/* new anon user */
+		$u = ses_anon_make();
+	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) { /* store the last visit date for registered user */
+		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
+		if ($GLOBALS['FUD_OPT_3'] & 1) {
+			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		}
+		if (!$u->sq || __request_timestamp__ - $u->last_visit > 300) {
+			$u->sq = $sq = regen_sq($u->id);
+			if (!$GLOBALS['is_post']) {
+				$_GET['SQ'] = $sq;
+			} else {
+				$_POST['SQ'] = $sq;
+			}
 		} else {
-			$GLOBALS['t'] = 'index';
+			$sq =& $u->sq;
+			$sq_r = 0;
 		}
 	}
+	if ($u->data) {
+		$u->data = @unserialize($u->data);
+	}
+	$uo = $u->users_opt = (int) $u->users_opt;
+
+	/* this should allow path_info & normal themes to work properly within 1 forum */
+	if ($o2 & 32768 && !($u->theme_opt & 4)) {
+		$o2 ^= 32768;
+	}
+
+	/* handle PM disabling for users */
+	if (!($uo & 1048576) && $uo & 33554432) {
+		$o1 = $o1 &~ 1024;
+	}
+
+	/* set timezone */
+	@putenv('TZ=' . $u->time_zone);
+	/* set locale */
+	setlocale(LC_ALL, $u->locale);
+
+	/* view format for threads & messages */
+	define('d_thread_view', $uo & 256 ? 'msg' : 'tree');
+	define('t_thread_view', $uo & 128 ? 'thread' : 'threadt');
+	if ($GLOBALS['t'] === 0) {
+		$GLOBALS['t'] = $_GET['t'] = d_thread_view;
+	} else if ($GLOBALS['t'] === 1) {
+		$GLOBALS['t'] = $_GET['t'] = t_thread_view;
+	}
+
+	/* theme path */
+	@define('fud_theme', 'theme/' . ($u->theme_name ? $u->theme_name : 'default') . '/');
+
+	/* define _uid, which, will tell us if this is a 'real' user or not */
+	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
+	define('_uid', __fud_real_user__ && ($uo & 131072) && !($uo & 2097152) ? $u->id : 0);
 
 	if (!$sq_r) {
 		switch ($GLOBALS['t']) {
 			case 'tree':
-			case 'rview':
 			case 'msg':
 			case 'post':
 			case 'ppost':
@@ -630,6 +632,8 @@ function init_user()
 			case 'reported':
 			case 'modque':
 			case 'split_th':
+			case 'rview':
+			case 'usrinfo':
 				$u->sq = $sq = regen_sq($u->id);
 				if (!$GLOBALS['is_post']) {
 					$_GET['SQ'] = $sq;
@@ -721,7 +725,7 @@ function user_mark_forum_read($id, $fid, $last_view)
 	}
 }
 
-function sq_check($post, $sq, $uid=__fud_real_user__, $ses=s)
+function sq_check($post, &$sq, $uid=__fud_real_user__, $ses=s)
 {
 	/* no sequence # check for anonymous users or when multi-host login is enabled */
 	if (!$uid || $GLOBALS['FUD_OPT_2'] & 256) {
@@ -737,6 +741,11 @@ function sq_check($post, $sq, $uid=__fud_real_user__, $ses=s)
 	}
 
 	if ($sq !== $s) {
+		if ($GLOBALS['t'] == 'post' || $GLOBALS['t'] == 'ppost') {
+			define('fud_bad_sq', 1);
+			$sq = regen_sq($uid);
+			return 1;
+		}
 		header('Location: {FULL_ROOT}{ROOT}?S='.$ses);
 		exit;
 	}
