@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.3 2002/07/29 13:03:53 hackie Exp $
+*   $Id: nntp.inc,v 1.4 2002/08/21 12:58:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,16 +17,16 @@
 
 class fud_nntp
 {
-	var $server, $port=119, $user, $pass, $timeout=25, $auth_mode, $newsgroup;
-	var $error, $lrc;
-	var $fs;
-	var $group_na, $group_first, $group_last;
-	// Per Message Varaibles;
-	var $headers, $body;
-	var $raw_msg;
-	var $msg_id, $reply_to, $reply_to_msg_id, $from_email, $from_name, $ip;
-	var $user_id;
-	var $attachments;
+	var $server=NULL, $port=119, $user=NULL, $pass=NULL, $timeout=25, $auth_mode=NULL, $newsgroup=NULL;
+	var $error=NULL, $lrc=NULL;
+	var $fs=NULL;
+	var $group_na=NULL, $group_first=NULL, $group_last=NULL;
+	// Per Message Varaibles
+	var $headers=NULL, $body=NULL;
+	var $raw_msg=NULL;
+	var $msg_id=NULL, $reply_to=NULL, $reply_to_msg_id=NULL, $from_email=NULL, $from_name=NULL, $ip=NULL;
+	var $user_id=NULL;
+	var $attachments=NULL;
 	
 	function get_return_code()
 	{

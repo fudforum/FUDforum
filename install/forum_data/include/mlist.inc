@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.3 2002/07/24 16:39:44 hackie Exp $
+*   $Id: mlist.inc,v 1.4 2002/08/21 12:58:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,9 +17,9 @@
 
 class fud_mlist
 {
-	var $id, $forum_id, $name;
-	var $mlist_post_apr, $allow_frm_post, $frm_post_apr, $allow_mlist_attch, $allow_mlist_html, $complex_reply_match;
-	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle;
+	var $id=NULL, $forum_id=NULL, $name=NULL;
+	var $mlist_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_mlist_attch=NULL, $allow_mlist_html=NULL, $complex_reply_match=NULL;
+	var $subject_regex_haystack=NULL, $subject_regex_needle=NULL, $body_regex_haystack=NULL, $body_regex_needle=NULL;
 
 	function get($id)
 	{

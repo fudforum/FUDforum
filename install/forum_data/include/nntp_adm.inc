@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.1 2002/07/29 11:58:50 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.2 2002/08/21 12:58:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,11 +18,11 @@
 class fud_nntp_adm
 {
 	// NNTP Settings
-	var $server, $port, $login, $pass, $timeout, $newsgroup, $auth;
+	var $server=NULL, $port=NULL, $login=NULL, $pass=NULL, $timeout=NULL, $newsgroup=NULL, $auth=NULL;
 	
 	// General Settings
-	var $forum_id, $id;
-	var $nntp_post_apr, $allow_frm_post, $frm_post_apr, $allow_nttp_attch, $complex_reply_match;
+	var $forum_id=NULL, $id=NULL;
+	var $nntp_post_apr=NULL, $allow_frm_post=NULL, $frm_post_apr=NULL, $allow_nttp_attch=NULL, $complex_reply_match=NULL;
 	
 	function get($id)
 	{
