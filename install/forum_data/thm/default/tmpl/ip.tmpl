@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.tmpl,v 1.5 2004/05/11 17:31:44 hackie Exp $
+* $Id: ip.tmpl,v 1.6 2004/10/29 18:38:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: ip_user_entry}
-<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{VAR: i}. <a href="{TEMPLATE: ip_user_entry_url}">{VAR: r[1]}</a></td></tr>
+<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{FUNC: ++$i}. <a href="{TEMPLATE: ip_user_entry_url}">{VAR: r[1]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: ip_users}
@@ -72,7 +72,7 @@
 {SECTION: END}
 
 {SECTION: ip_ip_entry}
-<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{VAR: i}. <a href="{TEMPLATE: ip_ip_entry_url}">{VAR: r[0]}</a></td></tr>
+<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{FUNC: ++$i}. <a href="{TEMPLATE: ip_ip_entry_url}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: ip_info}
