@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.16 2003/10/10 14:39:24 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.17 2003/10/28 03:13:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -40,7 +40,7 @@
 
 {SECTION: ignore_anon_user info about an ignored user}
 <tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td width="100%" colspan=4 class="GenText"><font color="#00AA00">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{TEMPLATE: ignore_anon_user_lnk}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
+	<td width="100%" colspan=4 class="GenText"><font class="anon">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{TEMPLATE: ignore_anon_user_lnk}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
 </tr>
 {SECTION: END}
 

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.25 2003/10/17 13:50:31 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.26 2003/10/28 03:13:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -164,7 +164,7 @@
 </tr>
 <tr><td class="MsgR3" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>
 {TEMPLATE-DATA: msg_toolbar}
-<tr><td align="right" colspan=2 bgcolor="#FFFFFF">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
+<tr><td class="pmNav" colspan=2>{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
 {MAIN_SECTION: END}
 
 {SECTION: dpmsg_no_msg_body}
