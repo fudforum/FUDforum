@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.29 2003/11/28 08:31:19 hackie Exp $
+* $Id: admimport.php,v 1.30 2003/11/28 09:10:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -132,8 +132,11 @@ function resolve_dest_path($path)
 					$tbl_data = preg_replace('!\s+!', ' ', trim($tbl_data));
 					$tmp = explode(';', str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $tbl_data));
 					foreach($tmp as $qry) {
-						if( trim($qry) ) {
-							q(trim($qry));
+						if (($qry = trim($qry)) && strncmp($qry, 'DROP', 4) && strncmp($qry, 'ALTER', 5)) {
+							if (__dbtype__ != 'mysql' && !strncmp($qry, 'CREATE', 6)) {
+								$qry = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $qry);
+							}
+							q($qry);
 						}
 					}
 				}
@@ -145,7 +148,7 @@ function resolve_dest_path($path)
 				/* skip table defenitions inside the archive */
 				while (($line = $getf($fp, 1000000)) && !$feoff($fp)) {
 					if (($line = trim($line))) {
-						if (strncmp($line, 'DROP TABLE', 10) && strncmp($line, 'CREATE TABLE', 12)) {
+						if (strncmp($line, 'DROP', 4) && strncmp($line, 'CREATE', 6) && strncmp($line, 'ALTER', 5)) {
 							q(str_replace('{SQL_TABLE_PREFIX}', $DBHOST_TBL_PREFIX, $line));
 							break;
 						}
