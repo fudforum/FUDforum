@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.20 2003/06/03 15:46:11 hackie Exp $
+*   $Id: actions.php.t,v 1.21 2003/06/11 14:26:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -77,7 +77,7 @@
 				}
 			} else {
 				$s = strpos($r[0], '"', (strpos($r[0], 'href="') + 7));
-				$action = substr_replace($r[0], _rsid, $s, 0);
+				$action = substr_replace($r[0], '/' . _rsid, $s, 0);
 			}
 		} else {
 			$action = '{TEMPLATE: no_view_perm}';
