@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.41 2004/04/25 20:18:26 hackie Exp $
+* $Id: msg.tmpl,v 1.42 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 {REF: th_nav.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk1}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
+<span class="GenText"><a name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk1}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></span>
 {SECTION: END}
 
 {SECTION: thread_rating}

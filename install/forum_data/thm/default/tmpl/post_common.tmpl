@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.14 2004/04/28 16:36:58 hackie Exp $
+* $Id: post_common.tmpl,v 1.15 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,7 @@
 
 {SECTION: post_smilies}
 <tr class="RowStyleA"><td class="nw vt GenText">{MSG: post_smiley}
-	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
+	<br /><span class="small">[<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</span>
 </td>
 <td class="vt"><table border=0 cellspacing=5 cellpadding=0><tr class="vb"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
 {SECTION: END}
@@ -128,7 +128,7 @@
 {SECTION: END}
 
 {SECTION: attached_status count of already attached files}
-<font class="SmallText"> {MSG: post_cur_attached}
+<span class="SmallText"> {MSG: post_cur_attached}
 {SECTION: END}
 
 {SECTION: attachment_list list of all the attached files}
@@ -148,9 +148,9 @@
 <tr class="RowStyleB"><td class="GenText vt nw">{MSG: file_attachments}</td><td>
 {TEMPLATE-DATA: attachment_list}
 {VAR: attach_control_error}
-<font class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
+<span class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
 {TEMPLATE-DATA: attached_status}
-</font><p>
+</span><p>
 {TEMPLATE-DATA: upload_file}
 </td></tr>
 {SECTION: END}

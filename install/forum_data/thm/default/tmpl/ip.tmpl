@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.tmpl,v 1.4 2004/04/25 20:18:26 hackie Exp $
+* $Id: ip.tmpl,v 1.5 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,13 +29,13 @@
 <div class="ctb"><table cellspacing=0 cellpadding=0 class="MiniTable"><tr><td><fieldset>
 	<legend>{MSG: ip_search_by_ip}</legend>
 <form method="post" action="{TEMPLATE: ip_form_url}">{DEF: _hs}
-<font class="SmallText">{MSG: ip_search_syntax}<br /></font>
+<span class="SmallText">{MSG: ip_search_syntax}<br /></span>
 <input type="text" name="ip" value="{VAR: ip}" length="20" maxlength="15"> <input type="submit" value="{MSG: ip_search}">
 </form>
 </fieldset></td><td width="50"> </td><td><fieldset>
 	<legend>{MSG: ip_analyze_usage}</legend>
 <form method="post" action="{TEMPLATE: ip_form_url}">{DEF: _hs}
-<font class="SmallText">{MSG: ip_analyze_usage_descr}<br /></font>
+<span class="SmallText">{MSG: ip_analyze_usage_descr}<br /></span>
 <input type="text" name="user" value="{VAR: user}" length="20"> <input type="submit" value="{MSG: ip_search}">
 </form>
 </fieldset></td>

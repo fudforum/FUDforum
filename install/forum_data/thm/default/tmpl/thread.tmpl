@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.39 2004/04/25 20:18:26 hackie Exp $
+* $Id: thread.tmpl,v 1.40 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,7 +25,7 @@
 {REF: thread_view_common.tmpl}
 
 {SECTION: mini_thread_pager}
-<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
+<span class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
@@ -52,15 +52,15 @@
 {SECTION: END}
 
 {SECTION: sticky}
-<font class="StClr">{MSG: sticky}&nbsp;</font>
+<span class="StClr">{MSG: sticky}&nbsp;</span>
 {SECTION: END}
 
 {SECTION: announcement}
-<font class="AnClr">{MSG: thread_announcement}&nbsp;</font>
+<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>
 {SECTION: END}
 
 {SECTION: thread_last_post}
-<font class="DateText">{DATE: r[10] %a, %d %B %Y %H:%M}</font>
+<span class="DateText">{DATE: r[10] %a, %d %B %Y %H:%M}</span>
 {SECTION: END}
 
 {SECTION: unreg_user_link}
@@ -80,7 +80,7 @@
 {SECTION: END}
 
 {SECTION: thread_first_post}
-<font class="DateText">{DATE: r[4] %a, %d %B %Y}</font>
+<span class="DateText">{DATE: r[4] %a, %d %B %Y}</span>
 {SECTION: END}
 
 {SECTION: first_post_unreg_user_link if the thread stater was an anon user link}

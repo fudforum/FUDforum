@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ulink.tmpl,v 1.4 2004/04/25 20:18:26 hackie Exp $
+* $Id: ulink.tmpl,v 1.5 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 {PHP_FILE: input: ulink.inc.t; output: ulink.inc;}
 
 {SECTION: ulink_custom_color}
-<font style="color: {VAR: custom_color}">{VAR: login}</font>
+<span style="color: {VAR: custom_color}">{VAR: login}</span>
 {SECTION: END}
 
 {SECTION: ulink_reg_user}
@@ -20,9 +20,9 @@
 {SECTION: END}
 
 {SECTION: ulink_mod_user}
-<font class="modsColor">{VAR: login}</font>
+<span class="modsColor">{VAR: login}</span>
 {SECTION: END}
 
 {SECTION: ulink_adm_user}
-<font class="adminColor">{VAR: login}</font>
+<span class="adminColor">{VAR: login}</span>
 {SECTION: END}

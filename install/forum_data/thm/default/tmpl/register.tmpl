@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.46 2004/04/26 19:13:16 hackie Exp $
+* $Id: register.tmpl,v 1.47 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -37,7 +37,7 @@
 {TEMPLATE-DATA: reg_alias_t}
 <tr class="RowStyleA"><td>{MSG: register_password}{VAR: reg_plaintext_passwd_err}</td><td><input type="password" name="reg_plaintext_passwd" size=25 maxlength=16></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_conf_pass}</td><td><input type="password" name="reg_plaintext_passwd_conf" size=25 maxlength=16></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_email_addr}{VAR: reg_email_err}<br /><font class="SmallText">{MSG: register_email_desc}</font></td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_email_addr}{VAR: reg_email_err}<br /><span class="SmallText">{MSG: register_email_desc}</span></td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{VAR: reg_name_err}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
 {SECTION: END}
 
@@ -50,14 +50,14 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</font>
+&nbsp;<span class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</span>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
 <tr class="RowStyleA"><td>{MSG: register_login}</td><td class="fb">{VAR: user_login}</td></tr>
 {TEMPLATE-DATA: reg_alias_t}
 <tr class="RowStyleA"><td>{MSG: register_your_pass}{VAR: reg_confirm_passwd_err}</td><td><input type="password" name="reg_confirm_passwd" size=25 maxlength=16>{TEMPLATE-DATA: change_passwd_link}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_email_addr}{VAR: reg_email_err}<br /><font class="SmallText">{MSG: register_email_desc}</font>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_email_addr}{VAR: reg_email_err}<br /><span class="SmallText">{MSG: register_email_desc}</span>{TEMPLATE-DATA: email_warning_msg}</td><td><input type="text" name="reg_email" size=25 value="{VAR: reg_email}"></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_name}{VAR: reg_name_err}</td><td><input type="text" name="reg_name" size=25 value="{VAR: reg_name}"></td></tr>
 <tr><td colspan=2 class="ac RowStyleC"><input type="submit" class="button" name="fud_submit" value="{MSG: register_update}"></td></tr>
 {SECTION: END}
@@ -121,7 +121,7 @@
 {SECTION: END}
 
 {SECTION: register_error registration error message}
-<br /><font class="ErrorText">{VAR: GLOBALS['err_msg'][$err_name]}</font>
+<br /><span class="ErrorText">{VAR: GLOBALS['err_msg'][$err_name]}</span>
 {SECTION: END}
 
 {SECTION: register_affero}
@@ -156,7 +156,7 @@
 <tr class="RowStyleA"><td>{MSG: register_homepage}</td><td><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxLength=255></td></tr>
 {TEMPLATE-DATA: avatar_type_sel}
 {TEMPLATE-DATA: avatar}
-<tr class="RowStyleA vt"><td>{MSG: register_bday}<br /><font class="SmallText">{MSG: register_bday_desc}</font></td>
+<tr class="RowStyleA vt"><td>{MSG: register_bday}<br /><span class="SmallText">{MSG: register_bday_desc}</span></td>
 <td>
 <table border=0 cellspacing=3 cellpadding=0>
  <tr class="GenText">
@@ -171,22 +171,22 @@
  </tr>
 </table></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_gender}</td><td><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
-<tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><font class="SmallText">{MSG: register_bio_desc}</font></td><td><textarea name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
+<tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td><td><textarea name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
 <tr><th colspan=2>{MSG: register_prefs}</th></tr>
-<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}{TEMPLATE-DATA: sig_len_limit}</td><td>{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{TEMPLATE-DATA: post_options}{TEMPLATE-DATA: sig_len_limit}</td><td>{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_ignore_admin}</td><td>{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_invisible_mode}<br /><font class="SmallText">{MSG: register_invisible_mode_desc}</font></td><td>{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_show_email}<br /><font class="SmallText">{MSG: register_show_email_desc}</font></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_notification}<br /><font class="SmallText">{MSG: register_notification_desc}</font></td><td>{TEMPLATE-DATA: notify_default_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_pm_notification}<br /><font class="SmallText">{MSG: register_pm_notification_desc}</font></td><td>{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><font class="SmallText">{MSG: register_notify_method_desc}</font></td><td><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
-<tr class="RowStyleA"><td>{MSG: register_allow_email_msg}<br /><font class="SmallText">{MSG: register_allow_email_msg_desc}</font></td><td>{TEMPLATE-DATA: accept_user_email}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_allow_pm_msg}<br /><font class="SmallText">{MSG: register_allow_pm_msg_desc}</font></td><td>{TEMPLATE-DATA: accept_pm}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_use_sig_default}<br /><font class="SmallText">{MSG: register_use_sig_default_desc}</font></td><td>{TEMPLATE-DATA: append_sig_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_show_sig}<br /><font class="SmallText">{MSG: register_show_sig_desc}</font></td><td>{TEMPLATE-DATA: show_sig_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_show_avatar}<br /><font class="SmallText">{MSG: register_show_avatar_desc}</font></td><td>{TEMPLATE-DATA: show_avatar_radio}</td></tr>
-<tr class="RowStyleA"><td>{MSG: register_show_im}<br /><font class="SmallText">{MSG: register_show_im_desc}</font></td><td>{TEMPLATE-DATA: show_im_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_invisible_mode}<br /><span class="SmallText">{MSG: register_invisible_mode_desc}</span></td><td>{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_show_email}<br /><span class="SmallText">{MSG: register_show_email_desc}</span></td><td>{TEMPLATE-DATA: show_email_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_notification}<br /><span class="SmallText">{MSG: register_notification_desc}</span></td><td>{TEMPLATE-DATA: notify_default_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_pm_notification}<br /><span class="SmallText">{MSG: register_pm_notification_desc}</span></td><td>{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_notify_method}<br /><span class="SmallText">{MSG: register_notify_method_desc}</span></td><td><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_allow_email_msg}<br /><span class="SmallText">{MSG: register_allow_email_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_user_email}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_allow_pm_msg}<br /><span class="SmallText">{MSG: register_allow_pm_msg_desc}</span></td><td>{TEMPLATE-DATA: accept_pm}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_use_sig_default}<br /><span class="SmallText">{MSG: register_use_sig_default_desc}</span></td><td>{TEMPLATE-DATA: append_sig_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_show_sig}<br /><span class="SmallText">{MSG: register_show_sig_desc}</span></td><td>{TEMPLATE-DATA: show_sig_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_show_avatar}<br /><span class="SmallText">{MSG: register_show_avatar_desc}</span></td><td>{TEMPLATE-DATA: show_avatar_radio}</td></tr>
+<tr class="RowStyleA"><td>{MSG: register_show_im}<br /><span class="SmallText">{MSG: register_show_im_desc}</span></td><td>{TEMPLATE-DATA: show_im_radio}</td></tr>
 <tr class="RowStyleA"><td>{MSG: register_msg_per_page}</td><td><select name="reg_posts_ppg">{TEMPLATE-DATA: mppg_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_def_thread_view}</td><td><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
 {TEMPLATE-DATA: theme_select}
@@ -420,11 +420,11 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr class="RowStyleA"><td>{MSG: register_alias}{VAR: reg_alias_err}<br /><font class="SmallText">{MSG: register_alias_desc}</font></td><td><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
+<tr class="RowStyleA"><td>{MSG: register_alias}{VAR: reg_alias_err}<br /><span class="SmallText">{MSG: register_alias_desc}</span></td><td><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {SECTION: END}
 
 {SECTION: email_warning_msg}
-<br /><font class="regEW">{MSG: email_warning_msg}</font>
+<br /><span class="regEW">{MSG: email_warning_msg}</span>
 {SECTION: END}
 
 {SECTION: register_err_time_limit}

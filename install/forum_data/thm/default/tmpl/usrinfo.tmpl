@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.33 2004/04/25 20:18:26 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.34 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,7 @@
 {SECTION: END}
 
 {SECTION: last_post last post link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><font class="DateText">{DATE: r[2] %a, %d %B %Y %H:%M}</font><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="vt nw GenText">{MSG: usrinfo_last_post}</td><td class="GenText"><span class="DateText">{DATE: r[2] %a, %d %B %Y %H:%M}</span><br /><a href="{TEMPLATE: last_post_lnk}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: last_visit last visit}
@@ -96,26 +96,26 @@
 {SECTION: im_icq ICQ control center}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText"><a name="icq_msg">{MSG: icq_message_form}</a></td><td class="GenText">
 		{VAR: u->icq} <img src="http://web.icq.com/whitepages/online?icq={VAR: u->icq}&amp;img=5" /><br />
-			<table border="0">
+			<table border="0" style="font-face: Arial, Helvetica; font-size: smaller">
 			<tr><td colspan=2>
 				<form action="http://wwp.icq.com/scripts/WWPMsg.dll" method="post" target=_blank>
-				<font face="Arial, Helvetica" size="1"><b>{MSG: icq_control_panel}</b></font>
+				<b>{MSG: icq_control_panel}</b>
 			</td></tr>
 			<tr>
 				<td>
-					<font face="Arial, Helvetica" size="1">{MSG: sender_name}</font><br />
+					{MSG: sender_name}<br />
 					<input type="text" name="from" value="" size="15" maxlength="40" onfocus="this.select()">
 				</td>
 				<td>
-					<font face="Arial, Helvetica" size="1">{MSG: sender_email}</font><br />
+					{MSG: sender_email}<br />
 					<input type="text" name="fromemail" value="" size="15" maxlength="40" onfocus="this.select()">
 				</td>
 			</tr>
 			<tr>
 				<td colspan=2>
-					<font face="Arial, Helvetica" size="1">{MSG: subject}</font><br />
+					{MSG: subject}<br />
 					<input type="text" name="subject" value="" size="32"><br />
-					<font face="Arial, Helvetica" size="1">{MSG: message}</font><br />
+					{MSG: message}<br />
 					<textarea name="body" rows="3" cols="32" wrap="Virtual"></textarea>
 					<input type="hidden" name="to" value="{VAR: u->icq}"><br />
 				</td>
@@ -171,11 +171,11 @@
 
 {SECTION: status various forum related tags assigned to user}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="nw vt GenText">{MSG: status}</td><td class="GenText">
-<font class="LevelText">
+<span class="LevelText">
 {TEMPLATE-DATA: level_name}
 {TEMPLATE-DATA: level_image}
 {TEMPLATE-DATA: custom_tags}
-</font>
+</span>
 {TEMPLATE-DATA: moderation}
 </td></tr>
 {SECTION: END}

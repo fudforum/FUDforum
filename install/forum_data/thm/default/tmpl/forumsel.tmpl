@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.15 2004/04/25 20:18:25 hackie Exp $
+* $Id: forumsel.tmpl,v 1.16 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -12,7 +12,7 @@
 {PHP_FILE: input: forumsel.inc.t; output: @forumsel.inc;}
 
 {MAIN_SECTION: forum_select a drop down select of all the categories & forums}
-<font class="SmallText fb">{MSG: forumsel_goto_forum}</font>
+<span class="SmallText fb">{MSG: forumsel_goto_forum}</span>
 <form action="{TEMPLATE: forum_select_lnk3}" name="frmquicksel" method="get" onSubmit="javascript: if (document.frmquicksel.frm_id.value < 1) document.frmquicksel.frm_id.value={VAR: frm_id};">
 <input type="hidden" name="t" value="{VAR: dest}">{DEF: _hs}<input type="hidden" name="forum_redr" value="1">
 <select class="SmallText" name="frm_id" onChange="javascript: if ( this.value==0 ) return false; document.frmquicksel.submit();">

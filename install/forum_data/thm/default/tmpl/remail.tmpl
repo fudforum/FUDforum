@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.tmpl,v 1.16 2004/04/25 20:18:26 hackie Exp $
+* $Id: remail.tmpl,v 1.17 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -47,7 +47,7 @@
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{VAR-HTML: fname}"></td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></td><td valign="top"><input type="text" name="femail" value="{VAR-HTML: femail}">{TEMPLATE-DATA: femail_error}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></td><td nowrap valign="top"><input type="text" name="subj" value="{VAR: subject}">{TEMPLATE-DATA: subject_error}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt">{MSG: remail_message}<font class="SmallText"><br /><i>{MSG: remail_required}</i></font></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea>{TEMPLATE-DATA: body_error}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt">{MSG: remail_message}<span class="SmallText"><br /><i>{MSG: remail_required}</i></span></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{VAR: body}</textarea>{TEMPLATE-DATA: body_error}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText ar" colspan=2><input type="submit" class="button" name="submit" value="{MSG: remail_send_now}"></td></tr>
 {SECTION: END}
 

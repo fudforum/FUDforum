@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.68 2004/05/07 16:13:03 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.69 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -265,7 +265,7 @@
 <p>
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
 <table cellspacing=1 cellpadding=2 class="PollTable">
-<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<font class="ptp">[ {MSG: num_votes} ]</font></th></tr>
+<tr><th class="nw" colspan=3>{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span></th></tr>
 {TEMPLATE-DATA: poll_data}
 {TEMPLATE-DATA: poll_buttons}
 </table><input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form><p>
@@ -285,8 +285,8 @@
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <li />
 <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="at" /></a>
-<font class="GenText fb">{MSG: attachment}</font> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
-<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})<p /></font>
+<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
+<span class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})<p /></span>
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}
@@ -386,7 +386,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_normal_message_body}
-<font class="MsgBodyText">{VAR: msg_body}</font>
+<span class="MsgBodyText">{VAR: msg_body}</span>
 {SECTION: END}
 
 {SECTION: dmsg_short_message_body_lnk}
@@ -394,7 +394,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_short_message_body}
-<font class="MsgBodyText">{VAR: msg_body}</font>
+<span class="MsgBodyText">{VAR: msg_body}</span>
 <br /><div class="ac">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
@@ -406,7 +406,7 @@
 <tr><td class="MsgSpacer"><table cellspacing=0 cellpadding=0 class="MsgTable">
 <tr>
 <td class="MsgR1 vt al MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
-<td class="MsgR1 vt ar"><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
+<td class="MsgR1 vt ar"><span class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</span> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
 <tr class="MsgR2"><td class="MsgR2" colspan=2><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
@@ -441,7 +441,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
-<font class="small"> [{TEMPLATE: dmsg_num} <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="small">{MSG: dmsg_reply_to}</a> ]</font>
+<span class="small"> [{TEMPLATE: dmsg_num} <a href="{TEMPLATE: dmsg_reply_to_lnk}" class="small">{MSG: dmsg_reply_to}</a> ]</span>
 {SECTION: END}
 
 {SECTION: dmsg_num}
@@ -449,5 +449,5 @@
 {SECTION: END}
 
 {SECTION: dmsg_num_wrap}
-<font class="small"> [{TEMPLATE: dmsg_num}]</font>
+<span class="small"> [{TEMPLATE: dmsg_num}]</span>
 {SECTION: END}

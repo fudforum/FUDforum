@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.8 2004/04/25 20:18:26 hackie Exp $
+* $Id: uc.tmpl,v 1.9 2004/05/11 17:31:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@
 
 {SECTION: uc_last_post}
 <a href="{TEMPLATE: uc_last_post_lnk}">{VAR: r->subject}</a><br />
-<font class="DateText">{DATE: r->post_stamp %a, %d %B %Y}</font><br />{MSG: by} {VAR: profile}
+<span class="DateText">{DATE: r->post_stamp %a, %d %B %Y}</span><br />{MSG: by} {VAR: profile}
 {SECTION: END}
 
 {SECTION: uc_forum_unsub}
@@ -147,7 +147,7 @@
 {SECTION: END}
 
 {SECTION: uc_mini_thread_pager}
-<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
+<span class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
 {SECTION: END}
 
 {SECTION: uc_mini_pager_entry_lnk}
@@ -179,7 +179,7 @@
 	<td class="RowStyleA">{TEMPLATE: uc_first_unread_msg_link}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r->subject}</a> {TEMPLATE-DATA: mini_thread_pager}</a><br /><div class="ar"><a href="{TEMPLATE: uc_thread_reply}">{MSG: iemail_msg_reply}</a> || <a href="{TEMPLATE: uc_thread_unsub}">{MSG: unsubscribe}</a></div></td>
 	<td class="RowStyleB ac">{VAR: r->replies}</td>
 	<td class="RowStyleB ac">{VAR: r->views}</td>
-	<td class="RowStyleC ar nw"><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y}</font><br />{MSG: by} {TEMPLATE-DATA: profile} <a href="{TEMPLATE: uc_last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+	<td class="RowStyleC ar nw"><span class="DateText">{DATE: r->post_stamp %a, %d %B %Y}</span><br />{MSG: by} {TEMPLATE-DATA: profile} <a href="{TEMPLATE: uc_last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
