@@ -622,9 +622,9 @@ register_err_notyouremail:	已经有人用这个电子邮箱地址注册了，但是那个人不是你。
 register_err_avatartobig:	你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
 register_err_avatarnotallowed:	你正在上传的头像不能上传，请查看允许上传的文件类型。
 register_conf_subject:		注册确认
-register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
+register_conf_msg:		谢谢注册,\n进入当前账号，请点击下列地址：\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n进入当前账号后，你将直接进入论坛\n转入论坛的主页。
 register_welcome_subject:	论坛注册确认
-register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		谢谢注册，\n\n这是你注册的详细资料：\n\n论坛URL：{GVAR: WWW_ROOT}\n账号：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要更改你的设置或者个人信息，请点击：\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	错误：无法注册
 regsiter_err_cantreg_msg:	无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	查看个人信息
@@ -638,7 +638,7 @@ reset_err_invalidkey_msg:	密码提示错误
 reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一会你将通过邮件收到相关说明。
 reset_newpass_title:		重新输入密码
-reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		你好，\n\n你每次登录的账号都将发送给你。\nHere 这里是你的登录信息：\n\n账号：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n注意：你的密码已经被改为上面的值字符组合，如果你想\n修改密码，请在个人信息中修改：\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		一会儿，你将通过邮件收到密码。请检查你的密码并登录。.<br>.<br>.<br>
 search_update:			搜索
 selmsg_update:			浏览 <a href="{TEMPLATE: selmsg_update_lnk}">今天发布的主题</a>
@@ -681,7 +681,7 @@ search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		邮件已经发送
-remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
+remail_email:			这个页面的内容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能会感兴趣！\n这里是你可能感兴趣的主题：{VAR: data->subject} 请点击：{FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 发件人 {VAR: usr->alias}\n
 poll_add_option:		添加选项：
 post_opt_html_on:		<b>HTML</b><b>代码：开放</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代码：</b><b>开放</a></b>
@@ -891,7 +891,7 @@ register_affero:		Affero用户名：<br /><font class="SmallText">如果你有<a href="h
 im_affero:			Affero用户名
 register_err_avatardimtobig:	头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		下载了 {VAR: r->dlcount} 次
-member_search:			<br>或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">用户查找</a> 功能来找人。
+member_search:			<br>或者使用 <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">用户查找</a> 功能来找人。
 post_all_ext_allowed:		（没有限制）
 buddy_offline:			{VAR: r[2]} 当前不在线
 buddy_online:			{VAR: r[2]} 当前在线
@@ -914,7 +914,7 @@ thread_mark_all_read:		标记所有帖子为已读
 thread_mark_all_read_desc:	论坛中所有的未读标记将被清除
 private_no_messages:		此板上没有帖子
 register_email_change_subject:	电子邮件更改确认
-register_email_change_msg:	请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
+register_email_change_msg:	请确认你的新邮件地址 "{VAR: uent->email}"（用于替换老地址 "{VAR: old_email}"），点击以下的URL：\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n你的帐号将在新邮件地址被确认后被重新激活。
 iemail_thread_unsub:		取消对此主题的订阅
 iemail_forum_unsub:		取消对此板块的订阅
 primary_group_prefix:		中心组对于板块：
@@ -923,7 +923,7 @@ register_email:			电子邮件：
 register_admin_newuser_title:	有新用户注册并等候批复
 register_admin_newuser_msg:	新用户 ({VAR: uent->login}) 刚刚注册，正等待管理员的审核批复。要批复用户，请转到： {GVAR: WWW_ROOT}adm/admaccapr.php\n\n这是一封自动发出的邮件，请勿回复此邮件。\n如果要取消此提醒，请在管理界面的 "New Account Notification" 中设置。
 post_mod_msg_notify_title:	有新帖在 "{VAR: frm->name}" 板上等待审核
-post_mod_msg_notify_msg:	新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此帖，请到：{FULL_ROOT}{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。\n
+post_mod_msg_notify_msg:	新帖子 "{VAR: msg_post->subject}" 刚刚发布，等候审核。要审核此帖，请到：{FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\n这是一封自动发出的邮件，请勿回复此邮件。\n
 thread_printable_pdf:		生成可打印的PDF格式
 thread_syndicate:		同步此板块（XML格式）
 reg_conf_title:			论坛注册验证邮件
@@ -949,8 +949,8 @@ mnav_month:			月
 mnav_title:			帖子浏览器
 mnav_update:			用<a href="{TEMPLATE: mnav_update_lnk}">帖子浏览器</a>来查看。
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] 你收到了新悄悄话！
-pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
-pm_notify_body_icq:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒，请在“个人信息”中禁止“新悄悄话提醒”。
+pm_notify_body_email:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒邮件，请在“个人信息”中禁止“新悄悄话提醒”。
+pm_notify_body_icq:		你收到了新的悄悄话，标题是 "{VAR: subject}"，发自 "{VAR: from}" 在 "{GVAR: FORUM_TITLE}" 论坛。\n要查看此悄悄话，请点击：{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\n如果不想再收到新悄悄话提醒，请在“个人信息”中禁止“新悄悄话提醒”。
 register_pm_notification:	新悄悄话提醒
 register_pm_notification_desc:	如果选“是”，则在有新悄悄话收到时，论坛会通过所选的方式通知你。
 findu_admin_opts_header:	管理员选项

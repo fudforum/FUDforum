@@ -330,7 +330,7 @@ my_buddies:			Moji priatelia
 add_buddy:			Prida priate¾a
 add:				Prida
 buddy_search:			Zadajte uívate¾ské meno uívate¾a, ktorého si eláte prida,
-member_search:			<br>alebo pouite vo¾bu <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">H¾ada uívate¾a</a>.
+member_search:			<br>alebo pouite vo¾bu <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">H¾ada uívate¾a</a>.
 buddy_remove:			odstráni
 post_normal:			Normálna
 post_sticky:			Vıveska
@@ -600,7 +600,7 @@ post_err_attach_ext:		<font class="ErrorText">Súbor, ktorı chcete uploadova nez
 post_err_attach_filelimit:	<font class="ErrorText">Chcete priloi viac súborov ako je povolené.</font><br>
 post_err_passwd:		Nesprávne heslo.
 post_reply_update:		Odpovedáte na <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> vo fóre {VAR-HTML: frm->name}
-post_topic_update:		Vytvárate novú tému vo fóre <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Vytvárate novú tému vo fóre <a class="GenLink" href="{FULL_ROOT}{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Vyskytla sa chyba
 postcheck_max_images_err:	Maximálnu poèet obrázkov na príspevok je {GVAR: MAX_IMAGE_COUNT}, prosím zníte poèet obrázkov
 postcheck_subj_needed:		Predmet je povinnı
@@ -628,9 +628,9 @@ register_err_notyouremail:	Na túto emailovú adresu je u niekto registrovanı, al
 register_err_avatartobig:	Súbor ktorı sa snaíte uploadova je príliš ve¾kı, limit je {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytov 
 register_err_avatarnotallowed:	Uívate¾ská ikona, ktorú sa pokúšate uploadova, nie je povoleného typu. Skontrolujte si povolené typy súborov.
 register_conf_subject:		Potvrdenie registrácie
-register_conf_msg:		Ïakujeme Vám za registráciu,\nak Chcete aktivova Vaše konto, choïte na nišie uvedenú URL:\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní Vášho konta budete prihlásenı do fóra a\npresmerovanı na hlavnú stránku fóra.
+register_conf_msg:		Ïakujeme Vám za registráciu,\nak Chcete aktivova Vaše konto, choïte na nišie uvedenú URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nPo aktivovaní Vášho konta budete prihlásenı do fóra a\npresmerovanı na hlavnú stránku fóra.
 register_welcome_subject:	Potvrdenie registrácie do fóra
-register_welcome_msg:		Ïakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra\n\nURL fóra: {ROOT}?t=index\nUivate¾ské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte prosím, e heslo je citlivé na ve¾ké/malé písmená\nAk si chcete zmeni Vaše nastavenie a profil choïte sem:\n{ROOT}?t=register\n
+register_welcome_msg:		Ïakujeme za Vašu registráciu,\n\ntu sú údaje potrebné na prihlásenie do fóra\n\nURL fóra: {ROOT}?t=index\nUivate¾ské meno: {VAR: uent->login}\nHeslo: {VAR: _POST['reg_plaintext_passwd']}\n\nPamätajte prosím, e heslo je citlivé na ve¾ké/malé písmená\nAk si chcete zmeni Vaše nastavenie a profil choïte sem:\n{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	CHYBA: nemôeme Vás zaregistrova
 regsiter_err_cantreg_msg:	Nie je moné vytvori uivate¾skı úèet, prosím kontaktujte administrátora na adrese <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Prezerá si vlastnı profil
@@ -644,7 +644,7 @@ reset_err_invalidkey_msg:	Chybnı k¾úè pre resetnutie hesla
 reset_err_rstconf_title:	Informácia
 reset_err_rstconf_msg:		V priebehu pár minút by ste e-mailom mali obdra ïalšie pokyny
 reset_newpass_title:		Resetnutie hesla
-reset_newpass_msg:		Dobrı deò,\n\nna základe Vašej iadosti Vám posielame prihlasovacie informácie:\n\nUívate¾ské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, e Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si chcete ho chcete zmeni, môete tak urobi v uívate¾skom kontrolnom paneli na adrese:\n{ROOT}?t=register\n\n
+reset_newpass_msg:		Dobrı deò,\n\nna základe Vašej iadosti Vám posielame prihlasovacie informácie:\n\nUívate¾ské meno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím všimnite si, e Vaše heslo bolo zmenené na horeuvedenú hodnotu.\nAk si chcete ho chcete zmeni, môete tak urobi v uívate¾skom kontrolnom paneli na adrese:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Vaše heslo Vám bolo odoslané emailom. V priebehu nieko¾kıch minút by ste ho mali obdra. Prosím skontrolujte si Vašu poštu.<br>
 search_update:			Vyh¾adáva správy
 selmsg_update:			Prehliada <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">dnešné príspevky</a>
@@ -665,7 +665,7 @@ ERR_registration_disabled_ttl:	Registrácia je vypnutá
 ERR_registration_disabled_msg:	Administrátor vypol registraènı systém, prosím skúste neskor
 ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		CHYBA: Vaše konto ešte nebolo potvrdené
-ERR_emailconf_msg:		Zatia¾ ste nepotvrdili Vaše konto prostredníctvom emailu<br><br><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikaènı email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;S={VAR: ses_id}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{ROOT}?t=register&amp;S={VAR: ses_id}">kliknite sem</a></ol></div></td></tr></table>
+ERR_emailconf_msg:		Zatia¾ ste nepotvrdili Vaše konto prostredníctvom emailu<br><br><table border=0><tr><td><div class="SmallText"><ol><li>Ak ste nedostali verifikaènı email <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&amp;S={VAR: ses_id}">kliknite sem</a><li>Ak {VAR: usr_d->email} nie je Vaša správna emailová adresa <a href="{FULL_ROOT}{ROOT}?t=register&amp;S={VAR: ses_id}">kliknite sem</a></ol></div></td></tr></table>
 ERR_user_ttl:			CHYBA: Uívate¾ neexistuje
 ERR_user_msg:			Zadanı uívate¾ neexistuje
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
@@ -756,7 +756,7 @@ p_MOVE:				Presunú tému
 p_SML:				Pouíva smajlíkov
 p_IMG:				Pouíva obrázkové tagy
 p_SEARCH:			Môe vyhladáva
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 325,250);">Hlada uívate¾a</a>
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 325,250);">Hlada uívate¾a</a>
 group_mgr_indicator:		Práve editujete: <b>{VAR: grp->name}</b>
 rate_worst:			Najhoršia
 rate_best:			Najlepšia
@@ -915,7 +915,7 @@ thread_mark_all_read:		Oznaèi všetky nepreèítané správy v tomto fóre ako preèít
 thread_mark_all_read_desc:	Všetky nepreèítané správy v tomto fóre budú oznaèené ako preèítané
 private_no_messages:		V tomto adresári niesu iadne správy
 register_email_change_subject:	Potvrdenie zmeny E-mailu
-register_email_change_msg:	Prosím potvrïte Vaše nové emailové konto "{VAR: uent->email}", ktoré nahrádza Vaše staré konto "{VAR: old_email}" tım, e pôjdete na nasledovnú URL:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeï potvrdíte Vašu novú emailovú adresu, Vaše konto bude reaktivované.
+register_email_change_msg:	Prosím potvrïte Vaše nové emailové konto "{VAR: uent->email}", ktoré nahrádza Vaše staré konto "{VAR: old_email}" tım, e pôjdete na nasledovnú URL:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKeï potvrdíte Vašu novú emailovú adresu, Vaše konto bude reaktivované.
 iemail_thread_unsub:		Odhlási sa z tohoto vlákna		
 iemail_forum_unsub:		Odhlási sa z tohoto fóra
 primary_group_prefix:		Primárna skupina pre fórum:
@@ -923,7 +923,7 @@ group_resources:		Táto skupina kontroluje práva pre nasledujúce fóra
 register_admin_newuser_title:	Novı uívate¾ sa zaregistroval a jeho konto èaká na schválenie
 register_admin_newuser_msg:	Novı uívate¾ ({VAR: uent->login}) sa práve registroval a keïe je potvrdzovanie kont je zapnuté, toto konto nebude aktivované pokia¾ ho Vy alebo inı administrátor na tomto fóre nepotvrdí. Ak chcete prezrie toto konto choïte na: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nTáto správa je generovaná serverom, prosím neodpovedajte na òu\nAk chcete vypnú ïalšiu e-mailovú notifikáciu novıch registrácií, môete tak urobi cez Admin Control Panel, zmenením nastavenie "New Account Notification".
 post_mod_msg_notify_title:	Nová správa vo fóre "{VAR: frm->name}" èakajúca na schválenie
-post_mod_msg_notify_msg:	Správa s predmetom "{VAR: msg_post->subject}" bola práve uverejnená na fóre ktoré moderujete. Ak chcete prezrie túto správu choïte na: {ROOT}?t=modque\n\nTáto správa je generovaná serverom, prosím neodpovedajte na òu.\n
+post_mod_msg_notify_msg:	Správa s predmetom "{VAR: msg_post->subject}" bola práve uverejnená na fóre ktoré moderujete. Ak chcete prezrie túto správu choïte na: {FULL_ROOT}{ROOT}?t=modque\n\nTáto správa je generovaná serverom, prosím neodpovedajte na òu.\n
 thread_printable_pdf:		Generova PDF
 thread_syndicate:		Vytvori XML súbor tohoto fóra
 reg_conf_title:			Overenie registrácie
@@ -949,7 +949,7 @@ mnav_month:			Mesiac
 mnav_title:			Navigátor správ
 mnav_update:			Prezerá si príspevky cez <a class="GenLink" href="{ROOT}?t=mnav">Navigátor správ</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Upozornenie na novú správu v pošte
-pm_notify_body_email:		V pošte máte novú správu s predmetom "{VAR: subject}" od uívate¾a "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}" forum.\nPre prezretie správy kliknite sem: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neeláte dostáva ïalšie takéto upozornenia, vypnite monos "Upozoròova na prijatú poštu" vo Vašom profile.
+pm_notify_body_email:		V pošte máte novú správu s predmetom "{VAR: subject}" od uívate¾a "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}" forum.\nPre prezretie správy kliknite sem: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nAk si neeláte dostáva ïalšie takéto upozornenia, vypnite monos "Upozoròova na prijatú poštu" vo Vašom profile.
 pm_notify_body_icq:		V pošte máte novú správu s predmetom "{VAR: subject}" od uívate¾a "{VAR: from}" z fóra "{GVAR: FORUM_TITLE}".\n\nAk si neeláte dostáva ïalšie takéto upozornenia, vypnite monos "Upozoròova na prijatú poštu" vo Vašom profile.
 register_pm_notification:	Upozoròova na prijatú poštu
 register_pm_notification_desc:	Ak je povolené, budete upozornenı prostredníctvom komunikaènej metódy pod¾a Vášho vıberu vdy, keï do Vašej pošty príde správa.

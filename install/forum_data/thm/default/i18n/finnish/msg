@@ -331,7 +331,7 @@ my_buddies:			Kaverit
 add_buddy:			Lisää Kaveri
 add:				Lisää
 buddy_search:			Anna käyttäjätunnus jonka haluat lisätä.
-member_search:			<br>Tai käytä <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
+member_search:			<br>Tai käytä <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
 buddy_remove:			poista
 post_normal:			Normaali
 post_sticky:			Kelluva
@@ -629,9 +629,9 @@ register_err_notyouremail:	Tämä sähköpostiosoite on jo käytössä
 register_err_avatartobig:	Lähetetyn tiedoston koko ylittää suurimman sallitun {GVAR: CUSTOM_AVATAR_MAX_SIZE} tavun rajan
 register_err_avatarnotallowed:	Lähetetyn tiedoston tyyppi ei ole sallittu. Tarkista sallitut tiedostotyypit.
 register_conf_subject:		Rekisteröitymisen vahvistus
-register_conf_msg:		Kiitos rekisteröitymisestä,\n\naktivoidaksesi käyttäjätilisi klikkaa allaolevaa linkkiä:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin kotisivulle.\n
+register_conf_msg:		Kiitos rekisteröitymisestä,\n\naktivoidaksesi käyttäjätilisi klikkaa allaolevaa linkkiä:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nKun käyttäjätilisi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin kotisivulle.\n
 register_welcome_subject:	Rekisteröintivahvistus
-register_welcome_msg:		Kiitos rekisteröitymisestä,\n\nTässä ovat sisäänkirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nHuom! Salasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit vaihtaa asetuksia ja käyttäjätietojasi täällä:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Kiitos rekisteröitymisestä,\n\nTässä ovat sisäänkirjautumistietosi foorumille:\n\nFoorumin linkki: {TEMPLATE: index_update_lnk}\nKäyttäjätunnus: {VAR: uent->login}\nSalasana: {VAR: _POST['reg_plaintext_passwd']}\n\nHuom! Salasanojen isot ja pienet kirjaimet ovat eri merkkejä!\nVoit vaihtaa asetuksia ja käyttäjätietojasi täällä:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	VIRHE: rekisteröityminen epäonnistui
 regsiter_err_cantreg_msg:	Rekisteröityminen epäonnistui, ole hyvä ja ota yhteyttä ylläpitäjään: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Selaa omia käyttäjätietojaan
@@ -645,7 +645,7 @@ reset_err_invalidkey_msg:	Virheellinen salasanan varmistusavain
 reset_err_rstconf_title:	Info
 reset_err_rstconf_msg:		Ohjeiden pitäisi saapua sähköpostiisi muutaman minuutin kuluessa
 reset_newpass_title:		Salasana vaihdettu
-reset_newpass_msg:		Hei,\n\nSalasanasi on nyt vaihdettu uuteen:\n\nKäyttäjätunnus: {VAR: ui[1]}\nSalasana: {VAR: passwd}\n\nHalutessasi vaihtaa yllä olevan salasanan toiseksi,\nvoit tehdä sen "Profiili"-sivulla:\n\n{FULL_ROOT}{ROOT}?t=register
+reset_newpass_msg:		Hei,\n\nSalasanasi on nyt vaihdettu uuteen:\n\nKäyttäjätunnus: {VAR: ui[1]}\nSalasana: {VAR: passwd}\n\nHalutessasi vaihtaa yllä olevan salasanan toiseksi,\nvoit tehdä sen "Profiili"-sivulla:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register
 reset_login_notify:		Uusi salasanasi on lähetetty sinulle sähköpostilla, jonka pitäisi saapua muutaman minuutin kuluessa. Ole hyvä ja tarkista onko sähköposti saapunut.
 search_update:			Etsii viestejä
 selmsg_update:			Selaa <a href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>
@@ -688,7 +688,7 @@ search_title:			Haku {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Sähköposti on lähetetty
-remail_email:			Hei,\n\nLöysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehkä kiinnostaa sinua.\nLöydät sen täältä:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}\n
+remail_email:			Hei,\n\nLöysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehkä kiinnostaa sinua.\nLöydät sen täältä:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}\n
 poll_add_option:		Lisää Valinta:
 post_opt_html_on:		<b>HTML</b> koodit <b>Käytössä</b>
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> <b>Käytössä</b></a>
@@ -916,7 +916,7 @@ thread_mark_all_read:		merkitse lukemattomat viestit luetuiksi
 thread_mark_all_read_desc:	Kaikki tämän foorumin viestit merkitään luetuiksi
 private_no_messages:		Ei viestejä tässä kansiossa.
 register_email_change_subject:	Sähköpostiosoitteen vaihdon vahvistus
-register_email_change_msg:	Vahvista uusi sähköpostiosoitteesi "{VAR: uent->email}" joka korvaa vanhan sähköpostiosoitteesi "{VAR: old_email}" klikkaamalla alla olevaa linkkiä:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätilisi aktivoituu uudestaan kun olet vahvistanut uuden sähköpostiosoitteesi.
+register_email_change_msg:	Vahvista uusi sähköpostiosoitteesi "{VAR: uent->email}" joka korvaa vanhan sähköpostiosoitteesi "{VAR: old_email}" klikkaamalla alla olevaa linkkiä:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nKäyttäjätilisi aktivoituu uudestaan kun olet vahvistanut uuden sähköpostiosoitteesi.
 iemail_thread_unsub:		Lopeta tämän aiheen tilaus
 iemail_forum_unsub:		Lopeta tämän foorumin tilaus
 primary_group_prefix:		Foorumin pääryhmä:
@@ -924,7 +924,7 @@ group_resources:		Tämä ryhmä kontrolloi seuraavien foorumien käyttöoikeuksia
 register_admin_newuser_title:	Uusi rekisteröitynyt käyttäjä
 register_admin_newuser_msg:	Uusi käyttäjä ({VAR: uent->login}) on juuri rekisteröitynyt foorumille.\nTarkista ja hyväksy/hylkää käyttäjätili:\n\n{GVAR: WWW_ROOT}adm/admaccapr.php\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\nJos et enää halua vastaanottaa sähköpostitse ilmoituksia uusista rekisteröitymisistä,\nvaihda "New Account Notification" asetus "Ylläpitäjän kontrollipaneelissa".
 post_mod_msg_notify_title:	Uusi viesti "{VAR: frm->name}" foorumilla odottaa hyväksyntää
-post_mod_msg_notify_msg:	Uusi viesti otsikolla "{VAR: msg_post->subject}" lähetettiin foorumille,\njonka moderaattori olet. Tarkistaaksesi tämän viestin, mene:\n\n{FULL_ROOT}{ROOT}?t=modque\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\n
+post_mod_msg_notify_msg:	Uusi viesti otsikolla "{VAR: msg_post->subject}" lähetettiin foorumille,\njonka moderaattori olet. Tarkistaaksesi tämän viestin, mene:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nTämä on automatisoitu prosessi, älä vastaa tähän sähköpostiin.\n
 thread_printable_pdf:		Luo tulostettava PDF tiedosto
 thread_syndicate:		Foorumin syndikointi (XML feed)
 reg_conf_title:			Rekisteröinnin vahvistus
@@ -950,7 +950,7 @@ mnav_month:			Kuukautta
 mnav_title:			Viestiselain
 mnav_update:			Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">Viestiselainta</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
-pm_notify_body_email:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
+pm_notify_body_email:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 pm_notify_body_icq:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 register_pm_notification:	Ilmoitukset uusista yksityisviesteistä:
 register_pm_notification_desc:	Määrittää lähetetäänkö uusista yksityisviesteistä viesti määrittelemälläsi ilmoitusten lähetystavalla.

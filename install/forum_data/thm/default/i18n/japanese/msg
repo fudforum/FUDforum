@@ -331,7 +331,7 @@ my_buddies:			自分の仲間
 add_buddy:			仲間を追加
 add:				追加
 buddy_search:			Enter the login of the user you wish to add.
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			削除
 post_normal:			通常
 post_sticky:			Sticky
@@ -631,9 +631,9 @@ register_err_notyouremail:	Someone else is already registered with this e-mail a
 register_err_avatartobig:	The file you are trying to upload is too big, more than {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:	The avatar you are trying to upload is not allowed. Check the allowed file types.
 register_conf_subject:		登録確認
-register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
+register_conf_msg:		Thank you for registering,\nTo activate your account please go to the URL below:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
 register_welcome_subject:	フォーラム登録確認
-register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Thank you for registering,\n\nHere are your login details for the forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nPlease note that passwords are case sensitive!\nTo modify your settings or profile, go to this page:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	エラー: 登録が出来ません。
 regsiter_err_cantreg_msg:	ユーザーアカウントを作成できませんでした。管理者 <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a> に連絡してください。
 register_profile_update:	私のプロフィールを閲覧
@@ -647,7 +647,7 @@ reset_err_invalidkey_msg:	無効なパスワードリセットキーです
 reset_err_rstconf_title:	情報
 reset_err_rstconf_msg:		You should receive instructions in your e-mail in the next few minutes.
 reset_newpass_title:		Reset Password
-reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset the the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hello,\n\nAs requested, your login information appears below:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease note that your password has been reset the the value above. If you wish\nto change your password you may do so via the user info control panel at:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Your password has been e-mailed to you. You should receive it within the next few minutes.<br>
 search_update:			メッセージ検索中
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
@@ -691,7 +691,7 @@ search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		電子メールを送信しました
-remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
+remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		追加オプション:
 post_opt_html_on:		<b>HTML</b> は <b>ON</b> です
 post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDコード</b> は <b>ON</b></a> です
@@ -919,7 +919,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	このフォーラムの未読メッセージはすべて既読にマークする
 private_no_messages:		このフォルダーにメッセージはありません。
 register_email_change_subject:	電子メール変更確認
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}", by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your forum account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}", by going to the URL below:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your forum account will be re-activated.
 iemail_thread_unsub:		このトピックは未購読です。
 iemail_forum_unsub:		このフォーラムは未購読です。
 primary_group_prefix:		フォーラムの一次グループ:
@@ -927,7 +927,7 @@ group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered, and since account confirmation is enabled, their account will not become active until it is confirmed by you or another forum administrator. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process. Do not reply to this message.\nIf you want to turn off future e-mail notifications of new user registrations, you can do so via the Admin Control Panel. Change the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process. Do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process. Do not reply to this message.\n
 thread_printable_pdf:		印刷用 PDF を生成する
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			登録確認
@@ -953,7 +953,7 @@ mnav_month:			月
 mnav_title:			メッセージナビゲーター
 mnav_update:			<a href="{TEMPLATE: mnav_update_lnk}">メッセージナビゲータ</a> を使ってメッセージ閲覧
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] 新規プライベートメッセージ通知
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\nTo view the message, click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\nTo view the message, click here: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}", from "{VAR: from}", in the forum "{GVAR: FORUM_TITLE}".\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	プライベートメッセージ通知
 register_pm_notification_desc:	If enabled, you will be notified whenever a private message is sent to you.

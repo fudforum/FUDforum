@@ -623,9 +623,9 @@ register_err_notyouremail:	已經有人用這個電子郵箱地址注冊了，但是那個人不是你。
 register_err_avatartobig:	你正在上傳的文件太大，超過了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字節的最大限制。
 register_err_avatarnotallowed:	你正在上傳的頭像不能上傳，請查看允許上傳的文件類型。
 register_conf_subject:		注冊確認
-register_conf_msg:		謝謝注冊,\n進入當前賬號，請點擊下列地址：\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n進入當前賬號后，你將直接進入論壇\n轉入論壇的主頁。
+register_conf_msg:		謝謝注冊,\n進入當前賬號，請點擊下列地址：\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n進入當前賬號后，你將直接進入論壇\n轉入論壇的主頁。
 register_welcome_subject:	論壇注冊確認
-register_welcome_msg:		謝謝注冊,\n\n這是您注冊的詳細資料:\n\n論壇 URL: {GVAR: WWW_ROOT}\n賬號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫!\n要更改您的設置或者個人信息，請點擊：\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		謝謝注冊,\n\n這是您注冊的詳細資料:\n\n論壇 URL: {GVAR: WWW_ROOT}\n賬號：{VAR: uent->login}\n密碼：{VAR: _POST['reg_plaintext_passwd']}\n\n請注意密碼區分大小寫!\n要更改您的設置或者個人信息，請點擊：\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	錯誤：無法注冊
 regsiter_err_cantreg_msg:	無法注冊新的賬號，請和系統管理員聯系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	查看個人信息
@@ -639,7 +639,7 @@ reset_err_invalidkey_msg:	密碼提示錯誤
 reset_err_rstconf_title:	信息
 reset_err_rstconf_msg:		一會您將通過郵件收到相關說明。
 reset_newpass_title:		重新輸入密碼
-reset_newpass_msg:		你好，\n\n你每次登錄的賬號都將發送給你。\nHere 這里是你的登錄信息:\n\n賬號：{VAR: ui[1]}\n密碼: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密碼，請在個人信息中修改:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		你好，\n\n你每次登錄的賬號都將發送給你。\nHere 這里是你的登錄信息:\n\n賬號：{VAR: ui[1]}\n密碼: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, 如果你想\n修改密碼，請在個人信息中修改:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		一會兒，你將通過郵件收到密碼。請檢查你的密碼并登錄。.<br>
 search_update:			搜索
 selmsg_update:			瀏覽 <a href="{TEMPLATE: selmsg_update_lnk}">今天發布的主題</a>
@@ -682,7 +682,7 @@ search_title:			搜索 {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		郵件已經發送
-remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
+remail_email:			這個頁面的內容{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) 你可能感興趣\n這里是你可能感興趣的主題,{VAR: data->subject} 清點擊: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n 發件人 {VAR: usr->alias}\n
 poll_add_option:		添加選項：
 post_opt_html_on:		<b>HTML</b><b>代碼：開放</b>
 post_opt_fud_on:		<b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUD代碼：</b><b>開放</a></b>
@@ -892,7 +892,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -915,7 +915,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -923,7 +923,7 @@ group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -949,7 +949,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.

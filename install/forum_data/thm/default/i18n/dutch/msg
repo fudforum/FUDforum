@@ -623,9 +623,9 @@ register_err_notyouremail:	Iemand is al geregistreerd via deze email, en die iem
 register_err_avatartobig:	Het bestand dat u tracht up te loaden is te groot, boven de {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte limiet
 register_err_avatarnotallowed:	De avatar die u tracht up te loaden is niet toegestaan, controleer de toegelaten bestandstypen.
 register_conf_subject:		Registratie bevestiging
-register_conf_msg:		Dank u voor uw registratie,\nOm uw lidmaatschap te activeren ga naar de onderstaande URL:\n\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEenmaal uw account is geactiveerd zal u ingelogd worden op het forum en\ndoorgestuurd naar de hoofdpagina van dit forum.
+register_conf_msg:		Dank u voor uw registratie,\nOm uw lidmaatschap te activeren ga naar de onderstaande URL:\n\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nEenmaal uw account is geactiveerd zal u ingelogd worden op het forum en\ndoorgestuurd naar de hoofdpagina van dit forum.
 register_welcome_subject:	Forum Registratie bevestiging
-register_welcome_msg:		Dank u voor uw registratie,\n\nhier zijn uw inlog voor op het forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\npaswoord: {VAR: _POST['reg_plaintext_passwd']}\n\nOpgepast, paswoorden zijn hoofdlettergevoelig!\nOm uw instellingen &amp; profiel aan te passen ga naar deze pagina:\n{FULL_ROOT}{ROOT}?t=register\n
+register_welcome_msg:		Dank u voor uw registratie,\n\nhier zijn uw inlog voor op het forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\npaswoord: {VAR: _POST['reg_plaintext_passwd']}\n\nOpgepast, paswoorden zijn hoofdlettergevoelig!\nOm uw instellingen &amp; profiel aan te passen ga naar deze pagina:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n
 register_err_cantreg_title:	FOUT: niet in staat om te registreren
 regsiter_err_cantreg_msg:	Niet in staat om lidmaatschap aan te maken, contacteer aub de administrator via <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Bekijk eigen profiel
@@ -639,7 +639,7 @@ reset_err_invalidkey_msg:	ongeldige paswoord reset sleutel
 reset_err_rstconf_title:	Informatie
 reset_err_rstconf_msg:		U zou binnen enkele minuten instructies moeten ontvangen in uw mailbox 
 reset_newpass_title:		Reset paswoord
-reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\npaswoord: {VAR: passwd}\n\nOpgelet, uw paswoord is gereset naar de bovenstaande waarde, indien u wenst\n uw paswoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\npaswoord: {VAR: passwd}\n\nOpgelet, uw paswoord is gereset naar de bovenstaande waarde, indien u wenst\n uw paswoord te veranderen mag u dit doen via het lid info controle paneel op:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=register\n\n
 reset_login_notify:		Uw paswoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw paswoord en login.<br>
 search_update:			Zoeken van posts
 selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
@@ -888,7 +888,7 @@ register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">als u een  
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 submit_reply:			Submit Reply
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
@@ -915,7 +915,7 @@ thread_mark_all_read:		mark all unread forum messages read
 thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
 private_no_messages:		There are no messages inside this folder
 register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
+register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{FULL_ROOT}{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
 iemail_thread_unsub:		Unsubscribe from this thread		
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
@@ -923,7 +923,7 @@ group_resources:		This group controls permissions of the following forums
 register_admin_newuser_title:	A new user has registered and their account is pending confirmation
 register_admin_newuser_msg:	A new user ({VAR: uent->login}) has just registered on the forum and since account confirmation is enabled, their account will not become active until it is confirmed by you or other forum administrators. To review the account please go to: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nThis is an automated process, do not reply to this message.\nIf you desire to turn off future e-mail notifications of new user registrations you can do so via the Admin Control Panel, by changing the value of the "New Account Notification" setting.
 post_mod_msg_notify_title:	New message in forum "{VAR: frm->name}" pending approval
-post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
+post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was just posted in a forum that you moderate. To review this message go to: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=modque\n\nThis is an automated process, do not reply to this message.\n
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
@@ -949,7 +949,7 @@ mnav_month:			Month(s)
 mnav_title:			Message Navigator
 mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
+pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {FULL_ROOT}{FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 register_pm_notification:	Private Message Notification
 register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
