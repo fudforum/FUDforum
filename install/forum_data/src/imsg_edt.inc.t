@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.46 2003/05/01 17:30:29 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.47 2003/05/01 17:49:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -449,7 +449,7 @@ class fud_msg_edit extends fud_msg
 			q('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')');
 		}
 		if (isset($to)) {
-			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, $mtf->thread_id, $mtf->frm_name);
+			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name);
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.
@@ -667,6 +667,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$CHARSET = '{TEMPLATE: CHARSET}';
 		
 			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
+			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
 		
 			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" . 
 			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
@@ -689,13 +690,13 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 		
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
+			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=-1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}	
 		
 		if (isset($do_icq)) {
 			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=-1&opt=off';";
 		}
 	} else if ($id_type == 'frm') {
 		reverse_FMT($frm_name);
@@ -703,15 +704,15 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_frm_subject}';
 
 		if (isset($do_icq)) {
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=thread&unsub=1&frm_id=".$id."';";
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=-1&frm_id=".$id."';";
 			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		}
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{ROOT}?t=thread&unsub=1&frm_id='.$id;
+			$unsub_url['email'] = '{ROOT}?t=rview&unsub=-1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}	
 	}	
-	
+
 	if (isset($do_email)) {
 		send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, (isset($headers) ? $headers : ''));
 	}
