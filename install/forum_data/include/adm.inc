@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: adm.inc,v 1.27 2004/01/04 16:38:25 hackie Exp $
+* $Id: adm.inc,v 1.28 2004/01/30 02:02:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,12 +26,12 @@ if (!defined('shell_script')) {
 define('__fud_index_name__', 'index.php');
 
 if (!($GLOBALS['usr']->users_opt & 1048576)) {
-	header('Location: admloginuser.php?'._rsidl);
+	header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admloginuser.php?'._rsidl);
         exit;
 }
 if (isset($_POST['btn_cancel'])) {
 	if (defined('back_to_main')) {
-		header('Location: admglobal.php?'._rsidl);
+		header('Location: '.$GLOBALS['WWW_ROOT'].'adm/admglobal.php?'._rsidl);
 		exit;
 	}
 	$_POST = $_GET = null;

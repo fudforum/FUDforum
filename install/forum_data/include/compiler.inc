@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.53 2004/01/29 18:24:21 hackie Exp $
+* $Id: compiler.inc,v 1.54 2004/01/30 02:02:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -498,8 +498,8 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme/' . $tname, $perms);
 	umask($u);
 
-	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
-	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
+	$GLOBALS['CMP_LOC_S'] = array('{ROOT}', '{FULL_ROOT}', '{THEME_ROOT}', '{THEME_ROOT_DISK}', ".'';", ".''.");
+	$GLOBALS['CMP_LOC_K'] = array($cmpl['ROOT'], $cmpl['FULL_ROOT'], $cmpl['THEME_ROOT'], $cmpl['THEME_ROOT_DISK'], ';', '.');
 
 	$charset = @is_file($file1) ? $file1 : $file2;
 
@@ -655,7 +655,7 @@ function copyhelp($thm)
 		if (!($fp = fopen($path . $de, 'wb'))) {
 			exit('Failed to write to: '.$path . '/' . $de.'<br>');
 		}
-		fwrite($fp, str_replace('{ROOT}', $rp, file_get_contents($src . $de)));
+		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), array($rp, $GLOBALS['WWW_ROOT']), file_get_contents($src . $de)));
 		fclose($fp);
 		@chmod($src . $de, $perms);
 	}
