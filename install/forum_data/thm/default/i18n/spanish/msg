@@ -424,6 +424,7 @@ login_want_to_register:		Quiere registrarse?
 login_forgot_passwd:		Olvidó su clave?
 login_use_cookie:		Usar cookies<br><font class="SmallText">Si Ud esta usando un terminal público, como por ejemplo un computador en una biblioteca, escuela, o cibercafé, se recomienda que deshabilite esta opción para una mayor seguridad. 
 login_login:			Login
+login_login_btn:		Login
 login_name_required:		Debe ingresar un login
 login_passwd_required:		Debe ingresar una clave
 login_invalid_radius:		Combinación de login/clave inválida

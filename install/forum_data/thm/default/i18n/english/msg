@@ -424,6 +424,7 @@ login_want_to_register:		Want to register?
 login_forgot_passwd:		Forgot password
 login_use_cookie:		Use cookies<br><font class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logedin into the forum.
 login_login:			Login
+login_login_btn:		Login
 login_name_required:		Login name is required
 login_passwd_required:		Password is required
 login_invalid_radius:		Invalid login/password combination

@@ -424,6 +424,7 @@ login_want_to_register:		Vill du registrera dig?
 login_forgot_passwd:		Jag har gl&ouml;mt mitt l&ouml;senord
 login_use_cookie:		Anv&auml;nd kakor<br><font class="SmallText">Om du anv&auml;nder en offentlig terminal, som t.ex. datorer i bibliotek, skolor eller internetkaféer rekommenderar vi att du v&auml;ljer bort det h&auml;r alternativet f&ouml;r b&auml;ttre s&auml;kerhet.
 login_login:			Logga in
+login_login_btn:		Logga in
 login_name_required:		Anv&auml;ndarnamnet &auml;r obligatoriskt
 login_passwd_required:		L&ouml;senordet &auml;r obligatoriskt
 login_invalid_radius:		Ogiltig kombination av anv&auml;ndarnamn och l&ouml;senord

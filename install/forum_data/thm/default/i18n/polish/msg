@@ -425,6 +425,7 @@ login_want_to_register:		Chcesz siê zarejestrowaæ?
 login_forgot_passwd:		Zapomnia³em has³a!
 login_use_cookie:		U¿ywaj ciasteczek<br><font class="SmallText">Je¶li korzystasz z publicznego dostêpu do Sieci, takiego jak komputery z biblioteki, szko³y lub kafejki internetowej, zalecane jest wy³±czenie tej opcji w celu zwiêkszenia bezpieczeñstwa Twojego konta.
 login_login:			Zaloguj siê
+login_login_btn:		Zaloguj siê
 login_name_required:		Nazwa u¿ytkownika jest wymagana
 login_passwd_required:		Has³o jest wymagane
 login_invalid_radius:		Nieprawid³owa kombinacja nazwy u¿ytkownika/has³a

@@ -243,6 +243,7 @@ login_forgot_passwd:		Passwort vergessen
 login_header:			Login
 login_invalid_radius:		Ung&uuml;ltige Login/Passwort Kombination
 login_login:			Login
+login_login_btn:		Login
 login_name_required:		Anmeldename erforderlich
 login_not_logedin:		Du bist nicht angemeldet. Das k&ouml;nnte einen der folgenden Gr&uuml;nde haben:
 login_passwd:			Passwort

@@ -424,6 +424,7 @@ login_want_to_register:		Kayýt olmak istiyor musunuz?
 login_forgot_passwd:		Parolamý unuttum
 login_use_cookie:		Kurabiye kullan<br><font class="SmallText">Eðer kütüphane, okul, veya Ýnternet Cafe gibi herkese açýk bir bilgisayar kullanarak baðlanýyorsanýz, güvenlik açýsýndan bu seçeneði kaldýrmanýz önerilir.
 login_login:			Kullanýcý ismi
+login_login_btn:		Kullanýcý ismi
 login_name_required:		Kullanýcý ismi gerekli
 login_passwd_required:		Parola gerekli
 login_invalid_radius:		Geçersiz kullanýcý ismi veya parola.

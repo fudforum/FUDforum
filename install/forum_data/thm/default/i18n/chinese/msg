@@ -424,6 +424,7 @@ login_want_to_register:		先注册?
 login_forgot_passwd:		忘记密码
 login_use_cookie:		使用cookies功能<br><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，建议你不要使用这个功能。
 login_login:			登录
+login_login_btn:		登录
 login_name_required:		登录时必须输入账号
 login_passwd_required:		输入密码
 login_invalid_radius:		错误的账号/密码
