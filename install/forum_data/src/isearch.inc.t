@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.33 2004/06/10 16:47:41 hackie Exp $
+* $Id: isearch.inc.t,v 1.34 2004/06/14 16:39:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,17 +53,16 @@ function index_text($subj, $body, $msg_id)
 	error_reporting(0);
 
 	if (strncmp($GLOBALS['usr']->lang, 'chinese', 7)) {
-		$cs = array('!\W!', '!\s+!');
-		$cd = array(' ', ' ');
-
+if (!function_exists("str_word_count")) {
+	function str_word_count($str, $a)
+	{
+		return explode(' ', trim(preg_replace(array('!\W!', '!\s+!'), array(' ', ' '), $str)));
+	}
+}
 		reverse_fmt($subj);
-		$subj = trim(preg_replace($cs, $cd, strip_tags(strtolower($subj))));
+		$t1 = array_unique(str_word_count(strip_tags(strtolower($subj)), 1));
 		reverse_fmt($body);
-		$body = trim(preg_replace($cs, $cd, strip_tags(strtolower($body))));
-
-		/* build full text index */
-		$t1 = array_unique(explode(' ', $subj));
-		$t2 = array_unique(explode(' ', $body));
+		$t2 = array_unique(str_word_count(strip_tags(strtolower($body)), 1));
 
 		foreach ($t1 as $v) {
 			if (isset($v[51]) || !isset($v[2])) continue;
