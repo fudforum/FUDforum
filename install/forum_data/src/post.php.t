@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.8 2002/07/31 21:56:50 hackie Exp $
+*   $Id: post.php.t,v 1.9 2002/08/03 18:02:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,6 +24,8 @@
 	$icon_path_www = 'images/message_icons/';
 	$returnto_d = (!empty($returnto)?$returnto:NULL);
 	$attach_control_error=NULL;
+
+	if( isset($HTTP_POST_VARS['moderated_redr']) ) check_return();
 
 	/* INITIAL SECURITY CHECKS */
 	$flt = new fud_ip_filter;
@@ -424,7 +426,19 @@
 					$returnto = $returnto_d;
 		 	}
 		 	
-		 	check_return();
+		 	if ( empty($msg_id) && ($frm->moderated == 'N' || $MOD) )
+			 	check_return();
+			else {
+				$ret = create_return();
+				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME']->theme.'/usercp.inc', "rb");
+				$data = fread($fp, __ffilesize($fp));
+				fclose($fp);
+				$s = strpos($data, '<?php')+5;
+				eval(substr($data, $s, (strrpos($data, '?>')-$s)));
+				
+				exit('{TEMPLATE: moderated_forum_post}');
+			}	
+					
 		} /* Form submitted and user redirected to own message */
 	} /* $prevloaded is SET, this form has been submitted */
 	

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.2 2002/07/18 02:59:18 hackie Exp $
+*   $Id: post.tmpl,v 1.3 2002/08/03 18:02:04 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -264,7 +264,28 @@
 <h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
 {SECTION: END}
 
-{PAGE: POST_PAGE  message posting form}{TEMPLATE: header}
+{SECTION: moderated_forum_post}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+<table border="0" cellspacing="1" cellpadding="2" class="DialogTable" align="center">
+<tr><th>{MSG: post_moderated_forum_ttl}</th></tr>
+<tr class="RowStyleA" align="center">
+	<td class="GenText">
+		{MSG: post_moderated_forum}
+		<br><br><form action="{ROOT}?t=post" method="post">{DEF: _hs}{VAR: ret}
+		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
+		<input type="hidden" name="moderated_redr" value="1">
+		</form>
+	</td>
+</tr>
+</table>
+{TEMPLATE: curtime}
+{TEMPLATE-DATA: page_stats}
+{TEMPLATE: footer}
+{SECTION: END}
+
+{PAGE: POST_PAGE message posting form}
+{TEMPLATE: header}
 {TEMPLATE: usercp}
 <form action="{ROOT}?t=post" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
 {TEMPLATE-DATA: post_error}
