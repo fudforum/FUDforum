@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.61 2004/10/21 15:22:28 hackie Exp $
+* $Id: index.php.t,v 1.62 2004/10/21 15:52:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,9 @@ function url_tog_collapse($id, $c)
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id
 			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
-			'.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR ('.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1)>0').' ORDER BY v.id');
+			'.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR ('.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1)>0').' 
+			'.($cat_id ? ' WHERE v.c IN('.implode(',', ($cf = $cidxc[$cat_id][5])).') ' : '').'
+			ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($c)) {
@@ -127,6 +129,10 @@ function url_tog_collapse($id, $c)
 
 		if ($cat != $cid) {
 			while (list($k, $i) = each($cidxc)) {
+				if ($cat_id && !isset($cf[$k])) {
+					continue;
+				}
+
 				/* if parent category is collapsed, hide child category */
 				if ($i[4] && !empty($collapse[$i[4]])) {
 					$collapse[$k] = 1;
@@ -148,7 +154,6 @@ function url_tog_collapse($id, $c)
 					}
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 				} else {
-					$col = '';
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 				}
 			
