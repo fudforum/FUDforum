@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.6 2002/07/05 19:35:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	
 	
 	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ASC LIMIT ".qry_limit($count,$start));
-	if( IS_RESULT($msg_list) ) {
+	if( is_result($msg_list) ) {
 		$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
 		$m_count=0;
 		while ( list($msgp_id) = db_rowarr($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
