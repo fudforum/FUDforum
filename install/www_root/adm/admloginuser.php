@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.3 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admloginuser.php,v 1.4 2002/10/03 08:29:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@
 		if ( ($id = get_id_by_login($login)) ) {
 			$usr = new fud_user;
 			$usr->get_user_by_id($id);
-			if ( $usr->passwd == md5($passwd) ) {
+			if ( $usr->passwd == md5(stripslashes($passwd)) ) {
 				if ( $usr->is_mod == 'A' ) {
 					if ( !isset($ses) ) $ses = new fud_session;
 					

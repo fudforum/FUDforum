@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.11 2002/09/30 21:57:07 hackie Exp $
+*   $Id: login.php.t,v 1.12 2002/10/03 08:29:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,7 +94,7 @@ function error_check()
 	}
 	
 	if ( @count($HTTP_POST_VARS) && !error_check() ) {
-		if ( !($id = get_id_by_radius($HTTP_POST_VARS['login'], $HTTP_POST_VARS['password'])) ) {
+		if ( !($id = get_id_by_radius($HTTP_POST_VARS['login'], stripslashes($HTTP_POST_VARS['password']))) ) {
 			/* check if admin */
 			$id = get_id_by_login($HTTP_POST_VARS['login']);
 			
