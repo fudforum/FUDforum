@@ -189,7 +189,7 @@ views:				Ods³on
 vote:				{VAR: thread->vote_count()} G³osów
 vote_button:			G³osuj
 vote_for_thread:		G³osuj
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> zosta³ przeniesiony do forum <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> przez moderatora.
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> zosta³ przeniesiony do forum <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> przez moderatora.
 welcome_message:		Witaj <b>{VAR: usr->alias}</b>, Twoja ostatnia wizyta by³a dnia {DATE: last_login %a, %d %B %Y %H:%M}.
 what_ppl_doing:			poka¿, co robi± inni u¿ytkownicy
 reported_del_report:		Usuñ Zg³oszenie
@@ -653,7 +653,7 @@ register_conf_msg:		Dziêkujemy za zarejestrowanie siê.\nAby aktywowaæ Twoje kont
 register_welcome_subject:	Potwierdzenie rejestracji na forum
 register_welcome_msg:		Dziêkujemy za zarejestrowanie siê.\n\nTutaj znajduj± siê szczegó³y twojego logowania siê na forum:\n\nAdres forum: {ROOT}?t=index\nNazwa u¿ytkownika: {VAR: usr->login}\nHas³o: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nB±d¼ ¶wiadom(a), ¿e wielko¶æ liter w has³ach ma znaczenie!\nAby zmieniæ swoje ustawienia i profil, przejd¼ do tej strony:\n{ROOT}?t=register\n
 register_err_cantreg_title:	B£¡D: rejestracja nie jest mo¿liwa
-regsiter_err_cantreg_msg:	Brak mo¿liwo¶ci stworzenia konta u¿ytkownika, dlatego skontaktuj siê z administratorem pod adresem e-mail <a href="mailto:{GVAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:	Brak mo¿liwo¶ci stworzenia konta u¿ytkownika, dlatego skontaktuj siê z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	Ogl±danie w³asnego profilu
 register_register_update:	Strona rejestracji
 report_err_nosuchmsg_title:	B£¡D
@@ -676,11 +676,11 @@ th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który pr
 thread_err_onlyregview_title:	Tylko zarejestrowani u¿ytkownicy mog± ogl±daæ to forum
 thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">zalogowaæ siê</a>.
 thread_update:			Przegl±danie forum <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			Przegl±danie w±tku (widok drzewiasty) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			Przegl±danie w±tku (widok drzewiasty) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Przegl±danie profilu u¿ytkownika <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>
 ERR_login_ttl:			B£¡D: Nie jeste¶ zalogowany
 ERR_login_msg:			Nie jeste¶ zalogowany.<br><br>Je¶li chcesz siê zarejestrowaæ, przejd¼ do <a href="{ROOT}?t=register&amp;{DEF: _rsid}">formularza rejestracji</a><br>Je¶li chcesz siê zalogowaæ, przejd¼ do <a href="{ROOT}?t=login&amp;{DEF: _rsid}">formularza logowania siê</a>.
-ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
+ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
 ERR_disabled_ttl:		Wy³±czona funkcja
 ERR_disabled_msg:		Ta funkcja zosta³a wy³±czona przez administratora systemu
 ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
@@ -689,13 +689,13 @@ ERR_access_msg:			Nie masz wymaganych uprawnieñ, aby wykonaæ tê operacjê
 ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
 ERR_registration_disabled_ttl:	Rejestracja jest wy³±czona
 ERR_registration_disabled_msg:	Administrator wy³±czy³ rejestracjê, wiêc spróbuj ponownie pó¼niej
-ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
+ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
 ERR_emailconf_ttl:		B£¡D: Twoje konto nie jest jeszcze potwierdzone
-ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">przejd¼ tutaj</a>.<li>Je¶li {VAR: GLOBALS['usr']->email} nie jest Twoim poprawnym adresem, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">przejd¼ tutaj</a></ol></td></tr></table>
+ERR_emailconf_msg:		Nie potwierdzi³e¶ jeszcze swojego konta poprzez e-mail<br><table border=0><tr><td><ol><li>Je¶li nie otrzyma³e¶ potwierdzaj±cego listu, <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">przejd¼ tutaj</a>.<li>Je¶li {VAR: GLOBALS['usr']->email} nie jest Twoim poprawnym adresem, <a href="{ROOT}?t=register&amp;{DEF: _rsid}">przejd¼ tutaj</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			B£¡D: Brak takiego u¿ytkownika
 ERR_user_msg:			Nie ma takiego u¿ytkownika
-ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}&{DEF: _rsid}
+ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		B£¡D: B³±d systemu
 ERR_systemerr_msg:		Wyst±pi³ b³±d systemu, dlatego zg³o¶ go do <a href="mailto:{GVAR: ADMIN_EMAIL}">administratora</a>.
 ERR_systemerr_url:		{GVAR: returnto_d}
@@ -714,7 +714,7 @@ search_title:			Szukaj {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
 tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
 remail_emailsent:		List zosta³ wys³any
-remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({ROOT}?t=index), która powinna Cie zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: thread->subject} mo¿e byæ znaleziony tutaj: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&th={VAR: thread->id}&{DEF: _rsid}\n\n{VAR: u}\n
+remail_email:			Jest strona WWW o adresie {GVAR: FORUM_TITLE} ({ROOT}?t=index), która powinna Cie zainteresowaæ.\nJest tam dyskusja, która my¶lê, ¿e jest ciekawa - {VAR: thread->subject} mo¿e byæ znaleziony tutaj: {ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n{VAR: u}\n
 poll_add_option:		Dodaj Opcjê:
 post_opt_html_on:		<b>HTML</b> jest <b>W³±czony</b>
 post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUD Code</b> jest <b>W³±czony</b></a>
@@ -917,7 +917,7 @@ back_to_top:			powrót na górê
 iemail_participate:		By wzi±æ udzia³ w dyskusji, przejd¼ tu:
 pm_err_disabled_title:		Prywatne wiadomo¶ci s± wy³±czone
 pm_err_disabled_msg:		Nie mo¿esz wysy³aæ prywatnych wiadomo¶ci, dopóki nie uaktywnisz opcji &#39;Zezwól na Prywatne Wiadomo¶ci&#39; w twoim profilu.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
+err_mod_acc_ttl:		Niezatwierdzone konto
+err_mod_acc_msg:		Administrator zdecydowa³ zatwierdzaæ rêcznie wszystko konta przed ich aktywacj±. Zanim administrator nie zatwierdzi twojego konta, nie bêdziesz móg³ skorzystaæ ze wszystkich mo¿liwo¶ci konta.
+accounts_pending_approval:	Konta oczekuj±ce na zatwierdzenie
+saved:				Zachowane
