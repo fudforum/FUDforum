@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.101 2004/04/26 19:13:15 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.102 2004/04/30 13:50:09 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -672,7 +672,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
 
-			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{FULL_ROOT}{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" .
+			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{FULL_ROOT}{ROOT}?t=rview&th=' . $id . "\r\n" .
 			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 		} else {
 			$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
