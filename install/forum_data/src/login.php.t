@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.33 2003/09/26 15:58:42 hackie Exp $
+*   $Id: login.php.t,v 1.34 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,10 +18,10 @@
 /*{PRE_HTML_PHP}*/
 
 	/* clear old sessions */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).($SESSION_USE_URL == 'Y' ? ' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)' : ''));
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).($FUD_OPT_1 & 128 ? ' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)' : ''));
 
 	/* Remove old unconfirmed users */
-	if ($EMAIL_CONFIRMATION == 'Y') {
+	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND users_opt & 131072 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND !(users_opt & 1048576)");
 	}	
@@ -62,19 +62,19 @@
 		}
 		
 		ses_delete($usr->sid);
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?'. $returnto);
-		} else {
+		if ($GLOBALS['FUD_OPT_2'] & 32768) {
 			header('Location: {ROOT}'. $returnto);
+		} else {
+			header('Location: {ROOT}?'. $returnto);
 		}
 		exit;
 	}
 	
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?t=register&'._rsidl);
-		} else {
+		if ($GLOBALS['FUD_OPT_2'] & 32768) {
 			header('Location: {ROOT}/re/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=register&'._rsidl);
 		}
 		exit();
 	}
@@ -139,13 +139,13 @@ function error_check()
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 
-			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $SESSION_USE_URL == 'Y') ? FALSE : TRUE));
+			$ses_id = user_login($usr_d->id, $usr->ses_id, ((empty($_POST['use_cookie']) && $FUD_OPT_1 & 128) ? false : true));
 
 			if (!($usr_d->users_opt & 131072)) {
-				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', NULL, $ses_id);
+				error_dialog('{TEMPLATE: ERR_emailconf_ttl}', '{TEMPLATE: ERR_emailconf_msg}', null, $ses_id);
 			}
 			if ($usr_d->users_opt & 2097152) {
-				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', NULL, $ses_id);
+				error_dialog('{TEMPLATE: login_unapproved_account_ttl}', '{TEMPLATE: login_unapproved_account_msg}', null, $ses_id);
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
@@ -153,14 +153,14 @@ function error_check()
 				exit;
 			}
 
-			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
-				if (strpos($usr->returnto, s) !== FALSE) {
+			if ($GLOBALS['FUD_OPT_1'] & 128) {
+				if (strpos($usr->returnto, s) !== false) {
 					$usr->returnto = str_replace(s, $ses_id, $usr->returnto);
 				} else {
-					if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-						$usr->returnto .= '&S=' . $ses_id;
-					} else {
+					if ($GLOBALS['FUD_OPT_2'] & 32768) {
 						$usr->returnto .= $ses_id . '/';
+					} else {
+						$usr->returnto .= '&S=' . $ses_id;
 					}
 				}
 			}
@@ -179,7 +179,7 @@ function error_check()
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');
 
-	$login_use_cookies = $GLOBALS['SESSION_USE_URL'] == 'Y' ? '{TEMPLATE: login_use_cookies}' : '';
+	$login_use_cookies = FUD_OPT_1 & 128 ? '{TEMPLATE: login_use_cookies}' : '';
 
 	if (!isset($_POST['adm'])) {
 		$_POST['adm'] = isset($_GET['adm']) ? '1' : '';

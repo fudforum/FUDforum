@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.20 2003/07/24 03:23:11 hackie Exp $
+*   $Id: iemail.inc.t,v 1.21 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ function send_email($from, $to, $subj, $body, $header='')
 	}
 	$body = str_replace('\n', "\n", $body);
 
-	if( $GLOBALS['USE_SMTP'] == 'Y' ) {
+	if ($GLOBALS['FUD_OPT_1'] & 512) {
 		$smtp = new fud_smtp;
 		$smtp->msg = str_replace("\n.", "\n..", $body);
 		$smtp->subject = $subj;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.19 2003/09/27 15:49:31 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.20 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,12 +80,12 @@ function convert_bdate($val, $month_fmt)
 		}
 	}
 
-	$user_image = ($GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
-	$avatar = ($CUSTOM_AVATARS != 'OFF' && $u->users_opt & 8388608) ? '{TEMPLATE: avatar}' : '';
+	$user_image = ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
+	$avatar = ($FUD_OPT_1 & 28 && $u->users_opt & 8388608) ? '{TEMPLATE: avatar}' : '';
 
 	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';
-	} else if ($ALLOW_EMAIL == 'Y') {
+	} else if ($FUD_OPT_1 & 4194304) {
 		$encoded_login = urlencode($u->alias);
 		$email_link = '{TEMPLATE: email_form_link}';
 	} else {
@@ -104,7 +104,7 @@ function convert_bdate($val, $month_fmt)
 		$polls = '';
 	}
 	
-	$usrinfo_private_msg = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
+	$usrinfo_private_msg = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
 
 	if ($u->users_opt & 1024) {
 		$gender = '{TEMPLATE: male}';
@@ -132,7 +132,7 @@ function convert_bdate($val, $month_fmt)
 		$birth_date = '';
 	}
 
-	if ($ENABLE_AFFERO == 'Y' && $u->affero) {
+	if ($FUD_OPT_2 & 2048 && $u->affero) {
 		$im_affero = '{TEMPLATE: usrinfo_affero}';
 	} else {
 		$im_affero = '';

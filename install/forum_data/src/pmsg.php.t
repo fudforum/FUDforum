@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.25 2003/09/26 18:49:03 hackie Exp $
+*   $Id: pmsg.php.t,v 1.26 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($PM_ENABLED == 'N') {
+	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
 
@@ -33,10 +33,10 @@
 		if (!is_array($sel)) {
 			$sel = array($sel);
 		}
-		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? $_POST['moveto'] : NULL;
+		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? $_POST['moveto'] : null;
 		foreach ($sel as $m) {
 			if ($move_to) {
-				pmsg_move((int)$m, $move_to, FALSE);
+				pmsg_move((int)$m, $move_to, false);
 			} else {
 				pmsg_del((int)$m);
 			}
@@ -107,7 +107,7 @@
 				$action = '{TEMPLATE: action_buttons_draft}';
 				break;
 		}
-		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+		if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 			$goto = $fldr != 4 ? '{ROOT}/pmv/'.$obj->id.'/'._rsid : '{ROOT}/pmm/msg_id/'.$obj->id.'/'._rsid;
 		} else {
 			$goto = $fldr != 4 ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
@@ -121,7 +121,7 @@
 			$deny_recipt = '';
 		}
 		
-		if ($ONLINE_OFFLINE_STATUS == 'Y' && ($obj->invisible_mode == 'N' || $usr->is_mod == 'A')) {
+		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576)) {
 			$obj->login =& $obj->alias;
 			if (($obj->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) {
 				$online_indicator = '{TEMPLATE: pmsg_online_indicator}';

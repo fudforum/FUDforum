@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.23 2003/09/26 18:49:02 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.24 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,21 +17,25 @@
 
 $GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
 
-function tmpl_drawpmsg(&$obj, &$usr, $mini)
+function tmpl_drawpmsg($obj, $usr, $mini)
 {
+	$o1 =& $GLOBALS['FUD_OPT_1'];
+	$o2 =& $GLOBALS['FUD_OPT_2'];
+
 	if (!$mini) {
-		if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
+		if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $o1 & 28 && $obj->level_opt != 2) {
 			$avatar = '{TEMPLATE: dpmsg_avatar}';
 		} else {
 			$avatar = '{TEMPLATE: dpmsg_no_avatar}';
 		}
-		if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $usr->is_mod == 'A') {
+
+		if (($o2 & 32 && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
 			$obj->login = $obj->alias;
 			$online_indicator = (($obj->last_visit + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dpmsg_online_indicator}' : '{TEMPLATE: dpmsg_offline_indicator}';
 		} else {
 			$online_indicator = '';
 		}
-		if ($GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && $obj->host_name) {
+		if ($obj->host_name && $o1 & 268435456) {
 			if (strlen($obj->host_name) > 30) {
 				$obj->host_name = wordwrap($obj->host_name, 30, '<br />', 1);
 			}
@@ -64,13 +68,13 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 			$level_name = $level_image = '';
 		}
 		/* show im buttons if need be */
-		if ($usr->show_im == 'Y') {
+		if ($usr->users_opt & 16384) {
 			$im_icq		= $obj->icq ? '{TEMPLATE: dpmsg_im_icq}' : '';
 			$im_aim		= $obj->aim ? '{TEMPLATE: dpmsg_im_aim}' : '';
 			$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dpmsg_im_yahoo}' : '';
 			$im_msnm	= $obj->msnm ? '{TEMPLATE: dpmsg_im_msnm}' : '';
 			$im_jabber	= $obj->jabber ? '{TEMPLATE: dpmsg_im_jabber}' : '';
-			if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
+			if ($o2 & 2048) {
 				$im_affero = $obj->affero ? '{TEMPLATE: drawpmsg_affero_reg}' : '{TEMPLATE: drawpmsg_affero_noreg}';
 			} else {
 				$im_affero = '';
@@ -80,7 +84,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		}
 		if ($obj->ouser_id != _uid) {
 			$user_profile = '{TEMPLATE: dpmsg_user_profile}';
-			$email_link = ($GLOBALS['ALLOW_EMAIL'] == 'Y' && $obj->email_messages == 'Y') ? '{TEMPLATE: dpmsg_email_link}' : '';
+			$email_link = ($o1 & 4194304 && $obj->users_opt & 16) ? '{TEMPLATE: dpmsg_email_link}' : '';
 			$private_msg_link = '{TEMPLATE: dpmsg_private_msg_link}';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
@@ -117,7 +121,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 		}
 	}
 
-	if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->pmsg_opt & 1 && $usr->show_sigs == 'Y' && $obj->sig) {
+	if ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $usr->users_opt & 4096) {
 		$signature = '{TEMPLATE: dpmsg_signature}';
 	} else {
 		$signature = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.12 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.13 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@
 <?php
 	$a = 0;
 	
-	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE avatar_approved=\'N\' ORDER BY id');
+	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE users_opt>=16777216 ORDER BY id');
 	while ($r = db_rowarr($c)) {
 		$a = 1;
 		echo '<tr bgcolor="#bff8ff"><td>'.$r[2].'</td><td>[<a href="admapprove_avatar.php?usr_id='.$r[0].'&'._rsidl.'">Approve</a>] [<a href="admapprove_avatar.php?del='.$r[0].'&'._rsidl.'">Delete</a>]</td></tr>';

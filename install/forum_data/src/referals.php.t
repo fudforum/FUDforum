@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.8 2003/04/20 10:45:19 hackie Exp $
+*   $Id: referals.php.t,v 1.9 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 		if (($r = @db_rowarr($c))) {
 			$refered_entry_data = '';
 			do {
-				$pm_link = (_uid && $PM_ENABLED == 'Y') ? '{TEMPLATE: pm_link}' : '';
+				$pm_link = (_uid && $FUD_OPT_1 & 1024) ? '{TEMPLATE: pm_link}' : '';
 				$homepage_link = !empty($r[4]) ? '{TEMPLATE: homepage_link}' : '';
 				$email_link = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_link}' : '';
 

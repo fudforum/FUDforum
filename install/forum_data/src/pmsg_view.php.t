@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.11 2003/09/26 18:49:03 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.12 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($PM_ENABLED == 'N') {
+	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
 	if (!_uid) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.79 2003/09/29 14:40:37 hackie Exp $
+*   $Id: register.php.t,v 1.80 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@ function fetch_img($url, $user_id)
 {
 	$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 	list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-	if (!($img_info = @getimagesize($url)) || $img_info[0] > $max_w || $img_info[1] > $max_y || $img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
+	if (!($img_info = @getimagesize($url)) || $img_info[0] > $max_w || $img_info[1] > $max_y || $img_info[2] > ($GLOBALS['FUD_OPT_1'] & 64 ? 4 : 3)) {
 		return;
 	}
 	if (!($img_data = file_get_contents($url))) {
@@ -158,7 +158,7 @@ function register_form_check($user_id)
 	}
 	
 	/* Alias Check */
-	if ($GLOBALS['USE_ALIASES'] == 'Y' && isset($_POST['reg_alias'])) {
+	if ($FUD_OPT_2 & 128 && isset($_POST['reg_alias'])) {
 		if (($_POST['reg_alias'] = trim($_POST['reg_alias']))) {
 			if (strlen($_POST['reg_alias']) > $GLOBALS['MAX_LOGIN_SHOW']) {
 				$_POST['reg_alias'] = substr($_POST['reg_alias'], 0, $GLOBALS['MAX_LOGIN_SHOW']);
@@ -204,18 +204,6 @@ function draw_err($err_name)
 	return '{TEMPLATE: register_error}';
 }
 
-function is_avatar_upload_allowed()
-{
-	switch ($GLOBALS['CUSTOM_AVATARS']) {
-		case 'ALL':
-		case 'UPLOAD':
-		case 'BUILT_UPLOAD':
-		case 'URL_UPLOAD':
-			return 1;
-	}
-	return 0;
-}
-
 function make_avatar_loc($path, $disk, $web)
 {
 	$img_info = @getimagesize($disk . $path);
@@ -257,17 +245,17 @@ function decode_uent(&$uent)
 	}
 
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
-		if ($GLOBALS['COPPA'] == 'Y') {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				header('Location: {ROOT}?t=coppa&'._rsidl);
-			} else {
+		if ($FUD_OPT_1 & 1048576) {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/cp/'._rsidl);	
-			}
-		} else if ($GLOBALS['COPPA'] != 'Y') {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				header('Location: {ROOT}?t=pre_reg&'._rsidl);
 			} else {
+				header('Location: {ROOT}?t=coppa&'._rsidl);
+			}
+		} else {
+			if ($FUD_OPT_2 & 32768) {
 				header('Location: {ROOT}/pr//'._rsidl);
+			} else {
+				header('Location: {ROOT}?t=pre_reg&'._rsidl);
 			}
 		}
 		exit;
@@ -315,30 +303,30 @@ function decode_uent(&$uent)
 		if (isset($_POST['btn_detach']) && isset($avatar_arr)) {
 			$avatar_arr['del'] = 1;
 		}
-		if (!is_avatar_upload_allowed() && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {
+		if (!($FUD_OPT_1 & 8) && (!@file_exists($avatar_arr['file']) || empty($avatar_arr['leave']))) {
 			/* hack attempt for URL avatar */
 			$avatar_arr = null;
-		} else if (is_avatar_upload_allowed() && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
-			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
+		} else if (($FUD_OPT_1 & 8) && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
+			if ($_FILES['avatar_upload']['size'] >= $CUSTOM_AVATAR_MAX_SIZE) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
 			} else {
 				/* [user_id].[file_extension]_'random data' */
 				$file_name = $uent->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
 				$tmp_name = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
 
-				if (!($img_info = @getimagesize($GLOBALS['TMP'] . $tmp_name))) {
+				if (!($img_info = @getimagesize($TMP . $tmp_name))) {
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
-					unlink($GLOBALS['TMP'] . $tmp_name);
+					unlink($TMP . $tmp_name);
 					
 				}
 
-				list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-				if ($img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
+				list($max_w, $max_y) = explode('x', $CUSTOM_AVATAR_MAX_DIM);
+				if ($img_info[2] > ($FUD_OPT_1 & 64 ? 4 : 3)) {
 					set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
-					unlink($GLOBALS['TMP'] . $tmp_name);
+					unlink($TMP . $tmp_name);
 				} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
 					set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
-					unlink($GLOBALS['TMP'] . $tmp_name);
+					unlink($TMP . $tmp_name);
 				} else {
 					/* remove old uploaded file, if one exists & is not in DB */
 					if (empty($avatar_arr['leave']) && @file_exists($avatar_arr['file'])) {
@@ -379,17 +367,13 @@ function decode_uent(&$uent)
 
 		$uent->bday = fmt_year($_POST['b_year']) . str_pad((int)$_POST['b_month'], 2, '0', STR_PAD_LEFT) . str_pad((int)$_POST['b_day'], 2, '0', STR_PAD_LEFT);
 		$uent->sig = apply_custom_replace($uent->sig);
-		switch (strtolower($FORUM_CODE_SIG)) {
-			case 'ml':
-				$uent->sig = tags_to_html($uent->sig, ($FORUM_IMG_SIG == 'Y'));
-				break;
-			case 'html':
-				break;
-			default:
-				$uent->sig = nl2br(htmlspecialchars($uent->sig));				       
+		if ($FUD_OPT_1 & 131072) {
+			$uent->sig = tags_to_html($uent->sig, $FUD_OPT_1 & 524288);
+		} else if ($FUD_OPT_1 & 65536) {
+			$uent->sig = nl2br(htmlspecialchars($uent->sig));
 		}
 		
-		if ($GLOBALS['FORUM_SML_SIG'] == 'Y') {
+		if ($FUD_OPT_1 & 262144) {
 			$uent->sig = smiley_to_post($uent->sig);
 		}
 		fud_wordwrap($uent->sig);
@@ -409,14 +393,14 @@ function decode_uent(&$uent)
 
 			$uent->add_user();
 
-			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
+			if ($FUD_OPT_2 & 1) {
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			} else {
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
 			}
 
 			/* we notify all admins about the new user, so that they can approve him */
-			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && $GLOBALS['NEW_ACCOUNT_NOTIFY'] == 'Y') {
+			if ($FUD_OPT_2 & (1024|131072) == (1024|131072)) {
 				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND users_opt & 1048576");
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
@@ -428,16 +412,16 @@ function decode_uent(&$uent)
 			/* login the new user into the forum */
 			user_login($uent->id, $usr->ses_id, 1);
 
-			if ($GLOBALS['COPPA'] == 'Y' && $uent->users_opt & 262144) {
-				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-					header('Location: {ROOT}?t=coppa_fax&'._rsidl);
-				} else {
+			if ($FUD_OPT_1 & 1048576 && $uent->users_opt & 262144) {
+				if ($FUD_OPT_2 & 32768) {
 					header('Location: {ROOT}/cpf/'._rsidl);
+				} else {
+					header('Location: {ROOT}?t=coppa_fax&'._rsidl);
 				}
 				exit();
-			} else if (!($uent->users_opt & 131072) || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
-				header('Location: {ROOT}' . (($GLOBALS['USE_PATH_INFO'] == 'N') ? '?t=reg_conf&' : '/rc/') . _rsidl);
-				exit;		
+			} else if (!($uent->users_opt & 131072) || $FUD_OPT_2 & 1024) {
+				header('Location: {ROOT}' . ($FUD_OPT_2 & 32768 ? '/rc/' : '?t=reg_conf&') . _rsidl);
+				exit;
 			}
 
 			check_return($usr->returnto);
@@ -448,7 +432,7 @@ function decode_uent(&$uent)
 			$uent->users_opt |= 4194304|16777216|8388608;
 
 			/* prevent non-confirmed users from playing with avatars, yes we are that cruel */
-			if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF' && _uid) {
+			if ($FUD_OPT_1 & 28 && _uid) {
 				if ($_POST['avatar_type'] == 'b') { /* built-in avatar */
 					if (!$old_avatar && $old_avatar_loc) {
 						remove_old_avatar($old_avatar_loc);
@@ -494,7 +478,7 @@ function decode_uent(&$uent)
 						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . basename($common_av_name));
 						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
-						 	if ($CUSTOM_AVATAR_APPOVAL == 'N' || $uent->users_opt & 1048576) {
+						 	if (!($FUD_OPT_1 & 32) || $uent->users_opt & 1048576) {
 						 		$uent->users_opt ^= 16777216|4194304;
 						 	} else {
 						 		$uent->users_opt ^= 8388608|4194304;
@@ -515,7 +499,7 @@ function decode_uent(&$uent)
 			$uent->sync_user();
 			
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
-			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && isset($old_email) && $old_email != $uent->email && $uent->users_opt & 1048576) {
+			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && $uent->users_opt & 1048576) {
 				$conf_key = usr_email_unconfirm($uent->id);
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
@@ -538,19 +522,14 @@ function decode_uent(&$uent)
 		reverse_fmt($reg_sig);
 		$reg_sig = apply_reverse_replace($reg_sig);
 
-		if ($GLOBALS['FORUM_SML_SIG'] == 'Y') {
+		if ($FUD_OPT_1 & 262144) {
 			$reg_sig = post_to_smiley($reg_sig);
 		}
 
-		switch (strtolower($GLOBALS['FORUM_CODE_SIG'])) {
-			case 'ml':
-				$reg_sig = html_to_tags($reg_sig);
-				break;
-			case 'html':
-				break;
-			default:
-				reverse_nl2br($reg_sig);
-				break;
+		if ($FUD_OPT_1 & 131072) {
+			$reg_sig = html_to_tags($reg_sig);
+		} else if ($FUD_OPT_1 & 65536) {
+			reverse_nl2br($reg_sig);
 		}
 		if ($uent->bday) {
 			$b_year = substr($uent->bday, 0, 4);
@@ -591,18 +570,20 @@ function decode_uent(&$uent)
 		}
 
 		$uent->users_opt = 4488117;
-
-		
-
-		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
+		if (!($FUD_OPT_2 & 4) {
+			$uent->users_opt ^= 128;
+		}
+		if (!($FUD_OPT_2 & 8) {
+			$uent->users_opt ^= 256;
+		}
 
 		$b_year = $b_month = $b_day = '';
 	}
 	
 	if (empty($reg_time_zone)) {
-		$reg_time_zone = $GLOBALS['SERVER_TZ'];
+		$reg_time_zone = $SERVER_TZ;
 	}
-	
+
 	if (!$mod_id) {
 		if (__fud_real_user__) {
 			ses_update_status($usr->sid, '{TEMPLATE: register_profile_update}', 0, 0);
@@ -620,10 +601,10 @@ function decode_uent(&$uent)
 	$reg_sig_err	= draw_err('reg_sig');
 	$reg_alias_err	= draw_err('reg_alias');
 
-	$reg_alias_t = $GLOBALS['USE_ALIASES'] != 'Y' ? '' : '{TEMPLATE: reg_alias}';
+	$reg_alias_t = $FUD_OPT_2 & 128 ? '{TEMPLATE: reg_alias}' : '';
 
-	if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
-		$affero_domain = parse_url($GLOBALS['WWW_ROOT']);
+	if ($FUD_OPT_2 & 2048) {
+		$affero_domain = parse_url($WWW_ROOT);
 		$register_affero = '{TEMPLATE: register_affero}';
 	} else {
 		$register_affero = '';
@@ -641,7 +622,7 @@ function decode_uent(&$uent)
 		$submit_button = '{TEMPLATE: register_button}';
 	} else { 
 		$reg_time_limit_err = '';
-		if ($uent->users_opt & 131072 && $GLOBALS['EMAIL_CONFIRMATION']=='Y') {
+		if ($uent->users_opt & 131072 && $FUD_OPT_2 & 1) {
 			$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 		} else {
 			$email_warning_msg = '';
@@ -655,8 +636,8 @@ function decode_uent(&$uent)
 		$user_info_heading = '{TEMPLATE: update_user}';
 		$submit_button = '{TEMPLATE: update_button}';
 
-		if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF' && _uid) {
-			if ($GLOBALS['CUSTOM_AVATARS'] == 'ALL') {
+		if ($FUD_OPT_1 & 28 && _uid) {
+			if ($FUD_OPT_1 == 28) {
 				/* if there are no built-in avatars, don't show them */
 				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar')) {
 					$sel_opt = "{TEMPLATE: register_builtin}\n{TEMPLATE: register_specify_url}\n{TEMPLATE: register_uploaded}";
@@ -670,19 +651,19 @@ function decode_uent(&$uent)
 			} else {
 				$sel_opt = $sel_val = '';
 
-				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar') && strpos($GLOBALS['CUSTOM_AVATARS'], 'BUILT') !== false) {
+				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar') && $FUD_OPT_1 & 16) {
 					$sel_opt .= "{TEMPLATE: register_builtin}\n";
 					$a_type = 'b';
 					$sel_val .= "b\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'UPLOAD') !== false) {
+				if ($FUD_OPT_1 & 8) {
 					$sel_opt .= "{TEMPLATE: register_uploaded}\n";
 					if (!isset($a_type)) {
 						$a_type = 'u';
 					}
 					$sel_val .= "u\n";
 				}
-				if (strpos($GLOBALS['CUSTOM_AVATARS'], 'URL') !== false) {
+				if ($FUD_OPT_1 & 4) {
 					$sel_opt .= "{TEMPLATE: register_specify_url}\n";
 					if (!isset($a_type)) {
 						$a_type = 'c';
@@ -775,7 +756,7 @@ function decode_uent(&$uent)
 	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 16384), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 
-	$reg_user_image_field = $GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' ? '{TEMPLATE: reg_user_image}' : '';
+	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

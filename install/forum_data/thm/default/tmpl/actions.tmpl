@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.tmpl,v 1.7 2003/04/03 10:03:38 hackie Exp $
+*   $Id: actions.tmpl,v 1.8 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,8 +27,8 @@
 {REF: is_perms.tmpl}
 
 {SECTION: last_post last by a user}
-{DATE: r[10] %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[8]}&{DEF: _rsid}">{VAR: r[9]}</a>
+{DATE: r[9] %a, %d %B %Y %H:%M}<br />
+<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[7]}&{DEF: _rsid}">{VAR: r[8]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -39,7 +39,7 @@
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="GenText">{VAR: user_login}</td>
 	<td class="GenText">{VAR: action}</td>
-	<td class="DateText">{DATE: r[6] %H:%M:%S}</td>
+	<td class="DateText">{DATE: r[5] %H:%M:%S}</td>
 	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
 </tr>
 {SECTION: END}

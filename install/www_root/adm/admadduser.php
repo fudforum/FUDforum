@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.5 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admadduser.php,v 1.6 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,50 +55,36 @@ function validate_input()
 	
 	return 0;
 }
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	if (isset($_POST['usr_add']) && !($error = validate_input())) {
-		$default_theme = q_singleval('SELECT id FROM '.$tbl.'themes WHERE theme_opt=3');
+		$default_theme = q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'themes WHERE theme_opt=3');
 		$alias = addslashes(htmlspecialchars($_POST['login']));
-		db_lock($tbl.'users WRITE');
+		db_lock($DBHOST_TBL_PREFIX.'users WRITE');
 	
-		if ($GLOBALS['USE_ALIASES'] == 'Y') {
+		if ($USE_ALIASES == 'Y') {
 			$i = 0;
-			while (q_singleval('SELECT id FROM '.$tbl.'users WHERE alias=\''.(!$i ? $alias : $alias . '_' . $i).'\'')) {
+			while (q_singleval('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE alias=\''.(!$i ? $alias : $alias . '_' . $i).'\'')) {
 				++$i;
 			}
 			if ($i) {
 				$alias .= '_' . $i;
 			}
 		}
+
+//		$users_opt = 4488117 ^ 2097152 | 131072 | 
 		
-		$user_added = db_qid("INSERT INTO ".$tbl."users (
-			login,
-			alias,
-			passwd,
-			name,
-			email,
-			time_zone,
-			join_date,
-			theme,
-			coppa,
-			last_read,
-			default_view,
-			email_conf		
-			)
-			VALUES(
+		$user_added = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
+			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
 			'".addslashes($_POST['login'])."',
 			'".$alias."',
 			'".md5($_POST['passwd'])."',
 			'".addslashes($_POST['name'])."',
 			'".addslashes($_POST['email'])."',
-			'".$GLOBALS['SERVER_TZ']."',
+			'".$SERVER_TZ."',
 			".__request_timestamp__.",
 			".$default_theme.",
-			'N',
-			".__request_timestamp__.",
-			'".$GLOBALS['DEFAULT_THREAD_VIEW']."',
-			'Y'
+			".$users_opt.",
+			".__request_timestamp__."
 			)");
 			
 		db_unlock();

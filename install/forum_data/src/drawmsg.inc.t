@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.55 2003/09/28 11:38:50 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.56 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,10 +43,10 @@ if (isset($_GET['rev'])) {
 	foreach ($tmp as $v) {
 		$GLOBALS['__FMDSP__'][$v] = 1;
 	}
-	if ($USE_PATH_INFO != 'Y') {
-		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		define('reveal_lnk', '/' . $_GET['rev']);
+	} else {
+		define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
 	}
 } else {
 	define('reveal_lnk', '');
@@ -69,10 +69,10 @@ if (_uid) {
 				$usr->ignore_list[$v] = 0;
 			}
 		}
-		if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-			define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
-		} else {
+		if ($FUD_OPT_2 & 32768) {
 			define('unignore_tmp', '/' . $_GET['reveal']);
+		} else {
+			define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
 		}
 	} else {
 		define('unignore_tmp', '');
@@ -81,26 +81,20 @@ if (_uid) {
 	define('unignore_tmp', '');
 }
 
-if ($ENABLE_AFFERO == 'Y') {
+if ($FUD_OPT_2 & 2048) {
 	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
-if ($USE_PATH_INFO != 'Y') {
-	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
-} else {
+if ($FUD_OPT_2 & 32768) {
 	$_SERVER['QUERY_STRING_ENC'] = $_SERVER['QUERY_STRING'];
+} else {
+	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
 }
 
 function make_tmp_unignore_lnk($id)
 {
-	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-		if (!isset($_GET['reveal'])) {
-			return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
-		} else {
-			return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
-		}
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
 		$p[3] = $_GET['start'];
 		if (empty($_GET['reveal'])) {
@@ -117,18 +111,18 @@ function make_tmp_unignore_lnk($id)
 			}
 		}
 		return '/' . implode('/', $p) . '/';
+	} else {
+		if (!isset($_GET['reveal'])) {
+			return $_SERVER['QUERY_STRING_ENC'] . '&amp;reveal='.$id;
+		} else {
+			return str_replace('&amp;reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		}
 	}
 }
 
 function make_reveal_link($id)
 {
-	if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-		if (!isset($GLOBALS['__FMDSP__'])) {
-			return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
-		} else {
-			return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
-		}
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		$p = explode('/', substr($GLOBALS['QUERY_STRING_ENC'], 1, -1));
 		$p[3] = $_GET['start'];
 
@@ -146,6 +140,12 @@ function make_reveal_link($id)
 			}
 		}
 		return '/' . implode('/', $p) . '/';
+	} else {
+		if (!isset($GLOBALS['__FMDSP__'])) {
+			return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
+		} else {
+			return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
+		}
 	}
 }
 
@@ -157,6 +157,9 @@ function make_reveal_link($id)
  */
 function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 {
+	$o1 =& $GLOBALS['FUD_OPT_1'];
+	$o2 =& $GLOBALS['FUD_OPT_2'];
+
 	/* draw next/prev message controls */
 	if (!$hide_controls && $misc) {
 		/* tree view is a special condition, we only show 1 message per page */
@@ -215,13 +218,13 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	if ($obj->user_id) {
 		if (!$hide_controls) {
-			if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $GLOBALS['CUSTOM_AVATARS'] != 'OFF' && $obj->level_opt != 2) {
+			if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $o1 & 28 && $obj->level_opt != 2) {
 				$avatar = '{TEMPLATE: dmsg_avatar}';
 			} else {
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
 			}
 
-			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
+			if (($o2 & 32 && !($obj->users_opt & 32768)) || $usr->users_opt & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 			} else {
 				$online_indicator = '';
@@ -261,7 +264,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
 				$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
 				$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
-				if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
+				if ($o2 & 2048) { 
 					$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
 				} else {
 					$im_affero = '';
@@ -364,9 +367,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		
 	/* Determine if the message was updated and if this needs to be shown */
 	if ($obj->update_stamp) {
-		if ($obj->updated_by != $obj->poster_id && $GLOBALS['EDITED_BY_MOD'] == 'Y') {
+		if ($obj->updated_by != $obj->poster_id && $o1 & 67108864) {
 			$modified_message = '{TEMPLATE: dmsg_modified_message_mod}';
-		} else if ($obj->updated_by == $obj->poster_id && $GLOBALS['SHOW_EDITED_BY'] == 'Y') {
+		} else if ($obj->updated_by == $obj->poster_id && $o1 & 33554432) {
 			$modified_message = '{TEMPLATE: dmsg_modified_message}';
 		} else {
 			$modified_message = '';
@@ -377,13 +380,13 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	
 	$rpl = '';
 	if (!$hide_controls) {
-		if (($usr->users_opt & (1048576|524288)) || $GLOBALS['DISPLAY_IP'] == 'Y') {
+		if (($usr->users_opt & (1048576|524288)) || $o1 & 134217728) {
 			$ip_address = '{TEMPLATE: dmsg_ip_address}';
 		} else {
 			$ip_address = '';
 		}
 
-		if ($obj->host_name && $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y') {
+		if ($obj->host_name && $o1 & 268435456) {
 			if (strlen($obj->host_name) > 30) {
 				$obj->host_name = wordwrap($obj->host_name, 30, '<br />', 1);
 			}
@@ -391,10 +394,10 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		} else {
 			$host_name = '';
 		}
-	
+
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 
-		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->msg_opt & 1 && $usr->users_opt & 4096) {
+		if ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $usr->users_opt & 4096) {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
 			$signature = '';
@@ -413,8 +416,8 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		if ($obj->user_id) {
 			$user_profile = '{TEMPLATE: dmsg_user_profile}';
-			$email_link = ($GLOBALS['ALLOW_EMAIL'] == 'Y' && $obj->users_opt & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
-			$private_msg_link = $GLOBALS['PM_ENABLED'] == 'Y' ? '{TEMPLATE: dmsg_private_msg_link}' : '';
+			$email_link = ($o1 & 4194304 && $obj->users_opt & 16) ? '{TEMPLATE: dmsg_email_link}' : '';
+			$private_msg_link = $o1 & 1024 ? '{TEMPLATE: dmsg_private_msg_link}' : '';
 		} else {
 			$user_profile = $email_link = $private_msg_link = '';
 		}

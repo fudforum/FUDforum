@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.9 2003/09/29 22:24:27 hackie Exp $
+*   $Id: glob.inc,v 1.10 2003/09/30 01:42:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -54,7 +54,7 @@ function print_bit_field($descr, $field)
 		rsort($tmp);
 		$val = 0;
 		foreach ($tmp as $v) {
-			if ($GLOBALS[$o[0]] & (int) $v) {
+			if (($GLOBALS[$o[0]] & (int) $v) == $v) {
 				$val = $v;
 				break;
 			}
@@ -93,15 +93,15 @@ function change_global_settings($list)
 			$e = strpos($settings, ';', $p);
 
 			if (is_int($v)) {
-				$settings = substr_replace($settings, '= '.$v, $p, ($e - $p));
+				$settings = substr_replace($settings, ' '.$v, $p, ($e - $p));
 			} else {
 				$v = addcslashes($v, '\\"');
-				$settings = substr_replace($settings, '= "'.$v.'"', $p, ($e - $p));
+				$settings = substr_replace($settings, ' "'.$v.'"', $p, ($e - $p));
 			}
 		}
 	}
 
-	$fp = fopen($GLOBALS['INCLUDE'] . $name, 'w');
+	$fp = fopen($GLOBALS['INCLUDE'].'GLOBALS.php', 'w');
 	fwrite($fp, $settings);
 	fclose($fp);
 }

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.28 2003/09/18 16:09:38 hackie Exp $
+*   $Id: admuser.php,v 1.29 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -348,7 +348,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<tr bgcolor="#f1f1f1">
 	<td colspan=2>
 <?php
-	if ($GLOBALS['PM_ENABLED'] == 'Y') {
+	if ($FUD_OPT_1 & 1024) {
 		echo '<a href="../'.__fud_index_name__.'?t=ppost&'._rsidl.'&toi='.$usr_id.'">Send Private Message</a> | ';
 	}
 	if ($GLOBALS['ALLOW_EMAIL'] == 'Y') {

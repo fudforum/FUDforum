@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.9 2003/04/02 12:19:22 hackie Exp $
+*   $Id: tabs.inc.t,v 1.10 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@ if (_uid) {
 	}
 
 	if (!$mod_id_chk) {
-		if ($GLOBALS['PM_ENABLED'] == 'Y') {
+		if ($FUD_OPT_1 & 1024) {
 			$tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
 		}
 		$pg = ($_GET['t'] == 'pmsg_view' || $_GET['t'] == 'ppost') ? 'pmsg' : $_GET['t'];

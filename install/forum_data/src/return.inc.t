@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: return.inc.t,v 1.12 2003/06/03 14:01:46 hackie Exp $
+*   $Id: return.inc.t,v 1.13 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,28 +17,28 @@
 
 function check_return($returnto)
 {
-	if ($GLOBALS['USE_PATH_INFO'] == 'N' || empty($_SERVER['PATH_INFO'])) {
-		if (!$returnto || !strncmp($returnto, 't=error', 7)) {
-			header('Location: {ROOT}?t=index&'._rsidl);
-		} else {
-			if (strpos($returnto, 'S=') === FALSE && $GLOBALS['SESSION_USE_URL'] == 'Y') {
-				header('Location: {ROOT}?'.$returnto.'&S='.s);
-			} else {
-				header('Location: {ROOT}?'.$returnto);
-			}
-		}
-	} else {
+	if ($FUD_OPT_2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 		if (!$returnto || !strncmp($returnto, '/er/', 4)) {
 			$pfx = '';
-			if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+			if ($FUD_OPT_2 & 8192) {
 				$pfx .= _uid . '/';
 			}
-			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+			if ($FUD_OPT_1 & 128) {
 				$pfx .= s . '/';
 			}
 			header('Location: {ROOT}/i/'.$pfx);
 		} else {
 			header('Location: {ROOT}'.$returnto);
+		}
+	} else {
+		if (!$returnto || !strncmp($returnto, 't=error', 7)) {
+			header('Location: {ROOT}?t=index&'._rsidl);
+		} else {
+			if (strpos($returnto, 'S=') === false && $FUD_OPT_1 & 128) {
+				header('Location: {ROOT}?'.$returnto.'&S='.s);
+			} else {
+				header('Location: {ROOT}?'.$returnto);
+			}
 		}
 	}
 	exit;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.43 2003/09/26 18:49:03 hackie Exp $
+*   $Id: ppost.php.t,v 1.44 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,10 +51,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if (!_uid) {
 		std_error('perms');
 	}
-	if ($PM_ENABLED == 'N') {
+	if (!($FUD_OPT_1 & 1024)) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
-	if ($usr->pm_messages == 'N') {
+	if (!($usr->users_opt & 32)) {
 		error_dialog('{TEMPLATE: pm_err_disabled_title}', '{TEMPLATE: pm_err_disabled_msg}');
 	}
 	if (($fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid)) > $MAX_PMSG_FLDR_SIZE) {
@@ -62,8 +62,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 	is_allowed_user($usr);
 
-	$attach_control_error = NULL;
-	$pm_find_user = $MEMBER_SEARCH_ENABLED == 'Y' ? '{TEMPLATE: pm_find_user}' : '';
+	$attach_control_error = null;
+	$pm_find_user = $FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: pm_find_user}' : '';
 
 	$attach_count = 0; $file_array = '';
 
@@ -71,8 +71,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		/* setup some default values */
 		$msg_subject = $msg_body = $msg_icon = $old_subject = $msg_ref_msg_id = '';
 		$msg_track = '';
-		$msg_show_sig = $usr->append_sig == 'Y' ? '1' : '';
-		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? '' : '2';
+		$msg_show_sig = $usr->users_opt & 2048 ? '1' : '';
+		$msg_smiley_disabled = $FUD_OPT_1 & 8192 ? '' : '2';
 		$reply = $forward = $msg_id = 0;
 		
 		/* deal with users passed via GET */
@@ -99,17 +99,14 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				}
 
 				if ($quote) {
-					switch ($PRIVATE_TAGS) {
-						case 'ML':
-							$msg_body = '{TEMPLATE: fud_quote}';
-							break;
-						case 'HTML':
-							$msg_body = '{TEMPLATE: html_quote}';
-							break;
-						default:
-							$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+					if ($FUD_OPT_1 & 4096) {
+						$msg_body = '{TEMPLATE: fud_quote}';
+					} else if ($FUD_OPT_1 & 2048) {
+						$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+					} else {
+						$msg_body = '{TEMPLATE: html_quote}';
 					}
-				
+
 					if (strncmp($msg_subject, 'Re: ', 4)) {
 						$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 					}
@@ -227,23 +224,19 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_p->to_list = $_POST['msg_to_list'];
 		
 		$msg_p->body = apply_custom_replace($msg_p->body);
-		switch ($PRIVATE_TAGS) {
-			case 'ML':
-				$msg_p->body = tags_to_html($msg_p->body, $PRIVATE_IMAGES);
-				break;
-			case 'HTML':
-				break;
-			default:
-				$msg_p->body = nl2br(htmlspecialchars($msg_p->body));	
+		if ($FUD_OPT_1 & 4096) {
+			$msg_p->body = tags_to_html($msg_p->body, $PRIVATE_IMAGES);
+		} else if ($FUD_OPT_1 & 2048) {
+			$msg_p->body = nl2br(htmlspecialchars($msg_p->body));
 		}
 		
 		if (!($msg_p->pmsg_opt & 2)) {
 			$msg_p->body = smiley_to_post($msg_p->body);
 		}
 		fud_wordwrap($msg_p->body);
-		
+
 		$msg_p->ouser_id = _uid;
-		
+
 		$msg_p->subject = apply_custom_replace($msg_p->subject);
 		$msg_p->subject = htmlspecialchars($msg_p->subject);
 	
@@ -253,7 +246,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			} else if ($_POST['forward']) {
 				$msg_p->ref_msg_id = 'F'.$_POST['forward'];
 			} else {
-				$msg_p->ref_msg_id = NULL;
+				$msg_p->ref_msg_id = null;
 			}
 
 			$msg_p->add();
@@ -290,10 +283,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				}
 			}
 		}
-		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-			header('Location: {ROOT}?t=pmsg&'._rsidl.'&fldr=1');
-		} else {
+
+		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/pdm/1/'._rsidl);
+		} else {
+			header('Location: {ROOT}?t=pmsg&'._rsidl.'&fldr=1');
 		}
 		exit;
 	}
@@ -304,37 +298,28 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
 		
-		switch ($PRIVATE_TAGS) {
-			case 'ML':
-				$text = tags_to_html($text, $PRIVATE_IMAGES);
-				break;
-			case 'HTML':
-				break;
-			default:
-				$text = htmlspecialchars($text);
+		if ($FUD_OPT_1 & 4096) {
+			$text = tags_to_html($text, $FUD_OPT_1 & 16384);
+		} else if ($FUD_OPT_1 & 2048) {
+			$text = htmlspecialchars($text);
 		}
 
-		if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
+		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 
-	 	if ($text) {	
+	 	if ($text) {
 			$text = spell_replace(tokenize_string($text), 'body');
 			
-			if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
+			if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 				$msg_body = post_to_smiley($text);
 			}
 			
-			switch ($PRIVATE_TAGS) {
-				case 'ML':
-					$msg_body = html_to_tags($msg_body);
-					break;
-				case 'HTML':
-					break;
-				default:
-					reverse_fmt($msg_body);		
+			if ($FUD_OPT_1 & 4096) {
+				$msg_body = html_to_tags($msg_body);
+			} else if ($FUD_OPT_1 & 2048) {
+				reverse_fmt($msg_body);
 			}
-			
 			$msg_body = apply_reverse_replace($msg_body);
 		}	
 			
@@ -347,37 +332,30 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
-	
+
 /*{POST_HTML_PHP}*/
-	
+
 	$cur_ppage = tmpl_cur_ppage('', $folders);
 
-	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
-		$spell_check_button = '{TEMPLATE: spell_check_button}';
-	} else {
-		$spell_check_button = '';
-	}
+	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('pspell') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
 
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
 
-		switch ($PRIVATE_TAGS) {
-			case 'ML':
-				$text = tags_to_html($text, $PRIVATE_IMAGES);
-				break;
-			case 'HTML':
-				break;
-			default:
-				$text = nl2br(htmlspecialchars($text));
+		if ($FUD_OPT_1 & 4096) {
+			$text = tags_to_html($text, $FUD_OPT_1 & 16384);
+		} else if ($FUD_OPT_1 & 2048) {
+			$text = nl2br(htmlspecialchars($text));
 		}
-		if ($PRIVATE_MSG_SMILEY == 'Y' && !$msg_smiley_disabled) {
+
+		if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 		$text_s = htmlspecialchars($text_s);
 	
-		$spell = (isset($_POST['spell']) && function_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
-	
+		$spell = empty($spell_check_button);
+
 		if ($spell && strlen($text)) {
 			$text = check_data_spell($text, 'body', $usr->pspell_lang);
 		}
@@ -385,7 +363,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$subj = ($spell && !$no_spell_subject && $text_s) ? check_data_spell($text_s, 'subject', $usr->pspell_lang) : $text_s;
 
-		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && $msg_show_sig) ? '{TEMPLATE: signature}' : '';
+		$signature = ($FUD_OPT_1 & 32768 && $usr->sig && $msg_show_sig) ? '{TEMPLATE: signature}' : '';
 		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
 		$preview_message = '{TEMPLATE: preview_message}';
 	} else {
@@ -398,16 +376,16 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_subect_err = get_err('msg_subject');
 	$message_err = get_err('msg_body',1);
 
-	$post_smilies = $PRIVATE_MSG_SMILEY == 'Y' ? draw_post_smiley_cntrl() : '';
+	$post_smilies = $FUD_OPT_1 & 8192 ? draw_post_smiley_cntrl() : '';
 	$post_icons = draw_post_icons($msg_icon);
-	$fud_code_icons = $PRIVATE_TAGS == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
+	$fud_code_icons = $FUD_OPT_1 & 4096? '{TEMPLATE: fud_code_icons}' : '';
 
 	$post_options = tmpl_post_options('private');
 
-	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-		$private = '&amp;private=1';
-	} else {
+	if ($FUD_OPT_2 & 32768) {
 		$private = '1';
+	} else {
+		$private = '&amp;private=1';
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {	
@@ -419,7 +397,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_track_check = $msg_track ? ' checked' : '';
 	$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
 
-	if ($PRIVATE_MSG_SMILEY == 'Y') {
+	if ($FUD_OPT_1 & 8192) {
 		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	} else {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.25 2003/09/28 21:07:39 hackie Exp $
+*   $Id: actions.php.t,v 1.26 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if ($ACTION_LIST_ENABLED != 'Y') {
+	if (!($FUD_OPT_1 & 536870912)) {
 		std_error('disabled');
 	}
 
@@ -79,10 +79,10 @@
 
 					if ($s{strlen($s) - 1} == '/') {
 						$tmp = explode('/', substr(str_replace('{ROOT}', '', $s), 1, -1));
-						if ($SESSION_USE_URL == 'Y') {
+						if ($FUD_OPT_1 & 128) {
 							array_pop($tmp);
 						}
-						if ($TRACK_REFERRALS == 'Y') {
+						if ($FUD_OPT_2 & 8192) {
 							array_pop($tmp);
 						}
 						$tmp[] = _rsid;

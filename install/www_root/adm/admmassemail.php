@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.15 2003/09/18 14:37:19 hackie Exp $
+*   $Id: admmassemail.php,v 1.16 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@
 
 	/* find groups with members */
 	$groups = array();
-	$c = uq('select count(*), g.id, g.name from '.$GLOBALS['DBHOST_TBL_PREFIX'].'group_members gm INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'groups g ON g.id=gm.group_id WHERE gm.user_id NOT IN(0,2147483647) GROUP BY g.id, g.name');
+	$c = uq('select count(*), g.id, g.name from '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'groups g ON g.id=gm.group_id WHERE gm.user_id NOT IN(0,2147483647) GROUP BY g.id, g.name');
 	while (list($cnt, $gid, $gname) = db_rowarr($c)) {
 		$groups[$gid] = array($gname, $cnt);
 	}
@@ -32,13 +32,13 @@
 
 	if (!empty($_POST['subject']) && !empty($_POST['body'])) {
 		if (!$_POST['group']) {
-			$c = uq('SELECT email FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users '.(isset($POST['ignore_override']) ? '' : 'WHERE ignore_admin=\'N\''));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'users '.(isset($POST['ignore_override']) ? '' : 'WHERE ignore_admin=\'N\''));
 		} else if (!isset($groups[$_POST['group']])) {
 			echo '<font color="+1" color="red">Invalid group id</font><br />';
 			$err = 1;
-			$c = uq('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE id=-1');
+			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'users WHERE id=-1');
 		} else {
-			$c = uq('SELECT email FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'group_members gm INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND u.ignore_admin=\'N\''));
+			$c = uq('SELECT email FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$_POST['group'].(isset($POST['ignore_override']) ? '' : ' AND u.ignore_admin=\'N\''));
 		}
 
 		$email_block = 50;
@@ -46,7 +46,7 @@
 		$send_to = $GLOBALS['ADMIN_EMAIL'];
 		$to = array();
 		
-		if ($GLOBALS['USE_SMTP'] == 'N') {
+		if (!($FUD_OPT_1 & 512)) {
 			if (version_compare("4.3.3RC2", PHP_VERSION, ">")) {
 				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
 			}

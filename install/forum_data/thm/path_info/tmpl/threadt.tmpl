@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.tmpl,v 1.5 2003/09/20 04:07:41 hackie Exp $
+*   $Id: threadt.tmpl,v 1.6 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -91,7 +91,7 @@
 <tr>		
 <td width=1 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 style="border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{VAR: cur->subject}</a></td>
+<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{VAR: cur->subject}</a>{VAR: sticky}</td>
 <td class="RowStyleB" nowrap style="border-bottom: 1px solid white;">{TEMPLATE-DATA: user_link}</td>
 <td class="RowStyleB" nowrap style="border-right: 1px solid black; border-bottom: 1px solid white;"><font class="DateText">{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</font></td>
 </tr>

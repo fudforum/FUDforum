@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: quicklogin.inc.t,v 1.3 2003/04/10 17:37:00 hackie Exp $
+*   $Id: quicklogin.inc.t,v 1.4 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 	if (__fud_real_user__) {
 		$quick_login = '{TEMPLATE: quick_login_loged_in}';
 	} else {
-		$quick_login_cookie = $GLOBALS['SESSION_USE_URL'] == 'Y' ? '{TEMPLATE: quick_login_cookie}' : '';
+		$quick_login_cookie = $FUD_OPT_1 & 128 ? '{TEMPLATE: quick_login_cookie}' : '';
 		$quick_login = '{TEMPLATE: quick_login_on}';
 	}
 ?>

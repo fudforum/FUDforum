@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.21 2003/09/26 18:49:03 hackie Exp $
+*   $Id: private.inc.t,v 1.22 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ class fud_pmsg
 
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
-		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 
 		if ($this->fldr != 1) {
 			$this->read_stamp = $this->post_stamp;
@@ -120,7 +120,7 @@ class fud_pmsg
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
-		$c =  uq('SELECT id, email, notify_method, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND pm_notify=\'Y\'');
+		$c =  uq('SELECT id, email, users_opt, icq FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $GLOBALS['recv_user_id']).') AND users_opt>=64 AND users_opt & 64');
 
 		$from = $GLOBALS['usr']->alias;
 		reverse_fmt($from);
@@ -132,7 +132,7 @@ class fud_pmsg
 			if ($r[0] == $this->ouser_id) {
 				continue;
 			}
-			if ($r[2] == 'ICQ') {
+			if (!($r[2] & 4)) {
 				$r[1] = $r[3] . '@pager.icq.com';
 			}
 			send_pm_notification($r[1], $um[$r[0]], $subject, $from, $r[2]);
@@ -145,7 +145,7 @@ class fud_pmsg
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
-		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 
 		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
 			to_list=".strnull(addslashes($this->to_list)).",
@@ -171,7 +171,7 @@ class fud_pmsg
 
 function set_nrf($nrf, $id)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt &~ 32 &~ 64) | ".$nrf." WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt|96) &~ 96) | ".$nrf." WHERE id=".$id);
 }	
 
 function write_pmsg_body($text)
@@ -189,7 +189,7 @@ function write_pmsg_body($text)
 	fclose($fp);
 
 	if (!$s) {
-		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 	}
 
 	return array($s, $len);
@@ -242,11 +242,11 @@ function send_pm_notification($email, $pid, $subject, $from, $not_mthd)
 
 	if ($not_mthd == 'EMAIL') {
 		$pfx = '';
-		if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
-			if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+		if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
+			if ($GLOBALS['FUD_OPT_1'] & 128) {
 				$pfx .= '0/';
 			}
-			if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+			if ($GLOBALS['FUD_OPT_2'] & 8192) {
 				$pfx .= '0/';
 			}
 		}

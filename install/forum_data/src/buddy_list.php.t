@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.21 2003/09/29 08:00:10 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.22 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,11 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: buddy_list_update}');
 
-	$buddy_member_search = ($MEMBER_SEARCH_ENABLED == 'Y') ? '{TEMPLATE: buddy_member_search}' : '';
+	if ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304)) {
+		$buddy_member_search = '{TEMPLATE: buddy_member_search}';
+	} else {
+		$buddy_member_search = '';
+	}
 
 /*{POST_HTML_PHP}*/
 
@@ -91,7 +95,7 @@
 				$bday_indicator = '';
 			}
 
-			$contact_link = $PM_ENABLED == 'Y' ? '{TEMPLATE: pm_link}' : '{TEMPLATE: email_link}';
+			$contact_link = $FUD_OPT_1 & 1024 ? '{TEMPLATE: pm_link}' : '{TEMPLATE: email_link}';
 
 			$buddies .= '{TEMPLATE: buddy}';
 		} while (($r = db_rowarr($c)));

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.25 2003/09/24 19:54:58 hackie Exp $
+*   $Id: db.inc,v 1.26 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 }
 
 if (!defined('FUD_SQL_LNK')) {
-	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'pg_pconnect' : 'pg_connect';	
+	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';	
 	
 	$connect_str = '';
 	if ($GLOBALS['DBHOST']) {

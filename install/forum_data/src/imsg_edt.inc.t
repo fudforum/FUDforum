@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.73 2003/09/28 19:19:44 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.74 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@ class fud_msg_edit extends fud_msg
 		if (!isset($this->ip_addr)) {
 			$this->ip_addr = get_ip();
 		}
-		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
 		$this->reply_to = isset($this->reply_to) ? $this->reply_to : 0;
 
@@ -213,7 +213,7 @@ class fud_msg_edit extends fud_msg
 			db_unlock();
 		}
 
-		if ($GLOBALS['FORUM_SEARCH'] == 'Y') {
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
 			delete_msg_index($this->id);
 			index_text((preg_match('!^Re: !i', $this->subject) ? '': $this->subject), $this->body, $this->id);
 		}
@@ -397,7 +397,7 @@ class fud_msg_edit extends fud_msg
 
 		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);
 
-		if ($GLOBALS['FORUM_SEARCH'] == 'Y') {
+		if ($GLOBALS['FUD_OPT_1'] & 16777216) {
 			index_text((preg_match('!Re: !i', $mtf->subject) ? '': $mtf->subject), $mtf->body, $mtf->id);
 		}
 
@@ -538,7 +538,7 @@ function write_body($data, &$len, &$offset)
 	fclose($fp);
 
 	if (!$off) {
-		@chmod('msg_'.$i, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+		@chmod('msg_'.$i, ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
 	}
 	$offset = $off;
 
@@ -631,7 +631,7 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 		}
 	}
 
-	if ($GLOBALS['USE_PATH_INFO'] == 'Y') {
+	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		$pfx = str_repeat('/', substr_count(_rsid, '/'));
 	}
 
@@ -643,7 +643,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
 		$do_email = 1;
 		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
-		if ($GLOBALS['NOTIFY_WITH_BODY'] == 'Y') {
+		if ($GLOBALS['FUD_OPT_2'] & 64) {
 			
 			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
 
@@ -659,11 +659,11 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$CHARSET = '{TEMPLATE: CHARSET}';
 		
 			$pfx = '';
-			if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
-				if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+			if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
+				if ($GLOBALS['FUD_OPT_1'] & 128) {
 					$pfx .= '0/';
 				}
-				if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+				if ($GLOBALS['FUD_OPT_2'] & 8192) {
 					$pfx .= '0/';
 				}
 			}

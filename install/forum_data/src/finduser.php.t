@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.22 2003/09/27 16:14:29 hackie Exp $
+*   $Id: finduser.php.t,v 1.23 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 
 	$adm = $usr->users_opt & 1048576;
 
-	if ($MEMBER_SEARCH_ENABLED != 'Y' && !$adm) {
+	if (!($FUD_OPT_1 & 8388608) && !_uid && !($FUD_OPT_1 & 4194304) && !$adm) {
 		std_error('disabled');
 	}
 
@@ -37,7 +37,7 @@
 	if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 		$start = 0;
 	}
-	$count = $GLOBALS['MEMBERS_PER_PAGE'];
+	$count = $MEMBERS_PER_PAGE;
 	
 	if (isset($_GET['pc'])) {
 		$ord = 'posted_msg_count DESC';
@@ -63,9 +63,9 @@
 	$find_user_data = '';
 	$c = uq('SELECT home_page, users_opt, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users WHERE ' . $qry . ' id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
-		$pm_link = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: pm_link}' : '';
+		$pm_link = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = $r->home_page ? '{TEMPLATE: homepage_link}' : '';
-		$email_link = ($ALLOW_EMAIL == 'Y' && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
+		$email_link = ($FUD_OPT_1 & 4194304 && $r->users_opt & 16) ? '{TEMPLATE: email_link}' : '';
 
 		if ($adm) {
 			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
@@ -85,25 +85,7 @@
 	if (!$qry) {
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users ' . $qry);
 		if ($total > $count) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
-				if ($usr_login) {
-					$pg .= urlencode($usr_login) . '&amp;';
-				}
-				if ($usr_email) {
-					$pg .= urlencode($usr_email) . '&amp;';
-				}
-				if (isset($_GET['pc'])) {
-					$pg .= 'pc=1&amp;';
-				}
-				if (isset($_GET['us'])) {
-					$pg .= 'us=1&amp;';
-				}
-				if (isset($_GET['js_redr'])) {
-					$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
-				}
-				$pager = tmpl_create_pager($start, $count, $total, $pg);
-			} else {
+			if ($FUD_OPT_2 & 32768) {
 				$pg = '{ROOT}/ml/';
 				if (isset($_GET['pc'])) {
 					$pg .= '1/';
@@ -130,6 +112,25 @@
 				}
 
 				$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
+			} else {
+				
+				$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
+				if ($usr_login) {
+					$pg .= urlencode($usr_login) . '&amp;';
+				}
+				if ($usr_email) {
+					$pg .= urlencode($usr_email) . '&amp;';
+				}
+				if (isset($_GET['pc'])) {
+					$pg .= 'pc=1&amp;';
+				}
+				if (isset($_GET['us'])) {
+					$pg .= 'us=1&amp;';
+				}
+				if (isset($_GET['js_redr'])) {
+					$pg .= 'js_redr='.urlencode($_GET['js_redr']).'&amp;';
+				}
+				$pager = tmpl_create_pager($start, $count, $total, $pg);
 			}
 		}
 	}

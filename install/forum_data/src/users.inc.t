@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.71 2003/09/28 10:29:53 hackie Exp $
+*   $Id: users.inc.t,v 1.72 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,13 +17,16 @@
 
 function init_user()
 {
+	$o1 =& $GLOBALS['FUD_OPT_1'];
+	$o2 =& $GLOBALS['FUD_OPT_2'];
+
 	/* we need to parse S & rid right away since they are used during user init */
-	if ($GLOBALS['USE_PATH_INFO'] == 'Y' && !empty($_SERVER['PATH_INFO'])) {
+	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
 		$p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
-		if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+		if ($o1 & 128) {
 			$_GET['S'] = array_pop($p);
 		}
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+		if ($o2 & 8192) {
 			$_GET['rid'] = array_pop($p);
 		}
 		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'];		
@@ -52,34 +55,34 @@ function init_user()
 
 	/* theme path */
 	@define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
-		
+
 	/* define _uid, which, will tell us if this is a 'real' user or not */
 	define('_uid', ($u->users_opt & 131072) && !($u->users_opt & 2097152) ? $u->id : 0);
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 
 	/* define constants used to track URL sessions & referrals */
-	if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+	if ($o1 & 128) {
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
-			if ($GLOBALS['USE_PATH_INFO'] != 'Y') { 
-				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s); define('_rsidl', 'rid='.__fud_real_user__.'&S='.s);
-			} else {
+		if ($o2 & 8192) {
+			if ($o2 & 32768) { 
 				define('_rsid', __fud_real_user__ . '/' . s . '/'); define('_rsidl', _rsid);
+			} else {
+				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s); define('_rsidl', 'rid='.__fud_real_user__.'&S='.s);
 			}
 		} else {
-			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-				define('_rsid',  'S='.s); define('_rsidl', _rsid);
-			} else {
+			if ($o2 & 32768) {
 				define('_rsid', s . '/'); define('_rsidl', _rsid);
+			} else {
+				define('_rsid',  'S='.s); define('_rsidl', _rsid);
 			}
 		}
 	} else {
 		define('s', ''); define('_hs', '');
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y') { 
-			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
-				define('_rsid',  'rid='.__fud_real_user__); define('_rsidl', _rsid);
-			} else {
+		if ($o2 & 8192) {
+			if ($o2 & 32768) {
 				define('_rsid', __fud_real_user__ . '/'); define('_rsidl', _rsid);
+			} else {
+				define('_rsid',  'rid='.__fud_real_user__); define('_rsidl', _rsid);
 			}
 		} else {
 			define('_rsid', ''); define('_rsidl', ''); 

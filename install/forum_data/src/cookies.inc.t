@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.32 2003/09/26 15:58:42 hackie Exp $
+*   $Id: cookies.inc.t,v 1.33 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,11 +17,10 @@
 
 function ses_make_sysid()
 {
-	if ($GLOBALS['SESSION_USE_URL'] != 'Y') {
-		return;
+	if ($GLOBALS['FUD_OPT_1'] & 128) {
+		return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
 	}
-
-	return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
+	return;
 }
 
 function ses_get($id=0)
@@ -29,7 +28,7 @@ function ses_get($id=0)
 	if (!$id) {
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 			$q_opt = "s.ses_id='".addslashes($_COOKIE[$GLOBALS['COOKIE_NAME']])."'";
-		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['SESSION_USE_URL'] == 'Y') {
+		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."' AND sys_id='".ses_make_sysid()."'";
 		} else {
 			return;
@@ -40,9 +39,7 @@ function ses_get($id=0)
 
 	return db_sab('SELECT 
 		s.id AS sid, s.ses_id, s.data, s.returnto,
-		
 		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang,	
-		
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt,
 		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login
 	FROM {SQL_TABLE_PREFIX}ses s 
@@ -60,7 +57,7 @@ function ses_anon_make()
 	db_unlock();
 
 	/* when we have an anon user, we set a special cookie allowing us to see who referred this user */
-	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['TRACK_REFERRALS'] == 'Y') {
+	if (isset($_GET['rid']) && !isset($_COOKIE['frm_referer_id']) && $GLOBALS['FUD_OPT_2'] & 8192) {
 		setcookie($GLOBALS['COOKIE_NAME'].'_referer_id', $_GET['rid'], __request_timestamp__+31536000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
 	setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
@@ -84,7 +81,7 @@ function ses_putvar($ses_id, $data)
 
 function ses_delete($ses_id)
 {
-	if ($GLOBALS['MULTI_HOST_LOGIN'] != 'Y') {
+	if (!($GLOBALS['FUD_OPT_2'] & 256)) {
 		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$ses_id);
 	}
 	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);

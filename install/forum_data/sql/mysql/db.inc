@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.22 2003/09/24 19:54:58 hackie Exp $
+*   $Id: db.inc,v 1.23 2003/09/30 01:42:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,12 +60,12 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 }
 
 if (!defined('FUD_SQL_LNK')) {
-	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'mysql_pconnect' : 'mysql_connect';
-	
+	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'mysql_pconnect' : 'mysql_connect';
+
 	$conn = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']) or die (fud_sql_error_handler("Initiating $connect_func", mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), "Unknown"));
 	define('FUD_SQL_LNK', $conn);
 	mysql_select_db($GLOBALS['DBHOST_DBNAME'], FUD_SQL_LNK) or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error(FUD_SQL_LNK), mysql_errno(FUD_SQL_LNK), get_version()));
-		
+
 	define('__dbtype__', 'mysql');
 	define('__FUD_SQL_CONCAT__', 'CONCAT');
 }
