@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: replace.inc.t,v 1.3 2003/04/08 17:00:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,58 +17,55 @@
 
 function apply_custom_replace($text)
 {
-	if ( !($arr = make_replace_array()) ) return $text;
-	return preg_replace($arr['pattern'], $arr['replace'], $text);
+	if (!defined('__fud_replace_init')) {
+		make_replace_array();
+	}
+	if (!isset($GLOBALS['__FUD_REPL__'])) {
+		return $text;
+	}
+
+	return preg_replace($GLOBALS['__FUD_REPL__']['pattern'], $GLOBALS['__FUD_REPL__']['replace'], $text);
 }
 
 function make_replace_array()
 {
-	$res = q("SELECT * FROM {SQL_TABLE_PREFIX}replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL");
-	if ( !is_result($res) ) return;
-	
-	$arr['pattern'] = array();
-	$arr['replace'] = array();
-	
-	while ( $obj = db_rowobj($res) ) {
-		if ( strlen($obj->with_str) && strlen($obj->replace_str) ) { 
-			$arr['pattern'][] = $obj->replace_str;
-			$arr['replace'][] = $obj->with_str;
-		}	
+	$c = uq('SELECT with_str, replace_str FROM {SQL_TABLE_PREFIX}replace WHERE replace_str IS NOT NULL AND with_str IS NOT NULL AND LENGTH(replace_str)>0');
+	while ($r = db_rowarr($c)) {
+		$GLOBALS['__FUD_REPL__']['pattern'][] = $r[1];
+		$GLOBALS['__FUD_REPL__']['replace'][] = $r[0];
 	}
+	qf($c);
 	
-	qf($res);
-	
-	return $arr;
+	define('__fud_replace_init', 1);
 }
 
 function make_reverse_replace_array()
 {
-	$res = q("SELECT * FROM {SQL_TABLE_PREFIX}replace");
-	if ( !is_result($res) ) return;
-	
-	$arr['pattern'] = array();
-	$arr['replace'] = array();
-	
-	while ( $obj = db_rowobj($res) ) {
-		if ( $obj->type == 'PERL' && strlen($obj->from_post) && strlen($obj->to_msg) ) {
-			$arr['pattern'][] = $obj->from_post;
-			$arr['replace'][] = $obj->to_msg;
-		}
-		else if ( $obj->type == 'REPLACE' && strlen($obj->with_str) && strlen($obj->replace_str) ) {
-			$arr['pattern'][] = '/'.str_replace('/', '\\/', preg_quote(stripslashes($obj->with_str))).'/';
-			preg_match('/\/(.+)\/(.*)/', $obj->replace_str, $regs);
-			$obj->replace_str = str_replace('\\/', '/', $regs[1]);
-			$arr['replace'][] = $obj->replace_str;
+	$c = uq('SELECT type, with_str, replace_str, from_post, to_msg FROM {SQL_TABLE_PREFIX}replace');
+
+	while ($r = db_rowarr($c)) {
+		if ($r[0] == 'PERL') {
+			$GLOBALS['__FUD_REPLR__']['pattern'][] = $r[3];
+			$GLOBALS['__FUD_REPLR__']['replace'][] = $r[4];
+		} else if ($type == 'REPLACE' && strlen($obj->with_str) && strlen($obj->replace_str)) {
+			$GLOBALS['__FUD_REPLR__']['pattern'][] = '/'.str_replace('/', '\\/', preg_quote(stripslashes($r[1]))).'/';
+			preg_match('/\/(.+)\/(.*)/', $r[2], $regs);
+			$GLOBALS['__FUD_REPLR__']['replace'][] = str_replace('\\/', '/', $regs[1]);
 		}
 	}
-	qf($res);
+	qf($c);
 
-	return $arr;
+	define('__fud_replacer_init', 1);
 }
 
 function apply_reverse_replace($text)
 {
-	if ( !($arr = make_reverse_replace_array()) ) return $text;
-	return preg_replace($arr['pattern'], $arr['replace'], $text);
+	if (!defined('__fud_replacer_init')) {
+		make_replace_array();
+	}
+	if (!isset($GLOBALS['__FUD_REPLR__'])) {
+		return $text;
+	}
+	return preg_replace($GLOBALS['__FUD_REPLR__']['pattern'], $GLOBALS['__FUD_REPLR__']['replace'], $text);
 }
 ?>
