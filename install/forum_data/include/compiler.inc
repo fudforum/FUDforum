@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.21 2003/04/24 21:30:02 hackie Exp $
+*   $Id: compiler.inc,v 1.22 2003/04/27 17:27:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,12 +97,13 @@ function parse_sections($str, $file)
 			} else {
 				$tr[$name] = array('file' => $GLOBALS['CURFILE'], 'data' => trim(substr($str, $e, ($e2 - $e))));
 			}
+
 			$p = $e2 + strlen($v) + 4;
 		}
 	}
 }
 
-function resolve_sections($str)
+function resolve_sections($str, $debug=0)
 {
 	if (($p = strpos($str, '{')) === FALSE) {
 		return $str;
@@ -110,16 +111,20 @@ function resolve_sections($str)
 
 	$op = 0;
 	$ret = '';
+	$ch_list =& $GLOBALS['__char_list'];
 
 	do {
+		$chr = $str[$p + 1];
+		if ($chr < 'A' || $chr > 'Z') {
+			++$p;
+			continue;
+		}
+
 		if ($op != $p) {
 			$ret .= substr($str, $op, ($p - $op));
 		}
-
 		++$p;
-		if ($str[$p] < 'A' || $str[$p] > 'Z') {
-			continue;
-		}
+
 		if (($e = strpos($str, '}', $p)) === FALSE) {
 			exit('unterminated tag '.substr($str, ($p - 1), 255));
 		}
@@ -244,7 +249,9 @@ function compile_file($source)
 			exit('Undefined template: "'.$name.'" inside "'.$source.'"');
 		}
 		$ref =& $GLOBALS['TC'][$sec][$name]['data'];
+
 		$ref = resolve_sections($ref);
+
 		if ($sec == 'PAGE') {
 			$ref = str_replace(".'", '; ?>', str_replace(".''", ".'", str_replace("'.", '<?php echo ', $ref)));
 		}
@@ -274,9 +281,7 @@ function generate_file($php_file)
 		 */
 
 		$ins = array('!' => '', '@' => '', 0 => '');
-	
-		$php_code_start = $php_code_end = $php_code_middle = '';
-	
+
 		if (isset($fc['include'])) {
 			foreach($fc['include'] as $v2) {
 				if ($v2 == $php_file) {
@@ -285,12 +290,12 @@ function generate_file($php_file)
 
 				$k = $v2;
 				$v =& $GLOBALS['file_cache'][$v2];
+
 				if (empty($v['compiled']) && !isset($v['inline'])) {
 					$v['compiled'] = compile_file($v['src']);
 				}
-
 	        		if (isset($v['inline'])) {
-	        			continue;
+					continue;
 	        		}
 
 				$s = strpos($v['compiled'], '*/')+2;
@@ -298,7 +303,7 @@ function generate_file($php_file)
 				if (!isset($ins[$k])) {
 					$k = 0;
 				}
-				$ins[$k] = str_replace(" ''.", ' ', str_replace(".''", '', trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s)))));
+				$ins[$k] .= str_replace(" ''.", ' ', str_replace(".''", '', trim(substr($v['compiled'], $s, (strrpos($v['compiled'], '?>') - $s)))));
 			}
 
 			$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], str_replace('/*{POST_HTML_PHP}*/', $ins['@'], str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data)));
@@ -362,13 +367,14 @@ function resolve_inc_refs($file)
 	if (isset($GLOBALS['file_cache'][$file]['include']) && is_array($GLOBALS['file_cache'][$file]['include'])) {
 		$ar = array();
 		foreach($GLOBALS['file_cache'][$file]['include'] as $k => $v) {
-			if( !isset($GLOBALS['file_cache'][$k]['include']) ) 
+			if (!isset($GLOBALS['file_cache'][$k]['include'])) {
 				$ar[$k] = $k;
-			else {
-				if( !isset($GLOBALS['file_cache'][$k]['resolved']) )
+			} else {
+				if (!isset($GLOBALS['file_cache'][$k]['resolved'])) {
 					$ar = array_merge($ar, resolve_inc_refs($k));
-				else
-					$ar = array_merge($ar, $GLOBALS['file_cache'][$k]['include']);	
+				} else {
+					$ar = array_merge($ar, $GLOBALS['file_cache'][$k]['include']);
+				}
 			}	
 		}
 		$ar[$file] = $file;
