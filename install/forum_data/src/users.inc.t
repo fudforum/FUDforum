@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.61 2003/06/10 01:29:22 hackie Exp $
+*   $Id: users.inc.t,v 1.62 2003/06/17 14:55:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function init_user()
 	setlocale(LC_ALL, $u->locale);
 
 	/* view format for threads & messages */
-	define('d_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
+	define('d_thread_view', (($u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
 	define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
 
 	/* theme path */
