@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: customtags.inc.t,v 1.3 2002/06/26 19:35:54 hackie Exp $
+*   $Id: customtags.inc.t,v 1.4 2002/06/26 22:16:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,14 +35,9 @@ class fud_custom_tag
 	
 	function add()
 	{
-		if ( !db_locked() ) {
-			db_lock("{SQL_TABLE_PREFIX}custom_tags+");
-			$ll=1;
-		}
 		$r=q("INSERT INTO {SQL_TABLE_PREFIX}custom_tags(name, user_id) VALUES('".$this->name."', ".$this->user_id.")");
 		$this->sync();
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}custom_tags", $r);
-		if ( $ll ) db_unlock();
 		return $this->id;
 	}
 	
