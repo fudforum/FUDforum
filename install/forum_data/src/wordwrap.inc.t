@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.3 2002/08/05 00:40:56 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.4 2003/04/07 16:04:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,18 +17,17 @@
 
 function fud_wrap_tok($data)
 {
-	if( !($len=strlen($data)) ) return array();
 	$wa = array();
+	$len = strlen($data);
 	
 	$i=$j=$p=0;
 	$str = '';
-	while( $i<$len ) {
-		switch( $data[$i] ) 
-		{
+	while ($i < $len) {
+		switch ($data{$i}) {
 			case ' ':
 			case "\n":
 			case "\t":
-				if( $j ) {
+				if ($j) {
 					$wa[] = array('word'=>$str, 'len'=>($j+1));
 					$j=0;
 					$str ='';
@@ -38,8 +37,8 @@ function fud_wrap_tok($data)
 				
 				break;
 			case '<':
-				if( ($p=strpos($data, '>', $i)) !== false ) {
-					if( $j ) {
+				if (($p = strpos($data, '>', $i)) !== false) {
+					if ($j) {
 						$wa[] = array('word'=>$str, 'len'=>($j+1));
 						$j=0;
 						$str ='';
@@ -48,8 +47,7 @@ function fud_wrap_tok($data)
 					$wa[] = array('word'=>substr($data,$i,($p-$i)+1));
 					
 					$i=$p;
-				}
-				else {
+				} else {
 					$str .= $data[$i];
 					$j++;
 				}	
@@ -61,24 +59,30 @@ function fud_wrap_tok($data)
 		$i++;
 	}
 	
-	if( $j ) $wa[] = array('word'=>$str, 'len'=>($j+1));
+	if ($j) {
+		$wa[] = array('word'=>$str, 'len'=>($j+1));
+	}
 	
 	return $wa;
 }
 
 function fud_wordwrap(&$data)
 {
-	if( !strlen($data) || !$GLOBALS["WORD_WRAP"] ) return;
+	if (!$GLOBALS['WORD_WRAP'] || $GLOBALS['WORD_WRAP'] <= strlen($data)) {
+		return;
+	}
 
 	$wa = fud_wrap_tok($data);
+	$m = (int) $GLOBALS['WORD_WRAP'];
 	
 	$data = NULL;
 	
 	foreach($wa as $v) {
-		if( isset($v['len']) && $v['len']>$GLOBALS["WORD_WRAP"] ) 
-			$data .= wordwrap($v['word'],$GLOBALS["WORD_WRAP"],' ',1);
-		else
-			$data .= $v['word'];	
+		if (isset($v['len']) && $v['len'] > $m) { 
+			$data .= wordwrap($v['word'], $m, ' ', 1);
+		} else {
+			$data .= $v['word'];
+		}
 	}
 }
 ?>

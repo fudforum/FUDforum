@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.inc.t,v 1.1 2003/04/07 14:23:14 hackie Exp $
+*   $Id: post_common.inc.t,v 1.2 2003/04/07 16:04:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,8 @@ function draw_post_smiley_cntrl()
 	$c = uq('SELECT code, descr, img FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder LIMIT '.$GLOBALS['MAX_SMILIES_SHOWN']);
 	$data = '';
 	while ($r = db_rowarr($c)) {
-		$data .= '{TEMPLATE: post_smiley_entry}';		
+		$r[0] = ($a = strpos($r[0], '~')) ? substr($r[0], 0, $a) : $r[0];
+		$data .= '{TEMPLATE: post_smiley_entry}';
 	}
 	qf($c);
 

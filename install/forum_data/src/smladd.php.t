@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smladd.php.t,v 1.4 2002/08/05 05:58:21 hackie Exp $
+*   $Id: smladd.php.t,v 1.5 2003/04/07 16:04:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,26 +15,30 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
-	
-	{POST_HTML_PHP}
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
+
 	$col_count = 5;
-	$col_pos=-1;
-	$r = q("SELECT * FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder");
-	$smiley_www = 'images/smiley_icons/';
-	
-	while ( $obj = db_rowobj($r) ) {
-		if ($col_pos++ > $col_count ) { 
+	$col_pos = -1;
+
+	$sml_smiley_entry = $sml_smiley_row = '';
+	$c = uq('SELECT code,img,descr FROM {SQL_TABLE_PREFIX}smiley ORDER BY vieworder');
+	while ($r = db_rowarr($c)) {
+		if ($col_pos++ > $col_count) { 
 			$sml_smiley_row .= '{TEMPLATE: sml_smiley_row}';  
-			$sml_smiley_entry=''; 
-			$col_pos=0; 
+			$sml_smiley_entry = ''; 
+			$col_pos = 0; 
 		}
-		$obj->code = ($a=strpos($obj->code, '~')) ? substr($obj->code,0,$a) : $obj->code;
+		$r[0] = ($a = strpos($r[0], '~')) ? substr($r[0], 0, $a) : $r[0];
 		$sml_smiley_entry .= '{TEMPLATE: sml_smiley_entry}';
 	}
-	if ( $col_pos ) $sml_smiley_row .= '{TEMPLATE: sml_smiley_row}';
-	qf($r);
+	if ($col_pos > -1) {
+		$sml_smiley_row .= '{TEMPLATE: sml_smiley_row}';
+	} else if ($col_pos == -1) {
+		$sml_smiley_row = '{TEMPLATE: sml_no_smilies}';
+	}
+	qf($c);
 	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: SMLLIST_PAGE}
