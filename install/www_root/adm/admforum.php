@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.4 2002/07/20 14:22:07 hackie Exp $
+*   $Id: admforum.php,v 1.5 2002/07/24 14:39:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -225,12 +225,12 @@
 			}
 		}
 			
-		 if( !empty($move_ct) )	
-			$cat = '<form method="post">'._hs.'<input type="hidden" name="chcat_src" value="'.$frm->id.'"><input type="submit" name="btn_chcat" value="Move To:"> '.$move_ct.'</form>'; 
+		if( !empty($move_ct) )	
+			$cat_name = '<form method="post">'._hs.'<input type="hidden" name="chcat_src" value="'.$frm->id.'"><input type="submit" name="btn_chcat" value="Move To:"> '.$move_ct.'</form>'; 
 		else
-			$cat = $cat->name;
+			$cat_name = $cat->name;
 		
-		echo "<tr$bgcolor><td>".$frm->name."</td><td>".((strlen($frm->descr )>30)?substr($frm->descr, 0, 30).'...':$frm->descr)."&nbsp;</td><td>".(($frm->passwd_posting=='Y')?'Yes':'No')."</td><td nowrap>[<a href=\"admforum.php?cat_id=$cat_id&edit=".$frm->id."&"._rsid."\">Edit</a>] [<a href=\"admforum.php?cat_id=$cat_id&act=del&del=".$frm->id."&"._rsid."\">Delete</a>]</td><td nowrap>$cat</td><td>[<a href=\"admforum.php?chpos=".$frm->view_order."&cat_id=".$frm->cat_id."&"._rsid."\">Change</a>]</td></tr>";
+		echo "<tr$bgcolor><td>".$frm->name."</td><td>".((strlen($frm->descr )>30)?substr($frm->descr, 0, 30).'...':$frm->descr)."&nbsp;</td><td>".(($frm->passwd_posting=='Y')?'Yes':'No')."</td><td nowrap>[<a href=\"admforum.php?cat_id=$cat_id&edit=".$frm->id."&"._rsid."\">Edit</a>] [<a href=\"admforum.php?cat_id=$cat_id&act=del&del=".$frm->id."&"._rsid."\">Delete</a>]</td><td nowrap>$cat_name</td><td>[<a href=\"admforum.php?chpos=".$frm->view_order."&cat_id=".$frm->cat_id."&"._rsid."\">Change</a>]</td></tr>";
 	}
 	
 	if ( !empty($chpos) && $chpos != $frm->view_order ) {
