@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.7 2003/04/22 23:03:05 hackie Exp $
+*   $Id: admipfilter.php,v 1.8 2003/05/12 13:15:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,7 +48,11 @@
 	}
 
 	if (isset($_GET['edit'])) {
-		$ipaddr = q_singleval('SELECT '.__FUD_SQL_CONCAT__.'(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
+		if (__dbtype__ == 'mysql') {
+			$ipaddr = q_singleval('SELECT CONCAT(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
+		} else {
+			$ipaddr = q_singleval('SELECT ca || \'.\' || cb || \'.\' || cc || \'.\' || cd FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
+		}
 		$ipaddr = str_replace('256', '*', $ipaddr);
 		$edit = $_GET['edit'];
 	} else {
@@ -87,7 +91,11 @@
 	<td>Action</td>
 </tr>
 <?php
-	$c = uq('SELECT id, '.__FUD_SQL_CONCAT__.'(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block');
+	if (__dbtype__ == 'mysql') {
+		$c = uq('SELECT id, CONCAT(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block');
+	} else {
+		$c = uq('SELECT id, ca || \'.\' || cb || \'.\' || cc || \'.\' || cd FROM '.$tbl.'ip_block');
+	}
 	$i = 1;
 	while ($r = db_rowarr($c)) {
 		$r[1] = str_replace('256', '*', $r[1]);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.19 2003/05/08 12:19:01 hackie Exp $
+*   $Id: db.inc,v 1.20 2003/05/12 13:15:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,11 +79,21 @@ function db_lock($tables)
 	if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) {
 		fud_sql_error_handler("Recursive Lock", "internal", "internal", get_version());
 	} else {
+		$tbls = explode(',', str_replace(' WRITE', '', $tables));
+		foreach ($tbls as $k => $t) {
+			$t = trim($t);
+			if (($p = strpos($t, ' '))) {
+				$tbls[$k] = substr($t, 0, $p);
+			}
+		}
+		$tables = implode(',', $tbls);
+
 		q('BEGIN WORK');
-		q('LOCK TABLE '.str_replace(' WRITE', '', $tables).' IN ACCESS EXCLUSIVE MODE');
+		q('LOCK TABLE '.$tables.' IN ACCESS EXCLUSIVE MODE');
 		$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;
 	}
 }
+
 
 function db_unlock()
 {
@@ -265,7 +275,7 @@ function db_qid($q)
 
 function db_arr_assoc($q)
 {
-	return @pg_fetch_array(q($q), PGSQL_ASSOC);
+	return @pg_fetch_array(q($q), 0, PGSQL_ASSOC);
 }
 
 function ssn($str)

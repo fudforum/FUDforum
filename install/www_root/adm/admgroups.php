@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.20 2003/05/02 00:32:35 hackie Exp $
+*   $Id: admgroups.php,v 1.21 2003/05/12 13:15:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -238,6 +238,9 @@
 		'p_RATE' => 'Rate topics',
 		'p_LOCK' => 'Lock/Unlock topics'
 	);
+	if (__dbtype__ == 'pgsql') {
+		$hdr = array_change_key_case($hdr, CASE_LOWER);
+	}
 ?>
 <tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>

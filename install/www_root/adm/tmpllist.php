@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.16 2003/04/25 13:32:07 hackie Exp $
+*   $Id: tmpllist.php,v 1.17 2003/05/12 13:15:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -210,19 +210,23 @@ function goto_tmpl($tmpl)
 		}
 		$data = file_get_contents($pathl . $f);
 
-		/* fetch file name */
-		if (($p = strpos($data, '{PHP_FILE: input: ')) === FALSE) {
-			continue;
-		}
-		$p = strpos($data, '; output: ', $p) + 10;
-		if ($data[$p] == '@' || $data[$p] == '!') {
-			++$p;
-		}
-		$file = substr($data, $p, (strpos($data, ';', $p) - $p));
-		if (strpos($file, '.inc')) {
-			$file = str_replace('.inc', '.tmpl', $file);
+		if ($f == 'footer.tmpl' || $f == 'header.tmpl') {
+			$file = $f;
 		} else {
-			$file = str_replace('.php', '.tmpl', $file);
+			/* fetch file name */
+			if (($p = strpos($data, '{PHP_FILE: input: ')) === FALSE) {
+				continue;
+			}
+			$p = strpos($data, '; output: ', $p) + 10;
+			if ($data[$p] == '@' || $data[$p] == '!') {
+				++$p;
+			}
+			$file = substr($data, $p, (strpos($data, ';', $p) - $p));
+			if (strpos($file, '.inc')) {
+				$file = str_replace('.inc', '.tmpl', $file);
+			} else {
+				$file = str_replace('.php', '.tmpl', $file);
+			}
 		}
 		
 		/* build dependency list */
