@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.32 2003/04/09 18:04:02 hackie Exp $
+*   $Id: register.php.t,v 1.33 2003/04/09 18:08:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,21 +80,20 @@ function register_form_check($user_id)
 		
 		if (strlen($_POST['reg_login']) < 4) {
 			set_err('reg_login', '{TEMPLATE: register_err_short_login}');
-		}
-
-		if (is_blocked_login($_POST['reg_login'])) {
+		} else if (is_blocked_login($_POST['reg_login'])) {
 			set_err('reg_login', '{TEMPLATE: register_err_login_notallowed}');
-		}
-		if (get_id_by_login($_POST['reg_login'])) {
+		} else if (get_id_by_login($_POST['reg_login'])) {
 			set_err('reg_login', '{TEMPLATE: register_err_loginunique}');
 		}
 
 		$_POST['reg_email'] = trim($_POST['reg_email']);
 
-		if (get_id_by_email($_POST['reg_email'])) {
+		/* E-mail validity check */
+		if (validate_email($_POST['reg_email'])) {
+			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
+		} else if (get_id_by_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
-		}
-		if (is_email_blocked($_POST['reg_email'])) {
+		} else if (is_email_blocked($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
@@ -104,16 +103,14 @@ function register_form_check($user_id)
 			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
 		}
 		
-		if (($email_id = get_id_by_email($_POST['reg_email'])) && $email_id != $user_id) {
+		/* E-mail validity check */
+		if (validate_email($_POST['reg_email'])) {
+			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
+		} else if (($email_id = get_id_by_email($_POST['reg_email'])) && $email_id != $user_id) {
 			set_err('reg_email', '{TEMPLATE: register_err_notyouremail}');
 		}
 	}
 
-	/* E-mail validity check */
-	if (validate_email($_POST['reg_email'])) {
-		set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
-	}
-	
 	$_POST['reg_name'] = trim($_POST['reg_name']);
 	$_POST['reg_home_page'] = trim($_POST['reg_home_page']);
 	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer */
@@ -432,8 +429,7 @@ function remove_old_avatar($avatar_str)
 			$reg_sig = post_to_smiley($reg_sig);
 		}
 
-		switch (strtolower($GLOBALS['FORUM_CODE_SIG']))
-		{
+		switch (strtolower($GLOBALS['FORUM_CODE_SIG'])) {
 			case 'ml':
 				$reg_sig = html_to_tags($reg_sig);
 				break;
