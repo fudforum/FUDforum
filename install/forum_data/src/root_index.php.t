@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.24 2003/06/02 15:26:29 hackie Exp $
+*   $Id: root_index.php.t,v 1.25 2003/06/05 23:07:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,8 +44,7 @@
 	}
 	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
 		$t = 'index';
-	}
-	if ($t == 'rview') {
+	} else if ($t == 'rview') {
 		if (isset($_GET['th']) || isset($_GET['goto'])) {
 			$t = $_GET['t'] = d_thread_view;
 		} else if (isset($_GET['frm_id'])) {
@@ -53,6 +52,11 @@
 		} else {
 			$t = $_GET['t'] = 'index';
 		}
+	}
+	if ($GLOBALS['BUST_A_PUNK'] == 'Y' && isset($_COOKIE[$GLOBALS['COOKIE_NAME'].'1']) && $t != 'error') {
+		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+		fud_use('errmsg.inc');
+		exit(__fud_banned__);
 	}
 
 	define('__index_page_start__', true);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.32 2003/06/02 19:46:24 hackie Exp $
+*   $Id: admglobal.php,v 1.33 2003/06/05 23:07:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -258,6 +258,7 @@ function get_max_upload_size()
 	print_string_field('Moved Topic Pointer Expiry', 'MOVED_THR_PTR_EXPIRY', 1);
 	print_yn_field('Use Aliases', 'USE_ALIASES');
 	print_yn_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
+	print_yn_field('Bust&#39;A&#39;Punk', 'BUST_A_PUNK');
 ?>
 <tr bgcolor="#bff8ff"><td>Server Time Zone:<?php draw_help('SERVER_TZ'); ?></td><td><select name="CF_SERVER_TZ" style="font-size: xx-small;"><?php echo tmpl_draw_select_opt($tz_values, $tz_names, $SERVER_TZ, '', ''); ?></select></td></tr>
 <?php

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.30 2003/06/02 17:19:47 hackie Exp $
+*   $Id: login.php.t,v 1.31 2003/06/05 23:07:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,6 +134,7 @@ function error_check()
 
 			/* Login & E-mail Filter & IP */
 			if (is_login_blocked($usr_d->login) || is_email_blocked($usr_d->email) || $usr_d->blocked == 'Y' || is_ip_blocked(get_ip())) {
+				setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}');
 			}
 

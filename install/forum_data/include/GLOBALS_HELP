@@ -383,3 +383,7 @@ Notify forum moderators via e-mail when a new message is posted in a forum
 where a message must first be approved by the moderator before shown to the
 rest of the visitors.
 
+BUST_A_PUNK
+When a user is banned set a special cookie that will try to make sure that
+this user remains banned.
+

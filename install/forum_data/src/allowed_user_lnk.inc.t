@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.15 2003/05/11 18:55:58 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.16 2003/06/05 23:07:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,6 +94,7 @@ function is_allowed_user(&$usr)
 	if ($usr->blocked == 'Y' || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
 		ses_delete($usr->sid);
 		$usr = ses_anon_make();
+		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}'); 
 	}
 }

@@ -137,6 +137,7 @@
 	$PHP_COMPRESSION_LEVEL	= "9";		/* int 1-9 */
 	$ALLOW_PROFILE_IMAGE	= "Y";		/* boolean */
 	$MODERATED_POST_NOTIFY	= "Y";		/* boolean */
+	$BUST_A_PUNK		= "N";		/* boolean */
 
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING
