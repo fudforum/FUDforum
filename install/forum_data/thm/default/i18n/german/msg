@@ -1,4 +1,4 @@
-ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um diese Aktion durchzuf&uuml;hren
+ERR_access_msg:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um diese Aktion auszuf&uuml;hren
 ERR_access_ttl:			FEHLER: Nicht ausreichende Rechte
 ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
@@ -201,7 +201,7 @@ ignore_list_cantign_msg:	Du kannst diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf Deiner Ignorierliste
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Du kannst diesen Benutzer nicht ignorieren
-ignore_list_err_nu_msg:		Der Benutzer den Du versucht hast, Deiner Liste hinzuzuf&uuml;gen, kann vom System nicht gefunden werden.
+ignore_list_err_nu_msg:		Der Benutzer, den Du Deiner Liste hinzuzuf&uuml;gen wolltest, kann vom System nicht gefunden werden.
 ignore_list_err_nu_title:	Benutzer nicht gefunden
 ignore_list_update:		Durchsucht die eigene Ignorierliste
 ignore_user:			Alle Beitr&auml;ge dieses Benutzers ignorieren
@@ -339,7 +339,7 @@ no_subscribed_threads:		Keine abonnierten Themen
 no_unread_locked:		Dieses Thema wurde gesperrt
 no_unread_msg:			Dieses Thema enth&auml;t keine ungelesenen Beitr&auml;ge
 no_unread_msg_unreg:		Gelesene &amp; ungelesene Beitr&auml;ge werden nur f&uuml;r registrierte Benutzer weiterverfolgt
-no_view_perm:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;gte Erlaubnis, um dieses Thema ansehen zu k&ouml;nnen.
+no_view_perm:			Du verf&uuml;gst nicht &uuml;ber die ben&ouml;tigten Rechte, um dieses Thema ansehen zu d&uuml;rfen.
 num_pages:			Seiten ({VAR: ttl_pg}):
 num_votes:			{VAR: total_votes} Stimmen
 occupation:			Beruf:
@@ -421,7 +421,7 @@ post_body:			Inhalt:
 post_color:			Farbe
 post_count:			Anzahl der Beitr&auml;ge {VAR: u->posted_msg_count}
 post_count_l:			Beitragsz&auml;hler:
-post_create_poll:		UMFRAGE ERSTELLEN
+post_create_poll:		Abstimmung erstellen
 post_cur_attached:		Momentan {VAR: attach_count} Dateianh&auml;nge 
 post_edit_update:		Bearbeitet <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
@@ -474,8 +474,8 @@ post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&am
 post_options:			Optionen:
 post_passwd:			Passwort zum Erstellen von Beitr&auml;gen:
 post_poll:			Abstimmung:
-post_poll_delete:		L&Ouml;SCHEN
-post_poll_edit:			BEARBEITEN
+post_poll_delete:		L&ouml;schen
+post_poll_edit:			Bearbeiten
 post_preview:			Beitragsvorschau
 post_preview_btn:		Beitragsvorschau
 post_proc_all_ext_allowed:	(uneingeschr&auml;nkt)
@@ -570,10 +570,10 @@ register_del_avatar:		Avatar l&ouml;schen
 register_email:			Email:
 register_email_desc:		Bitte eine g&uuml;ltige Emailadresse angeben. Du kannst diese dann weiter unten im Men&uuml; verstecken.
 register_err_adminpasswd:	Du mu&szlig;t Dein ADMINISTRATOR Passwort eingeben, um die Ver&auml;nderungen wirkam werden zu lassen
-register_err_avatarnotallowed:	Der Avatar, den Du hochzuladen versuchst, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
-register_err_avatartobig:	Die Datei, die Du hochzuladen versuchst, ist zu gro&szlig; und liegt &uuml;ber der {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte Grenze
+register_err_avatarnotallowed:	Der Avatar, den Du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
+register_err_avatartobig:	Die Datei, die Du versuchst hochzuladen, ist zu gro&szlig; und liegt &uuml;ber der {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte Grenze
 register_err_cantreg_title:	Fehler: Registrierung nicht m&ouml;glich
-register_err_emailexists:	Diese Email Adresse wurde schon verwendet, falls Du Dein Passwort vergessen hast, lasse es bitte zur&uuml;cksetzen, anstatt Dich neu zu registrieren
+register_err_emailexists:	Diese Email Adresse wurde schon verwendet, falls Du Dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt Dich neu zu registrieren
 register_err_enterpasswd:	Du mu&szlig;t Dein aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen
 register_err_invalidemail:	Die Email Adresse, die Du angegeben hast ist anscheinend nicht g&uuml;ltig.
 register_err_login_notallowed:	Dieser Anmeldename ist nicht erlaubt
@@ -776,7 +776,7 @@ tabs_private_messaging:		Private Messages
 tabs_referrals:			Anwerbungen
 tabs_register:			Einstellungen
 tabs_subscriptions:		Abonnements
-th_err_invid_msg:		Du bist einem ung&uuml;ltigen Link gefolgt. Das Thema, das Du versuchst hast anzusehen, ist nicht mehr vorhanden.
+th_err_invid_msg:		Du bist einem ung&uuml;ltigen Link gefolgt. Das Thema, das Du ansehen wolltest, ist nicht mehr vorhanden.
 th_err_invid_title:		Ung&uuml;ltige Themenkennung
 th_expr_eight_hr:		8 Stunden
 th_expr_four_day:		4 Tage
@@ -861,14 +861,14 @@ welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war a
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben
 yes:				Ja
-forumsel_unread:		*(UNGELESEN)
+forumsel_unread:		*(Ungelesen)
 groupmgr_no_groups:		Keine Gruppen zu bearbeiten
 msg_err_nosuchmsg_msg:		Einen solchen Beitrag gibt es in diesem Thema nicht
 msg_err_nosuchmsg_title:	Fehler
 imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den Du versuchst anzusehen, existiert nicht.
 poll_edit: 			Bearbeiten
-unspecified:			NICHT ANGEGEBEN
+unspecified:			Nicht angegeben
 register_err_not_valid_img:	Die angegebene Url enth&auml;t kein g&uuml;ltiges Bild
 pmsg_recepient:			Empf&auml;nger
 register_err_taken_alias:	Der Alias, welchen Du verwenden m&ouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen.
@@ -876,7 +876,7 @@ register_alias:			Alias
 register_alias_desc:		Wenn Du m&ouml;chtest, da&szlig; Dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
 register_allow_pm_msg:		Private Messages erlauben	
 register_allow_pm_msg_desc:	Anderen Benutzern erlauben, Dir &uuml;ber das FUDForum private Messages zu schicken.
-postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Messages verschicken, weil besagte Person diese nicht gestattet.
+postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Messages verschicken, weil diese Person das nicht m&ouml;chte.
 polllist_vote:			Abstimmen
 polllist_view_results:		Ergebnisse ansehen
 polllist_name:			Titel der Abstimmung
@@ -886,7 +886,7 @@ polllist_votes:			Stimmen Insgesamt
 polllist_action:		Aktion
 polllist_update:		<a href="{ROOT}?t=polllist">Verf&uuml;gbare Abstimmungen betrachten</a>
 userinfo_polls:			Abstimmungen:
-show_pollist:			Abstimmungen Anzeigen
+show_pollist:			Abstimmungen anzeigen
 search_and:			UND
 search_or:			ODER
 search_desc_order:		Absteigende Sortierung		
