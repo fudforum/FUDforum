@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_cache.tbl,v 1.8 2004/01/04 16:38:26 hackie Exp $
+#   $Id: fud_group_cache.tbl,v 1.9 2004/04/08 22:13:34 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_cache
 	group_cache_opt	INT NOT NULL DEFAULT 0
 );
 
-CREATE INDEX {SQL_TABLE_PREFIX}group_cache_i_ru ON {SQL_TABLE_PREFIX}group_cache (resource_id, user_id);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}group_cache_i_ru ON {SQL_TABLE_PREFIX}group_cache (resource_id, user_id);
 CREATE INDEX {SQL_TABLE_PREFIX}group_cache_i_g ON {SQL_TABLE_PREFIX}group_cache (group_id);
 
 
