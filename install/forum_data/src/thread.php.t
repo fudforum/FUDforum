@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.22 2003/06/02 19:11:32 hackie Exp $
+*   $Id: thread.php.t,v 1.23 2003/07/09 07:39:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,7 +97,7 @@
 				}
 				
 				for ($i; $i < $pgcount; $i++) {
-					$st_pos = $i * $POSTS_PER_PAGE;
+					$st_pos = $i * $ppg;
 					$pg_num = $i + 1;
 					$mini_pager_data .= '{TEMPLATE: mini_pager_entry}';
 				}
