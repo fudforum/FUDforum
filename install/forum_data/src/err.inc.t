@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.23 2003/05/08 00:15:35 hackie Exp $
+*   $Id: err.inc.t,v 1.24 2003/05/11 18:55:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,9 +23,9 @@ function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 
 	$error_msg = '[Error] '.$title.'<br />';
 	$error_msg .= '[Message Sent to User] '.trim($msg).'<br />';
-	$error_msg .= '[User IP] '.(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown').'<br />';
+	$error_msg .= '[User IP] '.get_ip().'<br />';
 	$error_msg .= '[Requested URL] http://';
-	$error_msg .= isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['HTTP_HOST'] : '';
+	$error_msg .= isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
 	$error_msg .= isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 	$error_msg .= '<br />';
 

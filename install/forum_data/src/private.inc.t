@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.12 2003/04/21 14:14:39 hackie Exp $
+*   $Id: private.inc.t,v 1.13 2003/05/11 18:55:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ class fud_pmsg
 		}
 
 		$this->post_stamp = __request_timestamp__;
-		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 
 		if (!$this->mailed) {
@@ -145,7 +145,7 @@ class fud_pmsg
 	{
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
 		$this->post_stamp = __request_timestamp__;
-		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 		$this->mailed = $this->folder_id=='SENT' ? 'Y' : 'N';
 		
