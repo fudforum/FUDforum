@@ -1,0 +1,87 @@
+/***************************************************************************
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: ip.tmpl,v 1.1 2004/01/09 04:17:17 hackie Exp $
+*
+* This program is free software; you can redistribute it and/or modify it 
+* under the terms of the GNU General Public License as published by the 
+* Free Software Foundation; either version 2 of the License, or 
+* (at your option) any later version.
+***************************************************************************/
+
+{PHP_FILE: input: ip.php.t; output: ip.php;}
+{REF: security.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: return.tmpl}
+{REF: alt_var.tmpl}
+
+{SECTION: ip_form_url}
+{ROOT}?t=ip
+{SECTION: END}
+
+{PAGE: IP_PAGE ip information display page}
+{TEMPLATE: header}
+{TEMPLATE: usercp}
+
+<div align="center"><table cellspacing=0 cellpadding=0 class="MiniTable"><tr><td><fieldset>
+	<legend>{MSG: ip_search_by_ip}</legend>
+<form method="post" action="{TEMPLATE: ip_form_url}">{DEF: _hs}
+<font class="SmallText">{MSG: ip_search_syntax}<br /></font>
+<input type="text" name="ip" value="{VAR: ip}" length="20" maxlength="15"> <input type="submit" value="{MSG: ip_search}">
+</form>
+</fieldset></td><td width="50"> </td><td><fieldset>
+	<legend>{MSG: ip_analyze_usage}</legend>
+<form method="post" action="{TEMPLATE: ip_form_url}">{DEF: _hs}
+<font class="SmallText">{MSG: ip_analyze_usage_descr}<br /></font>
+<input type="text" name="user" value="{VAR: user}" length="20"> <input type="submit" value="{MSG: ip_search}">
+</form>
+</fieldset></td>
+</tr></table>
+<br /><br />
+{TEMPLATE-DATA: page_data}
+</div>
+{TEMPLATE: curtime}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: ip_user_entry_url}
+{ROOT}?t=usrinfo&amp;id={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ip_user_entry}
+<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{VAR: i}. <a href="{TEMPLATE: ip_user_entry_url}">{VAR: r[1]}</a></td></tr>
+{SECTION: END}
+
+{SECTION: ip_users}
+<table cellspacing="2" cellpadding="2" class="MiniTable">
+<tr>
+	<td valign="top"><table cellspacing="0" cellpadding="2" class="ContentTable">
+		<tr><th>{MSG: ip_users_using}</th></tr>{TEMPLATE-DATA: user_list}
+	</table></td>
+	<td width="50"> </td>
+	<td valign="top"><iframe src="http://ws.arin.net/cgi-bin/whois.pl?queryinput={VAR: ip}" width="600" height="400"></iframe></td>
+</tr>
+</table>
+{SECTION: END}
+
+{SECTION: ip_ip_entry_url}
+{ROOT}?t=ip&amp;ip={VAR: r[0]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: ip_ip_entry}
+<tr><td class="{ALT-VAR: ip_alt RowStyleA RowStyleB}">{VAR: i}. <a href="{TEMPLATE: ip_ip_entry_url}">{VAR: r[0]}</a></td></tr>
+{SECTION: END}
+
+{SECTION: ip_info}
+<table cellspacing="2" cellpadding="2" class="MiniTable">
+<tr><th>{MSG: ip_all_ips}</th></tr>
+{TEMPLATE-DATA: ip_list}
+</table>
+{SECTION: END}
+
+{SECTION: ip_title}
+{MSG: ip_title}
+{SECTION: END}

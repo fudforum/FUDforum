@@ -1014,3 +1014,11 @@ reset_suffix:			\n\nIf you received this message in error, please ignore it. If 
 usrinfo_last_visit:		Letzter Besuch:
 mnav_newer:			newer then
 mnav_older:			older then
+ip_search_by_ip:		Search users by IP
+ip_search_syntax:		Supported syntax: 1.2.3.4, 1.2.3, 1.2, 1
+ip_search:			Search
+ip_analyze_usage:		Analyze IP usage
+ip_analyze_usage_descr:		Please specify the user&#39;s exact login.
+ip_users_using:			User(s) using &#39;{VAR: ip}&#39; IP address
+ip_all_ips:			All IP(s) used by &#39;{VAR: user}&#39;
+ip_title:			IP Browser
