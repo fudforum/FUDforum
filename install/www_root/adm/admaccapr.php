@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admaccapr.php,v 1.6 2003/09/30 13:45:03 hackie Exp $
+*   $Id: admaccapr.php,v 1.7 2003/10/03 14:21:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,12 +18,21 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('users_adm.inc', true);
-	fud_use('private.inc');
 
 	if (isset($_GET['apr'])) {
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|2097152) &~ 2097152 WHERE id='.(int)$_GET['apr']);
+		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['apr']))) {
+			fud_use('adm_acc.inc');
+			fud_use('iemail.inc');
+			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt &~ 2097152 WHERE id='.(int)$_GET['apr']);
+			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
+		}
 	} else if (isset($_GET['rm'])) {
-		usr_delete((int)$_GET['rm']);
+		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['rm']))) {
+			fud_use('adm_acc.inc');
+			fud_use('iemail.inc');
+			send_email($NOTIFY_FROM, $r->email, $account_rejected_s, $account_rejected);
+			usr_delete((int)$_GET['rm']);
+		}
 	}
 
 function print_if_avail($descr, $value, $no_html=1)
