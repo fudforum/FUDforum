@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groups.inc.t,v 1.27 2003/10/09 14:34:26 hackie Exp $
+* $Id: groups.inc.t,v 1.28 2003/11/13 17:44:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -71,10 +71,13 @@ function grp_rebuild_cache($user_id=null)
 			$tmp[] = $k.", ".$p.", ".$u;
 		}
 	}
-	if (__dbtype__ == 'mysql') {
-		ins_m($tmp_t, "a,b,c", $tmp, 1);
-	} else {
-		ins_m($tmp_t, "a,b,c", $tmp, "integer, integer, integer");
+
+	if ($tmp) {
+		if (__dbtype__ == 'mysql') {
+			ins_m($tmp_t, "a,b,c", $tmp, 1);
+		} else {
+			ins_m($tmp_t, "a,b,c", $tmp, "integer, integer, integer");
+		}
 	}
 
 	if (!db_locked()) {
