@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.13 2004/10/27 22:59:08 hackie Exp $
+* $Id: uc.tmpl,v 1.14 2004/11/02 15:30:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@
 
 {SECTION: uc_last_post}
 <a href="{TEMPLATE: uc_last_post_lnk}">{VAR: r->subject}</a><br />
-<span class="DateText">{TEMPLATE: uc_last_post_date}</span><br />{MSG: by} {VAR: profile}
+<span class="DateText">{TEMPLATE: uc_last_post_date}</span><br />{MSG: by} {IF: $r->alias}{TEMPLATE: uc_link_user}{ELSE}{TEMPLATE: uc_link_anon}{END}
 {SECTION: END}
 
 {SECTION: uc_forum_unsub}
@@ -117,10 +117,10 @@
 
 {SECTION: uc_sub_forum}
 <tr>
-	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR: r->name}</a>{TEMPLATE-DATA: uc_forum_descr}<br /><a href="{TEMPLATE: uc_new_topic}">{MSG: uc_new_topic}</a> || <a href="{TEMPLATE: uc_forum_unsub}">{MSG: unsubscribe}</a></td>
+	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR: r->name}</a>{IF: $r->descr}{TEMPLATE: uc_forum_descr}{ENDIF}<br /><a href="{TEMPLATE: uc_new_topic}">{MSG: uc_new_topic}</a> || <a href="{TEMPLATE: uc_forum_unsub}">{MSG: unsubscribe}</a></td>
 	<td class="RowStyleB ac">{VAR: r->post_count}</td>
 	<td class="RowStyleB ac">{VAR: r->thread_count}</td>
-	<td class="RowStyleA SmallText ar nw">{TEMPLATE-DATA: uc_last_post}</td>
+	<td class="RowStyleA SmallText ar nw">{IF: $r->mid}{TEMPLATE: uc_last_post}{ENDIF}</td>
 </tr>
 {SECTION: END}
 
@@ -179,7 +179,7 @@
 	<td class="RowStyleA">{TEMPLATE: uc_first_unread_msg_link}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r->subject}</a> {TEMPLATE-DATA: mini_thread_pager}</a><br /><div class="ar"><a href="{TEMPLATE: uc_thread_reply}">{MSG: iemail_msg_reply}</a> || <a href="{TEMPLATE: uc_thread_unsub}">{MSG: unsubscribe}</a></div></td>
 	<td class="RowStyleB ac">{VAR: r->replies}</td>
 	<td class="RowStyleB ac">{VAR: r->views}</td>
-	<td class="RowStyleC ar nw"><span class="DateText">{TEMPLATE: uc_sub_topic_date}</span><br />{MSG: by} {TEMPLATE-DATA: profile} <a href="{TEMPLATE: uc_last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+	<td class="RowStyleC ar nw"><span class="DateText">{TEMPLATE: uc_sub_topic_date}</span><br />{MSG: by} {IF: $r->alias}{TEMPLATE: uc_link_user}{ELSE}{TEMPLATE: uc_link_anon}{END} <a href="{TEMPLATE: uc_last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
