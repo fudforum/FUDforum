@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.29 2003/07/19 18:37:48 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.30 2003/09/18 17:20:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -322,6 +322,18 @@ function tags_to_html($str, $allow_img='Y')
 			$ts = strlen($ostr);
 		}
 		if (($te = strpos($ostr, '</pre>', $pos)) == false) {
+			$te = strlen($ostr);
+		}
+		if ($te < $ts) {
+			$ppos = $pos += 3;
+			continue;
+		}
+		
+		// check if it's inside the span tag
+		if (($ts = strpos($ostr, '<span>', $pos)) === false) {
+			$ts = strlen($ostr);
+		}
+		if (($te = strpos($ostr, '</span>', $pos)) == false) {
 			$te = strlen($ostr);
 		}
 		if ($te < $ts) {
