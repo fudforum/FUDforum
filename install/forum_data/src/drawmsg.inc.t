@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.83 2004/04/28 17:20:32 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.84 2004/05/07 16:13:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -269,6 +269,34 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
 	}
 
+	/* draw file attachments if there are any */
+	$drawmsg_file_attachments = '';
+	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
+		$atch = @unserialize($obj->attach_cache);
+		if (is_array($atch) && count($atch)) {
+			foreach ($atch as $v) {
+				$sz = $v[2] / 1024;
+				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
+				$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';
+			}
+			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
+		}
+		/* append session to getfile */
+		if (_uid) {
+			if ($o1 & 128 && !isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
+				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='.s, $msg_body);
+				$tap = 1;
+			}
+			if ($o2 & 32768 && (isset($tap) || $o2 & 8192)) {
+				$pos = 0;
+				while (($pos = strpos($msg_body, '<img src="index.php/fa/', $pos)) !== false) {
+					$pos = strpos($msg_body, '"', $pos + 11);
+					$msg_body = substr_replace($msg_body, _rsid, $pos, 0);
+				}
+			}
+		}
+	}
+
 	if ($obj->poll_cache) {
 		$obj->poll_cache = @unserialize($obj->poll_cache);
 	}
@@ -322,35 +350,11 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		} else {
 			$poll = '{TEMPLATE: mini_dmsg_poll}';
 		}
-	} else {
-		$poll = '';
-	}
 
-	/* draw file attachments if there are any */
-	$drawmsg_file_attachments = '';
-	if ($obj->attach_cnt && !empty($obj->attach_cache)) {
-		$atch = @unserialize($obj->attach_cache);
-		if (is_array($atch) && count($atch)) {
-			foreach ($atch as $v) {
-				$sz = $v[2] / 1024;
-				$sz = $sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB';
-				$drawmsg_file_attachments .= '{TEMPLATE: dmsg_drawmsg_file_attachment}';
-			}
-			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
-		}
-		/* append session to getfile */
-		if (_uid) {
-			if ($o1 & 128 && !isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
-				$msg_body = str_replace('<img src="index.php?t=getfile', '<img src="index.php?t=getfile&amp;S='.s, $msg_body);
-				$tap = 1;
-			}
-			if ($o2 & 32768 && (isset($tap) || $o2 & 8192)) {
-				$pos = 0;
-				while (($pos = strpos($msg_body, '<img src="index.php/fa/', $pos)) !== false) {
-					$pos = strpos($msg_body, '"', $pos + 11);
-					$msg_body = substr_replace($msg_body, _rsid, $pos, 0);
-				}
-			}
+		if (strpos($msg_body, '{POLL}') !== false) {
+			$msg_body = str_replace('{POLL}', $poll, $msg_body);
+		} else {
+			$msg_body = $poll . $msg_body;
 		}
 	}
 
