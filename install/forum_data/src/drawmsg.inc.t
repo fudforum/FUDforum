@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.86 2004/05/13 21:13:30 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.87 2004/05/18 15:41:30 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -351,8 +351,8 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$poll = '{TEMPLATE: mini_dmsg_poll}';
 		}
 
-		if (strpos($msg_body, '{POLL}') !== false) {
-			$msg_body = str_replace('{POLL}', $poll, $msg_body);
+		if (($p = strpos($msg_body, '{POLL}')) !== false) {
+			$msg_body = substr_replace($msg_body, $poll, $p, 6);
 		} else {
 			$msg_body = $poll . $msg_body;
 		}
