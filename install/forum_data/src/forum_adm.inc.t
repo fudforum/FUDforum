@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.5 2002/07/07 21:31:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ class fud_forum_adm extends fud_forum
 	
 	function add($pos)
 	{
-		if ( db_locked() ) {
+		if ( !db_locked() ) {
 			$ll = 1;
 			db_lock('
 				{SQL_TABLE_PREFIX}forum+, 
