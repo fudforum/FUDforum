@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.66 2003/10/15 15:07:24 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.67 2003/10/15 21:12:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -216,7 +216,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 			if ($obj->avatar_loc && $a & 8388608 && $b & 8192 && $o1 & 28 && !($c & 2)) {
 				if (!($c & 1)) {
-					$level_name = $obj->level_name . ',';
+					$level_name =& $obj->level_name;
 					$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 				} else {
 					$level_name = $level_image = '';
@@ -224,10 +224,13 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			} else {
 				$level_image = $obj->level_img ? '{TEMPLATE: dmsg_level_image}' : '';
 				$obj->avatar_loc = '';
-				$level_name = $obj->level_name . ',';
+				$level_name =& $obj->level_name;
 			}
 			$avatar = ($obj->avatar_loc || $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
 			$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';
+			if ($dmsg_tags) {
+				
+			}
 
 			if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
@@ -251,8 +254,9 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			if (_uid && _uid != $obj->user_id) {
 				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dmsg_buddy_link_add}' : '{TEMPLATE: dmsg_buddy_link_remove}';
 				$ignore_link	= !isset($usr->ignore_list[$obj->user_id]) ? '{TEMPLATE: dmsg_add_user_ignore_list}' : '{TEMPLATE: dmsg_remove_user_ignore_list}';
+				$dmsg_bd_il	= '{TEMPLATE: dmsg_bd_il}';
 			} else {
-				$buddy_link = $ignore_link = '';
+				$dmsg_bd_il = '';
 			}
 
 			/* show im buttons if need be */
@@ -273,11 +277,11 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			}
 		 } else {
 		 	$user_link = '{TEMPLATE: dmsg_reg_user_no_link}';
-		 	$dmsg_tags = $dmsg_im_row = $buddy_link = $ignore_link = $location = $online_indicator = $avatar = '';
+		 	$dmsg_tags = $dmsg_im_row = $dmsg_bd_il = $location = $online_indicator = $avatar = '';
 		 }
 	} else {
 		$user_link = '{TEMPLATE: dmsg_anon_user}';
-		$dmsg_tags = $dmsg_im_row = $buddy_link = $ignore_link = $location = $online_indicator = $avatar = '';
+		$dmsg_tags = $dmsg_im_row = $dmsg_bd_il = $location = $online_indicator = $avatar = '';
 	}
 
 	/* Display message body

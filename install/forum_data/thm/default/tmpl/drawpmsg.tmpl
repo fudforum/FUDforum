@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.23 2003/10/15 15:25:09 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.24 2003/10/15 21:12:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,11 +27,11 @@
 {SECTION: END}
 
 {SECTION: dpmsg_host_name}
-<b>{MSG: from}</b> {VAR: obj->host_name}&nbsp;&nbsp;&nbsp;
+<b>{MSG: from}</b> {VAR: obj->host_name}<br />
 {SECTION: END}
 
 {SECTION: dpmsg_location}
-<B>{MSG: location}</b> {VAR: location}&nbsp;&nbsp;&nbsp;
+<br /><b>{MSG: location}</b> {VAR: location}
 {SECTION: END}
 
 {SECTION: dpmsg_no_location}
@@ -49,7 +49,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link}
-<br />[<a href="{TEMPLATE: dpmsg_buddy_link_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+<a href="{TEMPLATE: dpmsg_buddy_link_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq_lnk}
@@ -153,13 +153,13 @@
 </tr>
 
 <tr class="MsgR2"><td colspan=2 class="MsgR2">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table align="left" border="0" cellspacing="0" cellpadding="0">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
-<td width="100%" valign="top" class="SmallText">
-{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: profile_link}{TEMPLATE-DATA: dmsg_tags}<br />
-{TEMPLATE-DATA: dmsg_user_info}{TEMPLATE-DATA: dmsg_im_row}{TEMPLATE-DATA: buddy_link}
-</td></tr></table>
+<td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: profile_link}{TEMPLATE-DATA: dmsg_user_info}</td>
+<td class="msgud"><div class="ctags">{TEMPLATE-DATA: dmsg_tags}</div></td>
+<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}</td>
+</tr></table>
 </td>
 </tr>
 <tr><td class="MsgR3" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.36 2003/10/15 16:31:54 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.37 2003/10/15 21:12:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -137,14 +137,12 @@
 {SECTION: END}
 
 {SECTION: dmsg_user_info}
-<b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}&nbsp;&nbsp;
-<b>{MSG: registered}</b> <font class="DateText">{DATE: obj->join_date %B %Y}</font>&nbsp;&nbsp;
-{TEMPLATE-DATA: location}{TEMPLATE-DATA: host_name}{TEMPLATE-DATA: ip_address}
-<br />
+<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br />
+<b>{MSG: registered}</b> {DATE: obj->join_date %B %Y}
+{TEMPLATE-DATA: location}
 {SECTION: END}
 
 {SECTION: dmsg_anon_info}
-<font class="SmallText">{TEMPLATE-DATA: host_name}{TEMPLATE-DATA: ip_address}</font><br />
 {SECTION: END}
 
 {SECTION: dmsg_ip_address}
@@ -152,22 +150,22 @@
 {SECTION: END}
 
 {SECTION: dmsg_host_name}
-<b>{MSG: from}</b> {VAR: obj->host_name}&nbsp;&nbsp;&nbsp;
+<b>{MSG: from}</b> {VAR: obj->host_name}<br />
 {SECTION: END}
 
 {SECTION: dmsg_location}
-<b>{MSG: location} </b>{VAR: location}&nbsp;&nbsp;&nbsp;
+<br /><b>{MSG: location} </b>{VAR: location}
 {SECTION: END}
 
 {SECTION: dmsg_no_location}
 {SECTION: END}
 
 {SECTION: dmsg_tags}
-<font class="LevelText"> ( {VAR: level_name} {VAR: custom_tag} )</font>
+<font class="LevelText">{VAR: level_name}{VAR: custom_tag}</font>
 {SECTION: END}
 
 {SECTION: dmsg_custom_tags}
-{VAR: obj->custom_status}
+<br />{VAR: obj->custom_status}
 {SECTION: END}
 
 {SECTION: dmsg_no_custom_tags}
@@ -182,6 +180,10 @@
 
 {SECTION: dmsg_buddy_link_add_lnk}
 {ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: dmsg_bd_il}
+{TEMPLATE-DATA: buddy_link} {TEMPLATE-DATA: ignore_link}<br />
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_add add this user to your buddy list link}
@@ -416,14 +418,14 @@
 <td valign="top" align="left" class="MsgSubText"><a name="msg_num_{VAR: m_num}"></a><a name="msg_{VAR: obj->id}"></a>{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}{TEMPLATE-DATA: rpl}</td>
 <td valign="top" align=right><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td>
 </tr>
-<tr class="MsgR2"><td class="MsgR2" colspan=2><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr class="MsgR2"><td class="MsgR2" colspan=2><table align="left" border="0" cellspacing="0" cellpadding="0">
 <tr class="MsgR2">
+
 {TEMPLATE-DATA: avatar}
-<td width="100%" valign="top" class="SmallText">
-{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{TEMPLATE-DATA: dmsg_tags}<br />
-{TEMPLATE-DATA: dmsg_user_info}{TEMPLATE-DATA: dmsg_im_row}{TEMPLATE-DATA: buddy_link} {TEMPLATE-DATA: ignore_link}
-</td></tr></table>
-</td>
+<td class="msgud">{TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: user_link}{TEMPLATE-DATA: dmsg_user_info}</td>
+<td class="msgud"><div class="ctags">{TEMPLATE-DATA: dmsg_tags}</div></td>
+<td class="msgot">{TEMPLATE-DATA: dmsg_bd_il}{TEMPLATE-DATA: dmsg_im_row}{TEMPLATE-DATA: host_name}{TEMPLATE-DATA: ip_address}</td>
+</tr></table></td>
 </tr>
 <tr><td colspan="2" class="MsgR3">
 {TEMPLATE-DATA: poll}{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: drawmsg_file_attachments}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.11 2003/10/15 16:31:54 hackie Exp $
+* $Id: forum.css.tmpl,v 1.12 2003/10/15 21:12:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,7 +25,7 @@ text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.User
 	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .ContentTable, .AnnonTable, .AnnText, 
 	.AnnSubjText, .PagerLink, .LevelText, .MsgSubText, .MsgBodyText, 
 	.FormattingToolsBG, .FormattingToolsCLR, .MiniTable, .quote, .dashed, .adminColor, .modsColor, 
-	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, 
+	.brdrNormal, .brdrSelected, input.button, form, img, .StClr, .AnClr, td.msgot, td.msgud, div.ctags,
 	.ModOpt, .MsgR1, .MsgR2, .MsgR3, .mnavMsg, .mnavWarnTbl, .manvNoRes, font.lg, td.tt, table.tt,
 	a.big:link, a.big:active, a.big:visited, .small, a.small:link, a.small:active, a.small:visited
 {
@@ -80,7 +80,7 @@ a.UserControlPanel {
 	font-weight: bold;
 }
 
-.SmallText, .DateText, .TopBy {
+.SmallText, .DateText, .TopBy, td.msgud, td.msgot {
 	color: #000000;
 	font-size: 10px;
 }
@@ -322,7 +322,23 @@ a.big:link, a.big:active, a.big:visited {
 
 .small, a.small:link, a.small:active, a.small:visited {
 	font-size: 10px;
-	 font-weight: normal;
+	font-weight: normal;
 }
 
+td.msgot, td.msgud {
+	text-align: left;
+	vertical-align: top;
+}
+
+td.msgud {
+	padding-right: 10px;
+}
+
+div.ctags {
+	overflow: auto;
+	width: 150px;
+	height: 64px;
+	margin: 0px;
+	padding: 0px;
+}
 {PAGE: END}
