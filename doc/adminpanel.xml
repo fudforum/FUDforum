@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.5 2002/07/02 15:09:38 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.6 2002/07/09 18:46:29 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -698,6 +698,15 @@
 					<para>
 						All of the system e-mails sent from the forum, such as e-mail post notification, registration 
 						confirmation etc... will come from this address.
+					</para>
+				</sect4>
+
+				<sect4 id="global.option.USE_ALIASES">
+					<title>Use Aliases</title>
+				
+					<para>
+						If enabled, each user would have the ability to specify a nick name other then their login name,
+						the specified nick name, would then be displayed on the forum instead of that user's login name.
 					</para>
 				</sect4>
 
