@@ -178,23 +178,9 @@ function window_open(url,winName,width,height)
 	window.open(url,winName,options);
 }
 
-function layerVis(layer,on)
+function layerVis(layer, on)
 {
-        if (on) {
-		if (DOM)
-			document.getElementById(layer).style.visibility = "visible";
-		else if (NS4)
-			document.layers[layer].visibility = "show";
-		else if (IE4)
-			document.all[layer].style.visibility = "visible";
-	} else {
-		if (DOM)
-			document.getElementById(layer).style.visibility = "hidden";
-		else if (NS4)
-			document.layers[layer].visibility = "hide";
-		else if (IE4)
-			document.all[layer].style.visibility = "hidden";
-	}
+	document.getElementById(layer).style.display = on ? 'block' : 'none';
 }
 
 function fud_msg_focus(mid_hash)
