@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.38 2004/04/02 01:17:58 hackie Exp $
+* $Id: finduser.php.t,v 1.39 2004/04/22 23:07:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,9 +62,6 @@
 		if ($adm) {
 			$admi = $r->users_opt & 65536 ? '{TEMPLATE: findu_unban}' : '{TEMPLATE: findu_ban}';
 			$admi = '{TEMPLATE: findu_admin_opts}';
-			if ($FUD_OPT_2 & 32768) {
-				$admi = str_replace(array(s, '/?SQ'), array('S='.s, '&amp;SQ'), $admi);
-			}
 		} else {
 			$admi = '';
 		}
