@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.19 2003/04/23 15:27:32 hackie Exp $
+*   $Id: admuser.php,v 1.20 2003/04/23 15:46:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -144,14 +144,18 @@ administration permissions to the forum. This individual will be able to do anyt
 			ctag_rebuild_cache($usr_id);
 		}
 
-		/* chanding login name */
-		if (!empty($_POST['login_name'])) {
+		/* changing password */
+		if (!empty($_POST['login_passwd'])) {
+			q('UPDATE '.$tbl.'users SET passwd=\''.md5($_POST['login_passwd']).'\' WHERE id='.$usr_id);
+		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$login = addslashes($_POST['login_name']);
 			$alias = "'" . substr(htmlspecialchars($login), 0, $GLOBALS['MAX_LOGIN_SHOW']) . "'";
 			$login = "'" . $login . "'";
 			db_lock($tbl.'users WRITE');
-			if (!q_singleval('SELECT id FROM '.$tbl.'users WHERE alias='.$alias.' OR login='.$login)) {
+			if (!q_singleval('SELECT id FROM '.$tbl.'users WHERE alias='.$alias) && !q_singleval('SELECT id FROM '.$tbl.'users WHERE login='.$login)) {
+				$u->login = $_POST['login_name'];
 				if ($GLOBALS['USE_ALIASES'] != 'Y') {
+					$u->alias = substr(htmlspecialchars($u->login), 0, $GLOBALS['MAX_LOGIN_SHOW']);
 					q('UPDATE '.$tbl.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id);
 				} else {
 					q('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id);
@@ -160,11 +164,6 @@ administration permissions to the forum. This individual will be able to do anyt
 				$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
 			}
 			db_unlock();
-		}
-
-		/* changing password */
-		if (!empty($_POST['login_passwd'])) {
-			q('UPDATE '.$tbl.'users SET passwd=\''.md5($_POST['login_passwd']).'\' WHERE id='.$usr_id);
 		}
 	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
 		/* user searching logic */
@@ -181,7 +180,7 @@ administration permissions to the forum. This individual will be able to do anyt
 			$like = 0;
 			$item_s = $item;
 		}
-		$item_s = "'" . $item_s . "'";
+		$item_s = "'" . addslashes($item_s) . "'";
 
 		$c = q('SELECT id, alias, email FROM '.$tbl.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		switch (($cnt = db_count($c))) {
@@ -196,11 +195,9 @@ administration permissions to the forum. This individual will be able to do anyt
 				break;
 			default:
 				echo 'There are '.$cnt.' users that match this '.$field.' mask:<br>';
-				echo '<table border=0 cellspacing=0 cellpadding=3><tr><td>E-mail</td><td>'.ucfirst($field).'</td></tr>';
 				while ($r = db_rowarr($c)) {
-					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'._rsidl.'>Pick user</a> Login: ['.$r[1].'] E-mail: ['.htmlspecialchars($r[2]).']<br>';
+					echo '<a href="admuser.php?usr_id='.$r[0].'&act=m&'._rsidl.'">Pick user</a> <b>'.$r[1].' / '.htmlspecialchars($r[2]).'</b><br>';
 				}
-				echo '</table>';
 				qf($c);
 				exit;
 				break;
