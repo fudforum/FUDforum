@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.62 2004/06/07 15:24:53 hackie Exp $
+* $Id: post_proc.inc.t,v 1.63 2004/06/24 13:29:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -162,6 +162,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 's':
 				case 'sub':
 				case 'sup':
+				case 'del':
 					$end_tag[$cpos] = '</'.$tag.'>';
 					$ostr .= '<'.$tag.'>';
 					break;
@@ -541,7 +542,7 @@ function html_to_tags($fudml)
 
 	$fudml = str_replace(
 	array(
-		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>',
+		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', '<del>', '</del>',
 		'<div class="pre"><pre>', '</pre></div>', '<div align="center">', '<div align="left">', '<div align="right">', '</div>',
 		'<ul>', '</ul>', '<span name="notag">', '</span>', '<li>', '&#64;', '&#58;&#47;&#47;', '<br />', '<pre>', '</pre>'
 	),
