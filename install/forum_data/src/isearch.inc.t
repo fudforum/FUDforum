@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.36 2004/06/21 14:56:16 hackie Exp $
+* $Id: isearch.inc.t,v 1.37 2004/07/20 13:51:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,6 +26,8 @@ function mb_word_split($str)
 		preg_match_all('!(\W)!u', @iconv($lang, 'UTF-8', $str), $m);
 	} else if (extension_loaded('mbstring')) {
 		preg_match_all('!(\W)!u', @mb_convert_encoding($str, 'UTF-8', $lang), $m);
+	} else { /* poor man's alternative to proper multi-byte support */
+		preg_match_all("!([\\1-\\255]{1,2})!", $str, $m);
 	}
 
 	if (!$m) {
