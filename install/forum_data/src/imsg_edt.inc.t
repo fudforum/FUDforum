@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.25 2003/04/08 11:23:54 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.26 2003/04/08 11:33:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -389,12 +389,38 @@ class fud_msg_edit extends fud_msg
 			index_text((preg_match('!Re: !i', $mtf->subject) ? '': $mtf->subject), $mtf->body, $mtf->id);
 		}
 
+		/* handle notifications */
 		if ($mtf->root_msg_id == $mtf->id) {
 			/* send new thread notifications to forum subscribers */
-			th_send_notifications($mtf->id, $mtf->poster_id, $mtf->subject, $mtf->alias, $mtf->thread_id, $mtf->last_post_id, $mtf->frm_name);
+			$c = uq('SELECT u.email, u.icq, u.notify_method
+					FROM {SQL_TABLE_PREFIX}forum_notify fn
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id 
+					INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
+					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
+				WHERE 
+					fn.forum_id='.$mtf->thread_id.' AND fn.user_id!='.intzero($mtf->poster_id).' 
+					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
+			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
-			send_notifications($thr->get_notify_list(intzero($mtf->poster_id)), $mtf->id, $mtf->subject, ($GLOBALS['usr']->login?$GLOBALS['usr']->login:$GLOBALS['ANON_NICK']), 'thr', $mtf->thread_id);
+			$c = uq('SELECT u.email, u.icq, u.notify_method
+					FROM {SQL_TABLE_PREFIX}thread_notify tn
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
+					INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
+					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.' 
+				WHERE 
+					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.intzero($mtf->poster_id).' AND r.msg_id='.$mtf->last_post_id.' 
+					AND (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\'');
+			$notify_type = 'thr';
+		}
+		while ($r = db_rowarr($c)) {
+			$to[$r[2]][] = $r[2] == 'EMAIL' ? $r[0] : $r[1].'@pager.icq.com';
+		}
+		qf($c);
+		if (isset($to)) {
+			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, $mtf->thread_id, $mtf->frm_name);
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.6 2003/04/08 11:23:54 hackie Exp $
+*   $Id: forum.inc.t,v 1.7 2003/04/08 11:33:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -71,44 +71,6 @@ class fud_forum
 	{
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET thread_count=thread_count-".$val." WHERE id=".$this->id);
 	}
-	
-	function get_notify_list($user_id)
-	{
-		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}users.email, 
-				{SQL_TABLE_PREFIX}users.icq, 
-				{SQL_TABLE_PREFIX}users.notify_method,
-				{SQL_TABLE_PREFIX}group_cache.p_READ
-			FROM 
-				{SQL_TABLE_PREFIX}forum_notify 
-				INNER JOIN {SQL_TABLE_PREFIX}users 
-					ON {SQL_TABLE_PREFIX}forum_notify.user_id={SQL_TABLE_PREFIX}users.id 
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache
-					ON {SQL_TABLE_PREFIX}group_cache.user_id={SQL_TABLE_PREFIX}forum_notify.user_id
-					AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum'	
-					AND {SQL_TABLE_PREFIX}group_cache.resource_id={SQL_TABLE_PREFIX}forum_notify.forum_id
-			WHERE 
-				{SQL_TABLE_PREFIX}forum_notify.forum_id=".$this->id." 
-				AND {SQL_TABLE_PREFIX}forum_notify.user_id!=".$user_id);
-		
-		$gen_user_read = q_singleval("SELECT p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND resource_id=".$this->id);
-		$to = array();
-		while ( $obj = db_rowobj($r) ) {
-			if (!$obj->p_READ) {
-				$obj->p_READ = $gen_user_read;
-			}
-			if ($obj->p_READ != 'Y') {
-				continue;
-			}
-			
-			$to[$obj->notify_method][] = ( $obj->notify_method == 'EMAIL' ) ? $obj->email : $obj->icq.'@pager.icq.com';
-		}
-
-		qf($r);
-				
-		return $to;
-	}
-	
 }
 
 function is_moderator($frm_id, $user_id)

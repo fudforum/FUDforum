@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.25 2003/04/08 11:23:54 hackie Exp $
+*   $Id: th.inc.t,v 1.26 2003/04/08 11:33:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,48 +138,6 @@ class fud_thread
 	function inc_post_count($val)
 	{
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$val.' WHERE id='.$this->id);
-	}
-	
-	
-	
-	function get_notify_list($user_id)
-	{
-		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}users.email,
-				{SQL_TABLE_PREFIX}users.icq,
-				{SQL_TABLE_PREFIX}users.notify_method,
-				{SQL_TABLE_PREFIX}group_cache.p_READ 
-			FROM 
-				{SQL_TABLE_PREFIX}thread_notify
-				INNER JOIN {SQL_TABLE_PREFIX}users 
-					ON {SQL_TABLE_PREFIX}thread_notify.user_id={SQL_TABLE_PREFIX}users.id 
-				INNER JOIN {SQL_TABLE_PREFIX}read 
-					ON {SQL_TABLE_PREFIX}read.thread_id={SQL_TABLE_PREFIX}thread_notify.thread_id 
-					AND {SQL_TABLE_PREFIX}read.user_id={SQL_TABLE_PREFIX}thread_notify.user_id
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache
-					ON {SQL_TABLE_PREFIX}group_cache.user_id={SQL_TABLE_PREFIX}thread_notify.user_id
-					AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum'	
-					AND {SQL_TABLE_PREFIX}group_cache.resource_id=".$this->forum_id."
-			WHERE 
-				{SQL_TABLE_PREFIX}thread_notify.thread_id=".$this->id." 
-				AND {SQL_TABLE_PREFIX}thread_notify.user_id!=".intzero($user_id)."
-				AND {SQL_TABLE_PREFIX}read.msg_id=".$this->last_post_id);
-		
-		$gen_user_read = q_singleval("SELECT p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND resource_id=".$this->forum_id);
-		
-		$to = array();
-		while ($d = db_rowarr($r)) {
-			if (!$d[3]) {
-				$d[3] = $gen_user_read;
-			}
-			if ($d[3] != 'Y') {
-				continue;
-			}
-			$to[$d[2]][] = $d[2] == 'EMAIL' ? $d[0] : $d[1].'@pager.icq.com';
-		}
-		qf($r);
-		
-		return $to;
 	}
 	
 	function adm_set_rating($value)
@@ -320,28 +278,5 @@ function th_inc_post_count($id, $r, $lpi=0, $lpd=0)
 	} else {
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$r.' WHERE id='.$id);
 	}
-}
-
-function th_send_notifications($id, $author, $msg_id, $subject, $login, $thread_id, $lpi, $frm)
-{
-	$c = uq('SELECT u.email, u.icq, u.notify_method, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS read_perm
-			FROM {SQL_TABLE_PREFIX}thread_notify tn
-				INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
-				INNER JOIN {SQL_TABLE_PREFIX}read r ON t.thread_id=tn.thread_id AND r.user_id=tn.user_id
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$frm.'
-				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$frm.' 
-			WHERE 
-				tn.thread_id='.$this->id.' AND tn.user_id!='.intzero($author).' AND r.msg_id='.$lpi.' AND read_perm=\'Y\'');
-	while ($r = db_rowarr($c)) {
-		$to[$r[2]][] = $r[2] == 'EMAIL' ? $r[0] : $r[1].'@pager.icq.com';	
-	}
-	qf($c);
-	
-	/* no subscribers */
-	if (!isset($to)) {
-		return;
-	}
-
-	send_notifications($to, $msg_id, $subject, $login, 'thr', $thread_id, $frm);
 }
 ?>
