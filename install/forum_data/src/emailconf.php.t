@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.8 2003/05/01 02:46:00 hackie Exp $
+*   $Id: emailconf.php.t,v 1.9 2003/05/16 07:20:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,12 +20,12 @@
 
 	if (isset($_GET['conf_key'])) {
 		$uid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".addslashes($_GET['conf_key'])."'");
-		if (__fud_real_user__ && __fud_real_user__ != $uid) {
+		if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
 		}
 		q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='Y', conf_key='0' WHERE id=".$uid);
 		if (!__fud_real_user__) {
-			q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$uid.' WHERE id='.$usr->sid);
+			$usr->ses_id = user_login($uid, $usr->ses_id, TRUE);
 		}
 		check_return($usr->returnto);
 	} else {
