@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.56 2003/11/01 19:20:53 hackie Exp $
+* $Id: ppost.php.t,v 1.57 2003/11/01 19:30:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -142,7 +142,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_subject = $_POST['msg_subject'];
 		$old_subject = $_POST['old_subject'];
 		$msg_body = $_POST['msg_body'];
-		$msg_icon = isset($_POST['msg_icon']) ? basename($_POST['msg_icon']) : '';
+		$msg_icon = isset($_POST['msg_icon']) ? htmlspecialchars(basename($_POST['msg_icon'])) : '';
 		$msg_track = isset($_POST['msg_track']) ? '4' : '';
 		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? '2' : '';
 		$msg_show_sig = isset($_POST['msg_show_sig']) ? '1' : '';
