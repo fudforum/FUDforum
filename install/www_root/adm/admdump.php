@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.34 2003/10/16 21:59:05 hackie Exp $
+* $Id: admdump.php,v 1.35 2003/10/17 12:30:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -93,19 +93,14 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 	closedir($d);
 }
 
-function sql_num_fields($r)
-{
-	return __dbtype__ == 'pgsql' ? pg_num_fields($r['res']) : mysql_num_fields($r);
-}
-
 function sql_field_type($r,$n)
 {
-	return __dbtype__ == 'pgsql' ? pg_field_type($r['res'], $n) : mysql_field_type($r, $n);
+	return __dbtype__ == 'pgsql' ? pg_field_type($r, $n) : mysql_field_type($r, $n);
 }
 
 function sql_field_name($r, $n)
 {
-	return __dbtype__ == 'pgsql' ? pg_field_name($r['res'], $n) : mysql_field_name($r, $n);
+	return __dbtype__ == 'pgsql' ? pg_field_name($r, $n) : mysql_field_name($r, $n);
 }
 
 function sql_is_null($r, $n, $tbl='')
@@ -209,7 +204,7 @@ function sql_is_null($r, $n, $tbl='')
 				$db_name = preg_replace('!^'.preg_quote($DBHOST_TBL_PREFIX).'!', '{SQL_TABLE_PREFIX}', $tbl_name);
 				// get field defenitions
 				$r = q('SELECT * FROM '.$tbl_name.' LIMIT 1');
-				$nf = sql_num_fields($r);
+				$nf = db_count($r);
 				for ($i = 0; $i < $nf; $i++) {
 					$field_data[sql_field_name($r, $i)] = array('name' => sql_field_name($r, $i), 'type' => sql_field_type($r, $i), 'not_null' => sql_is_null($r, $i, $tbl_name));
 				}
