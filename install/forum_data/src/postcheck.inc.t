@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.13 2003/10/01 21:51:52 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.14 2003/10/02 15:27:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -72,7 +72,7 @@ function check_ppost_form($msg_subject)
 	foreach($list as $v) {
 		$v = trim($v);
 		if (strlen($v)) {
-			if (!($obj = db_sab('SELECT u.pm_messages, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(htmlspecialchars($v)))))) {
+			if (!($obj = db_sab('SELECT u.users_opt, u.id, ui.ignore_id FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}user_ignore ui ON ui.user_id=u.id AND ui.ignore_id='._uid.' WHERE u.alias='.strnull(addslashes(htmlspecialchars($v)))))) {
 				set_err('msg_to_list', '{TEMPLATE: postcheck_no_such_user}');
 				break;
 			}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.49 2003/10/01 21:51:52 hackie Exp $
+*   $Id: ppost.php.t,v 1.50 2003/10/02 15:27:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -237,22 +237,21 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_p->subject = htmlspecialchars($msg_p->subject);
 
 		if (empty($_POST['msg_id'])) {
+			$msg_p->pmsg_opt = $msg_p->pmsg_opt &~ 96;
 			if ($_POST['reply']) {
 				$msg_p->ref_msg_id = 'R'.$_POST['reply'];
+				$msg_p->pmsg_opt |= 64;
 			} else if ($_POST['forward']) {
 				$msg_p->ref_msg_id = 'F'.$_POST['forward'];
 			} else {
 				$msg_p->ref_msg_id = null;
+				$msg_p->pmsg_opt |= 32;
 			}
 
 			$msg_p->add();
 		} else {
 			$msg_p->id = (int) $_POST['msg_id'];
 			$msg_p->sync();
-		}
-
-		if (!isset($_POST['btn_draft'])	&& $msg_p->ref_msg_id) {
-			set_nrf(substr($msg_p->ref_msg_id, 0, 1), substr($msg_p->ref_msg_id, 1));
 		}
 
 		if (isset($attach_list)) {
@@ -400,7 +399,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$disable_smileys = '';
 	}
 
-	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
+	if ($reply && ($mm = db_sab('SELECT p.*, u.sig, u.alias, u.users_opt, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');
 		$dpmsg_prev_message = $dpmsg_next_message = '';
 		$reference_msg = tmpl_drawpmsg($mm, $usr, true);

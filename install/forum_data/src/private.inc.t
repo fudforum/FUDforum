@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.24 2003/10/01 21:51:52 hackie Exp $
+*   $Id: private.inc.t,v 1.25 2003/10/02 15:27:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,11 +23,6 @@ class fud_pmsg
 
 	function add($track='')
 	{
-		if (!db_locked()) {
-			$ll = 1;
-			db_lock('{SQL_TABLE_PREFIX}pmsg WRITE, {SQL_TABLE_PREFIX}users WRITE');
-		}
-
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
@@ -77,17 +72,15 @@ class fud_pmsg
 		if ($this->fldr == 3 && !$track) {
 			$this->send_pmsg();
 		}
-		if (isset($ll)) {
-			db_unlock();
-		}
 	}
 
 	function send_pmsg()
 	{
+		$this->pmsg_opt |= 16|32;
+		$this->pmsg_opt &= 16|32|1|2|4;
+
 		foreach($GLOBALS['recv_user_id'] as $v) {
-			$id = db_qid("INSERT INTO
-			{SQL_TABLE_PREFIX}pmsg
-			(
+			$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 				to_list,
 				ouser_id,
 				ip_addr,
@@ -116,7 +109,7 @@ class fud_pmsg
 				".$this->length.",
 				".$v.",
 				".strnull($this->ref_msg_id).",
-				".($this->pmsg_opt|16).")");
+				".$this->pmsg_opt.")");
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
@@ -142,10 +135,11 @@ class fud_pmsg
 
 	function sync()
 	{
-		list($this->foff, $this->length) = write_pmsg_body($this->body);
 		$this->post_stamp = __request_timestamp__;
 		$this->ip_addr = get_ip();
 		$this->host_name = $GLOBALS['FUD_OPT_1'] & 268435456 ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+
+		list($this->foff, $this->length) = write_pmsg_body($this->body);
 
 		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET
 			to_list=".strnull(addslashes($this->to_list)).",
@@ -171,11 +165,16 @@ class fud_pmsg
 
 function set_nrf($nrf, $id)
 {
-	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt|96) &~ 96) | ".$nrf." WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt &~ 96) | ".$nrf." WHERE id=".$id);
 }
 
 function write_pmsg_body($text)
 {
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock('{SQL_TABLE_PREFIX}pmsg WRITE');
+	}	
+
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
 
 	fseek($fp, 0, SEEK_END);
@@ -187,6 +186,10 @@ function write_pmsg_body($text)
 		exit("FATAL ERROR: system has ran out of disk space<br>\n");
 	}
 	fclose($fp);
+
+	if (isset($ll)) {
+		db_unlock();
+	}
 
 	if (!$s) {
 		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FUD_OPT_2'] & 8388608 ? 0600 : 0666));
