@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.28 2004/06/07 17:36:36 hackie Exp $
+* $Id: reported.php.t,v 1.29 2004/06/11 14:09:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,10 +51,8 @@
 		ORDER BY mr.id');
 
 	$perms = perms_from_obj($r, ($usr->users_opt & 1048576));
-	$MOD = 1;
 	$reported_message = '';
-	$prev_thread_id = $n = 0;
-	$_GET['start'] = 0;
+	$_GET['start'] = $prev_thread_id = $n = 0;
 
 	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
