@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.26 2004/12/09 18:43:35 hackie Exp $
+* $Id: admprune.php,v 1.27 2004/12/16 01:17:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,7 +30,7 @@
 	}
 
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
-		$lmt = ' AND (thread_opt & (2|4)) == 0 ';
+		$lmt = ' AND (thread_opt & (2|4)) = 0 ';
 	
 		/* figure out our limit if any */
 		if ($_POST['forumsel'] == '0') {
