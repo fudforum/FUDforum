@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.13 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admcat.php,v 1.14 2003/10/03 18:18:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,6 +47,7 @@
 		if ($cat_description && !strncmp($cat_description, ' - ', 3)) {
 			$cat_description = substr($cat_description, 3);
 		}
+		$cat_opt = $c['cat_opt'];
 	} else {
 		$c = get_class_vars('fud_cat');
 		foreach ($c as $k => $v) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.19 2003/09/30 03:49:19 hackie Exp $
+*   $Id: admforum.php,v 1.20 2003/10/03 18:18:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,13 +47,13 @@ function get_max_upload_size()
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
 	if (isset($_POST['frm_submit'])) {
-		$frm = new fud_forum;
 		if ($_POST['frm_max_attach_size'] > $max_upload_size) {
 			$_POST['frm_max_attach_size'] = floor($max_upload_size / 1024);
 		}
 		/* (int) $_POST['frm_anon_forum']  is unused */
 		$_POST['frm_forum_opt'] = (int) $_POST['frm_moderated'] | (int) $_POST['frm_passwd_posting'] | (int) $_POST['frm_tag_style'];
-		unset($_POST['frm_moderated'], $_POST['frm_passwd_posting'], $_POST['frm_tag_style']);
+
+		$frm = new fud_forum;
 
 		if (!$edit) {
 			fud_use('groups_adm.inc', true);

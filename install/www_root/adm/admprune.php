@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.15 2003/09/30 03:49:19 hackie Exp $
+*   $Id: admprune.php,v 1.16 2003/10/03 18:18:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,15 +26,13 @@
 	fud_use('attach.inc');
 	fud_use('th_adm.inc');
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];	
-
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
 		/* figure out our limit if any */
 		if ($_POST['forumsel'] == '0') {
 			$lmt = '';
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
-			$c = uq('SELECT id FROM '.$tbl.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
+			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
 			while ($r = db_rowarr($c)) {
 				$l[] = $r[0];
 			}
@@ -42,17 +40,17 @@
 			if ($lmt = implode(',', $l)) {
 				$lmt = ' AND forum_id IN('.$lmt.') ';
 			}
-			$msg = '<font color="red">from all forums in category "'.q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.(int)substr($_POST['forumsel'], 4)).'"</font>';
+			$msg = '<font color="red">from all forums in category "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'cat WHERE id='.(int)substr($_POST['forumsel'], 4)).'"</font>';
 		} else {
 			$lmt = ' AND forum_id='.(int)$_POST['forumsel'].' ';
-			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
+			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
 	
 		if (!isset($_POST['btn_conf'])) {
 			/* count the number of messages & topics that will be affected */
-			$topic_cnt = q_singleval('SELECT count(*) FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt);
-			$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
+			$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
+			$msg_cnt = q_singleval('SELECT SUM(replies) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt) + $topic_cnt;
 ?>
 <html>
 <body bgcolor="white">
@@ -74,9 +72,9 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 <?php			
 			exit;
 		} else {
-			db_lock($tbl.'thr_exchange WRITE, '.$tbl.'thread_view WRITE, '.$tbl.'level WRITE, '.$tbl.'forum WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread WRITE, '.$tbl.'msg WRITE, '.$tbl.'attach WRITE, '.$tbl.'poll WRITE, '.$tbl.'poll_opt WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'msg_report WRITE, '.$tbl.'thread_rate_track WRITE');
+			db_lock($DBHOST_TBL_PREFIX.'thr_exchange WRITE, '.$DBHOST_TBL_PREFIX.'thread_view WRITE, '.$DBHOST_TBL_PREFIX.'level WRITE, '.$DBHOST_TBL_PREFIX.'forum WRITE, '.$DBHOST_TBL_PREFIX.'forum_read WRITE, '.$DBHOST_TBL_PREFIX.'thread WRITE, '.$DBHOST_TBL_PREFIX.'msg WRITE, '.$DBHOST_TBL_PREFIX.'attach WRITE, '.$DBHOST_TBL_PREFIX.'poll WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt_track WRITE, '.$DBHOST_TBL_PREFIX.'users WRITE, '.$DBHOST_TBL_PREFIX.'thread_notify WRITE, '.$DBHOST_TBL_PREFIX.'msg_report WRITE, '.$DBHOST_TBL_PREFIX.'thread_rate_track WRITE');
 
-			$c = q('SELECT root_msg_id, forum_id FROM '.$tbl.'thread WHERE last_post_date<'.$back.$lmt);
+			$c = q('SELECT root_msg_id, forum_id FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
 			while ($r = db_rowarr($c)) {
 				fud_msg_edit::delete(false, $r[0], 1);
 				$frm_list[$r[1]] = $r[1];
@@ -106,7 +104,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 	<td colspan=2 bgcolor="#bff8ff" nowrap>
 	<?php 
 		$oldc = '';
-		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
+		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
 		echo '<select name="forumsel"><option value="0">- All Forums -</option>';
 		while ($r = db_rowarr($c)) {
 			if ($oldc != $r[3]) {
