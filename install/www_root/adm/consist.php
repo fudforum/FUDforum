@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.48 2003/07/31 17:42:04 hackie Exp $
+*   $Id: consist.php,v 1.49 2003/07/31 17:48:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -458,9 +458,9 @@ forum will be disabled.<br><br>
 		qf($c);
 	} else {
 		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
-		while (list($ps, $uid) = db_rowarr($c)) {
+		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
 			if (!$uid) { continue; }
-			q('UPDATE '.$tbl.'users SET u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
+			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', level_id='.get_ulevel($lvl, $cnt).', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
 		}
 		qf($c);
 	}
