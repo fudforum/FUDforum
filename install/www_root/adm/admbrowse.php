@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.12 2003/10/09 14:34:31 hackie Exp $
+* $Id: admbrowse.php,v 1.13 2003/11/13 10:13:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -164,6 +164,7 @@ if (!function_exists('posix_getpwuid')) {
 			<input type="hidden" name="cur" value="<?php echo $cur_dir; ?>">
 			<input type="hidden" name="dest" value="<?php echo $dest; ?>">
 			<input type="hidden" name="del" value="1">
+			<?php echo _hs; ?>
 			<div align="center"><input type="submit" name="btn_mini_cancel" value="No"> <input type="submit" name="del_conf" value="Yes"></div>
 			</form>
 			</html>
