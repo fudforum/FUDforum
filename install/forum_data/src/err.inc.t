@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.5 2002/08/28 17:39:17 hackie Exp $
+*   $Id: err.inc.t,v 1.6 2002/08/28 18:11:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,36 +15,6 @@
 *
 ***************************************************************************/
 
-/*
- * if severity is >0 the error handler will merely output the error the file 
- * however if the error severity is 0, the the function will terminate the script.
-*/ 
-
-function error_handler($function_name, $error_message, $severity)
-{	
-	if( !($fp = fopen($GLOBALS['ERROR_PATH'].'errors.inc', 'ab')) ) 
-		exit('<br><font color="#ff0000">Unable to open error file</font><br>');
-
-	unset($error_msg);
-
-	$err = gmdate("Y-m-d-H-i-s", __request_timestamp__);
-	$err .= ' [s:'.$GLOBALS["HTTP_SERVER_VARS"]["SCRIPT_FILENAME"].'@'.$function_name.'] '.str_replace("\r", ' ', str_replace("\n", ' ', $GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"].' "'.$GLOBALS["HTTP_SERVER_VARS"]["PATH_TRANSLATED"].'" "'.$GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"].'" '.$error_message))."\n";
-	
-	$error_msg = "\n--------------------------------------\n";
-	$error_msg .= "Error in function/script: <b>".$function_name."</b>\n";
-	$error_msg .= "has caused the following error: <b>".$error_message."</b>\n";
-	$error_msg .= "while processing script name: <b>".$GLOBALS["HTTP_SERVER_VARS"]["SCRIPT_FILENAME"]."</b>\n";
-	$error_msg .= "the error occured at: <b>".gmdate("d/m/Y H:i:s T")."</b>\n";
-	$error_msg .= "Browser: <b>".$GLOBALS["HTTP_SERVER_VARS"]["HTTP_USER_AGENT"]."</b>\nUser Ip: <b>".$GLOBALS["HTTP_SERVER_VARS"]["REMOTE_ADDR"]."</b>\nScript Accessed: <b>".$GLOBALS["HTTP_SERVER_VARS"]["PATH_TRANSLATED"]."</b>\n\n";
-	echo nl2br($error_msg);
-	
-	fwrite($fp, $err);
-	fclose($fp);	
-	@chmod($GLOBALS['ERROR_PATH'].'errors.inc', ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
-
-	if( !$severity ) exit;
-}
-
 function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 {
 	if ( empty($ses) ) $ses = $GLOBALS['ses'];
@@ -53,14 +23,8 @@ function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 	$ref = !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ? $GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"] : '';
 		
 	if ( $level == 'FATAL' ) {
-		$err_str = gmdate("Y-m-d-H-i-s", __request_timestamp__);
-		$err_str .= " [d:$level]";
-		$err_str .= ' '.strip_tags(str_replace("\n", ' ', str_replace("\r", ' ', $title.':'.$msg.':'.$returnto.':'.$ref))).':'.$GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'].':'.$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']."\n";
-		$fp = fopen($GLOBALS['ERROR_PATH'].'error_dialog.log', 'ab');
-			fwrite($fp, $err_str);
-			fflush($fp);
-		fclose($fp);
-		@chmod($GLOBALS['ERROR_PATH'].'error_dialog.log',($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
+		$error_msg = "[$level] $title<br />\n$msg<br />\n$returnto<br />\n$ref<br />\n".$GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'].':'.$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']."<br />\n";
+		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 
 	$err_id = md5(get_random_value(128).__request_timestamp__);
