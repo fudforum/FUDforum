@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.6 2002/08/28 20:29:16 hackie Exp $
+*   $Id: nntp.inc,v 1.7 2002/09/12 21:56:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -472,14 +472,12 @@ class fud_nntp
 			// Handle File Attachments
 			if( $nntp_adm->allow_nntp_html == 'Y' && isset($this->attachments) && is_array($this->attachments) ) {
 				foreach($this->attachments as $key => $val) {
-					$fa = new fud_attach;
-				
 					$tmpfname = tempnam ($GLOBALS['TMP'], "FUDf_");
 					$fp = fopen($tmpfname, "wb");
 					fwrite($fp, $val);
 					fclose($fp);
-		
-					$fa->add($msg_post->poster_id, $msg_post->id, addslashes($key), $tmpfname);
+					
+					fud_attach::full_add($msg_post->poster_id, $msg_post->id, addslashes($key), $tmpfname, strlen($val));
 		
 					unlink($tmpfname);
 				}	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.6 2002/09/12 08:33:46 hackie Exp $
+*   $Id: attach.inc.t,v 1.7 2002/09/12 21:56:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,37 +63,18 @@ class fud_attach
 			q("UPDATE {SQL_TABLE_PREFIX}attach SET location=CONCAT('".$GLOBALS['FILE_STORE']."',id,'.atch'), message_id=".$mid." WHERE id IN(".substr($id_list,0,-1).")");
 	}
 	
-	
-	/*
-	function add($owner, $message_id, $original_name, $cur_location, $private='')
+	function full_add($owner, $message_id, $original_name, $cur_location, $fsize, $private='N')
 	{
-		$proto = proto($cur_location);
+		if( !($this->mime_type = get_mime_by_ext(substr(strrchr($original_name, '.'), 1))) ) $this->mime_type = 0;
 		
-		$ext = substr($original_name, strrpos($original_name, '.')+1);
-		if( !($mime_id = get_mime_by_ext($ext)) ) $mime_id = 0;
+		$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto,original_name,owner,private,mime_type,fsize,message_id) VALUES('LOCAL','".$original_name."', ".$owner.", '".$private."',".$this->mime_type.",".intzero($fsize).",".$message_id.")");
+		$this->id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
 		
-		$r=q("INSERT INTO {SQL_TABLE_PREFIX}attach (proto, location, original_name, message_id, owner, private, mime_type) VALUES('".$proto."', 'none://unset', '".$original_name."', ".intzero($message_id).", ".intzero($owner).", '".yn($private)."', ".$mime_id.")");
-		$id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
-		$this->message_id=$message_id;
-		if ( $proto == 'LOCAL' ) {
-			$loc = safe_attachment_copy($cur_location, $id);
-		}
-		else $loc = $cur_location;
+		safe_attachment_copy($cur_location, $this->id);
 		
-		if ( $private == 'Y' ) 
-			$tbl = '{SQL_TABLE_PREFIX}pmsg';
-		else
-			$tbl = '{SQL_TABLE_PREFIX}msg';
-		
-		q("UPDATE {SQL_TABLE_PREFIX}attach SET location='".addslashes($loc)."' WHERE id=".$id);
-		if ( $message_id ) {
-			qobj("SELECT count(*) AS a_count FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$message_id, $cObj);
-			q("UPDATE ".$tbl." SET attach_cnt=".$cObj->a_count." WHERE id=".$this->message_id);
-		}
-		
-		return $id;
+		return $this->id;
 	}
-	*/	
+	
 	function get($id,$private='')
 	{
 		$obj = qobj("SELECT * FROM {SQL_TABLE_PREFIX}attach WHERE id=".$id." AND private='".yn($private)."'", $this);

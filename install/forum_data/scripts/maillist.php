@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.12 2002/08/28 20:29:11 hackie Exp $
+*   $Id: maillist.php,v 1.13 2002/09/12 21:56:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -564,14 +564,12 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	// Handle File Attachments
 	if( $mlist->allow_mlist_attch == 'Y' && isset($emsg->attachments) && is_array($emsg->attachments) ) {
 		foreach($emsg->attachments as $key => $val) {
-			$fa = new fud_attach;
-		
 			$tmpfname = tempnam ($GLOBALS['TMP'], "FUDf_");
 			$fp = fopen($tmpfname, "wb");
 			fwrite($fp, $val);
 			fclose($fp);
 		
-			$fa->add($msg_post->poster_id, $msg_post->id, addslashes($key), $tmpfname);
+			fud_attach::full_add($msg_post->poster_id, $msg_post->id, addslashes($key), $tmpfname, strlen($val));
 		
 			unlink($tmpfname);
 		}
