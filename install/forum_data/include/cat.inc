@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.29 2005/03/31 21:54:41 hackie Exp $
+* $Id: cat.inc,v 1.30 2005/04/03 16:28:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,7 +115,7 @@ function rebuild_forum_cat_order()
 			$lvl[$r[2]] = ++$i;
 		}
 
-		if ($r[0]) {
+		if ($r[1]) {
 			q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$r[0].",".$r[1].",".$lvl[$r[2]].")");
 		}
 
