@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.24 2003/05/07 01:05:51 hackie Exp $
+*   $Id: maillist.php,v 1.25 2003/05/14 08:10:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -413,7 +413,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$msg_post->smiley_disabled = 'Y';
 	$msg_post->poll_id = 0;
 	$msg_post->show_sig = 'N';
-	if (($msg_post->post_stamp = strtotime($emsg->headers['date'])) <= 0) {
+	if (($msg_post->post_stamp = strtotime($emsg->headers['date'])) <= 0 || $msg_post->post_stamp > time()) {
 		$msg_post->post_stamp = __request_timestamp__;
 	}
 

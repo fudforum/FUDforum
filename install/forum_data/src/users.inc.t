@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.43 2003/05/12 16:49:55 hackie Exp $
+*   $Id: users.inc.t,v 1.44 2003/05/14 08:08:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,10 +98,7 @@ function user_set_post_count($uid)
 
 function user_mark_all_read($id)
 {
-	if (!($tm = q_singleval('SELECT MAX(post_stamp) FROM {SQL_TABLE_PREFIX}msg'))) {
-		$tm = __request_timestamp__;
-	}
-	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.$tm.' WHERE id='.$id);
+	q('UPDATE {SQL_TABLE_PREFIX}users SET last_read='.__request_timestamp__.' WHERE id='.$id);
 	q('DELETE FROM {SQL_TABLE_PREFIX}read WHERE user_id='.$id);
 	q('DELETE FROM {SQL_TABLE_PREFIX}forum_read WHERE user_id='.$id);
 }

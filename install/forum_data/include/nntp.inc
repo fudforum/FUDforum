@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.29 2003/05/07 01:05:31 hackie Exp $
+*   $Id: nntp.inc,v 1.30 2003/05/14 08:10:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -399,6 +399,9 @@ class fud_nntp
 			
 			if (isset($this->headers['date'])) {
 				$msg_post->post_stamp = strtotime($this->headers['date']);
+				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > time()) {
+					$msg_post->post_stamp = time();
+				}
 			}
 			
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
