@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.26 2003/04/08 11:33:20 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.27 2003/04/08 11:43:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -323,7 +323,7 @@ class fud_msg_edit extends fud_msg
 	
 	function approve($id, $unlock_safe=FALSE)
 	{	
-		if( !db_locked() ) {
+		if (!db_locked()) {
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
@@ -336,7 +336,7 @@ class fud_msg_edit extends fud_msg
 					p.name,
 					m2.post_stamp AS frm_last_post_date,
 					f.name AS frm_name,
-					u.alias
+					u.alias,u.email,u.sig
 				FROM {SQL_TABLE_PREFIX}msg m 
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
@@ -425,23 +425,15 @@ class fud_msg_edit extends fud_msg
 
 		// Handle Mailing List and/or Newsgroup syncronization.
 		if (!$mtf->mlist_msg_id) {
-			if (($mlist_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id." AND allow_frm_post='Y'"))) {
+			if ((list($mlist_id,$addr) = db_saq("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'"))) {
 				fud_use('email_msg_format.inc', true);
 				fud_use('mlist_post.inc', true);
 				
 				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
-				
-				if ($mtf->poster_id) {
-					$r = db_saq('SELECT alias,email,sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$mtf->poster_id);
-					$from = $r[0].' <'.$r[1].'>';
-				} else {
-				 	$from = $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
-				}
-				
-				$body = stripslashes($mtf->body);
-				if ($mtf->show_sig == 'Y' && !empty($r[3])) {
-					$body .= "\n--\n".$r[3];
-				}
+
+				$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+
+				$body = $mtf->body . (($mtf->show_sig == 'Y' && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
 				plain_text($body);
 				
 				if ($mtf->reply_to) {
@@ -461,9 +453,8 @@ class fud_msg_edit extends fud_msg
 					$attach = null;
 				}
 				
-				$addr = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id='.$frm->id);
 				mail_list_post($addr, $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, '');
-			} else if (($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$frm->id." AND allow_frm_post='Y'"))) {
+			} else if (($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'"))) {
 				fud_use('nntp.inc', true);
 				fud_use('nntp_adm.inc', true);
 				fud_use('email_msg_format.inc', true);
@@ -480,17 +471,8 @@ class fud_msg_edit extends fud_msg
 				$nntp->login = $nntp_adm->login;
 				$nntp->pass = $nntp_adm->pass;
 
-				if ($mtf->poster_id) {
-					$r = db_saq('SELECT alias,email,sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$mtf->poster_id);
-					$from = $r[0].' <'.$r[1].'>';
-				} else {
-				 	$from = $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
-				}
-				
-				$body = stripslashes($mtf->body);
-				if ($mtf->show_sig == 'Y' && !empty($r[3])) {
-					$body .= "\n--\n".$r[3];
-				}
+				$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+				$body = $mtf->body . (($mtf->show_sig == 'Y' && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
 				
 				if ($mtf->reply_to) {
 					$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
@@ -498,7 +480,7 @@ class fud_msg_edit extends fud_msg
 					$replyto_id = 0;
 				}
 				
-				if( $mtf->attach_cnt ) {
+				if ($mtf->attach_cnt) {
 					$r = q("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mtf->id." AND private='N'");
 					while ($ent = db_rowarr($r)) {
 						$attach[$ent[1]][] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
@@ -569,18 +551,21 @@ function trim_html($str, $maxlen)
 {
 	$n = strlen($str);
 	$ln = 0;
-	for ( $i=0; $i<$n; $i++ ) {
-		if ( $str[$i] != '<' ) {
+	for ($i = 0; $i < $n; $i++) {
+		if ($str[$i] != '<') {
 			$ln++;
-			if( $ln > $maxlen ) break;
+			if ($ln > $maxlen) {
+				break;
+			}
 			continue;
 		}
 		
-		if( ($p = strpos($str, '>', $i)) === FALSE ) break;
+		if (($p = strpos($str, '>', $i)) === FALSE) {
+			break;
+		}
 		
-		for ( $k=$i; $k<$p; $k++ ) {
-			switch ( $str[$k] ) 
-			{
+		for ($k = $i; $k < $p; $k++) {
+			switch ($str[$k]) {
 				case ' ':
 				case "\r":
 				case "\n":
@@ -590,21 +575,18 @@ function trim_html($str, $maxlen)
 			}
 		}
 		
-		if ( $str[$i+1] == '/' ) {
+		if ($str[$i+1] == '/') {
 			$tagname = strtolower(substr($str, $i+2, $k-$i-2));	
-			if( @end($tagindex[$tagname]) ) {
+			if (@end($tagindex[$tagname])) {
 				$k = key($tagindex[$tagname]);
-				unset($tagindex[$tagname][$k]);
-				unset($tree[$k]);
+				unset($tagindex[$tagname][$k], $tree[$k]);
 			}	
-		}
-		else {
+		} else {
 			$tagname = strtolower(substr($str, $i+1, $k-$i-1));
-			switch ( $tagname ) 
-			{
-				case "br":
-				case "img":
-				case "meta":
+			switch ($tagname) {
+				case 'br':
+				case 'img':
+				case 'meta':
 					break;
 				default:
 					$tree[] = $tagname;
@@ -616,9 +598,11 @@ function trim_html($str, $maxlen)
 	}
 	
 	$data = substr($str, 0, $i);
-	if ( is_array($tree) ) {
+	if (is_array($tree)) {
 		$tree = array_reverse($tree);
-		foreach($tree as $v ) $data .= '</'.$v.'>';
+		foreach ($tree as $v) {
+			$data .= '</'.$v.'>';
+		}
 	}
 
 	return $data;
