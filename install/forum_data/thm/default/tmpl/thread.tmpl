@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.34 2004/01/04 16:38:28 hackie Exp $
+* $Id: thread.tmpl,v 1.35 2004/04/13 16:05:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -105,20 +105,20 @@
 
 {SECTION: thread_row}
 <tr>		
-<td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
+<td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
+<td class="RowStyleB wo ac">{TEMPLATE-DATA: thread_icon}</td>
 <td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}</div>{TEMPLATE-DATA: admin_control_row}</td>
-<td class="RowStyleB" align="center">{VAR: r[16]}</td>
-<td class="RowStyleB" align="center">{VAR: r[19]}</td>
-<td class="RowStyleC" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
+<td class="RowStyleB ac">{VAR: r[16]}</td>
+<td class="RowStyleB ac">{VAR: r[19]}</td>
+<td class="RowStyleC nw">{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-<td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.png" title="{MSG: moved_thread_message}" /></td>
-<td class="RowStyleB" colspan="5" align="center" class="GenText">{MSG: was_moved_msg}</td>
+<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved.png" title="{MSG: moved_thread_message}" /></td>
+<td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
 
@@ -127,10 +127,10 @@
 <tr>
 	<th>&nbsp;</th>
 	<th>&nbsp;</th>
-	<th width="100%">{MSG: thread_thread}</th>
-	<th width=1>{MSG: replies}</th>
-	<th width=1>{MSG: views}</th>
-	<th nowrap>{MSG: last_post}</th>
+	<th class="wa">{MSG: thread_thread}</th>
+	<th class="wo">{MSG: replies}</th>
+	<th class="wo">{MSG: views}</th>
+	<th class="nw">{MSG: last_post}</th>
 </tr>
 {TEMPLATE-DATA: announcements}
 {TEMPLATE-DATA: thread_list_table_data}
@@ -141,15 +141,15 @@
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-<table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
-<td align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
-<td valign="bottom" align="right" class="GenText" nowrap>{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
+<table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
+<td class="al wa">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
+<td class="GenText nw vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
-<table border=0 cellspacing=0 cellpadding=0 width="100%">
+<table border=0 cellspacing=0 cellpadding=0 class="wa">
 <tr>
-<td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
+<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
+<td class="GenText nw vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
 {TEMPLATE-DATA: forum_select}
