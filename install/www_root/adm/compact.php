@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
+*   $Id: compact.php,v 1.5 2002/07/05 12:47:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -125,7 +125,7 @@ and the amount of messages your forum has.<br><br>
 	while( $obj = db_rowobj($r) ) {
 		if( empty($files[$obj->file_id]) ) $files[$obj->file_id]=1;
 		
-		$msg = read_msg_body($obj->off, $obj->length, $obj->file_id);
+		$msg = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 
 		if( $do_rvs_replace ) $msg = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $msg);
 		if( $do_replace ) $msg = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $msg);
@@ -182,14 +182,14 @@ and the amount of messages your forum has.<br><br>
 	$ten_percent = round(db_count($r)/10);
 	
 	while ( $obj = db_rowobj($r) ) {
-		$b = read_pmsg_body($obj->off, $obj->length); 
+		$b = read_pmsg_body($obj->foff, $obj->length); 
 
 		if( $do_rvs_replace ) $b = preg_replace($rvs_rpl_arr['pattern'], $rvs_rpl_arr['replace'], $b);
 		if( $do_replace ) $b = preg_replace($rpl_arr['pattern'], $rpl_arr['replace'], $b);
 
 		$len = fwrite($fp, $b);
 		
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->off);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->foff);
 		
 		$off += $len;
 		
