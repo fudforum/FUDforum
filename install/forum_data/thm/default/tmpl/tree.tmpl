@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.58 2004/10/26 13:17:26 hackie Exp $
+* $Id: tree.tmpl,v 1.59 2004/10/28 19:43:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -175,7 +175,7 @@
 {SECTION: tree_branch_selected message with replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_branch_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
@@ -187,7 +187,7 @@
 {SECTION: tree_entry_selected message without replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {FUNC: (15 * ($lev - 1))}px">
 <a href="{TEMPLATE: tree_entry_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
