@@ -81,29 +81,29 @@ The domain of the cookie that will be used by the forum.
 COOKIE_NAME
 The name of the cookie that will be used by the forum.
 
-#MYSQL SETTINGS
+#DATABASE SETTINGS
 
-MYSQL_SERVER
+DBHOST
 This setting can either be an Internet IP address in a form of
 AAA.BBB.CCC.DDD:PORT, or it can point to a valid Unix domain socket (such as
 :/tmp/mysql.sock).  It is highly recommended that you use Unix domain sockets
-to communicate with MySQL (due to faster performance).
+to communicate with the database (due to faster performance).
 
-MYSQL_LOGIN
-The MySQL login name for the database you intend to use the system with.
+DBHOST_USER
+The username for the database you intend to use the system with.
 
-MYSQL_PASSWORD
-The MySQL password for the login name.
+DBHOST_PASSWORD
+The password for the username.
 
-MYSQL_DB
-MySQL database name for the forum.
+DBHOST_DBNAME
+Database name for the forum.
 
-MYSQL_PERSIST
-Use persistent connections for MySQL (mysql_pconnect).  Highly recommended
+DBHOST_PERSIST
+Whether or not to use persistent connections.  Highly recommended
 unless you have a good reason not to.
 
-MYSQL_TBL_PREFIX
-The prefix for the FUDforum's MySQL tables. Do not modify this option.
+DBHOST_TBL_PREFIX
+The prefix for the FUDforum's database tables. Do not modify this option.
 
 #PRIVATE MESSAGE SETTINGS
 
