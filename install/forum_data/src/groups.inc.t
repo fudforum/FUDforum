@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.18 2003/09/30 03:57:49 hackie Exp $
+*   $Id: groups.inc.t,v 1.19 2003/10/01 02:46:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,184 +15,101 @@
 *
 ***************************************************************************/
 
-$c = get_field_list('{SQL_TABLE_PREFIX}groups');
-while ($r = db_rowarr($c)) {
-	if (!strncmp($r[0], 'p_', 2)) {
-		$GLOBALS['__GROUPS_INC']['permlist'][$r[0]] = $r[0];
-	}
-}
-qf($c);
-
-function mk_perm_update_qry($data, $prefix='p_', $in_prefix='')
-{
-		$fields = '';
-		$plen = strlen($prefix);
-		foreach($data as $k => $v) { 
-			$s='';
-			if ( substr($k, 0, $plen) == $prefix ) {
-				
-				if ( is_object($data) )
-					$s = $data->{$k};
-				else if ( is_array($data) ) 
-					$s = $data[$k];
-				else exit('fatal error');
-				
-				if( !strlen($s) ) $s = 'N';
-				$fields .= $in_prefix.$k."='".$s."',";
-			}
-		}
-		$fields = substr($fields, 0, -1);
-		return $fields;
-}
-
-function draw_permissions($name, $perms_arr=null, $maxperms_arr=null)
-{
-	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-	
-	$perm_selection = '';
-	foreach($arr as $k => $v) { 
-		/* check if this permissions is allowed, depending on maxperms */
-		if ( is_array($maxperms_arr) ) {
-			if ( $maxperms_arr[$v] == 'N' ) {
-				$perm_selection .= '{TEMPLATE: groups_na_perms}';
-				continue;
-			}
-		}
-		
-		$selyes = $selno = '';
-		if ( $perms_arr[$v] == 'Y' )	 		$selyes = ' selected';
-		else if ( $perms_arr[$v] == 'N' ) 	$selno = ' selected';
-		else if ( is_array($maxperms_arr)&&!($perms_arr[$v]=='Y') ) $selno = ' selected';
-		$sel_name = $name.$v;
-		
-		if ( !is_array($maxperms_arr) ) {
-			$perm_selection_inherit_row = '{TEMPLATE: groups_perm_selection_inherit_row}';
-		}
-		else
-			$perm_selection_inherit_row = '';
-		
-		$perm_selection .= '{TEMPLATE: groups_perm_selection}';
-	}
-
-	return $perm_selection;
-}
-
-function grp_resolve_perms(&$grp)
-{
-	if (empty($grp->inherit_id)) {
-		return;	
-	}
-	$permlist =& $GLOBALS['__GROUPS_INC']['permlist'];
-	foreach ($permlist as $v) {
-		if ($grp->{$v} == 'I') {
-			$todo[] = $v;
-		}
-	}
-	if (!isset($todo)) {
-		return;
-	}
-	$inherit_id = $grp->inherit_id;
-	$inh_list[$grp->id] = $grp->id;
-
-	while (($r = db_arr_assoc('SELECT id, inherit_id, '.implode(',', $todo).' FROM {SQL_TABLE_PREFIX}groups WHERE id='.$inherit_id))) {
-		foreach ($todo as $k => $v) {
-			if ($r[$v] != 'I') {
-				$grp->{$v} = $r[$v];
-				unset($todo[$k]);
-			}
-		}
-		if (!count($todo) || !$r['inherit_id'] || isset($inh_list[$r['inherit_id']])) {
-			return;
-		}
-		$inh_list[$r['id']] = 1;
-		$inherit_id = $r['inherit_id'];
-	}
-}
-
 function grp_delete_member($id, $user_id)
 {
 	if (!$user_id || $user_id == '2147483647') {
 		return;
 	}
+
 	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$id.' AND user_id='.$user_id);
-	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id='.$id.' AND user_id='.$user_id);
-}
 
-function grp_update_member($id, $usr_id, &$perms_arr)
-{
-	$str = mk_perm_update_qry($perms_arr, 'up_');
-	q('UPDATE {SQL_TABLE_PREFIX}group_members SET '.$str.' WHERE group_id='.$id.' AND user_id='.$usr_id);
-}
-
-function grp_rebuild_cache($id, $user_id=0)
-{
-	$t = get_field_list('{SQL_TABLE_PREFIX}group_members');
-	while ($e = db_rowarr($t)) {
-		if (strncmp($e[0], 'up_', 3)) {
-			continue;
-		}
-		$perms[] = $e[0];
-	}
-	qf($t);
-
-	if (!db_locked()) {
-		$ll = 1;
-		db_lock('{SQL_TABLE_PREFIX}group_resources gr WRITE, {SQL_TABLE_PREFIX}group_members gm WRITE, {SQL_TABLE_PREFIX}group_cache WRITE');
+	$list = array();
+	$r = uq("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gm.group_id=gr.group_id WHERE gm.user_id=".$user_id);
+	while ($o = db_rowarr($r)) {
+		$list[] = $o[0];
 	}
 
-	if (!$user_id) {
-		/* make list of affected resources */
-		$c = uq('SELECT resource_id FROM {SQL_TABLE_PREFIX}group_resources gr WHERE group_id='.$id);
-		while ($r = db_rowarr($c)) {
-			$list[] = $r[0];
-		}
-		qf($c);
-		if (isset($list)) {
-			q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id IN('.implode(',', $list).')');
-			$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}group_members gm ON gr.group_id=gm.group_id WHERE gr.resource_id IN('.implode(',', $list).')');
-		} else {
-			$r = uq('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE id=0');
-		}
+	if ($o) {
+		/* we rebuild cache, since this user's permission for a particular resource are controled by 
+		 * more the one group. */
+		grp_rebuild_cache($user_id);
 	} else {
-		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='.$user_id.' AND group_id='.$id);
-		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.user_id='.$user_id.' AND gm.approved=\'Y\'');
+		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".$user_id);
 	}
-	while ($obj = db_rowobj($r)) {
-		if (!isset($ent[$obj->resource_id][$obj->user_id])) {
-			$ent[$obj->resource_id][$obj->user_id] = array('ldr' => 0);
-		}
-		$pr =& $ent[$obj->resource_id][$obj->user_id];
-		if ($obj->group_leader == 'Y') {
-			$pr['ldr'] = 1;
-		}
+}
 
-		foreach($perms as $v) {
-			if (!isset($pr[$v])) {
-				$pr[$v] = $obj->{$v};
-			} else if ($pr['ldr'] && $obj->{$v} == 'Y') {
-				$pr[$v] = 'Y';
-			} else if ($obj->{$v} == 'N') {
-				$pr[$v] = 'N';
+function grp_update_member($id, $user_id, $perm)
+{
+	q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE group_id='.$id.' AND user_id='.$user_id);
+	grp_rebuild_cache($user_id);
+}
+
+function grp_rebuild_cache($user_id=null)
+{
+	$list = array();
+	if ($user_id !== null) {
+		$lmt = ' user_id IN('.implode(',', $user_id).') ';
+	} else {
+		$lmt = '';
+	}
+
+	/* generate an array of permissions, in the end we end up with 1ist of permissions */
+	$r = uq("SELECT gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}group_members gm ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND gm.group_members_opt & 65536" . ($lmt ? ' AND '.$lmt : ''));
+	while ($o = db_rowobj($r)) {
+		if (isset($list[$o->rid][$o->uid])) {
+			if ($o->cgo & 131072) {
+				$list[$o->rid][$o->uid] |= $o->gco;
+			} else {
+				$list[$o->rid][$o->uid] &= $o->gco;
 			}
-		} 
+		} else {
+			$list[$o->rid][$o->uid] = $o->gco;
+		}
 	}
 	qf($r);
 
-	$fields = str_replace('up_', 'p_', implode(',', $perms));
+	$tmp_t = "{SQL_TABLE_PREFIX}gc_".__request_timestamp__;
+	q("CREATE TEMPORARY TABLE ".$tmp_t." (a INT, b INT, c INT)");
 
-	/* do the inserts into cache */
-	if (isset($ent)) {
-		foreach ($ent as $k => $v) {
-			foreach ($v as $k2 => $v2) {
-				unset($v2['ldr']);
-				$vals = '\'' . implode('\', \'', $v2) . '\'';
-				q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id, group_id) VALUES('.$vals.', '.$k2.', '.$k.', '.$id.')');
-			}
-		}
+	foreach ($list as $k => $v) {
+		list($u, $p) = each($v);
+		db_qid("INSERT INTO ".$tmp_t." (a, b, c) VALUES(".$k.", ".$p.", ".$u.")");
 	}
+
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock("{SQL_TABLE_PREFIX}group_cache WRITE");
+	}
+
+	q("DELETE FROM {SQL_TABLE_PREFIX}group_cache" . ($lmt ? ' WHERE '.$lmt : ''));
+	q("INSERT INTO {SQL_TABLE_PREFIX}group_cache (resource_id, group_cache_opt, user_id) SELECT a,b,c FROM ".$tmp_t);
 
 	if (isset($ll)) {
 		db_unlock();
 	}
+
+	q("DROP TABLE ".$tmp_t);
+}
+
+function group_perm_array()
+{
+	return array(
+		'p_VISIBLE' => array(1, 'Visible'),
+		'p_READ' => array(2, 'Read'),
+		'p_POST' => array(4, 'Create new topics'),
+		'p_REPLY' => array(8, 'Reply to messages'),
+		'p_EDIT' => array(16, 'Edit messages'),
+		'p_DEL' => array(32, 'Delete messages'),
+		'p_STICKY' => array(64, 'Make topics sticky'),
+		'p_POLL' => array(128, 'Create polls'),
+		'p_FILE' => array(256, 'Attach files'),
+		'p_VOTE' => array(512, 'Vote on polls'),
+		'p_RATE' => array(1024, 'Rate topics'),
+		'p_SPLIT' => array(2048, 'Split/Merge topics'),
+		'p_LOCK' => array(4096, 'Lock/Unlock topics'),
+		'p_MOVE' => array(8192, 'Move topics'),
+		'p_SML' => array(16384, 'Use smilies/emoticons'),
+		'p_IMG' => array(32768, 'Use [img] tags')
+	);
 }
 ?>

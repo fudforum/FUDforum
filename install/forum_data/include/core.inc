@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.77 2003/09/29 22:24:27 hackie Exp $
+*   $Id: core.inc,v 1.78 2003/10/01 02:46:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ set_magic_quotes_runtime(0);
 
 function rls_db_lck()
 {
-	if (connection_status() && defined('FUD_SQL_LNK') && db_locked()) {
+	if (connection_status() && defined('fud_sql_lnk') && db_locked()) {
 		db_unlock();
 	}
 	return;

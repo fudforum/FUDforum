@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.19 2003/09/30 03:57:55 hackie Exp $
+*   $Id: adm.inc,v 1.20 2003/10/01 02:46:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,4 +42,11 @@ if (isset($_POST['btn_cancel'])) {
 	}
 	$_POST = $_GET = null;
 }
+
+function errorify($err)
+{
+	return '<font color="red">'.$err.'</font><br />';
+}
+
+header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 ?>

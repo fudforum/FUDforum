@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.27 2003/09/30 03:57:49 hackie Exp $
+*   $Id: db.inc,v 1.28 2003/10/01 02:46:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,7 +58,7 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	exit;
 }
 
-if (!defined('FUD_SQL_LNK')) {
+if (!defined('fud_sql_lnk')) {
 	$connect_func = $GLOBALS['FUD_OPT_1'] & 256 ? 'pg_pconnect' : 'pg_connect';	
 	
 	$connect_str = '';
@@ -75,7 +75,7 @@ if (!defined('FUD_SQL_LNK')) {
 		$connect_str .= ' dbname='.$GLOBALS['DBHOST_DBNAME'];
 	}
 	$conn = $connect_func(ltrim($connect_str)) or die (fud_sql_error_handler('Initiating '.$connect_func, pg_last_error($conn), '', 'Unknown'));
-	define('FUD_SQL_LNK', $conn);
+	define('fud_sql_lnk', $conn);
 	define('__dbtype__', 'pgsql');
 	define('__FUD_SQL_CONCAT__', 'textcat');
 }
@@ -83,7 +83,7 @@ if (!defined('FUD_SQL_LNK')) {
 function get_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		define('__FUD_SQL_VERSION__', @current(pg_fetch_row(pg_query('SELECT VERSION()', FUD_SQL_LNK))));
+		define('__FUD_SQL_VERSION__', @current(pg_fetch_row(pg_query('SELECT VERSION()', fud_sql_lnk))));
 	}
 	return __FUD_SQL_VERSION__;
 }
@@ -146,7 +146,7 @@ function db_unlock()
 		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", get_version());
 	}
 	unset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']);
-	q('COMMIT WORK', FUD_SQL_LNK);
+	q('COMMIT WORK', fud_sql_lnk);
 }
 
 function db_locked()
@@ -168,13 +168,13 @@ if (!defined('fud_query_stats')) {
 	if (!defined('debug')) {
 		function q($q)
 		{
-			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
+			$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
 			return $GLOBALS['__FLPG__'];
 		}
 	} else {
 		function q($q)
 		{
-			$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
+			$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
 			$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $q;
 			return $GLOBALS['__FLPG__'];
 		}
@@ -193,7 +193,7 @@ if (!defined('fud_query_stats')) {
 		}
 	
 		$s = gettimeofday();
-		$GLOBALS['__FLPG__'] = pg_query(FUD_SQL_LNK, $q) or die (fud_sql_error_handler($q, pg_last_error(FUD_SQL_LNK), '', get_version()));
+		$GLOBALS['__FLPG__'] = pg_query(fud_sql_lnk, $q) or die (fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
 		$e = gettimeofday(); 
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = ($e['sec'] - $s['sec'] + (($e['usec'] - $s['usec'])/1000000));;
