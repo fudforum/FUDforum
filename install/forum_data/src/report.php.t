@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: report.php.t,v 1.18 2004/04/02 18:24:18 hackie Exp $
+* $Id: report.php.t,v 1.19 2004/04/25 20:27:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -54,7 +54,7 @@
 
 /*{POST_HTML_PHP}*/
 
-	$user_login = $msg->alias ? $msg->alias : $GLOBALS['ANON_NICK'];
+	$user_login = $msg->alias ? $msg->alias : $ANON_NICK;
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
