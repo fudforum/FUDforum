@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.35 2003/06/02 15:26:28 hackie Exp $
+*   $Id: index.php.t,v 1.36 2003/06/09 16:01:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,14 +16,6 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-
-function set_collapse($id, $val)
-{
-	if (isset($GLOBALS['collapse'][$id])) {
-		return;
-	}
-	$GLOBALS['collapse'][$id] = $val;
-}
 
 function reload_collapse($str)
 {
@@ -47,9 +39,9 @@ function url_tog_collapse($id, $c)
 	if (!$c) {
 		return $id . ':'.(empty($GLOBALS['collapse'][$id]) ? '1' : '0');
 	} else {
-		$c_status = (empty($GLOBALS['collapse'][$id]) ? '1' : '0');
+		$c_status = (empty($GLOBALS['collapse'][$id]) ? 1 : 0);
 
-		if (isset($GLOBALS['collapse'][$id]) && ($p = strpos($c, $id . ':' . !$c_status)) !== FALSE) {
+		if (isset($GLOBALS['collapse'][$id]) && ($p = strpos('_' . $c, '_' . $id . ':' . (int)!$c_status)) !== FALSE) {
 			$c[$p + strlen($id) + 1] = $c_status;
 			return $c;
 		} else {
@@ -131,7 +123,9 @@ function url_tog_collapse($id, $c)
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[9]) {
 			if ($r[8] == 'Y') {
-				set_collapse($r[9], ($r[7] == 'COLLAPSED' ? 1 : 0));
+				if (!isset($GLOBALS['collapse'][$r[9]])) {
+					$GLOBALS['collapse'][$r[9]] = ($r[7] == 'COLLAPSED' ? 1 : 0);
+				}
 				
 				if (!empty($GLOBALS['collapse'][$r[9]])) {
 					$collapse_status = '{TEMPLATE: maximize_category}';
