@@ -16,7 +16,7 @@ custom_avatar_queue:		©w¨îÀY¹³¦Cªí
 date:				¤é´Á
 date_posted:			µo¥¬®É¶¡
 date_registered:		ª`¥U¤é´Á¡G
-download_counter:		¤U¸ü¦¸¼Æ{VAR: a_obj->dlcount}
+download_counter:		¤U¸ü¦¸¼Æ{VAR: v[3]}
 email:				¶l¥ó¡G
 email_to_friend:		µo°e¶l¥óµ¹ªB¤Í
 email_to_friend_desc:		µo°e¶l¥ó¡A¦V§AªºªB¤Í±À¯ò¥»­¶ºô§}
@@ -94,7 +94,7 @@ no_unread_locked:		¥»¥DÃD¤w³Q«Ê³¬¡C
 no_unread_msg:			³o­Ó¥DÃD¨S¦³¥¼Åª«H®§¡C
 no_unread_msg_unreg:		¥u¦³ª`¥U¥Î¤á¯à°÷§â«H®§¼Ð¬°¤wÅª©M¥¼Åª¡C
 num_pages:			­¶ ({VAR: ttl_pg}):
-num_votes:			{VAR: total_votes} ¿ï²¼
+num_votes:			{VAR: obj->total_votes} ¿ï²¼
 occupation:			Â¾·~¡G
 off:				Ãö³¬
 on:				¥´¶}
@@ -102,7 +102,7 @@ page_timings:			¥Í¦¨¥»­¶­±¦@ªá¶O®É¶¡: {VAR: page_gen_time} ¬í¡C
 fud_query_stats:		MySQL ¨t²Îªá¶O¤F{VAR: ttl_time} ¬íÄÁ®É¶¡<br>
 pm:				®¨®¨¸Ü
 poll:				½Õ¬d:
-post_count:			ÂIÀ»¼Æ {VAR: u->posted_msg_count}
+post_count:			ÂIÀ»¼Æ {VAR: u_pcount}
 post_count_l:			ÂIÀ»¼Æ¡G
 poster:				µo©«¤H
 posts:				¶K¤l
@@ -136,11 +136,11 @@ send_pm_desc:			µo®¨®¨¸Üµ¹³o­Ó¥Î¤á
 sender_email:			µo°eªÌ¶l¥ó¡G
 sender_name:			µo°eªÌ©m¦W¡G
 show_all_posts:			Åã¥Ü©Ò¦³¥Ñ¥Î¤á{VAR: user_login}µo¥¬ªº¥DÃD
-show_posts_by:			Åã¥Ü¥Î¤á {VAR: u->alias}µo¥¬ªº¥DÃD
+show_posts_by:			Åã¥Ü¥Î¤á {VAR: u_alias}µo¥¬ªº¥DÃD
 size:				¤j¤p:
 started_on:			µo°_
 status:				¯Å§O¡G
-status_line:			²{¦b¦³ <b>{VAR: reg_u}</b> ¥Î¤á, ¥]¬A<b>{VAR: inv_u}</b> ¦WÁôÂÃ¥Î¤á©M <b>{VAR: annon}</b> ¦W³X«È³X°Ý¥»½×¾Â¡C
+status_line:			²{¦b¦³ <b>{VAR: st_obj->online_users_reg}</b> ¥Î¤á, ¥]¬A<b>{VAR: st_obj->online_users_hidden}</b> ¦WÁôÂÃ¥Î¤á©M <b>{VAR: st_obj->online_users_anon}</b> ¦W³X«È³X°Ý¥»½×¾Â¡C
 sticky:				¸m³»:
 stop_ignoring:			¤£¦A©Úµ´³o­Ó¥Î¤á
 sub_to_thread:			­q¾\³o­Ó¥DÃD
@@ -175,7 +175,7 @@ unsubscribe:			¤£¹w©w
 unsubscribe_desc:		·í¥»½×¾Â¦³¤Hµo¥¬·sªº¥DÃD®É¡A½Ð¤Å³qª¾§Ú¡C
 updated_on:			§ó·s:
 user:				¥Î¤á¦W
-user_counter:			§Ú­Ì¦³ <b>{VAR: reg_users}</b> ª`¥U¥Î¤á¡C
+user_counter:			§Ú­Ì¦³ <b>{VAR: st_obj->user_count}</b> ª`¥U¥Î¤á¡C
 user_info:			¥Î¤á«H®§
 user_info_l:			¥Î¤á«H®§ {VAR: u->alias}
 user_offline:			{VAR: obj->login}  ²{¦b¤£¦b½u
@@ -185,10 +185,10 @@ view_forum:			¬d¬Ý½×¾Â
 view_results:			¬d¬Ýµ²ªG
 view_thread:			¬d¬Ý¥DÃD
 views:				ÂIÀ»
-vote:				{VAR: thread->vote_count()} §ë²¼
+vote:				{VAR: frm->n_rating} §ë²¼
 vote_button:			§ë²¼
 vote_for_thread:		½Õ¬d
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> ¤w¸g³Qª©¥D²¾¦Ü<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ¤w¸g³Qª©¥D²¾¦Ü<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a>
 welcome_message:		Åwªï¡I <b>{VAR: usr->alias}</b>, §A³Ì¦Z¤@¦¸³X°Ý¬O {DATE: last_login %Y-%m-%d %H:%M}
 what_ppl_doing:			Åã¥ÜÂsÄýªÌªº¾Þ§@
 reported_del_report:		§R°£³ø§i
@@ -210,7 +210,7 @@ list_referes_referrals:		³Q´£¦WªÌ
 list_referes_members:		³Q´£¦Wªº¥Î¤á
 list_referes_member:		¥Î¤á
 referals_none:			¥Ø«eÁÙ¨S¦³³Q´£¦Wªº¤H¡C
-referals_refered_by:		³Q±À¯òªº½×¾Â¦¨­û¬O: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}">{VAR: r_login}</a></b>
+referals_refered_by:		³Q±À¯òªº½×¾Â¦¨­û¬O: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: p_user[0]}&amp;{DEF: _rsid}">{VAR: p_user[1]}</a></b>
 referals_post_count:		µo¶K¼Æ
 referals_registered_on:		µn¿ý
 referals_action:		¾Þ§@
@@ -226,7 +226,7 @@ pmsg_selected:			¿ï¾Ü
 pmsg_delete:			§R°£
 cur_ppage_pm:			®¨®¨¸Ü³qª¾
 writing_pm:			¼g®¨®¨¸Ü
-browsing_folder:		ÂsÄý <b>{VAR: folder}</b> ¤å¥ó§¨
+browsing_folder:		ÂsÄý <b>{VAR: folders[$folder_id]}</b> ¤å¥ó§¨
 inbox:				¦¬¥ó½c
 draft:				¯ó½Z½c
 sent:				µo¥ó½c
@@ -298,7 +298,7 @@ register_location:		¦a§}:
 register_occupation:		Â¾·~:
 register_interests:		¿³½ì:
 register_image:			ÀY¹³:
-register_icq:			ICQ ¸¹½X:
+register_icq:			ICQ
 register_aim:			AIM :
 register_yahoo:			Yahoo «H®§:
 register_msnm:			MSN «H®§:
@@ -339,7 +339,7 @@ buddy_status:			¯Å§O
 my_buddies:			§Úªº¦n¤Í
 add_buddy:			²K¥[¦n¤Í
 add:				²K¥[
-buddy_search:			½Ð¶ñ¤J§A­n²K¥[ªº¦n¤Í½ã¸¹¡C<br>©ÎªÌ¨Ï¥Î<a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">¥Î¤á¦Cªí</a> ¬d§ä¦n¤Í¡C
+buddy_search:			Enter the login of the user you wish to add.
 buddy_remove:			§R°£
 post_normal:			¥¿±`
 post_sticky:			¸m³»
@@ -474,7 +474,7 @@ remail_message:			¤º®e¡G
 remail_send_now:		µo°e¶l¥ó
 remail_anon_opt:		§â³o¨Ç¤º®e«þ¨©¨ì§A¿ï¾Üªº¶l¥ó¦a§}¤¤¡Aµo°eµ¹§AªºªB¤Í¡C
 remail_done:			§¹¦¨
-remail_sent_conf:		µ¹§AªºªB¤Í {VAR: femail} ªºÃö¤_{VAR: thread->subject} ªº¶l¥ó¤w¸g¦¨¥\µo°e¡C
+remail_sent_conf:		µ¹§AªºªB¤Í {VAR-HTML: _POST['femail']} ªºÃö¤_{{VAR: data->subject} ªº¶l¥ó¤w¸g¦¨¥\µo°e¡C
 remail_continue:		Ä~Äò
 remail_error:			µo¥Í¤F¿ù»~
 mklist_type:			Ãþ«¬:
@@ -499,7 +499,7 @@ email_pg_title:			¹q¤l¶l½c
 email_subject:			¥DÃD:
 email_body:			¤º®e:
 email_submit:			µo°e
-ppost_quote_msg:		{VAR: msg_r->login} µoªí¤_{DATE: msg_r->post_stamp %Y-%m-%d %H:%M}
+ppost_quote_msg:		{VAR: msg_to_list} µoªí¤_{DATE: msg_r->post_stamp %Y-%m-%d %H:%M}
 ppost_quote:			¤Þ¥Î:
 ppost_to:			¦Ü¡G
 ppost_from_buddy_list:		±q¦n¤Í¦W³æ¤¤¿ï¾Ü
@@ -535,8 +535,8 @@ tabs_referrals:			±À¯ò
 tabs_buddy_list:		¦n¤Í¦Cªí
 tabs_ignore_list:		¶Â¦W³æ
 tabs_private_messaging:		®¨®¨¸Ü
-single_msg_delete:		§A±N<font color="#ff0000" size="4">§R°£</font> ³o±ø«H®§: <b>{VAR: msg->subject}</b><p>
-thread_delete:			§A±N <font color="#ff0000" size="4">§R°£</font>  <font color="#ff0000" size="4">¾ã­Ó¥DÃD</font> : <b>{VAR: msg->subject}</b><p>
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>¬O§_Ä~Äò?</b></font>
 delete_yes:			¬O
 delete_no:			§_
@@ -590,7 +590,7 @@ msg_err_onlyreg_title:		¥u¦³ª`¥U¥Î¤á¥i¥H¬d¬Ý³o­Ó½×¾Â¡C
 msg_err_onlyreg_msg:		­n¬d¬Ý³o­Ó½×¾Â¡A§A¥²¶·ª`¥U<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">ª`¥U</a>, ¦pªG¤w¸gª`¥U¡A½Ð\'ll need to <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">µn¿ý</a>.
 msg_err_ininfo_title:		«H®§¤£¥R¤À
 msg_err_ininfo_msg:		¥»­¶µo¥Í¿ù»~
-msg_update:			®i¶}ÂsÄý <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			®i¶}ÂsÄý <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		¿ù»~¡GµLªkµo°e®¨®¨¸Ü
 pm_err_nopm_msg:		¨t²ÎºÞ²z­û¸T¤î±z¨Ï¥Î®¨®¨¸Ü¨t²Î¡C
 pm_update:			¨Ï¥Î®¨®¨¸Ü¥\¯à
@@ -607,9 +607,9 @@ post_err_notowner_msg:		§A¤£¬O³o­Ó©«¤lªº§@ªÌ
 post_err_edttimelimit_title:	¿ù»~
 post_err_edttimelimit_msg:	§A¤£¯à¦A½s¿è³o±ø«H®§
 post_err_noannontopics_title:	¿ù»~¡G§AªºÅv­­¤£°÷
-post_err_noannontopics_msg:	°Î¦W¥Î¤á¤£¤¹³\µo¥¬¥DÃD<br><br>ª`¥U¡A½ÐÂIÀ» <a href="{ROOT}?t=register&amp;{DEF: _rsid}">ª`¥U</a><br>µn¿ý½ÐÂIÀ» <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">µn¿ý</a>
+post_err_noannontopics_msg:	°Î¦W¥Î¤á¤£¤¹³\µo¥¬¥DÃD<br><br>ª`¥U¡A½ÐÂIÀ» <a href="{ROOT}?t=register&amp;{DEF: _rsid}">ª`¥U</a><br>µn¿ý½ÐÂIÀ» <a href="{ROOT}?t=login&amp;{DEF: _rsid}">µn¿ý</a>
 post_err_noannonposts_title:	¿ù»~¡G§AªºÅv­­¤£°÷
-post_err_noannonposts_msg:	°Î¦W¥Î¤á¤£¤¹³\¦^´_<br><br>ª`¥U¡A½ÐÂIÀ» <a href="{ROOT}?t=register&amp;{DEF: _rsid}">ª`¥U</a><br>µn¿ý¡A½ÐÂIÀ»<a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">µn¿ý</a>
+post_err_noannonposts_msg:	°Î¦W¥Î¤á¤£¤¹³\¦^´_<br><br>ª`¥U¡A½ÐÂIÀ» <a href="{ROOT}?t=register&amp;{DEF: _rsid}">ª`¥U</a><br>µn¿ý¡A½ÐÂIÀ»<a href="{ROOT}?t=login&amp;{DEF: _rsid}">µn¿ý</a>
 post_err_noreplying_title:	¿ù»~¡G¤£¤¹³\¦^´_
 post_err_noreplying_msg:	±z¤£¯à¦^´_³o±ø«H®§¡A¦]¬°ª©¥D¸T¤î¦b³o¨½¸ò©«©Îµo¥¬³q§i¡C
 post_err_floodtrig_title:	¿ù»~¡Gµo¥¬Äé¤ô©«¤l
@@ -631,8 +631,8 @@ postcheck_no_recepient:		¦]¬°¨S¦³±µ¨ü¤è¡A©Ò¥HµLªkµo°e«H®§
 postcheck_invalid_email:	½Ð¿é¤J§AªºªB¤Íªº¥¿½T¹q¤l¶l½c¦a§}¡C
 postcheck_email_subject:	¦pªG¤£¿é¤J¥DÃD¡A§A±NµLªkµo°e¶l¥ó¡C
 postcheck_email_body:		¦pªG¨S¦³¤º®e¡A§A±NµLªkµo°e¶l¥ó¡C
-private_msg_notify_subj:	Åª¨ú³qª¾: {VAR: this->subject}
-private_msg_notify_body:	§A¦n,<br>{VAR: GLOBALS["usr"]->login} ¥Î¤á¤w¸g¾\Åª¤F§Aªº®¨®¨¸Ü¡A "{VAR: this->subject}", ¦b {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
+private_msg_notify_subj:	Åª¨ú³qª¾: {VAR: m->subject}
+private_msg_notify_body:	§A¦n,<br>{VAR: usr->login} ¥Î¤á¤w¸g¾\Åª¤F§Aªº®¨®¨¸Ü¡A "{VAR: m->subject}", ¦b {DATE: track_msg->post_stamp %Y-%m-%d %H:%M}<br>
 referals_update:		ÂsÄý³Q±À¯òªÌ
 register_err_short_login:	§A¿é¤Jªº½ã¸¹¤Óµu¡A¥²¶·¦Ü¤Ö¥]¬A4­Ó¦r²Å¡C
 register_err_login_notallowed:	¤£¯à¨Ï¥Î³o­Ó½ã¸¹ª`¥U¡C
@@ -648,9 +648,9 @@ register_err_notyouremail:	¤w¸g¦³¤H¥Î³o­Ó¹q¤l¶l½c¦a§}ª`¥U¤F¡A¦ý¬O¨º­Ó¤H¤£¬O§A¡C
 register_err_avatartobig:	§A¥¿¦b¤W¶Çªº¤å¥ó¤Ó¤j¡A¶W¹L¤F{GVAR: CUSTOM_AVATAR_MAX_SIZE} ¦r¸`ªº³Ì¤j­­¨î¡C
 register_err_avatarnotallowed:	§A¥¿¦b¤W¶ÇªºÀY¹³¤£¯à¤W¶Ç¡A½Ð¬d¬Ý¤¹³\¤W¶Çªº¤å¥óÃþ«¬¡C
 register_conf_subject:		ª`¥U½T»{
-register_conf_msg:		ÁÂÁÂª`¥U,\n¶i¤J·í«e½ã¸¹¡A½ÐÂIÀ»¤U¦C¦a§}¡G\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\n¶i¤J·í«e½ã¸¹¦Z¡A§A±Nª½±µ¶i¤J½×¾Â\nÂà¤J½×¾Âªº¥D­¶¡C
+register_conf_msg:		ÁÂÁÂª`¥U,\n¶i¤J·í«e½ã¸¹¡A½ÐÂIÀ»¤U¦C¦a§}¡G\n\n{ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n¶i¤J·í«e½ã¸¹¦Z¡A§A±Nª½±µ¶i¤J½×¾Â\nÂà¤J½×¾Âªº¥D­¶¡C
 register_welcome_subject:	½×¾Âª`¥U½T»{
-register_welcome_msg:		ÁÂÁÂª`¥U,\n\n³o¬O±zª`¥Uªº¸Ô²Ó¸ê®Æ:\n\n½×¾Â URL: {GVAR: WWW_ROOT}\n½ã¸¹¡G{VAR: usr->login}\n±K½X¡G{VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\n½Ðª`·N±K½X°Ï¤À¤j¤p¼g!\n­n§ó§ï±zªº³]¸m©ÎªÌ­Ó¤H«H®§¡A½ÐÂIÀ»¡G\n{ROOT}?t=register\n
+register_welcome_msg:		ÁÂÁÂª`¥U,\n\n³o¬O±zª`¥Uªº¸Ô²Ó¸ê®Æ:\n\n½×¾Â URL: {GVAR: WWW_ROOT}\n½ã¸¹¡G{VAR: uent->login}\n±K½X¡G{VAR: _POST['reg_plaintext_passwd']}\n\n½Ðª`·N±K½X°Ï¤À¤j¤p¼g!\n­n§ó§ï±zªº³]¸m©ÎªÌ­Ó¤H«H®§¡A½ÐÂIÀ»¡G\n{ROOT}?t=register\n
 register_err_cantreg_title:	¿ù»~¡GµLªkª`¥U
 regsiter_err_cantreg_msg:	µLªkª`¥U·sªº½ã¸¹¡A½Ð©M¨t²ÎºÞ²z­ûÁp¨t<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:	¬d¬Ý­Ó¤H«H®§
@@ -664,18 +664,18 @@ reset_err_invalidkey_msg:	±K½X´£¥Ü¿ù»~
 reset_err_rstconf_title:	«H®§
 reset_err_rstconf_msg:		¤@·|±z±N³q¹L¶l¥ó¦¬¨ì¬ÛÃö»¡©ú¡C
 reset_newpass_title:		­«·s¿é¤J±K½X
-reset_newpass_msg:		§A¦n¡A\n\n§A¨C¦¸µn¿ýªº½ã¸¹³£±Nµo°eµ¹§A¡C\nHere ³o¨½¬O§Aªºµn¿ý«H®§:\n\n½ã¸¹¡G{VAR: parr['usr']->login}\n±K½X: {VAR: parr['passwd']}\n\nPlease not that your password has been reset the the value above, ¦pªG§A·Q\n­×§ï±K½X¡A½Ð¦b­Ó¤H«H®§¤¤­×§ï:\n{ROOT}?t=register\n\n
-reset_login_notify:		¤@·|¨à¡A§A±N³q¹L¶l¥ó¦¬¨ì±K½X¡C½ÐÀË¬d§Aªº±K½X¦}µn¿ý¡C
+reset_newpass_msg:		§A¦n¡A\n\n§A¨C¦¸µn¿ýªº½ã¸¹³£±Nµo°eµ¹§A¡C\nHere ³o¨½¬O§Aªºµn¿ý«H®§:\n\n½ã¸¹¡G{VAR: ui[1]}\n±K½X: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, ¦pªG§A·Q\n­×§ï±K½X¡A½Ð¦b­Ó¤H«H®§¤¤­×§ï:\n{ROOT}?t=register\n\n
+reset_login_notify:		¤@·|¨à¡A§A±N³q¹L¶l¥ó¦¬¨ì±K½X¡C½ÐÀË¬d§Aªº±K½X¦}µn¿ý¡C.<br>
 search_update:			·j¯Á
 selmsg_update:			ÂsÄý <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">¤µ¤Ñµo¥¬ªº¥DÃD</a>
-showposts_update:		¬d¬Ý¥Î¤á <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>µo¥¬ªº¥DÃD
+showposts_update:		¬d¬Ý¥Î¤á <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: uid}">{VAR: u_alias}</a>µo¥¬ªº¥DÃD
 subscribed_update:		ÂsÄý¦Û¤v¹w©wªº¤º®e
 th_err_invid_title:		¿ù»~ªº¥DÃDid¸¹
 th_err_invid_msg:		§A¿é¤Jªº³s±µ¿ù»~,¬ÛÃö¥DÃD¦}¤£¦s¦b¡C
 thread_err_onlyregview_title:	¥u¦³ª`¥U¥Î¤á¤¹³\¬d¬Ý³o­Ó½×¾Â
 thread_err_onlyregview_msg:	­n¬d¬Ý¥»½×¾Â¡A§A¥²¶·<a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">ª`¥U</a>, ¦pªG¤w¸gª`¥U¡A½Ð<a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">µn¿ý</a>.
 thread_update:			ÂsÄý½×¾Â<a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			ÂsÄý¡]¥H¾ðª¬¤è¦¡¡^ <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			ÂsÄý¡]¥H¾ðª¬¤è¦¡¡^ <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 userinfo_update:		¬d¬Ý <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}ªº</a> ­Ó¤H«H®§
 ERR_login_ttl:			¿ù»~¡G±z©|¥¼ª`¥U
 ERR_login_msg:			±z©|¥¼µn¿ý¡A½Ðµn¿ý<br><br>½Ð<a href="{ROOT}?t=register&amp;{DEF: _rsid}">ª`¥U</a><br>½Ð<a href="{ROOT}?t=login&amp;{DEF: _rsid}">µn³°</a>
@@ -690,19 +690,18 @@ ERR_registration_disabled_ttl:	ª`¥U¥¢±Ñ
 ERR_registration_disabled_msg:	ª`¥U¥\¯à³Q¨t²ÎºÞ²z­û¸T¤î,½Ð­«¸Õ¡I
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		¿ù»~: ¦¹½ã¸¹µL®Ä
-ERR_emailconf_msg:		±zª`¥Uªº½ã¸¹©|¥¼¶i¦æ¶l¥ó½T»{<br><table border=0><tr><td><ol><li>¦pªG§A¨S¦³¦¬¨ì½T»{¶l¥ó <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">½ÐÂIÀ»</a><li>¦pªG {VAR: GLOBALS['usr']->email} ¶l¥ó¦a§}¦³»~<a href="{ROOT}?t=register&amp;{DEF: _rsid}">½ÐÂIÀ»</a></ol></td></tr></table>
-ERR_emailconf_url:		
+ERR_emailconf_msg:		±zª`¥Uªº½ã¸¹©|¥¼¶i¦æ¶l¥ó½T»{<br><table border=0><tr><td><ol><li>¦pªG§A¨S¦³¦¬¨ì½T»{¶l¥ó <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">½ÐÂIÀ»</a><li>¦pªG {VAR: usr_d->email} ¶l¥ó¦a§}¦³»~<a href="{ROOT}?t=register&amp;{DEF: _rsid}">½ÐÂIÀ»</a></ol></td></tr></table>
 ERR_user_ttl:			¿ù»~¡G¨S¦³³o­Ó¥Î¤á
 ERR_user_msg:			¨S¦³³o­Ó¥Î¤á
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
 ERR_systemerr_ttl:		¨t²Î¿ù»~
 ERR_systemerr_msg:		µo¥Í¨t²Î¿ù»~,½Ð³ø§i¿ù»~¡G<a href="mailto:{GVAR: ADMIN_EMAIL}">ºôºÞ</a>.
-ERR_systemerr_url:		{GVAR: returnto_d}
+ERR_systemerr_url:		
 email_title:			¶l¥ó®æ¦¡
 finduser_title:			¬d§ä¥Î¤á
 help_title:			¨Ï¥ÎÀ°§U
 login_title:			µn¿ý®æ¦¡
-msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			½Õ¬d½s¿è
 register_title:			ª`¥U
 reset_title:			­«·s¿é¤J±K½X
@@ -711,9 +710,9 @@ error_title:			®æ¦¡¿ù»~
 index_title:			Åwªï¨ì¨Ó
 search_title:			·j¯Á {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 remail_emailsent:		¶l¥ó¤w¸gµo°e
-remail_email:			³o­Ó­¶­±ªº¤º®e{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) §A¥i¯à·P¿³½ì\n³o¨½¬O§A¥i¯à·P¿³½ìªº¥DÃD,{VAR: thread->subject} ²MÂIÀ»: {ROOT}?t={VAR: def_thread_view}&th={VAR: thread->id}&{DEF: _rsid}\n µo¥ó¤H {VAR: u}\n
+remail_email:			³o­Ó­¶­±ªº¤º®e{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) §A¥i¯à·P¿³½ì\n³o¨½¬O§A¥i¯à·P¿³½ìªº¥DÃD,{VAR: data->subject} ²MÂIÀ»: {ROOT}?t={VAR: def_thread_view}&th={VAR: data->id}&rid={DEF: _uid}\n µo¥ó¤H {VAR: usr->alias}\n
 poll_add_option:		²K¥[¿ï¶µ¡G
 post_opt_html_on:		<b>HTML</b><b>¥N½X¡G¶}©ñ</b>
 post_opt_fud_on:		<b><a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank">FUD¥N½X¡G</b><b>¶}©ñ</a></b>
@@ -741,9 +740,9 @@ thr_exch_decline:		©Úµ´¸Ó¥DÃD
 thr_exch_orig_forum:		Âà¥Xªº½×¾Â:
 thr_exch_dest_forum:		¥Ø¼Ð½×¾Â:
 thr_exch_no_threads:		¨S¦³»Ý­n§å´_ªº¥DÃD¡C
-thr_exch_decl_reason:		©Úµ´¥DÃD <b>{VAR: thr_name}</b> Âà¤J<b>{VAR-HTML: frm->name}</b>½×¾Âªº²z¥Ñ¡C
+thr_exch_decl_reason:		©Úµ´¥DÃD <b>{VAR-HTML: frm->name}</b> Âà¤J<b>{VAR-HTML: frm->name}</b>½×¾Âªº²z¥Ñ¡C
 thr_exch_submit:		µo¥¬
-exch_decline_ttl:		§â¥DÃD {VAR: thr_name} Âà²¾¦Ü{VAR-HTML: frm->name} ½×¾Âªº­n¨D³Q©Úµ´¡C
+exch_decline_ttl:		§â¥DÃD {VAR: data->subject} Âà²¾¦Ü{VAR-HTML: data->f2_name} ½×¾Âªº­n¨D³Q©Úµ´¡C
 ppost_original_msg:		§A¥¿¦bµo°e©ÎªÌ¦^´_ªº«H®§
 split_thread:			¤À¶}¥DÃD
 groupmgr_no_user:		¦¹½ã¸¹¤£¦s¦b "{VAR-HTML: gr_member}"
@@ -836,7 +835,6 @@ quicklogin_password:		±K½X
 quicklogin_use_cookies:		¬O§_¨Ï¥ÎCookies¥\¯à¡H
 quicklogin_login_btn:		µn¿ý
 post_notification_desc:		·í¦³¤H¦^´_¥»¥DÃD®É½Ð³qª¾§Ú¡C
-post_proc_all_ext_allowed:	¡]¨S¦³­­¨î¡^
 maximize_category:		¼W¥[¥Ø¿ý¼h¦¸
 no_view_perm:			«Ü©êºp¡A±z¨S¦³¹î¬Ý³o­Ó­¶­±ªºÅv­­
 report_empty_report:		§A¤£¯à´£¥æªÅªº³ø§i¡A½Ð»¡©ú±À¯ò²z¥Ñ¡C
@@ -850,10 +848,10 @@ register_jabber:		Jabber :
 im_jabber:			Jabber: 
 forum_contact:			Áp¨t
 forum_home:			¥D­¶
-post_cur_attached:		¥¿¦bÖß¶K{VAR: attach_count} file(s)
+post_cur_attached:		¥¿¦bÖß¶K{VAR: i} file(s)
 ppost_cur_attached:		¥¿¦bÖß¶K {VAR: attach_count} file(s)
-ignored_anon_post:		{VAR: user_login} ³Q©Úµ´
-ignored_user_post:		±z³Q©Úµ´´£¥æ«H®§<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a>
+ignored_anon_post:		{GVAR: ANON_NICK} ³Q©Úµ´
+ignored_user_post:		±z³Q©Úµ´´£¥æ«H®§<a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a>
 smladd_close_window:		Ãö³¬µ¡¤f
 post_list_smilies:		Åã¥Ü©Ò¦³ªí±¡²Å¸¹
 p_VISIBLE:			¥i¨£ªº
@@ -866,9 +864,8 @@ msg_err_nosuchmsg_msg:		³o­Ó¥DÃD¤¤¨S¦³³o¨Ç¤º®e
 msg_err_nosuchmsg_title:	¥X¿ù
 imsg_err_message_title:		¶K¤l¥X¿ù
 imsg_err_message_msg:		±z­n¬d¬Ýªº¶K¤l¤£¦s¦b.
-poll_edit: 			½s¿è
+poll_edit:			½s¿è
 unspecified:			«O±K
-
 register_err_not_valid_img:	«ü©wªº¹Ï¤ù³s±µ¤£¥¿½T
 pmsg_recepient:			¦¬«H¤H
 register_err_taken_alias:	³o­ÓÎîºÙ¤w¸g¦s¦b¡A½Ð§ó´«
@@ -896,7 +893,7 @@ search_sorting:			µ²ªG«ö¤é´Á:
 post_moderated_forum:		®¥³ß¡I±z¤w¸gµoªí¦¨¥\¡Aµ¥ª©¥D©ÎªÌºÞ²z­û½T»{¦Z·|µo¥¬¨ìºô¤W¡I
 post_moderated_forum_ttl:	¨ü­­½×¾Â»¡©ú
 post_proceed:			ªð¦^½×¾Â
-buddy_list_bday:		¤µ¤Ñ¬O {VAR: obj->login} ªº {VAR: age} ·³¥Í¤é
+buddy_list_bday:		¤µ¤Ñ¬O {VAR: r[2]} ªº {VAR: age} ·³¥Í¤é
 email_warning_msg:		¦pªG±z­×§ï¤FEmail, «h¦¹½ã¸¹·|³Q¼È®ÉÁôÂÃ¡A½Ð±z¬d¦¬¶l¥ó¡AÂIÀ»¶l¥ó¤¤ªº³s±µ¥H­«·s¿E¬¡½ã¸¹¡I
 register_show_im:		Åã¥Ü IM «ü¥Ü¾¹
 register_show_im_desc:		¬O§_¦bµoªíªº¶K¤l®ÇÃäÅã¥ÜIM.
@@ -927,3 +924,4 @@ login_blocked_account_msg:	±zªº½ã¸¹¤w¸g³Q«Ê±¼, ¦pªG±z¤£ª¾¹D­ì¦]¡A½ÐÁp¨t¨t²ÎºÞ²z­
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+post_proc_all_ext_allowed:	¡]¨S¦³­­¨î¡^
