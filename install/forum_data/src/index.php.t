@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.79 2004/11/24 19:58:27 hackie Exp $
+* $Id: index.php.t,v 1.80 2004/11/25 15:22:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -115,8 +115,8 @@ function url_tog_collapse($id, $c)
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.user_id='._uid.' AND mo.forum_id=f.id'.
 			(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').
 			((!$is_a || $cat_id) ?  ' WHERE ' : '') .
-			($is_a ? '' : ' AND mo.id IS NOT NULL OR ('.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1)>0') .
-			($cat_id ? ' AND v.c IN('.implode(',', ($cf = $cidxc[$cat_id][5])).') ' : '').' ORDER BY v.id');
+			($is_a ? '' : ' mo.id IS NOT NULL OR ('.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1)>0') .
+			($is_a ? '' : ' AND ') . ($cat_id ? ' v.c IN('.implode(',', ($cf = $cidxc[$cat_id][5])).') ' : '').' ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($c)) {
