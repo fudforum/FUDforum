@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.13 2003/02/01 20:14:29 hackie Exp $
+*   $Id: login.php.t,v 1.14 2003/03/28 09:41:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,6 +41,7 @@
 			case 'groupmgr':
 			case 'post':
 			case 'ppost':
+			case 'finduser':
 			case 'error':
 				$returnto = $GLOBALS['returnto'] = '';
 				break;
