@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.34 2003/10/09 14:34:25 hackie Exp $
+* $Id: GLOBALS.php,v 1.35 2003/10/09 15:49:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,6 +22,7 @@
 
 	$FUD_OPT_1		= 1744762047;
 	$FUD_OPT_2		= 695676991;
+	$FUD_OPT_3		= 0;
 
 	$CUSTOM_AVATAR_MAX_SIZE = 10000;	/* bytes */
 	$CUSTOM_AVATAR_MAX_DIM	= "64x64";	/* width x height (pixels) */
