@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc,v 1.1 2003/04/29 14:22:03 hackie Exp $
+*   $Id: users_adm.inc,v 1.2 2003/06/02 19:38:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@ function usr_delete($id)
 
 	if (!db_locked()) {
 		$ll = 1;
-		db_lock($tbl.'forum WRITE, '.$tbl.'msg WRITE, '.$tbl.'group_members WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'pmsg WRITE, '.$tbl.'attach WRITE, '.$tbl.'mod WRITE, '.$tbl.'custom_tags WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'read WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread_rate_track WRITE, '.$tbl.'user_ignore WRITE, '.$tbl.'buddy WRITE');
+		db_lock($tbl.'forum WRITE, '.$tbl.'msg WRITE, '.$tbl.'group_members WRITE, '.$tbl.'poll_opt_track WRITE, '.$tbl.'users WRITE, '.$tbl.'pmsg WRITE, '.$tbl.'attach WRITE, '.$tbl.'mod WRITE, '.$tbl.'custom_tags WRITE, '.$tbl.'thread_notify WRITE, '.$tbl.'forum_notify WRITE, '.$tbl.'read WRITE, '.$tbl.'forum_read WRITE, '.$tbl.'thread_rate_track WRITE, '.$tbl.'user_ignore WRITE, '.$tbl.'buddy WRITE, '.$tbl.'mod mm WRITE, '.$tbl.'users u WRITE, '.$tbl.'forum f WRITE');
 	}
 
 	q('DELETE FROM '.$tbl.'mod WHERE user_id='.$id);
