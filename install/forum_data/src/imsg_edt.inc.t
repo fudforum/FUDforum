@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.118 2005/02/25 15:50:29 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.119 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -640,7 +640,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		return;
 	}
 
-	$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
+	$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id.'#msg_'.$msg_id;
 	$CHARSET = $GLOBALS['CHARSET'];
 	if ($GLOBALS['FUD_OPT_2'] & 64) {
 		$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");

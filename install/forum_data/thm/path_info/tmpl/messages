@@ -1,5 +1,5 @@
 {SECTION: was_moved_msg_lnk}
-{ROOT}/m/{VAR: r[15]}/{DEF: _rsid}
+{ROOT}/m/{VAR: r[15]}/{DEF: _rsid}#msg_{VAR: r[15]}
 {SECTION: END}
 
 {SECTION: was_moved_msg_lnk2}
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: msg_post_lnk}
-{ROOT}/m/{VAR: thr->root_msg_id}
+{ROOT}/m/{VAR: thr->root_msg_id}#msg_{VAR: thr->root_msg_id}
 {SECTION: END}
 
 {SECTION: post_topic_update_lnk}

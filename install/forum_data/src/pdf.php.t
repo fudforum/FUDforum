@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.34 2004/12/20 14:20:21 hackie Exp $
+* $Id: pdf.php.t,v 1.35 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,7 +103,7 @@ class fud_pdf extends FPDF
 		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=usrinfo&id='.$author[0], $author[1]);
 		$this->Write(5, ' on '.gmdate('D, d M Y H:i:s \G\M\T', $date));
 		$this->Ln(5);
-		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=rview&th='.$th.'&goto='.$id, 'View Forum Message');
+		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=rview&th='.$th.'&goto='.$id.'#msg_'.$id, 'View Forum Message');
 		$this->Write(5, ' <> ');
 		$this->add_link($GLOBALS['WWW_ROOT'].'index.php?t=post&reply_to='.$id, 'Reply to Message');
 		$this->Ln(5);

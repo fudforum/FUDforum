@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.9 2004/11/24 19:53:41 hackie Exp $
+* $Id: mnav.tmpl,v 1.10 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,15 +30,15 @@
 {SECTION: END}
 
 {SECTION: mnav_thread_lnk}
-{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_msg_lnk}
-{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_msg_lnk2}
-{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_user_lnk}

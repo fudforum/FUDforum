@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.19 2004/11/24 19:53:39 hackie Exp $
+* $Id: mnav.tmpl,v 1.20 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,7 +117,7 @@ document.mnav.rng.focus();
 {SECTION: END}
 
 {SECTION: mnav_thread_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_thread}
@@ -125,11 +125,11 @@ document.mnav.rng.focus();
 {SECTION: END}
 
 {SECTION: mnav_msg_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_msg_lnk2}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: mnav_msg}

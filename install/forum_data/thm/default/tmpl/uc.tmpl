@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.16 2004/11/24 19:53:40 hackie Exp $
+* $Id: uc.tmpl,v 1.17 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,7 @@
 {SECTION: END}
 
 {SECTION: uc_last_post_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->mid}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->mid}&amp;{DEF: _rsid}#msg_{VAR: r->mid}
 {SECTION: END}
 
 {SECTION: uc_link_user}
@@ -163,7 +163,7 @@
 {SECTION: END}
 
 {SECTION: uc_last_msg_in_thread_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->last_post_id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->last_post_id}&amp;{DEF: _rsid}#msg_{VAR: r->last_post_id}
 {SECTION: END}
 
 {SECTION: uc_thread_reply}

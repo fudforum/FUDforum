@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.28 2004/11/24 19:53:39 hackie Exp $
+* $Id: search.tmpl,v 1.29 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -132,7 +132,7 @@ document.search.srch.focus();
 {SECTION: END}
 
 {SECTION: search_entry_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}
 
 {SECTION: search_entry_lnk1}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.21 2004/11/24 19:53:42 hackie Exp $
+* $Id: tree.tmpl,v 1.22 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -74,19 +74,19 @@
 {SECTION: END}
 
 {SECTION: tree_branch_lnk}
-{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}
 
 {SECTION: tree_entry_lnk}
-{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}
 
 {SECTION: tree_branch_selected_lnk}
-{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}
 
 {SECTION: tree_entry_selected_lnk}
-{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}
 
 {SECTION: tree_xml_link_lnk}

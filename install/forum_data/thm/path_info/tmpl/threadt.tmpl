@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.16 2004/11/30 16:31:40 hackie Exp $
+* $Id: threadt.tmpl,v 1.17 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,9 +32,9 @@
 {SECTION: END}
 
 {SECTION: thread_row_lnk}
-{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}
 
 {SECTION: max_depth_reached_lnk}
-{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}
+{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}#msg_{VAR: cur->id}
 {SECTION: END}

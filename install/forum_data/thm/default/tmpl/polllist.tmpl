@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.20 2004/11/24 19:53:39 hackie Exp $
+* $Id: polllist.tmpl,v 1.21 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -72,11 +72,11 @@
 {SECTION: END}
 
 {SECTION: vote_lnk_lnk}
-{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}
+{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: poll_view_res_lnk_lnk}
-{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;vote=1&amp;{DEF: _rsid}
+{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;vote=1&amp;{DEF: _rsid}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: poll_entry_lnk}

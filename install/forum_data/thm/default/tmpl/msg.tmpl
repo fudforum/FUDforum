@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.47 2005/02/25 16:18:49 hackie Exp $
+* $Id: msg.tmpl,v 1.48 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,7 +122,7 @@
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <br /><div class="wa ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 <div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
-{TEMPLATE-DATA: msg_page_focus}
+{IF: $msg_page_focus}{TEMPLATE: msg_page_focus}{ENDIF}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.52 2005/02/23 18:58:59 hackie Exp $
+* $Id: thread.tmpl,v 1.53 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -204,7 +204,7 @@
 {SECTION: END}
 
 {SECTION: last_msg_in_thread_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[9]}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[9]}&amp;{DEF: _rsid}#msg_{VAR: r[9]}
 {SECTION: END}
 
 {SECTION: first_post_reg_user_link_lnk}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.48 2005/02/22 14:09:35 hackie Exp $
+* $Id: rdf.php.t,v 1.49 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,12 +193,12 @@ function fud_xml_encode($str)
 				if ($basic) {
 					$body = fud_xml_encode(read_msg_body($r->foff, $r->length, $r->file_id));
 
-$basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."\" />\n";
+$basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."#msg_".$r->id."\" />\n";
 
 $basic_rss_data .= '
-<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'">
+<item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
-	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'</link>
+	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'#msg_'.$r->id.'</link>
 	<description>'.$body.'</description>
 	<dc:subject></dc:subject>
 	<dc:creator>'.$r->alias.'</dc:creator>

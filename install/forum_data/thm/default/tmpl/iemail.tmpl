@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.21 2005/02/25 16:18:49 hackie Exp $
+* $Id: iemail.tmpl,v 1.22 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,7 +103,7 @@
 {SECTION: END}
 
 {SECTION: iemail_body_lnk1}
-{ROOT}?t=rview&goto={VAR: obj->id}
+{ROOT}?t=rview&goto={VAR: obj->id}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: iemail_attach_entry_lnk}

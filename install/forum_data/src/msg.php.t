@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.86 2005/02/24 00:54:03 hackie Exp $
+* $Id: msg.php.t,v 1.87 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,10 +24,14 @@
 	/* quick cheat to avoid a redirect
 	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic
 	 */
+	$msg_page_focus = 0;
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
 		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.apr=1 AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 		if (!$_GET['goto']) {
 			$_GET['goto'] = q_singleval('SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
+			$msg_page_focus = null;
+		} else {
+			$msg_page_focus = 1;
 		}
 	}
 
@@ -35,6 +39,7 @@
 		if ($_GET['goto'] === 'end' && isset($_GET['th'])) {
 			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
 			$mid = '#msg_'.$mid;
+			$msg_page_focus = 1;
 		} else if ($_GET['goto']) { /* verify that the thread & msg id are valid */
 			if (!isset($_GET['th'])) {
 				$_GET['th'] = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$_GET['goto']);
@@ -42,17 +47,18 @@
 			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND apr=1"))) {
 				invl_inp_err();
 			}
-			$mid = 'msg_'.$_GET['goto'];
+			if ($msg_page_focus !== null) {
+				if ($msg_page_focus || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
+					$mid = 'msg_'.$_GET['goto'];
+					$msg_page_focus = 1;
+				}
+			}
 		} else {
 			invl_inp_err();
 		}
-		$msg_page_focus = '{TEMPLATE: msg_page_focus}';
-
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
 	} else if (!isset($_GET['th'])) {
 		invl_inp_err();
-	} else {
-		$msg_page_focus = '';
 	}
 
 	/* we create a BIG object frm, which contains data about forum,
@@ -89,9 +95,9 @@
 	}
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/m/'.$frm->root_msg_id.'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/m/'.$frm->root_msg_id.'/'._rsidl.'#msg_'.$frm->root_msg_id);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=msg&goto='.$frm->root_msg_id.'&'._rsidl.'#msg_'.$frm->root_msg_id);
 		}
 		exit;
 	}

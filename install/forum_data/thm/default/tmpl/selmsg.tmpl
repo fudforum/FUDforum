@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.32 2005/01/28 17:31:13 hackie Exp $
+* $Id: selmsg.tmpl,v 1.33 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,5 +120,5 @@
 {SECTION: END}
 
 {SECTION: thread_row_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}#msg_{VAR: r->id}
 {SECTION: END}

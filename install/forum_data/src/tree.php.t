@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.76 2005/02/25 15:35:58 hackie Exp $
+* $Id: tree.php.t,v 1.77 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -79,9 +79,9 @@
 
 	if ($frm->moved_to) { /* moved thread, we could handle it, but this case is rather rare, so it's cleaner to redirect */
 		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$frm->root_msg_id.'/'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}/mv/tree/'.$frm->root_msg_id.'/'._rsidl.'#msg_'.$frm->root_msg_id);
 		} else {
-			header('Location: {FULL_ROOT}{ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl);
+			header('Location: {FULL_ROOT}{ROOT}?t=tree&goto='.$frm->root_msg_id.'&'._rsidl.'#msg_'.$frm->root_msg_id);
 		}
 		exit;
 	}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.74 2004/11/29 19:51:29 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.75 2005/02/27 02:21:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -437,7 +437,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to_lnk}
-{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}
+{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->reply_to}#msg_{VAR: obj->reply_to}
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
