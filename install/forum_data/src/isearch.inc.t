@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.4 2002/06/26 19:35:55 hackie Exp $
+*   $Id: isearch.inc.t,v 1.5 2002/06/26 22:00:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,12 +56,11 @@ function index_text($subj, $body, $msg_id)
 		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
 		
 		$r=q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
-		if ( !db_count($r) ) {
+		if ( !is_result($r) ) {
 			$r = q("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('".$w[$i]."')");
 			$id = db_lastid("{SQL_TABLE_PREFIX}search", $r);
 		}
-		else list($id) = db_rowarr($r);
-		qf($r);
+		else list($id) = db_singlearr($r);
 		
 		if ( !bq("SELECT id FROM {SQL_TABLE_PREFIX}index WHERE word_id=".$id." AND msg_id=".$msg_id) ) {
 			q("INSERT INTO {SQL_TABLE_PREFIX}index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
@@ -73,12 +72,11 @@ function index_text($subj, $body, $msg_id)
 	for ( $i=0; $i<count($w); $i++ ) {
 		if ( strlen($w[$i]) > 50 || strlen($w[$i])<3 ) continue;
 		$r=q("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".$w[$i]."'");
-		if ( !db_count($r) ) {
+		if ( !is_result($r) ) {
 			$r = q("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('".$w[$i]."')");
 			$id = db_lastid("{SQL_TABLE_PREFIX}search", $r);
 		}
-		else list($id) = db_rowarr($r);
-		qf($r);
+		else list($id) = db_singlearr($r);
 		
 		if ( !bq("SELECT id FROM {SQL_TABLE_PREFIX}title_index WHERE word_id=$id AND msg_id=".$msg_id) ) {
 			q("INSERT INTO {SQL_TABLE_PREFIX}title_index(word_id, msg_id) VALUES(".$id.", ".$msg_id.")");
