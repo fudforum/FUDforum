@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="StyleSheet" href="adm.css" type="text/css">
+</head>
 <body>
 <table class="maintable">
 <tr>
