@@ -893,7 +893,6 @@ search_desc_order:		Fallande ordning
 search_asc_order:		Stigande ordning
 search_logic:			S&ouml;klogik:
 search_sorting:			Sortera resultaten enligt datum i:
-post_proceed:			G&aring; vidare
 post_moderated_forum:		Du har skrivit ett inl&auml;gg i ett modererat forum, vilket inneb&auml;r att inl&auml;gget syns f&ouml;rst n&auml;r forumets moderator och/eller administrator har godk&auml;nt det.
 post_moderated_forum_ttl:	Meddelande om modererat forum
 post_proceed:			G&aring; vidare
