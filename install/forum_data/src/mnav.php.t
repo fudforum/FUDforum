@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.2 2003/07/15 03:51:37 hackie Exp $
+*   $Id: mnav.php.t,v 1.3 2003/07/31 00:12:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@
 	if (!$rng) {
 		$mnav_pager = $rng = ''; $unit = 86400;
 		$mnav_data = '{TEMPLATE: mnav_no_range}';
-	} else if (!$unit) {
+	} else if ($unit <= 0) {
 		$mnav_pager = $rng = ''; $unit = 86400;
 		$mnav_data = '{TEMPLATE: mnav_invalid_unit}';
 	} else if (($mage = round($rng * $unit)) > ($MNAV_MAX_DATE * 86400) && $MNAV_MAX_DATE > 0) {
