@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.9 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admreplace.php,v 1.10 2003/06/30 08:00:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,7 +170,7 @@ function clean_rgx()
 	</tr>
 <?php
 	if (isset($_POST['btn_regex'])) {
-		$str = preg_repace('/'.$regex_str.'/'.$regex_str_opt, $regex_with, $regex_src);
+		$str = preg_replace('/'.$regex_str.'/'.$regex_str_opt, $regex_with, $regex_src);
 ?>
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Result:</td>
