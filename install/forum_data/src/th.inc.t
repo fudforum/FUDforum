@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.23 2003/03/31 11:29:59 hackie Exp $
+*   $Id: th.inc.t,v 1.24 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -140,10 +140,7 @@ class fud_thread
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET replies=replies+'.$val.' WHERE id='.$this->id);
 	}
 	
-	function inc_view_count()
-	{
-		q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id='.$this->id);
-	}
+	
 	
 	function get_notify_list($user_id)
 	{
@@ -309,5 +306,9 @@ function th_lock($id)
 function th_unlock($id)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}thread SET locked='N' WHERE id=".$id);
+}
+function th_inc_view_count($id)
+{
+	q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id='.$id);
 }
 ?>

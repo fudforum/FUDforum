@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pre_reg.php.t,v 1.4 2002/08/24 12:16:36 hackie Exp $
+*   $Id: pre_reg.php.t,v 1.5 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,19 +17,17 @@
 
 	{PRE_HTML_PHP}
 
-	if ( !empty($disagree) ) {
-		header("Location: ".$WWW_ROOT.'?'._rsidl);
+	if (isset($_POST['disagree'])) {
+		header('Location: '.$WWW_ROOT.'?'._rsidl);
 		exit;
-	}
-	else if ( !empty($agree) ) {
-		if( $GLOBALS['COPPA'] != 'Y' ) $coppa = 'n';
-		header("Location: {ROOT}?t=register&"._rsidl."&coppa=".$coppa);
+	} else if (isset($_POST['agree'])) {
+		header('Location: {ROOT}?t=register&'._rsidl.'&reg_coppa='.($GLOBALS['COPPA'] != 'Y' ? 'N' : strtoupper($_REQUEST['coppa'])));
 		exit;
 	}
 
 	$TITLE_EXTRA = ': {TEMPLATE: forum_terms}';
 	{POST_HTML_PHP}
-	$msg_file = ( strcasecmp(trim($coppa), 'y') == 0 ) ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
+	$msg_file = $_REQUEST['coppa'] == 'y' ? '{TEMPLATE: forum_rules_13}' : '{TEMPLATE: forum_rules}';
 	{POST_PAGE_PHP_CODE}
 ?>
 {TEMPLATE: PREREG_PAGE}

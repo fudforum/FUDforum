@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.15 2003/03/29 11:40:09 hackie Exp $
+*   $Id: login.php.t,v 1.16 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,21 +15,21 @@
 *
 ***************************************************************************/
 	
-	{PRE_HTML_PHP}	
+/*{PRE_HTML_PHP}*/
 	$usr = fud_user_to_reg($usr);
+
 	/* clear old sessions */
-	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<".(__request_timestamp__-$GLOBALS['COOKIE_TIMEOUT'])." OR (time_sec<".(__request_timestamp__-$GLOBALS['SESSION_TIMEOUT'])." AND sys_id!=0)");
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)');
 
 	/* Remove old unconfirmed users */
-	if( $EMAIL_CONFIRMATION == 'Y' ) {
-		$account_expiry_date = __request_timestamp__-(86400*$UNCONF_USER_EXPIRY);
+	if ($EMAIL_CONFIRMATION == 'Y') {
+		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE email_conf='N' AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND is_mod!='A'");
 	}	
 
-	if ( !empty($HTTP_GET_VARS['logout']) && isset($ses) ) {
-		preg_match('/\?t=([A-Z0-9a-z_]+)(\&|$)/', $returnto, $regs);
-		switch( $regs[1] )
-		{
+	if (!empty($_GET['logout'])) {
+		preg_match('/\?t=([A-Z0-9a-z_]+)(\&|$)/', $ses->returnto, $regs);
+		switch ($regs[1]) {
 			case 'register':
 			case 'pmsg_view':
 			case 'pmsg':
@@ -44,19 +44,20 @@
 			case 'ppost':
 			case 'finduser':
 			case 'error':
-				$returnto = $GLOBALS['returnto'] = '';
+				$returnto = '';
 				break;
 			default:
-				$GLOBALS['returnto'] .= '&logoff=1';
+				$returnto = $ses->returnto ? $ses->returnto . '&logoff=1' : '{ROOT}';
 				break;
 		}
 		
 		$ses->delete_session();
-		check_return();
+		header('Location: '.$returnto);
+		exit;
 	}
 	
-	if ( is_object($usr) ) {
-		header("Location: {ROOT}?t=register&"._rsidl);
+	if (_uid) { /* send logged in users to profile page if they are not logging out */
+		header('Location: {ROOT}?t=register&'._rsidl);
 		exit();
 	}
 
@@ -68,8 +69,9 @@ function login_php_set_err($type, $val)
 
 function login_php_get_err($type)
 {
-	if ( empty($GLOBALS['_ERROR_MSG_'][$type]) || !strlen($GLOBALS['_ERROR_MSG_'][$type]) ) return;
-	$msg = $GLOBALS['_ERROR_MSG_'][$type];
+	if (empty($GLOBALS['_ERROR_MSG_'][$type])) {
+		return;
+	}
 	return '{TEMPLATE: login_error_text}';
 }
 	
@@ -77,11 +79,14 @@ function error_check()
 {
 	$GLOBALS['_ERROR_'] = NULL;
 
-	if ( !strlen(trim($GLOBALS['HTTP_POST_VARS']['login'])) ) {
+	$_POST['login'] = trim($_POST['login']);
+	$_POST['password'] = trim($_POST['password']);
+	
+	if (!strlen($_POST['login'])) {
 		login_php_set_err('login', '{TEMPLATE: login_name_required}');
 	}
 	
-	if ( !strlen(trim($GLOBALS['HTTP_POST_VARS']['password'])) ) {
+	if (!strlen($_POST['password'])) {
 		login_php_set_err('password', '{TEMPLATE: login_passwd_required}');
 	}
 	
@@ -89,24 +94,17 @@ function error_check()
 }
 	
 	/* deal with quicklogin from if needed */
-	if ( isset($HTTP_POST_VARS['quick_login']) && isset($HTTP_POST_VARS['quick_password']) ) {
-		$HTTP_POST_VARS['login'] = $HTTP_POST_VARS['quick_login'];
-		$HTTP_POST_VARS['password'] = $HTTP_POST_VARS['quick_password'];
-		$GLOBALS["HTTP_POST_VARS"]["use_cookie"] = $HTTP_POST_VARS['quick_use_cookies'];
+	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
+		$_POST['login'] = $_POST['quick_login'];
+		$_POST['password'] = $_POST['quick_password'];
+		$_POST['use_cookie'] = $_POST['quick_use_cookies'];
 	}
 	
-	if ( @count($HTTP_POST_VARS) && !error_check() ) {
-		if ( !($id = get_id_by_radius($HTTP_POST_VARS['login'], stripslashes($HTTP_POST_VARS['password']))) ) {
-			/* check if admin */
-			$id = get_id_by_login($HTTP_POST_VARS['login']);
-			
-			if ( $id ) {
-				$ausr = new fud_user;
-				$ausr->get_user_by_id($id);
-				if ( $ausr->is_mod == 'A' ) {
-					logaction($id, 'WRONGPASSWD', 0, $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']);
-				}
-				$id = NULL;					
+	if (isset($_POST['login']) && !error_check()) {
+		if (!($id = get_id_by_radius($_POST['login'], $_POST['password']))) {
+			/* If failed login attempt it for admin user we log it */
+			if (($aid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($login)."' AND is_mod='A'"))) {
+				logaction($aid, 'WRONGPASSWD', 0, $_SERVER['REMOTE_ADDR']);
 			}
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else {
@@ -117,22 +115,20 @@ function error_check()
 			/* Perform check to ensure that the user is allowed to login */
 			
 			/* Login & E-mail Filter & IP */
-			if (is_blocked_login($usr->login) || is_email_blocked($usr->email) || $usr->blocked == 'Y' || (isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) && fud_ip_filter::is_blocked($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']))) {
+			if (is_blocked_login($usr->login) || is_email_blocked($usr->email) || $usr->blocked == 'Y' || (isset($_SERVER['REMOTE_ADDR']) && fud_ip_filter::is_blocked($_SERVER['REMOTE_ADDR']))) {
 				error_dialog('{TEMPLATE: login_blocked_account_ttl}', '{TEMPLATE: login_blocked_account_msg}', $returnto_d);
 				exit();
 			}
 			
-			if ( !isset($ses) ) $ses = new fud_session;
-			$uck = empty($GLOBALS["HTTP_POST_VARS"]["use_cookie"]) ? 1 : NULL;
-			$ses->save_session($id,$uck);
+			$ses->save_session($id, (empty($_POST['use_cookie']) ? 1 : NULL));
 			
-			if ( $usr->email_conf != 'Y' ) {
+			if ($usr->email_conf != 'Y') {
 				std_error('emailconf');
 				exit();
 			}
 			
-			if( !empty($GLOBALS["HTTP_POST_VARS"]["adm"]) && $usr->is_mod == 'A' ) {
-				header("Location: adm/admglobal.php?"._rsidl);
+			if (isset($_POST['adm']) && $usr->is_mod == 'A') {
+				header('Location: adm/admglobal.php?'._rsidl);
 				exit;
 			}
 			
@@ -140,21 +136,16 @@ function error_check()
 		}
 	}
 	
-	if ( isset($ses) ) $ses->update('{TEMPLATE: login_update}');
+	$ses->update('{TEMPLATE: login_update}');
 	$TITLE_EXTRA = ': {TEMPLATE: login_title}';
-	{POST_HTML_PHP}
 
-	if( isset($msg) ) {
-		$msg = stripslashes($msg);
-		if ( strlen($msg) ) 
-			$login_error_msg = '{TEMPLATE: login_error_msg}';
-	} else $login_error_msg = NULL;
+/*{POST_HTML_PHP}*/
+
+	$login_error_msg = (isset($_REQUEST['msg']) && strlen($_REQUEST['msg'])) ? '{TEMPLATE: login_error_msg}' : '';
 	
-	$login_error = login_php_get_err('login');
-	$passwd_error = login_php_get_err('password');
+	$login_error	= login_php_get_err('login');
+	$passwd_error	= login_php_get_err('password');
 	
-	$returnto = create_return();
-	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: LOGIN_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.23 2003/03/13 12:39:10 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.24 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,32 +15,30 @@
 *
 ***************************************************************************/
 
+$GLOBALS['__IGNORE_LIST__'] = array();
+
 function build_ignore_list()
 {
-	$GLOBALS['__IGNORE_LIST__'] = array();
-
-	$r = q("SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id=".$GLOBALS["usr"]->id);
-	while( list($id,$ignore_id) = db_rowarr($r) ) $GLOBALS['__IGNORE_LIST__'][$ignore_id] = $id;
+	$r = q('SELECT id,ignore_id FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='._uid);
+	while ($d = db_rowarr($r)) {
+		$GLOBALS['__IGNORE_LIST__'][$d[1]] = $d[0];
+	}
 	qf($r);
 }
 
-if( isset($GLOBALS['rev']) ) {
-	$drawmsg_inc_tmp = explode(':', $GLOBALS['rev']);
+if ($_GET['rev'])) {
+	$drawmsg_inc_tmp = explode(':', $_GET['rev']));
 	foreach($drawmsg_inc_tmp as $v) {
-		if ( strlen($v) ) $GLOBALS['__REVEALED_POSTS__'][$v] = 1;
+		$GLOBALS['__REVEALED_POSTS__'][$v] = 1;
 	}
-	unset($drawmsg_inc_tmp);
 }	
 
-if( isset($GLOBALS['reveal']) ) {
-	$drawmsg_inc_tmp = explode(':', $GLOBALS['reveal']);
+if (isset($_GET['reveal'])) {
+	$drawmsg_inc_tmp = explode(':', ($_GET['reveal']);
 	foreach($drawmsg_inc_tmp as $v) {	
-		if ( strlen($v) ) $GLOBALS['__REVEALED_USERS__'][$v] = 1;
+		$GLOBALS['__REVEALED_USERS__'][$v] = 1;
 	}
-	unset($drawmsg_inc_tmp);
 }	
-
-	$GLOBALS['affero_domain'] = parse_url($GLOBALS['WWW_ROOT']);
 
 function register_vote($opt)
 {
@@ -58,27 +56,30 @@ $GLOBALS['__DRAW_MSG_SCRIPT_NAME'] = basename($GLOBALS['HTTP_SERVER_VARS']['PATH
 $GLOBALS['__POLL_ACTION_URL'] = htmlspecialchars($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']);
 $GLOBALS['__MSG_COUNT__']=-1;
 
-function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
+function tmpl_drawmsg(&$obj, $is_mod, $show_avatar, $show_sig, )
 {
 	global $rev;
 	global $reveal;
 	global $count;
 	global $start;
 
-	if ( empty($obj->user_id) ) $obj->user_id=$obj->poster_id=0;
+	if (!$obj->user_id) {
+		$obj->user_id = $obj->poster_id = 0;
+	}
 
-	if ( !empty($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']) ) $hide_controls = 1;
-	if( isset($GLOBALS['usr']) && !isset($GLOBALS['__IGNORE_LIST__']) ) build_ignore_list();
-	$ret_n_sid = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"].'#msg_'.$obj->id).'&amp;'.$_rsid;
-	
-	$GLOBALS['__MSG_COUNT__']++;
-	
-	if( $msg_count && empty($hide_controls) ) { 
-		if( $GLOBALS['__MSG_COUNT__'] ) {
+	$hide_controls = isset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
+
+	if (_uid && !isset($GLOBALS['__IGNORE_LIST__'])) {
+		build_ignore_list();
+	}
+	if (!$hide_controls) {
+		if ($msg_count) { 
+		
+		
+			if( $GLOBALS['__MSG_COUNT__'] ) {
 			$msg_num = $GLOBALS['__MSG_COUNT__']-1;
 			$prev_message = '{TEMPLATE: dmsg_prev_message}';
-		}
-		else if ( $pager && $obj->id!=$obj->root_msg_id ) {
+		} else if ( $pager && $obj->id!=$obj->root_msg_id ) {
 			$msg_start = $GLOBALS['start']-$GLOBALS['count'];
 			$prev_message = '{TEMPLATE: dmsg_prev_message_prev_page}';
 		}	
@@ -86,19 +87,26 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		if( $GLOBALS['__MSG_COUNT__'] < $msg_count ) {
 			$msg_num = $GLOBALS['__MSG_COUNT__']+1;
 			$next_message = '{TEMPLATE: dmsg_next_message}';
-		}
-		else if ( $pager && $obj->id!=$obj->last_post_id ) {
+		} else if ( $pager && $obj->id!=$obj->last_post_id ) {
 			$msg_start = $GLOBALS['start']+$GLOBALS['count'];
 			$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
 		}			
+
+		if ($_REQUEST['t'] == 'tree')) {
+			if ($pager[0]) {
+				$prev_message = '{TEMPLATE: dmsg_tree_prev_message_prev_page}';
+			} else {
+				$prev_message = '';
+			}
+			if ($pager[1]) {
+				$next_message = '{TEMPLATE: dmsg_tree_next_message_next_page}';
+			} else {
+				$next_message = '';
+			}
+		}
 	}	
 	
-	if( $GLOBALS['t'] == 'tree' && empty($hide_controls) ) {
-		if( $pager[0] ) 
-			$prev_message = '{TEMPLATE: dmsg_tree_prev_message_prev_page}';
-		if( $pager[1] )	
-			$next_message = '{TEMPLATE: dmsg_tree_next_message_next_page}';
-	}
+	
 	
 	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
 	
@@ -159,7 +167,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		$host_name = '{TEMPLATE: dmsg_host_name}';
 	}
 	
-	$msg_icon = empty($obj->icon) ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
+	$msg_icon = $obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
 	
 	$buddy_link=$ignore_link='';
 	if ( isset($GLOBALS['usr']) && $GLOBALS['usr']->id != $obj->user_id && empty($hide_controls) ) {

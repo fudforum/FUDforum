@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.12 2003/03/30 18:03:11 hackie Exp $
+*   $Id: thread.php.t,v 1.13 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@
 
 	if (_uid) {
 		$ses->update('{TEMPLATE: thread_update}', $frm->id);
-		if ($frm->is_moderator(_uid) || $usr->is_mod == 'A') {
+		if (is_moderator($frm->id, _uid) || $usr->is_mod == 'A') {
 			$MOD = 1;
 		}
 

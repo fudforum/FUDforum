@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.5 2002/08/10 20:21:22 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.6 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,9 @@
 
 function is_perms($user_id, $r_id, $perm, $r_type='forum')
 {
-	if( $GLOBALS['usr']->is_mod == 'A' ) return TRUE;
+	if ($user_id && $GLOBALS['usr']->is_mod == 'A') {
+		return TRUE;
+	}
 	if( __dbtype__ == 'pgsql' ) $perm = strtolower($perm);
 	if( empty($user_id) ) $user_id = 0;
 
@@ -36,5 +38,18 @@ function is_perms($user_id, $r_id, $perm, $r_type='forum')
 	
 	$GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type] = db_singleobj($r);
 	return ($GLOBALS['__MEMPERM_CACHE'][$user_id][$r_id][$r_type]->{'p_'.$perm}=='Y'?TRUE:FALSE);
+}
+
+function init_single_user_perms($id, $is_mod, &$MOD)
+{
+	if (!$id) { /* anon user */
+		return db_arr_assoc('SELECT p_VISIBLE as visible, p_READ as read p_post as POST, p_REPLY as reply, p_EDIT as edit, p_DEL as del, p_STICKY as sticky, p_POLL as poll, p_FILE as file, p_VOTE as vote, p_RATE as rate, p_SPLIT as split, p_LOCK as lock, p_MOVE as move, p_SML as sml, p_IMG as img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_type=\'forum\' AND resource_id='.$id);
+	}
+	if ($is_mod == 'A' || ($is_mod == 'Y' && is_moderator($id, _uid))) { /* administrator or moderator */
+		$MOD = 1;
+		return array('visible'=>'Y', 'read'=>'Y', 'post'=>'Y', 'reply'=>'Y', 'edit'=>'Y', 'del'=>'Y', 'sticky'=>'Y', 'poll'=>'Y', 'file'=>'Y', 'vote'=>'Y', 'rate'=>'Y', 'split'=>'Y', 'lock'=>'Y', 'move'=>'Y', 'sml'=>'Y', 'img'=>1);
+	} else { /* regular user */
+		return db_arr_assoc('SELECT p_VISIBLE as visible, p_READ as read p_post as POST, p_REPLY as reply, p_EDIT as edit, p_DEL as del, p_STICKY as sticky, p_POLL as poll, p_FILE as file, p_VOTE as vote, p_RATE as rate, p_SPLIT as split, p_LOCK as lock, p_MOVE as move, p_SML as sml, p_IMG as img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_type=\'forum\' AND resource_id='.$id.' ORDER BY user_id ASC LIMIT 1');
+	}
 }
 ?>

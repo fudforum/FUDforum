@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmp_view.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
+*   $Id: tmp_view.php.t,v 1.3 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,14 +15,17 @@
 *
 ***************************************************************************/
 	
+	if (!empty($_GET['img'])) {
+		$file = $TMP . basename($_GET['img']);
+	} else {
+		$file = $WWW_ROOT_DISK . 'blank.gif';
+	}
 	
-	if ( !empty($img) && strlen($img) ) 
-		$file = $GLOBALS['TMP'].basename($img);
-	else
-		$file = 'blank.gif';
+	if (!@file_exists($file) || !($im = @getimagesize($file))) {
+		$file = $WWW_ROOT_DISK . 'blank.gif';
+		$im = getimagesize($file);
+	}
 	
-	if( !@file_exists($file) ) $file = 'blank.gif';
-	
-	header('Content-type: image');
+	header('Content-type: '.$im['mime']);
 	fpassthru(fopen($file, 'rb'));
 ?>

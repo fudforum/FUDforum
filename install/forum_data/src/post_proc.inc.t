@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.12 2002/12/05 23:57:49 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.13 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -482,22 +482,23 @@ function tmpl_list_ext()
 	return $ext;
 }
 
-function safe_tmp_copy($source, $del_source=0)
+function safe_tmp_copy($source, $del_source=0, $prefx='')
 {
-	$umask = umask(0177);
-	
-	if( function_exists("move_uploaded_file") ) {
-		if( !move_uploaded_file($source, ($name=tempnam($GLOBALS['TMP'],getmypid()))) ) return;
-	}	
-	else {
-		if( !copy($source, ($name=tempnam($GLOBALS['TMP'],getmypid()))) ) return;
-	}	
-		
-	umask($umask);
-	
-	if( $del_source ) unlink($source);
+	if (!$prefx) {
+		 $prefx = getmypid();
+	}
 
-	return substr(strrchr($name, '/'), 1);
+	$umask = umask(0177);
+	if (!move_uploaded_file($source, ($name = tempnam($GLOBALS['TMP'], $prefx.'_')))) {
+		return;
+	}
+	umask($umask);
+	if ($del_source) {
+		@unlink($source);
+	}
+	umask($umask);
+
+	return basename($name);
 }
 
 function reverse_nl2br(&$data)

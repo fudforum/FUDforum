@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.7 2003/03/13 12:48:25 hackie Exp $
+*   $Id: tabs.inc.t,v 1.8 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-if( isset($usr) ) {
+if (_uid) {
 	$tablist = array(
 '{TEMPLATE: tabs_register}'=>'register', 
 '{TEMPLATE: tabs_subscriptions}'=>'subscribed',
@@ -23,28 +23,33 @@ if( isset($usr) ) {
 '{TEMPLATE: tabs_buddy_list}'=>'buddy_list',
 '{TEMPLATE: tabs_ignore_list}'=>'ignore_list'
 );
-	if (isset($GLOBALS['HTTP_POST_VARS']['mod_id'])) {
-		$mod_id_chk = $GLOBALS['HTTP_POST_VARS']['mod_id'];
-	} else if (isset($GLOBALS['HTTP_GET_VARS']['mod_id'])) {
-		$mod_id_chk = $GLOBALS['HTTP_GET_VARS']['mod_id'];
+	if (isset($_POST['mod_id'])) {
+		$mod_id_chk = $_POST['mod_id'];
+	} else if (isset($_GET['mod_id'])) {
+		$mod_id_chk = $_GET['mod_id'];
 	} else {
 		$mod_id_chk = NULL;	
 	}
 
-	if (!is_numeric($mod_id_chk)) {
-		if( $GLOBALS['PM_ENABLED']=='Y' ) $tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
-	
-		$tabs='';
-		$pg = $t;
-		if( $pg == 'pmsg_view' || $pg == 'ppost' ) $pg = 'pmsg';
+	if ($mod_id_chk) {
+		if ($GLOBALS['PM_ENABLED']=='Y') {
+			$tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
+		}
+		$pg = ($_GET['t'] == 'pmsg_view' || $_GET['t'] == 'ppost') ? 'pmsg' : $_GET['t'];
 	
 		foreach($tablist as $tab_name => $tab) { 
 			$tab_url = '{ROOT}?t='.$tab.'&amp;'._rsid;
-			if( $tab == 'referals' ) $tab_url .= '&amp;id='._uid;	
-			$tabs .= ($pg == $tab) ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
+			if ($tab == 'referals') {
+				$tab_url .= '&amp;id='._uid;
+			}
+			$tabs .= $pg == $tab ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
 		}
 	
 		$tabs = '{TEMPLATE: tablist}';
+	} else {
+		$tabs = '';
 	}
-}	
+} else {
+	$tabs = '';
+}
 ?>

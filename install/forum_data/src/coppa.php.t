@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa.php.t,v 1.2 2002/07/30 14:34:37 hackie Exp $
+*   $Id: coppa.php.t,v 1.3 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-/*#? Coppa Confirmation Form */
 
 	{PRE_HTML_PHP}
 	$TITLE_EXTRA = ': {TEMPLATE: coppa_conf}';

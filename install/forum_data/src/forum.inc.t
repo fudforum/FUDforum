@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.4 2003/03/31 11:29:59 hackie Exp $
+*   $Id: forum.inc.t,v 1.5 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,11 +50,6 @@ class fud_forum
 		if( empty($this->id) ) invl_inp_err();
 			
 		return $id;		
-	}
-	
-	function is_moderator($user_id)
-	{
-		return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id=".$user_id." AND forum_id=".$this->id);
 	}
 	
 	function inc_reply_count($val)
@@ -118,7 +113,7 @@ class fud_forum
 
 function is_moderator($frm_id, $user_id)
 {
-	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='.$user_id.' AND forum_id='.$this->id);
+	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='.$user_id.' AND forum_id='.$frm_id);
 }
 
 if ( defined('admin_form') && !defined("_forum_adm_inc_") ) fud_use('forum_adm.inc');

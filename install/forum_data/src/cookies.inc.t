@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.14 2003/03/31 11:29:59 hackie Exp $
+*   $Id: cookies.inc.t,v 1.15 2003/04/02 01:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,6 +27,10 @@ class fud_session
 		} else {
 			q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action=NULL, returnto='.strnull(addslashes($_SERVER['QUERY_STRING'])).' WHERE id='.$this->id);
 		}
+	}
+	function action_update($str)
+	{
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET time_sec='.__request_timestamp__.', action=\''.addslashes($str).'\' WHERE id='.$this->id);
 	}
 
 	function putvar($name, $val)
