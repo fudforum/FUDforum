@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.1 2004/04/20 18:12:29 hackie Exp $
+* $Id: uc.php.t,v 1.2 2004/04/21 21:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,6 +17,8 @@
 	} else {
 		std_error('login');
 	}
+
+	ses_update_status($usr->sid, '{TEMPLATE: uc_page_title}');
 
 /*{POST_HTML_PHP}*/
 

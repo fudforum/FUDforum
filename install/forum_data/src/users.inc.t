@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.120 2004/04/21 21:17:45 hackie Exp $
+* $Id: users.inc.t,v 1.121 2004/04/21 21:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -635,13 +635,13 @@ function init_user()
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'"><input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . '/' . s);
+				define('_rsid', __fud_real_user__ . '/' . s.'/');
 			} else {
 				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s);
 			}
 		} else {
 			if ($o2 & 32768) {
-				define('_rsid', s);
+				define('_rsid', s.'/');
 			} else {
 				define('_rsid',  'S='.s);
 			}
@@ -650,7 +650,7 @@ function init_user()
 		define('s', ''); define('_hs', '<input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__);
+				define('_rsid', __fud_real_user__.'/');
 			} else {
 				define('_rsid', 'rid='.__fud_real_user__);
 			}
