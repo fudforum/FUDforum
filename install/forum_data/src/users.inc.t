@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.54 2003/06/02 18:57:09 hackie Exp $
+*   $Id: users.inc.t,v 1.55 2003/06/02 19:11:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,10 +215,14 @@ function init_user()
 			
 				case 'sl':
 					$_GET['t'] = 'subscribed';
-					if (isset($p[2])) {
-						$_GET['th'] = $p[2];
-					} else if (isset($p[1])) {
-						$_GET['frm_id'] = $p[1];
+					if ($p[1] == 'start') {
+						$_GET['start'] = $p[2];
+					} else {
+						if (isset($p[2])) {
+							$_GET['th'] = $p[2];
+						} else if (isset($p[1])) {
+							$_GET['frm_id'] = $p[1];
+						}
 					}
 					break;
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.php.t,v 1.9 2003/04/10 17:37:00 hackie Exp $
+*   $Id: subscribed.php.t,v 1.10 2003/06/02 19:11:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -83,7 +83,11 @@
 	}
 	qf($c);
 	
-	$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=subscribed&a=1&'._rsid, '#fff');
+	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=subscribed&a=1&'._rsid, '#fff');
+	} else {
+		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sl/start/', '/'._rsid.'#fff');
+	}
 		
 /*{POST_PAGE_PHP_CODE}*/
 ?>

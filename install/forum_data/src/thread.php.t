@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.21 2003/05/20 13:27:52 hackie Exp $
+*   $Id: thread.php.t,v 1.22 2003/06/02 19:11:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -168,7 +168,11 @@
 	}
 	qf($result);
 
-	$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
+	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm_id.'&amp;'._rsid);
+	} else {
+		$page_pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $frm->thread_count, '{ROOT}/sf/thread/'.$frm_id.'/1/', '/' ._rsid);
+	}
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>	
