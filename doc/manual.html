@@ -1966,6 +1966,22 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 					Internally this function uses preg_match() to evaluate the regular expression.
 					</p></div><p>
+			</p><p>
+				The regular expression filter can also be used to block all email address', with the exception
+				of those containing some sort of a special string or coming from a particular domain.
+			</p><p>
+				Let take this situation for example, you need to setup a forum that would only allow registrations 
+				of students and staff of a university. There is a slight complication however, while each student 
+				has an email address @university.edu, the staff e-mail address vary between 
+				@staff.university.edu and @university.on.ca. Regular expression to the rescue, by using regular expression
+				and FUDforum's special prefix '#' you can easily accomplish this tasks as the example below demonstrates.
+				
+				</p><div class="example"><p class="title"><b>Example 1.6. </b></p><p>
+						#.*?@(university\.edu|staff\.university\.edu|university\.on\.ca)$
+					</p></div><p>
+				
+				By entering the code above, you will be able to restrict user registrations to people who's email accounts are 
+				on the university.edu, staff.university.edu or university.on.ca domains.
 			</p></div></div><div class="sect1"><div class="titlepage"><div><h2 class="title" style="clear: both"><a name="admin.ip_filter"></a>IP Filter</h2></div></div><p>
 			Allows the administrator to block people with a matching ip address' from posting messages on the forum.
 		</p><p>

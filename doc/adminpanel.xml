@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.14 2002/08/26 00:48:32 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.15 2002/09/04 04:35:37 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -3409,6 +3409,28 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 					Internally this function uses preg_match() to evaluate the regular expression.
 					</simpara>
 				</note>
+			</para>
+			
+			<para>
+				The regular expression filter can also be used to block all email address', with the exception
+				of those containing some sort of a special string or coming from a particular domain.
+			</para>
+			
+			<para>
+				Let take this situation for example, you need to setup a forum that would only allow registrations 
+				of students and staff of a university. There is a slight complication however, while each student 
+				has an email address @university.edu, the staff e-mail address vary between 
+				@staff.university.edu and @university.on.ca. Regular expression to the rescue, by using regular expression
+				and FUDforum's special prefix '#' you can easily accomplish this tasks as the example below demonstrates.
+				
+				<example>
+					<simpara>
+						#.*?@(university\.edu|staff\.university\.edu|university\.on\.ca)$
+					</simpara>
+				</example>
+				
+				By entering the code above, you will be able to restrict user registrations to people who's email accounts are 
+				on the university.edu, staff.university.edu or university.on.ca domains.
 			</para>
 		</sect2>
 	</sect1>

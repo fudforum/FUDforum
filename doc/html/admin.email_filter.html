@@ -12,4 +12,20 @@
 				</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
 					Internally this function uses preg_match() to evaluate the regular expression.
 					</p></div><p>
+			</p><p>
+				The regular expression filter can also be used to block all email address', with the exception
+				of those containing some sort of a special string or coming from a particular domain.
+			</p><p>
+				Let take this situation for example, you need to setup a forum that would only allow registrations 
+				of students and staff of a university. There is a slight complication however, while each student 
+				has an email address @university.edu, the staff e-mail address vary between 
+				@staff.university.edu and @university.on.ca. Regular expression to the rescue, by using regular expression
+				and FUDforum's special prefix '#' you can easily accomplish this tasks as the example below demonstrates.
+				
+				</p><div class="example"><p class="title"><b>Example 1.6. </b></p><p>
+						#.*?@(university\.edu|staff\.university\.edu|university\.on\.ca)$
+					</p></div><p>
+				
+				By entering the code above, you will be able to restrict user registrations to people who's email accounts are 
+				on the university.edu, staff.university.edu or university.on.ca domains.
 			</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="admin.avatar.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="administrating_fud.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="admin.ip_filter.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Avatar Manager </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> IP Filter</td></tr></table></div></body></html>
