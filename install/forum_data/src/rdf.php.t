@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.20 2003/09/26 18:49:03 hackie Exp $
+*   $Id: rdf.php.t,v 1.21 2003/09/29 14:40:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -134,10 +134,10 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$AUTH_ID.' ';
-					$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y')";
+					$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= " AND g1.p_READ='Y'";
+					$lmt .= " AND g1.group_cache_opt & 2";
 				}
 			}
 
@@ -297,10 +297,10 @@ $basic_rss_data .= '
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$AUTH_ID.' ';
-					$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y')";
+					$lmt .= " AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$lmt .= " AND g1.p_READ='Y'";
+					$lmt .= " AND g1.group_cache_opt & 2";
 				}
 			}
 			$c = uq('SELECT 
@@ -383,10 +383,10 @@ $basic_rss_data .= '
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='.$AUTH_ID.' AND g2.resource_id=f.id
 							LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='.$AUTH_ID.' ';
-					$perms = ", (CASE WHEN (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)='Y') THEN 1 ELSE 0 END) AS can_show_msg";
+					$perms = ", (CASE WHEN (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2) THEN 1 ELSE 0 END) AS can_show_msg";
 				} else {
 					$join = ' INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id ';
-					$perms = ", (CASE WHEN g1.p_READ='Y' THEN 1 ELSE 0 END) AS can_show_msg";
+					$perms = ", g1.group_cache_opt & 2 AS can_show_msg";
 				}
 			} else {
 				$perms = ', 1 AS can_show_msg';
