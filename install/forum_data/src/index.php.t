@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.28 2003/04/23 16:44:45 hackie Exp $
+*   $Id: index.php.t,v 1.29 2003/04/23 16:49:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -201,8 +201,9 @@ function iscollapsed($id)
 		} else {
 			$last_post = '{TEMPLATE: na}';
 		}
-		
-		if ($r[14] && ($mods = @unserialize($r[13]))) {
+
+		$moderators = '';
+		if ($r[13] && ($mods = @unserialize($r[13]))) {
 			foreach($mods as $k => $v) {
 				$moderators .= '{TEMPLATE: profile_link_mod}';	
 			}
