@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.33 2003/04/09 10:55:57 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.34 2003/04/09 12:09:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,7 +141,7 @@ class fud_msg_edit extends fud_msg
 	function sync($id, $frm_id, $message_threshold, $sticky_perm, $lock_perm)
 	{
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
+			db_lock('{SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
 			$ll=1;
 		}
 		$file_id = write_body($this->body, $length, $offset);
