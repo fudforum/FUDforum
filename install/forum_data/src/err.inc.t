@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.44 2004/11/24 19:53:34 hackie Exp $
+* $Id: err.inc.t,v 1.45 2004/12/08 18:58:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,12 +21,12 @@ function error_dialog($title, $msg, $level='WARN', $ses=null)
 	$error_msg .= '[User IP] '.get_ip().'<br />';
 	$error_msg .= '[Requested URL] http://';
 	$error_msg .= isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
-	$error_msg .= isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
-	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(serialize($_POST)) : '';
+	$error_msg .= isset($_SERVER['REQUEST_URI']) ? htmlspecialchars($_SERVER['REQUEST_URI']) : '';
+	$error_msg .= !empty($_POST) ? '<br />[Post-Data] '.base64_encode(htmlspecialchars(serialize($_POST))) : '';
 	$error_msg .= '<br />';
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
-		$error_msg .= '[Referring Page] '.$_SERVER['HTTP_REFERER'].'<br />';
+		$error_msg .= '[Referring Page] '.htmlspecialchars($_SERVER['HTTP_REFERER']).'<br />';
 	}
 	error_log('['.gmdate('D M j G:i:s T Y', __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 

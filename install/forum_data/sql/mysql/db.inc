@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.45 2004/11/24 19:53:34 hackie Exp $
+* $Id: db.inc,v 1.46 2004/12/08 18:56:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,9 +19,8 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		}
 	}
 
-	$tmp = debug_backtrace();
 	$_SERVER['PATH_TRANSLATED'] = '';
-	foreach ($tmp as $v) {
+	foreach (debug_backtrace() as $v) {
 		$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}<br />\n";
 	}
 
@@ -30,14 +29,14 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 	if (!empty($_GET)) {
 		$error_msg .= "_GET: ";
 		foreach ($_GET as $k => $v) {
-			$error_msg .= "{$k}={$v}&";
+			$error_msg .= "{$k}=".htmlspecialchars($v)."&";
 		}
 		$error_msg .= "<br />\n";
 	}
 	if (!empty($_POST)) {
 		$error_msg .= "_POST: ";
 		foreach ($_POST as $k => $v) {
-			$error_msg .= "{$k}={$v}&";
+			$error_msg .= "{$k}=".htmlspecialchars($v)."&";
 		}
 		$error_msg .= "<br />\n";
 	}
