@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.13 2002/08/23 03:25:05 hackie Exp $
+*   $Id: tree.php.t,v 1.14 2002/08/25 20:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -261,7 +261,7 @@ if( @is_array($tree->kiddies) ) {
 	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));
 	un_register_fps();
 
-	if ( isset($usr) ) $usr->register_thread_view($thread->id, $mid);
+	if ( isset($usr) ) $usr->register_thread_view($thread->id, $msg_obj->post_stamp, $msg_obj->id);
 	
 	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.10 2002/08/13 16:17:26 hackie Exp $
+*   $Id: selmsg.php.t,v 1.11 2002/08/25 20:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -222,7 +222,7 @@ function ifstr($opt1, $opt2, $str)
 	if ( !empty($mark_page_read) && isset($usr) ) {
 		while ( $obj = db_rowobj($r) ) {
 			if ( $dth_id != $obj->th_id ) { 
-				if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $msg_id);
+				if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $obj->post_stamp, $obj->id);
 				if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
 			}
 			$dth_id = $obj->th_id;
@@ -231,7 +231,7 @@ function ifstr($opt1, $opt2, $str)
 		}
 		
 		if ( $dth_id != $obj->th_id ) { 
-			if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $msg_id);
+			if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $obj->post_stamp, $obj->id);
 			if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
 		}
 		

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.10 2002/08/07 12:18:43 hackie Exp $
+*   $Id: msg.php.t,v 1.11 2002/08/25 20:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -210,7 +210,7 @@
 	
 	un_register_fps();
 
-	if ( isset($usr) ) $usr->register_thread_view($thread->id, $mid);
+	if ( isset($usr) ) $usr->register_thread_view($thread->id, $obj->post_stamp, $obj->id);
 
 	$page_pager = tmpl_create_pager($start, $count, $total, "{ROOT}?t=msg&amp;th=".$th."&amp;prevloaded=1&amp;"._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
 

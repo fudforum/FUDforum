@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.2 2002/08/25 08:07:43 hackie Exp $
+*   $Id: threadt.php.t,v 1.3 2002/08/25 20:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -105,7 +105,7 @@
 					INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
 					LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
 				WHERE 
-					thread_id=".$tobj->id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id");
+					{SQL_TABLE_PREFIX}msg.thread_id=".$tobj->id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id");
 			
 			while ( $obj = db_rowobj($r) ) {
 				$arr[$obj->id] = $obj;
