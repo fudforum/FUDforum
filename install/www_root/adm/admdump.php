@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.25 2003/07/18 17:29:07 hackie Exp $
+*   $Id: admdump.php,v 1.26 2003/07/18 17:59:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 
 	readdir($d); readdir($d);
 	$path = $dirp . '/';
-	$dpath = str_replace($path, $GLOBALS[$keep_dir], $keep_dir . '/');
+	$dpath = str_replace($GLOBALS[$keep_dir], $keep_dir . '/', $path);
 	while ($f = readdir($d)) {
 		switch (filetype($path . $f)) {
 			case 'file':
