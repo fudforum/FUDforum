@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.6 2003/05/02 17:23:39 hackie Exp $
+*   $Id: forum_adm.inc,v 1.7 2003/06/08 17:07:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -93,10 +93,11 @@ class fud_forum
 
 		if (!db_locked()) { 
 			$ll = 1; 
-			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE, '.$tbl.'group_resources WRITE'); 
+			db_lock($tbl.'forum WRITE, '.$tbl.'groups WRITE'); 
 		}
-		$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id='.$tbl.'forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name='.$tbl.'forum.name'); 
-		
+
+		$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
+
 		q("UPDATE ".$tbl."forum SET 
 			cat_id=".$cat_id.",
 			name='".addslashes($this->name)."',
