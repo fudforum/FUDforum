@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.23 2003/10/09 14:34:31 hackie Exp $
+* $Id: admforum.php,v 1.24 2003/10/14 14:27:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -84,15 +84,18 @@ function get_max_upload_size()
 
 	if (isset($_GET['chpos'], $_GET['newpos'])) {
 		frm_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], $cat_id);
+echo "HERE 1";
 		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
 	} else if (isset($_GET['del'])) {
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
+echo "HERE 2";
 			rebuild_forum_cat_order();
 			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']));
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
+echo "HERE 3";
 			rebuild_forum_cat_order();
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
 			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
@@ -100,6 +103,7 @@ function get_max_upload_size()
 	}
 	if (isset($_GET['o'], $_GET['ot'])) {
 		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
+echo "HERE 4";
 			$i = 0;
 			$r = q("SELECT id FROM {$tbl}forum WHERE cat_id={$cat_id} ORDER BY {$_GET['ot']} ".((int)$_GET['o'] ? 'ASC' : 'DESC'));
 			while ($o = db_rowarr($r)) {

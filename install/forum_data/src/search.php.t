@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.34 2003/10/09 14:34:26 hackie Exp $
+* $Id: search.php.t,v 1.35 2003/10/14 14:27:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,7 +28,7 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$cs = array('\W', '!\s+!');
+	$cs = array('!\W!', '!\s+!');
 	$cd = array(' ', ' ');
 	$qry = trim(preg_replace($cs, $cd, $qry));
 
