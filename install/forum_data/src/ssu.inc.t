@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ssu.inc.t,v 1.10 2003/10/01 21:51:52 hackie Exp $
+*   $Id: ssu.inc.t,v 1.11 2003/10/02 18:06:35 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 {
-	if ($FUD_OPT_1 & 1024) {
+	if ($GLOBALS['FUD_OPT_1'] & 1024) {
 		if (defined('no_inline')) {
 			fud_use('private.inc');
 			fud_use('iemail.inc');
