@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.20 2003/10/20 02:27:34 hackie Exp $
+* $Id: admcat.php,v 1.21 2003/11/10 00:40:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,7 +161,7 @@
 
 		echo '<tr '.$bgcolor.'>
 			<td>'.$r->name.'</td>
-			<td>'.substr($r->description, 0, 30).'</td>
+			<td>'.htmlspecialchars(substr($r->description, 0, 30)).'</td>
 			<td>'.($r->cat_opt & 1 ? 'Yes' : 'No').'</td>
 			<td>'.($r->cat_opt & 2 ? 'Collapsed' : 'Open').'</td>
 			<td nowrap>[<a href="admforum.php?cat_id='.$r->id.'&'._rsidl.'">Edit Forums</a>] [<a href="admcat.php?edit='.$r->id.'&'._rsidl.'">Edit Category</a>] [<a href="admcat.php?del='.$r->id.'&'._rsidl.'">Delete</a>]</td>
