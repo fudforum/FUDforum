@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.11 2002/08/20 02:52:56 hackie Exp $
+*   $Id: tree.php.t,v 1.12 2002/08/20 03:00:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -124,7 +124,7 @@
 	if ( isset($usr) && ($frm->is_moderator($usr->id) || $usr->is_mod == 'A') ) $MOD = 1;
 	
 	if ( _uid ) {
-		$last_thread_read = q_singleval("SELECT last_view FROM {{SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id="._uid);
+		$last_thread_read = q_singleval("SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id="._uid);
 	}
 	
 	if ( isset($thread) && empty($prevloaded) ) {
