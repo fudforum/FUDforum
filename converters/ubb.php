@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.2 2004/02/18 15:03:23 hackie Exp $
+* $Id: ubb.php,v 1.3 2004/02/18 15:25:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -237,6 +237,9 @@ function bbq($q, $err=0)
 		'Bo_Write_Perm'=> 4 | 512 | 128,
 		'Bo_Reply_Perm'=> 8
 	);
+	if (!$config['allowimages']) {
+		$group_map['Bo_Read_Perm'] = $group_map['Bo_Read_Perm'] &~ 32768;
+	}
 
 	$r = bbq("select * from {$ubb}Boards ORDER BY Bo_Cat, Bo_Sorter");
 	print_msg('Importing Forums '.db_count($r));
@@ -255,7 +258,7 @@ function bbq($q, $err=0)
 		}
 
 		$_POST['frm_max_file_attachments'] = 1;
-		$_POST['frm_max_attach_size'] = 1024;
+		$_POST['frm_max_attach_size'] = round((int) $config['filesize'] / 1024);
 
 		$frm = new fud_forum();
 		$id = $frm->add('LAST');
@@ -496,52 +499,50 @@ function bbq($q, $err=0)
 	unset($r);
 	print_msg('Finished Importing Private Messages');
 
-/* Import phpBB settings */
+/* Import ubb settings */
 	print_msg('Importing Forum Settings');
 	$list = array();
-	$list['FORUM_TITLE'] = $board_config['sitename'];
-	$list['SESSION_TIMEOUT'] = (int) $board_config['session_length'];
-	$list['POSTS_PER_PAGE'] = (int) $board_config['posts_per_page'];
-	$list['THREADS_PER_PAGE'] = (int) $board_config['topics_per_page'];
-	$list['NOTIFY_FROM'] = $board_config['board_email'];
-	$list['FLOOD_CHECK_TIME'] = (int) $board_config['flood_interval'];
-	$list['CUSTOM_AVATAR_MAX_DIM'] = $board_config['avatar_max_width'].'x'.$board_config['avatar_max_height'];
-	$list['CUSTOM_AVATAR_MAX_SIZE'] = (int) $board_config['avatar_filesize'];
-	if (!$board_config['board_disable']) {
+
+	$list['FORUM_TITLE'] = $config['title'];
+	$list['ADMIN_EMAIL'] = $list['NOTIFY_FROM'] = $config['emailaddy'];
+	$list['SESSION_TIMEOUT'] = (int) $config['cookieexp'];
+	$list['FORUM_SIG_ML'] = (int) $config['Sig_length'];
+	$list['PRIVATE_ATTACH_SIZE'] = (int) $config['filesize'];
+	$list['EDIT_TIME_LIMIT'] = (int)$config['edittime'] * 60;
+
+	$FUD_OPT_1 = $FUD_OPT_1 &~ (16384|1048576|134217728|1024|1|2|8388608|32768);
+	$FUD_OPT_2 = $FUD_OPT_2 &~ (16384|1073741824);
+
+	if ($config['allowimages']) {
+		$FUD_OPT_1 |= 16384;
+	}
+	if ($config['checkage']) {
+		$FUD_OPT_1 |= 1048576;
+	}
+	if ($config['showip'] == 1) {
+		$FUD_OPT_1 |= 134217728;
+	}
+	if ($config['private']) {
+		$FUD_OPT_1 |= 1024;
+	}
+	if ($config['isclosed']) {
 		$FUD_OPT_1 |= 1;
+	}
+	if (!$config['userreg']) {
+		$FUD_OPT_1 |= 2;
+	}
+	if ($config['userlist']) {
+		$FUD_OPT_1 |= 8388608;		
 	}
 	if ($board_config['allow_sig']) {
 		$FUD_OPT_1 |= 32768;
 	}
-	if ($board_config['require_activation']) {
-		$FUD_OPT_2 |= 1;
+	if ($config['compression']) {
+		$FUD_OPT_2 |= 16384;
+		$list['PHP_COMPRESSION_LEVEL'] = 9;
 	}
-	if ($board_config['board_email_form']) {
+	if ($config['mailpost']) {
 		$FUD_OPT_2 |= 1073741824;
-	}	
-	if (!$board_config['privmsg_disable']) {
-		$FUD_OPT_1 |= 1024;
-	}
-	if ($board_config['allow_smilies']) {
-		$FUD_OPT_1 |= 8192 | 262144;
-	}
-
-	$FUD_OPT_1 = $FUD_OPT_1 &~ 28;
-	if ($board_config['allow_avatar_local']) {
-		$FUD_OPT_1 |= 16;
-	}
-	if ($board_config['allow_avatar_remote']) {
-		$FUD_OPT_1 |= 4;
-	}
-	if ($board_config['allow_avatar_upload']) {
-		$FUD_OPT_1 = 8;
-	}
-
-	$FUD_OPT_1 = $FUD_OPT_1 &~ (4096 | 2048 | 131072 | 65536);
-	if ($board_config['allow_bbcode']) {
-		$FUD_OPT_1 |= 4096 | 131072;
-	} else if (!$board_config['allow_html']) {
-		$FUD_OPT_1 |= 2048 | 65536;
 	}
 
 	change_global_settings($list);
