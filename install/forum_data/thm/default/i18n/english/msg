@@ -691,7 +691,7 @@ ERR_registration_disabled_ttl:	Registration Disabled
 ERR_registration_disabled_msg:	The administrator has disabled registration, please try again later
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		ERROR: Your account is not yet confirmed
-ERR_emailconf_msg:		You have not confirmed you account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">click here<li>If {VAR: GLOBALS['usr']->email} is not your correct email address <a href="{ROOT}?t=register&{DEF: _rsid}">click here</a></ol></td></tr></table>
+ERR_emailconf_msg:		You have not confirmed you account via email yet<br><table border=0><tr><td><ol><li>If you have not received a confirmation email <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">click here</a><li>If {VAR: GLOBALS['usr']->email} is not your correct email address <a href="{ROOT}?t=register&{DEF: _rsid}">click here</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			ERROR: No such user
 ERR_user_msg:			There is no such user
