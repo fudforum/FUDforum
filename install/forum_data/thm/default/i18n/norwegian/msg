@@ -318,7 +318,6 @@ register_show_email_desc:	Velg dette alternativet om du vil at din e-postadresse
 register_notification:		Melding om nye innlegg:
 register_notification_desc:	Om melding om nye innlegg er forvalgt (kan velges bort n&aring;r man skriver innlegg) f&aring;r du automatisk melding om nye innlegg i de tr&aring;dene du deltar i.
 register_notify_method:		Velg metode for melding om nye innlegg:
-register_notify_method_desc:	Om du vil ha melding om nye innlegg via ICQ m&aring; du ha aktivert 'EmailExpress' i dine ICQ-innstillinger
 register_notify_js_error:	Du valgte &aring; f&aring; melding om nye innlegg via ICQ, men har ikke angitt ICQ-nummer. Melding per e-post forvalgt&#46;
 register_allow_email_msg:	Tillat meldinger via e-post:
 register_allow_email_msg_desc:	Tillat andre medlemmer &aring; sende deg e-post via forumet.
@@ -553,10 +552,8 @@ finduser_update:		S&oslash;ker etter medlemmer
 help_index_update:		Leser <a href="{TEMPLATE: help_index_update_lnk}">hjelpen.</a>
 iemail_thr_subject:		Nytt svar på {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:		Gå til {VAR: goto_url['email']} for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Gå til {VAR: goto_url['icq']}\n for å vise uleste svar\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Ny tråd av {VAR: poster_login} med emnet {VAR: thr_subject} i forumet {VAR: frm_name}
 iemail_frm_bodyemail:		For å vise tråden gå til:\n{VAR: goto_url['email']}\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		For å vise tråden gå til:\n{VAR: goto_url['icq']}\n\nDersom du i fremtiden ikke vil motta meldinger om svar på denne tråden, kan du gå hit:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Du kan ikke ignorere dette medlemmet
 ignore_list_err_dup_msg:	Du har allerede dette medlemmet i listen din

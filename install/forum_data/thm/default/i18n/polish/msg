@@ -318,7 +318,6 @@ register_show_email_desc:	Wybierz tê opcjê, je¶li chcesz, aby Twój adres e-mail 
 register_notification:		Wybierz domy¶lne powiadamianie:
 register_notification_desc:	Je¶li powiadamianie jest domy¶lnie w³±czone, mo¿e byæ wy³±czone przy zamieszczaniu wiadomo¶ci.
 register_notify_method:		Wybierz metodê powiadamiania:
-register_notify_method_desc:	Je¶li chcesz otrzymywaæ powiadamianie przez ICQ, upewnij siê, ¿e masz aktywne 'EmailExpress' w swoich ustawieniach ICQ.
 register_notify_js_error:	Wybierasz powiadamianie przez ICQ, ale nie masz okre¶lonego numeru ICQ. Zostanie w³±czone powiadamianie przez e-mail
 register_allow_email_msg:	Zezwól na wysy³anie listów e-mail:
 register_allow_email_msg_desc:	Zezwól innym u¿ytkownikom na wysy³anie Ci listów na e-mail poprzez forum.
@@ -553,10 +552,8 @@ finduser_update:		Szukanie u¿ytkowników
 help_index_update:		Przegl±danie <a href="{TEMPLATE: help_index_update_lnk}">pomocy</a>
 iemail_thr_subject:		Nowa wiadomo¶æ w w±tku {VAR: thr_subject} utworzona przez u¿ytkownika {VAR: poster_login}
 iemail_thr_bodyemail:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do {VAR: goto_url['email']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do \n{VAR: goto_url['icq']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nowy w±tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} utworzony przez u¿ytkownika {VAR: poster_login}
 iemail_frm_bodyemail:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['email']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['icq']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Informacje
 ignore_list_err_noign_msg:	Nie mo¿esz zignorowaæ tego u¿ytkownika
 ignore_list_err_dup_msg:	Masz ju¿ tego u¿ytkownika ma swojej li¶cie ignorowanych

@@ -179,10 +179,8 @@ homepage:			Homepage:
 icq_control_panel:		ICQ Online-Men&uuml;
 icq_message_form:		ICQ Nachricht erstellen:
 iemail_frm_bodyemail:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['email']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Um das Thema anzusehen, gehe zu:\n{VAR: goto_url['icq']}\n\nUm keine weiteren Benachrichtigungen über neue Themen in diesem Forum zu erhalten, gehe bitte hier hin:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Neues Thema im Forum {VAR: frm_name} mit den Namen {VAR: thr_subject} von {VAR: poster_login}
 iemail_thr_bodyemail:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['email']}\n\nWenn du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Um ungelesene Antworten anzusehen, gehe zu\n{VAR: goto_url['icq']}\n\nWenn du keine weiteren Benachrichtigungen zu diesem Themen erhalten möchtest, gehe bitte hier hin:\n{VAR: unsub_url['icq']}
 iemail_thr_subject:		Neue Antwort an {VAR: thr_subject} von {VAR: poster_login}
 ignore_list_cantign_msg:	Du kannst diesen Benutzer nicht ignorieren
 ignore_list_err_dup_msg:	Dieser Benutzer ist bereits auf deiner Ignorierliste
@@ -574,7 +572,6 @@ register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hle
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
 register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ Nr angegeben. Es wird daher E-Mail als Standard gew&auml;hlt&#46;
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
-register_notify_method_desc:	Falls du Benachrichtigungen &uuml;ber ICQ erhalten m&ouml;chtest, stelle vorher sicher, dass &#39;EmailExpress&#39; in den ICQ Einstellungen aktiviert ist
 register_occupation:		Beruf:
 register_optional:		Freiwillige Angaben
 register_optional_desc:		Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet w&auml;ren. S&auml;mtliche Informationen k&ouml;nnen von Besuchern des Forums eingesehen werden.

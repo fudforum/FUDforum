@@ -318,7 +318,6 @@ register_show_email_desc:	V&auml;lj det h&auml;r alternativet om du vill att din
 register_notification:		F&ouml;rv&auml;lj meddelande om nya inl&auml;gg:
 register_notification_desc:	Om meddelande om nya inl&auml;gg &auml;r f&ouml;rvalt (kan v&auml;ljas bort n&auml;r man skriver inl&auml;gg) f&aring;r du automatiskt meddelande om nya inl&auml;gg i de diskussioner du deltar i.
 register_notify_method:		V&auml;lj metod f&ouml;r meddelande om nya inl&auml;gg:
-register_notify_method_desc:	Om du vill ha meddelanden om nya inl&auml;gg via ICQ m&aring;ste du ha aktiverat 'EmailExpress' i dina ICQ-inst&auml;llningar
 register_notify_js_error:	Du valde att f&aring; meddelande om nya inl&auml;gg via ICQ, men har inte angett n&aring;gon ICQ-nummer. Meddelande per e-post f&ouml;rvalt&#46;
 register_allow_email_msg:	Till&aring;t privata meddelanden:
 register_allow_email_msg_desc:	Till&aring;t andra medlemmar att skicka dig privata meddelanden via forumet.
@@ -553,10 +552,8 @@ finduser_update:		S&ouml;ker efter medlemmar
 help_index_update:		L&auml;ser <a href="{TEMPLATE: help_index_update_lnk}">hjälpen.</a>
 iemail_thr_subject:		Nytt svar p&aring; {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		G&aring; till {VAR: goto_url['icq']}\n f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Ny diskussion av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
 iemail_frm_bodyemail:		F&ouml;r att visa diskussionen g&aring; till:\n{VAR: goto_url['email']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya diskussioner i detta forum kan du g&aring; hit: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		F&ouml;r att visa diskussionen g&aring; till:\n{VAR: goto_url['icq']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya diskussioner i detta forum kan du g&aring; hit:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Du kan inte ignorera den h&auml;r medlemmen
 ignore_list_err_dup_msg:	Du har redan den h&auml;r medlemmen p&aring; din lista

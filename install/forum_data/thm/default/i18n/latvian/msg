@@ -318,7 +318,6 @@ register_show_email_desc:	Ieslçgt, lai citi lietotâji redzçtu Jûsu E-pasta adres
 register_notification:		Ieslçgt paziòojumus pçc noklusçjuma:
 register_notification_desc:	Ðo reþîmu var atslçgt pirms ziòojuma nosûtîðanas.
 register_notify_method:		Ziòojuma nosûtîðanas metode:
-register_notify_method_desc:	Ja vçlaties saòemt ziòojumus uz Jûsu ICQ,<br>pârliecinieties, ka ICQ uzstâdîjumos ieslçgts parametrs 'EmailExpress'
 register_notify_js_error:	Jûs izvçlçjâties ziòojumu nosûtîðanu uz ICQ, bet neesat norâdîjis ICQ nummuru. Ziòojums tiks nosûtîts uz Email&#46;
 register_allow_email_msg:	Atïaut ziòojumu nosûtîðanu uz E-pasta adresi:
 register_allow_email_msg_desc:	Atïauj citiem lietotâjiem nosûtît ziòojumus no foruma uz Jûsu E-pasta adresi.
@@ -554,10 +553,8 @@ finduser_update:		Lietotâju meklçðana
 help_index_update:		Lasît <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q. (Bieþâk uzdotie jautâjumi</a>
 iemail_thr_subject:		Jauna atbilde par {VAR: thr_subject} no {VAR: poster_login}
 iemail_thr_bodyemail:		Lai pârskatîtu nelasîtâs atbildes sekojiet\n{VAR: goto_url['email']}\n\nJa nevçlaties saòemt paziòojumus par ðo tçmu sekojiet:\n{VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Lai pârskatîtu nelasîtâs atbildes sekojiet \n{VAR: goto_url['icq']}\n\nJa nevçlaties saòemt paziòojumus par ðo tçmu sekojiet:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Jauna tçma forumâ {VAR: frm_name}, ar nosaukumu {VAR: thr_subject} no {VAR: poster_login}
 iemail_frm_bodyemail:		Lai apskatîtu:\n{VAR: goto_url['email']}\n\nJa nevçlaties saòemt paziòojumus tad ðeit:\n{VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Lai apskatîtu tçmu, tad ðeit:\n{VAR: goto_url['icq']}\n\nJa nevçlaties saòemt paziòojumus, tad ðeit:\n{VAR: unsub_url['icq']}
 iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Informâcija
 ignore_list_err_noign_msg:	Ðo lietotâju Jûs nevarat ignorçt

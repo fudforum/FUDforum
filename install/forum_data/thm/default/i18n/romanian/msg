@@ -321,7 +321,6 @@ register_show_email_desc:	Selectati aceasta optiune daca doriti sa fie afisata a
 register_notification:		Alege notificari ca predefinite:
 register_notification_desc:	Daca notificarea este activata ca predefinita, aceasta poate fi dezactivata cand trimiteti mesaje.
 register_notify_method:		Alegeti metoda de notificare:
-register_notify_method_desc:	Daca doriti sa primiti notificari prin ICQ activati aceasta optiune.
 register_notify_js_error:	A-ti specificat notofocari prin ICQ dar nu a-ti introdus numarul ICQ. Predefinit ve-ti primi notificarile prin email.
 register_allow_email_msg:	Accepta mesaje pe adresa de email:
 register_allow_email_msg_desc:	Permite celorlalti utilizatori sa trimita adresa de email prin inermediul forumului.
@@ -557,10 +556,8 @@ finduser_update:		Cauta utilizatori
 help_index_update:		Citire <a href="{TEMPLATE: help_index_update_lnk}">Intrebari frecvente</a>
 iemail_thr_subject:		Raspuns nou la {VAR: thr_subject} trimis de {VAR: poster_login}
 iemail_thr_bodyemail:		Pentru a vedea raspunsurile necitite mergeti la {VAR: goto_url['email']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Pentru a vedea raspunsurile necitite mergeti la\n{VAR: goto_url['icq']}\n\nDaca nu mai doriti sa primiti notificari despre raspunsurile din aceasta tema, mergeti aici:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Tema noua in Forumul {VAR: frm_name} numita {VAR: thr_subject} creata de {VAR: poster_login}
 iemail_frm_bodyemail:		Pentru a vedea tema mergeti la:\n{VAR: goto_url['email']}\n\nPentru a nu mai primi notificari despre subiecte noi, mergeti aici: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Pentru a vedea tema mergeti la:\n{VAR: goto_url['icq']}\n\nPentru a nu mai primi notificari despre subiecte noi, mergeti aici::\n{VAR: unsub_url['icq']}
 iemail_participate:		Pentru a participa la discutie, mergeti aici:
 ignore_list_err_info_title:	Informatii
 ignore_list_err_noign_msg:	Nu puteti ignora caest utilizator

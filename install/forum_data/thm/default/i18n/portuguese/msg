@@ -320,7 +320,6 @@ register_show_email_desc:	Escolha esta opção se quiser que o seu endereço de e-m
 register_notification:		Selecionar a notificação como padrão:
 register_notification_desc:	Se a notificação estiver activa como padrão, poderá ser desactivada quando colocar um post.
 register_notify_method:		Escolher modo de notificação:
-register_notify_method_desc:	Se quiser receber notificações via ICQ certifique-se que tem o &#39;EmailExpress&#39; activado na secção settings do seu ICQ 
 register_notify_js_error:	Escolheu notificação via ICQ, mas não especificou o n.º de ICQ. Será utilizado o Email por defeito;
 register_allow_email_msg:	Autorizar mensagens E-mail:
 register_allow_email_msg_desc:	Autorizar que outros membros enviem e-mails via forum.
@@ -556,10 +555,8 @@ finduser_update:		A procurar utilizadores
 help_index_update:		A ler o  <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nova resposta para {VAR: thr_subject} por {VAR: poster_login}
 iemail_thr_bodyemail:		Para ver todas as respostas não lidas vá a {VAR: goto_url['email']}\n\nSe não quer receber mais notificações acerca de respostas neste tópico, por favor vá aqui: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Para ver todas as respostas não lidas vá a\n{VAR: goto_url['icq']}\n\nSe não quer receber mais notificações acerca de respostas neste tópico, por favor vá aqui:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Novo tópico no forum {VAR: frm_name} chamado {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver o tópico vá a:\n{VAR: goto_url['email']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Para ver o tópico vá a:\n{VAR: goto_url['icq']}\n\nPara parar de receber notificações acerca de novos tópicos neste forum, vá aqui:\n{VAR: unsub_url['icq']}
 iemail_participate:		Para participar na discussão vá aqui 
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Não pode ignorar este utilizador

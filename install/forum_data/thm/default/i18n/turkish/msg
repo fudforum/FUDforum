@@ -317,7 +317,6 @@ register_show_email_desc:	E-mektup adresinizin herkese açýk þekilde görüntülenme
 register_notification:		Varsayýlan olarak uyarý gönderilsin:
 register_notification_desc:	Uyarý almayý varsayýlan olarak seçseniz bile, ileti gönderirken kapatabilirsiniz.
 register_notify_method:		Uyarý yöntemini seç:
-register_notify_method_desc:	Eðer ICQ yoluyla uyarýyý seçerseniz, lütfen ICQ ayarlarýnýzda &#39;EmailExpress&#39; seçeneðinin açýk olduðundan emin olun.
 register_notify_js_error:	ICQ yoluyla uyarý yöntemini seçtiniz, fakat bir ICQ numarasý belirtmediniz. Þu durumda e-mektup yöntemini seçtiðiniz varsayýlýyor&#46;
 register_allow_email_msg:	E-mektup iletilerine izin ver:
 register_allow_email_msg_desc:	Diðer kullanýcýlarýn forum yoluyla size e-mektup atabilmelerinize izin verin.
@@ -553,10 +552,8 @@ finduser_update:		Kullanýcýlarý arýyor
 help_index_update:		<a href="{TEMPLATE: help_index_update_lnk}">S.S.S.</a>
 iemail_thr_subject:		{VAR: poster_login} tarafýndan {VAR: thr_subject} konulu iletiye yanýt geldi.
 iemail_thr_bodyemail:		Okunmamýþ yanýtlarý görüntülemek için {VAR: goto_url['email']} adresine gidin.\n\nBu zincirde gönderilen yanýtlarýn haber verilmesini istemiyorsanýz, buraya gidin: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Okunmamýþ yanýtlarý görüntülemek için \n{VAR: goto_url['icq']} adresine gidin.\n\nBu zincirde gönderilen yanýtlarýn haber verilmesini istemiyorsanýz, buraya gidin:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		{VAR: frm_name} forumunda {VAR: poster_login} tarafýndan {VAR: thr_subject} konulu yeni bir zincir baþlatýldý.
 iemail_frm_bodyemail:		Zinciri görüntülemek için:\n{VAR: goto_url['email']}\n\nBu forumda baþlatýlan zincirlerin haber verilmesini istemiyorsanýz, buraya gidin: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Zinciri görüntülemek için:\n{VAR: goto_url['icq']}\n\nBu forumda baþlatýlan zincirlerin haber verilmesini istemiyorsanýz, buraya gidin:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Bilgi
 ignore_list_err_noign_msg:	Bu kullanýcýyý gözardý edemezsiniz
 ignore_list_err_dup_msg:	Bu kullanýcý gözardý listesinizde zaten var

@@ -322,7 +322,6 @@ register_show_email_desc:	Choose this option if you want your e-mail address to 
 register_notification:		Select Notification by Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
-register_notify_method_desc:	If you would like to receive notifications via ICQ please make sure to enable 'EmailExpress' in your ICQ settings
 register_notify_js_error:	You chose ICQ notification, but did not specify an ICQ #. Defaulting to E-mail&#46;
 register_allow_email_msg:	Allow E-mail Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via this forum.
@@ -559,10 +558,8 @@ finduser_update:		Searching for users
 help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">FAQ</a>
 iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
 iemail_thr_bodyemail:		To view unread replies go to {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		To view unread replies go to\n{VAR: goto_url['icq']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		New topic in forum {VAR: frm_name}, called {VAR: thr_subject}, by {VAR: poster_login}
 iemail_frm_bodyemail:		To view the topic go to:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		To view the topic go to:\n{VAR: goto_url['icq']}\n\nTo stop receiving notifications about new topics in this forum, please go here:\n{VAR: unsub_url['icq']}
 iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	You cannot ignore this user

@@ -321,7 +321,6 @@ register_show_email_desc:	Vyberte túto monos, pokia¾ chcete, aby Vaša emailová
 register_notification:		Vıchodzie nastavenie doruèovania oznamov:
 register_notification_desc:	Ak je zapnuté, moete ho vypnú pri posielaní príspevku.
 register_notify_method:		Vyberte si spôsob doruèovania oznamov
-register_notify_method_desc:	Ak si chcete vybra doruèovanie oznamov prostredníctvom ICQ, prosím uistite sa, e mate zapnutú vo¾bu 'EmailExpress' v nastaveniach Vášho ICQ
 register_notify_js_error:	Nastavili ste doruèovanie oznamov cez ICQ, ale nezadali ste ICQ èíslo. Nastavenie bude zmenené na email!
 register_allow_email_msg:	Povoli správy cez email:
 register_allow_email_msg_desc:	Povoli ostatnım uívate¾om, aby Vám mohli posiela emaily cez fórum.
@@ -558,10 +557,8 @@ finduser_update:		Vyh¾adávam uívate¾ov
 help_index_update:		Èíta si <a href="{ROOT}?t=help_index" class="GenLink">nápovedu</a>
 iemail_thr_subject:		Nová odpoveï pre {VAR: thr_subject} od {VAR: poster_login}
 iemail_thr_bodyemail:		Nepreèítané odpovede si môete prezriet na tejto linke {VAR: goto_url['email']}\n\nAk si u neeláte prijíma iadne ïalšie oznamy o príspevkoch v tejto téme, choï prosím sem: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Nepreèítané odpovede si môete prezriet na tejto linke\n{VAR: goto_url['icq']}\n\nAk si u neeláte prijíma iadne ïalšie oznamy o príspevkoch v tejto téme, choï prosím sem:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Vo fóre {VAR: frm_name} sa nachádza nová téma nazvaná {VAR: thr_subject} od uívate¾a {VAR: poster_login}
 iemail_frm_bodyemail:		Ak si chcete tému prezrie choïte na:\n{VAR: goto_url['email']}\n\nAk si neeláte dostáva iadne ïalšie oznamy o novıch témach, choïte sem: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Ak si chcete tému prezrie choïte na:\n{VAR: goto_url['icq']}\n\nAk si neeláte dostáva iadne ïalšie oznamy o novıch témach, choïte sem:\n{VAR: unsub_url['icq']}
 iemail_participate:		Ak sa chcete zúèastni diskusie, choïte sem:
 ignore_list_err_info_title:	Informácie
 ignore_list_err_noign_msg:	Tohoto uívate¾a nemôete ignorova

@@ -318,7 +318,6 @@ register_show_email_desc:	Включите, если хотите чтобы ваш адрес e-mail был видим
 register_notification:		Включить извещения по умолчанию:
 register_notification_desc:	При включенных по умолчанию извещениях из можно отключить при отправке сообщений.
 register_notify_method:		Метод отправки извещений:
-register_notify_method_desc:	Если вы хотите принимать извещения на ваш ICQ,<br>убедитесь в том, что включили в настройках ICQ параметр 'EmailExpress'
 register_notify_js_error:	Вы выбрали извещения на ICQ, но не указали ваш номер ICQ. Сброс извещений на E-mail&#46;
 register_allow_email_msg:	Разрешить сообщения на адрес E-mail:
 register_allow_email_msg_desc:	Разрешает другим пользователям посылать из форума сообщения на ваш адрес e-mail.
@@ -554,10 +553,8 @@ finduser_update:		Поиск пользователей
 help_index_update:		Чтение <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Новый ответ на сообщение {VAR: thr_subject} от {VAR: poster_login}
 iemail_thr_bodyemail:		Для просмотра непрочитанных ответов следуйте по указанной ссылке\n{VAR: goto_url['email']}\n\nЕсли вы не хотите получать извещения об ответах в этой теме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Для просмотра непрочитанных ответов следуйте по указанной ссылке\n{VAR: goto_url['icq']}\n\nЕсли вы не хотите получать извещения об ответах в этой теме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Новая тема в форуме {VAR: frm_name}, озаглавленная {VAR: thr_subject} от {VAR: poster_login}
 iemail_frm_bodyemail:		Для просмотра темы следуйте по указанной ссылке:\n{VAR: goto_url['email']}\n\nЕсли вы не хотите получать извещения о новых темах в этом форуме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Для просмотра темы следуйте по указанной ссылке:\n{VAR: goto_url['icq']}\n\nЕсли вы не хотите получать извещения о новых темах в этом форуме в дальнейшем, следуйте по этой ссылке:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Информация
 ignore_list_err_noign_msg:	Вы не можете игнорировать этого пользователя
 ignore_list_err_dup_msg:	Этот пользователь уже был внесен в ваш список игнорируемых ранее

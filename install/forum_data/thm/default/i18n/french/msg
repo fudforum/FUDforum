@@ -317,7 +317,6 @@ register_show_email_desc:	Choisissez cette option si vous souhaitez que les autr
 register_notification:		Activer la notification par défaut :
 register_notification_desc:	Ceci est une option par défaut qui peut être modifiée pour chaque message que vous postez.
 register_notify_method:		Méthode de notification :
-register_notify_method_desc:	Si vous désirez recevoir les notifications via ICQ, veuillez vous assurer de configurer ICQ avec la fonctionnalité &#39;EmailExpress&#39;
 register_notify_js_error:	Vous avez choisi de recevoir les notifications via ICQ, mais vous avez oublié de spécifier votre identifiant ICQ. Nous avons activé la notification par e-mail à la place#46;
 register_allow_email_msg:	Autoriser les messages e-mail :
 register_allow_email_msg_desc:	Permet aux autres utilisateurs de vous envoyer des e-mails directement via le forum.
@@ -554,10 +553,8 @@ index_update:			Parcourt la <a href="{TEMPLATE: index_update_lnk}">liste des for
 help_index_update:		Lit la <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> (Foire Aux Questions, questions fréquemment posées)
 iemail_thr_subject:		Nouvelle réponse au sujet {VAR: thr_subject} par {VAR: poster_login}
 iemail_thr_bodyemail:		Pour lire les réponses non lues, veuillez cliquer ici : {VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l&#39;avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Pour lire les réponses non lues, veuillez cliquer ici :\n{VAR: goto_url['icq']}\n\n nSi vous ne souhaitez plus recevoir de notifications relatives aux réponses reçues sur ce fil à l&#39;avenir, veuillez cliquer ici :\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nouveau fil dans le forum {VAR: frm_name} intitulé {VAR: thr_subject} par {VAR: poster_login}
 iemail_frm_bodyemail:		Pour lire le fil, allez à :\n{VAR: goto_url['email']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l&#39;avenir, veuillez cliquer ici : {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Pour lire le fil, allez à :\n{VAR: goto_url['icq']}\n\nSi vous ne souhaitez plus recevoir de notifications relatives aux nouveaux fils dans ce forum à l&#39;avenir, veuillez aller ici :\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Vous ne pouvez pas choisir d&#39;ignorer cet utilisateur
 ignore_list_err_dup_msg:	Cet utilisateur figure déjà dans votre liste de personnes à ignorer

@@ -317,7 +317,6 @@ register_show_email_desc:	Escoja esta opción si desea que su dirección de e-mail
 register_notification:		Seleccionar Notificar Por Omisión:
 register_notification_desc:	Si notificar está habilitado por omisión, puede ser deshabilitada al publicar.
 register_notify_method:		Escoja método de Notificación:
-register_notify_method_desc:	Si desearía recibir notificaciones via ICQ, por favor asegúrese de habilitar 'EmailExpress' en sus preferencias de ICQ
 register_notify_js_error:	Ud escogió notificaciones via ICQ, pero no especificó un número ICQ. Se usará E-mail&#46;
 register_allow_email_msg:	Permitir Mensajes por E-mail:
 register_allow_email_msg_desc:	Permitir a otros usuarios enviarle e-mails via FUDforum.
@@ -553,10 +552,8 @@ finduser_update:		Buscando usuarios
 help_index_update:		Leyendo el <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nueva respuesta a {VAR: thr_subject} publicado por {VAR: poster_login}
 iemail_thr_bodyemail:		Para ver respuestas no leídas vaya a {VAR: goto_url['email']}\n\nSi
-iemail_thr_bodyicq:		Para ver respuestas no leídas vaya a\n{VAR: goto_url['icq']}\n\nSi Ud no desea recibir más notificaciones acerca de respuestas en este hilo de discusión, por favor vaya aquí:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nuevo hilo de discusión en el foro {VAR: frm_name} llamado {VAR: thr_subject} creado por {VAR: poster_login}
 iemail_frm_bodyemail:		Para ver este hilo de discusión vaya a:\n{VAR: goto_url['email']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Para ver este hilo de discusión vaya a:\n{VAR: goto_url['icq']}\n\nPara no recibir más notificaciones acerca de nuevos hilos de discusión en este foro, por favor vaya aquí:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Ud no puede ignorar a este usuario
 ignore_list_err_dup_msg:	Ud ya tiene a este usuario en su lista de ignorados

@@ -320,7 +320,6 @@ register_show_email_desc:	Включи, ако желаеш&nbsp; email адресът ти да се вижда 
 register_notification:		Избери известяване по подразбиране:
 register_notification_desc:	Ако известяването е било избрано по подразбиране, можеш да го изключиш след като изпратиш съобщение.
 register_notify_method:		Избери метод на известяване:
-register_notify_method_desc:	Ако желаете да получавате известието на ICQ, убедете се, че е включено 'EmailExpress' в ICQ настройките
 register_notify_js_error:	Избра известяване по ICQ, обаче не е указан твоя ICQ номер. По подразбиране се прехвърля на Email&amp;&#46;
 register_allow_email_msg:	Разрешени са Email съобщенията:
 register_allow_email_msg_desc:	Разрешава на останалите потребители да ти пращат e-mail съобщения през FUDforum.
@@ -556,10 +555,8 @@ finduser_update:		Търсене на потребителите
 help_index_update:		Четене на <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Нов отговор на {VAR: thr_subject} от {VAR: poster_login}
 iemail_thr_bodyemail:		Отиди на {VAR: goto_url['email']} за да видиш непрочетените отговори \n\nАко не желаеш повече да те известяваме за получени отговори по тази тема, отиди на {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Отиди на \n{VAR: goto_url['icq']}\n за да видиш непрочетените отговори \n\nАко не желаеш повече да те известяваме за получени отговори по тази тема, отиди на \n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Нова тема във форум {VAR: frm_name} със заглавие {VAR: thr_subject} от {VAR: poster_login}
 iemail_frm_bodyemail:		Отиди на \n{VAR: goto_url['email']}\n за да разгледаш темата \n\nАко не желаеш повече да те известяваме за нови теми в този форум, отиди на \n{VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Отиди на \n{VAR: goto_url['icq']}\n за да разгледаш темата \nАко не желаеш повече да те известяваме за нови теми в този форум, отиди на \n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Информация
 ignore_list_err_noign_msg:	Не можеш да игнорираш този потребител
 ignore_list_err_dup_msg:	Вече имаш този потребител в твоята листа за игнорирани

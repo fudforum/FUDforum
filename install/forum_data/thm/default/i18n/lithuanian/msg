@@ -322,7 +322,6 @@ register_show_email_desc:	Galite pasirinkti rodyti ar ne vieðai jûsø email adres
 register_notification:		Pasirinkti perspëjimus pagal nutylëjimà:
 register_notification_desc:	Jei perspëjimai ájungti pagal nutylëjimà, juos galite iðjungtii ir raðydami þinutæ.
 register_notify_method:		Pasirinkite perspëjimo bûdà:
-register_notify_method_desc:	Jei norite gauti perspëjimus ICQ pagalba, ásitikinkite kad aktyvuota 'EmailExpress' paslauga jûsø ICQ nustatymuose.
 register_notify_js_error:	Jûs pasirinkote ICQ perspëjimus, bet nenurodëte ICQ #. Pagal nutylëjimà perspëjimai jums nustatyti per email.
 register_allow_email_msg:	Leisti email laiðkø siuntimà:
 register_allow_email_msg_desc:	Leisti kitiems nariams Siøsti jums email laiðkus STREETRACE.lt forumo pagalba.
@@ -559,10 +558,8 @@ finduser_update:		Searching for users
 help_index_update:		Reading the <a href="{FULL_ROOT}{ROOT}?t=help_index">F.A.Q.</a>
 iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
 iemail_thr_bodyemail:		To view unread replies goto {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		To view unread replies goto\n{VAR: goto_url['icq']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		New topic in forum {VAR: frm_name} called {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:		To view the topic goto:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		To view the topic goto:\n{VAR: goto_url['icq']}\n\nTo stop receiving notifications about new topics in this forum, please go here:\n{VAR: unsub_url['icq']}
 iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	You can&#39;t ignore this user

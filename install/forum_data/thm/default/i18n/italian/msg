@@ -317,7 +317,6 @@ register_show_email_desc:	Seleziona questa opzione se vuoi che il tuo indirizzo 
 register_notification:		Seleziona la notifica di default:
 register_notification_desc:	Se la notifica è abilitata di default, può essere disabilitata durante la scrittura di un messaggio.
 register_notify_method:		Seleziona il metodo di notifica:
-register_notify_method_desc:	Se desideri ricevere le notifiche via ICQ assicurati di abilitare &#39;EmailExpress&#39; nelle impostazioni di ICQ
 register_notify_js_error:	Hai selezionato la notifica via ICQ, ma non hai specificato un numero di ICQ. Imposto come default Email&#46;
 register_allow_email_msg:	Consenti messaggi email:
 register_allow_email_msg_desc:	Consenti ad altri utenti di inviarti messaggi email tramite il forum (questo non renderà pubblico il tuo indirizzo).
@@ -552,10 +551,8 @@ finduser_update:		Cerca utenti
 help_index_update:		Legge le <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nuova risposta a {VAR: thr_subject} da parte di {VAR: poster_login}
 iemail_thr_bodyemail:		Per visualizzare le reply non lette vai a {VAR: goto_url['email']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Per visualizzare le reply non lette vai a\n{VAR: goto_url['icq']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nuovo topic nel forum {VAR: frm_name} intitolato {VAR: thr_subject} di {VAR: poster_login}
 iemail_frm_bodyemail:		Per vedere il topic vai a:\n{VAR: goto_url['email']}\n\nPer non ricevere più notifiche circa nuovi post in questo forum, clicca qui: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Per vedere il topic vai a:\n{VAR: goto_url['icq']}\n\nPer non ricevere più notifiche circa nuovi post in questo forum, clicca qui:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Informazioni
 ignore_list_err_noign_msg:	Non puoi ignorare questo utente
 ignore_list_err_dup_msg:	Hai già inserito questo utente nella tua ignore list

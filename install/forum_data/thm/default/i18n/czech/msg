@@ -320,7 +320,6 @@ register_show_email_desc:	Vyberte pokud chcete zveøejnit va¹i emailovou adresu.
 register_notification:		Výchozí nastavení oznámení:
 register_notification_desc:	Pokud je nastaveno, mù¾e by potlaèeno pøi posílíní pøíspevku.
 register_notify_method:		Vyberte zpùsob oznámení:
-register_notify_method_desc:	Pokud chcete dostávat oznámení pøes ICQ, prosím, nezapomeòte zapnout 'EmailExpress' ve va¹em ICQ nastavení
 register_notify_js_error:	Nastavil(a) jste oznámení pøes ICQ, ale nezadal(a) jste ICQ èíslo. Nastavení bude zmìnìno na email!
 register_allow_email_msg:	Povolit zprávy pøes email:
 register_allow_email_msg_desc:	Povolení statním u¾ivatelùm odesílat vám emaily pøes FUDforum.
@@ -556,10 +555,8 @@ finduser_update:		Vyhledávám u¾ivatele
 help_index_update:		Ètete si <a href="{TEMPLATE: help_index_update_lnk}">nápovìdu.</a>
 iemail_thr_subject:		Nová odpovìd pro {VAR: thr_subject} od {VAR: poster_login}
 iemail_thr_bodyemail:		Pro zobrazení nepøeètených odpovìdí jdìte na {VAR: goto_url['email']}\n\nPokud nechcete nadále dostávat oznámení o reakcích ohlednì tomto tématu, prosím, jdìte sem: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Pro zobrazení nepøeètených odpovìdí jdìte na\n{VAR: goto_url['icq']}\n\nPokud nechcete nadále dostávat oznámení o rekacích ohlednì tohoto tématu, prosím, jdìte sem:\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		Nové téma ve fóru {VAR: frm_name} nazvané {VAR: thr_subject} od {VAR: poster_login}
 iemail_frm_bodyemail:		Pro zobrazení tématu jdìte na:\n{VAR: goto_url['email']}\n\nPro zastavení pøíjmu oznámení o nových tématech v tomto fóru, prosím, jdìte sem: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Pro zobrazení tématu jdìte na:\n{VAR: goto_url['icq']}\n\nPro zastavení pøíjmu oznámení o nových tématech v tomto fóru, prosím, jdìte sem:\n{VAR: unsub_url['icq']}
 iemail_participate:		Pro úèsat v diskusi jdìte sem:
 ignore_list_err_info_title:	Informace
 ignore_list_err_noign_msg:	Nemù¾ete ignorovat tohoto u¾ivatele

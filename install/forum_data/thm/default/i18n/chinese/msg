@@ -317,7 +317,6 @@ register_show_email_desc:	如果你想公开自己的电子邮件地址，请选择这个选项。
 register_notification:		是否默认打开提醒功能：
 register_notification_desc:	如果选择"是"，在发帖时依然可以选择是否提醒。
 register_notify_method:		请选择提醒方式：
-register_notify_method_desc:	如果你想通过ICQ接收提醒，请确认你的ICQ中的“邮件发送”设置正确。
 register_notify_js_error:	你选择了通过ICQ接收通告, 但是没有填入ICQ #. 默认的电子邮件地址是Email&#46;
 register_allow_email_msg:	允许向你的电子邮箱发送信息：
 register_allow_email_msg_desc:	允许别的用户通过本论坛向你发送邮件。
@@ -553,10 +552,8 @@ finduser_update:		搜索用户
 help_index_update:		阅读<a href="{TEMPLATE: help_index_update_lnk}">使用帮助</a>
 iemail_thr_subject:		新的回复 {VAR: thr_subject} 由{VAR: poster_login}
 iemail_thr_bodyemail:		查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到关于这个主题新的回复通知，请点击： {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		查看未读的回复\n{VAR: goto_url['icq']}\n\如果你不想收到关于这个主题：\n{VAR: unsub_url['icq']}
 iemail_frm_subject:		论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
 iemail_frm_bodyemail:		查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		查看主题：\n{VAR: goto_url['icq']}\n\n不再接受本论坛的新主题发布通知，请点击：\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	信息
 ignore_list_err_noign_msg:	你无法拒绝这个用户
 ignore_list_err_dup_msg:	你已经把这用户添加到你的“被拒绝用户”名单中。

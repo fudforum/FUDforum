@@ -322,7 +322,6 @@ register_show_email_desc:	M‰‰ritt‰‰ n‰ytet‰‰nkˆ s‰hkˆpostiosoitteesi julkisesti.
 register_notification:		Ilmoitukset uusista viesteist‰ oletuksena:
 register_notification_desc:	Jos ilmoitukset uusista viesteist‰ vastaanotetaan oletuksena, voit silti est‰‰ ne l‰hett‰ess‰si uutta viesti‰.
 register_notify_method:		Valitse ilmoitusten v‰litystapa:
-register_notify_method_desc:	Varmista ett‰ 'EmailExpress' asetus on p‰‰ll‰ ICQ asetuksissasi, jos haluat vastaanottaa ilmoitukset ICQ:n v‰lityksell‰.
 register_notify_js_error:	Valitsit ICQ ilmoitukset uusista viesteist‰, mutta et ole m‰‰ritelly ICQ numeroa. Ilmoitukset s‰hkˆpostitse valittu&#46;
 register_allow_email_msg:	S‰hkˆpostin vastaanotto muilta k‰ytt‰jilt‰:
 register_allow_email_msg_desc:	Salli muiden k‰ytt‰jien l‰hett‰‰ sinulle s‰hkˆpostia FUDforumista.
@@ -559,10 +558,8 @@ finduser_update:		Etsii k‰ytt‰ji‰
 help_index_update:		Lukee <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> listaa
 iemail_thr_subject:		Uusi viesti aiheessa {VAR: thr_subject} k‰ytt‰j‰lt‰: {VAR: poster_login}
 iemail_thr_bodyemail:		Lue uudet lukemattomat viestit t‰‰ll‰:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteist‰ t‰ss‰ aiheessa\nk‰y t‰‰ll‰: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		Lue uudet lukemattomat viestit t‰‰ll‰: \n{VAR: goto_url['icq']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteist‰ t‰ss‰ aiheessa\nk‰y t‰‰ll‰:{VAR: unsub_url['icq']}
 iemail_frm_subject:		Uusi aihe foorumissa {VAR: frm_name} otsikolla {VAR: thr_subject} k‰ytt‰j‰lt‰: {VAR: poster_login}
 iemail_frm_bodyemail:		Lue aihe t‰‰ll‰:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista t‰ss‰ foorumissa\nk‰y t‰‰ll‰: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		Lue aihe t‰‰ll‰:\n{VAR: goto_url['icq']}\n\nJos et halua vastaanottaa ilmoituksia uusista aiheista t‰ss‰ foorumissa\nk‰y t‰‰ll‰: {VAR: unsub_url['icq']}
 iemail_participate:		Osallistuaksesi keskusteluun, mene t‰nne:
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Et voi torjua t‰t‰ k‰ytt‰j‰‰
