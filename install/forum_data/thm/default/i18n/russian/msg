@@ -1021,3 +1021,4 @@ register_max_sig_len:		Максимальная длинна:
 register_turing:		Пожалуйста, введите код подтверждения, который вы видите ниже:
 register_err_turing:		Неверный код подтверждения.modque_cat:			Category
 modque_forum:			Forum
+modque_cat:			Category
