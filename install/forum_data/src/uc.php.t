@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.3 2004/06/07 15:24:53 hackie Exp $
+* $Id: uc.php.t,v 1.4 2004/10/27 22:59:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,12 +116,9 @@
 				$mini_pager_data = '';
 				$i = 0;
 			}
-			for ($i; $i < $pgcount; $i++) {
-				$st_pos = $i * $ppg;
-				$pg_num = $i + 1;
+			while ($i < $pgcount) {
 				$mini_pager_data .= '{TEMPLATE: uc_mini_pager_entry}';
 			}
-
 			$mini_thread_pager = $mini_pager_data ? '{TEMPLATE: uc_mini_thread_pager}' : '';
 		} else {
 			$mini_thread_pager = '';
