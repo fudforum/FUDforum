@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.91 2004/01/29 23:14:54 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.92 2004/02/22 17:57:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -458,7 +458,7 @@ class fud_msg_edit extends fud_msg
 			$from = $mtf->poster_id ? $mtf->alias.' <'.$mtf->email.'>' : $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
 			$body = $mtf->body . (($mtf->msg_opt & 1 && $mtf->sig) ? "\n--\n" . $mtf->sig : '');
 			plain_text($body);
-			plain_text($subject);
+			reverse_fmt($subject);
 
 			if ($mtf->reply_to) {
 				$replyto_id = q_singleval('SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mtf->reply_to);
@@ -506,7 +506,7 @@ class fud_msg_edit extends fud_msg
 				fud_use('mlist_post.inc', true);
 				$GLOBALS['CHARSET'] = '{TEMPLATE: imsg_CHARSET}';
 				$r = db_saq('SELECT name, additional_headers FROM {SQL_TABLE_PREFIX}mlist WHERE id='.$mtf->mlist_id);
-				mail_list_post($r[0], $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
+				mail_list_post($r[0], $from, $subject, $body, $mtf->id, $replyto_id, $attach, $attach_mime, $r[1]);
 			}
 		}
 	}
