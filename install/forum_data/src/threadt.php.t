@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.5 2002/09/02 20:03:43 hackie Exp $
+*   $Id: threadt.php.t,v 1.6 2002/09/17 01:29:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,7 +28,18 @@
 	
 	if( empty($frm->cat_id) ) invl_inp_err();
 	
+	$GLOBALS['__RESOURCE_ID'] = $frm->id;	
+	
 	if ( isset($ses) ) $ses->update('{TEMPLATE: threadt_update}', $GLOBALS['__RESOURCE_ID']);
+	
+	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') ) {
+		if( !isset($HTTP_GET_VARS['logoff']) )
+			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+		else {
+			header("Location: {ROOT}");
+			exit;
+		}	
+	}	
 
 	if ( isset($usr) ) {
 		if ( $frm->is_moderator($usr->id) || $usr->is_mod == 'A' ) $MOD = 1;

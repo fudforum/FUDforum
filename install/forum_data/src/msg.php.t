@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.16 2002/09/10 05:24:37 hackie Exp $
+*   $Id: msg.php.t,v 1.17 2002/09/17 01:29:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,8 +62,14 @@
 	}
 
 	$GLOBALS['__RESOURCE_ID'] = $frm->id;	
-	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') )
-		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') ) {
+		if( !isset($HTTP_GET_VARS['logoff']) )
+			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+		else {
+			header("Location: {ROOT}");
+			exit;
+		}	
+	}	
 	
 	if ( empty($start) || !is_numeric($start) ) $start = 0;
 	

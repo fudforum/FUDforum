@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.5 2002/09/04 10:29:27 hackie Exp $
+*   $Id: login.php.t,v 1.6 2002/09/17 01:29:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,6 +42,9 @@
 			case 'post':
 			case 'ppost':
 				$returnto = $GLOBALS['returnto'] = '';
+				break;
+			default:
+				$GLOBALS['returnto'] .= '&logoff=1';
 				break;
 		}
 		
@@ -121,6 +124,7 @@ function error_check()
 				header("Location: adm/admglobal.php?"._rsidl);
 				exit;
 			}
+			
 			check_return();
 		}
 	}
