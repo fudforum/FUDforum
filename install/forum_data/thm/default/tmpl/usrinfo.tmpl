@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.18 2003/05/20 11:09:36 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.19 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -111,19 +111,19 @@
 {SECTION: END}
 
 {SECTION: im_aim AIM link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR-URL: u->aim}&amp;message=Hello+Are+you+there?" class="GenLink">{VAR: u->aim}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_aim}</td><td class="GenText"><a href="aim:goim?screenname={VAR: u->aim}&amp;message=Hello+Are+you+there?" class="GenLink">{VAR-UH: u->aim}</a></td></tr>
 {SECTION: END}
 
 {SECTION: im_yahoo Yahoo Instant Messanger link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR-URL: u->yahoo}&amp;.src=pg" class="GenLink">{VAR: u->yahoo}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_yahoo}</td><td class="GenText"><a href="http://edit.yahoo.com/config/send_webmesg?.target={VAR: u->yahoo}&amp;.src=pg" class="GenLink">{VAR-UH: u->yahoo}</a></td></tr>
 {SECTION: END}
 
 {SECTION: im_msnm MSN Messagenger Link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_msnm}</td><td class="GenText">{VAR: u->msnm}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_msnm}</td><td class="GenText">{VAR-UH: u->msnm}</td></tr>
 {SECTION: END}
 
 {SECTION: im_jabber Jabber link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_jabber}</td><td class="GenText">{VAR: u->jabber}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_jabber}</td><td class="GenText">{VAR-UH: u->jabber}</td></tr>
 {SECTION: END}
 
 {SECTION: level_name user's level name as determined by post count}
@@ -220,5 +220,5 @@
 {SECTION: END}
 
 {SECTION: usrinfo_affero}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR-URL: u->affero}" target="_blank">{VAR-HTML: u->affero}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: im_affero}</td><td class="GenText"><a href="http://svcs.affero.net/user-history.php?u={VAR: u->affero}" target="_blank">{VAR-UH: u->affero}</a></td></tr>
 {SECTION: END}

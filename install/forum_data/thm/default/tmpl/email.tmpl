@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.tmpl,v 1.7 2003/05/26 07:21:04 hackie Exp $
+*   $Id: email.tmpl,v 1.8 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -51,7 +51,6 @@
 <tr class="RowStyleB"><td nowrap class="GenText">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA" width="100%"><input type="text" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
 <tr class="RowStyleB"><td nowrap class="GenText" valign="top">{MSG: email_body} {VAR: body_err}</td><td width="100%" class="RowStyleA"><textarea name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
 <tr class="RowStyleC"><td align="right" colspan=2><input type="submit" class="button" name="btn_submit" value="{MSG: email_submit}"></td></tr>
-<input type="hidden" name="email_open" value="{VAR: email_open}">
 </table>{DEF: _hs}</form>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.30 2003/05/20 15:16:15 hackie Exp $
+*   $Id: compiler.inc,v 1.31 2003/05/26 08:14:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -164,6 +164,9 @@ function resolve_sections($str)
 				break;
 			case 'VAR-HTML':		
 				$ret .= '\'.htmlspecialchars($'.$name.').\'';
+				break;
+			case 'VAR-UH':
+				$ret .= '\'.htmlspecialchars(urldecode($'.$name.')).\'';
 				break;
 			case 'VAR-FORM':
 				$ret .= '\'.stripslashes($'.$name.').\'';

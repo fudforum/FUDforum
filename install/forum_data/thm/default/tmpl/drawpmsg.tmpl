@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.16 2003/05/18 08:52:28 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.17 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -85,7 +85,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR: obj->jabber}" alt="{VAR: obj->jabber}" border=0 />
+<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR-UH: obj->jabber}" alt="{VAR-UH: obj->jabber}" border=0 />
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachments the file attachments list}

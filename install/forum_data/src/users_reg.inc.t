@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.29 2003/05/16 18:54:53 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.30 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -117,7 +117,7 @@ class fud_user_reg extends fud_user
 				'".addslashes($this->login)."',
 				'".addslashes($this->alias)."',
 				'".$md5pass."',
-				'".addslashes($this->name)."',
+				'".addslashes(htmlspecialchars($this->name))."',
 				'".addslashes($this->email)."',
 				'".YN($this->display_email)."',
 				'".YN($this->notify)."',
@@ -127,11 +127,11 @@ class fud_user_reg extends fud_user
 				'".YN($this->pm_messages)."',
 				'".$this->gender."',
 				".in($this->icq).",
-				".ssn($this->aim).",
-				".ssn($this->yahoo).",
-				".ssn($this->msnm).",
-				".ssn($this->jabber).",
-				".ssn($this->affero).",
+				".ssn(urlencode($this->aim)).",
+				".ssn(urlencode($this->yahoo)).",
+				".ssn(urlencode($this->msnm)).",
+				".ssn(urlencode($this->jabber)).",
+				".ssn(urlencode($this->affero)).",
 				'".YN($this->append_sig)."',
 				".iz($this->posts_ppg).",
 				".ssn($this->time_zone).",
@@ -139,14 +139,14 @@ class fud_user_reg extends fud_user
 				'".YN($this->invisible_mode)."',
 				".__request_timestamp__.",
 				'".$this->conf_key."',
-				".ssn($this->user_image).",
+				".ssn(htmlspecialchars($this->user_image)).",
 				".__request_timestamp__.",
-				".ssn($this->location).",
+				".ssn(htmlspecialchars($this->location)).",
 				0,
 				".iz($this->theme).",
 				'".YN($this->coppa)."',
-				".ssn($this->occupation).",
-				".ssn($this->interests).",
+				".ssn(htmlspecialchars($this->occupation)).",
+				".ssn(htmlspecialchars($this->interests)).",
 				".iz($ref_id).",
 				'".YN($this->show_sigs)."',
 				'".YN($this->show_avatars)."',
@@ -156,8 +156,8 @@ class fud_user_reg extends fud_user
 				'NO',
 				".ssn($this->sig).",
 				'".$this->default_view."',
-				".ssn($this->home_page).",
-				".ssn($this->bio).",
+				".ssn(htmlspecialchars($this->home_page)).",
+				".ssn(htmlspecialchars($this->bio)).",
 				'".$acc_status."',
 				'".$this->email_conf."'
 			)
@@ -187,7 +187,7 @@ class fud_user_reg extends fud_user
 		$this->avatar_approved = empty($this->avatar_loc) ? 'NO' : YN($this->avatar_approved);
 		
 		q("UPDATE {SQL_TABLE_PREFIX}users SET 
-			$passwd name='".addslashes($this->name)."',
+			$passwd name='".addslashes(htmlspecialchars($this->name))."',
 			alias='".addslashes($this->alias)."',
 			email='".addslashes($this->email)."',
 			display_email='".YN($this->display_email)."',
@@ -198,11 +198,11 @@ class fud_user_reg extends fud_user
 			pm_messages='".YN($this->pm_messages)."',
 			gender='".$this->gender."',
 			icq=".in($this->icq).",
-			aim=".ssn($this->aim).",
-			yahoo=".ssn($this->yahoo).",
-			msnm=".ssn($this->msnm).",
-			jabber=".ssn($this->jabber).",
-			affero=".ssn($this->affero).",
+			aim=".ssn(urlencode($this->aim)).",
+			yahoo=".ssn(urlencode($this->yahoo)).",
+			msnm=".ssn(urlencode($this->msnm)).",
+			jabber=".ssn(urlencode($this->jabber)).",
+			affero=".ssn(urlencode($this->affero)).",
 			append_sig='".YN($this->append_sig)."',
 			show_sigs='".YN($this->show_sigs)."',
 			show_avatars='".YN($this->show_avatars)."',
@@ -211,18 +211,18 @@ class fud_user_reg extends fud_user
 			time_zone=".ssn($this->time_zone).",
 			invisible_mode='".YN($this->invisible_mode)."',
 			bday=".iz($this->bday).",
-			user_image=".ssn($this->user_image).",
-			location=".ssn($this->location).",
-			occupation=".ssn($this->occupation).",
-			interests=".ssn($this->interests).",
+			user_image=".ssn(htmlspecialchars($this->user_image)).",
+			location=".ssn(htmlspecialchars($this->location)).",
+			occupation=".ssn(htmlspecialchars($this->occupation)).",
+			interests=".ssn(htmlspecialchars($this->interests)).",
 			avatar=".iz($this->avatar).",
 			theme=".iz($this->theme).",
 			avatar_loc=".ssn($this->avatar_loc).",
 			avatar_approved='".$this->avatar_approved."',
 			sig=".ssn($this->sig).",
 			default_view='".$this->default_view."',
-			home_page=".ssn($this->home_page).",
-			bio=".ssn($this->bio)."
+			home_page=".ssn(htmlspecialchars($this->home_page)).",
+			bio=".ssn(htmlspecialchars($this->bio))."
 		WHERE id=".$this->id);
 	}
 }

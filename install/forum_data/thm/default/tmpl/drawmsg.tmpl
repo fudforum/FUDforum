@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.26 2003/05/18 08:52:28 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.27 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -186,7 +186,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_im_jabber}
-<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR: obj->jabber}" alt="{VAR: obj->jabber}" border=0 />
+<img src="{THEME_IMAGE_ROOT}/jabber.gif" title="{VAR-UH: obj->jabber}" alt="{VAR-UH: obj->jabber}" border=0 />
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}

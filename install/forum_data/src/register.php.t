@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.55 2003/05/26 06:49:51 hackie Exp $
+*   $Id: register.php.t,v 1.56 2003/05/26 08:14:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -217,6 +217,22 @@ function remove_old_avatar($avatar_str)
 	}
 }
 
+function decode_uent(&$uent)
+{
+	reverse_fmt($uent->home_page);
+	reverse_fmt($uent->bio);
+	reverse_fmt($uent->interests);
+	reverse_fmt($uent->occupation);
+	reverse_fmt($uent->location);
+	reverse_fmt($uent->user_image);
+	reverse_fmt($uent->name);
+	$uent->aim = urldecode($uent->aim);
+	$uent->yahoo = urldecode($uent->yahoo);
+	$uent->msnm = urldecode($uent->msnm);
+	$uent->jabber = urldecode($uent->jabber);
+	$uent->affero = urldecode($uent->affero);
+}
+
 	if (!__fud_real_user__ && $ALLOW_REGISTRATION != 'Y') {
 		std_error('registration_disabled');
 	}
@@ -243,9 +259,11 @@ function remove_old_avatar($avatar_str)
 		if (!($uent =& usr_reg_get_full($mod_id))) {
 			exit('Invalid User Id');
 		}
+		decode_uent($uent);
 	} else {
 		if (__fud_real_user__) {
 			$uent =& usr_reg_get_full($usr->id);
+			decode_uent($uent);
 		} else {
 			$uent = new fud_user_reg;
 			$uent->id = 0;
