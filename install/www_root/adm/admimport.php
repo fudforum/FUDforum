@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admimport.php,v 1.6 2002/07/06 19:21:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@ function resolve_dest_path($path)
 {
 	$path = str_replace('IMG_ROOT_DISK', $GLOBALS['WWW_ROOT_DISK'].'images/', $path);
 	$path = str_replace('DATA_DIR', $GLOBALS['DATA_DIR'], $path);
-	
+
 	return $path;
 }
 
@@ -74,7 +74,7 @@ include('admpanel.php');
 		$pos = $start;
 		$line_end = $i = 0;
 	
-	/* deal with mySQL data */
+	// deal with mySQL data
 		echo "Commencing restore of SQL data<br>\n";
 		flush();
 		while( $pos && $pos<$end ) {
@@ -94,7 +94,7 @@ include('admpanel.php');
 			}
 		}
 
-	/* restore user from db is login names match */
+	// restore user from db is login names match
 		if( get_id_by_login(addslashes($usr->login)) ) {
 			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$usr->id);
 			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id,user_id,sys_id,time_sec) VALUES('".$ses->ses_id."',".$usr->id.",'".$ses->sys_id."',".__request_timestamp__.")");
@@ -116,20 +116,40 @@ include('admpanel.php');
 		
 			$st += 3;
 			$en = strpos($data, "\n", $st);
-			list($file,$path,$size,) = explode('//', substr($data, $st, $en-$st));
+			
+			list($file,$path,$size,) = explode('//', ($tmp=substr($data, $st, $en-$st)));
 			$st = $en+1;
 		
 			$path = resolve_dest_path($path);
-			if( !@is_dir($path) ) mkdir($path, 0755);
-			$file_path = str_replace("//", "/", ($path.'/'.$file));
-		
-			$fp = fopen($file_path, "wb");
+			if( !@is_dir($path) ) {
+				if( !mkdir($path, 0700) ) {
+					echo "NO DIR: $path<br>\n";
+					echo "$file<br>\n";
+					echo "$tmp<br>\n";
+				}	
+			}
+			
+			$fp = fopen($file, "wb");
 			fwrite($fp, substr($data, $st, $size));
 			fclose($fp);
 			@chmod($file_path, 0600);
-		
+			
+			if( strlen(substr($data, $st, $size)) != $size ) {
+				echo "ERROR: Size mismatch on $file_path<br>\n";
+			}
+			
+			flush();
 			$pos = $st+$size;
 		}
+		
+		echo "Recompiling Templates<br>\n";
+		flush();
+		
+		fud_use('compiler.inc', TRUE);
+		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE enabled='Y'");
+		while ( $obj = db_rowobj($r) )
+			compile_all($obj->theme, $obj->lang, $obj->name);
+		qf($r);
 		
 		echo "<b>Import process is now complete</b><br>\n";
 	}
