@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admpdf.php,v 1.1 2003/05/20 12:12:51 hackie Exp $
+*   $Id: admpdf.php,v 1.2 2003/05/20 13:54:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,6 +74,7 @@ function print_string_field($descr, $help, $field, $is_int=0)
 <table border=0 cellspacing=1 cellpadding=3>
 <?php
 	print_yn_field('PDF Output Enabled', 'Whether or not to enable PDF output', 'PDF_ENABLED');
+	print_yn_field('Complete Forum Output', 'Whether or not to allow users to generate a PDF containing ALL the messages in a particular forum.', 'PDF_ALLOW_FULL');
 
 	$opts = "A0\nA1\nA2\nA3\nA4\nA5\nA6\nB5\nletter\nlegal\nledger";
 	$names = "A0: 2380 x 3368\nA1: 1684 x 2380\nA2: 1190 x 1684\nA3: 842 x 1190\nA4: 595 x 842\nA5: 421 x 595\nA6: 297 x 421\nB5: 501 x 709\nletter: 612 x 792\nlegal: 612 x 1008\nledger: 1224 x 792";
