@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.3 2002/06/26 22:22:37 hackie Exp $
+*   $Id: admthemesel.php,v 1.4 2002/07/20 14:19:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,8 @@
 	include('admpanel.php');	
 ?>
 <h3>Template Set Selection</h3>
-<form method="post">
+<form method="post" action="admthemesel.php">
+<?php echo _hs; ?>
 <input type="hidden" name="ret" value="<?php echo $ret; ?>">
 <table border=0 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff">
