@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.12 2002/07/16 23:56:30 hackie Exp $
+*   $Id: th.inc.t,v 1.13 2002/07/26 12:08:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,6 +35,8 @@ class fud_thread
 	
 	function add($root, $forum_id, $locked=NULL, $is_sticky=NULL, $ordertype=NULL, $orderexpiry=NULL) 
 	{
+		if( !$this->last_post_date ) $this->last_post_date = __request_timestamp__;
+		
 		$r = q("INSERT INTO 
 			{SQL_TABLE_PREFIX}thread(
 				forum_id, 
@@ -53,7 +55,7 @@ class fud_thread
 			(
 				".$forum_id.",
 				".$root.",
-				".__request_timestamp__.",
+				".$this->last_post_date.",
 				0,
 				0,
 				0,

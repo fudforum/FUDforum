@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.10 2002/07/24 12:47:18 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.11 2002/07/26 12:08:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@ class fud_msg_edit extends fud_msg
 		if ( empty($this->attachment_id) ) $this->attachment_id = 0;
 		if ( isset($GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']) ) $this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
 		
-		$this->post_stamp = __request_timestamp__;
+		if( !$this->post_stamp ) $this->post_stamp = __request_timestamp__;
 		if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ) $this->host_name = get_host($this->ip_addr);
 		
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
@@ -54,8 +54,6 @@ class fud_msg_edit extends fud_msg
 		/* length+offset are returned by ref, thank php-devs for dumbass syntax */
 		$file_id = write_body($this->body, $length, $offset);
 		if ( $thres_body ) $file_id_preview = write_body($thres_body, $length_preview, $offset_preview);
-		
-		
 		
 		$r = q("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id, 
@@ -104,10 +102,10 @@ class fud_msg_edit extends fud_msg
 
 		$thr = new fud_thread;
 		if ( !$this->thread_id ) { /* new thread */
-			$thr->last_post = $this->post_stamp;
+			$thr->last_post_date = $this->post_stamp;
 			
 			/* if moderator is creating a thread consider a number of other properties */
-			if ( isset($GLOBALS['MOD']) || is_perms(_uid, $forum_id, 'STICKY') ) {
+			if ( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $forum_id, 'STICKY') ) {
 				if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) 
 					$is_sticky = 'Y';
 				else
@@ -166,12 +164,12 @@ class fud_msg_edit extends fud_msg
 		
 		delete_msg_index($this->id);
 		$root_msg_id = q_singleval("SELECT root_msg_id FROM {SQL_TABLE_PREFIX}thread WHERE id=".$this->thread_id);		
-		if( isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'STICKY') || is_perms(_uid, $frm->id, 'LOCK') ) {
+		if( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY') || is_perms($this->poster_id, $frm->id, 'LOCK') ) {
 			$thr = new fud_thread;
 			$thr->id = $this->thread_id;
 			
 			if ( $root_msg_id==$this->id ) {
-				if( (isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'STICKY')) && $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
+				if( (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
 					$thr->is_sticky = 'Y';
 					$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
 					$thr->orderexpiry = $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry'];
@@ -182,14 +180,14 @@ class fud_msg_edit extends fud_msg
 					$thr->orderexpiry = 0;
 				}	
 			
-				if( isset($GLOBALS['MOD']) || is_perms(_uid, $frm->id, 'LOCK') ) 
+				if( isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'LOCK') ) 
 					$thr->locked = yn($GLOBALS['HTTP_POST_VARS']['thr_locked']);
 				else	
 					$thr->locked = q_singleval("SELECT is_sticky FROM {SQL_TABLE_PREFIX}thread WHERE id=".$thr->id);
 			
 				$thr->sync();
 			}
-			else if( is_perms(_uid, $frm->id, 'LOCK') || isset($GLOBALS['MOD']) ) {
+			else if( is_perms($this->poster_id, $frm->id, 'LOCK') || isset($GLOBALS['MOD']) ) {
 				if ( $GLOBALS['HTTP_POST_VARS']['thr_locked']=='Y' ) 
 					$thr->lock();
 				else
