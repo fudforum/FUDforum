@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.57 2003/05/16 07:38:04 hackie Exp $
+*   $Id: post.php.t,v 1.58 2003/05/16 12:42:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -406,6 +406,16 @@ function flood_check()
 			 * and consider what to do for a moderated forum
 			 */
 			if ($frm->moderated == 'Y' && !$MOD) {
+				if ($GLOBALS['MODERATED_POST_NOTIFY'] == 'Y') {
+					$c = uq('SELECT u.email FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=mm.user_id WHERE mm.forum_id='.$frm->id);
+					while ($r = db_rowarr($c)) {
+						$modl[] = $r[0];
+					}
+					qf($c);
+					if (isset($modl)) {
+						send_email($GLOBALS['NOTIFY_FROM'], $modl[], '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
+					}
+				}
 				$data = file_get_contents($GLOBALS['INCLUDE'].'theme/'.$usr->theme_name.'/usercp.inc');
 				$s = strpos($data, '<?php') + 5;
 				eval(substr($data, $s, (strrpos($data, '?>') - $s)));

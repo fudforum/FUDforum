@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.29 2003/05/16 12:00:57 hackie Exp $
+*   $Id: admglobal.php,v 1.30 2003/05/16 12:42:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -284,6 +284,7 @@ function get_max_upload_size()
 	print_yn_field('Topic Rating', 'ENABLE_THREAD_RATING');
 	print_yn_field('Track referrals', 'TRACK_REFERRALS');
 	print_yn_field('Profile Image', 'ALLOW_PROFILE_IMAGE');
+	print_yn_field('Moderator Notification', 'MODERATED_POST_NOTIFY');
 
 	if (function_exists('ob_gzhandler')) {
 		print_yn_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');

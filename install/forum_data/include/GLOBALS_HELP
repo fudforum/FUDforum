@@ -376,3 +376,8 @@ This setting will only be used if you have chosen to manually approve all new
 registrations. If enabled, then everytime a new user is registred all forum
 administrators will recieve a notification via e-mail.
 
+MODERATED_POST_NOTIFY
+Notify forum moderators via e-mail when a new message is posted in a forum
+where a message must first be approved by the moderator before shown to the
+rest of the visitors.
+
