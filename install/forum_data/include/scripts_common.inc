@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.2 2003/05/06 21:58:15 hackie Exp $
+*   $Id: scripts_common.inc,v 1.3 2003/05/07 01:05:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,6 +92,10 @@ function create_new_user($from_name, $from_email)
 function get_fud_reply_id($complex, $forum_id, $subject, $data)
 {
 	if (!empty($data)) {
+		if (is_string($data)) {
+			$data = array($data);	
+		}
+
 		foreach ($data as $reply_id) {
 			if (($r = db_saq("SELECT id, thread_id FROM ".sql_p."msg WHERE mlist_msg_id='".addslashes($reply_id)."'"))) {
 				break;
