@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.17 2003/05/13 06:26:44 hackie Exp $
+*   $Id: root_index.php.t,v 1.18 2003/05/13 06:36:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@
 	} else if (isset($_POST['t'])) {
 		$t = $_POST['t'];
 	}
-	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($GLOBALS['DATA_DIR'] . fud_theme . $t . '.php')) {
+	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t) || !@file_exists($WWW_ROOT_DISK . fud_theme . $t . '.php')) {
 		$t = 'index';
 	}
 
