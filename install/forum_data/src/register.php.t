@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.110 2004/03/07 01:12:47 hackie Exp $
+* $Id: register.php.t,v 1.111 2004/04/01 15:58:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -201,7 +201,7 @@ function set_err($err_name, $err_msg)
 {
 	$GLOBALS['error'] = 1;
 	if (isset($GLOBALS['err_msg'])) {
-		array_push($GLOBALS['err_msg'], array($err_name => $err_msg));
+		$GLOBALS['err_msg'][$err_name] = $err_msg;
 	} else {
 		$GLOBALS['err_msg'] = array($err_name => $err_msg);
 	}
