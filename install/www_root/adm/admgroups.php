@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.26 2003/09/30 15:37:08 hackie Exp $
+*   $Id: admgroups.php,v 1.27 2003/09/30 23:48:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,96 +27,134 @@
 		group_delete((int)$_GET['del']);
 	}
 
+	$hdr = group_perm_array();
+	$error_reason = $error = 0;
+
 	/* check for errors */
 	if (isset($_POST['btn_submit'])) {
-		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) { 
-			if ($_POST[$k] == 'I' && !$_POST['gr_inherit_id']) { 
+		var_dump($_POST);
+	
+		$gr_inherit_id = (int) $_POST['gr_inherit_id'];
+		if (isset($_POST['gr_resource'])) {
+			$gr_resource = is_string($_POST['gr_resource']) ? array($_POST['gr_resource']) : array_unique($_POST['gr_resource']);
+		} else {
+			$gr_resource = array();
+		}
+		$gr_ramasks = (int) !empty($_POST['gr_ramasks']);
+		$perm = $permi = 0;
+
+		$res = array();
+
+		foreach ($hdr as $k => $v) {
+			$val = (int) $_POST[$k];
+
+			if ($val < 0 && !$gr_inherit_id) {
 				$error_reason = 'One of your permissions is set to Inherit, however you have not selected a group to inherit from';
 				$error = 1;
-				break;
 			}
+
+			if (empty($_POST['gr_name'])) {
+				$error = 1;
+				$error_reason = 'You must provide a name for your new group.';
+			}
+			
+			if ($val < 0) {
+				$val *= -1;
+				$permi |= $val;
+				/* determine what the permission should be */
+				if (!$error) {
+					if (!$res) {
+						$r = uq("SELECT id, groups_opt, groups_opti, inherit_id FROM ".$DBHOST_TBL_PREFIX."groups");
+						while ($o = db_rowobj($r)) {
+							$res[$o->id] = $o;
+						}
+					}
+					$ih = $gr_inherit_id;
+					while (1) {
+						if (isset($ih[$ih])) {
+							$error_reason = 'You\'ve created a circular inheritence for "'.$v[1].'" permission';
+							$error = 1;
+							$val = 0;
+							break;
+						}
+						$ih[$ih] = 1;
+
+						if (!isset($res[$ih])) {
+							$error_reason = 'One of your permissions is set to Inherit, but the group it inherits permissions from, does not exist.';
+							$error = 1;
+							$val = 0;
+							break;
+						}
+
+						/* go to the next 'source' group, maybe it has the actual permission */
+						if ($res[$ih]['groups_opti'] & $val) {
+							$ih = $res[$ih]['inherit_id'];
+							continue;
+						}
+
+						$val = $res[$ih]['groups_opt'] & $val;
+						break;
+					}
+				}
+			}
+			$perm |= $val;
 		}
-		if (!isset($_POST['gr_resource']) && (!$edit || $edit > 2)) {
-			$error_reason = 'You must assign at least 1 resource to this group';
+
+		if (!$error && !$gr_resource && $edit < 2) {
+			$error_reason = 'You must assign at least 1 resource (forum) to this group';
 			$error = 1;
 		}
 
-		if (!isset($error)) {
-			foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $v) {
-				$perms[$v] = $_POST[$v];
-			}
+		if (!$error) {
 			if (!$edit) { /* create new group */
-				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], (int)$_POST['gr_ramasks'], $perms, (int)$_POST['gr_inherit_id']);
+				$rid1 = array_shift($gr_resource);
+				$gid = group_add((int)$rid1, $_POST['gr_name'], $gr_ramasks, $perm, $permi, $gr_inherit_id);
 				if (!$gid) {
 					$error_reason = 'Failed to add group';
 					$error = 1;
-				} else if (count($_POST['gr_resource']) > 1) {
-					unset($_POST['gr_resource'][0]);
-					foreach ($_POST['gr_resource'] as $v) {
+				} else if ($gr_resource) {
+					foreach ($gr_resource as $v) {
 						q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
 					}
-					grp_rebuild_cache($gid);
+
+					/* only rebuild the group cache if the all ANON/REG users were added */
+					if ($gr_ramasks) {
+						grp_rebuild_cache(array(0, 2147483647));
+					}
 				}
-			} else if (($r = db_saq('SELECT id, forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit))) { /* update an existing group */
-				/* check to ensure circular inheritence does not occur */
-				if (!group_check_inheritence((int)$_POST['gr_inherit_id'])) {
-					$gid = $r[0];
-					$forum_id = $r[1];
-					group_sync($gid, (isset($_POST['gr_name']) ? $_POST['gr_name'] : null), (int)$_POST['gr_inherit_id'], $perms);
-					/* handle resources */
-					if (!$forum_id) {
-						q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$gid);
-						if (!is_array($_POST['gr_resource'])) {
-							if (is_string($_POST['gr_resource'])) {
-								$_POST['gr_resource'] = array($_POST['gr_resource']);
-							}
-						} else {
-							foreach ($_POST['gr_resource'] as $v) {
-								q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
-							}
+			} else if (($frm = q_singleval('SELECT forum_id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$edit))) { /* update an existing group */
+				group_sync($edit, (isset($_POST['gr_name']) ? $_POST['gr_name'] : null), $gr_inherit_id, $perm, $permi);
+				if (!$frm) {
+					q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_resources WHERE group_id='.$edit);
+					$aff = db_affected();
+					if ($gr_resource) {
+						foreach ($gr_resource as $v) {
+							q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$edit.')');
 						}
 					}
+				}
 
-					$edit = '';
-					$_POST = $_GET = null;
-
-					/* the group's permissions may be inherited by other groups, so we go looking
-					 * for those groups updating their permissions as we go
-					 */
-					$ih_id[$gid] = $gid;
-					while (list(,$v) = each($ih_id)) {
-						if (($c = q('SELECT id FROM '.$DBHOST_TBL_PREFIX.'groups WHERE inherit_id='.$v))) {
-							while ($r = db_rowarr($c)) {
-								if (!isset($ih_id[$r[0]])) {
-									$ih_id[$r[0]] = $r[0];
-								}
-							}
-						}
-						qf($c);
-						grp_rebuild_cache($v);
-					}
-				} else {
-					$error = 1;
-					$error_reason = 'Circular Inheritence';
+				/* we need to check if this group's permissions are inherited by any 
+				 * other group & update the permissions. Only do it, if the permissions actually changed. */
+				if ($perm != $res[$edit]->groups_opt || $permi != $res[$edit]->groups_opti || $aff != count($gr_resource)) {
+					rebuild_group_ih($gid, $perm);
+					grp_rebuild_cache();
 				}
 			}
 		}
+
 		/* restore form values */
-		if (isset($error)) {
+		if ($error) {
 			$gr_name = $_POST['gr_name'];
-			$gr_inherit_id = $_POST['gr_inherit_id'];
-			if (isset($_POST['gr_ramasks'])) {
-				$gr_ramasks = $_POST['gr_ramasks'];
-			}
-			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
-				$perms[$k] = $_POST[$k];
-			}
-			if (isset($_POST['gr_resource'])) {
+			$gr_resource = array();
+			if (isset($_POST['gr_resource']) && is_array($_POST['gr_resource'])) {
 				foreach ($_POST['gr_resource'] as $v) {
 					$gr_resource[$v] = $v;
 				}
 			}
-			$data = db_sab('SELECT g.*, f.name AS fname FROM '.$DBHOST_TBL_PREFIX.'groups g LEFT JOIN '.$DBHOST_TBL_PREFIX.'forum f ON f.id=g.forum_id WHERE g.id='.$edit);
+		} else {
+			$edit = 0;
+			unset($_POST);
 		}
 	}
 
@@ -128,26 +166,24 @@
 		$gid = array_shift($o);
 		$gl[$gid] = $o;
 	}
-	qf($r);
 
-	if (!isset($error)) {
+	if (!$error) {
 		if ($edit && isset($gl[$edit])) {
-			list($gr_name, $gr_inherit_id, $perm, $permi, ) = each($gl[$edit]);
+			$gr_name = $gl[$edit]['gn'];
+			$gr_inherit_id = $gl[$edit]['inherit_id'];
+			$perm = $gl[$edit]['groups_opt'];
+			$permi = $gl[$edit]['groups_opti'];
 		} else {
 			/* default form values */
 			$gr_ramasks = $gr_name = '';
-			$gr_inherit_id = 2;
-			$perm = 0;
-			$permi = 2147483647; /* inherit everything by default */
+			$perm = $permi = $gr_inherit_id = 0;
+			$gr_resource = array();
 		}
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
-	if (isset($err)) {
-		echo errorify('You have a circular dependancy!');
-	}
-	if (isset($error_reason)) {
+	if ($error_reason) {
 		echo errorify($error_reason);
 	}
 ?>
@@ -178,19 +214,11 @@
 				while ($r = db_rowarr($c)) {
 					$gr_resource[$r[0]] = $r[0];
 				}
-				qf($c);
-			} else if (isset($_POST['edit'], $_POST['gr_resource'])) {
-				foreach ($_POST['gr_resource'] as $v) {
-					$gr_resource[$v] = $v;
-				}
-			} else {
-				$gr_resource = array();
 			}
 			$c = uq('SELECT f.id, f.name FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON c.id=f.cat_id ORDER BY c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
 				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected' : '').'>'.$r[1].'</option>';
 			}
-			qf($c);
 			echo '</select>';
 		}
 		echo '</td></tr><tr><td>Inherit From: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
@@ -198,7 +226,6 @@
 		foreach ($gl as $k => $v) {
 			echo '<option value="'.$k.'" '.($gr_inherit_id == $k ? ' selected' : '').'>'.$v['gn'].'</option>';
 		}
-		qf($c);
 
 		echo '</select></td></tr>';
 	}
@@ -208,30 +235,11 @@
 		draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks);
 		echo '</td></tr>';
 	}
-
-	$hdr = array(
-		'p_VISIBLE' => array(1, 'Visible'),
-		'p_READ' => array(2, 'Read'),
-		'p_POST' => array(4, 'Create new topics'),
-		'p_REPLY' => array(8, 'Reply to messages'),
-		'p_EDIT' => array(16, 'Edit messages'),
-		'p_DEL' => array(32, 'Delete messages'),
-		'p_STICKY' => array(64, 'Make topics sticky'),
-		'p_POLL' => array(128, 'Create polls'),
-		'p_VOTE' => array(256, 'Vote on polls'),
-		'p_FILE' => array(512, 'Attach files'),
-		'p_SPLIT' => array(1024, 'Split/Merge topics'),
-		'p_MOVE' => array(2048, 'Move topics'),
-		'p_SML' => array(4096, 'Use smilies/emoticons'),
-		'p_IMG' => array(8192, 'Use [img] tags'),
-		'p_RATE' => array(16384, 'Rate topics'),
-		'p_LOCK' => array(32768, 'Lock/Unlock topics')
-	);
 ?>
 <tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>
 <?php	
-	if ($edit && $gr_inherit_id) {
+	if ($edit && $gr_inherit_id && $permi) {
 		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
 		$v1 = 1;
 	} else {
@@ -241,12 +249,12 @@
 
 	foreach ($hdr as $k => $v) {
 		echo '<tr><td>'.$v[1].'</td><td><select name="'.$k.'">';
-		if ($permi & $v[0]) {
+		if ($v1 && $permi & $v[0]) {
 			echo '<option value="-'.$v[0].'" selected>Inherit</option>';
 			echo '<option value="0">No</option><option value="'.$v[1].'">Yes</option>';
 		} else {
 			echo '<option value="-'.$v[0].'">Inherit</option>';
-			if ($perm & $v[1]) {
+			if ($perm & $v[0]) {
 				echo '<option value="0">No</option><option value="'.$v[0].'" selected>Yes</option>';
 			} else {
 				echo '<option value="0" selected>No</option><option value="'.$v[0].'">Yes</option>';
@@ -254,7 +262,7 @@
 		}
 		echo '</select></td>';
 		if ($v1) {
-			echo '<td align="center">'.($perm & $v[1] ? 'Yes' : 'No').'</td>';
+			echo '<td align="center">'.($permi & $v[0] ? 'Yes' : 'No').'</td>';
 		}
 		echo '</tr>';
 	}
@@ -292,8 +300,7 @@
 	while ($r = db_rowarr($c)) {
 		$gll[$r[0]][] = $r[1];
 	}
-	qf($c);
-	
+
 	foreach ($gl as $k => $v) {
 		if (isset($gll[$k])) {
 			$grl = '<font size="-1">(total: '.count($gll[$k]).')</font><br><select name="gr_leaders"><option>'.implode('</option>', $gll[$k]).'</option></select>';
