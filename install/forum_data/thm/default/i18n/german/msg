@@ -954,3 +954,9 @@ iemail_thread_unsub:		Unsubscribe from this thread
 iemail_forum_unsub:		Unsubscribe from this forum
 primary_group_prefix:		Primary group for forum:
 group_resources:		This group controls permissions of the following forums
+register_email:			Email
+register_icq:			ICQ
+buddy_status:			Status
+buddy_search:			Enter the login of the user you wish to add.
+single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
+thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
