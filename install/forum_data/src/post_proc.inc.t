@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.8 2002/08/23 07:01:34 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.9 2002/08/23 09:24:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,22 +70,33 @@ function tags_to_html($str, $allow_img='Y')
 		$otag = '['.$tag;
 		$otag_l = strlen($otag);
 		$rf = 1;
-		while ( ($cpos = strpos($str, '[', $cpos)) !== FALSE ) {
+		while ( ($cpos = strpos($str, '[', $cpos)) !== false ) {
 			if( $end_tag[$cpos] ) {
 				$cpos++;
 				continue;
 			}
 
-			if( ($cepos = strpos($str, ']', $cpos)) === FALSE ) break 2;
+			if( ($cepos = strpos($str, ']', $cpos)) === false ) break 2;
 			
-			if ( strtolower(substr($str, $cpos, $ctag_l)) == $ctag ) $rf--;
-			else if ( strtolower(substr($str, $cpos, $otag_l)) == $otag ) $rf++;
+			if( strcasecmp(substr($str, $cpos, $ctag_l), $ctag) == 0 ) 
+				$rf--;
+			else if( strcasecmp(substr($str, $cpos, $otag_l), $otag) == 0 )
+				$rf++;
+			else {
+				$cpos++;
+				continue;		
+			}
 			
 			if ( !$rf ) break;
 			$cpos = $cepos;
 		}
 		
-		if ( $cpos !== FALSE ) {
+		if( $rf && $str[$cpos] == '<' ) { /* left over [ handler */
+			$pos++;
+			continue;
+		}	
+		
+		if ( $cpos !== false ) {
 			if( ($pos-$old_pos) ) $ostr .= substr($str, $old_pos, $pos-$old_pos);
 			switch( $tag )
 			{
@@ -96,7 +107,7 @@ function tags_to_html($str, $allow_img='Y')
 				case 'url':
 					if( !$parms ) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-						if( strpos(strtolower($parms), 'javascript:') === FALSE )
+						if( strpos(strtolower($parms), 'javascript:') === false )
 							$ostr .= '<a href="'.$parms.'" target="_blank">'.$parms.'</a>';
 						else 
 							$ostr .= substr($str, $pos, ($cepos-$pos)+1);	
@@ -105,7 +116,7 @@ function tags_to_html($str, $allow_img='Y')
 						$str[$cpos] = '<';
 					}
 					else { 
-						if( strpos(strtolower($parms), 'javascript:') === FALSE ) {
+						if( strpos(strtolower($parms), 'javascript:') === false ) {
 							$end_tag[$cpos] = '</a>';
 							$ostr .= '<a href="'.$parms.'" target="_blank">';
 						}
@@ -159,13 +170,13 @@ function tags_to_html($str, $allow_img='Y')
 					else {
 						if( !$parms ) {
 							$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-							if( strpos(strtolower($parms), 'javascript:') === FALSE )
+							if( strpos(strtolower($parms), 'javascript:') === false )
 								$ostr .= '<img src="'.$parms.'" border=0 alt="'.$parms.'">';
 							else 
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);		
 						}
 						else { 
-							if( strpos(strtolower($parms), 'javascript:') === FALSE ) 
+							if( strpos(strtolower($parms), 'javascript:') === false ) 
 								$ostr .= '<img src="'.$parms.'" border=0 alt="'.substr($str, $epos+1, ($cpos-$epos)-1).'">';	
 							else
 								$ostr .= substr($str, $pos, ($cepos-$pos)+1);
@@ -238,7 +249,7 @@ function tags_to_html($str, $allow_img='Y')
 	/* url paser */
 	$pos = 0;
 	$ppos = 0;	
-	while ( ($pos = @strpos($ostr, '://', $pos)) !== FALSE ) {
+	while ( ($pos = @strpos($ostr, '://', $pos)) !== false ) {
 		if ( $pos < $ppos ) break;
 		// check if it's inside any tag;
 		$i=$pos;
@@ -293,7 +304,7 @@ function tags_to_html($str, $allow_img='Y')
 	/* email parser */
 	$pos = 0;
 	$ppos = 0;
-	while ( ($pos = @strpos($ostr, '@', $pos)) !== FALSE ) {
+	while ( ($pos = @strpos($ostr, '@', $pos)) !== false ) {
 		if ( $pos < $ppos ) break;
 		
 		// check if it's inside any tag;
