@@ -558,7 +558,7 @@ core_adm_login_msg:		<br><a href="adm/admloginuser.php">管理员登陆</a>
 email_err_unabletoemail_title:	错误:无法发送邮件
 email_err_unabletoemail_msg:	系统管理员设置邮件系统无法使用。
 email_err_unabletoemailu_msg:	电子邮件系统被系统管理员关闭。
-email_error_unabletolocaddr:	对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VARHTML: usr_dst->alias}
+email_error_unabletolocaddr:	对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR: usr_dst->alias}
 email_error_body:		必须填写邮件内容
 email_error_subject:		必须填写邮件主题
 email_error_emailrequired:	必须填写邮件地址
