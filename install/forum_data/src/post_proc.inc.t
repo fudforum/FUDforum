@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.3 2002/07/10 14:45:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -299,6 +299,7 @@ function tags_to_html($str, $allow_img='Y')
 		for ( $es=$pos-1; $es>($ppos-1); $es-- ) {
 			if ( 
 				( ord($ostr[$es]) >= ord('A') && ord($ostr[$es]) <= ord('z') ) ||
+				( ord($ostr[$es]) >= ord(0) && ord($ostr[$es]) <= ord(9) ) ||
 				( $ostr[$es] == '.' || $ostr[$es] == '-' )
 			) continue;
 			++$es;
@@ -310,6 +311,7 @@ function tags_to_html($str, $allow_img='Y')
 		for ( $ee=$pos+1; @isset($ostr[$ee]); $ee++ ) {
 			if ( 
 				( ord($ostr[$ee]) >= ord('A') && ord($ostr[$ee]) <= ord('z') ) ||
+				( ord($ostr[$ee]) >= ord(0) && ord($ostr[$ee]) <= ord(9) ) ||
 				( $ostr[$ee] == '.' || $ostr[$ee] == '-' )
 			) continue;
 			break;
