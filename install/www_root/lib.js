@@ -206,7 +206,7 @@ function fud_msg_focus(mid_hash)
 // This code below is used to make PNG's to work in IE.
 // The code comes from youngpup.net. Thanks youngpup!
 
-if (navigator.platform == "Win32" && navigator.appName == "Microsoft Internet Explorer" && window.attachEvent) {
+if (!OPERA && navigator.platform == "Win32" && navigator.appName == "Microsoft Internet Explorer" && window.attachEvent) {
 	rslt = navigator.appVersion.match(/MSIE (\d+\.\d+)/, '');
 	itsAllGood = (rslt != null && Number(rslt[1]) >= 5.5);
 
