@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.143 2005/03/18 01:58:51 hackie Exp $
+* $Id: register.php.t,v 1.144 2005/03/21 13:55:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -577,6 +577,8 @@ function decode_uent(&$uent)
 	}
 	if (!__fud_real_user__) {
 		$chr_fix[] = 'reg_login';
+	} else {
+		$reg_login = char_fix(htmlspecialchars($uent->login));
 	}
 
 	/* populate form variables based on user's profile */
