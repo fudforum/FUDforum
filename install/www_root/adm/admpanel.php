@@ -17,8 +17,7 @@
 	<b>Checks/Consistency</b><br>
 	<a style="font-size: x-small;" href="consist.php?<?php echo _rsid; ?>">Forum Consistency</a><br>
 	<a style="font-size: x-small;" href="indexdb.php?<?php echo _rsid; ?>">Rebuild Search Index</a><br>
-	<a style="font-size: x-small;" href="compact.php?<?php echo _rsid; ?>">Compact Messages</a><br>
-	<a style="font-size: x-small;" href="admoptimizer.php?<?php echo _rsid; ?>">Optimize FUDforum code</a><br><br>
+	<a style="font-size: x-small;" href="compact.php?<?php echo _rsid; ?>">Compact Messages</a><br><br>
 	
 	<b>General Management</b><br>
 	<a style="font-size: x-small;" href="admglobal.php?<?php echo _rsid; ?>">Global Settings Manager</a><br>
