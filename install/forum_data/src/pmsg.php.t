@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: pmsg.php.t,v 1.3 2002/07/02 13:25:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,6 +108,8 @@
 		$pmsg_status = ( $obj->read_stamp ) ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
 		if( $obj->track=='Y' && $obj->mailed=='Y' && $obj->duser_id==$usr->id && $obj->ouser_id!=$usr->id ) $deny_recipt = '{TEMPLATE: deny_recipt}'; else $deny_recipt = '';
 		
+		$user_login = htmlspecialchars($obj->login);
+		
 		if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' ) {
 			if( ($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__ ) 
 				$online_indicator = '{TEMPLATE: pmsg_online_indicator}';
@@ -122,7 +124,6 @@
 		else
 			$msg_type = '{TEMPLATE: normal_msg}';
 		
-		$user_login = htmlspecialchars($obj->login);
 		$checked = !empty($all)?' checked':'';
 		
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
