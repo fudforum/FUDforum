@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.48 2003/12/10 10:10:32 hackie Exp $
+* $Id: post_proc.inc.t,v 1.49 2003/12/11 15:05:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -197,8 +197,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					break;
 				case 'php':
 					$param = substr($str, $epos+1, ($cpos-$epos)-1);
-					reverse_fmt($param);
 					reverse_nl2br($param);
+					reverse_fmt($param);
 					$param = trim($param);
 
 					if (strncmp($param, '<?php', 5)) {
