@@ -338,7 +338,7 @@ buddy_status:			État
 my_buddies:			Mes amis
 add_buddy:			Ajouter un ami
 add:				Ajouter
-buddy_search:			Enter the login of the user you wish to add.
+buddy_search:			Entrez le nom de l&#39;utilisateur que vous désirez ajouter.
 buddy_remove:			Enlever de ma liste d&#39;amis
 post_normal:			Normal
 post_sticky:			Épingler
@@ -391,7 +391,7 @@ add_ignore:			Ignorer quelqu&#39;un d&#39;autre
 forum_terms:			Forum
 forum_rules:			L&#39;enregistrement à ce forum est gratuit! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton "J&#39;accepte" à la fin de la page. Note: En pressant le bouton "J&#39;accepte", vous déclarez avoir plus de 13 ans. Si vous n&#39;avez pas encore 13 ans, vous devez utiliser le formulaire d&#39;autorisation parentale.<p>Bien que les administrateurs et modérateurs de ce forum s&#39;assurent d&#39;écarter tout message qui ne serait pas jugé décent ou approprié sur l&#39;un des forums, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être portés responsables ou blâmables pour le contenu de quelque message que ce soit.<p>En cliquant sur le bouton "J&#39;accepte", vous garantissez que vous n&#39;avez pas l&#39;intention de poster de messages à caractère obscène, vulgaire, en relation avec la sexualité, propos haineux, menaces, ou violant toute loi en aucune façon. <p>Les responsables de ce forum ont le pouvoir et le droit d&#39;effacer, éditer, corriger, déplacer, ou même fermer n&#39;importe quel fil / message pour quelque raison que ce soit et sans préavis.<p>
 forum_rules_13:			Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou d'un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit la bienvenue, nous devons obtenir une autorisation signée d&#39;un parent ou tuteur par fax ou lettre. C&#39;est seulement après réception de ce document que la personne de moins de 13 ans sera effectivement enregistrée et pourra interagir sur le forum.<p> Si vous désirez cependant commencer la procédure d&#39;enregistrement immédiatement (avant que le document signé ne nous parvienne), veuillez cliquer sur le bouton "J&#39;accepte" ci-dessous. Si vous préférez annuler la procédure d&#39;enregistrement, cliquez sur le bouton "Annuler" afin de retourner à la page d&#39;index des forums. <p>Une copie du formulaire d&#39;autorisation parentale est disponible ici. Pour plus d&#39;informations à propos de la procédure d&#39;enregistrement, veuillez envoyer un e-mail à <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
-coppa_conf:			COPPA Confirmation
+coppa_conf:			Confirmation COPPA
 coppa_before:			Avant {DATE: coppa %B %e, %Y}
 coppa_after:			Après {DATE: coppa %B %e, %Y}
 coppa_link:			Cliquez sur le lien correspondant à votre date de naissance
@@ -436,7 +436,7 @@ reset_remind_pass:		Vous avez oublié votre mot de passe
 reset_reset_conf:		Nous allons génerer un nouveau mot de passe temporaire qui vous sera envoyé par e-mail dans quelques minutes. Dans le cas où vous n&#39;avez encore jamais validé votre mot de passe, nous vous enverrons l&#39;e-mail de confirmation à la place.
 reset_error:			L&#39;adresse e-mail spécifiée n&#39;a pas été trouvée dans la base de données
 rpasswd_change_pass:		Changer de mot de passe
-rpasswd_login:			Login
+rpasswd_login:			Connexion
 rpasswd_cur_pass:		Mot de passe actuel:
 rpasswd_new_pass:		Nouveau mot de passe:
 rpasswd_conf_pass:		Confirmez le mot de passe:
@@ -534,8 +534,8 @@ tabs_referrals:			Parrainage
 tabs_buddy_list:			Liste d&#39;amis
 tabs_ignore_list:		Liste des utilisateurs ignorés
 tabs_private_messaging:		Messagerie privée
-single_msg_delete:		You are about to <font color="#ff0000" size="4">DELETE</font> a message titled: <b>{VAR: data[3]}</b><p>
-thread_delete:			You are about to <font color="#ff0000" size="4">DELETE</font> the <font color="#ff0000" size="4">ENTIRE TOPIC</font> titled: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Vous êtes sur le point de <font color="#ff0000" size="4">SUPPRIMER</font> un message intitulé : <b>{VAR: data[3]}</b><p>
+thread_delete:			Vous êtes sur le point de <font color="#ff0000" size="4">SUPPRIMER</font> le <font color="#ff0000" size="4">SUJET ENTIER</font> intitulé : <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Êtes-vous sûr de vouloir continuer?</b></font>
 delete_yes:			Oui
 delete_no:			Non
@@ -922,34 +922,34 @@ login_blocked_account_ttl:	Votre compte a été interdit.
 login_blocked_account_msg:	Votre compte a été interdit de ce forum, si vous n&#39;en connaissez pas encore la raison, veuillez contacter l&#39;administreur du forum.
 register_affero:			Nom d'utilisateur Affero:<br /><font class="SmallText">Si vous avez un nom d'utilisateur <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a>, entrez-le ici.</font>
 im_affero:			Nom d'utilisateur Affero
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
-post_all_ext_allowed:		(unrestricted)
-buddy_offline:			{VAR: r[2]} is currently offline
-buddy_online:			{VAR: r[2]} is currently online
-sml_no_smilies:			No emoticons available.
-login_unapproved_account_ttl:	Unapproved Account
-login_unapproved_account_msg:	The administrator of the forum had chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefor you will not be able to access some of the features avaliable to registered members until your account is approved.
-remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
+register_err_avatardimtobig:	Les dimensions de l&#39;avatar de <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> excèdent les dimensions permises de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Téléchargé {VAR: r->dlcount} fois
+member_search:			<br>Ou utilisez la fonctionnalité <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Trouver un utilisateur</a> pour trouver une personne.
+post_all_ext_allowed:		(non-restreint)
+buddy_offline:			{VAR: r[2]} est actuellement hors ligne
+buddy_online:			{VAR: r[2]} est actuellement en ligne
+sml_no_smilies:			Aucun smiley disponible.
+login_unapproved_account_ttl:	Compte non-approuvé
+login_unapproved_account_msg:	L&#39;administrateur du forum a choisi de confirmer chaque nouveau compte manuellement avant l&#39;activation. Votre compte n&#39;a pas encore été confirmé, vous ne pourrez donc pas accéder à certaines fonctionnalités disponibles aux membres enregistrés avant que votre compte ne soit approuvé.
+remove_from_buddy_list:		enlevé de la liste d&#39;amis
+iemail_msg_author:		<b>Auteur:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Sujet:</b> {VAR: obj->subject}
 iemail_msg_date:			<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
-iemail_msg_reply:		Reply
-iemail_msg_quote:		Quote
-iemail_msg_view:		View Topic/Message
-threadt_sticky:			sticky
-threadt_announce:		announcement
-reported_no_messages:		There are no reported messages.
-poll_no_polls:			There are no accessible polls.
-no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages inside this forum will be marked read
-private_no_messages:		There are no messages inside this folder
-register_email_change_subject:	E-mail change confirmation
-register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}" by going to the URL below:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your account will be re-activated.
-iemail_thread_unsub:		Unsubscribe from this thread		
-iemail_forum_unsub:		Unsubscribe from this forum
-primary_group_prefix:		Primary group for forum:
-group_resources:		This group controls permissions of the following forums
-register_email:			Email
+iemail_msg_reply:		Répondre
+iemail_msg_quote:		Citer
+iemail_msg_view:		Voir le Sujet/Message
+threadt_sticky:			épinglé
+threadt_announce:		Annonce
+reported_no_messages:		Il n&#39;y a aucun message rapporté.
+poll_no_polls:			Il n&#39;y a aucun sondage accessible.
+no_unread_messages:		Il n&#39;y a aucun message non-lu correspondant à votre requête.
+thread_mark_all_read:		marquer tous les messages non-lus du forum comme lus
+thread_mark_all_read_desc:	Tous les messages non-lus dans ce forum seront marqués comme lus
+private_no_messages:		Il n&#39;y a aucun message dans ce dossier
+register_email_change_subject:	Confirmation de changement d&#39;e-mail
+register_email_change_msg:	Veuillez confirmer votre nouveau compte e-mail "{VAR: uent->email}" qui remplace votre ancien compte e-mail "{VAR: old_email}" en allant à l&#39;adresse ci-dessous :\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nUne fois que vous aurez confirmé votre nouvelle adresse e-mail, votre compte sera réactivé.
+iemail_thread_unsub:		Se désabonner de ce fil
+iemail_forum_unsub:		Se désabonner de ce forum
+primary_group_prefix:		Groupe primaire pour le forum:
+group_resources:		Ce groupe controle les permissions des forums suivants
+register_email:			E-mail
