@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.24 2003/04/21 14:14:39 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.25 2003/05/01 14:28:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -249,7 +249,7 @@ function usr_email_unconfirm($id)
 		$conf_key = md5(get_random_value(128));
 	} while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'"));
 	
-	q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='N', conf_key='".$this->conf_key."' WHERE id=".$id);
+	q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='N', conf_key='".$conf_key."' WHERE id=".$id);
 	db_unlock();
 		
 	return $conf_key;

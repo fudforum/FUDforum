@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.8 2003/04/21 17:49:04 hackie Exp $
+*   $Id: reset.php.t,v 1.9 2003/05/01 14:28:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,8 +65,7 @@ function usr_reset_passwd($id)
 	if ($email) {
 		if ($uobj = db_sab('SELECT id, email_conf FROM {SQL_TABLE_PREFIX}users WHERE email=\''.addslashes($email).'\'')) {
 			if ($EMAIL_CONFIRMATION == 'Y' && $uobj->email_conf == 'N') {
-				$conf_key = usr_email_unconfirm($uobj->id);
-				$url = '{ROOT}?t=emailconf&conf_key='.$conf_key;
+				$uent->conf_key= usr_email_unconfirm($uobj->id);
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {
 				$key = usr_reset_key($uobj->id);

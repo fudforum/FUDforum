@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.46 2003/05/01 14:02:38 hackie Exp $
+*   $Id: register.php.t,v 1.47 2003/05/01 14:28:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -331,9 +331,9 @@ function remove_old_avatar($avatar_str)
 		if (!__fud_real_user__) { /* new user */
 			$uent->add_user();
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', str_replace('\n', "\n", '{TEMPLATE: register_conf_msg}'), '');
+				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			} else {
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', str_replace('\n', "\n", '{TEMPLATE: register_welcome_msg}'), '');
+				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_welcome_subject}', '{TEMPLATE: register_welcome_msg}', '');
 			}
 
 			/* login the new user into the forum */
@@ -417,8 +417,8 @@ function remove_old_avatar($avatar_str)
 			
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && isset($old_email) && $old_email != $uent->email && $uent->is_mod != 'A') {
-				usr_email_unconfirm($uent->id);
-				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
+				$conf_key = usr_email_unconfirm($uent->id);
+				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
 			if (!$mod_id) {
 				check_return($usr->returnto);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.18 2003/04/21 14:14:39 hackie Exp $
+*   $Id: iemail.inc.t,v 1.19 2003/05/01 14:28:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,6 +25,7 @@ function send_email($from, $to, $subj, $body, $header='')
 	if (empty($to) || !count($to)) {
 		return;	
 	}
+	$body = str_replace('\n', "\n", $body);
 
 	if( $GLOBALS['USE_SMTP'] == 'Y' ) {
 		$smtp = new fud_smtp;
