@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search_forum_sel.inc.t,v 1.12 2004/01/04 16:38:27 hackie Exp $
+* $Id: search_forum_sel.inc.t,v 1.13 2004/03/08 15:58:47 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,15 @@ function trim_body($body)
 {
 	/* remove stuff in quotes */
 	while (($p = strpos($body, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')) !== false) {
-		$e = strpos($body, '<br></td></tr></table>', $p) + strlen('<br></td></tr></table>');
+		if (($pos = strpos($body, '<br></td></tr></table>', $p)) === false) {
+			$pos = strpos($body, '<br /></td></tr></table>', $p);
+			if ($pos === false) {
+				break;
+			}
+			$e = $pos + strlen('<br /></td></tr></table>');
+		} else {
+			$e = $pos + strlen('<br></td></tr></table>');
+		}
 		$body = substr($body, 0, $p) . substr($body, $e);
 	}
 
