@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.3 2003/09/28 12:22:06 hackie Exp $
+*   $Id: merge_th.php.t,v 1.4 2003/09/28 12:27:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,13 +24,13 @@
 	}
 
 	/* permission check */
-	if ($usr->is_mod != 'A') {
-		$perms = db_saq('SELECT mm.id, '.(_uid ? ' (CASE WHEN g2.id IS NOT NULL THEN g2.p_SPLIT ELSE g1.p_SPLIT END) AS p_split ' : ' g1.p_SPLIT AS p_split ').'
+	if (!($usr->users_opt & 1048576)) {
+		$perms = db_saq('SELECT mm.id, '.(_uid ? ' (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco ' : ' g1.group_cache_opt AS gco ').'
 				FROM {SQL_TABLE_PREFIX}forum f
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id
 				'.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').'
 				WHERE f.id='.$frm);
-		if (!$perms || !$perms[0] && $perms[1] != 'Y') {
+		if (!$perms || !$perms[0] && !($perms[1] & 2048)) {
 			std_error('access');
 		}
 	}
@@ -52,13 +52,13 @@
 
 	if ($frm && $post && !empty($_POST['new_title']) && !empty($_POST['sel_th']) && count($_POST['sel_th'])) {
 		/* we need to make sure that the user has access to destination forum */
-		if ($usr->is_mod != 'A' && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' (CASE WHEN g2.id IS NOT NULL THEN g2.p_POST ELSE g1.p_POST END)' : ' g1.p_POST').'=\'Y\')')) {
+		if (!($usr->users_opt & 1048576) && !q_singleval('SELECT f.id FROM {SQL_TABLE_PREFIX}forum f LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.user_id='._uid.' AND mm.forum_id=f.id '.(_uid ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=0 AND g1.resource_id=f.id').' WHERE f.id='.$forum.' AND (mm.id IS NOT NULL OR '.(_uid ? ' (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : ' g1.group_cache_opt').' & 4')) {
 			std_error('access');
 		}
 
 		/* sanity check */
 		if (!count($_POST['sel_th'])) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			if ($USE_PATH_INFO == 'N') {
 				header('Location: {ROOT}?t='.d_thread_view.'&th='.$th.'&'._rsidl);
 			} else {
 				header('Location: {ROOT}/t/'.$th.'/'._rsidl);
@@ -117,7 +117,7 @@
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id='.(_uid ? '2147483647' : '0').'
 			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
-			'.($usr->is_mod != 'A' ? ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.p_READ ELSE g2.p_READ END)=\'Y\'' : '').' 
+			'.($usr->users_opt & 1048576 ? '' : ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 2').' 
 			ORDER BY c.view_order, f.view_order');
 	$vl = $kl = '';
 	while ($r = db_rowarr($c)) {
