@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email.php.t,v 1.7 2003/04/21 14:14:39 hackie Exp $
+*   $Id: email.php.t,v 1.8 2003/04/23 16:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@ function mail_check()
 	
 	if (!strlen(trim($_POST['tx_name']))) {
 		set_err('tx_name', '{TEMPLATE: email_error_namerequired}');
-	} else if (!q_singelval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($_POST['tx_name'])).\'')) {
+	} else if (!q_singelval('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias=\''.addslashes(htmlspecialchars($_POST['tx_name'])).'\'')) {
 		set_err('tx_name', '{TEMPLATE: email_error_invaliduser}');
 	}
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.12 2003/04/23 00:56:18 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.13 2003/04/23 16:56:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ function is_email_blocked($addr)
 	}
 	$addr = strtolower($addr);
 	foreach ($GLOBALS['__FUD_EMAIL_FILTER__'] as $k => $v) {
-		if (($v == 'SIMPLE' && (strpos($addr, $k) !== false)) || ($v == 'REGEX && preg_match($k, $addr))) {
+		if (($v == 'SIMPLE' && (strpos($addr, $k) !== false)) || ($v == 'REGEX' && preg_match($k, $addr))) {
 			return 1;
 		}
 	}
@@ -91,7 +91,7 @@ function is_allowed_user(&$usr)
 		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}');
 	}
 			
-	if ($usr->blocked == 'Y' || is_email_blocked($usr->email) || is_blocked_login($usr->login) || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
+	if ($usr->blocked == 'Y' || is_email_blocked($usr->email) || is_login_blocked($usr->login) || (isset($_SERVER['REMOTE_ADDR']) && is_ip_blocked($_SERVER['REMOTE_ADDR']))) {
 		ses_delete($usr);
 		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}'); 
 	}
