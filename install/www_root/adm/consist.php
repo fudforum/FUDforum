@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.49 2003/07/31 17:48:45 hackie Exp $
+*   $Id: consist.php,v 1.50 2003/08/01 01:14:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,18 +64,6 @@ function delete_zero($tbl, $q)
 	}
 	qf($c);
 	draw_info($cnt);	
-}
-
-function get_ulevel($level, $cl)
-{
-	$old = 0;
-	foreach ($level as $l) {
-        	if ($l > $cl) {
-			return $old;
-		}
-		$old = $l;
-	}
-	return array_pop($level);
 }
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -442,28 +430,28 @@ forum will be disabled.<br><br>
 
 	draw_stat('Rebuilding user levels, message counts & last post ids');
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
-	$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
-	while ($r = db_rowarr($c)) {
-		$lvl[$r[1]] = $r[0];
-	}
-	qf($c);
-
 	if (__dbtype__ == 'mysql') {
 		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
 		$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.approved=\'Y\' AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
 		while ($r = db_rowarr($c)) {
 			if (!$r[1]) { continue; }
-			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].',level_id='.get_ulevel($lvl, $r[1]).' WHERE id='.$r[0]);
+			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].' WHERE id='.$r[0]);
 		}
 		qf($c);
 	} else {
 		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
 			if (!$uid) { continue; }
-			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', level_id='.get_ulevel($lvl, $cnt).', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
+			q('UPDATE '.$tbl.'users SET posted_msg_count='.$cnt.', u_last_post_id=(SELECT id FROM '.$tbl.'msg WHERE post_stamp='.$ps.' AND approved=\'Y\' AND poster_id='.$uid.') WHERE id='.$uid);
 		}
 		qf($c);
 	}
+	
+	$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
+	while ($r = db_rowarr($c)) {
+		q('UPDATE '.$tbl.'users SET level_id='.$r[0].' WHERE level_id=0 AND posted_msg_count>='.$r[1]);
+	}
+	qf($c);
 	
 	draw_stat('Done: Rebuilding user levels, message counts & last post ids');
 
