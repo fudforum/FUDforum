@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.61 2003/06/02 16:13:46 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.62 2003/06/05 22:42:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -454,7 +454,7 @@ class fud_msg_edit extends fud_msg
 			q('INSERT INTO {SQL_TABLE_PREFIX}read (thread_id, msg_id, last_view, user_id) SELECT '.$mtf->thread_id.', 0, 0, id FROM {SQL_TABLE_PREFIX}users WHERE id IN('.implode(',', $tl).')');
 		}
 		if (isset($to)) {
-			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name);
+			send_notifications($to, $mtf->id, $mtf->subject, $mtf->alias, $notify_type, ($notify_type == 'thr' ? $mtf->thread_id : $mtf->forum_id), $mtf->frm_name, $mtf->forum_id);
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.
@@ -644,16 +644,20 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 	return '{TEMPLATE: iemail_body}';
 }
 
-function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name='')
+function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name, $frm_id)
 {
 	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
 		$do_email = 1;
 		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
 		if ($GLOBALS['NOTIFY_WITH_BODY'] == 'Y') {
 			
-			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
-		
+			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.approved='Y'");
+
 			$headers  = "MIME-Version: 1.0\r\n";
+			if ($obj->reply_to) {
+				$headers .= "In-Reply-To: ".$obj->reply_to."\r\n";
+			}
+			$headers .= "List-Id: ".$frm_id.".".$_SERVER['SERVER_NAME']."\r\n";
 			$split = get_random_value(128)                                                                            ;
 			$headers .= "Content-Type: multipart/alternative; boundary=\"------------" . $split . "\"\r\n";
 			$boundry = "\r\n--------------" . $split . "\r\n";
