@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.28 2003/05/13 13:02:56 hackie Exp $
+*   $Id: compiler.inc,v 1.29 2003/05/13 13:44:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -103,7 +103,7 @@ function parse_sections($str, $file)
 	}
 }
 
-function resolve_sections($str, $debug=0)
+function resolve_sections($str)
 {
 	if (($p = strpos($str, '{')) === FALSE) {
 		return $str;
@@ -150,7 +150,7 @@ function resolve_sections($str, $debug=0)
 				$ret .= $GLOBALS['MSG'][$name]['data'];
 				break;
 			case 'VAR':
-			case 'TEMPLATE-DATA':	
+			case 'TEMPLATE-DATA':
 				$ret .= '\'.$'.$name.'.\'';
 				break;
 			case 'GVAR':

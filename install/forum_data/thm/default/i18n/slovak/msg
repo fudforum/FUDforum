@@ -158,7 +158,7 @@ thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Topic
 threads:			Topics
 time:				Time
-todays_posts:			Today's Posts
+todays_posts:			Today&#39;s Posts
 todays_posts_desc:		Show all messages that were posted today
 un_ignore_user:			stop ignoring posts by this user
 unanswered_posts:		Unanswered Posts
@@ -332,7 +332,7 @@ register_show_email_desc:	Choose this option if you want your email address to b
 register_notification:		Select Notification By Default:
 register_notification_desc:	If notification is enabled by default, it can be disabled when posting.
 register_notify_method:		Choose Notification Method:
-register_notify_method_desc:	If you would to receive notifications via ICQ please make sure to enable 'EmailExpress' in your ICQ settings
+register_notify_method_desc:	If you would to receive notifications via ICQ please make sure to enable &#39;EmailExpress&#39; in your ICQ settings
 register_notify_js_error:	You choose ICQ notification, but did not specify an ICQ #. Defaulting to Email&#46;
 register_allow_email_msg:	Allow Email Messages:
 register_allow_email_msg_desc:	Allow other users to send you e-mails via FUDforum.
@@ -423,7 +423,7 @@ login_cookie_expired:		Your cookie has expired, and you need to login to renew y
 login_perm_denied:		You do not have permission to access the requested resource as an anonymous user, and must login to gain permission to said resource.
 login_want_to_register:		Want to register?
 login_forgot_passwd:		Forgot password
-login_use_cookie:		Use cookies<br><font class="SmallText">If you're using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logedin into the forum.
+login_use_cookie:		Use cookies<br><font class="SmallText">If you&#39;re using a public terminal such as a computer in a library, school, or Internet cafe, it is recommended that you uncheck this option for greater security.<br>If you leave this option selected then you will be automatically logedin into the forum.
 login_login:			Login
 login_login_btn:		Login
 login_name_required:		Login name is required

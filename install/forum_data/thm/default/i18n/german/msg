@@ -601,7 +601,7 @@ register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hle
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
 register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ Nr angegeben. Es wird daher Email als Standard gew&auml;hlt&#46;
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
-register_notify_method_desc:	Falls Du Benachrichtigungen &uuml;ber ICQ erhalten m&ouml;chtest, stelle vorher sicher, da&szlig; 'EmailExpress' in den ICQ Einstellungen aktiviert ist
+register_notify_method_desc:	Falls Du Benachrichtigungen &uuml;ber ICQ erhalten m&ouml;chtest, stelle vorher sicher, da&szlig; &#39;EmailExpress&#39; in den ICQ Einstellungen aktiviert ist
 register_occupation:		Beruf:
 register_optional:		Freiwillige Angaben
 register_optional_desc:		Wir empfehlen, keine Informationen im Profil preiszugeben, die zu einer Identifizierung der Person geeignet w&auml;ren. S&auml;mtliche Informationen k&ouml;nnen von Besuchern des Forums eingesehen werden.
