@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.23 2004/10/28 13:52:39 hackie Exp $
+* $Id: login.tmpl,v 1.24 2004/10/28 14:00:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -19,7 +19,6 @@
 {REF: users_reg.tmpl}
 {REF: logaction.tmpl}
 {REF: allowed_user_lnk.tmpl}
-{REF: err.tmpl}
 
 {PAGE: LOGIN_PAGE}
 {TEMPLATE: header}
@@ -105,4 +104,12 @@ document.login.login.focus();
 
 {SECTION: LOGIN_PAGE_lnk3}
 {ROOT}?t=login
+{SECTION: END}
+
+{SECTION: ERR_emailconf_ttl}
+{MSG: ERR_emailconf_ttl}
+{SECTION: END}
+
+{SECTION: ERR_emailconf_msg}
+{MSG: ERR_emailconf_msg}
 {SECTION: END}
