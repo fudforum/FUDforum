@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.7 2002/07/08 23:15:19 hackie Exp $
+*   $Id: pmsg.php.t,v 1.8 2002/07/10 02:58:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,6 +141,8 @@
 			else 
 				$online_indicator = '{TEMPLATE: pmsg_offline_indicator}';
 		}
+		else
+			$online_indicator = '';
 		
 		if ( $obj->nrf_status == 'R' )
 			$msg_type ='{TEMPLATE: replied_msg}';
