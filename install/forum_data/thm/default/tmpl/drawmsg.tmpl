@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.21 2003/04/10 09:27:03 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.22 2003/04/10 17:37:06 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,11 +25,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[0]}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[0]}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
@@ -37,11 +37,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: misc[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_regged}
@@ -63,7 +63,7 @@
 {VAR: user_login_td}
 [<a href="{ROOT}?t={VAR: _GET['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;start={VAR: _GET['start']}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
 [<a href="{ROOT}?t={VAR: _GET['t']}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}:{VAR: obj->poster_id}&amp;{DEF: _rsid}&amp;th={VAR: _GET['th']}&amp;start={VAR: _GET['start']}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
-[<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
+[<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->poster_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
 <td align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
 </table></td>
 </tr>
@@ -147,16 +147,20 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: dmsg_no_msg_icon}
 {SECTION: END}
 
-{SECTION: dmsg_buddy_link}
-<br />[<a href="{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+{SECTION: dmsg_buddy_link_add add this user to your buddy list link}
+<br />[<a href="{ROOT}?t=buddy_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: add_to_buddy_list}</a>]
+{SECTION: END}
+
+{SECTION: dmsg_buddy_link_remove add this user to your buddy list link}
+<br />[<a href="{ROOT}?t=buddy_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
-<br />[<a href="{ROOT}?t=ignore_list&amp;del={VAR: GLOBALS['__IGNORE_LIST__'][$obj->poster_id]}" class="GenLink">{MSG: un_ignore_user}</a>]
+<br />[<a href="{ROOT}?t=ignore_list&amp;del={VAR: obj->user_id}&amp;redr=1&amp;{DEF: _rsid}" class="GenLink">{MSG: un_ignore_user}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
-<br />[<a href="{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}" class="GenLink">{MSG: ignore_user}</a>]
+<br />[<a href="{ROOT}?t=ignore_list&amp;add={VAR: obj->user_id}&amp;{DEF: _rsid}" class="GenLink">{MSG: ignore_user}</a>]
 {SECTION: END}
 
 {SECTION: dmsg_level_name}
@@ -172,11 +176,11 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_im_aim}
-<a href="aim:goim?screenname={VAR-URL: im_aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim.gif" border=0 /></a>&nbsp;
+<a href="aim:goim?screenname={VAR-URL: obj->aim}&amp;message=Hi.+Are+you+there?"><img alt="" src="{THEME_IMAGE_ROOT}/aim.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_im_yahoo}
-<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR-URL: im_yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.gif" border=0 /></a>&nbsp;
+<a target="_blank" href="http://edit.yahoo.com/config/send_webmesg?.target={VAR-URL: obj->yahoo}&amp;.src=pg"><img alt="" src="{THEME_IMAGE_ROOT}/yahoo.gif" border=0 /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_im_msnm}
@@ -259,15 +263,15 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_email_link}
-<a class="GenLink" href="{ROOT}?t=email&amp;tx_name={VAR: encoded_login}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=email&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_private_msg_link}
-<a class="GenLink" href="{ROOT}?t=ppost&amp;msg_to_list={VAR: encoded_login}&amp;{DEF: _rsid}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=ppost&amp;toi={VAR: obj->user_id}&amp;{DEF: _rsid}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t={VAR: _GET['t']}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: _GET['rev']}&amp;reveal={VAR: _GET['reveal']}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
@@ -275,11 +279,11 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: dmsg_delete_link}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;th={VAR: obj->thread_id}&amp;det_page={VAR: GLOBALS['__DRAW_MSG_SCRIPT_NAME']}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 /></a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;del={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" border=0 /></a>&nbsp;
 {SECTION: END} 
 
 {SECTION: dmsg_edit_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;start={VAR: _GET['start']}&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="GenLink" href="{ROOT}?t=post&amp;msg_id={VAR: obj->id}&amp;{DEF: _rsid}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" border=0 /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
@@ -308,7 +312,7 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
 <br />
-<div align="center">[<a href="{ROOT}?t={VAR: _REQUEST['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
+<div align="center">[<a href="{ROOT}?t={VAR: _GET['t']}&amp;reveal={VAR: _GET['reveal']}&amp;rev={VAR: _GET['rev']}:{VAR: obj->id}{VAR: link_args}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}
@@ -379,9 +383,9 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 {SECTION: END}
 
 {SECTION: drawmsg_affero_reg}
-<a href="http://svcs.affero.net/rm.php?r={VAR-URL: obj->affero}&amp;ll={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" border=0 /></a>
+<a href="http://svcs.affero.net/rm.php?r={VAR-URL: obj->affero}&amp;ll={VAR: obj->forum_id}.{VAR: GLOBALS['affero_domain']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_reg.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: drawmsg_affero_noreg}
-<a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" border=0 /></a>
+<a href="http://svcs.affero.net/rm.php?m={VAR-URL: obj->email}&amp;ll={VAR: obj->forum_id}.{VAR: GLOBALS['affero_domain']}&amp;lp={VAR: obj->forum_id}.{VAR-URL: GLOBALS['affero_domain']['host']}&amp;ls={VAR-URL: obj->subject}" target=_blank><img alt="" src="{THEME_IMAGE_ROOT}/affero_noreg.gif" border=0 /></a>
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.tmpl,v 1.4 2002/10/15 03:08:16 hackie Exp $
+*   $Id: iemail.tmpl,v 1.5 2003/04/10 17:37:06 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,13 +21,50 @@
 {SECTION: iemail_body}
 {TEMPLATE: header_plain}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-	<th width=1>{MSG: msg_author}</th>
-	<th>{MSG: msg_thread}</th>
+<tr class="RowStyleB">
+	<td width="33%">{MSG: iemail_msg_subject}</td>
+	<td width="33%">{MSG: iemail_msg_author}</td>
+	<td width="33%">{MSG: iemail_msg_date}</td>
 </tr>
-{TEMPLATE-DATA: body_email}
+<tr class="RowStyleA">
+	<td colspan="3">
+	{TEMPLATE-DATA: iemail_poll}
+	{TEMPLATE-DATA: body}
+	{TEMPLATE-DATA: iemail_attach}
+	</td>
+</tr>
+<tr class="RowStyleB">
+	<td colspan="3">
+	[ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}&quote=true">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}?t=rview&goto={VAR: obj->id}">{MSG: iemail_msg_view}</a> ]
+	</td>
+</tr>
 </table>
 {TEMPLATE: footer_plain}
+{SECTION: END}
+
+{SECTION: iemail_poll_tbl}
+<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<tr><th nowrap colspan=3>{VAR: obj->poll_name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+{TEMPLATE-DATA: iemail_poll}
+</table><p>
+{SECTION: END}
+
+{SECTION: iemail_poll_result}
+<tr class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}"><td>{VAR: i}.</td><td>{VAR: v[0]}</td><td><img src="{THEME_IMAGE_ROOT}/poll_pix.gif" alt="" height="10" width="{VAR: length}" /> {VAR: v[1]} / {VAR: length}%</td></tr>
+{SECTION: END}
+
+{SECTION: iemail_attach the file attachments list}
+<p>
+<table border=0 cellspacing=0 cellpadding=2>
+{TEMPLATE-DATA: iemail_attach}
+</table>
+{SECTION: END}
+
+{SECTION: iemail_attach_entry file attachment entry row}
+<tr>
+<td valign="middle"><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" border=0 /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}">{VAR: v[1]}</a><br />
+<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
 {SECTION: iemail_thr_subject}
