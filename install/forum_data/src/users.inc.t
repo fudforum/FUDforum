@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.13 2002/09/26 04:14:03 hackie Exp $
+*   $Id: users.inc.t,v 1.14 2002/10/27 01:15:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -108,7 +108,7 @@ class fud_user
 	{
 		if( !$tm ) $tm = __request_timestamp__;
 	
-		if( ($old_msg_id = q_singleval("SELECT * FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread_id." AND user_id=".$this->id)) ) {
+		if( ($old_msg_id = q_singleval("SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread_id." AND user_id=".$this->id)) ) {
 			if( $old_msg_id > $msg_id ) $msg_id = $old_msg_id;
 			
 			q("UPDATE {SQL_TABLE_PREFIX}read SET last_view=".$tm.", msg_id=".intzero($msg_id)." WHERE thread_id=".$thread_id." AND user_id=".$this->id);
