@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.39 2003/11/24 19:33:44 hackie Exp $
+* $Id: db.inc,v 1.40 2003/11/26 12:22:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,12 +22,10 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		$tmp = debug_backtrace();
 		$_SERVER['PATH_TRANSLATED'] = '';
 		foreach ($tmp as $v) {
-			$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}\n";
+			$_SERVER['PATH_TRANSLATED'] .= "{$v['file']}:{$v['line']}<br />\n";
 		}
-	} else {
-		if (!isset($_SERVER['PATH_TRANSLATED'])) {
-			$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
-		}
+	} else if (!isset($_SERVER['PATH_TRANSLATED'])) {
+		$_SERVER['PATH_TRANSLATED'] = realpath(__FILE__);
 	}
 
 	$error_msg = "(".$_SERVER['PATH_TRANSLATED'].") ".$error_number.": ".$error_string."<br />\n";
