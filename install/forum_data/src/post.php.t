@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.36 2003/04/08 19:12:56 hackie Exp $
+*   $Id: post.php.t,v 1.37 2003/04/09 09:55:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -112,10 +112,11 @@
 		}
 		
 		if ($msg_id) {
-			$msg->export_vars('msg_');
-			
-			$msg_body = post_to_smiley($msg_body);
-	 		
+			$msg_subject = $msg->subject;
+			reverse_FMT($msg_subject);
+			$msg_subject = apply_reverse_replace($msg_subject);
+		
+			$msg_body = post_to_smiley($msg->body);
 	 		switch ($frm->tag_style) {
 	 			case 'ML':
 	 				$msg_body = html_to_tags($msg_body);
@@ -126,13 +127,11 @@
 	 				reverse_FMT($msg_body);
 	 				reverse_nl2br($msg_body);
 	 		}
-	 		
 	 		$msg_body = apply_reverse_replace($msg_body);
 	 		
-	 		reverse_FMT($msg_subject);
-			$msg_subject = apply_reverse_replace($msg_subject);
-	 		
-	 		$msg_poster_notif = is_notified($usr->id, $msg->thread_id) ? 'Y' : 'N';
+	 		$msg_poster_notif = is_notified($usr->id, $msg->thread_id) ? 'Y' : NULL;
+	 		$msg_smiley_disabled = $msg->smiley_disabled == 'Y' ? 'Y' : NULL;
+	 		$msg_icon = $msg->icon;
 	 			
 	 		if ($msg->attach_cnt) {
 	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");

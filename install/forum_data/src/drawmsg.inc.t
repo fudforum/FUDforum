@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.28 2003/04/09 09:03:17 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.29 2003/04/09 09:55:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,92 +131,74 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	if ($obj->user_id) {
-		if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
-			$avatar = $obj->avatar_loc;
-		} else {
-			$avatar = '';
-		}
-
-		if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $GLOBALS["usr"]->is_mod == 'A') {
-			$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
-		} else {
-			$online_indicator = '';
-		}
-
-		$user_link = !$hide_controls ? '{TEMPLATE: dmsg_reg_user_link}' : '{TEMPLATE: dmsg_reg_user_no_link}';
-		
-		$user_posts = '{TEMPLATE: dmsg_user_posts}';
-		$user_reg_date = '{TEMPLATE: dmsg_user_reg_date}';
-
-		if ($obj->location) {
-			if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
-				$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
+		if (!$hide_controls) {
+			if ($obj->avatar_loc && $obj->avatar_approved == 'Y' && $usr->show_avatars == 'Y' && $GLOBALS['CUSTOM_AVATARS'] != 'OFF') {
+				$avatar = '{TEMPLATE: dmsg_avatar}';
 			} else {
-				$location = $obj->location;
+				$avatar = '{TEMPLATE: dmsg_no_avatar}';
 			}
-			$location = '{TEMPLATE: dmsg_location}';
-		} else {
-			$location = '{TEMPLATE: dmsg_no_location}';
-		}
 
-		$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
+			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $GLOBALS["usr"]->is_mod == 'A') {
+				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
+			} else {
+				$online_indicator = '';
+			}
+			$user_link = '{TEMPLATE: dmsg_reg_user_link}';
+			$user_posts = '{TEMPLATE: dmsg_user_posts}';
+			$user_reg_date = '{TEMPLATE: dmsg_user_reg_date}';
+
+			if ($obj->location) {
+				if (strlen($obj->location) > $GLOBALS['MAX_LOCATION_SHOW']) {
+					$location = substr($obj->location, 0, $GLOBALS['MAX_LOCATION_SHOW']) . '...';
+				} else {
+					$location = $obj->location;
+				}
+				$location = '{TEMPLATE: dmsg_location}';
+			} else {
+				$location = '{TEMPLATE: dmsg_no_location}';
+			}
+			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
+
+			if (_uid && _uid != $obj->user_id) {
+				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '' : '';
+				$ignore_link	= !isset($usr->ignore_list[$obj->user_id]) ? '{TEMPLATE: dmsg_add_user_ignore_list}' : '{TEMPLATE: dmsg_remove_user_ignore_list}';
+			} else {
+				$buddy_link = $ignore_link = '';
+			}
+			if ($obj->level_pri) {
+				$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
+				$level_image = $obj->level_pri != 'a' ? '{TEMPLATE: dmsg_level_image}' : '';
+			} else {
+				$level_name = $level_image = '';
+			}
+			/* show im buttons if need be */
+			if ($usr->show_im == 'Y') {
+				$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
+				$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
+				$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
+				$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
+				$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
+				if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
+					$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
+				} else {
+					$im_affero = '';
+				}	
+			}
+		 } else {
+		 	$user_link = '{TEMPLATE: dmsg_reg_user_no_link}';
+		 	$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $level_name = $level_image = $buddy_link = $ignore_link = $location = $custom_tag = $user_reg_date = $online_indicator = $user_posts = $user_reg_date = $avatar = '';
+		 }
 	} else {
 		$user_link = '{TEMPLATE: dmsg_anon_user}';
+		$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = $level_name = $level_image = $buddy_link = $ignore_link = $location = $custom_tag = $user_reg_date = $online_indicator = $user_posts = $user_reg_date = $avatar = '';
 	}
 
-	if ($usr->is_mod == 'A' || $GLOBALS['DISPLAY_IP'] == 'Y') {
-		$ip_address = '{TEMPLATE: dmsg_ip_address}';
-	} else {
-		$ip_address = '';
-	}
-
-	if ($GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && $obj->host_name) {
-		if (strlen($obj->host_name) > 30) {
-			$host_name = wordwrap($obj->host_name, 30, '<br>', 1);
-		}
-		$host_name = '{TEMPLATE: dmsg_host_name}';
-	} else {
-		$host_name = '';
-	}
-	
-	$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
-	
-	if (_uid && _uid != $obj->user_id) {
-		$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '' : '';
-		$ignore_link	= !isset($usr->ignore_list[$obj->user_id]) ? '{TEMPLATE: dmsg_add_user_ignore_list}' : '{TEMPLATE: dmsg_remove_user_ignore_list}';
-	} else {
-		$buddy_link = $ignore_link = '';
-	}
-
-	if ($obj->level_pri) {
-		$level_name = $obj->level_name ? '{TEMPLATE: dmsg_level_name}' : '';
-		$level_image = $obj->level_pri != 'a' ? '{TEMPLATE: dmsg_level_image}' : '';
-	} else {
-		$level_name = $level_image = '';
-	}
-
-	/* show im buttons if need be */
-	if (!$hide_controls && (!_uid || $usr->show_im == 'Y')) {
-		$im_icq		= $obj->icq ? '{TEMPLATE: dmsg_im_icq}' : '';
-		$im_aim		= $obj->aim ? '{TEMPLATE: dmsg_im_aim}' : '';
-		$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
-		$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
-		$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
-		if ($GLOBALS['ENABLE_AFFERO'] == 'Y') { 
-			$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
-		} else {
-			$im_affero = '';
-		}
-	} else {
-		$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
-	}
-	
 	/* Display message body
 	 * If we have message threshold & the entirity of the post has been revelead show a preview
 	 * otherwise if the message body exists show an actual body
 	 * if there is no body show a 'no-body' message
 	 */
-	if ($obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold) {
+	if (!$hide_controls && $obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold) {
 		$msg_body = read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview);
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
 	} else if ($obj->length) {
@@ -310,6 +292,23 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	if (!$hide_controls) {
+		if ($usr->is_mod == 'A' || $GLOBALS['DISPLAY_IP'] == 'Y') {
+			$ip_address = '{TEMPLATE: dmsg_ip_address}';
+		} else {
+			$ip_address = '';
+		}
+
+		if ($obj->host_name && $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y') {
+			if (strlen($obj->host_name) > 30) {
+				$host_name = wordwrap($obj->host_name, 30, '<br>', 1);
+			}
+			$host_name = '{TEMPLATE: dmsg_host_name}';
+		} else {
+			$host_name = '';
+		}
+	
+		$msg_icon = !$obj->icon ? '{TEMPLATE: dmsg_no_msg_icon}' : '{TEMPLATE: dmsg_msg_icon}';
+
 		if ($obj->sig && $GLOBALS['ALLOW_SIGS'] == 'Y' && $obj->show_sig == 'Y' && $usr->show_sigs == 'Y') {
 			$signature = '{TEMPLATE: dmsg_signature}';
 		} else {
@@ -348,7 +347,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	} else {
-		$signature = $report_to_mod_link = $message_toolbar = '';
+		$msg_icon = $ip_address = $host_name = $signature = $report_to_mod_link = $message_toolbar = '';
 	}
 
 	return '{TEMPLATE: message_entry}';

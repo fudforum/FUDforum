@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.11 2003/04/07 14:23:14 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.12 2003/04/09 09:55:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 	$GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS'] = 1;
 	
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
-	$start = isset($_POST['start']) ? (int)$_POST['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
+	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$total = $thr->replies + 1;
 
 	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
@@ -56,6 +56,7 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 		
 	unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
 } else if ($th_id) {
+	$start = isset($_GET['start']) ? (int)$_GET['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
 	$minimsg = '{TEMPLATE: minimsg_hidden}';
 } else {
 	$minimsg = '';

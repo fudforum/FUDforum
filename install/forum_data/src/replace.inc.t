@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.3 2003/04/08 17:00:37 hackie Exp $
+*   $Id: replace.inc.t,v 1.4 2003/04/09 09:55:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,7 @@ function make_reverse_replace_array()
 function apply_reverse_replace($text)
 {
 	if (!defined('__fud_replacer_init')) {
-		make_replace_array();
+		make_reverse_replace_array();
 	}
 	if (!isset($GLOBALS['__FUD_REPLR__'])) {
 		return $text;
