@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.15 2003/10/07 12:23:21 hackie Exp $
+*   $Id: poll.php.t,v 1.16 2003/10/07 12:24:22 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -45,7 +45,7 @@
 			'.$join.'
 			WHERE f.id='.$frm_id);
 	} else { /* editing a poll */
-		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS is_mod, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
+		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}poll p ON p.id='.$pl_id.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
