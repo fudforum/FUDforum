@@ -1020,5 +1020,3 @@ findu_no_conf:			未確認ユーザー
 register_max_sig_len:		最大長:
 register_turing:		Please enter the code shown below:
 register_err_turing:		確認コード正しくありません。
-modque_cat:			Category
-modque_forum:			Forum

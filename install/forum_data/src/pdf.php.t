@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.27 2004/09/20 20:31:50 hackie Exp $
+* $Id: pdf.php.t,v 1.26 2004/06/07 17:36:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,7 +92,7 @@ class fud_pdf
 		} else {
 			$this->pg_num = 1;
 		}
-		pdf_add_bookmark($this->pdf, $ttl, 0, 0);
+		pdf_add_bookmark($this->pdf, $ttl);
 		pdf_setfont($this->pdf, $this->fonts['Courier'], 12);
 		pdf_set_text_pos($this->pdf, $this->wmargin, ($this->ph - $this->hmargin));
 		$this->pg_title = $title;
