@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.18 2003/04/17 12:30:34 hackie Exp $
+*   $Id: ppost.php.t,v 1.19 2003/04/17 13:11:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@
 		$msg_subject = $msg_body = $msg_icon = '';
 		$msg_track = NULL;
 		$msg_show_sig = $usr->append_sig == 'Y' ? 1 : NULL;
-		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? 1 : NULL;
+		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? NULL : 1;
 		$reply = $forward = 0;
 		
 		/* deal with users passed via GET */
@@ -145,7 +145,13 @@
 				$_POST['btn_submit'] = 1;
 			}
 		}
-		$msg_to_list = htmlspecialchars($msg_to_list);
+		$msg_to_list = htmlspecialchars($_POST['msg_to_list']);
+		$msg_subject = $_POST['msg_subject'];
+		$msg_body = $_POST['msg_body'];
+		$msg_icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
+		$msg_track = isset($_POST['msg_track']) ? 1 : NULL;
+		$msg_smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 1 : NULL;
+		$msg_show_sig = isset($_POST['msg_show_sig']) ? 1 : NULL;
 
 		$reply = isset($_POST['quote']) ? (int)$_POST['quote'] : 0;
 		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
@@ -177,7 +183,7 @@
 	}
 
 	/* deal with newly uploaded files */
-	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control'])) {
+	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control']) && $_FILES['attach_control']['size'] > 0) {
 		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
 			$attach_control_error = '{TEMPLATE: post_err_attach_size}';	
 		} else {

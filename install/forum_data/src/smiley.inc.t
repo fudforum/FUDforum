@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.6 2003/04/17 11:53:46 hackie Exp $
+*   $Id: smiley.inc.t,v 1.7 2003/04/17 13:11:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,11 +17,6 @@
 
 $GLOBALS['__SML_CHR_CHK__'] = array("\n"=>1, "\r"=>1, "\t"=>1, " "=>1, "]"=>1, "["=>1, "<"=>1, ">"=>1, "'"=>1, '"'=>1, "("=>1, ")"=>1, "."=>1, ","=>1, "!"=>1, "?"=>1);
 
-function char_check($c)
-{
-	return (($c === NULL || isset($GLOBALS['__SML_CHR_CHK__'][$c])) ? 1 : 0);
-}	
-
 function smiley_to_post($text)
 {
 	$text_l = strtolower($text);
@@ -30,13 +25,13 @@ function smiley_to_post($text)
         while ($r = db_rowarr($c)) {
         	$codes = (strpos($r[0], '~') !== FALSE) ? explode('~', strtolower($r[0])) : array(strtolower($r[0]));
 
-		foreach ($sml_codes as $v) {
+		foreach ($codes as $v) {
 			$a = 0;
 			$len = strlen($v);
 			while (($a = strpos($text_l, $v, $a)) !== FALSE) {
-				if (!$a || (char_check($text_l[$a - 1]) && char_check($text_l[$a + 1]))) {
+				if ((!$a || isset($GLOBALS['__SML_CHR_CHK__'][$text_l[$a - 1]])) && ((@$ch = $text_l[$a + $len + 1]) == "" || isset($GLOBALS['__SML_CHR_CHK__'][$ch]))) {
 					$rep = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
-					$text = substr_replace($text_l, $rep, $a, $len);
+					$text = substr_replace($text, $rep, $a, $len);
 					$text_l = substr_replace($text_l, $rep, $a, $len);
 					$a += strlen($rep);
 				} else {
