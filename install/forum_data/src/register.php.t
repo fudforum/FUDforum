@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.23 2002/09/30 20:44:34 hackie Exp $
+*   $Id: register.php.t,v 1.24 2002/12/05 16:18:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,6 +49,7 @@ function fetch_img($url)
 	
 	$fs = fsockopen($ub['host'], $ub['port'], $errno, $errstr, 10);
 	if( !$fs ) return;
+	socket_set_timeout($fs, 1, 0);
 	
 	fputs($fs, "GET ".$ub['path']." HTTP/1.0\r\nHost: ".$ub['host']."\r\n\r\n");
 	
@@ -76,7 +77,16 @@ function fetch_img($url)
 	fwrite($fp, $img_str);
 	fclose($fp);
 	
-	if( function_exists("GetImageSize") && !@GetImageSize($path) ) { unlink($path); return; }
+	if (function_exists("GetImageSize") && !@GetImageSize($path, $img_info)) {
+		unlink($path);
+		return; 
+	}
+	
+	list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
+	if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
+		unlink($path);
+		return; 
+	}
 		
 	return $path;
 }
@@ -282,24 +292,31 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 	/*
 	 * deal with attached files
 	 */		
-	 if ( is_avatar_upload_allowed() ) {
-		$avatar_arr=NULL;
+	 if (is_avatar_upload_allowed()) {
+		$avatar_arr = NULL;
 		
-		if ( isset($avatar_upload_size) && $avatar_upload_size > 0 ) {
-			if( $avatar_upload_size>=$GLOBALS['CUSTOM_AVATAR_MAX_SIZE'] ) { 
-				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
-			}
-			else if( preg_match('!\.(jpg|jpeg|gif|png)$!i', $avatar_upload_name) ) {
-				if ( strlen($avatar_arr['file']) ) @unlink($GLOBALS['TMP'].$avatar_arr['file']);
-				$avatar_arr['file'] = safe_tmp_copy($avatar_upload);
-				$avarar_arr['del'] = 0;
-				$avatar_arr['leave'] = 0;
-			}
-			else {
-				set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
-			}	
+		if (!isset($_FILES) && !isset($GLOBALS['HTTP_POST_FILES'])) {
+			$_FILES = $GLOBALS['HTTP_POST_FILES'];
 		}
-		else if( isset($avatar_tmp) ) {
+		
+		if (isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) {
+			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
+				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
+			} else {
+				if ( strlen($avatar_arr['file']) ) @unlink($GLOBALS['TMP'].$avatar_arr['file']);
+				getimagesize($_FILES['avatar_upload']['tmp_name'], $img_info);
+				list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
+				if ($img_info[2] > 3) {
+					set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
+				} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
+					set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
+				} else {
+					$avatar_arr['file'] = safe_tmp_copy($avatar_upload);
+					$avarar_arr['del'] = 0;
+					$avatar_arr['leave'] = 0;
+				}
+			}
+		} else if( isset($avatar_tmp) ) {
 			$avatar_tmp = base64_decode(stripslashes($avatar_tmp));
 			if ( strlen($avatar_tmp) ) {
 				list($avatar_arr['file'], $avatar_arr['local'], $avatar_arr['del'], $avatar_arr['leave']) = explode("\n", $avatar_tmp);
