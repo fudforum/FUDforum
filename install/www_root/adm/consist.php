@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.19 2003/04/22 20:35:16 hackie Exp $
+*   $Id: consist.php,v 1.20 2003/04/22 22:23:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,6 +26,7 @@
 	fud_use('widgets.inc', true);
 	fud_use('ext.inc', true);
 	fud_use('level_adm.inc', true);
+	fud_use('ipfilter.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
@@ -39,10 +40,6 @@
 	fud_use('groups.inc');
 	fud_use('th_adm.inc');
 
-	if ($usr->is_mod != 'A') {
-		header('Location: admloginuser.php?'._rsidl);
-		exit;
-	}
 	if (isset($_POST['cancel'])) {
 		header('Location: admglobal.php?'._rsidl);
 		exit;
@@ -480,6 +477,10 @@ forum will be disabled.<br><br>
 		unset($ir);
 	}
 	draw_stat('Done: Rebuilding ignore list cache');
+	
+	draw_stat('Rebuilding ip filter cache');
+	ip_cache_rebuild();
+	draw_stat('Done: Rebuilding ip filter cache');
 
 /*	
 	draw_stat('Rebuilding custom tags for users');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.5 2002/12/05 20:56:04 hackie Exp $
+*   $Id: admipfilter.php,v 1.6 2003/04/22 22:23:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,75 +17,67 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
+	require('GLOBALS.php');
 	
-	fud_use('ipfilter.inc');
-	fud_use('ipfilter_adm.inc', true);
+	fud_use('adm.inc', true);
+	fud_use('ipfilter.inc', true);
 	fud_use('widgets.inc', true);	
 	fud_use('util.inc');
-	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
 
-	if ( !empty($btn_cancel) ) {
-		header("Location: admipfilter.php?"._rsidl);
-		exit();
+	if (isset($_POST['btn_cancel'])) {
+		unset($_POST, $_GET);
 	}
-	
-	/* Remove trailing . from an ip if avaliable */
-	$ipaddr = trim($ipaddr);
-	if( substr($ipaddr,-1) == '.' ) $ipaddr = substr($ipaddr, 0, -1);
-	
-	/* Handle double .. */
-	$ipaddr = str_replace('..', '.256.', $ipaddr);
-	
-	if ( !empty($edit) && !empty($btn_update) ) {
-		$flt = new fud_ip_filter_adm;
-		$flt->get($edit);
-		$flt->sync($ipaddr);
-		header("Location: admipfilter.php?"._rsidl);
-		exit();
+
+	/* validate the address */
+	$bits = NULL;
+	if (isset($_POST['ipaddr'])) {
+		$bits = explode('.', trim($_POST['ipaddr']));
+		foreach ($bits as $k => $v) {
+			$bits[$k] = ($v == '..' || $v == '*' || (!$v && $v !== '0')) ? 256 : (int) $v;
+		}
+		for ($i=count($bits); $i < 4; $i++) {
+			$bits[$i] = 256;
+		}
 	}
-	
-	if ( !empty($btn_submit) ) {
-		$flt = new fud_ip_filter_adm;
-		$flt->add($ipaddr);
-		header("Location: admipfilter.php?"._rsidl);
-		exit();
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	if (isset($_POST['edit'], $_POST['btn_update']) && isset($bits)) {
+		q('UPDATE '.$tbl.'ip_block SET ca='.$bits[0].', cb='.$bits[1].', cc='.$bits[2].', cd='.$bits[3].' WHERE id='.(int)$_POST['edit']);
+	} else if (isset($_POST['btn_submit']) && isset($bits)) {
+		q('INSERT INTO '.$tbl.'ip_block (ca, cb, cc, cd) VALUES ('.$bits[0].', '.$bits[1].', '.$bits[2].', '.$bits[3].')');
+	} else if (isset($_GET['del'])) {
+		q('DELETE FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['del']);
+	} else {
+		$nada = 1;
 	}
-	
-	if ( !empty($edit) ) {
-		$flt = new fud_ip_filter_adm;
-		$flt->get($edit);
-		$ipaddr = $flt->ipaddr();
+	if (!isset($nada) && db_affected()) {
+		ip_cache_rebuild();
 	}
-	
-	if ( !empty($del) ) {
-		$flt = new fud_ip_filter_adm;
-		$flt->get($del);
-		$flt->delete();
+
+	if (isset($_GET['edit'])) {
+		$ipaddr = q_singleval('SELECT '.__FUD_SQL_CONCAT__.'(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block WHERE id='.(int)$_GET['edit']);
+		$ipaddr = str_replace('256', '*', $ipaddr);
+		$edit = $_GET['edit'];
+	} else {
+		$ipaddr = $edit = '';
 	}
-	
-	cache_buster();
-	
-include('admpanel.php'); 
+
+	include($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>IP Filter System</h2>
-<form method="post">  
+<form method="post" action="admipfilter.php">  
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>IP Address</td>
-		<td><input type="text" name="ipaddr" value="<?php echo (empty($ipaddr)?'':htmlspecialchars($ipaddr)); ?>" size=15 maxLength=15></td> 
+		<td><input type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td> 
 	</tr>
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 		<?php
-			if ( !empty($edit) ) {
-				echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
-				echo '<input type="submit" name="btn_update" value="Update">';
-			}
-			else {
+			if ($edit) {
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="btn_update" value="Update">';
+			} else {
 				echo '<input type="submit" name="btn_submit" value="Add mask">';
 			}
 		?>
@@ -102,17 +94,18 @@ include('admpanel.php');
 	<td>Action</td>
 </tr>
 <?php
-	$iplist = new fud_ip_filter_adm;
-	$iplist->getall();
-	
-	$i=1;
-	while ( $obj = $iplist->eachip() ) {
-		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
-		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';
-		$ctl = "<td>[<a href=\"admipfilter.php?edit=$obj->id&"._rsid."\">Edit</a>] [<a href=\"admipfilter.php?del=$obj->id&"._rsid."\">Delete</a>]</td>";
-		echo "<tr$bgcolor><td><table border=0 cellspacing=0 cellpadding=0><tr><td>".$obj->ip[0].".</td><td>".$obj->ip[1].".</td><td>".$obj->ip[2].".</td><td>".$obj->ip[3]."</td></tr></table></td>$ctl</tr>";
+	$c = uq('SELECT id, '.__FUD_SQL_CONCAT__.'(ca, \'.\', cb, \'.\', cc, \'.\', cd) FROM '.$tbl.'ip_block');
+	$i = 1;
+	while ($r = db_rowarr($c)) {
+		$r[1] = str_replace('256', '*', $r[1]);
+		if ($edit == $r[0]) {
+			$bgcolor = ' bgcolor="#ffb5b5"';
+		} else {
+			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
+		}
+		echo '<tr '.$bgcolor.'><td>'.$r[1].'</td><td>[<a href="admipfilter.php?edit='.$r[0].'&'._rsid.'">Edit</a>] [<a href="admipfilter.php?del='.$r[0].'&'._rsid.'">Delete</a>]</td></tr>';
 	}
-	
+	qf($c);
 ?>
 </table>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
