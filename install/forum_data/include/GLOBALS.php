@@ -98,6 +98,7 @@
 	$MEMBER_SEARCH_ENABLED	= "Y";		/* boolean */
 	$FORUM_SEARCH		= "Y";		/* boolean */
 	$MEMBERS_PER_PAGE	= "40";
+	$POLLS_PER_PAGE		= "40";
 	$THREAD_MSG_PAGER	= "5";
 	$GENERAL_PAGER_COUNT	= "15";
 	$SHOW_EDITED_BY		= "Y";		/* boolean */

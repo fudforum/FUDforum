@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: show.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: show.tmpl,v 1.2 2002/07/21 22:05:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -17,7 +17,7 @@
 {PHP_FILE: input: show.inc.t; output: @show.inc;}
 
 {MAIN_SECTION: show_links the links that you see on index/thread/msg page that allow you to access selmsg}
-<font class="GenText"><b>{MSG: show_show}</b></font> <a class="GenLink" href="{ROOT}?t=selmsg&date=today&{DEF: _rsid}&frm_id={VAR: frm_id}&th={VAR: th}"><acronym title="{MSG: todays_posts_desc}">{MSG: todays_posts}</acronym></a>&nbsp;{TEMPLATE-DATA: unread_posts}{TEMPLATE-DATA: unanswered_posts}<br><img src="blank.gif" height=2 border=0>
+<font class="GenText"><b>{MSG: show_show}</b></font> <a class="GenLink" href="{ROOT}?t=selmsg&date=today&{DEF: _rsid}&frm_id={VAR: frm_id}&th={VAR: th}"><acronym title="{MSG: todays_posts_desc}">{MSG: todays_posts}</acronym></a>&nbsp;{TEMPLATE-DATA: unread_posts}{TEMPLATE-DATA: unanswered_posts} <b>::</b> <a class="GenLink" href="{ROOT}?t=polllist&{DEF: _rsid}">{MSG: show_pollist}</a>&nbsp;<br><img src="blank.gif" height=2 border=0>
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}

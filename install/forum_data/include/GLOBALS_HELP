@@ -316,3 +316,6 @@ If your SMTP server requires SMTP Authentication, enter the login name here.
 FUD_SMTP_PASS
 If your SMTP server requires SMTP Authentication, enter the password here.
 
+POLLS_PER_PAGE
+How many polls to display per page on the poll listing.
+

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.6 2002/07/21 22:05:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,6 +98,18 @@ function convert_bdate($val, $month_fmt)
 		$referals = '{TEMPLATE: referals}'; 		
 	else
 		$referals = '';	
+	
+	$forum_limit = ($usr->is_mod != 'A' ? ' AND {SQL_TABLE_PREFIX}thread.forum_id IN ('.get_all_perms(_uid).') ' : '');
+	
+	if( ($polls = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}poll 
+				INNER JOIN {SQL_TABLE_PREFIX}msg ON 
+					{SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id 
+				INNER JOIN {SQL_TABLE_PREFIX}thread ON
+					{SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id	
+				WHERE {SQL_TABLE_PREFIX}poll.owner=".$u->id." ".$forum_limit." AND {SQL_TABLE_PREFIX}thread.locked='N'")) )
+		$polls = '{TEMPLATE: polls}';
+	else
+		$polls = '';
 	
 	if( $GLOBALS['PM_ENABLED'] == 'Y' && isset($usr) ) $usrinfo_private_msg = '{TEMPLATE: usrinfo_private_msg}';
 	if ( strlen($u->home_page) ) $home_page = '{TEMPLATE: home_page}'; 
