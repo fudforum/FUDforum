@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.36 2003/06/09 13:27:12 hackie Exp $
+*   $Id: compiler.inc,v 1.37 2003/06/12 17:23:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,6 +18,7 @@
 	@set_time_limit(6000);
 
 $GLOBALS['CMP_FILE'] = array(
+				".'." => ".<?php echo ",
 				".''." => '.', 
 				".'" => '; ?>',
 				"'." => '<?php echo '
