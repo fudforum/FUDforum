@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.16 2003/05/16 07:20:38 hackie Exp $
+*   $Id: private.inc.t,v 1.17 2003/05/18 08:52:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -68,7 +68,7 @@ class fud_pmsg
 				".(isset($GLOBALS['recv_user_id']) ? intzero($GLOBALS['recv_user_id'][0]) : '0').",
 				".strnull(addslashes($this->to_list)).",
 				'".$this->ip_addr."',
-				".strnull($this->host_name).",
+				".$this->host_name.",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
 				'".yn($this->mailed)."',

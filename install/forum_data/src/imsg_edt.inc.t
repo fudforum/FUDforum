@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.57 2003/05/15 12:14:15 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.58 2003/05/18 08:52:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,9 +43,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if (!isset($this->ip_addr)) {
-			$this->ip_addr = "'" . get_ip() . "'";
-		} else {
-			$this->ip_addr = "'" . addslashes($this->ip_addr) . "'";
+			$this->ip_addr = get_ip();
 		}
 		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 		$this->thread_id = isset($this->thread_id) ? $this->thread_id : 0;
@@ -89,7 +87,7 @@ class fud_msg_edit extends fud_msg
 			".$this->thread_id.",
 			".$this->poster_id.",
 			".intzero($this->reply_to).",
-			".$this->ip_addr.",
+			'".$this->ip_addr."',
 			".$this->host_name.",
 			".$this->post_stamp.",
 			".strnull(addslashes($this->subject)).",

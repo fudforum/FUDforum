@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.47 2003/05/15 18:53:42 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.48 2003/05/18 08:52:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -333,7 +333,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 
 		if ($obj->host_name && $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y') {
 			if (strlen($obj->host_name) > 30) {
-				$host_name = wordwrap($obj->host_name, 30, '<br>', 1);
+				$obj->host_name = wordwrap($obj->host_name, 30, '<br />', 1);
 			}
 			$host_name = '{TEMPLATE: dmsg_host_name}';
 		} else {
