@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.58 2003/05/16 12:42:31 hackie Exp $
+*   $Id: post.php.t,v 1.59 2003/05/16 13:30:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -413,7 +413,7 @@ function flood_check()
 					}
 					qf($c);
 					if (isset($modl)) {
-						send_email($GLOBALS['NOTIFY_FROM'], $modl[], '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
+						send_email($GLOBALS['NOTIFY_FROM'], $modl, '{TEMPLATE: post_mod_msg_notify_title}', '{TEMPLATE: post_mod_msg_notify_msg}', '');
 					}
 				}
 				$data = file_get_contents($GLOBALS['INCLUDE'].'theme/'.$usr->theme_name.'/usercp.inc');
