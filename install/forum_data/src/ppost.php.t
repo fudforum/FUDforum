@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.34 2003/05/26 06:49:51 hackie Exp $
+*   $Id: ppost.php.t,v 1.35 2003/05/26 07:07:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -99,7 +99,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
 				$msg_id = $msg_to_list = '';
 
-				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
+				if ($quote && strncmp($msg_subject, 'Re: ', 4)) {
 					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
 					switch ($PRIVATE_TAGS) {
 						case 'ML':
@@ -115,7 +115,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 					$msg_ref_msg_id = 'R'.$reply;
 					unset($msg_r);
-				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
+				} else if ($forward && strncmp($msg_subject, 'Fwd: ', 5)) {
 					$old_subject = $msg_subject = 'Fwd: ' . $msg_subject;
 					$msg_ref_msg_id = 'F'.$forward;
 				}
@@ -124,11 +124,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.id='.$reply.' AND p.duser_id='._uid))) {
 				$msg_subject = $msg_r[0];
 				$msg_to_list = $msg_r[1];
-				reverse_fmt($msg_subject);
 
-				if (!preg_match('!^Re:!', $msg_subject)) {
+				if (strncmp($msg_subject, 'Re: ', 4)) {
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 				}
+				reverse_fmt($msg_subject);
 				unset($msg_r);
 				$msg_ref_msg_id = 'R'.$reply;
 			}
