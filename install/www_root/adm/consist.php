@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.63 2003/10/09 14:34:32 hackie Exp $
+* $Id: consist.php,v 1.64 2003/10/14 15:44:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -440,7 +440,7 @@ forum will be disabled.<br><br>
 	qf($fr);
 	draw_stat('Done: Rebuilding Topic Views');
 
-	draw_stat('Rebuilding user levels, message counts & last post ids');
+	draw_stat('Rebuilding user ranks, message counts & last post ids');
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
 	if (__dbtype__ == 'mysql') {
 		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
