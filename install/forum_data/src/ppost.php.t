@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.40 2003/06/18 17:50:18 hackie Exp $
+*   $Id: ppost.php.t,v 1.41 2003/09/21 22:29:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -405,6 +405,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$fud_code_icons = $PRIVATE_TAGS == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
 
 	$post_options = tmpl_post_options('private');
+
+	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+		$private = '&amp;private=1';
+	} else {
+		$private = '1';
+	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {	
 		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error);

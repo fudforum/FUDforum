@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.70 2003/07/11 16:33:03 hackie Exp $
+*   $Id: post.php.t,v 1.71 2003/09/21 22:29:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -647,7 +647,8 @@ function flood_check()
 	if (!empty($sp_char_subj)) {
 		$msg_subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_subject);
 	}
-	
+
+	$pivate = '';
 	/* handle file attachments */
 	if ($perms['p_file'] == 'Y') {
 		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error);

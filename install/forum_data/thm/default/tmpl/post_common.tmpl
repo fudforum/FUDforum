@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_common.tmpl,v 1.2 2003/09/18 19:33:58 hackie Exp $
+*   $Id: post_common.tmpl,v 1.3 2003/09/21 22:29:30 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -116,7 +116,7 @@
 {SECTION: END}
 
 {SECTION: insert_uploaded_image}
-&nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}?t=getfile&id={VAR: r[0]}\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
+&nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}?t=getfile&id={VAR: r[0]}{VAR: private}\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
 {SECTION: END}
 
 {SECTION: attached_file}
