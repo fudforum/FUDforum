@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.5 2003/09/20 04:07:41 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.6 2003/10/03 01:14:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -79,11 +79,11 @@
 {SECTION: END}
 
 {SECTION: thread_printable_pdf}
-&nbsp;[ <a href="{GVAR: WWW_ROOT}pdf.php/p/{VAR: frm->id}/{VAR: cur_frm_page}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]
+&nbsp;[ <a href="{GVAR: WWW_ROOT}pdf.php/p/{VAR: frm->id}/{VAR: cur_frm_page}/{DEF: _rsid}" class="GenLink">{MSG: thread_printable_pdf}</a> ]
 {SECTION: END}
 
 {SECTION: thread_syndicate}
-&nbsp;[ <a href="{ROOT}/h/boardusage/#syndicate">{MSG: thread_syndicate}</a> ]
+&nbsp;[ <a href="{ROOT}/h/boardusage/#syndicate" class="GenLink">{MSG: thread_syndicate}</a> ]
 {SECTION: END}
 
 {SECTION: thread_pdf_rdf}
@@ -91,5 +91,5 @@
 {SECTION: END}
 
 {SECTION: thread_merge_t}
-&nbsp;<a href="{ROOT}/met/{VAR: frm->id}/{DEF: _rsid}">{MSG: merge_topics}</a>
+&nbsp;<a href="{ROOT}/met/{VAR: frm->id}/{DEF: _rsid}" class="GenLink">{MSG: merge_topics}</a>
 {SECTION: END}
