@@ -911,3 +911,4 @@ register_tree_msg_view:		Tr&aring;dad tr&aring;dvy/Platt inl&auml;ggsvy
 mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av tr&aring;d/inl&auml;gg
 err_inc_query_err:		Ett SQL-fel har uppst&aring;tt, v&auml;nligen kontakta forumets <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> och be dem kontrollera forumets SQL-loggfil.
 spell_alts:			inga alternativ
+insert_uploaded_image:		Insert image into message body

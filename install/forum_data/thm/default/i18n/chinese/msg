@@ -912,3 +912,4 @@ register_tree_msg_view:		树状浏览/展开浏览
 mmod_delete_cofirm_ttl:		确认删除主题/内容 
 err_inc_query_err:		数据库发生错误, 清告知 <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">系统管理员</a> 以便系统管理员查看日志并修正这个错误。
 spell_alts:			没有选择
+insert_uploaded_image:		Insert image into message body

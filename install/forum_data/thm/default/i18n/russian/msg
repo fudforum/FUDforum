@@ -911,3 +911,4 @@ register_tree_msg_view:		Древовидные форумы/Плоские темы
 mmod_delete_cofirm_ttl:		Подтверждение удаления темы/сообщения
 err_inc_query_err:		Возникла ошибка при выполнениии SQL-запроса, пожалуйста свяжитесь с <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">администратором</a> форума, чтобы он просмотрел протокол SQL-запросов форума
 spell_alts:			нет вариантов
+insert_uploaded_image:		Insert image into message body
