@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.68 2004/04/15 01:19:06 hackie Exp $
+* $Id: users_reg.inc.t,v 1.69 2004/05/09 16:27:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@ class fud_user_reg extends fud_user
 
 		/* this used when utilities create users (aka nntp/mlist import) */
 		if ($this->users_opt == -1) {
-			$this->users_opt = 1|2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
+			$this->users_opt = 1|4|16|32|128|256|512|2048|4096|8192|16384|131072|4194304;
 			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0 LIMIT 1");
 			$this->time_zone =& $GLOBALS['SERVER_TZ'];
 			$this->posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
