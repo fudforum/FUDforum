@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.40 2003/09/30 02:50:45 hackie Exp $
+*   $Id: tree.php.t,v 1.41 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -42,13 +42,13 @@
 		$mid = q_singleval('SELECT m.id FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$th.' AND m.apr=1 AND m.post_stamp > r.last_view AND m.post_stamp > '.$usr->last_read.' ORDER BY m.post_stamp DESC LIMIT 1');
 	}
 
-	/* we create a BIG object frm, which contains data about forum, 
-	 * category, current thread, subscriptions, permissions, moderation status, 
+	/* we create a BIG object frm, which contains data about forum,
+	 * category, current thread, subscriptions, permissions, moderation status,
 	 * rating possibilites and if we will need to update last_view field for registered user
 	 */
 	make_perms_query($fields, $join);
 
-	$frm = db_sab('SELECT 
+	$frm = db_sab('SELECT
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
@@ -101,11 +101,11 @@
 				header('Location: {ROOT}?t=index&' . _rsidl);
 			}
 			exit;
-		}	
-	}	
+		}
+	}
 
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
-	
+
 	if (_uid) {
 		/* Deal with thread subscriptions */
 		if (isset($_GET['notify'], $_GET['opt'])) {
@@ -123,24 +123,24 @@
 		$mid = $frm->root_msg_id;
 	}
 
-	$msg_obj = db_sab('SELECT 
-		m.*, 
+	$msg_obj = db_sab('SELECT
+		m.*,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
-		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
-	FROM 
+	FROM
 		{SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
-	WHERE 
+	WHERE
 		m.id='.$mid.' AND m.apr=1');
 
 	if (!isset($_GET['prevloaded'])) {
@@ -189,14 +189,14 @@
 		$arr[$r->id] = $r;
 		@$arr[$r->reply_to]->kiddie_count++;
 		@$arr[$r->reply_to]->kiddies[] = &$arr[$r->id];
-		
+
 		if ($r->reply_to == 0) {
 			@$tree->kiddie_count++;
 			@$tree->kiddies[] = &$arr[$r->id];
-		}	
+		}
 	}
 	qf($r);
-	
+
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';
 	$reveal = isset($_GET['reveal']) ? $_GET['reveal'] : '';
@@ -212,11 +212,11 @@
 
 		while ($stack_cnt > 0) {
 			$cur = &$stack[$stack_cnt-1];
-		
+
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
 				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
 				$width = '{TEMPLATE: tree_tab_width}' * ($lev - 1);
-				
+
 				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
 					$read_indicator = '{TEMPLATE: tree_unread_message}';
 				} else {
@@ -229,27 +229,27 @@
 					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_entry_selected}' : '{TEMPLATE: tree_entry}';
 				}
 				$cur->sub_shown = 1;
-			
+
 				if ($cur->id == $mid) {
 					$prev_msg = $prev_id;
 				}
 				if ($prev_id == $mid) {
 					$next_msg = $cur->id;
 				}
-			
+
 				$prev_id = $cur->id;
 			}
-		
+
 			if (!isset($cur->kiddie_count)) {
 				$cur->kiddie_count = 0;
 			}
-		
+
 			if ($cur->kiddie_count && isset($cur->kiddie_pos)) {
-				++$cur->kiddie_pos;	
+				++$cur->kiddie_pos;
 			} else {
 				$cur->kiddie_pos = 0;
 			}
-		
+
 			if ($cur->kiddie_pos < $cur->kiddie_count) {
 				++$lev;
 				$stack[$stack_cnt++] = &$cur->kiddies[$cur->kiddie_pos];
@@ -257,7 +257,7 @@
 				unset($stack[--$stack_cnt]);
 				--$lev;
 			}
-		
+
 			unset($cur);
 		}
 	}

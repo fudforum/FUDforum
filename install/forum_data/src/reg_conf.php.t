@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_conf.php.t,v 1.3 2003/09/30 03:27:52 hackie Exp $
+*   $Id: reg_conf.php.t,v 1.4 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -22,7 +22,7 @@ if (!__fud_real_user__ || _uid) {
 	if ($FUD_OPT_2 & 32768) {
 		header('Location: {ROOT}/i/'._rsidl);
 	} else {
-		header('Location: {ROOT}?t=index&'._rsidl);	
+		header('Location: {ROOT}?t=index&'._rsidl);
 	}
 	exit;
 }

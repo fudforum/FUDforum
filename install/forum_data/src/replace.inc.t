@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.7 2003/09/26 18:49:03 hackie Exp $
+*   $Id: replace.inc.t,v 1.8 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -35,7 +35,7 @@ function make_replace_array()
 		$GLOBALS['__FUD_REPL__']['replace'][] = $r[0];
 	}
 	qf($c);
-	
+
 	define('__fud_replace_init', 1);
 }
 

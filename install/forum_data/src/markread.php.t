@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: markread.php.t,v 1.4 2003/04/16 15:51:00 hackie Exp $
+*   $Id: markread.php.t,v 1.5 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,13 +19,13 @@
 /*{POST_HTML_PHP}*/
 
 	if (_uid) {
-		if (!isset($_GET['id'])) { 
+		if (!isset($_GET['id'])) {
 			user_mark_all_read(_uid);
 		} else if ((int)$_GET['id']) {
 			user_mark_forum_read(_uid, (int)$_GET['id'], $usr->last_read);
 		}
 	}
-	
+
 	check_return($usr->returnto);
 	exit();
 ?>

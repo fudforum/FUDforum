@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_notify.inc.t,v 1.3 2003/04/02 17:10:58 hackie Exp $
+*   $Id: thread_notify.inc.t,v 1.4 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 function is_notified($user_id, $thread_id)
 {
 	return q_singleval('SELECT * FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id='.$thread_id.' AND user_id='.$user_id);

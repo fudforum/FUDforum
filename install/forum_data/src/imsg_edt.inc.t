@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.78 2003/10/01 21:48:34 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.79 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
 
 class fud_msg
 {
-	var $id, $thread_id, $poster_id, $reply_to, $ip_addr, $host_name, $post_stamp, $subject, $attach_cnt, $poll_id, 
+	var $id, $thread_id, $poster_id, $reply_to, $ip_addr, $host_name, $post_stamp, $subject, $attach_cnt, $poll_id,
 	    $update_stamp, $icon, $apr, $updated_by, $login, $length, $foff, $file_id, $msg_opt,
 	    $file_id_preview, $length_preview, $offset_preview, $body, $mlist_msg_id;
 }
@@ -63,15 +63,15 @@ class fud_msg_edit extends fud_msg
 		$poll_cache = ($poll_cache ? @serialize($poll_cache) : null);
 
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
-			thread_id, 
-			poster_id, 
-			reply_to, 
+			thread_id,
+			poster_id,
+			reply_to,
 			ip_addr,
 			host_name,
-			post_stamp, 
-			subject, 
-			attach_cnt, 
-			poll_id, 
+			post_stamp,
+			subject,
+			attach_cnt,
+			poll_id,
 			icon,
 			msg_opt,
 			file_id,
@@ -147,9 +147,9 @@ class fud_msg_edit extends fud_msg
 		poll_cache_rebuild($this->poll_id, $poll_cache);
 		$poll_cache = ($poll_cache ? @serialize($poll_cache) : null);
 
-		q("UPDATE {SQL_TABLE_PREFIX}msg SET 
-			file_id=".$file_id.", 
-			foff=".(int)$offset.", 
+		q("UPDATE {SQL_TABLE_PREFIX}msg SET
+			file_id=".$file_id.",
+			foff=".(int)$offset.",
 			length=".(int)$length.",
 			mlist_msg_id=".strnull(addslashes($this->mlist_msg_id)).",
 			file_id_preview=".$file_id_preview.",
@@ -157,15 +157,15 @@ class fud_msg_edit extends fud_msg
 			length_preview=".$length_preview.",
 			updated_by=".$id.",
 			msg_opt=".$this->msg_opt.",
-			attach_cnt=".(int)$this->attach_cnt.", 
-			poll_id=".(int)$this->poll_id.", 
-			update_stamp=".__request_timestamp__.", 
+			attach_cnt=".(int)$this->attach_cnt.",
+			poll_id=".(int)$this->poll_id.",
+			update_stamp=".__request_timestamp__.",
 			icon=".strnull(addslashes($this->icon))." ,
 			poll_cache=".strnull(addslashes($poll_cache))."
 		WHERE id=".$this->id);
 
-		/* determine wether or not we should deal with locked & sticky stuff 
-		 * current approach may seem a little redundant, but for (most) users who 
+		/* determine wether or not we should deal with locked & sticky stuff
+		 * current approach may seem a little redundant, but for (most) users who
 		 * do not have access to locking & sticky this eliminated a query.
 		 */
 		if (isset($_POST['thr_ordertype'], $_POST['thr_orderexpiry']) || isset($_POST['thr_locked'])) {
@@ -199,7 +199,7 @@ class fud_msg_edit extends fud_msg
 			/* Determine if any work needs to be done */
 			if ($thread_opt != $th_data[1] || $orderexpiry != $th_data[0]) {
 				q("UPDATE {SQL_TABLE_PREFIX}thread SET thread_opt=".$thread_opt.", orderexpiry=".$orderexpiry." WHERE id=".$this->thread_id);
-				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process 
+				/* Avoid rebuilding the forum view whenever possible, since it's a rather slow process
 				 * Only rebuild if expiry time has changed or message gained/lost sticky status
 				 */
 				$diff = $thread_opt ^ $th_data[1];
@@ -230,7 +230,7 @@ class fud_msg_edit extends fud_msg
 			$ll = 1;
 		}
 
-		if (!($del = db_sab('SELECT 
+		if (!($del = db_sab('SELECT
 				{SQL_TABLE_PREFIX}msg.id, {SQL_TABLE_PREFIX}msg.attach_cnt, {SQL_TABLE_PREFIX}msg.poll_id, {SQL_TABLE_PREFIX}msg.thread_id, {SQL_TABLE_PREFIX}msg.reply_to, {SQL_TABLE_PREFIX}msg.apr, {SQL_TABLE_PREFIX}msg.poster_id,
 				{SQL_TABLE_PREFIX}thread.replies, {SQL_TABLE_PREFIX}thread.root_msg_id AS root_msg_id, {SQL_TABLE_PREFIX}thread.last_post_id AS thread_lip, {SQL_TABLE_PREFIX}thread.forum_id,
 				{SQL_TABLE_PREFIX}forum.last_post_id AS forum_lip FROM {SQL_TABLE_PREFIX}msg LEFT JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}msg.id='.$mid))) {
@@ -339,7 +339,7 @@ class fud_msg_edit extends fud_msg
 					f.name AS frm_name,
 					u.alias, u.email, u.sig,
 					n.id AS nntp_id, ml.id AS mlist_id
-				FROM {SQL_TABLE_PREFIX}msg m 
+				FROM {SQL_TABLE_PREFIX}msg m
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 				LEFT JOIN {SQL_TABLE_PREFIX}msg m2 ON f.last_post_id=m2.id
@@ -411,12 +411,12 @@ class fud_msg_edit extends fud_msg
 			/* send new thread notifications to forum subscribers */
 			$c = uq('SELECT u.email, u.icq, u.users_opt
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
-					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id 
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id
 					LEFT JOIN {SQL_TABLE_PREFIX}forum_read r ON r.forum_id=fn.forum_id AND r.user_id=fn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
-					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.' 
-				WHERE 
-					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.' 
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=fn.user_id AND g2.resource_id='.$mtf->forum_id.'
+				WHERE
+					fn.forum_id='.$mtf->forum_id.' AND fn.user_id!='.(int)$mtf->poster_id.'
 					AND (CASE WHEN (r.last_view IS NULL AND (u.last_read=0 OR u.last_read >= '.$mtf->frm_last_post_date.')) OR r.last_view > '.$mtf->frm_last_post_date.' THEN 1 ELSE 0 END)=1
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
 			$notify_type = 'frm';
@@ -424,12 +424,12 @@ class fud_msg_edit extends fud_msg
 			/* send new reply notifications to thread subscribers */
 			$c = uq('SELECT u.email, u.icq, u.users_opt, r.msg_id, u.id
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
-					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id 
+					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id
 					LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=tn.thread_id AND r.user_id=tn.user_id
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
-					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.' 
-				WHERE 
-					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.' 
+					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id=tn.user_id AND g2.resource_id='.$mtf->forum_id.'
+				WHERE
+					tn.thread_id='.$mtf->thread_id.' AND tn.user_id!='.(int)$mtf->poster_id.'
 					AND (r.msg_id='.$mtf->last_post_id.' OR (r.msg_id IS NULL AND '.$mtf->post_stamp.' > u.last_read))
 					AND (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2');
 			$notify_type = 'thr';
@@ -468,9 +468,9 @@ class fud_msg_edit extends fud_msg
 			}
 
 			if ($mtf->attach_cnt) {
-				$r = uq("SELECT a.id, a.original_name, 
+				$r = uq("SELECT a.id, a.original_name,
 						CASE WHEN m.mime_hdr IS NULL THEN 'application/octet-stream' ELSE m.mime_hdr END
-						FROM {SQL_TABLE_PREFIX}attach a 
+						FROM {SQL_TABLE_PREFIX}attach a
 						LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id
 						WHERE a.message_id=".$mtf->id." AND a.attach_opt=0");
 				while ($ent = db_rowarr($r)) {
@@ -672,7 +672,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
 
-			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" . 
+			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" .
 			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 		}
 	}

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.22 2003/09/30 02:31:39 hackie Exp $
+*   $Id: rdf.php.t,v 1.23 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -61,7 +61,7 @@ function email_format($data)
 for ($i = 8; $i < 48; $i++) {
 	$e[chr($i)] = '&#' . $i . ';';
 }
-for ($i = 60; $i < 65; $i++) { 
+for ($i = 60; $i < 65; $i++) {
 	$e[chr($i)] = '&#' . $i . ';';
 }
 for ($i = 92; $i < 97; $i++) {
@@ -79,7 +79,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 	 * t 		- threads
 	 * u		- users
 	 */
-	
+
 	if (@count($_GET) < 2) {
 		$_GET['ds'] = __request_timestamp__ - 86400;
 		$_GET['l'] = 1;
@@ -89,7 +89,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 	define('__ROOT__', $WWW_ROOT . 'index.php');
 
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
-	$limit  = (isset($_GET['n']) && $_GET['n'] <= $MAX_N_RESULTS) ? (int)$_GET['n'] : $MAX_N_RESULTS; 
+	$limit  = (isset($_GET['n']) && $_GET['n'] <= $MAX_N_RESULTS) ? (int)$_GET['n'] : $MAX_N_RESULTS;
 
 	switch ($mode) {
 		case 'm':
@@ -104,7 +104,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			 * o		- offset
 			 * n		- number of rows to get
 			 * l		- latest
-			 * basic	- output basic info parsable by all rdf parsers 
+			 * basic	- output basic info parsable by all rdf parsers
 			 */
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
@@ -127,7 +127,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			if ($lmt == " m.apr=1") {
 				$lmt .= ' AND m.post_stamp >= ' . (time() - 86400 * 5);
 			}
-	
+
 			if ($FUD_OPT_2 & 33554432) {
 				if ($AUTH_ID) {
 					$join = '	INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=f.id
@@ -140,7 +140,7 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 				}
 			}
 
-			$c = uq('SELECT 
+			$c = uq('SELECT
 					m.*,
 					u.alias,
 					t.forum_id,
@@ -149,17 +149,17 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 					m3.subject AS reply_subject,
 					f.name AS frm_name,
 					c.name AS cat_name
-				FROM 
+				FROM
 					{SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.root_msg_id=m2.id
 					LEFT JOIN {SQL_TABLE_PREFIX}msg m3 ON m3.id=m.reply_to
-					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 					LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 					'.$join.'
-				WHERE 
+				WHERE
 					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
 			$res = 0;
 			while ($r = db_rowobj($c)) {
@@ -193,10 +193,10 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 
 				if ($basic) {
 					$body = strtr(read_msg_body($r->foff, $r->length, $r->file_id), $e);
-				
+
 $basic_rss_header .= "\t\t\t<rdf:li rdf:resource=\"".$WWW_ROOT."index.php?t=rview&amp;goto=".$r->id."&amp;th=".$r->thread_id."\" />\n";
 
-$basic_rss_data .= '				
+$basic_rss_data .= '
 <item rdf:about="'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'">
 	<title>'.htmlspecialchars($r->subject).'</title>
 	<link>'.$WWW_ROOT.'index.php?t=rview&amp;goto='.$r->id.'&amp;th='.$r->thread_id.'</link>
@@ -268,7 +268,7 @@ $basic_rss_data .= '
 			/* check for various supported limits
 			 * cat		- category
 			 * frm		- forum
-			 * id		- topic id 
+			 * id		- topic id
 			 * ds		- start date
 			 * de		- date end
 			 * o		- offset
@@ -302,29 +302,29 @@ $basic_rss_data .= '
 					$lmt .= " AND g1.group_cache_opt & 2";
 				}
 			}
-			$c = uq('SELECT 
+			$c = uq('SELECT
 					t.*,
 					f.name AS frm_name,
 					c.name AS cat_name,
 					m.subject, m.post_stamp, m.poster_id,
 					m2.subject AS lp_subject,
-					u.alias 
-				FROM 
+					u.alias
+				FROM
 					{SQL_TABLE_PREFIX}thread t
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
 					INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON t.last_post_id=m2.id
-					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 					'.$join.'
-				WHERE 
+				WHERE
 					' . $lmt  . (isset($_GET['l']) ? ' ORDER BY m.post_stamp DESC LIMIT ' : ' LIMIT ') . qry_limit($limit, $offset));
 			$res = 0;
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="utf-8"?> 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
+					echo '<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
 <channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
 	<link>'.__ROOT__.'</link>
@@ -390,7 +390,7 @@ $basic_rss_data .= '
 			} else {
 				$perms = ', 1 AS can_show_msg';
 			}
-			$c = uq('SELECT 
+			$c = uq('SELECT
 						u.id, u.alias, u.join_date, u.posted_msg_count, u.avatar_loc, u.users_opt,
 						u.home_page, u.bday, u.last_visit, u.icq, u.aim, u.yahoo, u.msnm, u.jabber, u.affero,
 						u.name, u.email,
@@ -399,7 +399,7 @@ $basic_rss_data .= '
 						f.name AS frm_name,
 						c.name AS cat_name
 						'.$perms.'
-			
+
 					FROM {SQL_TABLE_PREFIX}users u
 					LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=u.u_last_post_id
 					LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -412,8 +412,8 @@ $basic_rss_data .= '
 			while ($r = db_rowobj($c)) {
 				if (!$res) {
 					header('Content-Type: text/xml');
-					echo '<?xml version="1.0" encoding="utf-8"?> 
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/"> 
+					echo '<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">
 <channel rdf:about="'.__ROOT__.'">
 	<title>'.$FORUM_TITLE.' RDF feed</title>
 	<link>'.__ROOT__.'</link>
@@ -435,7 +435,7 @@ $basic_rss_data .= '
 					if ($r->users_opt >= 16777216) {
 						$r->avatar_loc = '';
 					}
-					
+
 				echo '
 <item>
 	<user_id>'.$r->id.'</user_id>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.9 2003/09/30 03:49:19 hackie Exp $
+*   $Id: smiley.inc.t,v 1.10 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -53,7 +53,7 @@ function post_to_smiley($text)
 		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
 	}
 	qf($c);
-	
+
 	return (isset($re) ? strtr($text, $re) : $text);
 }
 ?>

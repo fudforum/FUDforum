@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.27 2003/10/01 21:48:34 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.28 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	$group_id = isset($_POST['group_id']) ? (int)$_POST['group_id'] : (isset($_GET['group_id']) ? (int)$_GET['group_id'] : 0);
 
 	if ($group_id && !($usr->users_opt & 1048576) && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072')) {
-		std_error('access');	
+		std_error('access');
 	}
 
 	$hdr = group_perm_array();
@@ -41,7 +41,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
 	} else {
 		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND group_members_opt>=131072 AND group_members_opt & 131072 ORDER BY g.name');
-	}	
+	}
 
 	/* make a group selection form */
 	$n = 0;
@@ -154,7 +154,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 		} else {
 			$gr_member = $mbr->alias;
 		}
-		$perm = $mbr->group_members_opt;	
+		$perm = $mbr->group_members_opt;
 	} else if ($group_id > 2 && !isset($_POST['btn_submit']) && ($luser_id = q_singleval('SELECT MAX(id) FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id))) {
 		/* help trick, we fetch the last user added to the group */
 		if (!($mbr = db_sab('SELECT 1 AS user_id, group_members_opt FROM {SQL_TABLE_PREFIX}group_members WHERE id='.$luser_id))) {
@@ -169,24 +169,24 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 	}
 
 	/* no members inside the group */
-	if (!$perm && !isset($mbr)) { 
+	if (!$perm && !isset($mbr)) {
 		$perm = $maxperms;
 	}
 
 	/* translated permission names */
 	$ts_list = array(
-'p_VISIBLE'=>'{TEMPLATE: p_VISIBLE}', 
+'p_VISIBLE'=>'{TEMPLATE: p_VISIBLE}',
 'p_READ'=>'{TEMPLATE: p_READ}',
-'p_POST'=>'{TEMPLATE: p_POST}', 
-'p_REPLY'=>'{TEMPLATE: p_REPLY}', 
+'p_POST'=>'{TEMPLATE: p_POST}',
+'p_REPLY'=>'{TEMPLATE: p_REPLY}',
 'p_EDIT'=>'{TEMPLATE: p_EDIT}',
-'p_DEL'=>'{TEMPLATE: p_DEL}', 
-'p_STICKY'=>'{TEMPLATE: p_STICKY}', 
+'p_DEL'=>'{TEMPLATE: p_DEL}',
+'p_STICKY'=>'{TEMPLATE: p_STICKY}',
 'p_POLL'=>'{TEMPLATE: p_POLL}',
 'p_FILE'=>'{TEMPLATE: p_FILE}',
 'p_VOTE'=>'{TEMPLATE: p_VOTE}',
-'p_RATE'=>'{TEMPLATE: p_RATE}', 
-'p_SPLIT'=>'{TEMPLATE: p_SPLIT}', 
+'p_RATE'=>'{TEMPLATE: p_RATE}',
+'p_SPLIT'=>'{TEMPLATE: p_SPLIT}',
 'p_LOCK'=>'{TEMPLATE: p_LOCK}',
 'p_MOVE'=>'{TEMPLATE: p_MOVE}',
 'p_SML'=>'{TEMPLATE: p_SML}',

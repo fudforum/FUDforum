@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: announcement.inc.t,v 1.6 2003/04/15 08:32:53 hackie Exp $
+*   $Id: announcement.inc.t,v 1.7 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	$announcements = '';	
+	$announcements = '';
 	if ($frm->is_ann) {
 		$today = gmdate('Ymd', __request_timestamp__);
 		$res = uq('SELECT a.subject, a.text FROM {SQL_TABLE_PREFIX}announce a INNER JOIN {SQL_TABLE_PREFIX}ann_forums af ON a.id=af.ann_id AND af.forum_id='.$frm->id.' WHERE a.date_started<='.$today.' AND a.date_ended>='.$today);

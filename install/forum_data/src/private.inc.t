@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.23 2003/09/30 03:49:19 hackie Exp $
+*   $Id: private.inc.t,v 1.24 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -73,7 +73,7 @@ class fud_pmsg
 				".(int)$this->length.",
 				".$this->pmsg_opt."
 			)");
-			
+
 		if ($this->fldr == 3 && !$track) {
 			$this->send_pmsg();
 		}
@@ -85,8 +85,8 @@ class fud_pmsg
 	function send_pmsg()
 	{
 		foreach($GLOBALS['recv_user_id'] as $v) {
-			$id = db_qid("INSERT INTO 
-			{SQL_TABLE_PREFIX}pmsg 
+			$id = db_qid("INSERT INTO
+			{SQL_TABLE_PREFIX}pmsg
 			(
 				to_list,
 				ouser_id,
@@ -162,7 +162,7 @@ class fud_pmsg
 			length=".(int)$this->length.",
 			pmsg_opt=".$this->pmsg_opt."
 		WHERE id=".$this->id);
-				
+
 		if ($this->fldr == 3) {
 			$this->send_pmsg();
 		}
@@ -172,7 +172,7 @@ class fud_pmsg
 function set_nrf($nrf, $id)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}pmsg SET pmsg_opt=(pmsg_opt|96) &~ 96) | ".$nrf." WHERE id=".$id);
-}	
+}
 
 function write_pmsg_body($text)
 {
@@ -212,7 +212,7 @@ function read_pmsg_body($offset, $length)
 function pmsg_move($mid, $fid, $validate)
 {
 	if (!$validate && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid)) {
-		return;		
+		return;
 	}
 
 	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET fldr='.$fid.' WHERE duser_id='._uid.' AND id='.$mid);

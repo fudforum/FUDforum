@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.16 2003/09/30 03:27:52 hackie Exp $
+*   $Id: getfile.php.t,v 1.17 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -80,11 +80,11 @@
 	}
 
 	header('Content-type: '.$r[0]);
-	header('Content-Disposition: '.$append.'filename='.$r[1]);		
-	
+	header('Content-Disposition: '.$append.'filename='.$r[1]);
+
 	if (!$r[2]) {
 		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
-	}	
+	}
 
 	attach_inc_dl_count($id, $r[3]);
 	fpassthru(fopen($r[2], 'rb'));

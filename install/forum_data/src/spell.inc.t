@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.10 2003/09/30 03:57:50 hackie Exp $
+*   $Id: spell.inc.t,v 1.11 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ function init_spell($type, $dict)
 	pspell_config_personal($pspell_config, $GLOBALS['FORUM_SETTINGS_PATH']."forum.pws");
 	pspell_config_ignore($pspell_config, 2);
 	define('__FUD_PSPELL_LINK__', pspell_new_config($pspell_config));
-	
+
 	return true;
 }
 
@@ -42,7 +42,7 @@ function tokenize_string($data)
 		return array();
 	}
 	$wa = array();
-	
+
 	$i=$p=0;
 	while ($i < $len) {
 		switch ($data{$i}) {
@@ -63,7 +63,7 @@ function tokenize_string($data)
 			case "{":
 			case "[":
 			case "]":
-			case "*":	
+			case "*":
 			case ";":
 			case '=':
 			case ':':
@@ -71,9 +71,9 @@ function tokenize_string($data)
 					$wa[] = array('token'=>$str, 'check'=>1);
 					unset($str);
 				}
-				
+
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
-				
+
 				break;
 			case '<':
 				if (($p = strpos($data, '>', $i)) !== false) {
@@ -84,16 +84,16 @@ function tokenize_string($data)
 
 					$wrd = substr($data,$i,($p-$i)+1);
 					$p3=$l=null;
-					
+
 					if ($wrd == '<pre>') {
 						$l = 'pre';
 					} else if ($wrd == '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1">') {
 						$l = 1;
 						$p3 = $p;
-						
+
 						while ($l > 0) {
 							$p3 = strpos($data, 'table', $p3);
-							
+
 							if ($data[$p3-1] == '<') {
 								$l++;
 							} else if ($data[$p3-1] == '/' && $data[$p3-2] == '<') {
@@ -103,7 +103,7 @@ function tokenize_string($data)
 							$p3 = strpos($data, '>', $p3);
 						}
 					}
-					
+
 					if ($p3) {
 						$p = $p3;
 						$wrd = substr($data, $i, ($p-$i)+1);
@@ -111,10 +111,10 @@ function tokenize_string($data)
 						$p = $p2+1+strlen($l)+1;
 						$wrd = substr($data,$i,($p-$i)+1);
 					}
-					
+
 
 					$wa[] = array('token'=>$wrd, 'check'=>0);
-					
+
 					$i=$p;
 				} else {
 					$str .= $data[$i];
@@ -127,33 +127,33 @@ function tokenize_string($data)
 					if (preg_match('!([A-Za-z0-9\-_\.\%\?\&=/]+)!is', $tmp_string, $regs)) {
 						$wa[] = array('token'=>$str.'//'.$regs[1], 'check'=>0);
 						unset($str);
-						                                         
+
 						$i += 2+strlen($regs[1]);
 						break;
 					}
 				} else if ($str == 'Re') {
 					$wa[] = array('token'=>$str.':', 'check'=>0);
 					unset($str);
-					break;                                        
+					break;
 				}
-				
+
 				if (isset($str)) {
 					$wa[] = array('token'=>$str, 'check'=>1);
 					unset($str);
 				}
 				$wa[] = array('token'=>$data[$i], 'check'=>0);
-			
+
 				break;
 			case '&':
 				if (isset($str)) {
 					$wa[] = array('token'=>$str, 'check'=>1);
 					unset($str);
 				}
-				
+
 				$regs = array();
 				if (preg_match('!(\&[A-Za-z]{2,5}\;)!', substr($data,$i,6), $regs)) {
 					$wa[] = array('token'=>$regs[1], 'check'=>0);
-					$i += strlen($regs[1])-1; 
+					$i += strlen($regs[1])-1;
 				} else {
 					$wa[] = array('token'=>$data[$i], 'check'=>0);
 				}
@@ -167,11 +167,11 @@ function tokenize_string($data)
 		}
 		$i++;
 	}
-	
+
 	if (isset($str)) {
 		$wa[] = array('token'=>$str, 'check'=>1);
 	}
-	
+
 	return $wa;
 }
 
@@ -199,14 +199,14 @@ function spell_replace($wa,$type)
 {
 	$data = '';
 
-	foreach($wa as $k => $v) { 
+	foreach($wa as $k => $v) {
 		if( $v['check']==1 && isset($_POST['spell_chk_'.$type.'_'.$k]) && strlen($_POST['spell_chk_'.$type.'_'.$k])) {
-			$data .= $_POST['spell_chk_'.$type.'_'.$k];	
+			$data .= $_POST['spell_chk_'.$type.'_'.$k];
 		} else {
 			$data .= $v['token'];
 		}
 	}
-	
+
 	return $data;
 }
 
@@ -227,8 +227,8 @@ function reasemble_string($wa)
 	foreach($wa as $v) {
 		$data .= $v['token'];
 	}
-	
-	return $data;	
+
+	return $data;
 }
 
 function check_data_spell($data, $type, $dict)

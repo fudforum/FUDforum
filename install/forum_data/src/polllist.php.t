@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.16 2003/09/30 02:57:59 hackie Exp $
+*   $Id: polllist.php.t,v 1.17 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 	ses_update_status($usr->sid, '{TEMPLATE: polllist_update}');
 
 /*{POST_HTML_PHP}*/
-	
+
 	if (!isset($_GET['oby'])) {
 		$_GET['oby'] = 'DESC';
 	}
@@ -32,27 +32,27 @@
 	} else {
 		$uid = $usr_lmt = '';
 	}
-	
+
 	if ($_GET['oby'] == 'ASC') {
 		$oby = 'ASC';
 		$oby_rev_val = 'DESC';
 	} else {
                 $oby = 'DESC';
-		$oby_rev_val = 'ASC';	
+		$oby_rev_val = 'ASC';
 	}
-	
-	$ttl = (int) q_singleval('SELECT count(*) 
-				FROM {SQL_TABLE_PREFIX}poll p 
+
+	$ttl = (int) q_singleval('SELECT count(*)
+				FROM {SQL_TABLE_PREFIX}poll p
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
-				WHERE 
+				WHERE
 					'.$usr_lmt.($usr->users_opt & 1048576 ? ' 1=1' : ' (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 	$poll_entries = $pager = '';
 	if ($ttl) {
-		$c = uq('SELECT 
+		$c = uq('SELECT
 				p.owner, p.name, (CASE WHEN expiry_date = 0 THEN 0 ELSE (p.creation_date + p.expiry_date) END) AS poll_expiry_date, p.creation_date, p.id AS poid, p.max_votes, p.total_votes,
 				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.users_opt,
 				m.id,
@@ -60,7 +60,7 @@
 				'.($usr->users_opt & 1048576 ? '1' : 'mm.id').' AS md,
 				pot.id AS cant_vote,
 				(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
-				FROM {SQL_TABLE_PREFIX}poll p 
+				FROM {SQL_TABLE_PREFIX}poll p
 				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
 				INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
@@ -70,7 +70,7 @@
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
 				LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
-				WHERE 
+				WHERE
 					'.$usr_lmt.' '.($usr->users_opt & 1048576 ? '1=1' : '(mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').' ORDER BY p.creation_date '.$oby.' LIMIT '.qry_limit($POLLS_PER_PAGE, $start));
 
 		while ($obj = db_rowobj($c)) {
@@ -90,7 +90,7 @@
 			if ($obj->owner && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576) && $FUD_OPT_2 & 32) {
 				$online_indicator = $obj->last_visit > __request_timestamp__ ? '{TEMPLATE: polllist_online_indicator}' : '{TEMPLATE: polllist_offline_indicator}';
 			} else {
-				$online_indicator = '';	
+				$online_indicator = '';
 			}
 			$poll_entries .= '{TEMPLATE: poll_entry}';
 		}
@@ -104,9 +104,9 @@
 			}
 		}
 	} else {
-		$poll_entries = '{TEMPLATE: poll_no_polls}';	
+		$poll_entries = '{TEMPLATE: poll_no_polls}';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: POLLLIST_PAGE}

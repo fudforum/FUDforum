@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.10 2003/04/20 22:27:42 hackie Exp $
+*   $Id: forum.inc.t,v 1.11 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 function is_moderator($frm_id, $user_id)
 {
 	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='.$user_id.' AND forum_id='.$frm_id);

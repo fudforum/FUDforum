@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.8 2003/09/30 04:10:53 hackie Exp $
+*   $Id: mnav.php.t,v 1.9 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -54,7 +54,7 @@
 		$mnav_pager = '';
 	} else if (isset($_GET['u'])) {
 		$tm = __request_timestamp__ - $mage;
-	
+
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m
 					INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 					INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
@@ -62,7 +62,7 @@
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE 
+				WHERE
 					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 		if (!$total) {
@@ -79,7 +79,7 @@
 					LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 					LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 					LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-				WHERE 
+				WHERE
 					m.post_stamp > '.$tm.' AND m.apr=1 '.$qry_lmt.'
 					'.($usr->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').'
 					ORDER BY m.thread_id, t.forum_id, m.post_stamp DESC LIMIT '.qry_limit($ppg, $start));
@@ -99,7 +99,7 @@
 				$body = trim_body(read_msg_body($r->foff, $r->length, $r->file_id));
 
 				$poster_info = !empty($r->poster_id) ? '{TEMPLATE: mnav_user}' : '{TEMPLATE: mnav_anon}';
-				
+
 				$mnav_data .= '{TEMPLATE: mnav_msg}';
 			}
 			un_register_fps();

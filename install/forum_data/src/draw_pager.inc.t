@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_pager.inc.t,v 1.8 2003/09/30 03:49:19 hackie Exp $
+*   $Id: draw_pager.inc.t,v 1.9 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -31,12 +31,12 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 	if ($total <= $count) {
 		return;
 	}
-	
+
 	$cur_pg = ceil($start / $count);
 	$ttl_pg = ceil($total / $count);
-	
+
 	$page_pager_data = '';
-	
+
 	if (($page_start = $start - $count) > -1) {
 		if ($append) {
 			$page_first_url = $arg . $suf;
@@ -46,26 +46,26 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 			pager_replace($page_first_url, 0, $count);
 			pager_replace($page_prev_url, $page_start, $count);
 		}
-		
+
 		$page_pager_data .= !$js_pager ? '{TEMPLATE: prev_n_first_page}' : '{TEMPLATE: prev_n_first_page_js}';
-	}	
+	}
 
 	$mid = ceil($GLOBALS['GENERAL_PAGER_COUNT'] / 2);
-	
+
 	if ($ttl_pg > $GLOBALS['GENERAL_PAGER_COUNT']) {
 		if (($mid + $cur_pg) >= $ttl_pg) {
 			$end = $ttl_pg;
 			$mid += $mid + $cur_pg - $ttl_pg;
 			$st = $cur_pg - $mid;
 		} else if (($cur_pg - $mid) <= 0) {
-			$st = 0;				
+			$st = 0;
 			$mid += $mid - $cur_pg;
 			$end = $mid + $cur_pg;
 		} else {
 			$st = $cur_pg - $mid;
 			$end = $mid + $cur_pg;
 		}
-		
+
 		if ($st < 0) {
 			$start = 0;
 		}
@@ -96,7 +96,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 
 	$page_pager_data = substr($page_pager_data, 0 , strlen((!$js_pager ? '{TEMPLATE: page_separator}' : '{TEMPLATE: page_separator_js}')) * -1);
 
-	if (($page_start = $start + $count) < $total) { 
+	if (($page_start = $start + $count) < $total) {
 		$page_start_2 = ($st - 1) * $count;
 		if ($append) {
 			$page_next_url = $arg . $page_start . $suf;
@@ -108,7 +108,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		}
 		$page_pager_data .= !$js_pager ? '{TEMPLATE: last_page_n_next}' : '{TEMPLATE: last_page_n_next_js}';
 	}
-	
+
 	return !$js_pager ? '{TEMPLATE: page_pager}' : '{TEMPLATE: page_pager_js}';
 }
 
@@ -122,12 +122,12 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 	if ($total <= $count) {
 		return;
 	}
-	
+
 	$cur_pg = ceil($start / $count);
 	$ttl_pg = ceil($total / $count);
-	
+
 	$page_pager_data = '';
-	
+
 	if (($page_start = $start - $count) > -1) {
 		if ($append) {
 			$page_first_url = $arg.'&amp;start=0'.$suf;
@@ -137,26 +137,26 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 			pager_replace($page_first_url, 0, $count);
 			pager_replace($page_prev_url, $page_start, $count);
 		}
-		
+
 		$page_pager_data .= !$js_pager ? '{TEMPLATE: prev_n_first_page}' : '{TEMPLATE: prev_n_first_page_js}';
-	}	
+	}
 
 	$mid = ceil($GLOBALS['GENERAL_PAGER_COUNT'] / 2);
-	
+
 	if ($ttl_pg > $GLOBALS['GENERAL_PAGER_COUNT']) {
 		if (($mid + $cur_pg) >= $ttl_pg) {
 			$end = $ttl_pg;
 			$mid += $mid + $cur_pg - $ttl_pg;
 			$st = $cur_pg - $mid;
 		} else if (($cur_pg - $mid) <= 0) {
-			$st = 0;				
+			$st = 0;
 			$mid += $mid - $cur_pg;
 			$end = $mid + $cur_pg;
 		} else {
 			$st = $cur_pg - $mid;
 			$end = $mid + $cur_pg;
 		}
-		
+
 		if ($st < 0) {
 			$start = 0;
 		}
@@ -187,7 +187,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 
 	$page_pager_data = substr($page_pager_data, 0 , strlen((!$js_pager ? '{TEMPLATE: page_separator}' : '{TEMPLATE: page_separator_js}')) * -1);
 
-	if (($page_start = $start + $count) < $total) { 
+	if (($page_start = $start + $count) < $total) {
 		$page_start_2 = ($st - 1) * $count;
 		if ($append) {
 			$page_next_url = $arg.'&amp;start='.$page_start.$suf;
@@ -199,7 +199,7 @@ function tmpl_create_pager($start, $count, $total, $arg, $suf='', $append=1, $js
 		}
 		$page_pager_data .= !$js_pager ? '{TEMPLATE: last_page_n_next}' : '{TEMPLATE: last_page_n_next_js}';
 	}
-	
+
 	return !$js_pager ? '{TEMPLATE: page_pager}' : '{TEMPLATE: page_pager_js}';
 }
 

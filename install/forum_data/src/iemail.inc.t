@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.21 2003/09/30 01:42:28 hackie Exp $
+*   $Id: iemail.inc.t,v 1.22 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@ function validate_email($email)
 function send_email($from, $to, $subj, $body, $header='')
 {
 	if (empty($to) || !count($to)) {
-		return;	
+		return;
 	}
 	$body = str_replace('\n', "\n", $body);
 
@@ -43,7 +43,7 @@ function send_email($from, $to, $subj, $body, $header='')
 			if (count($to) > 1) {
 				unset($to[0]);
 				$bcc = 'Bcc: ' . implode(', ', $to);
-			}	
+			}
 		}
 		if ($header) {
 			$header = "\n" . str_replace("\r", "", $header);
@@ -52,10 +52,10 @@ function send_email($from, $to, $subj, $body, $header='')
 		}
 
 		if (version_compare("4.3.3RC2", phpversion(), ">")) {
-			$body = str_replace("\n.", "\n..", $body);			
+			$body = str_replace("\n.", "\n..", $body);
 		}
 
 		mail($to, $subj, str_replace("\r", "", $body), "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header.$bcc);
-	}		
+	}
 }
 ?>

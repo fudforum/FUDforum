@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: avatarsel.php.t,v 1.5 2003/05/01 14:02:38 hackie Exp $
+*   $Id: avatarsel.php.t,v 1.6 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,12 +16,12 @@
 ***************************************************************************/
 
 	define('plain_form', 1);
-	
+
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
 	$TITLE_EXTRA = ': {TEMPLATE: avatar_sel_form}';
-	
+
 	/* here we draw the avatar control */
 	$icons_per_row = 5;
 	$c = uq('SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar ORDER BY id');

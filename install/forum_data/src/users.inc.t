@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.72 2003/09/30 01:42:28 hackie Exp $
+*   $Id: users.inc.t,v 1.73 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@ function init_user()
 		if ($o2 & 8192) {
 			$_GET['rid'] = array_pop($p);
 		}
-		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'];		
+		$_SERVER['QUERY_STRING'] = $_SERVER['PATH_INFO'];
 	}
 
 	/* fetch an object with the user's session, profile & theme info */
@@ -64,7 +64,7 @@ function init_user()
 	if ($o1 & 128) {
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
 		if ($o2 & 8192) {
-			if ($o2 & 32768) { 
+			if ($o2 & 32768) {
 				define('_rsid', __fud_real_user__ . '/' . s . '/'); define('_rsidl', _rsid);
 			} else {
 				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s); define('_rsidl', 'rid='.__fud_real_user__.'&S='.s);
@@ -85,7 +85,7 @@ function init_user()
 				define('_rsid',  'rid='.__fud_real_user__); define('_rsidl', _rsid);
 			}
 		} else {
-			define('_rsid', ''); define('_rsidl', ''); 
+			define('_rsid', ''); define('_rsidl', '');
 		}
 	}
 
@@ -129,7 +129,7 @@ function init_user()
 					$_GET['t'] = d_thread_view;
 					$_GET['th'] = $p[1];
 					if (isset($p[2])) {
-						$_GET['start'] = $p[2];	
+						$_GET['start'] = $p[2];
 						if (isset($p[3])) {
 							$_GET[$p[3]] = 1;
 						}
@@ -223,7 +223,7 @@ function init_user()
 					$_GET[$p[3]] = 1;
 					$_GET['start'] = $p[4];
 					break;
-			
+
 				case 'sl':
 					$_GET['t'] = 'subscribed';
 					if ($p[1] == 'start') {
@@ -364,7 +364,7 @@ function init_user()
 					$_GET['t'] = 'email';
 					$_GET['toi'] = $p[1];
 					break;
-	
+
 				case 'mar': /* mark all/forum read */
 					$_GET['t'] = 'markread';
 					if (isset($p[1])) {
@@ -385,7 +385,7 @@ function init_user()
 						}
 					}
 					break;
-	
+
 				case 'il': /* ignore list */
 					$_GET['t'] = 'ignore_list';
 					if (isset($p[1])) {
@@ -477,7 +477,7 @@ function init_user()
 					$_GET['th'] = $p[2];
 					$_GET['notify'] = $p[3];
 					$_GET['opt'] = $p[4];
-					if ($p[1] == 'msg') { 
+					if ($p[1] == 'msg') {
 						$_GET['start'] = $p[5];
 					} else {
 						$_GET['mid'] = $p[5];
@@ -495,7 +495,7 @@ function init_user()
 						$_GET['group_id'] = $p[3];
 					}
 					break;
-				
+
 				case 'te':
 					$_GET['t'] = 'thr_exch';
 					if (isset($p[1], $p[2])) {
@@ -521,7 +521,7 @@ function init_user()
 						$_GET['all'] = 1;
 					}
 					break;
-				
+
 				case 'po':
 					$_GET['t'] = 'poll';
 					$_GET['frm_id'] = $p[1];
@@ -556,7 +556,7 @@ function init_user()
 					$j = 0;
 					for ($i = 0; $i < $c; $i++) {
 						@$_GET[$p[++$j]] = @$p[++$j];
-					} 
+					}
 					break;
 
 				case 'pml':
@@ -621,7 +621,7 @@ function user_register_forum_view($frm_id)
 		if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id='.$frm_id.' AND user_id='._uid)) {
 			q('INSERT INTO {SQL_TABLE_PREFIX}forum_read (forum_id, user_id, last_view) VALUES ('.$frm_id.', '._uid.', '.__request_timestamp__.')');
 		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);		
+			q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid);
 		}
 		db_unlock();
 	}
@@ -661,7 +661,7 @@ function user_mark_all_read($id)
 
 function user_mark_forum_read($id, $fid, $last_view)
 {
-	$c = uq('SELECT r.id FROM {SQL_TABLE_PREFIX}read r INNER JOIN {SQL_TABLE_PREFIX}thread t ON r.thread_id=t.id WHERE r.user_id='.$id); 
+	$c = uq('SELECT r.id FROM {SQL_TABLE_PREFIX}read r INNER JOIN {SQL_TABLE_PREFIX}thread t ON r.thread_id=t.id WHERE r.user_id='.$id);
 	while ($r = db_rowarr($c)) {
 		$ids[] = $r[0];
 	}

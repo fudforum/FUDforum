@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.82 2003/10/01 21:48:34 hackie Exp $
+*   $Id: post.php.t,v 1.83 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@ function flood_check()
 }
 
 /*{PRE_HTML_PHP}*/
-	
+
 	$pl_id = 0;
 	$old_subject = $attach_control_error = '';
 
@@ -91,7 +91,7 @@ function flood_check()
 	if (_uid) {
 		/* all sorts of user blocking filters */
 		is_allowed_user($usr);
-		
+
 		/* if not moderator, validate user permissions */
 		if (!$reply_to && !$msg_id && !($perms & 4)) {
 			std_error('perms');
@@ -100,13 +100,13 @@ function flood_check()
 		} else if ($msg_id && $msg->poster_id != $usr->id && !($perms & 16)) {
 			std_error('perms');
 		} else if ($msg_id && $EDIT_TIME_LIMIT && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
-			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}'); 
+			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}');
 		}
 	} else {
 		if (!$th_id && !($perms & 4)) {
-			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}'); 
+			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}');
 		} else if (!($perms & 8)) {
-			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}'); 
+			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}');
 		}
 	}
 
@@ -115,7 +115,7 @@ function flood_check()
 	}
 
 	/* Retrieve Message */
-	if (!isset($_POST['prev_loaded'])) { 
+	if (!isset($_POST['prev_loaded'])) {
 		if (_uid) {
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
 
@@ -140,7 +140,7 @@ function flood_check()
 			$msg_subject = $msg->subject;
 			reverse_fmt($msg_subject);
 			$msg_subject = apply_reverse_replace($msg_subject);
-		
+
 			$msg_body = post_to_smiley($msg->body);
 	 		if ($frm->forum_opt & 16) {
 	 			$msg_body = html_to_tags($msg_body);
@@ -161,7 +161,7 @@ function flood_check()
 	 			qf($r);
 	 			$attach_count = count($attach_list);
 		 	}
-		 	$pl_id = (int) $msg->poll_id;	
+		 	$pl_id = (int) $msg->poll_id;
 		} else if ($reply_to || $th_id) {
 			$subj = $reply_to ? $msg->subject : $thr->subject;
 			reverse_fmt($subj);
@@ -171,12 +171,12 @@ function flood_check()
 
 			if (isset($_GET['quote'])) {
 				$msg_body = post_to_smiley(str_replace("\r", '', $msg->body));
-				
+
 				if (!strlen($msg->login)) {
 					$msg->login =& $ANON_NICK;
 				}
 				reverse_fmt($msg->login);
-				
+
 				if ($frm->forum_opt & 16) {
 					$msg_body = html_to_tags($msg_body);
 					reverse_fmt($msg_body);
@@ -203,7 +203,7 @@ function flood_check()
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
-	
+
 		/* to put it plainly this is a hack to allow us to handle silly browsers
 		 * that encode text for us, when it comes from a different charset :/
 		 */
@@ -216,7 +216,7 @@ function flood_check()
 
 		if ($perms & 256) {
 			$attach_count = 0;
-			
+
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
 				$attach_list = @unserialize(base64_decode($_POST['file_array']));
@@ -228,7 +228,7 @@ function flood_check()
 					}
 				}
 			}
-			
+
 			/* remove file attachment */
 			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 				$attach_list[$_POST['file_del_opt']] = 0;
@@ -236,10 +236,10 @@ function flood_check()
 				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
-					
+
 				$attach_count--;
-			}	
-			
+			}
+
 			$MAX_F_SIZE = $frm->max_attach_size * 1024;
 			/* newly uploaded files */
 			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
@@ -255,30 +255,30 @@ function flood_check()
 							$attach_count++;
 						} else {
 							$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
-						}	
-					}	
-				}	
+						}
+					}
+				}
 			}
 			$attach_cnt = $attach_count;
 		} else {
 			$attach_cnt = 0;
 		}
-		
+
 		/* removal of a poll */
 		if (!empty($_POST['pl_del']) && $pl_id && $perms & 128) {
 			poll_delete($pl_id);
 			$pl_id = 0;
 		}
-		
+
 		if ($reply_to && $old_subject == $msg_subject) {
 			$no_spell_subject = 1;
 		}
-				
+
 		if (isset($_POST['btn_spell'])) {
 			$GLOBALS['MINIMSG_OPT']['DISABLED'] = 1;
 			$text = apply_custom_replace($msg_body);
 			$text_s = apply_custom_replace($msg_subject);
-		
+
 			if ($frm->forum_opt & 16) {
 				$text = tags_to_html($text, $perms & 32768);
 			} else if ($frm->forum_opt & 8) {
@@ -289,10 +289,10 @@ function flood_check()
 				$text = smiley_to_post($text);
 			}
 
-	 		if (strlen($text)) {	
+	 		if (strlen($text)) {
 				$wa = tokenize_string($text);
 				$msg_body = spell_replace($wa, 'body');
-				
+
 				if ($perms & 16384 && !$msg_smiley_disabled) {
 					$msg_body = post_to_smiley($msg_body);
 				}
@@ -301,11 +301,11 @@ function flood_check()
 				} else if ($frm->forum_opt & 8) {
 					reverse_fmt($msg_body);
 				}
-				
+
 				$msg_body = apply_reverse_replace($msg_body);
-			}	
+			}
 			$wa = '';
-			
+
 			if (strlen($_POST['msg_subject']) && empty($no_spell_subject)) {
 				$text_s = htmlspecialchars($text_s);
 				$wa = tokenize_string($text_s);
@@ -314,19 +314,19 @@ function flood_check()
 				$msg_subject = apply_reverse_replace($text_s);
 			}
 		}
-		
+
 		if (!empty($_POST['submitted']) && !isset($_POST['spell']) && !isset($_POST['preview'])) {
 			$_POST['btn_submit'] = 1;
 		}
-		
+
 		if (!($usr->users_opt & 1048576) && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
-		
+
 		/* submit processing */
 		if (isset($_POST['btn_submit']) && !check_post_form()) {
 			$msg_post = new fud_msg_edit;
-			
+
 			/* Process Message Data */
 			$msg_post->poster_id = _uid;
 			$msg_post->poll_id = $pl_id;
@@ -337,30 +337,30 @@ function flood_check()
 		 	$msg_post->msg_opt |= $msg_show_sig ? 1 : 0;
 		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
-			
+
 			if ($frm->forum_opt & 16) {
 				$msg_post->body = tags_to_html($msg_post->body, $perms & 32768);
 			} else if ($frm->forum_opt & 8) {
 				$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
 			}
-			
+
 	 		if ($perms & 16384 && !($msg_post->msg_opt & 2)) {
 	 			$msg_post->body = smiley_to_post($msg_post->body);
 	 		}
 	 		if (!empty($sp_char_body)) {
 				$msg_post->body = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->body);
-			}	
+			}
 
 			fud_wordwrap($msg_post->body);
 
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($msg_post->subject));
-			
+
 			if (!empty($sp_char_subj)) {
 				$msg_post->subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->subject);
 			}
 
 		 	/* chose to create thread OR add message OR update message */
-		 	
+
 		 	if (!$th_id) {
 		 		$create_thread = 1;
 		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->forum_opt, ($perms & (64|4096)), false);
@@ -383,11 +383,11 @@ function flood_check()
 			/* write file attachments */
 			if ($perms & 256 && isset($attach_list)) {
 				attach_finalize($attach_list, $msg_post->id);
-			}	
+			}
 
 			if (!$msg_id && !($frm->forum_opt & 2)) {
 				$msg_post->approve($msg_post->id, true);
-			}	
+			}
 
 			if (_uid) {
 				/* deal with notifications */
@@ -402,7 +402,7 @@ function flood_check()
 					user_register_forum_view($frm->id);
 				}
 			}
-			
+
 			/* where to redirect, to the treeview or the flat view and consider what to do for a moderated forum */
 			if ($frm->forum_opt & 2 && !$MOD) {
 				if ($FUD_OPT_2 & 262144) {
@@ -443,7 +443,7 @@ function flood_check()
 			}
 		} /* Form submitted and user redirected to own message */
 	} /* $prevloaded is SET, this form has been submitted */
-	
+
 	if ($reply_to || $th_id && !$msg_id) {
 		ses_update_status($usr->sid, '{TEMPLATE: post_reply_update}', $frm->id, 0);
 	} else if ($msg_id) {
@@ -464,7 +464,7 @@ function flood_check()
 		$label = '{TEMPLATE: edit_message}';
 	} else {
 		$label = '{TEMPLATE: submit_reply}';
-	}	
+	}
 
 	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('pspell') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
 
@@ -481,7 +481,7 @@ function flood_check()
 		if ($perms & 16384 && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
-	
+
 		$text_s = htmlspecialchars($text_s);
 
 		if (!empty($sp_char_body)) {
@@ -510,7 +510,7 @@ function flood_check()
 			} else {
 				$sig = $usr->sig;
 			}
-		
+
 			$signature = $sig ? '{TEMPLATE: signature}' : '';
 		} else {
 			$signature = '';
@@ -565,7 +565,7 @@ function flood_check()
 
 		$thread_type_select = tmpl_draw_select_opt("0\n4\n2", "{TEMPLATE: post_normal}\n{TEMPLATE: post_sticky}\n{TEMPLATE: post_annoncement}", $thr_ordertype, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 		$thread_expiry_select = tmpl_draw_select_opt("1000000000\n3600\n7200\n14400\n28800\n57600\n86400\n172800\n345600\n604800\n1209600\n2635200\n5270400\n10540800\n938131200", "{TEMPLATE: th_expr_never}\n{TEMPLATE: th_expr_one_hr}\n{TEMPLATE: th_expr_three_hr}\n{TEMPLATE: th_expr_four_hr}\n{TEMPLATE: th_expr_eight_hr}\n{TEMPLATE: th_expr_sixteen_hr}\n{TEMPLATE: th_expr_one_day}\n{TEMPLATE: th_expr_two_day}\n{TEMPLATE: th_expr_four_day}\n{TEMPLATE: th_expr_one_week}\n{TEMPLATE: th_expr_two_week}\n{TEMPLATE: th_expr_one_month}\n{TEMPLATE: th_expr_two_month}\n{TEMPLATE: th_expr_four_month}\n{TEMPLATE: th_expr_one_year}", $thr_orderexpiry, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-		
+
 		$admin_options = '{TEMPLATE: admin_options}';
 	} else {
 		$admin_options = '';
@@ -584,18 +584,18 @@ function flood_check()
 	} else {
 		$mod_post_opts = '';
 	}
-	
+
 	/* message icon selection */
 	$post_icons = draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''));
-	
+
 	/* tool bar icons */
 	$fud_code_icons = $frm->forum_opt & 16 ? '{TEMPLATE: fud_code_icons}' : '';
-	
+
 	$post_options = tmpl_post_options($frm->forum_opt, $perms);
 	$message_err = get_err('msg_body', 1);
 	$msg_body = isset($msg_body) ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
 	if (!empty($msg_subject)) {
-		$msg_subject = htmlspecialchars($msg_subject);	
+		$msg_subject = htmlspecialchars($msg_subject);
 	}
 
 	if (!empty($sp_char_body)) {
@@ -620,7 +620,7 @@ function flood_check()
 	} else {
 		$reg_user_options = '';
 	}
-	
+
 	/* handle smilies */
 	if ($perms & 16384) {
 		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';

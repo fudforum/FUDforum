@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: get_cur_ppage.inc.t,v 1.3 2003/09/26 18:49:02 hackie Exp $
+*   $Id: get_cur_ppage.inc.t,v 1.4 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -21,7 +21,7 @@ function tmpl_cur_ppage($fldr, $folders, $msg_subject='')
 {
 	if (!$fldr || (!$msg_subject && $_GET['t'] == 'ppost')) {
 		$user_action = '{TEMPLATE: writing_message}';
-	} else {	
+	} else {
 		$user_action = $msg_subject ? '{TEMPLATE: viewing_message}' : '{TEMPLATE: viewing_folder}';
 	}
 

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search_forum_sel.inc.t,v 1.3 2003/09/28 20:27:37 hackie Exp $
+*   $Id: search_forum_sel.inc.t,v 1.4 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,9 +19,9 @@
 if ($usr->users_opt & 1048576) {
 	$c = uq('SELECT f.id, f.name, c.id, c.name FROM {SQL_TABLE_PREFIX}forum f INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
 } else {
-	$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name 
-			FROM {SQL_TABLE_PREFIX}forum f 
-			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id 
+	$c = uq('SELECT f.id,f.name, c.id, c.name AS cat_name
+			FROM {SQL_TABLE_PREFIX}forum f
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
@@ -41,7 +41,7 @@ while ($r = db_rowarr($c)) {
 qf($c);
 /* user has no permissions to any forum, so as far as they are concerned the search is disabled */
 if (!$forum_limit_data) {
-	std_error('disabled');	
+	std_error('disabled');
 }
 
 function trim_body($body)

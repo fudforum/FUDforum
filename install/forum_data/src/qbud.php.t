@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.11 2003/05/02 15:21:58 hackie Exp $
+*   $Id: qbud.php.t,v 1.12 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -18,13 +18,13 @@
 	define('plain_form', 1);
 
 /*{PRE_HTML_PHP}*/
-	
+
 	if (!_uid) {
 		std_error('login');
 	}
-	
+
 	$all = !empty($_GET['all']) ? 1 : 0;
-	
+
 	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = addcslashes(implode(';', $_POST['names']), '"\\');
 
@@ -35,9 +35,9 @@
 		} else {
 			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+"'.$names.'";
 		}
-		
+
 		window.close();
-		
+
 		//--></script></body></html>';
 		exit;
 	}
@@ -47,7 +47,7 @@
 	$buddies = '';
 	if ($all) {
 		$all_v = '';
-		$all_d = '{TEMPLATE: pmsg_none}';	
+		$all_d = '{TEMPLATE: pmsg_none}';
 	} else {
 		$all_v = '1';
 		$all_d = '{TEMPLATE: pmsg_all}';
@@ -59,7 +59,7 @@
 	}
 	qf($c);
 	$qbud_data = $buddies ? '{TEMPLATE: buddy_list}' : '{TEMPLATE: no_buddies}';
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: QBUD_PAGE}

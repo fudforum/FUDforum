@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.42 2003/10/01 21:48:34 hackie Exp $
+*   $Id: index.php.t,v 1.43 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -46,8 +46,8 @@ function url_tog_collapse($id, $c)
 			return $c;
 		} else {
 			return $c . '_' . $id . ':' . $c_status;
-		} 
-	}	
+		}
+	}
 }
 
 	if (isset($_GET['c'])) {
@@ -78,14 +78,14 @@ function url_tog_collapse($id, $c)
 	$forum_list_table_data = '';
 
 	/* List of fetched fields & their ids
-	  0	msg.subject, 
-	  1	msg.id AS msg_id, 
-	  2	msg.post_stamp, 
-	  3	users.id AS user_id, 
+	  0	msg.subject,
+	  1	msg.id AS msg_id,
+	  2	msg.post_stamp,
+	  3	users.id AS user_id,
 	  4	users.alias
-	  5	cat.description, 
-	  6	cat.name, 
-	  7	cat.cat_opt, 
+	  5	cat.description,
+	  6	cat.name,
+	  7	cat.cat_opt,
 	  8	forum.cat_id,
 	  9	forum.forum_icon
 	  10	forum.id
@@ -99,7 +99,7 @@ function url_tog_collapse($id, $c)
 	  18	is_moderator
 	  19	read perm
 	*/
-	$frmres = uq('SELECT 
+	$frmres = uq('SELECT
 				m.subject, m.id, m.post_stamp,
 				u.id, u.alias,
 				c.description, c.name, c.cat_opt,
@@ -117,15 +117,15 @@ function url_tog_collapse($id, $c)
 		      '.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id' : '').'
 		      '.($usr->users_opt & 1048576 ? '' : 'WHERE mo.id IS NOT NULL OR '.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END' : 'g1.group_cache_opt').' & 1').'
 		      ORDER BY c.view_order, f.view_order');
-		
-	$post_count = $thread_count = $last_msg_id = $cat = 0;	
+
+	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[8]) {
 			if ($r[7] & 2) {
 				if (!isset($GLOBALS['collapse'][$r[8]])) {
 					$GLOBALS['collapse'][$r[8]] = ($r[7] & 1 ? 0 : 1);
 				}
-				
+
 				if (!empty($GLOBALS['collapse'][$r[8]])) {
 					$collapse_status = '{TEMPLATE: maximize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MAX}';
@@ -187,15 +187,15 @@ function url_tog_collapse($id, $c)
 		$moderators = '';
 		if ($r[12] && ($mods = @unserialize($r[12]))) {
 			foreach($mods as $k => $v) {
-				$moderators .= '{TEMPLATE: profile_link_mod}';	
+				$moderators .= '{TEMPLATE: profile_link_mod}';
 			}
 		} else {
 			$moderators = '{TEMPLATE: no_mod}';
 		}
-		
+
 		$forum_list_table_data .= '{TEMPLATE: index_forum_entry}';
 	}
-	
+
 	qf($frmres);
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.15 2003/09/30 03:57:50 hackie Exp $
+*   $Id: pdf.php.t,v 1.16 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -193,7 +193,7 @@ class fud_pdf
 		pdf_continue_text($this->pdf, $name);
 		pdf_setfont($this->pdf, $this->fonts['Courier-Bold'], 16);
 		pdf_show($this->pdf, '(total votes: '.$ttl_votes.')');
-		
+
 		$this->draw_line();
 
 		$ttl_w = round($this->pw * 0.66);
@@ -216,7 +216,7 @@ class fud_pdf
 			pdf_fill_stroke($this->pdf);
 			pdf_setcolor($this->pdf, 'both', 'rgb', 0, 0, 0);
 			pdf_show_xy($this->pdf, $o['name'] . "\t\t" . $o['votes'] . '/('.round(($o['votes'] / $ttl_votes) * 100).'%)', $this->wmargin + 2, $h1 + 3);
-			$this->y = $h1 - 10; 
+			$this->y = $h1 - 10;
 		}
 	}
 
@@ -305,7 +305,7 @@ function post_to_smiley($text, $re)
 		}
 
 		if ($page) {
-			$join = 'FROM {SQL_TABLE_PREFIX}thread_view tv 
+			$join = 'FROM {SQL_TABLE_PREFIX}thread_view tv
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=tv.thread_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id='.$forum.'
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.thread_id=t.id
@@ -323,7 +323,7 @@ function post_to_smiley($text, $re)
 			$lmt = ' AND f.id='.$forum;
 		}
 	} else if ($thread) {
-		$join = 'FROM {SQL_TABLE_PREFIX}msg m 
+		$join = 'FROM {SQL_TABLE_PREFIX}msg m
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
@@ -332,7 +332,7 @@ function post_to_smiley($text, $re)
 		$lmt = ' AND m.thread_id='.$thread;
 	} else if ($msg) {
 		$lmt = ' AND m.id='.$msg;
-		$join = 'FROM {SQL_TABLE_PREFIX}msg m 
+		$join = 'FROM {SQL_TABLE_PREFIX}msg m
 				INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
@@ -368,7 +368,7 @@ function post_to_smiley($text, $re)
 		$subject = q_singleval('SELECT name FROM {SQL_TABLE_PREFIX}forum WHERE id='.$forum);
 	}
 
-	$c = uq('SELECT 
+	$c = uq('SELECT
 				m.id, m.thread_id, m.subject, m.post_stamp,
 				m.attach_cnt, m.attach_cache, m.poll_cache,
 				m.foff, m.length, m.file_id,

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.26 2003/09/30 01:42:28 hackie Exp $
+*   $Id: pmsg.php.t,v 1.27 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -57,9 +57,9 @@
 
 	$lnk = $fldr == 4 ? '{ROOT}?t=pmsg&amp;msg_id' : '';
 	$author_dest_col = $fldr == 3 ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
-	
+
 	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $fldr, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
-	
+
 	$disk_usage = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid);
 	$percent_full = ceil($disk_usage / $MAX_PMSG_FLDR_SIZE * 100);
 	$full_indicator = ceil($percent_full * 1.69);
@@ -67,25 +67,25 @@
 	if ($percent_full < 90) {
 		$full_indicator = '{TEMPLATE: normal_full_indicator}';
 	} else if ($percent_full >= 90 && $percent_full < 100) {
-		$full_indicator = '{TEMPLATE: alert_full_indicator}';	
+		$full_indicator = '{TEMPLATE: alert_full_indicator}';
 	} else {
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
-	
+
 	if (($all_v = empty($_GET['all']))) {
 		$desc = '{TEMPLATE: pmsg_all}';
 	} else {
 		$desc = '{TEMPLATE: pmsg_none}';
 	}
-	
+
 	$c = uq('SELECT p.id, p.read_stamp, p.post_stamp, p.duser_id, p.ouser_id, p.subject, p.pmsg_opt, p.fldr, p.pdest,
-			u.invisible_mode, u.alias, u.last_visit AS time_sec, 
+			u.invisible_mode, u.alias, u.last_visit AS time_sec,
 			u2.invisible_mode AS invisible_mode2, u2.alias AS alias2, u2.last_visit AS time_sec2
 		FROM {SQL_TABLE_PREFIX}pmsg p
-		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id 
+		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id
 		WHERE duser_id='._uid.' AND fldr='.$fldr.' ORDER BY post_stamp DESC');
-	
+
 	$private_msg_entry = '';
 	while ($obj = db_rowobj($c)) {
 		switch ($obj->fldr) {
@@ -112,15 +112,15 @@
 		} else {
 			$goto = $fldr != 4 ? '{ROOT}?t=pmsg_view&amp;'._rsid.'&amp;id='.$obj->id : '{ROOT}?t=ppost&amp;'._rsid.'&amp;msg_id='.$obj->id;
 		}
-		
-		
+
+
 		$pmsg_status = $obj->read_stamp ? '{TEMPLATE: pmsg_unread}' : '{TEMPLATE: pmsg_read}';
 		if ($obj->pmsg_opt & 4 && $obj->pmsg_opt & 16 && $obj->duser_id == _uid && $obj->ouser_id != _uid) {
 			$deny_recipt = '{TEMPLATE: deny_recipt}';
 		} else {
 			$deny_recipt = '';
 		}
-		
+
 		if ($FUD_OPT_2 & 32 && (!($obj->users_opt & 32768) || $usr->users_opt & 1048576)) {
 			$obj->login =& $obj->alias;
 			if (($obj->time_sec + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) {
@@ -131,7 +131,7 @@
 		} else {
 			$online_indicator = '';
 		}
-		
+
 		if ($obj->pmsg_opt & 64 ) {
 			$msg_type ='{TEMPLATE: replied_msg}';
 		} else if ($obj->pmsg_opt & 32) {
@@ -139,9 +139,9 @@
 		} else {
 			$msg_type ='{TEMPLATE: forwarded_msg}';
 		}
-		
+
 		$checked = !$all_v ? ' checked' : '';
-		
+
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
 	}
 	qf($r);
@@ -155,7 +155,7 @@
 		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
 		$private_tools = '{TEMPLATE: private_tools}';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: PMSG_PAGE}

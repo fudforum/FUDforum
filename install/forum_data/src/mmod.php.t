@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.20 2003/09/30 03:49:19 hackie Exp $
+*   $Id: mmod.php.t,v 1.21 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
-	
+
 	if (isset($_GET['del'])) {
 		$del = (int) $_GET['del'];
 	} else if (isset($_POST['del'])) {
@@ -40,15 +40,15 @@
 	if ($del) {
 		if (!($data = db_saq('SELECT t.forum_id, m.thread_id, m.id, m.subject, t.root_msg_id, m.reply_to, t.replies, mm.id,
 			(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
-			FROM {SQL_TABLE_PREFIX}msg m 
-			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id 
+			FROM {SQL_TABLE_PREFIX}msg m
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647': '0').' AND g1.resource_id=t.forum_id
 			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
 			WHERE m.id='.$del))) {
 			check_return($usr->returnto);
 		}
-	
+
 		if ($del && !($data[8] & 32) && !($usr->users_opt & 1048576) && !$data[7]) {
 			check_return($usr->returnto);
 		}
@@ -60,10 +60,10 @@
 				$delete_msg = '{TEMPLATE: thread_delete}';
 			}
 
-			?> {TEMPLATE: delete_confirm_pg} <?php 
+			?> {TEMPLATE: delete_confirm_pg} <?php
 			exit;
 		}
-		
+
 		if (isset($_POST['YES'])) {
 			if ($data[2] == $data[4]) {
 				logaction(_uid, 'DELTHR', 0, '"'.addslashes($data[3]).'" w/'.$data[6].' replies');
@@ -87,7 +87,7 @@
 		}
 
 		if (strpos($usr->returnto, 'selmsg') !== false) {
-			check_return($usr->returnto);		
+			check_return($usr->returnto);
 		}
 
 		if (d_thread_view == 'tree') {

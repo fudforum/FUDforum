@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.20 2003/09/30 03:57:49 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.21 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache';
 	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'login_filter_cache';
 	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'email_filter_cache';
-	
+
 function is_ip_blocked($ip)
 {
 	if (!count($GLOBALS['__FUD_IP_FILTER__'])) {
@@ -85,17 +85,17 @@ function is_allowed_user(&$usr)
 
 	if ($GLOBALS['FUD_OPT_2'] & 1 && !($usr->users_opt & 131072)) {
 		std_error('emailconf');
-	}	
-	
+	}
+
 	if ($GLOBALS['FUD_OPT_2'] & 1024 && $usr->users_opt & 2097152) {
 		error_dialog('{TEMPLATE: err_mod_acc_ttl}', '{TEMPLATE: err_mod_acc_msg}');
 	}
-			
+
 	if ($usr->users_opt & 65536 || is_email_blocked($usr->email) || is_login_blocked($usr->login) || is_ip_blocked(get_ip())) {
 		ses_delete($usr->sid);
 		$usr = ses_anon_make();
 		setcookie($GLOBALS['COOKIE_NAME'].'1', 'd34db33fd34db33fd34db33fd34db33f', __request_timestamp__+63072000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}'); 
+		error_dialog('{TEMPLATE: err_blockedaccnt_title}', '{TEMPLATE: err_blockedaccnt_msg}');
 	}
 }
 ?>

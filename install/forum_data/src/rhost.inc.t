@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rhost.inc.t,v 1.4 2003/04/08 11:23:54 hackie Exp $
+*   $Id: rhost.inc.t,v 1.5 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 function get_host($ip)
 {
 	if (!$ip || $ip == '0.0.0.0') {
@@ -30,5 +30,5 @@ function get_host($ip)
 	}
 
 	return $name;
-}	
+}
 ?>

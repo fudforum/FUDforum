@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.56 2003/09/30 01:42:28 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.57 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -26,7 +26,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	db_lock('{SQL_TABLE_PREFIX}poll_opt_track WRITE');
 	q('INSERT INTO {SQL_TABLE_PREFIX}poll_opt_track(poll_id, user_id, poll_opt) VALUES('.$poll_id.', '._uid.', '.$opt_id.')');
 	db_unlock();
-	
+
 	q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
 	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$poll_id);
 	poll_cache_rebuild($opt_id, $options);
@@ -99,13 +99,13 @@ function make_tmp_unignore_lnk($id)
 		$p[3] = $_GET['start'];
 		if (empty($_GET['reveal'])) {
 			if ($p[4] === 'prevloaded') {
-				$p[6] = $id; 
+				$p[6] = $id;
 			} else {
 				$p[5] = $id;
 			}
 		} else {
 			if ($p[4] === 'prevloaded') {
-				$p[6] = unignore_tmp . ':' . $id; 
+				$p[6] = unignore_tmp . ':' . $id;
 			} else {
 				$p[5] = unignore_tmp . ':' . $id;
 			}
@@ -128,13 +128,13 @@ function make_reveal_link($id)
 
 		if (!isset($GLOBALS['__FMDSP__'])) {
 			if ($p[4] === 'prevloaded') {
-				$p[5] = $id; 
+				$p[5] = $id;
 			} else {
 				$p[4] = $id;
 			}
 		} else {
 			if ($p[4] === 'prevloaded') {
-				$p[5] = reveal_lnk . $id; 
+				$p[5] = reveal_lnk . $id;
 			} else {
 				$p[4] = reveal_lnk . $id;
 			}
@@ -149,7 +149,7 @@ function make_reveal_link($id)
 	}
 }
 
-/* Draws a message, needs a message object, user object, permissions array, 
+/* Draws a message, needs a message object, user object, permissions array,
  * flag indicating wether or not to show controls and a variable indicating
  * the number of the current message (needed for cross message pager)
  * last argument can be anything, allowing forms to specify various vars they
@@ -197,7 +197,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$m_num++;
 	} else {
 		$next_page = $next_message = $prev_message = '';
-	}	
+	}
 
 	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
 
@@ -215,7 +215,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$un_ignore_url = make_tmp_unignore_lnk($obj->poster_id);
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
 	}
-	
+
 	if ($obj->user_id) {
 		if (!$hide_controls) {
 			if ($obj->avatar_loc && $obj->users_opt & 8388608 && $usr->users_opt & 8192 && $o1 & 28 && $obj->level_opt != 2) {
@@ -264,11 +264,11 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				$im_yahoo	= $obj->yahoo ? '{TEMPLATE: dmsg_im_yahoo}' : '';
 				$im_msnm	= $obj->msnm ? '{TEMPLATE: dmsg_im_msnm}' : '';
 				$im_jabber	= $obj->jabber ? '{TEMPLATE: dmsg_im_jabber}' : '';
-				if ($o2 & 2048) { 
+				if ($o2 & 2048) {
 					$im_affero = $obj->affero ? '{TEMPLATE: drawmsg_affero_reg}' : '{TEMPLATE: drawmsg_affero_noreg}';
 				} else {
 					$im_affero = '';
-				}	
+				}
 			} else {
 				$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
 			}
@@ -300,7 +300,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	if ($obj->poll_cache) {
 		$obj->poll_cache = @unserialize($obj->poll_cache);
 	}
-	
+
 	/* handle poll votes */
 	if (!empty($_POST['poll_opt']) && ($_POST['poll_opt'] = (int)$_POST['poll_opt']) && !($obj->thread_opt & 1) && $perms & 512) {
 		if (register_vote($obj->poll_cache, $obj->poll_id, $_POST['poll_opt'], $obj->id)) {
@@ -309,13 +309,13 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 		unset($_GET['poll_opt']);
 	}
-	
+
 	/* display poll if there is one */
 	if ($obj->poll_id && $obj->poll_cache) {
 		/* we need to determine if we allow the user to vote or see poll results */
 		$show_res = 1;
 
-		/* various conditions that may prevent poll voting */		
+		/* various conditions that may prevent poll voting */
 		if (!$hide_controls && !$obj->cant_vote && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
 			if ($perms & 512 && (!($obj->thread_opt & 1) || $perms & 4096)) {
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
@@ -326,20 +326,20 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				}
 			}
 		}
-		
+
 		$i = 0;
-		
+
 		$poll_data = '';
 		foreach ($obj->poll_cache as $k => $v) {
 			$i++;
 			if ($show_res) {
 				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
-				$poll_data .= '{TEMPLATE: dmsg_poll_result}';	
+				$poll_data .= '{TEMPLATE: dmsg_poll_result}';
 			} else {
 				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
 			}
 		}
-		
+
 		if (!$show_res) {
 			$view_poll_results_button = $obj->total_votes ? '{TEMPLATE: dmsg_view_poll_results_button}' : '';
 			$poll_buttons = '{TEMPLATE: dmsg_poll_buttons}';
@@ -364,7 +364,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			$drawmsg_file_attachments = '{TEMPLATE: dmsg_drawmsg_file_attachments}';
 		}
 	}
-		
+
 	/* Determine if the message was updated and if this needs to be shown */
 	if ($obj->update_stamp) {
 		if ($obj->updated_by != $obj->poster_id && $o1 & 67108864) {
@@ -377,7 +377,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 	} else {
 		$modified_message = '';
 	}
-	
+
 	$rpl = '';
 	if (!$hide_controls) {
 		if (($usr->users_opt & (1048576|524288)) || $o1 & 134217728) {
@@ -441,7 +441,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		} else {
 			$reply_link = $quote_link = '';
 		}
-		
+
 		$message_toolbar = '{TEMPLATE: dmsg_message_toolbar}';
 	} else {
 		$msg_icon = $ip_address = $host_name = $signature = $report_to_mod_link = $message_toolbar = '';

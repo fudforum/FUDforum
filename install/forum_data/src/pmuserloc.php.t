@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.11 2003/09/30 02:50:45 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.12 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 	define('plain_form', 1);
 
 /*{PRE_HTML_PHP}*/
-	
+
 	if (empty($_GET['js_redr'])) {
 		exit;
 	}
@@ -47,7 +47,7 @@
 			if ($overwrite) {
 				$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addcslashes($r[0], "'\\").'\'; window.close();';
 			} else {
-				$retlink = 'javascript: 
+				$retlink = 'javascript:
 						if (!window.opener.document.'.$js_redr.'.value) {
 							window.opener.document.'.$js_redr.'.value = \''.addcslashes($r[0], "'\\").'\';
 						} else {

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.13 2003/09/28 19:19:44 hackie Exp $
+*   $Id: poll.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,13 +40,13 @@
 	/* fetch forum, poll & moderator data */
 	if (!$pl_id) { /* new poll */
 		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS md, '.$fields.'
-			FROM {SQL_TABLE_PREFIX}forum f 
+			FROM {SQL_TABLE_PREFIX}forum f
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			'.$join.'
 			WHERE f.id='.$frm_id);
 	} else { /* editing a poll */
 		$frm = db_sab('SELECT f.id, f.forum_opt, m.id AS is_mod, ms.id AS old_poll, p.id AS poll_id, p.*, '.$fields.'
-			FROM {SQL_TABLE_PREFIX}forum f 
+			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}poll p ON p.id='.$pl_id.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg ms ON ms.poll_id=p.id
@@ -63,9 +63,9 @@
 
 	if (isset($_POST['pl_submit'])) {
 		if ($pl_id) { /* update a poll */
-			poll_sync($pl_id, $_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);	
+			poll_sync($pl_id, $_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);
 		} else { /* adding a new poll */
-			$pl_id = poll_add($_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);	
+			$pl_id = poll_add($_POST['pl_name'], $_POST['pl_max_votes'], $_POST['pl_expiry_date']);
 		}
 		$pl_name = $_POST['pl_name'];
 		$pl_max_votes = $_POST['pl_max_votes'];
@@ -84,10 +84,10 @@
 		poll_del_opt((int)$_GET['del_id'], $pl_id);
 	}
 
-	/* Adding or Updating poll options */	
+	/* Adding or Updating poll options */
 	if(!empty($_POST['pl_upd']) || !empty($_POST['pl_add'])) {
 		$pl_option = apply_custom_replace($_POST['pl_option']);
-		
+
 		if ($frm->forum_opt & 16) {
 			$pl_option = tags_to_html($pl_option, $frm->group_cache_opt & 32768);
 		} else if ($frm->forum_opt & 8) {
@@ -134,12 +134,12 @@
 	$pl_submit = !$pl_id ? '{TEMPLATE: pl_submit_create}' : '{TEMPLATE: pl_submit_update}';
 
 	/* this is only available on a created poll */
-	if ($pl_id) { 
+	if ($pl_id) {
 		if (isset($pl_option)) {
 			$pl_option = post_to_smiley($pl_option);
-		
+
 			if ($frm->forum_opt & 16) {
-				$pl_option = html_to_tags($pl_option);	
+				$pl_option = html_to_tags($pl_option);
 			} else if ($frm->forum_opt & 8) {
 				reverse_nl2br($pl_option);
 			}
@@ -150,7 +150,7 @@
 		}
 
 		$pl_action = !isset($_GET['pl_optedit']) ? '{TEMPLATE: pl_add}' : '{TEMPLATE: pl_upd}';
-	
+
 		$poll_option_entry_data = '';
 		if (!empty($poll_opts)) {
 			foreach ($poll_opts as $k => $v) {
@@ -160,9 +160,9 @@
 
 		$poll_editor = '{TEMPLATE: poll_editor}';
 	} else {
-		$poll_editor = '';	
+		$poll_editor = '';
 	}
-	
+
 	$poll_submit_btn = !$pl_id ? '{TEMPLATE: btn_submit}' : '{TEMPLATE: btn_update}';
 
 /*{POST_PAGE_PHP_CODE}*/

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.13 2003/09/30 02:57:59 hackie Exp $
+*   $Id: remail.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -25,13 +25,13 @@
 
 	if ((isset($_GET['th']) && ($th = (int)$_GET['th'])) || (isset($_POST['th']) && ($th = (int)$_POST['th']))) {
 		$data = db_sab('SELECT m.subject, t.id, mm.id AS md, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
-				FROM {SQL_TABLE_PREFIX}thread t 
+				FROM {SQL_TABLE_PREFIX}thread t
 				INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id
 				LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
-				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id 
+				INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id
 				LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
 				WHERE t.id='.$th);
-				
+
 	}
 	if (empty($data)) {
 		invl_inp_err();
@@ -53,9 +53,9 @@
 	}
 
 	$remail_error = is_post_error() ? '{TEMPLATE: remail_error}' : '';
-	
+
 	$body = isset($_POST['body']) ? htmlspecialchars($_POST['body']) : '{TEMPLATE: email_message}';
-	
+
 	if (_uid) {
 		$femail_error = get_err('femail');
 		$subject_error = get_err('subj');
@@ -65,7 +65,7 @@
 		$femail = isset($_POST['femail']) ? $_POST['femail'] : '';
 		$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : $data->subject;
 
-		$form_data = '{TEMPLATE: registed_user}';	
+		$form_data = '{TEMPLATE: registed_user}';
 	} else {
 		$form_data = '{TEMPLATE: anon_user}';
 	}

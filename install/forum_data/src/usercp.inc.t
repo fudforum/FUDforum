@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usercp.inc.t,v 1.14 2003/09/30 02:50:45 hackie Exp $
+*   $Id: usercp.inc.t,v 1.15 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-		
+
 	if (!__fud_real_user__) {
 		$login_n_logout = '{TEMPLATE: login}';
 		$register_n_profile = '{TEMPLATE: register}';

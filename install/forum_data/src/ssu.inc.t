@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ssu.inc.t,v 1.9 2003/09/30 01:42:28 hackie Exp $
+*   $Id: ssu.inc.t,v 1.10 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ function send_status_update($uid, $ulogin, $uemail, $title, $msg)
 		$pmsg->host_name = 'NULL';
 		$pmsg->ip_addr = '0.0.0.0';
 		list($pmsg->foff, $pmsg->length) = write_pmsg_body(nl2br($msg));
-		$pmsg->send_pmsg();	
+		$pmsg->send_pmsg();
 	} else {
 		if (defined('no_inline')) {
 			fud_use('iemail.inc');

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.21 2003/10/01 20:13:26 hackie Exp $
+*   $Id: groups.inc.t,v 1.22 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -30,7 +30,7 @@ function grp_delete_member($id, $user_id)
 	}
 
 	if ($o) {
-		/* we rebuild cache, since this user's permission for a particular resource are controled by 
+		/* we rebuild cache, since this user's permission for a particular resource are controled by
 		 * more the one group. */
 		grp_rebuild_cache(array($user_id));
 	} else {
@@ -54,7 +54,7 @@ function grp_rebuild_cache($user_id=null)
 	}
 
 	/* generate an array of permissions, in the end we end up with 1ist of permissions */
-	$r = uq("SELECT 
+	$r = uq("SELECT
 	gm.user_id AS uid, gm.group_members_opt AS gco, gr.resource_id AS rid FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_members_opt>=65536 AND gm.group_members_opt & 65536" . ($lmt ? ' AND '.$lmt : ''));
 	while ($o = db_rowobj($r)) {
 		if (isset($list[$o->rid][$o->uid])) {

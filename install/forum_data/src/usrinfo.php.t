@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.20 2003/09/30 01:42:28 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.21 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -91,19 +91,19 @@ function convert_bdate($val, $month_fmt)
 	} else {
 		$email_link = '';
 	}
-	
+
 	if (($referals = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$u->id))) {
-		$referals = '{TEMPLATE: referals}'; 		
+		$referals = '{TEMPLATE: referals}';
 	} else {
-		$referals = '';	
+		$referals = '';
 	}
-	
+
 	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll p INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id WHERE p.owner='.$u->id.' AND f.cat_id>0 '.($usr->users_opt & 1048576 ? '' : ' AND f.id IN('.implode(',', array_keys($frm_perms)).')')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';
 	}
-	
+
 	$usrinfo_private_msg = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
 
 	if ($u->users_opt & 1024) {
@@ -137,7 +137,7 @@ function convert_bdate($val, $month_fmt)
 	} else {
 		$im_affero = '';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: USERINFO_PAGE}

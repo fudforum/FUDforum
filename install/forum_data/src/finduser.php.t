@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.23 2003/09/30 01:42:28 hackie Exp $
+*   $Id: finduser.php.t,v 1.24 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -38,7 +38,7 @@
 		$start = 0;
 	}
 	$count = $MEMBERS_PER_PAGE;
-	
+
 	if (isset($_GET['pc'])) {
 		$ord = 'posted_msg_count DESC';
 	} else if (isset($_GET['us'])) {
@@ -94,9 +94,9 @@
 				} else {
 					$pg .= '/';
 				}
-				
+
 				$pg2 = '';
-				
+
 				if ($usr_login) {
 					$pg2 .= urlencode($usr_login) . '/';
 				} else if ($usr_email) {
@@ -113,7 +113,7 @@
 
 				$pager = tmpl_create_pager($start, $count, $total, $pg, $pg2);
 			} else {
-				
+
 				$pg = '{ROOT}?t=finduser&amp;' . _rsid . '&amp;';
 				if ($usr_login) {
 					$pg .= urlencode($usr_login) . '&amp;';
@@ -134,7 +134,7 @@
 			}
 		}
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: FINDUSER_PAGE}

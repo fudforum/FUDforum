@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.39 2003/10/01 19:29:50 hackie Exp $
+*   $Id: login.php.t,v 1.40 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 /*{PRE_HTML_PHP}*/
 
 	/* clear old sessions */
@@ -24,7 +24,7 @@
 	if ($FUD_OPT_2 & 1) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND users_opt & 131072 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND !(users_opt & 1048576)");
-	}	
+	}
 
 	if (!empty($_GET['logout'])) {
 		if ($usr->returnto) {
@@ -33,7 +33,7 @@
 		} else {
 			$page = '';
 		}
-	
+
 		switch ($page) {
 			case 'register':
 			case 'pmsg_view':
@@ -60,7 +60,7 @@
 				}
 				break;
 		}
-		
+
 		ses_delete($usr->sid);
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}'. $returnto);
@@ -69,7 +69,7 @@
 		}
 		exit;
 	}
-	
+
 	if (_uid) { /* send logged in users to profile page if they are not logging out */
 		if ($FUD_OPT_2 & 32768) {
 			header('Location: {ROOT}/re/'._rsidl);
@@ -92,32 +92,32 @@ function login_php_get_err($type)
 	}
 	return '{TEMPLATE: login_error_text}';
 }
-	
+
 function error_check()
 {
 	$GLOBALS['_ERROR_'] = null;
 
 	$_POST['login'] = trim($_POST['login']);
 	$_POST['password'] = trim($_POST['password']);
-	
+
 	if (!strlen($_POST['login'])) {
 		login_php_set_err('login', '{TEMPLATE: login_name_required}');
 	}
-	
+
 	if (!strlen($_POST['password'])) {
 		login_php_set_err('password', '{TEMPLATE: login_passwd_required}');
 	}
-	
+
 	return $GLOBALS['_ERROR_'];
 }
-	
+
 	/* deal with quicklogin from if needed */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login'] = $_POST['quick_login'];
 		$_POST['password'] = $_POST['quick_password'];
 		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
-	
+
 	if (isset($_POST['login']) && !error_check()) {
 		if ($usr->data) {
 			ses_putvar((int)$usr->sid, null);
@@ -168,14 +168,14 @@ function error_check()
 			check_return($usr->returnto);
 		}
 	}
-	
+
 	ses_update_status($usr->sid, '{TEMPLATE: login_update}', 0, 0);
 	$TITLE_EXTRA = ': {TEMPLATE: login_title}';
 
 /*{POST_HTML_PHP}*/
 
 	$login_error_msg = (!empty($usr->data) && is_string($usr->data)) ? $usr->data : '';
-	
+
 	$login_error	= login_php_get_err('login');
 	$passwd_error	= login_php_get_err('password');
 
@@ -184,7 +184,7 @@ function error_check()
 	if (!isset($_POST['adm'])) {
 		$_POST['adm'] = isset($_GET['adm']) ? '1' : '';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: LOGIN_PAGE}

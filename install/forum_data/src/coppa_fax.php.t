@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: coppa_fax.php.t,v 1.7 2003/09/30 03:27:52 hackie Exp $
+*   $Id: coppa_fax.php.t,v 1.8 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
+
 	/* this form is for printing, therefor it lacks any advanced layout */
 	if (!__fud_real_user__) {
 		if ($FUD_OPT_2 & 32768) {

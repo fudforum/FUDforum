@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: merge_th.php.t,v 1.5 2003/09/30 03:27:52 hackie Exp $
+*   $Id: merge_th.php.t,v 1.6 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -43,7 +43,7 @@
 		foreach ($_POST['sel_th'] as $k => $v) {
 			if (!(int)$v) {
 				unset($_POST['sel_th'][$k]);
-			}	
+			}
 		}
 		if (count($_POST['sel_th']) != q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread WHERE forum_id={$frm} AND id IN(".implode(',', $_POST['sel_th']).")")) {
 			std_error('access');
@@ -68,13 +68,13 @@
 			apply_custom_replace($_POST['new_title']);
 
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
-		
+
 			$tl = implode(',', $_POST['sel_th']);
-			
+
 			list($start, $repl) = db_saq("SELECT MIN(root_msg_id), SUM(replies) FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
 			$repl += count($_POST['sel_th']) - 1;
 			list($lpi, $lpd) = db_saq("SELECT last_post_id, last_post_date FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl}) ORDER BY last_post_date DESC LIMIT 1");
-			
+
 			$new_th = th_add($start, $forum, $lpd, 0, 0, $repl, $lpi);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to=0, subject='".addslashes(htmlspecialchars($_POST['new_title']))."' WHERE id=".$start);
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET reply_to={$start} WHERE thread_id IN({$tl}) AND (reply_to=0 OR reply_to=id) AND id!={$start}");
@@ -109,15 +109,15 @@
 			unset($_POST['sel_th']);
 		}
 	}
-	
-	/* fetch a list of accesible forums */	
-	$c = uq('SELECT f.id, f.name 
-			FROM {SQL_TABLE_PREFIX}forum f 
+
+	/* fetch a list of accesible forums */
+	$c = uq('SELECT f.id, f.name
+			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id='.(_uid ? '2147483647' : '0').'
 			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
-			'.($usr->users_opt & 1048576 ? '' : ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 2').' 
+			'.($usr->users_opt & 1048576 ? '' : ' WHERE mm.id IS NOT NULL OR (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 2').'
 			ORDER BY c.view_order, f.view_order');
 	$vl = $kl = '';
 	while ($r = db_rowarr($c)) {
@@ -147,7 +147,7 @@
 	while ($r = db_rowarr($c)) {
 		$thread_sel .= '{TEMPLATE: sel_opt}';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MERGE_TH_PAGE}

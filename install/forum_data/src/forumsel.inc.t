@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.15 2003/09/28 17:23:43 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.16 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@ function tmpl_create_forum_select($frm_id, $mod)
 		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
-				$selection_options .= '{TEMPLATE: category_option}';	
+				$selection_options .= '{TEMPLATE: category_option}';
 			}
 			$selected = $frm_id == $r[0] ? ' selected' : '';
 			$selection_options .= '{TEMPLATE: forum_option}';
@@ -41,25 +41,25 @@ function tmpl_create_forum_select($frm_id, $mod)
 		return '{TEMPLATE: forum_select}';
 	} else {
 		$c = q('SELECT f.id, f.name, c.name, c.id, CASE WHEN '.$GLOBALS['usr']->last_read.' < m.post_stamp AND (fr.last_view IS NULL OR m.post_stamp > fr.last_view) THEN 1 ELSE 0 END AS reads
-			FROM {SQL_TABLE_PREFIX}forum f 
-			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id 
+			FROM {SQL_TABLE_PREFIX}forum f
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
 			'.($mod & 1048576 ? '' : 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
 			'.($mod & 1048576 ? '' : ' WHERE (CASE WHEN g2.id IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END) & 1').'
-			ORDER BY c.view_order, f.view_order');			
+			ORDER BY c.view_order, f.view_order');
 
 		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
-				$selection_options .= '{TEMPLATE: category_option}';	
+				$selection_options .= '{TEMPLATE: category_option}';
 			}
 			$selected = $frm_id == $r[0] ? ' selected' : '';
 			$selection_options .= $r[4] ? '{TEMPLATE: unread_forum_option}' : '{TEMPLATE: forum_option}';
 		}
 		qf($c);
 
-		return '{TEMPLATE: forum_select}';		
+		return '{TEMPLATE: forum_select}';
 	}
 }
 

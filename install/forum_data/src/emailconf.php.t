@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.13 2003/09/30 03:49:19 hackie Exp $
+*   $Id: emailconf.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 
 	if (isset($_GET['conf_key'])) {
 		/* it is possible that a user may access the email confirmation URL twice, for such a 'rare' case,
-		 * we have this check to prevent a confusing error message being thrown at the hapeless user 
+		 * we have this check to prevent a confusing error message being thrown at the hapeless user
 		 */
 		if (_uid && $usr->users_opt & 131072) {
 			check_return($usr->returnto);

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.44 2003/09/30 04:10:53 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.45 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -34,7 +34,7 @@ function make_alias($text)
 class fud_user_reg extends fud_user
 {
 	function add_user()
-	{	
+	{
 		if (!$this->users_opt) {
 			$this->users_opt = 4488117;
 		}
@@ -69,7 +69,7 @@ class fud_user_reg extends fud_user
 		if (!db_locked()) {
 			$ll = 1;
 			db_lock('{SQL_TABLE_PREFIX}users WRITE');
-		}	
+		}
 
 		if ($GLOBALS['FUD_OPT_2'] & 1) {
 			while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".($this->conf_key = md5(get_random_value(128)))."'"));
@@ -78,29 +78,29 @@ class fud_user_reg extends fud_user
 			$this->users_opt |= 131072;
 		}
 
-		$this->id = db_qid("INSERT INTO 
+		$this->id = db_qid("INSERT INTO
 			{SQL_TABLE_PREFIX}users (
 				login,
 				alias,
-				passwd, 
-				name, 
-				email, 
-				icq, 
+				passwd,
+				name,
+				email,
+				icq,
 				aim,
 				yahoo,
 				msnm,
 				jabber,
 				affero,
-				posts_ppg, 
-				time_zone, 
-				bday, 
-				last_visit, 
-				conf_key, 
-				user_image, 
-				join_date, 
-				location, 
-				theme, 
-				occupation, 
+				posts_ppg,
+				time_zone,
+				bday,
+				last_visit,
+				conf_key,
+				user_image,
+				join_date,
+				location,
+				theme,
+				occupation,
 				interests,
 				referer_id,
 				last_read,
@@ -154,7 +154,7 @@ class fud_user_reg extends fud_user
 
 		$rb_mod_list = (!($this->users_opt & 524288) && ($is_mod = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id={$this->id}")) && (q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id={$this->id}") == $this->alias));
 
-		q("UPDATE {SQL_TABLE_PREFIX}users SET ".$passwd." 
+		q("UPDATE {SQL_TABLE_PREFIX}users SET ".$passwd."
 			name='".addslashes(htmlspecialchars($this->name))."',
 			alias='".addslashes($this->alias)."',
 			email='".addslashes($this->email)."',
@@ -181,7 +181,7 @@ class fud_user_reg extends fud_user
 		WHERE id=".$this->id);
 
 		if ($rb_mod_list) {
-			rebuildmodlist();			
+			rebuildmodlist();
 		}
 	}
 }
@@ -202,10 +202,10 @@ function usr_email_unconfirm($id)
 	do {
 		$conf_key = md5(get_random_value(128));
 	} while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'"));
-	
+
 	q("UPDATE {SQL_TABLE_PREFIX}users SET users_opt=((users_opt|131072) &~ 131072), conf_key='".$conf_key."' WHERE id=".$id);
 	db_unlock();
-		
+
 	return $conf_key;
 }
 
@@ -229,7 +229,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 {
 	if (!$use_cookies && isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 		/* remove cookie so it does not confuse us */
-		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);	
+		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 	}
 	if ($GLOBALS['FUD_OPT_2'] & 256 && $use_cookies && ($ses_id = q_singleval('SELECT ses_id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id))) {
 		setcookie($GLOBALS['COOKIE_NAME'], $ses_id, __request_timestamp__+$GLOBALS['COOKIE_TIMEOUT'], $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
@@ -261,7 +261,7 @@ function rebuildmodlist()
 	q('UPDATE '.$tbl.'forum SET moderators=NULL');
 	if (isset($ar)) {
 		foreach ($ar as $k => $v) {
-			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k); 
+			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k);
 		}
 	}
 	q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ 524288 WHERE users_opt>=524288 AND users_opt & 524288');

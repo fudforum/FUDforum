@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.24 2003/09/30 01:42:28 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.25 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -78,7 +78,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 				$im_affero = $obj->affero ? '{TEMPLATE: drawpmsg_affero_reg}' : '{TEMPLATE: drawpmsg_affero_noreg}';
 			} else {
 				$im_affero = '';
-			}	
+			}
 		} else {
 			$im_icq = $im_aim = $im_yahoo = $im_msnm = $im_jabber = $im_affero = '';
 		}
@@ -128,5 +128,5 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 	}
 
 	return '{TEMPLATE: private_message_entry}';
-}		
+}
 ?>

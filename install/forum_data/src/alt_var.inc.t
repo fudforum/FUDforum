@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: alt_var.inc.t,v 1.4 2003/04/21 16:26:28 hackie Exp $
+*   $Id: alt_var.inc.t,v 1.5 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@ function alt_var($key)
 {
 	if (!isset($GLOBALS['_ALTERNATOR_'][$key])) {
 		$args = func_get_args(); unset($args[0]);
-		$GLOBALS['_ALTERNATOR_'][$key] = array('p' => 0, 't' => count($args), 'v' => array_values($args)); 
+		$GLOBALS['_ALTERNATOR_'][$key] = array('p' => 0, 't' => count($args), 'v' => array_values($args));
 	} else if ($GLOBALS['_ALTERNATOR_'][$key]['p'] == $GLOBALS['_ALTERNATOR_'][$key]['t']) {
 		$GLOBALS['_ALTERNATOR_'][$key]['p'] = 0;
 	}

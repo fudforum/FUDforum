@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.21 2003/09/30 02:50:45 hackie Exp $
+*   $Id: logedin.inc.t,v 1.22 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@ function rebuild_stats_cache($last_msg_id)
 	qf($c);
 
 	q('UPDATE {SQL_TABLE_PREFIX}stats_cache SET
-		cache_age='.__request_timestamp__.',		
+		cache_age='.__request_timestamp__.',
 		last_user_id='.(int)$obj->last_user_id.',
 		user_count='.(int)$obj->user_count.',
 		online_users_anon='.(int)$obj->online_users_anon.',

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.25 2003/09/30 02:50:45 hackie Exp $
+*   $Id: search.php.t,v 1.26 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -83,7 +83,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		db_unlock();
 
 		if (!$total) {
-			return;	
+			return;
 		}
 	} else {
 		db_unlock();
@@ -107,12 +107,12 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-		WHERE 
+		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
 			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)'));
 	if (!$total) {
-		return;	
+		return;
 	}
 
 	return uq('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
@@ -126,7 +126,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.'
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=f.id
-		WHERE 
+		WHERE
 			sc.query_type='.$qt.' AND sc.srch_query='.$qry_lck.$qry_lmt.'
 			'.($logic == 'AND' ? ' AND sc.n_match='.count($qu) : '').'
 			'.($GLOBALS['usr']->users_opt & 1048576 ? '' : ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2)').'
@@ -168,8 +168,8 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	} else {
 		$search_data = '';
 	}
-	
-	
+
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: SEARCH_PAGE}

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.php.t,v 1.12 2003/09/30 03:27:52 hackie Exp $
+*   $Id: list_referers.php.t,v 1.13 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -29,11 +29,11 @@
 		if ($start > $ttl) {
 			$start = 0;
 		}
-	
+
 		$c = q('SELECT u2.alias, u2.id, count(*) AS cnt FROM {SQL_TABLE_PREFIX}users u LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON u2.id=u.referer_id WHERE u.referer_id > 0 AND u2.id IS NOT NULL GROUP BY u2.id ORDER BY cnt, u.alias DESC LIMIT '.qry_limit($MEMBERS_PER_PAGE, $start));
 		$referer_entry_data = '';
 		while ($r = db_rowarr($c)) {
-			$r_list = '';		
+			$r_list = '';
 			$c2 = uq('SELECT alias, id FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.$r[1]);
 			$refered_entry_data = '';
 			while ($r2 = db_rowarr($c2)) {
@@ -48,7 +48,7 @@
 			if ($FUD_OPT_2 & 32768) {
 				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}/lt/', '/' . _rsid);
 			} else {
-				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'._rsid);	
+				$page_pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $ttl, '{ROOT}?t=list_referers&amp;'._rsid);
 			}
 		} else {
 			$page_pager = '';
@@ -56,7 +56,7 @@
 	} else {
 		$page_pager = $referer_entry_data = '';
 	}
-	
+
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

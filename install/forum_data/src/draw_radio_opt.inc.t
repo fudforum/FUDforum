@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_radio_opt.inc.t,v 1.2 2003/04/20 10:45:19 hackie Exp $
+*   $Id: draw_radio_opt.inc.t,v 1.3 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@ function tmpl_draw_radio_opt($name, $values, $names, $selected, $normal_tmpl, $s
 	if (($a = count($vls)) != count($nms)) {
 		exit("FATAL ERROR: inconsistent number of values<br>\n");
 	}
-	
+
 	$checkboxes = '';
 	for ($i = 0; $i < $a; $i++) {
 		$checkboxes .= $vls[$i] != $selected ? '{TEMPLATE: selected_checkbox}' : '{TEMPLATE: unselected_checkbox}';

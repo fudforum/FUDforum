@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.23 2003/09/30 03:27:52 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.24 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -24,14 +24,14 @@ if (!isset($_GET['start']) || !($start = (int)$_GET['start'])) {
 	$start = 0;
 }
 
-/* This query creates frm object that contains info about the current 
+/* This query creates frm object that contains info about the current
  * forum, category & user's subscription status & permissions to the
  * forum.
  */
 
 make_perms_query($fields, $join, $frm_id);
 
-$frm = db_sab('SELECT 
+$frm = db_sab('SELECT
 			f.id, f.name, f.thread_count,
 			c.name AS cat_name,
 			fn.forum_id AS subscribed,

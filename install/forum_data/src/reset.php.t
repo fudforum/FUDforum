@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reset.php.t,v 1.13 2003/09/30 04:08:42 hackie Exp $
+*   $Id: reset.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -39,7 +39,7 @@ function usr_reset_passwd($id)
 		} else {
 			header('Location: {ROOT}?t=index&' . _rsidl);
 		}
-		exit;	
+		exit;
 	}
 
 	if (isset($_GET['reset_key'])) {

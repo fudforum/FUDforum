@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.48 2003/09/30 04:08:42 hackie Exp $
+*   $Id: ppost.php.t,v 1.49 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -43,7 +43,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		reverse_nl2br($msg_body);
 	}
 }
-	
+
 	if (!_uid) {
 		std_error('perms');
 	}
@@ -70,14 +70,14 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_show_sig = $usr->users_opt & 2048 ? '1' : '';
 		$msg_smiley_disabled = $FUD_OPT_1 & 8192 ? '' : '2';
 		$reply = $forward = $msg_id = 0;
-		
+
 		/* deal with users passed via GET */
 		if (isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
 			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi.' AND id>1');
 		} else {
 			$msg_to_list = '';
 		}
-	
+
 		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
 			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, pmsg_opt, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list, 1);
@@ -126,7 +126,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$msg_ref_msg_id = 'R'.$reply;
 			}
 		}
-		
+
 		/* restore file attachments */
 		if (!empty($msg_r->attach_cnt) && $PRIVATE_ATTACHMENTS > 0) {
 			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_r->id.' AND attach_opt=1');
@@ -134,7 +134,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	 			$attach_list[$r[0]] = $r[0];
 	 		}
 	 		qf($c);
-	 		
+
 		}
 	} else {
 		if (isset($_POST['btn_action'])) {
@@ -162,7 +162,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		/* restore file attachments */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
 			$attach_list = @unserialize(base64_decode($_POST['file_array']));
-		}			
+		}
 	}
 
 	if (isset($attach_list)) {
@@ -193,7 +193,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control']) && $_FILES['attach_control']['size'] > 0) {
 		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
 			$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
-			$attach_control_error = '{TEMPLATE: post_err_attach_size}';	
+			$attach_control_error = '{TEMPLATE: post_err_attach_size}';
 		} else {
 			if (filter_ext($_FILES['attach_control']['name'])) {
 				$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
@@ -204,7 +204,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 					$attach_count++;
 				} else {
 					$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
-				}	
+				}
 			}
 		}
 	}
@@ -218,14 +218,14 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$msg_p->subject = $msg_subject;
 		$msg_p->fldr = isset($_POST['btn_submit']) ? 3 : 4;
 		$msg_p->to_list = $_POST['msg_to_list'];
-		
+
 		$msg_p->body = apply_custom_replace($msg_p->body);
 		if ($FUD_OPT_1 & 4096) {
 			$msg_p->body = tags_to_html($msg_p->body, $FUD_OPT_1 & 16384);
 		} else if ($FUD_OPT_1 & 2048) {
 			$msg_p->body = nl2br(htmlspecialchars($msg_p->body));
 		}
-		
+
 		if (!($msg_p->pmsg_opt & 2)) {
 			$msg_p->body = smiley_to_post($msg_p->body);
 		}
@@ -235,7 +235,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$msg_p->subject = apply_custom_replace($msg_p->subject);
 		$msg_p->subject = htmlspecialchars($msg_p->subject);
-	
+
 		if (empty($_POST['msg_id'])) {
 			if ($_POST['reply']) {
 				$msg_p->ref_msg_id = 'R'.$_POST['reply'];
@@ -250,14 +250,14 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$msg_p->id = (int) $_POST['msg_id'];
 			$msg_p->sync();
 		}
-				
+
 		if (!isset($_POST['btn_draft'])	&& $msg_p->ref_msg_id) {
 			set_nrf(substr($msg_p->ref_msg_id, 0, 1), substr($msg_p->ref_msg_id, 1));
 		}
-				
+
 		if (isset($attach_list)) {
 			attach_finalize($attach_list, $msg_p->id, 1);
-				
+
 			/* we need to add attachments to all copies of the message */
 			if (!isset($_POST['btn_draft'])) {
 				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND attach_opt=1');
@@ -293,7 +293,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if (isset($_POST['btn_spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
 		$text_s = apply_custom_replace($_POST['msg_subject']);
-		
+
 		if ($FUD_OPT_1 & 4096) {
 			$text = tags_to_html($text, $FUD_OPT_1 & 16384);
 		} else if ($FUD_OPT_1 & 2048) {
@@ -306,19 +306,19 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 	 	if ($text) {
 			$text = spell_replace(tokenize_string($text), 'body');
-			
+
 			if ($FUD_OPT_1 & 8192 && !$msg_smiley_disabled) {
 				$msg_body = post_to_smiley($text);
 			}
-			
+
 			if ($FUD_OPT_1 & 4096) {
 				$msg_body = html_to_tags($msg_body);
 			} else if ($FUD_OPT_1 & 2048) {
 				reverse_fmt($msg_body);
 			}
 			$msg_body = apply_reverse_replace($msg_body);
-		}	
-			
+		}
+
 		if ($text_s && !$no_spell_subject) {
 			$text_s = htmlspecialchars($text_s);
 			$text_s = spell_replace(tokenize_string($text_s), 'subject');
@@ -349,7 +349,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			$text = smiley_to_post($text);
 		}
 		$text_s = htmlspecialchars($text_s);
-	
+
 		$spell = empty($spell_check_button);
 
 		if ($spell && strlen($text)) {
@@ -384,10 +384,10 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		$private = '&amp;private=1';
 	}
 
-	if ($PRIVATE_ATTACHMENTS > 0) {	
+	if ($PRIVATE_ATTACHMENTS > 0) {
 		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private);
 	} else {
-		$file_attachments = '';	
+		$file_attachments = '';
 	}
 
 	$msg_track_check = $msg_track ? ' checked' : '';

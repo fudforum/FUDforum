@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.12 2003/10/01 19:29:50 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.13 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -34,13 +34,13 @@ function get_err($err, $br=0)
 		return ($br ? '{TEMPLATE: post_error_breakback}' : '{TEMPLATE: post_error_breakfront}');
 	}
 }
-		
+
 function post_check_images()
 {
 	if ($GLOBALS['MAX_IMAGE_COUNT'] && $GLOBALS['MAX_IMAGE_COUNT'] < count_images($_POST['msg_body'])) {
 		return -1;
 	}
-		
+
 	return 0;
 }
 
@@ -50,21 +50,21 @@ function check_post_form()
 	if (!strlen(trim($_POST['msg_subject']))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
-	
+
 	/* make sure the number of images [img] inside the body do not exceed the allowed limit */
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
-	
+
 	return $GLOBALS['__error__'];
-} 
+}
 
 function check_ppost_form($msg_subject)
 {
 	if (!strlen(trim($msg_subject))) {
 		set_err('msg_subject', '{TEMPLATE: postcheck_subj_needed}');
 	}
-	
+
 	if (post_check_images()) {
 		set_err('msg_body', '{TEMPLATE: postcheck_max_images_err}');
 	}
@@ -83,17 +83,17 @@ function check_ppost_form($msg_subject)
 				set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
 				break;
 			} else {
-				$GLOBALS['recv_user_id'][] = $obj->id;	
-			}		
+				$GLOBALS['recv_user_id'][] = $obj->id;
+			}
 		}
 	}
-	
+
 	if (empty($_POST['msg_to_list'])) {
 		set_err('msg_to_list', '{TEMPLATE: postcheck_no_recepient}');
 	}
 
 	return $GLOBALS['__error__'];
-} 
+}
 
 function check_femail_form()
 {
@@ -115,7 +115,7 @@ function count_images($text)
 	$text = strtolower($text);
 	$a = substr_count($text, '[img]');
 	$b = substr_count($text, '[/img]');
-	
+
 	return (($a > $b) ? $b : $a);
 }
 ?>

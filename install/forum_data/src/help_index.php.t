@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: help_index.php.t,v 1.6 2003/09/30 03:49:19 hackie Exp $
+*   $Id: help_index.php.t,v 1.7 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
+
 	$section = isset($_GET['section']) ? $_GET['section'] : '';
 	switch ($section) {
 		case 'usermaintance':
@@ -29,14 +29,14 @@
 			$file = '{THEME_ROOT_DISK}/help/faq_index.hlp';
 			$return_top = '';
 	}
-	
+
 	ses_update_status($usr->sid, '{TEMPLATE: help_index_update}');
 	$TITLE_EXTRA = ': {TEMPLATE: help_title}';
 
 /*{POST_HTML_PHP}*/
-	
+
 	$str = file_get_contents($file);
-	
+
 	$tt_len = strlen('TOPIC_TITLE:');
 	$th_len = strlen('TOPIC_HELP:');
 	$help_section_data = '';
@@ -54,7 +54,7 @@
 			$rs = _rsid;
 		}
 		$topic_help = str_replace('%_rsid%', $rs, $topic_help);
-		
+
 		$help_section_data .= '{TEMPLATE: help_section}';
 	}
 /*{POST_PAGE_PHP_CODE}*/

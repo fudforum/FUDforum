@@ -4,9 +4,9 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.22 2003/09/28 12:07:37 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.23 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -61,7 +61,7 @@ function perms_from_obj($obj, $adm)
 function make_perms_query(&$fields, &$join, $fid='')
 {
 	if (!$fid) {
-		$fid = 'f.id';	
+		$fid = 'f.id';
 	}
 
 	if (_uid) {

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.14 2003/09/30 03:57:50 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.15 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -25,23 +25,23 @@
 	}
 
 /*{POST_HTML_PHP}*/
-	
+
 	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
 		invl_inp_err();
 	}
 
-	$m = db_sab('SELECT 
+	$m = db_sab('SELECT
 		p.*,
-		u.id AS user_id, u.alias, u.display_email, u.avatar_approved, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, 
+		u.id AS user_id, u.alias, u.display_email, u.avatar_approved, u.avatar_loc, u.email, u.posted_msg_count, u.join_date,
 		u.location, u.sig, u.icq, u.is_mod, u.aim, u.msnm, u.yahoo, u.jabber, u.affero, u.invisible_mode, u.email_messages,
 		u.custom_status, u.last_visit,
 		l.name AS level_name, l.level_opt, l.img AS level_img
-	FROM 
+	FROM
 		{SQL_TABLE_PREFIX}pmsg p
-		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id	
-	WHERE p.duser_id='._uid.' AND p.id='.$id);	
-	
+		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
+		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+	WHERE p.duser_id='._uid.' AND p.id='.$id);
+
 	if (!$m) {
 		invl_inp_err();
 	}

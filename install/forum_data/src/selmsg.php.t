@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.37 2003/09/30 03:49:19 hackie Exp $
+*   $Id: selmsg.php.t,v 1.38 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,9 +16,9 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
+
 function ifstr($opt1, $opt2, $str)
-{	
+{
 	return (strlen($str) ? $opt1 : $opt2);
 }
 
@@ -46,7 +46,7 @@ function path_info_lnk($var, $val)
 
 	return $url . '/' . _rsid;
 }
-	
+
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
 
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
@@ -101,11 +101,11 @@ function path_info_lnk($var, $val)
 		$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
 		$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
 	}
-	
+
 	$s_today = valstat(isset($_GET['date']));
 	/* reply limit */
 	$s_unu = valstat(isset($_GET['reply_count']));
-	
+
 	if (_uid) {
 		if ($FUD_OPT_2 & 32768) {
 			$un_opt = path_info_lnk('unread', '1');
@@ -127,25 +127,25 @@ function path_info_lnk($var, $val)
 	} else {
 		$subscribed_thr = $subscribed_frm = $unread_messages = '';
 	}
-	
+
 	$todays_posts = '{TEMPLATE: todays_posts}';
-	$unanswered = '{TEMPLATE: unanswered}';	
+	$unanswered = '{TEMPLATE: unanswered}';
 
 	make_perms_query($fields, $join);
-	
+
 	if (!$unread_limit) {
 		$total = (int) q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id '.(isset($_GET['sub_forum_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}forum_notify fn ON fn.forum_id=f.id AND fn.user_id='._uid : '').' '.(isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='._uid : '').' '.$join.' LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='._uid.' WHERE m.apr=1 '.$date_limit.' '.($frm_id ? ' AND f.id='.$frm_id : '').' '.($th ? ' AND t.id='.$th : '').' '.(isset($_GET['reply_count']) ? ' AND t.replies='.(int)$_GET['reply_count'] : '').' '.$perm_limit);
 	}
 
 /*{POST_HTML_PHP}*/
-	
+
 	if ($unread_limit || $total) {
 		/* figure out the query */
-		$c = $query_type('SELECT 
-			m.*, 
+		$c = $query_type('SELECT
+			m.*,
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name,
-			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.last_visit AS time_sec, u.users_opt,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
@@ -164,7 +164,7 @@ function path_info_lnk($var, $val)
 			'.(isset($_GET['sub_th_limit']) ? 'INNER JOIN {SQL_TABLE_PREFIX}thread_notify tn ON tn.thread_id=t.id AND tn.user_id='._uid : '').'
 			'.$join.'
 			LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=t.id AND r.user_id='._uid.'
-			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
@@ -177,7 +177,7 @@ function path_info_lnk($var, $val)
 			'.(isset($_GET['reply_count']) ? ' AND t.replies='.(int)$_GET['reply_count'] : '').'
 			'.$unread_limit.'
 			'.$perm_limit.'
-		ORDER BY 
+		ORDER BY
 			f.last_post_id, t.last_post_date, m.post_stamp
 		LIMIT '.qry_limit($count, $start));
 

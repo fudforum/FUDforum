@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smtp.inc.t,v 1.5 2003/04/21 14:14:39 hackie Exp $
+*   $Id: smtp.inc.t,v 1.6 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -48,7 +48,7 @@ class fud_smtp
 		if (!$this->get_return_code()) {
 			return;
 		}
-		
+
 		/* Do SMTP Auth if needed */
 		if ($GLOBALS['FUD_SMTP_LOGIN']) {
 			$this->wts('AUTH LOGIN');
@@ -95,12 +95,12 @@ class fud_smtp
 		if (!$this->get_return_code(354)) {
 			return;
 		}
-		
+
 		/* This is done to ensure what we comply with RFC requiring each line to end with \r\n */
 		$this->msg = preg_replace("!(\r)?\n!si", "\r\n", $this->msg);
-		
+
 		if( empty($this->from) ) $this->from = $GLOBALS['NOTIFY_FROM'];
-		
+
 		$this->wts('Subject: '.$this->subject);
 		$this->wts('Date: '.date("r"));
 		$this->wts('To: '.$GLOBALS['NOTIFY_FROM']);
@@ -109,7 +109,7 @@ class fud_smtp
 		$this->wts($this->headers."\r\n");
 		$this->wts($this->msg);
 		$this->wts('.');
-		
+
 		return $this->get_return_code();
 	}
 
@@ -124,8 +124,8 @@ class fud_smtp
 		if (!$this->open_smtp_connex()) {
 			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
 		}
-		if (!$this->send_from_hdr()) { 
-			$this->close_connex(); 
+		if (!$this->send_from_hdr()) {
+			$this->close_connex();
 			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
 		}
 		if (!$this->send_to_hdr()) {

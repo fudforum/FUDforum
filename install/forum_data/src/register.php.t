@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.85 2003/09/30 13:39:48 hackie Exp $
+*   $Id: register.php.t,v 1.86 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -50,7 +50,7 @@ function fetch_img($url, $user_id)
 	}
 	fwrite($fp, $img_data);
 	fclose($fp);
-	
+
 	return $path;
 }
 	/* intialize error status */
@@ -86,11 +86,11 @@ function register_form_check($user_id)
 		}
 
 		$_POST['reg_plaintext_passwd'] = trim($_POST['reg_plaintext_passwd']);
-		
+
 		if (strlen($_POST['reg_plaintext_passwd']) < 6 ) {
 			set_err('reg_plaintext_passwd', '{TEMPLATE: register_err_shortpasswd}');
 		}
-		
+
 		$_POST['reg_plaintext_passwd_conf'] = trim($_POST['reg_plaintext_passwd_conf']);
 
 		if ($_POST['reg_plaintext_passwd'] !== $_POST['reg_plaintext_passwd_conf']) {
@@ -98,7 +98,7 @@ function register_form_check($user_id)
 		}
 
 		$_POST['reg_login'] = trim($_POST['reg_login']);
-		
+
 		if (strlen($_POST['reg_login']) < 4) {
 			set_err('reg_login', '{TEMPLATE: register_err_short_login}');
 		} else if (is_login_blocked($_POST['reg_login'])) {
@@ -125,7 +125,7 @@ function register_form_check($user_id)
 				set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
 			}
 		}
-		
+
 		/* E-mail validity check */
 		if (validate_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
@@ -146,17 +146,17 @@ function register_form_check($user_id)
 	if (strlen($_POST['reg_name']) < 2) {
 		set_err('reg_name', '{TEMPLATE: register_err_needname}');
 	}
-	
+
 	/* Image count check */
 	if ($GLOBALS['FORUM_IMG_CNT_SIG'] && $GLOBALS['FORUM_IMG_CNT_SIG'] < substr_count(strtolower($_POST['reg_sig']), '[img]') ) {
 		set_err('reg_sig', '{TEMPLATE: register_err_toomanyimages}');
 	}
-			
+
 	/* Url Avatar check */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 	}
-	
+
 	/* Alias Check */
 	if ($GLOBALS['FUD_OPT_2'] & 128 && isset($_POST['reg_alias'])) {
 		if (($_POST['reg_alias'] = trim($_POST['reg_alias']))) {
@@ -168,7 +168,7 @@ function register_form_check($user_id)
 			}
 		}
 	}
-		
+
 	return $GLOBALS['error'];
 }
 
@@ -247,7 +247,7 @@ function decode_uent(&$uent)
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($FUD_OPT_1 & 1048576) {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/cp/'._rsidl);	
+				header('Location: {ROOT}/cp/'._rsidl);
 			} else {
 				header('Location: {ROOT}?t=coppa&'._rsidl);
 			}
@@ -262,17 +262,17 @@ function decode_uent(&$uent)
 	}
 
 	if (isset($_GET['mod_id'])) {
-		$mod_id = (int)$_GET['mod_id'];	
+		$mod_id = (int)$_GET['mod_id'];
 	} else if (isset($_POST['mod_id'])) {
-		$mod_id = (int)$_POST['mod_id'];	
+		$mod_id = (int)$_POST['mod_id'];
 	} else {
 		$mod_id = '';
 	}
 
 	if (isset($_GET['reg_coppa'])) {
-		$reg_coppa = (int)$_GET['reg_coppa'];	
+		$reg_coppa = (int)$_GET['reg_coppa'];
 	} else if (isset($_POST['mod_id'])) {
-		$reg_coppa = (int)$_POST['reg_coppa'];	
+		$reg_coppa = (int)$_POST['reg_coppa'];
 	} else {
 		$reg_coppa = '';
 	}
@@ -293,7 +293,7 @@ function decode_uent(&$uent)
 			$uent->users_opt = 4488117;
 		}
 	}
-	
+
 	$avatar_tmp = $avatar_arr = null;
 	/* deal with avatars, only done for regged users */
 	if (_uid) {
@@ -317,7 +317,7 @@ function decode_uent(&$uent)
 				if (!($img_info = @getimagesize($TMP . $tmp_name))) {
 					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 					unlink($TMP . $tmp_name);
-					
+
 				}
 
 				list($max_w, $max_y) = explode('x', $CUSTOM_AVATAR_MAX_DIM);
@@ -337,7 +337,7 @@ function decode_uent(&$uent)
 					$avatar_arr['del'] = 0;
 					$avatar_arr['leave'] = 0;
 				}
-			} 
+			}
 		}
 	}
 
@@ -350,13 +350,13 @@ function decode_uent(&$uent)
 		}
 		$uent->users_opt = $new_users_opt;
 	}
-	
+
 	/* SUBMITTION CODE */
 	if (isset($_POST['fud_submit']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
 		$old_email = $uent->email;
 		$old_avatar_loc = $uent->avatar_loc;
 		$old_avatar = $uent->avatar;
-		
+
 		/* import data from _POST into $uent object */
 		$vars = array_keys(get_class_vars("fud_user"));
 		foreach ($vars as $v) {
@@ -372,7 +372,7 @@ function decode_uent(&$uent)
 		} else if ($FUD_OPT_1 & 65536) {
 			$uent->sig = nl2br(htmlspecialchars($uent->sig));
 		}
-		
+
 		if ($FUD_OPT_1 & 262144) {
 			$uent->sig = smiley_to_post($uent->sig);
 		}
@@ -437,7 +437,7 @@ function decode_uent(&$uent)
 					if (!$old_avatar && $old_avatar_loc) {
 						remove_old_avatar($old_avatar_loc);
 						$uent->avatar_loc = '';
-					} else if (isset($avatar_arr['file'])) { 
+					} else if (isset($avatar_arr['file'])) {
 						@unlink($TMP . basename($avatar_arr['file']));
 					}
 					if ($_POST['reg_avatar'] == '0') {
@@ -454,7 +454,7 @@ function decode_uent(&$uent)
 				} else {
 					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* New URL avatar */
 						$common_av_name = $reg_avatar_loc_file;
-						
+
 						if (!empty($avatar_arr['file'])) {
 							$avatar_arr['del'] = 1;
 						}
@@ -497,7 +497,7 @@ function decode_uent(&$uent)
 			}
 
 			$uent->sync_user();
-			
+
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
 			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && $uent->users_opt & 1048576) {
 				$conf_key = usr_email_unconfirm($uent->id);
@@ -561,7 +561,7 @@ function decode_uent(&$uent)
 			$avatar_type = $_POST['avatar_type'];
 		}
 	}
-	
+
 	/* When we need to create a new user, define default values for various options */
 	if (!__fud_real_user__ && !isset($_POST['prev_loaded'])) {
 		$vars = array_keys(get_object_vars($uent));
@@ -579,7 +579,7 @@ function decode_uent(&$uent)
 
 		$b_year = $b_month = $b_day = '';
 	}
-	
+
 	if (empty($reg_time_zone)) {
 		$reg_time_zone = $SERVER_TZ;
 	}
@@ -620,17 +620,17 @@ function decode_uent(&$uent)
 
 		$user_info_heading = '{TEMPLATE: new_user}';
 		$submit_button = '{TEMPLATE: register_button}';
-	} else { 
+	} else {
 		$reg_time_limit_err = '';
 		if ($uent->users_opt & 131072 && $FUD_OPT_2 & 1) {
 			$email_warning_msg = '{TEMPLATE: email_warning_msg}';
 		} else {
 			$email_warning_msg = '';
 		}
-		
+
 		$reg_confirm_passwd_err	= draw_err('reg_confirm_passwd');
 		$avatar_err = draw_err('avatar');
-		
+
 		$user_login = htmlspecialchars($uent->login);
 		$change_passwd_link = !$mod_id ? '{TEMPLATE: change_passwd_link}' : '';
 		$user_info_heading = '{TEMPLATE: update_user}';
@@ -679,11 +679,11 @@ function decode_uent(&$uent)
 				}
 				$avatar_type_sel_options = tmpl_draw_select_opt($sel_val, $sel_opt, $avatar_type, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 				$avatar_type_sel = '{TEMPLATE: avatar_type_sel}';
-				
+
 				/* preview image */
 				if (isset($_POST['prev_loaded'])) {
 					if ((!empty($_POST['reg_avatar']) && $_POST['reg_avatar'] == $uent->avatar) || (!empty($avatar_arr['file']) && empty($avatar_arr['del']) && $avatar_arr['leave'])) {
-						$custom_avatar_preview = $uent->avatar_loc;					
+						$custom_avatar_preview = $uent->avatar_loc;
 					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
 						$custom_avatar_preview = make_avatar_loc('images/avatars/' . $im, $WWW_ROOT_DISK, $WWW_ROOT);
 					} else {
@@ -695,11 +695,11 @@ function decode_uent(&$uent)
 						if (isset($common_name)) {
 							$custom_avatar_preview = make_avatar_loc(basename($common_name), $TMP, '{ROOT}?t=tmp_view&img=');
 						}
-					}	
+					}
 				} else if ($uent->avatar_loc) {
 					$custom_avatar_preview = $uent->avatar_loc;
 				}
-				
+
 				if (!isset($custom_avatar_preview)) {
 					$custom_avatar_preview = '<img src="blank.gif" />';
 				}
@@ -731,7 +731,7 @@ function decode_uent(&$uent)
 			}
 		}
 	}
-	
+
 	$post_options = tmpl_post_options('sig');
 
 	$theme_select = create_theme_select('reg_theme', $reg_theme);
@@ -739,7 +739,7 @@ function decode_uent(&$uent)
 	$day_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", $b_day, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$month_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", "\n{TEMPLATE: month_1}\n{TEMPLATE: month_2}\n{TEMPLATE: month_3}\n{TEMPLATE: month_4}\n{TEMPLATE: month_5}\n{TEMPLATE: month_6}\n{TEMPLATE: month_7}\n{TEMPLATE: month_8}\n{TEMPLATE: month_9}\n{TEMPLATE: month_10}\n{TEMPLATE: month_11}\n{TEMPLATE: month_12}", $b_month, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($uent->users_opt & 512 ? 512 : ($uent->users_opt & 1024)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}'); 
+	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$view_select		= tmpl_draw_select_opt("384\n128".($FUD_OPT_2 & 512 ?"\n256\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".($FUD_OPT_2 & 512 ? "\n{TEMPLATE: register_tree_msg_view}\n{TEMPLATE: register_tree_view}":''), ($uent->users_opt & (128|256)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$notification_select	= tmpl_draw_select_opt("4\n0", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", ($uent->users_opt & 4), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');

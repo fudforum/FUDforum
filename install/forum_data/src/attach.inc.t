@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.28 2003/09/30 03:57:49 hackie Exp $
+*   $Id: attach.inc.t,v 1.29 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
 
 function safe_attachment_copy($source, $id, $ext)
 {
-	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';	
+	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';
 	if (!$ext && !move_uploaded_file($source, $loc)) {
 		std_out('unable to move uploaded file', 'ERR');
 	} else if ($ext && !copy($source, $loc)) {
@@ -37,7 +37,7 @@ function attach_add($at, $owner, $attach_opt=0, $ext=0)
 	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,original_name,owner,attach_opt,mime_type,fsize) VALUES('',0,'".addslashes($at['name'])."', ".$owner.", ".$attach_opt.", ".$mime_type.", ".$at['size'].")");
 
 	safe_attachment_copy($at['tmp_name'], $id, $ext);
-		
+
 	return $id;
 }
 
@@ -46,7 +46,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	$id_list = '';
 	$attach_count = 0;
 
-	$tbl = !$attach_opt ? 'msg' : 'pmsg'; 
+	$tbl = !$attach_opt ? 'msg' : 'pmsg';
 
 	foreach ($attach_list as $key => $val) {
 		if (empty($val)) {
@@ -65,15 +65,15 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 		$id_list = ' AND id NOT IN('.$id_list.')';
 	} else {
 		$id_list = '';
-	}	
-			
+	}
+
 	/* delete any temp attachments created during message creation */
 	if (isset($del)) {
 		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE id IN('.implode(',', $del).')');
 	}
 
 	/* delete any prior (removed) attachments if there are any */
-	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND attach_opt=".$attach_opt.$id_list);	
+	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." AND attach_opt=".$attach_opt.$id_list);
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
 		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);
@@ -84,7 +84,7 @@ function attach_rebuild_cache($id)
 {
 	$c = uq('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN m.icon IS NULL THEN \'unknown.gif\' ELSE m.icon END FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE message_id='.$id.' AND attach_opt=0');
 	while ($r = db_rowarr($c)) {
-		$ret[] = $r;	
+		$ret[] = $r;
 	}
 	qf($c);
 

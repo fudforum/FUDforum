@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.11 2003/09/30 03:57:50 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.12 2003/10/01 21:51:53 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@ function fud_wrap_tok($data)
 {
 	$wa = array();
 	$len = strlen($data);
-	
+
 	$i=$j=$p=0;
 	$str = '';
 	while ($i < $len) {
@@ -32,9 +32,9 @@ function fud_wrap_tok($data)
 					$j=0;
 					$str ='';
 				}
-				
+
 				$wa[] = array('word'=>$data[$i]);
-				
+
 				break;
 			case '<':
 				if (($p = strpos($data, '>', $i)) !== false) {
@@ -53,13 +53,13 @@ function fud_wrap_tok($data)
 					}
 
 					$wa[] = array('word' => $s);
-					
+
 					$i = $p;
 					$j = 0;
 				} else {
 					$str .= $data[$i];
 					$j++;
-				}	
+				}
 				break;
 
 			case '&':
@@ -79,16 +79,16 @@ function fud_wrap_tok($data)
 					}
 				} /* fall through */
 			default:
-				$str .= $data[$i];	
+				$str .= $data[$i];
 				$j++;
 		}
 		$i++;
 	}
-	
+
 	if ($j) {
 		$wa[] = array('word'=>$str, 'len'=>($j+1));
 	}
-	
+
 	return $wa;
 }
 

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_nav.inc.t,v 1.4 2003/04/15 10:19:20 hackie Exp $
+*   $Id: th_nav.inc.t,v 1.5 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -21,7 +21,7 @@ function get_prev_next_th_id(&$frm, &$prev, &$next)
 	if ($frm->th_page == 1 && $frm->th_pos == 1) {
 		$prev = '';
 	} else {
-		if ($frm->th_pos - 1 == 0) { 
+		if ($frm->th_pos - 1 == 0) {
 			$page = $frm->th_page - 1;
 			$pos = $GLOBALS['THREADS_PER_PAGE'];
 		} else {
@@ -33,9 +33,9 @@ function get_prev_next_th_id(&$frm, &$prev, &$next)
 
 		$prev = $p ? '{TEMPLATE: prev_thread_link}' : '';
 	}
-	
+
 	/* determine next thread */
-	if ($frm->th_pos + 1 > $GLOBALS['THREADS_PER_PAGE']) { 
+	if ($frm->th_pos + 1 > $GLOBALS['THREADS_PER_PAGE']) {
 		$page = $frm->th_page + 1;
 		$pos = 1;
 	} else {

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.13 2003/09/30 03:27:52 hackie Exp $
+*   $Id: admincp.inc.t,v 1.14 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -26,25 +26,25 @@ if (_uid) {
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
 				$reported_msgs = '{TEMPLATE: reported_msgs}';
 			}
-				
+
 			if ($thr_exchc = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange')) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
-			
+
 			if ($FUD_OPT_2 & 1024 && ($accounts_pending_approval = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=2097152 AND users_opt & 2097152"))) {
 				$accounts_pending_approval = '{TEMPLATE: accounts_pending_approval}';
 			}
-				
-			$q_limit = '';	
+
+			$q_limit = '';
 		} else {
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON mr.msg_id=m.id INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='._uid)) {
 				$reported_msgs = '{TEMPLATE: reported_msgs}';
 			}
-			
+
 			if ($thr_exchc = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}thr_exchange INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}mod.user_id='._uid.' AND {SQL_TABLE_PREFIX}thr_exchange.frm={SQL_TABLE_PREFIX}mod.forum_id')) {
 				$thr_exch = '{TEMPLATE: thr_exch}';
 			}
-			
+
 			$q_limit = ' INNER JOIN {SQL_TABLE_PREFIX}mod m ON f.id=m.forum_id AND m.user_id='._uid;
 		}
 
@@ -55,10 +55,10 @@ if (_uid) {
 	if ($usr->users_opt & 1048576 || $usr->group_leader_list) {
 		$group_mgr = '{TEMPLATE: group_mgr}';
 	}
-	
+
 	if ($thr_exch || $accounts_pending_approval || $group_mgr || $reported_msgs || $custom_avatar_queue || $mod_que) {
 		$admin_cp = '{TEMPLATE: admin_cp}';
-	} 
+	}
 } else {
 	$admin_cp = '';
 }

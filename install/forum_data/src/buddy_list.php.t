@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.23 2003/09/30 04:02:22 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.24 2003/10/01 21:51:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
 
 	if (isset($_POST['add_login'])) {
 		if (!($buddy_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($_POST['add_login']))."'"))) {
-			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');		
+			error_dialog('{TEMPLATE: buddy_list_err_nouser_title}', '{TEMPLATE: buddy_list_err_nouser}');
 		}
 		if ($buddy_id == _uid) {
 			error_dialog('{TEMPLATE: err_info}', '{TEMPLATE: buddy_list_err_cantadd}');
@@ -53,7 +53,7 @@
 	}
 
 	if (isset($_GET['del']) && ($_GET['del'] = (int)$_GET['del'])) {
-		buddy_delete(_uid, $_GET['del']);	
+		buddy_delete(_uid, $_GET['del']);
 		/* needed for external links to this form */
 		if (isset($_GET['redr'])) {
 			check_return($usr->returnto);
@@ -72,10 +72,10 @@
 
 	$c = uq('SELECT b.bud_id, u.id, u.alias, u.join_date, u.bday, (u.users_opt & 32768), u.posted_msg_count, u.home_page, u.last_visit AS time_sec
 		FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
-	
+
 	$buddies = '';
-	/* Result index 
-	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - users_opt	6 - msg_count	
+	/* Result index
+	 * 0 - bud_id	1 - user_id	2 - login	3 - join_date	4 - bday	5 - users_opt	6 - msg_count
 	 * 7 - home_page	8 - last_visit
 	 */
 
@@ -90,7 +90,7 @@
 
 			if ($r[5] && substr($r[4], 4) == date('md')) {
 				$age = date('Y')  - substr($r[4], 0, 4);
-				$bday_indicator = '{TEMPLATE: bday_indicator}';	
+				$bday_indicator = '{TEMPLATE: bday_indicator}';
 			} else {
 				$bday_indicator = '';
 			}
@@ -102,7 +102,7 @@
 		$buddies = '{TEMPLATE: buddy_list}';
 	}
 	qf($res);
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: BUDDYLIST_PAGE}

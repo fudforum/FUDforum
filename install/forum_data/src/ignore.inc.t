@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore.inc.t,v 1.4 2003/04/10 11:00:43 hackie Exp $
+*   $Id: ignore.inc.t,v 1.5 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -25,7 +25,7 @@ function ignore_delete($user_id, $ignore_id)
 {
 	q('DELETE FROM {SQL_TABLE_PREFIX}user_ignore WHERE user_id='.$user_id.' AND ignore_id='.$ignore_id);
 	return ignore_rebuild_cache($user_id);
-}	
+}
 
 function ignore_rebuild_cache($uid)
 {

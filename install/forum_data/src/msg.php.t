@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.52 2003/09/30 03:49:19 hackie Exp $
+*   $Id: msg.php.t,v 1.53 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-		
+
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 
 	if (isset($_GET['th'])) {
@@ -27,12 +27,12 @@
 	}
 
 	/* quick cheat to avoid a redirect
-	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic 
+	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic
 	 */
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
 		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.apr=1 AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL OR r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 	}
-		
+
 	if (isset($_GET['goto'])) {
 		if ($_GET['goto'] === 'end' && isset($_GET['th'])) {
 			list($pos, $mid) = db_saq('SELECT replies+1,last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_GET['th']);
@@ -42,14 +42,14 @@
 				$_GET['th'] = (int) q_singleval('SELECT thread_id FROM {SQL_TABLE_PREFIX}msg WHERE id='.$_GET['goto']);
 			}
 			if (!($pos = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND id<=".$_GET['goto']." AND apr=1"))) {
-				invl_inp_err();				
+				invl_inp_err();
 			}
 			$mid = 'msg_'.$_GET['goto'];
 		} else {
 			invl_inp_err();
 		}
 		$msg_page_focus = '{TEMPLATE: msg_page_focus}';
-		
+
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
 	} else if (!isset($_GET['th'])) {
 		invl_inp_err();
@@ -57,13 +57,13 @@
 		$msg_page_focus = '';
 	}
 
-	/* we create a BIG object frm, which contains data about forum, 
-	 * category, current thread, subscriptions, permissions, moderation status, 
+	/* we create a BIG object frm, which contains data about forum,
+	 * category, current thread, subscriptions, permissions, moderation status,
 	 * rating possibilites and if we will need to update last_view field for registered user
 	 */
 	make_perms_query($fields, $join);
 
-	$frm = db_sab('SELECT 
+	$frm = db_sab('SELECT
 			c.name AS cat_name,
 			f.name AS frm_name,
 			m.subject,
@@ -116,11 +116,11 @@
 				header('Location: {ROOT}?' . _rsidl);
 			}
 			exit;
-		}	
-	}	
+		}
+	}
 
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
-	
+
 	$_GET['start'] = isset($_GET['start']) ? (int)$_GET['start'] : 0;
 	if ($_GET['start'] < 0) {
 		$_GET['start'] = 0;
@@ -178,27 +178,27 @@
 
 	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
 
-	$result = $query_type('SELECT 
-		m.*, 
+	$result = $query_type('SELECT
+		m.*,
 		t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 		f.message_threshold,
-		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+		u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location,
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 		pot.id AS cant_vote
-	FROM 
+	FROM
 		{SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.'
-	WHERE 
+	WHERE
 		m.thread_id='.$_GET['th'].' AND m.apr=1
 	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
-	
+
 	$obj2 = $message_data = '';
 
 	$m_num = 0;
@@ -207,7 +207,7 @@
 		$obj2 = $obj;
 	}
 	qf($result);
-	
+
 	un_register_fps();
 
 	if (!isset($_GET['prevloaded'])) {
@@ -225,7 +225,7 @@
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}/mv/msg/' . $_GET['th'] . '/0/', reveal_lnk . unignore_tmp . _rsid);
 	} else {
-		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);		
+		$page_pager = tmpl_create_pager($_GET['start'], $count, $total, '{ROOT}?t=msg&amp;th=' . $_GET['th'] . '&amp;prevloaded=1&amp;' . _rsid . reveal_lnk . unignore_tmp);
 	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);

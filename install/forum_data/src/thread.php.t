@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.28 2003/09/30 02:57:59 hackie Exp $
+*   $Id: thread.php.t,v 1.29 2003/10/01 21:51:52 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -23,39 +23,39 @@
 
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
-	$result = uq('SELECT 
+	$result = uq('SELECT
 		m.attach_cnt, m.poll_id, m.subject, m.icon, m.post_stamp,
 		u.alias, u.id,
 		u2.id, u2.alias,
-		m2.id, m2.post_stamp, 
+		m2.id, m2.post_stamp,
 		f.id, f.name,
 		t.id, t.moved_to, t.root_msg_id, t.replies, t.rating, t.thread_opt, t.views,
 		r.last_view
 		FROM {SQL_TABLE_PREFIX}thread_view tv
-			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id 
+			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m2	ON m2.id=t.last_post_id
-			LEFT JOIN {SQL_TABLE_PREFIX}users	u	ON u.id=m.poster_id 
-			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id 
+			LEFT JOIN {SQL_TABLE_PREFIX}users	u	ON u.id=m.poster_id
+			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id
 			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
 			LEFT JOIN {SQL_TABLE_PREFIX}read 	r	ON t.id=r.thread_id AND r.user_id='._uid.'
 			WHERE tv.forum_id='.$frm_id.' AND tv.page='.$cur_frm_page.' ORDER BY tv.pos ASC');
-	/* Field Defenitions 
+	/* Field Defenitions
 	 * 0 msg.attach_cnt
 	 * 1 msg.poll_id
-	 * 2 msg.subject 
+	 * 2 msg.subject
 	 * 3 msg.icon
 	 * 4 msg.post_stamp
 	 * 5 users.alias
 	 * 6 users.id
 	 * 7 fud_users_2.id
-	 * 8 fud_users_2.alias 
+	 * 8 fud_users_2.alias
 	 * 9 fud_msg_2.id
 	 * 10 fud_msg_2.post_stamp
 	 * 11 forum.id
 	 * 12 forum.name
 	 * 13 thread.id
-	 * 14 thread.moved_to 
+	 * 14 thread.moved_to
 	 * 15 thread.root_msg_id
 	 * 16 thread.replies
 	 * 17 thread.thread_opt
@@ -90,13 +90,13 @@
 					$mini_pager_data = '';
 					$i = 0;
 				}
-				
+
 				for ($i; $i < $pgcount; $i++) {
 					$st_pos = $i * $ppg;
 					$pg_num = $i + 1;
 					$mini_pager_data .= '{TEMPLATE: mini_pager_entry}';
 				}
-		
+
 				if ($mini_pager_data) {
 					$mini_thread_pager = '{TEMPLATE: mini_thread_pager}';
 				} else {
@@ -141,12 +141,12 @@
 				} else if (!_uid) {
 					$thread_read_status = '{TEMPLATE: thread_read_unreg}';
 				} else {
-					$thread_read_status = '{TEMPLATE: thread_read}';	 
+					$thread_read_status = '{TEMPLATE: thread_read}';
 				}
 			}
-		
+
 			$thread_first_post = '{TEMPLATE: thread_first_post}';
-		
+
 			if ($admin_heading_row) {
 				if ($MOD || $frm->group_cache_opt & (32|8192)) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_all}';
@@ -170,9 +170,9 @@
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
-?>	
-{TEMPLATE: THREAD_PAGE}	
-<?php	
+?>
+{TEMPLATE: THREAD_PAGE}
+<?php
 	if (_uid) {
 		user_register_forum_view($frm_id);
 	}
