@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.10 2003/01/12 13:21:27 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.11 2003/03/31 13:21:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -188,11 +188,17 @@ class fud_user_adm extends fud_user_reg
 	}
 }
 
-function fud_user_to_adm($obj)
+function fud_user_to_adm(&$obj)
 {
-	if ( !$obj ) return;
-	$u = new fud_user_adm;
-	user_copy_object($obj, $u);
-	return $u;
+	if (!$obj) {
+		return;
+	}
+	if (function_exists('aggregate_properties')) {
+		aggregate_properties($obj, 'fud_user_adm');
+	} else {
+		$u = new fud_user_adm;
+		user_copy_object($obj, $u);
+		$obj &= $u;
+	}
 }
 ?>

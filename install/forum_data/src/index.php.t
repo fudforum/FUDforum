@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.21 2003/03/30 12:44:52 hackie Exp $
+*   $Id: index.php.t,v 1.22 2003/03/31 13:21:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,11 +141,11 @@ function index_view_perms()
 	/* List of fetched fields & their ids
 	  0	msg.subject, 
 	  1	msg.id AS msg_id, 
-	  2	msg.post_stamp AS msg_post_stamp, 
+	  2	msg.post_stamp, 
 	  3	users.id AS user_id, 
 	  4	users.alias
 	  5	cat.description, 
-	  6	cat.name AS cat_name, 
+	  6	cat.name, 
 	  7	cat.default_view, 
 	  8	cat.allow_collapse, 
 	  9	forum.cat_id,
