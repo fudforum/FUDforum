@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.30 2003/04/09 12:01:45 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.31 2003/04/09 12:20:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -215,7 +215,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 	
 	/* handle poll votes */
-	if (!empty($_GET['poll_opt']) && ($_GET['poll_opt'] = (int)$_GET['poll_opt']) && $obj->locked != 'Y' && $perms['vote'] == 'Y') {
+	if (!empty($_GET['poll_opt']) && ($_GET['poll_opt'] = (int)$_GET['poll_opt']) && $obj->locked == 'N' && $perms['p_vote'] == 'Y') {
 		register_vote($obj->poll_cache, $obj->poll_id, $_GET['poll_opt'], $obj->id);
 		unset($_GET['poll_opt']);
 	}
@@ -229,9 +229,9 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
 
 		/* various conditions that may prevent poll voting */		
-		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && $_REQUEST['pl_view'] != $obj->poll_id) {
+		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && (!isset($_REQUEST['pl_view']) || $_REQUEST['pl_view'] != $obj->poll_id)) {
 			/* check if the user had previously voted */
-			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$obj->poll_id.' AND user='._uid)) {
+			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$obj->poll_id.' AND user_id='._uid)) {
 				/* check if the poll has expired */
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
 					/* check if the max # of poll votes was reached */

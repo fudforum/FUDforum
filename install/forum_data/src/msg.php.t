@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.25 2003/04/09 09:03:17 hackie Exp $
+*   $Id: msg.php.t,v 1.26 2003/04/09 12:20:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,9 +95,9 @@
 	}
 
 	$MOD = $sub_status = 0;
-	$USER_PERMS = perms_from_obj($frm, $usr->is_mod);
+	$perms = perms_from_obj($frm, $usr->is_mod);
 
-	if ($USER_PERMS['read'] == 'N') {
+	if ($perms['p_read'] == 'N') {
 		if (!isset($_GET['logoff'])) {
 			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
 		} else {
@@ -141,7 +141,7 @@
 
 	if ($ENABLE_THREAD_RATING == 'Y') {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		if ($USER_PERMS['rate'] == 'Y' && !$frm->cant_rate) {
+		if ($perms['p_rate'] == 'Y' && !$frm->cant_rate) {
 			$rate_thread = '{TEMPLATE: rate_thread}';
 		}
 	} else {
@@ -151,13 +151,13 @@
 	$post_reply = $frm->locked == 'Y' ? '{TEMPLATE: post_reply}' : '';
 	$email_page_to_friend = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_page_to_friend}' : '';
 
-	if ($USER_PERMS['lock'] == 'Y') {
+	if ($perms['p_lock'] == 'Y') {
 		$lock_thread = $frm->locked == 'N' ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
 	} else {
 		$lock_thread = '';
 	}
 
-	$split_thread = $USER_PERMS['split'] == 'Y' ? '{TEMPLATE: split_thread}' : '';
+	$split_thread = $perms['p_split'] == 'Y' ? '{TEMPLATE: split_thread}' : '';
 
 	if (!isset($_GET['prevloaded'])) {
 		if (_uid) {

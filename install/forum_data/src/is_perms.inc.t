@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.11 2003/04/08 08:29:50 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.12 2003/04/09 12:20:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,14 +78,14 @@ function &get_all_read_perms($uid)
 
 function &perms_from_obj(&$obj, $is_mod)
 {
-	$perms = array('visible'=>'Y', 'read'=>'Y', 'post'=>'Y', 'reply'=>'Y', 'edit'=>'Y', 'del'=>'Y', 'sticky'=>'Y', 'poll'=>'Y', 'file'=>'Y', 'vote'=>'Y', 'rate'=>'Y', 'split'=>'Y', 'lock'=>'Y', 'move'=>'Y', 'sml'=>'Y', 'img'=>'Y');
+	$perms = array('p_visible'=>'Y', 'p_read'=>'Y', 'p_post'=>'Y', 'p_reply'=>'Y', 'p_edit'=>'Y', 'p_del'=>'Y', 'p_sticky'=>'Y', 'p_poll'=>'Y', 'p_file'=>'Y', 'p_vote'=>'Y', 'p_rate'=>'Y', 'p_split'=>'Y', 'p_lock'=>'Y', 'p_move'=>'Y', 'p_sml'=>'Y', 'p_img'=>'Y');
 
 	if ($is_mod == 'A' || $obj->mod) {
 		return $perms;
 	}
 
 	foreach ($perms as $k => $v) {
-		$perms[$k] = $obj->{'p_'.$k};	
+		$perms[$k] = $obj->{$k};	
 	}
 	return $perms;
 }
