@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.19 2003/05/01 14:28:11 hackie Exp $
+*   $Id: iemail.inc.t,v 1.20 2003/07/24 03:23:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ function send_email($from, $to, $subj, $body, $header='')
 
 	if( $GLOBALS['USE_SMTP'] == 'Y' ) {
 		$smtp = new fud_smtp;
-		$smtp->msg = $body;
+		$smtp->msg = str_replace("\n.", "\n..", $body);
 		$smtp->subject = $subj;
 		$smtp->to = $to;
 		$smtp->from = $from;
@@ -50,7 +50,11 @@ function send_email($from, $to, $subj, $body, $header='')
 		} else if ($bcc) {
 			$bcc = "\n" . $bcc;
 		}
-				
+
+		if (version_compare("4.3.3RC2", phpversion(), ">")) {
+			$body = str_replace("\n.", "\n..", $body);			
+		}
+
 		mail($to, $subj, str_replace("\r", "", $body), "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header.$bcc);
 	}		
 }

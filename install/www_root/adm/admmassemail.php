@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.13 2003/07/19 14:55:20 hackie Exp $
+*   $Id: admmassemail.php,v 1.14 2003/07/24 03:23:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,6 +47,10 @@
 		$to = array();
 		
 		if ($GLOBALS['USE_SMTP'] == 'N') {
+			if (version_compare("4.3.3RC2", phpversion(), ">")) {
+				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
+			}
+
 			while ($r = db_rowarr($c)) {
 				$to[] = $r[0];
 				if (!(++$email_block_stat % $email_block)) {
@@ -64,7 +68,7 @@
 			}
 		} else {
 			$smtp = new fud_smtp;
-			$smtp->msg = $_POST['body'];
+			$smtp->msg = str_replace("\n.", "\n..", $_POST['body']);
 			$smtp->subject = $_POST['subject'];
 			$smtp->from = $ADMIN_EMAIL;
 			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
