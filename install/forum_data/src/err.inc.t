@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.4 2002/08/05 00:47:55 hackie Exp $
+*   $Id: err.inc.t,v 1.5 2002/08/28 17:39:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -112,4 +112,23 @@ function invl_inp_err()
 	exit;
 }
 
+function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
+{
+	if( db_locked() ) db_unlock();
+	
+	$error_msg = "(".__FILE__.":".__LINE__.") ".$error_number.": ".$error_string."<br />\n";
+	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
+	$error_msg .= "Server Version: ".$server_version."<br />\n";
+	
+	if( !error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors') ) {
+		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
+		echo $error_msg;
+	} else {
+		if( isset($GLOBALS['usr']) && $GLOBALS['usr']->is_mod == 'A' ) 
+			echo $error_msg;
+		else	
+			trigger_error('{TEMPLATE: err_inc_query_err}', E_USER_ERROR);
+	}
+	exit;
+}
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.9 2002/08/25 21:38:32 hackie Exp $
+*   $Id: db.inc,v 1.10 2002/08/28 17:39:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,16 +15,16 @@
 *
 ***************************************************************************/
 
+if( !function_exists("fud_sql_error_handler") ) fud_use('err.inc'); 
+
 if ( !defined('_db_connection_ok_') ) {
 	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'mysql_pconnect' : 'mysql_connect';
 		
-	if ( !($GLOBALS['__DB_INC__']['SQL_LINK']=$connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'])) ) {
-		exit("db.inc is unable to establish mysql connection to ".$GLOBALS['DBHOST']);
-	}
+	$GLOBALS['__DB_INC__']['SQL_LINK'] = $connect_func($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD'])
+		or die (fud_sql_error_handler("Initiating $connect_func", mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), "Unknown"));
 		
-	if ( !@mysql_select_db($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
-		exit("db.inc is unable to open database ".$GLOBALS['DBHOST_DBNAME']);
-	}
+	mysql_select_db($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK'])
+		or die (fud_sql_error_handler("Opening database ".$GLOBALS['DBHOST_DBNAME'], mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
 		
 	define('_db_connection_ok_', 1); 
 	define('__dbtype__', 'mysql');
@@ -58,7 +58,7 @@ function strnull($val)
 function db_lock($tables)
 {
 	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
-		exit("recursive lock");
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 
 	$tables = str_replace("\t", '', $tables);
@@ -80,27 +80,22 @@ function db_lock($tables)
 	}
 	
 	$sql_str = substr($sql_str, 0, strlen($sql_str)-1);
-	$query = "LOCK TABLES".$sql_str;
 	
-	if ( !q($query) ) {
-		exit("db_lock() error (".mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']).")\n"); 
-	}
+	q("LOCK TABLES".$sql_str);
 	
 	$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] = 1;	
 }
 
 function db_unlock()
 {
-	if ( !q('UNLOCK TABLES',$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
-		exit("DB_UNLOCK FAILED\n");
-	}
+	q('UNLOCK TABLES',$GLOBALS['__DB_INC__']['SQL_LINK']);
 	
 	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
-		exit("DB_UNLOCK: no previous lock established\n");
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 	
 	if ( --$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0 ) {
-		exit("DB_UNLOCK: unlock overcalled\n");
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 }
 
@@ -117,13 +112,9 @@ function db_affected()
 if( !defined("fud_query_stats") ) {
 	function q($query) 
 	{
-		if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
-			$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
-			if( db_locked() ) db_unlock();
-			exit;
-		}
-
+		$result = mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK']) 
+			or die (fud_sql_error_handler($query, mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
+	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 		
 		if( defined('debug') ) 
@@ -144,12 +135,9 @@ else {
 	
 		$ts = db_getmicrotime();
 
-		if ( !($result=mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK'])) ) {
-			$error_reason = mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".q_singleval("SELECT VERSION()")."<br>\n";
-			if( db_locked() ) db_unlock();
-			exit;
-		}
+		$result = mysql_query($query,$GLOBALS['__DB_INC__']['SQL_LINK']) 
+			or die (fud_sql_error_handler($query, mysql_error($GLOBALS['__DB_INC__']['SQL_LINK']), mysql_errno($GLOBALS['__DB_INC__']['SQL_LINK']), q_singleval("SELECT VERSION()")));
+		
 		$te = db_getmicrotime(); 
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;

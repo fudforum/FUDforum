@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.8 2002/08/25 21:38:32 hackie Exp $
+*   $Id: db.inc,v 1.9 2002/08/28 17:39:17 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,6 +14,8 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
+if( !function_exists("fud_sql_error_handler") ) fud_use('err.inc'); 
 
 if ( !defined('_db_connection_ok_') ) {
 	$connect_func = ( $GLOBALS['DBHOST_PERSIST'] == 'Y' ) ? 'pg_pconnect' : 'pg_connect';	
@@ -26,9 +28,8 @@ if ( !defined('_db_connection_ok_') ) {
 	if ( $GLOBALS['DBHOST_TTY'] )	$connect_str .= 'tty='.$GLOBALS['DBHOST_TTY'].' ';
 	if ( $GLOBALS['DBHOST_DBNAME'] ) $connect_str .= 'dbname='.$GLOBALS['DBHOST_DBNAME'].' ';
 	$connect_str = substr($connect_str, 0 ,-1);
-	if ( !($GLOBALS['__DB_INC__']['SQL_LINK']=$connect_func($connect_str)) ) {
-		exit("db.inc is unable to establish database connection to ".$GLOBALS['DBHOST']);
-	}
+	$GLOBALS['__DB_INC__']['SQL_LINK'] = $connect_func($connect_str)
+		or die (fud_sql_error_handler("Initiating $connect_func", pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']), '', "Unknown"));
 	define('_db_connection_ok_', 1); 
 	define('__dbtype__', 'pgsql');
 }
@@ -60,11 +61,11 @@ function strnull($val)
 
 function db_lock($tables)
 {
-	if ( empty($tables) ) exit("FATAL: no tables to lock");
+	if ( empty($tables) ) 
+		fud_sql_error_handler("no tables to lock", "internal", "internal", q_singleval("SELECT VERSION()"));
 
-	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
-		exit("recursive lock: currently locked <b>(</b>--- ".$GLOBALS['__DB_INC_INTERNALS__']['db_locked']." ---<b>)</b> trying to lock <b>(</b>--- $tables ---<b>)</b><br>");
-	}
+	if ( !empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) 
+		fud_sql_error_handler("Recursive Lock", "internal", "internal", q_singleval("SELECT VERSION()"));
 
 	$tables = str_replace("\t", '', $tables);
 	
@@ -99,16 +100,14 @@ function db_lock($tables)
 
 function db_unlock()
 {
-	if ( !q('COMMIT WORK',$GLOBALS['__DB_INC__']['SQL_LINK']) ) {
-		exit("DB_UNLOCK FAILED\n");
-	}
+	q('COMMIT WORK',$GLOBALS['__DB_INC__']['SQL_LINK']);
 	
 	if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['db_locked']) ) {
-		exit("DB_UNLOCK: no previous lock established\n");
+		fud_sql_error_handler("DB_UNLOCK: no previous lock established", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 	
 	if ( --$GLOBALS['__DB_INC_INTERNALS__']['db_locked'] < 0 ) {
-		exit("DB_UNLOCK: unlock overcalled\n");
+		fud_sql_error_handler("DB_UNLOCK: unlock overcalled", "internal", "internal", q_singleval("SELECT VERSION()"));
 	}
 }
 
@@ -125,14 +124,8 @@ function db_affected($r)
 if( !defined("fud_query_stats") ) {
 	function q($query)
 	{
-		if ( !($result=pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)) ) {
-			$error_reason = "LAST_ERROR: ".pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-			$r = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], "SELECT VERSION()");
-			list($version) = pg_fetch_row($r);
-			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".$DB_VERSION."<br>\n";
-			if( db_locked() ) db_unlock();
-			exit;
-		}
+		$result = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query) 
+			or die (fud_sql_error_handler($query, pg_result_error($result), '', q_singleval("SELECT VERSION()")));
 
 		$GLOBALS['__DB_INC_INTERNALS__']['last_query'] = $query;
 	
@@ -156,14 +149,8 @@ else {
 		if ( !isset($GLOBALS['__DB_INC_INTERNALS__']['total_sql_time']) ) $GLOBALS['__DB_INC_INTERNALS__']['total_sql_time'] = 0;
 	
 		$ts = db_getmicrotime();
-		if ( !($result=pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)) ) {
-			$error_reason = "LAST_ERROR: ".pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']);
-			$r = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], "SELECT VERSION()");
-			list($version) = pg_fetch_row($r);
-			echo "<b>Query Failed:</b> ".htmlspecialchars($query)."<br>\n<b>Reason:</b> ".$error_reason."<br>\n<b>From:</b> ".$GLOBALS['SCRIPT_FILENAME']."<br>\n<b>Server Version:</b> ".$DB_VERSION."<br>\n";
-			if( db_locked() ) db_unlock();
-			exit;
-		}
+		$result = pg_query($GLOBALS['__DB_INC__']['SQL_LINK'], $query)
+			or die (fud_sql_error_handler($query, pg_result_error($result), '', q_singleval("SELECT VERSION()")));
 		$te = db_getmicrotime(); 
 	
 		$GLOBALS['__DB_INC_INTERNALS__']['last_time'] = $te-$ts;
