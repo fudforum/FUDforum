@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tz.inc.t,v 1.8 2004/11/24 19:53:37 hackie Exp $
+* $Id: tz.inc.t,v 1.9 2005/03/09 01:36:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 **/
 
-if (@getenv('OSTYPE') == 'AIX' || @strpos(php_uname(), 'AIX')) {
+if (strpos(PHP_OS, 'AIX') !== false) {
 	$GLOBALS['tz_names'] = "Coordinated Universal Time\nUnited Kingdom\nAzores, Cape Verde\nFalkland Islands\nGreenland, East Brazil\nCentral Brazil\nEastern United States, Colombia\nCentral United States, Honduras\nMountain United States\nPacific United States, Yukon\nAlaska\nHawaii, Aleutian Islands\nBering Strait\nNew Zealand\nSolomon Islands\nEastern Australia\nJapan\nKorea\nWestern Australia\nTaiwan\nThailand\nCentral Asia\nPakistan\nGorki, Central Asia, Oman\nTurkey\nSaudi Arabia\nFinland\nSouth Africa\nNorway";
 	$GLOBALS['tz_values'] = "CUT0GDT\nGMT0BST\nAZOREST1AZOREDT\nFALKST2FALKDT\nGRNLNDST3GRNLNDDT\nAST4ADT\nEST5EDT\nCST6CDT\nMST7MDT\nPST8PDT\nAST9ADT\nHST10HDT\nBST11BDT\nNZST-12NZDT\nMET-11METDT\nEET-10EETDT\nJST-9JSTDT\nKORST-9KORDT\nWAUST-8WAUDT\nTAIST-8TAIDT\nTHAIST-7THAIDT\nTASHST-6TASHDT\nPAKST-5PAKDT\nWST-4WDT\nMEST-3MEDT\nSAUST-3SAUDT\nWET-2WET\nUSAST-2USADT\nNFT-1DFT";
 } else {
