@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.22 2003/04/02 15:39:11 hackie Exp $
+*   $Id: users.inc.t,v 1.23 2003/04/02 21:30:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,6 +138,11 @@ function init_user()
 	define('_uid', (($u->id && $u->email_conf == 'Y') ? $u->id : 0));
 
 	return array($s, $u);
+}
+
+function user_alias_by_id($id)
+{
+	return q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
 }
 
 if (defined('admin_form')) { 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.16 2003/04/02 12:19:22 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.17 2003/04/02 21:30:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -284,11 +284,6 @@ function get_id_by_radius($login, $passwd)
 	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($login)."' AND passwd='".md5($passwd)."'");
 }
 
-function check_user($id)
-{
-	return q_singleval('SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
-}
-
 function check_passwd($id, $passwd)
 {
 	return q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$id." AND passwd='".md5($passwd)."'");
@@ -317,5 +312,10 @@ function fud_user_to_reg(&$obj)
 		user_copy_object($obj, $u);
 		$obj &= $u;
 	}
+}
+
+function check_user($id)
+{
+	return q_singleval('SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
 }
 ?>
