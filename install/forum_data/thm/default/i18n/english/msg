@@ -154,7 +154,7 @@ subscribed_threads:		Subscribed Topics
 subscribed_threads_desc:	Toggle the subscribed topics filter (will only show posts from the topics you are subscribed to)
 switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
-thread_announcement:		announcement:
+thread_announcement:		Announcement:
 thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Topic
 threads:			Topics
