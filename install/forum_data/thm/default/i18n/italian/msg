@@ -668,7 +668,7 @@ email_title:			Email
 finduser_title:			Trova utenti
 help_title:			F.A.Q.
 login_title:			Pagina di login
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor di sondaggi
 register_title:			Pagina di registrazione
 reset_title:			Resetta password
@@ -746,7 +746,7 @@ p_LOCK:				Chiudi topic
 p_MOVE:				Sposta topic
 p_SML:				Usa smiley
 p_IMG:				Usa tag delle immagini
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Trova utente</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 325,250);">Trova utente</a>
 group_mgr_indicator:		Modifica: <b>{VAR: grp->name}</b>
 rate_worst:			Peggiore
 rate_best:			Migliore
@@ -888,7 +888,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -1022,3 +1022,4 @@ register_conf_msg:		Thank you for registering,\nTo activate your account please 
 index_title:			Welcome to the forum
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

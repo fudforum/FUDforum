@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.26 2004/07/02 16:54:28 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.27 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -34,7 +34,7 @@
 	<td class="GenText wa"><a href="{TEMPLATE: ignore_user_lnk}">{VAR: r[3]}</a>&nbsp;<span class="SmallText">(<a href="{TEMPLATE: ignore_user_lnk1}">{MSG: buddy_remove}</a>)</span></td>
 	<td class="ac">{VAR: r[5]}</td>
 	<td class="ac nw">{TEMPLATE: ignore_list_date}</td>
-	<td class="GenText nw"><a href="{TEMPLATE: ignore_user_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText nw"><a href="{TEMPLATE: ignore_user_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_link}{ENDIF}{IF: $r[6]}{TEMPLATE: homepage_link}{ENDIF}</td>
 </tr>
 {SECTION: END}
 
@@ -61,7 +61,7 @@
 <table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th class="nw">{MSG: add_ignore}</th></tr>
 <tr class="RowStyleA">
-<td class="GenText nw Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: ignore_member_search}<p>
+<td class="GenText nw Smalltext">{MSG: buddy_search}{IF: ($FUD_OPT_1 & (8388608|4194304))}{TEMPLATE: ignore_member_search}{ENDIF}<p>
 <input type="text" name="add_login" tabindex="1" value="" maxlength=100 size=25> <input tabindex="2" type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
 <script>

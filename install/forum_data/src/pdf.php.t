@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.27 2004/09/20 20:31:50 hackie Exp $
+* $Id: pdf.php.t,v 1.28 2004/10/25 16:32:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -402,7 +402,7 @@ function post_to_smiley($text, $re)
 
 		/* handle polls */
 		if ($o->poll_name && $o->poll_cache) {
-			if (($pc = @unserialize($o->poll_cache))) {
+			if (($pc = unserialize($o->poll_cache))) {
 				reverse_fmt($o->poll_name);
 				foreach ($pc as $opt) {
 					$opt[0] = strip_tags(post_to_smiley($opt[0], $re));

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.11 2004/04/25 20:18:26 hackie Exp $
+* $Id: qbud.tmpl,v 1.12 2004/10/29 18:45:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@
 {SECTION: END}
 
 {SECTION: buddy_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td class="ac"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{VAR: checked}></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td class="ac"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{FUNC: ($all ? ' checked' : '')}></td></tr>
 {SECTION: END}
 
 {SECTION: buddy_list}

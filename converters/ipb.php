@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.4 2004/01/27 01:04:42 hackie Exp $
+* $Id: ipb.php,v 1.6 2004/10/13 19:52:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,15 +32,6 @@ function print_msg($msg)
 	}
 }
 
-if (!function_exists("html_entity_decode")) {
-	$GLOBALS['HET'] = array_flip(get_html_translation_table(HTML_ENTITIES));
-
-	function html_entity_decode($str)
-	{
-		return strtr ($str, $GLOBALS['HET']);
-	}
-}
-
 function make_avatar_loc($path, $disk, $web)
 {
 	$img_info = @getimagesize($disk . $path);
@@ -59,7 +50,7 @@ function html_clean($str)
 	return preg_replace('!&#([0-9]+);!me', "chr('\\1')", html_entity_decode($str));
 }
 
-	set_time_limit(-1);
+	set_time_limit(500000);
 	ini_set('memory_limit', '128M');
 	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 
@@ -72,7 +63,7 @@ function html_clean($str)
 		exit("This script must be placed in FUDforum's main web directory.\n");
 	}
 
-	if ($FILE_LOCK == 'Y' && !__WEB__) {
+	if ($FUD_OPT_2 & 8388608 && !__WEB__) {
 		exit("Since you are running conversion script via the console you must UNLOCK forum's files first.\n");
 	}
 
@@ -117,11 +108,9 @@ function html_clean($str)
 	include $path . "sources/lib/post_parser.php";
 
 	/* some settings we must turn off */
-	$GLOBALS['EMAIL_CONFIRMATION'] = 'N';
-	$GLOBALS['MODERATE_USER_REGS'] = 'N';
-	$GLOBALS['PUBLIC_RESOLVE_HOST'] = 'N';
-	$GLOBALS['FORUM_SEARCH'] = 'N';
-	$GLOBALS['FILE_LOCK'] = 'N';
+	$FUD_OPT_2 = $FUD_OPT_2 &~ (1|1024|8388608);
+	$FUD_OPT_1 = $FUD_OPT_1 &~ (268435456|16777216);
+
 	$GLOBALS['MOD'] = 1;
 
 	/* import blocked words */
@@ -158,14 +147,16 @@ function html_clean($str)
 	/* common settings for all users */
 	$u = new fud_user_reg;
 	$u->plaintext_passwd = 'a';
-	$u->gender = 'UNSPECIFIED';
-	$u->notify_method = 'EMAIL';
-	$u->email_messages = $u->pm_messages = 'Y';
-	$u->invisible_mode = 'N';
-	$u->default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
+	$u->users_opt = 512 | 4 | 16 | 32 | 128 | 256 | 131072;
+	if (!($FUD_OPT_2 & 4)) {
+		$this->users_opt ^= 128;
+	}
+	if (!($FUD_OPT_2 & 8)) {
+		$this->users_opt ^= 256;
+	}
 	$u->time_zone = $GLOBALS['SERVER_TZ'];
 	$u->user_image = $u->occupation = '';
-	$u->theme = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}themes WHERE t_default='Y' AND enabled='Y' LIMIT 1");
+	$u->theme = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}themes WHERE theme_opt=3 LIMIT 1");
 	$ext = array(1=>'gif', 2=>'jpg', 3=>'png', 4=>'swf');
 
 	$pp = new post_parser();
@@ -177,21 +168,21 @@ function html_clean($str)
 			continue;
 		}
 
-		$u->login = $u->name = $obj->name;
+		$u->alias = $u->login = $u->name = $obj->name;
 		$u->email = $obj->email;
-		$u->ignore_admin = $obj->allow_admin_mails ? 'Y' : 'N';
+		$u->users_opt |= $obj->allow_admin_mails ? 0 : 8;
 		$u->icq = $obj->icq_number;
 		$u->aim = $obj->aim_name;
 		$u->yahoo = $obj->yahoo;
 		$u->msnm = $obj->msnname;
 		$u->location = $obj->location;
 		$u->interests = $obj->interests;
-		$u->pm_notify = $obj->email_pm ? 'Y' : 'N';
-		$u->coppa = !$obj->coppa_user ? 'N' : 'Y';
-		$u->notify = $obj->auto_track ? 'Y' : 'N';
-		$u->show_sigs = $obj->view_sigs ? 'Y' : 'N';
-		$u->show_avatars = $obj->view_avs ? 'Y' : 'N';
-		$u->display_email = $obj->hide_email ? 'N' : 'Y';
+		$u->users_opt |= $obj->email_pm ? 64 : 0;
+		$u->users_opt |= !$obj->coppa_user ? 0 : 262144;
+		$u->users_opt |= $obj->auto_track ? 2 : 0;
+		$u->users_opt |= $obj->view_sigs ? 4096 : 0;
+		$u->users_opt |= $obj->view_avs ? 8192 : 0;
+		$u->users_opt |= $obj->hide_email ? 0 : 1;
 
 		if ($obj->bday_day && $obj->bday_month && $obj->bday_year) {
 			$u->bday = $obj->bday_year . str_pad($obj->bday_month, 2, '0', STR_PAD_LEFT) . str_pad($obj->bday_day, 2, '0', STR_PAD_LEFT);
@@ -237,7 +228,7 @@ function html_clean($str)
 
 		/* update settings we could not change during user creation */
 		$avatar_loc = 'NULL';
-		$avatar_approved = 'NO';
+		$users_opt = 4194304;
 
 		if ($obj->avatar && $obj->avatar != 'noavatar') {
 			if (!strncmp($obj->avatar, 'upload:', strlen('upload:'))) {
@@ -256,7 +247,7 @@ function html_clean($str)
 					$path = "images/custom_avatars/{$uid}.{$ex}";
 					copy($tmp, $WWW_ROOT_DISK . $path);
 					chmod($path, 0666);
-					$avatar_approved = 'Y';
+					$users_opt = 8388608;
 					$avatar_loc = make_avatar_loc($path, $WWW_ROOT_DISK, $WWW_ROOT);
 				}
 				unlink($tmp);
@@ -271,7 +262,7 @@ function html_clean($str)
 			join_date={$obj->joined},
 			last_visit={$obj->last_visit},
 			last_read={$obj->last_activity},
-			avatar_approved='{$avatar_approved}',
+			users_opt=users_opt|{$users_opt},
 			avatar_loc='{$avatar_loc}',
 			passwd='{$obj->password}'
 		WHERE id=".$uid);
@@ -288,6 +279,11 @@ function html_clean($str)
 	$i2 = $i = 0;
 	$r = mysql_query("SELECT contact_id, member_id, allow_msg FROM {$ipb}contacts", $ib) or die(mysql_error($ib));
 	while (list($c, $m, $a) = mysql_fetch_row($r)) {
+		/* skip if users cannot be matched */
+		if (isset($ib_u[$c], $ib_u[$m])) {
+			continue;
+		}
+
 		if ($a) {
 			q("INSERT INTO {$DBHOST_TBL_PREFIX}buddy (bud_id, user_id) VALUES ({$ib_u[$c]}, {$ib_u[$m]})");
 			++$i;
@@ -318,8 +314,8 @@ function html_clean($str)
 	while ($obj = mysql_fetch_object($r)) {
 		$cat->name = $obj->name;
 		$cat->description = $obj->description;
-		$cat->allow_collapse = 'Y';
-		$cat->default_view = $obj->state ? 'OPEN' : 'COLLAPSED';
+		$cat->cat_opt = 1;
+		$cat->cat_opt |= $obj->state ? 2 : 0;
 		$ib_c[$obj->id] = $cat->add('LAST');
 		++$i;	
 	}
@@ -343,32 +339,32 @@ function html_clean($str)
 	$frm->max_attach_size = 1024;
 	$frm->max_file_attachments = 1;
 	$frm->message_threshold = 0;
-	$frm->moderated = 'N';
+	$frm->forum_opt = 0;
 	$frm->icon= '';
 
-	$plist = array('upload_perms' => 'up_file', 'start_perms' => 'up_post', 'reply_perms' => 'up_reply', 'read_perms' => 'up_read');
+	$plist = array('upload_perms' => 256, 'start_perms' => 4, 'reply_perms' => 8, 
+			'read_perms' => 1|2|512|128|1024|16384|32768|262144);
 
 	$r = mysql_query("SELECT * FROM {$ipb}forums ORDER BY category, parent_id, position", $ib) or die(mysql_error($ib));
 	while ($obj = mysql_fetch_object($r)) {
 		if ($obj->use_ibc) {
-			$frm->tag_style = 'ML';
+			$frm->forum_opt |= 16;
 		} else if ($obj->use_html) {
-			$frm->tag_style = 'HTML';
+			$frm->forum_opt |= 0;
 		} else {
-			$frm->tag_style = 'NONE';
+			$frm->forum_opt |= 8;
 		}
 
 		$frm->name = html_clean($obj->name);
 		$frm->descr = $obj->description;
 		$frm->cat_id = $ib_c[$obj->category];
-		$frm->moderated = $obj->preview_posts ? 'Y' : 'N';
+		$frm->forum_opt |= $obj->preview_posts ? 2 : 0;
 
 		if ($obj->password) {
-			$frm->passwd_posting = 'Y';
+			$frm->forum_opt |= 2;
 			$frm->post_passwd = $obj->password;
 		} else {
-			$frm->passwd_posting = 'N';
-			$frm->post_passwd = NULL;
+			$frm->post_passwd = '';
 		}
 
 		$ib_f[$obj->id] = $frm_id = $frm->add('LAST');
@@ -378,19 +374,22 @@ function html_clean($str)
 
 		foreach ($plist as $k => $v) {
 			if (!$obj->{$k} || $obj->{$k} == "-1") {
-				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET {$v}='N' WHERE group_id=".$gid);
+				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt &~ {$v} WHERE group_id=".$gid);
 			} else if ($obj->{$k} == '*') {
-				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET {$v}='Y' WHERE group_id=".$gid);
+				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt | {$v} WHERE group_id=".$gid);
 			} else {
-				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET {$v}='N' WHERE group_id=".$gid);
+				q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt &~ {$v} WHERE group_id=".$gid);
 				$gl = explode(',', $obj->{$k});
 				foreach ($gl as $gi) {
 					if ($gi == $INFO['member_group']) {
-						q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET {$v}='Y' WHERE user_id=0 AND group_id=".$gid);
+						q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt | {$v} WHERE user_id=0 AND group_id=".$gid);
 					} else if ($gi == $INFO['guest_group']) {
-						q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET {$v}='Y' WHERE user_id=2147483647 AND group_id=".$gid);
+						q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET group_members_opt = group_members_opt | {$v} WHERE user_id=2147483647 AND group_id=".$gid);
 					} else if ($gi != $INFO['auth_group'] && $gi != $INFO['admin_group']) {
-						$ib_g[$gi][$frm_id][$v] = 'Y';
+						if (!isset($ib_g[$gi][$frm_id])) {
+							$ib_g[$gi][$frm_id] = 0;
+						}
+						$ib_g[$gi][$frm_id] |= $v;
 					}
 				}
 			}
@@ -417,20 +416,12 @@ function html_clean($str)
 		foreach ($ib_g[$g] as $fl) {
 			foreach ($fl as $k => $v) {
 				$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$k);
-				$perms = array_change_key_case(db_arr_assoc("SELECT * FROM {$DBHOST_TBL_PREFIX}group_members WHERE group_id={$gid} AND user_id=0"));
-				unset($perms['id'], $perms['user_id'], $perms['group_id']);
-				$fields = implode(',', array_keys($perms));
-				foreach ($v as $pt => $p) {
-					$perms[$pt] = $p;
-				}
-				$data = "'" . implode("', '", $perms);
 				foreach ($users as $u) {
-					q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members {$fields} VALUES({$u}, {$gid}, {$data})");
+					q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES({$u}, {$gid}, {$v})");
 				}
 			}
 		}
 	}
-	q("UPDATE {$DBHOST_TBL_PREFIX}group_members SET up_visible=up_read");
 	mysql_free_result($r); unset($ib_g, $users, $fl, $data, $u, $pt, $p, $v, $perms, $gid);
 	print_msg("Done: Importing permissions");
 
@@ -443,7 +434,7 @@ function html_clean($str)
 		++$i;
 	}
 	if (count($u)) {
-		q("UPDATE {$DBHOST_TBL_PREFIX}users SET is_mod='A' WHERE id IN(".implode(',', $u).")");
+		q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|1048576 WHERE id IN(".implode(',', $u).")");
 	}
 	mysql_free_result($r); unset($u);
 	print_msg("Done: Importing {$i} administrators");
@@ -453,6 +444,9 @@ function html_clean($str)
 	$i = 0;
 	$r = mysql_query("SELECT forum_id, member_id FROM {$ipb}moderators", $ib) or die(mysql_error($ib));
 	while (list($f, $u) = mysql_fetch_row($r)) {
+		if (!isset($ib_f[$f], $ib_u[$u])) {
+			continue;
+		}
 		q("INSERT INTO {$DBHOST_TBL_PREFIX}mod (forum_id, user_id) VALUES({$ib_f[$f]}, {$ib_u[$u]})");
 		++$i;
 	}
@@ -487,15 +481,15 @@ function html_clean($str)
 		$m->ip_addr = $obj->ip_address ? $obj->ip_address : '0.0.0.0';
 		$m->poster_id = $obj->author_id ? $ib_u[$obj->author_id] : 0;
 		$m->post_stamp = $obj->post_date;
-		$m->show_sig = $obj->use_sig ? 'Y' : 'N';
-		$m->smiley_disabled = $obj->use_emo ? 'N' : 'Y';
+		$m->msg_opt = $obj->use_sig ? 1 : 0;
+		$m->msg_opt |= $obj->use_emo ? 0 : 2;
 		$m->body = html_clean($pp->unconvert($obj->post, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		if ($INFO['msg_allow_code']) {
-			$m->body = tags_to_html($m->body, 'Y');
+			$m->body = tags_to_html($m->body, 1);
 		} else if (!$INFO['msg_allow_html']) {
 			$m->body = nl2br(htmlspecialchars($m->body));
 		}
-		if ($m->smiley_disabled != 'Y') {
+		if (!($m->msg_opt & 2)) {
 			$m->body = smiley_to_post($m->body);
 		}
 		fud_wordwrap($m->body);
@@ -512,7 +506,7 @@ function html_clean($str)
 			$m->thread_id = $m->reply_to = 0;
 		}
 
-		$mid = $m->add($ib_f[$obj->forum_id], 0, 'Y', 'Y', 'Y', ($obj->approved ? TRUE : FALSE));
+		$mid = $m->add($ib_f[$obj->forum_id], 0, 16, 64|4096, $obj->approved);
 
 		/* handle file attachments if there any */
 		if ($obj->attach_id && $obj->attach_file) {
@@ -520,32 +514,27 @@ function html_clean($str)
 			copy($INFO['upload_dir'] . '/' . $obj->attach_id, $tmpf);
 
 			$tmp = array('name' => $obj->attach_file, 'size' => filesize($tmpf), 'tmp_name' => $tmpf);
-			$aid = attach_add($tmp, $m->poster_id, 'N', 1);
+			$aid = attach_add($tmp, $m->poster_id, 0, 1);
 			q("UPDATE {$DBHOST_TBL_PREFIX}attach SET dlcount={$obj->attach_hits} WHERE id=".$aid);
-			attach_finalize(array($aid => 1), $mid, 'N');
+			attach_finalize(array($aid => 1), $mid, 0);
 		}
 
 		if ($obj->new_topic) {
 			$ib_t[$obj->topic_id] = db_saq("SELECT thread_id, id FROM {$DBHOST_TBL_PREFIX}msg WHERE id=".$mid);
 
 			/* handle various topic settings */
-			$locked = $obj->state == 'open' ? 'N' : 'Y';
+			$thread_opt = (int)($obj->state == 'open');
 			if ($obj->pinned) {
-				$is_sticky = 'Y';
-				$ordertype = 'STICKY';
+				$thread_opt |= 4;
 				$orderexpiry = 1000000000;
 			} else {
-				$is_sticky = 'N';
-				$ordertype = 'NONE';
 				$orderexpiry = 0;
 			}
 			
 			q("UPDATE {$DBHOST_TBL_PREFIX}thread SET
 				views={$obj->views},
-				is_sticky='{$is_sticky}',
-				ordertype='{$ordertype}',
-				orderexpiry={$orderexpiry},
-				locked='{$locked}'
+				thread_opt={$thread_opt},
+				orderexpiry={$orderexpiry}
 			WHERE id={$ib_t[$obj->topic_id][0]}");
 			++$i2;
 		}
@@ -590,7 +579,7 @@ function html_clean($str)
 		foreach ($choices as $c) {
 			$o = html_clean($pp->unconvert($c[1], $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 			if ($INFO['msg_allow_code']) {
-				$o = tags_to_html($o, 'Y');
+				$o = tags_to_html($o, 1);
 			} else if (!$INFO['msg_allow_html']) {
 				$o = nl2br(htmlspecialchars($o));
 			}
@@ -624,24 +613,22 @@ function html_clean($str)
 
 	print_msg("Importing private messages");
 	/* disable pm notification for the duration of the import process */
-	$r = uq("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE pm_notify='Y'");
+	$r = uq("SELECT id FROM {$DBHOST_TBL_PREFIX}users WHERE users_opt>=64 AND (users_opt & 64)>0");
 	$ul = array();
 	while (list($id) = db_rowarr($r)) {
 		$ul[] = $id;
 	}
-	qf($r);
-	q("UPDATE {$DBHOST_TBL_PREFIX}users SET pm_notify='N'");
+	q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt = users_opt &~ 64");
 
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}pmsg");
 	$i = 0;
 	$r = mysql_query("SELECT * FROM {$ipb}messages", $ib) or die(mysql_error($ib));
 	$p = new fud_pmsg;
 	/* common settings */
-	$p->show_sig = $p->mailed = 'Y';
+	$p->pmsg_opt = 1|16;
 	$p->icon = '';
-	$p->smiley_disabled = 'N';
 	$p->ip_addr = '0.0.0.0';
-	$p->folder_id = 'SENT';
+	$p->fldr = 3;
 
 	/* prevent warnings */
 	$GLOBALS['usr']->alias = NULL;
@@ -649,10 +636,10 @@ function html_clean($str)
 	while ($obj = mysql_fetch_object($r)) {
 		$p->subject = html_clean($pp->unconvert($obj->title, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		$p->subject = str_replace('Sent:  ', '', str_replace('Re:', 'Re: ', $p->subject));
-		$p->track = $obj->tracking ? 'Y' : 'N';
+		$p->pmsg_opt = $obj->tracking ? 4 : 0;
 		$p->body = html_clean($pp->unconvert($obj->message, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		if ($INFO['msg_allow_code']) {
-			$p->body = tags_to_html($p->body, 'Y');
+			$p->body = tags_to_html($p->body, 1);
 		} else if (!$INFO['msg_allow_html']) {
 			$p->body = nl2br(htmlspecialchars($p->body));
 		}
@@ -672,42 +659,66 @@ function html_clean($str)
 				}
 			}
 		} else {
-			$p->folder_id = 'DRAFT';
+			$p->fldr = 4;
 			unset($GLOBALS['recv_user_id']);
 			$p->to_list = '';
 		}
 		$p->add(($obj->member_id == $obj->from_id));
 		
 		q("UPDATE {$DBHOST_TBL_PREFIX}pmsg SET post_stamp={$obj->msg_date}, read_stamp={$obj->msg_date} WHERE id=".$p->id);
-		if ($p->folder_id == 'SENT' && isset($GLOBALS['send_to_array'][0][1])) {
+		if ($p->fldr == 3 && isset($GLOBALS['send_to_array'][0][1])) {
 			q("UPDATE {$DBHOST_TBL_PREFIX}pmsg SET post_stamp={$obj->msg_date}, read_stamp={$obj->read_date} WHERE id=".$GLOBALS['send_to_array'][0][1]);
 		} else {
-			$p->folder_id = 'SENT';
+			$p->fldr = 3;
 		}
 		++$i;
 	}
-	q("UPDATE {$DBHOST_TBL_PREFIX}users SET pm_notify='Y' WHERE id IN(".implode(',', $ul).")");
+	if ($ul) {
+		q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|64 WHERE id IN(".implode(',', $ul).")");
+	}
 	mysql_free_result($r); unset($ul);
 	print_msg("Done: Importing {$i} private messages");
 
 	print_msg("Importing miscellaneous settings");
 	
 	$list = array();
-	$list['CUSTOM_AVATARS'] = $INFO['avatars_on'] ? 'ALL' : 'OFF';
-	$list['CUSTOM_AVATAR_MAX_SIZE'] = $INFO['avup_size_max'];
-	$list['CUSTOM_AVATAR_MAX_DIM'] = $INFO['avatar_dims'];
-	$list['SESSION_TIMEOUT'] = $INFO['session_expiration'];
-	if (!$INFO['disable_gzip']) {
-		$list['PHP_COMPRESSION_ENABLE'] = 'Y';
-		$list['PHP_COMPRESSION_LEVEL'] = '9';
+	$list['FUD_OPT_1'] = $FUD_OPT_1;
+	if (!$INFO['no_reg']) {
+		$list['FUD_OPT_1'] |= 2;
+	} else {
+		$list['FUD_OPT_1'] = $list['FUD_OPT_1'] &~ 2;
 	}
-	$list['FORUM_SEARCH'] = $INFO['allow_search'] ? 'Y' : 'N';
-	$list['FLOOD_CHECK_TIME'] = $INFO['flood_control'];
-	$list['LOGEDIN_LIST'] = $INFO['show_active'] ? 'Y' : 'N';
-	$list['FORUM_INFO'] = $list['PUBLIC_STATS'] = $INFO['show_totals'] ? 'Y' : 'N';
-	$list['FORUM_TITLE'] = $INFO['boardname'];
-	$list['ALLOW_REGISTRATION'] = !$INFO['no_reg'] ? 'Y' : 'N';
+	if ($INFO['avatars_on']) {
+		$list['FUD_OPT_1'] |= 28;
+	} else {
+		$list['FUD_OPT_1'] = $list['FUD_OPT_1'] &~ 28;
+	}
+	if ($INFO['allow_search']) {
+		$list['FUD_OPT_1'] |= 16777216;
+	} else {
+		 $list['FUD_OPT_1'] = $list['FUD_OPT_1'] &~ 16777216;
+	}
+	if ($INFO['show_active']) {
+		$list['FUD_OPT_1'] |= 1073741824;
+	} else {
+		$list['FUD_OPT_1'] = $list['FUD_OPT_1'] &~ 1073741824;
+	}
+	if ($INFO['show_totals']) {
+		$list['FUD_OPT_2'] = $FUD_OPT_2 | 16 | 2;
+	} else {
+		$list['FUD_OPT_2'] = $FUD_OPT_2 &~ (16|2);
+	}
+
 	$list['DISABLED_REASON'] = $INFO['offline_msg'];
+	$list['FORUM_TITLE'] = $INFO['boardname'];
+	if (!$INFO['disable_gzip']) {
+		$list['FUD_OPT_2'] |= 16384;
+		$list['PHP_COMPRESSION_LEVEL'] = 9;
+	}
+	$list['SESSION_TIMEOUT'] = (int)$INFO['session_expiration'];
+	$list['FLOOD_CHECK_TIME'] = (int)$INFO['flood_control'];
+	$list['CUSTOM_AVATAR_MAX_SIZE'] = (int)$INFO['avup_size_max'];
+	$list['CUSTOM_AVATAR_MAX_DIM'] = (int)$INFO['avatar_dims'];
 
 	change_global_settings($list);
 	print_msg("Done: Importing miscellaneous settings");

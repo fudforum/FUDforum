@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.36 2004/06/11 14:21:07 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.42 2004/11/04 01:20:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,11 +41,11 @@ if (!isset($_GET['start']) || ($start = (int)$_GET['start']) < 1) {
 make_perms_query($fields, $join, $frm_id);
 
 $frm = db_sab('SELECT
-			f.id, f.name, f.thread_count,
-			c.name AS cat_name,
+			f.id, f.name, f.thread_count, f.cat_id,
 			fn.forum_id AS subscribed,
 			m.forum_id AS md,
 			a.ann_id AS is_ann,
+			ms.post_stamp,
 			'.$fields.'
 		FROM {SQL_TABLE_PREFIX}forum f
 		INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
@@ -53,6 +53,7 @@ $frm = db_sab('SELECT
 		LEFT JOIN {SQL_TABLE_PREFIX}mod m ON m.user_id='._uid.' AND m.forum_id='.$frm_id.'
 		'.$join.'
 		LEFT JOIN {SQL_TABLE_PREFIX}ann_forums a ON a.forum_id='.$frm_id.'
+		LEFT JOIN {SQL_TABLE_PREFIX}msg ms ON ms.id=f.last_post_id
 		WHERE f.id='.$frm_id.' LIMIT 1');
 
 if (!$frm) {
@@ -82,9 +83,6 @@ if ($_GET['t'] == 'threadt') {
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
 
-$thread_printable_pdf = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: thread_printable_pdf}' : '';
-$thread_syndicate = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: thread_syndicate}' : '';
-
 /* do various things for registered users */
 if (_uid) {
 	if (isset($_GET['sub']) && sq_check(0, $usr->sq)) {
@@ -94,12 +92,8 @@ if (_uid) {
 		forum_notify_del(_uid, $frm->id);
 		$frm->subscribed = 0;
 	}
-	$subscribe = $frm->subscribed ? '{TEMPLATE: unsubscribe_link}' : '{TEMPLATE: subscribe_link}';
-	$mark_all_read = '{TEMPLATE: thread_mark_all_read}';
-	$merget = ($MOD || $frm->group_cache_opt & 2048) ? '{TEMPLATE: thread_merge_t}' : '';
 } else {
-	$merget = $subscribe = '';
-	$mark_all_read = '{TEMPLATE: thread_pdf_rdf}';
+	header("Last-Modified: " .  gmdate("D, d M Y H:i:s", (int)$frm->post_stamp) . " GMT");
 }
 
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;

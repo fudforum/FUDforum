@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.74 2004/06/11 14:24:02 hackie Exp $
+* $Id: msg.php.t,v 1.78 2004/11/03 15:12:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,10 +62,10 @@
 	make_perms_query($fields, $join);
 
 	$frm = db_sab('SELECT
-			c.name AS cat_name,
-			f.name AS frm_name,
+			c.id AS cat_id,
+			f.name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.last_post_date,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
@@ -116,7 +116,6 @@
 		exit;
 	}
 
-	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
 	$_GET['start'] = (isset($_GET['start']) && $_GET['start'] > 0) ? (int)$_GET['start'] : 0;
 	$total = $frm->replies + 1;
 
@@ -133,6 +132,7 @@
 		$first_unread_message_link = (($total - $_GET['th']) > $count) ? '{TEMPLATE: first_unread_message_link}' : '';
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 		$first_unread_message_link = $subscribe_status = '';
 	}
 
@@ -148,18 +148,6 @@
 	} else {
 		$rate_thread = $thread_rating = '';
 	}
-
-	$post_reply = (!($frm->thread_opt & 1) || $perms & 4096) ? '{TEMPLATE: post_reply}' : '';
-	$threaded_view = $FUD_OPT_3 & 2 ? '' : '{TEMPLATE: threaded_view}';
-	$email_page_to_friend = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_page_to_friend}' : '';
-
-	if ($perms & 4096) {
-		$lock_thread = !($frm->thread_opt & 1) ? '{TEMPLATE: mod_lock_thread}' : '{TEMPLATE: mod_unlock_thread}';
-	} else {
-		$lock_thread = '';
-	}
-
-	$split_thread = ($frm->replies && $perms & 2048) ? '{TEMPLATE: split_thread}' : '';
 
 	/* This is an optimization intended for topics with many messages */
 	q("CREATE TEMPORARY TABLE {SQL_TABLE_PREFIX}_mtmp_".__request_timestamp__." AS SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND apr=1 ORDER BY id ASC LIMIT " . qry_limit($count, $_GET['start']));
@@ -215,9 +203,6 @@
 	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-
-	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: msg_pdf_link}' : '';
-	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: msg_xml_link}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

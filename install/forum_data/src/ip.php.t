@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ip.php.t,v 1.5 2004/06/07 15:24:53 hackie Exp $
+* $Id: ip.php.t,v 1.6 2004/10/29 18:38:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,10 +87,9 @@ function fud_whois($ip)
 
 		$o = uq("SELECT DISTINCT(m.poster_id), u.alias from {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE ".$cond);
 		$user_list = ' ';
-		$i = 1;
+		$i = 0;
 		while ($r = db_rowarr($o)) {
 			$user_list .= '{TEMPLATE: ip_user_entry}';
-			$i++;
 		}
 		if ($user_list) {
 			$page_data = '{TEMPLATE: ip_users}';
@@ -98,10 +97,9 @@ function fud_whois($ip)
 	} else if ($user) {
 		$o = uq("SELECT DISTINCT(ip_addr) FROM {SQL_TABLE_PREFIX}msg WHERE poster_id=".$user_id);
 		$ip_list = ' ';
-		$i = 1;
+		$i = 0;
 		while ($r = db_rowarr($o)) {
 			$ip_list .= '{TEMPLATE: ip_ip_entry}';
-			$i++;
 		}
 		if ($ip_list) {
 			$page_data = '{TEMPLATE: ip_info}';

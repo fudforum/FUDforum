@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.tmpl,v 1.16 2004/05/11 17:31:44 hackie Exp $
+* $Id: email.tmpl,v 1.17 2004/11/02 15:51:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,8 +32,8 @@
 {SECTION: END}
 
 {SECTION: dest_non_forum_user mail being sent to non forum user}
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: email_name} {VAR: name_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{VAR-HTML: tx_name}"></td></tr>
-<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: email_email} {VAR: email_err}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{VAR-HTML: tx_email}"></td></tr>
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: email_name} {FUNC: get_err('tx_name')}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_name" value="{FUNC: (isset($_POST['tx_name']) ? htmlspecialchars($_POST['tx_name']) : '')}"></td></tr>
+<tr class="{ALT-VAR: emailalt RowStyleA RowStyleB}"><td class="nw GenText">{MSG: email_email} {FUNC: get_err('tx_subject')}</td><td width="100%" class="RowStyleA"><input type="text" name="tx_email" value="{FUNC: (isset($_POST['tx_email']) ? htmlspecialchars($_POST['tx_email']) : '')}"></td></tr>
 {SECTION: END}
 
 {PAGE: EMAIL_PAGE }
@@ -42,9 +42,9 @@
 <form method="post" name="frme" action="{TEMPLATE: EMAIL_PAGE_lnk3}">
 <div class="ctb"><table cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th colspan=2>{MSG: email_pg_title}</th></tr>
-{TEMPLATE-DATA: destination}
-<tr class="RowStyleB"><td class="GenText nw">{MSG: email_subject} {VAR: sub_err}</td><td class="RowStyleA wa"><input type="text" tabindex="1" name="tx_subject" value="{VAR-HTML: tx_subject}"></td></tr>
-<tr class="RowStyleB"><td class="GenText nw vt">{MSG: email_body} {VAR: body_err}</td><td class="RowStyleA wa"><textarea tabindex="2" name="tx_body" cols=40 rows=20>{VAR-HTML: tx_body}</textarea></td></tr>
+{TEMPLATE: dest_forum_user}
+<tr class="RowStyleB"><td class="GenText nw">{MSG: email_subject} {FUNC: get_err('tx_subject')}</td><td class="RowStyleA wa"><input type="text" tabindex="1" name="tx_subject" value="{FUNC: (isset($_POST['tx_subject']) ? htmlspecialchars($_POST['tx_subject']) : '')}"></td></tr>
+<tr class="RowStyleB"><td class="GenText nw vt">{MSG: email_body} {FUNC: get_err('tx_body')}</td><td class="RowStyleA wa"><textarea tabindex="2" name="tx_body" cols=40 rows=20>{FUNC: (isset($_POST['tx_body']) ? htmlspecialchars($_POST['tx_body']) : '')}</textarea></td></tr>
 <tr class="RowStyleC"><td class="ar" colspan=2><input type="submit" class="button" name="btn_submit" tabindex="3" value="{MSG: email_submit}"></td></tr>
 </table></div>{DEF: _hs}</form>
 <script>

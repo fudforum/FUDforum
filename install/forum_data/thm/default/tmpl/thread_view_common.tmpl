@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.23 2004/05/11 17:31:44 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.26 2004/11/04 01:20:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,21 +11,14 @@
 
 {PHP_FILE: input: thread_view_common.inc.t; output: thread_view_common.inc;}
 {REF: is_perms.tmpl}
+{REF: draw_forum_path.tmpl}
 
 {SECTION: thread_mark_all_read_lnk}
 {ROOT}?t=markread&amp;{DEF: _rsid}&id={VAR: frm->id}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
-<div class="ar SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</div>
-{SECTION: END}
-
-{SECTION: forum_path_lnk}
-{ROOT}?t=index&amp;{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: forum_path}
-<a href="{TEMPLATE: forum_path_lnk}">{VAR: frm->cat_name}</a><span class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></span>
+<div class="ar SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ELSE}{ENDI}</div>
 {SECTION: END}
 
 {SECTION: new_thread_link_lnk}
@@ -109,7 +102,7 @@
 {SECTION: END}
 
 {SECTION: thread_pdf_rdf}
-<div class="ar SmallText">{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</div>
+<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ELSE}{ENDI}</div>
 {SECTION: END}
 
 {SECTION: thread_merge_t_lnk}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.29 2004/04/21 19:57:54 hackie Exp $
+* $Id: mvthread.php.t,v 1.30 2004/10/20 20:43:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,7 @@
 	if (!$thx) {
 		$thr = db_sab('SELECT f.name AS frm_name, m.subject, t.forum_id, t.id FROM {SQL_TABLE_PREFIX}thread t INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=t.forum_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON t.root_msg_id=m.id WHERE t.id='.$th);
 
-		$r = uq('SELECT f.name, f.id, c.name, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
+		$c = uq('SELECT f.name, f.id, c.id, m.user_id, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 			FROM {SQL_TABLE_PREFIX}forum f
 			INNER JOIN {SQL_TABLE_PREFIX}fc_view v ON v.f=f.id
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
@@ -111,15 +111,21 @@
 			WHERE c.id!=0 AND f.id!='.$thr->forum_id.($usr->users_opt & 1048576 ? '' : ' AND (CASE WHEN m.user_id IS NOT NULL OR ((CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 1) > 0 THEN 1 ELSE 0 END)=1').'
 			ORDER BY v.id');
 
-		$table_data = $prev_cat = '';
+		$table_data = $oldc = '';
 
-		while ($ent = db_rowarr($r)) {
-			if ($ent[2] !== $prev_cat) {
-				$table_data .= '{TEMPLATE: cat_entry}';
-				$prev_cat = $ent[2];
+		require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+		while ($r = db_rowarr($c)) {
+			if ($oldc != $r[2]) {
+				while (list($k, $i) = each($cat_cache)) {
+					$table_data .= '{TEMPLATE: cat_entry}';
+					if ($k == $r[2]) {
+						break;
+					}
+				}
+				$oldc = $r[2];
 			}
 
-			if ($ent[3] || $usr->users_opt & 1048576 || $ent[4] & 8192) {
+			if ($r[3] || $usr->users_opt & 1048576 || $r[4] & 8192) {
 				$table_data .= '{TEMPLATE: forum_entry}';
 			} else {
 				$table_data .= '{TEMPLATE: txc_forum_entry}';

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.php.t,v 1.16 2004/01/04 16:38:27 hackie Exp $
+* $Id: referals.php.t,v 1.17 2004/11/01 20:12:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,10 +24,6 @@
 		if (($r = @db_rowarr($c))) {
 			$refered_entry_data = '';
 			do {
-				$pm_link = (_uid && $FUD_OPT_1 & 1024) ? '{TEMPLATE: pm_link}' : '';
-				$homepage_link = !empty($r[4]) ? '{TEMPLATE: homepage_link}' : '';
-				$email_link = $FUD_OPT_2 & 1073741824 ? '{TEMPLATE: email_link}' : '';
-
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
 			} while (($r = db_rowarr($c)));
 		} else {

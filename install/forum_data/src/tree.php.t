@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.61 2004/06/11 14:24:02 hackie Exp $
+* $Id: tree.php.t,v 1.67 2004/11/03 15:12:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,10 +51,10 @@
 	make_perms_query($fields, $join);
 
 	$frm = db_sab('SELECT
-			c.name AS cat_name,
-			f.name AS frm_name,
+			c.id AS cat_id,
+			f.name,
 			m.subject,
-			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id,
+			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.root_msg_id, t.last_post_date,
 			tn.thread_id AS subscribed,
 			mo.forum_id AS md,
 			tr.thread_id AS cant_rate,
@@ -105,8 +105,6 @@
 		exit;
 	}
 
-	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
-
 	if (_uid) {
 		/* Deal with thread subscriptions */
 		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->sq)) {
@@ -116,6 +114,8 @@
 				thread_notify_del(_uid, $_GET['th']);
 			}
 		}
+	} else {
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 	}
 
 	if (!$mid) {
@@ -192,7 +192,7 @@
 			$tree->kiddies[] = &$arr[$r->id];
 		}
 	}
-	error_reporting(e_all);
+	error_reporting(2047);
 
 	$prev_msg = $next_msg = 0;
 	$rev = isset($_GET['rev']) ? $_GET['rev'] : '';
@@ -211,15 +211,6 @@
 			$cur = &$stack[$stack_cnt-1];
 
 			if (isset($cur->subject) && empty($cur->sub_shown)) {
-				$user_login = $cur->poster_id ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: anon_user}';
-				$width = '{TEMPLATE: tree_tab_width}' * ($lev - 1);
-
-				if (_uid && $cur->post_stamp > $usr->last_read && $cur->post_stamp > $frm->last_view) {
-					$read_indicator = '{TEMPLATE: tree_unread_message}';
-				} else {
-					$read_indicator = '{TEMPLATE: tree_read_message}';
-				}
-
 				if (isset($cur->kiddies) && $cur->kiddie_count) {
 					$tree_data .= $cur->id == $mid ? '{TEMPLATE: tree_branch_selected}' : '{TEMPLATE: tree_branch}';
 				} else {
@@ -260,13 +251,8 @@
 	}
 	$n = 0; $_GET['start'] = '';
 	$usr->md = $frm->md;
-	$message_data = tmpl_drawmsg($msg_obj, $usr, $perms, false, $n, array($prev_msg, $next_msg));
-	un_register_fps();
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-
-	$pdf_link = $FUD_OPT_2 & 2097152 ? '{TEMPLATE: tree_pdf_link}' : '';
-	$xml_link = $FUD_OPT_2 & 1048576 ? '{TEMPLATE: tree_xml_link}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

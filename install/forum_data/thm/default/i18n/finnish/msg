@@ -331,7 +331,7 @@ my_buddies:			Kaverit
 add_buddy:			Lis‰‰ Kaveri
 add:				Lis‰‰
 buddy_search:			Anna k‰ytt‰j‰tunnus jonka haluat lis‰t‰.
-member_search:			<br>Tai k‰yt‰ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Hae K‰ytt‰j‰</a> toimintoa lˆyt‰‰ksesi henkilˆn.
+member_search:			<br>Tai k‰yt‰ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Hae K‰ytt‰j‰</a> toimintoa lˆyt‰‰ksesi henkilˆn.
 buddy_remove:			poista
 post_normal:			Normaali
 post_sticky:			Kelluva
@@ -677,7 +677,7 @@ email_title:			S‰hkˆpostikaavake
 finduser_title:			Hae K‰ytt‰j‰
 help_title:			F.A.Q.
 login_title:			Sis‰‰nkirjautuminen
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Gallup Editori
 register_title:			Rekisterˆityminen
 reset_title:			Vaihda Salasana
@@ -686,7 +686,7 @@ error_title:			Virhe
 index_title:			Tervetuloa foorumille
 search_title:			Haku {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		S‰hkˆposti on l‰hetetty
 remail_email:			Hei,\n\nLˆysin {GVAR: FORUM_TITLE} foorumilta mielenkiintoisen aiheen\notsikolla "{VAR: data->subject}" joka ehk‰ kiinnostaa sinua.\nLˆyd‰t sen t‰‰lt‰:\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTerveisin,\n\n{VAR: usr->alias}\n
 poll_add_option:		Lis‰‰ Valinta:
@@ -757,7 +757,7 @@ p_MOVE:				Siirt‰‰ Aiheita
 p_SML:				K‰ytt‰‰ Hymiˆit‰
 p_IMG:				K‰ytt‰‰ Kuvia
 p_SEARCH:			Hakea Viestej‰
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hae K‰ytt‰j‰</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Hae K‰ytt‰j‰</a>
 group_mgr_indicator:		Muokkaa t‰ll‰ hetkell‰: <b>{VAR: grp->name}</b>
 rate_worst:			Huonoin
 rate_best:			Paras
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

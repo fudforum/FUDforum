@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.88 2004/06/23 16:20:24 hackie Exp $
+* $Id: consist.php,v 1.92 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -135,11 +135,15 @@ forum will be disabled.
 	draw_stat('Locked!');
 
 	draw_stat('Validating category order');
-	$i = 1;
-	$c = q('SELECT id, view_order FROM '.$tbl.'cat ORDER BY view_order, id');
+	$oldp = -1;
+	$c = q('SELECT id, view_order, parent FROM '.$tbl.'cat ORDER BY parent, view_order, id');
 	while ($r = db_rowarr($c)) {
+		if ($oldp != $r[2]) {
+			$i = 1;
+			$oldp = $r[2];
+		}
 		if ($r[1] != $i) {
-			q('UPDATE '.$tbl.'cat SET view_order='.$i.' WHERE id='.$id);
+			q('UPDATE '.$tbl.'cat SET view_order='.$i.' WHERE id='.$r[0]);
 		}
 		++$i;
 	}
@@ -395,19 +399,17 @@ forum will be disabled.
 
 	draw_stat('Checking disk files against smilies');
 	$cnt = 0;
-	$dp = opendir($WWW_ROOT_DISK . 'images/smiley_icons');
-	readdir($dp); readdir($dp);
-	while ($f = readdir($dp)) {
-		if (!isset($sml[$f]) && !preg_match('!\.(gif|png|jpg|jpeg|html)$!i', $f)) {
-			if (@unlink($WWW_ROOT_DISK . 'images/smiley_icons/' . $f)) {
-				draw_stat('deleted smiley: ' . $f);
+	$files = glob($WWW_ROOT_DISK . 'images/smiley_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE|GLOB_NOSORT);
+	foreach ($files as $file) {
+		if (!isset($sml[basename($file)])) {
+			if (@unlink($file)) {
+				draw_stat('deleted smiley: ' . $file);
 				++$cnt;
 			} else {
-				draw_info('Unable to delete smiley: ' . $f);
+				draw_info('Unable to delete smiley: ' . $file);
 			}
 		}
 	}
-	closedir($dp);
 	rebuild_icon_cache();
 	unset($sml);
 	draw_info($cnt);
@@ -645,14 +647,12 @@ forum will be disabled.
 	draw_stat('Database unlocked');
 
 	draw_stat('Cleaning forum\'s tmp directory');
-	if (($d = opendir($TMP))) {
-		readdir($d); readdir($d);
-		while ($f = readdir($d)) {
-			if (@is_file($TMP . $f)) {
-				@unlink($TMP . $f);
+	if (($files = glob($TMP.'*', GLOB_NOSORT))) {
+		foreach ($files as $file) {
+			if (is_file($file)) {
+				@unlink($file);
 			}
 		}
-		closedir($d);
 	}
 	draw_stat('Done: Cleaning forum\'s tmp directory');
 

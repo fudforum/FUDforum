@@ -2,15 +2,13 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemesel.php,v 1.20 2004/06/07 15:24:55 hackie Exp $
+* $Id: admthemesel.php,v 1.24 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
 * Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
-
-	@set_time_limit(6000);
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
@@ -28,41 +26,39 @@
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
-<input type="hidden" name="ret" value="<?php echo $ret; ?>">
+<input type="hidden" name="ret" value="<?php echo $ret; ?>"><?php echo _hs; ?>
 <table class="datatable solidtable">
 <tr class="field">
+<td>Template Set:</td><td><select name="tname">
 <?php
-	echo _hs;
-	$path = $GLOBALS['DATA_DIR'].'/thm';
+	if (!defined('GLOB_ONLYDIR')) { /* pre PHP 4.3.3 hack for FreeBSD and Windows */
+		define('GLOB_ONLYDIR', 0);
+	}
 
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	echo '<td>Template Set:</td><td><select name="tname">';
-	while ($de = readdir($dp)) {
-		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+	$files = glob($GLOBALS['DATA_DIR'].'/thm/*', GLOB_ONLYDIR|GLOB_NOSORT);
+	foreach ($files as $file) {
+		if (!file_exists($file . '/tmpl')) {
 			continue;
 		}
-		echo '<option value="'.$de.'"'.($de == $def_thm ? ' selected' : '').'>'.$de.'</option>';
+		$n = basename($file);
+		echo '<option value="'.$n.'"'.($n == $def_thm ? ' selected' : '').'>'.$n.'</option>';
 	}
-	echo '</select></td>';
 ?>
+</select></td>
 </tr>
 <tr class="field">
+<td>Language:</td><td><select name="tlang">
 <?php
-	$path .= '/default/i18n';
-
-	$dp = opendir($path);
-	readdir($dp); readdir($dp);
-	echo '<td>Language:</td><td><select name="tlang">';
-	while ($de = readdir($dp)) {
-		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+	$files = glob(dirname($files[0]) . '/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
+	foreach ($files as $file) {
+		if (!file_exists($file . '/msg')) {
 			continue;
 		}
-		echo '<option value="'.$de.'"'.($de == $def_tmpl ? ' selected' : '').'>'.$de.'</option>';
+		$n = basename($file);
+		echo '<option value="'.$n.'"'.($n == $def_tmpl ? ' selected' : '').'>'.$n.'</option>';
 	}
-	echo '</select></td>';
 ?>
-</tr>
+</select></td></tr>
 <?php
 	echo '<tr class="fieldaction" align=right><td colspan=2><input type="submit" name="btn_submit" value="Edit"></td></td>';
 ?>

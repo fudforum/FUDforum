@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: email.php.t,v 1.17 2004/01/04 16:38:26 hackie Exp $
+* $Id: email.php.t,v 1.18 2004/11/02 15:51:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -66,21 +66,10 @@ function mail_check()
 		check_return($usr->returnto);
 	}
 
-	$tx_name = isset($_POST['tx_name']) ? $_POST['tx_name'] : '';
-	$tx_body = isset($_POST['tx_body']) ? $_POST['tx_body'] : '';
-	$tx_subject = isset($_POST['tx_subject']) ? $_POST['tx_subject'] : '';
-
 	/* start page */
 	$TITLE_EXTRA = ': {TEMPLATE: email_title}';
 
 /*{POST_HTML_PHP}*/
-
-	$name_err = get_err('tx_name');
-	$sub_err = get_err('tx_subject');
-	$body_err = get_err('tx_body');
-
-	$destination = '{TEMPLATE: dest_forum_user}';
-
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: EMAIL_PAGE}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.48 2004/09/15 05:16:33 hackie Exp $
+* $Id: admthemes.php,v 1.52 2004/10/26 21:08:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,9 +123,9 @@ function clean_code($path, $toks)
 			exit('can\'t create ('.$root_nn.')<br>');
 		}
 
-		fudcopy($root . 'default/', $root_nn, '!.*!', true);
+		fudcopy($root . 'default/', $root_nn, '*', true);
 		if ($_POST['base_template_set'] == 'path_info') {
-			fudcopy($root . 'path_info/', $root_nn, '!.*!', true);
+			fudcopy($root . 'path_info/', $root_nn, '*', true);
 		}
 		umask($u);
 	}
@@ -162,30 +162,17 @@ function clean_code($path, $toks)
 		fud_theme::delete((int)$_GET['del']);
 	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'themes WHERE id='.(int)$_GET['optimize']))) {
 		/* optimize *.php files */
-		$path = $WWW_ROOT_DISK . 'theme/' . $t_name;
-		$dir = opendir($path);
-		$path .= '/';
-		readdir($dir); readdir($dir);
-		while ($f = readdir($dir)) {
-			if (@is_file($path . $f) && substr($f, -4) == '.php') {
-				$toks = token_get_all(file_get_contents($path . $f));
-				while (get_func_usage($toks));
-				clean_code($path . $f, $toks);
-			}
+		$files = glob($WWW_ROOT_DISK . 'theme/' . $t_name . '/*.php', GLOB_NOSORT);
+		foreach ($files as $f) {
+			$toks = token_get_all(file_get_contents($f));
+			while (get_func_usage($toks));
+			clean_code($f, $toks);
 		}
-		closedir($dir);
-
-		/* optimize *.inc files */
-		$path = $DATA_DIR . 'include/theme/' . $t_name;
-		$dir = opendir($path);
-		$path .= '/';
-		readdir($dir); readdir($dir);
-		while ($f = readdir($dir)) {
-			if (@is_file($path . $f) && substr($f, -4) == '.inc') {
-				clean_code($path . $f, token_get_all(file_get_contents($path . $f)));
-			}
+		
+		$files = glob($DATA_DIR . 'include/theme/' . $t_name . '/*.inc', GLOB_NOSORT);
+		foreach ($files as $f) {
+			clean_code($f, token_get_all(file_get_contents($$f)));
 		}
-		closedir($dir);
 	}
 	if (!$edit) {
 		$c = get_class_vars('fud_theme');
@@ -222,16 +209,18 @@ function clean_code($path, $toks)
 	<td>
 	<select name="thm_theme">
 	<?php
-		$dp = opendir($DATA_DIR . '/thm');
-		readdir($dp); readdir($dp);
-		while ($de = readdir($dp)) {
-			$dr = $DATA_DIR . '/thm/' . $de;
-			if ($de == 'CVS' || !@is_dir($dr) || !@is_dir($dr.'/tmpl')) {
+		if (!defined('GLOB_ONLYDIR')) { /* pre PHP 4.3.3 hack for FreeBSD and Windows */
+			define('GLOB_ONLYDIR', 0);
+		}
+
+		$files = glob($DATA_DIR.'/thm/*', GLOB_ONLYDIR|GLOB_NOSORT);
+		foreach ($files as $file) {
+			if (!file_exists($file . '/tmpl')) {
 				continue;
 			}
-			echo '<option'.($thm_theme == $de ? ' selected' : '').'>'.$de.'</option>';
+			$n = basename($file);
+			echo '<option value="'.$n.'"'.($n == $thm_theme ? ' selected' : '').'>'.$n.'</option>';
 		}
-		closedir($dp);
 	?></select>
 	</td>
 </tr>
@@ -239,23 +228,21 @@ function clean_code($path, $toks)
 	<td>Language</td>
 	<td>
 	<?php
-		$dp = opendir($DATA_DIR . '/thm/default/i18n');
-		readdir($dp); readdir($dp);
-		$selopt = '';
 		if (!$thm_lang) {
 			$thm_lang = 'english';
 		}
-		while ($de = readdir($dp)) {
-			$dr = $DATA_DIR . '/thm/default/i18n/' . $de;
-			if ($de == 'CVS' || !@is_dir($dr)) {
+		$selopt = '';
+		$files = glob($DATA_DIR.'/thm/default/i18n/*', GLOB_ONLYDIR|GLOB_NOSORT);
+		foreach ($files as $file) {
+			if (!file_exists($file . '/msg')) {
 				continue;
 			}
-			$selopt .= '<option'.($thm_lang == $de ? ' selected' : '').'>'.$de.'</option>';
-			$locales[$de]['locale'] = trim(file_get_contents($dr . '/locale'));
-			$pspell_file = $dr . '/pspell_lang';
-			$locales[$de]['pspell_lang'] = @file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
+			$n = basename($file);
+			$selopt .= '<option'.($thm_lang == $n ? ' selected' : '').'>'.$n.'</option>';
+			$locales[$n]['locale'] = trim(file_get_contents($file . '/locale'));
+			$pspell_file = $file . '/pspell_lang';
+			$locales[$n]['pspell_lang'] = file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
 		}
-		closedir($dp);
 
 		$cases = '';
 		foreach($locales as $k => $v) {

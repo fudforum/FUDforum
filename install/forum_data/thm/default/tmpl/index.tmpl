@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.39 2004/07/02 16:54:28 hackie Exp $
+* $Id: index.tmpl,v 1.53 2004/11/02 14:56:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,15 +31,15 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr><td colspan="6" class="CatDesc"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>{VAR: r[5]}</td></tr>
+<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{TEMPLATE: maximize_category}{ELSE}{TEMPLATE: minimize_category}{END}">{IF: !empty($collapse[$k])}{TEMPLATE: collapse_indicator_MAX}{ELSE}{TEMPLATE: collapse_indicator_MIN}{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc CatLockPad" colspan="6"><span class="CatLockedName">{VAR: r[6]}</span>{VAR: r[5]}</td></tr>
+<tr><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
-<img src="{VAR: r[9]}" alt="{MSG: forum_icon}" />
+<img src="{VAR: r[6]}" alt="{MSG: forum_icon}" />
 {SECTION: END}
 
 {SECTION: no_forum_icon}
@@ -50,24 +50,20 @@
 <div class="TopBy"><b>{MSG: moderators}:</b> {VAR: moderators}</div>
 {SECTION: END}
 
-{SECTION: forum_descr}
-<br />{VAR: r[14]}
-{SECTION: END}
-
 {SECTION: index_forum_entry forum entry row}
 <tr>
-	<td class="RowStyleA wo">{TEMPLATE-DATA: forum_icon}</td>
+	<td class="RowStyleA wo">{IF: $r[6]}{TEMPLATE: forum_icon}{ELSE}{TEMPLATE: no_forum_icon}{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR-HTML: r[13]}</a>{TEMPLATE-DATA: forum_descr}{VAR: moderators}</td>
-	<td class="RowStyleB ac">{VAR: r[15]}</td>
-	<td class="RowStyleB ac">{VAR: r[16]}</td>
-	<td class="RowStyleA ac nw">{VAR: last_post}</td>
+	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
+	<td class="RowStyleB ac">{VAR: r[12]}</td>
+	<td class="RowStyleB ac">{VAR: r[13]}</td>
+	<td class="RowStyleA ac nw">{IF: $r[8]}{TEMPLATE: last_post}{ELSE}{TEMPLATE: na}{END}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: forum_with_no_view_perms}
 <tr>
-	<td class="RowStyleA" colspan=6>{VAR-HTML: r[13]}<br />{VAR: r[14]}</td>
+	<td class="RowStyleA" colspan=6>{VAR: r[13]}<br />{VAR: r[14]}</td>
 </tr>
 {SECTION: END}
 
@@ -84,7 +80,7 @@
 {SECTION: END}
 
 {SECTION: last_post}
-<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {VAR: last_poster_profile} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>
+<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>
 {SECTION: END}
 
 {SECTION: profile_link_user}
@@ -130,15 +126,16 @@
 {PAGE: INDEX_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{TEMPLATE-DATA: welcome_message}
+{IF: _uid}{TEMPLATE: welcome_message}{ELSE}{END}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
+{TEMPLATE-DATA: cat_path}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE: index_table_heading}
 {TEMPLATE-DATA: forum_list_table_data}
 </table>
-{TEMPLATE-DATA: mark_all_read}
+{IF: _uid}{TEMPLATE: mark_all_read}{ELSE}{END}
 {TEMPLATE-DATA: quick_login}
-{TEMPLATE-DATA: loged_in_list}
+{IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
 {TEMPLATE: forum_icon_legend}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -166,7 +163,7 @@
 {SECTION: END}
 
 {SECTION: last_post_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[11]}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[8]}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: profile_link_user_lnk}
@@ -178,13 +175,41 @@
 {SECTION: END}
 
 {SECTION: mark_all_read_lnk}
-{ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
+{ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}&amp;cat={VAR: cat_id}
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y_lnk}
-{ROOT}?t=index&amp;c={FUNC: url_tog_collapse($r[8], $cs)}&amp;{DEF: _rsid}
+{ROOT}?t=index&amp;cat={VAR: cat_id}&amp;c={FUNC: url_tog_collapse($k, $cs)}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: index_to_cat_lnk}
+{ROOT}?t=index&amp;cat={VAR: k}&amp;c={VAR: cs}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: index_forum_entry_lnk}
-{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[10]}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_forum_path}
+&nbsp;&raquo; <a href="{TEMPLATE: idx_forum_path_lnk}">{VAR: cidxc[$cid][1]}</a>
+{SECTION: END}
+
+{SECTION: idx_forum_path_lnk}
+{ROOT}?t=i&amp;cat={VAR: cid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_cat_path}
+<br/><a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{TEMPLATE-DATA: cat_path}&nbsp;&raquo; <b>{VAR: cidxc[$cat_id][1]}</b>
+{SECTION: END}
+
+{SECTION: idx_cat_path_lnk}
+{ROOT}?t=i&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_compact_forum_entry}
+&nbsp;&nbsp;<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+{SECTION: END}
+
+{SECTION: idx_compact_forum_row}
+<tr class="RowStyleB"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
 {SECTION: END}

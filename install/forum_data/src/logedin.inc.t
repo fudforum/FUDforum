@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.30 2004/05/18 15:53:59 hackie Exp $
+* $Id: logedin.inc.t,v 1.33 2004/11/01 23:35:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@ function rebuild_stats_cache($last_msg_id)
 		online_users_anon='.(int)$obj->online_users_anon.',
 		online_users_hidden='.(int)$obj->online_users_hidden.',
 		online_users_reg='.(int)$obj->online_users_reg.',
-		online_users_text='.strnull(addslashes(@serialize($obj->online_users_text))));
+		online_users_text='.strnull(addslashes(serialize($obj->online_users_text))));
 
 	$obj->last_user_alias = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$obj->last_user_id);
 	$obj->last_msg_subject = q_singleval('SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id='.$last_msg_id);
@@ -45,26 +45,19 @@ if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
 	if (!($st_obj = db_sab('SELECT sc.*,m.subject AS last_msg_subject, u.alias AS last_user_alias FROM {SQL_TABLE_PREFIX}stats_cache sc INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=sc.last_user_id INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id='.$last_msg_id.' WHERE sc.cache_age>'.(__request_timestamp__ - $STATS_CACHE_AGE)))) {
 		$st_obj =& rebuild_stats_cache($last_msg_id);
 	} else if ($st_obj->online_users_text) {
-		$st_obj->online_users_text = @unserialize($st_obj->online_users_text);
+		$st_obj->online_users_text = unserialize($st_obj->online_users_text);
 	}
-
-	$i_spy = $FUD_OPT_1 & 536870912 ? '{TEMPLATE: i_spy}' : '';
 
 	if ($FUD_OPT_1 & 1073741824) {
 		if (!empty($st_obj->online_users_text)) {
 			foreach($st_obj->online_users_text as $k => $v) {
 				$logedin .= '{TEMPLATE: online_user_link} ';
 			}
-		} else {
-			$logedin = '';
 		}
 		$logedin = '{TEMPLATE: logedin}';
 	}
 	if ($FUD_OPT_2 & 16) {
-		$last_msg = $last_msg_id ? '{TEMPLATE: last_msg}' : '';
 		$forum_info = '{TEMPLATE: forum_info}';
 	}
 }
-
-$loged_in_list = ($logedin || $forum_info) ? '{TEMPLATE: loged_in_list}' : '';
 ?>

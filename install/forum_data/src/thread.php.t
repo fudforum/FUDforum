@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.php.t,v 1.38 2004/09/23 19:21:42 hackie Exp $
+* $Id: thread.php.t,v 1.42 2004/11/03 15:07:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -63,8 +63,7 @@
 		$thread_list_table_data = '{TEMPLATE: no_messages}';
 		$threaded_view = $admin_heading_row = '';
 	} else {
-		$admin_heading_row = ($MOD || $frm->group_cache_opt & 8224);
-		$threaded_view = $FUD_OPT_2 & 512 ? '{TEMPLATE: threaded_view}' : '';
+		$admin_heading_row = ($MOD || ($mo = $frm->group_cache_opt & 8224));
 		$thread_list_table_data = '';
 
 		do {
@@ -89,9 +88,7 @@
 					$i = 0;
 				}
 
-				for ($i; $i < $pgcount; $i++) {
-					$st_pos = $i * $ppg;
-					$pg_num = $i + 1;
+				while ($i < $pgcount) {
 					$mini_pager_data .= '{TEMPLATE: mini_pager_entry}';
 				}
 
@@ -100,22 +97,6 @@
 				$mini_thread_pager = '';
 			}
 
-			$thread_poll_indicator = $r[1] ? '{TEMPLATE: thread_poll_indicator}' : '';
-			$thread_attach_indicator = $r[0] ? '{TEMPLATE: thread_attach_indicator}' : '';
-			$thread_icon = $r[3] ? '{TEMPLATE: thread_icon}' : '{TEMPLATE: thread_icon_none}';
-			if ($FUD_OPT_2 & 4096) {
-				$rating = $r[17] ? '{TEMPLATE: rating}' : '{TEMPLATE: rating_none}';
-			} else {
-				$rating = '';
-			}
-			if ($r[18] > 1) {
-				$stick_status = $r[18] & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}';
-			} else {
-				$stick_status = '';
-			}
-			$user_link = $r[8] ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: unreg_user_link}';
-			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
-
 			$thread_read_status = $first_unread_msg_link = '';
 			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[20]) {
 				$thread_read_status = ($r[18] & 1) ? '{TEMPLATE: thread_unread_locked}' : '{TEMPLATE: thread_unread}';
@@ -123,24 +104,18 @@
 				if ($r[16]) {
 					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
 				}
+			} else if ($r[18] & 1) {
+				$thread_read_status = '{TEMPLATE: thread_read_locked}';
+			} else if (!_uid) {
+				$thread_read_status = '{TEMPLATE: thread_read_unreg}';
+			} else {
+				$thread_read_status = '{TEMPLATE: thread_read}';
 			}
-
-			if (!$thread_read_status) {
-				if ($r[18] & 1) {
-					$thread_read_status = '{TEMPLATE: thread_read_locked}';
-				} else if (!_uid) {
-					$thread_read_status = '{TEMPLATE: thread_read_unreg}';
-				} else {
-					$thread_read_status = '{TEMPLATE: thread_read}';
-				}
-			}
-
-			$thread_first_post = '{TEMPLATE: thread_first_post}';
 
 			if ($admin_heading_row) {
-				if ($MOD || (($frm->group_cache_opt & 8224) == 8224)) {
+				if ($MOD || $mo == 8224) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_all}';
-				} else if ($frm->group_cache_opt & 32) {
+				} else if ($mo & 32) {
 					$admin_control_row = '{TEMPLATE: admin_control_row_del}';
 				} else {
 					$admin_control_row = '{TEMPLATE: admin_control_row_move}';

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.37 2004/07/02 16:54:28 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.38 2004/11/01 20:12:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -174,7 +174,7 @@
 <span class="LevelText">
 {TEMPLATE-DATA: level_name}
 {TEMPLATE-DATA: level_image}
-{TEMPLATE-DATA: custom_tags}
+{IF: $u->custom_status}{TEMPLATE: custom_tags}{ELSE}{TEMPLATE: no_custom_tags}{ENDI}
 </span>
 {TEMPLATE-DATA: moderation}
 </td></tr>
@@ -191,29 +191,32 @@
 <tr><th colspan=2 class="wa ">{MSG: usrinfo_profile}</th></tr>
 <tr class="RowStyleA"><td class="nw GenText">{MSG: date_registered}</td><td class="wa DateText">{TEMPLATE: uinfo_join_date}</td></tr>
 <tr class="RowStyleB"><td class="vt nw GenText">{MSG: post_count_l}</td><td class="GenText">{MSG: average_post_count}<br /><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
-{TEMPLATE-DATA: real_name}
-{TEMPLATE-DATA: status}
+{IF: $u->users_opt & 32768}{ELSE}{TEMPLATE: usr_real_name}{END}
+{IF: ($level_name || $moderation || $level_image || $custom_tags)}{TEMPLATE: status}{ENDIF}
+{IF: ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2))}{TEMPLATE: avatar}{ENDIF}
 {TEMPLATE-DATA: avatar}
 {TEMPLATE-DATA: last_post}
+{IF: $u->last_visit && !($u->users_opt & 32768)}{TEMPLATE: last_visit}{ENDIF}
 {TEMPLATE-DATA: last_visit}
 {TEMPLATE-DATA: polls}
-{TEMPLATE-DATA: user_image}
+{IF: ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://'))}{TEMPLATE: user_image}{ENDIF}
 {TEMPLATE-DATA: email_link}
-{TEMPLATE-DATA: usrinfo_private_msg}
+{IF: ($FUD_OPT_1 & 1024 && _uid)}{TEMPLATE: usrinfo_private_msg}{ENDIF}
 {TEMPLATE-DATA: buddy}
 {TEMPLATE-DATA: referals}
-{TEMPLATE-DATA: home_page}
+{IF: $u->home_page}{TEMPLATE: home_page}{ENDIF}
 {TEMPLATE-DATA: gender}
-{TEMPLATE-DATA: location}
-{TEMPLATE-DATA: occupation}
-{TEMPLATE-DATA: interests}
-{TEMPLATE-DATA: bio}
+{IF: $u->location}{TEMPLATE: location}{ENDIF}
+{IF: $u->occupation}{TEMPLATE: occupation}{ENDIF}
+{IF: $u->interests}{TEMPLATE: interests}{ENDIF}
+{IF: $u->bio}{TEMPLATE: bio}{ENDIF}
 {TEMPLATE-DATA: birth_date}
-{TEMPLATE-DATA: im_icq}
-{TEMPLATE-DATA: im_aim}
-{TEMPLATE-DATA: im_yahoo}
-{TEMPLATE-DATA: im_msnm}
-{TEMPLATE-DATA: im_jabber}
+{IF: $u->icq}{TEMPLATE: im_icq}{ENDIF}
+{IF: $u->aim}{TEMPLATE: im_aim}{ENDIF}
+{IF: $u->yahoo}{TEMPLATE: im_yahoo}{ENDIF}
+{IF: $u->msnm}{TEMPLATE: im_msnm}{ENDIF}
+{IF: $u->jabber}{TEMPLATE: im_jabber}{ENDIF}
+{IF: ($FUD_OPT_2 & 2048 && $u->affero)}{TEMPLATE: usrinfo_affero}{ENDIF}
 {TEMPLATE-DATA: im_affero}
 <tr class="RowStyleC"><td class="nw ar GenText" colspan=2><a href="{TEMPLATE: USERINFO_PAGE_lnk}">{MSG: usrinfo_show_all_posts}</a></td></tr>
 </table>

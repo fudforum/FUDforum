@@ -675,7 +675,7 @@ email_title:			Formular de trimitere email
 finduser_title:			Cauta utilizator
 help_title:			Intrebari frecvente
 login_title:			Formular de autentificare
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editor de sondaje
 register_title:			Formular de inregistrare
 reset_title:			Reseteaza Parola
@@ -684,7 +684,7 @@ error_title:			Formular erori
 index_title:			Bine a-ti venit la forum
 search_title:			Cauta {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Emailul a fost trimis
 remail_email:			Buna,\n\nEste o tema interesata despre "{VAR: data->subject}" pe {GVAR: FORUM_TITLE} pe care cred ca ai vrea sa o citesti. Poti vedea tema la:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Adauga optiune:
@@ -754,7 +754,7 @@ p_LOCK:				Blocheaza Tema
 p_MOVE:				Muta tema
 p_SML:				Foloseste smilies
 p_IMG:				Foloseste tag-uri de imagine
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Cauta utilizator</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Cauta utilizator</a>
 group_mgr_indicator:		Editati: <b>{VAR: grp->name}</b>
 rate_worst:			Slab
 rate_best:			Foarte Bun
@@ -891,7 +891,7 @@ login_blocked_account_msg:	Contul dumneavoastra a fost blocat pe acest forum, da
 register_affero:		Nume de utilizator optional:<br /><font class="SmallText">Daca aveti un nume de utilizator <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">optional</a> introduceti-l aici.</font>
 im_affero:			Nume utilizator optional
 pmsg_download_counter:		Descarcat de {VAR: r->dlcount} ori
-member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Cauata persoana</a> pentru a gasi o persoana.
+member_search:			<br>Sau foloseste optiunea <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Cauata persoana</a> pentru a gasi o persoana.
 post_all_ext_allowed:		(nerestrictionat)
 register_err_avatardimtobig:	Dimensiunile imaginii <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> depasesc dimensiunile permise de <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 buddy_offline:			{VAR: r[2]} este offline
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.13 2004/04/25 20:18:26 hackie Exp $
+* $Id: poll.tmpl,v 1.14 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,13 +62,13 @@ function check_submission()
 		<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
 	</tr>
 
-	<tr><td colspan=2 class="ar">{TEMPLATE-DATA: pl_submit}</td></tr>
+	<tr><td colspan=2 class="ar">{IF: !$pl_id}{TEMPLATE: pl_submit_create}{ELSE}{TEMPLATE: pl_submit_update}{END}</td></tr>
 </table>
 <p>
 {TEMPLATE-DATA: poll_editor}
 <p>
 <div class="ar">
-{TEMPLATE-DATA: poll_submit_btn}
+{IF: !$pl_id}{TEMPLATE: btn_submit}{ELSE}{TEMPLATE: btn_update}{END}
 </div>
 </form>
 <script>
@@ -107,7 +107,7 @@ if (document.poll_submit.pl_option) {
 <table width="99%" cellspacing=2 cellpadding=0 class="dashed">
 <tr><td class="GenText">{MSG: poll_add_option}</td><td class="ar"><input type="text" name="pl_option" value="{VAR-HTML: pl_option}">
 {TEMPLATE-DATA: pl_smiley_disabled_chk}
-<tr><td colspan=2 class="ar">{TEMPLATE-DATA: pl_action}</td></tr>
+<tr><td colspan=2 class="ar">{IF: !isset($_GET['pl_optedit'])}{TEMPLATE: pl_add}{ELSE}{TEMPLATE: pl_upd}{END}</td></tr>
 <tr><td colspan=2><table>
 {TEMPLATE-DATA: poll_option_entry_data}
 </table>

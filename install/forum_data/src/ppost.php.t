@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.68 2004/06/07 16:03:51 hackie Exp $
+* $Id: ppost.php.t,v 1.70 2004/10/25 16:54:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -157,12 +157,12 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		/* restore file attachments */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
-			$attach_list = @unserialize(base64_decode($_POST['file_array']));
+			$attach_list = unserialize(base64_decode($_POST['file_array']));
 		}
 	}
 
 	if ($attach_list) {
-		$enc = base64_encode(@serialize($attach_list));
+		$enc = base64_encode(serialize($attach_list));
 		foreach ($attach_list as $v) {
 			if ($v) {
 				$attach_count++;

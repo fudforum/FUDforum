@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_select_opt.tmpl,v 1.4 2004/04/25 20:18:25 hackie Exp $
+* $Id: draw_select_opt.tmpl,v 1.5 2004/11/03 16:53:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -11,14 +11,10 @@
 
 {PHP_FILE: input: draw_select_opt.inc.t; output: draw_select_opt.inc;}
 
-{MAIN_SECTION: option_area Standart forum select options}
+{MAIN_SECTION: option_area Standard forum select options}
 {TEMPLATE-DATA: options}
 {MAIN_SECTION: END}
 
-{SECTION: selected_option}
-<option value="{VAR: vls[$i]}" {VAR: normal_tmpl}>{VAR: nms[$i]}</option>
-{SECTION: END}
-
-{SECTION: unselected_option}
-<option value="{VAR: vls[$i]}" selected {VAR: selected_tmpl}>{VAR: nms[$i]}</option>
+{SECTION: sel_option selection option definition}
+<option value="{VAR: vls[$i]}"{IF: $vls[$i] != $selected} {VAR: normal_tmpl}}{ELSE} selected {VAR: selected_tmpl}{END}>{VAR: nms[$i]}</option>
 {SECTION: END}

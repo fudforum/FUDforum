@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.29 2004/06/11 14:09:33 hackie Exp $
+* $Id: reported.php.t,v 1.30 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,8 +56,6 @@
 
 	$usr->md = 1;
 	while ($obj = db_rowobj($r)) {
-		$user_login = $obj->report_user_id ? '{TEMPLATE: reported_reg_user_link}' : '{TEMPLATE: reported_anon_user}';
-		$message = tmpl_drawmsg($obj, $usr, $perms, false, $n, null);
 		$reported_message .= '{TEMPLATE: reported_message}';
 	}
 	unset($r);

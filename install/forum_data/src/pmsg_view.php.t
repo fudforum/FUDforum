@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg_view.php.t,v 1.21 2004/02/13 15:34:18 hackie Exp $
+* $Id: pmsg_view.php.t,v 1.22 2004/11/02 15:38:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -45,8 +45,6 @@
 
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
-	$cur_ppage = tmpl_cur_ppage($m->fldr, $folders, $m->subject);
-
 	/* Next Msg */
 	if (($nid = q_singleval('SELECT p.id FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=p.ouser_id WHERE p.duser_id='._uid.' AND p.fldr='.$m->fldr.' AND post_stamp>'.$m->post_stamp.' ORDER BY p.post_stamp ASC LIMIT 1'))) {
 		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';
@@ -60,8 +58,6 @@
 	} else {
 		$dpmsg_prev_message = '';
 	}
-
-	$private_message_entry = tmpl_drawpmsg($m, $usr, false);
 
 	if (!$m->read_stamp && $m->pmsg_opt & 16) {
 		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', pmsg_opt=(pmsg_opt & ~ 4) |8 WHERE id='.$m->id);

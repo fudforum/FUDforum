@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.php.t,v 1.3 2004/06/07 15:24:53 hackie Exp $
+* $Id: uc.php.t,v 1.5 2004/11/02 15:30:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -73,13 +73,6 @@
 		(CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END & 1) > 0)")."
 		ORDER BY m.post_stamp DESC");
 	while ($r = db_rowobj($c)) {
-		$uc_forum_descr = $r->descr ? '{TEMPLATE: uc_forum_descr}' : '';
-		if ($r->mid) {
-			$profile = $r->alias ? '{TEMPLATE: uc_link_user}' : '{TEMPLATE: uc_link_anon}';
-			$uc_last_post = '{TEMPLATE: uc_last_post}';
-		} else {
-			$uc_last_post = '';
-		}
 		$uc_sub_forum .= '{TEMPLATE: uc_sub_forum}';
 	}
 	if ($uc_sub_forum) {
@@ -88,6 +81,7 @@
 	unset($c);
 
 	$uc_sub_topic = '';
+	$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 	$c = uq("SELECT
 			m2.subject, m.post_stamp, m.poster_id,
 			u.alias,
@@ -105,23 +99,18 @@
 		($usr->users_opt & 1048576 ? '' : " AND (mo.id IS NOT NULL OR (CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END & 1) > 0)").
 		"ORDER BY m.post_stamp DESC LIMIT ".($usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE));
 	while ($r = db_rowobj($c)) {
-		$profile = $r->alias ? '{TEMPLATE: uc_link_user}' : '{TEMPLATE: uc_link_anon}';
 		$msg_count = $r->replies + 1;
-		$ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
 		if ($msg_count > $ppg && $usr->users_opt & 256) {
-			if ($THREAD_MSG_PAGER < ($pgcount = ceil($msg_count/$ppg))) {
+			if ($THREAD_MSG_PAGER < ($pgcount = ceil($msg_count / $ppg))) {
 				$i = $pgcount - $THREAD_MSG_PAGER;
 				$mini_pager_data = '{TEMPLATE: uc_mini_pager_limiter}';
 			} else {
 				$mini_pager_data = '';
 				$i = 0;
 			}
-			for ($i; $i < $pgcount; $i++) {
-				$st_pos = $i * $ppg;
-				$pg_num = $i + 1;
+			while ($i < $pgcount) {
 				$mini_pager_data .= '{TEMPLATE: uc_mini_pager_entry}';
 			}
-
 			$mini_thread_pager = $mini_pager_data ? '{TEMPLATE: uc_mini_thread_pager}' : '';
 		} else {
 			$mini_thread_pager = '';

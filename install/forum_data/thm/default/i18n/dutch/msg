@@ -671,7 +671,7 @@ email_title:			Email Formulier
 finduser_title:			Vind lid
 help_title:			F.A.Q.
 login_title:			Login Formulier
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
 register_title:			Registratie formulier
 reset_title:			Reset paswoord
@@ -680,7 +680,7 @@ error_title:			Fout formulier
 index_title:			Welkom op het forum
 search_title:			Zoek naar {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email is verzonden
 remail_email:			Hallo,\n\ner is een interessant topic over "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum dat u misschien wel wilt lezen. U kan dit topic bekijken op:\n {FULL_ROOT}{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n uw vriend,\n\n{VAR: usr->alias}\n
 poll_add_option:		voeg Optie toe:
@@ -750,7 +750,7 @@ p_LOCK:				sluit topics
 p_MOVE:				verplaats topics
 p_SML:				Gebruik smilies
 p_IMG:				Gebruik foto tags
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Vind lid</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Vind lid</a>
 group_mgr_indicator:		huidige editering: <b>{VAR: grp->name}</b>
 rate_worst:			Ergste
 rate_best:			Beste
@@ -888,7 +888,7 @@ register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">als u een  
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
-member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 submit_reply:			Submit Reply
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
@@ -1022,3 +1022,4 @@ register_turing:		Please enter the code shown below:
 register_err_turing:		Invalid validation code.
 modque_cat:			Category
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.19 2004/07/02 16:54:28 hackie Exp $
+* $Id: referals.tmpl,v 1.20 2004/11/01 20:12:05 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,7 +36,7 @@
 	<td class="wa nwGenText"><a href="{TEMPLATE: refered_entry_lnk}">{VAR: r[0]}</a></td>
 	<td class="ac nw Gentext">{VAR: r[3]}</td>
 	<td class="nw DateText">{TEMPLATE: referrals_join_date}</td>
-	<td class="nw GenText"><a href="{TEMPLATE: refered_entry_lnk1}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+	<td class="nw GenText"><a href="{TEMPLATE: refered_entry_lnk1}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{IF: (_uid && $FUD_OPT_1 & 1024)}{TEMPLATE: pm_link}{ENDIF}{IF: !empty($r[4])}{TEMPLATE: homepage_link}{ENDIF}{IF: $FUD_OPT_2 & 1073741824}{TEMPLATE: email_link}{ENDIF}</td>
 </tr>
 {SECTION: END}
 

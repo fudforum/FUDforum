@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.43 2004/07/02 16:54:28 hackie Exp $
+* $Id: thread.tmpl,v 1.47 2004/11/04 01:20:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
-&nbsp;<a href="{TEMPLATE: mini_pager_entry_lnk}">{VAR: pg_num}</a>
+&nbsp;<a href="{TEMPLATE: mini_pager_entry_lnk}">{FUNC: ++$i}</a>
 {SECTION: END}
 
 {SECTION: mini_pager_limiter}
@@ -106,12 +106,11 @@
 {SECTION: thread_row}
 <tr>
 <td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB wo ac">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
-<div class="TopBy">{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}</div>{TEMPLATE-DATA: admin_control_row}</td>
+<td class="RowStyleB wo ac">{IF: $r[3]}{TEMPLATE: thread_icon}{ELSE}{TEMPLATE: thread_icon_none}{END}</td>
+<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}{TEMPLATE: sticky}{ELSE}{TEMPLATE: announcement}{END}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {IF: ($FUD_OPT_2 & 4096)}{IF: $r[17]}{TEMPLATE: rating}{ELSE}{TEMPLATE: rating_none}{END}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: thread_first_post}</div>{TEMPLATE-DATA: admin_control_row}</td>
 <td class="RowStyleB ac">{VAR: r[16]}</td>
 <td class="RowStyleB ac">{VAR: r[19]}</td>
-<td class="RowStyleC nw">{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
+<td class="RowStyleC nw">{TEMPLATE: thread_last_post}<br />{MSG: by} {IF: $r[8]}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: unreg_user_link}{END} {TEMPLATE: last_msg_in_thread}</td>
 </tr>
 {SECTION: END}
 
@@ -142,18 +141,22 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 <table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
-<td class="al wa">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
-<td class="GenText nw vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
+<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
+<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
 <table border=0 cellspacing=0 cellpadding=0 class="wa">
 <tr>
 <td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText nw vb ar">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
+<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
-{TEMPLATE-DATA: forum_select}
-{TEMPLATE-DATA: mark_all_read}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
+{IF: _uid}
+	{TEMPLATE: thread_mark_all_read}
+{ELSE}
+	{TEMPLATE: thread_pdf_rdf}
+{END}
 {TEMPLATE: thread_legend}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
@@ -165,7 +168,7 @@
 {SECTION: END}
 
 {SECTION: mini_pager_entry_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start={VAR: st_pos}&amp;{DEF: _rsid}
+{ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start={FUNC: ($i * $ppg)}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: first_unread_msg_link_lnk}

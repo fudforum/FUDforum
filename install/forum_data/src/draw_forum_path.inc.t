@@ -1,7 +1,8 @@
+<?php
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_radio_opt.tmpl,v 1.6 2004/11/03 16:53:27 hackie Exp $
+* $Id: draw_forum_path.inc.t,v 1.2 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -9,12 +10,23 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-{PHP_FILE: input: draw_radio_opt.inc.t; output: draw_radio_opt.inc;}
+require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
 
-{MAIN_SECTION: checkbox_area  standart forum checkbox apperance}
-{TEMPLATE-DATA: checkboxes}
-{MAIN_SECTION: END}
+function draw_forum_path($cid, $fn='', $fid=0, $tn='')
+{
+	global $cat_par, $cat_cache;
 
-{SECTION: checkbox checkbox}
-<input type="radio" name="{VAR: name}" value="{VAR: vls[$i]}" {IF: $vls[$i] != $selected}{VAR: normal_tmpl}{ELSE}checked {VAR: selected_tmpl}{END}>{VAR: nms[$i]}{VAR: sep}
-{SECTION: END}
+	$data = '';
+	do {
+		$data = '{TEMPLATE: dfp_cat_link}' . $data;
+	} while (($cid = $cat_par[$cid]) > 0);
+
+	if ($fid) {
+		$data .= '{TEMPLATE: dfp_forum_lnk}';
+	} else if ($fn) {
+		$data .= '{TEMPLATE: dfp_forum_no_lnk}';
+	}
+
+	return '{TEMPLATE: forum_path}';
+}
+?>

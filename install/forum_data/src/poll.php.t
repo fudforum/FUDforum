@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.php.t,v 1.20 2004/06/07 17:10:35 hackie Exp $
+* $Id: poll.php.t,v 1.21 2004/11/01 20:48:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,8 +124,6 @@
 		$pl_smiley_disabled_chk = '';
 	}
 
-	$pl_submit = !$pl_id ? '{TEMPLATE: pl_submit_create}' : '{TEMPLATE: pl_submit_update}';
-
 	/* this is only available on a created poll */
 	if ($pl_id) {
 		if ($pl_option) {
@@ -142,8 +140,6 @@
 			$pl_option = '';
 		}
 
-		$pl_action = !isset($_GET['pl_optedit']) ? '{TEMPLATE: pl_add}' : '{TEMPLATE: pl_upd}';
-
 		$poll_option_entry_data = '';
 		foreach ($poll_opts as $k => $v) {
 			$poll_option_entry_data .= '{TEMPLATE: poll_option_entry}';
@@ -153,8 +149,6 @@
 	} else {
 		$poll_editor = '';
 	}
-
-	$poll_submit_btn = !$pl_id ? '{TEMPLATE: btn_submit}' : '{TEMPLATE: btn_update}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.118 2004/06/14 17:34:07 hackie Exp $
+* $Id: post.php.t,v 1.120 2004/11/04 17:36:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -75,7 +75,7 @@ function flood_check()
 	$frm->forum_opt = (int) $frm->forum_opt;
 
 	/* fetch permissions & moderation status */
-	$MOD = (int) ($usr->users_opt & 1048576 || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
+	$MOD = (int) (($admin = $usr->users_opt & 1048576) || ($usr->users_opt & 524288 && is_moderator($frm->id, _uid)));
 	$perms = perms_from_obj(db_sab('SELECT group_cache_opt, '.$MOD.' as md FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_id='.$frm->id.' ORDER BY user_id ASC LIMIT 1'), ($usr->users_opt & 1048576));
 
 	/* More Security */
@@ -205,7 +205,7 @@ function flood_check()
 
 			/* restore the attachment array */
 			if (!empty($_POST['file_array']) ) {
-				if (($attach_list = @unserialize(base64_decode($_POST['file_array'])))) {
+				if (($attach_list = unserialize(base64_decode($_POST['file_array'])))) {
 					foreach ($attach_list as $v) {
 						if ($v) {
 							$attach_count++;
@@ -319,7 +319,7 @@ function flood_check()
 			$_POST['btn_submit'] = 1;
 		}
 
-		if (!($usr->users_opt & 1048576) && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
+		if (!$admin && isset($_POST['btn_submit']) && $frm->forum_opt & 4 && (!isset($_POST['frm_passwd']) || $frm->post_passwd != $_POST['frm_passwd'])) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 
@@ -522,7 +522,7 @@ function flood_check()
 	}
 
 	/* handle password protected forums */
-	if ($frm->forum_opt & 4 && !$MOD) {
+	if ($frm->forum_opt & 4 && !$admin) {
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
 	} else {
