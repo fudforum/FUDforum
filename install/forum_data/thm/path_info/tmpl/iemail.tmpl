@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: iemail.tmpl,v 1.2 2003/06/02 15:58:44 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -35,7 +35,7 @@
 </tr>
 <tr class="RowStyleB">
 	<td colspan="3">
-	[ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}?t=post&reply_to={VAR: obj->id}&quote=true">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}?t=rview&goto={VAR: obj->id}">{MSG: iemail_msg_view}</a> ]{TEMPLATE-DATA: iemail_unsub}
+	[ <a href="{ROOT}/r/reply_to/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}/r/quote/true/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}/m/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_view}</a> ]{TEMPLATE-DATA: iemail_unsub}
 	</td>
 </tr>
 </table>
@@ -62,8 +62,8 @@
 
 {SECTION: iemail_attach_entry file attachment entry row}
 <tr>
-<td valign="middle"><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" border=0 /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: v[0]}&amp;{DEF: _rsid}">{VAR: v[1]}</a><br />
+<td valign="middle"><a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" border=0 /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -100,9 +100,9 @@
 {SECTION: END}
 
 {SECTION: iemail_thread_unsub}
-[ <a href="{ROOT}?t=rview&th={VAR: id}&notify=1&opt=off">{MSG: iemail_thread_unsub}</a> ]
+[ <a href="{ROOT}/t/{VAR: id}/notify/{VAR: pfx}">{MSG: iemail_thread_unsub}</a> ]
 {SECTION: END}
 
 {SECTION: iemail_forum_unsub}
-[ <a href="{ROOT}?t=rview&frm_id={VAR: id}&unsub=1">{MSG: iemail_forum_unsub}</a> ]
+[ <a href="{ROOT}/f/{VAR: id}//1/{VAR: pfx}">{MSG: iemail_forum_unsub}</a> ]
 {SECTION: END}
