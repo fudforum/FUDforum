@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.tmpl,v 1.13 2003/05/05 13:13:57 hackie Exp $
+*   $Id: selmsg.tmpl,v 1.14 2003/05/14 08:37:53 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -65,7 +65,7 @@
 {SECTION: END}
 
 {SECTION: thread_row thread heading row}
-<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->thread_id}&amp;{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
+<tr><th colspan=2>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r->id}&amp;{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
 {SECTION: END}
 
 {SECTION: no_result}
