@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.4 2002/08/21 12:58:14 hackie Exp $
+*   $Id: nntp.inc,v 1.5 2002/08/23 03:20:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -192,7 +192,7 @@ class fud_nntp
 		
 		// This fetches the id of the message if this is a reply to an existing message
 		if( !empty($this->headers['references']) && preg_match_all('!<?([^\s<>]+)>?!', trim($this->headers['references']), $match) )
-			$this->reply_to_msg_id = $match[1];							
+			$this->reply_to_msg_id = array_reverse($match[1]);							
 		else if( !empty($this->headers['reply-to']) && preg_match('!.*<?([^>]+)>?$!', trim($this->headers['reply-to']), $match) )
 			$this->reply_to_msg_id = array($match[1]);
 		
