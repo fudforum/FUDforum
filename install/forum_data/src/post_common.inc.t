@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.9 2003/10/09 14:34:26 hackie Exp $
+* $Id: post_common.inc.t,v 1.10 2003/10/16 15:28:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -80,13 +80,16 @@ function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $pri
 
 	$upload_file = (($i + 1) <= $max_a) ? '{TEMPLATE: upload_file}' : '';
 
-	include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
-	if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
+	if (!$private && $GLOBALS['MOD'] && $GLOBALS['frm']->forum_opt & 32) {
 		$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
 	} else {
-		$allowed_extensions = implode(' ', $GLOBALS['__FUD_EXT_FILER__']);
+		include $GLOBALS['FORUM_SETTINGS_PATH'] . 'file_filter_regexp';
+		if (!count($GLOBALS['__FUD_EXT_FILER__'])) {
+			$allowed_extensions = '{TEMPLATE: post_proc_all_ext_allowed}';
+		} else {
+			$allowed_extensions = implode(' ', $GLOBALS['__FUD_EXT_FILER__']);
+		}
 	}
-
 	return '{TEMPLATE: file_attachments}';
 }
 ?>

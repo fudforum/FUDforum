@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.91 2003/10/09 14:34:26 hackie Exp $
+* $Id: post.php.t,v 1.92 2003/10/16 15:28:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -217,13 +217,22 @@ function flood_check()
 				$attach_count--;
 			}
 
+			if ($frm->forum_opt & 32 && $MOD) {
+				$frm->max_attach_size = (int) ini_get('upload_max_filesize');
+				$t = str_replace($frm->max_attach_size, '', ini_get('upload_max_filesize'));
+				if ($t == 'M' || $t == 'm') {
+					$frm->max_attach_size *= 1024;
+				}
+				$frm->max_file_attachments = 100;
+			}
 			$MAX_F_SIZE = $frm->max_attach_size * 1024;
+
 			/* newly uploaded files */
 			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
 				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE) {
 					$attach_control_error = '{TEMPLATE: post_err_attach_size}';
 				} else {
-					if (filter_ext($_FILES['attach_control']['name'])) {
+					if (!($MOD && $frm->forum_opt & 32) && filter_ext($_FILES['attach_control']['name'])) {
 						$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
 					} else {
 						if (($attach_count+1) <= $frm->max_file_attachments) {
@@ -582,6 +591,14 @@ function flood_check()
 	$pivate = '';
 	/* handle file attachments */
 	if ($perms & 256) {
+		if ($frm->forum_opt & 32 && $MOD) {
+			$frm->max_attach_size = (int) ini_get('upload_max_filesize');
+			$t = str_replace($frm->max_attach_size, '', ini_get('upload_max_filesize'));
+			if ($t == 'M' || $t == 'm') {
+				$frm->max_attach_size *= 1024;
+			}
+			$frm->max_file_attachments = 100;
+		}
 		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error);
 	} else {
 		$file_attachments = '';
