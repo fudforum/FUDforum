@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.94 2004/12/08 15:42:23 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.95 2005/02/25 15:58:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,11 +29,13 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 }
 
 $query_type = (empty($_POST['poll_opt']) || !($_POST['poll_opt'] = (int)$_POST['poll_opt']) ? 'uq' : 'q');
+$GLOBALS['__FMDSP__'] = array();
 
 /* needed for message threshold & reveling messages */
 if (isset($_GET['rev'])) {
+	$_GET['rev'] = htmlspecialchars($_GET['rev']);
 	foreach (explode(':', $_GET['rev']) as $v) {
-		$GLOBALS['__FMDSP__'][$v] = 1;
+		$GLOBALS['__FMDSP__'][(int)$v] = 1;
 	}
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
 		define('reveal_lnk', '/' . $_GET['rev']);
@@ -58,7 +60,9 @@ if (_uid) {
 
 	/* handle temporarily un-hidden users */
 	if (isset($_GET['reveal'])) {
+		$_GET['reveal'] = htmlspecialchars($_GET['reveal']);
 		foreach(explode(':', $_GET['reveal']) as $v) {
+			$v = (int) $v;
 			if (isset($usr->ignore_list[$v])) {
 				$usr->ignore_list[$v] = 0;
 			}
@@ -80,11 +84,7 @@ if ($GLOBALS['FUD_OPT_2'] & 2048) {
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
 }
 
-if ($GLOBALS['FUD_OPT_2'] & 32768) {
-	$_SERVER['QUERY_STRING_ENC'] = $_SERVER['QUERY_STRING'];
-} else {
-	$_SERVER['QUERY_STRING_ENC'] = str_replace('&', '&amp;', $_SERVER['QUERY_STRING']);
-}
+$_SERVER['QUERY_STRING_ENC'] = htmlspecialchars($_SERVER['QUERY_STRING']);
 
 function make_tmp_unignore_lnk($id)
 {
@@ -105,7 +105,7 @@ function make_reveal_link($id)
 		$_SERVER['QUERY_STRING_ENC'] .= '?1=1';
 	}
 
-	if (!isset($GLOBALS['__FMDSP__'])) {
+	if (empty($GLOBALS['__FMDSP__'])) {
 		return $_SERVER['QUERY_STRING_ENC'] . '&amp;rev='.$id;
 	} else {
 		return str_replace('&amp;rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING_ENC']);
