@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.28 2003/05/01 23:36:14 hackie Exp $
+*   $Id: consist.php,v 1.29 2003/05/02 17:28:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -112,7 +112,7 @@ forum will be disabled.<br><br>
 				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2');
 	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
-/*
+
 	draw_stat('Validating category order');
 	$i = 1;
 	$c = q('SELECT id, view_order FROM '.$tbl.'cat ORDER BY view_order, id');
@@ -498,7 +498,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done Rebuilding custom tags for users');
-*/
+
 	draw_stat('Validating group resources');
 	delete_zero($tbl.'group_resources', 'SELECT gr.id FROM '.$tbl.'group_resources gr LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id LEFT JOIN '.$tbl.'groups g ON g.id=gr.group_id WHERE f.id IS NULL OR g.id IS NULL');
 	draw_stat('Done: Validating group resources');
