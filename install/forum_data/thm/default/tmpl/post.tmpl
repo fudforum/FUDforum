@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.13 2002/10/06 22:57:20 hackie Exp $
+*   $Id: post.tmpl,v 1.14 2002/10/23 12:16:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -49,7 +49,7 @@
 {REF: logaction.tmpl}
 
 {SECTION: apply_spell_changes}
-<tr><td align="left" class="RowStyleB"><input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}"></td></tr>
+<input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: signature}
@@ -62,7 +62,7 @@
 <tr><th colspan=2>{MSG: post_preview}</th></tr>
 <tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
 <tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
-{TEMPLATE-DATA: apply_spell_changes}
+<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
 </table><br /></div>
 {SECTION: END}
 

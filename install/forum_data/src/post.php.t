@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.16 2002/10/03 08:45:35 hackie Exp $
+*   $Id: post.php.t,v 1.17 2002/10/23 12:16:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -421,6 +421,11 @@
 	if ( isset($thr) ) $th=$thr->id;
 	if ( !empty($spell) ) $GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
 	{POST_HTML_PHP}
+
+	if ( empty($th_id) ) 
+		$label = '{TEMPLATE: create_thread}';
+	else
+		$label = '{TEMPLATE: submit_reply}';
 	
 if ( !empty($preview) || !empty($spell) ) {
 	$text = apply_custom_replace($HTTP_POST_VARS['msg_body']);
@@ -616,10 +621,6 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
 	}	
 	
-	if ( empty($th_id) ) 
-		$label = '{TEMPLATE: create_thread}';
-	else
-		$label = '{TEMPLATE: submit_reply}';
 	
 	if ( $msg_id ) $label = '{TEMPLATE: edit_message}';
 	
