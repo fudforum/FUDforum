@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.45 2004/03/19 22:18:58 hackie Exp $
+* $Id: tree.tmpl,v 1.46 2004/04/13 19:05:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -161,7 +161,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: tree_branch message with replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_branch_lnk}" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
 </tr>
@@ -174,7 +174,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: tree_entry message without replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_entry_lnk}" class="big">{VAR: cur->subject}</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
 {SECTION: END}
@@ -186,7 +186,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: tree_branch_selected message with replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_branch_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
 {SECTION: END}
@@ -198,7 +198,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: tree_entry_selected message without replies that is currently being viewed}
 <tr class="RowStyleC">
 <td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap style="padding-left: {VAR: width}px">
+<td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_entry_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 <div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
 {SECTION: END}
@@ -210,8 +210,8 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
 <table cellspacing=0 cellpadding=0 border=0 width="100%">
 <tr>
-<td align="left" class="GenText">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
-<td valign="bottom" align="right">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
+<td class="GenText al">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
+<td class="vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
@@ -226,8 +226,8 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 </table>
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
-<div align="right"><font class="SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</font></div>
-<div align="center">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
+<div class="ar SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</div>
+<div class="ac">-=] <a href="javascript://" onClick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
