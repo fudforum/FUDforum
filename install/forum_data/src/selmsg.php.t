@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.13 2002/08/27 13:23:03 hackie Exp $
+*   $Id: selmsg.php.t,v 1.14 2002/08/28 12:46:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,7 +60,7 @@ function ifstr($opt1, $opt2, $str)
 		
 		if( isset($usr) && $usr->last_read ) 
 			$unread_where = ' AND {SQL_TABLE_PREFIX}msg.post_stamp>'.$usr->last_read;
-		$unread_where .= ' AND ({SQL_TABLE_PREFIX}read.msg_id<{SQL_TABLE_PREFIX}msg.id OR {SQL_TABLE_PREFIX}read.msg_id IS NULL)';
+		$unread_where .= ' AND ({SQL_TABLE_PREFIX}read.last_view<{SQL_TABLE_PREFIX}msg.post_stamp OR {SQL_TABLE_PREFIX}read.msg_id IS NULL)';
 	}
 	
 	$date_limit = '';
