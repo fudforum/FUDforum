@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.54 2004/01/09 04:17:17 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.55 2004/02/16 21:19:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,7 +15,7 @@
 {REF: imsg.tmpl}
 
 {SECTION: dmsg_prev_message_lnk}
-#msg_num_{VAR: msg_num}
+{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}
 {SECTION: END}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
@@ -39,7 +39,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_lnk}
-#msg_num_{VAR: msg_num}
+{VAR: _SERVER['REQUEST_URI']}#msg_num_{VAR: msg_num}
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
