@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.19 2003/04/17 13:11:20 hackie Exp $
+*   $Id: ppost.php.t,v 1.20 2003/04/17 13:20:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,7 +138,7 @@
 	 		
 		}
 	} else {
-		if (!isset($_POST['preview']) && !isset($_POST['spell']) && isset($_POST['btn_action'])) {
+		if (!isset($_POST['preview']) && !isset($_POST['file_del_opt']) && !isset($_POST['btn_spell']) && !isset($_POST['spell']) && isset($_POST['btn_action'])) {
 			if ($_POST['btn_action'] == 'draft') {
 				$_POST['btn_draft'] = 1;
 			} else {
@@ -174,6 +174,10 @@
 		if (isset($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
 			if ($attach_list[$_POST['file_del_opt']]) {
 				$attach_list[$_POST['file_del_opt']] = 0;
+				/* Remove any reference to the image from the body to prevent broken images */
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]')) {
+					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				}
 				$attach_count--;
 			}
 		}
@@ -351,14 +355,14 @@
 		}
 		$text_s = htmlspecialchars($text_s);
 	
-		$spell = (isset($_POST['spell']) && unction_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
+		$spell = (isset($_POST['spell']) && function_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
 	
 		if ($spell && strlen($text)) {
-			$text = check_data_spell($text, 'body');
+			$text = check_data_spell($text, 'body', $usr->pspell_lang);
 		}
 		fud_wordwrap($text);
 
-		$subj = ($spell && !$no_spell_subject && $text_s) ? check_data_spell($text_s, 'subject') : $text_s;
+		$subj = ($spell && !$no_spell_subject && $text_s) ? check_data_spell($text_s, 'subject', $usr->pspell_lang) : $text_s;
 
 		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && isset($msg_show_sig)) ? '{TEMPLATE: signature}' : '';
 		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
@@ -386,7 +390,7 @@
 	}
 
 	$msg_track_check = isset($msg_track) ? ' checked' : '';
-	$msg_show_sig_check = (isset($msg_show_sig) || $usr->append_sig == 'Y')  ? ' checked' : '';
+	$msg_show_sig_check = isset($msg_show_sig) ? ' checked' : '';
 
 	if ($PRIVATE_MSG_SMILEY == 'Y') {
 		$msg_smiley_disabled_check = isset($msg_smiley_disabled) ? ' checked' : '';
