@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: emailconf.php.t,v 1.9 2003/05/16 07:20:38 hackie Exp $
+*   $Id: emailconf.php.t,v 1.10 2003/06/04 16:24:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,6 +19,13 @@
 /*{POST_HTML_PHP}*/
 
 	if (isset($_GET['conf_key'])) {
+		/* it is possible that a user may access the email confirmation URL twice, for such a 'rare' case,
+		 * we have this check to prevent a confusing error message being thrown at the hapeless user 
+		 */
+		if (_uid && $usr->email_conf == 'Y') {
+			check_return($usr->returnto);
+		}
+
 		$uid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".addslashes($_GET['conf_key'])."'");
 		if (!$uid || (__fud_real_user__ && __fud_real_user__ != $uid)) {
 			error_dialog('{TEMPLATE: emailconf_err_invkey_title}', '{TEMPLATE: emailconf_err_invkey_msg}');
