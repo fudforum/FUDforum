@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.27 2003/05/05 13:11:48 hackie Exp $
+*   $Id: admthemes.php,v 1.28 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,8 +104,6 @@ function clean_code($path, $toks)
 	return $saved;
 }
 	$is_tok = extension_loaded('tokenizer');
-
-	define('admin_form', 1);
 
 	require('GLOBALS.php');
 	fud_use('widgets.inc', true);

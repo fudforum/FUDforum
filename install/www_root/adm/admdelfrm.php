@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.10 2003/05/02 17:26:12 hackie Exp $
+*   $Id: admdelfrm.php,v 1.11 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-	define('admin_form', 1);
 
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);

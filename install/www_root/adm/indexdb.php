@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.7 2003/05/12 14:47:55 hackie Exp $
+*   $Id: indexdb.php,v 1.8 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,8 +16,6 @@
 ***************************************************************************/
 
 	@set_time_limit(2400);
-	
-	define('admin_form', 1);
 	
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);

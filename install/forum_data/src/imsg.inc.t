@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg.inc.t,v 1.10 2003/04/21 14:14:39 hackie Exp $
+*   $Id: imsg.inc.t,v 1.11 2003/05/12 16:49:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,9 +44,5 @@ function poll_cache_rebuild($poll_id, &$data)
 	} else { /* register single vote */
 		$data[$poll_id][1] += 1;
 	}
-}
-
-if (defined('msg_edit') && !defined('_imsg_edit_inc_')) {
-	fud_use('imsg_edt.inc');
 }
 ?>

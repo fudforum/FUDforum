@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.10 2003/04/28 13:06:44 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.11 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	define('admin_form', 1);
 	define('no_inline', 1);
 
 	require('GLOBALS.php');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.6 2003/04/29 18:38:35 hackie Exp $
+*   $Id: admloginuser.php,v 1.7 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-	define('admin_form', 1);
 
 	require('GLOBALS.php');
 	fud_use('err.inc');

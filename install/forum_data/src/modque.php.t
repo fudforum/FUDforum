@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.17 2003/05/09 14:29:37 hackie Exp $
+*   $Id: modque.php.t,v 1.18 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-	define('msg_edit', 1); define('_imsg_edit_inc_', 1);
 
 /*{PRE_HTML_PHP}*/
 	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.28 2003/05/12 14:47:55 hackie Exp $
+*   $Id: compact.php,v 1.29 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,12 +17,9 @@
 
 	@set_time_limit(6000);
 
-	define('admin_form', 1);
-	define('msg_edit', 1);
-	define('user_reg', 1);
 	define('back_to_main', 1);
 
-	require_once('GLOBALS.php');
+	require('GLOBALS.php');
 
 	fud_use('db.inc');
 	fud_use('fileio.inc');

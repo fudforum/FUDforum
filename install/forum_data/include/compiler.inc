@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.26 2003/05/06 15:14:30 hackie Exp $
+*   $Id: compiler.inc,v 1.27 2003/05/12 16:50:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -219,9 +219,6 @@ function compile_file($source)
 {
 	if (empty($source)) {
 		exit('No file passed to compile, fatal error');
-	}
-	if (defined('debug')) {
-		echo "opening ".$GLOBALS['DATA_DIR'].'src/'.$source." to compile (".$source.")<br>\n";
 	}
 	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === FALSE) {
 		exit('Unable to open file '.$GLOBALS['DATA_DIR'].'src/'.$source);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.8 2003/05/12 13:15:34 hackie Exp $
+*   $Id: admipfilter.php,v 1.9 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,8 +14,6 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-
-	define('admin_form', 1);
 
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);

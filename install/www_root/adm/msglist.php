@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.12 2003/04/25 13:26:34 hackie Exp $
+*   $Id: msglist.php,v 1.13 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,6 @@
 
 	@set_time_limit(6000);
 
-	define('admin_form', 1);
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
 	

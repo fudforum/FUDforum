@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.17 2003/05/12 13:15:34 hackie Exp $
+*   $Id: tmpllist.php,v 1.18 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,6 @@
 ***************************************************************************/
 
 	@set_time_limit(6000);
-	define('admin_form', 1);
 	
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);

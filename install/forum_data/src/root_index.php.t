@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.14 2003/04/20 10:45:19 hackie Exp $
+*   $Id: root_index.php.t,v 1.15 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 	require('GLOBALS.php');
 
 	/* before we go on, we need to do some very basic activation checks */
-	if ($FORUM_ENABLED != 'Y' && !defined('admin_form')) {
+	if ($FORUM_ENABLED != 'Y') {
 		fud_use('cfg.inc', TRUE);
 		exit(cfg_dec($DISABLED_REASON) . '{TEMPLATE: core_adm_login_msg}');
 	}

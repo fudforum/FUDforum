@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.22 2003/04/23 17:21:54 hackie Exp $
+*   $Id: admuser.php,v 1.23 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,11 +15,10 @@
 *
 ***************************************************************************/
 
-	define('admin_form', 1);
-
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('customtags.inc', true);
+	fud_use('users_reg.inc');
 	fud_use('users_adm.inc', true);
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');

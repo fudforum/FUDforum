@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmimesel.php,v 1.2 2003/04/28 16:12:04 hackie Exp $
+*   $Id: admmimesel.php,v 1.3 2003/05/12 16:49:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	define('admin_form', 1);
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
 
