@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.27 2003/04/07 08:42:24 hackie Exp $
+*   $Id: users.inc.t,v 1.28 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,6 +79,9 @@ function init_user()
 		$u = ses_anon_make();
 	} else if ($u->id != 2147483647) { /* store the last visit date for registered user */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
+		if ($u->data) {
+			$u->data = @unserialize($u->data);
+		}
 	}
 
 	/* set timezone */

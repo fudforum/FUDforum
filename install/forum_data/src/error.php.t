@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: error.php.t,v 1.4 2003/04/02 15:39:11 hackie Exp $
+*   $Id: error.php.t,v 1.5 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,15 +18,16 @@
 /*{PRE_HTML_PHP}*/
 
 	if (isset($_POST['ok'])) {
-		check_return($ses->returnto);
+		check_return($usr->returnto);
 	}
 	$TITLE_EXTRA = ': {TEMPLATE: error_title}';
+
 /*{POST_HTML_PHP}*/
 
-	if (isset($ses->data['er_msg']) && isset($ses->data['err_t'])) {
-		$error_message	= $ses->data['er_msg'];
-		$error_title	= $ses->data['err_t'];
-		$ses->sync_vars(TRUE);
+	if (isset($usr->data['er_msg'], $usr->data['err_t'])) {
+		$error_message	= $usr->data['er_msg'];
+		$error_title	= $usr->data['err_t'];
+		ses_putvar($usr->sid, NULL);
 	} else {
 		$error_message	= '{TEMPLATE: error_invalidurl}';
 		$error_title	= '{TEMPLATE: error_error}';

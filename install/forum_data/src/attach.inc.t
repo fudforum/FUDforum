@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.10 2002/09/26 21:46:27 hackie Exp $
+*   $Id: attach.inc.t,v 1.11 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,17 +30,7 @@ class fud_attach
 	
 	var $a_list;
 	
-	function add($tmp_location, $private='N')
-	{
-		if( !($this->mime_type = get_mime_by_ext(substr(strrchr($this->original_name, '.'), 1))) ) $this->mime_type = 0;
-		
-		$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".$this->original_name."', ".$this->owner.", '".$private."',".$this->mime_type.",".intzero($this->fsize).")");
-		$this->id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);
-		
-		safe_attachment_copy($tmp_location, $this->id);
-		
-		return $this->id;
-	}
+	
 	
 	function finalize($attach_list, $mid, $private='N')
 	{
@@ -140,18 +130,24 @@ function start_match($haystack, $needle)
 
 function safe_attachment_copy($source, $id)
 {
-	$loc = $GLOBALS['FILE_STORE'].$id.'.atch';	
-	if ( file_exists($loc) ) {
-		unlink($loc);
-		std_out('"'.$loc.'" already exists, but shouldn\'t (old file unlinked), check security', 'ERR');
+	$loc = $GLOBALS['FILE_STORE'] . $id . '.atch';	
+	if (!move_uploaded_file($source, $loc)) {
+		std_out('unable to uploaded file', 'ERR');
 	}
 	
-	if( !@copy($source, $loc) ) {
-		std_out('unable to create source file ('.$loc.') check permissions on ('.$GLOBALS['FILE_STORE'].'), we suggest 1777', 'ERR');
-	}
-	
-	@chmod($loc, ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
+	@chmod($loc, ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
 	
 	return $loc;
+}
+
+function attach_add($at, $owner, $private='N')
+{
+	$this->mime_type = (int) get_mime_by_ext(substr(strrchr($at['name'], '.'), 1));
+
+	$id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}attach (location,message_id,proto,original_name,owner,private,mime_type,fsize) VALUES('',0,'LOCAL','".addslashes($at['name'])."', ".$owner.", '".$private."',".$this->mime_type.",".$at['size'].")");
+
+	safe_attachment_copy($at['tmp_name'], $id);
+		
+	return $id;
 }
 ?>

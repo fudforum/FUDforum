@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.17 2003/04/06 13:36:48 hackie Exp $
+*   $Id: cookies.inc.t,v 1.18 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,11 +50,7 @@ class fud_session
 
 	function sync_vars($clear=FALSE)
 	{
-		if ($clear || empty($this->data)) {
-			q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE id='.$this->id);
-		} else {
-			q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($this->data)).'\' WHERE id='.$this->id);
-		}
+		
 	}
 
 	function save_session($user_id=0,$not_use_cookie='')
@@ -149,20 +145,9 @@ class fud_session
 		return $this->ses_id;
 	}
 	
-	function delete_session()
-	{
-		if (!$this->id) {
-			return;	
-		}
-		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id=".$this->id." OR ses_id='".$this->ses_id."'");
-		unset($this->user_id,$this->ses_id,$this->id,$this->data,$this->action);
-		setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
-
-		return 1;
-	}
-	
 	
 }
+
 function ses_make_sysid()
 {
 	return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].(isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : ''));
@@ -189,7 +174,8 @@ function ses_get($id=0)
 		
 		u.alias, u.append_sig, u.show_sigs, u.show_avatars, u.show_im, u.posts_ppg, u.time_zone,
 		u.sig, u.last_visit, u.email_conf, u.last_read, u.default_view, u.is_mod, u.cat_collapse_status,
-		u.ignore_list, u.acc_status, u.ignore_list, u.buddy_list, u.id, u.group_leader_list
+		u.ignore_list, u.acc_status, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.coppa,
+		u.blocked, u.email, u.login, u.notify
 	FROM {SQL_TABLE_PREFIX}ses s 
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=(CASE WHEN s.user_id>2000000000 THEN 2147483647 ELSE s.user_id END)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme 
@@ -214,5 +200,25 @@ function ses_anon_make()
 function ses_update_status($ses_id, $str=NULL, $forum_id=0, $ret='')
 {
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? strnull(addslashes($_SERVER['QUERY_STRING'])) : 'returnto').' WHERE id='.$ses_id);
+}
+function ses_putvar($ses_id, $data)
+{
+	if (empty($data)) {
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=NULL WHERE id='.$ses_id);
+	} else {
+		q('UPDATE {SQL_TABLE_PREFIX}ses SET data=\''.addslashes(serialize($data)).'\' WHERE id='.$ses_id);
+	}	
+}
+
+function ses_delete(&$usr)
+{
+	if (!$usr->sid) {
+		return;	
+	}
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id='.$usr->sid);
+	unset($usr->sid, $usr->ses_id, $usr->id, $usr->returnto);
+	setcookie($GLOBALS['COOKIE_NAME'], '', __request_timestamp__-100000, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
+
+	return 1;
 }
 ?>

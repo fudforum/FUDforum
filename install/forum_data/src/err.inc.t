@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.12 2003/04/02 17:10:58 hackie Exp $
+*   $Id: err.inc.t,v 1.13 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 function error_dialog($title, $msg, $returnto, $level='WARN', $ses=NULL)
 {
 	if (!$ses) {
-		$ses = $GLOBALS['ses'];
+		$ses = $GLOBALS['usr']->sid;
 	}
 	
 	if (!strcasecmp($level, 'FATAL')) {
@@ -33,9 +33,7 @@ function error_dialog($title, $msg, $returnto, $level='WARN', $ses=NULL)
 		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 	}
 
-	$ses->putvar('er_msg', $msg);
-	$ses->putvar('err_t', $title);
-	$ses->sync_vars();
+	ses_putvar($ses, array('er_msg' => $msg, 'err_t' => $title));
 
 	header('Location: {ROOT}?t=error&'._rsidl);
 	exit;

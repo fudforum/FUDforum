@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.10 2002/08/13 17:09:35 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.11 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,70 +15,49 @@
 *
 ***************************************************************************/
 
-if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
+$start = '';
+if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 	$GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS'] = 1;
 	
-	$count = !empty($usr->posts_ppg) ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
+	$count = $usr->posts_ppg ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
+	$start = isset($_POST['start']) ? (int)$_POST['start'] : (isset($_POST['minimsg_pager_switch']) ? (int)$_POST['minimsg_pager_switch'] : 0);
+	$total = $thr->replies + 1;
 
-	if ( empty($start) || !is_numeric($start) ) $start = 0;
-	if ( is_numeric($minimsg_pager_switch) ) $start = $minimsg_pager_switch;
-	
-	/* get total */
-	if ( !isset($total) ) $total = q_singleval("SELECT replies FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th) + 1;
-
-	if( $reply_to && !isset($minimsg_pager_switch) && $total > $count ) {
-		$start = ($total - intzero(q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND approved='Y' AND id>=".$reply_to)));
+	if ($reply_to && !isset($_POST['minimsg_pager_switch']) && $total > $count) {
+		$start = ($total - q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th_id." AND approved='Y' AND id>=".$reply_to));
 		$msg_order_by = 'ASC';
-	}
-	else	
+	} else {
 		$msg_order_by = 'DESC';
-		
-	$msg_list = q("SELECT {SQL_TABLE_PREFIX}msg.id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id ".$msg_order_by." LIMIT ".qry_limit($count,$start));
-	if( is_result($msg_list) ) {
-		$id_list='{SQL_TABLE_PREFIX}msg.id IN(';
-		$m_count=0;
-		while ( list($msgp_id) = db_rowarr($msg_list) ) { $id_list .= $msgp_id.','; $m_count++; }
-		qf($msg_list);
-		$id_list = substr($id_list, 0, -1).')';
-
-		$result = q('SELECT 
-			{SQL_TABLE_PREFIX}msg.*, 
-			{SQL_TABLE_PREFIX}thread.locked,
-			{SQL_TABLE_PREFIX}thread.root_msg_id,
-			{SQL_TABLE_PREFIX}thread.last_post_id,
-			{SQL_TABLE_PREFIX}thread.forum_id,
-			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.alias AS login, 
-			{SQL_TABLE_PREFIX}users.invisible_mode, 
-			{SQL_TABLE_PREFIX}users.posted_msg_count, 
-			{SQL_TABLE_PREFIX}users.join_date, 
-			{SQL_TABLE_PREFIX}users.last_visit AS time_sec
-		FROM 
-			{SQL_TABLE_PREFIX}msg
-			INNER JOIN {SQL_TABLE_PREFIX}thread
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-			LEFT JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-		WHERE 
-			'.$id_list.'
-		ORDER BY id '.$msg_order_by);
-	
-		$m_count--;
-	
-		$message_data='';
-		while ( $obj = db_rowobj($result) ) {
-			$message_data .= tmpl_drawmsg($obj, $m_count, true);
-			$mid = $obj->id;
-		}
-		qf($result);
-	
-		un_register_fps();
-	
-		$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
-		$minimsg = '{TEMPLATE: minimsg_form}';
-		
-		unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
 	}
+		
+	$c = uq('SELECT m.*, t.locked, t.root_msg_id, t.last_post_id, t.forum_id, 
+			u.id AS user_id, u.alias AS login, u.invisible_mode, u.posted_msg_count, 
+			u.join_date, u.last_visit AS time_sec
+		FROM 
+			{SQL_TABLE_PREFIX}msg m
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+		WHERE 
+			m.thread_id='.$th_id.' AND m.approved=\'Y\'
+		ORDER BY id '.$msg_order_by.' LIMIT '.qry_limit($count, $start));
+	
+	$message_data='';
+	$m_count = 0;
+	while ($obj = db_rowobj($c)) {
+		$message_data .= tmpl_drawmsg($obj, $usr, $perms, true, $m_count, '');
+		$mid = $obj->id;
+	}
+	qf($c);
+	
+	un_register_fps();
+	
+	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
+	$minimsg = '{TEMPLATE: minimsg_form}';
+		
+	unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
+} else if ($th_id) {
+	$minimsg = '{TEMPLATE: minimsg_hidden}';
+} else {
+	$minimsg = '';
 }
-else if( !empty($th) ) $minimsg = '{TEMPLATE: minimsg_hidden}';
 ?>

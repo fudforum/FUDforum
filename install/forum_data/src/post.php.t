@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.25 2003/03/30 18:03:11 hackie Exp $
+*   $Id: post.php.t,v 1.26 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,38 +15,56 @@
 *
 ***************************************************************************/
 
-/*#? Post Editor Page */
 	define('msg_edit', 1); define("_imsg_edit_inc_", 1);
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
-	$smiley_www = 'images/smiley_icons/';
-	$icon_path = 'images/message_icons/';
-	$icon_path_www = 'images/message_icons/';
-	$returnto_d = (!empty($returnto)?$returnto:NULL);
-	$attach_control_error=NULL;
+	$pl_id = $old_subject = $attach_control_error = '';
 
-	if( isset($HTTP_POST_VARS['moderated_redr']) ) check_return();
+	/* redirect user where need be in moderated forums after they've seen
+	 * the moderation message.
+	 */
+	if(isset($_POST['moderated_redr'])) {
+		check_return($usr->returnto);
+	}
 
-	if( $reply_to || $msg_id ) {
-		$mid = ($reply_to)?$reply_to:$msg_id;
-		if( !is_numeric($mid) ) invl_inp_err();
+	/* we do this because we don't want to take a chance that data is passed via cookies */
+	if (isset($_GET['reply_to']) || isset($_POST['reply_to'])) {
+		$reply_to = (int) $_REQUEST['reply_to'];
+	} else {
+		$reply_to = 0;
+	}
+	if (isset($_GET['msg_id']) || isset($_POST['msg_id'])) {
+		$msg_id = (int) $_REQUEST['msg_id'];
+	} else {
+		$msg_id = 0;
+	}
+	if (isset($_GET['th_id']) || isset($_POST['th_id'])) {
+		$th_id = (int) $_REQUEST['th_id'];
+	} else {
+		$th_id = 0;
+	}
+	if (isset($_GET['frm_id']) || isset($_POST['frm_id'])) {
+		$frm_id = (int) $_REQUEST['frm_id'];
+	} else {
+		$frm_id = 0;
+	}
+
+	/* replying or editing a message */
+	if ($reply_to || $msg_id) {
 		$msg = new fud_msg_edit;
-		$msg->get_by_id($mid);
+		$msg->get_by_id(($reply_to ? $reply_to : $msg_id));
 	 	$th_id = $msg->thread_id;
 	}
 
 	$frm = new fud_forum;
-	if( !empty($th_id) ) {
-		if( !is_numeric($th_id) ) invl_inp_err();
+	if ($th_id) {
 		$thr = new fud_thread;
 		$thr->get_by_id($th_id);	
 		$frm->get($thr->forum_id);
-	}
-	else if( !empty($frm_id) ) {
+	} else if ($frm_id) {
 		$frm->get($frm_id);
 		$th_id = NULL;
-	}	
-	else {
+	} else {
 		std_error('systemerr');
 		exit;
 	}
@@ -54,54 +72,50 @@
 	$MAX_F_SIZE = $frm->max_attach_size;
 	
 	/* More Security */
-	if( isset($thr) && $usr->is_mod != 'A' && $thr->locked=='Y' ) {
-		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}', $returnto_d);
-		exit();
+	if (isset($thr) && $usr->is_mod != 'A' && $thr->locked=='Y') {
+		error_dialog('{TEMPLATE: post_err_lockedthread_title}', '{TEMPLATE: post_err_lockedthread_msg}', '');
 	}
-	$__RESOURCE_ID = $frm->id;
-	
-	if( isset($usr) ) {
-		/* check if moderator */
-		if ( $frm->is_moderator($usr->id) || $usr->is_mod == 'A' ) { $MOD = 1; } else { $MOD=0; }
 
-		is_allowed_user();
+	/* fetch permissions & moderation status */
+	$perms = init_single_user_perms($frm->id, $usr->is_mod, $MOD);
+	
+	if (_uid) {
+		/* all sorts of user blocking filters */
+		is_allowed_user($usr);
 		
-		if( empty($reply_to) && empty($MOD) && empty($msg_id) && !is_perms(_uid,$__RESOURCE_ID ,'POST') )
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		else if( (!empty($th_id) || !empty($reply_to)) && empty($MOD) && !is_perms(_uid,$__RESOURCE_ID ,'REPLY') ) 
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		else if( $msg_id && empty($MOD) && $msg->poster_id != $usr->id && !is_perms(_uid, $__RESOURCE_ID ,'EDIT')	)
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		else if( $msg_id && empty($MOD) && $EDIT_TIME_LIMIT && ($msg->post_stamp+$EDIT_TIME_LIMIT*60<__request_timestamp__) ) {
-			error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}', $returnto_d); 
-			exit();
+		/* if not moderator, validate user permissions */
+		if (!$MOD) {
+			if (!$reply_to && !$msg_id && $perms['p_post'] != 'Y') {
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+			} else if (($th_id || $reply_to) && $perms['p_reply'] != 'Y') {
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+			} else if ($msg_id && $msg->poster_id != $usr->id && $perms['p_edit'] != 'Y') {
+				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
+			} else if ($msg_id && $EDIT_TIME_LIMIT && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
+				error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}', ''); 
+			}
 		}
-	}
-	else {
-		if( empty($th_id) && !is_perms(_uid, $__RESOURCE_ID, 'POST') ) {
-			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}', $returnto_d); 
-			exit(); 
-		}
-		else if ( !is_perms(_uid, $__RESOURCE_ID, 'REPLY') ) {
-			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}', $returnto_d); 
-			exit(); 
+	} else {
+		if (!$th_id && $perms['p_post'] != 'Y') {
+			error_dialog('{TEMPLATE: post_err_noannontopics_title}', '{TEMPLATE: post_err_noannontopics_msg}', ''); 
+		} else if ($perms['p_reply'] != 'Y') {
+			error_dialog('{TEMPLATE: post_err_noannonposts_title}', '{TEMPLATE: post_err_noannonposts_msg}', ''); 
 		}
 	}
 
 	/* Retrieve Message */
-	if( empty($HTTP_POST_VARS['prev_loaded']) ) { 
-		if( isset($usr) ) {
+	if (!isset($_POST['prev_loaded'])) { 
+		if (_uid) {
 			$msg_show_sig = $usr->append_sig;
 			$msg_poster_notif = $usr->notify;
 		}
 		
-		if( $msg_id ) {
+		if ($msg_id) {
 			$msg->export_vars('msg_');
 			
 			$msg_body = post_to_smiley($msg_body);
 	 		
-	 		switch( $frm->tag_style )
-	 		{
+	 		switch ($frm->tag_style) {
 	 			case 'ML':
 	 				$msg_body = html_to_tags($msg_body);
 	 				break;
@@ -117,20 +131,19 @@
 	 		reverse_FMT($msg_subject);
 			$msg_subject = apply_reverse_replace($msg_subject);
 	 		
-	 		$msg_smiley_disabled = $msg->smiley_disabled;
-	 	
-	 		$msg_poster_notif = ( is_notified($usr->id, $msg->thread_id) ) ? 'Y' : 'N';
+	 		$msg_poster_notif = is_notified($usr->id, $msg->thread_id) ? 'Y' : 'N';
 	 			
-	 		if ( $msg->attach_cnt ) {
+	 		if ($msg->attach_cnt) {
 	 			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg->id." AND private='N'");
-	 			while ( list($fa_id) = db_rowarr($r) ) $attach_list[$fa_id] = $fa_id;
+	 			while ($fa_id = db_rowarr($r)) {
+	 				$attach_list[$fa_id[0]] = $fa_id[0];
+	 			}
 	 			qf($r);
 	 			$attach_count = count($attach_list);
 		 	}
 		 	$pl_id = $msg->poll_id;	
-		}
-		else if( $reply_to || $th_id ) {
-			$subj = ( $reply_to ) ? $msg->subject : $thr->subject;
+		} else if ($reply_to || $th_id) {
+			$subj = $reply_to ? $msg->subject : $thr->subject;
 			reverse_FMT($subj);
 			$subj = apply_reverse_replace($subj);
 		
@@ -138,15 +151,16 @@
 			$msg_subject = ( !preg_match('/^{TEMPLATE: reply_prefix}/i', $subj) ) ? '{TEMPLATE: reply_prefix}'.$subj : $subj;
 			$old_subject = $msg_subject;
 
-			if( isset($quote) ) {
+			if (isset($_GET['quote'])) {
 				$msg_body = apply_reverse_replace($msg->body);
 				$msg_body = post_to_smiley(str_replace("\r", '', $msg_body));
 				
-				if( !strlen($msg->login) ) $msg->login = $GLOBALS['ANON_NICK'];
+				if (!strlen($msg->login)) {
+					$msg->login = $GLOBALS['ANON_NICK'];
+				}
 				reverse_FMT($msg->login);
 				
-				switch ( $frm->tag_style )
-				{
+				switch ($frm->tag_style) {
 					case 'ML':
 						$msg_body = html_to_tags($msg_body);
 						reverse_FMT($msg_body);
@@ -163,65 +177,43 @@
 				$msg_body .= "\n";
 			}
 		}
-	}	
-	else { /* $HTTP_POST_VARS['prev_loaded'] */
-		/* remove slashes */
-		foreach($HTTP_POST_VARS as $k => $v) { 
-			if( !empty($HTTP_POST_VARS[$k]) ) $HTTP_POST_VARS[$k] = $GLOBALS[$k] = stripslashes($HTTP_POST_VARS[$k]);
-		}
-
-		if ( $FLOOD_CHECK_TIME && !$MOD && !$msg_id ) {
-			if ( ($tm=flood_check()) ) {
-				error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}', $returnto_d);
-				exit();
-			}
+	} else { /* $_POST['prev_loaded'] */
+		if ($FLOOD_CHECK_TIME && !$MOD && !$msg_id && ($tm = flood_check())) {
+			error_dialog('{TEMPLATE: post_err_floodtrig_title}', '{TEMPLATE: post_err_floodtrig_msg}', '');
 		}
 		
-		if( is_perms(_uid, $__RESOURCE_ID, 'FILE') ) {
+		if ($perms['p_file'] == 'Y' || $MOD) {
 			$attach_count = 0;
 			
 			/* restore the attachment array */
-			if( !empty($HTTP_POST_VARS['file_array']) ) {
-				$file_array = explode("\n", base64_decode(stripslashes($HTTP_POST_VARS['file_array'])));
-				
-				foreach( $file_array as $val ) {
-					list($fa_id,$fa_id2) = explode(":", $val);
-					$attach_list[$fa_id] = $fa_id2;
-					if( !empty($fa_id2) ) $attach_count++;
-				}
+			if (!empty($_POST['file_array']) ) {
+				$attach_list = @unserialize(base64_decode($_POST['file_array']));
 			}
 			
-			if( !empty($HTTP_POST_VARS['file_del_opt']) ) {
-				$attach_list[$HTTP_POST_VARS['file_del_opt']] = 0;
+			/* remove file attachment */
+			if (!empty($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
+				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */
-				if ( strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'[/img]') ) 
-					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'[/img]', '', $msg_body);
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]')) {
+					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				}
 					
 				$attach_count--;
 			}	
 			
-			if ( !empty($attach_control_size) ) {
-				if( $attach_control_size>($MAX_F_SIZE*1024) ) {
+			/* newly uploaded files */
+			if (isset($_FILES['attach_control']) && $_FILES['attach_control']['size']) {
+				if ($_FILES['attach_control']['size'] > $MAX_F_SIZE * 1024) {
 					$attach_control_error = '{TEMPLATE: post_err_attach_size}';
-				}
-				else {
-					if( filter_ext($attach_control_name) ) {
+				} else {
+					if (filter_ext($_FILES['attach_control']['name'])) {
 						$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
-					}
-					else {
-						if( ($attach_count+1) <= $frm->max_file_attachments ) {
-						
-							$at_obj = new fud_attach();
-							
-							$at_obj->original_name = $attach_control_name;
-							$at_obj->fsize = $attach_control_size;
-							$at_obj->owner = _uid;
-							$val = $at_obj->add($attach_control);
-
+					} else {
+						if (($attach_count+1) <= $frm->max_file_attachments) {
+							$val = attach_add($_FILES['attach_control'], _uid);
 							$attach_list[$val] = $val;
 							$attach_count++;
-						}
-						else {
+						} else {
 							$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
 						}	
 					}	
@@ -230,80 +222,84 @@
 			$attach_cnt = $attach_count;
 		}
 		
-		if( !empty($HTTP_POST_VARS["pl_del"]) && is_numeric($pl_id) ) {
-			$poll = new fud_poll;
-			$poll->get($pl_id);
-			if ( $MOD || is_perms(_uid, $__RESOURCE_ID, 'EDIT') || $poll->owner==_uid ) $poll->delete();
-			$pl_id = 0;
-			unset($poll);
+		/* removal of a poll */
+		if (isset($_POST['pl_del'], $_POST['pl_id']) && ($MOD || $perms['p_poll'] == 'Y')) {
+			poll_delete((int)$_POST['pl_id']);
+			unset($_POST['pl_id']);
 		}
 		
-		if ( $reply_to && $old_subject == $msg_subject )
-				$no_spell_subject = 1;
+		if ($reply_to && $old_subject == $msg_subject) {
+			$no_spell_subject = 1;
+		}
 				
-		if( !empty($HTTP_POST_VARS["btn_spell"]) ) {
+		if (isset($_POST['btn_spell'])) {
 			$GLOBALS['MINIMSG_OPT']['DISABLED'] = 1;
-			$text = apply_custom_replace($HTTP_POST_VARS["msg_body"]);
-			$text_s = apply_custom_replace($HTTP_POST_VARS["msg_subject"]);
+			$text = apply_custom_replace($_POST['msg_body']);
+			$text_s = apply_custom_replace($_POST['msg_subject']);
 		
-			switch( $frm->tag_style )
-			{
+			switch ($frm->tag_style) {
 				case 'ML':
-					$text = tags_to_html($text, (is_perms(_uid, $__RESOURCE_ID, 'IMG')?'Y':'N'));
+					$text = tags_to_html($text, $perms['p_img']);
 					break;
 				case 'HTML':
 					break;
 				default:
 					$text = htmlspecialchars($text);
 			}
-		
-			if ( is_perms(_uid, $__RESOURCE_ID, 'SML') && empty($HTTP_POST_VARS["msg_smiley_disabled"]) ) $text = smiley_to_post($text);
 
-	 		if( strlen($text) ) {	
+			if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+				$text = smiley_to_post($text);
+			}
+
+	 		if (strlen($text)) {	
 				$wa = tokenize_string($text);
-				$msg_body = spell_replace($wa,'body');
+				$msg_body = spell_replace($wa, 'body');
 				
-				if ( is_perms(_uid, $__RESOURCE_ID, 'SML') && empty($HTTP_POST_VARS["msg_smiley_disabled"]) ) $msg_body = post_to_smiley($msg_body);
-				if($frm->tag_style == 'ML' ) $msg_body = html_to_tags($msg_body);
-				else if ( $frm->tag_style !='HTML' )  reverse_FMT($msg_body);
+				if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+					$msg_body = post_to_smiley($msg_body);
+				}
+				if ($frm->tag_style == 'ML' ) {
+					$msg_body = html_to_tags($msg_body);
+				} else if ($frm->tag_style != 'HTML') {
+					reverse_FMT($msg_body);
+				}
 				
 				$msg_body = apply_reverse_replace($msg_body);
 			}	
-			$wa='';
+			$wa = '';
 			
-			if( strlen($HTTP_POST_VARS["msg_subject"]) && empty($no_spell_subject) ) {
+			if (strlen($_POST['msg_subject']) && empty($no_spell_subject)) {
 				$text_s = htmlspecialchars($text_s);
 				$wa = tokenize_string($text_s);
-				$text_s = spell_replace($wa,'subject');
+				$text_s = spell_replace($wa, 'subject');
 				reverse_FMT($text_s);
 				$msg_subject = apply_reverse_replace($text_s);
 			}
 		}
 		
-		if( empty($frm_passwd) ) $frm_passwd = '';	
-		 	
-		if( empty($spell) && empty($preview) && !empty($submitted) ) $HTTP_POST_VARS["btn_submit"] = 1;
+		if (isset($_POST['submitted']) && !isset($_POST['spell']) && !isset($_POST['preview'])) {
+			$_POST['btn_submit'] = 1;
+		}
 		
-		if ( $usr->is_mod != 'A' && !empty($HTTP_POST_VARS["btn_submit"]) && $frm->passwd_posting == 'Y' && $frm->post_passwd != $frm_passwd ) {
+		if ($usr->is_mod != 'A' && isset($_POST['btn_submit']) && $frm->passwd_posting == 'Y' && $frm->post_passwd != $_POST['frm_passwd']) {
 			set_err('password', '{TEMPLATE: post_err_passwd}');
 		}
 		
 		/* submit processing */
-		if( !empty($HTTP_POST_VARS["btn_submit"]) && !check_post_form() ) {
+		if (isset($_POST['btn_submit']) && !check_post_form()) {
 			$msg_post = new fud_msg_edit;
 			
 			/* Process Message Data */
-			$msg_post->poster_id = (isset($usr))?$usr->id:0;
-			$msg_post->poll_id = $pl_id;
-			$msg_post->fetch_vars($HTTP_POST_VARS, 'msg_');
-		 	$msg_post->smiley_disabled = yn($msg_smiley_disabled);
-		 	$msg_post->attach_cnt = intval($attach_cnt);
+			$msg_post->poster_id = _uid;
+			$msg_post->poll_id = $_POST['pl_id'];
+			$msg_post->fetch_vars($_POST, 'msg_');
+		 	$msg_post->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
+		 	$msg_post->attach_cnt = (int) $attach_cnt;
 			$msg_post->body = apply_custom_replace($msg_post->body);
 			
-			switch ( $frm->tag_style )
-			{
+			switch ($frm->tag_style) {
 				case 'ML':
-					$msg_post->body = tags_to_html($msg_post->body, (is_perms(_uid, $__RESOURCE_ID, 'IMG')?'Y':'N'));
+					$msg_post->body = tags_to_html($msg_post->body, $perms['p_img']);
 					break;
 				case 'HTML':
 					break;
@@ -311,8 +307,9 @@
 					$msg_post->body = nl2br(htmlspecialchars($msg_post->body));
 			}
 			
-	 		if( is_perms(_uid, $__RESOURCE_ID, 'SML') && $msg_post->smiley_disabled!='Y' ) 
+	 		if ($perms['p_sml'] == 'Y' && $msg_post->smiley_disabled != 'Y') {
 	 			$msg_post->body = smiley_to_post($msg_post->body);
+	 		}
 	 			
 			fud_wordwrap($msg_post->body);
 			
@@ -322,102 +319,94 @@
 		
 		 	/* chose to create thread OR add message OR update message */
 		 	
-		 	if( !$th_id ) {
-		 		$create_thread=1;
+		 	if (!$th_id) {
+		 		$create_thread = 1;
 		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, FALSE);
 		 		$thr = new fud_thread;
 		 		$thr->get_by_id($msg_post->thread_id);
-		 	}
-			else if( $th_id && !$msg_id ) {
+		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
 		 		$msg_post->add_reply($reply_to, $th_id, FALSE);
-			}
-			else if( $msg_id ) {
+			} else if ($msg_id) {
 				$msg_post->id = $msg_id;
 				$msg_post->thread_id = $th_id;
 				$msg_post->post_stamp = $msg->post_stamp;
-				$msg_post->sync($usr->id, $frm->id, $frm->message_threshold);
+				$msg_post->sync(_uid, $frm->id, $frm->message_threshold);
 				/* log moderator edit */
-			 	if ( _uid && _uid != $msg->poster_id ) 
+			 	if (_uid && _uid != $msg->poster_id) {
 			 		logaction($usr->id, 'MSGEDIT', $msg_post->id);
-			}
-			else {
+			 	}
+			} else {
 				std_error('systemerr');
 				exit();
 			}
 
 			/* write file attachments */
-			if (is_perms(_uid, $__RESOURCE_ID, 'FILE') && isset($attach_list)) {
+			if ($perms['p_file'] == 'Y' && isset($attach_list)) {
 				fud_attach::finalize($attach_list, $msg_post->id);
 			}	
 			
-			if (empty($msg_id) && ($frm->moderated == 'N' || $MOD)) {
+			if (!$msg_id && ($frm->moderated == 'N' || $MOD)) {
 				$msg_post->approve(NULL, TRUE);
 			}	
 	
 			/* deal with notifications */
-			$th_not = new fud_thread_notify;
-			if ( isset($usr) ) {
-	 			if ( $HTTP_POST_VARS["msg_poster_notif"]=='Y' ) 
-	 				$th_not->add($usr->id, $msg_post->thread_id);
-	 			else if ( !empty($GLOBALS["HTTP_POST_VARS"]["msg_id"]) )
-	 				$th_not->delete($usr->id, $msg_post->thread_id);
+			if (_uid) {
+	 			if ($_POST['msg_poster_notif'] == 'Y') {
+	 				thread_notify_add(_uid, $msg_post->thread_id);
+	 			} else if ($msg_id) {
+	 				thread_notify_del(_uid, $msg_post->thread_id);
+	 			}
 			}
 			
 			/* register a view, so the forum marked as read */
-			if ( isset($frm) && isset($usr) ) $usr->register_forum_view($frm->id);
+			if (isset($frm) && _uid) {
+				register_forum_view($frm->id);
+			}
 			
 			/* where to redirect, to the treeview or the flat view 
 			 * and consider what to do for a moderated forum
 			 */
-			$msg_url = ( strstr($returnto_d, 't=tree') ) ? 'tree' : 'msg';
-			if( $frm->moderated == 'N' || $MOD )
-				if( !strstr($returnto_d, 't=selmsg') )
-					$returnto = '{ROOT}?t='.$msg_url.'&goto='.$msg_post->id.'&'._rsid;
-				else {
-					if( ($pos = strpos($returnto_d, '#')) ) $returnto_d = substr($returnto_d, 0, $pos);
-					$returnto = $returnto_d.'#msg_'.$msg_post->id;
-				}	
-			else {
-				if( !strstr($returnto_d, 't=selmsg') )
-					$returnto = ( $th_id ) ? '{ROOT}?t='.$msg_url.'&'._rsid.'&th='.$th_id : '{ROOT}?t='.t_thread_view.'&'._rsid.'&frm_id='.$frm_id;
-				else 
-					$returnto = $returnto_d;
-		 	}
-		 	
-			if( $frm->moderated == 'Y' && !$MOD ) {
-				$ret = create_return();
-				$fp = fopen($GLOBALS['INCLUDE'].'theme/'.$GLOBALS['FUD_THEME'][4].'/usercp.inc', "rb");
-				$data = fread($fp, __ffilesize($fp));
-				fclose($fp);
-				$s = strpos($data, '<?php')+5;
-				eval(substr($data, $s, (strrpos($data, '?>')-$s)));
+			if ($frm->moderated == 'Y' && !$MOD) {
+				$data = file_get_contents($GLOBALS['INCLUDE'].'theme/'.$usr->theme_name.'/usercp.inc');
+				$s = strpos($data, '<?php') + 5;
+				eval(substr($data, $s, (strrpos($data, '?>') - $s)));
 				?>
 				{TEMPLATE: moderated_forum_post}
 				<?php
 				exit;
+			} else {
+				if ($usr->returnto) {
+					parse_url($usr->returnto, $tmp);
+					$t = $tmp['t'];
+				} else {
+					$t = d_thread_view;
+				}
+				if ($t == 'selmsg') { /* send the user to previous page */
+					check_return($usr->returnto);
+				} else { /* redirect user to their message */
+					header('Location: {ROOT}?t='.$t.'&goto='.$msg_post->id.'&'._rsidl);
+					exit;
+				}
 			}
-			else
-				check_return();
-					
 		} /* Form submitted and user redirected to own message */
 	} /* $prevloaded is SET, this form has been submitted */
 	
-	/* form start */	 
-	if ( isset($ses) ) {
-		if ( $reply_to || $th_id && !$msg_id )
-			$ses->update('{TEMPLATE: post_reply_update}', $__RESOURCE_ID);
-		else if ( $msg_id ) 
-			$ses->update('{TEMPLATE: post_reply_update}', $__RESOURCE_ID);
-		else 
-			$ses->update('{TEMPLATE: post_topic_update}', $__RESOURCE_ID);
+	if ($reply_to || $th_id && !$msg_id) {
+		ses_update_status($usr->sid, '{TEMPLATE: post_reply_update}', $frm->id, 0);
+	} else if ($msg_id) {
+		ses_update_status($usr->sid, '{TEMPLATE: post_reply_update}', $frm->id, 0);
+	} else  {
+		ses_update_status($usr->sid, '{TEMPLATE: post_topic_update}', $frm->id, 0);
 	}
-	
-	if ( isset($thr) ) $th=$thr->id;
-	if ( !empty($spell) ) $GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
-	{POST_HTML_PHP}
 
-	if (empty($th_id)) {
+	if (isset($_POST['spell'])) {
+		$GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
+	}
+
+/*{POST_HTML_PHP}*/
+
+	if (!$th_id) {
 		$label = '{TEMPLATE: create_thread}';
 	} else if ($msg_id) {
 		$label = '{TEMPLATE: edit_message}';
@@ -425,80 +414,87 @@
 		$label = '{TEMPLATE: submit_reply}';
 	}	
 	
-if ( !empty($preview) || !empty($spell) ) {
-	$text = apply_custom_replace($HTTP_POST_VARS['msg_body']);
-	$text_s = apply_custom_replace($HTTP_POST_VARS['msg_subject']);
+	if (isset($_POST['preview']) || isset($_POST['spell'])) {
+		$text = apply_custom_replace($_POST['msg_body']);
+		$text_s = apply_custom_replace($_POST['msg_subject']);
 
-	switch ( $frm->tag_style )
-	{
-		case 'ML':
-			$text = tags_to_html($text, (is_perms(_uid, $__RESOURCE_ID, 'IMG')?'Y':'N'));
-			break;
-		case 'HTML':
-			break;
-		default:
-			$text = nl2br(htmlspecialchars($text));
-	}
+		switch ($frm->tag_style) {
+			case 'ML':
+				$text = tags_to_html($text, $perms['p_img']);
+				break;
+			case 'HTML':
+				break;
+			default:
+				$text = nl2br(htmlspecialchars($text));
+		}
 			
-	if ( is_perms(_uid, $__RESOURCE_ID, 'SML') && empty($HTTP_POST_VARS["msg_smiley_disabled"]) ) $text = smiley_to_post($text);
+		if ($perms['p_sml'] == 'Y' && !isset($_POST['msg_smiley_disabled'])) {
+			$text = smiley_to_post($text);
+		}
 	
-	$text_s = htmlspecialchars($text_s);
+		$text_s = htmlspecialchars($text_s);
 		
-	if( !function_exists('pspell_config_create') || !$GLOBALS['FUD_THEME'][5] ) $spell=0;
-	
-	if ( !empty($spell) && !empty($text) ) $text = check_data_spell($text,'body');
-	fud_wordwrap($text);
+		if (function_exists('pspell_config_create') && $usr->pspell_lang && $text) {
+			$text = check_data_spell($text, 'body');
+		}
+		fud_wordwrap($text);
 
-	$sig=$subj='';
-	if ( $text_s ) {
-		if ( !empty($spell) && empty($no_spell_subject) && strlen($text_s) )
-			$subj .= check_data_spell($text_s,'subject');
-		else
-			$subj .= $text_s;
+		$sig = $subj = '';
+		if ($text_s) {
+			if (function_exists('pspell_config_create') && $usr->pspell_lang && empty($no_spell_subject) && strlen($text_s)) {
+				$subj .= check_data_spell($text_s,'subject');
+			} else {
+				$subj .= $text_s;
+			}
+		}
+		if ($GLOBALS['ALLOW_SIGS'] == 'Y' && $msg_show_sig == 'Y') {
+			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !reply_to) {
+				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
+			} else {
+				$sig = $usr->sig;
+			}
+		
+			$signature = $sig ? '{TEMPLATE: signature}' : '';
+		}
+
+		$apply_spell_changes = isset($_POST['spell']) ? '{TEMPLATE: apply_spell_changes}' : '';
+
+		$preview_message = '{TEMPLATE: preview_message}';
+	} else {
+		$preview_message = '';
 	}
-	if( $GLOBALS['ALLOW_SIGS']=='Y' && $msg_show_sig == 'Y' ) {
-		if ( isset($HTTP_POST_VARS['msg_id']) && !empty($msg->poster_id) && $msg->poster_id != _uid && empty($HTTP_POST_VARS['reply_to']) ) 
-			$sig = q_singleval("SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg->poster_id);
-		else
-			$sig = $usr->sig;	
-		
-		$signature = $sig ? '{TEMPLATE: signature}' : '';
-	}
-	
-	if ( !empty($spell) ) $apply_spell_changes = '{TEMPLATE: apply_spell_changes}'; 
-	
-	$preview_message = '{TEMPLATE: preview_message}';
-}
 
-if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
+	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
+	$loged_in_user = _uid ? '{TEMPLATE: loged_in_user}' : '';
 
-	if ( isset($usr) ) $loged_in_user = '{TEMPLATE: loged_in_user}';
-
-	/*
-	 * form begins here
-	 */
-		
+	/* handle password protected forums */
 	if ($frm->passwd_posting == 'Y' && $usr->is_mod != 'A') {
 		$pass_err = get_err('password');
 		$post_password = '{TEMPLATE: post_password}';
+	} else {
+		$post_password = '';
 	}
 	
 	$msg_subect_err = get_err('msg_subject');
+	if (!isset($msg_subject)) {
+		$msg_subject = '';
+	}
 	
-	if ( $MOD || is_perms(_uid, $__RESOURCE_ID,'POLL') ) {
-		if ( empty($pl_id) ) {
+	/* handle polls */
+	$poll = '';
+	if ($MOD || $perms['p_poll'] == 'Y') {
+		if (!isset($_POST['pl_id'])) {
 			$poll = '{TEMPLATE: create_poll}';
-		}
-		else if ( is_numeric($pl_id) ) {
-			$poll = new fud_poll;
-			$poll->get($pl_id);
+		} else if (($poll = db_saq('SELECT id,name FROM {SQL_TABLE_PREFIX}poll WHERE id='.(int)$_POST['pl_id']))) {
 			$poll = '{TEMPLATE: edit_poll}';
 		}
 	}
 	
-	if ( isset($MOD) || is_perms(_uid, $__RESOURCE_ID, 'STICKY') ) {
-		if ( empty($thr) || ($thr->root_msg_id==$msg->id && empty($reply_to)) ) {
-			if ( !$prev_loaded ) {
+	$admin_options = $mod_post_opts = '';
+	/* sticky/announcment controls */
+	if ($MOD || $perms['p_sticky'] == 'Y') {
+		if (!isset($thr) || ($thr->root_msg_id == $msg->id && !$reply_to)) {
+			if (!isset($_POST['prev_loaded'])) {
 				$thr_ordertype = $thr->ordertype;
 				$thr_orderexpiry = $thr->orderexpiry;
 			}
@@ -508,121 +504,62 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 		
 			$admin_options = '{TEMPLATE: admin_options}';
 		}
-		
-		if ( !$prev_loaded )
-			$thr_locked = (isset($thr)&&isset($thr->locked))?$thr->locked:'';
+	}	
 
-		$thr_locked_checked = ($thr_locked=='Y')? ' checked' : '';
+	/* thread locking controls */
+	if ($MOD || $perms['p_lock'] == 'Y') {
+		if (!isset($_POST['prev_loaded']) && isset($thr)) {
+			$thr_locked_checked = $thr->locked == 'Y' ? ' checked' : '';
+		} else if (isset($_POST['prev_loaded'])) {
+			$thr_locked_checked = isset($_POST['thr_locked']) ? ' checked' : '';
+		}
 		$mod_post_opts = '{TEMPLATE: mod_post_opts}';
 	}
 	
-	/* 
-	 * draw the icon select here
-	 */
-	 
-
-	if ( $dp = opendir($icon_path) ) {
-		$none_checked = empty($msg_icon) ? ' checked' : '';
-	 	$col_pos = 0;
-	 	$col_count = 9;
-	 	$post_icons = '';
-	 	$post_icon_entry = '';
-	 	while ( $de = readdir($dp) ) {
-	 		if ( $de == '.' || $de == '..' ) continue;
-			if ( strlen($de) < 4 ) continue;
-			$ext = strtolower(substr($de, -4));
-			
-			if ( $ext != '.gif' && $ext != '.jpg' && $ext != '.png' ) continue;
-			if ( ++$col_pos > $col_count ) { $post_icons_rows .= '{TEMPLATE: post_icon_row}'; $post_icon_entry = ''; $col_pos = 0; }
-			
-			$checked = ($de==$msg_icon)?' checked':'';
-			$post_icon_entry .= '{TEMPLATE: post_icon_entry}';
-	 	}
-	 	closedir($dp);
-	 	if ( $col_pos ) { $post_icons_rows .= '{TEMPLATE: post_icon_row}'; $post_icon_entry = ''; $col_pos = 0; }
-	 	
-	 	if ( !empty($post_icons_rows) ) $post_icons = '{TEMPLATE: post_icons}';
-	}
-	 
-	if( is_perms(_uid, $__RESOURCE_ID, 'SML') ) {
-		$smileys = new fud_smiley;
-		$smileys->getall();
-		$smileys->resets();
-		if ( $smileys->counts() ) {
-			$col_count = 25;
-			$col_pos = 0;
-			
-			$post_smiley_entry = $post_smiley_row = '';
-			$i=0;
-			while ( ($obj = $smileys->eachs()) && ($i++ < $GLOBALS['MAX_SMILIES_SHOWN']) ) {
-				if ( ++$col_pos > $col_count ) { $post_smiley_row .= '{TEMPLATE: post_smiley_row}'; $post_smiley_entry=''; $col_pos = 0; }
-				$obj->code = ($a=strpos($obj->code, '~')) ? substr($obj->code,0,$a) : $obj->code;
-				$post_smiley_entry .= '{TEMPLATE: post_smiley_entry}';
-			}
-			if ( $col_pos ) $post_smiley_row .= '{TEMPLATE: post_smiley_row}';
-			
-			$post_smilies = '{TEMPLATE: post_smilies}';
-		}
-	}
+	/* message icon selection */
+	$post_icons = draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''));
 	
-	if( $frm->tag_style == 'ML' ) $fud_code_icons = '{TEMPLATE: fud_code_icons}';
+	/* tool bar icons */
+	$fud_code_icons = $frm->tag_style == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
 	
 	$post_options = tmpl_post_options($frm);
-	$message_err = get_err('msg_body',1);
-	$msg_body = str_replace("\r", "", $msg_body);
-	
-	if ( is_perms(_uid, $__RESOURCE_ID, 'FILE') ) {	
-		/* check if there are any attached files, if so draw a table */
-		if ( isset($attach_list) ) {
-			$id_list = $file_array = $attached_files = $attachment_list = $attached_status = '';
-			foreach($attach_list as $k => $v) {
-				if( !empty($v) ) {
-					$id_list .= intval($v).',';
-				}
-				$file_array .= $k.':'.$v."\n";
-			}
-			
-			$file_array_be64 = base64_encode($file_array);
-		
-			if( !empty($id_list) ) {
-				$r = q("SELECT {SQL_TABLE_PREFIX}attach.id,{SQL_TABLE_PREFIX}attach.fsize,{SQL_TABLE_PREFIX}attach.original_name,{SQL_TABLE_PREFIX}mime.mime_hdr FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE {SQL_TABLE_PREFIX}attach.id IN(".substr($id_list,0,-1).")");
-				while( $obj = db_rowobj($r) ) {
-					$sz = ( $obj->fsize < 100000 ) ? number_format($obj->fsize/1024,2).'KB' : number_format($obj->fsize/1048576,2).'MB';
-					
-					$insert_uploaded_image = strncasecmp('image/', $obj->mime_hdr, 6) ? '' : '{TEMPLATE: insert_uploaded_image}';
-					
-					$attached_files .= '{TEMPLATE: attached_file}';
-				}
-				qf($r);
-			}
-			
-			$attachment_list = '{TEMPLATE: attachment_list}';
-			$attached_status = '{TEMPLATE: attached_status}';
-		}
-		
-		if( ($attach_count+1) <= $frm->max_file_attachments ) $upload_file = '{TEMPLATE: upload_file}';
-		$allowed_extensions = tmpl_list_ext();
-		
-		$file_attachments = '{TEMPLATE: file_attachments}';
+	$message_err = get_err('msg_body', 1);
+	if (isset($msg_body)) {
+		$msg_body = str_replace("\r", "", $msg_body);
+	} else {
+		$msg_body = '';
 	}
-	else
+	
+	/* handle file attachments */
+	if ($perms['p_file'] == 'Y') {
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments);
+	} else {
 		$file_attachments = '';
+	}
 
-	if( isset($usr) ) {
-		$msg_poster_notif_check = $msg_poster_notif=='Y'?' checked':'';
-		$msg_show_sig_check = $msg_show_sig=='Y'?' checked':'';
+	if (_uid) {
+		$msg_poster_notif_check = $msg_poster_notif == 'Y' ? ' checked' : '';
+		$msg_show_sig_check = $msg_show_sig == 'Y' ? ' checked' : '';
 		$reg_user_options = '{TEMPLATE: reg_user_options}';
+	} else {
+		$reg_user_options = '';
 	}
 	
-	if( is_perms(_uid, $__RESOURCE_ID, 'SML') ) {
-		$msg_smiley_disabled_check = ($msg_smiley_disabled=='Y' ? ' checked' : '');
+	/* handle smilies */
+	if ($perms['p_sml'] == 'Y') {
+		$msg_smiley_disabled_check = (isset($_POST['msg_smiley_disabled']) ? ' checked' : '');
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
-	}	
+		$post_smilies = draw_post_smiley_cntrl();
+	} else {
+		$post_smilies = $disable_smileys = '';
+	}
 	
-	if( $GLOBALS["SPELL_CHECK_ENABLED"]=='Y' && function_exists('pspell_config_create') && $GLOBALS['FUD_THEME'][5] ) $spell_check_button = '{TEMPLATE: spell_check_button}';
+	if ($GLOBALS['SPELL_CHECK_ENABLED']=='Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
+		$spell_check_button = '{TEMPLATE: spell_check_button}';
+	} else {
+		$spell_check_button = '';
+	}
 
-	$ret = create_return();
-
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: POST_PAGE}

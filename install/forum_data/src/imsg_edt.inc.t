@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.23 2003/03/31 11:29:59 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.24 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -230,10 +230,13 @@ class fud_msg_edit extends fud_msg
 	
 	function export_vars($prefix)
 	{	
-		$GLOBALS[$prefix.'subject'] = $this->subject;
-		$GLOBALS[$prefix.'body'] = $this->body;
-		$GLOBALS[$prefix.'icon'] = $this->icon;
-		$GLOBALS[$prefix.'show_sig'] = $this->show_sig;
+		$_POST[$prefix.'subject'] = $this->subject;
+		$_POST[$prefix.'body'] = $this->body;
+		$_POST[$prefix.'icon'] = $this->icon;
+		$_POST[$prefix.'show_sig'] = $this->show_sig;
+		if ($this->smiley_disabled == 'Y') {
+			$_POST[$prefix.'smiley_disabled'] = 1;
+		}
 	}
 	
 	function delete($rebuild_view=TRUE, $mid=0, $th_rm=0)

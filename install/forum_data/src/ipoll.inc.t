@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.6 2003/03/30 18:03:11 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.7 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -164,5 +164,17 @@ class fud_poll_opt
 		if ( $this->all_c > count($this->all) ) return;
 		return ( isset($this->all[$this->all_c])?$this->all[$this->all_c++]:'');
 	}
+}
+
+function poll_delete($id)
+{
+	if (!$id) {
+		return;
+	}
+
+	q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_id=0 WHERE poll_id='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}poll WHERE id='.$id);
 }
 ?>

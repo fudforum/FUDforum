@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.15 2003/03/29 11:40:09 hackie Exp $
+*   $Id: ppost.php.t,v 1.16 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -425,25 +425,8 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	 	if ( !empty($post_icons_rows) ) $post_icons = '{TEMPLATE: post_icons}';
 	}
 	 
-	if( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
-		$smileys = new fud_smiley;
-		$smileys->getall();
-		$smileys->resets();
-		if ( $smileys->counts() ) {
-			$col_count = 25;
-			$col_pos = 0;
-			
-			$post_smiley_entry = $post_smiley_row = '';
-			$i=0;
-			while ( ($obj = $smileys->eachs()) && ($i++ < $GLOBALS['MAX_SMILIES_SHOWN']) ) {
-				if ( ++$col_pos > $col_count ) { $post_smiley_row .= '{TEMPLATE: post_smiley_row}'; $post_smiley_entry=''; $col_pos = 0; }
-				$obj->code = ($a=strpos($obj->code, '~')) ? substr($obj->code,0,$a) : $obj->code;
-				$post_smiley_entry .= '{TEMPLATE: post_smiley_entry}';
-			}
-			if ( $col_pos ) $post_smiley_row .= '{TEMPLATE: post_smiley_row}';
-			
-			$post_smilies = '{TEMPLATE: post_smilies}';
-		}
+	if ( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
+		$post_smilies = draw_post_smiley_cntrl();
 	}	
 
 	if( $GLOBALS['PRIVATE_TAGS'] == 'ML' ) $fud_code_icons = '{TEMPLATE: fud_code_icons}';
@@ -453,38 +436,7 @@ if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
 	$msg_body = str_replace("\r", "", $msg_body);
 	
 	if ( $PRIVATE_ATTACHMENTS > 0 ) {	
-		/* check if there are any attached files, if so draw a table */
-		if ( isset($attach_list) ) {
-			$id_list = $file_array = $attached_files = $attachment_list = $attached_status = '';
-			foreach($attach_list as $k => $v) {
-				if( !empty($v) ) {
-					$id_list .= intval($v).',';
-				}
-				$file_array .= $k.':'.$v."\n";
-			}
-			
-			$file_array_be64 = base64_encode($file_array);
-		
-			if( !empty($id_list) ) {
-				$r = q("SELECT {SQL_TABLE_PREFIX}attach.id,{SQL_TABLE_PREFIX}attach.fsize,{SQL_TABLE_PREFIX}attach.original_name,{SQL_TABLE_PREFIX}mime.mime_hdr FROM {SQL_TABLE_PREFIX}attach LEFT JOIN {SQL_TABLE_PREFIX}mime ON {SQL_TABLE_PREFIX}attach.mime_type={SQL_TABLE_PREFIX}mime.id WHERE {SQL_TABLE_PREFIX}attach.id IN(".substr($id_list,0,-1).")");
-				while( $obj = db_rowobj($r) ) {
-					$sz = ( $obj->fsize < 100000 ) ? number_format($obj->fsize/1024,2).'KB' : number_format($obj->fsize/1048576,2).'MB';
-					
-					$insert_uploaded_image = strncasecmp('image/', $obj->mime_hdr, 6) ? '' : '{TEMPLATE: insert_uploaded_image}';
-					
-					$attached_files .= '{TEMPLATE: attached_file}';
-				}
-				qf($r);
-			}
-			
-			$attachment_list = '{TEMPLATE: attachment_list}';
-			$attached_status = '{TEMPLATE: attached_status}';
-		}
-		
-		if( ($attach_count+1) <= $PRIVATE_ATTACHMENTS ) $upload_file = '{TEMPLATE: upload_file}';
-		$allowed_extensions = tmpl_list_ext();
-		
-		$file_attachments = '{TEMPLATE: file_attachments}';
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''));
 	}
 
 	$msg_track_check = ( $msg_track == 'Y' ) ? ' checked' : '';

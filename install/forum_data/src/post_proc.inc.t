@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.13 2003/04/02 01:46:35 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.14 2003/04/07 14:23:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -454,32 +454,10 @@ function html_to_tags($fudml)
 
 function filter_ext($file_name)
 {
-	$regexp_file = $GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp';
-	
-	if( !file_exists($regexp_file) || !filesize($regexp_file) || empty($file_name) ) return 0;
-	
-	$fp = fopen($regexp_file, 'rb');
-		$regexp = fread($fp, filesize($regexp_file));
-	fclose($fp);
-	
-	if( preg_match('/'.$regexp.'/i', $file_name) ) return 0;
-	
-	return 1;
-}
-
-function tmpl_list_ext()
-{
-	$ext='';
-	$r = q("SELECT ext FROM {SQL_TABLE_PREFIX}ext_block");
-	while ( $obj = db_rowobj($r) ) $ext .= '{TEMPLATE: allowed_extension}';
-	if( empty($ext) ) {
-		$obj->ext = '{TEMPLATE: post_proc_all_ext_allowed}';
-		$ext .= '{TEMPLATE: allowed_extension}';
+	if (!($rgx = @file_get_contents($GLOBALS['FORUM_SETTINGS_PATH'].'file_filter_regexp'))) {
+		return 0;
 	}
-	
-	qf($r);
-	
-	return $ext;
+	return !preg_match('/'.$rgx.'/i', $file_name);
 }
 
 function safe_tmp_copy($source, $del_source=0, $prefx='')
