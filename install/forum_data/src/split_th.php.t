@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.17 2003/05/12 14:35:27 hackie Exp $
+*   $Id: split_th.php.t,v 1.18 2003/05/12 17:38:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -100,7 +100,7 @@
 		apply_custom_replace($_POST['new_title']);
 
 		if ($mc != ($data->replies + 1)) { /* check that we need to move the entire thread */
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}poll WRITE');
 			
 			$new_th = th_add($start, $forum, $data->new_th_lps, 'N', 'N', "'NONE'", 0, ($mc - 1), $data->new_th_lpi);
 		
@@ -122,7 +122,7 @@
 				}
 				qf($c);
 				if (isset($p)) {
-					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$to_forum.' WHERE id IN('.implode(',', $p).')');
+					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$data->forum_id.' WHERE id IN('.implode(',', $p).')');
 				}
 
 				/* deal with the source forum */
