@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.10 2002/10/26 23:32:12 hackie Exp $
+*   $Id: admthemesel.php,v 1.11 2003/04/28 13:06:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,19 +17,20 @@
 
 	@set_time_limit(6000);
 	define('admin_form', 1);
-	
-	include_once "GLOBALS.php";
+
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	list($ses, $usr) = initadm();
- 
-	if ( $HTTP_POST_VARS['tname'] ) {
-		header("Location: ".$ret.".php?tname=$tname&tlang=$tlang&rand=".get_random_value()."&"._rsidl);
-		exit();
+
+	if (isset($_POST['tname'], $_POST['tlang'], $_POST['ret'])) {
+		header('Location: '.$_POST['ret'].'.php?tname='.$_POST['tname'].'&tlang='.$_POST['tlang'].'&'._rsidl);
+		exit;
 	}
-	
-	include('admpanel.php');
-	
-	list($def_thm, $def_tmpl) = db_singlearr(q("SELECT name, lang FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'"));
+
+	$ret = isset($_GET['ret']) ? $_GET['ret'] : 'tmpllist';
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
+
+	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE t_default=\'Y\'');
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
@@ -38,27 +39,32 @@
 <tr bgcolor="#bff8ff">
 <?php
 	echo _hs;
+	$path = $GLOBALS['DATA_DIR'].'/thm';
 	
-	$dp = opendir($GLOBALS['DATA_DIR'].'/thm');
+	$dp = opendir($path);
 	readdir($dp); readdir($dp);
 	echo '<td>Template Set:</td><td><select name="tname">';
-	while ( $de = readdir($dp) ) {
-		if ( $de == 'CVS' || !@is_dir($GLOBALS['DATA_DIR'].'/thm/'.$de) ) continue;
-		echo '<option value="'.$de.'"'.($de==$def_thm ? ' selected' : '').'>'.$de.'</option>';
+	while ($de = readdir($dp)) {
+		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+			continue;
+		}
+		echo '<option value="'.$de.'"'.($de == $def_thm ? ' selected' : '').'>'.$de.'</option>';
 	}
 	echo '</select></td>';
 ?>
 </tr>
-
 <tr bgcolor="#bff8ff">
 <?php	
+	$path .= '/default/i18n';
 	
-	$dp = opendir($GLOBALS['DATA_DIR'].'/thm/default/i18n');
+	$dp = opendir($path);
 	readdir($dp); readdir($dp);
 	echo '<td>Language:</td><td><select name="tlang">';
-	while ( $de = readdir($dp) ) {
-		if ( $de == 'CVS' || !@is_dir($GLOBALS['DATA_DIR'].'/thm/default/i18n/'.$de) ) continue;
-		echo '<option value="'.$de.'"'.($de==$def_tmpl ? ' selected' : '').'>'.$de.'</option>';
+	while ($de = readdir($dp)) {
+		if ($de == 'CVS' || !@is_dir($path . '/' . $de)) {
+			continue;
+		}
+		echo '<option value="'.$de.'"'.($de == $def_tmpl ? ' selected' : '').'>'.$de.'</option>';
 	}
 	echo '</select></td>';
 ?>
@@ -69,6 +75,4 @@
 </tr>
 </table>
 </form>
-<?php	
-	readfile('admclose.html');
-?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
