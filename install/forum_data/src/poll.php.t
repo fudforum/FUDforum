@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: poll.php.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: poll.php.t,v 1.3 2002/06/26 22:42:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,6 @@
 	
 	if( isset($poll) && (!empty($pl_upd) || !empty($pl_add)) ) {
 		$pl_option = stripslashes($pl_option);
-	
 		$pl_option = apply_custom_replace($pl_option);
 		
 		switch ( $frm->tag_style )
@@ -155,7 +154,8 @@
 	 */
 	if ( !empty($pl_id) ) { 
 		if( empty($pl_option) ) $pl_option = '';
-
+		$pl_option = post_to_smiley($pl_option);
+		
 		switch( $frm->tag_style )
 	 	{
 	 		case 'ML':
@@ -167,7 +167,6 @@
 	 			reverse_nl2br($pl_option);
 	 	}
 	 	
-	 	$pl_option = post_to_smiley($pl_option);
 		$pl_option = apply_reverse_replace($pl_option);
 		$pl_action = empty($pl_optedit) ? '{TEMPLATE: pl_add}' : '{TEMPLATE: pl_upd}';
 	
