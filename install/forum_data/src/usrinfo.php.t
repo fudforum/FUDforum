@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.37 2004/05/12 15:58:26 hackie Exp $
+* $Id: usrinfo.php.t,v 1.38 2004/05/18 16:16:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -91,7 +91,6 @@ function convert_bdate($val, $month_fmt)
 	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';
 	} else if ($FUD_OPT_2 & 1073741824) {
-		$encoded_login = urlencode($u->alias);
 		$email_link = '{TEMPLATE: email_form_link}';
 	} else {
 		$email_link = '';
