@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.4 2002/06/26 22:39:34 hackie Exp $
+*   $Id: admlock.php,v 1.5 2002/07/01 15:46:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,8 +51,8 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 	if ( ($HTTP_POST_VARS['btn_lock'] || $HTTP_POST_VARS['btn_unlock']) && $HTTP_POST_VARS['usr_passwd'] && $HTTP_POST_VARS['usr_login'] ) {
 		$md5pass = md5($HTTP_POST_VARS['usr_passwd']);
 		
-		mysql_connect($GLOBALS['MYSQL_SERVER'], $GLOBALS['MYSQL_LOGIN'], $GLOBALS['MYSQL_PASSWORD']);
-		mysql_select_db($GLOBALS['MYSQL_DB']);
+		mysql_connect($GLOBALS['DBHOST'], $GLOBALS['DBHOST_USER'], $GLOBALS['DBHOST_PASSWORD']);
+		mysql_select_db($GLOBALS['DBHOST_DBNAME']);
 		$r = mysql_query("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
 		
 		if ( !mysql_num_rows($r) ) {
