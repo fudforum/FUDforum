@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.41 2003/11/30 19:41:43 hackie Exp $
+* $Id: post_proc.inc.t,v 1.42 2003/12/01 08:41:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -25,9 +25,9 @@ function char_fix(&$str)
 		$str);
 }
 
-function tags_to_html($str, $allow_img=1)
+function tags_to_html($str, $allow_img=1, $no_char=0)
 {
-	if (!defined('no_char')) {
+	if (!$no_char) {
 		$str = htmlspecialchars($str);
 	}
 
@@ -577,7 +577,7 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 		 $prefx = getmypid();
 	}
 
-	$umask = umask(0177);
+	$umask = umask(($GLOBALS['FUD_OPT_2'] & 8388608 ? 0177 : 0111));
 	if (!move_uploaded_file($source, ($name = tempnam($GLOBALS['TMP'], $prefx.'_')))) {
 		return;
 	}
@@ -592,6 +592,6 @@ function safe_tmp_copy($source, $del_source=0, $prefx='')
 
 function reverse_nl2br(&$data)
 {
-	$data = preg_replace("!<br(\s*/\s*)?>((\r\n)|\r|\n)?!i", "\n", $data);
+	$data = str_replace('<br />', "\n", $data);
 }
 ?>

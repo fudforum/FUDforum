@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.15 2003/11/26 11:10:32 hackie Exp $
+* $Id: phpBB2.php,v 1.16 2003/12/01 08:41:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,7 +47,7 @@ function bbcode2fudcode($str)
 	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
 	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
 	$str = preg_replace("#(^|[\n ])((www|ftp)\.[\w\-]+\.[\w\-.\~]+(?:/[^ \"\t\n\r<]*)?)#is", "\\1http://\\2", $str);
-	$str = smiley_to_post(tags_to_html($str, 1));
+	$str = smiley_to_post(tags_to_html($str, 1, 1));
 
 	return $str;
 }
@@ -65,9 +65,6 @@ function phpbb_decode_ip($int_ip)
 
 	/* prevent session initialization */
 	define('forum_debug', 1);
-
-	/* needed for bbcode conversion */
-	define('no_char', 1);
 
 	set_time_limit(-1);
 	error_reporting(E_ALL);
