@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.5 2002/11/30 18:06:28 hackie Exp $
+*   $Id: admloginuser.php,v 1.6 2003/04/29 18:38:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,48 +17,39 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
+	require('GLOBALS.php');
+	fud_use('err.inc');
 	fud_use('db.inc');
-	fud_use('login.inc', true);
-	fud_use('widgets.inc', true);
-	fud_use('adm.inc', true);
 	fud_use('logaction.inc');
+	fud_use('cookies.inc');
+	fud_use('users.inc');
+	fud_use('users_reg.inc');
 
-	if ( !empty($login) ) {
-		
-		if ( ($id = get_id_by_login($login)) ) {
-			$usr = new fud_user;
-			$usr->get_user_by_id($id);
-			if ( $usr->passwd == md5(stripslashes($passwd)) ) {
-				if ( $usr->is_mod == 'A' ) {
-					if ( !isset($ses) ) $ses = new fud_session;
-					
-					$ses->save_session($id, NULL);
-					header("Location: admglobal.php?S=".$ses->ses_id);
-					exit();
-				}
-				else $err = 'Only adminsitrators can login through this control panel';
-			}
-			else {
-				logaction($id, 'WRONGPASSWD', 0, $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']);
-				$err = 'The password entered was incorrect';
-			}
+	if (isset($_POST['login'])) {
+		if (($id = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE login=\''.addslashes($_POST['login']).'\' AND passwd=\''.md5($_POST['passwd']).'\' AND is_mod=\'A\''))) {
+			$sid = user_login($id, $usr->ses_id, TRUE);
+			header('Location: admglobal.php?S='.$sid);
+			exit;
+		} else {
+			logaction(0, 'WRONGPASSWD', 0, $_SERVER['REMOTE_ADDR']);
+			$err = 'Only administrators with proper access credentials can login via this control panel';
 		}
-		else $err = 'No such user';
-	}
+	} else {
+		$err = '';
+	}	
 ?>
 <html>
 <h2>Login Into the Forum</h2>
 <?php
-	if ( $err ) 
+	if ($err) {
 		echo '<font color="#ff0000">'.$err.'</font>';
+	}
 ?>
-<form method="post">
-<table border-0 cellspacing=0 cellpadding=3>
+<form method="post" action="admloginuser.php">
+<table border=0 cellspacing=0 cellpadding=3>
 <tr>
 	<td>Login:</td>
-	<td><input type="text" name="login" value="<?php echo htmlspecialchars(stripslashes($login)); ?>" size=25></td>
+	<td><input type="text" name="login" value="<?php if (isset($_POST['login'])) { echo htmlspecialchars($_POST['login']); } ?>" size=25></td>
 </tr>
 <tr>
 	<td>Password:</td>
