@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.11 2003/09/30 15:37:15 hackie Exp $
+*   $Id: admadduser.php,v 1.12 2003/10/03 16:46:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,10 +50,12 @@ function validate_input()
 		}
 		$alias = addslashes(htmlspecialchars($alias));
 
-		$users_opt = (4488117 ^ 2097152) | 131072 | 262144;
+		$users_opt = 1|2|4|16|32|64|128|256|512|2048|4096|8192|16384|131072|4194304;
+
 		if (!($FUD_OPT_2 & 4)) {
 			$users_opt ^= 128;
 		}
+
 		if (!($FUD_OPT_2 & 8)) {
 			$users_opt ^= 256;
 		}
@@ -66,6 +68,15 @@ function validate_input()
 			'".addslashes($_POST['name'])."', '".addslashes($_POST['email'])."', '".$SERVER_TZ."', 
 			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")", 
 			$ef, 1)) === null) {
+				if (__dbtype__ == 'pgsql') {
+					if ($ef == 'test_users_i_l') {
+						$ef = 2;
+					} else if ($ef == 'test_users_i_e') {
+						$ef = 3;
+					} else if ($ef == 'test_users_i_a') {
+						$ef = 4;
+					}
+				}
 			if ($ef == 2) {
 				$error = 1;
 				$err_login = errorify('Login ('.htmlspecialchars($_POST['login']).') is already in use.');
@@ -83,8 +94,11 @@ function validate_input()
 				break;
 			}
 		}
+	}
+
+	if (!count($_POST) || (!$error && count($_POST))) {
 		$login = $passwd = $email = $name = '';
-	} 
+	}
 
 	if ($error) {
 		$login = isset($_POST['login']) ? htmlspecialchars($_POST['login']) : '';
