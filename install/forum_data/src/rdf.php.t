@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.32 2004/01/28 18:51:38 hackie Exp $
+* $Id: rdf.php.t,v 1.33 2004/01/28 23:09:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@ function multi_id($data)
 {
 	$list = explode(',', $data);
 	$out = array();
-	foreach ($data as $v) {
+	foreach ($list as $v) {
 		$out[] = (int) $v;
 	}
 	return implode(',', $out);
