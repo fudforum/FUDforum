@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.17 2003/04/20 22:27:42 hackie Exp $
+*   $Id: logedin.inc.t,v 1.18 2003/05/07 21:56:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@ function rebuild_stats_cache($last_msg_id)
 {
 	$tm_expire = __request_timestamp__ - ($GLOBALS['LOGEDIN_TIMEOUT'] * 60);
 
-	list($obj->last_user_id, $obj->user_count) = db_saq('SELECT MAX(id),count(*) FROM {SQL_TABLE_PREFIX}users');
+	list($obj->last_user_id, $obj->user_count) = db_saq('SELECT MAX(id), count(*)-1 FROM {SQL_TABLE_PREFIX}users');
 
 	$obj->online_users_anon	= q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s WHERE time_sec>'.$tm_expire.' AND user_id>2000000000');
 	$obj->online_users_hidden = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}ses s INNER JOIN {SQL_TABLE_PREFIX}users u ON u.id=s.user_id WHERE s.time_sec>'.$tm_expire.' AND u.invisible_mode=\'Y\'');
