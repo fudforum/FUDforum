@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.10 2002/08/01 23:25:18 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.11 2002/08/02 03:29:19 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -2080,7 +2080,7 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 	</sect1>
 
 	<sect1 id="admin.newsgroup.manager">
-		<title>Mailing List Manager</title>
+		<title>Newsgroup Manager</title>
 		
 		<para>
 			This control panel allows the administrator to define newsgroup rules that allow FUDforum to
@@ -2207,16 +2207,6 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 				If enabled, ANY file attachment attached to a message on the mailing list will be 
 				imported into the forum regardless of any limitations imposed on file attachments 
 				within the forum. 
-			</para>
-		</sect2>
-		
-		<sect2 id="admin.newsgroup.manager.ahnlm">
-			<title>Allow HTML in Newsgroup Messages</title>
-			
-			<para>
-				If enabled, HTML contained within newsgroup messages that are imported will not be stripped. This
-				is not recommended because it may cause layout problems if the HTML is not valid as well as other
-				issues that result in allowing HTML, such as JavaScript, etc...
 			</para>
 		</sect2>
 		
