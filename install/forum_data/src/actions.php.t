@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.10 2002/07/16 16:33:07 hackie Exp $
+*   $Id: actions.php.t,v 1.11 2002/07/16 17:38:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}ses.action,
 			{SQL_TABLE_PREFIX}ses.user_id,
-			{SQL_TABLE_PREFIX}ses.forum_id,
+			{SQL_TABLE_PREFIX}ses.forum_id AS action_forum_id,
 			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}ses.time_sec,
@@ -95,7 +95,7 @@
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 		
-		if( empty($limit[$obj->forum_id]) ) {
+		if( !empty($limit[$obj->action_forum_id]) || !$obj->action_forum_id || $usr->is_mod=='A' ) {
 			if( ($p=strpos($obj->action, '?')) ) 
 				$action = substr_replace($obj->action, '?'._rsid.'&', $p, 1);
 			else if( ($p=strpos($obj->action, '.php')) ) 
