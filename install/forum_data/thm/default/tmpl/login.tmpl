@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.tmpl,v 1.1 2002/06/18 16:41:04 hackie Exp $
+*   $Id: login.tmpl,v 1.2 2002/06/25 14:30:44 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,7 +38,7 @@
 <tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{ROOT}?t=register&{DEF: _rsid}">{MSG: login_want_to_register}</a></td></tr>
 <tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{ROOT}?t=reset&returnto={VAR-URL: returnto}&{DEF: _rsid}">{MSG: login_forgot_passwd}</a></td></tr>
 <tr class="RowStyleB"><td colspan=3 align="left"><input type="checkbox" name="use_cookie" value="Y" checked> {MSG: login_use_cookie}</font></td></tr>
-<tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login}"></td></tr>
+<tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
 {DEF: _hs}
 <input type="hidden" name="adm" value="{VAR: adm}">
 </form>
