@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.69 2004/11/24 19:53:36 hackie Exp $
+* $Id: post_proc.inc.t,v 1.70 2005/02/10 14:06:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -253,8 +253,8 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					if (!$parms) {
 						$parms = '{TEMPLATE: post_quote}';
 					}
-					$ostr .= '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>'.$parms.'</b></td></tr><tr><td class="quote"><br />';
-					$end_tag[$cpos] = '<br /></td></tr></table>';
+					$ostr .= '{TEMPLATE: post_html_quote_start}';
+					$end_tag[$cpos] = '{TEMPLATE: post_html_quote_end}';
 					break;
 				case 'align':
 					$end_tag[$cpos] = '</div>';
@@ -513,7 +513,7 @@ function html_to_tags($fudml)
 	}
 
 	if (strpos($fudml, '<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>')  !== false) {
-		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br />','<br /></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
+		$fudml = str_replace(array('{TEMPLATE: post_html_quote_start_p1}','{TEMPLATE: post_html_quote_start_p2}','{TEMPLATE: post_html_quote_end}'), array('[quote title=', ']', '[/quote]'), $fudml);
 		// old bad code
 		$fudml = str_replace(array('<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>','</b></td></tr><tr><td class="quote"><br>','<br></td></tr></table>'), array('[quote title=', ']', '[/quote]'), $fudml);
 	}
