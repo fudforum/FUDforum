@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.tmpl,v 1.14 2004/04/25 20:18:26 hackie Exp $
+* $Id: mvthread.tmpl,v 1.16 2004/10/22 21:14:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,29 +28,29 @@
 {PAGE: END}
 
 {SECTION: cat_entry category entry}
-<tr><td class="mvTc">{VAR: ent[2]}</td></tr>
+<tr><td class="mvTc" style="padding-left: {FUNC: ($tabw = ($i[0] * 10 + 2))}px">{VAR: i[1]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_entry}
-<tr><td><a href="{TEMPLATE: forum_entry_lnk}">{VAR-HTML: ent[0]}</a></td></tr>
+<tr><td style="padding-left: {VAR: tabw}px"><a href="{TEMPLATE: forum_entry_lnk}">{VAR: r[0]}</a></td></tr>
 {SECTION: END}
 
 {SECTION: txc_forum_entry request that the thread be moved to a forum, of which a person is not a mod of}
-<tr><td>{VAR-HTML: ent[0]} [<a href="{TEMPLATE: txc_forum_entry_lnk}">{MSG: mvthread_request_move}</a>]</td></tr>
+<tr><td style="padding-left: {VAR: tabw}px">{VAR: r[0]} [<a href="{TEMPLATE: txc_forum_entry_lnk}">{MSG: mvthread_request_move}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: move_thread_request form for giving a reason why the thread should be moved}
-<tr><td class="small fb">{VAR-HTML: thr->frm_name}</td></tr>
+<tr><td class="small fb">{VAR: thr->frm_name}</td></tr>
 <tr><td class="small">{MSG: move_request_reason}<br /><textarea name="reason_msg" rows=7 cols=30></textarea><td></tr>
 <tr><td class="ar"><input type="submit" class="button" name="submit" value="{MSG: mvthread_submit_req}"></td></tr>
 {SECTION: END}
 
 {SECTION: forum_entry_lnk}
-{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;to={VAR: ent[1]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
+{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;to={VAR: r[1]}&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: txc_forum_entry_lnk}
-{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;{DEF: _rsid}&amp;thx={VAR: ent[1]}&amp;SQ={GVAR: sq}
+{ROOT}?t=mvthread&amp;th={VAR: thr->id}&amp;{DEF: _rsid}&amp;thx={VAR: r[1]}&amp;SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: MVTHREAD_PAGE_lnk3}

@@ -680,7 +680,7 @@ email_title:			電子メールフォーム
 finduser_title:			ユーザー検索
 help_title:			FAQ
 login_title:			ログインフォーム
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			投票エディター
 register_title:			登録フォーム
 reset_title:			パスワードリセット
@@ -689,7 +689,7 @@ error_title:			エラーフォーム
 index_title:			フォーラムへようこそ
 search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		追加オプション:

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg_icon_cache.inc,v 1.3 2004/10/06 17:15:44 hackie Exp $
+* $Id: draw_forum_path.inc.t,v 1.2 2004/10/21 23:21:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -10,18 +10,23 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-function rebuild_icon_cache()
+require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
+
+function draw_forum_path($cid, $fn='', $fid=0, $tn='')
 {
-	$files = glob($GLOBALS['WWW_ROOT_DISK'] . 'images/message_icons/{*.gif,*.jpg,*.png,*.jpeg}', GLOB_BRACE);
-	$iconl = array();
-	foreach ($files as $file) {
-		$iconl[] = basename($file);
+	global $cat_par, $cat_cache;
+
+	$data = '';
+	do {
+		$data = '{TEMPLATE: dfp_cat_link}' . $data;
+	} while (($cid = $cat_par[$cid]) > 0);
+
+	if ($fid) {
+		$data .= '{TEMPLATE: dfp_forum_lnk}';
+	} else if ($fn) {
+		$data .= '{TEMPLATE: dfp_forum_no_lnk}';
 	}
 
-	$fp = fopen($GLOBALS['TMP'].'icon_cache', "w");
-	fwrite($fp, '<?php $ICON_L = '.var_export($iconl, 1).'; ?>');
-	fclose($fp);
-
-	rename($GLOBALS['TMP'].'icon_cache', $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache');
+	return '{TEMPLATE: forum_path}';
 }
 ?>

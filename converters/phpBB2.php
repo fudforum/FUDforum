@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: phpBB2.php,v 1.19 2004/01/29 16:33:20 hackie Exp $
+* $Id: phpBB2.php,v 1.20 2004/10/22 21:14:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -46,7 +46,10 @@ function bbcode2fudcode($str)
 {
 	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
 	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
+	$str = preg_replace('!\[code\:([^\]]+)\]!is', '[code]', $str);
+	$str = preg_replace('!\[/code\:([^\]]+)\]!is', '[/code]', $str);
 	$str = preg_replace("#(^|[\n ])((www|ftp)\.[\w\-]+\.[\w\-.\~]+(?:/[^ \"\t\n\r<]*)?)#is", "\\1http://\\2", $str);
+
 	$str = smiley_to_post(tags_to_html($str, 1, 1));
 
 	return $str;

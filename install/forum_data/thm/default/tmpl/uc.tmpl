@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.11 2004/07/02 16:54:28 hackie Exp $
+* $Id: uc.tmpl,v 1.12 2004/10/22 21:14:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,7 +117,7 @@
 
 {SECTION: uc_sub_forum}
 <tr>
-	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR-HTML: r->name}</a>{TEMPLATE-DATA: uc_forum_descr}<br /><a href="{TEMPLATE: uc_new_topic}">{MSG: uc_new_topic}</a> || <a href="{TEMPLATE: uc_forum_unsub}">{MSG: unsubscribe}</a></td>
+	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR: r->name}</a>{TEMPLATE-DATA: uc_forum_descr}<br /><a href="{TEMPLATE: uc_new_topic}">{MSG: uc_new_topic}</a> || <a href="{TEMPLATE: uc_forum_unsub}">{MSG: unsubscribe}</a></td>
 	<td class="RowStyleB ac">{VAR: r->post_count}</td>
 	<td class="RowStyleB ac">{VAR: r->thread_count}</td>
 	<td class="RowStyleA SmallText ar nw">{TEMPLATE-DATA: uc_last_post}</td>

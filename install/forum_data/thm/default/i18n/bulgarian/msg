@@ -673,7 +673,7 @@ email_title:			Форма за е-mail съобщение
 finduser_title:			Намери потребител
 help_title:			F.A.Q.
 login_title:			Вход във форума
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Редактор на гласуването
 register_title:			Регистрация
 reset_title:			Изчисти паролата
@@ -682,7 +682,7 @@ error_title:			Грешка
 index_title:			Добре дошли в нашия форум
 search_title:			Търси {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Е-мейл съобщението е изпратено
 remail_email:			Здравей,\n\nИма интересна тема за "{VAR: data->subject}" във форум "{GVAR: FORUM_TITLE}", която може би искаш да прочетеш. Можеш да я видиш на:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Твой \n\n{VAR: usr->alias}\n
 poll_add_option:		Добави Опцията:

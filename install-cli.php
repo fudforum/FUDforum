@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: install-cli.php,v 1.3 2004/01/08 01:53:44 hackie Exp $
+* $Id: install-cli.php,v 1.8 2004/10/20 14:55:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -78,25 +78,6 @@ function validate_url($path)
 		return 1;
 	}
 	return 0;
-}
-
-/* needed for php versions (<4.3.0) lacking this function */
-if (!function_exists('file_get_contents')) {
-	function file_get_contents($path)
-	{
-		if (!($fp = fopen($path, 'rb'))) {
-			return FALSE;
-		}
-		if (($size = @filesize($path)) === FALSE) {
-			/* probably a URL */
-			$size = 1024 * 1024;
-		}
-
-		$data = fread($fp, $size);
-		fclose($fp);
-
-		return $data;
-	}
 }
 
 function module_check()
@@ -199,27 +180,10 @@ if (!function_exists('symlink')) {
 
 function htaccess_handler($web_root, $ht_pass)
 {
-	if (version_compare(PHP_VERSION, "4.3.0", ">=")) {
-		/* opening a connection to itself should not take more then 5 seconds */
-		ini_set("default_socket_timeout", 5);
-		if (@fopen($web_root . 'index.php', 'r') === FALSE) {
-			unlink($ht_pass);
-		}
-	} else {
-		$url = parse_url($web_root);
-		if (!($fp = @fsockopen($url['host'], (isset($url['port']) ? $url['port'] : 80), $err, $err2, 5))) {
-			unlink($ht_pass);
-			return;
-		}
-		socket_set_timeout($fp, 5, 0);
-		if (!@fwrite($fp, "GET {$url['path']}/index.php HTTP/1.0\r\nHost: {$url['host']}\r\n\r\n")) {
-			unlink($ht_pass);
-			return;
-		}
-		if (strpos(@fgets($fp, 1024), "200") === FALSE) {
-			unlink($ht_pass);
-			return;
-		}
+	/* opening a connection to itself should not take more then 5 seconds */
+	ini_set("default_socket_timeout", 5);
+	if (@fopen($web_root . 'index.php', 'r') === FALSE) {
+		unlink($ht_pass);
 	}
 }
 
@@ -280,6 +244,9 @@ function dbperms_check()
 			if (!mysql_query('DROP TABLE fud_forum_install_test_table')) {
 				fe("Your MySQL account does not have permissions to run DROP TABLE queries on existing MySQL tables\nEnable this functionality and restart the script.\n");
 			}
+			if (!mysql_query("CREATE TEMPORARY TABLE fud_forum_install_test_table (test_val INT)")) {
+				fe("Your MySQL account does not have permissions to create temporary tables.\nEnable this functionality and restart the script.\n");
+			}
 			break;
 		case 'pgsql':
 			@pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table');
@@ -293,6 +260,9 @@ function dbperms_check()
 
 			if (!pg_query(__FUD_SQL_LNK__, 'DROP TABLE fud_forum_install_test_table')) {
 				fe("Your PostgreSQL account does not have permissions to run DROP TABLE queries on existing PostgreSQL tables\nEnable this functionality and restart the script.\n");
+			}
+			if (!pg_query(__FUD_SQL_LNK__, "CREATE TEMPORARY TABLE fud_forum_install_test_table (test_val INT)")) {
+				fe("Your PostgreSQL account does not have permissions to create temporary tables.\nEnable this functionality and restart the script.\n");
 			}
 			break;
 	}
@@ -370,8 +340,8 @@ function db_connect($settings)
 
 	$module_status = module_check();
 
-	if (!version_compare(PHP_VERSION, '4.2.0', '>=')) {
-		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (4.2.0)\n\n");
+	if (!version_compare(PHP_VERSION, '4.3.0', '>=')) {
+		fe("Your php version (<?php echo PHP_VERSION; ?>) is older then the minimum required version (4.3.0)\n\n");
 	} else if (($fs = filesize(__FILE__)) < 200000) {
 		fe("The installer is missing the data archive, append the archive to the installer and try again.\n\n");
 	} else if ($fs < 3500000 && !$module_status['zlib']) {
@@ -568,34 +538,29 @@ function db_connect($settings)
 		}
 		unset($c);
 	}
-	
-	$sql_dir = $settings['SERVER_DATA_ROOT'] . 'sql/';
-	if (!($d = opendir($sql_dir))) {
-		fe("failed to open SQL table definition directory, '{$sql_dir}'\n");
+
+	$tbl = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.tbl');
+	$sql = glob($settings['SERVER_DATA_ROOT'] . 'sql/*.sql');
+
+	if (!$tbl || !$sql) {
+		fe("Failed to get a list of table defenitions and/or base table data from: '{$settings['SERVER_DATA_ROOT']}sql/'\n");
 	}
-	$sql_dir .= '/';
-	readdir($d); readdir($d);
-	while ($f = readdir($d)) {
-		switch (strrchr($f, '.')) {
-			case '.tbl':
-				$tbl[] = $sql_dir . $f;
-				break;
-			case '.sql':
-				$sql[] = $sql_dir . $f;
-				break;
-		}
-	}
-	closedir($d);
 
 	/* import tables */
 	foreach ($tbl as $t) {
 		$data = explode(';', preg_replace('!#.*?\n!s', '', file_get_contents($t)));
 		foreach ($data as $q) {
+			$q = trim($q);
+
 			if (__dbtype__ != 'mysql') {
-				if (strpos($q, 'DROP TABLE IF EXISTS') !== false || strpos($q, 'ALTER TABLE') !== false) {
-					continue;
+				if (!strncmp($q, 'DROP TABLE IF EXISTS', strlen('DROP TABLE IF EXISTS')) ||
+					!strncmp($q, 'ALTER TABLE', strlen('ALTER TABLE'))) {
+					continue;	
 				}
 				$q = str_replace(array('BINARY', 'INT NOT NULL AUTO_INCREMENT'), array('', 'SERIAL'), $q);
+			} else if (version_compare($version, '4.1.2', '>=') && !strncmp($q, 'CREATE TABLE', strlen('CREATE TABLE'))) {
+				/* for MySQL 4.1.2 we need to specify a default charset */
+				$q .= " DEFAULT CHARACTER SET utf8";
 			}
 			if (($q = make_into_query(trim($q)))) {
 				if (!dbquery($q)) {
@@ -631,19 +596,15 @@ function db_connect($settings)
 	));
 
 	/* handle language selection */
-	$dir = opendir($settings['SERVER_DATA_ROOT'].'thm/default/i18n');
-	$path = $settings['SERVER_DATA_ROOT'].'thm/default/i18n/';
-	if (!$dir) {
+	$ln_dir = glob($settings['SERVER_DATA_ROOT'].'thm/default/i18n/*', GLOB_ONLYDIR);
+	if (!$ln_dir) {
 		fe("Could not open i18n directory at '{$settings['SERVER_DATA_ROOT']}thm/default/i18n'\n");
 	}
-	readdir($dir); readdir($dir);
-	while ($f = readdir($dir)) {
-	 	if ($f == 'CVS' || !@is_dir($path . $f)) {
-		        continue;
-		}
-		$langs[strtolower($f)] = array(@trim(file_get_contents($path . $f . '/locale')), @trim(file_get_contents($path . $f . '/pspell_lang')));
+	foreach ($ln_dir as $f) {
+		if (file_exists($f . '/locale')) {
+			$langs[strtolower($f)] = array(trim(file_get_contents($path . $f . '/locale')), @trim(file_get_contents($path . $f . '/pspell_lang')));
+		} 
 	}
-	closedir($dir);                                                                                                        
 
 	pf("Supported Languages: \n\t".wordwrap(ucwords(implode(' ', array_keys($langs))), 75, "\n\t")."\n");
 

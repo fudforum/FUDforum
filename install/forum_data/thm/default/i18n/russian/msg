@@ -671,7 +671,7 @@ email_title:			E-mail сообщение
 finduser_title:			Поиск пользователя
 help_title:			F.A.Q.
 login_title:			Вход в форум
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Редактор голосований
 register_title:			Регистрация
 reset_title:			Сброс пароля
@@ -680,7 +680,7 @@ error_title:			Ошибка
 index_title:			Добро пожаловать в наш форум
 search_title:			Поиск {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Электронное письмо отправлено
 remail_email:			Привет,\n\nВ форуме "{GVAR: FORUM_TITLE}" имеются сообщения на тему "{VAR: data->subject}", которые вас возможно заинтересуют. Вы можете просмотреть тему по указанному адресу:\n\n{FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Ваш друг,\n\n{VAR: usr->alias}\n
 poll_add_option:		Добавить вариант:

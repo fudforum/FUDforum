@@ -677,7 +677,7 @@ email_title:			Email'o forma
 finduser_title:			Rasti nará
 help_title:			F.A.Q.
 login_title:			Prisijungimo forma:
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
 register_title:			Registravimosi forma
 reset_title:			Reset Password
@@ -686,7 +686,7 @@ error_title:			Error Form
 index_title:			Sveiki forume
 search_title:			Search For {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n Your friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:

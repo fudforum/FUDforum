@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: help_index.php.t,v 1.11 2004/01/04 16:38:26 hackie Exp $
+* $Id: help_index.php.t,v 1.13 2004/10/20 13:18:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 		} else {
 			$rs = _rsid;
 		}
-		$topic_help = str_replace('%_rsid%', $rs, $topic_help);
+		$topic_help = str_replace(array('%_rsid%', '&amp;#', '&#'), array($rs, '#', '#'), $topic_help);
 
 		$help_section_data .= '{TEMPLATE: help_section}';
 	}

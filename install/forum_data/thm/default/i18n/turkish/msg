@@ -670,7 +670,7 @@ email_title:			E-mektup formu
 finduser_title:			Kullanýcý bul
 help_title:			S.S.S.
 login_title:			Giriþ formu
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Anket düzenleyici
 register_title:			Kayýt formu
 reset_title:			Parolayý yeniden belirle
@@ -679,7 +679,7 @@ error_title:			Hata formu
 index_title:			Hoþgeldiniz
 search_title:			Aranacak sözcükler {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mektup gönderildi
 remail_email:			{GVAR: FORUM_TITLE} ( {GVAR: WWW_ROOT} ) adresinde okumak isteyebileceðin bir WWW sayfasý var.\nÝlgileceðini düþündüðüm "{VAR: data->subject}" konulu zincire buradan ulaþabilirsin:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nGönderen: {VAR: usr->alias}\n
 poll_add_option:		Seçenek Ekle:

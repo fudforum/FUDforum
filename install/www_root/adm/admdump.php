@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.44 2004/08/13 14:52:52 hackie Exp $
+* $Id: admdump.php,v 1.50 2004/10/06 20:42:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,45 +51,55 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
 	global $BUF_SIZE;
 
-	if (!($d = opendir($dirp))) {
-		echo 'Could not open "'.$dirp.'" for reading<br>';
-		return;
-	}
-	echo 'Processing directory: '.$dirp.'<br>';
+	$dirs = array(realpath($dirp));
+	$repl = realpath($GLOBALS[$keep_dir]);
+	
+	while (list(,$v) = each($dirs)) {
+		if (!is_readable($v)) {
+			echo 'Could not open "'.$v.'" for reading<br>';
+			return;
+		}
+		echo 'Processing directory: '.$v.'<br>';
 
-	readdir($d); readdir($d);
-	$path = $dirp . '/';
-	$dpath = str_replace($GLOBALS[$keep_dir], $keep_dir . '/', $path);
-	while ($f = readdir($d)) {
-		switch (filetype($path . $f)) {
-			case 'file':
-				if ($f != 'GLOBALS.php') {
-					if (!@is_readable($path . $f)) {
-						echo "WARNING: unable to open '".$path . $f."' for reading<br>\n";
-						break;
-					}
-					$ln = filesize($path . $f);
-					if ($ln < $BUF_SIZE) {
-						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n" . file_get_contents($path . $f) . "\n");
-					} else {
-						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n");
-						$fp2 = fopen($path . $f, 'rb');
-						while (($buf = fread($fp2, $BUF_SIZE))) {
-							$write_func($fp, $buf);
-						}
-						fclose($fp2);
-						$write_func($fp, "\n");
-					}
+		if (!($files = glob($v . '/{.[a-z]*,*}', GLOB_BRACE))) {
+			continue;
+		}
+
+		$dpath = trim(str_replace($repl, $keep_dir, $v), '/') . '/';
+
+		foreach ($files as $f) {
+			if (is_link($f)) {
+				continue;
+			}
+			$name = basename($f);
+
+			if (is_dir($f)) {
+				if ($name != 'tmp' && $name != 'theme') {
+					$dirs[] = $f;
 				}
-				break;
-			case 'dir':
-				if ($f != 'tmp' && $f != 'theme') {
-					backup_dir($path . $f, $fp, $write_func, $keep_dir);
+				continue;
+			}
+			if ($name == 'GLOBALS.php') {
+				continue;
+			}
+			if (!is_readable($f)) {
+				echo "WARNING: unable to open '".$f."' for reading<br>\n";
+				continue;
+			}
+			$ln = filesize($f);
+			if ($ln < $BUF_SIZE) {
+				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n" . file_get_contents($f) . "\n");
+			} else {
+				$write_func($fp, '||' . $dpath . $name . '||' . $ln . "||\n");
+				$fp2 = fopen($f, 'rb');
+				while (($buf = fread($fp2, $BUF_SIZE))) {
+					$write_func($fp, $buf);
 				}
-				break;
+				fclose($fp2);
+				$write_func($fp, "\n");
+			}
 		}
 	}
-	closedir($d);
 }
 
 function sql_num_fields($r)
@@ -190,23 +200,18 @@ function sql_is_null($r, $n, $tbl='')
 		$write_func($fp, "\n----SQL_START----\n");
 
 		/* read sql table defenitions */
-		$path = $DATA_DIR . 'sql';
-		if (!($d = opendir($path))) {
-			exit('Failed to open SQL directory "'.$path.'"');
+		
+		if (!($files = glob($DATA_DIR . 'sql/*.tbl'))) {
+			exit('Failed to open SQL directory "'.$DATA_DIR.'sql/"');
 		}
-		readdir($d); readdir($d);
-		while ($f = readdir($d)) {
-			if (substr($f, -4) != '.tbl') {
-				continue;
-			}
-			$sql_data = file_get_contents($path . '/'. $f);
+		foreach ($files as $f) {
+			$sql_data = file_get_contents($f);
 			$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
 			$sql_data = preg_replace("!\s+!s", " ", $sql_data);
 			$sql_data = str_replace(";", "\n", $sql_data);
 			$sql_data = str_replace("\r", "", $sql_data);
 			$write_func($fp, $sql_data . "\n");
 		}
-		closedir($d);
 
 		$sql_table_list = get_fud_table_list();
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
@@ -249,7 +254,7 @@ function sql_is_null($r, $n, $tbl='')
 		echo "Backup Process is Complete<br>";
 		echo "Backup file can be found at: <b>".$_POST['path']."</b>, it is occupying ".filesize($_POST['path'])." bytes<br>\n";
 	} else {
-		$gz = function_exists('gzopen');
+		$gz = extension_loaded('zlib');
 		if (!isset($path_error)) {
 			$path = $TMP.'FUDforum_'.strftime('%d_%m_%Y_%I_%M', __request_timestamp__).'.fud';
 			if ($gz) {

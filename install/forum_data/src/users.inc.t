@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.131 2004/06/11 14:50:25 hackie Exp $
+* $Id: users.inc.t,v 1.136 2004/10/24 18:55:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,7 +17,7 @@ function init_user()
 
 	/* we need to parse S & rid right away since they are used during user init */
 	if ($o2 & 32768 && !empty($_SERVER['PATH_INFO'])) {
-		$p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
+		$pb = $p = explode('/', substr($_SERVER['PATH_INFO'], 1, -1));
 		if ($o1 & 128) {
 			$_GET['S'] = array_pop($p);
 		}
@@ -112,13 +112,16 @@ function init_user()
 			case 'i':
 				$_GET['t'] = 'index';
 				if (isset($p[1])) {
-					$_GET['c'] = $p[1];
+					$_GET['cat'] = (int) $p[1];
+					if (isset($p[2])) {
+						$_GET['c'] = $p[2];
+					}
 				}
 				break;
 
 			case 'fa':
 				$_GET['t'] = 'getfile';
-				$_GET['id'] = $p[1];
+				$_GET['id'] = isset($p[1]) ? $p[1] : $pb[1];
 				if (!empty($p[2])) {
 					$_GET['private'] = 1;
 				}
@@ -308,6 +311,9 @@ function init_user()
 				$_GET['t'] = 'markread';
 				if (isset($p[1])) {
 					$_GET['id'] = $p[1];
+					if (isset($p[2])) {
+						$_GET['cat'] = $p[2];
+					}
 				}
 				break;
 
@@ -347,7 +353,9 @@ function init_user()
 
 			case 'stt': /* split thread */
 				$_GET['t'] = 'split_th';
-				$_GET['th'] = $p[1];
+				if (isset($p[1])) {
+					$_GET['th'] = $p[1];
+				}
 				break;
 
 			case 'ef': /* email to friend */
@@ -617,7 +625,7 @@ function init_user()
 		@putenv('TZ=' . $u->time_zone);
 	}
 	/* set locale */
-	setlocale(LC_ALL, $u->locale);
+	$GLOBALS['good_locale'] = setlocale(LC_ALL, $u->locale);
 
 	/* view format for threads & messages */
 	define('d_thread_view', $uo & 256 ? 'msg' : 'tree');
