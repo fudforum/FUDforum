@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.58 2004/06/07 15:24:53 hackie Exp $
+* $Id: compiler.inc,v 1.59 2004/07/02 15:42:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -273,7 +273,7 @@ function compile_file($source)
 		$ref = resolve_sections($ref);
 
 		if ($sec == 'PAGE') {
-			$ref = str_replace(array(".'.", ".''.", ".'", "'."), array(".<?php echo ", '.', '; ?>', '<?php echo '), $ref);
+			$ref = str_replace(array(".''.", ".'", "'."), array('.', '; ?>', '<?php echo '), $ref);
 		}
 		$ret .= $ref;
 
