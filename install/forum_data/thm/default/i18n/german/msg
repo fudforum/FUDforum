@@ -62,7 +62,7 @@ coppa_fax_no_permission:	Unterschreiben Sie hier, um das Benutzerkonto l&ouml;sc
 coppa_fax_parent_name:		Vollst&auml;ndige Name des Elternteils/Vormundes:
 coppa_fax_passwd:		Passwort:
 coppa_fax_permission:		Unterschreiben Sie hier, um die Erlaubnis zu erteilen
-coppa_fax_questions:		Bitte nimmn Sie Kontakt zu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> auf bei weiteren Fragen
+coppa_fax_questions:		Bitte nehmen Sie Kontakt zu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> auf bei weiteren Fragen
 coppa_fax_reg_form:		Registrierungsformular
 coppa_fax_relation:		Bezug zum Kind:
 coppa_fax_remail:		E-Mail:
@@ -663,7 +663,7 @@ reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung 
 reset_err_rstconf_title:	Information
 reset_error:			E-Mail Adresse nicht in der Datenbank gefunden
 reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die E-Mail auf Benutzername und Passwort.<br>.<br>.<br>
-reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornimmn:\n{FULL_ROOT}{ROOT}?t=register\n\n
+reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornehmen:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
 reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
