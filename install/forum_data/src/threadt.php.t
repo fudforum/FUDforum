@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.19 2003/09/26 18:49:03 hackie Exp $
+*   $Id: threadt.php.t,v 1.20 2003/09/28 11:52:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,8 +89,8 @@
 							if (strlen($cur->subject) > $TREE_THREADS_MAX_SUBJ_LEN) {
 								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 							}
-							if ($lev == 1 && $cur->is_sticky == 'Y') {
-								$cur->subject .= ($cur->ordertype == 'STICKY' ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
+							if ($lev == 1 && $cur->thread_opt > 1) {
+								$cur->subject .= ($cur->thread_opt & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}');
 							} 
 							
 							if (_uid) {
@@ -139,7 +139,7 @@
 	}
 	qf($r); 	
 
-	if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+	if ($USE_PATH_INFO == 'N') {
 		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}?t=threadt&amp;frm_id='.$frm->id.'&amp;'._rsid);
 	} else {
 		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}/sf/threadt/'.$frm->id.'/1/', '/' . _rsid);
