@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.17 2002/09/29 22:16:36 hackie Exp $
+*   $Id: admdump.php,v 1.18 2002/09/29 23:24:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,7 +115,7 @@ function backup_dir($dirp, $key, $keep_dir='')
 		$file_data = filetomem($file);
 		$file_ln = strlen($file_data);
 		
-		$curdir = str_replace(substr($GLOBALS[$key],0, -1), '', getcwd());
+		$curdir = str_replace(realpath($GLOBALS[$key]), '', getcwd());
 		
 		if( empty($keep_dir) )
 			$write_func($fp, '//'.$file.'//'.$key.'//'.$file_ln."//\n".$file_data."\n");
