@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.93 2004/11/29 19:51:28 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.94 2004/12/08 15:42:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,8 +32,7 @@ $query_type = (empty($_POST['poll_opt']) || !($_POST['poll_opt'] = (int)$_POST['
 
 /* needed for message threshold & reveling messages */
 if (isset($_GET['rev'])) {
-	$tmp = explode(':', $_GET['rev']);
-	foreach ($tmp as $v) {
+	foreach (explode(':', $_GET['rev']) as $v) {
 		$GLOBALS['__FMDSP__'][$v] = 1;
 	}
 	if ($GLOBALS['FUD_OPT_2'] & 32768) {
@@ -59,8 +58,7 @@ if (_uid) {
 
 	/* handle temporarily un-hidden users */
 	if (isset($_GET['reveal'])) {
-		$tmp = explode(':', $_GET['reveal']);
-		foreach($tmp as $v) {
+		foreach(explode(':', $_GET['reveal']) as $v) {
 			if (isset($usr->ignore_list[$v])) {
 				$usr->ignore_list[$v] = 0;
 			}
