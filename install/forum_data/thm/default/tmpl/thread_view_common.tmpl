@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.8 2003/10/03 01:14:18 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.9 2003/10/09 21:08:03 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -27,7 +27,7 @@
 {SECTION: END}
 
 {SECTION: new_thread_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" /></a>
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
@@ -47,27 +47,27 @@
 {SECTION: END}
 
 {SECTION: thread_attach_indicator}
-<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0 alt="" />
+<img src="{THEME_IMAGE_ROOT}/attachment.gif" alt="" />
 {SECTION: END}
 
 {SECTION: thread_read}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/read.gif" title="{MSG: no_unread_msg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_read_unreg}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/read.gif" title="{MSG: no_unread_msg_unreg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_read_locked}
-<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/readlocked.gif" title="{MSG: no_unread_locked}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_unread}
-<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/unread.gif" title="{MSG: unread_msg}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_unread_locked}
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}" alt="" />
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" title="{MSG: unread_msg_locked}" alt="" />
 {SECTION: END}
 
 {SECTION: thread_icon_none}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: show.tmpl,v 1.12 2003/10/09 14:34:28 hackie Exp $
+* $Id: show.tmpl,v 1.13 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,7 +12,7 @@
 {PHP_FILE: input: show.inc.t; output: @show.inc;}
 
 {MAIN_SECTION: show_links the links that you see on index/thread/msg page that allow you to access selmsg}
-<font class="GenText"><b>{MSG: show_show}</b></font> <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}&amp;th={VAR: th}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a>&nbsp;{TEMPLATE-DATA: unread_posts}{TEMPLATE-DATA: unanswered_posts} <b>::</b> <a class="GenLink" href="{ROOT}?t=polllist&amp;{DEF: _rsid}">{MSG: show_pollist}</a> <b>::</b> <a href="{ROOT}?t=mnav&amp;{DEF: _rsid}" class="GenLink">{MSG: mnav_title}</a><br /><img src="blank.gif" alt="" height=2 border=0 />
+<font class="GenText"><b>{MSG: show_show}</b></font> <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}&amp;th={VAR: th}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a>&nbsp;{TEMPLATE-DATA: unread_posts}{TEMPLATE-DATA: unanswered_posts} <b>::</b> <a class="GenLink" href="{ROOT}?t=polllist&amp;{DEF: _rsid}">{MSG: show_pollist}</a> <b>::</b> <a href="{ROOT}?t=mnav&amp;{DEF: _rsid}" class="GenLink">{MSG: mnav_title}</a><br /><img src="blank.gif" alt="" height=2 />
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}

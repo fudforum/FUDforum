@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: usrinfo.tmpl,v 1.4 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: user_image}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" border=0 /></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: image}</td><td class="GenText"><img src="{VAR: u->user_image}" /></td></tr>
 {SECTION: END}
 
 {SECTION: avatar}
@@ -41,7 +41,7 @@
 {SECTION: END}
 
 {SECTION: usrinfo_private_msg private message link}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}/pmm/toi/{VAR: u->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap class="GenText">{MSG: usrinfo_private_message}</td><td class="GenText"><a href="{ROOT}/pmm/toi/{VAR: u->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a></td></tr>
 {SECTION: END}
 
 {SECTION: home_page}
@@ -126,7 +126,7 @@
 {SECTION: END}
 
 {SECTION: level_image user's level image if avaliable as determined by post count}
-<img src="images/{VAR: u->level_img}" border=0 /><br />
+<img src="images/{VAR: u->level_img}" /><br />
 {SECTION: END}
 
 {SECTION: custom_tags}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.10 2003/10/09 15:46:11 hackie Exp $
+* $Id: thread.tmpl,v 1.11 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,31 +33,31 @@
 			<tr>
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" border=0 /></td><td class="SmallText">{MSG: new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" /></td><td class="SmallText">{MSG: new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" border=0 alt="{MSG: no_new_posts}" /></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" alt="{MSG: no_new_posts}" /></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 alt="{MSG: locked_with_new_posts}" /></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" alt="{MSG: locked_with_new_posts}" /></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 alt="{MSG: locked}" /></td><td class="SmallText">{MSG: locked}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" alt="{MSG: locked}" /></td><td class="SmallText">{MSG: locked}</td></tr>
 				</table>
 				</td>
 				
 				<td>
 				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 alt="{MSG: moved}" /></td><td class="SmallText">{MSG: moved}</td></tr>
+					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" alt="{MSG: moved}" /></td><td class="SmallText">{MSG: moved}</td></tr>
 				</table>
 				</td>
 			</tr>
@@ -67,7 +67,7 @@
 {SECTION: END}
 
 {SECTION: mini_thread_pager}
-<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" border=0 alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
+<font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
@@ -79,15 +79,15 @@
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
-<a href="{ROOT}/t/{VAR: r[13]}/0/unread/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" border=0 title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
+<a href="{ROOT}/t/{VAR: r[13]}/0/unread/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: thread_icon}
-<img src="images/message_icons/{VAR: r[3]}" border=0 alt="{VAR: r[3]}" />
+<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />
 {SECTION: END}
 
 {SECTION: rating}
-<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" border=0 alt="{VAR: r[17]}" />
+<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />
 {SECTION: END}
 
 {SECTION: rating_none}
@@ -114,11 +114,11 @@
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}/tt/threadt/{VAR: frm->id}/{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
+<a href="{ROOT}/tt/threadt/{VAR: frm->id}/{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: last_msg_in_thread}
-<a href="{ROOT}/m/{VAR: r[9]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}" alt="" /></a>
+<a href="{ROOT}/m/{VAR: r[9]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: thread_first_post}
@@ -159,7 +159,7 @@
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-<td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}" /></td>
+<td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" title="{MSG: moved_thread_message}" /></td>
 <td class="RowStyleB" colspan="5" align="center" class="GenText">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
@@ -185,7 +185,7 @@
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
 <td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}{TEMPLATE-DATA: admin_cp}</td>
 <td valign="bottom" align="right" class="GenText">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
-</tr></table><img src="blank.gif" alt="" height=2 border=0 />
+</tr></table><img src="blank.gif" alt="" height=2 />
 
 {TEMPLATE: thread_list}
 <img src="blank.gif" alt="" width=1 height=2 /><br />

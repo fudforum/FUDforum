@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.tmpl,v 1.22 2003/10/09 14:34:27 hackie Exp $
+* $Id: msg.tmpl,v 1.23 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,7 +33,7 @@
 {SECTION: END}
 
 {SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" border=0 alt="{VAR: frm->rating}" />) {MSG: vote}
+&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" />) {MSG: vote}
 {SECTION: END}
 
 {SECTION: no_thread_rating}
@@ -68,15 +68,15 @@
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{ROOT}?t=tree&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
+<a href="{ROOT}?t=tree&amp;th={VAR: _GET['th']}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: _GET['th']}&amp;reply_to={VAR: frm->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: _GET['start']}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" border=0 /></a>
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: _GET['th']}&amp;reply_to={VAR: frm->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: _GET['start']}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" /></a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
@@ -116,11 +116,10 @@
 {TEMPLATE: threaded_view}{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}
 </td>
 </tr>
-<tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 border=0 /></td></tr>
+<tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 /></td></tr>
 </table>
 
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable" style="border: 1px solid black">
 {TEMPLATE-DATA: message_data}
 </table>
 <table border=0 cellspacing=0 cellpadding=0 width="100%">

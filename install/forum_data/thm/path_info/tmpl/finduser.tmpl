@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.4 2003/10/09 14:34:31 hackie Exp $
+* $Id: finduser.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -33,7 +33,7 @@
 <tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR-HTML: usr_email}"></td></tr>
 <tr class="RowStyleA"><td class="GenText" align="right" colspan=2><font class="SmallText">{MSG: finduser_help}</font> <input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
 </table><input type="hidden" name="t" value="finduser"></form>
-<img src="blank.gif" alt="" height=2 width=1 border=0 /><br />
+<img src="blank.gif" alt="" height=2 width=1 /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
 <th width="100%"><a class="thLnk" href="{ROOT}/ml/2/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}/ml/1/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{ROOT}/ml/3/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
@@ -55,22 +55,22 @@
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}/sp/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" border=0 /></a>
+<a href="{ROOT}/sp/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{ROOT}/pmm/toi/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" border=0 /></a>
+<a href="{ROOT}/pmm/toi/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
+<a class="GenLink" href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}/em/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
+<a href="{ROOT}/em/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: finduser_title}

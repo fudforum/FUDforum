@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.6 2003/10/09 14:34:31 hackie Exp $
+* $Id: register.tmpl,v 1.7 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -79,7 +79,7 @@
 {SECTION: END}
 
 {SECTION: built_in_avatar}
-<tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" border=0 name="reg_avatar_img" alt="" />
+<tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" name="reg_avatar_img" alt="" />
 <input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}/as/{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
 {SECTION: END}

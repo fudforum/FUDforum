@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.4 2003/10/09 15:05:42 hackie Exp $
+* $Id: index.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: forum_icon}
-<img src="{VAR: r[9]}" border=0 alt="{MSG: forum_icon}" />
+<img src="{VAR: r[9]}" alt="{MSG: forum_icon}" />
 {SECTION: END}
 
 {SECTION: no_forum_icon}
@@ -73,19 +73,19 @@
 {SECTION: END}
 
 {SECTION: forum_read}
-<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" border=0 />
+<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_old_messages}" />
 {SECTION: END}
 
 {SECTION: forum_unread}
-<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" border=0 />
+<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: forum_new_messages}" />
 {SECTION: END}
 
 {SECTION: forum_no_indicator no new message indicator}
-<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" border=0 />
+<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
 {SECTION: last_post}
-<font class="DateText">{DATE: r[2] %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} <a href="{ROOT}/m/{VAR: r[11]}/{DEF: _rsid}" class="GenLink"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{VAR: r[0]}" /></a>
+<font class="DateText">{DATE: r[2] %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} <a href="{ROOT}/m/{VAR: r[11]}/{DEF: _rsid}" class="GenLink"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>
 {SECTION: END}
 
 {SECTION: profile_link_user}
@@ -125,12 +125,12 @@
 <tr>
 <td>
 <table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" border=0 alt="{MSG: index_new_posts}" /></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
+<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: index_new_posts}" /></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
 </table>
 </td>
 <td>
 <table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" border=0 /></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
+<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" /></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
 </table>
 </td>
 </tr>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: referals.tmpl,v 1.4 2003/10/09 21:08:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,15 +20,15 @@
 {REF: tabs.tmpl}
 
 {SECTION: pm_link}
-&nbsp;<a href="{ROOT}/pmm/toi/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}/pmm/toi/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-&nbsp;<a class="GenLink" href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
+&nbsp;<a class="GenLink" href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}
@@ -36,7 +36,7 @@
 	<td width="100%" nowrap class="GenText"><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: r[0]}</a></td>
 	<td nowrap align="center" nowrap class="Gentext">{VAR: r[3]}</td>
 	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" border=0 /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+	<td nowrap class="GenText"><a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
