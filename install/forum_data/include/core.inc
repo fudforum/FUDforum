@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.64 2003/05/27 06:05:30 hackie Exp $
+*   $Id: core.inc,v 1.65 2003/05/28 15:18:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,9 @@ if (get_magic_quotes_gpc()) {
 	}
 }
                                                                                                                                                                                         
-define('__request_timestamp__', time());
+$GLOBALS['PAGE_TIME'] = gettimeofday();
+define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
+mt_srand($GLOBALS['PAGE_TIME']['usec']);
 
 function fud_use($file, $static=false)
 {
@@ -64,11 +66,6 @@ function fud_use($file, $static=false)
 		return;
 	}
 	include_once $GLOBALS['INCLUDE'] . (defined('fud_theme') ? fud_theme : 'theme/default/') . $file;
-}
-
-function make_seed() 
-{
-	mt_srand((double)microtime()*1000000);
 }
 
 function get_random_value($bitlength=32)
@@ -125,8 +122,4 @@ function __ffilesize($fp)
 	$st = fstat($fp);
 	return (isset($st['size']) ? $st['size'] : $st[7]);
 }
-
-make_seed();
-
-$GLOBALS['PAGE_TIME'] = gettimeofday();
 ?>
