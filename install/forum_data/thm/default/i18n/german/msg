@@ -4,7 +4,7 @@ ERR_access_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_disabled_msg:		Diese Funktion wurde vom Systemadministrator deaktiviert
 ERR_disabled_ttl:		Deaktivierte Funktion
 ERR_disabled_url:		{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
-ERR_emailconf_msg:		Du hast dein Konto noch nicht per Email best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du hast dein Konto noch nicht per E-Mail best&auml;tigt<br><table border=0><tr><td><ol><li>Falls du keine Best&auml;tigungsemail erhalten haben solltest, klicke <a href="{FULL_ROOT}{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">hier</a><li>Falls {VAR: usr_d->email} nicht deine richtige Emailadresse ist, klicke <a href="{TEMPLATE: msg_register_lnk}">hier</a></ol></td></tr></table>
 ERR_emailconf_ttl:		FEHLER: Dein Konto ist noch nicht best&auml;tigt worden
 ERR_registration_disabled_msg:	Der Administrator hat die Registrierung deaktiviert, versuche es bitte sp&auml;ter noch einmal
 ERR_registration_disabled_ttl:	Registrierung ist deaktiviert
@@ -65,7 +65,7 @@ coppa_fax_permission:		Unterschreiben Sie hier, um die Erlaubnis zu erteilen
 coppa_fax_questions:		Bitte nimmn Sie Kontakt zu <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> auf bei weiteren Fragen
 coppa_fax_reg_form:		Registrierungsformular
 coppa_fax_relation:		Bezug zum Kind:
-coppa_fax_remail:		Email:
+coppa_fax_remail:		E-Mail:
 coppa_fax_sign:			Bitte unterschreiben Sie das Formular und schicken es an uns
 coppa_fax_telephone:		Telefon:
 coppa_link:			Klicke auf den Link, der zu deinem Geburtsdatum passt
@@ -89,28 +89,28 @@ draft:				Entwurf
 drawmsg_view_rest_post:		Den Rest der Nachricht anzeigen
 edit_message:			Beitrag bearbeiten
 edit_time_limit:		<br><b>Zeitspanne zum Bearbeiten</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> Minuten
-email:				Email:
+email:				E-Mail:
 email_body:			Inhalt:
-email_email:			Email:
+email_email:			E-Mail:
 email_err_unabletoemail_msg:	Das Emailsystem wurde vom Administrator deaktiviert.
-email_err_unabletoemail_title:	FEHLER: Kann Email nicht verschicken
+email_err_unabletoemail_title:	FEHLER: Kann E-Mail nicht verschicken
 email_error_body:		Inhalt ist erforderlich
-email_error_emailrequired:	Email ist erforderlich
+email_error_emailrequired:	E-Mail ist erforderlich
 email_error_invalidaddress:	Ung&uuml;ltige Emailadresse
 email_error_invaliduser:	Ung&uuml;ltiger Benutzer
 email_error_namerequired:	Name ist erforderlich
 email_error_subject:		Betreff ist erforderlich
-email_error_unabletolocaddr:	Entschuldigung, das System konnte die Email an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die Emailadresse nicht finden kann
+email_error_unabletolocaddr:	Entschuldigung, das System konnte die E-Mail an {VAR-HTML: _POST['tx_name']} nicht verschicken, weil es die Emailadresse nicht finden kann
 email_name:			Name:
-email_pg_title:			Email
+email_pg_title:			E-Mail
 email_subject:			Betreff:
-email_submit:			Email
-email_title:			Email erstellen
+email_submit:			E-Mail
+email_title:			E-Mail erstellen
 email_to:			An:
-email_to_friend:		Email an einen Freund
-email_to_friend_desc:		Verschicke die URL dieser Seite an deine Freunde per Email
-email_user:			Hier klicken, um eine Email an den Benutzer zu verschicken
-emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte &uuml;berpr&uuml;fe in deiner Email, ob du die URL auch richtig aufgerufen hast
+email_to_friend:		E-Mail an einen Freund
+email_to_friend_desc:		Verschicke die URL dieser Seite an deine Freunde per E-Mail
+email_user:			Hier klicken, um eine E-Mail an den Benutzer zu verschicken
+emailconf_err_invkey_msg:	Ung&uuml;ltiger Best&auml;tigungsschl&uuml;ssel. Bitte &uuml;berpr&uuml;fe in deiner E-Mail, ob du die URL auch richtig aufgerufen hast
 emailconf_err_invkey_title:	Fehler
 err_blockedaccnt_msg:		Dein Konto ist f&uuml;r das Erstellen von Beitr&auml;gen gesperrt worden
 err_blockedaccnt_title:		FEHLER: Dir ist es nicht gestattet, Beitr&auml;ge zu erstellen
@@ -148,7 +148,7 @@ forum_new_messages:		Neue Beitr&auml;ge
 forum_none_messages:		Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
 forum_old_messages:		Keine neuen Beitr&auml;ge
 forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, dass du dich an nachfolgende Vereinbarung h&auml;ltst. Wenn du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;rst Du, dass du &uuml;ber 13 Jahre bist. Falls du 13 oder darunter bist, verwende bitte <a href="{FULL_ROOT}{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen" Schaltfl&auml;che sicherst du uns verbindlich zu, dass deine Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
-forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine Email an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, dass die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine E-Mail an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 forum_terms:			Forumsregeln
 forumsel_goto_forum:		Gehe zum Forum:
 from:				Von:
@@ -474,8 +474,8 @@ post_thread_type:		Art des Themas:
 post_title:			Titel:
 post_topic_update:		Erstellt neues Thema in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_upload_file:		Datei hochladen
-postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
-postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
+postcheck_email_body:		Du kannst keine E-Mail ohne Inhalt verschicken.
+postcheck_email_subject:	Du kannst keine E-Mail ohne Betreff versenden.
 postcheck_ignored:		Du kannst keine private Nachricht an "{VAR-HTML: v}" verschicken, weil diese Person dich auf die Ignorierliste gesetzt hat.
 postcheck_invalid_email:	Bitte trage eine g&uuml;ltige Adresse f&uuml;r deinen Freund ein.
 postcheck_max_images_err:	Maximal {GVAR: MAX_IMAGE_COUNT} Bilder pro Beitrag sind erlaubt, bitte reduziere die Anzahl der Bilder.
@@ -524,8 +524,8 @@ referals_update:		Durchsucht die Anwerbungen
 refresh_list:			Liste aktualisieren
 register:			Registrieren
 register_aim:			AIM Benutzername:
-register_allow_email_msg:	Email Nachrichten erlauben:
-register_allow_email_msg_desc:	Anderen Benutzern erlauben, dir Emails &uuml;ber das FUD Forum zu schicken.
+register_allow_email_msg:	E-Mail Nachrichten erlauben:
+register_allow_email_msg_desc:	Anderen Benutzern erlauben, dir E-Mails &uuml;ber das FUD Forum zu schicken.
 register_avatar:		Avatar:
 register_avatar_type:		Avatar Typ:
 register_bday:			Geburtsdatum:
@@ -548,13 +548,13 @@ register_err_adminpasswd:	Du musst dein ADMINISTRATOR Passwort eingeben, um die 
 register_err_avatarnotallowed:	Der Avatar, den du versuchst hochzuladen, ist nicht erlaubt, &uuml;berpr&uuml;fe die erlaubten Dateitypen.
 register_err_avatartobig:	Die Datei, die du versuchst hochzuladen, ist zu gro&szlig; und liegt &uuml;ber der {GVAR: CUSTOM_AVATAR_MAX_SIZE} byte Grenze
 register_err_cantreg_title:	Fehler: Registrierung nicht m&ouml;glich
-register_err_emailexists:	Diese Email Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
+register_err_emailexists:	Diese E-Mail Adresse wurde schon verwendet, falls du dein Passwort vergessen hast, la&szlig; es bitte zur&uuml;cksetzen, anstatt dich neu zu registrieren
 register_err_enterpasswd:	Du musst dein aktuelles Passwort eingeben, um die Ver&auml;nderungen wirksam werden zu lassen
-register_err_invalidemail:	Die Email Adresse, die du angegeben hast ist anscheinend nicht g&uuml;ltig.
+register_err_invalidemail:	Die E-Mail Adresse, die du angegeben hast ist anscheinend nicht g&uuml;ltig.
 register_err_login_notallowed:	Dieser Anmeldename ist nicht erlaubt
 register_err_loginunique:	Anmeldenamen f&uuml;r das Forum m&uuml;ssen einmalig sein, es gibt bereits einen Benutzer mit diesen Anmeldenamen im System
 register_err_needname:		Um die Registrierung erfolgreich abzuschlie&szlig;en, musst du deinen Namen angeben.
-register_err_notyouremail:	Jemand ist bereits mit dieser Email registriert, und dieser Jemand bist NICHT Du
+register_err_notyouremail:	Jemand ist bereits mit dieser E-Mail registriert, und dieser Jemand bist NICHT Du
 register_err_passwdnomatch:	Deine Passw&ouml;rter stimmen nicht &uuml;berein.
 register_err_short_login:	Der Anmeldename, den du gew&auml;hlt hast, ist zu kurz. Er muss mindestens 4 Zeichen enthalten
 register_err_shortpasswd:	Das Passwort muss mindestens 6 Zeichen lang sein
@@ -577,7 +577,7 @@ register_msnm:			MSN Messenger:
 register_name:			Name:
 register_notification:		Standardm&auml;&szlig;ige Benachrichtigung ausw&auml;hlen:
 register_notification_desc:	Soll die Benachrichtigung aktiviert sein? (kann beim Erstellen eines Beitrags deaktiviert werden)
-register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ Nr angegeben. Es wird daher Email als Standard gew&auml;hlt&#46;
+register_notify_js_error:	Du hast Benachrichtigung &uuml;ber ICQ ausgew&auml;hlt, aber keine ICQ Nr angegeben. Es wird daher E-Mail als Standard gew&auml;hlt&#46;
 register_notify_method:		Benachrichtigungsmethode ausw&auml;hlen:
 register_notify_method_desc:	Falls du Benachrichtigungen &uuml;ber ICQ erhalten m&ouml;chtest, stelle vorher sicher, dass &#39;EmailExpress&#39; in den ICQ Einstellungen aktiviert ist
 register_occupation:		Beruf:
@@ -595,7 +595,7 @@ register_reset:			Zur&uuml;cksetzen
 register_sel_avatar:		Avatar ausw&auml;hlen
 register_show_avatar:		Avatare anzeigen:
 register_show_avatar_desc:	Erm&ouml;glicht dir, die Avatare der anderen zu verstecken w&auml;hrend du deren Beitr&auml;ge liest
-register_show_email:		Email Adresse anzeigen:
+register_show_email:		E-Mail Adresse anzeigen:
 register_show_email_desc:	W&auml;hle diese Option aus, wenn du deine Emailadresse &ouml;ffentlich anzeigen m&ouml;chtest.
 register_show_sig:		Signatur anzeigen:
 register_show_sig_desc:		Erm&ouml;glicht es, die Signaturen von Forumsmitgliedern anzuzeigen oder zu verstecken
@@ -617,20 +617,20 @@ register_your_pass:		Dein Passwort:
 registered:			Registriert:
 registered_on:			Registriert am {DATE: u_reg_date %a, %d %B %Y}
 regsiter_err_cantreg_msg:	Nicht in der Lage, das Benutzerkonto zu erstellen, bitte nimm Kontakt zum Administrator auf an <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-remail_anon_opt:		Diesen Beitrag in einen Email Klienten deiner Wahl kopieren, um sie an deine Freunde zu schicken.
+remail_anon_opt:		Diesen Beitrag in einen E-Mail Klienten deiner Wahl kopieren, um sie an deine Freunde zu schicken.
 remail_done:			Fertig
 remail_email:			Es gibt eine Seite auf {GVAR: FORUM_TITLE} ( {TEMPLATE: index_update_lnk} ) die für dich interessant zu lesen sein könnte.\nUnd zwar die Diskussion zum Thema {VAR: data->subject}, die hier gefunden werden kann: {FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\nVon {VAR: usr->alias}\n
 remail_email_topic:		Das Thema an einen Freund versenden
-remail_emailsent:		Die Email wurde verschickt.
+remail_emailsent:		Die E-Mail wurde verschickt.
 remail_error:			Es ist ein Fehler aufgetreten
-remail_friends_email:		Email des Freundes:
+remail_friends_email:		E-Mail des Freundes:
 remail_friends_name:		Name des Freundes:
 remail_message:			Beitrag:
 remail_required:		erforderlich
-remail_send_now:		Email jetzt verschicken
-remail_sent_conf:		Die Email an deinen Freund {VAR-HTML: _POST['femail']} &uuml;ber {{VAR: data->subject} wurde erfolgreich verschickt.
+remail_send_now:		E-Mail jetzt verschicken
+remail_sent_conf:		Die E-Mail an deinen Freund {VAR-HTML: _POST['femail']} &uuml;ber {{VAR: data->subject} wurde erfolgreich verschickt.
 remail_subject:			Betreff:
-remail_your_email:		Deine Email:
+remail_your_email:		Deine E-Mail:
 remail_your_name:		Dein Name:
 replies:			Antworten
 report_already_reported_msg:	Der Beitrag ist bereits gemeldet und wird demn&auml;chst vom Moderatorenteam begutachtet.
@@ -656,19 +656,19 @@ reported_reason:		Grund
 reported_reported_by:		Gemeldet von:
 reported_reported_msg:		Gemeldete Beitr&auml;ge
 reset_confirmation:		Danke für deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.\n
-reset_email:			Email:
+reset_email:			E-Mail:
 reset_err_invalidkey_msg:	Ung&uuml;ltiger Schl&uuml;ssel zum Zur&uuml;cksetzen des Passwortes
 reset_err_invalidkey_title:	FEHLER
-reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung per Email erhalten
+reset_err_rstconf_msg:		Du solltest in den n&auml;chsten Minuten eine Anleitung per E-Mail erhalten
 reset_err_rstconf_title:	Information
-reset_error:			Email Adresse nicht in der Datenbank gefunden
-reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die Email auf Benutzername und Passwort.<br>.<br>.<br>
+reset_error:			E-Mail Adresse nicht in der Datenbank gefunden
+reset_login_notify:		Das Passwort wurde an dich versendet. Du solltest es in den n&auml;chsten Minuten erhalten. Bitte &uuml;berpr&uuml;fe die E-Mail auf Benutzername und Passwort.<br>.<br>.<br>
 reset_newpass_msg:		Hallo,\n\nWie von dir gewünscht, wird dir der Anmeldename zugesendet.\nHier sind deine Anmeldeinformationen:\n\nLogin: {VAR: ui[1]}\nPasswort: {VAR: passwd}\n\nBitte beachte, dass dein Passwort auf obigen angegebenen Wert zurückgesetzt\nwurde, wenn du es ändern willst, so kannst du das am\nBenutzerinterface vornimmn:\n{FULL_ROOT}{ROOT}?t=register\n\n
 reset_newpass_title:		Passwort zurücksetzen
 reset_remind_pass:		Passwort Hinweis
 reset_reset:			Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN gehe bitte zu dieser URL\n\n{VAR: url}\n\nACHTUNG: Dieses Forum verschlüsselt die Passwörter nur in eine Richtung, was\nbedeutet, dass sobald du dein Passwort eingegeben hast, es verschlüsselt\nwird, und es KEINE Möglichkeit gibt, es wiederherzustellen. Dies wird\nerreicht, in dem bei der Passworteingabe das Passwort verschlüsselt und auf\nÜbereinstimmung überprüft wird. (Bei Interesse an der\nVerschlüsselungsmethode schlage bei MD5 HASH Algorhythmus nach)
 reset_reset_button:		Passwort zur&uuml;cksetzen
-reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an dich verschickt, oder falls du deine Email noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an dich versendet.
+reset_reset_conf:		Dein Passwort wird zur&uuml;ckgesetzt und an dich verschickt, oder falls du deine E-Mail noch nicht best&auml;tigt hast, wird diese Best&auml;tigungsanfrage erneut an dich versendet.
 reset_title:			Passwort zur&uuml;cksetzen
 restore_to:			Wiederherstellen in:
 reveal_all_posts:		Alle Beitr&auml;ge von {VAR: user_login} anzeigen
@@ -703,7 +703,7 @@ sel_unread_messages_desc:	Den Filter f&uuml;r ungelesene Beitr&auml;ge erzwingen
 selmsg_update:			Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beitr&auml;ge</a>
 send:				Verschicken
 send_pm_desc:			Eine private Nachricht an diesen Benutzer verschicken
-sender_email:			Email des Absenders:
+sender_email:			E-Mail des Absenders:
 sender_name:			Name des Absenders:
 sent:				Verschickt
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
@@ -861,7 +861,7 @@ post_proceed:			Fortsetzen
 post_moderated_forum:		Du hast einen Beitrag in einem moderierten Forum erstellt, was bedeutet, dass dieser nicht eher im Forum erscheinen wird, bevor einer der Moderatoren oder Administratoren ihn gebilligt hat
 post_moderated_forum_ttl:	Mitteilung vom moderierten Forum
 buddy_list_bday:		Heute wird {VAR: r[2]} {VAR: age}
-email_warning_msg:		Wenn du deine gegenw&auml;rtige Email Adresse &auml;nderst, wird dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
+email_warning_msg:		Wenn du deine gegenw&auml;rtige E-Mail Adresse &auml;nderst, wird dein Benutzerkonto so lange als unbest&auml;tigt gef&uuml;hrt, bis es mit der neuen Adresse best&auml;tigt wird.
 register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.
 unread_message:			Ungelesene Nachricht
@@ -913,21 +913,21 @@ no_unread_messages:		Es gibt keine ungelesenen Beitr&auml;ge, die den Suchkriter
 thread_mark_all_read:		Alle ungelesenen Beitr&auml;ge im Forum als gelesen kennzeichnen
 thread_mark_all_read_desc:	Alle ungelesenen Beitr&auml;ge in diesem Forum werden als gelesen gekennzeichnet
 private_no_messages:		Es sind keine Nachrichten in diesen Ordner vorhanden
-register_email_change_subject:	Bestätigung der geänderten Email Adresse
-register_email_change_msg:	Bitte bestätige deine neue Email Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
+register_email_change_subject:	Bestätigung der geänderten E-Mail Adresse
+register_email_change_msg:	Bitte bestätige deine neue E-Mail Adresse "{VAR: uent->email}" welche die alte ersetzen wird "{VAR: old_email}" in dem du die untere URL aufrufst:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nSobald du die neue Adresse bestätigt hast, wird dein Konto wieder aktiviert werden.
 iemail_thread_unsub:		Abonnement f&uuml;r dieses Thema aufheben		
 iemail_forum_unsub:		Das Abonnement f&uuml;r dieses Forum beenden
 primary_group_prefix:		Hauptgruppe f&uuml;r Forum:
 group_resources:		Diese Gruppe kontrolliert die Berechtigungen f&uuml;r folgende Foren
-register_email:			Email
+register_email:			E-Mail
 register_admin_newuser_title:	Ein neuer Benutzer hat sich registriert und wartet auf die Bestätigung des Kontos
-register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere Email Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
+register_admin_newuser_msg:	Ein neuer Benutzer ({VAR: uent->login}) hat sich gerade für dieses Forum registriert und da die Bestätigung für Konten aktiviert ist, wird dieses Konto nicht eher aktiviert werden bevor du oder ein anderer Forumsadministrator es bestätigt haben. Um das Konto zu begutachten gehe zu: {GVAR: WWW_ROOT}adm/admaccapr.php\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Nachricht nicht.\nWenn du weitere E-Mail Benachrichtigungen über neue Benutzerregistrierungen zukünftig abstellen willst kannst du dies über das Administratormenü durch Ändern des Wertes der "New Account Notification" Einstellung erledigen.
 post_mod_msg_notify_title:	Neuer Beitrag im Forum "{VAR: frm->name}" wartet auf Bestätigung
 post_mod_msg_notify_msg:	Ein neuer Beitrag mit der Überschrift "{VAR: msg_post->subject}" wurde gerade in einem Forum, welches von dir moderiert wird, erstellt. Um diesen Beitrag zu begutachten, gehe zu: {FULL_ROOT}{ROOT}?t=modque\n\nDas ist ein automatisierter Vorgang, bitte beantworte diese Benachrichtigung nicht.\n
 thread_printable_pdf:		Druckbares PDF erzeugen
 thread_syndicate:		Themen als Syndicate anderen Seiten zur Verf&uuml;gung stellen (XML)
 reg_conf_title:			Registrierungsbest&auml;tigung
-reg_conf_email:			<b>Email Best&auml;tigung</b><br />An dich wurde eine Email mit einer speziellen URL versendet, welche von dir aufgesucht werden muss, bevor dein Konto aktiviert werden kann. Falls du diese Email nicht in den n&auml;chsten Minuten erh&auml;tst, solltest du dich mit deinem Konto anmelden und sicherstellen, dass die angegebene E-mail Adresse korrekt ist. Sobald du dein Konto best&auml;tigt hast, wirst du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
+reg_conf_email:			<b>E-Mail Best&auml;tigung</b><br />An dich wurde eine E-Mail mit einer speziellen URL versendet, welche von dir aufgesucht werden muss, bevor dein Konto aktiviert werden kann. Falls du diese E-Mail nicht in den n&auml;chsten Minuten erh&auml;tst, solltest du dich mit deinem Konto anmelden und sicherstellen, dass die angegebene E-mail Adresse korrekt ist. Sobald du dein Konto best&auml;tigt hast, wirst du auch die Optionen verwenden k&ouml;nnen, die bereits best&auml;tigten Mitgliedern vorbehalten sind.
 reg_conf_account:		<b>Konto Best&auml;tigung</b><br />Bevor dein Konto aktiviert wird, muss es von den Administratoren gebilligt werden. Sobald dies geschehen ist, wirst du eine E-mail erhalten, die dich &uuml;ber die Best&auml;tigung unterrichtet. Bis dahin wirst du dich zwar mit deinem Konto anmelden, jedoch keine der gebilligten Benutzern vorbehaltenen Optionen verwenden k&ouml;nnen.
 forum_banned_user:		Dein vorausgegangenes Verhalten hat dazu gef&uuml;hrt, dass du dauerhaft aus diesem Forum verbannt worden bist. Auf Wiedersehen.
 mnav_description:		Beitragsnavigator
@@ -977,7 +977,7 @@ adm_account_rejected_s:		Deine Bitte um ein Konto für \'{GVAR: FORUM_TITLE}\' wu
 thread_on:			an
 userinfo_buddy:			Buddy:
 register_email_addr:		Emailadresse:
-reset_suffix:			\n\nFalls du diese Nachricht unbeabsichtigt erhalten hast, ignoriere sie bitte. Falls du mehrfache Kopien dieser Email erhalten hast und um diese du gar nicht gebeten hast, so kontaktiere bitte den Forumsadministrator an {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von: {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
+reset_suffix:			\n\nFalls du diese Nachricht unbeabsichtigt erhalten hast, ignoriere sie bitte. Falls du mehrfache Kopien dieser E-Mail erhalten hast und um diese du gar nicht gebeten hast, so kontaktiere bitte den Forumsadministrator an {GVAR: ADMIN_EMAIL}\n\nDiese Anfrage wurde von: {VAR: _SERVER['REMOTE_ADDR']} gestellt.\n\n
 usrinfo_last_visit:		Letzter Besuch:
 mnav_newer:			neuer als
 mnav_older:			&auml;lter als
