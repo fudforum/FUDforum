@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sporum.php,v 1.1 2004/06/03 18:23:33 hackie Exp $
+* $Id: sporum.php,v 1.2 2004/06/08 12:53:48 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -263,7 +263,7 @@ Because Sporum uses incompatible one-way password encryption scheme the password
 			$thread_id = $tt[$obj->cid] = $tt[$obj->pid];
 		}
 		
-		$fileid = write_body($obj->bodytext, $len, $off);
+		$fileid = write_body(smiley_to_post(tags_to_html($obj->bodytext, 1, 1)), $len, $off);
 
 		if (!$obj->uid || empty($ut[$obj->uid])) {
 			$poster = 0;
