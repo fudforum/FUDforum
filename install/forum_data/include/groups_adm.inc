@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups_adm.inc,v 1.9 2003/10/01 03:43:24 hackie Exp $
+*   $Id: groups_adm.inc,v 1.10 2003/10/01 18:58:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,6 +46,11 @@ function group_sync($id, $name, $inherit, $perm, $permi)
 function rebuild_group_ih($gid, $perm, $perma)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
+	if (isset($GLOBALS['hdr'])) {
+		$hdr =& $GLOBALS['hdr'];
+	} else {
+		$hdr = group_perm_array();
+	}
 
 	if ($perm === null) {
 		$perma = $perm = q_singleval("SELECT groups_opt FROM ".$tbl."groups WHERE id=".$gid);
@@ -58,11 +63,12 @@ function rebuild_group_ih($gid, $perm, $perma)
 		/* select all groups that inherit permissions from current group */
 		$r = q("SELECT id, groups_opt, groups_opti FROM ".$tbl."groups WHERE inherit_id=".$gid." AND groups_opti & ".$perm);
 		while ($o = db_rowarr($r)) {
-			for ($i = 1; $i < 30; $i++) {
-				if ($o[2] & (2 << $i)) {
-					$o[1] |= 2 << $i;
-					if (!($perma & (2 << $i))) {
-						$o[1] ^= 2 << $i;
+			foreach ($hdr as $p) {
+				if ($o[2] & $p[0]) {
+					if ($perma & $p[0]) {
+						$o[1] |= $p[0];
+					} else {
+						$o[1] &= ~$p[0];
 					}
 				}
 			}
@@ -87,7 +93,7 @@ function group_delete($id)
 	q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$id);
 
 	/* rebuild group manager cache for managers of the removed group */
-	$r = q("SELECT user_id FROM  ".$tbl."group_members WHERE group_id=".$id." AND group_members_opt>=131072");
+	$r = q("SELECT user_id FROM  ".$tbl."group_members WHERE group_id=".$id." AND group_members_opt>=131072 AND group_members_opt & 131072");
 	while ($o = db_rowarr($r)) {
 		rebuild_group_ldr_cache($o[0]);
 	}
@@ -105,7 +111,7 @@ function rebuild_group_ldr_cache($id)
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
-	$c = uq('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072');
+	$c = uq('SELECT group_id FROM '.$tbl.'group_members WHERE user_id='.$id.' AND group_members_opt>=131072 AND group_members_opt & 131072');
 	while ($r = db_rowarr($c)) {
 		$g[] = $r[0];
 	}

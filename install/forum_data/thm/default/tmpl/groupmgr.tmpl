@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.tmpl,v 1.9 2003/05/02 00:32:46 hackie Exp $
+*   $Id: groupmgr.tmpl,v 1.10 2003/10/01 18:58:15 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -56,8 +56,7 @@
 <tr class="RowStyleB">
 	<td colspan=2>
 		<table border=0 cellspacing=1 cellpadding=3 width="100%" class="COntentTable">
-			<tr>{TEMPLATE: permission_header}</tr>
-			<tr class="RowStyleA">{TEMPLATE-DATA: perm_select}</tr>
+			{TEMPLATE-DATA: perm_sel_hdr}
 		</table>
 	</td>
 </tr>
@@ -70,7 +69,7 @@
 </table><input type="hidden" name="group_id" value="{VAR: group_id}"><input type="hidden" name="edit" value="{VAR: edit}">{DEF: _hs}</form>
 <br /><br />
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: groupmgr_member}</th>{TEMPLATE: permission_header}<th align="center">{MSG: groupmgr_action}</th></tr>
+<tr><th>{MSG: groupmgr_member}</th><th colspan="{VAR: n_perms}">{MSG: groups_perms_header}</th><th align="center">{MSG: groupmgr_action}</th></tr>
 {TEMPLATE-DATA: group_members_list}
 </table>
 {SECTION: END}
@@ -102,11 +101,11 @@
 {SECTION: END}
 
 {SECTION: perm_yes permissions set to YES indicator}
-<td nowrap align="center"><font size=-1 color="#FF0000">{MSG: groupmgr_yes}</font></td>
+<td nowrap title="{VAR: names[$k]}" align="center"><font size=-1 color="#FF0000">{MSG: groupmgr_yes}</font></td>
 {SECTION: END}
 
 {SECTION: perm_no permissions set to NO indicator}
-<td nowrap align="center"><font size=-1 color="#0000FF">{MSG: groupmgr_no}</font></td>
+<td nowrap title="{VAR: names[$k]}" align="center"><font size=-1 color="#0000FF">{MSG: groupmgr_no}</font></td>
 {SECTION: END}
 
 {SECTION: submit_button}
@@ -148,23 +147,68 @@
 <font color="#00AA00">{MSG: group_mgr_reged}</font>
 {SECTION: END}
 
-{SECTION: permission_header}
-<th align=center>{MSG: p_VISIBLE}</th>
-<th align=center>{MSG: p_READ}</th>
-<th align=center>{MSG: p_POST}</th>
-<th align=center>{MSG: p_REPLY}</th>
-<th align=center>{MSG: p_EDIT}</th>
-<th align=center>{MSG: p_DEL}</th>
-<th align=center>{MSG: p_STICKY}</th>
-<th align=center>{MSG: p_POLL}</th>
-<th align=center>{MSG: p_FILE}</th>
-<th align=center>{MSG: p_VOTE}</th>
-<th align=center>{MSG: p_RATE}</th>
-<th align=center>{MSG: p_SPLIT}</th>
-<th align=center>{MSG: p_LOCK}</th>
-<th align=center>{MSG: p_MOVE}</th>
-<th align=center>{MSG: p_SML}</th>
-<th align=center>{MSG: p_IMG}</th>
+{SECTION: p_VISIBLE}
+{MSG: p_VISIBLE}
+{SECTION: END}
+
+{SECTION: p_READ}
+{MSG: p_READ}
+{SECTION: END}
+
+{SECTION: p_POST}
+{MSG: p_POST}
+{SECTION: END}
+
+{SECTION: p_REPLY}
+{MSG: p_REPLY}
+{SECTION: END}
+
+{SECTION: p_EDIT}
+{MSG: p_EDIT}
+{SECTION: END}
+
+{SECTION: p_DEL}
+{MSG: p_DEL}
+{SECTION: END}
+
+{SECTION: p_STICKY}
+{MSG: p_STICKY}
+{SECTION: END}
+
+{SECTION: p_POLL}
+{MSG: p_POLL}
+{SECTION: END}
+
+{SECTION: p_FILE}
+{MSG: p_FILE}
+{SECTION: END}
+
+{SECTION: p_VOTE}
+{MSG: p_VOTE}
+{SECTION: END}
+
+{SECTION: p_RATE}
+{MSG: p_RATE}
+{SECTION: END}
+
+{SECTION: p_SPLIT}
+{MSG: p_SPLIT}
+{SECTION: END}
+
+{SECTION: p_LOCK}
+{MSG: p_LOCK}
+{SECTION: END}
+
+{SECTION: p_MOVE}
+{MSG: p_MOVE}
+{SECTION: END}
+
+{SECTION: p_SML}
+{MSG: p_SML}
+{SECTION: END}
+
+{SECTION: p_IMG}
+{MSG: p_IMG}
 {SECTION: END}
 
 {SECTION: indicator shows which groups is currently being edited}
@@ -181,4 +225,50 @@
 
 {SECTION: primary_group_resource}
 <b>{MSG: primary_group_prefix}</b> {VAR-HTML: fname}
+{SECTION: END}
+
+{SECTION: groups_na_perms a permission which group manager cannot modify}
+<td align="center">{MSG: na}</td>
+{SECTION: END}
+
+{SECTION: groups_perm_selection a dropdown that allows the group manager to select perms for users in the group}
+<td align="center">
+<select name="{VAR: k}" style="font-size: x-small">
+	<option value="0">{MSG: groupmgr_no}</option>
+	<option value="{VAR: v[0]}"{VAR: selyes}>{MSG: groupmgr_yes}</option>
+</select>
+</td>
+{SECTION: END}
+
+{SECTION: groups_perm_yes}
+{VAR: nam}<font color="#FF0000"> <b>({MSG: groupmgr_yes})</b></font>
+{SECTION: END}
+
+{SECTION: groups_perm_no}
+{VAR: name}<font color="#0000FF"> <b>({MSG: groupmgr_no})</b></font>
+{SECTION: END}
+
+{SECTION: groups_header_entry}
+<th align="center">{VAR: v[1]}</th>
+{SECTION: END}
+
+{SECTION: groups_draw_perm_entry}
+<td nowrap><font size=-1>{VAR: inherit}{VAR: perm_str}<br />{VAR: val}</font></td>
+{SECTION: END}
+
+{SECTION: groups_header_entry_row}
+<tr>{VAR: tmp}</tr>
+<tr class="RowStyleB">{VAR: perm_select}</tr>
+{SECTION: END}
+
+{SECTION: groups_hdr_sp}
+<th> </th>
+{SECTION: END}
+
+{SECTION: groups_col_sp}
+<td> </td>
+{SECTION: END}
+
+{SECTION: groups_perm_per_row number of permissions to show per row}
+6
 {SECTION: END}
