@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
+*   $Id: pmsg.tmpl,v 1.4 2003/06/03 17:26:20 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: deny_recipt deny recipt link}
-<font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}/pmv/VAR: obj->id}/1/{DEF: _rsid}" class="GenLink" title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</a>]</font>
+<font class="SmallText">&nbsp;&nbsp;[<a href="{ROOT}/pmv/{VAR: obj->id}/1/{DEF: _rsid}" class="GenLink" title="{MSG: deny_recipt_desc}">{MSG: deny_recipt}</a>]</font>
 {SECTION: END}
 
 {SECTION: pmsg_online_indicator}
