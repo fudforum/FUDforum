@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.54 2004/01/09 12:47:40 hackie Exp $
+* $Id: admglobal.php,v 1.55 2004/01/09 14:11:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -105,7 +105,7 @@ function get_max_upload_size()
 				$q_data[] = 'posts_ppg='.(int)$ch_list['POSTS_PER_PAGE'];
 			}
 			if (isset($ch_list['ANON_NICK'])) {
-				$q_data[] = "login='".addslashes($ch_list['ANON_NICK'])."', alias='".addslashes(htmlspecialchars($ch_list['ANON_NICK']))."'";
+				$q_data[] = "login='".addslashes($ch_list['ANON_NICK'])."', alias='".addslashes(htmlspecialchars($ch_list['ANON_NICK']))."', name='".htmlspecialchars(addslashes($ch_list['ANON_NICK']))."'";
 			}
 			if (isset($ch_list['SERVER_TZ'])) {
 				$q_data[] = "time_zone='".addslashes($ch_list['SERVER_TZ'])."'";
