@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.5 2003/05/21 11:05:21 hackie Exp $
+*   $Id: pdf.php.t,v 1.6 2003/05/23 06:51:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -200,6 +200,10 @@ class fud_pdf
 		$ttl_h = 20;
 		$p1 = floor($ttl_w / 100);
 		$this->y -= 10;
+		/* avoid /0 warnings and safe to do, since we'd be multiplying 0 since there are no votes */
+		if (!$ttl_votes) {
+			$ttl_votes = 1;
+		}
 
 		pdf_setfont($this->pdf, $this->fonts['Helvetica-Bold'], 14);
 
