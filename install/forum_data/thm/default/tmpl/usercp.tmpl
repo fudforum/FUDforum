@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.tmpl,v 1.14 2003/10/28 15:27:12 hackie Exp $
+* $Id: usercp.tmpl,v 1.15 2003/11/09 19:32:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,11 +24,11 @@
 {SECTION: END}
 
 {SECTION: u_forum_search}
-<a class="UserControlPanel" href="{TEMPLATE: usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" alt="{MSG: search}" /> {MSG: search}</a>&nbsp;&nbsp;
+<a class="UserControlPanel" href="{TEMPLATE: usercp_lnk}"><img src="{THEME_IMAGE_ROOT}/top_search.png" alt="{MSG: search}" /> {MSG: search}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {MAIN_SECTION: usercp user control panel}
-<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {TEMPLATE-DATA: member_search} {TEMPLATE-DATA: u_forum_search} <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help.gif" alt="{MSG: faq}" /> {MSG: faq}</a> {TEMPLATE-DATA: register_n_profile} {TEMPLATE-DATA: login_n_logout}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home.gif" alt="{MSG: home}" /> {MSG: home}</a> {TEMPLATE-DATA: admin_control_panel}</div>
+<div class="UserControlPanel">{TEMPLATE-DATA: private_msg} {TEMPLATE-DATA: member_search} {TEMPLATE-DATA: u_forum_search} <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk2}"><img src="{THEME_IMAGE_ROOT}/top_help.png" alt="{MSG: faq}" /> {MSG: faq}</a> {TEMPLATE-DATA: register_n_profile} {TEMPLATE-DATA: login_n_logout}&nbsp;&nbsp; <a class="UserControlPanel" href="{TEMPLATE: usercp_lnk3}"><img src="{THEME_IMAGE_ROOT}/top_home.png" alt="{MSG: home}" /> {MSG: home}</a> {TEMPLATE-DATA: admin_control_panel}</div>
 {MAIN_SECTION: END}
 
 {SECTION: login_lnk}
@@ -36,7 +36,7 @@
 {SECTION: END}
 
 {SECTION: login login link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: login_lnk}"><img src="{THEME_IMAGE_ROOT}/top_login.gif" alt="{MSG: login}" /> {MSG: login}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: login_lnk}"><img src="{THEME_IMAGE_ROOT}/top_login.png" alt="{MSG: login}" /> {MSG: login}</a>
 {SECTION: END}
 
 {SECTION: logout_lnk}
@@ -44,7 +44,7 @@
 {SECTION: END}
 
 {SECTION: logout logout link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: logout_lnk}"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" alt="{MSG: logout}" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: logout_lnk}"><img src="{THEME_IMAGE_ROOT}/top_logout.png" alt="{MSG: logout}" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
 {SECTION: END}
 
 {SECTION: register_lnk}
@@ -52,15 +52,15 @@
 {SECTION: END}
 
 {SECTION: register register link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_register.gif" alt="{MSG: register}" /> {MSG: register}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_register.png" alt="{MSG: register}" /> {MSG: register}</a>
 {SECTION: END}
 
 {SECTION: profile profile link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_profile.gif" title="{MSG: profile_desc}" alt="{MSG: profile}" /> {MSG: profile}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="{TEMPLATE: register_lnk}"><img src="{THEME_IMAGE_ROOT}/top_profile.png" title="{MSG: profile_desc}" alt="{MSG: profile}" /> {MSG: profile}</a>
 {SECTION: END}
 
 {SECTION: admin_control_panel admin control panel link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="adm/admglobal.php?{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_admin.gif" alt="{MSG: admin_control_panel}" /> {MSG: admin_control_panel}</a>
+&nbsp;&nbsp;<a class="UserControlPanel" href="adm/admglobal.php?{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_admin.png" alt="{MSG: admin_control_panel}" /> {MSG: admin_control_panel}</a>
 {SECTION: END}
 
 {SECTION: private_msg_empty_lnk}
@@ -68,7 +68,7 @@
 {SECTION: END}
 
 {SECTION: private_msg_empty link to private msg control panel}
-<a href="{TEMPLATE: private_msg_empty_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" alt="{MSG: pm}" /> {MSG: pm}</a>&nbsp;&nbsp;
+<a href="{TEMPLATE: private_msg_empty_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="{MSG: pm}" /> {MSG: pm}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: private_msg_unread_lnk}
@@ -76,7 +76,7 @@
 {SECTION: END}
 
 {SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
-<a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" alt="{MSG: pm}" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
+<a href="{TEMPLATE: private_msg_unread_lnk}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.png" alt="{MSG: pm}" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: member_search_lnk}
@@ -84,5 +84,5 @@
 {SECTION: END}
 
 {SECTION: member_search link to member search}
-<a class="UserControlPanel" href="{TEMPLATE: member_search_lnk}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" alt="{MSG: members}" /> {MSG: members}</a>&nbsp;&nbsp;
+<a class="UserControlPanel" href="{TEMPLATE: member_search_lnk}"><img src="{THEME_IMAGE_ROOT}/top_members.png" alt="{MSG: members}" /> {MSG: members}</a>&nbsp;&nbsp;
 {SECTION: END}
