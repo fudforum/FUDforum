@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.44 2004/11/24 19:53:37 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.45 2004/11/30 16:31:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -97,4 +97,14 @@ if (_uid) {
 }
 
 $ppg = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+
+/* handling of announcements */
+$announcements = '';
+if ($frm->is_ann) {
+	$today = gmdate('Ymd', __request_timestamp__);
+	$res = uq('SELECT a.subject, a.text FROM {SQL_TABLE_PREFIX}announce a INNER JOIN {SQL_TABLE_PREFIX}ann_forums af ON a.id=af.ann_id AND af.forum_id='.$frm->id.' WHERE a.date_started<='.$today.' AND a.date_ended>='.$today);
+	while ($r = db_rowarr($res)) {
+		$announcements .= '{TEMPLATE: announce_entry}';
+	}
+}
 ?>

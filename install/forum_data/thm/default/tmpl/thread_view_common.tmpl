@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.27 2004/11/24 19:53:40 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.28 2004/11/30 16:31:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,4 +122,15 @@
 <img src="{THEME_IMAGE_ROOT}/readlocked.png" alt="{MSG: locked}" />&nbsp;{MSG: locked}&nbsp;&nbsp;
 <img src="{THEME_IMAGE_ROOT}/moved.png" alt="{MSG: moved}" />&nbsp;{MSG: moved}
 </fieldset>
+{SECTION: END}
+
+{SECTION: announcements The Forum Announcement Layout}
+<table class="AnnonTable" cellspacing=0 cellpadding=1>
+<tr><th>{MSG: announcement}</th></tr>
+{TEMPLATE-DATA: announcements}
+</table>
+{SECTION: END}
+
+{SECTION: announce_entry announcement row}
+<tr><td class="AnnText" colspan="{VAR: ann_cols}"><span class="AnnSubjText">{VAR: r[0]}</span><br />{VAR: r[1]}</td></tr>
 {SECTION: END}
