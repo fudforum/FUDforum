@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.18 2003/04/22 16:32:49 hackie Exp $
+*   $Id: consist.php,v 1.19 2003/04/22 20:35:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 	define('admin_form', 1);
 
 	require_once('GLOBALS.php');
-	
+
 	fud_use('db.inc');
 	fud_use('glob.inc', true);
 	fud_use('adm.inc', true);
@@ -37,7 +37,8 @@
 	fud_use('ipoll.inc');
 	fud_use('attach.inc');	
 	fud_use('groups.inc');
-	
+	fud_use('th_adm.inc');
+
 	if ($usr->is_mod != 'A') {
 		header('Location: admloginuser.php?'._rsidl);
 		exit;
@@ -55,7 +56,7 @@ function draw_stat($text)
 
 function draw_info($cnt)
 {
-	draw_stat(($cnt < 1 ? 'OK' : $cnt . 'entries unmatched, deleted'));
+	draw_stat(($cnt < 1 ? 'OK' : $cnt . ' entries unmatched, deleted'));
 }
 
 function delete_zero($tbl, $q)
@@ -63,8 +64,11 @@ function delete_zero($tbl, $q)
 	$cnt = 0;
 	$c = q($q);
 	while ($r = db_rowarr($c)) {
-		q('DELETE FROM '.$tbl.' WHERE id='.$r[0]);
+		$a[] = $r[0];
 		++$cnt;
+	}
+	if ($cnt) {
+		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
 	}
 	qf($c);
 	draw_info($cnt);	
@@ -105,37 +109,14 @@ forum will be disabled.<br><br>
 	$tbl = $DBHOST_TBL_PREFIX;
 
 	draw_stat('Locking the database for checking');
-	db_lock('
-		'.$tbl.'thread+, 
-		'.$tbl.'thread_view+,
-		'.$tbl.'forum+, 
-		'.$tbl.'cat+, 
-		'.$tbl.'msg+, 
-		'.$tbl.'ses+, 
-		'.$tbl.'mod+, 
-		'.$tbl.'users+, 
-		
-		'.$tbl.'read+, 
-		'.$tbl.'poll+, 
-		'.$tbl.'poll_opt+, 
-		'.$tbl.'poll_opt_track+, 
-		'.$tbl.'smiley+, 
-		'.$tbl.'thread_notify+, 
-		'.$tbl.'forum_notify+, 
-		'.$tbl.'attach+, 
-		'.$tbl.'msg_report+, 
-		'.$tbl.'thread_rate_track+, 
-		'.$tbl.'level+, 
-		'.$tbl.'custom_tags+,
-		'.$tbl.'user_ignore+,
-		'.$tbl.'buddy+,
-		'.$tbl.'pmsg+,
-		'.$tbl.'ext_block+,
-		'.$tbl.'groups+,
-		'.$tbl.'group_resources+,
-		'.$tbl.'group_members+,
-		'.$tbl.'group_cache+
-	');
+	$tbls = get_fud_table_list();
+	/* add the various table aliases */
+	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot', 
+				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr',
+				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
+				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
+				$tbl.'group_members gm', $tbl.'group_resources gr');
+	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
 
 	draw_stat('Validating category order');
@@ -152,18 +133,18 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking if moderator and users table match');
 	delete_zero($tbl.'mod', 'SELECT mm.id FROM '.$tbl.'mod mm LEFT JOIN '.$tbl.'users u ON mm.user_id=u.id LEFT JOIN '.$tbl.'forum f ON f.id=mm.forum_id WHERE u.id IS NULL OR f.id IS NULL');
-	
+
 	draw_stat('Rebuilding moderators');
 	rebuildmodlist();
 	draw_stat('Done: Rebuilding moderators');
 		
 	draw_stat('Checking if all private messages have users');
-	$c = uq('SELECT p.id FROM '.$tbl.'pmsg LEFT JOIN '.$tbl.'users u ON u.id=p.ouser_id WHERE mailed=\'N\' AND u.id IS NULL');
+	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE pm.mailed=\'N\' AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
 	qf($c);
-	$c = q('SELECT p.id FROM '.$tbl.'pmsg LEFT JOIN '.$tbl.'users u ON u.id=p.duser_id WHERE mailed=\'Y\' AND u.id IS NULL');
+	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE pm.mailed=\'Y\' AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];	
 	}
@@ -177,42 +158,47 @@ forum will be disabled.<br><br>
 		$cnt = 0;
 	}
 	draw_info($cnt);
-	
-	$cnt = 0;
-	draw_stat('Checking messages against users');
-	$c = q('SELECT m.id FROM '.$tbl.'pmsg LEFT JOIN '.$tbl.'users u ON u.id=m.poster_id WHERE m.poster_id!=0 AND u.id IS NULL');
-	while ($r = db_rowarr($c)) {
-		fud_msg_edit::delete(FALSE, $r[0]);
-		++$cnt;
-	}
-	qf($c);
-	draw_info($cnt);
 
-	draw_stat('Checking messages against threads');
-	$c = q('SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'thread t ON t.id=m.thread_id LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE t.id IS NULL OR f.id IS NULL');
-	while ($r = db_rowarr($c)) {
-		++$cnt;
-		fud_msg_edit::delete(FALSE, $r[0]);
-	}
-	qf($c);
-	draw_info($cnt);
+	draw_stat('Checking messages against users & threads');
+	delete_zero($tbl.'msg', 'SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'users u ON u.id=m.poster_id LEFT JOIN '.$tbl.'thread t ON t.id=m.thread_id LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE (m.poster_id!=0 AND u.id IS NULL) OR t.id IS NULL OR f.id IS NULL');
 
 	draw_stat('Checking threads against forums');
 	delete_zero($tbl.'thread', 'SELECT t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE f.id IS NULL');
 
+	draw_stat('Checking message approvals');
+	$m = array();
+	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.approved=\'N\' AND f.moderated=\'N\'');
+	while ($r = db_rowarr($c)) {
+		$m[] = $r[0];
+	}
+	if (count($m)) {
+		q('UPDATE '.$tbl.'msg SET approved=\'Y\' WHERE id IN('.implode(',', $m).')');
+		unset($m);
+	}
+	qf($c);
+	draw_stat('Done: Checking message approvals');
+
 	$cnt = 0;
+	$tr = array();
 	draw_stat('Checking threads against messages');
+	q('UPDATE '.$tbl.'thread SET replies=0');
 	$c = q('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.approved=\'Y\' GROUP BY m.thread_id,t.id ORDER BY cnt');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
 			q('DELETE FROM '.$tbl.'thread WHERE id='.$r[1]);
 			++$cnt;
+		} else {
+			$tr[$r[2] - 1][] = $r[1];
 		}
-		q('UPDATE '.$tbl.'thread SET replies='.$r[2].' WHERE id='.$r[1]);
 	}
 	qf($c);
+	unset($tr[0]);
+	foreach ($tr as $k => $v) {
+		q('UPDATE '.$tbl.'thread SET replies='.$k.' WHERE id IN('.implode(',', $v).')');
+	}
+	unset($tr);
 	draw_info($cnt);
-	
+
 	draw_stat('Checking thread last & first post ids');
 	$c = q('SELECT m1.id, m2.id, t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m1 ON t.root_msg_id=m1.id LEFT JOIN '.$tbl.'msg m2 ON t.last_post_id=m2.id WHERE m1.id IS NULL or m2.id IS NULL');
 	while ($r = db_rowarr($c)) {
@@ -232,8 +218,8 @@ forum will be disabled.<br><br>
 	draw_stat('Checking forum & topic relations');
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
-		$tf = db_saq('select MAX(last_post_id), SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.approved=\'Y\' WHERE t.forum_id='.$f[0]);
-		if (!$tf[2]) {
+		$r = db_saq('select MAX(last_post_id), SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.approved=\'Y\' WHERE t.forum_id='.$f[0]);
+		if (!$r[2]) {
 			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
 		} else {
 			q('UPDATE '.$tbl.'forum SET thread_count='.$r[2].', post_count='.($r[1] + $r[2]).', last_post_id='.(int)$r[0].' WHERE id='.$f[0]);
@@ -241,13 +227,16 @@ forum will be disabled.<br><br>
 	}
 	qf($c);		
 	draw_stat('Done: Checking forum & topic relations');
-	
+
+	draw_stat('Checking thread_exchange');
+	delete_zero($tbl.'thr_exchange', 'SELECT te.id FROM '.$tbl.'thr_exchange te LEFT JOIN '.$tbl.'thread t ON t.id=te.th LEFT JOIN '.$tbl.'forum f ON f.id=te.frm WHERE t.id IS NULL or f.id IS NULL');
+
 	draw_stat('Checking read table against users & threads');
 	delete_zero($tbl.'read', 'SELECT r.id FROM '.$tbl.'read r LEFT JOIN '.$tbl.'users u ON r.user_id=u.id LEFT JOIN '.$tbl.'thread t ON r.thread_id=t.id WHERE t.id IS NULL OR u.id IS NULL');
 
 	draw_stat('Checking file attachments against messages');
-	$cnt = 0;
-	$c = q('SELECT a.id FROM '.$tbl.'attach LEFT JOIN '.$tbl.'msg ON a.message_id=m.id AND private=\'N\' WHERE m.id IS NULL');
+	$arm = array();
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id AND private=\'N\' WHERE m.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
@@ -257,8 +246,7 @@ forum will be disabled.<br><br>
 		$arm[] = $r[0];
 	}
 	qf($c);
-	if (isset($arm)) {
-		$cnt = count($arm);
+	if (($cnt = count($arm))) {
 		foreach ($arm as $a) {
 			@unlink($FILE_STORE . $a . 'atch');
 		}
@@ -270,7 +258,7 @@ forum will be disabled.<br><br>
 	$oldm = '';
 	$atr = array();
 	q('UPDATE '.$tbl.'msg SET attach_cnt=0 AND attach_cache=NULL');
-	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN m.icon IS NULL THEN \'unknown.gif\' ELSE m.icon END, a.message_id FROM {SQL_TABLE_PREFIX}attach a LEFT JOIN {SQL_TABLE_PREFIX}mime m ON a.mime_type=m.id WHERE private=\'N\'');
+	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=\'N\'');
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r->message_id) {
 			if ($oldm) {
@@ -298,13 +286,13 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuild attachment cache for private messages');
 
 	draw_stat('Checking message reports');
-	delete_zero($tbl.'msg_report', 'SLECT mr.id FROM '.$tbl.'msg_report mr LEFT JOIN '.$tbl.'msg m ON mr.msg_id=m.id WHERE m.id IS NULL');
+	delete_zero($tbl.'msg_report', 'SELECT mr.id FROM '.$tbl.'msg_report mr LEFT JOIN '.$tbl.'msg m ON mr.msg_id=m.id WHERE m.id IS NULL');
 
 	draw_stat('Checking polls against messages');
 	$cnt = 0;
-	$c = q('SELECT p.id, m.id FROM '.$tbl.'poll p LEFT JOIN '.$tbl.'msg ON p.id=m.poll_id WHERE m.id IS NOT NULL or p.id IS NOT NULL');
+	$c = q('SELECT p.id, m.id FROM '.$tbl.'poll p LEFT JOIN '.$tbl.'msg m ON p.id=m.poll_id WHERE m.id IS NULL OR p.id IS NULL');
 	while ($r = db_rowarr($c)) {
-		if (!$r[0]) {
+		if ($r[0]) {
 			q('DELETE FROM '.$tbl.'poll WHERE id='.$r[0]);
 			++$cnt;
 		} else {
@@ -313,13 +301,13 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_info($cnt);
-	
+
 	draw_stat('Checking polls options against polls');
 	delete_zero($tbl.'poll_opt', 'SELECT po.id FROM '.$tbl.'poll_opt po LEFT JOIN '.$tbl.'poll p ON p.id=po.poll_id WHERE p.id IS NULL');
 
 	draw_stat('Checking polls votes');
-	delete_zero($tbl.'poll_opt_track', 'SELECT pot.id FROM '.$tbl.'poll_opt_track LEFT JOIN '.$tbl.'poll p ON p.id=pot.poll_id LEFT JOIN '.$tbl.'poll_opt po ON po.id=pot.poll_opt LEFT JOIN '.$tbl.'users u ON u.id=pot.user_id WHERE u.id IS NULL OR po.id IS NULL OR p.is IS NULL');
-	
+	delete_zero($tbl.'poll_opt_track', 'SELECT pot.id FROM '.$tbl.'poll_opt_track pot LEFT JOIN '.$tbl.'poll p ON p.id=pot.poll_id LEFT JOIN '.$tbl.'poll_opt po ON po.id=pot.poll_opt LEFT JOIN '.$tbl.'users u ON u.id=pot.user_id WHERE u.id IS NULL OR po.id IS NULL OR p.id IS NULL');
+
 	draw_stat('Rebuilding poll cache');
 	/* first we validate to vote counts for each option */
 	q('UPDATE '.$tbl.'poll_opt SET count=0');
@@ -332,22 +320,35 @@ forum will be disabled.<br><br>
 	/* now we rebuild the individual message poll cache */
 	$oldp = '';
 	$opts = array();
+	$vt = 0;
 	$c = q('SELECT id, name, count, poll_id FROM '.$tbl.'poll_opt ORDER BY poll_id');
 	while ($r = db_rowarr($c)) {
 		if ($oldp != $r[3]) {
 			if ($oldp) {
-				q('UPDATE '.$tbl.'msg SET poll_cache SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+				q('UPDATE '.$tbl.'msg SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+				q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
 				$opts = array();
+				$vt = 0;
 			}
 			$oldp = $r[3];
 		}
 		$opts[$r[0]] = array($r[1], $r[2]);
+		$vt += $r[2];
 	}
 	qf($c);
 	if (count($opts)) {
-		q('UPDATE '.$tbl.'msg SET poll_cache SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+		q('UPDATE '.$tbl.'msg SET poll_cache='.strnull(addslashes(@serialize($opts))).' WHERE poll_id='.$oldp);
+		q('UPDATE '.$tbl.'poll SET total_votes='.$vt.' WHERE id='.$oldp);
 	}
 	draw_stat('Done: Rebuilding poll cache');
+
+	draw_stat('Validating poll activation');
+	$c = q('SELECT t.forum_id, p.id FROM '.$tbl.'poll p INNER JOIN '.$tbl.'msg m ON m.poll_id=p.id INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id AND m.approved=\'Y\' WHERE t.forum_id!=p.forum_id');
+	while ($r = db_rowarr($c)) {
+		q('UPDATE '.$tbl.'poll SET forum_id='.$r[0].' WHERE id='.$r[1]);
+	}
+	qf($c);
+	draw_stat('Done: Validating poll activation');
 
 	draw_stat('Checking smilies against disk files');
 	$cnt = $i = 0;
@@ -362,7 +363,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_info($cnt);
-	
+
 	draw_stat('Checking disk files against smilies');
 	$cnt = 0;
 	$dp = opendir($WWW_ROOT_DISK . 'images/smiley_icons');
@@ -380,24 +381,16 @@ forum will be disabled.<br><br>
 	closedir($dp);
 	unset($sml);
 	draw_info($cnt);
-	
-	draw_stat('Checking message approvals');
-	$c = q('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.approved=\'N\' AND f.moderated=\'N\'');
-	while ($r = db_rowarr($c)) {
-		fud_msg_edit::approve($r[0]);
-	}
-	qd($c);
-	draw_stat('Done: Checking message approvals');
-	
+
 	draw_stat('Checking topic notification');
 	delete_zero($tbl.'thread_notify', 'SELECT tn.id FROM '.$tbl.'thread_notify tn LEFT JOIN '.$tbl.'thread t ON t.id=tn.thread_id LEFT JOIN '.$tbl.'users u ON u.id=tn.user_id WHERE u.id IS NULL OR t.id IS NULL');
 
 	draw_stat('Checking forum notification');
 	delete_zero($tbl.'forum_notify', 'SELECT fn.id FROM '.$tbl.'forum_notify fn LEFT JOIN '.$tbl.'forum f ON f.id=fn.forum_id LEFT JOIN '.$tbl.'users u ON u.id=fn.user_id WHERE u.id IS NULL OR f.id IS NULL');
-	
+
 	draw_stat('Checking topic votes against topics');
-	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '.$tbl.'thread_rate_track LEFT JOIN '.$tbl.'thread t ON t.id=trt.thread_id LEFT JOIN '.$tbl.'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
-	
+	delete_zero($tbl.'thread_rate_track', 'SELECT trt.id FROM '.$tbl.'thread_rate_track trt LEFT JOIN '.$tbl.'thread t ON t.id=trt.thread_id LEFT JOIN '.$tbl.'users u ON u.id=trt.user_id WHERE u.id IS NULL OR t.id IS NULL');
+
 	draw_stat('Rebuild topic rating cache');
 	q('UPDATE '.$tbl.'thread SET rating=0, n_rating=0');
 	$c = q('SELECT thread_id, count(*), AVG(rating) FROM '.$tbl.'thread_rate_track GROUP BY thread_id');
@@ -406,7 +399,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done: Rebuild topic rating cache');
-	
+
 	draw_stat('Rebuilding Topic Views');
 	q('DELETE FROM '.$tbl.'thread_view');
 	$c = q('SELECT id FROM '.$tbl.'forum');
@@ -415,9 +408,9 @@ forum will be disabled.<br><br>
 	}
 	qf($fr);
 	draw_stat('Done: Rebuilding Topic Views');
-	
+
 	draw_stat('Rebuilding user levels & message counts');
-	q('UPDATE '.$tbl.'users SET level=0, post_count=0, u_last_post_id=0');
+	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0');
 	$c = q('SELECT poster_id, count(*) AS cnt FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY cnt');
 	while ($r = db_rowarr($c)) {
 		if (!isset($lvl[$r[1]])) {
@@ -436,16 +429,16 @@ forum will be disabled.<br><br>
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding users last post ids');
-	
+
 	draw_stat('Checking buddy list entries');
-	delete_zero($tbl.'buddy', 'SELECT b.id FROM '.$tbl.'buddy b LEFT JOIN '.$tbl.'users u1 ON u1.id=i.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=b.bud_id WHERE u1.id IS NULL OR u2.is IS NULL');
+	delete_zero($tbl.'buddy', 'SELECT b.id FROM '.$tbl.'buddy b LEFT JOIN '.$tbl.'users u1 ON u1.id=b.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=b.bud_id WHERE u1.id IS NULL OR u2.id IS NULL');
 
 	draw_stat('Checking ignore list entries');
-	delete_zero($tbl.'ignore', 'SELECT i.id FROM '.$tbl.'ignore i LEFT JOIN '.$tbl.'users u1 ON u1.id=i.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=i.ignore_id WHERE u1.id IS NULL OR u2.is IS NULL');
+	delete_zero($tbl.'user_ignore', 'SELECT i.id FROM '.$tbl.'user_ignore i LEFT JOIN '.$tbl.'users u1 ON u1.id=i.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=i.ignore_id WHERE u1.id IS NULL OR u2.id IS NULL');
 
 	/* we do this together to avoid dupe query */
 	q('UPDATE '.$tbl.'users SET buddy_list=NULL, ignore_list=NULL');
-	
+
 	draw_stat('Rebuilding buddy list cache');
 	$oldu = '';
 	$br = array();
@@ -453,7 +446,7 @@ forum will be disabled.<br><br>
 	while ($r = db_rowarr($c)) {
 		if ($oldu != $r[1]) {
 			if ($oldu) {
-				q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$r[1]);
+				q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$oldu);
 				$br = array();
 			}
 			$oldu = $r[1];
@@ -462,18 +455,19 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	if (count($br)) {
-		q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$r[1]);
+		q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($br))).' WHERE id='.$oldu);
+		unset($br);
 	}
 	draw_stat('Done: Rebuilding buddy list cache');
-	
+
 	draw_stat('Rebuilding ignore list cache');
 	$oldu = '';
 	$ir = array();
-	$c = q('SELECT ignore_id, user_id FROM '.$tbl.'ignore ORDER BY user_id');
+	$c = q('SELECT ignore_id, user_id FROM '.$tbl.'user_ignore ORDER BY user_id');
 	while ($r = db_rowarr($c)) {
 		if ($oldu != $r[1]) {
 			if ($oldu) {
-				q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$r[1]);
+				q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$oldu);
 				$bi = array();
 			}
 			$oldu = $r[1];
@@ -482,7 +476,8 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	if (count($ir)) {
-		q('UPDATE '.$tbl.'users SET buddy_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$r[1]);
+		q('UPDATE '.$tbl.'users SET ignore_list='.strnull(addslashes(@serialize($ir))).' WHERE id='.$oldu);
+		unset($ir);
 	}
 	draw_stat('Done: Rebuilding ignore list cache');
 
@@ -508,15 +503,15 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done: Rebuilding group cache');
-	
+
 	draw_stat('Unlocking database');
 	db_unlock();	
 	draw_stat('Database unlocked');
-	
+
 	draw_stat('Optimizing forum\'s SQL tables');
 	optimize_tables();
 	draw_stat('Done: Optimizing forum\'s SQL tables');
-	
+
 	if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 'Y');
