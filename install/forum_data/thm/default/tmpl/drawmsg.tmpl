@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.64 2004/04/23 18:46:11 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.65 2004/04/24 21:48:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -75,10 +75,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message ignored message row (this gets draw if this message is ignored due to ignored user)}
-<tr><td>
-<table border=0 cellspacing=0 cellpadding=0 class="MsgTable">
-<tr>
-<td class="MsgIg al">
+<tr><td><table border=0 cellspacing=0 cellpadding=0 class="MsgTable"><tr><td class="MsgIg al">
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
