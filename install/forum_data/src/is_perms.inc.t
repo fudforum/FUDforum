@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.21 2003/09/27 17:18:50 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.22 2003/09/28 12:07:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@ function perms_from_obj($obj, $adm)
 		return $perms;
 	}
 
-	return ($perms ^ $obj->group_cache_opt);
+	return ($perms & $obj->group_cache_opt);
 }
 
 function make_perms_query(&$fields, &$join, $fid='')

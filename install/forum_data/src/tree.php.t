@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.37 2003/09/28 12:01:53 hackie Exp $
+*   $Id: tree.php.t,v 1.38 2003/09/28 12:07:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,7 +90,7 @@
 	}
 
 	$perms = perms_from_obj($frm, ($usr->users_opt & 1048576));
-	$MOD = $frm->md;
+
 	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {
 			std_error('perms');
