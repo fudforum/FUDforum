@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.9 2003/07/18 22:20:25 hackie Exp $
+*   $Id: admsmiley.php,v 1.10 2003/09/18 15:41:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,6 +47,7 @@
 		if (empty($_POST['avt_img'])) {
 			$_POST['avt_img'] = $_FILES['icoul']['name'];
 		}
+		$sml_img = $_FILES['icoul']['name'];
 	}
 
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['sml_img']) && !empty($_POST['sml_code'])) {
