@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.38 2004/11/08 17:52:23 hackie Exp $
+* $Id: pmsg.tmpl,v 1.39 2004/11/18 17:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,7 +104,7 @@
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}">
 </td></tr>
 <tr>
-	<th class="nw">{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{IF: ($all_v = empty($_GET['all']))}{TEMPLATE: pmsg_all}{ELSE}{TEMPLATE: pmsg_none}{END}</a>]</th>
+	<th class="nw">{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{IF: $all_v}{TEMPLATE: pmsg_all}{ELSE}{TEMPLATE: pmsg_none}{END}</a>]</th>
 	<th>&nbsp;</th>
 	<th class="wa">{MSG: pmsg_subject}</th>
 	<th class="ac">{IF: $folder_id == 3}{TEMPLATE: pmsg_recepient}{ELSE}{TEMPLATE: pmsg_author}{END}</th>

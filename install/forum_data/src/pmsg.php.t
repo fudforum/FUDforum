@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.45 2004/11/16 15:46:04 hackie Exp $
+* $Id: pmsg.php.t,v 1.46 2004/11/18 17:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,6 +32,8 @@
 		}
 		unset($c, $_POST['sel'], $_GET['sel']); /* prevent message selection cofusion */
 	}
+
+	$all_v = empty($_GET['all']);
 
 	/* moving or deleting a message */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {

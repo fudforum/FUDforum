@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.39 2004/10/25 16:32:20 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.40 2004/11/18 17:17:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,7 +59,7 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$location = '{TEMPLATE: dpmsg_no_location}';
 		}
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dpmsg_no_msg_icon}' : '{TEMPLATE: dpmsg_msg_icon}';
-		$usr->buddy_list = unserialize($usr->buddy_list);
+		$usr->buddy_list = $usr->buddy_list ? unserialize($usr->buddy_list) : array();
 		if ($obj->user_id != _uid && $obj->user_id > 0) {
 			$buddy_link = !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dpmsg_buddy_link}' : '{TEMPLATE: dpmsg_buddy_link_remove}';
 		} else {
