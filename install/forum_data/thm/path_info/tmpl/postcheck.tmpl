@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: postcheck.tmpl,v 1.2 2003/10/09 14:34:31 hackie Exp $
+* $Id: postcheck.tmpl,v 1.3 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,54 +10,5 @@
 ***************************************************************************/
 
 {PHP_FILE: input: postcheck.inc.t; output: postcheck.inc;}
-
 {REF: fileio.tmpl}
 {REF: iemail.tmpl}
-
-{MAIN_SECTION: post_error_breakback post form error style with break in the back}
-<font class="ErrorText">{VAR: GLOBALS['__err_msg__'][$err]}</font><br />
-{MAIN_SECTION: END}
-
-{MAIN_SECTION: post_error_breakfront post form error style with break in the front}
-<br /><font class="ErrorText">{VAR: GLOBALS['__err_msg__'][$err]}</font>
-{MAIN_SECTION: END}
-
-{SECTION: postcheck_subj_needed}
-{MSG: postcheck_subj_needed}
-{SECTION: END}
-
-{SECTION: postcheck_not_allowed_file}
-{MSG: postcheck_not_allowed_file}
-{SECTION: END}
-
-{SECTION: postcheck_max_images_err}
-{MSG: postcheck_max_images_err}
-{SECTION: END}
-
-{SECTION: postcheck_no_such_user}
-{MSG: postcheck_no_such_user}
-{SECTION: END}
-
-{SECTION: postcheck_ignored}
-{MSG: postcheck_ignored}
-{SECTION: END}
-
-{SECTION: postcheck_no_recepient}
-{MSG: postcheck_no_recepient}
-{SECTION: END}
-
-{SECTION: postcheck_invalid_email}
-{MSG: postcheck_invalid_email}
-{SECTION: END}
-
-{SECTION: postcheck_email_subject}
-{MSG: postcheck_email_subject}
-{SECTION: END}
-
-{SECTION: postcheck_email_body}
-{MSG: postcheck_email_body}
-{SECTION: END}
-
-{SECTION: postcheck_pm_disabled}
-{MSG: postcheck_pm_disabled}
-{SECTION: END}

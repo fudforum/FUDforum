@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: subscribed.tmpl,v 1.4 2003/10/09 14:34:31 hackie Exp $
+* $Id: subscribed.tmpl,v 1.5 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,38 +22,10 @@
 {REF: tabs.tmpl}
 {REF: alt_var.tmpl}
 
-{PAGE: SUBSCRIBED_PAGE subscribed forums and threads list}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: tabs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: subscribed_forums}<a name="fff"></a></th></tr>
-{TEMPLATE-DATA: subscribed_forum_data}
-<tr><th colspan=2>{MSG: subscribed_threads}</th></tr>
-{TEMPLATE-DATA: subscribed_thread_data}
-</table>
-{TEMPLATE-DATA: pager}
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
 {SECTION: subscribed_forum_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}/f/{VAR: r[0]}/{DEF: _rsid}">{VAR-HTML: r[1]}</a></td><td nowrap><a class="GenLink" href="{ROOT}/sl/{VAR: r[0]}/{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}/f/{VAR: r[0]}/{DEF: _rsid}" target="_blank">{MSG: view_forum}</a></td></tr>
 {SECTION: END}
 
-{SECTION: no_subscribed_forums}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2>{MSG: no_subscribed_forums}</td></tr>
-{SECTION: END}
-
 {SECTION: subscribed_thread_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}/t/{VAR: r[0]}/{DEF: _rsid}">{VAR: r[1]}</a></td><td nowrap><a class="GenLink" href="{ROOT}/sl/0/{VAR: r[0]}/{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}/t/{VAR: r[0]}/{DEF: _rsid}" target="_blank">{MSG: view_thread}</a></td></tr>
-{SECTION: END}
-
-{SECTION: no_subscribed_threads}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2>{MSG: no_subscribed_threads}</td></tr>
-{SECTION: END}
-
-{SECTION: subscribed_update}
-{MSG: subscribed_update}
 {SECTION: END}

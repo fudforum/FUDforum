@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.tmpl,v 1.4 2003/10/09 14:34:31 hackie Exp $
+* $Id: search.tmpl,v 1.5 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,41 +26,12 @@
 {REF: fileio.tmpl}
 {REF: search_forum_sel.tmpl}
 
-{SECTION: search_results}
-<br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width="100%">{MSG: search_subject}</th><th>{MSG: search_forum}</th><th nowrap>{MSG: search_posted_on}</th></tr>
-{TEMPLATE-DATA: search_data}
-</table>
-{SECTION: END}
-
-{SECTION: no_search_results}
-<br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr class="RowStyleA"><th colspan=2 width="100%" align="center">{MSG: search_no_results}</th></tr>
-</table>
-{SECTION: END}
-
-{SECTION: radio_button unselected style}
-{SECTION: END}
-
-{SECTION: radio_button_selected selected radio button style}
-{SECTION: END}
-
-{SECTION: radio_button_separator}
-&nbsp;&nbsp;
-{SECTION: END}
-
 {SECTION: search_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}">{VAR: r->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}
 <a class="GenLink" href="{ROOT}/u/{VAR: r->poster_id}/{DEF: _rsid}">{VAR: r->alias}</a>
-{SECTION: END}
-
-{SECTION: unregistered_poster}
-{GVAR: ANON_NICK}
 {SECTION: END}
 
 {PAGE: SEARCH_PAGE message search form}
@@ -89,41 +60,3 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: search_title}
-{MSG: search_title}
-{SECTION: END}
-
-{SECTION: search_update}
-{MSG: search_update}
-{SECTION: END}
-
-{SECTION: search_entire_msg}
-{MSG: search_entire_msg}
-{SECTION: END}
-
-{SECTION: search_subect_only}
-{MSG: search_subect_only}
-{SECTION: END}
-
-{SECTION: search_and}
-{MSG: search_and}
-{SECTION: END}
-
-{SECTION: search_or}
-{MSG: search_or}
-{SECTION: END}
-
-{SECTION: search_asc_order}
-{MSG: search_asc_order}
-{SECTION: END}
-
-{SECTION: search_desc_order}
-{MSG: search_desc_order}
-{SECTION: END}
-
-{SECTION: search_normal_option}
-{SECTION: END}
-
-{SECTION: search_selected_option}
-{SECTION: END}

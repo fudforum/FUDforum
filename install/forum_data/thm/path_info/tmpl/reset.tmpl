@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: reset.tmpl,v 1.4 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,7 +18,7 @@
 {REF: iemail.tmpl}
 {REF: users_reg.tmpl}
 
-{PAGE: RESET_PAGE  reset password for an account form}
+{PAGE: RESET_PAGE reset password for an account form}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 <div align="center">
@@ -34,55 +34,3 @@
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
-
-{SECTION: no_such_email}
-<font class="ErrorText">{MSG: reset_error}</font><br />
-{SECTION: END}
-
-{SECTION: reset_newpass_title}
-{MSG: reset_newpass_title}
-{SECTION: END}
-
-{SECTION: reset_newpass_msg}
-{MSG: reset_newpass_msg}
-{SECTION: END}
-
-{SECTION: reset_login_notify}
-{MSG: reset_login_notify}
-{SECTION: END}
-
-{SECTION: reset_err_invalidkey_title}
-{MSG: reset_err_invalidkey_title}
-{SECTION: END}
-
-{SECTION: reset_err_invalidkey_msg}
-{MSG: reset_err_invalidkey_msg}
-{SECTION: END}
-
-{SECTION: register_conf_subject}
-{MSG: register_conf_subject}
-{SECTION: END}
-
-{SECTION: reset_confirmation}
-{MSG: reset_confirmation}
-{SECTION: END}
-
-{SECTION: reset_reset}
-{MSG: reset_reset}
-{SECTION: END}
-
-{SECTION: reset_err_rstconf_title}
-{MSG: reset_err_rstconf_title}
-{SECTION: END}
-
-{SECTION: reset_err_rstconf_msg}
-{MSG: reset_err_rstconf_msg}
-{SECTION: END}
-
-{SECTION: reset_title}
-{MSG: reset_title}
-{SECTION: END}
-
-{SECTION: register_conf_msg}
-{MSG: register_conf_msg}
-{SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.4 2003/07/19 18:13:06 hackie Exp $
+*   $Id: ppost.tmpl,v 1.5 2003/10/09 23:45:55 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,59 +36,6 @@
 {REF: post_common.tmpl} 
 {REF: attach.tmpl}
 {REF: rhost.tmpl}
-
-{SECTION: post_error}
-<h4 align="center"><font class="ErrorText">{MSG: post_error_generic}</font></h4>
-{SECTION: END}
-
-{SECTION: apply_spell_changes}
-<input type="submit" class="button" name="btn_spell" value="{MSG: apply_spell_changes}">&nbsp;
-{SECTION: END}
-
-{SECTION: signature}
-<p><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />{VAR: usr->sig}
-{SECTION: END}
-
-{SECTION: preview_message}
-<div align="center"><table border="0" cellspacing="1" cellpadding="2" class="PreviewTable">
-<tr><th colspan=2>{MSG: post_preview}</th></tr>
-<tr><td class="RowStyleA"><font class="MsgSubText">{VAR: subj}</font></td></tr>
-<tr><td class="RowStyleA"><font class="MsgBodyText">{VAR: text}{TEMPLATE-DATA: signature}</font></td></tr>
-<tr><td align="left" class="RowStyleB">{TEMPLATE-DATA: apply_spell_changes}<input type="submit" class="button" name="btn_submit" value="{MSG: ppost_send}" tabindex="5" onClick="javascript: document.post_form.btn_action.value=\'send\';">&nbsp;<input type="submit" tabindex="4" class="button" value="{MSG: post_preview_btn}" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" name="btn_draft" value="{MSG: ppost_save_draft}" onClick="javascript: document.post_form.btn_action.value=\'draft\';"></td></tr>
-</table></div><br />
-{SECTION: END}
-
-{SECTION: disable_smileys disable smilis checkbox}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText"><b>{MSG: disable_smilies}</b></td></tr>
-{SECTION: END}
-
-{SECTION: spell_check_button}
-<input type="submit" class="button" value="{MSG: spell_check_msg}" name="spell">&nbsp;
-{SECTION: END}
-
-{SECTION: fud_quote quote style for FUD code enabled forums}
-[quote title={MSG: ppost_quote_msg}]{VAR: msg_body}[/quote]
-{SECTION: END}
-
-{SECTION: html_quote quote style for html enabled forums}
-<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>{MSG: ppost_quote_msg}</b></td></tr><tr><td class="quote"><br />{VAR: msg_body}<br /></td></tr></table>
-{SECTION: END}
-
-{SECTION: plain_quote quoting style for plain text forums}
-{MSG: ppost_quote} {MSG: ppost_quote_msg}<br />----------------------------------------------------<br />{VAR: msg_body}<br />----------------------------------------------------<br />
-{SECTION: END}
-
-{SECTION: reference_msg displayes the message the user is replying to}
-<br /><br />
-<div align="center">{MSG: ppost_original_msg}</div>
-<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
-<tr><td>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: reference_msg}
-</table>
-</td></tr>
-</table>
-{SECTION: END}
 
 {PAGE: PPOST_PAGE  form for writing private messages}{TEMPLATE: header}
 {TEMPLATE: usercp}
@@ -135,55 +82,7 @@
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
-{SECTION: pm_err_nopm_title}
-{MSG: pm_err_nopm_title}
-{SECTION: END}
-
-{SECTION: pm_err_nopm_msg}
-{MSG: pm_err_nopm_msg}
-{SECTION: END}
-
-{SECTION: post_err_notallowed_title}
-{MSG: post_err_notallowed_title}
-{SECTION: END}
-
-{SECTION: post_err_notallowed_msg}
-{MSG: post_err_notallowed_msg}
-{SECTION: END}
-
-{SECTION: post_err_attach_size}
-{MSG: post_err_attach_size}
-{SECTION: END}
-
-{SECTION: post_err_attach_ext}
-{MSG: post_err_attach_ext}
-{SECTION: END}
-
-{SECTION: post_err_attach_filelimit}
-{MSG: post_err_attach_filelimit}
-{SECTION: END}
-
-{SECTION: pm_update}
-{MSG: pm_update}
-{SECTION: END}
-
-{SECTION: pm_no_space_title}
-{MSG: pm_no_space_title}
-{SECTION: END}
-
-{SECTION: pm_no_space_msg}
-{MSG: pm_no_space_msg}
-{SECTION: END}
-
-{SECTION: pm_err_disabled_title}
-{MSG: pm_err_disabled_title}
-{SECTION: END}
-
-{SECTION: pm_err_disabled_msg}
-{MSG: pm_err_disabled_msg}
-{SECTION: END}
 
 {SECTION: pm_find_user}
 [<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}/pml/post_form.msg_to_list/{DEF: _rsid}\',\'user_list\',250,250);">{MSG: ppost_find_User}</a>]
 {SECTION: END}
-

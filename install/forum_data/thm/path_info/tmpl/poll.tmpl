@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.5 2003/10/09 14:34:31 hackie Exp $
+* $Id: poll.tmpl,v 1.6 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,12 +19,6 @@
 {REF: draw_select_opt.tmpl}
 {REF: replace.tmpl}
 {REF: is_perms.tmpl}
-
-{SECTION: sel_opt}
-{SECTION: END}
-
-{SECTION: sel_opt_selected}
-{SECTION: END}
 
 {PAGE: POLL_PAGE  poll creator}{TEMPLATE: header_plain}
 <script language="javascript" type="text/javascript">
@@ -73,83 +67,6 @@ function check_submission()
 {TEMPLATE: footer_plain}
 {PAGE: END}
 
-{SECTION: btn_submit}
-<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value=\'0\'; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_create}">
-{SECTION: END}
-
-{SECTION: btn_update}
-<input type="button" class="button" onClick="javascript: window.opener.document.post_form.pl_id.value={VAR: pl_id}; window.opener.document.post_form.submit(); window.close();" value="{MSG: poll_update}">
-{SECTION: END}
-
-{SECTION: pl_smiley_disabled_chk disable smiliyes in the poll checkbox}
-<tr><td align="right" valign="top" colspan=2 class="GenText"><input type="checkbox" name="pl_smiley_disabled" value="Y"{VAR: checked}>{MSG: poll_disablesmilies}</td></tr>
-{SECTION: END}
-
-{SECTION: pl_submit_create create poll button}
-<input type="submit" class="button" name="pl_submit" value="{MSG: poll_create_poll}">
-{SECTION: END}
-
-{SECTION: pl_submit_update update poll button}
-<input type="submit" class="button" name="pl_submit" value="{MSG: poll_update_poll}">
-{SECTION: END}
-
-{SECTION: poll_editor}
-<table width="99%" border=0 cellspacing=2 cellpadding=0 class="dashed">
-<tr><td class="GenText">{MSG: poll_add_option}</td><td align="right"><input type="text" name="pl_option" value="{VAR-HTML: pl_option}">
-{TEMPLATE-DATA: pl_smiley_disabled_chk}
-<tr><td colspan=2 align=right>{TEMPLATE-DATA: pl_action}</td></tr>
-<tr><td colspan=2><table>
-{TEMPLATE-DATA: poll_option_entry_data}
-</table>
-</td></tr>
-</table>
-{SECTION: END}
-
 {SECTION: poll_option_entry}
 <tr><td class="GenText">{VAR: v}</td><td nowrap>[<a class="GenLink" href="{ROOT}/po/{VAR: frm_id}/{VAR: pl_id}/pl_optedit/{VAR: k}/{DEF: _rsid}">{MSG: poll_edit}</a>] [<a href="{ROOT}/po/{VAR: frm_id}/{VAR: pl_id}/del_id/{VAR: k}/{DEF: _rsid}">{MSG: poll_delete}</a>]</td></tr>
-{SECTION: END}
-
-{SECTION: pl_upd hidden field needed for the form to work}
-<input type="hidden" name="pl_option_id" value="{VAR: pl_option_id}">
-<input type="submit" class="button" name="pl_upd" onClick="javascript: return check_submission();" value="{MSG: poll_updateoption}">
-{SECTION: END}
-
-{SECTION: pl_add hidden field needed for the form to work}
-<input type="submit" class="button" name="pl_add" onClick="javascript: return check_submission();" value="{MSG: poll_addoption}">
-{SECTION: END}
-
-{SECTION: poll_title}
-{MSG: poll_title}
-{SECTION: END}
-
-{SECTION: poll_unlimited}
-{MSG: poll_unlimited}
-{SECTION: END}
-
-{SECTION: poll_hour}
-{MSG: poll_hour}
-{SECTION: END}
-
-{SECTION: poll_hours}
-{MSG: poll_hours}
-{SECTION: END}
-
-{SECTION: poll_day}
-{MSG: poll_day}
-{SECTION: END}
-
-{SECTION: poll_days}
-{MSG: poll_days}
-{SECTION: END}
-
-{SECTION: poll_week}
-{MSG: poll_week}
-{SECTION: END}
-
-{SECTION: poll_month}
-{MSG: poll_month}
-{SECTION: END}
-
-{SECTION: poll_year}
-{MSG: poll_year}
 {SECTION: END}

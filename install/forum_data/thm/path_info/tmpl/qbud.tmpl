@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.3 2003/10/09 14:34:31 hackie Exp $
+* $Id: qbud.tmpl,v 1.4 2003/10/09 23:45:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -14,14 +14,6 @@
 {REF: header.tmpl}
 {REF: footer.tmpl}
 {REF: alt_var.tmpl}
-
-{SECTION: no_buddies}
-<tr class="RowStyleA"><td class="GenText" align="center">{MSG: qbud_no_buddies}</td></tr>
-{SECTION: END}
-
-{SECTION: buddy_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText">{VAR: r[0]}</td><td align="center"><input type="checkbox" name="names[]" value="{VAR: r[0]}"{VAR: checked}></td></tr>
-{SECTION: END}
 
 {SECTION: buddy_list}
 <tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="thLnk" href="{ROOT}/qb/1/{DEF: _rsid}">{VAR: all_d}</a>]</th></tr>
@@ -40,8 +32,4 @@
 {PAGE: END}
 {SECTION: pmsg_none}
 {MSG: pmsg_none}
-{SECTION: END}
-
-{SECTION: pmsg_all}
-{MSG: pmsg_all}
 {SECTION: END}
