@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.10 2003/04/19 14:00:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,6 +72,7 @@
 			$track_msg->ouser_id = $track_msg->duser_id = $m->ouser_id;
 			$track_msg->ip_addr = $track_msg->host_name = NULL;
 			$track_msg->post_stamp = __request_timestamp__;
+			$track_msg->read_stamp = 0;
 			$track_msg->mailed = 'Y';
 			$track_msg->folder_id = 'INBOX';
 			$track_msg->track = 'N';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.10 2003/04/19 13:46:49 hackie Exp $
+*   $Id: private.inc.t,v 1.11 2003/04/19 14:00:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,6 +34,9 @@ class fud_pmsg
 	
 		if (!$this->mailed) {
 			$this->mailed = $this->folder_id == 'SENT' ? 'Y' : 'N';
+		}
+		if ($this->folder_id != 'INBOX') {
+			$this->read_stamp = $this->post_stamp;
 		}
 
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
@@ -75,7 +78,7 @@ class fud_pmsg
 				'".yn($this->smiley_disabled)."',
 				'".yn($this->show_sig)."',
 				'".yn($this->track)."',
-				".$this->post_stamp.",
+				".$this->read_stamp.",
 				".strnull($this->ref_msg_id).",
 				".intzero($this->foff).",
 				".intzero($this->length)."

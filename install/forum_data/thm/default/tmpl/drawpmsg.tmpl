@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.12 2003/04/18 12:22:14 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.13 2003/04/19 14:01:11 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -97,9 +97,9 @@
 
 {SECTION: dpmsg_file_attachment file attachment entry row}
 <tr>
-<td valign=middle><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: a_obj->id}&amp;{DEF: _rsid}&amp;private=1"><img src="images/mime/{VAR: a_obj->icon}" border=0 alt="" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: a_obj->id}&amp;{DEF: _rsid}&amp;private=1">{VAR: a_obj->original_name}</a><br />
-<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
+<td valign=middle><a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: r->id}&amp;{DEF: _rsid}&amp;private=1"><img src="images/mime/{VAR: r->icon}" border=0 alt="" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}?t=getfile&amp;id={VAR: r->id}&amp;{DEF: _rsid}&amp;private=1">{VAR: r->original_name}</a><br />
+<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font></td></tr>
 {SECTION: END}
 
 {SECTION: dpmsg_signature}
