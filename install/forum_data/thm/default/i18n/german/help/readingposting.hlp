@@ -1,7 +1,7 @@
 TOPIC_TITLE: <a name="style">Wie formatiert man Text?</a>
 TOPIC_HELP:
 Im Allgemeinen bestehen Forumsbeitr&auml;ge meistens aus unformatierten Text, es ist jedoch bei Bedarf m&ouml;glich; 
-eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben usw...
+eine gewisse Formatierung anzuwenden, wie zum Beispiel W&ouml;rter fett oder kursiv schreiben &hellip;
 <p>
 Da in den meisten F&auml;llen der Admin die Verwendung von HTML nicht gestatten wird, kann daf&uuml;r FUDcode verwendet werden. Dieser besteht aus einer Reihe
 von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist sehr leicht zu erlernen und erheblich sicherer als HTML.
@@ -10,7 +10,7 @@ von Befehlen, die eine gewisse Textformatierung  erm&ouml;glichen. FUDcode ist s
 
 <b>Setzen von Links auf Webseiten</b><br><br>
 
-Das Forum ist in der Lage, automatisch viele Url Varianten zu erkennen, zum Beispiel:<br>
+Das Forum ist in der Lage, automatisch viele URL-Varianten zu erkennen, zum Beispiel:<br>
 	<div align="Center"><font color="#FF0000">http://fud.prohost.org</font></div><br>
 wird automatisch als URL aufgefa&szlig;t und zu einer solchen umgewandelt, was dann folgenderma&szlig;en aussieht:
 	<div align="center"><a href="http://fud.prohost.org" target=_blank>http://fud.prohost.org</a></div><br>
@@ -20,11 +20,11 @@ Du kannst auch mit FUDcode selber eine URL erstellen, wof&uuml;r es 2 M&ouml;gli
 	<div align="Center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.meineseite.de</font>[/URL]</font></b></div><br>
 das erzeugt den folgenden Link:
 	<div align="center"><a href="http://www.meineseite.de" target=_blank>http://www.meineseite.de</a></div><br>
-Du kannst eine Beschreibung der Url durch eine andere Syntax innerhalb des Tags hinzuf&uuml;gen <font color="#ff0000"><b>[URL=<font color="#006600">http://www.meineseite.de</font>]<font color="#006600">Meine Seite</font>[/URL]</b></font> Dieser Code bewirkt das folgende:<br>
+Du kannst eine Beschreibung der URL durch eine andere Syntax innerhalb des Tags hinzuf&uuml;gen <font color="#ff0000"><b>[URL=<font color="#006600">http://www.meineseite.de</font>]<font color="#006600">Meine Seite</font>[/URL]</b></font> Dieser Code bewirkt das folgende:<br>
 	<div align="center"><a href="http://www.meineseite.de" target=_blank>Meine Seite</a></div><br>
 <p>
 <b>Verlinken von Emailadressen</b><br><br>
-         Um einen Email Link zu erstellen, mu&szlig; nur die Adresse so wie sie normalerweise 
+         Um einen Email Link zu erstellen, muss nur die Adresse so wie sie normalerweise 
 		 erscheint, geschrieben werden, zum Beispiel:<br>
 <div align="Center"><font color="#ff0000"><b>support@prohost.org</b></font></div><br>
        Das Forum erkennt und wandelt den Link selbstt&auml;tig um.  Au&szlig;erdem
@@ -58,7 +58,7 @@ Gr&ouml;&szlig;e</font></li>
         [/font]</b></font> erzeugt Text, der den angegebenen <font face="Courier New, Courier, monospace">
         Schrifttyp</font> verwendet.</li>
 </ul>
-        Gnauso ist es m&ouml;glich, mehrere Tags miteinander zu kombinieren:<br>
+        Genauso ist es m&ouml;glich, mehrere Tags miteinander zu kombinieren:<br>
 <div align="Center"><font color="#ff0000"><b>[b][u][i][color=red][size=10][font=courier]</b></font>Formatierter Text<font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br></b></font></div>
        dieses Beispiel wird zu:<br>
 <div align="Center"> &nbsp;&nbsp; <font color="#ff0000" size="10" face="Courier New, Courier, monospace"><u><i><b>Formatierter Text</b></i></u></font></div>
@@ -114,21 +114,21 @@ FUDcode unterst&uuml;tzt duch den [align] Tag die Textausrichtung, f&uuml;r die 
   <li>Zweiter Stichpunkt</li>
 </ol>
 <b>Bilder hinzuf&uuml;gen</b><br>
-    Innerhalb eines Beitrages k&ouml;nnen Bilder eingebettet werden, in dem man die<font color="#ff0000"><b>
+    Innerhalb eines Beitrages k&ouml;nnen Bilder eingebettet werden, indem man die<font color="#ff0000"><b>
     [img][/img]</b></font> Tags verwendet. <br>
   <br>
     beispielsweise,<br>
 <div align="Center">&nbsp;<font color="#ff0000"><b>[img]</b></font><font color="#006600">http://www.prohost.org/img/pro_logo.gif</font><font color="#ff0000"><b>[/img]</b></font>, <br></div>
     f&uuml;gt folgendes Bild in den Beitrag mit ein:<br>
 <div align="Center"><img src="http://www.prohost.org/img/pro_logo.gif" alt="http://www.prohost.org/img/pro_logo.gif" width="409" height="62"><br></div>
-    Zus&auml;tzlich k&ouml;nnen mit Bilder auch Links erzeugt werden, in dem man diese innerhalb der
+    Zus&auml;tzlich k&ouml;nnen auch Links mit Bildern erzeugt werden, indem man diese innerhalb der
 <font color="#ff0000"><b>    [url][/url]</b></font> Tags wie<br>
 <div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://www.prohost.org/img/pro_logo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br></div>
    mit einschlie&szlig;t, was zu einem Bilderlink wie diesem f&uuml;hrt<br>
 <div align="Center"><a href="http://www.prohost.org"><img src="http://www.prohost.org/img/pro_logo.gif" alt="image" width="409" height="62" border="0"></a><br></div><br>
 
 <br><b>Andere Beitr&auml;ge zitieren</b><br>
-  Es besteht die M&ouml;glichkeit, etwas bereits Geschriebenes zu zitieren, in dem man einfach 
+  Es besteht die M&ouml;glichkeit, etwas bereits Geschriebenes zu zitieren, indem man einfach 
  <font color="#ff0000"><b>[quote][/quote]</b></font> Tags mit anf&uuml;hrt. 
 <br>
 <div align="Center"><font color="#ff0000"><b>[quote]</b></font>Hallo Welt<font color="#ff0000"><b>[/quote]</b></font><br></div>
@@ -146,13 +146,13 @@ mehrfache Leerzeichen gewahrt bleiben. <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
 <font color="#ff0000"><b>[/code]</b></font><br>
 <br>
- was den Text so wiedergibt, wie er urspr&uuml;nglich geschrieben wurde inklusive allen Formatierungn. 
+ was den Text so wiedergibt, wie er urspr&uuml;nglich geschrieben wurde inklusive aller Formatierungen. 
 <br>
 <br>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br><br><br></pre>
 <p>
 <b>PHP Code</b><br>
-Der <font color="#ff0000"><b>[php][/php]</b></font> Tag ermÃ¶glicht es Dir, PHP Skripte zu posten
+Der <font color="#ff0000"><b>[php][/php]</b></font> Tag erm&ouml;glicht es dir, PHP Skripte zu posten
 und dabei vom Forum wegen der besseren Lesbarkeit die Syntax hervorheben zu lassen.<br>
 <br>Die Verwendung ist wie folgt: <br>
 <font color="#ff0000"><b>[code]</b></font>
@@ -173,15 +173,15 @@ hallo();
 <p>
 
 <b>No Tag</b><br>
-Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es Dir, den Text innerhalb
-der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht Dir, Beispiele f&uuml;r
+Der <font color="#ff0000"><b>[notag][/notag]</b></font> Tag erm&ouml;glicht es dir, den Text innerhalb
+der Tags nicht vom FUDForum eigenem Tag Parser interpretieren zu lassen. Das erm&ouml;glicht dir, Beispiele f&uuml;r
 FUD Code zu nennen, ohne sie in die jeweiligen HTML Entsprechungen umwandeln zu lassen.
 <p>
 
 <b>Spoiler</b><br>
-Der <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> Tag erm&ouml;glicht es Dir, einen Teil des Beitrages
+Der <font color="#ff0000"><b>[spoiler][/spoiler]</b></font> Tag erm&ouml;glicht es dir, einen Teil des Beitrages
 nicht anzeigen zu lassen. Um den versteckten Anteil sehen zu k&ouml;nnen, m&uuml;ssen die Benutzer einen Link anklicken, 
-der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javaskript bewerkstelligt, womit die Seite nicht
+der dann den Rest des Textes anzeigt. Intern wird dies mit Hilfe von Javascript bewerkstelligt, womit die Seite nicht
 wirklich neu geladen wird, sondern eine versteckte Layer sichtbar gemacht wird.<br>
 <br>
 Hier ein Beispiel f&uuml;r diesen Tag in Aktion: <br>
@@ -204,13 +204,13 @@ Mehr sichtbarer Text.
 
 <p>
 <b>Acronym</b><br>
-The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to identify the text as an
-acronym and provide a full name when the user moves their mouse over the tag.
+Der <font color="#ff0000"><b>[acronym][/acronym]</b></font> Tag wird benutzt,
+um &bdquo;Abk&uuml;rzungen mit Bedeutung&rdquo; zu kennzeichnen. Wenn der Benutzer seine Maus darüber parkt, wird die Bedeutung sichtbar.
 <font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font>FUDforum<font color="#ff0000"><b>[/acronym]</b></font> produces <acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym>.
 <p>
 
-Unter Umst&auml;nden stellst Du fest, da&szlig; der Administrator Smileys aktiviert hat, die Dir
-Das &Uuml;bermitteln von Emotionen durch kleine Icons erm&ouml;glichen, oder auch den [img] Code, mit dem
+Unter Umst&auml;nden stellst du fest, dass der Administrator Smileys aktiviert hat, die dir
+das &Uuml;bermitteln von Emotionen durch kleine Icons erm&ouml;glichen, oder auch den [img] Code, mit dem
 Bilder zu einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
 
 
@@ -219,58 +219,58 @@ TOPIC_HELP:
 Smilies sind kleine Icons, die in einem Beitrag als Ausdruck verschiedener Gef&uuml;hle und Stimmungen verwendet werden k&ouml;nnen.
 Wenn diese aktiviert sind, wird eine Auflistung der vom Forum unterst&uuml;tzten Smileys &uuml;ber dem Eingabefeld, in welchem man auch den Beitrag
 erstellt, angezeigt. Durch einfaches Anklicken k&ouml;nnen diese dann in den Beitrag eingef&uuml;gt werden.<br>
-Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von Dir erw&uuml;nscht ist, kannst Du
+Gebr&auml;uchliche Smileys k&ouml;nnen automatisch durch das entsprechende Symbol ersetzt werden, falls das nicht von dir erw&uuml;nscht ist, kannst du
 das <b>Smilies deaktivieren</b> K&auml;stchen ausw&auml;hlen.<p>
 
 TOPIC_TITLE: <a name="polls">Wie erstelle ich Umfragen?</a>
 TOPIC_HELP:
-In einigen Foren kannst Du gegebenenfalls auch Umfragen in Deinem Beitrag erstellen. Diese erm&ouml;glichen es Dir, eine Frage mit einigen Antworten als 
+In einigen Foren kannst du gegebenenfalls auch Umfragen in deinem Beitrag erstellen. Diese erm&ouml;glichen es dir, eine Frage mit einigen Antworten als 
 Auswahl zu stellen, von denen andere Forenmitglieder dann ihre Wahl treffen. Um eine gewisse Aussagekraft 
 zu gew&auml;hrleisten, d&uuml;rfen nur registrierte Benutzer ihre Stimme abgeben.<br>
-Wenn Du den <b>UMFRAGE ERSTELLEN</b> Link auf der Beitragsseite anklickst, erscheint ein Popup Fenster, mit dessen Hilfe sich eine Umfrage mit 
-mehreren Antwortm&ouml;glichkeiten erstellen l&auml;&szlig;t. Sobald Du fertig bist, klickst Du einfach den <b>Erstellen</b> Knopf an und wirst so wieder zur&uuml;ck zum
+Wenn du den <b>UMFRAGE ERSTELLEN</b> Link auf der Beitragsseite anklickst, erscheint ein Popup Fenster, mit dessen Hilfe sich eine Umfrage mit 
+mehreren Antwortm&ouml;glichkeiten erstellen l&auml;sst. Sobald du fertig bist, klickst du einfach den <b>Erstellen</b> Knopf an und wirst so wieder zur&uuml;ck zum
 Bearbeitungsfenster gebracht. Die eben erstellte Umfrage wird dem Beitrag hinzugef&uuml;gt.<br>
 Du kannst eine bereits vorhandene Umfrage durch Anklicken des <b>BEARBEITEN</b> Links modifizieren oder durch einen Klick auf <b>L&Ouml;SCHEN</b> 
 vollst&auml;ndig entfernen.
 <p>
-Pro Umfrage hast Du nur 1 Stimme, daher solltest Du Deine Entscheidung reiflich &uuml;berlegen, denn im nachhinein l&auml;&szlig;t sie sich nicht mehr ver&auml;ndern.
+Pro Umfrage hast du nur 1 Stimme, daher solltest du deine Entscheidung reiflich &uuml;berlegen, denn im nachhinein l&auml;sst sie sich nicht mehr ver&auml;ndern.
 
 TOPIC_TITLE: <a name="attach">Kann ich Dateien an Beitr&auml;ge anh&auml;ngen?</a>
 TOPIC_HELP:
-Falls vom Administrator erlaubt, kannst Du eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Messages anh&auml;ngen. Diese Funktion 
-wird von Forum zu Forum individuell festgelegt, weswegen Du in einem Forum Dateien anh&auml;ngen kannst, w&auml;hrend es woanders nicht m&ouml;glich ist.
+Falls vom Administrator erlaubt, kannst du eine oder mehrere Dateien an normale Beitr&auml;ge oder auch private Messages anh&auml;ngen. Diese Funktion 
+wird von Forum zu Forum individuell festgelegt, weswegen du in einem Forum Dateien anh&auml;ngen kannst, w&auml;hrend es woanders nicht m&ouml;glich ist.
 <br>
-Die Seite, auf der Du Beitr&auml;ge erstellst, listet 3 Regeln auf, die f&uuml;r Deine Anh&auml;nge gelten:<p>
+Die Seite, auf der du Beitr&auml;ge erstellst, listet 3 Regeln auf, die f&uuml;r deine Anh&auml;nge gelten:<p>
 <b>Erlaubte Dateitypen</b> - eine Liste von Dateiendungen, die an einem Beitrag angeh&auml;ngt werden k&ouml;nnen z.B.: .jpg, .gif, .png<br>
 <b>Maximale Dateigr&ouml;&szlig;e</b> - die maximale Gr&ouml;&szlig;e einer Datei, die an einem Beitrag angeh&auml;ngt werden kann<br>
 <b>Maximale Dateien pro Beitrag</b> - Die Anzahl der Dateien, die einem Beitrag hinzugef&uuml;gt werden k&ouml;nnen.
 <p>
 Um eine Datei dem Beitrag hinzuzuf&uuml;gen, klicke den <b>Durchsuchen</b> Knopf am unteren Ende der Beitragsseite. Dein Browser wird daraufhin 
 ein Dialogfenster &ouml;ffnen, mit welchem die gew&uuml;nschte Datei zum Hochladen ausgew&auml;hlt werden kann. Sobald diese Datei ausgew&auml;hlt wurde, 
-klickst Du den <b>Datei hochladen</b> Knopf an, um die Datei an dem Beitrag anzuh&auml;ngen.<br>
-Wenn Du Dateianh&auml;nge l&ouml;schen willst, klicke einfach auf den <b>L&ouml;schen</b> Link rechts von der Datei.
+klickst du den <b>Datei hochladen</b> Knopf an, um die Datei an dem Beitrag anzuh&auml;ngen.<br>
+Wenn du Dateianh&auml;nge l&ouml;schen willst, klicke einfach auf den <b>L&ouml;schen</b> Link rechts von der Datei.
 
 
 TOPIC_TITLE: <a name="msgico">Was ist ein Beitrags-Icon?</a>
 TOPIC_HELP:
-Beitrags-Icon sind kleine Bilder, die Du neben Deinem Beitrag anzeigen lassen kannst. Sie werden f&uuml;r gew&ouml;hnlich 
-verwendet, um den Charakter eines Beitrages, oder eine Stimmung, welche Du &uuml;bermitteln m&ouml;chtest, anzuzeigen.
-Wenn Du keine Icons auf der Seite, auf der Du Deinen Beitrag schreibst, erkennen kannst, bedeutet dies, da&szlig; der Administrator 
+Beitrags-Icon sind kleine Bilder, die du neben deinem Beitrag anzeigen lassen kannst. Sie werden f&uuml;r gew&ouml;hnlich 
+verwendet, um den Charakter eines Beitrages, oder eine Stimmung, welche du &uuml;bermitteln m&ouml;chtest, anzuzeigen.
+Wenn du keine Icons auf der Seite, auf der du deinen Beitrag schreibst, erkennen kannst, bedeutet dies, dass der Administrator 
 diese Funktion deaktiviert hat.
 
 TOPIC_TITLE: <a name="edit">Kann ich meinen Beitrag bearbeiten?</a>
 TOPIC_HELP:
-Wenn Du ein registrierter Benutzer bist, kannst Du Beitr&auml;ge, die Du in letzter Zeit erstellt hattest, bearbeiten. Diese Option kann zeitlich 
-beschr&auml;nkt sein, weswegen es m&ouml;glich ist, da&szlig; ein k&uuml;rzlich erstellter Beitrag sich bearbeiten l&auml;&szlig;t, w&auml;hrend ein anderer, der schon eine Weile 
-zur&uuml;ckliegt, sich nicht mehr ver&auml;ndern l&auml;&szlig;t.<br>
+Wenn du ein registrierter Benutzer bist, kannst du Beitr&auml;ge, die du in letzter Zeit erstellt hattest, bearbeiten. Diese Option kann zeitlich 
+beschr&auml;nkt sein, weswegen es m&ouml;glich ist, dass ein k&uuml;rzlich erstellter Beitrag sich bearbeiten l&auml;sst, w&auml;hrend ein anderer, der schon eine Weile 
+zur&uuml;ckliegt, sich nicht mehr ver&auml;ndern l&auml;sst.<br>
 Beim Ver&auml;ndern des Beitrages wird ein kleiner Zusatz angeh&auml;ngt, der anzeigt von wem und zu welchem Zeitpunkt er bearbeitet wurde.<br>
-Wenn ein Moderator oder Administrator Deinen Beitrag bearbeitet hat, kannst Du es, je nach Einstellung des Forums, am Zusatz erkennen (oder auch nicht).
+Wenn ein Moderator oder Administrator deinen Beitrag bearbeitet hat, kannst du es, je nach Einstellung des Forums, am Zusatz erkennen (oder auch nicht).
 
 TOPIC_TITLE: <a name="mod">Wer sind die Moderatoren und Administratoren?</a> 
 TOPIC_HELP:
 Moderatoren sind "Superuser", die im allgemeinen ein oder mehrere Foren beaufsichtigen. Sie haben das Recht, beliebige Beitr&auml;ge zu editieren, l&ouml;schen und 
-zu bewilligen. Sie sind auch die Ansprechpartner, falls Du etwas Anst&ouml;&szlig;iges in einem Forum, das von ihnen moderiert wird, lesen solltest. 
-Du kannst Dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p>
+zu bewilligen. Sie sind auch die Ansprechpartner, falls du etwas Anst&ouml;&szlig;iges in einem Forum, das von ihnen moderiert wird, lesen solltest. 
+Du kannst dich auch mit Fragen zur Benutzung des Forums an sie wenden.<p>
 Administratoren sind die Forenverwalter, sie k&ouml;nnen ALLES tun, daher sei immer nett zu ihnen, wenn du mit ihnen redest ;-). Administratoren k&ouml;nnen zus&auml;tzlich auch 
 alle Moderatorenfunktionen ausf&uuml;hren, also Avatare billigen, individuelle R&auml;nge zuweisen und entfernen, Benutzer sperren und auf verschiedene Fragen antworten.
 Wenn bei der Nutzung des Forums irgendwelche Bugs auftreten sollten, ist der Administrator der Ansprechpartner.
@@ -278,15 +278,16 @@ Wenn bei der Nutzung des Forums irgendwelche Bugs auftreten sollten, ist der Adm
 TOPIC_TITLE: <a name="cens">Zensur?</a>
 TOPIC_HELP:
 Der Administrator kann festlegen, bestimmte W&ouml;rter zu zensieren. Diese werden dann durch eine von ihm gew&auml;hlten Alternative ersetzt werden. Zensur betrifft das gesamte Forum, 
-daher kann alles, was Du nicht sehen kannst, auch von anderen nicht gesehen werden.
+daher kann alles, was du nicht sehen kannst, auch von anderen nicht gesehen werden.
 
 TOPIC_TITLE: <a name="not">Kann ich &uuml;ber Antworten auf meine Beitr&auml;ge informiert werden?</a> 
 TOPIC_HELP:
-Wenn Du ein neues Thema erstellst, oder zu ein bestehenden Thema eine Antwort schreibst, kannst Du ausw&auml;hlen per Email oder ICQ (Einstellung im Benutzerprofil) &uuml;ber 
-Antworten informiert zu werden. Du kannst auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, in dem Du den <b>Abonnieren</b> Link am oberen 
-Ende der Seite anklickst. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;ltst Du dar&uuml;ber eine Benachrichtigung.
+Wenn du ein neues Thema erstellst oder zu einem bestehenden Thema eine Antwort schreibst, kannst du ausw&auml;hlen per Email oder ICQ (Einstellung im Benutzerprofil) &uuml;ber 
+Antworten informiert zu werden. Du kannst auch ein Thema oder ganzes Forum abonnieren, ohne darin eine Antwort zu verfassen, indem du den <b>Abonnieren</b> Link am oberen 
+Ende der Seite anklickst. Immer wenn ein neues Thema in diesem Forum erstellt worden ist, erh&auml;ltst du dar&uuml;ber eine Benachrichtigung.
 <p>
-Wenn Du keine weiteren Benachrichtigungen mehr w&uuml;nscht, kannst Du beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum aufheben</b> Link anklicken.
-Oder Du rufst den <b>Abonnements</b> Reiter in Deinem Profil auf und l&ouml;scht so das Thema oder Forum von der Liste.
+Wenn du keine weiteren Benachrichtigungen mehr w&uuml;nscht, kannst du beim Lesen des Themas oder Forums den <b>Das Abonnement f&uuml;r das Forum aufheben</b> Link anklicken.
+Oder du rufst den <b>Abonnements</b> Reiter in deinem Profil auf und l&ouml;scht so das Thema oder Forum von der Liste.
 <p>
 Nur registrierte Benutzer k&ouml;nnen Benachrichtigungen erhalten.
+
