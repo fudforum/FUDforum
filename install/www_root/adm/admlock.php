@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.26 2004/08/09 11:01:04 hackie Exp $
+* $Id: admlock.php,v 1.27 2004/08/31 20:13:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,8 +33,6 @@
 
 		$m1 = realpath($WWW_ROOT_DISK);
 		$m2 = realpath($DATA_DIR);
-		$m1l = strlen($m1);
-		$m2l = strlen($m2);
 
 		$dirs = array($m1, $m2);
 		while (list(,$v) = each($dirs)) {
@@ -48,14 +46,8 @@
 				if (@is_file($path) && !@chmod($path, $filep)) {
 					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
 				} else if (@is_dir($path)) {
-					if ($d == '.' || $d == '..') {
+					if ($d == '.' || $d == '..' || is_link($path)) {
 						continue;
-					}
-					if (is_link($path) && ($path = readlink($path))) {
-						if (strncmp($path, $m1, $m1l) && strncmp($path, $m2, $m12)) {
-							/* skip symlinks to outside of base */
-							continue;
-						}
 					}
 					$dirs[] = $path;
 				}
