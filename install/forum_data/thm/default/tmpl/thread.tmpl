@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.28 2003/10/15 14:13:34 hackie Exp $
+* $Id: thread.tmpl,v 1.29 2003/10/15 14:32:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -92,15 +92,15 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a></span>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></span>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
-<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a></span>
+<div class="ModOpt">{MSG: moderator_options}: <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a></div>
 {SECTION: END}
 
 {SECTION: thread_row}
