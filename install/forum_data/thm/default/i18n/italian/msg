@@ -862,7 +862,7 @@ buddy_offline:			{VAR: r[2]} al momento &egrave; fuori linea
 buddy_online:			{VAR: r[2]} al momento &egrave; in linea
 sml_no_smilies:			Non ci sono emoticon disponibili.
 login_unapproved_account_ttl:	Account non approvato
-login_unapproved_account_msg:	L\'amministratore del forum ha sceltp di confermare ogni nuovo account manualmente prima dell&#39;attivazione. Il tuo account non &egrave; stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalit&agrave; disponibili per i membri del forum registrati, fino a quando il tuo account non verr&agrave; approvato.
+login_unapproved_account_msg:	L\'amministratore del forum ha sceltpo di confermare ogni nuovo account manualmente prima dell&#39;attivazione. Il tuo account non &egrave; stato ancora confermato, per cui non potrai accedere ad alcune delle funzionalit&agrave; disponibili per i membri del forum registrati, fino a quando il tuo account non verr&agrave; approvato.
 remove_from_buddy_list:		rimuovi dalla lista degli amici
 iemail_msg_author:		<b>Autore:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Oggetto:</b> {VAR: obj->subject}
