@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.63 2003/08/08 00:17:34 hackie Exp $
+*   $Id: register.php.t,v 1.64 2003/08/08 00:32:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -311,28 +311,35 @@ function decode_uent(&$uent)
 		} else if (is_avatar_upload_allowed() && isset($_FILES['avatar_upload']) && $_FILES['avatar_upload']['size'] > 0) { /* new upload */
 			if ($_FILES['avatar_upload']['size'] >= $GLOBALS['CUSTOM_AVATAR_MAX_SIZE']) {
 				set_err('avatar', '{TEMPLATE: register_err_avatartobig}');
-			} else if (!($img_info = @getimagesize($_FILES['avatar_upload']['tmp_name']))) {
-				set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
 			} else {
+				/* [user_id].[file_extension]_'random data' */
+				$file_name = $uent->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
+				$tmp_name = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
+
+				if (!($img_info = @getimagesize($GLOBALS['TMP'] . $tmp_name))) {
+					set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
+					unlink($GLOBALS['TMP'] . $tmp_name);
+					
+				}
+
 				list($max_w, $max_y) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
 				if ($img_info[2] > ($GLOBALS['AVATAR_ALLOW_SWF']!='Y'?3:4)) {
 					set_err('avatar', '{TEMPLATE: register_err_avatarnotallowed}');
+					unlink($GLOBALS['TMP'] . $tmp_name);
 				} else if ($img_info[0] >$max_w || $img_info[1] >$max_y) {
 					set_err('avatar', '{TEMPLATE: register_err_avatardimtobig}');
+					unlink($GLOBALS['TMP'] . $tmp_name);
 				} else {
 					/* remove old uploaded file, if one exists & is not in DB */
 					if (empty($avatar_arr['leave']) && @file_exists($avatar_arr['file'])) {
 						@unlink($TMP . $avatar_arr['file']);
 					}
-				
-					/* [user_id].[file_extension]_'random data' */
-					$file_name = $uent->id . strrchr($_FILES['avatar_upload']['name'], '.') . '_';
 
-					$avatar_arr['file'] = safe_tmp_copy($_FILES['avatar_upload']['tmp_name'], 0, $file_name);
+					$avatar_arr['file'] = $tmp_name;
 					$avatar_arr['del'] = 0;
 					$avatar_arr['leave'] = 0;
 				}
-			}
+			} 
 		}
 	}
 	
