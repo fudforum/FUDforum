@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.34 2003/10/10 14:39:24 hackie Exp $
+* $Id: tree.tmpl,v 1.35 2003/10/15 14:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -168,7 +168,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" />&nbsp;
-<a href="{TEMPLATE: tree_branch_lnk}" class="GenLink">{VAR: cur->subject}</a>
+<a href="{TEMPLATE: tree_branch_lnk}" class="big">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -183,7 +183,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" />&nbsp;
-<a href="{TEMPLATE: tree_entry_lnk}" class="GenLink">{VAR: cur->subject}</a>
+<a href="{TEMPLATE: tree_entry_lnk}" class="big">{VAR: cur->subject}</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -198,7 +198,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" />&nbsp;
-<a href="{TEMPLATE: tree_branch_selected_lnk}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
+<a href="{TEMPLATE: tree_branch_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -213,7 +213,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" />&nbsp;
-<a href="{TEMPLATE: tree_entry_selected_lnk}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
+<a href="{TEMPLATE: tree_entry_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
 </td>
 <td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
 {SECTION: END}
@@ -237,12 +237,12 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 <td valign="bottom" align="right">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
 </tr>
 </table>
-<table width="100%" border="0" cellspacing="1" cellpadding="2" class="ContentTable" style="border: 1px solid black">
+<table width="100%" border="0" cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: message_data}
 </table>
 <div align=center class="GenText">[<a href="{TEMPLATE: TREE_PAGE_lnk}" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
-<table width="100%" border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th width=1> </th><th width="100%">{MSG: subject}</th><th nowrap align="center">{MSG: poster}</th><th nowrap align="center">{MSG: date}</th></tr>
 {TEMPLATE-DATA: tree_data}
 </table>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.20 2003/10/10 12:43:29 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.21 2003/10/15 14:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -154,22 +154,22 @@
 {SECTION: END}
 
 {MAIN_SECTION: private_message_entry draws a single private message}
-<tr class="RowStyleA">
+<tr class="MsgR1">
 <td valign="top" align="left" class="MsgSubText">{TEMPLATE-DATA: msg_icon}{VAR: obj->subject}</td>
 <td valign="top" align=right class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 </tr>
 
-<tr class="RowStyleA"><td class="RowStyleA" colspan=2>
+<tr class="MsgR2"><td colspan=2 class="MsgR2">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="RowStyleA">
+<tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
-<td width="100%" valign="top" class="GenText">
+<td width="100%" valign="top" class="SmallText">
 {TEMPLATE-DATA: online_indicator}{TEMPLATE-DATA: profile_link}{TEMPLATE-DATA: dmsg_tags}<br />
 {TEMPLATE-DATA: dmsg_user_info}{TEMPLATE-DATA: dmsg_im_row}{TEMPLATE-DATA: buddy_link}
 </td></tr></table>
 </td>
 </tr>
-<tr><td class="RowStyleA" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>
+<tr><td class="MsgR2" colspan=2>{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{TEMPLATE-DATA: signature}</td></tr>
 {TEMPLATE-DATA: msg_toolbar}
 <tr><td align="right" colspan=2 bgcolor="#FFFFFF">{GVAR: dpmsg_prev_message} {GVAR: dpmsg_next_message}</td></tr>
 {MAIN_SECTION: END}

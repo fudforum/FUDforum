@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.27 2003/10/10 14:31:51 hackie Exp $
+* $Id: thread.tmpl,v 1.28 2003/10/15 14:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,11 +52,11 @@
 {SECTION: END}
 
 {SECTION: sticky}
-<font class="SmallText"><b>{MSG: sticky}</b>&nbsp;</font>
+<font class="StClr">{MSG: sticky}&nbsp;</font>
 {SECTION: END}
 
 {SECTION: announcement}
-<font class="SmallText"><b>{MSG: thread_announcement}</b>&nbsp;</font>
+<font class="AnClr">{MSG: thread_announcement}&nbsp;</font>
 {SECTION: END}
 
 {SECTION: thread_last_post}
@@ -92,23 +92,23 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a>
+<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a></span>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>
+<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></span>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
-<br /><b>{MSG: moderator_options}:</b> <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a>
+<br ><span class="ModOpt"><b>{MSG: moderator_options}:</b> <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a></span>
 {SECTION: END}
 
 {SECTION: thread_row}
 <tr>		
 <td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
-<font class="SmallText"><br />{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}{TEMPLATE-DATA: admin_control_row}</font></td>
+<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
+<div class="TopBy">{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}</div>{TEMPLATE-DATA: admin_control_row}</td>
 <td class="RowStyleB" align="center">{VAR: r[16]}</td>
 <td class="RowStyleB" align="center">{VAR: r[19]}</td>
 <td class="RowStyleC" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>

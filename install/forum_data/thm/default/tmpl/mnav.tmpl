@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.5 2003/10/10 14:39:24 hackie Exp $
+* $Id: mnav.tmpl,v 1.6 2003/10/15 14:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -57,7 +57,7 @@
 {SECTION: mnav_no_range invalid date range}
 <br />
 <div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_no_range}</td>
 </tr>
@@ -68,7 +68,7 @@
 {SECTION: mnav_invalid_unit invalid date unit}
 <br />
 <div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_invalid_unit}</td>
 </tr>
@@ -79,7 +79,7 @@
 {SECTION: mnav_invalid_date date range exceed allowed limit}
 <br />
 <div align="center">
-<table border="0" cellspacing="1" cellpadding="2" style="border: 1px dashed red">
+<table border="0" cellspacing="1" cellpadding="2" class="mnavWarnTbl">
 <tr>
 	<td class="GenTextRed">{MSG: mnav_invalid_date}</td>
 </tr>
@@ -88,7 +88,7 @@
 {SECTION: END}
 
 {SECTION: mnav_no_results no results}
-<div align="center" class="GenText" style="border: 1px dashed blue">{MSG: mnav_no_results}</div>
+<div align="center" class="GenText" class="manvNoRes">{MSG: mnav_no_results}</div>
 {SECTION: END}
 
 {SECTION: mnav_begin_results begin results header}
@@ -106,7 +106,7 @@
 {SECTION: END}
 
 {SECTION: mnav_forum}
-<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{TEMPLATE: mnav_forum_lnk}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
+<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{TEMPLATE: mnav_forum_lnk}"><font clas="lg">{VAR-HTML: r->forum_name}</font></a></th></tr>
 {SECTION: END}
 
 {SECTION: mnav_thread_lnk}
@@ -127,7 +127,7 @@
 
 {SECTION: mnav_msg}
 <tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
-<table cellspacing=0 cellpadding=2 border=0 width="100%" style="border-bottom: 1px solid black">
+<table cellspacing=0 cellpadding=2 border=0 class="mnavMsg">
 <tr bgcolor="#eeeeee">
 	<td align="left" class="SmallText"><a class="GenLink" href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
 	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
