@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.10 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admuser.php,v 1.11 2002/09/04 01:27:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -166,7 +166,6 @@ if( !empty($act) ) {
 			$r = q("SELECT id, login, alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(alias)='".htmlspecialchars(strtolower($usr_login))."'");
 
 		if( !db_count($r) ) {
-			echo last_query(1);
 			$usr->id=0;
 		}	
 		else {
