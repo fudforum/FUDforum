@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.40 2004/03/10 16:40:18 hackie Exp $
+* $Id: admdump.php,v 1.41 2004/05/28 13:03:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -196,7 +196,7 @@ function sql_is_null($r, $n, $tbl='')
 
 		foreach($sql_table_list as $tbl_name) {
 			/* not needed, will be rebuilt by consistency checker */
-			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view') {
+			if ($tbl_name == $DBHOST_TBL_PREFIX . 'thread_view' || $tbl_name == $DBHOST_TBL_PREFIX . 'ses') {
 				continue;
 			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
