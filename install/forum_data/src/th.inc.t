@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.14 2002/09/02 20:07:21 hackie Exp $
+*   $Id: th.inc.t,v 1.15 2002/09/27 00:13:51 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -316,7 +316,6 @@ function rebuild_forum_view($forum_id, $page=0)
 		}
 		
 		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,pos) SELECT thread_id,forum_id,CEIL(pos/40.0),(pos-(CEIL(pos/40)-1)*40) FROM ".$tmp_tbl_name);
-		q("DROP SEQUENCE ".$tmp_tbl_name."_pos_seq");
 		q("DROP TABLE ".$tmp_tbl_name);
 		return;
 	}
