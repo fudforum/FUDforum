@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.28 2004/06/07 15:24:54 hackie Exp $
+* $Id: admmlist.php,v 1.29 2004/08/09 10:46:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -217,7 +217,7 @@ function format_regex(&$regex)
 
 	<tr class="field">
 		<td valign="top">Custom Headers:</td>
-		<td nowrap><textarea nowrap cols=50 rows=5><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
+		<td nowrap><textarea nowrap cols=50 rows=5 name="ml_additional_headers"><?php echo htmlspecialchars($ml_additional_headers); ?></textarea></td>
 	</tr>
 
 	<tr>
