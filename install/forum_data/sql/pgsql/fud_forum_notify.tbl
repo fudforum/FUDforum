@@ -1,0 +1,20 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_forum_notify.tbl,v 1.1 2002/06/26 19:50:45 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE {SQL_TABLE_PREFIX}forum_notify;
+
+CREATE TABLE {SQL_TABLE_PREFIX}forum_notify
+(
+	id		SERIAL PRIMARY KEY,
+	user_id		INT NOT NULL,
+	forum_id	INT NOT NULL
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}forum_notify_index_user_id_forum_id ON {SQL_TABLE_PREFIX}forum_notify (user_id,forum_id);

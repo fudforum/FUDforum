@@ -1,0 +1,96 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_users.tbl,v 1.1 2002/06/26 19:50:46 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE {SQL_TABLE_PREFIX}users;
+
+CREATE TABLE {SQL_TABLE_PREFIX}users
+(
+	id			SERIAL PRIMARY KEY,
+	login			VARCHAR(50) NOT NULL,
+	passwd			VARCHAR(32) NOT NULL,
+	name			VARCHAR(255) NOT NULL,
+	
+	email			VARCHAR(255) NOT NULL,
+	location		VARCHAR(255),
+	interests		VARCHAR(255),
+	occupation		VARCHAR(255),
+	display_email		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		display_email_cnt CHECK (display_email='Y' OR display_email='N'),
+	notify			VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		notify_cnt CHECK (notify='Y' OR notify='N'),
+	notify_method		VARCHAR(5) NOT NULL DEFAULT 'EMAIL',
+	CONSTRAINT		notify_method_cnt CHECK (notify_method='EMAIL' OR notify_method='ICQ'),
+	ignore_admin		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		ignore_admin_cnt CHECK (ignore_admin='Y' OR ignore_admin='N'),
+	email_messages		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		email_messages_cnt CHECK (email_messages='Y' OR email_messages='N'),
+	avatar			INT NOT NULL DEFAULT 0,
+	avatar_loc		VARCHAR(255),
+	avatar_approved		VARCHAR(2) NOT NULL DEFAULT 'NO',
+	CONSTRAINT		avatar_approved_cnt CHECK (avatar_approved='Y' OR avatar_approved='N' OR avatar_approved='NO'),
+	
+	gender			VARCHAR(11) NOT NULL DEFAULT 'UNSPECIFIED',
+	CONSTRAINT		gender_chk CHECK (gender='MALE' OR gender='FEMALE' OR gender='UNSPECIFIED'),
+
+	icq			BIGINT,
+	aim			VARCHAR(255),
+	yahoo			VARCHAR(255),
+	msnm			VARCHAR(255),
+	jabber			VARCHAR(255),
+	
+	append_sig		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		append_sig_cnt CHECK (append_sig='Y' OR append_sig='N'),
+	show_sigs		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		show_sigs_cnt CHECK (show_sigs='Y' OR show_sigs='N'),
+	show_avatars		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		show_avatars_cnt CHECK (show_avatars='Y' OR show_avatars='N'),
+	posts_ppg		INT NOT NULL DEFAULT 0,
+	time_zone		VARCHAR(255) NOT NULL DEFAULT 'America/Detroit',
+	
+	bday			INT NOT NULL DEFAULT 0,
+	join_date		INT8 NOT NULL DEFAULT 0,
+	
+	invisible_mode		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		invisible_mode_cnt CHECK (invisible_mode='Y' OR invisible_mode='N'),
+	blocked			VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		blocked_cnt CHECK (blocked='Y' OR blocked='N'),
+	email_conf		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		email_conf_cnt CHECK (email_conf='Y' OR email_conf='N'),
+	conf_key		VARCHAR(32) NOT NULL DEFAULT '0',
+	user_image		VARCHAR(255),
+	theme			INT NOT NULL DEFAULT 0,
+	coppa			VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT		coppa_cnt CHECK (coppa='Y' OR coppa='N'),
+	
+	posted_msg_count	INT NOT NULL DEFAULT 0,
+	last_visit		INT8 NOT NULL DEFAULT 0,
+	referer_id		INT NOT NULL DEFAULT 0,
+	last_read		INT8 NOT NULL DEFAULT 0,
+	custom_status 		TEXT,
+	sig			TEXT,
+	
+	default_view		VARCHAR(4) NOT NULL DEFAULT 'msg',
+	CONSTRAINT		default_view_chk CHECK (default_view='msg' OR default_view='tree'),
+	is_mod 			VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT              is_mod_cnt CHECK (is_mod='Y' OR is_mod='N' OR is_mod='A'),
+	level_id 		INT NOT NULL DEFAULT 0,
+	reset_key		VARCHAR(32) NOT NULL DEFAULT '0',
+	u_last_post_id 		INT NOT NULL DEFAULT 0,
+	home_page		VARCHAR(255), 
+	bio			TEXT
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_index_login ON {SQL_TABLE_PREFIX}users (login);
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_index_email ON {SQL_TABLE_PREFIX}users (email);
+CREATE INDEX {SQL_TABLE_PREFIX}users_index_reset_key ON {SQL_TABLE_PREFIX}users (reset_key);
+CREATE INDEX {SQL_TABLE_PREFIX}users_index_last_visit ON {SQL_TABLE_PREFIX}users (last_visit);
+CREATE INDEX {SQL_TABLE_PREFIX}users_index_conf_key ON {SQL_TABLE_PREFIX}users (conf_key);
+CREATE INDEX {SQL_TABLE_PREFIX}users_index_referer_id ON {SQL_TABLE_PREFIX}users (referer_id);
+CREATE INDEX {SQL_TABLE_PREFIX}users_index_avatar_approved ON {SQL_TABLE_PREFIX}users (avatar_approved);

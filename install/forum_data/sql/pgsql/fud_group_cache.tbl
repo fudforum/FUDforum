@@ -1,0 +1,59 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_group_cache.tbl,v 1.1 2002/06/26 19:50:45 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE {SQL_TABLE_PREFIX}group_cache;
+
+CREATE TABLE {SQL_TABLE_PREFIX}group_cache
+(
+	id		SERIAL PRIMARY KEY,
+	user_id		INT NOT NULL,
+	resource_type	VARCHAR(32) NOT NULL,
+	resource_id	INT NOT NULL,
+	group_id	INT NOT NULL,
+	
+	p_VISIBLE	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_VISIBLE_cnt CHECK (p_VISIBLE='Y' OR p_VISIBLE='N'),
+	p_READ		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_READ_cnt CHECK (p_READ='Y' OR p_READ='N'),
+	p_POST		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_POST_cnt CHECK (p_POST='Y' OR p_POST='N'),
+	p_REPLY		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_REPLY_cnt CHECK (p_REPLY='Y' OR p_REPLY='N'),
+	p_EDIT		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_EDIT_cnt CHECK (p_EDIT='Y' OR p_EDIT='N'),
+	p_DEL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_DEL_cnt CHECK (p_DEL='Y' OR p_DEL='N'),
+	p_STICKY	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_STICKY_cnt CHECK (p_STICKY='Y' OR p_STICKY='N'),
+	p_POLL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_POLL_cnt CHECK (p_POLL='Y' OR p_POLL='N'),
+	p_FILE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_FILE_cnt CHECK (p_FILE='Y' OR p_FILE='N'),
+	p_VOTE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_VOTE_cnt CHECK (p_VOTE='Y' OR p_VOTE='N'),
+	p_RATE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_RATE_cnt CHECK (p_RATE='Y' OR p_RATE='N'),
+	p_SPLIT		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_SPLIT_cnt CHECK (p_SPLIT='Y' OR p_SPLIT='N'),
+	p_LOCK		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_LOCK_cnt CHECK (p_LOCK='Y' OR p_LOCK='N'),
+	p_MOVE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_MOVE_cnt CHECK (p_MOVE='Y' OR p_MOVE='N'),
+	p_SML		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_SML_cnt CHECK (p_SML='Y' OR p_SML='N'),
+	p_IMG		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_IMG_cnt CHECK (p_IMG='Y' OR p_IMG='N')
+);
+
+CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}group_cache_index_user_id_resource_type_resource_id ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, resource_id);
+CREATE INDEX {SQL_TABLE_PREFIX}group_cache_index_uid_group_id ON {SQL_TABLE_PREFIX}group_cache (user_id, group_id);
+CREATE INDEX {SQL_TABLE_PREFIX}group_cache_index_uid_rt_p_READ_p_VISIBLE ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, p_READ, p_VISIBLE);
+CREATE INDEX {SQL_TABLE_PREFIX}group_cache_index_uid_rt_p_VISIBLE ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, p_VISIBLE);
+CREATE INDEX {SQL_TABLE_PREFIX}group_cache_index_group_id ON {SQL_TABLE_PREFIX}group_cache (group_id);

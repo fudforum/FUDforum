@@ -1,0 +1,57 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_groups.tbl,v 1.1 2002/06/26 19:50:46 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE {SQL_TABLE_PREFIX}groups;
+
+CREATE TABLE {SQL_TABLE_PREFIX}groups
+(
+	id		SERIAL PRIMARY KEY,
+	name		VARCHAR(255) NOT NULL,
+	inherit_id	INT NOT NULL DEFAULT 0,
+	joinmode	VARCHAR(9) NOT NULL DEFAULT 'NONE',
+	CONSTRAINT	joinmode_cnt CHECK (joinmode='NONE' OR joinmode='PUBLIC' OR joinmode='MODERATED'),
+	res		VARCHAR(100) NOT NULL DEFAULT 'NONE',
+	res_id		INT NOT NULL DEFAULT 0,
+	
+	p_VISIBLE	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_VISIBLE_cnt CHECK (p_VISIBLE='Y' OR p_VISIBLE='N' OR p_VISIBLE='I'),
+	p_READ		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_READ_cnt CHECK (p_READ='Y' OR p_READ='N' OR p_READ='I'),
+	p_POST		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_POST_cnt CHECK (p_POST='Y' OR p_POST='N' OR p_POST='I'),
+	p_REPLY		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_REPLY_cnt CHECK (p_REPLY='Y' OR p_REPLY='N' OR p_REPLY='I'),
+	p_EDIT		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_EDIT_cnt CHECK (p_EDIT='Y' OR p_EDIT='N' OR p_EDIT='I'),
+	p_DEL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_DEL_cnt CHECK (p_DEL='Y' OR p_DEL='N' OR p_DEL='I'),
+	p_STICKY	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_STICKY_cnt CHECK (p_STICKY='Y' OR p_STICKY='N' OR p_STICKY='I'),
+	p_POLL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_POLL_cnt CHECK (p_POLL='Y' OR p_POLL='N' OR p_POLL='I'),
+	p_FILE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_FILE_cnt CHECK (p_FILE='Y' OR p_FILE='N' OR p_FILE='I'),
+	p_VOTE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_VOTE_cnt CHECK (p_VOTE='Y' OR p_VOTE='N' OR p_VOTE='I'),
+	p_RATE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_RATE_cnt CHECK (p_RATE='Y' OR p_RATE='N' OR p_RATE='I'),
+	p_SPLIT		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_SPLIT_cnt CHECK (p_SPLIT='Y' OR p_SPLIT='N' OR p_SPLIT='I'),
+	p_LOCK		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_LOCK_cnt CHECK (p_LOCK='Y' OR p_LOCK='N' OR p_LOCK='I'),
+	p_MOVE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_MOVE_cnt CHECK (p_MOVE='Y' OR p_MOVE='N' OR p_MOVE='I'),
+	p_SML		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_SML_cnt CHECK (p_SML='Y' OR p_SML='N' OR p_SML='I'),
+	p_IMG		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	p_IMG_cnt CHECK (p_IMG='Y' OR p_IMG='N' OR p_IMG='I')
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}groups_index_res_res_id ON {SQL_TABLE_PREFIX}groups (res, res_id);

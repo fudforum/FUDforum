@@ -1,0 +1,48 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_msg.tbl,v 1.1 2002/06/26 19:50:46 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE {SQL_TABLE_PREFIX}msg;
+
+CREATE TABLE {SQL_TABLE_PREFIX}msg
+(
+	id		SERIAL PRIMARY KEY,
+	thread_id	INT NOT NULL,
+	poster_id	INT  NOT NULL DEFAULT 0,
+	reply_to	INT  NOT NULL DEFAULT 0,
+	ip_addr		VARCHAR(15) NOT NULL DEFAULT '0.0.0.0',
+	host_name	VARCHAR(255),
+	post_stamp	INT8 NOT NULL,
+	update_stamp	INT8 NOT NULL DEFAULT 0,
+	updated_by	INT NOT NULL DEFAULT 0,
+	icon		VARCHAR(100),
+	subject		VARCHAR(100) NOT NULL,
+	attach_cnt	INT NOT NULL DEFAULT 0,
+	poll_id		INT NOT NULL DEFAULT 0,
+	approved	VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT	approved_cnt CHECK (approved='Y' OR approved='N'),
+	show_sig	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	CONSTRAINT	show_sig_cnt CHECK (show_sig='Y' OR show_sig='N'),
+	smiley_disabled	VARCHAR(1) NOT NULL DEFAULT 'N',
+	CONSTRAINT	smiley_disabled_cnt CHECK (smiley_disabled='Y' OR smiley_disabled='N'),
+	foff		INT8 NOT NULL DEFAULT 0,
+	length		INT8 NOT NULL DEFAULT 0,
+	file_id		INT8 NOT NULL DEFAULT 1,
+	offset_preview  INT8 NOT NULL DEFAULT 0,
+	length_preview	INT8 NOT NULL DEFAULT 0,
+	file_id_preview	INT8 NOT NULL DEFAULT 0
+);
+
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_thread_id_approve ON {SQL_TABLE_PREFIX}msg (thread_id, approved);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_post_stamp ON {SQL_TABLE_PREFIX}msg (post_stamp);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_poster_id_approve ON {SQL_TABLE_PREFIX}msg (poster_id, approved);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_approved ON {SQL_TABLE_PREFIX}msg (approved);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_attach_cnt ON {SQL_TABLE_PREFIX}msg (attach_cnt);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_poll_id ON {SQL_TABLE_PREFIX}msg (poll_id);
+CREATE INDEX {SQL_TABLE_PREFIX}msg_index_ip_addr_post_stamp ON {SQL_TABLE_PREFIX}msg (ip_addr, post_stamp);
