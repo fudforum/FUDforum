@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.16 2003/09/30 04:02:22 hackie Exp $
+*   $Id: admgrouplead.php,v 1.17 2003/10/01 03:38:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,27 +20,25 @@
 	fud_use('groups.inc');
 	fud_use('groups_adm.inc', true);
 
-	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-
 	$group_id = isset($_GET['group_id']) ? (int)$_GET['group_id'] : (isset($_POST['group_id']) ? (int)$_POST['group_id'] : '');
 	$gr_leader = isset($_GET['gr_leader']) ? $_GET['gr_leader'] : (isset($_POST['gr_leader']) ? $_POST['gr_leader'] : '');
-	
+
 	if (!$group_id) {
 		header('Location: admgroups.php?'._rsidl);
 		exit;
 	}	
 
 	if (isset($_GET['del'])) {
-		q('DELETE FROM '.$tbl.'group_members WHERE user_id='.(int)$_GET['del']);
-		q('DELETE FROM '.$tbl.'group_cache WHERE user_id='.(int)$_GET['del']);
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_members WHERE user_id='.(int)$_GET['del']);
+		q('DELETE FROM '.$DBHOST_TBL_PREFIX.'group_cache WHERE user_id='.(int)$_GET['del']);
 		rebuild_group_ldr_cache((int)$_GET['del']);
 	} else if ($gr_leader) {
 		$srch = addslashes(str_replace('\\', '\\\\', htmlspecialchars($gr_leader)));
 
-		$c = q("SELECT id, alias FROM ".$tbl."users WHERE alias='".$srch."'");
+		$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias='".$srch."'");
 		if (!db_count($c)) {
 			qf($c);
-			$c = q('SELECT id, alias FROM '.$tbl.'users WHERE alias LIKE \''.$srch.'%\' LIMIT 50');
+			$c = q("SELECT id, alias FROM ".$DBHOST_TBL_PREFIX."users WHERE alias LIKE '".$srch."%' LIMIT 50");
 		}
 		switch (($cnt = db_count($c))) {
 			case 0:
@@ -48,10 +46,9 @@
 				break;
 			case 1:
 				$r = db_rowarr($c);
-				$flds = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
-				q('INSERT INTO '.$tbl.'group_members ('.str_replace('p_', 'up_', $flds).', group_leader, group_id, user_id) SELECT '.$flds.', \'Y\', id, '.$r[0].' FROM '.$tbl.'groups WHERE id='.$group_id);
+				q('INSERT INTO '.$DBHOST_TBL_PREFIX.'group_members (group_id, user_id, group_members_opt) SELECT id, '.$r[0].', groups_opt|65536|131072 FROM '.$DBHOST_TBL_PREFIX.'groups WHERE id='.$group_id);
 				rebuild_group_ldr_cache($r[0]);
-				grp_rebuild_cache($group_id, $r[0]);
+				grp_rebuild_cache(array($r[0]));
 				$gr_leader = '';
 				break;
 			default:
@@ -80,7 +77,7 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr><td>Leader Login</td><td>Action</td></tr>
 <?php
-	$c = uq('SELECT u.id, u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_leader=\'Y\'');
+	$c = uq('SELECT u.id, u.alias FROM '.$DBHOST_TBL_PREFIX.'group_members gm INNER JOIN '.$DBHOST_TBL_PREFIX.'users u ON u.id=gm.user_id WHERE gm.group_id='.$group_id.' AND gm.group_members_opt>=131072 AND gm.group_members_opt & 131072');
 	while ($r = db_rowarr($c)) {
 		echo '<tr><td>'.$r[1].'</td><td>[<a href="admgrouplead.php?group_id='.$group_id.'&del='.$r[0].'&'._rsidl.'">Remove From Group</a>]</td></tr>';
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.30 2003/10/01 03:29:13 hackie Exp $
+*   $Id: admgroups.php,v 1.31 2003/10/01 03:38:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	define('fud_query_stats', 1);
 	require ('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
