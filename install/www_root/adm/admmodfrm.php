@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmodfrm.php,v 1.16 2003/10/16 21:59:05 hackie Exp $
+* $Id: admmodfrm.php,v 1.17 2003/11/28 14:59:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -40,7 +40,7 @@
 ?>
 <html>
 <script language="JavaScript">
-	window.opener.location.reload();
+	window.opener.location = 'admuser.php?act=1&usr_id=<?php echo $usr_id; ?>&<?php echo _rsidl; ?>';
 	window.close();
 </script>
 </html>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.39 2003/10/16 21:59:05 hackie Exp $
+* $Id: admuser.php,v 1.40 2003/11/28 14:59:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -124,13 +124,12 @@ Are you sure you want to do this?<br>
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					$u->users_opt |=  524288|1048576;
 					if (q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'mod WHERE user_id='.$u->id)) {
-						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|1048576) & ~ 1048576 | 524288 WHERE id='.$usr_id);
+						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt &~ 1048576) |524288 WHERE id='.$usr_id);
 						$u->users_opt ^= 1048576;
 					} else {
-						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|524288|1048576) & ~ (524288|1048576) WHERE id='.$usr_id);
-						$u->users_opt ^= 1048576|524288;
+						q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt &~ (524288|1048576) WHERE id='.$usr_id);
+						$u->users_opt = $u->users_opt &~ (1048576|524288);
 					}
 				}
 			} else {
@@ -153,7 +152,8 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|524288) & ~ 524288 | 1048576 WHERE id='.$usr_id);
+					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt &~ 524288) | 1048576 WHERE id='.$usr_id);
+					$u->users_opt |= 1048576;
 				}
 			}
 			break;
