@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.14 2004/01/04 16:38:27 hackie Exp $
+* $Id: post_common.inc.t,v 1.15 2004/04/21 22:54:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ function draw_post_icons($msg_icon)
 	return ($data ? '{TEMPLATE: post_icons}' : '');
 }
 
-function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private='', $msg_id)
+function draw_post_attachments($al, $max_as, $max_a, $attach_control_error, $private=0, $msg_id)
 {
 	$attached_files = '';
 	$i = 0;

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.112 2004/04/20 18:12:01 hackie Exp $
+* $Id: post.php.t,v 1.113 2004/04/21 22:54:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -610,7 +610,7 @@ function flood_check()
 			}
 			$frm->max_file_attachments = 100;
 		}
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error, '', $msg_id);
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), $frm->max_attach_size, $frm->max_file_attachments, $attach_control_error, 0, $msg_id);
 	} else {
 		$file_attachments = '';
 	}
