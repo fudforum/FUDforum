@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.25 2004/11/24 19:53:42 hackie Exp $
+* $Id: admprune.php,v 1.26 2004/12/09 18:43:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -30,21 +30,23 @@
 	}
 
 	if (isset($_POST['btn_prune']) && !empty($_POST['thread_age'])) {
+		$lmt = ' AND (thread_opt & (2|4)) == 0 ';
+	
 		/* figure out our limit if any */
 		if ($_POST['forumsel'] == '0') {
-			$lmt = '';
 			$msg = '<font color="red">from all forums</font>';
 		} else if (!strncmp($_POST['forumsel'], 'cat_', 4)) {
+			$l = array();
 			$c = uq('SELECT id FROM '.$DBHOST_TBL_PREFIX.'forum WHERE cat_id='.(int)substr($_POST['forumsel'], 4));
 			while ($r = db_rowarr($c)) {
 				$l[] = $r[0];
 			}
-			if ($lmt = implode(',', $l)) {
-				$lmt = ' AND forum_id IN('.$lmt.') ';
+			if ($l) {
+				$lmt .= ' AND forum_id IN('.implode(',', $l).') ';
 			}
 			$msg = '<font color="red">from all forums in category "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'cat WHERE id='.(int)substr($_POST['forumsel'], 4)).'"</font>';
 		} else {
-			$lmt = ' AND forum_id='.(int)$_POST['forumsel'].' ';
+			$lmt .= ' AND forum_id='.(int)$_POST['forumsel'].' ';
 			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
@@ -83,6 +85,8 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			exit;
 		} else {
 			db_lock($DBHOST_TBL_PREFIX.'thr_exchange WRITE, '.$DBHOST_TBL_PREFIX.'thread_view WRITE, '.$DBHOST_TBL_PREFIX.'level WRITE, '.$DBHOST_TBL_PREFIX.'forum WRITE, '.$DBHOST_TBL_PREFIX.'forum_read WRITE, '.$DBHOST_TBL_PREFIX.'thread WRITE, '.$DBHOST_TBL_PREFIX.'msg WRITE, '.$DBHOST_TBL_PREFIX.'attach WRITE, '.$DBHOST_TBL_PREFIX.'poll WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt_track WRITE, '.$DBHOST_TBL_PREFIX.'users WRITE, '.$DBHOST_TBL_PREFIX.'thread_notify WRITE, '.$DBHOST_TBL_PREFIX.'msg_report WRITE, '.$DBHOST_TBL_PREFIX.'thread_rate_track WRITE');
+			$frm_list = array();
+
 			if (!$usr_id) {
 				$c = q('SELECT root_msg_id, forum_id FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
 				while ($r = db_rowarr($c)) {
