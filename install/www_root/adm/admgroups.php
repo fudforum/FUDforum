@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.12 2002/10/14 23:40:36 hackie Exp $
+*   $Id: admgroups.php,v 1.13 2003/04/25 16:40:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,212 +17,148 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('db.inc');
-	fud_use('widgets.inc', true);	
-	fud_use('groups.inc');
-	fud_use('forum.inc');
+	require ('GLOBALS.php');
 	fud_use('adm.inc', true);
-	
-	list($ses, $adm) = initadm();
-	
-	if ( $btn_cancel ) {
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
-		exit();
-	}
-		
+	fud_use('widgets.inc', true);
+	fud_use('groups_adm.inc', true);	
+	fud_use('groups.inc');
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
+
+	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
+
 	/* check for errors */
 	$error = 0;
-	if ( $btn_submit ) {
-		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k => $v) { 
-			if ( $HTTP_POST_VARS[$k] == 'I' && !$HTTP_POST_VARS['gr_inherit_id'] ) { 
-				$error_reason = "One of your permissions is set to Inherit, however you have not selected a group to inherit from";
-				$error = 1; 
+	$grp = new fud_group;
+	if (isset($_POST['btn_submit'])) {
+		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) { 
+			if ($_POST[$k] == 'I' && !$_POST['gr_inherit_id']) { 
+				$error_reason = 'One of your permissions is set to Inherit, however you have not selected a group to inherit from';
+				$error = 1;
 				break; 
 			}
 		}
-	}
-	
-	$grp = new fud_group;
-	if ( $btn_submit && !$error  ) {
-		if ( empty($edit) ) { /* create new group */
-			$grp->name = $gr_name;
-			$grp->joinmode = $gr_joinmode;
-			$grp->inherit_id=$gr_inherit_id;
-			$grp->fetch_perms('');
-			$grp->add(NULL, NULL, NULL, $gr_ramasks);
+		if (!count($_POST['gr_resource']) && !$edit || ($edit > 2)) {
+			$error_reason = 'You must assign at least 1 resource to this group';
+			$error = 1;
 		}
-		else { /* update an existing group */
-			$grp->get($edit);
-			if( !$grp->check_circular_inh($gr_inherit_id) ) 
-				exit('Circular Inheritence');
-			$grp->fetch_perms('');
-			$grp->name = $gr_name;
-			$grp->inherit_id=$gr_inherit_id;
-			$grp->joinmode = $gr_joinmode;
-			$grp->sync();
-		}
-		
-		
-		if ( !$grp->res ) $grp->res = 'NONE';
-		/* make rslist */
-		if ( $grp->res == 'NONE' && is_array($HTTP_POST_VARS['gr_resource']) ) {
-			foreach($HTTP_POST_VARS['gr_resource'] as $k => $v) { 
-				list($type, $id) = explode(':', $v);
-				$gr_list[$type][$id] = $id;
+
+		if (!$error) {
+			foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+				$perms[$k] = $_POST[$k];
 			}
-			$grp->add_resource_list($gr_list);
-		}
-		
-		/* determine how long this could take */
-		if ( q_singleval("SELECT COUNT(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members WHERE group_id=$grp->id") > 100 ) $dlg = 1;
-		if ( $dlg ) {
-			$ts = __request_timestamp__;
-			echo "<html>
-			Please wait, this might take few minutes<br>\n
-			<br>
-			";
-			flush();
-		}
-		
-		$grp->rebuild_cache();
-		if ( $dlg ) {
-			$te = __request_timestamp__;
-			$tt = (($te-$ts)/60);
-			echo "Done, return to <a href=\"admgroups.php?rnd=".get_random_value()."\">group manager</a><br><font size=-1>cache for group $grp->name rebuilt in $tt min (".($te-$ts)." sec)</font>\n</html>";
-		}
-		else
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
-		exit();
-	}
-	
-	if ( $del ) {
-		$grp->get($del);
-		if ( $grp->res == 'NONE' ) $grp->delete();
-		header("Location: admgroups.php?rnd=".get_random_value()."&"._rsidl);
-		exit();
-	}
-	
-	if ( $edit ) {
-		$grp->get($edit);
-		if ( !$prevloaded ) {
-			$gr_name = $grp->name;
-			$gr_joinmode = $grp->joinmode;
-		}
-		
-		$perms = $grp->get_perms();
-		if ( !($pret = $grp->resolve_perms(false)) ) $err = 1;
-		$in_perms = $pret['perms'];
-		
-		if ( $prevloaded ) {
-			$grp->inherit_id = $gr_inherit_id;
-			foreach($HTTP_POST_VARS as $k => $v) {
-				if ( substr($k, 0, 2) != 'p_' ) continue;
-				$perms[$k] = $v;
+
+			if (!edit) { /* create new group */
+				$gid = group_add((int)$_POST['gr_resource'][0], $_POST['gr_name'], ($_POST['gr_ramasks'] == 'Y' ? 1 : 0), (int)$_POST['gr_inherit_id']);
+				if (!$gid) {
+					$error_reason = 'Failed to add group';
+					$error = 1;
+				} else if (count($_POST['gr_resource']) > 1) {
+					unset($_POST['gr_resource'][0]);
+					foreach ($_POST['gr_resource'] as $v) {
+						q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+					}
+				}
+			} else if (($gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE id='.$edit))) { /* update an existing group */
+				/* check to ensure circular inheritence does not occur */
+				if (group_check_inheritence((int)$_POST['gr_inherit_id'])) {
+					exit('Circular Inheritence');
+				}
+				group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
+				$edit = '';
+			}
+			if ($gid) {
+				grp_rebuild_cache($gid);
 			}
 		}
 	}
 	
-	if ( $rebuild ) {
-		$grp->get($rebuild);
-		$grp->rebuild_cache();
-		exit("done");
+	if (isset($_GET['del'])) {
+		group_delete((int)$_GET['del']);
 	}
 	
-	if ( $rebuildall ) {
-		rebuild_group_cache();
-		exit('done');
+	if (isset($_GET['edit']) && ($data = db_sab('SELECT * FROM '.$tbl.'groups WHERE id='.$edit))) {
+		$gr_name = $data->name;
+		$gr_inherit_id = $data->inherit_id;
+		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+			$perms[$k] = $data->{$k};
+		}
+	} else {
+		/* default form values */
+		$gr_ramasks = 'N';
+		$gr_inherit_id = 2;
+		$gr_name = '';
+		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+			$perms[$k] = 'I';
+		}
 	}
-	include('admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+
+	if (isset($err)) {
+		echo '<font color="red">You have a circular dependancy!</font><br>';
+	}
+	if (isset($error_reason)) {
+		echo '<font color="red">'.$error_reason.'</font><br>';
+	}
 ?>
+
+<form method="post" action="admgroups.php">
 <table border=0 cellspacing=0>
-<?php
-	if ( $err ) {
-		echo "<font color=\"red\">You have a circular dependancy!</font><br>";
-	}
-	
-	if ( $error_reason ) {
-		echo "<font color=\"red\">$error_reason</font><br>";
-	}
-	
-?>
-<form method="post" action="admgroups.php?rnd=<?php echo get_random_value(); ?>">
 <?php echo _hs; ?>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
-<tr><td>Group Name: </td><td><input type="text" name="gr_name" value="<?php echo $gr_name; ?>"></td></tr>
-<?php if( $grp->res != 'global' ) { ?>
-<tr><td valign=top>Group Resources: </td>
-	<td>
-	<?php if ( $edit && $grp->res!='NONE' ) {
-		switch ( $grp->res ) {
-			case "forum":
-				$frm = new fud_forum;
-				$frm->get($grp->res_id);
-				echo "FORUM: ".$frm->name;
-				break;
-		}
-	
-	} else { ?>
-	<select MULTIPLE name="gr_resource[]" size=10>
-	<?php 
-		if ( !empty($edit) && !$prevloaded) {
-			$grp->get($edit);
-			$rslist = $grp->get_resources_by_rsid();
-		}
-		else if ( $prevloaded ) {
-			 if ( $grp->res == 'NONE' && is_array($HTTP_POST_VARS['gr_resource']) ) {
-				foreach($HTTP_POST_VARS['gr_resource'] as $k => $v) {
-					list($type, $id) = explode(':', $v);
-					$rslist[$type][$id] = $id;
-				}
-			 }
-			                                                                                                                                                                           
-		}
-		
-		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
-		while ( $obj = db_rowobj($r) ) {
-			$rsname = "forum:$obj->id";
-			if ( isset($rslist['forum'][$obj->id]) ) 
-				$selected = ' selected';
-			else
-				$selected = '';
-			echo '<option value="'.$rsname.'"'.$selected.'>FORUM: '.$obj->name.'</option>';
-		}
-		
-	?>
-	</select>
-	<?php } ?>
-	</td>
-</tr>
-<tr><td>Inherit From: </td>
-	<td>
-	<select name="gr_inherit_id">
-	<option value="0">No where</option>
-	<?php
-		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups ORDER BY id");
-		while ( $obj = db_rowobj($r) ) {
-			if ( !empty($edit) && $edit==$obj->id ) continue;
-			if ( !empty($edit) && $obj->id==$grp->inherit_id ) 
-				$selected = ' selected';
-			else
-				$selected = '';
-			echo "<option value=\"$obj->id\"$selected>$obj->name</option>\n";
-		}
-	?>
-	</select>
-	</td>
-</tr>
-<?php }
-
-if ( !$edit ) {
-?>
-<tr>
-	<td>Anonymous and Registered Masks</td>
-	<td><?php draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks); ?></td>
-</tr>
+<tr><td>Group Name: </td><td>
 <?php
-} /* !$edit */
+	if ($edit && ($edit < 3 || $data->no_del)) {
+		echo $gr_name;
+	} else {
+		echo '<input type="text" name="gr_name" value="'.htmlspecialchars($gr_name).'">';
+	}
+?>
+</td></tr>
+<?php
+	if (!$edit || $edit > 2) {
+		echo '<tr><td valign=top>Group Resources: </td><td>';
+		if ($edit && $obj->no_del) {
+			echo 'FORUM: '.$data->fname;
+		} else {
+			echo '<select MULTIPLE name="gr_resource[]" size=10>';
+			if (!isset($_POST['edit']) && $edit) {
+				$c = uq('SELECT resource_id FROM '.$tbl.'group_resources WHERE group_id='.$edit);
+				while ($r = db_rowarr($c)) {
+					$gr_resource[$r[0]] = $r[0];
+				}
+				qf($c);
+			} else if (isset($_POST['edit'], $_POST['gr_resource'])) {
+				foreach ($_POST['gr_resource'] as $v) {
+					$gr_resource[$v] = $v;
+				}
+			} else {
+				$gr_resource = array();
+			}
+			$c = uq('SELECT f.id, f.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c ON c.id=f.cat_id ORDER BY c.view_order, f.view_order');
+			while ($r = db_rowarr($c)) {
+				echo '<option value="'.$r[0].'"'.(isset($gr_resource[$r[0]]) ? ' selected' : '').'>'.$r[1].'</option>';
+			}
+			qf($c);
+			echo '</select>';
+		}
+		echo '</td></tr><tr><td>Inherit From: </td><td><select name="gr_inherit_id"><option value="0">No where</option>';
+
+		$c = uq('SELECT id, name FROM '.$tbl.'groups ORDER BY id');
+		while ($r = db_rowarr($c)) {
+			echo '<option value="'.$r[0].'" '.($gr_inherit_id == $r[0] ? ' selected' : '').'>'.$r[1].'</option>';
+		}
+		qf($c);
+
+		echo '</select></td></tr>';
+	}
+
+	if (!$edit) {
+		echo '<tr><td>Anonymous and Registered Masks</td><td>';
+		draw_select('gr_ramasks', "No\nYes", "\n1", $gr_ramasks);
+		echo '</td></tr>';
+	}
 
 	$perm_header = '
 	    <td align=center>Visible</td>
@@ -242,35 +178,55 @@ if ( !$edit ) {
 	    <td align=center>Use smilies</td>
 	    <td align=center>Use images tags</td>
 	    ';
+	$hdr = array(
+		'p_VISIBLE' => 'Visible',
+		'p_READ' => 'Read',
+		'p_POST' => 'Create new topics',
+		'p_REPLY' => 'Reply to messages',
+		'p_EDIT' => 'Edit messages',
+		'p_DEL' => 'Delete messages',
+		'p_STICKY' => 'Make topics stiky',
+		'p_POLL' => 'Create polls',
+		'p_VOTE' => 'Vote on polls',
+		'p_FILE' => 'Attach files',
+		'p_SPLIT' => 'Splut topics',
+		'p_MOVE' => 'Move topics',
+		'p_SML' => 'Use smilies/emoticons',
+		'p_IMG' => 'Use [img] tags',
+		'p_RATE' => 'Rate topics',
+		'p_LOCK' => 'Lock/Unlock topics'
+	);
 ?>
-<tr><td valign=top>Permissions: </td><td>
-	<?php if ( !empty($edit) ) { ?>
-	<table border=1 cellspacing=1 cellpadding=3>
-	    <tr><td colspan=16 align=middle>Via Inheritance</td></tr>
-	    <?php 
-	    	echo "<tr style=\"font-size: x-small;\">$perm_header</tr>";
-	    	echo "<tr>".draw_perm_table($pret)."</tr>\n"; 
-	    ?>
-	</table>
-	<?php } ?>
-	<table border=1 cellspacing=1 cellpadding=3>
-	    <tr><?php
-	    	echo "<tr style=\"font-size: x-small;\">$perm_header</tr>";
-	    	echo "<tr>".draw_permissions('', $perms)."</tr>"; 
-	    ?>
-	</table>
-	</td>
-</tr>
-<?php
-	/* <tr><td>Join Permissions:</td><td><?php draw_select(gr_joinmode, "Closed Group\nPublic Join\nModerated Join", "NONE\nPUBLIC\nMODERATED", $gr_joinmode); ?></td></tr> */
-?>	
+<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Permissions</b></font></td></tr>
+<tr><td><table cellspacing=2 cellpadding=2 border=0>
+<?php	
+	if ($edit && $gr_inherit_id) {
+		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
+		grp_resolve_perms($data);
+		$vi = 1;
+	} else {
+		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th></tr>';
+	}
+	foreach ($GLOBALS['__GROUPS_INC']['permlist'] as $v) {
+		echo '<tr><td>'.$hdr[$v].'</td><td><select name="'.$v.'">
+			  <option value="I"'.($v == 'I' ? ' selected': '').'>Inherit</option>
+			  <option value="Y"'.($v == 'Y' ? ' selected': '').'>Yes</option>
+			  <option value="N"'.($v == 'N' ? ' selected': '').'>No</option>
+		</select></td>' . (isset($vi) ? '<td align="center">' . ($data->{$v} == 'Y' ? 'Yes' : 'No').'</td>' : '').'</tr>';
+	}
+?>
+</table></td></tr>
 <tr><td colspan=2 align=left>
-<?php if ( !empty($edit) ) echo '<input type="submit" name="btn_cancel" value="Cancel"> '; ?>
-<input type="submit" name="btn_submit" value="<?php echo (empty($edit))?'Add':'Update'; ?>"></td></tr>
+<?php 
+	if ($edit) {
+		echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
+	}
+?>
+<input type="submit" name="btn_submit" value="<?php echo (!$edit ? 'Add' : 'Update'); ?>"></td></tr>
 <input type="hidden" name="prevloaded" value="1">
-</form>
 </table>
-<br><br>
+</form>
+
 <table border=1 cellspacing=1 cellpadding=3>
 <tr style="font-size: x-small;">
 <td>Group Name</td>
@@ -279,37 +235,24 @@ if ( !$edit ) {
 <td align="center">Actions</td>
 </tr>
 <?php
-
-	$grp_p = new fud_group;
-	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups ORDER BY id");
-	while ( $obj = db_rowobj($r) ) {
-		$grp_p->id = $obj->id;
-		$pret = $grp_p->resolve_perms();
-		$str = draw_perm_table($pret);
-		
-		$ur = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.alias FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
-		if ( $cnt=db_count($ur) ) {
-			$sel =  "<font size=-1>(total: $cnt)</font><br><select>";
-			while ( $uobj = db_rowobj($ur) ) {
-				$sel .= '<option>'.$uobj->alias.'</option>';
-			}
-			$sel .= '</select>';
+	$c = uq('SELECT g.*, f.id AS no_del FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name ORDER BY g.id');
+	while ($obj = db_rowobj($c)) {
+		$grl = '';
+		$grlc = 0;
+		$c2 = uq('SELECT u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON gm.user_id=u.id WHERE gm.group_id='.$obj->id.' AND gm.group_leader=\'Y\'');
+		while ($r2 = db_rowarr($c2)) {
+			$grl .= '<option>'.$r2[0].'</option>';
+			++$grlc;
 		}
-		else $sel = 'No Leaders';
-		qf($ur);
-		
-		if ( $obj->res == 'NONE' )
-			$del_link = "[<a href=\"admgroups.php?del=$obj->id&rnd=".get_random_value()."&"._rsid."\">Delete</a>]<br>";
-		else
-			$del_link = '';
-		
-		if ( $obj->id > 2 ) 
-			$user_grp_mgr = " ".$del_link."[<a href=\"admgrouplead.php?group_id=$obj->id&rnd=".get_random_value()."&"._rsid."\">Manage Leaders</a>] [<a href=\"../".__fud_index_name__."?t=groupmgr&group_id=$obj->id&"._rsid."\" target=_new>Manage Users</a>]";
-			
-		echo "<tr style=\"font-size: x-small;\">
-			<td>$obj->name</td> $str <td valign=middle align=middle>$sel</td> <td nowrap>[<a href=\"admgroups.php?edit=$obj->id&rand=".get_random_value()."&"._rsid."\">Edit</a>] $user_grp_mgr</td></tr>";
+		qf($c2);
+		$grl = $grlc ? '<font size="-1">(total: '.$grlc.')</font><br><select name="gr_leaders">'.$grl.'</select>' : 'No Leaders';
+
+		$del_link = !$obj->no_del ? '[<a href="admgroups.php?del='.$obj->id.'&'._rsidl.'">Delete</a>]<br>' : '';
+		$user_grp_mgr = ($obj->id > 2) ? ' '.$del_link.'[<a href="admgrouplead.php?group_id='.$obj->id.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$obj->id.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
+
+		echo '<tr style="font-size: x-small;"><td>'.$obj->name.'</td> '.draw_perm_table($obj).' <td valign=middle align=middle>'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$obj->id.'&'._rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
 	}
-	qf($r);
+	qf($c);
 ?>
 </table>
-<?php require('admclose.html'); ?>
+<?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>
