@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.47 2003/05/26 13:19:02 hackie Exp $
+*   $Id: users.inc.t,v 1.48 2003/05/29 13:04:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@ function init_user()
 	define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
 
 	/* theme path */
-	define('fud_theme', 'theme/' . $u->theme_name . '/');
+	define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
 		
 	/* define _uid, which, will tell us if this is a 'real' user or not */
 	define('_uid', (($u->email_conf == 'Y' && $u->acc_status == 'A') ? $u->id : 0));
@@ -47,15 +47,27 @@ function init_user()
 	/* define constants used to track URL sessions & referrals */
 	if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
 		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
-		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) { 
-			define('_rsid', 'rid='._uid.'&amp;S='.s); define('_rsidl', 'rid='._uid.'&S='.s);
+		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) {
+			if ($GLOBALS['USE_PATH_INFO'] != 'Y') { 
+				define('_rsid', 'rid='._uid.'&amp;S='.s); define('_rsidl', 'rid='._uid.'&S='.s);
+			} else {
+				define('_rsid', _uid . '/' . s . '/'); define('_rsidl', _rsid);
+			}
 		} else {
-			define('_rsid',  'S='.s); define('_rsidl', _rsid);
+			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+				define('_rsid',  'S='.s); define('_rsidl', _rsid);
+			} else {
+				define('_rsid', s . '/'); define('_rsidl', _rsid);
+			}
 		}
 	} else {
 		define('s', ''); define('_hs', '');
 		if ($GLOBALS['TRACK_REFERRALS'] == 'Y' && _uid) { 
-			define('_rsid',  'rid='._uid); define('_rsidl', _rsid);
+			if ($GLOBALS['USE_PATH_INFO'] != 'Y') {
+				define('_rsid',  'rid='._uid); define('_rsidl', _rsid);
+			} else {
+				define('_rsid', _uid . '/'); define('_rsidl', _rsid);
+			}
 		} else {
 			define('_rsid', ''); define('_rsidl', ''); 
 		}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: path_info.inc.t,v 1.3 2003/05/12 23:11:38 hackie Exp $
+*   $Id: path_info.inc.t,v 1.4 2003/05/29 13:04:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,6 +27,8 @@
 	if (count($p) < 2) {
 		$_GET['t'] = count($p) ? $p[0] : 'index';
 	} else {
+		define('pinfo_page', $p[0]);
+
 		switch ($p[0]) {
 			case 'm': /* goto specific message */
 				$_GET['t'] = d_thread_view;
@@ -154,7 +156,7 @@
 				}
 				break;
 
-			case 'm': /* member list */
+			case 'ml': /* member list */
 				$_GET['t'] = 'finduser';
 				if (isset($p[1])) {
 					if ($p[1] == '1') { /* order by reg date */
@@ -262,8 +264,33 @@
 				}
 				break;
 
+			case 'a':
+				$_GET['t'] = 'actions';
+				break;
+
+			case 's':
+				$_GET['t'] = 'search';
+				break;
+
+			case 'ot':
+				$_GET['t'] = 'online_today';
+				break;
+
+			case 're':
+				$_GET['t'] = 'register';
+				break;
+
 			case 'tttt': /* test case for testing avalibility of PATH_INFO */
 				exit('tttt');
+				break;
+
+			case 'sel':
+				$_GET['t'] = 'selmsg';
+				$c = (count($p) - 1) / 2;
+				$j = 0;
+				for ($i = 0; $i < $c; $i++) {
+					$_GET[$p[++$j]] = $p[++$j];
+				} 
 				break;
 
 			default:

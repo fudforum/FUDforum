@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.33 2003/05/28 15:07:15 hackie Exp $
+*   $Id: index.php.t,v 1.34 2003/05/29 13:04:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -140,9 +140,7 @@ function url_tog_collapse($id, $c)
 					$collapse_status = '{TEMPLATE: minimize_category}';
 					$collapse_indicator = '{TEMPLATE: collapse_indicator_MIN}';
 				}
-				
-				$collapse_url = '{ROOT}?t=index&amp;c='.url_tog_collapse($r[9], $cs).'&amp;'._rsid;
-				
+
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 			} else {
 				$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
@@ -159,8 +157,6 @@ function url_tog_collapse($id, $c)
 		} else {
 			$forum_icon = '{TEMPLATE: no_forum_icon}';
 		}
-		
-		$forum_link = '{ROOT}?t='.t_thread_view.'&amp;frm_id='.$r[11].'&amp;'._rsid;
 
 		/* increase thread & post count */
 		$post_count += $r[16];
