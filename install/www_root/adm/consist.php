@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.29 2003/05/02 17:28:16 hackie Exp $
+*   $Id: consist.php,v 1.30 2003/05/06 18:17:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,7 +104,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Locking the database for checking');
 	$tbls = get_fud_table_list();
-	/* add the various table aliases */
+	// add the various table aliases 
 	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot', 
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr',
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
@@ -504,9 +504,8 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Validating group resources');
 
 	draw_stat('Validating group validity');
-	/* technically a group cannot exist without being assigned to at least 1 resource
-	 * so when we encounter such as group, we do our patriotic duty and remove it.
-	 */
+	# technically a group cannot exist without being assigned to at least 1 resource
+	# so when we encounter such as group, we do our patriotic duty and remove it.
 	$c = q('SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id WHERE g.id > 2 AND gr.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		group_delete($r[0]);
@@ -538,7 +537,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	if (isset($glm)) {
-		/* make group based on 'primary' 1st group */
+		// make group based on 'primary' 1st group
 		$fld_lst = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
 		$anon = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
 		$regu = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2')) . "'";
@@ -567,6 +566,18 @@ forum will be disabled.<br><br>
 	draw_stat('Optimizing forum\'s SQL tables');
 	optimize_tables();
 	draw_stat('Done: Optimizing forum\'s SQL tables');
+
+	draw_stat('Cleaning forum\'s tmp directory');
+	if (($d = opendir($TMP))) {
+		readdir($d); readdir($d);
+		while ($f = readdir($d)) {
+			if (@is_file($TMP . $f)) {
+				@unlink($TMP . $f);
+			}
+		}
+		closedir($d);
+	}
+	draw_stat('Done: Cleaning forum\'s tmp directory');
 
 	if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
