@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.12 2003/10/01 21:51:52 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.13 2003/10/02 20:41:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 		exit;
 	}
 
-	if (!($FUD_OPT_1 & (8388608|4194304))) {
+	if (!($FUD_OPT_1 & (8388608|4194304)) || !_uid) {
 		std_error('disabled');
 	}
 

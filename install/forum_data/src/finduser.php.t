@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.24 2003/10/01 21:51:52 hackie Exp $
+*   $Id: finduser.php.t,v 1.25 2003/10/02 20:41:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -19,7 +19,7 @@
 
 	$adm = $usr->users_opt & 1048576;
 
-	if (!($FUD_OPT_1 & 8388608) && !_uid && !($FUD_OPT_1 & 4194304) && !$adm) {
+	if (!$adm && !($FUD_OPT_1 & 8388608) && (!($FUD_OPT_1 & 4194304) || !_uid)) {
 		std_error('disabled');
 	}
 

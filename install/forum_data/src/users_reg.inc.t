@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.48 2003/10/02 19:18:42 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.49 2003/10/02 20:41:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,10 +57,10 @@ class fud_user_reg extends fud_user
 			$this->time_zone =& $GLOBALS['SERVER_TZ'];
 			$this->posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
 			if (!($o2 & 4)) {
-				$uent->users_opt ^= 128;
+				$this->users_opt ^= 128;
 			}
 			if (!($o2 & 8)) {
-				$uent->users_opt ^= 256;
+				$this->users_opt ^= 256;
 			}
 			if ($o2 & 1) {
 				$o2 ^= 1;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.24 2003/10/01 21:51:51 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.25 2003/10/02 20:41:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -82,7 +82,7 @@
 	if (($r = @db_rowarr($c))) {
 		do {
 			$homepage_link = $r[7] ? '{TEMPLATE: homepage_link}' : '';
-			if (!$r[5] || $usr->users_opt & 1048576) {
+			if ((!($r[5] & 32768) && $FUD_OPT_2 & 32) || $usr->users_opt & 1048576) {
 				$online_status = (($r[8] + $LOGEDIN_TIMEOUT * 60) > __request_timestamp__) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			} else {
 				$online_status = '';

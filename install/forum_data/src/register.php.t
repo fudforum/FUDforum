@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.87 2003/10/02 19:18:41 hackie Exp $
+*   $Id: register.php.t,v 1.88 2003/10/02 20:41:27 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -413,7 +413,7 @@ function decode_uent(&$uent)
 			}
 
 			/* we notify all admins about the new user, so that they can approve him */
-			if ($FUD_OPT_2 & (1024|131072) == (1024|131072)) {
+			if (($FUD_OPT_2 & 132096) == 132096) {
 				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND users_opt & 1048576");
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
