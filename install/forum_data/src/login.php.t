@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.47 2003/11/19 17:59:17 hackie Exp $
+* $Id: login.php.t,v 1.48 2003/11/21 09:55:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,10 +83,10 @@
 		}
 
 		ses_delete($usr->sid);
-		if ($FUD_OPT_2 & 32768) {
+		if ($FUD_OPT_2 & 32768 && $returnto && $returnto[0] == '/') {
 			header('Location: {ROOT}'. $returnto);
 		} else {
-			header('Location: {ROOT}?'. $returnto);
+			header('Location: {ROOT}?'. str_replace(array('?', '&&'), array('&', '&'), $returnto));
 		}
 		exit;
 	}
@@ -170,7 +170,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: adm/admglobal.php?S='.$ses_id.'&amp;SQ='.$usr_d->last_visit);
+				header('Location: adm/admglobal.php?S='.$ses_id.'&SQ='.$usr_d->last_visit);
 				exit;
 			}
 
@@ -186,12 +186,11 @@ function error_check()
 				}
 			}
 
-			if (strpos($usr->returnto, '?') !== false) {
+			if (strpos($usr->returnto, '?') !== false || !($FUD_OPT_2 & 32768)) {
 				$usr->returnto .= '&SQ='.$usr_d->last_visit;
 			} else {
 				$usr->returnto .= '?SQ='.$usr_d->last_visit;
 			}
-
 			check_return($usr->returnto);
 		}
 	}
