@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.97 2003/11/05 15:57:25 hackie Exp $
+* $Id: register.php.t,v 1.98 2003/11/06 01:43:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -259,7 +259,7 @@ function decode_uent(&$uent)
 			}
 		} else {
 			if ($FUD_OPT_2 & 32768) {
-				header('Location: {ROOT}/pr//'._rsidl);
+				header('Location: {ROOT}/pr/0/'._rsidl);
 			} else {
 				header('Location: {ROOT}?t=pre_reg&'._rsidl);
 			}
