@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.13 2003/05/02 14:05:03 hackie Exp $
+*   $Id: online_today.php.t,v 1.14 2003/09/28 21:07:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,18 +25,18 @@
 	$today = mktime(0, 0, 0, $dt[0], $dt[1], $dt[2]);
 
 	$c = uq('SELECT 
-			u.alias AS login, u.is_mod, u.id, u.last_visit, u.custom_color,
+			u.alias AS login, u.users_opt, u.id, u.last_visit, u.custom_color,
 			m.id AS mid, m.subject, m.post_stamp,
 			t.forum_id,
 			mm.id,
-			(CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read
+			(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) AS gco
 		FROM {SQL_TABLE_PREFIX}users u
 		LEFT JOIN {SQL_TABLE_PREFIX}msg m ON u.u_last_post_id=m.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.'
 		INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id 
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id
-		WHERE u.last_visit>'.$today.' AND '.($usr->is_mod != 'A' ? "u.invisible_mode='N' AND" : '').' u.id!='._uid.'
+		WHERE u.last_visit>'.$today.' AND '.(!($usr->users_opt & 1048576) ? "!(u.users_opt & 32768) AND" : '').' u.id!='._uid.'
 		ORDER BY u.alias, u.last_visit');
 	/*
 		array(9) { 
@@ -53,7 +53,7 @@
 
 		if (!$r[7]) {
 			$last_post = '{TEMPLATE: last_post_na}';
-		} else if ($r[9] || $r[10] == 'Y' || $usr->is_mod == 'A') {
+		} else if ($r[10] & 1 || $r[9] || $usr->users_opt & 1048576) {
 			$last_post = '{TEMPLATE: last_post}';
 		} else {
 			$last_post = '{TEMPLATE: no_view_perm}';

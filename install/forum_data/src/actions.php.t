@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.24 2003/09/27 15:49:31 hackie Exp $
+*   $Id: actions.php.t,v 1.25 2003/09/28 21:07:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,25 +16,22 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
+
 	if ($ACTION_LIST_ENABLED != 'Y') {
 		std_error('disabled');
 	}
-	
+
 	ses_update_status($usr->sid, '{TEMPLATE: actions_update}');
 
 /*{POST_HTML_PHP}*/
-	
+
 	$rand_val = get_random_value();
-	
-	if ($usr->is_mod != 'A') {
-		$limit = &get_all_read_perms(_uid, ($usr->users_opt & 524288));
-	}
-	
+
+	$limit = &get_all_read_perms(_uid, ($usr->users_opt & (524288|1048576)));
+
 	$c = uq('SELECT 
 			s.action, s.user_id, s.forum_id,
-			u.alias, u.is_mod, u.custom_color, s.time_sec,
-			u.invisible_mode,
+			u.alias, u.custom_color, s.time_sec, u.users_opt,
 			m.id, m.subject, m.post_stamp,
 			t.forum_id,
 			mm1.id, mm2.id
@@ -48,29 +45,29 @@
 		
 	$action_data = '';
 	while ($r = db_rowarr($c)) {
-		if ($r[7] == 'Y' && $usr->is_mod != 'A') {
+		if ($r[6] & 32768 && !($usr->users_opt & 1048576)) {
 			continue;
 		}
 
 		if ($r[3]) {
-			$user_login = draw_user_link($r[3], $r[4], $r[5]);
+			$user_login = draw_user_link($r[3], $r[6], $r[4]);
 			$user_login = '{TEMPLATE: reg_user_link}';
-			
-			if (!$r[10]) {
+
+			if (!$r[9]) {
 				$last_post = '{TEMPLATE: last_post_na}';
 			} else {
-				$last_post = ($usr->is_mod != 'A' && !$r[12] && empty($limit[$r[11]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
+				$last_post = (!($usr->users_opt & 1048576) && !$r[11] && empty($limit[$r[10]])) ? '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
 			}
 		} else {
 			$user_login = '{TEMPLATE: anon_user}';
 			$last_post = '{TEMPLATE: last_post_na}';
 		}
 
-		if (!$r[2] || ($usr->is_mod == 'A' || !empty($limit[$r[2]]) || $r[13])) {
-			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
-				if (($p = strpos($r[0], '?')) !== FALSE) {
+		if (!$r[2] || ($usr->users_opt & 1048576 || !empty($limit[$r[2]]) || $r[12])) {
+			if ($USE_PATH_INFO == 'N') {
+				if (($p = strpos($r[0], '?')) !== false) {
 					$action = substr_replace($r[0], '?'._rsid.'&', $p, 1);
-				} else if (($p = strpos($r[0], '.php')) !== FALSE) {
+				} else if (($p = strpos($r[0], '.php')) !== false) {
 					$action = substr_replace($r[0], '.php?'._rsid.'&', $p, 4);
 				} else {
 					$action = $r[0];	
@@ -82,10 +79,10 @@
 
 					if ($s{strlen($s) - 1} == '/') {
 						$tmp = explode('/', substr(str_replace('{ROOT}', '', $s), 1, -1));
-						if ($GLOBALS['SESSION_USE_URL'] == 'Y') {
+						if ($SESSION_USE_URL == 'Y') {
 							array_pop($tmp);
 						}
-						if ($GLOBALS['TRACK_REFERRALS'] == 'Y') {
+						if ($TRACK_REFERRALS == 'Y') {
 							array_pop($tmp);
 						}
 						$tmp[] = _rsid;
