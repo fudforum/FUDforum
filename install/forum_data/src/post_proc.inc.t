@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.18 2003/04/30 19:51:05 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.19 2003/05/05 18:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,6 +36,10 @@ function tags_to_html($str, $allow_img='Y')
 	while (($pos = strpos($str, '[', $pos)) !== false) {
 		if (($epos = strpos($str, ']', $pos)) === false) {
 			break;
+		}
+		if (!($epos-$pos-1)) {
+			$pos = $epos + 1;
+			continue;
 		}
 		$tag = substr($str, $pos+1, $epos-$pos-1);
 		if (($pparms = strpos($tag, '=')) !== false) {
@@ -319,9 +323,10 @@ function tags_to_html($str, $allow_img='Y')
 		}
 		
 		$us = $pos;
+		$l = strlen($ostr);
 		while (1) {
 			--$us;
-			if (isset($GLOBALS['seps'][$ostr[$us]]) || $ppos>$us || !isset($ostr[$us])) {
+			if ($ppos > $us || $us >= $l || isset($GLOBALS['seps'][$ostr[$us]])) {
 				break;
 			}
 		}
@@ -330,6 +335,10 @@ function tags_to_html($str, $allow_img='Y')
 		$ue = $pos;
 		while (1) {
 			++$ue;
+			if ($ue >= $l || isset($GLOBALS['seps'][$ostr[$ue]])) {
+				break;
+			}
+
 			if ($ostr[$ue] == '&') {
 				if ($ostr[$ue+4] == ';') {
 					$ue += 4;
@@ -340,7 +349,7 @@ function tags_to_html($str, $allow_img='Y')
 				}
 			}	
 			
-			if (isset($GLOBALS['seps'][$ostr[$ue]]) || !isset($ostr[$ue])) {
+			if ($ue >= $l || isset($GLOBALS['seps'][$ostr[$ue]])) {
 				break;
 			}
 		}

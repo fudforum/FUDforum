@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.48 2003/05/01 18:03:05 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.49 2003/05/05 18:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -483,13 +483,12 @@ class fud_msg_edit extends fud_msg
 				}
 				
 				mail_list_post($addr, $from, $mtf->subject, $body, $mtf->id, $replyto_id, $attach, '');
-			} else if (($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'"))) {
+			} else if (($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'")) && !defined('sql_p')) {
 				fud_use('nntp.inc', true);
 				fud_use('nntp_adm.inc', true);
 				fud_use('email_msg_format.inc', true);
 				
-				$nntp_adm = new fud_nntp_adm;
-				$nntp_adm->get($nntp_id);
+				$nntp_adm = db_sab('SELECT * FROM '.sql_p.'nntp WHERE id='.$nntp_id);
 				$nntp = new fud_nntp;
 				
 				$nntp->server = $nntp_adm->server;

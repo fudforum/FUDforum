@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.21 2003/04/21 14:14:39 hackie Exp $
+*   $Id: err.inc.t,v 1.22 2003/05/05 18:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -85,7 +85,9 @@ function invl_inp_err()
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
 	if (db_locked()) {
-		db_unlock();
+		if ((__dbtype__ == 'mysql' && $query != 'UNLOCK TABLES') || (__dbtype__ == 'pgsql' && $query != 'COMMIT WORK')) {
+			db_unlock();
+		}
 	}
 
 	if (!isset($_SERVER['PATH_TRANSLATED'])) {
@@ -103,14 +105,11 @@ function fud_sql_error_handler($query, $error_string, $error_number, $server_ver
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
 		echo $error_msg;
 	} else {
-		/* XXX: debug 
-		if (_uid && $GLOBALS['usr']->is_mod == 'A') {
+		if (defined('forum_debug') || (_uid && $GLOBALS['usr']->is_mod == 'A')) {
 			echo $error_msg;
 		} else {
 			trigger_error('{TEMPLATE: err_inc_query_err}', E_USER_ERROR);
 		}
-		*/
-		echo $error_msg;
 	}
 	exit;
 }

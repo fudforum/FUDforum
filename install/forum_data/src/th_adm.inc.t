@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th_adm.inc.t,v 1.2 2003/05/04 21:04:04 hackie Exp $
+*   $Id: th_adm.inc.t,v 1.3 2003/05/05 18:08:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,8 +70,8 @@ function th_move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last
 function rebuild_forum_view($forum_id, $page=0)
 {
 	if (!db_locked()) {
-	        db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}forum WRITE');
 		$ll = 1;
+	        db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}forum WRITE');
 	}
 	
 	$tm = __request_timestamp__;
