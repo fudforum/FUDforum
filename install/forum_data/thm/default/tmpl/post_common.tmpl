@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.5 2003/10/09 21:08:03 hackie Exp $
+* $Id: post_common.tmpl,v 1.6 2003/10/10 14:31:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -18,7 +18,7 @@
 
 {SECTION: post_smilies}
 <tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
-	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=smladd\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
+	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
 </td>
 <td valign=top><table border=0 cellspacing=5 cellpadding=0><tr valign="bottom"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
 {SECTION: END}
@@ -38,8 +38,8 @@
 <td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" /></a></td>
 <td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" /></a></td>
 <td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk1}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
+<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk2}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
 <td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
 <td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
 </tr>
@@ -160,4 +160,16 @@
 
 {SECTION: post_proc_all_ext_allowed}
 {MSG: post_all_ext_allowed}
+{SECTION: END}
+
+{SECTION: post_smilies_lnk1}
+{ROOT}?t=smladd
+{SECTION: END}
+
+{SECTION: fud_code_icons_lnk1}
+{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=OL:1
+{SECTION: END}
+
+{SECTION: fud_code_icons_lnk2}
+{ROOT}?t=mklist&amp;{DEF: _rsid}&amp;tp=UL:square
 {SECTION: END}

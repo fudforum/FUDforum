@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.23 2003/10/10 14:21:08 hackie Exp $
+*   $Id: ppost.tmpl,v 1.24 2003/10/10 14:31:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -185,10 +185,14 @@
 {SECTION: END}
 
 {SECTION: pm_find_user}
-[<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=post_form.msg_to_list\',\'user_list\',250,250);">{MSG: ppost_find_User}</a>]
+[<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: pm_find_user_lnk1}\',\'user_list\',250,250);">{MSG: ppost_find_User}</a>]
 {SECTION: END}
 
 
 {SECTION: PPOST_PAGE_lnk}
 {ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1
+{SECTION: END}
+
+{SECTION: pm_find_user_lnk1}
+{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=post_form.msg_to_list
 {SECTION: END}

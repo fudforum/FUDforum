@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.26 2003/10/10 14:20:16 hackie Exp $
+* $Id: thread.tmpl,v 1.27 2003/10/10 14:31:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -92,11 +92,11 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a>
+<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>
+<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
@@ -198,4 +198,12 @@
 
 {SECTION: thread_row_lnk}
 {ROOT}?t={DEF: d_thread_view}&amp;th={VAR: r[13]}&amp;start=0&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: admin_control_row_all_lnk1}
+{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}
+{SECTION: END}
+
+{SECTION: admin_control_row_move_lnk1}
+{ROOT}?t=mvthread&amp;{DEF: _rsid}&amp;th={VAR: r[13]}
 {SECTION: END}

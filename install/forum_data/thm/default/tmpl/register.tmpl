@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.31 2003/10/10 13:45:01 hackie Exp $
+* $Id: register.tmpl,v 1.32 2003/10/10 14:31:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=rpasswd&amp;{DEF: _rsid}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
+&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
@@ -80,7 +80,7 @@
 
 {SECTION: built_in_avatar}
 <tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" name="reg_avatar_img" alt="" />
-<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}?t=avatarsel&amp;{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
+<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{TEMPLATE: built_in_avatar_lnk1}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
 {SECTION: END}
 
@@ -451,4 +451,12 @@
 
 {SECTION: register_sig_limit}
 <b>Maximum Length: </b>{MSG: register_sig_limit}
+{SECTION: END}
+
+{SECTION: change_passwd_link_lnk1}
+{ROOT}?t=rpasswd&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: built_in_avatar_lnk1}
+{ROOT}?t=avatarsel&amp;{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.28 2003/10/10 13:58:18 hackie Exp $
+* $Id: post.tmpl,v 1.29 2003/10/10 14:31:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -65,11 +65,11 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
 {SECTION: END}
 
 {SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=poll&amp;{DEF: _rsid}&amp;pl_id={VAR: poll[0]}&amp;frm_id={VAR: frm->id}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: edit_poll_lnk1}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
@@ -384,4 +384,12 @@
 
 {SECTION: loged_in_user_lnk}
 {ROOT}?t=login&amp;{DEF: _rsid}&amp;logout=1
+{SECTION: END}
+
+{SECTION: create_poll_lnk1}
+{ROOT}?t=poll&amp;{DEF: _rsid}&amp;frm_id={VAR: frm->id}
+{SECTION: END}
+
+{SECTION: edit_poll_lnk1}
+{ROOT}?t=poll&amp;{DEF: _rsid}&amp;pl_id={VAR: poll[0]}&amp;frm_id={VAR: frm->id}
 {SECTION: END}
