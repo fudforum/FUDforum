@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.47 2004/04/20 14:02:34 hackie Exp $
+* $Id: selmsg.php.t,v 1.48 2004/04/25 19:17:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -208,19 +208,6 @@ function path_info_lnk($var, $val)
 		q('UPDATE {SQL_TABLE_PREFIX}thread SET views=views+1 WHERE id IN('.implode(',', $thl).')');
 	}
 
-	if (!$message_data) {
-		if (isset($_GET['unread'])) {
-			$message_data = '{TEMPLATE: no_unread_messages}';
-			if (!$frm_id && !$th) {
-				user_mark_all_read(_uid);
-			} else if ($frm_id) {
-				user_mark_forum_read(_uid, $frm_id, $usr->last_read);
-			}
-		} else {
-			$message_data = '{TEMPLATE: no_result}';
-		}
-	}
-
 	if (!$unread_limit && $total > $count) {
 		if (!isset($_GET['mr'])) {
 			if ($FUD_OPT_2 & 32768 && isset($_SERVER['PATH_INFO'])) {
@@ -246,9 +233,22 @@ function path_info_lnk($var, $val)
 				$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
 			}
 		}
-		$pager = '{TEMPLATE: more_unread_messages}';
+		$pager = $message_data ? '{TEMPLATE: more_unread_messages}' : '';
 	} else {
 		$pager = '';
+	}
+
+	if (!$message_data) {
+		if (isset($_GET['unread'])) {
+			$message_data = '{TEMPLATE: no_unread_messages}';
+			if (!$frm_id && !$th) {
+				user_mark_all_read(_uid);
+			} else if ($frm_id) {
+				user_mark_forum_read(_uid, $frm_id, $usr->last_read);
+			}
+		} else {
+			$message_data = '{TEMPLATE: no_result}';
+		}
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
