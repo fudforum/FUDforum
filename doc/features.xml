@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.8 2002/08/05 15:05:33 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.9 2002/08/06 15:59:29 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
@@ -362,7 +362,7 @@
 		<para>
 			If cookies are not enabled on the user's computer, &FUDforum; will use URL sessions
 			to keep track of the user. This allows use of the forum even if cookies are not 
-			supported or allowed on the users computer.
+			supported or allowed on the user's computer.
 		</para>
 	</sect1>
 	
@@ -408,7 +408,7 @@
 	        <para>
 			Despite its many features, FUDforum 2.3 is still extremely fast. It is
 			probably faster than all the other forum applications that offer
-			similar or even lesser feature sets. FUDforums excellent performance
+			similar or even lesser feature sets. FUDforum's excellent performance
 			is the result of highly tuned interfaces to the underlying MySQL or
 			PostgreSQL database and highly optimized PHP code.
 	        </para>
@@ -453,7 +453,7 @@
 		</para>
 		
 		<para>
-			Although you may think that giving a web server to ownership of the files is
+			Although you may think that giving a web server ownership of the files is
 			equivalent to allowing access to anyone, that is simply not the case.
 			On a secure server, for example, the administrator should implement a
 			PHP open_basedir limitation to restrict PHP scripts from accessing
