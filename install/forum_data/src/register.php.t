@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.91 2003/10/09 14:34:26 hackie Exp $
+* $Id: register.php.t,v 1.92 2003/10/15 16:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -341,13 +341,17 @@ function decode_uent(&$uent)
 	}
 
 	if (count($_POST)) {
-		$new_users_opt = $uent->users_opt & (131072|65536|262144|524288|1048576|2097152);
+		$new_users_opt = 0;
 		foreach (array('display_email', 'notify', 'notify_method', 'ignore_admin', 'email_messages', 'pm_messages', 'pm_notify', 'default_view', 'gender', 'append_sig', 'show_sigs', 'show_avatars', 'show_im', 'invisible_mode') as $v) {
 			if (!empty($_POST['reg_'.$v])) {
 				$new_users_opt |= (int) $_POST['reg_'.$v];
 			}
 		}
-		$uent->users_opt = $new_users_opt;
+
+		/* security check, prevent haxors from passing values that shouldn't */
+		if (!($new_users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216))) {
+			$uent->users_opt = ($uent->users_opt & (131072|65536|262144|524288|1048576|2097152|4194304|8388608|16777216)) | $new_users_opt;
+		}
 	}
 
 	/* SUBMITTION CODE */
@@ -390,10 +394,10 @@ function decode_uent(&$uent)
 			$uent->users_opt |= 4;
 		}
 
-		/* new users do not have avatars */
-		$uent->users_opt |= 16777216;
-
 		if (!__fud_real_user__) { /* new user */
+			/* new users do not have avatars */
+			$uent->users_opt |= 16777216;
+
 			/* handle coppa passed to us by pre_reg form */
 			if (!(int)$_POST['reg_coppa']) {
 				$uent->users_opt ^= 262144;
@@ -437,6 +441,7 @@ function decode_uent(&$uent)
 			/* Restore avatar values to their previous values */
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
+			$old_opt = $uent->users_opt & (4194304|16777216|8388608);
 			$uent->users_opt |= 4194304|16777216|8388608;
 
 			/* prevent non-confirmed users from playing with avatars, yes we are that cruel */
@@ -494,6 +499,8 @@ function decode_uent(&$uent)
 					 	}
 					} else if (empty($avatar_arr['leave']) || !empty($avatar_arr['del'])) {
 				 		$uent->avatar_loc = '';
+				 	} else if (!empty($avatar_arr['leave'])) {
+				 		$uent->users_opt ^= (8388608|16777216|4194304) ^ $old_opt;
 				 	}
 				 	$uent->avatar = 0;
 				}
@@ -501,7 +508,7 @@ function decode_uent(&$uent)
 					$uent->users_opt ^= 8388608|16777216;
 				}
 			} else {
-				$uent->users_opt ^= 8388608|16777216;
+				$uent->users_opt ^= (8388608|16777216|4194304) ^ $old_opt;
 			}
 
 			$uent->sync_user();
