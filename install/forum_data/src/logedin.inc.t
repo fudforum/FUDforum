@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.6 2002/07/09 15:50:47 hackie Exp $
+*   $Id: logedin.inc.t,v 1.7 2002/07/11 21:49:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@
 		$reg_u=$inv_u=0;
 		$loged_in_list='';
 		while ( $obj = db_rowobj($r) ) {
-			if( $obj->invisible_mode == 'Y' ) {
+			if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) {
 				$inv_u++;
 				continue;
 			}

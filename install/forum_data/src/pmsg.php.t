@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.8 2002/07/10 02:58:31 hackie Exp $
+*   $Id: pmsg.php.t,v 1.9 2002/07/11 21:49:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -135,7 +135,7 @@
 		
 		$user_login = htmlspecialchars($obj->login);
 		
-		if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' ) {
+		if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' && $usr->is_mod != 'A' ) {
 			if( ($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__ ) 
 				$online_indicator = '{TEMPLATE: pmsg_online_indicator}';
 			else 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.4 2002/06/27 22:19:40 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.5 2002/07/11 21:49:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,7 +30,7 @@ function tmpl_drawpmsg(&$obj)
 		$avatar = ($avatar_img) ? '{TEMPLATE: dpmsg_avatar}' : '{TEMPLATE: dpmsg_no_avatar}';
 	}
 	
-	if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' ) 
+	if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' && $GLOBALS["usr"]->is_mod != 'A' ) 
 		$online_indicator = (($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__) ? '{TEMPLATE: dpmsg_online_indicator}' : '{TEMPLATE: dpmsg_offline_indicator}';
 	
 	if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' && !empty($obj->host_name) ) {

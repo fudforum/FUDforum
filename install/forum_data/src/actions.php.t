@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.8 2002/07/09 21:47:21 hackie Exp $
+*   $Id: actions.php.t,v 1.9 2002/07/11 21:49:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,11 +59,11 @@
 			ON {SQL_TABLE_PREFIX}users.u_last_post_id={SQL_TABLE_PREFIX}msg.id
 		LEFT JOIN {SQL_TABLE_PREFIX}thread
 			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}users.time_sec DESC");
+		WHERE {SQL_TABLE_PREFIX}ses.time_sec>".(__request_timestamp__-($GLOBALS['LOGEDIN_TIMEOUT']*60))." AND {SQL_TABLE_PREFIX}ses.ses_id!='".$ses->ses_id."' ORDER BY {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}ses.time_sec DESC");
 		
 	$action_data='';
 	while ( $obj = db_rowobj($r) ) {
-		if( $obj->invisible_mode == 'Y' ) continue;
+		if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) continue;
 
 		if ( strlen($obj->login) ) {
 			$user_login = htmlspecialchars($obj->login);

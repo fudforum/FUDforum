@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.6 2002/07/09 18:58:32 hackie Exp $
+*   $Id: online_today.php.t,v 1.7 2002/07/11 21:49:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@
 			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id	
 		WHERE 
 			{SQL_TABLE_PREFIX}users.last_visit>".$today." AND 
-			{SQL_TABLE_PREFIX}users.invisible_mode='N' AND
+			".($usr->is_mod!='A'?"{SQL_TABLE_PREFIX}users.invisible_mode='N' AND":"")."
 			{SQL_TABLE_PREFIX}users.id!="._uid."
 			
 		ORDER BY
