@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: widgets.inc,v 1.3 2003/04/24 01:32:15 hackie Exp $
+*   $Id: widgets.inc,v 1.4 2003/04/25 20:22:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -137,32 +137,5 @@ function create_radio_buttons($name, $options, $values, $def, $vertical=0)
 	}
 	
 	return $rval;
-}
-
-function create_return()
-{
-	return '<input type="hidden" name="returnto" value="'.(!empty($GLOBALS['returnto'])?urldecode($GLOBALS['returnto']):'').'">';
-}
-
-function draw_return()
-{
-	echo create_return();
-}
-
-function check_return()
-{
-	if ( empty($GLOBALS['returnto']) ) $GLOBALS['returnto']='index.php?'._rsid;
-	header("Location: ".$GLOBALS['returnto']);
-	exit();
-}
-
-function convert_bdate($val, $month_fmt)
-{
-	$ret['year'] = substr($val, 0, 4);
-	$ret['month'] = substr($val, 4, 2);
-	$ret['day'] = substr($val, 6, 2);
-
-	$ret['month'] = date($month_fmt, mktime(1, 1, 1, $ret['month'], 11, 2000));
-	return $ret;
 }
 ?>
