@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.4 2002/07/13 22:34:37 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.5 2002/07/26 11:40:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,17 @@ class fud_user_adm extends fud_user_reg
 		if ( !db_locked() ) { $ll=1; db_lock('{SQL_TABLE_PREFIX}forum+, {SQL_TABLE_PREFIX}poll_opt_track+, {SQL_TABLE_PREFIX}users+, {SQL_TABLE_PREFIX}pmsg+, {SQL_TABLE_PREFIX}attach+, {SQL_TABLE_PREFIX}mod+, {SQL_TABLE_PREFIX}custom_tags+, {SQL_TABLE_PREFIX}thread_notify+, {SQL_TABLE_PREFIX}forum_notify+, {SQL_TABLE_PREFIX}read+, {SQL_TABLE_PREFIX}forum_read+, {SQL_TABLE_PREFIX}thread_rate_track+, {SQL_TABLE_PREFIX}user_ignore+, {SQL_TABLE_PREFIX}buddy+'); }
 		$this->de_moderate();
 		$u_entry = $this->id."\n".addslashes(htmlspecialchars(trim_show_len($this->login,'LOGIN')));
-		q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
+		
+		if( __dbtype__ == 'mysql' ) 
+			q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators=TRIM(BOTH '\n\n' FROM REPLACE(moderators, '$u_entry', ''))");
+		else {
+			$r = q("SELECT forum_id,moderators FROM {SQL_TABLE_PREFIX}mod INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id WHERE {SQL_TABLE_PREFIX}mod.user_id=".$this->id);
+			while( $obj = db_rowobj($r) ) {
+				$obj->moderators = trim(str_replace(addslashes($obj->moderators), $u_entry, ''));
+				q("UPDATE {SQL_TABLE_PREFIX}forum SET moderators='".$obj->moderators."' WHERE id=".$obj->id);
+			}
+			qf($r);
+		}		
 		
 		$tags = new fud_custom_tag;
 		$tags->delete_user($this->id);
