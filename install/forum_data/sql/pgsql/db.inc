@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.12 2002/09/20 00:07:17 hackie Exp $
+*   $Id: db.inc,v 1.13 2003/01/09 15:05:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -288,7 +288,7 @@ function get_field_list($tbl)
 
 function qry_limit($limit, $off)
 {
-	return $limit.','.$off;
+	return $limit.' OFFSET '.$off;
 }
 
 function get_fud_table_list()
