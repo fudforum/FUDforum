@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.inc.t,v 1.20 2004/10/25 16:54:07 hackie Exp $
+* $Id: post_common.inc.t,v 1.21 2004/11/08 19:23:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -26,7 +26,8 @@ function draw_post_smiley_cntrl()
 	}
 
 	$data = '';
-	for ($i = 0; $i < $limit; $i++) {
+	$i = 0;
+	while ($i < $limit) {
 		$data .= '{TEMPLATE: post_smiley_entry}';
 	}
 	return '{TEMPLATE: post_smilies}';
@@ -36,21 +37,19 @@ function draw_post_icons($msg_icon)
 {
 	include $GLOBALS['FORUM_SETTINGS_PATH'].'icon_cache';
 
-	/* nothing to do */
+ 	/* nothing to do */
 	if (!$ICON_L) {
 		return;
 	}
 
 	$tmp = $data = '';
 	$rl = (int) $GLOBALS['POST_ICONS_PER_ROW'];
-	$none_checked = !$msg_icon ? ' checked' : '';
 
 	foreach ($ICON_L as $k => $f) {
 		if ($k && !($k % $rl)) {
 			$data .= '{TEMPLATE: post_icon_row}';
 			$tmp = '';
 		}
-		$checked = $f == $msg_icon ? ' checked' : '';
 		$tmp .= '{TEMPLATE: post_icon_entry}';
 	}
 	if ($tmp) {

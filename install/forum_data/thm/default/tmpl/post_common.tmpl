@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.17 2004/06/23 14:19:36 hackie Exp $
+* $Id: post_common.tmpl,v 1.18 2004/11/08 19:23:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 {REF: smiley.tmpl}
 
 {SECTION: post_smiley_entry}
-<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: PS_DST[$i]} \');">{VAR: PS_SRC[$i]}</a>&nbsp;
+<a href="javascript: insertTag(document.post_form.msg_body, \'\', \' {VAR: PS_DST[$i]} \');">{VAR: PS_SRC[$i++]}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: post_smilies}
@@ -94,7 +94,7 @@
 {SECTION: END}
 
 {SECTION: post_icon_entry}
-<td nowrap valign="middle"><input type="radio" name="msg_icon" value="{VAR: f}"{VAR: checked}><img src="images/message_icons/{VAR: f}" alt="" /></td>
+<td nowrap valign="middle"><input type="radio" name="msg_icon" value="{VAR: f}"{IF: $f == $msg_icon} checked{ENDIF}><img src="images/message_icons/{VAR: f}" alt="" /></td>
 {SECTION: END}
 
 {SECTION: post_icon_row}
@@ -104,7 +104,7 @@
 {SECTION: post_icons}
 <tr class="RowStyleA"><td class="vt GenText">{MSG: post_icons}</td><td>
 <table border=0 cellspacing=0 cellpadding=2>
-<tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{VAR: none_checked}>{MSG: post_no_icon}</td></tr>
+<tr><td class="GenText" colspan={GVAR: POST_ICONS_PER_ROW}><input type="radio" name="msg_icon" value=""{IF: !$msg_icon} checked{ENDIF}>{MSG: post_no_icon}</td></tr>
 {TEMPLATE-DATA: data}
 </table>
 </td></tr>
