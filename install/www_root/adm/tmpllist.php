@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.11 2003/04/25 01:31:39 hackie Exp $
+*   $Id: tmpllist.php,v 1.12 2003/04/25 01:36:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ function fetch_section($data, $file, $section, $type)
 	if ($p === FALSE) {
 		return FALSE;
 	}
-	if (($te = strpos($data, $end, $p)) === FALSE) {
+	if (($te = strpos($data, '}', $p)) === FALSE) {
 		return FALSE;
 	}
 	$ti = explode(' ', substr($data, $p, ($te - $p)), 3);
@@ -333,7 +333,7 @@ function goto_tmpl($tmpl)
 <?php if($edit) { ?>
 <td width="100%" valign="top">
 <?php
-	if ($update_ok) {
+	if (isset($update_ok)) {
 		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br><br>';
 	}	
 ?>
@@ -343,7 +343,7 @@ function goto_tmpl($tmpl)
 <?php echo _hs; ?>
 <tr>
 	<td>
-		<b><?php echo $tmpl_name; ?></b>:<?php echo $msg_list; ?><br>
+		<b><?php echo $tmpl; ?></b>:<?php echo $msg_list; ?><br>
 		<textarea rows="20" cols="60" name="tmpl_data"><?php echo htmlspecialchars($tmpl_data); ?></textarea>
 	</td>
 </tr>
