@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.15 2003/09/30 03:57:50 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.16 2003/10/01 19:29:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 /*{PRE_HTML_PHP}*/
 
 	/* only admins & moderators have access to this control panel */
-	if (!_uid || ($usr->is_mod != 'A' && $usr->is_mod != 'Y')) { 
+	if (!_uid || !($usr->users_opt & (1048576|524288))) { 
 		std_error('access');
 	}
 
@@ -31,7 +31,7 @@
 		$data = db_sab('SELECT 
 					t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
 					f1.id, f1.last_post_id as f1_lpi, f2.last_post_id AS f2_lpi,
-					'.($usr->is_mod == 'A' ? ' 1 ' : ' mm.id ').' AS md 
+					'.($usr->users_opt & 1048576 ? ' 1 ' : ' mm.id ').' AS md 
 				FROM {SQL_TABLE_PREFIX}thread t 
 				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$thrx->frm.' 
@@ -58,7 +58,7 @@
 		thx_delete($thrx->id);
 		logaction($usr->id, 'THRXAPPROVE', $thrx->th);
 	} else if ((isset($_GET['decl']) || isset($_POST['decl'])) && ($thrx = thx_get(($decl = (int)(isset($_GET['decl']) ? $_GET['decl'] : $_POST['decl']))))) {
-		$data = db_sab('SELECT u.email, u.login, u.id, m.subject, f1.name AS f1_name, f2.name AS f2_name, '.($usr->is_mod == 'A' ? ' 1 ' : ' mm.id ').' AS md 
+		$data = db_sab('SELECT u.email, u.login, u.id, m.subject, f1.name AS f1_name, f2.name AS f2_name, '.($usr->users_opt & 1048576 ? ' 1 ' : ' mm.id ').' AS md 
 				FROM {SQL_TABLE_PREFIX}thread t
 				INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 				INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON f2.id='.$thrx->frm.' 
@@ -98,7 +98,7 @@
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f1 ON t.forum_id=f1.id
 			 INNER JOIN {SQL_TABLE_PREFIX}forum f2 ON thx.frm=f2.id	
 			 INNER JOIN {SQL_TABLE_PREFIX}users u ON thx.req_by=u.id
-			 WHERE '.($usr->is_mod != 'A' ? ' mm.id IS NOT NULL' : ' 1=1'));
+			 WHERE '.($usr->users_opt & 1048576 ? '1=1' : ' mm.id IS NOT NULL'));
 		
 		while ($obj = db_rowobj($r)) {
 			$thr_exch_data .= '{TEMPLATE: thr_exch_entry}';

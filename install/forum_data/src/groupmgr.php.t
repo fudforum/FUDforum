@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.24 2003/10/01 18:52:25 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.25 2003/10/01 19:29:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,7 +119,10 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			q('UPDATE {SQL_TABLE_PREFIX}group_members SET group_members_opt='.$perm.' WHERE id='.(int)$_POST['edit']);
 			grp_rebuild_cache(array($usr_id));
 		}
-		unset($_POST['btn_submit']);
+		if (!$login_error) {
+			unset($_POST);
+			$gr_member = '';
+		}
 	}
 
 	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && $group_id) {

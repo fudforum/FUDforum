@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.31 2003/09/30 03:49:19 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.32 2003/10/01 19:29:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,7 @@ function fud_substr_replace($str, $newstr, $pos, $len)
         return substr($str, 0, $pos).$newstr.substr($str, $pos+$len);
 }
 
-function tags_to_html($str, $allow_img='Y')
+function tags_to_html($str, $allow_img=1)
 {
 	if (!defined('no_char')) {	
 		$str = htmlspecialchars($str);
@@ -202,7 +202,7 @@ function tags_to_html($str, $allow_img='Y')
 					$str[$cpos] = '<';
 					break;
 				case 'img':
-					if( $allow_img == 'N' ) {
+					if (!$allow_img) {
 						$ostr .= substr($str, $pos, ($cepos-$pos)+1);
 					} else {
 						if (!$parms) {
