@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.52 2005/01/28 17:04:30 hackie Exp $
+* $Id: db.inc,v 1.53 2005/02/18 17:14:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -211,11 +211,15 @@ function qry_limit($limit, $off)
 	return $limit.' OFFSET '.$off;
 }
 
-function get_fud_table_list()
+function get_fud_table_list($tbl='')
 {
-	$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
-	while (list($ret[]) = db_rowarr($r));
-	array_pop($ret);
+	if (!$tbl) {
+		$r = q("SELECT relname FROM pg_class WHERE relkind='r' AND relname LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
+		while (list($ret[]) = db_rowarr($r));
+		array_pop($ret);
+	} else {
+		return q_singleval("SELECT relname FROM pg_class WHERE relkind='r' AND relname='".$tbl."'");
+	}
 
 	return $ret;
 }

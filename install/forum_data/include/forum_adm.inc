@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.21 2004/12/15 19:02:02 hackie Exp $
+* $Id: forum_adm.inc,v 1.22 2005/02/18 17:14:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,8 +61,12 @@ class fud_forum
 			".(int)$this->forum_opt."
 		)");
 
-		q("CREATE TABLE ".$tbl."fl_".$this->id." (id INT)");
-	
+		$lck_tbl = $tbl."fl_".$this->id;
+		/* only create lock table if it does not already exist */
+		if (!get_fud_table_list($lck_tbl)) {
+			q("CREATE TABLE ".$lck_tbl." (id INT)");
+		}
+
 		if (($gid = group_add($this->id, $this->name, 2))) {
 			grp_rebuild_cache(array(0, 2147483647));
 		}
