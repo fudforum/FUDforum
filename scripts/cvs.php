@@ -184,8 +184,6 @@ echo "TAG $tag\n";
 			++$nt;
 		}
 	}
-	sqlite_query($db, 'VACUUM fud_down; VACUUM fud_down_md5');
-	sqlite_close($db);
 
 	/* cleanup */
 	shell_exec("{$RM_BIN} -rf ./fud21_install ./fud21_upgrade");
@@ -216,6 +214,9 @@ echo "TAG $tag\n";
 	} else {
 		echo "!!!WARNING!!!\nNothing to do, forget to tag a release? ;)\n";
 	}
+
+	sqlite_query($db, 'VACUUM fud_down; VACUUM fud_down_md5; VACUUM fud_conv');
+	sqlite_close($db);
 
 /*
 
