@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: create_file_list,v 1.12 2003/10/14 17:28:54 hackie Exp $
+*   $Id: create_file_list,v 1.13 2003/10/17 03:58:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,9 +91,9 @@ function w_err($msg, $exit=true)
 	
 	if (isset($_SERVER['argv'][2])) {
 		$a_len = str_pad(strlen($archive), 10, '0', STR_PAD_LEFT);
-
 		echo $check_sum . $a_len . strtr(gzcompress($archive, 9), $clean);
 	} else {
+		$clean['<?'] = 'RAW_PHP_OPEN_TAG';
 		echo $check_sum . strtr($archive, $clean);
 	}	
 ?>
