@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.15 2002/09/02 20:07:21 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.16 2002/09/04 04:12:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,7 +170,7 @@ class fud_msg_edit extends fud_msg
 		$th_change = $stick = 0;
 		
 		/* Sticky message handling */
-		if ( $thr->root_msg_id == $this->id && (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && $thr->ordertype != $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] ) {
+		if ( $thr->root_msg_id == $this->id && (isset($GLOBALS['MOD']) || is_perms($this->poster_id, $frm->id, 'STICKY')) && ($thr->ordertype != $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] || $thr->orderexpiry != $GLOBALS['HTTP_POST_VARS']['thr_orderexpiry']) ) {
 			if ( $GLOBALS['HTTP_POST_VARS']['thr_ordertype'] != 'NONE' ) {
 				$thr->is_sticky = 'Y';
 				$thr->ordertype = $GLOBALS['HTTP_POST_VARS']['thr_ordertype'];
@@ -188,7 +188,7 @@ class fud_msg_edit extends fud_msg
 			$th_change = 1;
 		}
 		
-		if( $th_change ) $thr->sync();
+		if( $th_change ) $thr->sync($stick);
 		
 		if ( $ll ) db_unlock();
 		$s_text = preg_match("!^Re: !i", $this->subject) ? '': $this->subject;
