@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.12 2002/09/18 21:56:54 hackie Exp $
+*   $Id: admlog.php,v 1.13 2002/12/05 21:04:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -127,6 +127,9 @@ function return_thread_subject($id)
 				break;
 			case "WRONGPASSWD":
 				echo '<tr><td>'.$user_info.'</td><td>Failed login attempt for admin</td><td>From '.$obj->logaction.'</td>'.$logtime.'</tr>';
+				break;
+			case "DELETE_USER":
+				echo '<tr><td>'.$user_info.'</td><td>Removed user account</td><td>'.$obj->logaction.'</td>'.$logtime.'</tr>';
 				break;
 		}
 	}

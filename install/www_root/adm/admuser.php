@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.12 2002/09/18 20:52:08 hackie Exp $
+*   $Id: admuser.php,v 1.13 2002/12/05 21:04:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,6 +25,7 @@
 	fud_use('util.inc');
 	fud_use('customtags.inc');
 	fud_use('private.inc');
+	fud_use('logaction.inc');
 	
 	list($ses, $usr_adm) = initadm();
 	
@@ -47,6 +48,7 @@ if( !empty($act) ) {
 			exit();
 			break;
 		case 'del':
+			logaction($usr_adm->id, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
 			$usr->delete_user();
 			header("Location: admuser.php?"._rsidl);
 			exit();
