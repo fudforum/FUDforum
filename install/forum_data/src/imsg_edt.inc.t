@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.52 2003/05/06 12:38:17 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.53 2003/05/06 14:31:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -460,7 +460,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.
-		if ($mtf->nntp_id || $mtf->mlist_id) {
+		if (($mtf->nntp_id || $mtf->mlist_id) && !$mtf->mlist_msg_id) {
 			fud_use('email_msg_format.inc', true);
 
 			reverse_fmt($mtf->alias);
@@ -478,7 +478,7 @@ class fud_msg_edit extends fud_msg
 			if ($mtf->attach_cnt) {
 				$r = uq("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mtf->id." AND private='N'");
 				while ($ent = db_rowarr($r)) {
-					$attach[$ent[1]][] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
+					$attach[$ent[1]] = file_get_contents($GLOBALS['FILE_STORE'].$ent[0].'.atch');
 				}
 				qf($r);
 			} else {
