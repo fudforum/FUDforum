@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.36 2004/03/23 20:22:02 hackie Exp $
+* $Id: usrinfo.php.t,v 1.37 2004/05/12 15:58:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -116,11 +116,7 @@ function convert_bdate($val, $month_fmt)
 	}
 
 	/* we only display the user's real name unless they choose the invisible mode */
-	if ($u->users_opt & 32768) {
-		$real_name = '';
-	} else {
-		$real_name = '{TEMPLATE: usr_real_name}';
-	}
+	$real_name = $u->users_opt & 32768 ? '' : '{TEMPLATE: usr_real_name}';
 
 	$usrinfo_private_msg = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
 
@@ -150,11 +146,7 @@ function convert_bdate($val, $month_fmt)
 		$birth_date = '';
 	}
 
-	if ($FUD_OPT_2 & 2048 && $u->affero) {
-		$im_affero = '{TEMPLATE: usrinfo_affero}';
-	} else {
-		$im_affero = '';
-	}
+	$im_affero = ($FUD_OPT_2 & 2048 && $u->affero) ? '{TEMPLATE: usrinfo_affero}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

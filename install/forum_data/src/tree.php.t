@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.php.t,v 1.59 2004/05/11 19:16:14 hackie Exp $
+* $Id: tree.php.t,v 1.60 2004/05/12 15:58:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -166,11 +166,7 @@
 
 	if ($FUD_OPT_2 & 4096) {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		if ($perms & 1024 && !$frm->cant_rate) {
-			$rate_thread = '{TEMPLATE: rate_thread}';
-		} else {
-			$rate_thread = '';
-		}
+		$rate_thread = ($perms & 1024 && !$frm->cant_rate) ? '{TEMPLATE: rate_thread}' : '';
 	} else {
 		$rate_thread = $thread_rating = '';
 	}

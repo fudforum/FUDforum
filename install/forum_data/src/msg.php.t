@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.71 2004/05/11 19:16:14 hackie Exp $
+* $Id: msg.php.t,v 1.72 2004/05/12 15:53:57 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -137,11 +137,7 @@
 			}
 		}
 
-		if (($total - $_GET['th']) > $count) {
-			$first_unread_message_link = '{TEMPLATE: first_unread_message_link}';
-		} else {
-			$first_unread_message_link = '';
-		}
+		$first_unread_message_link = (($total - $_GET['th']) > $count) ? '{TEMPLATE: first_unread_message_link}' : '';
 		$subscribe_status = $frm->subscribed ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	} else {
 		$first_unread_message_link = $subscribe_status = '';
@@ -155,11 +151,7 @@
 
 	if ($FUD_OPT_2 & 4096) {
 		$thread_rating = $frm->rating ? '{TEMPLATE: thread_rating}' : '{TEMPLATE: no_thread_rating}';
-		if ($perms & 1024 && !$frm->cant_rate) {
-			$rate_thread = '{TEMPLATE: rate_thread}';
-		} else {
-			$rate_thread = '';
-		}
+		$rate_thread = ($perms & 1024 && !$frm->cant_rate) ? '{TEMPLATE: rate_thread}' : '';
 	} else {
 		$rate_thread = $thread_rating = '';
 	}
