@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: isearch.inc.t,v 1.42 2004/10/25 15:26:38 hackie Exp $
+* $Id: isearch.inc.t,v 1.43 2004/11/05 16:23:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,7 +67,7 @@ function text_to_worda($text)
 
 			case 'latvian':
 			case 'russian-1251':
-				$t1 = array_unique(preg_split('![\x00-\x64]+!', $text, -1, PREG_SPLIT_NO_EMPTY));
+				$t1 = array_unique(preg_split('![\x00-\x40]+!', $text, -1, PREG_SPLIT_NO_EMPTY));
 				break;
 
 			default:
