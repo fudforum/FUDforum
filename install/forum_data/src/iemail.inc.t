@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.33 2004/05/12 22:47:47 hackie Exp $
+* $Id: iemail.inc.t,v 1.34 2004/05/13 01:06:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,9 +18,7 @@ function validate_email($email)
 function encode_subject($text)
 {
 	if (preg_match('![\x7f-\xff]!', $text)) {
-		$charset = '{TEMPLATE: iemail_CHARSET}';
-		$text = "=?{$charset}?B?" . rtrim(chunk_split(base64_encode($text))) . "?=";
-		$text = str_replace("\r\n", "==?=\r\n  =?{$charset}?B?", $text);
+		$text = '=?' . '{TEMPLATE: iemail_CHARSET}' . '?B?' . base64_encode($text) . '?=';
 	}
 
 	return $text;
