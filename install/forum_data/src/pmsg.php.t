@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.40 2004/05/12 16:31:53 hackie Exp $
+* $Id: pmsg.php.t,v 1.41 2004/05/16 16:58:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,6 +24,15 @@
 
 /*{POST_HTML_PHP}*/
 
+	/* empty trash */
+	if (isset($_POST['btn_trash'])) {
+		$c = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=5");
+		while ($r = db_rowarr($c)) {
+			pmsg_del((int)$r[0], 5);
+		}
+		unset($c, $_POST['sel'], $_GET['sel']); /* prevent message selection cofusion */
+	}
+
 	/* moving or deleting a message */
 	if (isset($_POST['sel']) || isset($_GET['sel'])) {
 		$sel = isset($_POST['sel']) ? $_POST['sel'] : $_GET['sel'];
@@ -38,15 +47,6 @@
 				pmsg_del((int)$m);
 			}
 		}
-	}
-	
-	/* empty trash */
-	if (isset($_POST['btn_trash'])) {
-		$c = q("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=5");
-		while ($r = db_rowarr($c)) {
-			pmsg_del((int)$r[0]);
-		}
-		unset($c);
 	}
 
 	if (isset($_GET['folder_id'], $folders[$_GET['folder_id']])) {
