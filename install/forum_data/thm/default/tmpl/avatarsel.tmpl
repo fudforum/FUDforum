@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: avatarsel.tmpl,v 1.11 2004/01/04 16:38:27 hackie Exp $
+* $Id: avatarsel.tmpl,v 1.12 2004/03/18 00:34:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -14,6 +14,7 @@
 {REF: header.tmpl}
 {REF: footer.tmpl}
 {REF: alt_var.tmpl}
+{REF: draw_select_opt.tmpl}
 
 {SECTION: no_avatars}
 <td class="NoAvatar">{MSG: no_avatars}</td>
@@ -30,6 +31,7 @@
 
 {PAGE: AVATARSEL_PAGE Built In Avatar List}
 {TEMPLATE: header_plain}
+{TEMPLATE-DATA: select}
 <table border=0 cellspacing=1 cellpadding=2><tr>
 {TEMPLATE-DATA: avatars_data}
 </tr></table>
@@ -38,4 +40,14 @@
 
 {SECTION: avatar_sel_form}
 {MSG: avatar_sel_form}
+{SECTION: END}
+
+{SECTION: avatar_sel_lnk}
+{ROOT}?t=avatarsel
+{SECTION: END}
+
+{SECTION: avatarsel_gal_sel avatar gallery selection}
+<form name="avsel" method="post" action="{TEMPLATE: avatar_sel_lnk}">{DEF: _hs}
+<select name="gal" onChange="javascript: document.avsel.submit();">{TEMPLATE-DATA: select}</select> <input type="submit" name="sbm" value="View">
+</form><hr />
 {SECTION: END}

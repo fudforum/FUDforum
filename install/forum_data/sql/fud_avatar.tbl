@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_avatar.tbl,v 1.6 2004/01/04 16:38:26 hackie Exp $
+#   $Id: fud_avatar.tbl,v 1.7 2004/03/18 00:34:28 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -14,7 +14,9 @@ CREATE TABLE {SQL_TABLE_PREFIX}avatar
 (
 	id		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	img		VARCHAR(255) NOT NULL DEFAULT '',
-	descr		VARCHAR(255) NOT NULL
+	descr		VARCHAR(255) NOT NULL,
+	gallery		VARCHAR(255) NOT NULL DEFAULT 'default'
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}avatar_i_i ON {SQL_TABLE_PREFIX}avatar (img);
+CREATE INDEX {SQL_TABLE_PREFIX}avatar_i_g ON {SQL_TABLE_PREFIX}avatar (gallery);
