@@ -682,7 +682,12 @@ Windows: c:\\web\\my website\\forum\\
 						disable file attachments for private messages.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_ATTACH_SIZE"></a>Maximum Attachment Size</h5></div></div><p>
 						The maximum size, in bytes, of the file(s) a user can attach to their private messages.
-					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_MSG_SMILEY"></a>Allow Smilies</h5></div></div><p>
+					</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+							PHP has it's own limitation on the size of the file uploads, via the 
+							'upload_max_filesize' php.ini setting. If the php.ini value is smaller,
+							then the value set in the forum, then the php.ini will be used to 
+							limit the file uploads.
+						</p></div></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_MSG_SMILEY"></a>Allow Smilies</h5></div></div><p>
 						Whether or not smilies/emoticons in private messages will be converted to their graphical equivalents.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.PRIVATE_IMAGES"></a>Allow Images</h5></div></div><p>
 						This option allows you to limit how many images can users include inside their private messages.
@@ -1202,7 +1207,12 @@ Mode			Owner	Group	Size	Date	Time		Name		Action
 					The maximum size, in kilobytes of the attached files users can attach to their messages.
 				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.max_files"></a>Change Position</h4></div></div><p>
 					The maximum number of files users can attach to their messages.
-				</p></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.msg_threshold"></a>Message Threshold</h4></div></div><p>
+				</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>
+						PHP has it's own limitation on the size of the file uploads, via the 
+						'upload_max_filesize' php.ini setting. If the php.ini value is smaller,
+						then the value set in the forum, then the php.ini will be used to 
+						limit the file uploads.
+					</p></div></div><div class="sect3"><div class="titlepage"><div><h4 class="title"><a name="forum.msg_threshold"></a>Message Threshold</h4></div></div><p>
 					Only the number of bytes of the messages inside this forum will be shown. For example, if you set this 
 					limit to 1000 bytes and a user entered a 1500 byte long message only the 1st 1000 bytes of the message
 					will be shown. To see the rest the message user will need to click on the 'Show the rest of the message' link.
