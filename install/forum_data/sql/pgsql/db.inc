@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.31 2003/10/03 16:24:40 hackie Exp $
+*   $Id: db.inc,v 1.32 2003/10/05 20:46:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -361,7 +361,7 @@ function ins_m($tbl, $flds, $vals, $type)
 
 	$qry = 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ','))).'); BEGIN; ';
 	foreach ($vals as $v) {
-		$qry .= ' EXECUTE '.$pid.' ('.$v.');'
+		$qry .= ' EXECUTE '.$pid.' ('.$v.');';
 	}
 	$qry .= 'COMMIT;';
 	@pg_query(fud_sql_link, $qry);
