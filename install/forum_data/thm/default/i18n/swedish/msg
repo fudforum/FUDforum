@@ -2,10 +2,10 @@ action:				Handling
 add_to_buddy_list:		l&auml;gg till kompislistan
 admin:				Admin
 admin_control_panel:		Administratorns kontrollpanel
-administrator:			Administrator
+administrator:			Administratör
 announcement:			Meddelande
 attachment:			Bilaga:
-avatar:				Avatar:
+avatar:				Visningsbild:
 average_post_count:		{VAR: u->posted_msg_count} inl&auml;gg ({VAR: avg} inl&auml;gg per dag i medeltal)
 biography:			Biografi:
 birth_date:			F&ouml;delsedatum:
@@ -78,7 +78,7 @@ more_unread_messages_desc:	Visa fler ol&auml;sta inl&auml;gg och markera de nu v
 move_thread:			Flytta
 moved:				Flyttad till ett annat forum
 moved_thread_message:		Den h&auml;r diskussionen har blivit flyttad till ett annat forum
-na:				n/a
+na:				inget
 new_posts:			Nya inl&auml;gg
 new_private_messages:		Du har <span class="GenText" style="color: #ff0000">({VAR: c})</span> ol&auml;sta privata meddelanden
 new_thread:			B&ouml;rja en ny diskussion
@@ -283,7 +283,7 @@ register_your_pass:		Ditt l&ouml;senord:
 register_update:		Uppdatera
 register_avatar_type:		Avatartyp:
 register_del_avatar:		Radera avatar
-register_avatar:		Avatar:
+register_avatar:		Visningsbild:
 register_sel_avatar:		V&auml;lj avatar
 register_custom_avatar_rules:	Din egen avatar kommer inte att synas f&ouml;re den har godk&auml;nts av administratorn.<br><font class="SmallText">Avataren b&ouml;r inte vara st&ouml;rre &auml;n <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixlar</b> och m&aring;ste vara i <b>jpg-</b>, <b>gif-</b> eller <b>png-</b>format.</font>
 register_custom_avatar_url:	URL till egen avatar:
@@ -339,7 +339,7 @@ buddy_status:			Status
 my_buddies:			Mina kompisar
 add_buddy:			L&auml;gg till kompis
 add:				L&auml;gg till
-buddy_search:			Ge anv&auml;ndarnamnet p&aring; den anv&auml;ndare du vill l&auml;gga till.
+buddy_search:			Ange användarnamnet på peronen du vill lägga till.
 buddy_remove:			ta bort
 post_normal:			Normal
 post_sticky:			Klibbig
@@ -479,7 +479,7 @@ remail_error:			Ett fel har uppst&aring;tt
 mklist_type:			Typ:
 mklist_option:			Alternativ:
 mklist_additem:			L&auml;gg till sak[??]
-mklist_apply:			Till&auml;mpa
+mklist_apply:			Verkställ
 mklist_delete:			Radera
 qbud_nick_name:			Smeknamn
 qbud_add_selected:		L&auml;gg till valda
@@ -534,8 +534,8 @@ tabs_referrals:			Refererade medlemmar
 tabs_buddy_list:		Kompislista
 tabs_ignore_list:		Ignorerade medlemmar
 tabs_private_messaging:		Privata meddelanden
-single_msg_delete:		Du h&aring;ller p&arin; att <font color="#ff0000" size="4">RADERA</font> ett meddelande med rubriken: <b>{VAR: data[3]}</b><p>
-thread_delete:			Du h&aring;ller p&arin; att <font color="#ff0000" size="4">RADERA HELA DISKUSSIONEN</font> med rubriken: <b>{VAR: data[3]}</b><p>
+single_msg_delete:		Du håller på att <font color="#ff0000" size="4">RADERA</font> ett meddelande kallat: <b>{VAR: data[3]}</b><p>
+thread_delete:			Du håller på att <font color="#ff0000" size="4">RADERA</font> <font color="#ff0000" size="4">HELA ÄMNET</font> kallat: <b>{VAR: data[3]}</b><p>
 delete_proceed:			<font size="3"><b>Vill du forts&auml;tta?</b></font>
 delete_yes:			Ja
 delete_no:			Nej
@@ -765,7 +765,7 @@ group_mgr_heading:		V&auml;lj grupp att editera
 group_mgr_group:		Grupp:
 permission_denied_title:	Inte till&aring;tet!
 permission_denied_msg:		Dina anv&auml;ndarr&auml;ttigheter till&aring;ter inte att du g&ouml;r det du nyss f&ouml;rs&ouml;kte.
-p_READ:				L&auml;s
+p_READ:				Läst
 p_POST:				Skriva
 p_REPLY:			Svara
 p_EDIT:				Editera
@@ -811,7 +811,7 @@ thread_mod_delete:		Radera
 action_latest_post:		Senaste inl&auml;gg
 post_locked:			L&aring;s diskussionen
 online_today_last_visit:	Senaste bes&ouml;k
-online_today_update:		Tittar p&aring; listan &ouml;ver forumets bes&ouml;kare idag.
+online_today_update:		Tittar på listan över personer som besökt forumet idag.
 logedin_todays_visitors:	dagens bes&ouml;kare
 logedin_latest_post:		Senaste inl&auml;gg:
 register_show_avatar:		Visa avatarer:
@@ -907,7 +907,7 @@ register_tree_msg_view:		Tr&aring;dad diskussionsvy/Platt inl&auml;ggsvy
 mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av diskussion/inl&auml;gg
 spell_alts:			inga alternativ
 insert_uploaded_image:		S&auml;tt in bild i texten
-finduser_help:			S&ouml;kmaskinen l&auml;gger automatiskt till * till s&ouml;kordet. Exempel: Skriv &#39;a&#39; i textf&auml;ltet f&ouml;r att s&ouml;ka efter alla anv&auml;ndare vars anv&auml;ndarnamn b&ouml;rjar med &#39;a&#39;.
+finduser_help:			Sökmotorn kommer automatiskt att lägga till ett * tecken till din fråga. t ex. för att söka efter alla personer vars användarnamn startar med ett &#39;a&#39;, skriv &#39;a&#39; i sökrutan.
 back_to_top:			Tillbaka till b&ouml;rjan
 iemail_participate:		F&ouml;r att delta i diskussionen, g&aring; hit:
 pm_err_disabled_title:		Privata meddelanden &auml;r inte till&aring;tna
@@ -916,42 +916,42 @@ err_mod_acc_ttl:		Obekr&auml;ftad anv&auml;ndare
 err_mod_acc_msg:		Administratorn har valt att sj&auml;lv granska alla anv&auml;ndare innan aktivering. Du kommer inte att ha fulla r&auml;ttigheter i forumet innan administratorn har godk&auml;nt ditt anv&uml;ndarnamn.
 accounts_pending_approval:	Ej granskade anv&auml;ndare
 saved:				Sparade
-register_err_time_limit:	Registreringsgr&auml;nsen om 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har n&aring;tts. V&auml;nligen v&auml;nta {VAR: reg_limit_reached} sekunder och f&ouml;rs&ouml;k p&aring; nytt.
-login_blocked_account_ttl:	Ditt konto &auml;r avst&auml;ngt.
-login_blocked_account_msg:	Ditt konto i detta forum &auml;r avst&auml;ngt. Ta kontakt med forumets administrator om du inte redan k&auml;nner till orsakerna till avst&auml;ngningen.
+register_err_time_limit:	Registreringsbegränsningen av 1 registrering per {GVAR: REG_TIME_LIMIT} sekunder har överskridits. Vänligen vänta {VAR: reg_limit_reached} sekunder och försök sedan registrera er igen.
+login_blocked_account_ttl:	Ditt konto har bannlysts.
+login_blocked_account_msg:	Ditt konto har bannlysts från detta forum, om du inte redan känner till orsaken för detta vänligen kontakta forumets administratör(er).
 register_affero:		Affero Username:<br /><font class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: GLOBALS['FORUM_TITLE']}" target="_blank">Affero</a> username enter it here.</font>
-im_affero:			Affero-anv&auml;ndarnamn
-register_err_avatardimtobig:	Avatarens storlek <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &ouml;verstiger den godk&auml;nda storleken ({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-pmsg_download_counter:		Laddad ner {VAR: r->dlcount} gånger
-member_search:			<br>Eller an&auml;nd funktionen <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">S&ouml;k anv&auml;ndare</a> f&ouml;r att hitta en person.
-post_all_ext_allowed:		(obegr&auml;nsad)
-buddy_offline:			{VAR: r[2]} &auml;r offline f&ouml;r n&auml;rvarande
-buddy_online:			{VAR: r[2]} &auml;r online f&ouml;r n&auml;rvarande
-sml_no_smilies:			Inga emoticons finns tillg&auml;ngliga.
-login_unapproved_account_ttl:	Ej godk&auml;nt konto
-login_unapproved_account_msg:	Forumets administrator har valt att godk&auml;nna alla nya konton manuellt f&ouml;re aktivering. Ditt konto har inte &auml;nnu godk&auml;nts, och du har d&auml;rf&ouml;r inte &auml;nnu tilltr&auml;de till vissa funktioner som &auml;r tillg&auml;ngliga f&ouml;r registrerade medlemmar.
-remove_from_buddy_list:		radera fr&aring; kompislistan
-iemail_msg_author:		<b>Avs&auml;ndare:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Rubrik:</b> {VAR: obj->subject}
+im_affero:			Affero Användarnamn
+register_err_avatardimtobig:	Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+pmsg_download_counter:		Nedhämtad {VAR: r->dlcount} gång(er)
+member_search:			<br>Eller använd <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Användarsöknings</a> funtionen för att hitta personen.
+post_all_ext_allowed:		(oinskränkt)
+buddy_offline:			{VAR: r[2]} är för tillfället nedkopplad
+buddy_online:			{VAR: r[2]} är för tillfället uppkopplad
+sml_no_smilies:			Inga humörgubbar finns tillgängliga.
+login_unapproved_account_ttl:	Inaktiverat Konto
+login_unapproved_account_msg:	Administratören på forumet har valt att verifiera samtliga registreringar manuellt innan de aktiveras. Dit konto har inte aktiverats ännu, därför kommer du inte kunna använda vissa av funktionerna som finns tillgängliga för registrerade medlemmar innan ditt konto aktiveras.
+remove_from_buddy_list:		ta bort från kompislistan
+iemail_msg_author:		<b>Skribent:</b> {VAR: obj->alias}
+iemail_msg_subject:		<b>Ämne:</b> {VAR: obj->subject}
 iemail_msg_date:		<b>Datum:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Svara
 iemail_msg_quote:		Citera
-iemail_msg_view:		L&auml;s diskussion/inl&auml;gg
-threadt_sticky:			klibbig
-threadt_announce:		meddelande
-reported_no_messages:		Det finns inga rapporterade meddelande.
-poll_no_polls:			Det finns inga gallupar.
-no_unread_messages:		Det finns inga ol&auml;sta meddelanden som motsvarar dina s&ouml;kord.
-thread_mark_all_read:		markera alla ol&auml;sta inl&auml;gg i forumet l&auml;sta
-thread_mark_all_read_desc:	Alla ol&auml;sta inl&auml;gg i det h&auml;r forumet markeras som l&auml;sta
-private_no_messages:		Det finns inga meddelanden i den h&auml;r mappen
-register_email_change_subject:	Bekr&auml;ftelse av byte av e-postadress
-register_email_change_msg:	V&auml;nligen bekr&auml;fta din nya e-postadress "{VAR: uent->email}" som ers&auml;tter din gamla e-postadress "{VAR: old_email}" genom att bes&ouml;ka f&ouml;ljande URL:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nN&auml;r du har bekr&auml;ftat din nya e-postadress kommer ditt konto att bli aktiverat p&aring; nytt.
-iemail_thread_unsub:		Avbest&auml;ll den h&auml;r diskussionen
-iemail_forum_unsub:		Avbest&auml;ll det h&auml;r forumet
-primary_group_prefix:		Prim&auml;r grupp f&ouml;r forumet:
-group_resources:		Den h&auml;r gruppen kontrollerar r&auml;ttigheterna f&ouml;r f&ouml;ljande forum
-register_email:			E-post
+iemail_msg_view:		Visa Ämne/Meddelande
+threadt_sticky:			klistrig
+threadt_announce:		tillkännagivande
+reported_no_messages:		Det finns inga rapporterade meddelanden.
+poll_no_polls:			Det finns inga tillgängliga gallupar.
+no_unread_messages:		Det finns inga olästa meddelanden som matchade din förfrågan.
+thread_mark_all_read:		markera alla olästa forums meddelanden lästa
+thread_mark_all_read_desc:	Alla olästa meddelanden i detta forum kommer att markeras som lästa.
+private_no_messages:		Det finns inga meddelanden i denna mapp
+register_email_change_subject:	Verifiering av ändrad e-postadress
+register_email_change_msg:	Vänligen verifiera ditt nya e-postadres "{VAR: uent->email}" som ersätter din gamla adress "{VAR: old_email}" genom att besöka länken under:\n{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nNär du verifierat din nya adress, kommer ditt konto aktiveras igen.
+iemail_thread_unsub:		Avbeställ denna tråd
+iemail_forum_unsub:		Avbeställ detta forum
+primary_group_prefix:		Primär grupp för forum:
+group_resources:		Denna grupp kontrollerar rättigheterna för följande forum
+register_email:			Epost
 register_admin_newuser_title:	En ny medlem har registrerat sig och v&auml;ntar p&aring; att kontot skall bekr&auml;ftas
 register_admin_newuser_msg:	Den nya medlemmen {VAR: uent->login} har just registrerat sig p&aring; forumet. Eftersom kontobekr&auml;ftelsefunktionen &auml;r p&aring; m&aring;ste du eller n&aring;gon annan av forumadministrat&ouml;rerna bekr&auml;fta konto innan det kan aktiveras. G&aring; till {GVAR: WWW_ROOT}adm/admaccapr.php f&ouml;r att kontrollera kontot.\n\nDet h&auml;r &auml;r en automatiserad process. Svara inte p&aring; detta meddelande.\nOm du inte vill ha ytterligare meddelanden om nya medlemmar som registrerar sig kan du koppla bort dem i Administrat&ouml;rens kontrollpanel. Funktionen heter "New Account Notification".
 post_mod_msg_notify_title:	Ett nytt meddelande i forumet "{VAR: frm->name}" v&auml;ntar p&aring; godk&auml;nnande
