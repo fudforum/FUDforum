@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.20 2004/11/24 19:53:36 hackie Exp $
+* $Id: spell.inc.t,v 1.21 2004/12/08 15:21:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -113,13 +113,12 @@ function draw_spell_sug_select($v,$k,$type)
 	$sel_name = 'spell_chk_'.$type.'_'.$k;
 	$data = '<select name="'.$sel_name.'">';
 	$data .= '<option value="'.htmlspecialchars($v['token']).'">'.htmlspecialchars($v['token']).'</option>';
-	$sug = pspell_suggest(__FUD_PSPELL_LINK__, $v['token']);
-	$i=0;
-	foreach($sug as $va) {
+	$i = 0;
+	foreach(pspell_suggest(__FUD_PSPELL_LINK__, $v['token']) as $va) {
 		$data .= '<option value="'.$va.'">'.++$i.') '.$va.'</option>';
 	}
 
-	if (empty($sug)) {
+	if (!$i) {
 		$data .= '<option value="">{TEMPLATE: spell_alts}</option>';
 	}
 
