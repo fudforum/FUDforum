@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.129 2004/05/27 17:36:48 hackie Exp $
+* $Id: users.inc.t,v 1.130 2004/06/11 14:42:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -612,7 +612,9 @@ function init_user()
 	}
 
 	/* set timezone */
-	@putenv('TZ=' . $u->time_zone);
+	if ($u->time_zone) {
+		@putenv('TZ=' . $u->time_zone);
+	}
 	/* set locale */
 	setlocale(LC_ALL, $u->locale);
 
