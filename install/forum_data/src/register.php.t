@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.42 2003/04/21 14:14:39 hackie Exp $
+*   $Id: register.php.t,v 1.43 2003/04/23 17:27:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -217,8 +217,6 @@ function remove_old_avatar($avatar_str)
 		std_error('registration_disabled');
 	}
 
-	fud_use('login.inc', TRUE);
-
 	if (!__fud_real_user__ && !isset($_POST['reg_coppa']) && !isset($_GET['reg_coppa'])) {
 		if ($GLOBALS['COPPA'] == 'Y') {
 			header('Location: {ROOT}?t=coppa&'._rsidl);
@@ -413,8 +411,12 @@ function remove_old_avatar($avatar_str)
 				usr_email_unconfirm($uent->id);
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			}
-
-			check_return($usr->returnto);
+			if (!$mod_id) {
+				check_return($usr->returnto);
+			} else {
+				header('Location: adm/admuser.php?usr_id='.$uent->id.'&'._rsidl.'&act=nada');
+				exit;
+			}
 		} else {
 			error_dialog('{TEMPLATE: register_err_cantreg_title}', '{TEMPLATE: regsiter_err_cantreg_msg}');
 		}
@@ -542,9 +544,7 @@ function remove_old_avatar($avatar_str)
 		$avatar_err = draw_err('avatar');
 		
 		$user_login = htmlspecialchars($uent->login);
-		if (!$mod_id) {
-			$change_passwd_link = '{TEMPLATE: change_passwd_link}';
-		}
+		$change_passwd_link = !$mod_id ? '{TEMPLATE: change_passwd_link}' : '';
 		$user_info_heading = '{TEMPLATE: update_user}';
 		$submit_button = '{TEMPLATE: update_button}';
 
