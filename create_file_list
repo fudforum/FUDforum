@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: create_file_list,v 1.16 2004/10/06 18:23:12 hackie Exp $
+* $Id: create_file_list,v 1.17 2005/03/29 16:07:40 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,41 +11,34 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-function create_file_archive($dir, $pdir)
+function create_file_archive($dir)
 {
+	$dirs = array(realpath($dir));
+	$base = dirname($dirs[0]);
 	$data = '';
 
-	$path = realpath($dir) . '/';
-
-	$files = glob($path . '{.[a-z]*,*}', GLOB_BRACE);
-	if ($files === FALSE) {
-		w_err('cannot access "'.$path.'"');
-	}
-
-	if (!$files) { // no files in directory
-		return;
-	}
-
-	$dd = str_replace($pdir, '', $dir);
-	if ($dd{0} == '/') {
-		$dd = substr($dd, 1);
-	}
-
-	foreach ($files as $f) {
-		switch (filetype($f)) {
-			case 'file':
-				$fdata = file_get_contents($f);
-				$data .= '//' . basename($f) . '//' . fileperms($f) . '//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
-				break;
-			case 'dir':
-				$name = basename($f);
-				if ($name == 'CVS') {
-					continue;
-				}
-				$data .= '//' . $name . '//' . fileperms($f) . '//' . $dd . "//\n";
-				$data .= create_file_archive($f, $pdir);
-				break;
+	while (list(,$v) = each($dirs)) {
+		if (!($d = opendir($v))) {
+			w_err('cannot access "'.$path.'"');
 		}
+
+		$dd = str_replace($base, '', $v);
+		if ($dd && ($dd{0} == '/' || $dd{0} == '\\')) {
+			$dd = substr($dd, 1);
+		}
+
+		while (($f = readdir($d))) {
+			if ($f == '.' || $f == '..' || $f == 'CVS') continue;
+
+			if (is_file($v . "/" . $f)) {
+				$fdata = file_get_contents($v . "/" . $f);
+				$data .= '//' . $f . '//0600//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
+			} else {
+				$data .= '//' . $f . '//0700//' . $dd . "//\n";
+				$dirs[] = $v . "/" . $f;
+			}
+		}
+		closedir($d);
 	}
 
 	return $data;
@@ -75,7 +68,7 @@ function w_err($msg, $exit=true)
 
 	$_SERVER['argv'][1] = preg_replace('!/+$!', '', $_SERVER['argv'][1]);
 
-	$archive = create_file_archive($_SERVER['argv'][1], getcwd());
+	$archive = create_file_archive($_SERVER['argv'][1]);
 	$check_sum = md5($archive);
 
 	$clean = array('<?' => 'PHP_OPEN_TAG', '<%' => 'PHP_OPEN_ASP_TAG');
