@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.6 2002/07/11 21:49:08 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.7 2002/07/12 19:43:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,7 +115,7 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 	if( !empty($obj->user_id) ) {
 		$disable_avatar = ( $obj->level_pri == 'L' || (_uid && $GLOBALS["usr"]->show_avatars=='N') ) ? 1 : 0;
 		
-		if( $GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' && $GLOBALS["usr"]->is_mod != 'A' ) 
+		if( ($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode=='N' ) || $GLOBALS["usr"]->is_mod == 'A' ) 
 			$online_indicator = (($obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 		
 		if ( !$disable_avatar ) {

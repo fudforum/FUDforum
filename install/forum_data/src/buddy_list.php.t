@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.6 2002/07/08 23:15:18 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.7 2002/07/12 19:43:01 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -89,7 +89,7 @@
 		$buddies='';
 		while( $obj = db_rowobj($res) ) {
 			$homepage_link = !empty($obj->home_page) ? '{TEMPLATE: homepage_link}' : '';
-			$online_status = ( $obj->invisible_mode=='N' && $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__ ) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
+			$online_status = ( ($obj->invisible_mode=='N' && $obj->time_sec+$GLOBALS['LOGEDIN_TIMEOUT']*60 > __request_timestamp__) || $usr->is_mod=='A' ) ? '{TEMPLATE: online_indicator}' : '{TEMPLATE: offline_indicator}';
 			
 			if( substr($obj->bday,4) == date("md") ) {
 				$age = date("Y")-substr($obj->bday,0,4);
