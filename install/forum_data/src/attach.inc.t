@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: attach.inc.t,v 1.37 2004/08/31 12:32:48 hackie Exp $
+* $Id: attach.inc.t,v 1.38 2004/10/25 16:54:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,7 +65,7 @@ function attach_finalize($attach_list, $mid, $attach_opt=0)
 	q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$mid." ".$id_list);
 
 	if (!$attach_opt && ($atl = attach_rebuild_cache($mid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(@serialize($atl)).'\' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cnt='.$attach_count.', attach_cache=\''.addslashes(serialize($atl)).'\' WHERE id='.$mid);
 	}
 }
 
@@ -83,7 +83,7 @@ function attach_inc_dl_count($id, $mid)
 {
 	q('UPDATE {SQL_TABLE_PREFIX}attach SET dlcount=dlcount+1 WHERE id='.$id);
 	if (($a = attach_rebuild_cache($mid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(@serialize($a)).'\' WHERE id='.$mid);
+		q('UPDATE {SQL_TABLE_PREFIX}msg SET attach_cache=\''.addslashes(serialize($a)).'\' WHERE id='.$mid);
 	}
 }
 ?>

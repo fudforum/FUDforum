@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.31 2004/10/25 16:32:20 hackie Exp $
+* $Id: logedin.inc.t,v 1.32 2004/10/25 16:54:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@ function rebuild_stats_cache($last_msg_id)
 		online_users_anon='.(int)$obj->online_users_anon.',
 		online_users_hidden='.(int)$obj->online_users_hidden.',
 		online_users_reg='.(int)$obj->online_users_reg.',
-		online_users_text='.strnull(addslashes(@serialize($obj->online_users_text))));
+		online_users_text='.strnull(addslashes(serialize($obj->online_users_text))));
 
 	$obj->last_user_alias = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$obj->last_user_id);
 	$obj->last_msg_subject = q_singleval('SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id='.$last_msg_id);

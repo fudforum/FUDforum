@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.110 2004/10/25 16:32:20 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.111 2004/10/25 16:54:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -57,7 +57,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		poll_cache_rebuild($this->poll_id, $poll_cache);
-		$poll_cache = ($poll_cache ? @serialize($poll_cache) : null);
+		$poll_cache = ($poll_cache ? serialize($poll_cache) : null);
 
 		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}msg (
 			thread_id,
@@ -142,7 +142,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		poll_cache_rebuild($this->poll_id, $poll_cache);
-		$poll_cache = ($poll_cache ? @serialize($poll_cache) : null);
+		$poll_cache = ($poll_cache ? serialize($poll_cache) : null);
 
 		q("UPDATE {SQL_TABLE_PREFIX}msg SET
 			file_id=".$file_id.",

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.php.t,v 1.12 2004/10/25 16:32:20 hackie Exp $
+* $Id: mklist.php.t,v 1.13 2004/10/25 16:54:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@
 			$list_entry_data .= '{TEMPLATE: list_entry}';
 		}
 		$list_sample = '{TEMPLATE: list_sample}';
-		$_POST['opt_list'] = base64_encode(@serialize($_POST['opt_list']));
+		$_POST['opt_list'] = base64_encode(serialize($_POST['opt_list']));
 	} else {
 		$list_sample = $_POST['opt_list'] = '';
 	}
