@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.tmpl,v 1.9 2003/04/02 16:06:24 hackie Exp $
+*   $Id: buddy_list.tmpl,v 1.10 2003/04/02 16:17:19 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -78,7 +78,7 @@
 <table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
 <tr><th nowrap>{MSG: add_buddy}</th></tr>
 <tr class="RowStyleA">
-<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}</font><p>
+<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: buddy_member_search}</font><p>
 <input type="text" name="add_login" value="" maxlength=100 size=25> <input type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
 </table></div></form>
 {TEMPLATE: curtime}
@@ -108,4 +108,8 @@
 
 {SECTION: buddy_list_update}
 {MSG: buddy_list_update}
+{SECTION: END}
+
+{SECTION: buddy_member_search}
+{MSG: member_search}
 {SECTION: END}

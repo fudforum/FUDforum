@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.php.t,v 1.13 2003/04/02 16:06:15 hackie Exp $
+*   $Id: buddy_list.php.t,v 1.14 2003/04/02 16:17:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,6 +58,8 @@
 	}
 
 	$ses->update('{TEMPLATE: buddy_list_update}');
+
+	$buddy_member_search = ($MEMBER_SEARCH_ENABLED == 'Y') ? '{TEMPLATE: buddy_member_search}' : '';
 
 /*{POST_HTML_PHP}*/
 
