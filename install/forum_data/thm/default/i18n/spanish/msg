@@ -444,7 +444,6 @@ search_posted_on:		Publicado el
 search_no_results:		No hubo resultados
 search_all_forums:		Buscar en todos los Foros
 search_in_forum:		Buscar en Foro:
-search_for:			Buscar por:
 search_forum_search:		Búsqueda en foro
 move_thread_to:			Mover hilo de discusión <b>{VAR: thr->subject}</b> a:
 remail_email_topic:		Enviar E-mail Sobre Este Tema A Un Amigo

@@ -449,7 +449,6 @@ search_posted_on:		Pridané
 search_no_results:		iadne vısledky
 search_all_forums:		H¾ada vo všetkıch fórach
 search_in_forum:		H¾ada vo fóre:
-search_for:			H¾ada:
 search_forum_search:		Vyh¾adávanie vo fóre
 move_thread_to:			Presunú tému <b>{VAR: thr->subject}</b> do:
 remail_email_topic:		Posla túto tému priate¾ovi emailom

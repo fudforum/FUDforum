@@ -444,7 +444,6 @@ search_posted_on:		Zamieszczona dnia
 search_no_results:		Brak wyników.
 search_all_forums:		Przeszukaj wszystkie fora
 search_in_forum:		Szukaj w forum:
-search_for:			Szukany ci±g:
 search_forum_search:		Szukanie w forum
 move_thread_to:			Przenie¶ w±tek <b>{VAR: thr->subject}</b> do:
 remail_email_topic:		Prze¶lij ten w±tek do znajomego

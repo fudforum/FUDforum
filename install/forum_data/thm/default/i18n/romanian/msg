@@ -448,7 +448,6 @@ search_posted_on:		Trimis la data de
 search_no_results:		Nici un rezultat
 search_all_forums:		Cauta in tote forumurile
 search_in_forum:		Cauta in forum:
-search_for:			Cauta :
 search_forum_search:		Cautare Forum
 move_thread_to:			Muta tema <b>{VAR: thr->subject}</b> la:
 remail_email_topic:		Trimite aceasta tema prin email unui prieten

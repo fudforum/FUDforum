@@ -444,7 +444,6 @@ search_posted_on:		提交
 search_no_results:		没有查询结果
 search_all_forums:		搜索所有论坛
 search_in_forum:		搜索这个论坛：
-search_for:			搜索
 search_forum_search:		论坛搜索
 move_thread_to:			把本主题移至 <b>{VAR: thr->subject}</b> ：
 remail_email_topic:		通过电子邮件向朋友推荐这个主题

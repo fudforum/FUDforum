@@ -447,7 +447,6 @@ search_posted_on:		Afixado em
 search_no_results:		Sem resultados
 search_all_forums:		Procurar em todos os foruns
 search_in_forum:		Procurar no Forum:
-search_for:			Procurar por:
 search_forum_search:		Procura no forum
 move_thread_to:			Mover tópico <b>{VAR: thr->subject}</b> para:
 remail_email_topic:		Enviar este tópico por Email a um amigo

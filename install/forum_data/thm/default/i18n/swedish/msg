@@ -444,7 +444,6 @@ search_posted_on:		Postningsdatum
 search_no_results:		Inga resultat
 search_all_forums:		S&ouml;k i alla forum
 search_in_forum:		S&ouml;k i forum:
-search_for:			S&ouml;kterm:
 search_forum_search:		S&ouml;k
 move_thread_to:			Flytta diskussionen <b>{VAR: thr->subject}</b> till:
 remail_email_topic:		Skicka den h&auml;r diskussionen till en v&auml;n per e-post

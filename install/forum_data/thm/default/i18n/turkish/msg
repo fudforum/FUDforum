@@ -444,7 +444,6 @@ search_posted_on:		Gönderilme Tarihi
 search_no_results:		Bulunamadı
 search_all_forums:		Tüm forumlar
 search_in_forum:		Aranacak forum:
-search_for:			Aranacak sözcükler:
 search_forum_search:		Forum Arama
 move_thread_to:			<b>{VAR: thr->subject}</b> zincirini buraya taşı:
 remail_email_topic:		Bu konuyu bir arkadaşına gönder

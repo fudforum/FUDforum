@@ -445,7 +445,6 @@ search_posted_on:		Дата отправки
 search_no_results:		Нет результатов
 search_all_forums:		Все форумы
 search_in_forum:		Форум для поиска:
-search_for:			Ключевые слова:
 search_forum_search:		Поиск в форумах
 move_thread_to:			Перенести тему <b>{VAR: thr->subject}</b> в форум:
 remail_email_topic:		Отправить эту тему по email

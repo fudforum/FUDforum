@@ -444,7 +444,6 @@ search_posted_on:		Postet dato
 search_no_results:		Ingen resultater
 search_all_forums:		S&oslash;k i alle forum
 search_in_forum:		S&oslash;k i forum:
-search_for:			S&oslash;keord:
 search_forum_search:		S&oslash;k
 move_thread_to:			Flytt tr&aring;d <b>{VAR: thr->subject}</b> til:
 remail_email_topic:		Send denne diskusjonen til en venn per e-post

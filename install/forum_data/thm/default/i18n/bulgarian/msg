@@ -447,7 +447,6 @@ search_posted_on:		Публикувано на
 search_no_results:		Няма резултати
 search_all_forums:		Във всички форуми
 search_in_forum:		Във форума:
-search_for:			Търси за:
 search_forum_search:		Търси Форум
 move_thread_to:			Премести темата <b>{VAR: thr->subject}</b> към:
 remail_email_topic:		Изпрати тази тема по e-mail

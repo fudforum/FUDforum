@@ -450,7 +450,6 @@ search_posted_on:		Posted On
 search_no_results:		No Results
 search_all_forums:		Search all Forums
 search_in_forum:		Search in Forum:
-search_for:			Search for:
 search_forum_search:		Forum Search
 move_thread_to:			Move topic <b>{VAR: thr->subject}</b> to:
 remail_email_topic:		Email This Topic To A Friend

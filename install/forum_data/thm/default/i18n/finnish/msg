@@ -450,7 +450,6 @@ search_posted_on:		Lähetetty
 search_no_results:		Ei tuloksia
 search_all_forums:		Hae kaikista foorumeista
 search_in_forum:		Hae foorumista:
-search_for:			Hakusana:
 search_forum_search:		Foorumi Haku
 move_thread_to:			Siirrä aihe <b>{VAR: thr->subject}</b>:
 remail_email_topic:		Lähetä tämä aihe kaverille

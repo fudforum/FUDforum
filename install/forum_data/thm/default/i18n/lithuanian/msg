@@ -450,7 +450,6 @@ search_posted_on:		Sukurta
 search_no_results:		Nerasta
 search_all_forums:		Ieðkoti visuose forumuose
 search_in_forum:		Ieðkoti forume:
-search_for:			Ieðkoti:
 search_forum_search:		Paieðka forumuose
 move_thread_to:			Perkeltá <b>{VAR: thr->subject}</b> temà á:
 remail_email_topic:		Email This Topic To A Friend

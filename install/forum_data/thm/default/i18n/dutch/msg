@@ -446,7 +446,6 @@ search_posted_on:		Gepost op
 search_no_results:		Geen resultaten
 search_all_forums:		Doorzoek alle forums
 search_in_forum:		Zoek in Forum:
-search_for:			Zoek voor:
 search_forum_search:		forum zoekopdracht
 move_thread_to:			verplaats topic <b>{VAR: thr->subject}</b> naar:
 remail_email_topic:		Email dit topic naar een vriend

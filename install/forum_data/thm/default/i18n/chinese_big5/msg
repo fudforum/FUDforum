@@ -445,7 +445,6 @@ search_posted_on:		提交
 search_no_results:		沒有查詢結果
 search_all_forums:		搜索所有論壇
 search_in_forum:		搜索這個論壇：
-search_for:			搜索
 search_forum_search:		論壇搜索
 move_thread_to:			把本主題移至 <b>{VAR: thr->subject}</b> :
 remail_email_topic:		通過電子郵件向朋友推荐這個主題

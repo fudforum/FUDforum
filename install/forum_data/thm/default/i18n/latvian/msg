@@ -445,7 +445,6 @@ search_posted_on:		Nosûtîðanas datums
 search_no_results:		Rezultâtu nav
 search_all_forums:		Visi forumi
 search_in_forum:		Meklçt forumâ:
-search_for:			Atslçgas vârdi:
 search_forum_search:		Meklçðana forumos
 move_thread_to:			Pârvietot tçmu <b>{VAR: thr->subject}</b> uz forumu:
 remail_email_topic:		Nosûtît ðo tçmu uz E-pasta adresi
