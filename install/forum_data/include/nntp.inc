@@ -1,9 +1,8 @@
-
 <?php
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.51 2004/10/11 18:51:11 hackie Exp $
+* $Id: nntp.inc,v 1.52 2004/10/11 19:06:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -394,10 +393,17 @@ class fud_nntp
 				}
 			}
 
-			/* strip =20 some NNTP clients add */
-			if (strpos($this->body, '=20') !== false) {
-				$this->body = preg_replace('!=20([\r\n]+)!', '\1', $this->body);
+			if (isset($this->headers['content-type']) && preg_match('!charset="([^"]+)"!', $this->headers['content-type'], $m)) {
+				$charset = $m[1];
+			} else {
+				$charset = $GLOBALS['CHARSET'];
 			}
+			if (isset($this->headers['content-transfer-encoding']) && $this->headers['content-transfer-encoding'] == 'quoted-printable') {
+				$enc = $this->headers['content-transfer-encoding'];
+			} else {
+				$enc = '';
+			}
+			$this->body = decode_string($this->body, $enc, $charset);
 
 			$msg_post->subject = apply_custom_replace($this->subject);
 			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id, $msg_post->post_stamp);
