@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.17 2003/04/17 11:53:46 hackie Exp $
+*   $Id: ppost.php.t,v 1.18 2003/04/17 12:30:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,8 +42,12 @@
 	
 	if (!isset($_POST['prev_loaded'])) {
 		/* setup some default values */
-		$msg_subject = $msg_body = '';
-
+		$msg_subject = $msg_body = $msg_icon = '';
+		$msg_track = NULL;
+		$msg_show_sig = $usr->append_sig == 'Y' ? 1 : NULL;
+		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? 1 : NULL;
+		$reply = $forward = 0;
+		
 		/* deal with users passed via GET */
 		if (isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
 			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi);
@@ -71,7 +75,7 @@
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
 			if (($msg_r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
-				$reply_to = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
+				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
 			
 				export_vars('msg_', $msg_r);
@@ -98,7 +102,7 @@
 			
 				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
 					$msg_subject = 'Re: ' . $msg_subject;
-					$msg_ref_msg_id = 'R'.$reply_to;
+					$msg_ref_msg_id = 'R'.$reply;
 				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
 					$msg_subject = 'Fwd: ' . $msg_subject;
 					$msg_ref_msg_id = 'F'.$forward;
@@ -120,7 +124,7 @@
 					$msg_subject = 'Re: ' . $msg_subject;
 				}
 				unset($msg_r);
-				$msg_ref_msg_id = 'R'.$reply_to;
+				$msg_ref_msg_id = 'R'.$reply;
 			}
 		}
 		
@@ -142,7 +146,10 @@
 			}
 		}
 		$msg_to_list = htmlspecialchars($msg_to_list);
-		
+
+		$reply = isset($_POST['quote']) ? (int)$_POST['quote'] : 0;
+		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
+
 		/* restore file attachments */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
 			$attach_list = base64_decode(@unserialize($_POST['file_array']));
@@ -266,7 +273,7 @@
 		exit;
 	}
 
-	$no_spell_subject = ($reply_to && $old_subject == $msg_subject) ? 1 : 0;
+	$no_spell_subject = ($reply && $old_subject == $msg_subject) ? 1 : 0;
 
 	if (isset($_POST['btn_spell'])) {
 		$text = apply_custom_replace($_POST['msg_body']);
@@ -350,6 +357,8 @@
 		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && isset($msg_show_sig)) ? '{TEMPLATE: signature}' : '';
 		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
 		$preview_message = '{TEMPLATE: preview_message}';
+	} else {
+		$preview_message = '';
 	}
 
 	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
@@ -357,16 +366,15 @@
 	$to_err = get_err('msg_to_list');
 	$msg_subect_err = get_err('msg_subject');
 	$message_err = get_err('msg_body',1);
-	$msg_body = str_replace("\r", '', $msg_body);
-	 
+
 	$post_smilies = $PRIVATE_MSG_SMILEY == 'Y' ? draw_post_smiley_cntrl() : '';
 	$post_icons = draw_post_icons($msg_icon);
 	$fud_code_icons = $PRIVATE_TAGS == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
-	
+
 	$post_options = tmpl_post_options('private');
-	
+
 	if ($PRIVATE_ATTACHMENTS > 0) {	
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''));
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error);
 	} else {
 		$file_attachments = '';	
 	}
@@ -380,13 +388,13 @@
 	} else {
 		$disable_smileys = '';
 	}
-	
+
 	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
 		$spell_check_button = '{TEMPLATE: spell_check_button}';
 	} else {
 		$spell_check_button = '';
 	}
-	
+
 	if ($reply && ($mm = db_sab('SELECT p.*, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');	
 		$reference_msg = tmpl_drawpmsg($mm, TRUE);
@@ -394,7 +402,7 @@
 	} else {
 		$reference_msg = '';
 	}
-	
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: PPOST_PAGE}

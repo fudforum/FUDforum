@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.8 2003/04/17 09:37:33 hackie Exp $
+*   $Id: qbud.php.t,v 1.9 2003/04/17 12:30:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,11 +19,11 @@
 
 /*{PRE_HTML_PHP}*/
 	
-	if (_uid) {
+	if (!_uid) {
 		std_error('login');
 	}
 	
-	$all = isset($_GET['all']) ? 1 : 0;
+	$all = !empty($_GET['all']) ? 1 : 0;
 	
 	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
 		$names = '';
@@ -54,7 +54,7 @@
 		$all_v = '1';
 		$all_d = '{TEMPLATE: pmsg_all}';
 	}
-	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE u.user_id='._uid);
+	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
 	while ($r = db_rowarr($c)) {
 		$checked = $all ? ' checked' : '';
 		$buddies .= '{TEMPLATE: buddy_entry}';

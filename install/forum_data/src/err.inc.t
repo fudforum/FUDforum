@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.19 2003/04/15 08:32:53 hackie Exp $
+*   $Id: err.inc.t,v 1.20 2003/04/17 12:30:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,6 +45,10 @@ function error_dialog($title, $msg, $level='WARN', $ses=NULL)
 
 function std_error($type)
 {
+	if (!isset($_SERVER['HTTP_REFERER'])) {
+		$_SERVER['HTTP_REFERER'] = 'unknown';
+	}
+
 	$err_array = array(
 'ERR_login'=>array('{TEMPLATE: ERR_login_ttl}', '{TEMPLATE: ERR_login_msg}', '{TEMPLATE: ERR_login_url}'),
 'ERR_disabled'=>array('{TEMPLATE: ERR_disabled_ttl}', '{TEMPLATE: ERR_disabled_msg}', '{TEMPLATE: ERR_disabled_url}'),
