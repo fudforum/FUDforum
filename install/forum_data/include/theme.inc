@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.2 2003/04/24 21:34:14 hackie Exp $
+*   $Id: theme.inc,v 1.3 2003/05/05 13:11:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,8 +32,10 @@ class fud_theme
 	{
 		if (!db_locked()) {
 			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
 		}
+		$this->t_default = yn($this->t_default);
+
 		if ($this->t_default == 'Y') {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='N' WHERE t_default='Y'");
 			$this->enabled = 'Y';
@@ -42,8 +44,11 @@ class fud_theme
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
 				(name, theme, lang, locale, enabled, pspell_lang, t_default)
 			VALUES
-				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', '".yn($this->enabled)."', ".strnull(addslashes($this->pspell_lang)).",'".yn($this->t_default)."')");
+				('".addslashes($this->name)."', '".addslashes($this->theme)."', '".addslashes($this->lang)."', '".addslashes($this->locale)."', '".yn($this->enabled)."', ".strnull(addslashes($this->pspell_lang)).",'".$this->t_default."')");
 
+		if ($this->t_default == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$this->id.' WHERE id=1');
+		}
 		if (isset($ll)) {
 			db_unlock();
 		}
@@ -56,8 +61,11 @@ class fud_theme
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'themes WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WRITE');
 		}
+		$this->t_default = yn($this->t_default);
+
 		if ($this->t_default == 'Y') {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='N' WHERE t_default='Y'");
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$id.' WHERE id=1');
 			$this->enabled = 'Y';
 		}
 
@@ -68,7 +76,7 @@ class fud_theme
 			locale='".addslashes($this->locale)."', 
 			enabled='".yn($this->enabled)."',
 			pspell_lang=".strnull(addslashes($this->pspell_lang)).",
-			t_default='".yn($this->t_default)."'
+			t_default='".$this->t_default."'
 		WHERE id=".$id);
 
 		if ($this->enabled != 'Y' && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE enabled='Y'")) {
@@ -77,6 +85,7 @@ class fud_theme
 		}
 		if ($this->t_default != 'Y' && !q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE t_default='Y'")) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET t_default='Y' WHERE id=1");
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
 		}
 
 		if (isset($ll)) {

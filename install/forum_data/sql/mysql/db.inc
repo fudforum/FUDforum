@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.16 2003/05/04 20:40:09 hackie Exp $
+*   $Id: db.inc,v 1.17 2003/05/05 13:12:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@ if (!defined('FUD_SQL_LNK')) {
 
 function yn($val) 
 {
-	return (strcasecmp($val, 'n') ? 'Y' : 'N');
+	return (strcasecmp($val, 'y') ? 'N' : 'Y');
 } 
 
 function intnull($val)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.26 2003/05/05 13:01:25 hackie Exp $
+*   $Id: admthemes.php,v 1.27 2003/05/05 13:11:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -137,8 +137,9 @@ function clean_code($path, $toks)
 		if ($edit == 1) {
 			$thm->name = 'default';
 		}
-		$thm->sync();
+		$thm->sync((int)$_POST['edit']);
 		compile_all($thm->theme, $thm->lang, $thm->name);
+		$edit = '';
 	} else if (isset($_GET['rebuild']) && ($data = db_saq('SELECT theme, lang, name FROM '.$tbl.'themes WHERE id='.(int)$_GET['rebuild']))) {
 		compile_all($data[0], $data[1], $data[2]);
 	} else if (isset($_GET['edit']) && ($c = db_arr_assoc('SELECT * FROM '.$tbl.'themes WHERE id='.$edit))) {

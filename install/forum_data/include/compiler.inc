@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.24 2003/05/01 23:12:13 hackie Exp $
+*   $Id: compiler.inc,v 1.25 2003/05/05 13:11:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -114,7 +114,7 @@ function resolve_sections($str, $debug=0)
 	$ch_list =& $GLOBALS['__char_list'];
 
 	do {
-		$chr = $str[$p + 1];
+		@$chr = $str[$p + 1];
 		if ($chr < 'A' || $chr > 'Z') {
 			++$p;
 			continue;
@@ -406,9 +406,9 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$oldmask = umask(0133);
 
 	/* make sure we can use the specified values to make 'nice' directory names */
-	$tname = preg_replace('![^A-Za-z0-9]!', '_', $tname);
-	$tset = preg_replace('![^A-Za-z0-9]!', '_', $tset);
-	$lang = preg_replace('![^A-Za-z0-9]!', '_', $lang);
+	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
+	$tset = preg_replace('![^A-Za-z0-9-]!', '_', $tset);
+	$lang = preg_replace('![^A-Za-z0-9-]!', '_', $lang);
 	
 	$GLOBALS['__COMPILER__'] 	= array();
 	$GLOBALS['MSG']                 = array();
