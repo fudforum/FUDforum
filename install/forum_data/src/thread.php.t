@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.25 2003/09/27 17:18:50 hackie Exp $
+*   $Id: thread.php.t,v 1.26 2003/09/28 11:46:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,6 +74,8 @@
 		$thread_list_table_data = '';
 
 		do {
+			$r[18] = (int) $r[18];
+
 			if ($r[14]) {
 				$thread_list_table_data .= '{TEMPLATE: thread_row_moved}';
 				continue;
@@ -108,12 +110,12 @@
 			$thread_attach_indicator = $r[0] ? '{TEMPLATE: thread_attach_indicator}' : '';
 			$thread_icon = $r[3] ? '{TEMPLATE: thread_icon}' : '{TEMPLATE: thread_icon_none}';
 			if ($ENABLE_THREAD_RATING == 'Y') {
-				$rating = $r[18] ? '{TEMPLATE: rating}' : '{TEMPLATE: rating_none}';
+				$rating = $r[17] ? '{TEMPLATE: rating}' : '{TEMPLATE: rating_none}';
 			} else {
 				$rating = '';
 			}
-			if ($r[17] > 1) {
-				$stick_status = $r[17] & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}';
+			if ($r[18] > 1) {
+				$stick_status = $r[18] & 4 ? '{TEMPLATE: sticky}' : '{TEMPLATE: announcement}';
 			} else {
 				$stick_status = '';
 			}
@@ -122,7 +124,7 @@
 
 			$thread_read_status = $first_unread_msg_link = '';
 			if (_uid && $usr->last_read < $r[10] && $r[10] > $r[21]) {
-				if ($r[17] & 1) {
+				if ($r[18] & 1) {
 					$thread_read_status = '{TEMPLATE: thread_unread_locked}';
 				} else {
 					$thread_read_status = '{TEMPLATE: thread_unread}';
@@ -134,7 +136,7 @@
 			}
 
 			if (!$thread_read_status) {
-				if ($r[17] & 1) {
+				if ($r[18] & 1) {
 					$thread_read_status = '{TEMPLATE: thread_read_locked}';
 				} else if (!_uid) {
 					$thread_read_status = '{TEMPLATE: thread_read_unreg}';
