@@ -1,1 +1,0 @@
-INSERT INTO {SQL_TABLE_PREFIX}users (login, alias, display_email, pm_messages, append_sig, time_zone, default_view, is_mod, acc_status, theme, email, passwd, name) VALUES('Anonymous Coward', 'Anonymous Coward', 'N', 'N', 'N', 'America/Montreal', 'msg', 'N', 'A', 1, 'dev@null', '1', 'Anonymous Coward');
