@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.38 2003/10/09 14:34:25 hackie Exp $
+* $Id: nntp.inc,v 1.39 2003/11/10 14:12:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -302,6 +302,7 @@ class fud_nntp
 						$e = strlen($this->body) - 5;
 					} else {
 						$s += 6;
+						continue;
 					}
 				}
 				if ($this->nntp_opt & 8) {
@@ -323,6 +324,7 @@ class fud_nntp
 						$e = strlen($this->body) - 4;
 					} else {
 						$s += 13;
+						continue;
 					}
 				}
 				if ($this->nntp_opt & 8) {
