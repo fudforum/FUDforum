@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.72 2004/05/12 15:53:57 hackie Exp $
+* $Id: msg.php.t,v 1.73 2004/06/11 14:06:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -101,7 +101,7 @@
 		exit;
 	}
 
-	$MOD = $sub_status = 0;
+	$sub_status = 0;
 	$perms = perms_from_obj($frm, ($usr->users_opt & 1048576));
 
 	if (!($perms & 2)) {
