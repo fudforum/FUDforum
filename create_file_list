@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: create_file_list,v 1.15 2004/10/06 17:43:09 hackie Exp $
+* $Id: create_file_list,v 1.16 2004/10/06 18:23:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,7 +17,7 @@ function create_file_archive($dir, $pdir)
 
 	$path = realpath($dir) . '/';
 
-	$files = glob($path . '{.htaccess,*}', GLOB_BRACE);
+	$files = glob($path . '{.[a-z]*,*}', GLOB_BRACE);
 	if ($files === FALSE) {
 		w_err('cannot access "'.$path.'"');
 	}
@@ -27,6 +27,10 @@ function create_file_archive($dir, $pdir)
 	}
 
 	$dd = str_replace($pdir, '', $dir);
+	if ($dd{0} == '/') {
+		$dd = substr($dd, 1);
+	}
+
 	foreach ($files as $f) {
 		switch (filetype($f)) {
 			case 'file':
