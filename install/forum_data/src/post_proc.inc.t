@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.4 2002/07/20 15:04:35 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.5 2002/07/24 12:39:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,7 +98,7 @@ function tags_to_html($str, $allow_img='Y')
 					if( !$parms ) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
 						if( strpos(strtolower($parms), 'javascript:') === FALSE )
-							$ostr .= '<a href="'.$parms.'" target=_new>'.$parms.'</a>';
+							$ostr .= '<a href="'.$parms.'" target="_blank">'.$parms.'</a>';
 						else 
 							$ostr .= substr($str, $pos, ($cepos-$pos)+1);	
 						
@@ -108,7 +108,7 @@ function tags_to_html($str, $allow_img='Y')
 					else { 
 						if( strpos(strtolower($parms), 'javascript:') === FALSE ) {
 							$end_tag[$cpos] = '</a>';
-							$ostr .= '<a href="'.$parms.'" target=_new>';
+							$ostr .= '<a href="'.$parms.'" target="_blank">';
 						}
 						else {
 							$ostr .= substr($str, $pos, ($cepos-$pos)+1);	
@@ -129,13 +129,13 @@ function tags_to_html($str, $allow_img='Y')
 				case 'email':
 					if( !$parms ) {
 						$parms = substr($str, $epos+1, ($cpos-$epos)-1);
-						$ostr .= '<a href="mailto:'.$parms.'" target=_new>'.$parms.'</a>';
+						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">'.$parms.'</a>';
 						$epos = $cepos;
 						$str[$cpos] = '<';
 					}
 					else { 
 						$end_tag[$cpos] = '</a>';
-						$ostr .= '<a href="mailto:'.$parms.'" target=_new>';
+						$ostr .= '<a href="mailto:'.$parms.'" target="_blank">';
 					}
 					break;
 				case 'color':
@@ -263,7 +263,7 @@ function tags_to_html($str, $allow_img='Y')
 		
 		$url = substr($ostr, $us+1, $ue-$us-1);
 		
-		$html_url = '<a href="'.$url.'" target=_new>'.$url.'</a>';
+		$html_url = '<a href="'.$url.'" target="_blank">'.$url.'</a>';
 		$html_url_l = strlen($html_url);
 		$ostr = fud_substr_replace($ostr, $html_url, $us+1, $ue-$us-1);
 		$ppos = $pos;
@@ -321,7 +321,7 @@ function tags_to_html($str, $allow_img='Y')
 		if ( $ee == ($pos+1) ) { $ppos = $pos += 1; continue; }
 				
 		$email = substr($ostr, $es, $ee-$es);
-		$email_url = '<a href="mailto:'.$email.'" target=_new>'.$email.'</a>';
+		$email_url = '<a href="mailto:'.$email.'" target="_blank">'.$email.'</a>';
 		$email_url_l = strlen($email_url);
 		$ostr = fud_substr_replace($ostr, $email_url, $es, $ee-$es);
 		$ppos =	$es+$email_url_l;
@@ -358,17 +358,17 @@ function html_to_tags($fudml)
 	if( preg_match('!<img src=".*?" border=0 alt=".*?">!is', $fudml) ) 
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="(.*?)">!is', '[img=\1]\2[/img]', $fudml);
 	
-	if( preg_match('!<a href="mailto:(.+?)" target=_new>\\1</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target=_new>\\1</a>!is', '[email]\1[/email]', $fudml);
+	if( preg_match('!<a href="mailto:(.+?)" target=(_new|"_blank")>\\1</a>!is', $fudml) )
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>\\1</a>!is', '[email]\1[/email]', $fudml);
 	
-	if( preg_match('!<a href="mailto:.+?" target=_new>.+?</a>!is', $fudml) )
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target=_new>(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
+	if( preg_match('!<a href="mailto:.+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
 	
-	if( preg_match('!<a href="(.+?)" target=_new>\\1</a>!is', $fudml) )	
-		$fudml = preg_replace('!<a href="(.+?)" target=_new>\\1</a>!is', '[url]\1[/url]', $fudml);
+	if( preg_match('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', $fudml) )	
+		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>\\1</a>!is', '[url]\1[/url]', $fudml);
 		
-	if( preg_match('!<a href=".+?" target=_new>.+?</a>!is', $fudml) )	
-		$fudml = preg_replace('!<a href="(.+?)" target=_new>(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
+	if( preg_match('!<a href=".+?" target=(_new|"_blank")>.+?</a>!is', $fudml) )	
+		$fudml = preg_replace('!<a href="(.+?)" target=(_new|"_blank")>(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
 
 	while ( preg_match('!<font color=".+?">.*?</font>!is', $fudml) ) 
 		$fudml = preg_replace('!<font color="(.+?)">(.*?)</font>!is', '[color=\1]\2[/color]', $fudml);
