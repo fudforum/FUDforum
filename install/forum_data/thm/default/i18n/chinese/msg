@@ -6,7 +6,7 @@ administrator:			系统管理员
 announcement:			公告
 attachment:			附件：
 avatar:				头像：
-average_post_count:		{VAR: u->posted_msg_count} 次点击(日均点击数{VAR: avg} )
+average_post_count:		{VAR: u->posted_msg_count} 贴子(日均发贴数{VAR: avg} )
 biography:			个人简介：
 birth_date:			生日:
 by:				发帖:
@@ -140,7 +140,7 @@ show_posts_by:			显示用户 {VAR: u->alias}发布的主题
 size:				大小:
 started_on:			发起
 status:				级别：
-status_line:			现在有 <b>{VAR: reg_u}</b> 用户, 包括<b>{VAR: inv_u}</b> 名未登录用户和 <b>{VAR: annon}</b> 名访客访问本论坛。
+status_line:			现在有 <b>{VAR: reg_u}</b> 用户, 包括<b>{VAR: inv_u}</b> 名隐藏用户和 <b>{VAR: annon}</b> 名访客访问本论坛。
 sticky:				置顶:
 stop_ignoring:			不再拒绝这个用户
 sub_to_thread:			订阅这个主题
@@ -211,7 +211,7 @@ list_referes_members:		被提名的用户
 list_referes_member:		用户
 referals_none:			目前还没有被提名的人。
 referals_refered_by:		被推荐的论坛成员是: <b><a class="TableHeading" href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}">{VAR: r_login}</a></b>
-referals_post_count:		点击数
+referals_post_count:		发贴数
 referals_registered_on:		登录
 referals_action:		操作
 pmsg_all:			所有
@@ -921,4 +921,4 @@ err_mod_acc_ttl:		未被批准的账号
 err_mod_acc_msg:		账号在被激活之前必须得到系统管理员的确认，在得到确认之前，您的账号不享有注册用户的所有功能！
 accounts_pending_approval:	您的账号暂时未被批准！
 saved:				珍藏夹
-register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
+register_err_time_limit:	每 {GVAR: REG_TIME_LIMIT} 秒限制一个用户可以注册， 请稍等 {VAR: reg_limit_reached} 秒再来注册.
