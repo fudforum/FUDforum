@@ -189,7 +189,7 @@ vote:				{VAR: thread->vote_count()} гласа
 vote_button:			Гласувай
 vote_for_thread:		Гласувай
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> е преместено на <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Добре дошли, <b>{VAR: usr->alias}</b>, вашето последно посещение на форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			покажи кой какво прави
 reported_del_report:		Изтрий доклада
 reported_reason:		Причина

@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
 was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
 reported_reason:		F&ouml;rklaring

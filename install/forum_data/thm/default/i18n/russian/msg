@@ -189,7 +189,7 @@ vote:				Голосов: {VAR: thread->vote_count()}
 vote_button:			Проголосовать
 vote_for_thread:		Оценить
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> перенесено модератором в форум <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Добро пожаловать, <b>{VAR: usr->alias}</b>, ваше последнее посещение форума: {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			показать кто чем занимается
 reported_del_report:		Удалить отчет
 reported_reason:		Причина

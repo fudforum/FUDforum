@@ -189,7 +189,7 @@ vote:				{VAR: thread->vote_count()} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> artýk burda deðil. Denetmen tarafýndan taþýndýðý yer: <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: last_login %d %B %Y %A saat %H:%M} idi.
+welcome_message:		Hoþ geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: usr->last_visit %d %B %Y %A saat %H:%M} idi.
 what_ppl_doing:			insanlarýn ne yaptýðýný göster
 reported_del_report:		Bildirimi sil
 reported_reason:		Neden

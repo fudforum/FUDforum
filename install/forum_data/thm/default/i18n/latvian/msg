@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()}balsis
 vote_button:			Balsot
 vote_for_thread:		Novçrtçjums
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> moderâtors pârcçla uz forumu <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			parâdît ko kurð dara
 reported_del_report:		Dzçst atskaiti
 reported_reason:		Iemesls

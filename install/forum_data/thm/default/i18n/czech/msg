@@ -189,7 +189,7 @@ vote:				{VAR: thread->vote_count()} hlasù
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> byla pøemístìna do <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> moderátorem
-welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			uka¾, co dìlají ostatní
 reported_del_report:		Zpráva o smazání
 reported_reason:		Dùvod

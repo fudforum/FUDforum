@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: show.tmpl,v 1.7 2002/08/10 02:19:08 hackie Exp $
+*   $Id: show.tmpl,v 1.8 2003/03/29 11:40:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -21,9 +21,9 @@
 {MAIN_SECTION: END}
 
 {SECTION: unread_posts}
-<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={VAR: frm_id}&amp;th={VAR: th}" title="{MSG: unread_posts_desc}">{MSG: unread_posts}</a>&nbsp;
+<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;unread=1&amp;{DEF: _rsid}&amp;frm_id={VAR: frm_id}" title="{MSG: unread_posts_desc}">{MSG: unread_posts}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unanswered_posts}
-<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={VAR: frm_id}&amp;th={VAR: th}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>
+<b>::</b> <a class="GenLink" href="{ROOT}?t=selmsg&amp;reply_count=0&amp;{DEF: _rsid}&amp;frm_id={VAR: frm_id}" title="{MSG: unanswered_posts_desc}">{MSG: unanswered_posts}</a>
 {SECTION: END}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.11 2002/10/29 00:36:08 hackie Exp $
+*   $Id: index.tmpl,v 1.12 2003/03/29 11:40:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -40,19 +40,19 @@
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr class="CatDesc"><td colspan="7">
 &nbsp;<a href="{VAR: collapse_url}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator}</a> 
-<a href="{VAR: collapse_url}" class="CatLink" title="{VAR: collapse_status}">{VAR: data->cat_name}</a>
-{VAR: data->description}
+<a href="{VAR: collapse_url}" class="CatLink" title="{VAR: collapse_status}">{VAR: r[6]}</a>
+{VAR: r[5]}
 </td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
 <tr class="CatDesc"><td colspan="7">
-* <font class="CatLockedName">{VAR: data->cat_name}</font>{VAR: data->description}
+* <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}
 </td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
-<img src="{VAR: data->forum_icon}" border=0 alt="{MSG: forum_icon}" />
+<img src="{VAR: r[10]}" border=0 alt="{MSG: forum_icon}" />
 {SECTION: END}
 
 {SECTION: no_forum_icon}
@@ -63,9 +63,9 @@
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: data->name}</a><br />{VAR: data->descr}</td>
-	<td class="RowStyleB" align="center">{VAR: data->post_count}</td>
-	<td class="RowStyleB" align="center">{VAR: data->thread_count}</td>
+	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: r[14]}</a><br />{VAR: r[15]}</td>
+	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
+	<td class="RowStyleB" align="center">{VAR: r[17]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
 	<td class="RowStyleB" align="center"><font class="SmallText">{VAR: moderators}</font></td>
 </tr>
@@ -75,7 +75,7 @@
 <tr>
 	<td class="RowStyleA" width=1>&nbsp;</td>
 	<td class="RowStyleB" width=1>&nbsp;</td>
-	<td class="RowStyleA" colspan=5>{VAR-HTML: data->name}<br />{VAR: data->descr}</td>
+	<td class="RowStyleA" colspan=5>{VAR-HTML: r[14]}<br />{VAR: r[15]}</td>
 </tr>
 {SECTION: END}
 
@@ -92,15 +92,15 @@
 {SECTION: END}
 
 {SECTION: last_post}
-<font class="DateText">{DATE: data->msg_post_stamp %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} {VAR: last_post_link}
+<font class="DateText">{DATE: r[2] %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[12]}&amp;{DEF: _rsid}" class="GenLink"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{VAR: r[0]}" /></a>
 {SECTION: END}
 
 {SECTION: profile_link_user}
-<a href="{VAR: profile_link}" class="GenLink">{VAR: data->user_login}</a>
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: r[3]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[4]}</a>
 {SECTION: END}
 
 {SECTION: profile_link_mod}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: ma_d[0]}&amp;{DEF: _rsid}" class="GenLink">{VAR: ma_d[1]}</a> &nbsp;
+<a href="{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}" class="GenLink">{VAR: v}</a> &nbsp;
 {SECTION: END}
 
 {SECTION: no_mod}
@@ -109,10 +109,6 @@
 
 {SECTION: profile_link_anon}
 {GVAR: ANON_NICK}
-{SECTION: END}
-
-{SECTION: last_post_link}
-<a href="{VAR: last_post_link}" class="GenLink"><img title="{VAR: data->subject}" src="{THEME_IMAGE_ROOT}/goto.gif" border=0 alt="{VAR: data->subject}" /></a>
 {SECTION: END}
 
 {SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
@@ -124,7 +120,7 @@
 {SECTION: END}
 
 {SECTION: mark_all_read}
-<div align=right><font class="SmallText">[<a href="{VAR: mark_read_link}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
+<div align=right><font class="SmallText">[<a href="{ROOT}?t=markread&amp;'._rsid.'&amp;returnto={VAR-URL: returnto}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
 {SECTION: END}
 
 {SECTION: forum_icon_legend}

@@ -190,7 +190,7 @@ vote:				{VAR: thread->vote_count()} Voto(s)
 vote_button:			Voto
 vote_for_thread:		Voto
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> foi movido para <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> pelo moderador
-welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Bem vindo <b>{VAR: usr->alias}</b>, a sua ultima visita foi em {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar o que os membros estão a fazer
 reported_del_report:		Apagar relatório
 reported_reason:		Razão

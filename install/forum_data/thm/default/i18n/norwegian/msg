@@ -191,7 +191,7 @@ vote:				{VAR: thread->vote_count()}stemmer
 vote_button:            		Stem
 vote_for_thread:        		Stem
 was_moved_msg:			Moderatoren har flyttet tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> til forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
-welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Velkommen <b>{VAR: usr->alias}</b>! Ditt forrige bes&oslash;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			vis hva folk holder p&aring; med
 reported_del_report:		Slett rapport
 reported_reason:			Forklaring

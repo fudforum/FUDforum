@@ -99,7 +99,7 @@ occupation:			Occupation:
 off:				OFF
 on:				ON
 page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
-fud_query_stats:		MySQL queries took {VAR: ttl_time} seconds<br>
+fud_query_stats:		{VAR: q_time} MySQL queries took {VAR: ttl_time} seconds<br>
 pm:				Private Messaging
 poll:				Poll:
 post_count:			Post Count {VAR: u->posted_msg_count}
@@ -189,7 +189,7 @@ vote:				{VAR: thread->vote_count()} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
 was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> has been moved to <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> by the moderator
-welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: last_login %a, %d %B %Y %H:%M}
+welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			show what people are doing
 reported_del_report:		Delete Report
 reported_reason:		Reason
