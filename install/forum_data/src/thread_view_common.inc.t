@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.33 2004/04/28 19:07:52 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.34 2004/05/11 19:16:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -65,14 +65,13 @@ $MOD = ($usr->users_opt & 1048576 || $frm->md);
 if (!($frm->group_cache_opt & 2) && !$MOD) {
 	if (!isset($_GET['logoff'])) {
 		std_error('login');
-	} else {
-		if ($FUD_OPT_2 & 32768) {
-			header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
-		} else {
-			header('Location: {FULL_ROOT}{ROOT}?' . _rsidl);
-		}
-		exit;
 	}
+	if ($FUD_OPT_2 & 32768) {
+		header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
+	} else {
+		header('Location: {FULL_ROOT}{ROOT}?' . _rsidl);
+	}
+	exit;
 }
 
 if ($_GET['t'] == 'threadt') {

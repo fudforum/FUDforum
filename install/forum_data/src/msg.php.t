@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.70 2004/05/07 21:18:13 hackie Exp $
+* $Id: msg.php.t,v 1.71 2004/05/11 19:16:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -107,14 +107,13 @@
 	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {
 			std_error('login');
-		} else {
-			if ($FUD_OPT_2 & 32768) {
-				header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
-			} else {
-				header('Location: {FULL_ROOT}{ROOT}?' . _rsidl);
-			}
-			exit;
 		}
+		if ($FUD_OPT_2 & 32768) {
+			header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
+		} else {
+			header('Location: {FULL_ROOT}{ROOT}?' . _rsidl);
+		}
+		exit;
 	}
 
 	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
