@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mmod.php.t,v 1.37 2005/03/10 23:45:14 hackie Exp $
+* $Id: mmod.php.t,v 1.38 2005/03/15 15:12:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -126,7 +126,7 @@
 				}
 			}
 		} else {
-			$prev_id = q_singleval("SELECT id FROM mm_msg WHERE thread_id=".$data[1]." AND id < ".$data[2]." ORDER BY id DESC LIMIT 1");
+			$prev_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$data[1]." AND id < ".$data[2]." ORDER BY id DESC LIMIT 1");
 		
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/mv/msg/'.$data[1].'/'.$prev_id.'/'._rsidl);
