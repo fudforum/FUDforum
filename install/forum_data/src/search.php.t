@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.43 2004/06/14 16:34:38 hackie Exp $
+* $Id: search.php.t,v 1.44 2004/06/14 16:35:14 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,8 +32,8 @@
 		$author = $author_id = '';
 	}
 
-if (!function_exists("str_word_split")) {
-	function str_word_split($str, $a)
+if (!function_exists("str_word_count")) {
+	function str_word_count($str, $a)
 	{
 		return explode(' ', trim(preg_replace(array('!\W!', '!\s+!'), array(' ', ' '), $str)));
 	}
@@ -42,7 +42,7 @@ if (!function_exists("str_word_split")) {
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
 	if (strncmp($GLOBALS['usr']->lang, 'chinese', 7)) {
-		$w = array_unique(str_word_split($qry, 1));
+		$w = array_unique(str_word_count($qry, 1));
 		$qr = ''; $i = 0;
 		foreach ($w as $v) {
 			if (strlen($v) <= 2) {
