@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.19 2002/08/25 04:03:00 hackie Exp $
+*   $Id: register.php.t,v 1.20 2002/09/04 02:25:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -121,6 +121,10 @@ function register_form_check($user_id)
 		if ( get_id_by_email($GLOBALS['HTTP_POST_VARS']['reg_email']) ) {
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
+		
+		if ( is_email_blocked($GLOBALS['HTTP_POST_VARS']['reg_email']) ) {
+			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
+		} 
 		
 		if( strlen($GLOBALS['HTTP_POST_VARS']["reg_plaintext_passwd"]) < 6 ) {
 			set_err('reg_plaintext_passwd', '{TEMPLATE: register_err_shortpasswd}');
