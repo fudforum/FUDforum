@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.56 2003/05/13 19:46:02 hackie Exp $
+*   $Id: post.php.t,v 1.57 2003/05/16 07:38:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,8 +170,7 @@ function flood_check()
 			$subj = $reply_to ? $msg->subject : $thr->subject;
 			reverse_FMT($subj);
 
-			$reply_prefix = preg_quote(strtolower('{TEMPLATE: reply_prefix}'));
-			$msg_subject = ( !preg_match('/^{TEMPLATE: reply_prefix}/i', $subj) ) ? '{TEMPLATE: reply_prefix}'.$subj : $subj;
+			$msg_subject = strncmp('{TEMPLATE: reply_prefix}', $subj, strlen('{TEMPLATE: reply_prefix}')) ? '{TEMPLATE: reply_prefix}' . ' ' . $subj : $subj;
 			$old_subject = $msg_subject;
 
 			if (isset($_GET['quote'])) {
