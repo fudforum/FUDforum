@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.14 2003/04/25 18:57:32 hackie Exp $
+*   $Id: groups.inc.t,v 1.15 2003/04/25 19:33:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,43 +22,6 @@ while ($r = db_rowarr($c)) {
 	}
 }
 qf($c);
-
-function rebuild_group_cache()
-{
-	$r = q("SELECT id FROM {SQL_TABLE_PREFIX}groups");
-	while ( $obj = db_rowobj($r) ) {
-		$grp = new fud_group;
-		$grp->get($obj->id);
-		$grp->rebuild_cache();
-	}
-	qf($r);
-}
-
-function mk_perm_insert_qry($data, $prefix='p_', $in_prefix='') 
-{	
-	$fields = '';
-	$vals = '';
-	$plen = strlen($prefix);
-	foreach($data as $k => $v) { 
-		$s='';
-		if ( substr($k, 0, $plen) == $prefix ) {
-			$fields 	.= $in_prefix.$k.',';
-			if ( is_object($data) )
-				$s = $data->{$k};
-			else if ( is_array($data) ) 
-				$s = $data[$k];
-			else exit('fatal error');
-			
-			if( !strlen($s) ) $s = 'N';
-			
-			$vals 		.= "'".$s."',";
-		}
-	}
-	$ret['fields'] = substr($fields, 0, -1);
-	$ret['vals'] = substr($vals, 0, -1);
-	
-	return $ret;
-}
 
 function mk_perm_update_qry($data, $prefix='p_', $in_prefix='')
 {
@@ -112,30 +75,6 @@ function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 	}
 
 	return $perm_selection;
-}
-
-function mk_perms_arr($prefix, $maxperms_arr, $arr_prefix=NULL)
-{
-	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
-
-	foreach($arr as $k => $v) {
-		if ( $maxperms_arr[$k] == 'N' || $GLOBALS['HTTP_POST_VARS'][$prefix.$k] != 'Y' )
-			$parr[$arr_prefix.$k] = 'N';
-		else
-			$parr[$arr_prefix.$k] = $GLOBALS['HTTP_POST_VARS'][$prefix.$k];
-	}
-	
-	return $parr;
-}
-
-function perm_obj_to_arr($obj, $prefix='p_', $arr_prefix='')
-{
-	$plen = strlen($prefix);
-	foreach($obj as $k => $v) { 
-		if ( substr($k, 0, $plen) == $prefix ) $arr[$arr_prefix.$k] = $v;
-	}
-	
-	return $arr;
 }
 
 function grp_resolve_perms(&$grp)
