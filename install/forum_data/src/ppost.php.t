@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ppost.php.t,v 1.61 2004/01/04 16:38:27 hackie Exp $
+* $Id: ppost.php.t,v 1.62 2004/01/25 19:04:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -392,7 +392,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 
 	if ($PRIVATE_ATTACHMENTS > 0) {
-		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private, $msg_id);
+		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''), round($PRIVATE_ATTACH_SIZE / 1024), $PRIVATE_ATTACHMENTS, $attach_control_error, $private, $msg_id ? $msg_id : (isset($_GET['forward']) ? (int)$_GET['forward'] : 0));
 	} else {
 		$file_attachments = '';
 	}
