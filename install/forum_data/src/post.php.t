@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.79 2003/09/30 03:49:19 hackie Exp $
+*   $Id: post.php.t,v 1.80 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -72,7 +72,7 @@ function flood_check()
 		}
 		$frm_id = $thr->forum_id;
 	} else if ($frm_id) {
-		$th_id = NULL;
+		$th_id = null;
 	} else {
 		std_error('systemerr');
 	}

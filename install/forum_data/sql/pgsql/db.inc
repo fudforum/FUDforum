@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.26 2003/09/30 01:42:28 hackie Exp $
+*   $Id: db.inc,v 1.27 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -287,7 +287,7 @@ function get_fud_table_list()
 	return $ret;
 }
 
-function optimize_tables($tbl_list=NULL)
+function optimize_tables($tbl_list=null)
 {
 	if (!$tbl_list) {
 		$tbl_list = get_fud_table_list();

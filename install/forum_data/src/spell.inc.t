@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: spell.inc.t,v 1.9 2003/09/19 00:03:49 hackie Exp $
+*   $Id: spell.inc.t,v 1.10 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -83,7 +83,7 @@ function tokenize_string($data)
 					}
 
 					$wrd = substr($data,$i,($p-$i)+1);
-					$p3=$l=NULL;
+					$p3=$l=null;
 					
 					if ($wrd == '<pre>') {
 						$l = 'pre';

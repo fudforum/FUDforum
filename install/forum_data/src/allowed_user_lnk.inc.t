@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: allowed_user_lnk.inc.t,v 1.19 2003/09/30 02:31:39 hackie Exp $
+*   $Id: allowed_user_lnk.inc.t,v 1.20 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@ function is_ip_blocked($ip)
 		return;
 	}
 
-	return (isset($t[$d]) || isset($t[256])) ? 1 : NULL;
+	return (isset($t[$d]) || isset($t[256])) ? 1 : null;
 }
 
 function is_login_blocked($l)

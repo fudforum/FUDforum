@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.14 2003/09/30 03:49:19 hackie Exp $
+*   $Id: pdf.php.t,v 1.15 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -349,7 +349,7 @@ function post_to_smiley($text, $re)
 	}
 	qf($c);
 	if (!isset($re)) {
-		$re = NULL;
+		$re = null;
 	}
 
 	if (_uid) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.17 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admlog.php,v 1.18 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,7 +67,7 @@ function return_forum_name($id)
 			case 'M':
 				$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 				break;
-			case NULL:
+			case null:
 				$user_info = 'User is no longer in the system.';
 				break;	
 			default:

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.10 2003/09/30 01:42:28 hackie Exp $
+*   $Id: tabs.inc.t,v 1.11 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ if (_uid) {
 	} else if (isset($_GET['mod_id'])) {
 		$mod_id_chk = $_GET['mod_id'];
 	} else {
-		$mod_id_chk = NULL;	
+		$mod_id_chk = null;	
 	}
 
 	if (!$mod_id_chk) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.17 2003/04/30 13:58:38 hackie Exp $
+*   $Id: groups.inc.t,v 1.18 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,7 +45,7 @@ function mk_perm_update_qry($data, $prefix='p_', $in_prefix='')
 		return $fields;
 }
 
-function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
+function draw_permissions($name, $perms_arr=null, $maxperms_arr=null)
 {
 	$arr = $GLOBALS['__GROUPS_INC']['permlist'];
 	

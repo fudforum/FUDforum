@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.10 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admipfilter.php,v 1.11 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@
 	fud_use('ipfilter.inc', true);
 
 	/* validate the address */
-	$bits = NULL;
+	$bits = null;
 	if (isset($_POST['ipaddr'])) {
 		$bits = explode('.', trim($_POST['ipaddr']));
 		foreach ($bits as $k => $v) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.10 2003/09/18 15:41:40 hackie Exp $
+*   $Id: admsmiley.php,v 1.11 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,7 @@
 			}
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder='.$newp.' WHERE vieworder=2147483647');
 			db_unlock();
-			$_GET['chpos'] = NULL;
+			$_GET['chpos'] = null;
 		}
 	}
 

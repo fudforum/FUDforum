@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.28 2003/09/30 03:49:19 hackie Exp $
+*   $Id: admdump.php,v 1.29 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -152,7 +152,7 @@ function sql_is_null($r, $n, $tbl='')
 
 	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
 		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br>';
-		$_POST['submitted'] = NULL;
+		$_POST['submitted'] = null;
 	}
 
 	if (isset($_POST['submitted'])) {

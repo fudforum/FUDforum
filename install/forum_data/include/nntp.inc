@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.33 2003/09/30 03:49:26 hackie Exp $
+*   $Id: nntp.inc,v 1.34 2003/09/30 03:57:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -136,7 +136,7 @@ class fud_nntp
 	function get_message($id)
 	{
 		// Zero the vars
-		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=NULL;
+		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=null;
 	
 		if ($this->cmd("ARTICLE $id") != 220) {
 			$this->error = "Unable to Fetch Article #".$id.", NTTP Msg: ".$this->lrc."\n";
@@ -363,7 +363,7 @@ class fud_nntp
 		
 		for ($i = $this->group_first; $i < $this->group_last; $i++) {
 			if (!$this->get_message($i)) {
-				$this->error = NULL;
+				$this->error = null;
 				continue;
 			}
 

@@ -197,7 +197,7 @@ class fud_forum_rdf_topic_print extends fud_forum_rdf_topic
 
 class fud_forum_rdf_msg
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$title, $topic_id, $topic_title, $message_id, $reply_to_id, $reply_to_title, $forum_id, $forum_title,
 		$category_title, $author, $author_id, $attachments, $poll_name, $total_votes, $poll_opts, $body;
@@ -283,14 +283,14 @@ class fud_forum_rdf_msg
 			} else {
 				$this->cur_poll_opt++;
 			}
-			$this->ctag_attr = NULL;
+			$this->ctag_attr = null;
 		}
 	}
 }
 
 class fud_forum_rdf_user
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$user_id, $user_login, $user_name, $user_email, $post_count, $avatar_img, $homepage,
 		$bday, $last_visit, $reg_date, $im_icq, $im_aim, $im_yahoo, $im_msnm, $im_jabber, $im_affero,
@@ -337,7 +337,7 @@ class fud_forum_rdf_user
 
 class fud_forum_rdf_topic
 {
-	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=NULL;
+	var	$parser, $ctag, $ctag_attr, $in_parser=false, $forum_url=null;
 
 	var	$topic_id, $topic_title, $topic_creation_date, $forum_id, $forum_title, $category_title,
 		$author, $author_id, $replies, $views, $last_post_id, $last_post_subj, $last_post_date;

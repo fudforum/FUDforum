@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.23 2003/09/30 03:49:19 hackie Exp $
+*   $Id: modque.php.t,v 1.24 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,7 +87,7 @@
 			$prev_thread_id = $obj->thread_id;
 		}
 
-		$message = tmpl_drawmsg($obj, $usr, $perms, false, $m_num, NULL);
+		$message = tmpl_drawmsg($obj, $usr, $perms, false, $m_num, null);
 		$modque_message .= '{TEMPLATE: modque_message}';
 	}
 	qf($r);

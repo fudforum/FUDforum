@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: attach.inc.t,v 1.27 2003/09/30 03:27:52 hackie Exp $
+*   $Id: attach.inc.t,v 1.28 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -88,7 +88,7 @@ function attach_rebuild_cache($id)
 	}
 	qf($c);
 
-	return (isset($ret) ? $ret : NULL);
+	return (isset($ret) ? $ret : null);
 }
 
 function attach_inc_dl_count($id, $mid)

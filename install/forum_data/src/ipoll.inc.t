@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.13 2003/05/01 19:38:54 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.14 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,7 @@ function poll_fetch_opts($id)
 	}
 	qf($c);
 
-	return (isset($a) ? $a : NULL);
+	return (isset($a) ? $a : null);
 }
 
 function poll_del_opt($id, $poll_id)

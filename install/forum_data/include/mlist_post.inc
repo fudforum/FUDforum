@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist_post.inc,v 1.3 2003/05/07 01:42:46 hackie Exp $
+*   $Id: mlist_post.inc,v 1.4 2003/09/30 03:57:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=NULL, $attch=NULL, $attach_mime=NULL, $additional_headers=NULL)
+function mail_list_post($list_email, $from, $subject, $body, $msg_id, $reply_to=null, $attch=null, $attach_mime=null, $additional_headers=null)
 {
 	$multi_part = 0;
 	$final_body = '';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.35 2003/09/30 03:46:05 hackie Exp $
+*   $Id: login.php.t,v 1.36 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -95,7 +95,7 @@ function login_php_get_err($type)
 	
 function error_check()
 {
-	$GLOBALS['_ERROR_'] = NULL;
+	$GLOBALS['_ERROR_'] = null;
 
 	$_POST['login'] = trim($_POST['login']);
 	$_POST['password'] = trim($_POST['password']);
@@ -120,7 +120,7 @@ function error_check()
 	
 	if (isset($_POST['login']) && !error_check()) {
 		if ($usr->data) {
-			ses_putvar((int)$usr->sid, NULL);
+			ses_putvar((int)$usr->sid, null);
 		}
 
 		if (!($usr_d = db_sab('SELECT id, passwd, login, email FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {

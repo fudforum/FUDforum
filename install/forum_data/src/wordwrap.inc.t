@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.10 2003/06/11 14:03:36 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.11 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,7 +101,7 @@ function fud_wordwrap(&$data)
 	$wa = fud_wrap_tok($data);
 	$m = (int) $GLOBALS['WORD_WRAP'];
 	$l = 0;
-	$data = NULL;
+	$data = null;
 	foreach($wa as $v) {
 		if (isset($v['len']) && $v['len'] > $m) {
 			if ($v['len'] + $l > $m) {

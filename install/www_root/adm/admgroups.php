@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.24 2003/06/04 14:00:37 hackie Exp $
+*   $Id: admgroups.php,v 1.25 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,7 +64,7 @@
 				if (!group_check_inheritence((int)$_POST['gr_inherit_id'])) {
 					$gid = $r[0];
 					$forum_id = $r[1];
-					group_sync($gid, (isset($_POST['gr_name']) ? $_POST['gr_name'] : NULL), (int)$_POST['gr_inherit_id'], $perms);
+					group_sync($gid, (isset($_POST['gr_name']) ? $_POST['gr_name'] : null), (int)$_POST['gr_inherit_id'], $perms);
 					/* handle resources */
 					if (!$forum_id) {
 						q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
@@ -80,7 +80,7 @@
 					}
 
 					$edit = '';
-					$_POST = $_GET = NULL;
+					$_POST = $_GET = null;
 
 					/* the group's permissions may be inherited by other groups, so we go looking
 					 * for those groups updating their permissions as we go

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.33 2003/09/30 01:42:28 hackie Exp $
+*   $Id: cookies.inc.t,v 1.34 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,7 +64,7 @@ function ses_anon_make()
 
 	return ses_get($id);
 }
-function ses_update_status($ses_id, $str=NULL, $forum_id=0, $ret='')
+function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
 {
 	q('UPDATE {SQL_TABLE_PREFIX}ses SET forum_id='.$forum_id.', time_sec='.__request_timestamp__.', action='.($str ? "'".addslashes($str)."'" : 'NULL').', returnto='.(!is_int($ret) ? strnull(addslashes($_SERVER['QUERY_STRING'])) : 'returnto').' WHERE id='.$ses_id);
 }

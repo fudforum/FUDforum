@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logaction.inc.t,v 1.5 2003/04/20 10:45:19 hackie Exp $
+*   $Id: logaction.inc.t,v 1.6 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-function logaction($user_id, $res, $res_id=0, $action=NULL)
+function logaction($user_id, $res, $res_id=0, $action=null)
 {
 	q('INSERT INTO {SQL_TABLE_PREFIX}action_log (logtime, logaction, user_id, a_res, a_res_id)
 		VALUES('.__request_timestamp__.', '.strnull($action).', '.$user_id.', '.strnull($res).', '.(int)$res_id.')');

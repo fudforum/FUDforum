@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.13 2003/09/30 03:49:19 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.14 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@
 		if ($m->ouser_id != _uid && $m->pmsg_opt & 4 && !isset($_GET['dr'])) {
 			$track_msg = new fud_pmsg;
 			$track_msg->ouser_id = $track_msg->duser_id = $m->ouser_id;
-			$track_msg->ip_addr = $track_msg->host_name = NULL;
+			$track_msg->ip_addr = $track_msg->host_name = null;
 			$track_msg->post_stamp = __request_timestamp__;
 			$track_msg->read_stamp = 0;
 			$track_msg->pmsg_opt = 16;

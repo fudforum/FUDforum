@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thr_exch.php.t,v 1.14 2003/09/30 03:49:19 hackie Exp $
+*   $Id: thr_exch.php.t,v 1.15 2003/09/30 03:57:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,7 +76,7 @@
 		if (!empty($_POST['reason'])) {
 			send_status_update($data->id, $data->login, $data->email, '{TEMPLATE: exch_decline_ttl}', htmlspecialchars($_POST['reason']));
 			thx_delete($thrx->id);
-			$decl = NULL;
+			$decl = null;
 		} else {
 			$thr_exch_data = '{TEMPLATE: thr_move_decline}';
 		}

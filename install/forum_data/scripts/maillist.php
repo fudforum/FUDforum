@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.30 2003/09/30 03:27:52 hackie Exp $
+*   $Id: maillist.php,v 1.31 2003/09/30 03:57:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -161,7 +161,7 @@ class fud_emsg
 					// We got many bodies to pick from, Yey!. Lets find something we can use,
 					// preference given to 'text/plain' or if not found go for 'text/html'
 					
-					$final_id = $html_id = NULL;
+					$final_id = $html_id = null;
 					
 					for ($i = 0; $i < $this->body_sc; $i++) {
 						switch ($this->body_s[$i]->headers['content-type']) {
