@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipoll.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: ipoll.inc.t,v 1.4 2002/08/13 09:21:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,10 +40,10 @@ class fud_poll
 			) 
 			VALUES(
 			'".$this->name."',
-			".$this->owner.",
+			".intzero($this->owner).",
 			".__request_timestamp__.",
 			".intzero($this->expiry_date).",
-			0
+			".intzero($this->max_votes)."
 			)");
 		$this->id = db_lastid("{SQL_TABLE_PREFIX}poll", $r);
 		if ( $ll ) db_unlock();
@@ -161,5 +161,4 @@ class fud_poll_opt
 		return ( isset($this->all[$this->all_c])?$this->all[$this->all_c++]:'');
 	}
 }
-
 ?>
