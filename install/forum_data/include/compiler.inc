@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.49 2003/11/12 13:45:18 hackie Exp $
+* $Id: compiler.inc,v 1.50 2003/12/11 10:59:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -628,8 +628,11 @@ function copyhelp($thm)
 {
 	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help';
 	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help';
-	if ($thm->theme != 'default' && !@file_exists($src)) {
+	if (!@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/help';
+		if (!@file_exists($src)) {
+			$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/english/help';
+		}
 	}
 
 	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
