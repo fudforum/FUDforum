@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.tmpl,v 1.20 2004/04/23 14:11:02 hackie Exp $
+* $Id: groupmgr.tmpl,v 1.21 2004/04/23 19:10:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -30,14 +30,14 @@
 {SECTION: group_selection allows group manager to choose which group to edit}
 <br /><br />
 <form method="post" action="{TEMPLATE: group_selection_lnk3}">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: group_mgr_heading}</th></tr>
-<tr class="RowStyleA">
-	<td nowrap><b>{MSG: group_mgr_group}</b></td>
-	<td width="100%"><select name="group_id">{TEMPLATE-DATA: group_selection}</select></td>
+<div class="ctb"><table cellspacing="1" cellpadding="2" class="MiniTable">
+<tr><th colspan=3>{MSG: group_mgr_heading}</th></tr>
+<tr class="RowStyleC">
+	<td class="nw fb">{MSG: group_mgr_group}</td>
+	<td><select name="group_id">{TEMPLATE-DATA: group_selection}</select></td>
+	<td class="wa ar"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}"></td>
 </tr>
-<tr class="RowStyleC"><td colspan=2 align="left"><input type="submit" class="button" name="btn_groupswitch" value="{MSG: group_mgr_edit_btn}"></td></tr>
-</table>{DEF: _hs}</form>
+</table></div>{DEF: _hs}</form>
 {SECTION: END}
 
 {SECTION: group_control_panel}
@@ -46,18 +46,18 @@
 {TEMPLATE-DATA: indicator}
 <br />
 <form method="post" action="{TEMPLATE: group_control_panel_lnk3}" name="groupmgr">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
+<table cellspacing="1" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: member_input}
 <tr class="RowStyleB">
 	<td colspan=2>
-		<table border=0 cellspacing=1 cellpadding=3 width="100%" class="COntentTable">
+		<table cellspacing=1 cellpadding=3 width="100%" class="ContentTable">
 			{TEMPLATE-DATA: perm_sel_hdr}
 		</table>
 	</td>
 </tr>
 
 <tr>
-	<td align=right colspan=2 class="RowStyleC">
+	<td colspan=2 class="RowStyleC ar">
 		{TEMPLATE-DATA: submit_button}
 	</td>
 </tr>
@@ -68,14 +68,14 @@ document.groupmgr.gr_member.focus();
 //-->
 </script>
 <br /><br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: groupmgr_member}</th><th colspan="{VAR: n_perms}">{MSG: groups_perms_header}</th><th align="center">{MSG: groupmgr_action}</th></tr>
+<table cellspacing="1" cellpadding="2" class="ContentTable">
+<tr><th>{MSG: groupmgr_member}</th><th colspan="{VAR: n_perms}">{MSG: groups_perms_header}</th><th class="ac">{MSG: groupmgr_action}</th></tr>
 {TEMPLATE-DATA: group_members_list}
 </table>
 {SECTION: END}
 
 {SECTION: no_group_control_panel}
-<div align="center">{MSG: groupmgr_no_groups}</div>
+<div class="ac">{MSG: groupmgr_no_groups}</div>
 {SECTION: END}
 
 {PAGE: GROUP_MANAGER group permissions manager}
@@ -93,11 +93,11 @@ document.groupmgr.gr_member.focus();
 {SECTION: END}
 
 {SECTION: member_add add new member}
-<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{VAR: gr_member}">{TEMPLATE-DATA: find_user}</td></tr>
+<tr class="RowStyleA"><td class="nw db">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: login_error}<input tabindex="1" type="text" name="gr_member" value="{VAR: gr_member}">{TEMPLATE-DATA: find_user}</td></tr>
 {SECTION: END}
 
 {SECTION: member_edit edit an existing member}
-<tr class="RowStyleA"><td nowrap><b>{MSG: groupmgr_member}</b></td><td width="100%" align="left">{TEMPLATE-DATA: gr_member}</td></tr>
+<tr class="RowStyleA"><td class="nw fb">{MSG: groupmgr_member}</td><td class="wa al">{TEMPLATE-DATA: gr_member}</td></tr>
 {SECTION: END}
 
 {SECTION: perm_yes permissions set to YES indicator}
@@ -119,16 +119,16 @@ document.groupmgr.gr_member.focus();
 
 {SECTION: group_member_entry permissions for a user in a group}
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
-<td nowrap>{VAR: member_name}</td>
+<td class="nw">{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{TEMPLATE: group_member_entry_lnk}">{MSG: groupmgr_edit}</a>] [<a href="{TEMPLATE: group_member_entry_lnk1}">{MSG: groupmgr_delete}</a>]</td></tr>
+<td class="nw">[<a href="{TEMPLATE: group_member_entry_lnk}">{MSG: groupmgr_edit}</a>] [<a href="{TEMPLATE: group_member_entry_lnk1}">{MSG: groupmgr_delete}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: group_const_entry permissions for a constant (hardcoded) in a group}
 <tr class="{ALT-VAR: mem_list_alt RowStyleA RowStyleB}">
-<td nowrap>{VAR: member_name}</td>
+<td class="nw">{VAR: member_name}</td>
 {TEMPLATE-DATA: perm_table}
-<td nowrap>[<a href="{TEMPLATE: group_const_entry_lnk}">{MSG: groupmgr_edit}</a>]</td></tr>
+<td class="nw">[<a href="{TEMPLATE: group_const_entry_lnk}">{MSG: groupmgr_edit}</a>]</td></tr>
 {SECTION: END}
 
 {SECTION: groupmgr_no_user no such user error}
@@ -212,7 +212,7 @@ document.groupmgr.gr_member.focus();
 {SECTION: END}
 
 {SECTION: indicator shows which groups is currently being edited}
-<div align="center">{MSG: group_mgr_indicator}<br>{TEMPLATE-DATA: group_resources}</div>
+<div class="ac">{MSG: group_mgr_indicator}<br>{TEMPLATE-DATA: group_resources}</div>
 {SECTION: END}
 
 {SECTION: group_resources}
@@ -228,11 +228,11 @@ document.groupmgr.gr_member.focus();
 {SECTION: END}
 
 {SECTION: groups_na_perms a permission which group manager cannot modify}
-<td align="center">{MSG: na}</td>
+<td class="ac">{MSG: na}</td>
 {SECTION: END}
 
 {SECTION: groups_perm_selection a dropdown that allows the group manager to select perms for users in the group}
-<td align="center">
+<td class="ac">
 <select name="{VAR: k}" class="SmallText">
 	<option value="0">{MSG: groupmgr_no}</option>
 	<option value="{VAR: v[0]}"{VAR: selyes}>{MSG: groupmgr_yes}</option>
@@ -241,11 +241,11 @@ document.groupmgr.gr_member.focus();
 {SECTION: END}
 
 {SECTION: groups_header_entry}
-<th align="center">{VAR: ts_list[$k]}</th>
+<th class="ac">{VAR: ts_list[$k]}</th>
 {SECTION: END}
 
 {SECTION: groups_draw_perm_entry}
-<td nowrap><font size=-1>{VAR: inherit}{VAR: perm_str}<br />{VAR: val}</font></td>
+<td class="nw small">{VAR: inherit}{VAR: perm_str}<br />{VAR: val}</td>
 {SECTION: END}
 
 {SECTION: groups_header_entry_row}
