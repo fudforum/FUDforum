@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.12 2003/05/15 19:05:10 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.13 2003/07/14 13:41:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 	}
 
 	if (!_uid) { /* anon user, we can optimize things quite a bit here */
-		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id AND g.user_id=0 INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE p_READ=\'Y\' ORDER BY c.view_order, f.view_order');
+		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id AND g.user_id=0 INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE p_VISIBLE=\'Y\' ORDER BY c.view_order, f.view_order');
 		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
@@ -46,7 +46,7 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
 			'.($is_mod != 'A' ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
 			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
-			'.($is_mod != 'A' ? ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_READ ELSE g2.p_READ END)=\'Y\'' : '').'
+			'.($is_mod != 'A' ? ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_VISIBLE ELSE g2.p_VISIBLE END)=\'Y\'' : '').'
 			ORDER BY c.view_order, f.view_order');			
 
 		while ($r = db_rowarr($c)) {
