@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admglobal.php,v 1.55 2004/01/09 14:11:37 hackie Exp $
+* $Id: admglobal.php,v 1.56 2004/01/20 22:08:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -61,6 +61,9 @@ function get_max_upload_size()
 				$GLOBALS['NEW_' . substr($k, 0, 9)] |= (int) $v;
 			}
 		}
+
+		/* restore PDF & RDF settings */
+		$GLOBALS['NEW_FUD_OPT_2'] |= $FUD_OPT_2 & (16777216|33554432|67108864|134217728|268435456);
 
 		for ($i = 1; $i < 10; $i++) {
 			if (!isset($GLOBALS['FUD_OPT_'.$i])) {
