@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.tmpl,v 1.3 2002/10/29 00:16:10 hackie Exp $
+*   $Id: threadt.tmpl,v 1.4 2003/04/03 14:35:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,11 +26,9 @@
 {REF: draw_pager.tmpl}
 {REF: forumsel.tmpl}
 {REF: show.tmpl}
-{REF: forum.tmpl}
-{REF: return.tmpl}
-{REF: cat.tmpl}
-{REF: th.tmpl}
 {REF: is_perms.tmpl}
+{REF: forum_notify.tmpl}
+{REF: thread_view_common.tmpl}
 
 {SECTION: thread_legend}
 <br />
@@ -75,23 +73,23 @@
 {SECTION: END}
 
 {SECTION: forum_path}
-<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
+<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
-<a class="GenLink" href="{ROOT}?t=threadt&amp;unsub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
+<a class="GenLink" href="{ROOT}?t=threadt&amp;unsub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
 {SECTION: END}
 
 {SECTION: subscribe_link}
-<a class="GenLink" href="{ROOT}?t=threadt&amp;sub=1&amp;frm_id={VAR: frm_id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
+<a class="GenLink" href="{ROOT}?t=threadt&amp;sub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
 {SECTION: END}
 
 {SECTION: new_thread_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;{VAR: returnto}&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
 {SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
-<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
+<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: no_messages}
@@ -127,7 +125,7 @@
 {SECTION: END}
 
 {SECTION: thread_icon}
-<img src="images/message_icons/{VAR: cur->th_icon}" border=0 alt="{VAR: cur->th_icon}" />
+<img src="images/message_icons/{VAR: cur->icon}" border=0 alt="{VAR: cur->icon}" />
 {SECTION: END}
 
 {SECTION: thread_icon_none}

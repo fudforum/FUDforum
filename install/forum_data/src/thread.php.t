@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.14 2003/04/03 10:03:31 hackie Exp $
+*   $Id: thread.php.t,v 1.15 2003/04/03 14:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,107 +16,36 @@
 ***************************************************************************/
 
 /*{PRE_HTML_PHP}*/
-	
-	if (!isset($_REQUEST['frm_id']) || !(int)$_REQUEST['frm_id']) {
-		invl_inp_err();
-	}
-
-	$frm = new fud_forum;
-	$frm->get($_REQUEST['frm_id']);
-	
-	if (!$frm->cat_id) {
-		invl_inp_err();
-	}
-	
-	if (!is_perms(_uid, $frm->id, 'READ')) {
-		if (!isset($_GET['logoff'])) {
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		} else {
-			header('Location: {ROOT}');
-			exit;
-		}	
-	}	
-	
-	$MOD = 0;
-
-	if (isset($_REQUEST['start'])) {
-		$start = (int) $_REQUEST['start'];
-	} else {
-		$start = 0;
-	}	
 
 	$ses->update('{TEMPLATE: thread_update}', $frm->id);
 
 	if (_uid) {
-		if (is_moderator($frm->id, _uid) || $usr->is_mod == 'A') {
-			$MOD = 1;
-		}
-
-		$ppg = $usr->posts_ppg ? $usr->posts_ppg : $THREADS_PER_PAGE;
-
-		if (isset($_GET['sub'])) {
-			fud_forum_notify::add(_uid, $frm->id);
-		} else if (isset($_GET['unsub'])) {
-			fud_forum_notify::delete(_uid, $frm->id);
-		}
-
-		if (is_forum_notified(_uid, $frm->id)) {
-			$subscribe = '{TEMPLATE: unsubscribe_link}';
-		} else  {
-			$subscribe = '{TEMPLATE: subscribe_link}';
-		}
-
-		$lread_s = ',{SQL_TABLE_PREFIX}read.last_view ';
-		$lread_f = ' LEFT JOIN {SQL_TABLE_PREFIX}read ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}read.thread_id AND {SQL_TABLE_PREFIX}read.user_id='._uid.' ';
+		$lread_s = ',r.last_view ';
+		$lread_f = ' LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid;
 	} else {
-		$ppg = $THREADS_PER_PAGE;
-		$MOVE = $DEL = $lread_s = $lread_f = $subscribe = '';
+		$MOVE = $DEL = $lread_s = $lread_f = '';
 	}
 	
 /*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
-	$cat = new fud_cat;
-	$cat->get_cat($frm->cat_id);
-	
 	$result = uq('SELECT 
-		{SQL_TABLE_PREFIX}msg.attach_cnt, 
-		{SQL_TABLE_PREFIX}msg.poll_id, 
-		{SQL_TABLE_PREFIX}msg.subject, 
-		{SQL_TABLE_PREFIX}msg.icon, 
-		{SQL_TABLE_PREFIX}msg.post_stamp,
-		{SQL_TABLE_PREFIX}users.alias, 
-		{SQL_TABLE_PREFIX}users.id, 
-		fud_users_2.id, 
-		fud_users_2.alias, 
-		fud_msg_2.id, 
-		fud_msg_2.post_stamp, 
-		{SQL_TABLE_PREFIX}forum.id,
-		{SQL_TABLE_PREFIX}forum.name,
-		{SQL_TABLE_PREFIX}thread.id, 
-		{SQL_TABLE_PREFIX}thread.moved_to, 
-		{SQL_TABLE_PREFIX}thread.root_msg_id, 
-		{SQL_TABLE_PREFIX}thread.replies,
-		{SQL_TABLE_PREFIX}thread.locked, 
-		{SQL_TABLE_PREFIX}thread.rating, 
-		{SQL_TABLE_PREFIX}thread.is_sticky,
-		{SQL_TABLE_PREFIX}thread.ordertype, 
-		{SQL_TABLE_PREFIX}thread.views
-		'.$lread_s.' 
-		FROM {SQL_TABLE_PREFIX}thread_view 
-			INNER JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
-			INNER JOIN {SQL_TABLE_PREFIX}msg 
-				ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-			INNER JOIN {SQL_TABLE_PREFIX}msg AS fud_msg_2 
-				ON fud_msg_2.id={SQL_TABLE_PREFIX}thread.last_post_id
-			LEFT JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}users.id={SQL_TABLE_PREFIX}msg.poster_id 
-			LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_2 
-				ON fud_users_2.id=fud_msg_2.poster_id '.$lread_f.'
-			LEFT JOIN {SQL_TABLE_PREFIX}forum
-				ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}thread.moved_to
-			WHERE {SQL_TABLE_PREFIX}thread_view.forum_id='.$frm->id.' AND {SQL_TABLE_PREFIX}thread_view.page='.(floor($start/$ppg)+1).' ORDER BY {SQL_TABLE_PREFIX}thread_view.pos ASC');
+		m.attach_cnt, m.poll_id, m.subject, m.icon, m.post_stamp,
+		u.alias, u.id,
+		u2.id, u2.alias,
+		m2.id, m2.post_stamp, 
+		f.id, f.name,
+		t.id, t.moved_to, t.root_msg_id, t.replies, t.locked, t.rating, t.is_sticky, t.ordertype, t.views
+		'.(_uid ? ',r.last_view ' : '').' 
+		FROM {SQL_TABLE_PREFIX}thread_view tv
+			INNER JOIN {SQL_TABLE_PREFIX}thread	t	ON tv.thread_id=t.id 
+			INNER JOIN {SQL_TABLE_PREFIX}msg	m	ON t.root_msg_id=m.id
+			INNER JOIN {SQL_TABLE_PREFIX}msg	m2	ON m2.id=t.last_post_id
+			LEFT JOIN {SQL_TABLE_PREFIX}users	u	ON u.id=m.poster_id 
+			LEFT JOIN {SQL_TABLE_PREFIX}users	u2	ON u2.id=m2.poster_id 
+			LEFT JOIN {SQL_TABLE_PREFIX}forum	f	ON f.id=t.moved_to
+			'.(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}read r ON t.id=r.thread_id AND r.user_id='._uid : '').'
+			WHERE tv.forum_id='.$frm->id.' AND tv.page='.(floor($start/$ppg)+1).' ORDER BY tv.pos ASC');
 	/* Field Defenitions 
 	 * 0 msg.attach_cnt
 	 * 1 msg.poll_id
@@ -146,7 +75,7 @@
 	if (!($r = @db_rowarr($result))) {
 		$no_messages = '{TEMPLATE: no_messages}';
 	} else {
-		if ($MOD || ($MOVE = is_perms(_uid, $frm->id, 'MOVE')) || ($DEL = is_perms(_uid, $frm->id, 'DEL'))) {
+		if ($MOD || $perms['move'] == 'Y' || $perms['del'] == 'Y') {
 			$admin_heading_row = '{TEMPLATE: admin_heading_row}';
 		} else {
 			$admin_heading_row = '';
@@ -154,7 +83,7 @@
 		$rating_heading = $ENABLE_THREAD_RATING == 'Y' ? '{TEMPLATE: rating_heading}' : '';
 
 		$threaded_view = $TREE_THREADS_ENABLE == 'N' ? '' : '{TEMPLATE: threaded_view}';
-		$thread_list_table_data='';
+		$thread_list_table_data = '';
 
 		do {
 			if ($r[14]) {
@@ -203,6 +132,7 @@
 			$user_link = $r[8] ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: unreg_user_link}';
 			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
 
+			$thread_read_status = $first_unread_msg_link = '';
 			if (_uid) {
 				if ($usr->last_read < $r[10] && $r[10] > $r[22]) {
 					if ($r[17] == 'Y') {
@@ -210,13 +140,14 @@
 					} else {
 						$thread_read_status = '{TEMPLATE: thread_unread}';
 					}
-					$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
+					/* do not show 1st unread message link if thread has no replies */
+					if ($r[16]) {
+						$first_unread_msg_link = '{TEMPLATE: first_unread_msg_link}';
+					}
 				}
-			} else {
-				$first_unread_msg_link = '';
 			}
 
-			if (!isset($thread_read_status)) {
+			if (!$thread_read_status) {
 				if ($r[17] == 'Y') {
 					$thread_read_status = '{TEMPLATE: thread_read_locked}';
 				} else if (!_uid) {
@@ -228,11 +159,11 @@
 		
 			$thread_first_post = '{TEMPLATE: thread_first_post}';
 		
-			if ($MOD || ($MOVE && $DEL)) {
+			if ($MOD || ($perms['move'] == 'Y' && $perms['del'] == 'Y')) {
 				$admin_control_row = '{TEMPLATE: admin_control_row_all}';
-			} else if ($MOVE) {
+			} else if ($perms['move'] == 'Y') {
 				$admin_control_row = '{TEMPLATE: admin_control_row_move}';
-			} else if ($DEL) {
+			} else if ($perms['del'] == 'Y') {
 				$admin_control_row = '{TEMPLATE: admin_control_row_del}';
 			} else {
 				$admin_control_row = '';
@@ -244,13 +175,13 @@
 	}
 	qf($result);
 
-	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$_REQUEST['frm_id'].'&amp;'._rsid);
+	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$frm->id.'&amp;'._rsid);
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>	
 {TEMPLATE: THREAD_PAGE}	
 <?php	
 	if (_uid) {
-		$usr->register_forum_view($frm->id);
+		user_register_forum_view($frm->id);
 	}
 ?>

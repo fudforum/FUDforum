@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.7 2003/04/03 10:03:31 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.8 2003/04/03 14:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,12 +43,14 @@ function is_perms($user_id, $r_id, $perm, $r_type='forum')
 function init_single_user_perms($id, $is_mod, &$MOD)
 {
 	if (!$id) { /* anon user */
+		$MOD = 0;
 		return db_arr_assoc('SELECT p_VISIBLE as visible, p_READ as read p_post as POST, p_REPLY as reply, p_EDIT as edit, p_DEL as del, p_STICKY as sticky, p_POLL as poll, p_FILE as file, p_VOTE as vote, p_RATE as rate, p_SPLIT as split, p_LOCK as lock, p_MOVE as move, p_SML as sml, p_IMG as img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=0 AND resource_type=\'forum\' AND resource_id='.$id);
 	}
 	if ($is_mod == 'A' || ($is_mod == 'Y' && is_moderator($id, _uid))) { /* administrator or moderator */
 		$MOD = 1;
-		return array('visible'=>'Y', 'read'=>'Y', 'post'=>'Y', 'reply'=>'Y', 'edit'=>'Y', 'del'=>'Y', 'sticky'=>'Y', 'poll'=>'Y', 'file'=>'Y', 'vote'=>'Y', 'rate'=>'Y', 'split'=>'Y', 'lock'=>'Y', 'move'=>'Y', 'sml'=>'Y', 'img'=>1);
+		
 	} else { /* regular user */
+		$MOD = 0;
 		return db_arr_assoc('SELECT p_VISIBLE as visible, p_READ as read p_post as POST, p_REPLY as reply, p_EDIT as edit, p_DEL as del, p_STICKY as sticky, p_POLL as poll, p_FILE as file, p_VOTE as vote, p_RATE as rate, p_SPLIT as split, p_LOCK as lock, p_MOVE as move, p_SML as sml, p_IMG as img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_type=\'forum\' AND resource_id='.$id.' ORDER BY user_id ASC LIMIT 1');
 	}
 }
@@ -72,5 +74,19 @@ function &get_all_read_perms($uid)
 	}
 
 	return $limit;
+}
+
+function &perms_from_obj(&$obj, $is_mod)
+{
+	$perms = array('visible'=>'Y', 'read'=>'Y', 'post'=>'Y', 'reply'=>'Y', 'edit'=>'Y', 'del'=>'Y', 'sticky'=>'Y', 'poll'=>'Y', 'file'=>'Y', 'vote'=>'Y', 'rate'=>'Y', 'split'=>'Y', 'lock'=>'Y', 'move'=>'Y', 'sml'=>'Y', 'img'=>'Y');
+
+	if ($is_mod == 'A' || $obj->mod) {
+		return $perms;
+	}
+
+	foreach ($perms as $k => $v) {
+		$perms[$k] = $obj->{'p_'.$k};	
+	}
+	return $perms;
 }
 ?>

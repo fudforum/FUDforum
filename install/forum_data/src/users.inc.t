@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.23 2003/04/02 21:30:43 hackie Exp $
+*   $Id: users.inc.t,v 1.24 2003/04/03 14:35:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -64,17 +64,6 @@ class fud_user
 			q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='.$this->id);
 		} else {
 			q('INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES('.$thread_id.', '.$this->id.', '.$msg_id.', '.$tm.')');
-		}
-	}
-	
-	function register_forum_view($frm_id)
-	{
-		$id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id='.$frm_id.' AND user_id='.$this->id);
-
-		if ($id) {
-			q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE id='.$id);
-		} else {
-			q('INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES('.$frm_id.', '.$this->id.','.__request_timestamp__.')');
 		}
 	}
 	
@@ -143,6 +132,15 @@ function init_user()
 function user_alias_by_id($id)
 {
 	return q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$id);
+}
+
+function user_register_forum_view($frm_id)
+{
+	if (($id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id='.$frm_id.' AND user_id='._uid))) {
+		q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE id='.$id);
+	} else {
+		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES('.$frm_id.', '._uid.','.__request_timestamp__.')');
+	}
 }
 
 if (defined('admin_form')) { 

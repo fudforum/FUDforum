@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.11 2003/04/02 16:06:24 hackie Exp $
+*   $Id: thread.tmpl,v 1.12 2003/04/03 14:35:29 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,12 +26,9 @@
 {REF: draw_pager.tmpl}
 {REF: forumsel.tmpl}
 {REF: show.tmpl}
-{REF: forum.tmpl}
-{REF: return.tmpl}
-{REF: cat.tmpl}
-{REF: th.tmpl}
 {REF: is_perms.tmpl}
 {REF: forum_notify.tmpl}
+{REF: thread_view_common.tmpl}
 
 {SECTION: thread_legend}
 <br />
@@ -76,7 +73,7 @@
 {SECTION: END}
 
 {SECTION: forum_path}
-<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
+<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
