@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.php.t,v 1.25 2004/11/16 15:46:05 hackie Exp $
+* $Id: thr_exch.php.t,v 1.26 2004/11/22 16:52:02 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -22,6 +22,7 @@
 	if (isset($_GET['appr']) || isset($_GET['decl']) || isset($_POST['decl'])) {
 		fud_use('thrx_adm.inc', true);
 	}
+	$decl = 0;
 
 	/* verify that we got a valid thread-x-change approval */
 	if (isset($_GET['appr']) && ($thrx = thx_get((int)$_GET['appr']))) {
