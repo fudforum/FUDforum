@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.12 2003/01/12 13:21:27 hackie Exp $
+*   $Id: logedin.inc.t,v 1.13 2003/03/13 10:35:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -57,8 +57,18 @@
 		
 		if( !_uid )
 			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum INNER JOIN {SQL_TABLE_PREFIX}group_cache ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}group_cache.resource_id AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum' WHERE cat_id!=0 AND p_READ='Y' AND user_id=0");
-		else
-			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE ".($GLOBALS['usr']->is_mod != 'A' ? " id IN(".get_all_perms(_uid).") AND " : '')." cat_id!=0");
+		else {
+			if ($GLOBALS['usr']->is_mod != 'A') {
+				$lp_lmt = get_all_perms(_uid);
+				if ($lp_lmt) {
+					$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE ".$lp_lmt." cat_id!=0");
+				} else {
+					$lmid = 0;
+				}
+			} else {
+				$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum WHERE cat_id!=0");
+			}
+		}
 		
 		if( $lmid ) {
 			$lsubj = q_singleval("SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id=".$lmid);
