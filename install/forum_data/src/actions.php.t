@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.17 2003/04/03 10:03:31 hackie Exp $
+*   $Id: actions.php.t,v 1.18 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@
 		std_error('disabled');
 	}
 	
-	$ses->update('{TEMPLATE: actions_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: actions_update}');
 
 /*{POST_HTML_PHP}*/
 	

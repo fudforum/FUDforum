@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.22 2003/04/10 18:33:43 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.23 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -221,40 +221,6 @@ class fud_user_reg extends fud_user
 			bio=".ssn($this->bio)."
 		WHERE id=".$this->id);
 	}
-	
-	
-	function reset_passwd()
-	{
-		$randval = dechex(get_random_value(32));
-		q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($randval)."', reset_key='0' WHERE id=".$this->id);
-		return $randval;
-	}
-	
-	function reset_key()
-	{
-		db_lock('{SQL_TABLE_PREFIX}users WRITE');
-		do {
-			$reset_key = md5(get_random_value(128));
-		} while ( bq("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".$reset_key."'") );
-		q("UPDATE {SQL_TABLE_PREFIX}users SET reset_key='".$reset_key."' WHERE id=".$this->id);
-		db_unlock();
-		return $reset_key;
-	}
-
-	
-	
-	function email_unconfirm()
-	{
-		db_lock('{SQL_TABLE_PREFIX}users WRITE');
-		do {
-			$this->conf_key = md5(get_random_value(128));
-		} while ( bq("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$this->conf_key."'") );
-	
-		q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='N', conf_key='".$this->conf_key."' WHERE id=".$this->id);
-		db_unlock();
-		
-		return $this->conf_key;
-	}
 }
 
 function get_id_by_email($email)
@@ -282,18 +248,17 @@ function check_passwd($id, $passwd)
 	return q_singleval("SELECT login FROM {SQL_TABLE_PREFIX}users WHERE id=".$id." AND passwd='".md5($passwd)."'");
 }
 
-function reset_user_passwd_by_key($key)
+function usr_email_unconfirm($id)
 {
 	db_lock('{SQL_TABLE_PREFIX}users WRITE');
-	if (($id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE reset_key='".$key."'"))) {
-		$u = new fud_user_reg;
-		$u->get_user_by_id($id);
-		$pass['passwd'] &= $u->reset_passwd();
-		$pass['usr'] &= $u;
-	}
-	db_unlock();
+	do {
+		$conf_key = md5(get_random_value(128));
+	} while (q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE conf_key='".$conf_key."'"));
 	
-	return isset($pass) ? $pass : NULL;
+	q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='N', conf_key='".$this->conf_key."' WHERE id=".$id);
+	db_unlock();
+		
+	return $conf_key;
 }
 
 function fud_user_to_reg(&$obj)
@@ -329,6 +294,13 @@ function &usr_reg_get_full($id)
 function usr_email_confirm($id)
 {
 	q("UPDATE {SQL_TABLE_PREFIX}users SET email_conf='Y', conf_key='0' WHERE id=".$id);
+}
+
+function usr_reset_passwd($id)
+{
+	$randval = dechex(get_random_value(32));
+	q("UPDATE {SQL_TABLE_PREFIX}users SET passwd='".md5($randval)."', reset_key='0' WHERE id=".$id);
+	return $randval;
 }
 
 function user_login($id, $cur_ses_id, $use_cookies)

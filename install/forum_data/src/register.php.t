@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.40 2003/04/17 09:37:33 hackie Exp $
+*   $Id: register.php.t,v 1.41 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -405,7 +405,7 @@ function remove_old_avatar($avatar_str)
 			
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y' && isset($old_email) && $old_email != $uent->email && $uent->is_mod != 'A') {
-				$uent->email_unconfirm();
+				usr_email_unconfirm($uent->id);
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			}
 

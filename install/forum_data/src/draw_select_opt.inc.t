@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: draw_select_opt.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: draw_select_opt.inc.t,v 1.2 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,18 +19,16 @@ function tmpl_draw_select_opt($values, $names, $selected, $normal_tmpl, $selecte
 {
 	$vls = explode("\n", $values);
 	$nms = explode("\n", $names);
-	
-	$a = count($vls);
-	
-	if( $a != count($nms) ) exit("FATAL ERROR: inconsistent number of values inside a select<br>\n");
-	
-	$options = '';
-	for( $i=0; $i<$a; $i++ ) {
-		if( $vls[$i]!=$selected ) 
-			$options .= '{TEMPLATE: selected_option}';
-		else
-			$options .= '{TEMPLATE: unselected_option}';
+
+	if (($a = count($vls)) != count($nms)) {
+		exit("FATAL ERROR: inconsistent number of values inside a select<br>\n");
 	}
+
+	$options = '';
+	for ($i = 0; $i < $a; $i++) {
+		$options .= $vls[$i] != $selected ? '{TEMPLATE: selected_option}' : '{TEMPLATE: unselected_option}';
+	}
+
 	return '{TEMPLATE: option_area}';
 }
 ?>

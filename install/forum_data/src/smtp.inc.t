@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smtp.inc.t,v 1.3 2002/09/04 22:31:28 hackie Exp $
+*   $Id: smtp.inc.t,v 1.4 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,15 +21,19 @@ class fud_smtp
 	
 	function get_return_code($cmp_code='250')
 	{
-		if( !($this->last_ret = fgets($this->fs, 1024)) ) return;
-		if( substr($this->last_ret, 0, 3) == $cmp_code ) return 1;
-		
+		if (!($this->last_ret = fgets($this->fs, 1024))) {
+			return;
+		}
+		if (substr($this->last_ret, 0, 3) == $cmp_code) {
+			return 1;
+		}
+
 		return;
 	}
 
 	function wts($string)
 	{
-		fwrite($this->fs, $string."\r\n");
+		fwrite($this->fs, $string . "\r\n");
 	}
 
 	function open_smtp_connex()
@@ -37,75 +41,102 @@ class fud_smtp
 		if( !($this->fs = fsockopen($GLOBALS['FUD_SMTP_SERVER'], 25, $errno, $errstr, $GLOBALS['FUD_SMTP_TIMEOUT'])) ) {
 			exit("ERROR: stmp server at ".$GLOBALS['FUD_SMTP_SERVER']." is not avaliable<br>\nAdditional Problem Info: $errno -> $errstr <br>\n");
 		}
-		if( !$this->get_return_code(220) ) return;
+		if (!$this->get_return_code(220)) {
+			return;
+		}
 		$this->wts("HELO ".$GLOBALS['FUD_SMTP_SERVER']);
-		if( !$this->get_return_code() ) return;
-		
-		/* Do SMTP Auth if needed */
-		if( $GLOBALS['FUD_SMTP_LOGIN'] ) {
-			$this->wts("AUTH LOGIN");
-			if( !$this->get_return_code(334) ) return;
-			$this->wts(base64_encode($GLOBALS['FUD_SMTP_LOGIN']));
-			if( !$this->get_return_code(334) ) return;
-			$this->wts(base64_encode($GLOBALS['FUD_SMTP_PASS']));
-			if( !$this->get_return_code(235) ) return;
+		if (!$this->get_return_code()) {
+			return;
 		}
 		
+		/* Do SMTP Auth if needed */
+		if ($GLOBALS['FUD_SMTP_LOGIN']) {
+			$this->wts('AUTH LOGIN');
+			if (!$this->get_return_code(334)) {
+				return;
+			}
+			$this->wts(base64_encode($GLOBALS['FUD_SMTP_LOGIN']));
+			if (!$this->get_return_code(334)) {
+				return;
+			}
+			$this->wts(base64_encode($GLOBALS['FUD_SMTP_PASS']));
+			if (!$this->get_return_code(235)) {
+				return;
+			}
+		}
+
 		return 1;
 	}
 	
 	function send_from_hdr()
 	{
-		$this->wts("MAIL FROM: <".$GLOBALS['NOTIFY_FROM'].">");
+		$this->wts('MAIL FROM: <'.$GLOBALS['NOTIFY_FROM'].'>');
 		return $this->get_return_code();
 	}
 	
 	function send_to_hdr()
 	{
-		if( !@is_array($this->to) ) $this->to = array($this->to);
-	
-		foreach( $this->to as $to_addr ) {
-			$this->wts("RCPT TO: <".$to_addr.">");
-			if( !$this->get_return_code() ) return;
+		if (!@is_array($this->to)) {
+			$this->to = array($this->to);
+		}
+
+		foreach ($this->to as $to_addr) {
+			$this->wts('RCPT TO: <'.$to_addr.'>');
+			if (!$this->get_return_code()) {
+				return;
+			}
 		}
 		return 1;
 	}
 	
 	function send_data()
 	{
-		$this->wts("DATA");
-		if( !$this->get_return_code(354) ) return;
+		$this->wts('DATA');
+		if (!$this->get_return_code(354)) {
+			return;
+		}
 		
 		/* This is done to ensure what we comply with RFC requiring each line to end with \r\n */
 		$this->msg = preg_replace("!(\r)?\n!si", "\r\n", $this->msg);
 		
 		if( empty($this->from) ) $this->from = $GLOBALS['NOTIFY_FROM'];
 		
-		$this->wts("Subject: ".$this->subject);
-		$this->wts("Date: ".date("r"));
-		$this->wts("To: ".$GLOBALS['NOTIFY_FROM']);
-		$this->wts("From: ".$this->from);
-		$this->wts("X-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']);
+		$this->wts('Subject: '.$this->subject);
+		$this->wts('Date: '.date("r"));
+		$this->wts('To: '.$GLOBALS['NOTIFY_FROM']);
+		$this->wts('From: '.$this->from);
+		$this->wts('X-Mailer: FUDforum v'.$GLOBALS['FORUM_VERSION']);
 		$this->wts($this->headers."\r\n");
 		$this->wts($this->msg);
-		$this->wts(".");
+		$this->wts('.');
 		
 		return $this->get_return_code();
 	}
 	
 	function close_connex()
 	{
-		$this->wts("quit");
+		$this->wts('quit');
 		fclose($this->fs);
 	}
 	
 	function send_smtp_email()
 	{
-		if( !$this->open_smtp_connex() ) exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
-		if( !$this->send_from_hdr() ) { $this->close_connex(); exit("Invalid STMP return code: ".$this->last_ret."<br>\n"); }
-		if( !$this->send_to_hdr() ) { $this->close_connex(); exit("Invalid STMP return code: ".$this->last_ret."<br>\n"); }
-		if( !$this->send_data() ) { $this->close_connex(); exit("Invalid STMP return code: ".$this->last_ret."<br>\n"); }
-		
+		if (!$this->open_smtp_connex()) {
+			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
+		}
+		if (!$this->send_from_hdr()) { 
+			$this->close_connex(); 
+			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
+		}
+		if (!$this->send_to_hdr()) {
+			$this->close_connex();
+			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
+		}
+		if (!$this->send_data()) {
+			$this->close_connex();
+			exit("Invalid STMP return code: ".$this->last_ret."<br>\n");
+		}
+
 		$this->close_connex();
 	}
 }

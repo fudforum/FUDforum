@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.7 2003/04/02 17:10:58 hackie Exp $
+*   $Id: referals.php.t,v 1.8 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	}
 
 	if (!$_GET['id'] || ($p_user = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['id']))) {
-		$ses->update('{TEMPLATE: referals_update}');
+		ses_update_status($usr->sid, '{TEMPLATE: referals_update}');
 
 		$c = uq('SELECT alias, id, join_date, posted_msg_count, home_page FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.(int)$_GET['id']);
 		if (($r = @db_rowarr($c))) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.38 2003/04/16 15:51:00 hackie Exp $
+*   $Id: users.inc.t,v 1.39 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@ function init_user()
 	}
 
 	/* set timezone */
-	set_tz($u->time_zone);
+	@putenv('TZ=' . $u->time_zone);
 	/* set locale */
 	setlocale(LC_ALL, $u->locale);
 

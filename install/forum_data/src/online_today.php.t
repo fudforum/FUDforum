@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.11 2003/04/03 10:03:31 hackie Exp $
+*   $Id: online_today.php.t,v 1.12 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 	
-	$ses->update('{TEMPLATE: online_today_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: online_today_update}');
 
 /*{POST_HTML_PHP}*/
 	

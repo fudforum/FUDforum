@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.13 2003/04/06 13:36:48 hackie Exp $
+*   $Id: root_index.php.t,v 1.14 2003/04/20 10:45:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,16 +16,30 @@
 ***************************************************************************/
 
 	require('GLOBALS.php');
-	fud_use('init_errors.inc');
+
+	/* before we go on, we need to do some very basic activation checks */
+	if ($FORUM_ENABLED != 'Y' && !defined('admin_form')) {
+		fud_use('cfg.inc', TRUE);
+		exit(cfg_dec($DISABLED_REASON) . '{TEMPLATE: core_adm_login_msg}');
+	}
+	if (@file_exists($WWW_ROOT_DISK.'install.php')) {
+	        exit('{TEMPLATE: install_script_present_error}');
+	}
+
 	fud_use('err.inc');
 	
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	if (!isset($_REQUEST['t']) || preg_match('/[^A-Za-z0-9_]/', $_REQUEST['t'])) {
-		$_REQUEST['t'] = 'index';
+	if (isset($_GET['t'])) {
+		$t = $_GET['t'];
+	} else if (isset($_POSt['t'])) {
+		$t = $_POST['t'];
+	}
+	if (!isset($t) || preg_match('/[^A-Za-z0-9_]/', $t)) {
+		$t = 'index';
 	}
 
 	define('__index_page_start__', true);
-	require($GLOBALS['DATA_DIR'] . fud_theme . $_REQUEST['t'] . '.php');
+	require($GLOBALS['DATA_DIR'] . fud_theme . $t . '.php');
 ?>
