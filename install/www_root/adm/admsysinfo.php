@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.12 2003/09/18 14:37:19 hackie Exp $
+*   $Id: admsysinfo.php,v 1.13 2003/10/03 18:21:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,8 +101,20 @@ function get_server_software()
 				<td><?php echo (($df=ini_get('disable_functions'))?$df:'none'); ?></td>
 			</tr>
 			<tr>
+				<td>PDF Support:</td>
+				<td><?php echo extension_loaded('pdf') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
+				<td>Tokenizer Support:</td>
+				<td><?php echo extension_loaded('tokenizer') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
 				<td>PSpell Support:</td>
-				<td><?php echo function_exists('pspell_new') ? 'Yes' : 'No'; ?></td>
+				<td><?php echo extension_loaded('pspell') ? 'Yes' : 'No'; ?></td>
+			</tr>
+			<tr>
+				<td>Zlib Support:</td>
+				<td><?php echo extension_loaded('zlib') ? 'Yes' : 'No'; ?></td>
 			</tr>
 		</table>
 	</td>
