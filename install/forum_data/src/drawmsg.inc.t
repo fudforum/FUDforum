@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.64 2003/10/09 22:32:27 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.65 2003/10/15 14:19:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -195,8 +195,6 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		$next_page = $next_message = $prev_message = '';
 	}
 
-	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
-
 	if (!$obj->user_id) {
 		$user_login =& $GLOBALS['ANON_NICK'];
 		$user_login_td = '{TEMPLATE: dmsg_ignored_user_message_anon}';
@@ -228,10 +226,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 				$obj->avatar_loc = '';
 				$level_name =& $obj->level_name;
 			}
-			$avatar = ($obj->avatar_loc && $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
-			if (!$level_name && $custom_tag) {
-				$custom_tag = substr($custom_tag, 2);
-			}
+			$avatar = ($obj->avatar_loc || $level_image) ? '{TEMPLATE: dmsg_avatar}' : '';
 			$dmsg_tags = ($custom_tag || $level_name) ? '{TEMPLATE: dmsg_tags}' : '';
 
 			if (($o2 & 32 && !($a & 32768)) || $b & 1048576) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.24 2003/10/09 14:34:27 hackie Exp $
+* $Id: threadt.php.t,v 1.25 2003/10/15 14:19:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -67,9 +67,7 @@
 				$stack_cnt = $tree->kiddie_count;
 				$j = $lev = 0;
 
-				if ($thread_list_table_data) {
-					$thread_list_table_data .= '{TEMPLATE: thread_sep}';
-				}
+				$thread_list_table_data .= '{TEMPLATE: thread_sep_s}';
 
 				while ($stack_cnt > 0) {
 					$cur = &$stack[$stack_cnt-1];
@@ -130,11 +128,11 @@
 					}
 				}
 				unset($cur);
+				
+				$thread_list_table_data .= '{TEMPLATE: thread_sep_e}';
 			}
 		}
-		$thread_list_table_data = '{TEMPLATE: thread_list_wmsg}';
 	}
-	qf($r);
 
 	if ($FUD_OPT_2 & 32768) {
 		$page_pager = tmpl_create_pager($start, 1, ceil($frm->thread_count / $THREADS_PER_PAGE), '{ROOT}/sf/threadt/'.$frm->id.'/1/', '/' . _rsid);
