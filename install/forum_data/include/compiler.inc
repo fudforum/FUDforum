@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.19 2003/04/23 22:30:06 hackie Exp $
+*   $Id: compiler.inc,v 1.20 2003/04/24 01:31:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,19 +32,20 @@ function resolve_refs($file_name)
 			exit('referenced file named (<b>'.$file_name.'</b>) doesn\'t exist');
 		}
 	}
-	if (($st = strpos($str, '{PHP_FILE:')) !== FALSE) {
-		$st = substr($st, 11, strpos($st, '}', 11)-1);
+	if (($st = strpos($str, '{PHP_FILE: ')) !== FALSE) {
+		$st += 11;
+		$st = substr($str, $st, (strpos($str, '}', $st) - $st - 1));
 		$fc['src'] = substr($st, 7, (strpos($st, ';', 7) - 7));
-		$fc['dst'] = substr($st, (strrpos($st, ' ') + 1), -1);
+		$fc['dst'] = substr($st, (strrpos($st, ' ') + 1));
 		if (!$fc['src'] || !$fc['dst']) {
 			exit('invalid PHP_FILE directive inside (<b>'.$file_name.'</b>)');
 		}
+		parse_sections($str, $fc['dst']);
 	} else {
 		$fc['inline'] = 1;
+		parse_sections($str, '');
 	}
-	
-	$start = $str;
-	parse_sections($str, $fc['dst']);
+
 	$p = 0;
 	while (($p = strpos($str, '{REF: ', $p)) !== FALSE) {
 		$p += 6;
@@ -76,53 +77,72 @@ function parse_sections($str, $file)
 			$p += strlen($v);
 			$e = strpos($str, '}', $p);
 			$name = substr($str, $p, ($e - $p));
+			if (($p = strpos($name, ' ')) !== FALSE) {
+				$name = substr($name, 0, $p);
+			}
 			++$e;
 			
 			if (isset($tr[$name])) {
 				exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
 			}
 
-			if (($e2 = strpos($str, $e, $v .'END}')) === FALSE) {
+			if (($e2 = strpos($str, $v .'END}', $e)) === FALSE) {
 				exit('unterminated tag '.$k.' inside '.$file);
 			}
 			if ($PHP_FILE) {
 				$GLOBALS['PHP_FILE_SEC'][$k][$name] = 1;
 			}
-
-			$tr[$name]['file'] = $GLOBALS['CURFILE'];
-			$tr[$name]['data'] = trim(substr($str, $e, ($e2 - $e)));
-			$p = $e2;
+			if (isset($tr[$name])) {
+				array_push($tr[$name], array('file' => $GLOBALS['CURFILE'], 'data' => trim(substr($str, $e, ($e2 - $e)))));
+			} else {
+				$tr[$name] = array('file' => $GLOBALS['CURFILE'], 'data' => trim(substr($str, $e, ($e2 - $e))));
+			}
+			$p = $e2 + strlen($v) + 4;
 		}
 	}
 }
 
 function resolve_sections($str)
 {
-	$op = $p = 0;
+	if (($p = strpos($str, '{')) === FALSE) {
+		return $str;
+	}
+
+	$op = 0;
 	$ret = '';
-	while (($p = strpos($str, '{', $p)) !== FALSE) {
+
+	do {
 		if ($op != $p) {
-			$ret .= substr($str, $p, ($p - $op));
+			$ret .= substr($str, $op, ($p - $op));
 		}
+
 		++$p;
-		if ($str[$p] < 'A' || $str[$p] > 'Z' || ($te = strpos($str, $p, ': ')) === FALSE) {
+		if ($str[$p] < 'A' || $str[$p] > 'Z') {
 			continue;
 		}
-		$tag = substr($str, $p, ($te - $p));
-		$te += 2;
-
-		if (($e = strpos($str, '}', $te)) === FALSE) {
-			exit('unterminated tag '.substr($str, p, (strpos($str, ' ', $p) - $p)).' inside '.$GLOBALS['CURFILE']);
+		if (($e = strpos($str, '}', $p)) === FALSE) {
+			exit('unterminated tag '.substr($str, ($p - 1), 255));
 		}
-		$name = substr($str, $te, (($ds = strpos($str, ' ', $te)) - $te));
+
+		if (($te = strpos($str, ': ', $p)) !== FALSE && $te < $e) {
+			$tag = substr($str, $p, ($te - $p));
+			$te += 2;
+			if (($ds = strpos($str, ' ', $te)) === FALSE || $ds > $e) {
+				$ds = $e;
+			}
+			$name = substr($str, $te, ($ds - $te));
+		} else {
+			$tag = substr($str, $p, ($e - $p));
+		}
+
 		$op = $p = $e + 1;
-		
+
 		switch ($tag) {
 			case 'MSG':
 				if (!isset($GLOBALS['MSG'][$name])) {
 					exit('Missing Message entry '.$name.' inside i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg');
 				}
-				$ret .= $GLOBALS['MSG'][$name]['data'] =  resolve_sections($GLOBALS['MSG'][$name]['data']);
+				$ret .= $GLOBALS['MSG'][$name]['data'];
 				break;
 			case 'VAR':
 			case 'TEMPLATE-DATA':	
@@ -144,12 +164,15 @@ function resolve_sections($str)
 				$ret .= '\'.stripslashes($'.$name.').\'';
 				break;
 			case 'ALT-VAR':
-				list($ia,$ib,$ic) = explode(' ', substr($tag_entry,0, $pos1), 3);
-				$ret .= '\'.alt_var(\''.$ia.'\',\''.$ib.'\',\''.$ic.'\').\'';
+				$t = strtok(substr($str, ++$ds, ($e - $ds)), ' ');
+				$ret .= '\'.alt_var(\''.$name.'\',\''.$t.'\',\''.strtok(' ').'\').\'';
 				break;	
 			case 'DATE':
-				$date_str = ltrim(substr($tag_entry, $pos2, ($pos1-$pos2)));
-				$ret .= (($name[0] != '!') ? '\'.strftime("'.$date_str.'", $'.$name.').\'' : '\'.strftime("'.$date_str.'", '.substr($name,1).').\'');
+				if ($name[0] != '!') {
+					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", $'.$name.').\'';
+				} else {
+					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", '.substr($name,1).').\'';
+				}
 				break;	
 			case 'TEMPLATE':
 				if (isset($GLOBALS['TC']['SECTION'][$name])) {
@@ -168,18 +191,17 @@ function resolve_sections($str)
 				break;
 			case 'CHARSET':
 				$ret .= $GLOBALS['char_set'];
-				break;		
-			case 'ROOT':
-				$ret .= $GLOBALS['__COMPILER__']['ROOT'];
 				break;
+			case 'ROOT':
 			case 'THEME_ROOT':
 			case 'THEME_IMAGE_ROOT':
 				$ret .= $GLOBALS['__COMPILER__'][$tag];
 				break;
 			default:
-				exit('No such tag: '.$tag.' '.$name);
+				exit('No such tag: '.htmlspecialchars($tag).' -> '.htmlspecialchars($name));
 		}
-	}
+	} while (($p = strpos($str, '{', $p)) !== FALSE);
+
 	return $ret . substr($str, $op, (strlen($str) - $op));
 }
 
@@ -196,9 +218,8 @@ function compile_file($source)
 	if (defined('debug')) {
 		echo "opening ".$GLOBALS['DATA_DIR'].'src/'.$source." to compile (".$source.")<br>\n";
 	}
-	$file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source);
-	if ($dest[0] == '@' || $dest[0] == '!') {
-		$dest = substr($dest, 1);
+	if (($file_data = file_get_contents($GLOBALS['DATA_DIR'].'src/'.$source)) === FALSE) {
+		exit('Unable to open file '.$GLOBALS['DATA_DIR'].'src/'.$source);
 	}
 
 	if (($p = strpos($file_data, '{TEMPLATE: ')) === FALSE) {
@@ -212,7 +233,7 @@ function compile_file($source)
 			$ret .= substr($file_data, $op, ($p - $op));
 		}
 		$p += 11;
-		$name = substr($file_data, $p, (strpos($file_data, ' ', $p) - $p));
+		$name = substr($file_data, $p, (strpos($file_data, '}', $p) - $p));
 		if (isset($GLOBALS['TC']['SECTION'][$name])) {
 			$sec = 'SECTION';
 		} else if (isset($GLOBALS['TC']['MAIN_SECTION'][$name])) {
@@ -256,7 +277,6 @@ function generate_file($php_file)
 	}
 	$fc =& $GLOBALS['file_cache'][$php_file];
 	$file_data = $fc['compiled'];
-
 	if (substr($fc['dst'], -4) != '.inc') {
 		/*
 		 * ! - end
@@ -330,23 +350,27 @@ function build_msg($file)
 
 	$data = file($file);
 	foreach ($data as $k => $v) {
-		$m = strtok($v, ':');
-		if (isset($GLOBALS['MSG'][$msg])) {
-			if ($GLOBALS['MSG'][$msg]['file'] != $file) {
+		$m = trim(strtok($v, "\t"), ':');
+		if (isset($GLOBALS['MSG'][$m])) {
+			if ($GLOBALS['MSG'][$m]['file'] != $file) {
 				continue;
 			}
-			exit('duplicated message: '.$msg.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$msg]['line'].' in '.$GLOBALS['MSG'][$msg]['file']);
+			exit('duplicated message: '.$m.' in '.$file.' on line #'.($k + 1).', previous entry found on line #'.$GLOBALS['MSG'][$m]['line'].' in '.$GLOBALS['MSG'][$m]['file']);
 		}
-		$GLOBALS['MSG'][$m] = array('data' => trim(strtok(':')), 'file' => $file, 'line'=> $k);
+		$GLOBALS['MSG'][$m] = array('data' => resolve_sections(trim(strtok("\t"))), 'file' => $file, 'line'=> $k);
 		if (strpos($GLOBALS['MSG'][$m]['data'], '\n') !== FALSE) {
-			$GLOBALS['MSG'][$msg]['data'] = str_replace('\n', "\n", $GLOBALS['MSG'][$msg]['data']);
+			$drf = str_replace('\n', "\n", $GLOBALS['MSG'][$m]['data']);
 		}
 	}
 }
 
 function resolve_inc_refs($file)
 {
-	if( is_array($GLOBALS['file_cache'][$file]['include']) ) {
+	if (!empty($GLOBALS['file_cache'][$file]['resolved'])) {
+		return $GLOBALS['file_cache'][$file]['include'];
+	}
+
+	if (isset($GLOBALS['file_cache'][$file]['include']) && is_array($GLOBALS['file_cache'][$file]['include'])) {
 		$ar = array();
 		foreach($GLOBALS['file_cache'][$file]['include'] as $k => $v) {
 			if( !isset($GLOBALS['file_cache'][$k]['include']) ) 
@@ -360,23 +384,20 @@ function resolve_inc_refs($file)
 		}
 		$ar[$file] = $file;
 		return $ar;
+	} else {
+		return array($file => $file);
 	}
-	else
-		return array($file=>$file);
 		
 	return;	
 }
 
 function resolve_compile($file)
 {
-	if( isset($GLOBALS['file_cache'][$file]) ) return;
-	resolve_refs($file,$file);
-	
-	if( !isset($GLOBALS['file_cache'][$file]['resolved']) ) {
-		$GLOBALS['file_cache'][$file]['include'] = resolve_inc_refs($file);
-		$GLOBALS['file_cache'][$file]['resolved'] = 1;
+	if (isset($GLOBALS['file_cache'][$file])) {
+		return;
 	}
-	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
+	resolve_refs($file, $file);
+	array_push($GLOBALS['file_cache'][$file], array('include' => resolve_inc_refs($file), 'resolved' => 1, 'compiled' => compile_file($GLOBALS['file_cache'][$file]['src'])));
 }
 
 function compile_all($tset='default', $lang='english', $tname='default')
@@ -433,30 +454,38 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	/*
 	 * build the message array 
 	 */
-	if( @file_exists($prim_msg_file) ) build_msg($prim_msg_file);
+	if (@file_exists($prim_msg_file)) {
+		build_msg($prim_msg_file);
+	}
 	/*
 	 * append any missing entries from the default language file
 	 */
 	build_msg($back_msg_file);
 
-	chdir($GLOBALS['DATA_DIR'].'/thm/default/tmpl');
-	$dir = opendir('.');
+	$dir = opendir($GLOBALS['DATA_DIR'].'/thm/default/tmpl');
 	readdir($dir); readdir($dir);
-	while( $file = readdir($dir) ) {
-		if( substr($file, -5) != '.tmpl' ) continue;
+	while ($file = readdir($dir)) {
+		if (substr($file, -5) != '.tmpl') {
+			continue;
+		}
 		resolve_compile($file);
-		if( isset($GLOBALS['file_cache'][$file]['inline']) ) continue;
-		
+		if (isset($GLOBALS['file_cache'][$file]['inline'])) {
+			continue;
+		}
+
 		generate_file($file);
-		
-		if( is_array($GLOBALS['PHP_FILE_SEC']) ) { 
+
+		if (isset($GLOBALS['PHP_FILE_SEC'])) { 
 			foreach($GLOBALS['PHP_FILE_SEC'] as $k => $v) {
-				foreach($v as $k2 => $v2) unset($GLOBALS['TC'][$k][$k2]);
+				foreach($v as $k2 => $v2) {
+					unset($GLOBALS['TC'][$k][$k2]);
+				}
 			}	
 			unset($GLOBALS['PHP_FILE_SEC']);
 		}	
 		unset($GLOBALS['INCLUDE_LIST']);
 	}
+	closedir($dir);
 	
 	@umask($oldmask);
 	@chdir($olddir);
