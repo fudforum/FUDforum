@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compact.php,v 1.46 2004/11/24 19:53:43 hackie Exp $
+* $Id: compact.php,v 1.47 2004/11/30 16:41:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -128,7 +128,6 @@ function eta_calc($start, $pos, $pc)
 			$i++;
 		}
 		unset($c);
-		un_register_fps();
 
 		if (isset($GLOBALS['__FUD_TMP_F__'])) {
 			foreach ($GLOBALS['__FUD_TMP_F__'] as $f) {

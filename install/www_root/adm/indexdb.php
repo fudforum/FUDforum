@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: indexdb.php,v 1.23 2004/11/24 19:53:43 hackie Exp $
+* $Id: indexdb.php,v 1.24 2004/11/30 16:41:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -70,7 +70,6 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		index_text($subj, read_msg_body($r[3], $r[2], $r[4]), $r[0]);
 	}
 	unset($c);
-	un_register_fps();
 	q('DELETE FROM '.$tbl.'search_cache');
 	db_unlock();
 
