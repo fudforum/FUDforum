@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.45 2003/05/01 02:46:00 hackie Exp $
+*   $Id: register.php.t,v 1.46 2003/05/01 14:02:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,7 +170,11 @@ function fmt_year($val)
 function set_err($err_name, $err_msg)
 {
 	$GLOBALS['error'] = 1;
-	$GLOBALS['err_msg'][$err_name] = $err_msg;
+	if (isset($GLOBALS['err_msg'])) {
+		array_push($GLOBALS['err_msg'], array($err_name => $err_msg));
+	} else {
+		$GLOBALS['err_msg'] = array($err_name => $err_msg);
+	}
 }
 
 function draw_err($err_name)
@@ -289,7 +293,7 @@ function remove_old_avatar($avatar_str)
 	}
 	
 	/* SUBMITTION CODE */
-	if (!empty($_POST['prev_loaded']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
+	if (isset($_POST['fud_submit']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
 		$old_email = $uent->email;
 		$old_avatar_approved = $uent->avatar_approved;
 		$old_avatar_loc = $uent->avatar_loc;
@@ -356,8 +360,12 @@ function remove_old_avatar($avatar_str)
 					} else if (isset($avatar_arr['file'])) { 
 						@unlink($TMP . basename($avatar_arr['file']));
 					}
-					/* verify that the avatar exists and it is different from the one in DB */
-					if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
+					if ($_POST['reg_avatar'] == '0') {
+						$uent->avatar_loc = '';
+						$uent->avatar_approved = 'NO';
+						$uent->avatar = 0;
+					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
+						/* verify that the avatar exists and it is different from the one in DB */
 						$uent->avatar_approved = 'Y';
 						$uent->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$uent->avatar = $_POST['reg_avatar'];
@@ -398,10 +406,11 @@ function remove_old_avatar($avatar_str)
 				 	} else if (empty($avatar_arr['leave'])) {
 				 		$uent->avatar_loc = '';
 				 	}
+				 	$uent->avatar = 0;
 				}
 				if (empty($uent->avatar_loc)) {
 					$uent->avatar_approved = 'NO';
-				}			
+				}
 			}
 
 			$uent->sync_user();
@@ -423,7 +432,7 @@ function remove_old_avatar($avatar_str)
 	}
 
 	/* populate form variables based on user's profile */
-	if (__fud_real_user__ && empty($_POST['prev_loaded']) && empty($_REQUEST['forced_new_reg'])) {
+	if (__fud_real_user__ && !isset($_POST['prev_loaded']) && empty($_REQUEST['forced_new_reg'])) {
 		foreach ($uent as $k => $v) {
 			${'reg_'.$k} = htmlspecialchars($v);
 		}
@@ -618,10 +627,17 @@ function remove_old_avatar($avatar_str)
 
 				/* determine the avatar specification field to show */
 				if ($avatar_type == 'b') {
-					$del_built_in_avatar = $reg_avatar ? '{TEMPLATE: del_built_in_avatar}' : '';
-					if (!isset($reg_avatar_img)) {
+					if (empty($reg_avatar)) {
+						$reg_avatar = '0';
 						$reg_avatar_img = 'blank.gif';
+					} else if (!empty($reg_avatar_loc)) {
+						reverse_FMT($reg_avatar_loc);
+						preg_match('!images/avatars/([^"]+)"!', $reg_avatar_loc, $tmp);
+						$reg_avatar_img = 'images/avatars/' . $tmp[1];
+					} else {
+						$reg_avatar_img = 'images/avatars/' . q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$reg_avatar);
 					}
+					$del_built_in_avatar = $reg_avatar ? '{TEMPLATE: del_built_in_avatar}' : '';
 					$avatar = '{TEMPLATE: built_in_avatar}';
 				} else if ($avatar_type == 'c') {
 					if (!isset($reg_avatar_loc)) {

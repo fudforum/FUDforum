@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: avatarsel.php.t,v 1.4 2003/04/17 09:37:33 hackie Exp $
+*   $Id: avatarsel.php.t,v 1.5 2003/05/01 14:02:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,10 +24,10 @@
 	
 	/* here we draw the avatar control */
 	$icons_per_row = 5;
-	$c = q('SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar ORDER BY id');
+	$c = uq('SELECT id, descr, img FROM {SQL_TABLE_PREFIX}avatar ORDER BY id');
 	$avatars_data = '';
-	$i = $col = 0;
-	while ($r = db_rowobj($c)) {
+	$col = 0;
+	while ($r = db_rowarr($c)) {
 		if (!($col++ % $icons_per_row)) {
 			$avatars_data .= '{TEMPLATE: row_separator}';
 		}
