@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admincp.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: admincp.inc.t,v 1.3 2002/07/08 12:04:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,16 +16,16 @@
 ***************************************************************************/
 
 if( _uid ) {
-	if( $usr->is_mod != 'N' ) {
+	if( $usr->is_mod != 'N' && $usr->is_mod ) {
 		if( $approve_count = q_singleval("SELECT count(*) FROM 
 					{SQL_TABLE_PREFIX}msg 
-					LEFT JOIN {SQL_TABLE_PREFIX}thread 
+					INNER JOIN {SQL_TABLE_PREFIX}thread 
 						ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-					LEFT JOIN {SQL_TABLE_PREFIX}forum 
+					INNER JOIN {SQL_TABLE_PREFIX}forum 
 						ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-					LEFT JOIN {SQL_TABLE_PREFIX}mod 
+					INNER JOIN {SQL_TABLE_PREFIX}mod 
 						ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id 
-						AND {SQL_TABLE_PREFIX}mod.user_id=".$GLOBALS["usr"]->id." 
+						AND {SQL_TABLE_PREFIX}mod.user_id="._uid." 
 					WHERE 
 						{SQL_TABLE_PREFIX}msg.approved='N' 
 						AND {SQL_TABLE_PREFIX}forum.moderated='Y'") ) 
