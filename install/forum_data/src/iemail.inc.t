@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.12 2002/09/04 22:31:28 hackie Exp $
+*   $Id: iemail.inc.t,v 1.13 2002/10/15 03:08:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -204,7 +204,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$CHARSET = '{TEMPLATE: CHARSET}';
 		
 		$plain_text = read_msg_body($obj->foff,$obj->length, $obj->file_id);
-		$plain_text = $boundry."Content-Type: text/plain; charset=$CHARSET; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\nTo participate in the discussion, go here: ".'{ROOT}?t=rview&th='.$id."&notify=1&opt=off\r\n";
+		$plain_text = $boundry."Content-Type: text/plain; charset=$CHARSET; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n".strip_tags($plain_text)."\r\n\r\n".'{TEMPLATE: iemail_participate}'." ".'{ROOT}?t=rview&th='.$id."&notify=1&opt=off\r\n";
 		
 		$mod = $GLOBALS['MOD'];
 		$GLOBALS['MOD'] = 1;

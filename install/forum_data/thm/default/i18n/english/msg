@@ -580,6 +580,7 @@ iemail_thr_bodyicq:		To view unread replies goto\n{VAR: goto_url['icq']}\n\nIf y
 iemail_frm_subject:		New topic in forum {VAR: frm_name} called {VAR: thr_subject} by {VAR: poster_login}
 iemail_frm_bodyemail:		To view the topic goto:\n{VAR: goto_url['email']}\n\nTo stop receiving notifications about new topics in this forum, please go here: {VAR: unsub_url['email']}
 iemail_frm_bodyicq:		To view the topic goto:\n{VAR: goto_url['icq']}\n\nTo stop receiving notifications about new topics in this forum, please go here:\n{VAR: unsub_url['icq']}
+iemail_participate:		To participate in the discussion, go here:
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	You can&#39;t ignore this user
 ignore_list_err_dup_msg:	You already have this user on your ignore list
