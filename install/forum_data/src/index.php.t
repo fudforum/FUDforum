@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.59 2004/10/21 14:50:26 hackie Exp $
+* $Id: index.php.t,v 1.60 2004/10/21 15:09:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -123,19 +123,20 @@ function url_tog_collapse($id, $c)
 		$post_count += $r[15];
 		$thread_count += $r[16];
 
-		if ($cat != $r[8]) {
-			$par = $cidxc[$r[8]][4];
+		$cid = (int) $r[8];
 
-			/* if parent category is collapsed, hide child category */
-			if ($par && !empty($collapse[$par])) {
-				$collapse[$r[8]] = 1;
-				continue;
-			}
-
+		if ($cat != $cid) {
 			while (list($k, $i) = each($cidxc)) {
+				/* if parent category is collapsed, hide child category */
+				if ($i[4] && !empty($collapse[$i[4]])) {
+					$collapse[$k] = 1;
+					$cat = $k;
+					continue;
+				}
+
 				if ($i[3] & 1) {
 					if (!isset($collapse[$k])) {
-						$collapse[$k] = $i[3] & 2;
+						$collapse[$k] = !($i[3] & 2);
 					}
 
 					if (!empty($collapse[$k])) {
@@ -150,14 +151,14 @@ function url_tog_collapse($id, $c)
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
 				}
 			
-				if ($k == $r[8]) {
+				if ($k == $cid) {
 					break;
 				}
 			}
-			$cat = $r[8];
+			$cat = $cid;
 		}
 
-		if (!empty($collapse[$r[8]])) {
+		if (!empty($collapse[$cid])) {
 			continue;
 		}
 
