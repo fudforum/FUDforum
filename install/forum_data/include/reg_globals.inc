@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_globals.inc,v 1.3 2002/09/26 01:04:56 hackie Exp $
+*   $Id: reg_globals.inc,v 1.4 2002/11/24 23:22:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@ function mod_arr_val(&$val, $key, $fmt_func)
 	}
 }
 
-	$fmt_func = ini_get('magic_quotes_gpc') ? '' : 'gpc_fmt'; 
+	$fmt_func = get_magic_quotes_gpc() ? '' : 'gpc_fmt'; 
 
 	reset($GLOBALS['HTTP_GET_VARS']);
 	array_walk($GLOBALS['HTTP_GET_VARS'], 'mod_arr_val', $fmt_func);
