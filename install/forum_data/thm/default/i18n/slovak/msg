@@ -611,7 +611,7 @@ post_err_edttimelimit_msg:	You can no longer edit this message
 post_err_noannontopics_title:	ERROR: Insufficient Privileges
 post_err_noannontopics_msg:	Anonymous users aren&#39;t allowed to create topics<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
 post_err_noannonposts_title:	ERROR: Insufficient Privileges
-post_err_noannonposts_msg	:Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
+post_err_noannonposts_msg:	Anonymous users aren&#39;t allowed to reply<br><br>If you would like to register go to the <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registration form</a><br>If you would like to login please go to the <a href="{ROOT}?t=login&amp;{DEF: _rsid}">login form</a>
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
 post_err_floodtrig_title:	ERROR: Post flood triggered.

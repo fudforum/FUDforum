@@ -593,7 +593,7 @@ msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{ROO
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
-post_err_notallowed_title:Inte till&aring;tet
+post_err_notallowed_title:	Inte till&aring;tet
 post_err_notallowed_msg:	Du har inte r&auml;tt att skriva inl&auml;gg
 post_err_lockedthread_title:	FEL: L&aring;st diskussion
 post_err_lockedthread_msg:	Den h&auml;r diskussionen &auml;r l&aring;st och inga fler inl&auml;gg tas emot

@@ -27,20 +27,44 @@ function make_lang_arr($path)
 		$curl = make_lang_arr($de . '/msg');
 		$i = 0;
 
+		/* add missing text */
 		foreach ($keys as $v) {
 			if (!isset($curl[$v])) {
 				$curl[$v] = $lang[$v];
 				$i++;
 			}
 		}
+		$longest_key = 0;
+
+		/* remove un-needed text */
+		$ck = array_keys($curl);
+		foreach ($ck as $v) {
+			if (!isset($lang[$v])) {
+				$curl[$v] = NULL;
+			}
+			$l = strlen($v);
+			if ($l > $longest_key) {
+				$longest_key = $l;
+			}
+		}
+		$tabs = floor($longest_key / 8);
+		foreach ($curl as $k => $v) {
+			$ct = $tabs - floor(strlen($k) / 8);
+			if ($v[strlen($k) + 1] != "\t") {
+				var_dump($k, $v, $v[strlen($k) + 1]);
+				exit;
+				$curl[$k] = preg_replace('!^'.$k.':\s+!', $k . ':' . str_repeat("\t", $ct), $v);
+			}
+		}
+
 		if ($i) {
 			echo "$i lines are new to $de/msg\n";
-			if (!($fp = fopen($de . '/msg', 'w'))) {
-				exit("can't open $de/msg for writing\n");
-			}
-			fwrite($fp, implode('', $curl));
-			fclose($fp);
 		}
+		if (!($fp = fopen($de . '/msg', 'w'))) {
+			exit("can't open $de/msg for writing\n");
+		}
+		fwrite($fp, implode('', $curl));
+		fclose($fp);
 	}
 	closedir($dp);
 ?>

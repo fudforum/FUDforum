@@ -839,7 +839,7 @@ no_view_perm:			很抱歉，您没有察看这个页面的权限
 report_empty_report:		你不能提交空的报告，请说明推荐理由。
 report_already_reported_title:	报告已经提交
 report_already_reported_msg:	这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
-register_err_toomanyimages	:你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
+register_err_toomanyimages:	你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
 pmsg_next_msg:			下一条信息
 pmsg_prev_msg:			前一条信息
 post_proc_reveal_spoiler:	显示隐藏内容
