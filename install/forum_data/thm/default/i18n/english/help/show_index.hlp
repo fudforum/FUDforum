@@ -1,0 +1,23 @@
+A message filtering system that allows you to see messages by your 
+selected criteria.
+
+There are 3 different ways to filter messages:<br>
+<ul>
+<li>Today's Posts
+<li>Unread Posts (avalible only to registered users)
+<li>No Replies
+</ul>
+
+Today's posts will show only the posts made today i.e. between today
+0AM and 23:59AM.
+<br><br>
+Unread Posts will show all of your unread posts in the entire forum.
+<br><br>
+No Replies will show posts that have never been replied to in the entire forum.
+<br><br>
+All of these options are additive and you should pay careful attention to how they are selected,
+which means that if you were to click Today's Posts and look at today's posts and then click
+Unread Posts you would combine both filters, so you would only see today's posts which are unread 
+by you. 
+If you were to click Today's Posts again you will disable to "Today" part of the filter and see all 
+the unread posts again. 
