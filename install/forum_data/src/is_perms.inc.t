@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.12 2003/04/09 12:20:06 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.13 2003/04/14 12:15:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -71,6 +71,11 @@ function &get_all_read_perms($uid)
 			}
 		}
 		qf($r);
+		$r = q('SELECT forum_id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='._uid);
+		while ($ent = db_rowarr($r)) {
+			$limit[$ent[0]] = 1;
+		}
+		qf($r);
 	}
 
 	return $limit;
@@ -115,5 +120,4 @@ function make_perms_query(&$fields, &$join)
 		$fields = ' p_VISIBLE as p_visible, p_READ as p_read, p_POST as p_post, p_REPLY as p_reply, p_EDIT as p_edit, p_DEL as p_del, p_STICKY as p_sticky, p_POLL as p_poll, p_FILE as p_file, p_VOTE as p_vote, p_RATE as p_rate, p_SPLIT as p_split, p_LOCK as p_lock, p_MOVE as p_move, p_SML as p_sml, p_IMG as p_img ';
 	}
 }
-
 ?>

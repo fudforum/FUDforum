@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.12 2003/04/02 20:58:55 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.13 2003/04/14 12:15:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,6 +33,7 @@ function convert_bdate($val, $month_fmt)
 	if (!($u = db_sab('SELECT {SQL_TABLE_PREFIX}users.*, {SQL_TABLE_PREFIX}level.name AS level_name, {SQL_TABLE_PREFIX}level.pri AS level_pri, {SQL_TABLE_PREFIX}level.img AS level_img FROM {SQL_TABLE_PREFIX}users LEFT JOIN {SQL_TABLE_PREFIX}level ON {SQL_TABLE_PREFIX}level.id={SQL_TABLE_PREFIX}users.level_id WHERE {SQL_TABLE_PREFIX}users.id='.(int)$_GET['id']))) {
 		std_error('user');
 	}
+
 	if ($u->level_pri) {
 		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
 		$level_image = ($u->level_img && $obj->level_pri != 'A') ? '{TEMPLATE: level_image}' : '';
@@ -41,30 +42,28 @@ function convert_bdate($val, $month_fmt)
 	}
 
 	$custom_tags = $u->custom_status ? '{TEMPLATE: no_custom_tags}' : '{TEMPLATE: custom_tags}';
-	
+
 	if ($usr->is_mod != 'A') {
-		$lmt = get_all_perms(_uid);
-		$qry_limit = '{SQL_TABLE_PREFIX}forum.id IN ('.$lmt.') AND ';
-		$forum_limit = ' AND {SQL_TABLE_PREFIX}thread.forum_id IN ('.$lmt.') ';
-	} else {
-		$lmt = $forum_limit = '';
+		$frm_perms = get_all_read_perms(_uid);
 	}
-	
-	$c = uq('SELECT {SQL_TABLE_PREFIX}forum.id, {SQL_TABLE_PREFIX}forum.name FROM {SQL_TABLE_PREFIX}mod LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}mod.forum_id={SQL_TABLE_PREFIX}forum.id LEFT JOIN {SQL_TABLE_PREFIX}cat ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id WHERE '.$qry_limit.' {SQL_TABLE_PREFIX}mod.user_id='.$u->id);
+
 	$moderation = '';
-	if (($r = @db_rowarr($c))) {
-		do {
+	$c = uq('SELECT f.id, f.name FROM {SQL_TABLE_PREFIX}mod mm INNER JOIN {SQL_TABLE_PREFIX}forum f ON mm.forum_id=f.id INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id WHERE mm.user_id='.$u->id);
+	while ($r = db_rowarr($c)) {
+		if (!isset($frm_perms) || $frm_perms[$r[0]]) {
 			$moderation .= '{TEMPLATE: moderation_entry}';
-		} while (($r = @db_rowarr($c)));
-		$moderation = '{TEMPLATE: moderation}';
+		}
 	}
 	qf($r);
+	if ($moderation) {
+		$moderation = '{TEMPLATE: moderation}';
+	}
 	
 /*{POST_HTML_PHP}*/
 
 	$TITLE_EXTRA = ': {TEMPLATE: user_info_l}';
 
-	$ses->update('{TEMPLATE: userinfo_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: userinfo_update}');
 
 	if (!empty($level_name) || !empty($moderation) || !empty($level_image) || !empty($custom_tags)) {
 		$status = '{TEMPLATE: status}';
@@ -72,26 +71,19 @@ function convert_bdate($val, $month_fmt)
 		$status = '';
 	}
 	
-	$avg = sprintf('%.2f', $u->posted_msg_count/((__request_timestamp__-$u->join_date)/86400));
+	$avg = sprintf('%.2f', $u->posted_msg_count / ((__request_timestamp__ - $u->join_date) / 86400));
 	if ($avg > $u->posted_msg_count) {
 		$avg = $u->posted_msg_count;
 	}
-	
+
+	$last_post = '';
 	if ($u->u_last_post_id) {
-		$r = db_saq('SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}msg.id, {SQL_TABLE_PREFIX}msg.post_stamp FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.id='.$u->u_last_post_id);
-		
-		/* for permission checks we do a little cheat and run a 
-		 * regex on $lmt, which is faster then running a new query
-		 */
-		if ($usr->is_mod == 'A' || preg_match('!^|,'.$r[2].',|$!', $lmt)) {
+		$r = db_saq('SELECT m.subject, m.id, m.post_stamp, t.forum_id FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id WHERE m.id='.$u->u_last_post_id);
+		if (!isset($frm_perms) || $frm_perms[$r[3]]) {
 			$last_post = '{TEMPLATE: last_post}';
-		} else {
-			$last_post = '{TEMPLATE: no_view_perm}';
 		}
-	} else {
-		$last_post = '';
 	}
-	
+
 	$user_image = ($u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
 	if ($CUSTOM_AVATARS != 'OFF' && $u->avatar_loc && $u->avatar_approved == 'Y') {
 		$avatar = '{TEMPLATE: avatar}';
@@ -114,14 +106,7 @@ function convert_bdate($val, $month_fmt)
 		$referals = '';	
 	}
 	
-	if (($polls = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}poll 
-				INNER JOIN {SQL_TABLE_PREFIX}msg ON 
-					{SQL_TABLE_PREFIX}poll.id={SQL_TABLE_PREFIX}msg.poll_id 
-				INNER JOIN {SQL_TABLE_PREFIX}thread ON
-					{SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id	
-				INNER JOIN {SQL_TABLE_PREFIX}forum ON	
-					{SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id	
-				WHERE {SQL_TABLE_PREFIX}poll.owner=".$u->id." ".$forum_limit." AND {SQL_TABLE_PREFIX}thread.locked='N' AND {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}forum.cat_id!=0"))) {
+	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll WHERE owner='.$u->id))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';
