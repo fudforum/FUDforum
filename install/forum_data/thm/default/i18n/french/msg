@@ -47,7 +47,7 @@ image:                          Image:
 index_forum:                    Forum
 index_new_posts:                Nouveaux messages depuis votre derniere visite
 index_no_new_posts:             Pas de nouveaux messages depuis votre derniere visite
-interests:                      Centres d'intérêts:
+interests:                      Centres d&#39;intérêts:
 last_post:                      Dernier message
 last_thread_msg:                Aller au premier message dans ce thread
 legend:                         Légende:
@@ -253,14 +253,14 @@ unspecified:                    Je le garde pour moi
 register_tree_view:             vue en branche
 register_flat_view:             Plane
 use_forum_default:              Valeur par défaut du forum
-finduser_user_info:             Recherche d'Informations sur un Utilisateur:
+finduser_user_info:             Recherche d&#39;Informations sur un Utilisateur:
 finduser_by_login:              Par Login:
 finduser_by_email:              Par e-mail:
 finduser_submit:                Chercher
 finduser_no_such_user:          Aucun utilisateur ne correspond à cette requête
 finduser_user:                  Utilisateur
 finduser_postcount:             Compteur de messages
-finduser_joindate:              s'est inscrit le
+finduser_joindate:              s&#39;est inscrit le
 finduser_action:                Action
 yes:                            Oui
 no:                             Non
@@ -294,12 +294,12 @@ register_register:              S&#39;enregistrer
 register_required:              Informations obligatoires
 register_required_desc:         Tous les champs sont obligatoires.  Attention, le mot de passe interprete les majuscules et minuscules differement!
 register_optional:              Informations facultatives
-register_optional_desc:         Il est recommandé de ne pas révéler d'informations sensibles propres a votre identité dans votre profile. Toutes ces informations vont être accessibles des les autres membres du forum.
+register_optional_desc:         Il est recommandé de ne pas révéler d&#39;informations sensibles propres a votre identité dans votre profile. Toutes ces informations vont être accessibles des les autres membres du forum.
 register_location:              Situation géographique:
 register_occupation:            Métier:
-register_interests:             Centres d'intérêts:
+register_interests:             Centres d&#39;intérêts:
 register_image:                 Photo:
-register_icq:                   Numero d'identification ICQ:
+register_icq:                   Numero d&#39;identification ICQ:
 register_aim:                   Identifiant AIM:
 register_yahoo:                 Yahoo Messenger:
 register_msnm:                  MSN Messenger:
@@ -320,19 +320,19 @@ register_style:                 Style:
 register_def_thread_view:       Par défaut, voir les Threads sous forme:
 register_msg_per_page:          Nombre de messages par page:
 register_show_sig:              Montrer les signatures:
-register_show_sig_desc:         Empêche la signature des autres membres d'être présente dans les forums que vous lirez
+register_show_sig_desc:         Empêche la signature des autres membres d&#39;être présente dans les forums que vous lirez
 register_use_sig_default:       Ma signature pas défaut:
 register_use_sig_default_desc:  Par défaut, appliquer ma signature aux messages que je vais poster
 register_timezone:              Fuseau horaire:
 register_ignore_admin:          Ignorer les messages Administratifs:
 register_invisible_mode:        Invisibilité:
-register_invisible_mode_desc:   Vous permet d'empêcher les autres utilisateurs de savoir lorsque vous êtes connecté.
+register_invisible_mode_desc:   Vous permet d&#39;empêcher les autres utilisateurs de savoir lorsque vous êtes connecté.
 register_show_email:            Rendre mon adresse  e-mail visible:
 register_show_email_desc:       Choisissez cette option si vous souhaitez que les autres utilisateurs puissent pas voir votre adresse e-mail.
 register_notification:          Sélectionnez le mode de notification par défaut:
 register_notification_desc:     Ceci est une option par défaut qui peut être modifiée pour chaque message que vous postez.
 register_notify_method:         Méthode de notification:
-register_notify_method_desc:    Si vous désirez recevoir les notifications via ICQ, veuillez vous assurer de configurer ICQ avec la fonctionnalité 'EmailExpress'
+register_notify_method_desc:    Si vous désirez recevoir les notifications via ICQ, veuillez vous assurer de configurer ICQ avec la fonctionnalité &#39;EmailExpress&#39;
 register_notify_js_error:       Vous avez choisi de recevoir les notifications via ICQ, mais vous avez oublié de spécifier votre ICQ #. Nous avons activé la notification par e-mail a la place#46;
 register_allow_email_msg:       Autoriser les messages e-mail:
 register_allow_email_msg_desc:  Permet aux autres utilisateurs de vous envoyer des e-mails directement via FUDforum.
@@ -340,7 +340,7 @@ buddy_status:                   Statut
 my_buddies:                     Mes amis
 add_buddy:                      Ajouter un ami
 add:                            Ajouter
-buddy_search:                   Entrez le login de l'utilisateur que vous souhaitez ajouter a votre liste d'amis.<br>Ou utilisez la fonctionnalité <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">chercher un utilisateur</a> pour trouver cette personne.
+buddy_search:                   Entrez le login de l&#39;utilisateur que vous souhaitez ajouter a votre liste d&#39;amis.<br>Ou utilisez la fonctionnalité <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">chercher un utilisateur</a> pour trouver cette personne.
 buddy_remove:                   Enlever de ma liste d&#39;amis
 post_normal:                    Normal
 post_sticky:                    Sticker
@@ -386,10 +386,10 @@ post_forum:                     Forum:
 post_title:                     Titre:
 post_body:                      Contenu:
 post_options:                   Options:
-post_preview_btn:               Voir le message avant de l'envoyer
+post_preview_btn:               Voir le message avant de l&#39;envoyer
 post_processing_msg:            Votre message est en cours d&#39;enregistrement, veuillez patienter
 ignore_users:                   Ignorer les utilisateurs
-add_ignore:                     Ignorer quelqu'un d'autre
+add_ignore:                     Ignorer quelqu&#39;un d&#39;autre
 forum_terms:                    Forum
 forum_rules:                    L&#39;enregistrement a ce forum est gratuit! Nous vous faisons cependant remarquer que vous êtes redevable des conditions et détails ci-dessous. Si vous acceptez ces conditions, veuillez presser le bouton "J&#39;accepte" a la fin de la page. Note: En pressant le bouton "J&#39;accepte", vous déclarez avoir plus de 13 ans. Si vous n&#39;avez pas encore 13 ans, vous devez utiliser le formulaire d&#39;autorisation parentale.<p>Bien que les administrateurs et modérateurs de ce forum s&#39;assurent d&#39;écarter tout message qui ne serait pas jugé décent ou approprié sur l&#39;un des forum, il nous est cependant impossible de les lire et contrôler tous. Chaque message représente les perspectives et idées propres de son auteur, et nous ne pouvons (administrateurs et modérateurs) être porté responsables ou blâmable pour le contenu de quelque message que ce soit.<p>En cliquant sur le bouton "J&#39;accepte", vous garantissez que vous n&#39;avez pas l&#39;intention de poster de messages a caractère obscène, vulgaire, en relation avec la sexualité, propos haineux, menaces, ou vous violez nos conditions. <p>Les responsables de ce forum ont le pouvoir et droit d&#39;effacer, éditer, corriger, déplacer, ou même fermer n&#39;importe quel thread / message pour quelque raison que ce soit et sans préavis.<p>
 forum_rules_13:                 Tout utilisateur de moins de 13 ans doit obtenir la permission de ses parents ou un tuteur légal afin de pouvoir devenir un membre de ce forum. Bien que la participation des personnes de moins de 13 ans soit le bienvenu, nous devons obtenir une autorisation signée d&#39;un parent ou tuteur par fax ou lettre est indispensable. Seulement après réception de ce document la personne de moins de 13 ans sera effectivement enregistrée et pourra interagir avec le forum<p> Si vous désirez cependant commencer la procédure d&#39;enregistrement immédiatement (avant que le document signe ne nous parvienne), veuillez cliquer sur le bouton "J&#39;accepte" ci-dessous. Si vous préférez annuler la procédure d&#39;enregistrement, cliquez sur le bouton Annuler afin de retourner à la page d&#39;indexe des forums. <p>Une copie du formulaire d&#39;autorisation parentale est disponible ici. Pour plus d&#39;informations a propos de la procédure d&#39;enregistrement, veuillez envoyer un e-mail à <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
@@ -397,9 +397,9 @@ coppa_conf:                     COPPA Confirmation
 coppa_before:                   Avant {DATE: coppa %B %e, %Y}
 coppa_after:                    Après {DATE: coppa %B %e, %Y}
 coppa_link:                     Cliquez sur le lien correspondant à votre date de naissance
-coppa:                          Un parent ou tuteur légal doit faxer ou envoyer par la poste une autorisation signée a l'administrateur de ce forum avant qu'une personne de moins de 13 ans ne puisse valider son enregistrement.<p>Pour de plus amples informations, contactez <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:                          Un parent ou tuteur légal doit faxer ou envoyer par la poste une autorisation signée a l&#39;administrateur de ce forum avant qu&#39;une personne de moins de 13 ans ne puisse valider son enregistrement.<p>Pour de plus amples informations, contactez <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:                    Information
-prereg_agree:                   J'accepte
+prereg_agree:                   J&#39;accepte
 prereg_disagree:                Je refuse
 coppa_fax_instructions:         Instructions aux parents ou tuteur(s)
 coppa_fax_instructions2:        Veuillez imprimer cette page, la signer et la faxer ou l&#39;envoyer par la poste à:
@@ -418,12 +418,12 @@ coppa_fax_login:                Login
 coppa_fax_passwd:               Mot de passe
 coppa_fax_remail:               Adresse e-mail
 coppa_fax_name:                 Nom
-login_not_logedin:              Vous n'êtes pas logged in. Ceci peut être du a l'une des raisons suivantes:
-login_cookie_expired:           Votre cookie a expire et vous devez vous logger à nouveau afin d'en obtenir un nouveau.
-login_perm_denied:              Vous n'avez pas la permission d'accéder la ressource que vous désirez en tant d'utilisateur anonyme, et vous devez login (en plus de vous enregistrer si ce n'est pas encore fait) afin d'y accéder.
+login_not_logedin:              Vous n&#39;êtes pas logged in. Ceci peut être du a l&#39;une des raisons suivantes:
+login_cookie_expired:           Votre cookie a expire et vous devez vous logger à nouveau afin d&#39;en obtenir un nouveau.
+login_perm_denied:              Vous n&#39;avez pas la permission d&#39;accéder la ressource que vous désirez en tant d&#39;utilisateur anonyme, et vous devez login (en plus de vous enregistrer si ce n&#39;est pas encore fait) afin d&#39;y accéder.
 login_want_to_register:         Vous voulez vous enregistrer?
-login_forgot_passwd:            J'ai oublie mon mot de passe
-login_use_cookie:               L'utilisation de cookies<br><font class="SmallText">Si vous utilisez un PC dans un lieu publique tel qu'une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de securité.<br>Si vous laissez cette option activée, vous serez automatiquement loggé au forum.
+login_forgot_passwd:            J&#39;ai oublie mon mot de passe
+login_use_cookie:               L&#39;utilisation de cookies<br><font class="SmallText">Si vous utilisez un PC dans un lieu publique tel qu&#39;une bibliothèque, une école ou un cybercafé, il est recommandé de désactiver cette option pour des raisons de securité.<br>Si vous laissez cette option activée, vous serez automatiquement loggé au forum.
 login_login:                    Login
 login_login_btn:                Login
 login_name_required:            Veuillez saisir votre login
@@ -435,7 +435,7 @@ rpasswd_invalid_passwd:         Le mot de passe est invalide
 rpasswd_passwd_nomatch:         Les mots de passe spécifiés ne sont pas les mêmes
 rpasswd_passwd_length:          Le mot de passe doit être long d&#39;au moins 6 caractères
 reset_remind_pass:              Vous avez oulié votre mot de passe
-reset_reset_conf:               Nous allons generer un nouveau mot de passe temporaire lequel vous sera envoyé par e-mail dans quelques minutes. Dans le cas ou vous n'avez encore jamais validé votre mot de passe, nous vous enverons l'e-mail de confirmation a la place.
+reset_reset_conf:               Nous allons generer un nouveau mot de passe temporaire lequel vous sera envoyé par e-mail dans quelques minutes. Dans le cas ou vous n&#39;avez encore jamais validé votre mot de passe, nous vous enverons l&#39;e-mail de confirmation a la place.
 reset_error:                    L&#39;adresse e-mail spécifiée n&#39;a pas été trouvée dans la base de données
 rpasswd_change_pass:            Changer de mot de passe
 rpasswd_login:                  Login
