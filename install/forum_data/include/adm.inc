@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.10 2003/04/23 00:53:15 hackie Exp $
+*   $Id: adm.inc,v 1.11 2003/04/24 01:32:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,6 @@
 ***************************************************************************/
 
 if (!defined('shell_script')) {
-	fud_use('time.inc');
 	fud_use('db.inc');
 	fud_use('cookies.inc');
 	fud_use('users.inc');
