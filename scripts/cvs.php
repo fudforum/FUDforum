@@ -106,7 +106,7 @@ function version_to_name($str)
 
 	$nt = 0;
 	$db = sqlite_open("{$DB_DIR}cvs.sqlite", 0666);
-
+	
 	/* determine which tags are new */
 	foreach ($tags as $tag) {
 		if (!sqlite_single_query($db, "SELECT id FROM fud_down WHERE tag='".sqlite_escape_string($tag)."'")) {
@@ -190,6 +190,29 @@ echo "TAG $tag\n";
 
 	if ($nt) {
 		echo "Imported {$nt} tags\n";
+
+		/* make sure that the dates of the releases are correct */
+		chdir($dir);
+		$dt = $tags2 = array();
+		$data = shell_exec("{$CVS_BIN} -d {$CVS_PTH} log -h upgrade.php");
+		preg_match_all("!\t(fud[A-Za-z0-9_]+): ([0-9.]+)!", $data, $res2);
+		foreach ($res2[1] as $k=> $r) {
+			$tags2[trim($res2[2][$k])] = trim($r);
+		}
+
+		$data = explode('----------------------------', shell_exec("{$CVS_BIN} -d {$CVS_PTH} log -N upgrade.php"));
+		foreach ($data as $ent) {
+			if (preg_match("!revision ([0-9.]+)\s+date: ([^;]+);!", $ent, $m)) {
+				if (isset($tags2[$m[1]])) {
+					$dt[$tags2[$m[1]]] = strtotime($m[2]);
+				}
+			}
+		}
+
+		foreach ($dt as $k => $v) {
+			sqlite_query($db, "UPDATE fud_down SET release_date={$v} WHERE tag='".sqlite_escape_string($k)."'");
+		}
+		unset($data, $dt, $tags2);
 
 		/* handle conversion scripts */
 		foreach ($CONV_SCRIPTS as $c => $d) {
