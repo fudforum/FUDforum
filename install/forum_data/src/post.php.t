@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.87 2003/10/02 17:50:57 hackie Exp $
+*   $Id: post.php.t,v 1.88 2003/10/02 19:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -474,7 +474,7 @@ function flood_check()
 		$text_s = htmlspecialchars($text_s);
 		char_fix($text_s);
 
-		$spell = empty($spell_check_button);
+		$spell = !empty($spell_check_button);
 
 		if ($spell && $text) {
 			$text = check_data_spell($text, 'body', $usr->pspell_lang);

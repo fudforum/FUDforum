@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.47 2003/10/02 17:50:57 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.48 2003/10/02 19:18:42 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -120,7 +120,7 @@ class fud_user_reg extends fud_user
 				".ssn($this->time_zone).",
 				".iz($this->bday).",
 				".__request_timestamp__.",
-				".$this->conf_key.",
+				'".$this->conf_key."',
 				".ssn(htmlspecialchars($this->user_image)).",
 				".__request_timestamp__.",
 				".ssn(htmlspecialchars($this->location)).",
@@ -131,7 +131,7 @@ class fud_user_reg extends fud_user
 				".__request_timestamp__.",
 				".ssn($this->sig).",
 				".ssn(htmlspecialchars($this->home_page)).",
-				".ssn(htmlspecialchars($this->bio)).",
+				".ssn($this->bio).",
 				".$this->users_opt."
 			)
 		");
@@ -169,7 +169,7 @@ class fud_user_reg extends fud_user
 			avatar_loc=".ssn($this->avatar_loc).",
 			sig=".ssn($this->sig).",
 			home_page=".ssn(htmlspecialchars($this->home_page)).",
-			bio=".ssn(htmlspecialchars($this->bio)).",
+			bio=".ssn($this->bio).",
 			users_opt=".$this->users_opt."
 		WHERE id=".$this->id);
 

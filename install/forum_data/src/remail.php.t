@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: remail.php.t,v 1.14 2003/10/01 21:51:52 hackie Exp $
+*   $Id: remail.php.t,v 1.15 2003/10/02 19:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,7 +36,7 @@
 	if (empty($data)) {
 		invl_inp_err();
 	}
-	if (!($usr->users_opt & 1048576) && !$data->md && !($data->goc & 2)) {
+	if (!($usr->users_opt & 1048576) && !$data->md && !($data->gco & 2)) {
 		std_error('access');
 	}
 

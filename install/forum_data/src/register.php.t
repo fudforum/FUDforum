@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.86 2003/10/01 21:51:52 hackie Exp $
+*   $Id: register.php.t,v 1.87 2003/10/02 19:18:41 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -167,6 +167,10 @@ function register_form_check($user_id)
 				set_err('reg_alias', '{TEMPLATE: register_err_taken_alias}');
 			}
 		}
+	}
+
+	if ($GLOBALS['FORUM_SIG_ML'] && strlen($_POST['reg_sig']) > $GLOBALS['FORUM_SIG_ML']) {
+		set_err('reg_sig', '{TEMPLATE: register_err_sig_too_long}');
 	}
 
 	return $GLOBALS['error'];
@@ -373,10 +377,19 @@ function decode_uent(&$uent)
 			$uent->sig = nl2br(htmlspecialchars($uent->sig));
 		}
 
+		if ($FUD_OPT_1 & 196608) {
+			char_fix($uent->sig);
+		}
+
 		if ($FUD_OPT_1 & 262144) {
 			$uent->sig = smiley_to_post($uent->sig);
 		}
 		fud_wordwrap($uent->sig);
+
+		if ($uent->bio) {
+			$uent->bio = htmlspecialchars($uent->bio);
+			char_fix($uent->bio);
+		}
 
 		if (!$uent->icq && !($uent->users_opt & 4)) {
 			$uent->users_opt |= 4;
@@ -531,6 +544,12 @@ function decode_uent(&$uent)
 		} else if ($FUD_OPT_1 & 65536) {
 			reverse_nl2br($reg_sig);
 		}
+
+		if ($FUD_OPT_1 & 196608) {
+			char_fix($reg_sig);
+		}
+		char_fix($reg_bio);
+
 		if ($uent->bday) {
 			$b_year = substr($uent->bday, 0, 4);
 			$b_month = substr($uent->bday, 4, 2);
@@ -554,6 +573,9 @@ function decode_uent(&$uent)
 				${$k} = htmlspecialchars($v);
 			}
 		}
+		char_fix($reg_bio);
+		char_fix($reg_sig);
+
 		$b_year = $_POST['b_year'];
 		$b_month = $_POST['b_month'];
 		$b_day = $_POST['b_day'];
@@ -757,6 +779,7 @@ function decode_uent(&$uent)
 	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 2048), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 
 	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
+	$sig_len_limit = $FORUM_SIG_ML ? '{TEMPLATE: register_sig_limit}' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
