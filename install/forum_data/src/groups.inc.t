@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.9 2003/04/21 22:24:43 hackie Exp $
+*   $Id: groups.inc.t,v 1.10 2003/04/22 19:59:57 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -696,11 +696,13 @@ function grp_rebuild_cache($id, $user_id=0)
 	$fields = str_replace('up_', 'p_', implode(',', $perms));
 
 	/* do the inserts into cache */
-	foreach ($ent as $k => $v) {
-		foreach ($v as $k2 => $v2) {
-			unset($v2['ldr']);
-			$vals = '\'' . implode('\', \'', $v2) . '\'';
-			q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id) VALUES('.$vals.', '.$k2.', '.$k.')');
+	if (isset($ent)) {
+		foreach ($ent as $k => $v) {
+			foreach ($v as $k2 => $v2) {
+				unset($v2['ldr']);
+				$vals = '\'' . implode('\', \'', $v2) . '\'';
+				q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id) VALUES('.$vals.', '.$k2.', '.$k.')');
+			}
 		}
 	}
 
