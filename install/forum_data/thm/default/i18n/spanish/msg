@@ -691,7 +691,7 @@ ERR_registration_disabled_ttl:	Registro deshabilitado
 ERR_registration_disabled_msg:	El administrador ha deshabilitado el registro, por favor vuelva a intentar más tarde
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _RSID}
 ERR_emailconf_ttl:		ERROR: Su cuenta aún no ha sido confirmada
-ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _RSID}">haga clic aquí<li>Si {VAR: GLOBALS['usr']->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
+ERR_emailconf_msg:		Ud aún no ha confirmado su cuenta vía e-mail<br><table border=0><tr><td><ol><li>Si no ha recibido un e-mail de confirmación <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _RSID}">haga clic aquí</a><li>Si {VAR: GLOBALS['usr']->email} no es su dirección de e-mail correcta <a href="{ROOT}?t=register&{DEF: _RSID}">haga clic aquí</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			ERROR: No existe ese usuario
 ERR_user_msg:			No existe ese usuario

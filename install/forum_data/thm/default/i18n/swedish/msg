@@ -690,7 +690,7 @@ ERR_registration_disabled_ttl:	Registrering avst&auml;ngd
 ERR_registration_disabled_msg:	Administratorn har st&auml;ng av registreringen, f&ouml;rs&ouml;k p&aring; nytt senare
 ERR_registration_disabled_url:	{ROOT}?t=index&{DEF: _rsid}
 ERR_emailconf_ttl:		FEL: Ditt anv&auml;ndarkonto &auml;r &auml;nnu inte bekr&auml;ftat
-ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">tryck h&auml;r<li>Om {VAR: GLOBALS['usr']->email} inte &auml;r din r&auml;tta e-postadress <a href="{ROOT}?t=register&{DEF: _rsid}">tryck h&auml;r</a></ol></td></tr></table>
+ERR_emailconf_msg:		Du har inte bekr&auml;ftat ditt anv&auml;ndarkonto via e-post <br><table border=0><tr><td><ol><li>Om du inte har f&aring;tt ett bekr&auml;ftelsemeddelande per e-post <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">tryck h&auml;r</a><li>Om {VAR: GLOBALS['usr']->email} inte &auml;r din r&auml;tta e-postadress <a href="{ROOT}?t=register&{DEF: _rsid}">tryck h&auml;r</a></ol></td></tr></table>
 ERR_emailconf_url:
 ERR_user_ttl:			FEL: Ingen s&aring;dan medlem
 ERR_user_msg:			Det finns ingen s&aring;dan medlem

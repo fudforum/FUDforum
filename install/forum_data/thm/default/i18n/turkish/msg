@@ -690,7 +690,7 @@ ERR_registration_disabled_ttl:	Kayýt Engellenmiþ
 ERR_registration_disabled_msg:	Yönetici kayýtý engellemiþ durumda. Lütfen daha sonra tekrar deneyin.
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}{ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		HATA: Hesabýnýz henüz doðrulanmadý
-ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn<li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
+ERR_emailconf_msg:		Hesabýnýzý henüz e-mektup yoluyla doðrulamadýnýz.<br><table border=0><tr><td><ol><li>Eðer doðrulama mektubu almadýysanýz <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">buraya týklayýn</a><li>Eðer {VAR: GLOBALS['usr']->email} adresi sizin doðru adresiniz deðilse <a href="{ROOT}?t=register&{DEF: _rsid}">buraya týklayýn</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			HATA: Kullanýcý yok
 ERR_user_msg:			Böyle bir kullanýcý yok

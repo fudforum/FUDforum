@@ -690,7 +690,7 @@ ERR_registration_disabled_ttl:	注册失败
 ERR_registration_disabled_msg:	注册功能被系统管理员禁止,请重试！
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		错误: 此账号无效
-ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击<li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&{DEF: _rsid}">请点击</a></ol></td></tr></table>
+ERR_emailconf_msg:		您注册的账号尚未进行邮件确认<br><table border=0><tr><td><ol><li>如果你没有收到确认邮件 <a href="{ROOT}?t=reset&email={VAR: GLOBALS['usr']->email}&{DEF: _rsid}">请点击</a><li>如果 {VAR: GLOBALS['usr']->email} 邮件地址有误<a href="{ROOT}?t=register&{DEF: _rsid}">请点击</a></ol></td></tr></table>
 ERR_emailconf_url:		
 ERR_user_ttl:			错误：没有这个用户
 ERR_user_msg:			没有这个用户
