@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: actions.php.t,v 1.13 2002/07/31 21:56:50 hackie Exp $
+*   $Id: actions.php.t,v 1.14 2002/09/08 00:28:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 			{SQL_TABLE_PREFIX}ses.action,
 			{SQL_TABLE_PREFIX}ses.user_id,
 			{SQL_TABLE_PREFIX}ses.forum_id AS action_forum_id,
-			{SQL_TABLE_PREFIX}users.alias AS login,
+			{SQL_TABLE_PREFIX}users.alias,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}ses.time_sec,
 			{SQL_TABLE_PREFIX}users.invisible_mode,
@@ -65,7 +65,7 @@
 	while ( $obj = db_rowobj($r) ) {
 		if( $obj->invisible_mode == 'Y' && $usr->is_mod != 'A' ) continue;
 
-		if ( strlen($obj->login) ) {
+		if ( isset(obj->alias) ) {
 			switch( $obj->is_mod )
 			{
 				case 'A':
