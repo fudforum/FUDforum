@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.6 2003/05/05 15:00:15 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.7 2003/05/05 15:02:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,7 @@ class fud_nntp_adm
 			'".yn($this->nntp_post_apr)."',
 			'".yn($this->allow_frm_post)."',
 			'".yn($this->frm_post_apr)."',
-			'".yn($this->allow_nttp_attch)."',
+			'".yn($this->allow_nntp_attch)."',
 			'".yn($this->complex_reply_match)."',
 			'".addslashes($this->server)."',
 			".(int)$this->port.",
