@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admext.php,v 1.14 2004/01/04 16:38:32 hackie Exp $
+* $Id: admext.php,v 1.15 2004/04/21 21:04:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -87,7 +87,7 @@
 		} else {
 			$bgcolor = ($i++%2) ? ' class="resultrow2"' : ' class="resultrow1"';
 		}
-		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'._rsid.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'._rsid.'">Delete</a>]</td></tr>';
+		echo '<tr '.$bgcolor.'><td>'.htmlspecialchars($r[0]).'</td><td>[<a href="admext.php?edit='.$r[1].'&'._rsidl.'">Edit</a>] [<a href="admext.php?del='.$r[1].'&'._rsidl.'">Delete</a>]</td></tr>';
 	}
 ?>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.32 2004/01/04 16:38:32 hackie Exp $
+* $Id: admforum.php,v 1.33 2004/04/21 21:04:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -245,7 +245,7 @@ if (!isset($_GET['chpos'])) {
 		echo '<tr '.$bgcolor.'><td>'.$r->name.'</td><td><font size="-2">'.htmlspecialchars(substr($r->descr, 0, 30)).'</font></td><td>'.($r->forum_opt & 4 ? 'Yes' : 'No').'</td><td nowrap>[<a href="admforum.php?cat_id='.$cat_id.'&edit='.$r->id.'&'._rsidl.'">Edit</a>] [<a href="admforum.php?cat_id='.$cat_id.'&del='.$r->id.'&'._rsidl.'">Delete</a>]</td><td nowrap>'.$cat_name.'</td><td nowrap>[<a href="admforum.php?chpos='.$r->view_order.'&cat_id='.$cat_id.'&'._rsidl.'">Change</a>]</td></tr>';
 	}
 	if (isset($lp)) {
-		echo '<tr class="field""><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'._rsid.'">Place Here</a></td></tr>';
+		echo '<tr class="field""><td align=center colspan=9><a href="admforum.php?chpos='.$_GET['chpos'].'&newpos='.($lp + 1).'&cat_id='.$cat_id.'&'._rsidl.'">Place Here</a></td></tr>';
 	}
 ?>
 </table>

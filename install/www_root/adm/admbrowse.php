@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.16 2004/04/19 19:12:25 hackie Exp $
+* $Id: admbrowse.php,v 1.17 2004/04/21 21:04:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -239,8 +239,8 @@ if (!function_exists('posix_getpwuid')) {
 		$cur_dir = $ROOT_PATH[0];
 	}
 
-	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
-		DATA_ROOT:  <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
+	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'._rsidl.'&cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
+		DATA_ROOT:  <a href="admbrowse.php?'._rsidl.'&cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
 	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";
 
 	clearstatcache();

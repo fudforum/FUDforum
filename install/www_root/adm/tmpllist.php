@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tmpllist.php,v 1.30 2004/01/30 01:50:19 hackie Exp $
+* $Id: tmpllist.php,v 1.31 2004/04/21 21:04:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -320,7 +320,7 @@ function goto_tmpl($tmpl)
 			if( is_array($php_deps[$k]) ) {
 				$deps = '';
 				foreach($php_deps[$k] as $k2 => $v2) {
-					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
 				}
 
 				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br>'.$deps;
@@ -329,7 +329,7 @@ function goto_tmpl($tmpl)
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
 				foreach($deps_on[$k] as $k2) {
-					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
+					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
 				}
 
 				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br>'.$dp;

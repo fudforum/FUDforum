@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.79 2004/04/15 21:02:57 hackie Exp $
+* $Id: consist.php,v 1.80 2004/04/21 21:04:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -98,7 +98,7 @@ forum will be disabled.
 			draw_stat('Re-enabling the forum.');
 			maintenance_status($DISABLED_REASON, 0);
 		} else {
-			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
+			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsidl.'">Global Settings Manager</a> and re-enable it.</font><br>';
 		}
 
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
@@ -682,12 +682,12 @@ forum will be disabled.
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
 	} else {
-		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
+		echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsidl.'">Global Settings Manager</a> and re-enable it.</font><br>';
 	}
 
 	draw_stat('DONE');
 
-	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&'._rsid.'">click here</a>, keep in mind that this process make take several minutes to perform.';
+	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1&'._rsidl.'">click here</a>, keep in mind that this process make take several minutes to perform.';
 	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>
