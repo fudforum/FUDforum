@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.23 2003/04/24 21:31:48 hackie Exp $
+*   $Id: admthemes.php,v 1.24 2003/05/05 12:54:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,6 +14,95 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
+
+function get_func_usage(&$toks)
+{
+	foreach ($toks as $k => $tok) {
+		if (is_array($tok) && $tok[0] == T_FUNCTION) {
+			$fc = is_array($toks[$k+2]) ? $toks[$k+2][1] : $toks[$k+3][1];
+			$func[$fc] = -1;
+			$func_pos[$fc] = $k;
+		}	
+	}
+
+	if (!isset($func)) {
+		return 0;
+	}
+
+	foreach ($toks as $tok) {
+		if (is_array($tok) && $tok[0] == T_STRING && isset($func[$tok[1]])) {
+			$func[$tok[1]]++;
+		}
+	}
+
+	krsort($func);
+
+	$job = 0;
+	foreach ($func as $k => $v) {
+		if ($v) {
+			break;
+		}
+		$job = 1;
+		$i = 0;
+		$j = $func_pos[$k];
+		$n = count($toks);
+		for ($j; $j < $n; $j++) {
+			if ($toks[$j] === '{') {
+				++$i;
+			} else if ($toks[$j] === '}') {
+				--$i;
+				if ($i < 1) {
+					break;
+				}
+			}
+			unset($toks[$j]);
+		}
+		unset($toks[$j]);
+	}
+
+	return $job;
+}
+
+function clean_code($path, $toks)
+{
+	$old_size = filesize($path);
+	$r = '';
+	foreach ($toks as $k => $tok) {
+		if (is_array($tok)) {
+			switch ($tok[0]) {
+				case T_COMMENT:
+				case T_ML_COMMENT:
+				case T_WHITESPACE:
+					break;
+				case T_FUNCTION:
+				case T_CLASS:
+				case T_ECHO:
+					$r .= $tok[1].' ';
+					break;
+				case T_AS:
+				case T_LOGICAL_OR:
+					$r .= ' '.$tok[1].' ';
+					break;
+				default:
+					$r .= $tok[1];
+			}
+		} else {
+			$r .= $tok;
+		}
+	}
+
+	if (!($fp = fopen($path, 'w'))) {
+		exit("unable to write to ".$path."<br>\n");
+	}
+	fwrite($fp, $r);
+	fclose($fp);
+
+	$saved = ($old_size - strlen($r));
+
+	echo basename($path) . " saved: " . $saved . " bytes<br>\n";
+	return $saved;
+}
+	$is_tok = extension_loaded('tokenizer');
 
 	define('admin_form', 1);
 
@@ -57,6 +146,32 @@
 		}
 	} else if (isset($_GET['del']) && (int)$_GET['del'] > 1) {
 		fud_theme::delete((int)$_GET['del']);
+	} else if (isset($_GET['optimize']) && $is_tok && ($t_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE id='.(int)$_GET['optimize']))) {
+		/* optimize *.php files */
+		$path = $WWW_ROOT_DISK . 'theme/' . $t_name;
+		$dir = opendir($path);
+		$path .= '/';
+		readdir($dir); readdir($dir);
+		while ($f = readdir($dir)) {
+			if (@is_file($path . $f) && substr($f, -4) == '.php') {
+				$toks = token_get_all(file_get_contents($path . $f));
+				while (get_func_usage($toks));
+				clean_code($path . $f, $toks);
+			}
+		}
+		closedir($dir);
+
+		/* optimize *.inc files */
+		$path = $WWW_ROOT_DISK . 'include/theme/' . $t_name;
+		$dir = opendir($path);
+		$path .= '/';
+		readdir($dir); readdir($dir);
+		while ($f = readdir($dir)) {
+			if (@is_file($path . $f) && substr($f, -4) == '.inc') {
+				clean_code($path . $f, token_get_all(file_get_contents($path . $f)));
+			}
+		}
+		closedir($dir);
 	}
 	if (!$edit) {
 		$c = get_class_vars('fud_theme');
@@ -66,7 +181,7 @@
 		$thm_locale = 'english';
 		$thm_pspell_lang = 'en';
 	}
-	
+
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>
 <h2>Theme Management</h2>
@@ -225,7 +340,8 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->enabled == 'Y' ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.$r->t_default.'</td>
-			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>] [<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]
+			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>] 
+			'.($is_tok ? '[<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
 			'.($r->id != 1 ? '[<a href="admthemes.php?'._rsid.'&del='.$r->id.'">Delete</a>]' : '').'
 			</td>
 		</tr>';
