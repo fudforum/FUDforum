@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admuser.php,v 1.41 2003/12/08 15:27:44 hackie Exp $
+* $Id: admuser.php,v 1.42 2003/12/17 15:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -71,6 +71,10 @@
 			}
 			break;
 		case 'del':
+			if ($usr_id == 1) {
+				break;
+			}
+
 			if (!isset($_POST['del_confirm'])) {
 ?>
 <html>

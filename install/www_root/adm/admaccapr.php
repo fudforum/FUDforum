@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaccapr.php,v 1.13 2003/12/08 15:27:43 hackie Exp $
+* $Id: admaccapr.php,v 1.14 2003/12/17 15:10:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,7 +21,7 @@
 			q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=users_opt & ~ 2097152 WHERE id='.(int)$_GET['apr']);
 			send_email($NOTIFY_FROM, $r->email, $account_accepted_s, $account_accepted);
 		}
-	} else if (isset($_GET['rm'])) {
+	} else if (isset($_GET['rm']) && (int)$_GET['rm'] != 1) {
 		if (($r = db_sab("SELECT email, login FROM ".$DBHOST_TBL_PREFIX."users WHERE id=".(int)$_GET['rm']))) {
 			fud_use('adm_acc.inc');
 			fud_use('iemail.inc');
