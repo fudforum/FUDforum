@@ -1,0 +1,32 @@
+#   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
+#   email                : forum@prohost.org
+#
+#   $Id: fud_nntp.tbl,v 1.1 2002/07/29 11:58:44 hackie Exp $
+#
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License, or
+#       (at your option) any later version.
+
+DROP TABLE IF EXISTS {SQL_TABLE_PREFIX}nntp;
+
+CREATE TABLE {SQL_TABLE_PREFIX}nntp
+(
+	id			INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	forum_id		INT NOT NULL,
+	nntp_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	allow_frm_post		ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	frm_post_apr		ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	allow_nntp_attch	ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
+	complex_reply_match	ENUM('Y', 'N') NOT NULL DEFAULT 'N',
+	
+	server			VARCHAR(255) NOT NULL,			
+	newsgroup		VARCHAR(255) NOT NULL,
+	port			INT NOT NULL,
+	timeout			INT NOT NULL,
+	auth			ENUM('NONE', 'ORIGINAL', 'SIMPLE') NOT NULL DEFAULT 'NONE',
+	login			VARCHAR(255),
+	pass			VARCHAR(255),
+		
+	index(forum_id)
+)

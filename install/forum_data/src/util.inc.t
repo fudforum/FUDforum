@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: util.inc.t,v 1.1.1.1 2002/06/17 23:00:09 hackie Exp $
+*   $Id: util.inc.t,v 1.2 2002/07/29 11:58:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,7 +25,7 @@ function cache_buster()
 
 function trim_show_len($text,$type)
 {
-	if( strlen($text)>$GLOBALS["MAX_".$type."_SHOW"] ) $text = substr($text,0,$GLOBALS["MAX_".$type."_SHOW"]).'...';
+	if( isset($text[$GLOBALS['MAX_'.$type.'_SHOW']+1]) ) $text = substr($text,0,$GLOBALS['MAX_'.$type.'_SHOW']).'...';
 	
 	return $text;
 }

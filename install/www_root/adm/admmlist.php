@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.4 2002/07/24 14:16:33 hackie Exp $
+*   $Id: admmlist.php,v 1.5 2002/07/29 11:58:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -259,7 +259,7 @@ function format_regex(&$regex, &$opts)
 	?>
 </table>
 <p>
-<b>**Notes***</b><br>
+<b>***Notes***</b><br>
 Exec Line parameter in the table above shows the execution line that you will need to pipe
 the mailing list messages to.<br> Procmail example:
 <pre>
@@ -267,4 +267,4 @@ the mailing list messages to.<br> Procmail example:
 * ^TO_.*php-general@lists.php.net 
 | /home/forum/F/test/maillist.php 1
 </pre>
-	
+<?php require('admclose.html'); ?>

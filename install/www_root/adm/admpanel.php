@@ -1,4 +1,3 @@
-<?php define('__fud_index_name__', 'index.php'); ?>
 <html>
 <body bgcolor="#ffffff">
 <style type="text/css">
@@ -11,7 +10,7 @@
 				
 <table bgcolor="#000000" cellspacing=1 cellpadding=3><tr><td valign=top bgcolor="#ffffff">
 <table cellspacing=1 cellpadding=2 border=0 bgcolor="#000000" align="center" style="font-size: small; background: white;">
-<tr><td><a href="../<?php echo __fud_index_name__.'?'._rsid; ?>">Return To Forum</a></td></tr>
+<tr><td><a href="../index.php?<?php echo _rsid; ?>">Return To Forum</a></td></tr>
 <tr><td><font style="text-decoration: underline;"><b>Admin Control Panel</b></font></td></tr>
 <tr>
 	<td nowrap>
@@ -40,7 +39,8 @@
 	<a style="font-size: x-small;" href="admdelfrm.php?<?php echo _rsid; ?>">Deleted Forums</a><br>
 	<a style="font-size: x-small;" href="admannounce.php?<?php echo _rsid; ?>">Announcement Manager</a><br>
 	<a style="font-size: x-small;" href="admprune.php?<?php echo _rsid; ?>">Thread Pruning</a><br>
-	<a style="font-size: x-small;" href="admmlist.php?<?php echo _rsid; ?>">Mailing List Manager</a><br><br>
+	<a style="font-size: x-small;" href="admmlist.php?<?php echo _rsid; ?>">Mailing List Manager</a><br>
+	<a style="font-size: x-small;" href="admnntp.php?<?php echo _rsid; ?>">Newsgroup Manager</a><br><br>
 	
 	<b>User Management</b><br>
 	<a style="font-size: x-small;" href="admuser.php?<?php echo _rsid; ?>">Moderator/User Manager</a><br>

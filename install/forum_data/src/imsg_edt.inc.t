@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.11 2002/07/26 12:08:31 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.12 2002/07/29 11:58:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -390,6 +390,63 @@ class fud_msg_edit extends fud_msg
 		}
 		
 		if( db_locked() && !empty($ll) ) db_unlock();
+		
+		// Handle Mailing List and/or Newsgroup syncronization.
+		if( !$this->mlist_msg_id ) {
+			if( ($mlist_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$frm->id." AND allow_frm_post='Y'")) ) {
+				/* Do nothing */
+			}
+			else if( ($nntp_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}nntp WHERE forum_id=".$frm->id." AND allow_frm_post='Y'")) ) {
+				fud_use('nntp.inc', true);
+				fud_use('nntp_adm.inc', true);
+				fud_use('email_msg_format.inc', true);
+				
+				$nntp_adm = new fud_nntp_adm;
+				$nntp_adm->get($nntp_id);
+				$nntp = new fud_nntp;
+				
+				$nntp->server = $nntp_adm->server;
+				$nntp->newsgroup = $nntp_adm->newsgroup;
+				$nntp->port = $nntp_adm->port;
+				$nntp->timeout = $nntp_adm->timeout;
+				$nntp->auth = $nntp_adm->auth;
+				$nntp->login = $nntp_adm->login;
+				$nntp->pass = $nntp_adm->pass;
+	
+				if( $this->poster_id ) {
+					$r = q("SELECT alias,email,sig FROM {SQL_TABLE_PREFIX}users WHERE id=".$this->poster_id);
+					$obj = db_singleobj($r);
+					$from = $obj->alias.' <'.$obj->email.'>';
+				}
+				else
+				 	$from = $GLOBALS['ANON_NICK'].' <'.$GLOBALS['NOTIFY_FROM'].'>';
+				
+				$body = stripslashes($this->body);
+				if( $this->show_sig == 'Y' && $obj->sig ) $body .= "\n--\n".$obj->sig;
+				
+				if( $this->reply_to ) 
+					$replyto_id = q_singleval("SELECT mlist_msg_id FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->reply_to);
+				else
+					$replyto_id = 0;
+				
+				if( $this->attach_cnt ) {
+					$r = q("SELECT id, original_name FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='N'");
+					while( $obj = db_rowobj($r) ) {
+						$fp = fopen($GLOBALS['FILE_STORE'].$obj->id.'.atch', "rb");
+						$attach[$obj->original_name] = fread($fp, __ffilesize($fp));
+						fclose($fp);
+					}
+					qf($r);
+				}
+				else
+					$attach = null;
+				
+				$lock = $nntp->get_lock();
+				$nntp->post_message($this->subject, $body, $from, $this->id, $replyto_id, $attach);
+				$nntp->close_connection();
+				$nntp->release_lock($lock);
+			}
+		}
 	}
 	
 	function unapprove()
@@ -497,5 +554,4 @@ function trim_html($str, $maxlen)
 
 	return $data;
 }
-
 ?>
