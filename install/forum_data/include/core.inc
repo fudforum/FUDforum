@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.91 2003/12/04 23:05:11 hackie Exp $
+* $Id: core.inc,v 1.92 2003/12/12 13:09:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -99,6 +99,47 @@ function get_ip()
 	}
 	return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
 }
+
+function ssn($str)
+{
+	if (is_null($str) || $str === '') {
+		return 'NULL';
+	} else {
+		return "'" . addslashes($str) . "'";
+	}
+}
+
+/* Common DB functions */
+function in($str)
+{
+	return (!(int)$str) ? 'NULL' : (int)$str;
+}
+
+function iz($str)
+{
+	return (int)$str;
+}
+
+function intnull($val)
+{
+	return (!is_null($val) ? $val : 'NULL');
+}
+
+function intzero($val)
+{
+	return (!empty($val) ? $val : '0');
+}
+
+function ifnull($val, $alt)
+{
+	return (!is_null($val) ? "'".$val."'" : $alt);
+}
+
+function strnull($val)
+{
+	return (!is_null($val) ? "'".$val."'" : 'NULL');
+}
+/* END: Common DB Functions */
 
 function __ffilesize($fp)
 {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.35 2003/11/27 13:03:46 hackie Exp $
+* $Id: db.inc,v 1.36 2003/12/12 13:09:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -71,25 +71,6 @@ function get_version()
 	return __FUD_SQL_VERSION__;
 }
 
-function intnull($val)
-{
-	return (!is_null($val) ? $val : 'NULL');
-}
-
-function intzero($val)
-{
-	return (!empty($val) ? $val : '0');
-}
-
-function ifnull($val, $alt)
-{
-	return (!is_null($val) ? "'".$val."'" : $alt);
-}
-
-function strnull($val)
-{
-	return (!is_null($val) ? "'".$val."'" : 'NULL');
-}
 
 function db_lock($tables)
 {
@@ -285,22 +266,6 @@ function db_qid($q)
 function &db_arr_assoc($q)
 {
 	return mysql_fetch_array(q($q), MYSQL_ASSOC);
-}
-function ssn($str)
-{
-	if (is_null($str) || $str === '') {
-		return 'NULL';
-	} else {
-		return "'" . addslashes($str) . "'";
-	}
-}
-function in($str)
-{
-	return (!(int)$str) ? 'NULL' : (int)$str;
-}
-function iz($str)
-{
-	return (int)$str;
 }
 
 function db_li($q, &$ef, $li=0)
