@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.25 2003/10/01 19:29:50 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.26 2003/10/01 20:13:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -101,12 +101,17 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 
 	if (isset($_POST['btn_submit'])) {
 		foreach ($hdr as $k => $v) {
-			if ($_POST[$k] & $v[0]) {
+			if (isset($_POST[$k]) && $_POST[$k] & $v[0]) {
 				$perm |= $v[0];
 			}
 		}
 
+		/* auto approve members */
+		$perm |= 65536;
 		if (empty($_POST['edit'])) {
+			if (q_singleval("SELECT user_id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$group_id." AND user_id=".$del." AND group_members_opt>=131072 AND group_members_opt & 131072")) {
+				$perm |= 131072;
+			}
 			if (!($usr_id = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE alias='".addslashes(htmlspecialchars($gr_member))."'"))) {
 				$login_error = '{TEMPLATE: groupmgr_no_user}';
 			} else if (q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$group_id.' AND user_id='.$usr_id)) {
