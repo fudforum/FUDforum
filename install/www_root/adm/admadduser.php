@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.10 2003/09/30 13:36:34 hackie Exp $
+*   $Id: admadduser.php,v 1.11 2003/09/30 15:37:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,11 +20,6 @@
 	fud_use('widgets.inc', true);
 
 	$error = 0;
-
-function errorify($err)
-{
-	return '<font color="red">'.$err.'</font><br>';
-}
 
 function validate_input()
 {
