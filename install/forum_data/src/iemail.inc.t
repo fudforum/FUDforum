@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.inc.t,v 1.29 2004/04/05 14:37:58 hackie Exp $
+* $Id: iemail.inc.t,v 1.30 2004/04/19 20:15:53 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,23 +46,23 @@ function send_email($from, $to, $subj, $body, $header='')
 		$smtp->headers = $header;
 		$smtp->send_smtp_email();
 	} else {
-		$bcc = '';
-
-		if (is_array($to)) {
-			$to = ' ';
-			$bcc = 'Bcc: ' . implode(', ', $to);
+		if (!is_array($to)) {
+			$to = array($to);
 		}
+
 		if ($header) {
 			$header = "\n" . str_replace("\r", "", $header);
-		} else if ($bcc) {
-			$bcc = "\n" . $bcc;
 		}
+		$header = "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header;
 
 		if (version_compare("4.3.3RC2", phpversion(), ">")) {
 			$body = str_replace("\n.", "\n..", $body);
 		}
+		$body = str_replace("\r", "", $body);
 
-		mail($to, $subj, str_replace("\r", "", $body), "From: ".$from."\nErrors-To: ".$from."\nReturn-Path: ".$from."\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header.$bcc);
+		foreach ($to as $email) {
+			mail($email, $subj, $body, $header);
+		}
 	}
 }
 ?>
