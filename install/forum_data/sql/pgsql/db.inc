@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.30 2003/10/02 03:46:19 hackie Exp $
+*   $Id: db.inc,v 1.31 2003/10/03 16:24:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -331,5 +331,39 @@ function in($str)
 function iz($str)
 {
 	return (int)$str;
+}
+
+function db_li($q, &$ef, $li=0)
+{
+	$r = @pg_query(fud_sql_lnk, $q);
+	if ($r) {
+		if ($li) {
+			preg_match('!('.$GLOBALS['DBHOST_TBL_PREFIX'].'[A-Za-z0-9_]+)!', $q, $m);
+			q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
+		}
+		return $r;
+	}
+
+	$err = pg_last_error(fud_sql_lnk);
+
+	/* duplicate key */
+	if (strpos($err, 'duplicate key') !== false) {
+		$ef = ltrim(strrchr($err, ' '));
+		return null;
+	} else {
+		die(fud_sql_error_handler($q, pg_last_error(fud_sql_lnk), '', get_version()));
+	}
+}
+
+function ins_m($tbl, $flds, $vals, $type)
+{
+	$pid = md5(rand());
+
+	$qry = 'PREPARE '.$pid.' ('.$type.') AS INSERT INTO '.$tbl.' ('.$flds.') VALUES($'.implode(',$', range(1, substr_count($flds, ','))).'); BEGIN; ';
+	foreach ($vals as $v) {
+		$qry .= ' EXECUTE '.$pid.' ('.$v.');'
+	}
+	$qry .= 'COMMIT;';
+	@pg_query(fud_sql_link, $qry);
 }
 ?>
