@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.37 2003/10/16 21:59:04 hackie Exp $
+* $Id: db.inc,v 1.38 2003/10/17 12:58:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -237,17 +237,17 @@ function db_seek($result, $pos)
 	return pg_result_seek($result, $pos);
 }
 
-function db_rowobj($result)
+function &db_rowobj($result)
 {
 	return pg_fetch_object($result);
 }
 
-function db_rowarr(&$result)
+function &db_rowarr(&$result)
 {
 	return pg_fetch_row($result);
 }
 
-function q_singleval($query)
+function &q_singleval($query)
 {
 	return @current(@pg_fetch_row(q($query)));
 }
@@ -281,12 +281,12 @@ function optimize_tables($tbl_list=null)
 	}
 }
 
-function db_saq($q)
+function &db_saq($q)
 {
 	return @pg_fetch_row(q($q));
 }
 
-function db_sab($q)
+function &db_sab($q)
 {
 	return @pg_fetch_object(q($q));
 }
@@ -298,7 +298,7 @@ function db_qid($q)
 	return q_singleval('SELECT id FROM '.$m[1].' WHERE oid='.pg_last_oid($r));
 }
 
-function db_arr_assoc($q)
+function &db_arr_assoc($q)
 {
 	return @pg_fetch_array(q($q), 0, PGSQL_ASSOC);
 }
