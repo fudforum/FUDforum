@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.9 2002/10/06 23:23:23 hackie Exp $
+*   $Id: nntp.inc,v 1.10 2002/10/06 23:35:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ class fud_nntp
 	var $server=NULL, $port=119, $user=NULL, $pass=NULL, $timeout=25, $auth_mode=NULL, $newsgroup=NULL;
 	var $error=NULL, $lrc=NULL;
 	var $fs=NULL;
-	var $group_na=NULL, $group_first=NULL, $group_last=NULL, create_users=NULL;
+	var $group_na=NULL, $group_first=NULL, $group_last=NULL, $create_users=NULL;
 	// Per Message Varaibles
 	var $headers=NULL, $body=NULL;
 	var $raw_msg=NULL;
