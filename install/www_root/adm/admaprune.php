@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admaprune.php,v 1.8 2004/12/16 01:17:36 hackie Exp $
+* $Id: admaprune.php,v 1.9 2005/04/06 02:52:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
 
-		if (!isset($_POST['btn_conf'])) {
+		if (!isset($_POST['btn_conf']) && $back > 0) {
 			if ($_POST['type'] == '0' || $_POST['type'] == '1') {
 				$pa_cnt = q_singleval("SELECT count(*) FROM ".$DBHOST_TBL_PREFIX."pmsg m INNER JOIN ".$DBHOST_TBL_PREFIX."attach a ON a.message_id=m.id AND a.attach_opt=1 WHERE m.post_stamp < ".$back);
 			} else {
@@ -70,7 +70,7 @@
 </html>
 <?php
 			exit;
-		} else {
+		} else if ($back > 0) {
 			$limit = time() - $_POST['units'] * $_POST['thread_age'];
 			$al = $ml = array();
 
@@ -108,12 +108,19 @@
 				q("DELETE FROM ".$DBHOST_TBL_PREFIX."attach WHERE id IN(".implode(',', $al).")");
 			}
 			unset($c, $r, $al, $ml);
+		} else if ($back < 1) {
+			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past.</div>';
 		}
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Attachment Topic Prunning</h2>
+<h2>Attachment Prunning</h2>
+
+This utility allows you to remove all attachments posted prior to the<br>
+specified date. For example if you enter a value of 10 and select "days"<br> 
+this form will offer to delete attachments olders then 10 days.<p>
+
 <form name="adpa" method="post" action="admaprune.php">
 <table class="datatable">
 <tr class="field">

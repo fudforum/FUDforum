@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admprune.php,v 1.27 2004/12/16 01:17:36 hackie Exp $
+* $Id: admprune.php,v 1.28 2005/04/06 02:52:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,7 +51,7 @@
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
 
-		if (!isset($_POST['btn_conf'])) {
+		if (!isset($_POST['btn_conf']) && $back > 0) {
 			/* count the number of messages & topics that will be affected */
 			if (!$usr_id) {
 				$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
@@ -83,7 +83,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 </html>
 <?php
 			exit;
-		} else {
+		} else if ($back > 0) {
 			db_lock($DBHOST_TBL_PREFIX.'thr_exchange WRITE, '.$DBHOST_TBL_PREFIX.'thread_view WRITE, '.$DBHOST_TBL_PREFIX.'level WRITE, '.$DBHOST_TBL_PREFIX.'forum WRITE, '.$DBHOST_TBL_PREFIX.'forum_read WRITE, '.$DBHOST_TBL_PREFIX.'thread WRITE, '.$DBHOST_TBL_PREFIX.'msg WRITE, '.$DBHOST_TBL_PREFIX.'attach WRITE, '.$DBHOST_TBL_PREFIX.'poll WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt_track WRITE, '.$DBHOST_TBL_PREFIX.'users WRITE, '.$DBHOST_TBL_PREFIX.'thread_notify WRITE, '.$DBHOST_TBL_PREFIX.'msg_report WRITE, '.$DBHOST_TBL_PREFIX.'thread_rate_track WRITE');
 			$frm_list = array();
 
@@ -109,12 +109,23 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 			}
 			db_unlock();
 			echo '<h2 color="red">It is highly recommended that you run a consitency checker after prunning.</h2>';
+		} else if ($back < 1) {
+			$first_msg = q_singleval("SELECT MIN(post_stamp) FROM ".$DBHOST_TBL_PREFIX."msg");
+			echo '<div style="text-align:center; font-size: large; font-weight: bolder; color: darkred">You\'ve selected a date too far in the past,'
+			.($first_msg ? '<br>the earliest forum message was posted on '.date("r", $first_msg) : '')
+			.'.</div>';
 		}
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Topic Prunning</h2>
+
+This utility allows you to remove all topics, where the last message<br>
+inside the topic was posted prior to the specified date. For example <br>
+if you enter a value of 10 and select "days" this form will offer to <br>
+delete topics with no messages in the last 10 days.<p>
+
 <form name="adp" method="post" action="admprune.php">
 <table class="datatable">
 <?php
