@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgrouplead.php,v 1.29 2004/06/07 15:24:53 hackie Exp $
+* $Id: admgrouplead.php,v 1.30 2004/09/20 21:02:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,11 +48,11 @@
 
 				$opts = 65536|131072;
 				$tgi = $group_id;
-				$inh = db_saq("SELECT groups_opti, inherit_id FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$tgi);
+				$inh = db_saq("SELECT groups_opti, inherit_id, groups_opt FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$tgi);
+				$opts |= (int) $inh[2];				
 				$ih_bits = (int) $inh[0];
 				do {
-					$tmp = db_saq("SELECT groups_opti, inherit_id, groups_opt FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$inh[1]);
-					$ip_perms = $ih_bits &~ (int)$tmp[0];
+					$tmp = db_saq("SELECT groups_opti, inherit_id, groups_opt FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$inh[1]);					$ip_perms = $ih_bits &~ (int)$tmp[0];
 					$opts |= (int)$tmp[2] & $ip_perms;
 					$ih_bits = $ih_bits &~ $ip_perms;
 					if (!$tgi || !$ih_bits) {
