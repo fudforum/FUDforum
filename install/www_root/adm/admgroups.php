@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.8 2002/07/22 17:01:26 hackie Exp $
+*   $Id: admgroups.php,v 1.9 2002/07/27 06:04:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -304,7 +304,7 @@ if ( !$edit ) {
 			$del_link = '';
 		
 		if ( $obj->id > 2 ) 
-			$user_grp_mgr = " ".$del_link."[<a href=\"admgrouplead.php?group_id=$obj->id&rnd=".get_random_value()."&"._rsid."\">Manage Leaders</a>] [<a href=\"../index.php?t=groupmgr&group_id=$obj->id&"._rsid."\" target=_new>Manage Users</a>]";
+			$user_grp_mgr = " ".$del_link."[<a href=\"admgrouplead.php?group_id=$obj->id&rnd=".get_random_value()."&"._rsid."\">Manage Leaders</a>] [<a href=\"../".__fud_index_name__."?t=groupmgr&group_id=$obj->id&"._rsid."\" target=_new>Manage Users</a>]";
 			
 		echo "<tr style=\"font-size: x-small;\">
 			<td>$obj->name</td> $str <td valign=middle align=middle>$sel</td> <td nowrap>[<a href=\"admgroups.php?edit=$obj->id&rand=".get_random_value()."&"._rsid."\">Edit</a>] $user_grp_mgr</td></tr>";

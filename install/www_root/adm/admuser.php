@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.6 2002/07/11 22:29:24 hackie Exp $
+*   $Id: admuser.php,v 1.7 2002/07/27 06:04:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -252,7 +252,7 @@ if( !empty($act) ) {
 	?><tr bgcolor="#f1f1f1"><td>Birthday:</td><td><?php echo strftime('%B, %d, %Y', mktime(1,1,1, $b_month, $b_day, $b_year)); ?></td></tr><?php
 	 	}
 	?>
-	<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../index.php?t=register&mod_id=<?php echo $usr->id; ?>&<?php echo _rsid; ?>&returnto=<?php echo $returnto.'&'._rsid; ?>">Change User's Profile</a> &lt;&lt;</font></td></tr>
+	<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../<?php echo __fud_index_name__; ?>?t=register&mod_id=<?php echo $usr->id; ?>&<?php echo _rsid; ?>&returnto=<?php echo $returnto.'&'._rsid; ?>">Change User's Profile</a> &lt;&lt;</font></td></tr>
 	<tr bgcolor="#f1f1f1"><td><font size="+1"><b>Forum Administrator:</b></td><td><?php echo (($usr->is_mod!='A')?'N':'<b><font size="+2" color="red">Y</font>'); ?> [<a href="admuser.php?act=admin&usr_id=<?php echo $usr->id.'&'._rsid; ?>">Toggle</a>]</td></tr>
 	<tr bgcolor="#f1f1f1"><td>Blocked:</td><td><?php echo $usr->blocked; ?> [<a href="admuser.php?act=block&usr_id=<?php echo $usr->id.'&'._rsid; ?>">Toggle</a>]</td></tr>
 	<?php
@@ -312,13 +312,13 @@ if( !empty($act) ) {
 <?php
 	echo '<td colspan=2>';
 
-	if( $PM_ENABLED == 'Y' ) echo '<a href="../index.php?t=ppost&returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->alias).'">Send Private Message</a> | ';
+	if( $PM_ENABLED == 'Y' ) echo '<a href="../'.__fud_index_name__.'?t=ppost&returnto='.urlencode($HTTP_SERVER_VARS["REQUEST_URI"]).'&'._rsid.'&msg_to_list='.urlencode($usr->alias).'">Send Private Message</a> | ';
 	if( $ALLOW_EMAIL == 'Y' ) 
-		echo '<a href="../index.php?t=email&tx_name='.urlencode($usr->alias).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Send Email</a> | ';
+		echo '<a href="../'.__fud_index_name__.'?t=email&tx_name='.urlencode($usr->alias).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Send Email</a> | ';
 	else
 		echo '<a href="mailto:'.$usr->email.'">Send Email</a> | ';
 	
-	echo '	<a href="../index.php?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../index.php?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
+	echo '	<a href="../'.__fud_index_name__.'?t=showposts&id='.$usr->id.'&'._rsid.'">See Posts</a> | <a href="../'.__fud_index_name__.'?t=reset&email='.urlencode($usr->email).'&'._rsid.'&returnto='.urlencode('adm/admuser.php?usr_login='.urlencode($usr->alias).'&'._rsid).'">Reset Password</a> | <a href="admuser.php?act=del&usr_id='.$usr->id.'&'._rsid.'">Delete User</a></td></tr>';
 	
 	} else if ( !empty($usr_login) || !empty($usr_email) ) { ?>
 	<tr>
