@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.28 2003/12/01 21:33:04 hackie Exp $
+* $Id: threadt.php.t,v 1.29 2003/12/19 16:52:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -92,10 +92,10 @@
 								if ($usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view) {
 									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_unread_locked}'	: '{TEMPLATE: thread_unread}';
 								} else {
-									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}'	: '{TEMPLATE: thread_read}';
+									$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read}';
 								}
 							} else {
-								$thread_read_status = '{TEMPLATE: thread_read_unreg}';
+								$thread_read_status = $cur->thread_opt & 1 ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read_unreg}';
 							}
 
 							$width = '{TEMPLATE: threadt_tab_width}' * ($lev - 1);
