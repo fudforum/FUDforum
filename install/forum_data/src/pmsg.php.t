@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.30 2003/10/16 21:59:04 hackie Exp $
+* $Id: pmsg.php.t,v 1.31 2003/10/31 20:09:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -73,13 +73,17 @@
 		$desc = '{TEMPLATE: pmsg_none}';
 	}
 
+	$ttl = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND fldr=".$folder_id);
+	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
+	$start = (empty($_GET['start']) || $_GET['start'] >= $ttl) ? 0 : (int) $_GET['start'];
+
 	$c = uq('SELECT p.id, p.read_stamp, p.post_stamp, p.duser_id, p.ouser_id, p.subject, p.pmsg_opt, p.fldr, p.pdest,
 			u.users_opt, u.alias, u.last_visit AS time_sec,
 			u2.users_opt AS users_opt2, u2.alias AS alias2, u2.last_visit AS time_sec2
 		FROM {SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id
-		WHERE duser_id='._uid.' AND fldr='.$folder_id.' ORDER BY post_stamp DESC');
+		WHERE duser_id='._uid.' AND fldr='.$folder_id.' ORDER BY post_stamp DESC LIMIT '.qry_limit($count, $start));
 
 	$private_msg_entry = '';
 	while ($obj = db_rowobj($c)) {
@@ -148,6 +152,12 @@
 		unset($folders[$folder_id]);
 		$moveto_list = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), '', '{TEMPLATE: move_to_opt}', '{TEMPLATE: move_to_opt_selected}');
 		$private_tools = '{TEMPLATE: private_tools}';
+	}
+
+	if ($FUD_OPT_2 & 32768) {
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}/pdm/' . $folder_id . '/0/', _rsid);
+	} else {
+		$page_pager = tmpl_create_pager($start, $count, $ttl, '{ROOT}?t=pmsg&amp;fldr=' . $folder_id . _rsid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

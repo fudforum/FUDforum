@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.81 2003/10/30 03:10:30 hackie Exp $
+* $Id: users.inc.t,v 1.82 2003/10/31 20:09:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -269,6 +269,9 @@ function init_user()
 						} else {
 							$_GET['btn_delete'] = 1;
 							$_GET['sel'] = $p[2];
+						}
+						if (isset($p[3])) {
+							$_GET['start'] = $p[3];
 						}
 					}
 					break;

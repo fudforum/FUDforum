@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: draw_pager.inc.t,v 1.11 2003/10/09 14:34:26 hackie Exp $
+* $Id: draw_pager.inc.t,v 1.12 2003/10/31 20:09:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,8 +12,7 @@
 
 function pager_replace(&$str, $s, $c)
 {
-	$str = str_replace('%s', $s, $str);
-	$str = str_replace('%c', $c, $str);
+	$str = str_replace(array('%s', '%c'), array($s, $c), $str);
 }
 
 if ($FUD_OPT_2 & 32768) {

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.17 2003/10/28 03:13:26 hackie Exp $
+* $Id: pmsg.tmpl,v 1.18 2003/10/31 20:09:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,6 +21,7 @@
 {REF: get_cur_ppage.tmpl}
 {REF: tabs.tmpl}
 {REF: private.tmpl}
+{REF: draw_pager.tmpl}
 
 {SECTION: cur_folder_opt folder select option style}
 {SECTION: END}
@@ -110,8 +111,8 @@
 {TEMPLATE-DATA: private_msg_entry}
 {TEMPLATE-DATA: private_tools}
 </table></form>
-<img src="blank.gif" alt="" width=1 height=2 />
-<div align="right"><a class="GenLink" href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
+{TEMPLATE-DATA: page_pager}
+<div style="padding-top: 2px;" align="right"><a class="GenLink" href="{TEMPLATE: PMSG_PAGE_lnk}"><img src="{THEME_IMAGE_ROOT}/new_pm.gif" alt="" /></a></div>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
