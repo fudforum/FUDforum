@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.tmpl,v 1.16 2004/05/11 17:31:44 hackie Exp $
+* $Id: forumsel.tmpl,v 1.17 2004/10/20 20:09:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,15 +21,11 @@
 {MAIN_SECTION: END}
 
 {SECTION: category_option}
-<option value="0">{VAR: r[2]}</option>
+<option value="0">- {FUNC: ($tabw = ($i[0] ? str_repeat('&nbsp;&nbsp;&nbsp;', $i[0]) : ''))}{VAR: i[1]}</option>
 {SECTION: END}
 
 {SECTION: forum_option}
-<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
-{SECTION: END}
-
-{SECTION: unread_forum_option}
-<option value="{VAR: r[0]}"{VAR: selected}>&nbsp;&nbsp;&nbsp;&nbsp;{MSG: forumsel_unread} {VAR-HTML: r[1]}</option>
+<option value="{VAR: r[0]}"{FUNC: (isset($f[$r[0]]) ? ' selected' : '')}>{VAR: tabw}&nbsp;&nbsp;{VAR-HTML: r[1]}</option>
 {SECTION: END}
 
 {SECTION: forum_select_lnk3}
