@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: smladd.php.t,v 1.9 2003/11/14 10:50:19 hackie Exp $
+* $Id: smladd.php.t,v 1.10 2003/12/01 20:32:39 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
 
-	$col_count = 5;
+	$col_count = '{TEMPLATE: sml_per_row}' - 2;
 	$col_pos = -1;
 
 	$sml_smiley_entry = $sml_smiley_row = '';
