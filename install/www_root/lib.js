@@ -220,6 +220,8 @@ function fnLoadPngs() {
 	for (var i = document.images.length - 1, img = null; (img = document.images[i]); i--) {
 		if (img.src.match(/\.png$/i) != null) {
 			var src = img.src;
+			img.style.width = img.width + "px";
+			img.style.height = img.height + "px";
 			img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='scale')"
 			img.src = "blank.gif";
 		}
