@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.34 2004/01/04 16:38:28 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.35 2004/04/13 14:50:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -77,10 +77,10 @@
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachments the file attachments list}
-<p>
-<table border=0 cellspacing=0 cellpadding=2>
+<p />
+<ul class="AttachmentsList">
 {TEMPLATE-DATA: file_attachments}
-</table>
+</ul>
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachment_lnk}
@@ -88,10 +88,10 @@
 {SECTION: END}
 
 {SECTION: dpmsg_file_attachment file attachment entry row}
-<tr>
-<td valign=middle><a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" alt="" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
-<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font></td></tr>
+<li />
+<a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" alt="" /></a>
+<font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
+<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font>
 {SECTION: END}
 
 {SECTION: dpmsg_signature}
