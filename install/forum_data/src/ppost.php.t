@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.22 2003/04/18 12:43:44 hackie Exp $
+*   $Id: ppost.php.t,v 1.23 2003/04/18 12:51:07 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_icon = $m->icon;
 	$msg_smiley_disabled = $m->smiley_disabled == 'Y' ? 1 : NULL;
 	$msg_show_sig = $m->show_sig == 'Y' ? 1 : NULL;
-	$msg_track = $m->msg_track == 'Y' ? 1 : NULL;
+	$msg_track = $m->track == 'Y' ? 1 : NULL;
 	$msg_to_list = $m->to_list;
 
 	reverse_FMT($msg_subject);
@@ -88,7 +88,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
-			if (($msg_r = db_sab('SELECT subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
+			if (($msg_r = db_sab('SELECT post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
 				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
 
@@ -96,9 +96,20 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$msg_id = $msg_to_list = '';
 
 				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
+					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
+					switch ($PRIVATE_TAGS) {
+						case 'ML':
+							$msg_body = '{TEMPLATE: fud_quote}';
+							break;
+						case 'HTML':
+							$msg_body = '{TEMPLATE: html_quote}';
+							break;
+						default:
+							$msg_body = str_replace('<br>', "\n", '{TEMPLATE: plain_quote}');
+					}
+				
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 					$msg_ref_msg_id = 'R'.$reply;
-					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
 					unset($msg_r);
 				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
 					$old_subject = $msg_subject = 'Fwd: ' . $msg_subject;
