@@ -228,7 +228,7 @@ ANON_NICK
 The username that is attached to anonymous posts if anonymous posting is allowed.
 
 MAX_LOGIN_SHOW
-The maximum number of characters of a user's login name to show on all forms except userinfo.
+The maximum length of the user's login/alias.
 
 MAX_LOCATION_SHOW
 The maximum number of characters of a user's location to show on all forms except userinfo.

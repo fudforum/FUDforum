@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.tmpl,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: register.tmpl,v 1.7 2002/08/01 14:49:54 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -403,5 +403,5 @@
 {SECTION: END}
 
 {SECTION: reg_alias}
-<tr><td class="RowStyleA">{MSG: register_alias}{VAR: reg_alias_err}<br><font class="SmallText">{MSG: register_alias_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}"></td></tr>
+<tr><td class="RowStyleA">{MSG: register_alias}{VAR: reg_alias_err}<br><font class="SmallText">{MSG: register_alias_desc}</font></td><td class="RowStyleA"><input type="text" name="reg_alias" size=25 value="{VAR-HTML: reg_alias}" maxLength={GVAR: MAX_LOGIN_SHOW}></td></tr>
 {SECTION: END}
