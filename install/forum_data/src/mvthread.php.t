@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.php.t,v 1.28 2004/04/02 18:24:18 hackie Exp $
+* $Id: mvthread.php.t,v 1.29 2004/04/21 19:57:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,12 +18,12 @@
 	$thx = isset($_POST['thx']) ? (int)$_POST['thx'] : (isset($_GET['thx']) ? (int)$_GET['thx'] : 0);
 	$to = isset($_GET['to']) ? (int)$_GET['to'] : 0;
 
-	if (!$GLOBALS['is_post'] && !sq_check(0, $usr->sq)) {
-		return;
-	}
-
 	/* thread x-change */
 	if ($th && $thx) {
+		if (!$GLOBALS['is_post'] && !sq_check(0, $usr->sq)) {
+			return;
+		}
+
 		if (!($usr->users_opt & 1048576) && q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE forum_id='.$thx.' AND user_id='._uid)) {
 			std_error('access');
 		}
@@ -42,6 +42,10 @@
 
 	/* moving a thread */
 	if ($th && $to) {
+		if (!$GLOBALS['is_post'] && !sq_check(0, $usr->sq)) {
+			return;
+		}
+
 		$thr = db_sab('SELECT
 				t.id, t.forum_id, t.last_post_id, t.root_msg_id, t.last_post_date, t.last_post_id,
 				f1.last_post_id AS f1_lpi, f2.last_post_id AS f2_lpi,
