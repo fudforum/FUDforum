@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.5 2003/10/10 12:43:29 hackie Exp $
+* $Id: referals.tmpl,v 1.6 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,19 +19,18 @@
 {REF: alt_var.tmpl}
 {REF: tabs.tmpl}
 
-{SECTION: pm_link}
-&nbsp;<a href="{ROOT}/pmm/toi/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+{SECTION: pm_link_lnk}
+{ROOT}/pmm/toi/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: email_link}
-&nbsp;<a href="{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+{SECTION: email_link_lnk}
+{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: refered_entry info about a single referred user}
-<tr class="{ALT-VAR: ref_alt RowStyleA RowStyleB}">
-	<td width="100%" nowrap class="GenText"><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: r[0]}</a></td>
-	<td nowrap align="center" nowrap class="Gentext">{VAR: r[3]}</td>
-	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
-</tr>
+{SECTION: refered_entry_lnk}
+{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: refered_entry_lnk1}
+{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}

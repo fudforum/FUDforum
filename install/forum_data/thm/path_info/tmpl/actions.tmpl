@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: actions.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
+* $Id: actions.tmpl,v 1.5 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,26 +21,14 @@
 {REF: ulink.tmpl}
 {REF: is_perms.tmpl}
 
-{SECTION: last_post last by a user}
-{DATE: r[9] %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}/m/{VAR: r[7]}/{DEF: _rsid}">{VAR: r[8]}</a>
+{SECTION: last_post_lnk}
+{ROOT}/m/{VAR: r[7]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: reg_user_link registered user link}
-<a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: user_login}</a>
+{SECTION: reg_user_link_lnk}
+{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: ACTION_PAGE iSpy User Action List}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
-<div align="center" class="GenText">[<a href="{ROOT}/a/{DEF: _rsid}" class="GenLink">{MSG: refresh_list}</a>]</div>
-<p>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th>{MSG: user}</th><th>{MSG: action}</th><th>{MSG: time}</th><th>{MSG: action_latest_post}</th></tr>
-{TEMPLATE-DATA: action_data}
-</table>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: ACTION_PAGE_lnk}
+{ROOT}/a/{DEF: _rsid}
+{SECTION: END}

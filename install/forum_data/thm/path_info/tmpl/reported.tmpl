@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.tmpl,v 1.5 2003/10/10 12:43:30 hackie Exp $
+* $Id: reported.tmpl,v 1.6 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,31 +21,14 @@
 {REF: logaction.tmpl}
 {REF: is_perms.tmpl}
 
-{SECTION: reported_reg_user_link reportee profile link}
-<a class="GenLink" href="{ROOT}/u/{VAR: obj->report_user_id}/{DEF: _rsid}">{VAR: obj->report_user_login}</a>
+{SECTION: reported_reg_user_link_lnk}
+{ROOT}/u/{VAR: obj->report_user_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: reported_msg_header}
-<tr class="RowStyleC"><td>
-<table border=0 cellspacing=0 cellpadding=3 width="100%">
-	<tr>
-		<td align=left nowrap valign=top>
-			<font class="SmallText">
-			<b>{MSG: reported_reported_by}</b> {TEMPLATE-DATA: user_login}<br />
-			<b>{MSG: reported_on}</b> {DATE: obj->report_stamp %a, %d %B %Y %H:%M}
-			</font>
-		</td>
-		<td align=center width="100%" valign=top>
-			<font class="SmallText"><b>{MSG: reported_reason}</b><br /></font>
-			<table border=1 cellspacing=1 cellpadding=0><tr><td align="left">&nbsp;{VAR: obj->report_reason} &nbsp;</td></tr></table>
-			
-		</td>
-		<td nowrap>[<a class="GenLink" href="{ROOT}/rl/{VAR: obj->report_id}/{DEF: _rsid}">{MSG: reported_del_report}</a>]</td>
-	</tr>
-	
-	<tr>
-		<td colspan=3><font class="SmallText"><b>{MSG: reported_in_thread}:</b></font> <a href="{ROOT}/m/{VAR: obj->id}/{DEF: _rsid}" target="_blank">{VAR: obj->thread_subject}</a></td>
-	</tr>
-</table>
-</td></tr>
+{SECTION: reported_msg_header_lnk}
+{ROOT}/rl/{VAR: obj->report_id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: reported_msg_header_lnk1}
+{ROOT}/m/{VAR: obj->id}/{DEF: _rsid}
 {SECTION: END}

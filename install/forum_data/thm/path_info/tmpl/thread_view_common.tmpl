@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.9 2003/10/10 12:43:30 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.10 2003/10/10 15:22:24 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -15,37 +15,36 @@
 ***************************************************************************/
 
 {PHP_FILE: input: thread_view_common.inc.t; output: thread_view_common.inc;}
-
 {REF: is_perms.tmpl}
 
-{SECTION: thread_mark_all_read}
-<div align="right"><font class="SmallText">[<a href="{ROOT}/mar/{VAR: frm->id}/{DEF: _rsid}" class="GenLink" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</font></div>
+{SECTION: thread_mark_all_read_lnk}
+{ROOT}/mar/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: forum_path}
-<a class="GenLink" href="{ROOT}/i/{DEF: _rsid}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
+{SECTION: forum_path_lnk}
+{ROOT}/i/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: new_thread_link}
-<a class="GenLink" href="{ROOT}/r/frm_id/{VAR: frm->id}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" /></a>
+{SECTION: new_thread_link_lnk}
+{ROOT}/r/frm_id/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: unsubscribe_link}
-<a class="GenLink" href="{ROOT}/{DEF: pinfo_page}/{VAR: frm->id}/{VAR: start}/1/{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
+{SECTION: unsubscribe_link_lnk}
+{ROOT}/{DEF: pinfo_page}/{VAR: frm->id}/{VAR: start}/1/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: subscribe_link}
-<a class="GenLink" href="{ROOT}/{DEF: pinfo_page}/{VAR: frm->id}/{VAR: start}/0/{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
+{SECTION: subscribe_link_lnk}
+{ROOT}/{DEF: pinfo_page}/{VAR: frm->id}/{VAR: start}/0/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thread_printable_pdf}
-&nbsp;[ <a href="{GVAR: WWW_ROOT}pdf.php/p/{VAR: frm->id}/{VAR: cur_frm_page}/{DEF: _rsid}" class="GenLink">{MSG: thread_printable_pdf}</a> ]
+{SECTION: thread_syndicate_lnk}
+{ROOT}/h/boardusage/#syndicate
 {SECTION: END}
 
-{SECTION: thread_syndicate}
-&nbsp;[ <a href="{ROOT}/h/boardusage/#syndicate" class="GenLink">{MSG: thread_syndicate}</a> ]
+{SECTION: thread_merge_t_lnk}
+{ROOT}/met/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thread_merge_t}
-&nbsp;<a href="{ROOT}/met/{VAR: frm->id}/{DEF: _rsid}" class="GenLink">{MSG: merge_topics}</a>
+{SECTION: thread_printable_pdf_lnk}
+{GVAR: WWW_ROOT}pdf.php/p/{VAR: frm->id}/{VAR: cur_frm_page}/{DEF: _rsid}
 {SECTION: END}

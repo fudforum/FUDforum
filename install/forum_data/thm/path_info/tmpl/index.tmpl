@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
+* $Id: index.tmpl,v 1.7 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,36 +21,26 @@
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
 
-{SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr class="CatDesc"><td colspan="6">
-&nbsp;<a href="{ROOT}/i/{FUNC: url_tog_collapse($r[8], $cs)}/{DEF: _rsid}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
-{VAR: r[5]}
-</td></tr>
+{SECTION: index_category_allow_collapse_Y_lnk}
+{ROOT}/i/{FUNC: url_tog_collapse($r[8], $cs)}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: index_forum_entry forum entry row}
-<tr>
-	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
-	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{ROOT}/f/{VAR: r[10]}/{DEF: _rsid}" class="GenLink">{VAR-HTML: r[13]}</a><br />{VAR: r[14]}{VAR: moderators}</td>
-	<td class="RowStyleB" align="center">{VAR: r[15]}</td>
-	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
-	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
-</tr>
+{SECTION: index_forum_entry_lnk}
+{ROOT}/f/{VAR: r[10]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: last_post}
-<font class="DateText">{DATE: r[2] %a, %d %B %Y}</font><br />{MSG: by} {VAR: last_poster_profile} <a href="{ROOT}/m/{VAR: r[11]}/{DEF: _rsid}" class="GenLink"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>
+{SECTION: last_post_lnk}
+{ROOT}/m/{VAR: r[11]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: profile_link_user}
-<a href="{ROOT}/u/{VAR: r[3]}/{DEF: _rsid}" class="GenLink">{VAR: r[4]}</a>
+{SECTION: profile_link_user_lnk}
+{ROOT}/u/{VAR: r[3]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: profile_link_mod}
-<a href="{ROOT}/u/{VAR: k}/{DEF: _rsid}" class="GenLink">{VAR: v}</a> &nbsp;
+{SECTION: profile_link_mod_lnk}
+{ROOT}/u/{VAR: k}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mark_all_read}
-<div align=right><font class="SmallText">[<a href="{ROOT}/mar/{DEF: _rsid}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
+{SECTION: mark_all_read_lnk}
+{ROOT}/mar/{DEF: _rsid}
 {SECTION: END}

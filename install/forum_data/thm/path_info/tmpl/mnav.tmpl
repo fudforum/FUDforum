@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
+* $Id: mnav.tmpl,v 1.5 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -25,58 +25,26 @@
 {REF: search_forum_sel.tmpl}
 {REF: alt_var.tmpl}
 
-{PAGE: MNAV_PAGE message navigator}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
-
-<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}<input type="hidden" name="t" value="mnav">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=3 width="100%">{MSG: mnav_description}</th></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}">
-	<td class="GenText" width="30%" nowrap>{MSG: mnav_date_limit}</td>
-	<td class="GenText"><input type="text" name="rng" value="{VAR: rng}" maxlength="10" size=11></td>
-	<td align="left" width="60%"><select name="u">{TEMPLATE-DATA: mnav_time_unit}</select></td></tr>
-<tr class="{ALT-VAR: color_alt RowStyleA RowStyleB}"><td class="GenText" nowrap>{MSG: mnav_forum_limit}</td>
-	<td colspan=2>
-		<select name="forum_limiter"><option value="">{MSG: mnav_all_forums}</option>
-		{TEMPLATE-DATA: forum_limit_data}
-		</select>
-	</td>
-</tr>
-<tr class="RowStyleC"><td class="GenText" align="right" colspan=3><input type="submit" class="button" name="btn_submit" value="{MSG: mnav_submit}"></td></tr>
-</table></form>
-<br />
-{TEMPLATE-DATA: mnav_data}
-<div align="left">{TEMPLATE-DATA: mnav_pager}</div>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
-{SECTION: mnav_forum}
-<tr><th colspan="3"> {MSG: forum} <a class="thLnk" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->forum_name}</font></a></th></tr>
+{SECTION: mnav_forum_lnk}
+{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mnav_thread}
-<tr><th class="RowStyleC">&nbsp;&nbsp;&nbsp;</th><th colspan="2"> {MSG: thread} <a class="thLnk" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->subject}</a></th></tr>
+{SECTION: mnav_thread_lnk}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mnav_msg}
-<tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
-<table cellspacing=0 cellpadding=2 border=0 width="100%" style="border-bottom: 1px solid black">
-<tr bgcolor="#eeeeee">
-	<td align="left" class="SmallText"><a class="GenLink" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->subject}</a></td>
-	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
-	<td align="right" class="SmallText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
-</tr>
-<tr bgcolor="#dee2e6">
-	<td colspan="3" class="SmallText">{VAR: body} <a class="GenLink" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{MSG: mnav_more}</a></td>
-</tr>
-</table>
-</td></tr>
+{SECTION: mnav_msg_lnk}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mnav_user}
-<a class="GenLink" href="{ROOT}/u/{VAR: r->poster_id}/{DEF: _rsid}">{VAR: r->alias}</a>
+{SECTION: mnav_msg_lnk2}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: mnav_user_lnk}
+{ROOT}/u/{VAR: r->poster_id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: MNAV_PAGE_lnk3}
+{ROOT}
 {SECTION: END}

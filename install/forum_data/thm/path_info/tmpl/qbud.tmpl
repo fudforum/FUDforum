@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: qbud.tmpl,v 1.4 2003/10/09 23:45:55 hackie Exp $
+* $Id: qbud.tmpl,v 1.5 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,21 +15,10 @@
 {REF: footer.tmpl}
 {REF: alt_var.tmpl}
 
-{SECTION: buddy_list}
-<tr><th width="100%">{MSG: qbud_nick_name}</th><th nowrap>{MSG: qbud_selected} [<a class="thLnk" href="{ROOT}/qb/1/{DEF: _rsid}">{VAR: all_d}</a>]</th></tr>
-{TEMPLATE-DATA: buddies}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td colspan=2 class="GenText" align="right"><input type="submit" class="button" name="submit" value="{MSG: qbud_add_selected}"></td></tr>
+{SECTION: buddy_list_lnk}
+{ROOT}/qb/1/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: QBUD_PAGE buddy selector popup}
-{TEMPLATE: header_plain}
-<form action="{ROOT}/qb/{DEF: _rsid}" name="qbud" method="post">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE-DATA: qbud_data}
-</table>
-</form>
-{TEMPLATE: footer_plain}
-{PAGE: END}
-{SECTION: pmsg_none}
-{MSG: pmsg_none}
+{SECTION: QBUD_PAGE_lnk3}
+{ROOT}/qb/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
+* $Id: admincp.tmpl,v 1.5 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,18 +11,18 @@
 
 {PHP_FILE: input: admincp.inc.t; output: @admincp.inc;}
 
-{SECTION: group_mgr link to the group manager for admin & group managers}
-| <a class="GenLink" href="{ROOT}/gm/{DEF: _rsid}">{MSG: group_mgr}</a> 
+{SECTION: group_mgr_lnk}
+{ROOT}/gm/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: reported_msgs link to reported messages form, with an idicator that shows the # of reported messages}
-| <a class="GenLink" href="{ROOT}/rl/{DEF: _rsid}">{MSG: reported_messages}</a> <span class="GenText" style="color: #ff0000">({VAR: report_count})</span>
+{SECTION: reported_msgs_lnk}
+{ROOT}/rl/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thr_exch a link to thread exchange, with an idicator of the # of threads waiting approval}
-| <a class="GenLink" href="{ROOT}/te/{DEF: _rsid}">{MSG: thread_exchange}</a> <span class="GenText" style="color: #ff0000">({VAR: thr_exchc})</span> 
+{SECTION: thr_exch_lnk}
+{ROOT}/te/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mod_que link to form for approving messages in moderated forums}
-<a class="GenLink" href="{ROOT}/mq/{DEF: _rsid}">{MSG: moderation_queue}</a> <span class="GenText" style="color: #ff0000">({VAR: approve_count})</span>
+{SECTION: mod_que_lnk}
+{ROOT}/mq/{DEF: _rsid}
 {SECTION: END}

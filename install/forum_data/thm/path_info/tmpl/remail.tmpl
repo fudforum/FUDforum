@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.tmpl,v 1.4 2003/10/09 23:45:55 hackie Exp $
+* $Id: remail.tmpl,v 1.5 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,7 +26,7 @@
 {TEMPLATE: usercp}
 <div align=center>
 {TEMPLATE-DATA: remail_error}
-<form action="{ROOT}/ef/{VAR: th}/{DEF: _rsid}" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
+<form action="{TEMPLATE: REMAIL_PAGE_lnk3}" name="remail" method="post" style="padding: 0px; margin: 0px;"><input type="hidden" name="posted" value="1">
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2>{MSG: remail_email_topic}</th></tr>
 {TEMPLATE-DATA: form_data}
@@ -36,3 +36,7 @@
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
+
+{SECTION: REMAIL_PAGE_lnk3}
+{ROOT}/ef/{VAR: th}/{DEF: _rsid}
+{SECTION: END}

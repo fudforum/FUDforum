@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mvthread.tmpl,v 1.5 2003/10/10 00:05:28 hackie Exp $
+* $Id: mvthread.tmpl,v 1.6 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,21 +16,14 @@
 {REF: logaction.tmpl}
 {REF: th_adm.tmpl}
 
-{PAGE: MVTHREAD_PAGE  move thread to another forum form}
-{TEMPLATE: header_plain}
-<form action="{ROOT}/mh/{VAR: th}/{DEF: _rsid}" name="mvthread" method="post">
-<table border=0 width="100%" cellspacing=0 cellpadding=3 class="dashed">
-<tr><td><font size="-1">{MSG: move_thread_to}</font></td></tr>
-{TEMPLATE-DATA: table_data}
-</table>
-<input type="hidden" name="thx" value="{VAR: thx}"></form>
-{TEMPLATE: footer_plain}
-{PAGE: END}
-
-{SECTION: forum_entry}
-<tr><td><a href="{ROOT}/mh/{VAR: thr->id}/to/{VAR: ent[1]}/{DEF: _rsid}">{VAR-HTML: ent[0]}</a></td></tr>
+{SECTION: MVTHREAD_PAGE_lnk3}
+{ROOT}/mh/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: txc_forum_entry request that the thread be moved to a forum, of which a person is not a mod of}
-<tr><td>{VAR-HTML: ent[0]} [<a href="{ROOT}/mh/{VAR: thr->id}/thx/{VAR: ent[1]}/{DEF: _rsid}">{MSG: mvthread_request_move}</a>]</td></tr>
+{SECTION: forum_entry_lnk}
+{ROOT}/mh/{VAR: thr->id}/to/{VAR: ent[1]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: txc_forum_entry_lnk}
+{ROOT}/mh/{VAR: thr->id}/thx/{VAR: ent[1]}/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.6 2003/10/10 12:43:30 hackie Exp $
+* $Id: selmsg.tmpl,v 1.7 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,14 +23,34 @@
 {REF: imsg.tmpl}
 {REF: is_perms.tmpl}
 
-{SECTION: todays_posts todays posts link}
-<a class="GenLink" href="{ROOT}{VAR: dt_opt}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</a>
+{SECTION: todays_posts_lnk}
+{ROOT}{VAR: dt_opt}
 {SECTION: END}
 
-{SECTION: forum_row forum heading row}
-<tr><th>{MSG: forum} <a class="thLnk" href="{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}"><font style="font-size: 12px;">{VAR-HTML: r->name}</font></a></th></tr>
+{SECTION: forum_row_lnk}
+{ROOT}/f/{VAR: r->forum_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thread_row thread heading row}
-<tr><th>&nbsp;{MSG: thread} <a class="thLnk" href="{ROOT}/m/{VAR: r->id}/{DEF: _rsid}">{VAR: r->thr_subject}</a></th></tr>
+{SECTION: thread_row_lnk}
+{ROOT}/m/{VAR: r->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: more_unread_messages_lnk}
+{ROOT}{VAR: _SERVER['QUERY_STRING']}
+{SECTION: END}
+
+{SECTION: subscribed_frm_lnk}
+{ROOT}{VAR: frm_opt}
+{SECTION: END}
+
+{SECTION: subscribed_thr_lnk}
+{ROOT}{VAR: th_opt}
+{SECTION: END}
+
+{SECTION: unread_messages_lnk}
+{ROOT}?{VAR: un_opt}
+{SECTION: END}
+
+{SECTION: unanswered_lnk}
+{ROOT}{VAR: rp_opt}
 {SECTION: END}

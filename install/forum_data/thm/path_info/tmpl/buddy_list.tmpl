@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.7 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,38 +21,26 @@
 {REF: tabs.tmpl}
 {REF: alt_var.tmpl}
 
-{SECTION: pm_link}
-<a href="{ROOT}/pmm/toi/{VAR: r[0]}/{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a>
+{SECTION: pm_link_lnk}
+{ROOT}/pmm/toi/{VAR: r[0]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: email_link}
-<a href="{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a>
+{SECTION: email_link_lnk}
+{ROOT}/em/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: buddy buddy row entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td align="center">{TEMPLATE-DATA: online_status}</td>
-	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{ROOT}/bl/{VAR: r[0]}/{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
-	<td align="center">{VAR: r[6]}</td>
-	<td align="center" nowrap>{DATE: r[3] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
-</tr>
+{SECTION: buddy_lnk}
+{ROOT}/bl/{VAR: r[0]}/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: BUDDYLIST_PAGE Buddy list}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: tabs}
-{TEMPLATE-DATA: buddies}
-<br /><br />
-<form name="buddy_add" action="{ROOT}/bl/{DEF: _rsid}" method="post"><div align="center">
-<table align="center" border="0" cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th nowrap>{MSG: add_buddy}</th></tr>
-<tr class="RowStyleA">
-<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: buddy_member_search}</font><p>
-<input type="text" name="add_login" value="" maxlength=100 size=25> <input type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
-</table></div></form>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: buddy_lnk1}
+{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: buddy_lnk2}
+{ROOT}/sp/{VAR: r[1]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: BUDDYLIST_PAGE_lnk3}
+{ROOT}/bl/{DEF: _rsid}
+{SECTION: END}

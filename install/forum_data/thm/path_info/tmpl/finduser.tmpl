@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
+* $Id: finduser.tmpl,v 1.7 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,45 +22,34 @@
 {REF: rev_fmt.tmpl}
 {REF: alt_var.tmpl}
 
-{PAGE: FINDUSER_PAGE user search form}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<br />{TEMPLATE-DATA: admin_cp}
-<form method="get" action="{ROOT}" style="padding: 0px; margin: 0px;">{DEF: _hs}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText" nowrap>{MSG: finduser_by_login}</td><td class="GenText" width="100%"><input type="text" name="usr_login" value="{VAR-HTML: usr_login}"></td></tr>
-<tr class="RowStyleB"><td class="GenText" nowrap>{MSG: finduser_by_email}</td><td width="100%"><input type="text" name="usr_email" value="{VAR-HTML: usr_email}"></td></tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2><font class="SmallText">{MSG: finduser_help}</font> <input type="submit" class="button" name="btn_submit" value="{MSG: finduser_submit}"></td></tr>
-</table><input type="hidden" name="t" value="finduser"></form>
-<img src="blank.gif" alt="" height=2 width=1 /><br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr>
-<th width="100%"><a class="thLnk" href="{ROOT}/ml/2/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}">{MSG: finduser_user}</a></th><th nowrap><a href="{ROOT}/ml/1/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}" class="thLnk">{MSG: finduser_postcount}</a></th><th nowrap><div align="center"><a href="{ROOT}/ml/3/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}" class="thLnk">{MSG: finduser_joindate}</a></div></th><th align="center">{MSG: finduser_action}</th>{VAR: admin_opts}
-</tr>
-{TEMPLATE-DATA: find_user_data}
-</table>
-{TEMPLATE-DATA: pager}
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
-{SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{ROOT}/u/{VAR: r->id}/{DEF: _rsid}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
+{SECTION: FINDUSER_PAGE_lnk}
+{ROOT}/ml/2/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: action_field lists things that can be done with a user}
-<a href="{ROOT}/sp/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
-{TEMPLATE-DATA: email_link}
-{TEMPLATE-DATA: pm_link}
-{TEMPLATE-DATA: homepage_link}
+{SECTION: FINDUSER_PAGE_lnk1}
+{ROOT}/ml/1/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: pm_link}
-<a href="{ROOT}/pmm/toi/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
+{SECTION: FINDUSER_PAGE_lnk2}
+{ROOT}/ml/3/0/{VAR-URL: usr_login}/{VAR-URL: usr_email}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: email_link}
-<a href="{ROOT}/em/{VAR: r->id}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+{SECTION: FINDUSER_PAGE_lnk3}
+{ROOT}
+{SECTION: END}
+
+{SECTION: find_user_entry_lnk}
+{ROOT}/u/{VAR: r->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_field_lnk}
+{ROOT}/sp/{VAR: r->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: pm_link_lnk}
+{ROOT}/pmm/toi/{VAR: r->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: email_link_lnk}
+{ROOT}/em/{VAR: r->id}/{DEF: _rsid}
 {SECTION: END}

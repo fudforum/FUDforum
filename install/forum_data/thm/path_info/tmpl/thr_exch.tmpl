@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thr_exch.tmpl,v 1.5 2003/10/09 23:45:55 hackie Exp $
+* $Id: thr_exch.tmpl,v 1.6 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,37 +22,22 @@
 {REF: logaction.tmpl}
 {REF: th_adm.tmpl}
 
-{SECTION: thr_exch_entry thread that has been marked for moving}
-<tr><td>
-<table border=0 cellspacing=0 cellpadding=3 width="100%">
-	<tr class="RowStyleB">
-		<td align=left nowrap valign=top>
-			<font class="SmallText"><b>{MSG: move_request_by}</b> <a class="GenLink" href="{ROOT}/u/{VAR: obj->req_by}/{DEF: _rsid}">{VAR: obj->alias}</a><br /></font>
-		</td>
-		<td align=center width="100%" valign=top>
-			<font class="SmallText">
-			<b>{MSG: move_reason}</b><br />
-			<table border=1 cellspacing=1 cellpadding=0><tr><td align=left>&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table>
-			</font>
-		</td>
-	</tr>
-	<tr class="RowStyleC">
-		<td colspan=2>
-			<table border=0 cellspacing=0 cellpadding=3 width="100%">
-			<tr>
-				<td align="left"><font size="-1"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->sf_name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->df_name}<br /><b>{MSG: thread}</b> <a href="{ROOT}/t/{VAR: obj->th}/{DEF: _rsid}">{VAR: obj->subject}</a></font></td>
-				<td align="right">[<a class="GenLink" href="{ROOT}/te/appr/{VAR: obj->id}/{DEF: _rsid}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a class="GenLink" href="{ROOT}/te/decl/{VAR: obj->id}/{DEF: _rsid}">{MSG: thr_exch_decline}</a>]</td>
-			</tr>
-			</table>
-		</td>
-	</tr>		
-</table>
-</td></tr>
+{SECTION: thr_exch_entry_lnk}
+{ROOT}/u/{VAR: obj->req_by}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thr_move_decline}
-<form method="post" action="{ROOT}/te/{DEF: _rsid}" name="thr_exch">
-{DEF: _hs}<input type="hidden" name="decl" value="{VAR: decl}">
-<tr><td class="RowStyleC">{MSG: thr_exch_decl_reason}<br /><textarea name="reason" cols=60 rows=10></textarea><br /><input type="submit" class="button" name="btn_submit" value="{MSG: thr_exch_submit}"></td><tr>
-</form>
+{SECTION: thr_exch_entry_lnk1}
+{ROOT}/t/{VAR: obj->th}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thr_exch_entry_lnk2}
+{ROOT}/te/appr/{VAR: obj->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thr_exch_entry_lnk3}
+{ROOT}/te/decl/{VAR: obj->id}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thr_move_decline_lnk3}
+{ROOT}/te/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.13 2003/10/10 12:43:30 hackie Exp $
+* $Id: tree.tmpl,v 1.14 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,146 +28,86 @@
 {REF: th_nav.tmpl}
 {REF: th.tmpl}
 
-{SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}/i/{DEF: _rsid}">{VAR: frm->cat_name}</a> &raquo; <a href="{ROOT}/f/{VAR: frm->forum_id}/{DEF: _rsid}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
+{SECTION: msg_forum_path_lnk}
+{ROOT}/i/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: split_thread}
-<a class="GenLink" href="{ROOT}/stt/{VAR: th}/{DEF: _rsid}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+{SECTION: msg_forum_path_lnk2}
+{ROOT}/f/{VAR: frm->forum_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mod_lock_thread}
-<a class="GenLink" href="{ROOT}/lk/{VAR: th}/lock/{DEF: _rsid}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+{SECTION: split_thread_lnk}
+{ROOT}/stt/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: mod_unlock_thread}
-<a class="GenLink" href="{ROOT}/lk/{VAR: th}/unlock/{DEF: _rsid}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+{SECTION: mod_lock_thread_lnk}
+{ROOT}/lk/{VAR: th}/lock/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: email_page_to_friend}
-<a class="GenLink" href="{ROOT}/ef/{VAR: th}/{DEF: _rsid}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
+{SECTION: mod_unlock_thread_lnk}
+{ROOT}/lk/{VAR: th}/unlock/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{ROOT}/mn/tree/{VAR: th}/1/on/{VAR: mid}/{DEF: _rsid}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+{SECTION: email_page_to_friend_lnk}
+{ROOT}/ef/{VAR: th}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{ROOT}/mn/tree/{VAR: th}/1/off/{VAR: mid}/{DEF: _rsid}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+{SECTION: sub_from_thread_lnk}
+{ROOT}/mn/tree/{VAR: th}/1/on/{VAR: mid}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: flat_view switch to flat view link}
-<a href="{ROOT}/mv/msg/{VAR: th}/{DEF: _rsid}#msg_{VAR: mid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" /></a>
+{SECTION: unsub_to_thread_lnk}
+{ROOT}/mn/tree/{VAR: th}/1/off/{VAR: mid}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}/r/frm_id/{VAR: frm->forum_id}/{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
+{SECTION: flat_view_lnk}
+{ROOT}/mv/msg/{VAR: th}/{DEF: _rsid}#msg_{VAR: mid}
 {SECTION: END}
 
-{SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}/r/th_id/{VAR: th}/{VAR: mid}/{DEF: _rsid}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" /></a>
+{SECTION: new_thread_lnk}
+{ROOT}/r/frm_id/{VAR: frm->forum_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: rate_thread rate thread select}
-<table border=0 cellspacing=0 cellpadding=0><tr><form action="{ROOT}/tr/{DEF: _rsid}" name="vote_frm" method="post"><td nowrap>
-<select name="sel_vote" onChange="javascript: if ( !this.value ) return false; document.vote_frm.submit();">
-<option>{MSG: rate_thread}</option>
-<option value="1">1 {MSG: rate_worst}</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5 {MSG: rate_best}</option>
-</select>
-</td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: vote_for_thread}">
-<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">
-</td></form></tr></table>
+{SECTION: post_reply_lnk}
+{ROOT}/r/th_id/{VAR: th}/{VAR: mid}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: reg_user_link}
-<a class="GenLink" href="{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}">{VAR: cur->alias}</a>
+{SECTION: rate_thread_lnk3}
+{ROOT}/tr/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: tree_branch message with replies}
-<tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
-<td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap>
-{TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
-</td>
-<td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
+{SECTION: reg_user_link_lnk}
+{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: tree_entry message without replies}
-<tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
-<td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap>
-{TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a>
-</td>
-<td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
+{SECTION: tree_branch_lnk}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: tree_branch_selected message with replies that is currently being viewed}
-<tr class="RowStyleC">
-<td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap>
-{TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
-</td>
-<td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
+{SECTION: tree_entry_lnk}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: tree_entry_selected message without replies that is currently being viewed}
-<tr class="RowStyleC">
-<td>{TEMPLATE-DATA: read_indicator}</td>
-<td valign="top" width="100%" class="Gentext" nowrap>
-{TEMPLATE: tree_tab}
-<img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" />&nbsp;
-<a href="{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}" class="GenLink">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
-</td>
-<td class="GenText" nowrap>{TEMPLATE-DATA: user_login}</td><td nowrap class="DateText" colspan=99>{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</td></tr>
+{SECTION: tree_branch_selected_lnk}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: TREE_PAGE a tree(thread) view of all the messages inside a thread}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: msg_forum_path} {TEMPLATE-DATA: thread_rating}
-{TEMPLATE-DATA: admin_cp}
-<table cellspacing=0 cellpaddong=0 border=0 width="100%">
-<tr>
-<td align="left" class="GenText">{TEMPLATE: show_links}{TEMPLATE-DATA: split_thread}{TEMPLATE-DATA: lock_thread}{TEMPLATE-DATA: email_page_to_friend}{TEMPLATE-DATA: subscribe_status}</td>
-<td valign="bottom" align="right">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread}{TEMPLATE-DATA: post_reply}</td>
-</tr>
-</table>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable" style="border: 1px solid black">
-{TEMPLATE-DATA: message_data}
-</table>
-<div align=center class="GenText">[<a href="{VAR: _SERVER['PHP_SELF']}#tree_view" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
-<p>
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width=1> </th><th width="100%">{MSG: subject}</th><th nowrap align="center">{MSG: poster}</th><th nowrap align="center">{MSG: date}</th></tr>
-{TEMPLATE-DATA: tree_data}
-</table>
-<table border=0 cellspacing=1 cellpadding=1 align="right">
-{TEMPLATE-DATA: prev_thread_link}
-{TEMPLATE-DATA: next_thread_link}
-</table>
-{TEMPLATE-DATA: rate_thread}
-{TEMPLATE-DATA: forum_select}
-<div align="right"><font class="SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link} </font></div>
-<div align="center">-=] <a href="{VAR: _SERVER['PHP_SELF']}#page_top">{MSG: back_to_top}</a> [=-</div>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
-
-{SECTION: tree_pdf_link}
-[ <a href="{GVAR: WWW_ROOT}pdf.php/p/mid/{VAR: mid}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]
+{SECTION: tree_entry_selected_lnk}
+{ROOT}/m/{VAR: cur->id}/{VAR: th}/0/{VAR: rev}/{VAR: reveal}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: tree_xml_link}
-[ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]
+{SECTION: tree_xml_link_lnk}
+{ROOT}/h/boardusage/{DEF: _rsid}#syndicate
+{SECTION: END}
+
+{SECTION: tree_pdf_link_lnk}
+{GVAR: WWW_ROOT}pdf.php/p/mid/{VAR: mid}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: TREE_PAGE_lnk}
+{VAR: _SERVER['PHP_SELF']}#tree_view
+{SECTION: END}
+
+{SECTION: TREE_PAGE_lnk2}
+{VAR: _SERVER['PHP_SELF']}#page_top
 {SECTION: END}

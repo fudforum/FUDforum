@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: list_referers.tmpl,v 1.4 2003/10/10 00:05:28 hackie Exp $
+* $Id: list_referers.tmpl,v 1.5 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,10 +20,10 @@
 {REF: alt_var.tmpl}
 {REF: admincp.tmpl}
 
-{SECTION: refered_entry a refered user LINK}
-<a class="GenLink" href="{ROOT}/u/{VAR: r2[1]}/{DEF: _rsid}">{VAR: r2[0]}</a> &nbsp;
+{SECTION: refered_entry_lnk}
+{ROOT}/u/{VAR: r2[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: referer_entry refered users row}
-<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}">{VAR: r[0]}</a></td><td align="center" class="GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
+{SECTION: referer_entry_lnk}
+{ROOT}/u/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}

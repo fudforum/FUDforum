@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usercp.tmpl,v 1.6 2003/10/10 00:05:28 hackie Exp $
+* $Id: usercp.tmpl,v 1.7 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,34 +11,38 @@
 
 {PHP_FILE: input: usercp.inc.t; output: @usercp.inc;}
 
-{MAIN_SECTION: usercp user control panel}
-<div style="margin-bottom: 5px" align="right">{TEMPLATE-DATA: private_msg} {TEMPLATE-DATA: member_search} <a class="UserControlPanel" href="{ROOT}/s/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_search.gif" alt="{MSG: search}" /> {MSG: search}</a>&nbsp;&nbsp; <a class="UserControlPanel" href="{ROOT}/h/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_help.gif" alt="{MSG: faq}" /> {MSG: faq}</a> {TEMPLATE-DATA: register_n_profile} {TEMPLATE-DATA: login_n_logout}&nbsp;&nbsp; <a class="UserControlPanel" href="{ROOT}/i/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_home.gif" alt="{MSG: home}" /> {MSG: home}</a> {TEMPLATE-DATA: admin_control_panel}</div>
-{MAIN_SECTION: END}
-
-{SECTION: login login link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{ROOT}/l/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_login.gif" alt="{MSG: login}" /> {MSG: login}</a>
+{SECTION: usercp_lnk}
+{ROOT}/s/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: logout logout link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{ROOT}/l/1/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_logout.gif" alt="{MSG: logout}" /> {MSG: logout} [ {VAR: usr->alias} ]</a>
+{SECTION: usercp_lnk2}
+{ROOT}/h/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: register register link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_register.gif" alt="{MSG: register}" /> {MSG: register}</a>
+{SECTION: usercp_lnk3}
+{ROOT}/i/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: profile profile link}
-&nbsp;&nbsp;<a class="UserControlPanel" href="{ROOT}/re/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_profile.gif" title="{MSG: profile_desc}" alt="{MSG: profile}" /> {MSG: profile}</a>
+{SECTION: login_lnk}
+{ROOT}/l/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: private_msg_empty link to private msg control panel}
-<a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" alt="{MSG: pm}" /> {MSG: pm}</a>&nbsp;&nbsp;
+{SECTION: logout_lnk}
+{ROOT}/l/1/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: private_msg_unread link to private msg control panel with unread messages indicator}
-<a href="{ROOT}/pdm/{DEF: _rsid}" class="UserControlPanel"><img src="{THEME_IMAGE_ROOT}/top_pm.gif" alt="{MSG: pm}" /> {MSG: new_private_messages}</a>&nbsp;&nbsp;
+{SECTION: register_lnk}
+{ROOT}/re/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: member_search link to member search}
-<a class="UserControlPanel" href="{ROOT}/ml/{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/top_members.gif" alt="{MSG: members}" /> {MSG: members}</a>&nbsp;&nbsp;
+{SECTION: private_msg_empty_lnk}
+{ROOT}/pdm/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: private_msg_unread_lnk}
+{ROOT}/pdm/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: member_search_lnk}
+{ROOT}/ml/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.7 2003/10/09 23:45:55 hackie Exp $
+* $Id: post.tmpl,v 1.8 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -38,82 +38,22 @@
 {REF: th.tmpl}
 {REF: is_perms.tmpl}
 
-{SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-<tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR-HTML: usr->login} [<a href="{ROOT}/l/1/{DEF: _rsid}" class="GenLink">{MSG: post_logout}</a>]</td></tr>
+{SECTION: loged_in_user_lnk}
+{ROOT}/l/1/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: create_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText"><a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}/po/{VAR: frm->id}/{DEF: _rsid}\', \'poll_creator\', 400, 300);">[{MSG: post_create_poll}]</a></td></tr>
+{SECTION: create_poll_lnk1}
+{ROOT}/po/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: edit_poll}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_poll}</td><td class="GenText">{VAR: poll[1]} [<a class="GenLink" href="javascript://" onClick="javascript: window_open(\'{ROOT}/po/{VAR: frm->id}/{VAR: poll[0]}/{DEF: _rsid}\', \'poll\', 400, 300);">{MSG: post_poll_edit}</a>] <input type="hidden" name="pl_del" value="">[<a class="GenLink" href="javascript: document.post_form.pl_del.value=\'1\'; document.post_form.submit();">{MSG: post_poll_delete}</a>]</td></tr>
+{SECTION: edit_poll_lnk1}
+{ROOT}/po/{VAR: frm->id}/{VAR: poll[0]}/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: moderated_forum_post}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th>{MSG: post_moderated_forum_ttl}</th></tr>
-<tr class="RowStyleA" align="center">
-	<td class="GenText">
-		{MSG: post_moderated_forum}
-		<br /><br /><form action="{ROOT}/r/moderated_redr/1/{DEF: _rsid}" method="post">
-		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}">
-		</form>
-	</td>
-</tr>
-</table>
-</div>
-{TEMPLATE: curtime}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: moderated_forum_post_lnk3}
+{ROOT}/r/moderated_redr/1/{DEF: _rsid}
+{SECTION: END}
 
-{PAGE: POST_PAGE message posting form}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<form action="{ROOT}/r/prev_loaded/1/{DEF: _rsid}" method="post" name="post_form" enctype="multipart/form-data" onSubmit="javascript: document.post_form.btn_submit.disabled = true;">
-{TEMPLATE-DATA: post_error}
-{TEMPLATE-DATA: preview_message}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2><a name="ptop"> </a>{MSG: post_form}</th></tr>
-{TEMPLATE-DATA: loged_in_user}
-{TEMPLATE-DATA: post_password}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
-{TEMPLATE-DATA: poll}
-{TEMPLATE-DATA: admin_options}
-{TEMPLATE-DATA: post_icons}
-{TEMPLATE-DATA: post_smilies}
-{TEMPLATE-DATA: fud_code_icons}
-
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
-
-{TEMPLATE-DATA: file_attachments}
-<tr class="RowStyleB" valign="top">
-<td class="GenText">{MSG: post_options}</td>
-<td>
-<table border=0 cellspacing=0 cellpadding=1>
-{TEMPLATE-DATA: reg_user_options}
-{TEMPLATE-DATA: disable_smileys}
-</table>
-</td></tr>
-<tr class="RowStyleA"><td class="GenText" align="right" colspan=2>
-<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview">&nbsp;{TEMPLATE-DATA: spell_check_button}<input type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onClick="javascript: document.post_form.submitted.value=1;"></td></tr>
-</table>
-{TEMPLATE-DATA: minimsg}
-{DEF: _hs}
-<input type="hidden" name="submitted" value="">
-<input type="hidden" name="reply_to" value="{VAR: reply_to}">
-<input type="hidden" name="th_id" value="{VAR: th_id}">
-<input type="hidden" name="frm_id" value="{VAR: frm_id}">
-<input type="hidden" name="start" value="{VAR: start}">
-<input type="hidden" name="msg_id" value="{VAR: msg_id}">
-<input type="hidden" name="pl_id" value="{VAR: pl_id}">
-<input type="hidden" name="old_subject" value="{VAR: old_subject}">
-</form>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: POST_PAGE_lnk3}
+{ROOT}/r/prev_loaded/1/{DEF: _rsid}
+{SECTION: END}

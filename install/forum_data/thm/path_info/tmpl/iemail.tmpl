@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
+* $Id: iemail.tmpl,v 1.7 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,41 +13,22 @@
 {REF: rev_fmt.tmpl}
 {REF: smtp.tmpl}
 
-{SECTION: iemail_body}
-{TEMPLATE: header_plain}
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr class="RowStyleB">
-	<td width="33%">{MSG: iemail_msg_subject}</td>
-	<td width="33%">{MSG: iemail_msg_author}</td>
-	<td width="33%">{MSG: iemail_msg_date}</td>
-</tr>
-<tr class="RowStyleA">
-	<td colspan="3">
-	{TEMPLATE-DATA: iemail_poll}
-	{TEMPLATE-DATA: body}
-	{TEMPLATE-DATA: iemail_attach}
-	</td>
-</tr>
-<tr class="RowStyleB">
-	<td colspan="3">
-	[ <a href="{ROOT}/r/reply_to/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_reply}</a> ][ <a href="{ROOT}/r/quote/true/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_quote}</a> ][ <a href="{ROOT}/m/{VAR: obj->id}/{VAR: pfx}">{MSG: iemail_msg_view}</a> ]{TEMPLATE-DATA: iemail_unsub}
-	</td>
-</tr>
-</table>
-{TEMPLATE: footer_plain}
+{SECTION: iemail_body_lnk}
+{ROOT}/r/reply_to/{VAR: obj->id}/{VAR: pfx}
 {SECTION: END}
 
-{SECTION: iemail_attach_entry file attachment entry row}
-<tr>
-<td valign="middle"><a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}">{VAR: v[1]}</a><br />
-<font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
+{SECTION: iemail_body_lnk1}
+{ROOT}/r/quote/true/{VAR: obj->id}/{VAR: pfx}
 {SECTION: END}
 
-{SECTION: iemail_thread_unsub}
-[ <a href="{ROOT}/t/{VAR: id}/notify/{VAR: pfx}">{MSG: iemail_thread_unsub}</a> ]
+{SECTION: iemail_attach_entry_lnk}
+{ROOT}/fa/{VAR: v[0]}/{VAR: pfx}
 {SECTION: END}
 
-{SECTION: iemail_forum_unsub}
-[ <a href="{ROOT}/f/{VAR: id}/0/1/{VAR: pfx}">{MSG: iemail_forum_unsub}</a> ]
+{SECTION: iemail_thread_unsub_lnk}
+{ROOT}/t/{VAR: id}/notify/{VAR: pfx}
+{SECTION: END}
+
+{SECTION: iemail_forum_unsub_lnk}
+{ROOT}/f/{VAR: id}/0/1/{VAR: pfx}
 {SECTION: END}

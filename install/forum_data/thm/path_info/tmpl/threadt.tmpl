@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.10 2003/10/10 12:43:30 hackie Exp $
+* $Id: threadt.tmpl,v 1.11 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,28 +24,18 @@
 {REF: forum_notify.tmpl}
 {REF: thread_view_common.tmpl}
 
-{SECTION: flat_view switch to flat view link}
-<a href="{ROOT}/tt/thread/{VAR: frm->id}/{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" /></a>
+{SECTION: flat_view_lnk}
+{ROOT}/tt/thread/{VAR: frm->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: reg_user_link}
-<a href="{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}">{VAR: cur->alias}</a>
+{SECTION: reg_user_link_lnk}
+{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: thread_row}
-<tr>		
-<td width=1 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB" width=1 style="border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{VAR: cur->subject}</a>{VAR: sticky}</td>
-<td class="RowStyleB" nowrap style="border-bottom: 1px solid white;">{TEMPLATE-DATA: user_link}</td>
-<td class="RowStyleB" nowrap style="border-right: 1px solid black; border-bottom: 1px solid white;"><font class="DateText">{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</font></td>
-</tr>
+{SECTION: thread_row_lnk}
+{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: max_depth_reached maximum allowed depth of thread reached}
-<tr>
-<td class="RowStyleB" colspan=2 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
-<td class="RowStyleA" class="GenText" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{MSG: threadt_more}</a></td>
-<td class="RowStyleB" colspan=2 style="border-right: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
-</tr>
+{SECTION: max_depth_reached_lnk}
+{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.8 2003/10/10 12:43:30 hackie Exp $
+* $Id: register.tmpl,v 1.9 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,79 +31,14 @@
 {REF: iemail.tmpl}
 {REF: allowed_user_lnk.tmpl}
 
-{SECTION: change_passwd_link}
-&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{ROOT}/rp/{DEF: _rsid}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
+{SECTION: change_passwd_link_lnk1}
+{ROOT}/rp/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: built_in_avatar}
-<tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" name="reg_avatar_img" alt="" />
-<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{ROOT}/as/{DEF: _rsid}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
-{TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
+{SECTION: built_in_avatar_lnk1}
+{ROOT}/as/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: REGISTER_PAGE registration AND profile page}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: tabs}
-<form method="post" action="{ROOT}/re/{DEF: _rsid}" name="fud_register" enctype="multipart/form-data" style="padding: 0px; margin: 0px;">
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: register_required}<br /><font size="-2">{MSG: register_required_desc}</font></th></tr>
-{TEMPLATE-DATA: user_info_heading}
-<tr><th colspan=2>{MSG: register_optional}<br /><font size="-2">{MSG: register_optional_desc}</font></th></tr>
-<tr><td class="RowStyleA">{MSG: register_location}</td><td class="RowStyleA"><input type="text" name="reg_location" value="{VAR: reg_location}"maxlength=255 size=30></td></tr>
-<tr><td class="RowStyleA">{MSG: register_occupation}</td><td class="RowStyleA"><input type="text" name="reg_occupation" value="{VAR: reg_occupation}"maxlength=255 size=30></td></tr>
-<tr><td class="RowStyleA">{MSG: register_interests}</td><td class="RowStyleA"><input type="text" name="reg_interests" value="{VAR: reg_interests}"maxlength=255 size=30></td></tr>
-{TEMPLATE-DATA: reg_user_image_field}
-<tr><td class="RowStyleA">{MSG: register_icq}</td><td class="RowStyleA"><input type="text" name="reg_icq" value="{VAR: reg_icq}" maxLength=32 size=25></td></tr>
-<tr><td class="RowStyleA">{MSG: register_aim}</td><td class="RowStyleA"><input type="text" name="reg_aim" value="{VAR: reg_aim}" maxLength=32 size=25></td></tr>
-<tr><td class="RowStyleA">{MSG: register_yahoo}</td><td class="RowStyleA"><input type="text" name="reg_yahoo" value="{VAR: reg_yahoo}" maxLength=32 size=25></td></tr>
-<tr><td class="RowStyleA">{MSG: register_msnm}</td><td class="RowStyleA"><input type="text" name="reg_msnm" value="{VAR: reg_msnm}" maxLength=32 size=25></td></tr>
-<tr><td class="RowStyleA">{MSG: register_jabber}</td><td class="RowStyleA"><input type="text" name="reg_jabber" value="{VAR: reg_jabber}" maxLength=32 size=25></td></tr>
-{TEMPLATE-DATA: register_affero}
-<tr><td class="RowStyleA">{MSG: register_homepage}</td><td class="RowStyleA"><input type="text" name="reg_home_page" value="{VAR: reg_home_page}" maxLength=255></td></tr>
-{TEMPLATE-DATA: avatar_type_sel}
-{TEMPLATE-DATA: avatar}
-<tr valign="top"><td class="RowStyleA">{MSG: register_bday}<br /><font class="SmallText">{MSG: register_bday_desc}</font></td>
-<td class="RowStyleA">
-<table border=0 cellspacing=3 cellpadding=0>
- <tr class="GenText">
-  <td align="center">{MSG: register_month}</td>
-  <td align="center">{MSG: register_day}</td>
-  <td align="center">{MSG: register_year}</td>
- </tr>
- <tr>
-  <td align="center"><select name="b_month">{TEMPLATE-DATA: month_select}</select></td>
-  <td align="center"><select name="b_day">{TEMPLATE-DATA: day_select}</select></td>
-  <td align="center"><input type="text" name="b_year" value="{VAR: b_year}" maxLength=4 size=5></td>
- </tr>
-</table></td></tr>
-<tr><td class="RowStyleA">{MSG: register_gender}</td><td class="RowStyleA"><select name="reg_gender">{TEMPLATE-DATA: gender_select}</select></td></tr>
-<tr><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><font class="SmallText">{MSG: register_bio_desc}</font></td><td class="RowStyleA"><textarea name="reg_bio" rows=5 cols=35>{VAR: reg_bio}</textarea></td></tr>
-<tr><th colspan=2>{MSG: register_prefs}</th></tr>
-<tr><td valign="top" class="RowStyleA">{MSG: register_sig}<br /><font class="SmallText">{MSG: register_sig_desc}<br /></font>{TEMPLATE-DATA: post_options}</td><td class="RowStyleA">{VAR: reg_sig_err}<textarea name="reg_sig" rows=8 cols=50>{VAR: reg_sig}</textarea></td></tr>
-<tr><td class="RowStyleA">{MSG: register_timezone}</td><td class="RowStyleA"><select name="reg_time_zone" class="SmallText">{TEMPLATE-DATA: timezone_select}</select></td></tr>
-<tr><td class="RowStyleA">{MSG: register_ignore_admin}</td><td class="RowStyleA">{TEMPLATE-DATA: ignore_admin_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_invisible_mode}<br /><font class="SmallText">{MSG: register_invisible_mode_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: invisible_mode_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_show_email}<br /><font class="SmallText">{MSG: register_show_email_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_email_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_notification}<br /><font class="SmallText">{MSG: register_notification_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: notify_default_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_pm_notification}<br /><font class="SmallText">{MSG: register_pm_notification_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: pm_notify_default_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_notify_method}<br /><font class="SmallText">{MSG: register_notify_method_desc}</font></td><td class="RowStyleA"><select name="reg_notify_method" onChange="javascript: re=/[^0-9]/g; a=document.fud_register.reg_icq.value.replace(re, ''); if(this.value=='ICQ' && !a.length ) { alert('{MSG: register_notify_js_error}'); this.value='EMAIL'; }">{TEMPLATE-DATA: notification_select}</select></td></tr>
-<tr><td class="RowStyleA">{MSG: register_allow_email_msg}<br /><font class="SmallText">{MSG: register_allow_email_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_user_email}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_allow_pm_msg}<br /><font class="SmallText">{MSG: register_allow_pm_msg_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: accept_pm}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_use_sig_default}<br /><font class="SmallText">{MSG: register_use_sig_default_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: append_sig_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_show_sig}<br /><font class="SmallText">{MSG: register_show_sig_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_sig_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_show_avatar}<br /><font class="SmallText">{MSG: register_show_avatar_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_avatar_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_show_im}<br /><font class="SmallText">{MSG: register_show_im_desc}</font></td><td class="RowStyleA">{TEMPLATE-DATA: show_im_radio}</td></tr>
-<tr><td class="RowStyleA">{MSG: register_msg_per_page}</td><td class="RowStyleA"><select name="reg_posts_ppg">{TEMPLATE-DATA: mppg_select}</select></td></tr>
-<tr><td class="RowStyleA">{MSG: register_def_thread_view}</td><td class="RowStyleA"><select name="reg_default_view">{TEMPLATE-DATA: view_select}</select></td></tr>
-<tr><td class="RowStyleA">Theme:</td><td class="RowStyleA">{TEMPLATE-DATA: theme_select}</td></tr>
-<tr class="RowStyleC"><td colspan=2 align="center">{TEMPLATE-DATA: submit_button}&nbsp;<INPUT TYPE="reset" class="button" NAME="Reset" VALUE="{MSG: register_reset}"></td></tr>
-</table>
-<input type="hidden" name="prev_loaded" value="1">
-<input type="hidden" name="mod_id" value="{VAR: mod_id}">
-<input type="hidden" name="reg_coppa" value="{VAR: reg_coppa}">
-</form>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: REGISTER_PAGE_lnk3}
+{ROOT}/re/{DEF: _rsid}
+{SECTION: END}

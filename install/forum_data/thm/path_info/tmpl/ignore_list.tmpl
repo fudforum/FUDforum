@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ignore_list.tmpl,v 1.6 2003/10/10 12:43:29 hackie Exp $
+* $Id: ignore_list.tmpl,v 1.7 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -21,43 +21,26 @@
 {REF: tabs.tmpl}
 {REF: alt_var.tmpl}
 
-{SECTION: homepage_link}
-<a class="GenLink" href="{VAR: r[6]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" alt="" /></a>
+{SECTION: email_link_lnk}
+{ROOT}/em/{VAR: r[2]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: email_link}
-<a href="{ROOT}/em/{VAR: r[2]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+{SECTION: ignore_user_lnk}
+{ROOT}/u/{VAR: r[2]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: ignore_user info about an ignored user}
-<tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td width="100%" class="GenText"><a class="GenLink" href="{ROOT}/u/{VAR: r[2]}/{DEF: _rsid}">{VAR: r[3]}</a>&nbsp;<font class="SmallText">(<a href="{ROOT}/il/{VAR: r[0]}/0/{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
-	<td align="center">{VAR: r[5]}</td>
-	<td align="center" nowrap>{DATE: r[4] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a href="{ROOT}/sp/{VAR: r[2]}/{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: email_link} {TEMPLATE-DATA: homepage_link}</td>
-</tr>
+{SECTION: ignore_user_lnk1}
+{ROOT}/il/{VAR: r[0]}/0/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: ignore_anon_user info about an ignored user}
-<tr class="{ALT-VAR: ignore_alt RowStyleA RowStyleB}">
-	<td width="100%" colspan=4 class="GenText"><font color="#00AA00">{GVAR: ANON_NICK}</font>&nbsp;<font class="SmallText">(<a href="{ROOT}/il/{VAR: r[1]}/0/{DEF: _rsid}" class="GenLink">{MSG: buddy_remove}</a>)</font></td>
-</tr>
+{SECTION: ignore_user_lnk2}
+{ROOT}/sp/{VAR: r[2]}/{DEF: _rsid}
 {SECTION: END}
 
-{PAGE: IGNORELIST_PAGE ignore users control panel}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: tabs}
-{TEMPLATE-DATA: ignore_list}
-<br /><br />
-<form name="buddy_add" action="{ROOT}/il/{DEF: _rsid}" method="post"><div align="center">
-<table border="0" cellspacing="1" cellpadding="2" class="MiniTable">
-<tr><th nowrap>{MSG: add_ignore}</th></tr>
-<tr class="RowStyleA">
-<td nowrap class="GenText"><font class="Smalltext">{MSG: buddy_search}{TEMPLATE-DATA: ignore_member_search}</font><p>
-<input type="text" name="add_login" value="" maxlength=100 size=25> <input type="submit" class="button" name="submit" value="{MSG: add}"></td></tr>
-</table></div></form>
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: ignore_anon_user_lnk}
+{ROOT}/il/{VAR: r[1]}/0/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: IGNORELIST_PAGE_lnk3}
+{ROOT}/il/{DEF: _rsid}
+{SECTION: END}

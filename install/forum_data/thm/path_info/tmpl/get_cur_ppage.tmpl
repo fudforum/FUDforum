@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: get_cur_ppage.tmpl,v 1.5 2003/10/10 12:43:29 hackie Exp $
+* $Id: get_cur_ppage.tmpl,v 1.6 2003/10/10 15:22:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,10 +11,10 @@
 
 {PHP_FILE: input: get_cur_ppage.inc.t; output: get_cur_ppage.inc;}
 
-{SECTION: viewing_message}
-<a href="{ROOT}/pdm/{VAR: folder_id}/{DEF: _rsid}" class="GenLink">{VAR: folders[$folder_id]}</a> &raquo; {VAR: msg_subject}
+{SECTION: viewing_message_lnk}
+{ROOT}/pdm/{VAR: folder_id}/{DEF: _rsid}
 {SECTION: END}
 
-{MAIN_SECTION: cur_ppage private messaging action indicator}
-<font class="SmallText"><a class="GenLink" href="{ROOT}/pdm/{DEF: _rsid}">{MSG: cur_ppage_pm}</a>&nbsp;&raquo;&nbsp;{TEMPLATE-DATA: user_action}</font><br /><img src="blank.gif" alt="" height=4 width=1 /><br />
-{MAIN_SECTION: END}
+{SECTION: cur_ppage_lnk}
+{ROOT}/pdm/{DEF: _rsid}
+{SECTION: END}

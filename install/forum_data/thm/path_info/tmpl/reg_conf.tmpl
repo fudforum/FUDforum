@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reg_conf.tmpl,v 1.3 2003/10/09 23:45:55 hackie Exp $
+* $Id: reg_conf.tmpl,v 1.4 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -27,10 +27,14 @@
 	<td>{TEMPLATE-DATA: msg}</td>
 </tr>
 <tr class="RowStyleC">
-	<td align="center"><form method="GET" action="{ROOT}/i/{DEF: _rsidl}"><input type="submit" name="rc" value="Done"></form></td>
+	<td align="center"><form method="GET" action="{TEMPLATE: REG_CONF_lnk3}"><input type="submit" name="rc" value="Done"></form></td>
 </tr>
 </table>
 </div>
 {TEMPLATE: curtime}
 {TEMPLATE: footer}
 {PAGE: END}
+
+{SECTION: REG_CONF_lnk3}
+{ROOT}/i/{DEF: _rsidl}
+{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: quicklogin.tmpl,v 1.4 2003/10/09 23:45:55 hackie Exp $
+* $Id: quicklogin.tmpl,v 1.5 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,7 +13,7 @@
 
 {MAIN_SECTION: quick_login_on}
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr><td align="right">
-<form name="quick_login_form" method="post" action="{ROOT}/l/{DEF: _rsid}">
+<form name="quick_login_form" method="post" action="{TEMPLATE: quick_login_on_lnk3}">
 <table border=0 align="right" cellspacing=0 cellpadding=3>
 <tr class="SmallText">
 	<td>{MSG: quicklogin_login}</td>
@@ -28,3 +28,7 @@
 </tr>
 </table></form></td></tr></table>
 {MAIN_SECTION: END}
+
+{SECTION: quick_login_on_lnk3}
+{ROOT}/l/{DEF: _rsid}
+{SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.8 2003/10/10 12:43:29 hackie Exp $
+* $Id: post_common.tmpl,v 1.9 2003/10/10 15:22:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,83 +12,18 @@
 {PHP_FILE: input: post_common.inc.t; output: post_common.inc;}
 {REF: smiley.tmpl}
 
-{SECTION: post_smilies}
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_smiley}
-	<br /><font size="-1">[<a href="javascript://" onClick="javascript: window_open(\'{ROOT}/sm/{DEF: _rsid}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</font>
-</td>
-<td valign=top><table border=0 cellspacing=5 cellpadding=0><tr valign="bottom"><td>{TEMPLATE-DATA: data}</td></tr></table></td></tr>
-{SECTION: END}
-
-{SECTION: fud_code_icons shortcuts to various FUDcode text formatting tools}
-<tr class="RowStyleA"><td nowrap class="GenText">{MSG: post_format_tools}</td><td>
-<table border=0 cellspacing=0 cellpadding=0>
-<tr><td>
-<table border=0 cellspacing=1 cellpadding=2 class="FormattingToolsBG">
-<tr>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=left]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aleft.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=center]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_acenter.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[ALIGN=right]\', \'[/ALIGN]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_aright.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: url_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_url.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: email_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_email.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: image_insert();"><img alt="" src="{THEME_IMAGE_ROOT}/b_image.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}/mk/OL:1/{DEF: _rsid}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_numlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: window_open(\'{ROOT}/mk/UL:square/{DEF: _rsid}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a></td>
-<td class="FormattingToolsCLR"><a href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a></td>
-</tr>
-</table>
-</td>
-<td>&nbsp;&nbsp;
-<select name="fnt_size" onChange="javascript:insertTag(document.post_form.msg_body, \'[SIZE=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/SIZE]\'); document.post_form.fnt_size.options[0].selected=true">
-<option value="" selected>{MSG: post_size}</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-</select>
-<select name="fnt_color" onChange="javascript:insertTag(document.post_form.msg_body, \'[COLOR=\'+document.post_form.fnt_color.options[this.selectedIndex].value+\']\', \'[/COLOR]\'); document.post_form.fnt_color.options[0].selected=true">
-<option value="">{MSG: post_color}</option>
-<option value="skyblue" style="color:skyblue">Sky Blue</option>
-<option value="royalblue" style="color:royalblue">Royal Blue</option>
-<option value="blue" style="color:blue">Blue</option>
-<option value="darkblue" style="color:darkblue">Dark Blue</option>
-<option value="orange" style="color:orange">Orange</option>
-<option value="orangered" style="color:orangered">Orange Red</option>
-<option value="crimson" style="color:crimson">Crimson</option>
-<option value="red" style="color:red">Red</option>
-<option value="firebrick" style="color:firebrick">Firebrick</option>
-<option value="darkred" style="color:darkred">Dark Red</option>
-<option value="green" style="color:green">Green</option>
-<option value="limegreen" style="color:limegreen">Lime Green</option>
-<option value="seagreen" style="color:seagreen">Sea Green</option>
-<option value="deeppink" style="color:deeppink">Deep Pink</option>
-<option value="tomato" style="color:tomato">Tomato</option>
-<option value="coral" style="color:coral">Coral</option>
-<option value="purple" style="color:purple">Purple</option>
-<option value="indigo" style="color:indigo">Indigo</option>
-<option value="burlywood" style="color:burlywood">Burly Wood</option>
-<option value="sandybrown" style="color:sandybrown">Sandy Brown</option>
-<option value="sienna" style="color:sienna">Sienna</option>
-<option value="chocolate" style="color:chocolate">Chocolate</option>
-<option value="teal" style="color:teal">Teal</option>
-<option value="silver" style="color:silver">Silver</option>
-</select>
-<select name="fnt_face" onChange="javascript:insertTag(document.post_form.msg_body, \'[FONT=\'+document.post_form.fnt_face.options[this.selectedIndex].value+\']\', \'[/FONT]\'); document.post_form.fnt_face.options[0].selected=true">
-<option value="">{MSG: post_font}</option>
-<option value="Arial" style="font-family:Arial">Arial</option>
-<option value="Times" style="font-family:Times">Times</option>
-<option value="Courier" style="font-family:Courier">Courier</option>
-<option value="Century" style="font-family:Century">Century</option>
-</select>
-</td></tr></table></td></tr>
-{SECTION: END}
-
 {SECTION: insert_uploaded_image}
 &nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}/fa/{VAR: r[0]}/{VAR: private}/\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
+{SECTION: END}
+
+{SECTION: post_smilies_lnk1}
+{ROOT}/sm/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: fud_code_icons_lnk1}
+{ROOT}/mk/OL:1/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: fud_code_icons_lnk2}
+{ROOT}/mk/UL:square/{DEF: _rsid}
 {SECTION: END}
