@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.35 2004/01/04 16:38:26 hackie Exp $
+* $Id: groupmgr.php.t,v 1.36 2004/01/16 17:37:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -242,7 +242,11 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			$group_members_list .= '{TEMPLATE: group_const_entry}';
 		} else {
 			$member_name = $obj->alias;
-			$group_members_list .= '{TEMPLATE: group_member_entry}';
+			if ($obj->user_id == _uid && !($usr->users_opt & 1048576)) {
+				$group_members_list .= '{TEMPLATE: group_const_entry}';
+			} else {
+				$group_members_list .= '{TEMPLATE: group_member_entry}';
+			}
 		}
 	}
 	$group_control_panel = '{TEMPLATE: group_control_panel}';
