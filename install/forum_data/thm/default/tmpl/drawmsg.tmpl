@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.13 2002/08/14 11:59:40 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.14 2002/11/07 18:31:49 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,11 +38,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{ROOT}?t={GVAR: t}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: rev}&amp;reveal={VAR: reveal}&amp;count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
+<a href="{ROOT}?t={GVAR: t}&amp;{DEF: _rsid}&amp;prevloaded=1&amp;th={VAR: obj->thread_id}&amp;start={VAR: msg_start}&amp;rev={VAR: rev}&amp;reveal={VAR: reveal}&amp;count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="{ROOT}?t={GVAR: t}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: pager[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
+<a href="{ROOT}?t={GVAR: t}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;mid={VAR: pager[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_regged}
