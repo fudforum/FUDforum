@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.38 2003/05/20 16:40:35 hackie Exp $
+*   $Id: consist.php,v 1.39 2003/05/20 18:24:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -93,6 +93,14 @@ forum will be disabled.<br><br>
 		draw_stat('Optimizing forum\'s SQL tables');
 		optimize_tables();
 		draw_stat('Done: Optimizing forum\'s SQL tables');
+
+		if ($FORUM_ENABLED == 'Y' || isset($_GET['enable_forum'])) {
+			draw_stat('Re-enabling the forum.');
+			maintenance_status($DISABLED_REASON, 'Y');
+		} else {
+			echo '<font size="+1" color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsid.'">Global Settings Manager</a> and re-enable it.</font><br>';
+		}
+
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
