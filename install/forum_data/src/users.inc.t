@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.26 2003/04/06 15:52:04 hackie Exp $
+*   $Id: users.inc.t,v 1.27 2003/04/07 08:42:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,22 +50,7 @@ class fud_user
 		}
 	}
 	
-	function register_thread_view($thread_id, $tm=0, $msg_id=0)
-	{
-		if (!$tm) {
-			$tm = __request_timestamp__;
-		}
 	
-		if (($old_msg_id = q_singleval('SELECT msg_id FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$thread_id.' AND user_id='.$this->id))) {
-			if ($old_msg_id > $msg_id) {
-				$msg_id = $old_msg_id;
-			}
-
-			q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='.$this->id);
-		} else {
-			q('INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES('.$thread_id.', '.$this->id.', '.$msg_id.', '.$tm.')');
-		}
-	}
 	
 	function mark_all_read()
 	{
@@ -140,6 +125,16 @@ function user_register_forum_view($frm_id)
 {
 	if (!db_affected(q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid))) {
 		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES('.$frm_id.', '._uid.','.__request_timestamp__.')');
+	}
+}
+
+function register_thread_view($thread_id, $tm=0, $msg_id=0)
+{
+	if (!$tm) {
+		$tm = __request_timestamp__;
+	}
+	if (!db_affected(q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid))) {
+		q('INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES('.$thread_id.', '._uid.', '.$msg_id.', '.$tm.')');	
 	}
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.21 2003/04/06 13:36:48 hackie Exp $
+*   $Id: msg.php.t,v 1.22 2003/04/07 08:42:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,12 +30,7 @@
 	 * When we need to determine the 1st unread message, we do it 1st, so that we can re-use the goto handling logic 
 	 */
 	if (isset($_GET['unread'], $_GET['th']) && _uid) {
-		if (($lv = q_singleval('SELECT last_view FROM {SQL_TABLE_PREFIX}read WHERE thread_id='.$_GET['th'].' AND user_id='._uid))) {
-			if ($usr->last_read > $lv) {
-				$lv = $usr->last_read;
-			}
-			$_GET['goto'] = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$_GET['th']." AND approved='Y' AND post_stamp>".$lv." ORDER BY id LIMIT 1");
-		}
+		$_GET['goto'] = q_singleval('SELECT m.id from {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}read r ON r.thread_id=m.thread_id AND r.user_id='._uid.' WHERE m.thread_id='.$_GET['th'].' AND m.approved=\'Y\' AND m.post_stamp>CASE WHEN (r.last_view IS NOT NULL || r.last_view>'.$usr->last_read.') THEN r.last_view ELSE '.$usr->last_read.' END');
 	}
 		
 	if (isset($_GET['goto'])) {
@@ -78,7 +73,8 @@
 			mo.forum_id AS mod,
 			g.p_VISIBLE as p_visible, g.p_READ as p_read, g.p_post as p_post, g.p_REPLY as p_reply, g.p_EDIT as p_edit, g.p_DEL as p_del, g.p_STICKY as p_sticky, g.p_POLL as p_poll, g.p_FILE as p_file, g.p_VOTE as p_vote, g.p_RATE as p_rate, g.p_SPLIT as p_split, g.p_LOCK as p_lock, g.p_MOVE as p_move, g.p_SML as p_sml, g.p_IMG as p_img,
 			tr.thread_id AS cant_rate,
-			r.last_view
+			r.last_view,
+			r.msg_id
 		FROM {SQL_TABLE_PREFIX}thread t
 			INNER JOIN {SQL_TABLE_PREFIX}msg	m ON m.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum	f ON f.id=t.forum_id
@@ -134,7 +130,7 @@
 		$subscribe_status = '';
 	}
 
-	$ses->update('{TEMPLATE: msg_update}', $frm->forum_id);
+	ses_update_status($usr->sid, '{TEMPLATE: msg_update}', $frm->forum_id);
 
 /*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: msg_title}';
@@ -167,52 +163,23 @@
 	}
 
 	$result = uq('SELECT 
-		{SQL_TABLE_PREFIX}msg.*, 
-		{SQL_TABLE_PREFIX}thread.locked,
-		{SQL_TABLE_PREFIX}thread.root_msg_id,
-		{SQL_TABLE_PREFIX}thread.last_post_id,
-		{SQL_TABLE_PREFIX}thread.forum_id,
-		{SQL_TABLE_PREFIX}forum.message_threshold,
-		{SQL_TABLE_PREFIX}avatar.img AS avatar, 
-		{SQL_TABLE_PREFIX}users.id AS user_id, 
-		{SQL_TABLE_PREFIX}users.alias AS login, 
-		{SQL_TABLE_PREFIX}users.display_email, 
-		{SQL_TABLE_PREFIX}users.avatar_approved,
-		{SQL_TABLE_PREFIX}users.avatar_loc,
-		{SQL_TABLE_PREFIX}users.email, 
-		{SQL_TABLE_PREFIX}users.posted_msg_count, 
-		{SQL_TABLE_PREFIX}users.join_date, 
-		{SQL_TABLE_PREFIX}users.location, 
-		{SQL_TABLE_PREFIX}users.sig,
-		{SQL_TABLE_PREFIX}users.custom_status,
-		{SQL_TABLE_PREFIX}users.icq,
-		{SQL_TABLE_PREFIX}users.jabber,
-		{SQL_TABLE_PREFIX}users.affero,
-		{SQL_TABLE_PREFIX}users.aim,
-		{SQL_TABLE_PREFIX}users.msnm,
-		{SQL_TABLE_PREFIX}users.yahoo,
-		{SQL_TABLE_PREFIX}users.invisible_mode,
-		{SQL_TABLE_PREFIX}users.email_messages,
-		{SQL_TABLE_PREFIX}users.is_mod,
-		{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
-		{SQL_TABLE_PREFIX}level.name AS level_name,
-		{SQL_TABLE_PREFIX}level.pri AS level_pri,
-		{SQL_TABLE_PREFIX}level.img AS level_img
+		m.*, 
+		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+		f.message_threshold,
+		u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
+		u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
+		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
+		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+		l.name AS level_name, l.pri AS level_pri, l.img AS level_img
 	FROM 
-		{SQL_TABLE_PREFIX}msg
-		INNER JOIN {SQL_TABLE_PREFIX}thread
-			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id
-		INNER JOIN {SQL_TABLE_PREFIX}forum
-			ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id
-		LEFT JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}avatar 
-			ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}level
-			ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
+		{SQL_TABLE_PREFIX}msg m
+		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
+		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
 	WHERE 
-		{SQL_TABLE_PREFIX}msg.thread_id='.$_GET['th'].' AND approved=\'Y\'
-	ORDER BY id ASC LIMIT ' . qry_limit($count, $_GET['start']));
+		m.thread_id='.$_GET['th'].' AND m.approved=\'Y\'
+	ORDER BY m.id ASC LIMIT ' . qry_limit($count, $_GET['start']));
 	
 	$message_data = '';
 
@@ -226,7 +193,7 @@
 	un_register_fps();
 
 	if (_uid && $frm->last_view < $obj2->post_stamp) {
-		$usr->register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
+		register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
 	}
 
 	$page_pager = tmpl_create_pager($_GET['th'], $count, $total, '{ROOT}?t=msg&amp;th='.$_GET['th'].'&amp;prevloaded=1&amp;'._rsid.'&amp;rev='.$rev.'&amp;reveal='.$reveal);
