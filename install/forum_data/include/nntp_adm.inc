@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.4 2003/05/05 14:52:17 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.5 2003/05/05 14:59:27 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,8 +47,12 @@ class fud_nntp_adm
 		if ($this->auth != 'ORIGINAL' && $this->auth != 'SIMPLE') {
 			$this->auth = 'NONE';
 		}
-	
-		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp(
+		if (!db_locked()) {
+			$ll = 1;
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
+		}
+
+		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp(
 			forum_id,
 			nntp_post_apr,
 			allow_frm_post,
@@ -65,61 +69,65 @@ class fud_nntp_adm
 			create_users
 			)
 			VALUES(
-			".$this->forum_id.",
+			".(int)$this->forum_id.",
 			'".yn($this->nntp_post_apr)."',
 			'".yn($this->allow_frm_post)."',
 			'".yn($this->frm_post_apr)."',
 			'".yn($this->allow_nttp_attch)."',
 			'".yn($this->complex_reply_match)."',
-			'".$this->server."',
-			".intval($this->port).",
+			'".addslashes($this->server)."',
+			".(int)$this->port.",
 			'".addslashes($this->login)."',
 			'".addslashes($this->pass)."',
-			".intval($this->timeout).",
+			".(int)$this->timeout.",
 			'".addslashes($this->newsgroup)."',
 			'".$this->auth."',
 			'".yn($this->create_users)."'
 			)");
-
-		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."mlist", $r);
-		$this->Update_forum_settings();
+		if ($this->frm_post_apr == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'Y\' WHERE id='.$this->forum_id);
+		}
+		
+		if (isset($ll)) {
+			db_unlock();
+		}
 		
 		return $this->id;
 	}
 	
 	function sync($id)
 	{
+		if (!db_locked()) {
+			$ll = 1;
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
+		}
+
+		list($old_frm_id, $frm_post_apr) = db_saq('SELECT forum_id, frm_post_apr FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
+
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp SET
-			forum_id=".$this->forum_id.",
+			forum_id=".(int)$this->forum_id.",
 			nntp_post_apr='".yn($this->nntp_post_apr)."',
 			allow_frm_post='".yn($this->allow_frm_post)."',
 			frm_post_apr='".yn($this->frm_post_apr)."',
 			allow_nntp_attch='".yn($this->allow_nntp_attch)."',
 			complex_reply_match='".yn($this->complex_reply_match)."',
-			server='".$this->server."',
-			port=".intval($this->port).",
+			server='".addslashes($this->server)."',
+			port=".(int)$this->port.",
 			login='".addslashes($this->login)."',
 			pass='".addslashes($this->pass)."',
-			timeout=".intval($this->timeout).",
+			timeout=".(int)$this->timeout.",
 			newsgroup='".addslashes($this->newsgroup)."',
 			auth='".$this->auth."',
 			create_users='".yn($this->create_users)."'
 		WHERE id=".$id);
-			
-		$this->Update_forum_settings();	
-	}
-	
-	
-	
-	function update_forum_settings()
-	{
-		if( !db_locked() ) {
-			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE');
+
+		if ($old_frm_id != $this->forum_id && $frm_post_apr == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'N\' WHERE id='.$old_frm_id);
 		}
-		
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderated='".yn($this->frm_post_apr)."' WHERE id=".$this->forum_id);
-		
+		if ($this->frm_post_apr == 'Y') {
+			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET moderated=\'Y\' WHERE id='.$this->forum_id);
+		}
+
 		if (isset($ll)) {
 			db_unlock();
 		}
@@ -132,6 +140,7 @@ function nntp_del($id)
 		$ll = 1;
 		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE, '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WRITE');
 	}
+
 	if (!($d = db_saq('SELECT frm_post_apr, forum_id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id))) {
 		if (isset($ll)) {
 			db_unlock();

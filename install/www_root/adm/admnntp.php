@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.8 2003/05/05 14:52:03 hackie Exp $
+*   $Id: admnntp.php,v 1.9 2003/05/05 15:02:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -185,7 +185,7 @@
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 			<?php if ($edit) echo '<input type="submit" value="Cancel" name="btn_cancel">&nbsp;'; ?>
-			<input type="submit" value="<?php echo (!$edit ? 'Update Newsgroup Rule' : 'Add Newsgroup Rule'); ?>" name="nntp_submit">
+			<input type="submit" value="<?php echo ($edit ? 'Update Newsgroup Rule' : 'Add Newsgroup Rule'); ?>" name="nntp_submit">
 		</td>
 	</tr>
 </table>
