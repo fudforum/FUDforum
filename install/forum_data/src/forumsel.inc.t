@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forumsel.inc.t,v 1.25 2004/10/20 20:09:10 hackie Exp $
+* $Id: forumsel.inc.t,v 1.26 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,12 +33,10 @@ function tmpl_create_forum_select($frm_id, $mod)
 	}
 	$f = array($frm_id => 1);
 
-	require $GLOBALS['FORUM_SETTINGS_PATH'].'cat_cache.inc';
-
 	$oldc = $selection_options = '';
 	while ($r = db_rowarr($c)) {
 		if ($oldc != $r[2]) {
-			while (list($k, $i) = each($cat_cache)) {
+			while (list($k, $i) = each($GLOBALS['cat_cache'])) {
 				$selection_options .= '{TEMPLATE: category_option}';
 				if ($k == $r[2]) {
 					break;
@@ -51,6 +49,4 @@ function tmpl_create_forum_select($frm_id, $mod)
 	
 	return '{TEMPLATE: forum_select}';
 }
-
-$forum_select = tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576);
 ?>

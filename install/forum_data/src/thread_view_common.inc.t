@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.inc.t,v 1.38 2004/10/19 14:54:59 hackie Exp $
+* $Id: thread_view_common.inc.t,v 1.39 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -41,8 +41,7 @@ if (!isset($_GET['start']) || ($start = (int)$_GET['start']) < 1) {
 make_perms_query($fields, $join, $frm_id);
 
 $frm = db_sab('SELECT
-			f.id, f.name, f.thread_count,
-			c.name AS cat_name,
+			f.id, f.name, f.thread_count, f.cat_id,
 			fn.forum_id AS subscribed,
 			m.forum_id AS md,
 			a.ann_id AS is_ann,

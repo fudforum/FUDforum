@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.34 2004/07/02 16:54:28 hackie Exp $
+* $Id: threadt.tmpl,v 1.35 2004/10/21 00:08:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -100,7 +100,7 @@
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
 <table class="wa" border=0 cellspacing=0 cellpadding=0><tr>
-<td class="al wa">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
+<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr></table>
 {TEMPLATE: thread_list}
@@ -110,7 +110,7 @@
 <td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
-{TEMPLATE-DATA: forum_select}
+{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 {TEMPLATE-DATA: mark_all_read}
 {TEMPLATE: thread_legend}
 {TEMPLATE: curtime}

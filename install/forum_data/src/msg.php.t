@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.75 2004/10/10 18:28:33 hackie Exp $
+* $Id: msg.php.t,v 1.76 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -62,8 +62,8 @@
 	make_perms_query($fields, $join);
 
 	$frm = db_sab('SELECT
-			c.name AS cat_name,
-			f.name AS frm_name,
+			c.id AS cat_id,
+			f.name,
 			m.subject,
 			t.id, t.forum_id, t.replies, t.rating, t.n_rating, t.root_msg_id, t.moved_to, t.thread_opt, t.last_post_date,
 			tn.thread_id AS subscribed,
@@ -117,10 +117,9 @@
 	}
 
 	if (!_uid) {
-		header("Last-Modified: " .  gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
+		header("Last-Modified: " . gmdate("D, d M Y H:i:s", $frm->last_post_date) . " GMT");
 	}
 
-	$msg_forum_path = '{TEMPLATE: msg_forum_path}';
 	$_GET['start'] = (isset($_GET['start']) && $_GET['start'] > 0) ? (int)$_GET['start'] : 0;
 	$total = $frm->replies + 1;
 

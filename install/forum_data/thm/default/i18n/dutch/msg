@@ -671,7 +671,7 @@ email_title:			Email Formulier
 finduser_title:			Vind lid
 help_title:			F.A.Q.
 login_title:			Login Formulier
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Poll Editor
 register_title:			Registratie formulier
 reset_title:			Reset paswoord
@@ -680,7 +680,7 @@ error_title:			Fout formulier
 index_title:			Welkom op het forum
 search_title:			Zoek naar {VAR-HTML: srch}
 thread_title:			{VAR-HTML: frm->name}
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		Email is verzonden
 remail_email:			Hallo,\n\ner is een interessant topic over "{VAR: data->subject}" op {GVAR: FORUM_TITLE} forum dat u misschien wel wilt lezen. U kan dit topic bekijken op:\n {FULL_ROOT}{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n uw vriend,\n\n{VAR: usr->alias}\n
 poll_add_option:		voeg Optie toe:

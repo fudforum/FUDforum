@@ -1,0 +1,40 @@
+/***************************************************************************
+* copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: draw_forum_path.tmpl,v 1.1 2004/10/21 00:08:38 hackie Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+***************************************************************************/
+
+{PHP_FILE: input: draw_forum_path.inc.t; output: @draw_forum_path.inc;}
+
+{SECTION: dfp_forum_no_lnk}
+&nbsp;&raquo; <b>{VAR-HTML: fn}</b>
+{SECTION: END}
+
+{SECTION: dfp_forum_lnk}
+&nbsp;&raquo; <a href="{TEMPLATE: dfp_forum_link}">{VAR-HTML: fn}</a>
+{SECTION: END}
+
+{SECTION: dfp_forum_link}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: fid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: dfp_cat_link}
+&nbsp;&raquo; <a href="{TEMPLATE: dfp_cat_link_lnk}">{VAR-HTML: cn}</a>
+{SECTION: END}
+
+{SECTION: dfp_cat_link_lnk}
+{ROOT}?t=i&amp;cat={VAR: cid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{MAIN_SECTION: forum_path}
+<a href="{TEMPLATE: dfp_home_lnk}">{MSG: home}</a>{TEMPLATE-DATA: data}{FUNC: ($tn ? '&nbsp;&raquo; <b>'.$tn.'</b>' : '')}
+{MAIN_SECTION: END}
+
+{SECTION: dfp_home_lnk}
+{ROOT}?t=i&amp;{DEF: _rsid}
+{SECTION: END}

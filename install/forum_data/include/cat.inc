@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.15 2004/10/20 17:37:31 hackie Exp $
+* $Id: cat.inc,v 1.16 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -103,12 +103,13 @@ function rebuild_forum_cat_order()
 	/* we use left join to catch categories without any forums, but with sub-categories */
 	$c = uq("SELECT c.id, f.id, c.parent, c.name FROM ".$tbl."cat c LEFT JOIN ".$tbl."forum f ON f.cat_id=c.id
 			ORDER BY c.parent, c.view_order, f.view_order");
-	$ol = array();
+	$cat_par = $ol = array();
 	while ($r = db_rowarr($c)) {
 		if (!isset($ol[$r[2]])) {
 			$ol[$r[2]] = array();
 		}
 		$ol[$r[2]][] = $r;
+		$cat_par[$r[0]] = $r[2];
 	}
 	q("DELETE FROM ".$tbl."fc_view");
 	
@@ -118,7 +119,7 @@ function rebuild_forum_cat_order()
 	while (1) {
 		while (list(,$v) = each($ol[$l])) {
 			if (!isset($cat_cache[$v[0]])) {
-				$cat_cache[$v[0]] = array($i, $v[3]);
+				$cat_cache[$v[0]] = array($i, htmlspecialchars($v[3]));
 				if ($v[2]) {
 					if (!isset($cat_cache[$v[2]][2])) {
 						$cat_cache[$v[2]][2] = array();
@@ -159,7 +160,7 @@ function rebuild_forum_cat_order()
 
 	$cache_file = $GLOBALS['FORUM_SETTINGS_PATH'] . 'cat_cache.inc';
 	$fp = fopen($cache_file.'.tmp', "w");
-	fwrite($fp, '<?php $cat_cache = '.var_export($cat_cache, 1).'; ?>');
+	fwrite($fp, '<?php $cat_cache = '.var_export($cat_cache, 1).'; $cat_par = '.var_export($cat_par, 1).'; ?>');
 	fclose($fp);
 	rename($cache_file.'.tmp', $cache_file);
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.132 2004/10/10 18:06:08 hackie Exp $
+* $Id: users.inc.t,v 1.133 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -112,7 +112,10 @@ function init_user()
 			case 'i':
 				$_GET['t'] = 'index';
 				if (isset($p[1])) {
-					$_GET['c'] = $p[1];
+					$_GET['cat'] = (int) $p[1];
+					if (isset($p[2])) {
+						$_GET['c'] = $p[2];
+					}
 				}
 				break;
 

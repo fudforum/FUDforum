@@ -304,7 +304,7 @@ moved_thread_message:		Dieses Thema wurde in ein anderes Forum verschoben
 msg_author:			Verfasser
 msg_err_ininfo_msg:		Beim Erzeugen der Seite ist ein Problem aufgetreten
 msg_err_ininfo_title:		Information reicht nicht aus
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 msg_update:			Durchsucht das Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
@@ -784,7 +784,7 @@ time:				Zeit
 todays_posts:			Heutige Beitr&auml;ge
 todays_posts_desc:		Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
 trash:				M&uuml;ll
-tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 tree_update:			Durchsucht das Thema (Baumansicht) <a href="{FULL_ROOT}{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge

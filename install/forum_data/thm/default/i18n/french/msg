@@ -670,7 +670,7 @@ email_title:			E-mail
 finduser_title:			Chercher un utilisateur
 help_title:			F.A.Q. (Foire Aux Questions, questions fréquemment posées)
 login_title:			Nom d&#39;utilisateur
-msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: frm->subject}
 poll_title:			Editeur de sondage
 register_title:			Inscription
 reset_title:			Réinitialisation du mot de passe

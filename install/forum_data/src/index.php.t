@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.57 2004/10/19 00:44:55 hackie Exp $
+* $Id: index.php.t,v 1.58 2004/10/21 00:08:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -104,8 +104,8 @@ function url_tog_collapse($id, $c)
 				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').',
 				v.lvl, c.parent
 			FROM {SQL_TABLE_PREFIX}fc_view v
-			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=f.id
 			LEFT JOIN {SQL_TABLE_PREFIX}msg m ON f.last_post_id=m.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON u.id=m.poster_id
@@ -116,6 +116,10 @@ function url_tog_collapse($id, $c)
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {
+		/* increase thread & post count */
+		$post_count += $r[15];
+		$thread_count += $r[16];
+
 		if ($cat != $r[8]) {
 			/* if parent category is collapsed, hide child category */
 			if ($r[21] && !empty($GLOBALS['collapse'][$r[21]])) {
@@ -156,10 +160,7 @@ function url_tog_collapse($id, $c)
 			continue;
 		}
 
-		/* increase thread & post count */
-		$post_count += $r[15];
-		$thread_count += $r[16];
-
+		
 		/* code to determine the last post id for 'latest' forum message */
 		if ($r[11] > $last_msg_id) {
 			$last_msg_id = $r[11];
