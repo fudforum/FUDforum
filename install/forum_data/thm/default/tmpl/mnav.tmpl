@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.tmpl,v 1.7 2003/10/28 03:13:26 hackie Exp $
+* $Id: mnav.tmpl,v 1.8 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -129,12 +129,12 @@
 <tr><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td class="RowStyleC">&nbsp;&nbsp;&nbsp;</td><td>
 <table cellspacing=0 cellpadding=2 border=0 class="mnavMsg">
 <tr class="mnavH">
-	<td align="left" class="SmallText"><a class="GenLink" href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
+	<td align="left" class="SmallText"><a href="{TEMPLATE: mnav_msg_lnk}">{VAR: r->subject}</a></td>
 	<td align="center" class="SmallText">{MSG: mnav_posted_by} {TEMPLATE-DATA: poster_info}</td>
 	<td align="right" class="SmallText">{DATE: r->post_stamp %a, %d %B %Y %H:%M}</td>
 </tr>
 <tr class="mnavM">
-	<td colspan="3" class="SmallText">{VAR: body} <a class="GenLink" href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
+	<td colspan="3" class="SmallText">{VAR: body} <a href="{TEMPLATE: mnav_msg_lnk2}">{MSG: mnav_more}</a></td>
 </tr>
 </table>
 </td></tr>
@@ -145,7 +145,7 @@
 {SECTION: END}
 
 {SECTION: mnav_user}
-<a class="GenLink" href="{TEMPLATE: mnav_user_lnk}">{VAR: r->alias}</a>
+<a href="{TEMPLATE: mnav_user_lnk}">{VAR: r->alias}</a>
 {SECTION: END}
 
 {SECTION: mnav_anon}

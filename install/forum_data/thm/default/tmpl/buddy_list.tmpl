@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: buddy_list.tmpl,v 1.18 2003/10/10 14:39:24 hackie Exp $
+* $Id: buddy_list.tmpl,v 1.19 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -22,7 +22,7 @@
 {REF: alt_var.tmpl}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: r[7]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" alt="" /></a>
+<a href="{VAR: r[7]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: online_indicator}
@@ -38,20 +38,20 @@
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{TEMPLATE: pm_link_lnk}" class="GenLink">{VAR: r[2]}</a>
+<a href="{TEMPLATE: pm_link_lnk}">{VAR: r[2]}</a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{TEMPLATE: email_link_lnk}" class="GenLink">{VAR: r[2]}</a>
+<a href="{TEMPLATE: email_link_lnk}">{VAR: r[2]}</a>
 {SECTION: END}
 
 {SECTION: buddy buddy row entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td align="center">{TEMPLATE-DATA: online_status}</td>
-	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{TEMPLATE: buddy_lnk}" class="GenLink">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
+	<td width="100%" class="GenText">{TEMPLATE-DATA: contact_link}&nbsp;<font class="SmallText">(<a href="{TEMPLATE: buddy_lnk}">{MSG: buddy_remove}</a>)</font>&nbsp;{TEMPLATE-DATA: bday_indicator}</td>
 	<td align="center">{VAR: r[6]}</td>
 	<td align="center" nowrap>{DATE: r[3] %a, %d %B %Y %H:%M}</td>
-	<td class="GenText" nowrap><a class="GenLink" href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
+	<td class="GenText" nowrap><a href="{TEMPLATE: buddy_lnk1}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>&nbsp;<a href="{TEMPLATE: buddy_lnk2}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="" /></a> {TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 

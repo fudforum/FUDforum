@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.tmpl,v 1.36 2003/11/25 12:36:00 hackie Exp $
+* $Id: register.tmpl,v 1.37 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: change_passwd_link}
-&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);" class="GenLink">{MSG: register_change_passwd}</a> ]</font>
+&nbsp;<font class="SmallText">[ <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: change_passwd_link_lnk1}\',\'rpass\',380,250);">{MSG: register_change_passwd}</a> ]</font>
 {SECTION: END}
 
 {SECTION: update_user update user section, is used when a registered user is editing their profile}
@@ -75,12 +75,12 @@
 {SECTION: END}
 
 {SECTION: del_built_in_avatar delete avatar link}
-[<a href="javascript: return false;" onClick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';" class="GenLink">{MSG: register_del_avatar}</a>]
+[<a href="javascript: return false;" onClick="document.reg_avatar_img.src=\'blank.gif\'; document.fud_register.reg_avatar.value=\'0\';">{MSG: register_del_avatar}</a>]
 {SECTION: END}
 
 {SECTION: built_in_avatar}
 <tr valign="top"><td class="RowStyleA">{MSG: register_avatar}</td><td class="RowStyleA"><img src="{VAR: reg_avatar_img}" name="reg_avatar_img" alt="" />
-<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a class="GenLink" href="javascript: window_open(\'{TEMPLATE: built_in_avatar_lnk1}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
+<input type="hidden" name="reg_avatar" value="{VAR: reg_avatar}">[<a href="javascript: window_open(\'{TEMPLATE: built_in_avatar_lnk1}\', \'avtsel\', 400, 300);">{MSG: register_sel_avatar}</a>]
 {TEMPLATE-DATA: del_built_in_avatar}<br /></td></tr>
 {SECTION: END}
 

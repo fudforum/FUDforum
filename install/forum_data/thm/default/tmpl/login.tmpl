@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.tmpl,v 1.15 2003/10/23 19:00:50 hackie Exp $
+* $Id: login.tmpl,v 1.16 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -32,8 +32,8 @@
 <li><font class="GenText">{MSG: login_cookie_expired}</font>
 <li><font class="GenText">{MSG: login_perm_denied}</font>
 </ol></td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a class="GenLink" href="{TEMPLATE: LOGIN_PAGE_lnk}">{MSG: login_want_to_register}</a></td></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a class="GenLink" href="{TEMPLATE: LOGIN_PAGE_lnk1}">{MSG: login_forgot_passwd}</a></td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: login_login}</td><td>{VAR: login_error}<input type="text" tabindex="1" name="login"></td><td nowrap><a href="{TEMPLATE: LOGIN_PAGE_lnk}">{MSG: login_want_to_register}</a></td></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: login_passwd}</td><td>{VAR: passwd_error}<input type="password" tabindex="2" name="password"></td><td nowrap><a href="{TEMPLATE: LOGIN_PAGE_lnk1}">{MSG: login_forgot_passwd}</a></td></tr>
 {TEMPLATE-DATA: login_use_cookies}
 <tr class="RowStyleA"><td colspan=3 align="right"><input type="submit" class="button" tabindex="3" value="{MSG: login_login_btn}"></td></tr>
 </table></div>{DEF: _hs}<input type="hidden" name="adm" value="{VAR: _POST['adm']}"></form>

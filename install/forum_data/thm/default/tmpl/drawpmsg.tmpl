@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.tmpl,v 1.31 2003/12/19 12:24:12 hackie Exp $
+* $Id: drawpmsg.tmpl,v 1.32 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -49,7 +49,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link}
-<a href="{TEMPLATE: dpmsg_buddy_link_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a><br />
+<a href="{TEMPLATE: dpmsg_buddy_link_lnk}">{MSG: add_to_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dpmsg_im_icq_lnk}
@@ -89,8 +89,8 @@
 
 {SECTION: dpmsg_file_attachment file attachment entry row}
 <tr>
-<td valign=middle><a class="GenLink" href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" alt="" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
+<td valign=middle><a href="{TEMPLATE: dpmsg_file_attachment_lnk}"><img src="images/mime/{VAR: r->icon}" alt="" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dpmsg_file_attachment_lnk}">{VAR: r->original_name}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: pmsg_download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -103,7 +103,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_user_profile}
-<a class="GenLink" href="{TEMPLATE: dpmsg_user_profile_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>
+<a href="{TEMPLATE: dpmsg_user_profile_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_about.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_email_link_lnk}
@@ -111,7 +111,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_email_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+<a href="{TEMPLATE: dpmsg_email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_private_msg_link_lnk}
@@ -119,7 +119,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_private_msg_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_private_msg_link_lnk}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
+<a href="{TEMPLATE: dpmsg_private_msg_link_lnk}"><img title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dpmsg_edit_link_lnk}
@@ -127,7 +127,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_edit_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_edit_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{TEMPLATE: dpmsg_edit_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_edit.gif" alt="" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_reply_link_lnk}
@@ -135,7 +135,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_reply_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_reply_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;
+<a href="{TEMPLATE: dpmsg_reply_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_reply.gif" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dpmsg_quote_link_lnk}
@@ -143,7 +143,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_quote_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_quote_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>&nbsp;
+<a href="{TEMPLATE: dpmsg_quote_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_quote.gif" alt="" /></a>&nbsp;
 {SECTION: END}
 
 {MAIN_SECTION: private_message_entry draws a single private message}
@@ -181,7 +181,7 @@
 {SECTION: dpmsg_msg_toolbar buttons for replying,editing,deliting and forwarding the message}
 <tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
 <td nowrap align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
-<td nowrap align="right"><a class="GenLink" href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}<a class="GenLink" href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
+<td nowrap align="right"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
 </tr></table></td></tr>
 {SECTION: END}
 
@@ -190,7 +190,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_profile_link}
-<a class="GenLink" href="{TEMPLATE: dpmsg_profile_link_lnk}">{VAR: obj->alias}</a>
+<a href="{TEMPLATE: dpmsg_profile_link_lnk}">{VAR: obj->alias}</a>
 {SECTION: END}
 
 {SECTION: dpmsg_profile_no_link user's name without the link to the profile}
@@ -202,7 +202,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_prev_message link to the previous message}
-<a href="{TEMPLATE: dpmsg_prev_message_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goback.gif" alt="" /> {MSG: pmsg_prev_msg}</a>
+<a href="{TEMPLATE: dpmsg_prev_message_lnk}"><img src="{THEME_IMAGE_ROOT}/goback.gif" alt="" /> {MSG: pmsg_prev_msg}</a>
 {SECTION: END}
 
 {SECTION: dpmsg_next_message_lnk}
@@ -210,7 +210,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_next_message link to the next message}
-<a href="{TEMPLATE: dpmsg_next_message_lnk}" class="GenLink">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
+<a href="{TEMPLATE: dpmsg_next_message_lnk}">{MSG: pmsg_next_msg} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: drawpmsg_affero_reg}
@@ -226,5 +226,5 @@
 {SECTION: END}
 
 {SECTION: dpmsg_buddy_link_remove add this user to your buddy list link}
-<br />[<a href="{TEMPLATE: dpmsg_buddy_link_remove_lnk}" class="GenLink">{MSG: remove_from_buddy_list}</a>]
+<br />[<a href="{TEMPLATE: dpmsg_buddy_link_remove_lnk}">{MSG: remove_from_buddy_list}</a>]
 {SECTION: END}

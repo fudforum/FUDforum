@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: iemail.tmpl,v 1.11 2003/11/10 00:25:31 hackie Exp $
+* $Id: iemail.tmpl,v 1.12 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -57,8 +57,8 @@
 
 {SECTION: iemail_attach_entry file attachment entry row}
 <tr>
-<td valign="middle"><a class="GenLink" href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{TEMPLATE: iemail_attach_entry_lnk}">{VAR: v[1]}</a><br />
+<td valign="middle"><a href="{TEMPLATE: iemail_attach_entry_lnk}"><img alt="" src="{GVAR: WWW_ROOT}images/mime/{VAR: v[4]}" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: iemail_attach_entry_lnk}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.48 2003/12/19 12:24:12 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.49 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -19,7 +19,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message previous page arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_prev_message_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_prev_message_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" src="{THEME_IMAGE_ROOT}/up.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page_lnk}
@@ -27,7 +27,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_prev_message_prev_page previous page arrrow drawn on the message}
-<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page_lnk}
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
-<a href="{TEMPLATE: dmsg_tree_prev_message_prev_page_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_tree_prev_message_prev_page_lnk}"><img src="{THEME_IMAGE_ROOT}/up.png" title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_lnk}
@@ -43,7 +43,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message next message arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_next_message_lnk}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_next_message_lnk}"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page_lnk}
@@ -51,7 +51,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page_lnk}
@@ -59,7 +59,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
-<a href="{TEMPLATE: dmsg_tree_next_message_next_page_lnk}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
+<a href="{TEMPLATE: dmsg_tree_next_message_next_page_lnk}"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.png" width=16 height=11 /></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_regged}
@@ -90,9 +90,9 @@
 <a name="msg_num_{VAR: m_num}"></a>
 <a name="msg_{VAR: obj->id}"></a>
 {VAR: user_login_td}
-[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk2}" class="GenLink">{MSG: reveal_post}</a>]&nbsp;
-[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk3}" class="GenLink">{MSG: reveal_all_posts}</a>]&nbsp;
-[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk}" class="GenLink">{MSG: stop_ignoring}</a>]</td>
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk2}">{MSG: reveal_post}</a>]&nbsp;
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk3}">{MSG: reveal_all_posts}</a>]&nbsp;
+[<a href="{TEMPLATE: dmsg_ignored_user_message_lnk}">{MSG: stop_ignoring}</a>]</td>
 <td class="MsgIg" align="right">{TEMPLATE-DATA: prev_message}{TEMPLATE-DATA: next_message}</td></tr>
 </table></td></tr>
 {SECTION: END}
@@ -124,7 +124,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_reg_user_link_lnk}">{VAR: user_login}</a>
+<a href="{TEMPLATE: dmsg_reg_user_link_lnk}">{VAR: user_login}</a>
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_no_link}
@@ -186,7 +186,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_add add this user to your buddy list link}
-<a href="{TEMPLATE: dmsg_buddy_link_add_lnk}" class="GenLink">{MSG: add_to_buddy_list}</a><br />
+<a href="{TEMPLATE: dmsg_buddy_link_add_lnk}">{MSG: add_to_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove_lnk}
@@ -194,7 +194,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_buddy_link_remove add this user to your buddy list link}
-<a href="{TEMPLATE: dmsg_buddy_link_remove_lnk}" class="GenLink">{MSG: remove_from_buddy_list}</a><br />
+<a href="{TEMPLATE: dmsg_buddy_link_remove_lnk}">{MSG: remove_from_buddy_list}</a><br />
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list_lnk}
@@ -202,7 +202,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_remove_user_ignore_list remove user from ignore list link}
-<a href="{TEMPLATE: dmsg_remove_user_ignore_list_lnk}" class="GenLink">{MSG: un_ignore_user}</a>
+<a href="{TEMPLATE: dmsg_remove_user_ignore_list_lnk}">{MSG: un_ignore_user}</a>
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list_lnk}
@@ -210,7 +210,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_add_user_ignore_list add user to ignore list link}
-<a href="{TEMPLATE: dmsg_add_user_ignore_list_lnk}" class="GenLink">{MSG: ignore_user}</a>
+<a href="{TEMPLATE: dmsg_add_user_ignore_list_lnk}">{MSG: ignore_user}</a>
 {SECTION: END}
 
 {SECTION: dmsg_im_icq_lnk}
@@ -291,8 +291,8 @@
 
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
 <tr>
-<td valign="middle"><a class="GenLink" href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" /></a></td>
-<td><font class="GenText"><b>{MSG: attachment}</b></font> <a class="GenLink" href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
+<td valign="middle"><a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" /></a></td>
+<td><font class="GenText"><b>{MSG: attachment}</b></font> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
 <font class="SmallText">({MSG: size} {VAR: sz}, {MSG: download_counter})</font></td></tr>
 {SECTION: END}
 
@@ -321,7 +321,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_user_profile}
-<a class="GenLink" href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>
+<a href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_email_link_lnk}
@@ -329,7 +329,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_email_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
+<a href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_private_msg_link_lnk}
@@ -337,7 +337,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_private_msg_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+<a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page_lnk}
@@ -345,7 +345,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_next_msg_page next page link that appears in the message}
-<a href="{TEMPLATE: dmsg_next_msg_page_lnk}" class="GenLink">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
+<a href="{TEMPLATE: dmsg_next_msg_page_lnk}">{MSG: next_page} <img src="{THEME_IMAGE_ROOT}/goto.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_no_next_msg_page}
@@ -357,7 +357,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_delete_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;
+<a href="{TEMPLATE: dmsg_delete_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_delete.gif" /></a>&nbsp;
 {SECTION: END} 
 
 {SECTION: dmsg_edit_link_lnk}
@@ -365,7 +365,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_edit_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_edit_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{TEMPLATE: dmsg_edit_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_edit.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_reply_link_lnk}
@@ -373,7 +373,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_reply_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" /></a>&nbsp;
+<a href="{TEMPLATE: dmsg_reply_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_quote_link_lnk}
@@ -381,7 +381,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_quote_link}
-<a class="GenLink" href="{TEMPLATE: dmsg_quote_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" /></a>
+<a href="{TEMPLATE: dmsg_quote_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
@@ -402,7 +402,7 @@
 
 {SECTION: dmsg_short_message_body}
 <font class="MsgBodyText">{VAR: msg_body}</font>
-<br /><div align="center">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}" class="GenLink">{MSG: drawmsg_view_rest_post}</a>]</div>
+<br /><div align="center">[<a href="{TEMPLATE: dmsg_short_message_body_lnk}">{MSG: drawmsg_view_rest_post}</a>]</div>
 {SECTION: END}
 
 {SECTION: dmsg_im_row a row displaying various instant messenger links}

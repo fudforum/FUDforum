@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.41 2003/12/04 13:25:26 hackie Exp $
+* $Id: tree.tmpl,v 1.42 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -45,7 +45,7 @@
 {SECTION: END}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk2}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
+<font class="GenText"><a name="page_top" href="{TEMPLATE: msg_forum_path_lnk}">{VAR: frm->cat_name}</a> &raquo; <a href="{TEMPLATE: msg_forum_path_lnk2}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
@@ -60,7 +60,7 @@
 {SECTION: END}
 
 {SECTION: split_thread}
-<a class="GenLink" href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;
+<a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_lock_thread_lnk}
@@ -68,7 +68,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: mod_lock_thread}
-<a class="GenLink" href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_unlock_thread_lnk}
@@ -76,7 +76,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: mod_unlock_thread}
-<a class="GenLink" href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: email_page_to_friend_lnk}
@@ -84,7 +84,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: email_page_to_friend}
-<a class="GenLink" href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
+<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: sub_from_thread_lnk}
@@ -92,7 +92,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a class="GenLink" href="{TEMPLATE: sub_from_thread_lnk}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+| <a href="{TEMPLATE: sub_from_thread_lnk}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: unsub_to_thread_lnk}
@@ -100,7 +100,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a class="GenLink" href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+| <a href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: flat_view_lnk}
@@ -108,7 +108,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
-<a href="{TEMPLATE: flat_view_lnk}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" /></a>
+<a href="{TEMPLATE: flat_view_lnk}"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" /></a>
 {SECTION: END}
 
 {SECTION: new_thread_lnk}
@@ -116,7 +116,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{TEMPLATE: new_thread_lnk}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
+<a href="{TEMPLATE: new_thread_lnk}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
 {SECTION: END}
 
 {SECTION: post_reply_lnk}
@@ -124,7 +124,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{TEMPLATE: post_reply_lnk}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" /></a>
+&nbsp;<a href="{TEMPLATE: post_reply_lnk}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" /></a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
@@ -147,7 +147,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a class="GenLink" href="{TEMPLATE: reg_user_link_lnk}">{VAR: cur->alias}</a>
+<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: cur->alias}</a>
 {SECTION: END}
 
 {SECTION: anon_user}
@@ -223,7 +223,7 @@ ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
-<div align=center class="GenText">[<a href="{TEMPLATE: TREE_PAGE_lnk}" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
+<div align=center class="GenText">[<a href="{TEMPLATE: TREE_PAGE_lnk}" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>
 <p>
 <table border="0" cellspacing="1" cellpadding="2" class="MsgTable">
 {TEMPLATE-DATA: tree_data}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.tmpl,v 1.9 2003/11/26 19:20:37 hackie Exp $
+* $Id: admincp.tmpl,v 1.10 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -16,7 +16,7 @@
 {MAIN_SECTION: END}
 
 {SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
-| <a class="GenLink" href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
+| <a href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: custom_avatar_queue}</a> <span class="GenTextRed">({VAR: avatar_count})</span> 
 {SECTION: END}
 
 {SECTION: group_mgr_lnk}
@@ -24,7 +24,7 @@
 {SECTION: END}
 
 {SECTION: group_mgr link to the group manager for admin & group managers}
-| <a class="GenLink" href="{TEMPLATE: group_mgr_lnk}">{MSG: group_mgr}</a> 
+| <a href="{TEMPLATE: group_mgr_lnk}">{MSG: group_mgr}</a> 
 {SECTION: END}
 
 {SECTION: reported_msgs_lnk}
@@ -32,7 +32,7 @@
 {SECTION: END}
 
 {SECTION: reported_msgs link to reported messages form, with an idicator that shows the # of reported messages}
-| <a class="GenLink" href="{TEMPLATE: reported_msgs_lnk}">{MSG: reported_messages}</a> <span class="GenTextRed">({VAR: report_count})</span>
+| <a href="{TEMPLATE: reported_msgs_lnk}">{MSG: reported_messages}</a> <span class="GenTextRed">({VAR: report_count})</span>
 {SECTION: END}
 
 {SECTION: thr_exch_lnk}
@@ -40,7 +40,7 @@
 {SECTION: END}
 
 {SECTION: thr_exch a link to thread exchange, with an idicator of the # of threads waiting approval}
-| <a class="GenLink" href="{TEMPLATE: thr_exch_lnk}">{MSG: thread_exchange}</a> <span class="GenTextRed">({VAR: thr_exchc})</span> 
+| <a href="{TEMPLATE: thr_exch_lnk}">{MSG: thread_exchange}</a> <span class="GenTextRed">({VAR: thr_exchc})</span> 
 {SECTION: END}
 
 {SECTION: mod_que_lnk}
@@ -48,9 +48,9 @@
 {SECTION: END}
 
 {SECTION: mod_que link to form for approving messages in moderated forums}
-<a class="GenLink" href="{TEMPLATE: mod_que_lnk}">{MSG: moderation_queue}</a> <span class="GenTextRed">({VAR: approve_count})</span>
+<a href="{TEMPLATE: mod_que_lnk}">{MSG: moderation_queue}</a> <span class="GenTextRed">({VAR: approve_count})</span>
 {SECTION: END}
 
 {SECTION: accounts_pending_approval accounts pending administrator's approval}
-| <a class="GenLink" href="adm/admaccapr.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
+| <a href="adm/admaccapr.php?S={DEF: s}&amp;SQ={VAR: usr->sq}">{MSG: accounts_pending_approval}</a> <span class="GenTextRed">({VAR: accounts_pending_approval})</span> 
 {SECTION: END}

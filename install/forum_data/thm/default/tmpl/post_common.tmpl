@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.6 2003/10/10 14:31:51 hackie Exp $
+* $Id: post_common.tmpl,v 1.7 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -118,7 +118,7 @@
 <tr>
 	<td class="RowStyleB">{VAR: r[2]}</td>
 	<td class="RowStyleB">{VAR: sz}</td>
-	<td class="RowStyleB"><a class="GenLink" href="javascript: document.post_form.file_del_opt.value=\'{VAR: r[0]}\'; document.post_form.submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
+	<td class="RowStyleB"><a href="javascript: document.post_form.file_del_opt.value=\'{VAR: r[0]}\'; document.post_form.submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}</td>
 </tr>
 {SECTION: END}
 

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.27 2003/11/11 10:56:27 hackie Exp $
+* $Id: finduser.tmpl,v 1.28 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -51,26 +51,26 @@
 {SECTION: END}
 
 {SECTION: find_user_entry}
-<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a class="GenLink" href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
+<tr class="{ALT-VAR: finduser_alt RowStyleA RowStyleB}"><td nowrap class="GenText"><a href="{TEMPLATE: find_user_entry_lnk}">{VAR: r->alias}</a></td><td align="center" nowrap>{VAR: r->posted_msg_count}</td><td class="DateText" nowrap>{DATE: r->join_date %a, %d %B %Y}</td><td nowrap class="GenText">{TEMPLATE: action_field}</td>{VAR: admi}</tr>
 {SECTION: END}
 
 {SECTION: action_field lists things that can be done with a user}
-<a href="{TEMPLATE: action_field_lnk}" class="GenLink"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
+<a href="{TEMPLATE: action_field_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/show_posts.gif" /></a>
 {TEMPLATE-DATA: email_link}
 {TEMPLATE-DATA: pm_link}
 {TEMPLATE-DATA: homepage_link}
 {SECTION: END}
 
 {SECTION: pm_link}
-<a href="{TEMPLATE: pm_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
+<a href="{TEMPLATE: pm_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-<a class="GenLink" href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
+<a href="{VAR: r->home_page}" target="_blank"><img alt="" src="{THEME_IMAGE_ROOT}/homepage.gif" /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{TEMPLATE: email_link_lnk}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
+<a href="{TEMPLATE: email_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" /></a>
 {SECTION: END}
 
 {SECTION: finduser_title}

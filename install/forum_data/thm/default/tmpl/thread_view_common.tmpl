@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread_view_common.tmpl,v 1.15 2003/12/04 13:25:26 hackie Exp $
+* $Id: thread_view_common.tmpl,v 1.16 2003/12/19 18:20:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,7 +17,7 @@
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
-<div align="right"><font class="SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" class="GenLink" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</font></div>
+<div align="right"><font class="SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{TEMPLATE-DATA: thread_printable_pdf}{TEMPLATE-DATA: thread_syndicate}</font></div>
 {SECTION: END}
 
 {SECTION: forum_path_lnk}
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: forum_path}
-<a class="GenLink" href="{TEMPLATE: forum_path_lnk}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
+<a href="{TEMPLATE: forum_path_lnk}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
 {SECTION: END}
 
 {SECTION: new_thread_link_lnk}
@@ -33,7 +33,7 @@
 {SECTION: END}
 
 {SECTION: new_thread_link}
-<a class="GenLink" href="{TEMPLATE: new_thread_link_lnk}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" /></a>
+<a href="{TEMPLATE: new_thread_link_lnk}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" /></a>
 {SECTION: END}
 
 {SECTION: unsubscribe_link_lnk}
@@ -41,7 +41,7 @@
 {SECTION: END}
 
 {SECTION: unsubscribe_link}
-<a class="GenLink" href="{TEMPLATE: unsubscribe_link_lnk}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
+<a href="{TEMPLATE: unsubscribe_link_lnk}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
 {SECTION: END}
 
 {SECTION: subscribe_link_lnk}
@@ -49,7 +49,7 @@
 {SECTION: END}
 
 {SECTION: subscribe_link}
-<a class="GenLink" href="{TEMPLATE: subscribe_link_lnk}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
+<a href="{TEMPLATE: subscribe_link_lnk}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
 {SECTION: END}
 
 {SECTION: no_messages}
@@ -97,7 +97,7 @@
 {SECTION: END}
 
 {SECTION: thread_printable_pdf}
-&nbsp;[ <a href="{TEMPLATE: thread_printable_pdf_lnk}" class="GenLink">{MSG: thread_printable_pdf}</a> ]
+&nbsp;[ <a href="{TEMPLATE: thread_printable_pdf_lnk}">{MSG: thread_printable_pdf}</a> ]
 {SECTION: END}
 
 {SECTION: thread_syndicate_lnk}
@@ -105,7 +105,7 @@
 {SECTION: END}
 
 {SECTION: thread_syndicate}
-&nbsp;[ <a href="{TEMPLATE: thread_syndicate_lnk}" class="GenLink">{MSG: thread_syndicate}</a> ]
+&nbsp;[ <a href="{TEMPLATE: thread_syndicate_lnk}">{MSG: thread_syndicate}</a> ]
 {SECTION: END}
 
 {SECTION: thread_pdf_rdf}
@@ -117,7 +117,7 @@
 {SECTION: END}
 
 {SECTION: thread_merge_t}
-&nbsp;<a href="{TEMPLATE: thread_merge_t_lnk}" class="GenLink">{MSG: merge_topics}</a>
+&nbsp;<a href="{TEMPLATE: thread_merge_t_lnk}">{MSG: merge_topics}</a>
 {SECTION: END}
 
 {SECTION: thread_legend}
