@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.39 2004/11/02 16:15:30 hackie Exp $
+* $Id: groupmgr.php.t,v 1.40 2004/11/14 18:29:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,6 +96,7 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 				$perm |= $v[0];
 			}
 		}
+		$gr_member = $_POST['gr_member'];
 
 		/* auto approve members */
 		$perm |= 65536;
