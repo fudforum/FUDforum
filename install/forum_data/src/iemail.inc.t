@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: iemail.inc.t,v 1.9 2002/07/29 20:13:40 hackie Exp $
+*   $Id: iemail.inc.t,v 1.10 2002/08/06 13:04:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,7 +141,12 @@ function send_email($from, $to, $subj, $body, $header='')
 			}		
 			$to = $to[0];
 		}
-		mail($to, $subj, $body, "From: $from\r\nErrors-To: $from\r\nReturn-Path: $from\r\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION']."\r\n".$header.$bcc);
+		if( $header ) 
+			$header = "\n".str_replace("\r", "", $header);
+		else if( $bcc ) 
+			$bcc = "\n".$bcc;
+				
+		mail($to, $subj, str_replace("\r", "", $body), "From: $from\nErrors-To: $from\nReturn-Path: $from\nX-Mailer: FUDforum v".$GLOBALS['FORUM_VERSION'].$header.$bcc);
 	}		
 }
 
