@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.16 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admimport.php,v 1.17 2003/07/18 17:59:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,7 +22,22 @@
 
 function resolve_dest_path($path)
 {
-	return str_replace('WWW_ROOT_DISK', $GLOBALS['WWW_ROOT_DISK'], str_replace('DATA_DIR', $GLOBALS['DATA_DIR'], $path));
+	$path = str_replace('WWW_ROOT_DISK', $GLOBALS['WWW_ROOT_DISK'], str_replace('DATA_DIR', $GLOBALS['DATA_DIR'], $path));
+	$dir = dirname($path);
+	if (!@is_dir($dir)) {
+		while ($dir && $dir != "/" && !@is_dir($dir)) {
+			$dirs[] = $dir;
+			$dir = dirname($dir);
+		}
+		$dirs = array_reverse($dirs);
+		foreach ($dirs as $d) {
+			if (!mkdir($d, 0755)) {
+				exit("Failed to create {$d} directory, check file permissions<br />\n");
+			}
+		}
+	}
+
+	return $path;
 }
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
