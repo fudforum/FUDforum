@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.5 2002/06/26 19:35:55 hackie Exp $
+*   $Id: root_index.php.t,v 1.6 2002/06/26 20:02:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	include_once "GLOBALS.php";
-	fud_use('db.inc');
+	/* fud_use('db.inc'); */
 {PRE_HTML_PHP}
 {POST_HTML_PHP}
 
