@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.133 2004/12/09 18:43:02 hackie Exp $
+* $Id: register.php.t,v 1.134 2005/02/25 15:50:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -853,7 +853,7 @@ function decode_uent(&$uent)
 	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$view_select		= tmpl_draw_select_opt(implode("\n", array_keys($views)), implode("\n", $views), (($uent->users_opt & 128) | ($uent->users_opt & 256)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$notification_select	= tmpl_draw_select_opt("4\n0\n134217728", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}\n{TEMPLATE: register_none}", ($uent->users_opt & (4|134217728)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$notification_select	= tmpl_draw_select_opt("4\n134217728", "{TEMPLATE: register_email}\n{TEMPLATE: register_none}", ($uent->users_opt & (4|134217728)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
 	$ignore_admin_radio	= tmpl_draw_radio_opt('reg_ignore_admin', "8\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 8), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "32768\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($uent->users_opt & 32768), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');

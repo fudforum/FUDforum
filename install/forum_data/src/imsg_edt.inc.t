@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.117 2004/12/11 21:38:35 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.118 2005/02/25 15:50:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -389,7 +389,7 @@ class fud_msg_edit extends fud_msg
 			}
 
 			/* send new thread notifications to forum subscribers */
-			$c = uq('SELECT u.email, u.icq, u.users_opt
+			$c = uq('SELECT u.email
 					FROM {SQL_TABLE_PREFIX}forum_notify fn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON fn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
@@ -403,7 +403,7 @@ class fud_msg_edit extends fud_msg
 			$notify_type = 'frm';
 		} else {
 			/* send new reply notifications to thread subscribers */
-			$c = uq('SELECT u.email, u.icq, u.users_opt, r.msg_id, u.id
+			$c = uq('SELECT u.email, r.msg_id, u.id
 					FROM {SQL_TABLE_PREFIX}thread_notify tn
 					INNER JOIN {SQL_TABLE_PREFIX}users u ON tn.user_id=u.id AND (u.users_opt & 134217728) = 0
 					INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id='.$mtf->forum_id.'
@@ -418,14 +418,10 @@ class fud_msg_edit extends fud_msg
 		}
 		$tl = $to = array();
 		while ($r = db_rowarr($c)) {
-			if ($r[2] & 4) {
-				$to['EMAIL'][] = $r[0];
-			} else {
-				$to['ICQ'][] = $r[1].'@pager.icq.com';
-			}
+			$to[] = $r[0];
 
-			if (isset($r[4]) && is_null($r[3])) {
-				$tl[] = $r[4];
+			if (isset($r[2]) && !$r[1]) {
+				$tl[] = $r[2];
 			}
 		}
 		unset($c);
@@ -640,54 +636,45 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 
 function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type, $id, $frm_name, $frm_id)
 {
-	if (!empty($to['EMAIL'])) {
-		$do_email = 1;
-		$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
-		$CHARSET = $GLOBALS['CHARSET'];
-		if ($GLOBALS['FUD_OPT_2'] & 64) {
-
-			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
-
-			if (!$obj->alias) { /* anon user */
-				$obj->alias = htmlspecialchars($GLOBALS['ANON_NICK']);
-			}
-
-			$headers  = "MIME-Version: 1.0\r\n";
-			if ($obj->reply_to) {
-				$headers .= "In-Reply-To: ".$obj->reply_to."\r\n";
-			}
-			$headers .= "List-Id: ".$frm_id.".".$_SERVER['SERVER_NAME']."\r\n";
-			$split = get_random_value(128)                                                                            ;
-			$headers .= "Content-Type: multipart/alternative;\n  boundary=\"------------" . $split . "\"\r\n";
-			$boundry = "\r\n--------------" . $split . "\r\n";
-
-			$pfx = '';
-			if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
-				if ($GLOBALS['FUD_OPT_1'] & 128) {
-					$pfx .= '0/';
-				}
-				if ($GLOBALS['FUD_OPT_2'] & 8192) {
-					$pfx .= '0/';
-				}
-			}
-
-			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
-			$iemail_unsub = html_entity_decode($id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}');
-
-			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&th=' . $id . "\r\n" .
-			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
-		} else {
-			$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
-		}
-	}
-	if (!empty($to['ICQ'])) {
-		$do_icq = 1;
-		$icq = str_replace('http://', "http'+'://'+'", $GLOBALS['WWW_ROOT']);
-		$icq = str_replace('www.', "www'+'.", $icq);
-		$goto_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&goto=".$msg_id."';";
-	} else if (!isset($do_email)) {
-		/* nothing to do */
+	if (!$to) {
 		return;
+	}
+
+	$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
+	$CHARSET = $GLOBALS['CHARSET'];
+	if ($GLOBALS['FUD_OPT_2'] & 64) {
+		$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
+
+		if (!$obj->alias) { /* anon user */
+			$obj->alias = htmlspecialchars($GLOBALS['ANON_NICK']);
+		}
+
+		$headers  = "MIME-Version: 1.0\r\n";
+		if ($obj->reply_to) {
+			$headers .= "In-Reply-To: ".$obj->reply_to."\r\n";
+		}
+		$headers .= "List-Id: ".$frm_id.".".$_SERVER['SERVER_NAME']."\r\n";
+		$split = get_random_value(128)                                                                            ;
+		$headers .= "Content-Type: multipart/alternative;\n  boundary=\"------------" . $split . "\"\r\n";
+		$boundry = "\r\n--------------" . $split . "\r\n";
+
+		$pfx = '';
+		if ($GLOBALS['FUD_OPT_2'] & 32768 && !empty($_SERVER['PATH_INFO'])) {
+			if ($GLOBALS['FUD_OPT_1'] & 128) {
+				$pfx .= '0/';
+			}
+			if ($GLOBALS['FUD_OPT_2'] & 8192) {
+				$pfx .= '0/';
+			}
+		}
+
+		$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
+		$iemail_unsub = html_entity_decode($id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}');
+
+		$body_email = 	$boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . html_entity_decode(strip_tags($plain_text)) . "\r\n\r\n" . html_entity_decode('{TEMPLATE: iemail_participate}') . ' ' . '{FULL_ROOT}{ROOT}?t=rview&th=' . $id . "\r\n" .
+				$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+	} else {
+		$headers = "Content-Type: text/plain; charset={$CHARSET}\r\n";
 	}
 
 	reverse_fmt($thr_subject);
@@ -696,35 +683,21 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 	if ($id_type == 'thr') {
 		$subj = html_entity_decode('{TEMPLATE: iemail_thr_subject}');
 
-		if (!isset($body_email) && isset($do_email)) {
+		if (!isset($body_email)) {
 			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = html_entity_decode('{TEMPLATE: iemail_thr_bodyemail}');
-		}
-
-		if (isset($do_icq)) {
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
-			$body_icq = html_entity_decode('{TEMPLATE: iemail_thr_bodyicq}');
 		}
 	} else if ($id_type == 'frm') {
 		reverse_fmt($frm_name);
 
 		$subj = html_entity_decode('{TEMPLATE: iemail_frm_subject}');
 
-		if (isset($do_icq)) {
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
-			$body_icq = html_entity_decode('{TEMPLATE: iemail_frm_bodyicq}');
-		}
-		if (!isset($body_email) && isset($do_email)) {
+		if (!isset($body_email)) {
 			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&unsub=1&frm_id='.$id;
 			$body_email = html_entity_decode('{TEMPLATE: iemail_frm_bodyemail}');
 		}
 	}
 
-	if (isset($do_email)) {
-		send_email($GLOBALS['NOTIFY_FROM'], $to['EMAIL'], $subj, $body_email, $headers);
-	}
-	if (isset($do_icq)) {
-		send_email($GLOBALS['NOTIFY_FROM'], $to['ICQ'], $subj, $body_icq);
-	}
+	send_email($GLOBALS['NOTIFY_FROM'], $to, $subj, $body_email, $headers);
 }
 ?>
