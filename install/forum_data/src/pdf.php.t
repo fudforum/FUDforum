@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.4 2003/05/20 13:27:52 hackie Exp $
+*   $Id: pdf.php.t,v 1.5 2003/05/21 11:05:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -263,7 +263,7 @@ function post_to_smiley($text, $re)
 }
 
 	require('GLOBALS.php');
-	require ($DATA_DIR . 'include/PDF.php');
+	require($DATA_DIR . 'include/PDF.php');
 
 	/* this potentially can be a longer form to generate */
 	set_time_limit($PDF_MAX_CPU);
@@ -280,6 +280,7 @@ function post_to_smiley($text, $re)
 	}
 
 /*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
 
 	if ($PDF_ENABLED == 'N' || !extension_loaded('pdf')) {
 		std_error('disabled');
@@ -288,8 +289,6 @@ function post_to_smiley($text, $re)
 	if ($PHP_COMPRESSION_ENABLE == 'Y') {
 		ob_start(array('ob_gzhandler', $PHP_COMPRESSION_LEVEL));
 	}
-
-/*{POST_HTML_PHP}*/
 
 	$forum	= isset($_GET['frm']) ? (int)$_GET['frm'] : 0;
 	$thread	= isset($_GET['th']) ? (int)$_GET['th'] : 0;
