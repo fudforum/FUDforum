@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.66 2003/06/03 17:33:10 hackie Exp $
+*   $Id: post.php.t,v 1.67 2003/06/06 19:16:19 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -139,7 +139,17 @@ function flood_check()
 				$msg_poster_notif = $usr->notify == 'Y' ? $usr->notify : NULL;
 			}
 		}
-		
+
+		/* to put it plainly this is a hack to allow us to handle silly browsers
+		 * that encode text for us, when it comes from a different charset :/
+		 */
+		if (($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg->body))) {
+			$msg->body = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->body);
+		}
+		if (($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg->subject))) {
+			$msg->subject = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg->subject);
+		}
+
 		if ($msg_id) {
 			$msg_subject = $msg->subject;
 			reverse_fmt($msg_subject);
@@ -214,6 +224,16 @@ function flood_check()
 		$pl_id			= !empty($_POST['pl_id']) ? poll_validate((int)$_POST['pl_id'], $msg_id) : 0;
 		$msg_body		= $_POST['msg_body'];
 		$msg_subject		= $_POST['msg_subject'];
+	
+		/* to put it plainly this is a hack to allow us to handle silly browsers
+		 * that encode text for us, when it comes from a different charset :/
+		 */
+		if (($sp_char_body = preg_match('!&#[0-9]{2,5};!', $msg_body))) {
+			$msg_body = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg_body);
+		}
+		if (($sp_char_subj = preg_match('!&#[0-9]{2,5};!', $msg_subject))) {
+			$msg_subject = preg_replace('!&#([0-9]{2,5});!', '||\\1|', $msg_subject);
+		}
 
 		if ($perms['p_file'] == 'Y') {
 			$attach_count = 0;
@@ -277,8 +297,8 @@ function flood_check()
 				
 		if (isset($_POST['btn_spell'])) {
 			$GLOBALS['MINIMSG_OPT']['DISABLED'] = 1;
-			$text = apply_custom_replace($_POST['msg_body']);
-			$text_s = apply_custom_replace($_POST['msg_subject']);
+			$text = apply_custom_replace($msg_body);
+			$text_s = apply_custom_replace($msg_subject);
 		
 			switch ($frm->tag_style) {
 				case 'ML':
@@ -356,11 +376,18 @@ function flood_check()
 	 		if ($perms['p_sml'] == 'Y' && $msg_post->smiley_disabled != 'Y') {
 	 			$msg_post->body = smiley_to_post($msg_post->body);
 	 		}
-	 			
+	 		if (!empty($sp_char_body)) {
+				$msg_post->body = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->body);
+			}	
+
 			fud_wordwrap($msg_post->body);
+
+			$msg_post->subject = htmlspecialchars(apply_custom_replace($msg_post->subject));
 			
-			$msg_post->subject = apply_custom_replace($msg_post->subject);
-		
+			if (!empty($sp_char_subj)) {
+				$msg_post->subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_post->subject);
+			}
+
 		 	/* chose to create thread OR add message OR update message */
 		 	
 		 	if (!$th_id) {
@@ -476,8 +503,8 @@ function flood_check()
 	}
 
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
-		$text = apply_custom_replace($_POST['msg_body']);
-		$text_s = apply_custom_replace($_POST['msg_subject']);
+		$text = apply_custom_replace($msg_body);
+		$text_s = apply_custom_replace($msg_subject);
 
 		switch ($frm->tag_style) {
 			case 'ML':
@@ -488,12 +515,19 @@ function flood_check()
 			default:
 				$text = nl2br(htmlspecialchars($text));
 		}
-			
+
 		if ($perms['p_sml'] == 'Y' && !$msg_smiley_disabled) {
 			$text = smiley_to_post($text);
 		}
 	
 		$text_s = htmlspecialchars($text_s);
+
+		if (!empty($sp_char_body)) {
+			$text = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $text);
+		}
+		if (!empty($sp_char_subj)) {
+			$text_s = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $text_s);
+		}
 
 		$spell = (isset($_POST['spell']) && function_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
 		
@@ -597,7 +631,17 @@ function flood_check()
 	
 	$post_options = tmpl_post_options($frm);
 	$message_err = get_err('msg_body', 1);
-	$msg_body = isset($msg_body) ? str_replace("\r", '', $msg_body) : '';
+	$msg_body = isset($msg_body) ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
+	if (!empty($msg_subject)) {
+		$msg_subject = htmlspecialchars($msg_subject);	
+	}
+
+	if (!empty($sp_char_body)) {
+		$msg_body = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_body);
+	}
+	if (!empty($sp_char_subj)) {
+		$msg_subject = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $msg_subject);
+	}
 	
 	/* handle file attachments */
 	if ($perms['p_file'] == 'Y') {
@@ -622,8 +666,6 @@ function flood_check()
 	} else {
 		$post_smilies = $disable_smileys = '';
 	}
-	
-	
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
