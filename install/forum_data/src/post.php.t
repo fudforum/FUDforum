@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.15 2002/09/12 08:33:47 hackie Exp $
+*   $Id: post.php.t,v 1.16 2002/10/03 08:45:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -453,7 +453,15 @@ if ( !empty($preview) || !empty($spell) ) {
 		else
 			$subj .= $text_s;
 	}
-	if ( $GLOBALS['ALLOW_SIGS']=='Y' && $msg_show_sig == 'Y' && $usr->sig ) $signature = '{TEMPLATE: signature}';
+	if( $GLOBALS['ALLOW_SIGS']=='Y' && $msg_show_sig == 'Y' ) {
+		if ( isset($HTTP_POST_VARS['msg_id']) && !empty($msg->poster_id) && $msg->poster_id != _uid ) 
+			$sig = q_singleval("SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg->poster_id);
+		else
+			$sig = $usr->sig;	
+		
+		$signature = $sig ? '{TEMPLATE: signature}' : '';
+	}
+	
 	if ( !empty($spell) ) $apply_spell_changes = '{TEMPLATE: apply_spell_changes}'; 
 	
 	$preview_message = '{TEMPLATE: preview_message}';
