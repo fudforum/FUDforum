@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.107 2004/02/13 15:34:18 hackie Exp $
+* $Id: post.php.t,v 1.108 2004/02/14 00:06:29 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -170,7 +170,6 @@ function flood_check()
 
 				if ($frm->forum_opt & 16) {
 					$msg_body = html_to_tags($msg_body);
-					reverse_fmt($msg_body);
 				 	$msg_body = '{TEMPLATE: fud_quote}';
 				} else if ($frm->forum_opt & 8) {
 					reverse_fmt($msg_body);
