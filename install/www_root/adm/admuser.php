@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admuser.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,7 @@ if( !empty($act) ) {
 			break;
 		case 'coppa':
 			$val = (strtoupper($usr->coppa)=='Y') ? 'N' : 'Y';
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET coppa='$val' WHERE id=".$usr->id);
 			
 			header("Location: admuser.php?"._rsid."&usr_login=".urlencode($usr->login));
 			exit();
@@ -133,7 +133,7 @@ if( !empty($act) ) {
 	
 	if ( !empty($usr_email) ) {
 		$usr_email = str_replace("*","%",$usr_email);
-		$r = q("SELECT id, email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
+		$r = q("SELECT id, email, login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE email LIKE '".$usr_email."'");
 		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
@@ -155,7 +155,7 @@ if( !empty($act) ) {
 	
 	if( !empty($usr_login) ) {
 		$usr_login = str_replace("*","%",$usr_login);
-		$r = q("SELECT id, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."'");
+		$r = q("SELECT id, login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE LOWER(login) LIKE '".strtolower(addslashes($usr_login))."'");
 		if( !db_count($r) ) 
 			$usr->id=0;
 		else {
@@ -175,7 +175,7 @@ if( !empty($act) ) {
 	
 	if( !empty($user_id) && !empty($login_name) ) {
 		if( !($id = get_id_by_login($login_name)) ) 
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET login='".$login_name."' WHERE id=".$user_id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET login='".$login_name."' WHERE id=".$user_id);
 		else if( $id != $user_id )
 			$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
 			
@@ -187,7 +187,7 @@ if( !empty($act) ) {
 			$passwd_error = '<font color="#FF0000">Not allowed changing root password here, use the normal profile control panel</font><br>';
 		else {
 			$md5p = md5($login_passwd);
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET passwd='".$md5p."' WHERE id=".$user_id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET passwd='".$md5p."' WHERE id=".$user_id);
 			$login_passwd = NULL;
 		}
 	}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admgrouplead.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -42,7 +42,7 @@
 		$grp->get($group_id);
 		$usr = new fud_user;
 		if ( !($usr_id = get_id_by_login($gr_leader)) ) {
-			$r = q("SELECT login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login LIKE '$gr_leader%' LIMIT 100");
+			$r = q("SELECT login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login LIKE '$gr_leader%' LIMIT 100");
 			if ( db_count($r) ) {
 				echo "<html>
 					$gr_leader isn't found, perhaps you mean one of these?<br>

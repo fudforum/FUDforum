@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: compact.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -98,14 +98,14 @@ and the amount of messages your forum has.<br><br>
 	echo "Compacting normal messages...<br>\n";
 	flush();
 	$stm = time();
-	db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'msg+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'thread+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'forum+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'replace+');
+	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'msg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'thread+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
 	$files = array();
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id,foff,length,file_id,message_threshold
-			FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg 
-			INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread
-				ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id
-			INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum	
-				ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id,foff,length,file_id,message_threshold
+			FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg 
+			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread
+				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id
+			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum	
+				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
 			ORDER BY thread_id, id ASC");
 
 
@@ -137,7 +137,7 @@ and the amount of messages your forum has.<br><br>
 			$file_id_preview = write_body_c($thres_body, $length_preview, $offset_preview);
 		}
 		
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET 
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET 
 			foff=".$off.", 
 			length=".$len.",
 			file_id=".$file_id.", 
@@ -169,14 +169,14 @@ and the amount of messages your forum has.<br><br>
 	echo "100% Done<br>\n";
 	echo "Compacting private messages...<br>\n";
 	flush();
-	db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'pmsg+, '.$GLOBALS['MYSQL_TBL_PREFIX'].'replace+');
+	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'pmsg+, '.$GLOBALS['DBHOST_TBL_PREFIX'].'replace+');
 	$off=$len=0;
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private_tmp', 'wb');
 	set_file_buffer($fp, 40960);
 	
-	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg ADD INDEX(foff)");
+	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg ADD INDEX(foff)");
 	
-	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg");
+	$r = q("SELECT distinct(foff),length FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
 	
 	$i=0;
 	$ten_percent = round(db_count($r)/10);
@@ -189,7 +189,7 @@ and the amount of messages your forum has.<br><br>
 
 		$len = fwrite($fp, $b);
 		
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->off);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg SET foff=".$off.", length=".$len." WHERE foff=".$obj->off);
 		
 		$off += $len;
 		
@@ -201,7 +201,7 @@ and the amount of messages your forum has.<br><br>
 		$i++;
 	}
 	
-	q("ALTER TABLE ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg DROP index foff");
+	q("ALTER TABLE ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg DROP index foff");
 	
 	echo "100% Done<br>\n";
 	flush();

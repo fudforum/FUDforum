@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.4 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admdump.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -115,7 +115,7 @@ include('admpanel.php');
 				$sql_data = filetomem($file);
 				$sql_data = preg_replace("!\#.*?\n!s", "\n", $sql_data);
 				$sql_data = preg_replace("!\s+!s", " ", $sql_data);
-				$sql_data = str_replace("{SQL_TABLE_PREFIX}", $MYSQL_TBL_PREFIX, $sql_data);
+				$sql_data = str_replace("{SQL_TABLE_PREFIX}", $DBHOST_TBL_PREFIX, $sql_data);
 				$sql_data = str_replace(";", "\n", $sql_data);
 				$sql_data = str_replace("\r", "", $sql_data);
 				$write_func($fp, $sql_data."\n");
@@ -125,10 +125,10 @@ include('admpanel.php');
 		chdir($curdir);
 	
 		$r = q("show tables");
-		$prefix_len = strlen($MYSQL_TBL_PREFIX);
+		$prefix_len = strlen($DBHOST_TBL_PREFIX);
 		
 		while ( list($tbl_name) = db_rowarr($r) ) {
-			if( substr($tbl_name, 0, $prefix_len) != $MYSQL_TBL_PREFIX ) continue;
+			if( substr($tbl_name, 0, $prefix_len) != $DBHOST_TBL_PREFIX ) continue;
 			$locklist .= $tbl_name.'+,';
 		}
 		db_seek($r, 0);
@@ -136,7 +136,7 @@ include('admpanel.php');
 		db_lock($locklist);
 
 		while( list($tbl_name) = db_rowarr($r) ) {
-			if( substr($tbl_name, 0, $prefix_len) != $MYSQL_TBL_PREFIX ) continue;
+			if( substr($tbl_name, 0, $prefix_len) != $DBHOST_TBL_PREFIX ) continue;
 		
 			echo "Processing table: $tbl_name .... ";
 			flush();

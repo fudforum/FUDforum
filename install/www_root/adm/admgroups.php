@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admgroups.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@
 		}
 		
 		/* determine how long this could take */
-		if ( q_singleval("SELECT COUNT(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members WHERE group_id=$grp->id") > 100 ) $dlg = 1;
+		if ( q_singleval("SELECT COUNT(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members WHERE group_id=$grp->id") > 100 ) $dlg = 1;
 		if ( $dlg ) {
 			$ts = __request_timestamp__;
 			echo "<html>
@@ -184,7 +184,7 @@
 			                                                                                                                                                                           
 		}
 		
-		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
+		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
 		while ( $obj = db_rowobj($r) ) {
 			$rsname = "forum:$obj->id";
 			if ( isset($rslist['forum'][$obj->id]) ) 
@@ -204,7 +204,7 @@
 	<select name="gr_inherit_id">
 	<option value="0">No where</option>
 	<?php
-		$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
+		$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups ORDER BY id");
 		while ( $obj = db_rowobj($r) ) {
 			if ( !empty($edit) && $edit==$obj->id ) continue;
 			if ( !empty($edit) && $obj->id==$grp->inherit_id ) 
@@ -285,13 +285,13 @@ if ( !$edit ) {
 <?php
 
 	$grp_p = new fud_group;
-	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups ORDER BY id");
+	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
 		$grp_p->id = $obj->id;
 		$pret = $grp_p->resolve_perms();
 		$str = draw_perm_table($pret);
 		
-		$ur = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
+		$ur = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members.group_id=$obj->id AND group_leader='Y'");
 		if ( $cnt=db_count($ur) ) {
 			$sel =  "<font size=-1>(total: $cnt)</font><br><select>";
 			while ( $uobj = db_rowobj($ur) ) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admmassemail.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@
 	
 	if ( $btn_submit ) {
 		if ( !$ignore_override ) $ignore_override_q = " WHERE ignore_admin='N'";
-		$r = q("SELECT email, login FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users".$ignore_override_q);
+		$r = q("SELECT email, login FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users".$ignore_override_q);
 		$email_block = 50;
 		$email_block_stat = 0;
 		$send_to = $GLOBALS['ADMIN_EMAIL'];

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admlog.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -44,7 +44,7 @@
 <table border=1 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff"><td>User</td><td>Action</td><td>Object</td><td>Time (<b>GMT</b>)</td></tr>
 <?
-	$r = q("SELECT fud_users.login,fud_action_log.* FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."action_log.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY logtime DESC");
+	$r = q("SELECT fud_users.login,fud_action_log.* FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."action_log.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY logtime DESC");
 	
 	while ( $obj = db_rowobj($r) ) {
 		$logtime = "<td>".gmdate("Y M d G:m:i (g A)", $obj->logtime)."</td>";

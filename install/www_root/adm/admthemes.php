@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.5 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admthemes.php,v 1.6 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@ function cleandir($dir)
 	}
 	
 	if ( $nn=$HTTP_POST_VARS['newname'] ) {
-		if ( !bq("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE name='$nn'") ) 
+		if ( !bq("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE name='$nn'") ) 
 		{
 			fud_use('compiler.inc', TRUE);
 			$root = $GLOBALS['DATA_DIR'].'thm/';
@@ -121,7 +121,7 @@ function cleandir($dir)
 		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
 		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
 		$obj = default_theme();
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
 		exit();
 	}
@@ -269,7 +269,7 @@ function update_locale()
 </tr>
 	
 <?
-	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes ORDER BY id");
+	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
 		$bgcolor = ($i++%2)?' bgcolor="#fffee5"':'';
 		if ( !empty($edit) && $edit==$obj->id ) $bgcolor =' bgcolor="#ffb5b5"';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.4 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admstats.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -61,7 +61,7 @@ function get_sql_disk_usage()
 	
 	$r = q("SHOW TABLE STATUS FROM ".$GLOBALS['MYSQL_DB']);
 	while( $obj = db_rowobj($r) ) {
-		if( preg_match('!^'.$GLOBALS['MYSQL_TBL_PREFIX'].'!', $obj->Name) )
+		if( preg_match('!^'.$GLOBALS['DBHOST_TBL_PREFIX'].'!', $obj->Name) )
 			$sql_size += $obj->Data_length+$obj->Index_length;
 	}	
 	qf($r);
@@ -69,11 +69,11 @@ function get_sql_disk_usage()
 	return $sql_size;
 }
 	
-	$forum_start = INTVAL(q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg"));
+	$forum_start = INTVAL(q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg"));
 	$days_ago = round((__request_timestamp__-$forum_start)/86400);
 
-	list($s_year,$s_month,$s_day) = explode(" ", date("Y n j", q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg")));
-	list($e_year,$e_month,$e_day) = explode(" ", date("Y n j", q_singleval("SELECT MAX(post_stamp) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg")));
+	list($s_year,$s_month,$s_day) = explode(" ", date("Y n j", q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg")));
+	list($e_year,$e_month,$e_day) = explode(" ", date("Y n j", q_singleval("SELECT MAX(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg")));
 	for( $i=1; $i<13; $i++ ) $vl_m = $kl_m .= $i."\n";
 	for( $i=1; $i<32; $i++ ) $vl_d = $kl_d .= $i."\n";
 	for( $i=$s_year; $i<($e_year+1); $i++ ) $vl_y = $kl_y .= $i."\n";
@@ -88,16 +88,16 @@ function get_sql_disk_usage()
 	
 	$forum_stats = array();
 	
-	$forum_stats['MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg");
-	$forum_stats['THREADS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread");
-	$forum_stats['PRIVATE_MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg");
-	$forum_stats['FORUMS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum");
-	$forum_stats['CATEGORIES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat");
-	$forum_stats['MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users");
-	$forum_stats['ADMINS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE is_mod='A'");
-	$forum_stats['MODERATORS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod");
-	$forum_stats['GROUPS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups");
-	$forum_stats['GROUP_MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."group_members");
+	$forum_stats['MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg");
+	$forum_stats['THREADS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread");
+	$forum_stats['PRIVATE_MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
+	$forum_stats['FORUMS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
+	$forum_stats['CATEGORIES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat");
+	$forum_stats['MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users");
+	$forum_stats['ADMINS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE is_mod='A'");
+	$forum_stats['MODERATORS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod");
+	$forum_stats['GROUPS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups");
+	$forum_stats['GROUP_MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members");
 
 	include('admpanel.php'); 
 ?>	
@@ -132,15 +132,15 @@ function get_sql_disk_usage()
 		{
 			case 'msg':
 				$g_title = 'Messages posted from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT post_stamp FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
+				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
 				break;
 			case 'thr':
 				$g_title = 'Threads created from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT post_stamp FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
+				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
 				break;
 			case 'usr':
 				$g_title = 'Registered users from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT join_date FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE join_date>".$start_tm." AND join_date<".$end_tm);
+				$r = q("SELECT join_date FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE join_date>".$start_tm." AND join_date<".$end_tm);
 				break;
 		}			
 			

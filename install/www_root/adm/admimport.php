@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.4 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admimport.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -96,8 +96,8 @@ include('admpanel.php');
 
 	/* restore user from db is login names match */
 		if( get_id_by_login(addslashes($usr->login)) ) {
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."ses WHERE user_id=".$usr->id);
-			q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."ses (ses_id,user_id,sys_id,time_sec) VALUES('".$ses->ses_id."',".$usr->id.",'".$ses->sys_id."',".__request_timestamp__.")");
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."ses WHERE user_id=".$usr->id);
+			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."ses (ses_id,user_id,sys_id,time_sec) VALUES('".$ses->ses_id."',".$usr->id.",'".$ses->sys_id."',".__request_timestamp__.")");
 		}
 		else {
 			echo '<font color="#ff0000">Your current login ('.htmlspecialchars($usr->login).') is not found in the imported database.<br>There for you\'ll need to re-login once the import process is complete<br></font>';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admprune.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,27 +40,27 @@
 		$back_t = __request_timestamp__-$back;
 				
 		if ( $forumsel == '0' ) {
-			$QRY_TAIL = "FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread WHERE last_post_date<".$back_t;
+			$QRY_TAIL = "FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE last_post_date<".$back_t;
 			$msg = '<font color="red">from all forums</font>';
 		}
 		else if ( strstr($forumsel, 'cat_') ) {
 			$cat_id = substr($forumsel, 4);
 			$QRY_TAIL = "FROM 
-					".$GLOBALS['MYSQL_TBL_PREFIX']."thread 
-					INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum 
-						ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id
-					INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id
-					WHERE last_post_date<".$back_t." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id=".$cat_id;
-			$cat_name = q_singleval("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat WHERE id=".$cat_id);					
+					".$GLOBALS['DBHOST_TBL_PREFIX']."thread 
+					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
+						ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
+					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id
+					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id=".$cat_id;
+			$cat_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat WHERE id=".$cat_id);					
 			$msg = '<font color="red"> from all forums in category '.$cat_name.'</font>';
 		}
 		else if ( $forumsel ) {
 			$QRY_TAIL = "FROM 
-					".$GLOBALS['MYSQL_TBL_PREFIX']."thread 
-					INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum 
-						ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id
-					WHERE last_post_date<".$back_t." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id=".$forumsel;
-			$frm_name = q_singleval("SELECT name FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum WHERE id=".$forumsel);
+					".$GLOBALS['DBHOST_TBL_PREFIX']."thread 
+					INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
+						ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id
+					WHERE last_post_date<".$back_t." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$forumsel;
+			$frm_name = q_singleval("SELECT name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum WHERE id=".$forumsel);
 			$msg = '<font color="red"> from '.$frm_name.'</font>';
 		}
 		
@@ -91,21 +91,21 @@
 			header("Location: admprune.php?"._rsid."&rand=".get_random_value());
 		}
 		else if ( $btn_conf ) { /* prune here */
-			db_lock($GLOBALS['MYSQL_TBL_PREFIX'].'thread_view+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'cat+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'level+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'forum+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'forum_read+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'msg+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'attach+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll_opt+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll_opt_track+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'users+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_notify+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'msg_report+, 
-				'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_rate_track+');
+			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thread_view+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'cat+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'level+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum_read+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'attach+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt_track+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'users+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_notify+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg_report+, 
+				'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_rate_track+');
 			
 			$r = q("SELECT root_msg_id, forum_id ".$QRY_TAIL);
 			while ( $obj = db_rowobj($r) ) {
@@ -141,7 +141,7 @@ include('admpanel.php');
 	<td bgcolor="#bff8ff">Limit to forum:</td>
 	<td colspan=2 bgcolor="#bff8ff" nowrap>
 	<?php 
-		$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.name as cat_name, ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id as cat_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.cat_id=".$GLOBALS['MYSQL_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['MYSQL_TBL_PREFIX']."cat.view_order, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.view_order");
+		$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name, ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.name as cat_name, ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id as cat_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
 		echo '<select name="forumsel">';
 		echo '<option value="0">- All Forums -';
 		while ( $obj = db_rowobj($r) ) {

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.4 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admmodfrm.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -49,7 +49,7 @@
 		}
 		$usr->end_mod();
 		
-		if( $usr->is_mod != 'A' ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET is_mod='".(($mod)?'Y':'N')."' WHERE id=".$usr->id);
+		if( $usr->is_mod != 'A' ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='".(($mod)?'Y':'N')."' WHERE id=".$usr->id);
 		
 		/* mod rebuild */	
 		rebuildmodlist();

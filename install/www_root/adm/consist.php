@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.3 2002/06/26 19:41:21 hackie Exp $
+*   $Id: consist.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -91,44 +91,44 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Locking the database for checking');
 	/* normal forum messages */
-	//'.$GLOBALS['MYSQL_TBL_PREFIX'].'users AS fud_users_2+, 
+	//'.$GLOBALS['DBHOST_TBL_PREFIX'].'users AS fud_users_2+, 
 	db_lock('
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_view+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'forum+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'cat+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'msg+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'ses+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'mod+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'users+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_view+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'cat+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'ses+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'mod+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'users+, 
 		
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'read+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll_opt+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'poll_opt_track+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'smiley+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_notify+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'forum_notify+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'attach+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'msg_report+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'thread_rate_track+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'level+, 
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'custom_tags+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'user_ignore+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'buddy+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'pmsg+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'ext_block+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'groups+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'group_resources+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'group_members+,
-		'.$GLOBALS['MYSQL_TBL_PREFIX'].'group_cache+
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'read+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'poll_opt_track+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_notify+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'forum_notify+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'attach+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'msg_report+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'thread_rate_track+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'level+, 
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'custom_tags+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'user_ignore+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'buddy+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'pmsg+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'ext_block+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'groups+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'group_resources+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'group_members+,
+		'.$GLOBALS['DBHOST_TBL_PREFIX'].'group_cache+
 	');
 	draw_stat('Locked!');
 	draw_stat('Validating category order');
 	$i=1;
-	$r = q("SELECT id,view_order FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."cat ORDER BY view_order,id");
+	$r = q("SELECT id,view_order FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ORDER BY view_order,id");
 	while( list($id,$view_order) = db_rowarr($r) ) {
-		if( $view_order != $i ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."cat SET view_order=".$i." WHERE id=".$id);
+		if( $view_order != $i ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."cat SET view_order=".$i." WHERE id=".$id);
 		$i++;
 	}
 	qf($r);
@@ -137,10 +137,10 @@ forum will be disabled.<br><br>
 	draw_stat('Checking if moderator and users table match');
 	$cnt = 0;
 	/* forum moderators exist, mod->users */
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.id AS tbl_mod_id, ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id AS tbl_user_id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id AS tbl_forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.id AS tbl_mod_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS tbl_user_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id AS tbl_forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( !strlen($obj->tbl_user_id) || !strlen($obj->tbl_forum_id) ) {
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod WHERE id=".$obj->tbl_mod_id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod WHERE id=".$obj->tbl_mod_id);
 			++$cnt;
 		} 
 	}
@@ -149,7 +149,7 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Rebuilding moderators');
 	$ar = $ar2= array();
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id,".$GLOBALS['MYSQL_TBL_PREFIX']."users.login,".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id ORDER BY forum_id");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id,".$GLOBALS['DBHOST_TBL_PREFIX']."users.login,".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id ORDER BY forum_id");
 	while ( $obj = db_rowobj($r) ) {
 		if( empty($ar[$obj->forum_id]) ) {
 			$ar[$obj->forum_id]='';
@@ -166,18 +166,18 @@ forum will be disabled.<br><br>
 	while( list($k,$v) = each($ar) ) {
 		if( $k ) {
 			$v = substr($v, 0, -1);
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='$v' WHERE id=".$k);	
 		}
 	}
 	
-	q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET is_mod='N' WHERE is_mod!='A'");
-	$r = q("SELECT user_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."mod INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id=".$GLOBALS['MYSQL_TBL_PREFIX']."mod.user_id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.is_mod!='A' GROUP BY user_id");
-	while( list($uid) = db_rowarr($r) ) q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET is_mod='Y' WHERE id=".$uid);
+	q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='N' WHERE is_mod!='A'");
+	$r = q("SELECT user_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id=".$GLOBALS['DBHOST_TBL_PREFIX']."mod.user_id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.is_mod!='A' GROUP BY user_id");
+	while( list($uid) = db_rowarr($r) ) q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET is_mod='Y' WHERE id=".$uid);
 	qf($r);
 	
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."mod ON ".$GLOBALS['MYSQL_TBL_PREFIX']."mod.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mod ON ".$GLOBALS['DBHOST_TBL_PREFIX']."mod.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE forum_id IS NULL");
 	while( list($fid) = db_rowarr($r) ) {
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET moderators='' WHERE id=".$fid);
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding moderators');
@@ -185,18 +185,18 @@ forum will be disabled.<br><br>
 	draw_stat('Checking if all private messages have users');
 	$cnt = 0;
 
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg.ouser_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE mailed='N' AND ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg.ouser_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE mailed='N' AND ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while( $obj = db_rowobj($r) ) {
 		$pmsg = new fud_pmsg;
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg WHERE id=".$obj->id, $pmsg);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg WHERE id=".$obj->id, $pmsg);
 		$pmsg->del_pmsg('TRASH');
 		++$cnt;
 	}
 
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg.duser_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE mailed='Y' AND ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg.duser_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE mailed='Y' AND ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while( $obj = db_rowobj($r) ) {
 		$pmsg = new fud_pmsg;
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."pmsg WHERE id=".$obj->id, $pmsg);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg WHERE id=".$obj->id, $pmsg);
 		$pmsg->del_pmsg('TRASH');
 		++$cnt;
 	}
@@ -206,11 +206,11 @@ forum will be disabled.<br><br>
 	draw_stat('Checking read table against users');
 	$cnt = 0;
 	/* read messages->users */
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."read.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id AS usr_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."read.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."read.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS usr_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."read.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->usr_id) ) {
 			++$cnt;
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."read WHERE id=".$obj->id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read WHERE id=".$obj->id);
 		}
 	}
 	qf($result);
@@ -219,58 +219,58 @@ forum will be disabled.<br><br>
 	draw_stat('Checking read table against threads/messages');
 	$cnt=0;
  	/* read thread->thread/user */ 
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."read.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id AS thread_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread ON ".$GLOBALS['MYSQL_TBL_PREFIX']."read.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.poster_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."read.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."read.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poster_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->thread_id) ) {
 			++$cnt;
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."read WHERE id=".$obj->id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."read WHERE id=".$obj->id);
 		}
 	}
 	qf($result);
 	draw_info($cnt);
 	
 	draw_stat('Checking file attachments against messages');
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.id,".$GLOBALS['MYSQL_TBL_PREFIX']."attach.location FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.id,".$GLOBALS['DBHOST_TBL_PREFIX']."attach.location FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.message_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id IS NULL");
 	if( ($cnt = db_count($result)) ) {
 		while ( $obj = db_rowobj($result) ) {
 			if( file_exists($obj->location) ) unlink($obj->location);
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."attach WHERE id=".$obj->id);	
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$obj->id);	
 		}
 	}
 	if( $cnt ) draw_stat("$cnt Bad Attachments removed");
 	draw_stat('Done: Checking file attachments against messages');
 	
 	draw_stat('Checking attachment counts in messages');
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id, count(*) AS attach_count FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NOT NULL GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id, count(*) AS attach_count FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.message_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id IS NOT NULL GROUP BY ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id");
 	if( db_count($result) ) {
 		while( $obj = db_rowobj($result) ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET attach_cnt=".$obj->attach_count." WHERE id=".$obj->id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=".$obj->attach_count." WHERE id=".$obj->id);
 		}
 	}
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."attach ON ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.message_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.attach_cnt>0 AND ".$GLOBALS['MYSQL_TBL_PREFIX']."attach.id IS NULL GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."attach ON ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.message_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.attach_cnt>0 AND ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.id IS NULL GROUP BY ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id");
 	if( db_count($result) ) {
 		while( $obj = db_rowobj($result) ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET attach_cnt=0 WHERE id=".$obj->id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=0 WHERE id=".$obj->id);
 		}
 	}
 	draw_stat('Done: Checking attachment counts in messages');
 	
 	draw_stat('Checking polls against messages');
 	$cnt = 0;
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id AS msg_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.poll_id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NULL");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id AS msg_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poll_id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
 		$cnt++;
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll WHERE id=".$obj->id);
 	}
 	qf($result);
 	draw_info($cnt);
 	
 	draw_stat('Checking message reports');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg_report.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg_report LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg_report.msg_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg_report.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg_report LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg_report.msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
 		$cnt++;
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg_report WHERE id=".$obj->id);	
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg_report WHERE id=".$obj->id);	
 	}
 	qf($result);
 	draw_info($cnt);
@@ -278,11 +278,11 @@ forum will be disabled.<br><br>
 	draw_stat('Checking poll tracking against poll options, users');
 	$cnt = 0;
 	/* users -> polls tracking */
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track.id AS opt_id, ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id AS usr_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."poll ON ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track.poll_id=".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track.id AS opt_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS usr_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."poll ON ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track.poll_id=".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->usr_id) ) {
 			++$cnt;
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track WHERE id=".$obj->opt_id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track WHERE id=".$obj->opt_id);
 		}
 	}
 	qf($result);
@@ -291,11 +291,11 @@ forum will be disabled.<br><br>
 	draw_stat('Checking if all poll options belong to existing polls');
 	$cnt = 0;
 	/* poll options -> polls */
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id AS poll_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."poll ON ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt.poll_id=".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id AS poll_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."poll ON ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt.poll_id=".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->poll_id) ) {
 			++$cnt;
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt WHERE id=".$obj->id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt WHERE id=".$obj->id);
 		}
 	}
 	qf($result);
@@ -304,11 +304,11 @@ forum will be disabled.<br><br>
 	draw_stat('Checking all poll tracking against polls');
 	$cnt = 0;
 	/* poll votes -> polls */
-	$result=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track.id AS t_id, ".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id AS poll_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."poll ON ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track.poll_id=".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id");
+	$result=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track.id AS t_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id AS poll_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."poll ON ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track.poll_id=".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( empty($obj->poll_id) ) {
 			++$cnt;
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."poll_opt_track WHERE id=".$obj->t_id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."poll_opt_track WHERE id=".$obj->t_id);
 		}
 	}
 	qf($result);
@@ -317,10 +317,10 @@ forum will be disabled.<br><br>
 	draw_stat('Checking for messages against polls');
 	$cnt = 0;
 
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."poll ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.poll_id=".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.poll_id>0 AND ".$GLOBALS['MYSQL_TBL_PREFIX']."poll.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."poll ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poll_id=".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poll_id>0 AND ".$GLOBALS['DBHOST_TBL_PREFIX']."poll.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
 		++$cnt;
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET poll_id=0 WHERE id=".$obj->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET poll_id=0 WHERE id=".$obj->id);
 	}
 	qf($result);
 	draw_info($cnt);
@@ -328,12 +328,12 @@ forum will be disabled.<br><br>
 	draw_stat('Checking threads forum relations');
 	$cnt = 0;
 	/* threads -> forum */
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
 		if ( empty($obj->id) ) continue;
 		++$cnt;
 		$thr = new fud_thread;
-		qobj("SELECT root_msg_id,id,forum_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread WHERE id=".$obj->id, $thr);
+		qobj("SELECT root_msg_id,id,forum_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE id=".$obj->id, $thr);
 		$thr->delete(FALSE);
 		unset($thr);
 	}
@@ -342,11 +342,11 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Checking message thread relations');
 	$cnt = 0;
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj=db_rowobj($r) ) {
 		++$cnt;
 		$msg = new fud_msg_edit;
-		qobj("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE id=".$obj->id, $msg);
+		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=".$obj->id, $msg);
 		$msg->delete(FALSE);
 		unset($msg);
 	}
@@ -355,7 +355,7 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Checking smilies against disk files');
 	$cnt = 0;
-	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."smiley"); 
+	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."smiley"); 
 	$smiley_dsk  = '../images/smiley_icons/';
 	while ( $obj = db_rowobj($r) ) {
 		if ( file_exists($smiley_dsk.$obj->img) ) {
@@ -363,7 +363,7 @@ forum will be disabled.<br><br>
 			continue;
 		}
 		++$cnt;
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."smiley WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."smiley WHERE id=".$obj->id);
 	}
 	draw_info($cnt);
 
@@ -385,42 +385,42 @@ forum will be disabled.<br><br>
 	draw_info($cnt);
 	
 	draw_stat("Checking Approvals");
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.moderated='N' AND ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='N'");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.moderated='N' AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='N'");
 	if( db_count($r) ) {
 		while ( list($id) = db_rowarr($r) ) {
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."msg SET approved='Y' WHERE id=".$id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET approved='Y' WHERE id=".$id);
 		}
 	}
 	draw_stat("Done: Checking Approvals");
 	
 	/* fixing counts */
 	draw_stat('Updating counts for threads');
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id AS th_id, ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.moderated FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS th_id, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.moderated FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( $obj->moderated == 'Y' ) 
-			$q = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id." AND approved='Y'";
+			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id." AND approved='Y'";
 		else
-			$q = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id;
+			$q = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE thread_id=".$obj->th_id;
 			
 		$r = q($q);
 		list($post_count) = db_rowarr($r);
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread SET replies=".$post_count."-1 WHERE id=".$obj->th_id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET replies=".$post_count."-1 WHERE id=".$obj->th_id);
 		qf($r);
 	}
 	draw_stat('threads updated');
 
 	draw_stat('Updating forums');
-	$result = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum");
+	$result = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
 	draw_stat('Updating thread counts for forums');
 	while ( $obj = db_rowobj($result) ) {
 		draw_stat('Forum: '.$obj->name);
 		if ( $obj->moderated == 'Y' ) {
-			$qth = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE forum_id=".$obj->id." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y'";
-			$qp = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=$obj->id AND ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y'";
+			$qth = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE forum_id=".$obj->id." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
+			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=$obj->id AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'";
 		}
 		else {
-			$qth = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread WHERE forum_id=".$obj->id;
-			$qp = "SELECT count(*) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id=".$obj->id;
+			$qth = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread WHERE forum_id=".$obj->id;
+			$qp = "SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread RIGHT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$obj->id;
 		}
 		
 		$th_count = q_singleval($qth);
@@ -428,7 +428,7 @@ forum will be disabled.<br><br>
 			
 		draw_stat('thread count:'.$th_count);
 		draw_stat('post count:'.$p_count);
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET thread_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET thread_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
 	}
 	qf($result);
 	draw_stat('Updating post counts');
@@ -437,10 +437,10 @@ forum will be disabled.<br><br>
 	/* thread notif */
 	draw_stat('Checking thread notification entries against users');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id AS reg_user_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS reg_user_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( !strlen($obj->reg_user_id) ) {
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
 			++$cnt;
 		}
 	}
@@ -450,9 +450,9 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking thread notification entries against threads');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($result);
@@ -461,9 +461,9 @@ forum will be disabled.<br><br>
 	/* forum notif */
 	draw_stat('Checking forum notification entries against users');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id AS reg_user_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id AS reg_user_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify WHERE id=".$obj->id);
 		++$cnt;
 	}
 	
@@ -472,51 +472,51 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking forum notification entries against forums');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."forum ON ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify.forum_id=".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum.id IS NULL");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."forum ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify.forum_id=".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id IS NULL");
 	while ( $obj = db_rowobj($result) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum_notify WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum_notify WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($result);
 	draw_info($cnt);
 	
 	draw_stat('Updating Thread Last_Post_Id Field');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id AS id,
-			MAX(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id) AS mid
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id AS id,
+			MAX(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id) AS mid
 		FROM 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."msg 
+			".$GLOBALS['DBHOST_TBL_PREFIX']."msg 
 		WHERE 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y' 
+			".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y' 
 		GROUP BY 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."msg.thread_id");
+			".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id");
 
 	if( db_count($r) ) {
 		while ( $obj = db_rowobj($r) ) {
-			$r = q("SELECT post_stamp FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE id=$obj->mid");
+			$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE id=$obj->mid");
 			$obj2 = db_rowobj($r);
 			qf($r);
 			
-			q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread SET last_post_id=".$obj->mid.",last_post_date=".$obj2->post_stamp." WHERE id=".$obj->id);
+			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread SET last_post_id=".$obj->mid.",last_post_date=".$obj2->post_stamp." WHERE id=".$obj->id);
 		}
 	}
 	draw_stat('Done: Updating Thread Last_Post_Id Field');
 	
 	draw_stat('Updating Forum Last_Post_Id Field');
-	$r = q("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum");
+	$r = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
 	while( list($forum_id) = db_rowarr($r) ) {
-		$last_post_id = q_singleval("SELECT last_post_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.last_post_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id WHERE forum_id=".$forum_id." AND ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y' AND ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.moved_to=0 ORDER BY last_post_id DESC LIMIT 1");
+		$last_post_id = q_singleval("SELECT last_post_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.last_post_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE forum_id=".$forum_id." AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y' AND ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.moved_to=0 ORDER BY last_post_id DESC LIMIT 1");
 		if( !$last_post_id ) $last_post_id=0;
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."forum SET last_post_id=".$last_post_id." WHERE id=".$forum_id); 
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET last_post_id=".$last_post_id." WHERE id=".$forum_id); 
 	}
 	qf($r);	
 	draw_stat('Done: Updating Forum Last_Post_Id Field');
 	
 	draw_stat('Checking email notification entries against threads');
 	$cnt = 0;
-	$result = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id AS th_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id");
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.id, ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id AS th_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id");
 	while ( $obj = db_rowobj($result) ) {
 		if ( !strlen($obj->th_id) ) {
-			q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_notify WHERE id=".$obj->id);
 			++$cnt;
 		}
 	}
@@ -525,10 +525,10 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Checking thread votes against threads');
 	$cnt = 0;
-	$r=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."thread ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track.thread_id=".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id IS NULL");
+	$r=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
 		++$cnt;
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track WHERE id=".$obj->id);
 	}
 	qf($r);
 	draw_info($cnt);
@@ -536,47 +536,47 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Checking thread votes against users');
 	$cnt = 0;
-	$r=q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r=q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
 		++$cnt;
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_rate_track WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_rate_track WHERE id=".$obj->id);
 	}
 	qf($r);
 	draw_info($cnt);
 	
 	draw_stat('Rebuilding Thread Views');
-	q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_view");
+	q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_view");
 	$tm=__request_timestamp__;
-	$fr = q("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."forum");
+	$fr = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
 	while ( list($frm_id) = db_rowarr($fr) ) {
 		$vlist = '';
 	
 		$r = q("SELECT 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."thread.id, 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."thread.forum_id,
+			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id, 
+			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id,
 			CASE WHEN
 				is_sticky='Y' 
 				AND 
-					(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.post_stamp
-						+".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry>".$tm." 
-						OR ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.orderexpiry=0
+					(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.post_stamp
+						+".$GLOBALS['DBHOST_TBL_PREFIX']."thread.orderexpiry>".$tm." 
+						OR ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.orderexpiry=0
 					)
 			THEN
 				2147483647
 			ELSE
-				".$GLOBALS['MYSQL_TBL_PREFIX']."thread.last_post_id
+				".$GLOBALS['DBHOST_TBL_PREFIX']."thread.last_post_id
 			END
 			AS sort_order_fld
 		FROM 
-			".$GLOBALS['MYSQL_TBL_PREFIX']."thread
-			INNER JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg
-				ON ".$GLOBALS['MYSQL_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id
+			".$GLOBALS['DBHOST_TBL_PREFIX']."thread
+			INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg
+				ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id
 		WHERE 
 			forum_id=".$frm_id." AND
-			".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y'
+			".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y'
 		ORDER BY 
 			sort_order_fld DESC,
-			".$GLOBALS['MYSQL_TBL_PREFIX']."thread.last_post_date DESC
+			".$GLOBALS['DBHOST_TBL_PREFIX']."thread.last_post_date DESC
 		");
 
 		$i = 0;
@@ -588,7 +588,7 @@ forum will be disabled.<br><br>
 				$cnt = 0;
 			}	
 			$i++;			
-			q("INSERT INTO ".$GLOBALS['MYSQL_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
+			q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
 		}
 		qf($r);	
 	}
@@ -596,18 +596,18 @@ forum will be disabled.<br><br>
 	draw_stat('Done Rebuilding Thread Views');
 	
 	draw_stat('Rebuilding user levels & message counts');
-	$r = q(" SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id, count(".$GLOBALS['MYSQL_TBL_PREFIX']."msg.id) AS cnt FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."msg ON ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id=".$GLOBALS['MYSQL_TBL_PREFIX']."msg.poster_id AND ".$GLOBALS['MYSQL_TBL_PREFIX']."msg.approved='Y' GROUP BY ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id");
+	$r = q(" SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id, count(".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id) AS cnt FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.poster_id AND ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.approved='Y' GROUP BY ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id");
 	while( $obj = db_rowobj($r) ) {
-		$level_id = q_singleval("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."level WHERE post_count<=".$obj->cnt." ORDER BY post_count DESC LIMIT 1");
+		$level_id = q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."level WHERE post_count<=".$obj->cnt." ORDER BY post_count DESC LIMIT 1");
 		if( !$level_id ) $level_id=0;
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET posted_msg_count=".$obj->cnt.",level_id=".$level_id." WHERE id=".$obj->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET posted_msg_count=".$obj->cnt.",level_id=".$level_id." WHERE id=".$obj->id);
 	}
 	qf($r);
 	draw_stat('Done rebuilding user levels & message counts');
 	
 	draw_stat('Rebuilding custom user statuses');
 	$c_level = new fud_custom_tag;
-	$r = q("SELECT distinct(user_id) FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."custom_tags");
+	$r = q("SELECT distinct(user_id) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."custom_tags");
 	while( list($c_level->user_id) = db_rowarr($r) ) {
 		$c_level->sync();
 	}
@@ -615,9 +615,9 @@ forum will be disabled.<br><br>
 
 	$cnt = 0;
 	draw_stat('Checking buddies against entry owners');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($r);
@@ -625,9 +625,9 @@ forum will be disabled.<br><br>
 	
 	$cnt = 0;
 	draw_stat('Checking buddies against users');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy.bud_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy.bud_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($r);
@@ -635,9 +635,9 @@ forum will be disabled.<br><br>
 	
 	$cnt = 0;
 	draw_stat('Checking ignore list against entry owners');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore.user_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore.user_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($r);
@@ -645,9 +645,9 @@ forum will be disabled.<br><br>
 	
 	$cnt = 0;
 	draw_stat('Checking ignore list against users');
-	$r = q("SELECT ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore.id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore LEFT JOIN ".$GLOBALS['MYSQL_TBL_PREFIX']."users ON ".$GLOBALS['MYSQL_TBL_PREFIX']."user_ignore.ignore_id=".$GLOBALS['MYSQL_TBL_PREFIX']."users.id WHERE ".$GLOBALS['MYSQL_TBL_PREFIX']."users.id IS NULL");
+	$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore.id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."users ON ".$GLOBALS['DBHOST_TBL_PREFIX']."user_ignore.ignore_id=".$GLOBALS['DBHOST_TBL_PREFIX']."users.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."users.id IS NULL");
 	while ( $obj = db_rowobj($r) ) {
-		q("DELETE FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."buddy WHERE id=".$obj->id);
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."buddy WHERE id=".$obj->id);
 		++$cnt;
 	}
 	qf($r);
@@ -659,15 +659,15 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding File Extension Filter');
 	
 	draw_stat('Rebuilding users\' last post ids');
-	$r = q("SELECT MAX(id),poster_id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."msg WHERE approved='Y' GROUP BY poster_id");
+	$r = q("SELECT MAX(id),poster_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE approved='Y' GROUP BY poster_id");
 	while( list($mid,$uid) = db_rowarr($r) ) {
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."users SET u_last_post_id=".$mid." WHERE id=".$uid);	
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET u_last_post_id=".$mid." WHERE id=".$uid);	
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding users\' last post ids');
 	
 	draw_stat('Rebuilding group cache');
-	$r = q("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."groups");
+	$r = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups");
 	while( list($gid) = db_rowarr($r) ) {
 		$grp = new fud_group;
 		$grp->id = $gid;
@@ -678,9 +678,9 @@ forum will be disabled.<br><br>
 	
 	draw_stat('Rebuilding smilies vieworder');
 	$i=0;
-	$r = q("SELECT id FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."smiley ORDER BY vieworder");
+	$r = q("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."smiley ORDER BY vieworder");
 	while( list($sid) = db_rowarr($r) ) {
-		q("UPDATE ".$GLOBALS['MYSQL_TBL_PREFIX']."smiley SET vieworder=".(++$i)." WHERE id=".$sid);	
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."smiley SET vieworder=".(++$i)." WHERE id=".$sid);	
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding smilies vieworder');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.4 2002/06/26 19:41:21 hackie Exp $
+*   $Id: tmpllist.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -119,7 +119,7 @@ function tmpllist_resolve_refernce($refs, &$file)
 			@chmod($f_path,0600);
 			$tmpl_data = $tmpl_data_bk;
 			fud_use('compiler.inc', TRUE);
-			$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
+			$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme='$tname' AND lang='$tlang'");
 			while ( $obj = db_rowobj($r) )
 				compile_all($obj->theme, $obj->lang, $obj->name);
 			qf($r);

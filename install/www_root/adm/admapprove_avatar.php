@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.3 2002/06/26 19:41:20 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.4 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -66,7 +66,7 @@
 <?php
 	$a=0;
 	
-	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NULL AND avatar_approved='N' ORDER BY id");
+	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE avatar_loc IS NULL AND avatar_approved='N' ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
 		if ( $MOGRIFY_BIN ) {
 			$fix_it = ' [<a href="admapprove_avatar.php?fixit='.$obj->id.'&'._rsid.'">Fix It</a>]';
@@ -90,7 +90,7 @@
 	}
 	qf($r);
 
-	$r = q("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE avatar_loc IS NOT NULL AND avatar_approved='N' ORDER BY id");
+	$r = q("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE avatar_loc IS NOT NULL AND avatar_approved='N' ORDER BY id");
 	while ( $obj = db_rowobj($r) ) {
 		$a=1;
 		echo '<tr bgcolor="#bff8ff"><td>

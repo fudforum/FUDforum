@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.2 2002/06/18 14:20:24 hackie Exp $
+*   $Id: admlock.php,v 1.3 2002/06/26 19:48:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -52,7 +52,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=FALSE)
 		
 		mysql_connect($GLOBALS['MYSQL_SERVER'], $GLOBALS['MYSQL_LOGIN'], $GLOBALS['MYSQL_PASSWORD']);
 		mysql_select_db($GLOBALS['MYSQL_DB']);
-		$r = mysql_query("SELECT * FROM ".$GLOBALS['MYSQL_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
+		$r = mysql_query("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE login='".$HTTP_POST_VARS['usr_login']."' AND passwd='$md5pass' AND is_mod='A'");
 		
 		if ( !mysql_num_rows($r) ) {
 			$err = 1;
