@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.10 2002/10/25 00:53:51 hackie Exp $
+*   $Id: admstats.php,v 1.11 2002/10/25 00:59:28 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -81,8 +81,12 @@ function get_sql_disk_usage()
 	$disk_usage_array = array();
 	$total_disk_usage = 0;
 
-	$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($INCLUDE);
-	$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
+	$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
+	if ($DATA_DIR != $WWW_ROOT_DISK) {
+		$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
+	} else {
+		$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
+	}	
 
 	$sql_disk_usage = get_sql_disk_usage();
 	
@@ -215,19 +219,13 @@ function get_sql_disk_usage()
 <h4>Disk Usage</h4>
 <table width="100%" border=0 cellspacing=1 cellpadding=3 style="border: 1px #000000 solid;">
 <tr>
-	<td><b>FUDforum Include Directory:</b><br><font size="-1"><b><?php echo $INCLUDE; ?></b><br>this is where all the forum's function files are stored</font></td>
-	<td width=100>&nbsp;</td>
-	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['INCLUDE']/1024)); ?> Kb</td>
-</tr>
-
-<tr>
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['WWW_ROOT_DISK']/1024)); ?> Kb</td>
 </tr>
 
 <tr>
-	<td><b>Template Dir:</b><br><font size="-1"><b><?php echo $DATA_DIR; ?></b><br>this is where the forum's internal data files are stored</font></td>
+	<td><b>Data Dir:</b><br><font size="-1"><b><?php echo $DATA_DIR; ?></b><br>this is where the forum's internal data files are stored</font></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
 </tr>
