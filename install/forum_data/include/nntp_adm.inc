@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.9 2003/09/26 18:49:14 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.10 2003/09/30 04:13:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,7 +21,7 @@ class fud_nntp_adm
 	var $server, $port=119, $login, $pass, $timeout=25, $newsgroup, $auth;
 
 	// General Settings
-	var $forum_id, $id, $nntp_opt=1|32;
+	var $forum_id, $id, $nntp_opt=33;
 
 	function fud_nntp_adm()
 	{
@@ -36,7 +36,7 @@ class fud_nntp_adm
 			$this->nntp_opt =0;
 			foreach (array('nntp_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_nntp_attch', 'complex_reply_match', 'create_users', 'auth') as $v) {
 				if (isset($_POST['nntp_'.$v])) {
-					$this->nntp_opt =| (int) $_POST['nntp_'.$v];
+					$this->nntp_opt |= (int) $_POST['nntp_'.$v];
 				}
 			}
 		}	

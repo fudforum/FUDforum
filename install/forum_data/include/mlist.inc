@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.9 2003/09/26 18:49:14 hackie Exp $
+*   $Id: mlist.inc,v 1.10 2003/09/30 04:13:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 class fud_mlist
 {
 	var $id, $forum_id, $name;
-	var $mlist_opt=64|1|8;
+	var $mlist_opt=73;
 	var $subject_regex_haystack, $subject_regex_needle, $body_regex_haystack, $body_regex_needle, $additional_headers;
 
 	function fud_mlist()
@@ -34,7 +34,7 @@ class fud_mlist
 			$this->mlist_opt =0;
 			foreach (array('mlist_post_apr', 'allow_frm_post', 'frm_post_apr', 'allow_mlist_attch', 'allow_mlist_html', 'complex_reply_match', 'create_users') as $v) {
 				if (isset($_POST['ml_'.$v])) {
-					$this->mlist_opt =| (int) $_POST['ml_'.$v];
+					$this->mlist_opt |= (int) $_POST['ml_'.$v];
 				}
 			}
 
@@ -113,7 +113,7 @@ class fud_mlist
 
 	function del($id)
 	{
-		q("DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'mlist WHERE id=".$id);	
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist WHERE id=".$id);	
 	}
 }
 ?>

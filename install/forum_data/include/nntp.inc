@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.34 2003/09/30 03:57:55 hackie Exp $
+*   $Id: nntp.inc,v 1.35 2003/09/30 04:13:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,7 +62,7 @@ class fud_nntp
 					return false;
 					break;		
 			}
-		} else (!($this->nntp_opt & 64)) {
+		} else if (!($this->nntp_opt & 64)) {
 			if ($this->cmd('AUTHINFO SIMPLE', false) != 350) {
 				$this->error = "Authentication failed\n";
 				return false;

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.5 2003/09/26 18:49:14 hackie Exp $
+*   $Id: theme.inc,v 1.6 2003/09/30 04:13:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,7 +38,7 @@ class fud_theme
 
 		if ($this->theme_opt & 2) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt=3");
-			$this->theme_opt =| 1;
+			$this->theme_opt |= 1;
 		}
 		
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
@@ -66,7 +66,7 @@ class fud_theme
 		if ($this->theme_opt & 2) {
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt &~ 2 WHERE theme_opt=3");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.$id.' WHERE id=1');
-			$this->theme_opt =| 2;
+			$this->theme_opt |= 2;
 		}
 
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.43 2003/09/30 02:31:39 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.44 2003/09/30 04:10:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,12 +53,12 @@ class fud_user_reg extends fud_user
 		if ($GLOBALS['FUD_OPT_2'] & 1024) {
 			$this->users_opt |= 2097152;
 			$this->theme = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}themes WHERE theme_opt=3 LIMIT 1");
-			$this->time_zone = $GLOBALS['SERVER_TZ'];
-			$this->posts_ppg = $GLOBALS['POSTS_PER_PAGE'];
-			if (!($GLOBALS['FUD_OPT_2'] & 4) {
+			$this->time_zone =& $GLOBALS['SERVER_TZ'];
+			$this->posts_ppg =& $GLOBALS['POSTS_PER_PAGE'];
+			if (!($GLOBALS['FUD_OPT_2'] & 4)) {
 				$uent->users_opt ^= 128;
 			}
-			if (!($GLOBALS['FUD_OPT_2'] & 8) {
+			if (!($GLOBALS['FUD_OPT_2'] & 8)) {
 				$uent->users_opt ^= 256;
 			}
 			if ($GLOBALS['FUD_OPT_2'] & 1) {

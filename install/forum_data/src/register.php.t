@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.83 2003/09/30 04:08:42 hackie Exp $
+*   $Id: register.php.t,v 1.84 2003/09/30 04:10:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -570,10 +570,10 @@ function decode_uent(&$uent)
 		}
 
 		$uent->users_opt = 4488117;
-		if (!($FUD_OPT_2 & 4) {
+		if (!($FUD_OPT_2 & 4)) {
 			$uent->users_opt ^= 128;
 		}
-		if (!($FUD_OPT_2 & 8) {
+		if (!($FUD_OPT_2 & 8)) {
 			$uent->users_opt ^= 256;
 		}
 

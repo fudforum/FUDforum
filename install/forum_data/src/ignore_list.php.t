@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ignore_list.php.t,v 1.14 2003/09/30 04:02:22 hackie Exp $
+*   $Id: ignore_list.php.t,v 1.15 2003/09/30 04:10:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@ function ignore_alias_fetch($al, &$is_mod)
 
 	ses_update_status($usr->sid, '{TEMPLATE: ignore_list_update}');
 
-	$ignore_member_search = ($FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: ignore_member_search}' : '';
+	$ignore_member_search = ($FUD_OPT_1 & (8388608|4194304) ? '{TEMPLATE: ignore_member_search}' : '');
 	
 /*{POST_HTML_PHP}*/
 	
