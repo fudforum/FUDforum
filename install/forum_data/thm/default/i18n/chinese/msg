@@ -910,3 +910,4 @@ threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
+err_inc_query_err:		SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log
