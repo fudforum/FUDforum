@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tree.tmpl,v 1.53 2004/05/30 17:44:09 hackie Exp $
+* $Id: tree.tmpl,v 1.54 2004/06/21 14:51:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -27,6 +27,7 @@
 {REF: show.tmpl}
 {REF: th_nav.tmpl}
 {REF: th.tmpl}
+{REF: date_formats.tmpl}
 
 {SECTION: tree_unread_message new message}
 <img src="{THEME_IMAGE_ROOT}/unread.png" alt="{MSG: unread_message}" title="{MSG: unread_message}" />
@@ -163,7 +164,7 @@
 <td>{TEMPLATE-DATA: read_indicator}</td>
 <td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_branch_lnk}" class="big">{VAR: cur->subject}</a>
-<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
+<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 </tr>
 {SECTION: END}
 
@@ -176,7 +177,7 @@
 <td>{TEMPLATE-DATA: read_indicator}</td>
 <td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_entry_lnk}" class="big">{VAR: cur->subject}</a>
-<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
+<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
 
 {SECTION: tree_branch_selected_lnk}
@@ -188,7 +189,7 @@
 <td>{TEMPLATE-DATA: read_indicator}</td>
 <td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_branch_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
-<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
+<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
 
 {SECTION: tree_entry_selected_lnk}
@@ -200,7 +201,7 @@
 <td>{TEMPLATE-DATA: read_indicator}</td>
 <td class="Gentext nw wa vt" style="padding-left: {VAR: width}px">
 <a href="{TEMPLATE: tree_entry_selected_lnk}" class="big">{VAR: cur->subject}</a><a name="tree_view">&nbsp;</a>
-<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {DATE: cur->post_stamp %a, %d %B %Y %H:%M}</div></td>
+<div class="TopBy">{MSG: by} {TEMPLATE-DATA: user_login} {MSG: thread_on} {TEMPLATE: tree_msg_post_date}</div></td>
 {SECTION: END}
 
 {PAGE: TREE_PAGE a tree(thread) view of all the messages inside a thread}

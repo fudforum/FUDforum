@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: showposts.tmpl,v 1.17 2004/04/25 20:18:26 hackie Exp $
+* $Id: showposts.tmpl,v 1.18 2004/06/21 14:51:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,9 +20,10 @@
 {REF: draw_pager.tmpl}
 {REF: is_perms.tmpl}
 {REF: alt_var.tmpl}
+{REF: date_formats.tmpl}
 
 {SECTION: post_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText"><a href="{TEMPLATE: post_entry_lnk}">{VAR: r[2]}</a></td><td class="GenText" nowrap><a href="{TEMPLATE: post_entry_lnk1}">{VAR-HTML: r[0]}</a></td><td class="DateText" nowrap>{DATE: r[4] %a, %d %B %Y %H:%M}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText"><a href="{TEMPLATE: post_entry_lnk}">{VAR: r[2]}</a></td><td class="GenText" nowrap><a href="{TEMPLATE: post_entry_lnk1}">{VAR-HTML: r[0]}</a></td><td class="DateText nw">{TEMPLATE: showposts_ent_date}</td></tr>
 {SECTION: END}
 
 {PAGE: SHOWPOSTS_PAGE show all posts by a user}

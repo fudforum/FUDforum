@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.tmpl,v 1.13 2004/04/25 20:18:26 hackie Exp $
+* $Id: split_th.tmpl,v 1.14 2004/06/21 14:51:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -23,6 +23,7 @@
 {REF: logaction.tmpl}
 {REF: replace.tmpl}
 {REF: th_adm.tmpl}
+{REF: date_formats.tmpl}
 
 {SECTION: msg_entry individual message entries}
 <tr>
@@ -32,7 +33,7 @@
 <tr class="RowStyleB">
 	<td class="SmallText">
 	<b>{MSG: split_th_post_by}</b> {VAR: r->alias}<br />
-	<b>{MSG: split_th_posted_on}</b> {DATE: r->post_stamp %a, %d %B %Y %H:%M}<br />
+	<b>{MSG: split_th_posted_on}</b> {TEMPLATE: dmsg_post_date}<br />
 	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
 	</td>
 </tr>

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: referals.tmpl,v 1.17 2004/04/25 20:18:26 hackie Exp $
+* $Id: referals.tmpl,v 1.18 2004/06/21 14:51:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,6 +18,7 @@
 {REF: stats.tmpl}
 {REF: alt_var.tmpl}
 {REF: tabs.tmpl}
+{REF: date_formats.tmpl}
 
 {SECTION: pm_link}
 &nbsp;<a href="{TEMPLATE: pm_link_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
@@ -35,7 +36,7 @@
 <tr class="{ALT-VAR: ref_alt RowStyleA RowStyleB}">
 	<td class="wa nwGenText"><a href="{TEMPLATE: refered_entry_lnk}">{VAR: r[0]}</a></td>
 	<td class="ac nw Gentext">{VAR: r[3]}</td>
-	<td class="nw DateText">{DATE: r[2] %a, %d %B %Y}</td>
+	<td class="nw DateText">{TEMPLATE: referrals_join_date}</td>
 	<td class="nw GenText"><a href="{TEMPLATE: refered_entry_lnk1}"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
