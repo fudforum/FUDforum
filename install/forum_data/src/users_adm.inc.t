@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: users_adm.inc.t,v 1.7 2002/10/16 07:34:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,6 +48,7 @@ class fud_user_adm extends fud_user_reg
 		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE user_id=".$this->id);
 		q("DELETE FROM {SQL_TABLE_PREFIX}buddy WHERE bud_id=".$this->id);
 		q("DELETE FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE user_id=".$this->id);
+		q("DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE user_id=".$this->id);
 		
 		/* Delete the private messages of this user */
 		
