@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.34 2004/12/09 18:43:35 hackie Exp $
+* $Id: admcat.php,v 1.35 2004/12/13 18:01:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -89,14 +89,16 @@
 	$lvl = array(0); 
 	$i = $l = 0;
 	while (1) {
-		while (list(,$v) = each($ol[$l])) {
-			$v->lvl = $i;
-			$cat_list[] = $v;
-			if (isset($ol[$v->id])) {
-				$lvl[] = $l;
-				$l = $v->id;
-				$i++;
-				continue;
+		if (isset($ol[$l])) {
+			while (list(,$v) = each($ol[$l])) {
+				$v->lvl = $i;
+				$cat_list[] = $v;
+				if (isset($ol[$v->id])) {
+					$lvl[] = $l;
+					$l = $v->id;
+					$i++;
+					continue;
+				}
 			}
 		}
 		if ($i < 1) {
@@ -106,7 +108,6 @@
 		unset($lvl[$i--]);
 	}
 	unset($ol);
-
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Category Management System</h2>
@@ -139,13 +140,17 @@
 	<tr class="field">
 		<td>Parent Category: </td>
 <?php
-	$c_ids = $c_names = '';
+	$c_ids = $c_names = "\n";
 	foreach ($cat_list as $c) {
 		$c_ids .= $c->id . "\n";
 		$c_names .= str_repeat("-- ", $c->lvl) . $c->name . "\n";
 	}
+
+	if ($c_names == "\n") {
+		$c_names = $c_ids = '';
+	}
 ?>
-		<td><?php draw_select('cat_parent', "Top Level\n" . rtrim($c_names), "0\n" . rtrim($c_ids), $cat_parent); ?></td>
+		<td><?php draw_select('cat_parent', "Top Level" . rtrim($c_names), "0" . rtrim($c_ids), $cat_parent); ?></td>
 	</tr>
 
 	<?php if (!$edit) { ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.95 2004/11/30 17:06:08 hackie Exp $
+* $Id: consist.php,v 1.97 2004/12/13 18:01:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,17 +56,58 @@ function draw_info($cnt)
 
 function delete_zero($tbl, $q)
 {
-	$cnt = 0;
-	$c = q($q);
-	while ($r = db_rowarr($c)) {
-		$a[] = $r[0];
-		++$cnt;
+	if (__dbtype__ == 'pgsql') {
+		q("DELETE FROM ".$tbl." WHERE id = (".$q.")");
+		draw_info(db_affected());
+	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* mysql 4.1 optimization */
+		q("DELETE ".$tbl." ".substr($q, 7, strpos($q, '.') - 7)." ".strstr($q, "FROM"));
+		draw_info(db_affected());
+	} else { /* mysql 3.23-4.0 */
+		$cnt = 0;
+		$c = q($q);
+		while ($r = db_rowarr($c)) {
+			$a[] = $r[0];
+			++$cnt;
+		}
+		if ($cnt) {
+			q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
+		}
+		unset($c);
+		draw_info($cnt);
 	}
-	if ($cnt) {
-		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
+}
+
+function tbl_update($tbl, $col, $q)
+{
+	if (__dbtype__ == 'pgsql') {
+		q('UPDATE '.$tbl.' SET '.$col.' WHERE id = ('.$q.')');
+	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* MySQL 4.1 optimization */
+		$pfx = substr($q, 7, strpos($q, '.') - 7);
+		q('UPDATE '.$tbl.' '.$pfx.' SET '.$pfx.'.'.$col.' '.strstr($q, "FROM"));
+	} else { /* MySQL 3.23-4.0 */
+		$m = array();
+		$c = uq($q);
+		while ($r = db_rowarr($c)) {
+			$m[] = $r[0];
+		}
+		if ($m) {
+			q('UPDATE '.$tbl.' SET '.$col.' WHERE id IN('.implode(',', $m).')');
+		}
 	}
-	unset($c);
-	draw_info($cnt);
+}
+
+function tbl_update2($tbl, $col, $q, $logic)
+{
+	if (__dbtype__ == 'pgsql') {
+		q('UPDATE '.$tbl.' SET '.$col.' FROM ('.$q.') as j WHERE '.$logic);
+	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* MySQL 4.1 optimization */
+		q('UPDATE '.$tbl.', ('.$q.') as j SET '.$col.' WHERE '.$logic);
+	}
+		$c = q($q);
+		while ($r = db_rowarr($c)) {
+			q('UPDATE '.$tbl.'thread SET replies='.$r[1].' WHERE id='.$r[0]);
+		}
+	}
 }
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -158,20 +199,7 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding moderators');
 
 	draw_stat('Checking if all private messages have users');
-	$dpm = array();
-	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm
-		LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id
-		LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id
-		WHERE (pm.pmsg_opt & 16) > 0 AND (u.id IS NULL OR u2.id IS NULL)');
-	while ($r = db_rowarr($c)) {
-		$dpm[] = $r[0];
-	}
-	if (($cnt = count($dpm))) {
-		foreach ($dpm as $v) {
-			pmsg_del($v, 5);
-		}
-	}
-	draw_info($cnt);
+	$c = delete_zero($tbl.'pmsg', 'SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id LEFT JOIN '.$tbl.'users u2 ON u2.id=pm.duser_id WHERE (pm.pmsg_opt & 16) > 0 AND (u.id IS NULL OR u2.id IS NULL)');
 
 	draw_stat('Checking messages against users & threads');
 	delete_zero($tbl.'msg', 'SELECT m.id FROM '.$tbl.'msg m LEFT JOIN '.$tbl.'users u ON u.id=m.poster_id LEFT JOIN '.$tbl.'thread t ON t.id=m.thread_id LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE (m.poster_id!=0 AND u.id IS NULL) OR t.id IS NULL OR f.id IS NULL');
@@ -180,42 +208,31 @@ forum will be disabled.
 	delete_zero($tbl.'thread', 'SELECT t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'forum f ON f.id=t.forum_id WHERE f.id IS NULL');
 
 	draw_stat('Checking message approvals');
-	$m = array();
-	$c = uq('SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) > 0');
-	while ($r = db_rowarr($c)) {
-		$m[] = $r[0];
-	}
-	if (count($m)) {
-		q('UPDATE '.$tbl.'msg SET apr=1 WHERE id IN('.implode(',', $m).')');
-		unset($m);
-	}
+	tbl_update($tbl.'msg', 'apr=1', 'SELECT m.id FROM '.$tbl.'msg m INNER JOIN '.$tbl.'thread t ON m.thread_id=t.id INNER JOIN '.$tbl.'forum f ON t.forum_id=f.id WHERE m.apr=0 AND (f.forum_opt & 2) > 0');
 	draw_stat('Done: Checking message approvals');
 
-	$cnt = 0;
-	$del = $tr = array();
 	draw_stat('Checking threads against messages');
+	delete_zero($tbl.'thread', 'SELECT t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id AND m.apr=1 WHERE m.thread_id IS NULL');
 	q('UPDATE '.$tbl.'thread SET replies=0');
-	$c = uq('SELECT m.thread_id, t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY m.thread_id,t.id ORDER BY cnt');
-	while ($r = db_rowarr($c)) {
-		if (!$r[0]) {
-			$del[] = $r[1];
-			++$cnt;
-		} else {
+
+	if (__dbtype__ == 'pgsql' || $GLOBALS['FUD_OPT_3'] & 1024) {
+		tbl_update2($tbl.'thread', 'replies=j.c', 'SELECT t.id, (count(*) - 1) AS c FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY t.id', 'j.id='.$tbl.'msg.thread_id');
+	} else {
+		$tr = array();
+		$c = uq('SELECT t.id, count(*) as cnt FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m ON t.id=m.thread_id WHERE m.apr=1 GROUP BY t.id');
+		while ($r = db_rowarr($c)) {
 			$tr[$r[2] - 1][] = $r[1];
 		}
+		foreach ($tr as $k => $v) {
+			q('UPDATE '.$tbl.'thread SET replies='.$k.' WHERE id IN('.implode(',', $v).')');
+		}
+		unset($tr);
 	}
-	if (count($del)) {
-		q('DELETE FROM '.$tbl.'thread WHERE id='.implode(',', $del));
-	}
-	unset($tr[0]);
-	foreach ($tr as $k => $v) {
-		q('UPDATE '.$tbl.'thread SET replies='.$k.' WHERE id IN('.implode(',', $v).')');
-	}
-	unset($tr, $del);
-	draw_info($cnt);
 
 	draw_stat('Checking thread last & first post ids');
-	$c = q('SELECT m1.id, m2.id, t.id FROM '.$tbl.'thread t LEFT JOIN '.$tbl.'msg m1 ON t.root_msg_id=m1.id LEFT JOIN '.$tbl.'msg m2 ON t.last_post_id=m2.id WHERE m1.id IS NULL or m2.id IS NULL');
+	$c = q('SELECT m1.id, m2.id, t.id FROM '.$tbl.'thread t 
+	LEFT JOIN '.$tbl.'msg m1 ON t.root_msg_id=m1.id 
+	LEFT JOIN '.$tbl.'msg m2 ON t.last_post_id=m2.id WHERE m1.id IS NULL or m2.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		if (!$r[0]) {
 			if (!($root = q_singleval('SELECT id FROM '.$tbl.'msg WHERE thread_id='.$r[2].' ORDER BY post_stamp LIMIT 1'))) {
@@ -270,6 +287,10 @@ forum will be disabled.
 		if (!isset($tbl_k[$tbl.'fl_'.$f[0]])) {
 			q("CREATE TABLE ".$tbl."fl_".$f[0]." (id INT)");
 		}
+	}
+	/* private message lock table */
+	if (!isset($tbl_k[$tbl.'fl_pm'])) {
+		q("CREATE TABLE ".$tbl."fl_pm (id INT)");
 	}
 	draw_stat('Done: Checking for presence of forum lock tables');
 

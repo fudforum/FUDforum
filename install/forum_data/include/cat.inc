@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cat.inc,v 1.23 2004/11/24 19:53:33 hackie Exp $
+* $Id: cat.inc,v 1.24 2004/12/13 18:01:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,7 +31,7 @@ class fud_cat
 		}
 
 		if ($pos == 'LAST') {
-			$this->view_order = (int) q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE parent='.$this->parent) + 1;
+			$this->view_order = (int) q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE parent='.(int)$this->parent) + 1;
 		} else {
 			$this->view_order = 1;
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order+1 WHERE parent='.$this->parent);
@@ -80,7 +80,7 @@ function cat_change_pos($oldp, $newp, $parent)
 	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=2147483647 WHERE view_order='.$oldp.' AND parent='.$parent);
 	if ($oldp < $newp) {
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order-1 WHERE view_order<='.$newp.' AND view_order>'.$oldp.' AND parent='.$parent);
-		$maxp = q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE view_order!=2147483647 AND parent='.$parent);
+		$maxp = q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE view_order!=2147483647 AND parent='.(int)$parent);
 		if ($newp > $maxp) {
 			$newp = $maxp + 1;
 		}
@@ -117,24 +117,26 @@ function rebuild_forum_cat_order()
 	$lvl = array(0);
 	$i = $l = 0;
 	while (1) {
-		while (list(,$v) = each($ol[$l])) {
-			if (!isset($cat_cache[$v[0]])) {
-				$cat_cache[$v[0]] = array($i, htmlspecialchars($v[3]));
-				if ($v[2]) {
-					if (!isset($cat_cache[$v[2]][2])) {
-						$cat_cache[$v[2]][2] = array();
+		if (isset($ol[$l])) {
+			while (list(,$v) = each($ol[$l])) {
+				if (!isset($cat_cache[$v[0]])) {
+					$cat_cache[$v[0]] = array($i, htmlspecialchars($v[3]));
+					if ($v[2]) {
+						if (!isset($cat_cache[$v[2]][2])) {
+							$cat_cache[$v[2]][2] = array();
+						}
+						$cat_cache[$v[2]][2][] = $v[0];
 					}
-					$cat_cache[$v[2]][2][] = $v[0];
 				}
-			}
-			if ($v[1]) { // only insert when we have a category & forum
-				q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
-			}
-			if (isset($ol[$v[0]]) && empty($proc[$v[0]])) {
-				$lvl[] = $l;
-				$l = $v[0];
-				$i++;
-				$proc[$l] = $l;
+				if ($v[1]) { // only insert when we have a category & forum
+					q("INSERT INTO ".$tbl."fc_view (c, f, lvl) VALUES(".$v[0].",".$v[1].",".$i.")");
+				}
+				if (isset($ol[$v[0]]) && empty($proc[$v[0]])) {
+					$lvl[] = $l;
+					$l = $v[0];
+					$i++;
+					$proc[$l] = $l;
+				}
 			}
 		}
 		if ($i < 1) {
