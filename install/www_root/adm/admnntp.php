@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admnntp.php,v 1.20 2004/01/04 16:38:32 hackie Exp $
+* $Id: admnntp.php,v 1.21 2004/04/19 20:28:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -102,7 +102,7 @@
 		</td>
 		<td><select name="nntp_forum_id">
 		<?php
-			$c = uq('SELECT f.id, f.name
+			$c = uq('SELECT f.id, f.name, c.name
 				FROM '.$tbl.'forum f
 				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id
 				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id
@@ -110,7 +110,7 @@
 				WHERE ml.id IS NULL AND (n.id IS NULL OR n.id='.(int)$edit.')
 				ORDER BY c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
+				echo '<option value="'.$r[0].'"'.($r[0] != $nntp_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
 		?>
 		</select></td>

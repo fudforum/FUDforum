@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admmlist.php,v 1.25 2004/01/04 16:38:32 hackie Exp $
+* $Id: admmlist.php,v 1.26 2004/04/19 20:28:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -81,7 +81,7 @@ function format_regex(&$regex)
 		</td>
 		<td><select name="ml_forum_id">
 		<?php
-			$c = uq('SELECT f.id, f.name
+			$c = uq('SELECT f.id, f.name, c.name
 				FROM '.$tbl.'forum f
 				INNER JOIN '.$tbl.'cat c ON f.cat_id=c.id
 				LEFT JOIN '.$tbl.'nntp n ON f.id=n.forum_id
@@ -89,7 +89,7 @@ function format_regex(&$regex)
 				WHERE n.id IS NULL AND (ml.id IS NULL OR ml.id='.(int)$edit.')
 				ORDER BY c.view_order, f.view_order');
 			while ($r = db_rowarr($c)) {
-				echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[1].'</option>';
+				echo '<option value="'.$r[0].'"'.($r[0] != $ml_forum_id ? '' : ' selected').'>'.$r[2].' &raquo; '.$r[1].'</option>';
 			}
 		?>
 		</select></td>
