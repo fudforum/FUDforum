@@ -40,9 +40,9 @@ homepage:			主页：
 icq_control_panel:		ICQ 在线信息
 icq_message_form:		ICQ 信息列表:
 ignore_user:			拒绝这个用户提交的所有信息
-im_aim:				AIM Handle:
-im_msnm:			MSN Messenger:
-im_yahoo:			Yahoo Messenger:
+im_aim:				AIM :
+im_msnm:			MSN 信息:
+im_yahoo:			Yahoo 信息:
 image:				照片：
 index_forum:			论坛
 index_new_posts:		上次浏览以后的新帖
@@ -77,7 +77,7 @@ more_unread_messages_desc:	显示更多未读信息，并且把现在的信息标为已读。
 move_thread:			转移
 moved:				转移至别的论坛
 moved_thread_message:		这个主题已被转移至别的论坛。
-na:				暂无新贴
+na:				暂无
 new_posts:			新的主题
 new_private_messages:		你有 <span class="GenText" style="color: #ff0000">({VAR: c})</span> 条未读悄悄话。
 new_thread:			生成新的主题
@@ -300,9 +300,9 @@ register_occupation:		职业:
 register_interests:		兴趣:
 register_image:			头像:
 register_icq:			ICQ 号码:
-register_aim:			AIM Handle:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
+register_aim:			AIM :
+register_yahoo:			Yahoo 信息:
+register_msnm:			MSN 信息:
 register_homepage:		主页:
 register_bday:			生日:
 register_bday_desc:		如果你选择了“生日”选项，别的论坛成员将在你的个人信息中看到。
@@ -847,7 +847,7 @@ register_err_toomanyimages:	你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_C
 pmsg_next_msg:			下一条信息
 pmsg_prev_msg:			前一条信息
 post_proc_reveal_spoiler:	Reveal Spoiler
-register_jabber:		Jabber Handle:
+register_jabber:		Jabber :
 im_jabber:			Jabber: 
 forum_contact:			联系
 forum_home:			主页
@@ -899,16 +899,16 @@ post_moderated_forum_ttl:	受限论坛说明
 post_proceed:			下一步
 buddy_list_bday:		今天是 {VAR: obj->login} 的 {VAR: age} 岁生日
 email_warning_msg:		如果您修改了Email, 则此账号会被暂时隐藏，请您查收邮件，点击邮件中的连接以重新激活账号！
-register_show_im:		Show IM indicators
-register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
-unread_message:			Unread Message
-read_message:			Read Messagethreadt_more:			&lt;more&gt;
-threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
-threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-threadt_more:			&lt;more&gt;
-register_msg_tree_view:		Flat thread listing/Tree message listing
-register_tree_msg_view:		Tree thread listing/Flat message listing 
-mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
-err_inc_query_err:		SQL Error has occured, please contact the <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> of the forum and have them review the forum&#39;s SQL query log
-spell_alts:			no alternatives
+register_show_im:		显示 IM 指示器
+register_show_im_desc:		是否在发表的贴子旁边显示IM.
+unread_message:			未读贴子
+read_message:			阅读更多贴子:			&lt;更多&gt;
+threadt_disabled_ttl:		树状浏览已经被关闭.
+threadt_disabled_desc:		管理员已经关闭树桩浏览，请用展开浏览方式.
+threadt_update:			浏览论坛 (树状浏览) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+threadt_more:			&lt;更多&gt;
+register_msg_tree_view:		展开浏览/树状浏览
+register_tree_msg_view:		树状浏览/展开浏览 
+mmod_delete_cofirm_ttl:		确认删除主题/内容 
+err_inc_query_err:		数据库发生错误, 清告知 <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">系统管理员</a> 以便系统管理员查看日志并修正这个错误。
+spell_alts:			没有选择
