@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.2 2002/07/24 14:29:43 hackie Exp $
+*   $Id: maillist.php,v 1.3 2002/07/24 15:02:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -359,7 +359,7 @@ class fud_emsg
 		if( empty($this->reply_to_msg_id) && $complex == 'Y' ) {
 			/* This is slow, but only way to match 'rouge' replies in the event no reference fields are avaliable */
 			if( preg_match('!(Re|Wa)\s*:(.*)$!i', $this->subject, $matches) )
-				$r = q("SELECT id,thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$forum_id." AND subject='".addslashes(trim($matches[2]))."'");
+				$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id,".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."thread ON ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.thread_id=".$GLOBALS['DBHOST_TBL_PREFIX']."thread.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.forum_id=".$forum_id." AND subject='".addslashes(trim($matches[2]))."'");
 		}	
 		else 
 			$r = q("SELECT id,thread_id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE mlist_msg_id='".addslashes($this->reply_to_msg_id)."'");
