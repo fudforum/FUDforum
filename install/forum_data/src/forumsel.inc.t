@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.6 2003/03/30 18:03:11 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.7 2003/04/06 15:52:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,40 +15,46 @@
 *
 ***************************************************************************/
 
-function tmpl_create_forum_select($frm_id)
+function tmpl_create_forum_select($frm_id, $is_mod)
 {
-	if (_uid) {
-		$frm_sel = ',{SQL_TABLE_PREFIX}forum_read.last_view ';
-		$frm_join = ' LEFT JOIN {SQL_TABLE_PREFIX}forum_read ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}forum_read.forum_id AND {SQL_TABLE_PREFIX}forum_read.user_id='._uid;
-	} else {
-		$frm_sel = $frm_join = '';
-	}
-		
-	if ($GLOBALS['usr']->is_mod != 'A') {
-		$qry_limit = ' WHERE {SQL_TABLE_PREFIX}forum.id IN ('.intzero(get_all_perms(_uid)).') ';
-	} else {
-		$qry_limit = '';
-	}
-		
-	$frmres = uq('SELECT {SQL_TABLE_PREFIX}forum.id, {SQL_TABLE_PREFIX}forum.name, {SQL_TABLE_PREFIX}cat.name, {SQL_TABLE_PREFIX}cat.id, {SQL_TABLE_PREFIX}msg.post_stamp '.$frm_sel.' FROM  {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id '.$frm_join.$qry_limit.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
-	
 	$prev_cat_id = 0;
 	$selection_options = '';
-	if (($r = db_rowarr($frmres))) {
-		do {
+
+	if (!_uid) { /* anon user, we can optimize things quite a bit here */
+		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id AND g.user_id=0 INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE p_READ=\'Y\' ORDER BY c.view_order, f.view_order');
+		while ($r = db_rowarr($c)) {
 			if ($prev_cat_id != $r[3]) {
 				$prev_cat_id = $r[3];
-				$selection_options .= '{TEMPLATE: category_option}';
+				$selection_options .= '{TEMPLATE: category_option}';	
 			}
 			$selected = $frm_id == $r[0] ? ' selected' : '';
-			$selection_options .= (_uid && $r[5] < $r[4]) ? '{TEMPLATE: unread_forum_option}' : '{TEMPLATE: forum_option}';
-		
-		} while (($r = db_rowarr($frmres)));
-		$selection_options = '{TEMPLATE: forum_select}';
-	}
+			$selection_options .= '{TEMPLATE: forum_option}';
+		}
+		qf($c);
 
-	qf($frmres);
-	return $selection_options;
+		return '{TEMPLATE: forum_select}';
+	} else {
+		$c = q('SELECT f.id, f.name, c.name, c.id, CASE WHEN (fr.last_view IS NULL OR m.post_stamp > fr.last_view) THEN 1 ELSE 0 END AS reads
+			FROM {SQL_TABLE_PREFIX}forum f 
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id 
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=f.last_post_id
+			'.($is_mod != 'A' ? 'INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.resource_id=f.id AND g1.user_id=2147483647 LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.resource_id=f.id AND g2.user_id='._uid : '').'
+			LEFT JOIN {SQL_TABLE_PREFIX}forum_read fr ON fr.forum_id=f.id AND fr.user_id='._uid.'
+			'.($is_mod != 'A' ? ' WHERE (CASE WHEN g2.id IS NULL THEN g1.p_READ ELSE g2.p_READ END)=\'Y\'' : '').'
+			ORDER BY c.view_order, f.view_order');			
+
+		while ($r = db_rowarr($c)) {
+			if ($prev_cat_id != $r[3]) {
+				$prev_cat_id = $r[3];
+				$selection_options .= '{TEMPLATE: category_option}';	
+			}
+			$selected = $frm_id == $r[0] ? ' selected' : '';
+			$selection_options .= $r[4] ? '{TEMPLATE: unread_forum_option}' : '{TEMPLATE: forum_option}';
+		}
+		qf($c);
+
+		return '{TEMPLATE: forum_select}';		
+	}
 }
 
 if (isset($_GET['forum_redr']) && $_REQUEST['t'] != 'thread' && $_REQUEST['t'] != 'threadt') {
@@ -56,5 +62,5 @@ if (isset($_GET['forum_redr']) && $_REQUEST['t'] != 'thread' && $_REQUEST['t'] !
 	exit();
 }
 
-	$forum_select = tmpl_create_forum_select($frm->id);
+	$forum_select = tmpl_create_forum_select($frm->id, $usr->is_mod);
 ?>

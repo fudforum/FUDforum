@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.25 2003/04/06 13:36:48 hackie Exp $
+*   $Id: users.inc.t,v 1.26 2003/04/06 15:52:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -138,9 +138,7 @@ function user_alias_by_id($id)
 
 function user_register_forum_view($frm_id)
 {
-	if (($id = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}forum_read WHERE forum_id='.$frm_id.' AND user_id='._uid))) {
-		q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE id='.$id);
-	} else {
+	if (!db_affected(q('UPDATE {SQL_TABLE_PREFIX}forum_read SET last_view='.__request_timestamp__.' WHERE forum_id='.$frm_id.' AND user_id='._uid))) {
 		q('INSERT INTO {SQL_TABLE_PREFIX}forum_read(forum_id, user_id, last_view) VALUES('.$frm_id.', '._uid.','.__request_timestamp__.')');
 	}
 }

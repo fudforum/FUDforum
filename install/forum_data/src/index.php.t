@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.24 2003/04/06 13:36:48 hackie Exp $
+*   $Id: index.php.t,v 1.25 2003/04/06 15:52:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -62,48 +62,6 @@ function iscollapsed($id)
 		return;
 	}
 	return $GLOBALS['collapse'][$id];
-}
-
-function index_view_perms()
-{
-	$GLOBALS['NO_VIEW_PERMS'] = array();
-
-	$fl = '';
-	$tmp_arr = array();
-	$r = uq('SELECT user_id, resource_id, p_READ, p_VISIBLE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('.(_uid ? _uid.',2147483647' : 0).') AND resource_type=\'forum\' ORDER BY user_id');
-	while ($d = db_rowarr($r)) {
-		if ($d[3] == 'N') {
-			$tmp_arr[$d[1]] = 1;
-			continue;
-		}
-		
-		if ($d[0] == _uid) {
-			if ($d[2] == 'N') {
-				$GLOBALS['NO_VIEW_PERMS'][$d[1]] = $d[1];
-			}
-			
-			$fl .= $d[1].',';
-				
-			$tmp_arr[$d[1]] = 1;
-		} else if (empty($tmp_arr[$d[1]])) {
-			if ($d[3] == 'N') {
-				continue;
-			}
-			
-			if ($d[2] == 'N') {
-				$GLOBALS['NO_VIEW_PERMS'][$d[1]] = $d[1];
-			}
-
-			$fl .= $d[1].',';	
-		}	
-	}	
-	qf($r);
-	
-	if (!empty($fl)) {
-		$fl = substr($fl, 0, -1);
-	}
-	
-	return $fl;
 }
 
 	if (isset($_GET['c'])) {

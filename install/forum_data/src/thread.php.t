@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.15 2003/04/03 14:35:21 hackie Exp $
+*   $Id: thread.php.t,v 1.16 2003/04/06 15:52:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	$ses->update('{TEMPLATE: thread_update}', $frm->id);
+	ses_update_status($usr->sid, '{TEMPLATE: thread_update}', $frm->id);
 
 	if (_uid) {
 		$lread_s = ',r.last_view ';
