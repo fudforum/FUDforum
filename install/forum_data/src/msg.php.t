@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.87 2005/02/27 02:21:36 hackie Exp $
+* $Id: msg.php.t,v 1.88 2005/03/08 15:23:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -48,7 +48,7 @@
 				invl_inp_err();
 			}
 			if ($msg_page_focus !== null) {
-				if ($msg_page_focus || strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
+				if ($msg_page_focus || (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
 					$mid = 'msg_'.$_GET['goto'];
 					$msg_page_focus = 1;
 				}
