@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.12 2003/03/24 13:29:28 hackie Exp $
+*   $Id: admstats.php,v 1.13 2003/04/29 01:07:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,200 +17,186 @@
 
 	define('admin_form', 1);
 
-	include_once "GLOBALS.php";
-	
-	fud_use('db.inc');
-	fud_use('draw_select_opt.inc');
+	require('GLOBALS.php');
 	fud_use('adm.inc', true);
-	
-	list($ses, $usr) = initadm();
+	fud_use('draw_select_opt.inc');
+
+	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 function dir_space_usage($dirp)
 {
-	$disk_space=0;
+	$disk_space = 0;
 
-	$curdir = getcwd();
-	if( !@chdir($dirp) ) 
+	if (!($dir = @opendir($dirp))) {
 		return;
-	if( !($dir = @opendir('.')) ) 
-		return;
-	
+	}
 	readdir($dir); readdir($dir);
 	
-	while( $file = readdir($dir) ) {
-		if( @is_link($file) ) 
+	while ($f = readdir($dir)) {
+		$file = $dirp . '/' . $f;
+		if (@is_link($file)) {
 			continue;
-		else if( @is_dir($file) ) 
+		} else if (@is_dir($file)) {
 			$disk_space += dir_space_usage($file);
-		else if( @is_file($file) )
+		} else if (@is_file($file)) {
 			$disk_space += filesize($file);
+		}
 	}
-	
 	closedir($dir);
-	chdir($curdir);
-	
+
 	return $disk_space;
 }
 
 function get_sql_disk_usage()
 {
-	$ver = q_singleval("SELECT VERSION()");
-	if( $ver[0] != 4 && substr($ver,0,4)!='3.23' ) return;
+	$ver = q_singleval('SELECT VERSION()');
+	if ($ver[0] != 4 && strncmp($ver, '3.23', 4)) {
+		return;
+	}
 	
-	$sql_size=0;
-	
-	$r = q("SHOW TABLE STATUS FROM ".$GLOBALS['DBHOST_DBNAME']);
-	while( $obj = db_rowobj($r) ) {
-		if( preg_match('!^'.$GLOBALS['DBHOST_TBL_PREFIX'].'!', $obj->Name) )
-			$sql_size += $obj->Data_length+$obj->Index_length;
-	}	
-	qf($r);
-	
+	$sql_size = 0;
+	$c = uq('SHOW TABLE STATUS FROM '.$GLOBALS['DBHOST_DBNAME'].' LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
+	while ($r = db_rowobj($c)) {
+		$sql_size += $r->Data_length + $r->Index_length;
+	}
+	qf($c);
+
 	return $sql_size;
 }
 	
-	$forum_start = INTVAL(q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg"));
-	$days_ago = round((__request_timestamp__-$forum_start)/86400);
+	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '.$tbl.'msg');
+	$days_ago = round((__request_timestamp__ - $forum_start) / 86400);
 
-	list($s_year,$s_month,$s_day) = explode(" ", date("Y n j", q_singleval("SELECT MIN(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg")));
-	list($e_year,$e_month,$e_day) = explode(" ", date("Y n j", q_singleval("SELECT MAX(post_stamp) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg")));
-	for( $i=1; $i<13; $i++ ) $vl_m = $kl_m .= $i."\n";
-	for( $i=1; $i<32; $i++ ) $vl_d = $kl_d .= $i."\n";
-	for( $i=$s_year; $i<($e_year+1); $i++ ) $vl_y = $kl_y .= $i."\n";
-	
-	$disk_usage_array = array();
-	$total_disk_usage = 0;
+	list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
+	list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '.$tbl.'msg')));
 
-	$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
-	if ($DATA_DIR != $WWW_ROOT_DISK) {
-		$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
-	} else {
-		$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
-	}	
+	$vl_m = $kl_m = implode("\n", array_keys(array_fill(1, 12, '')));
+	$vl_d = $kl_d = implode("\n", array_keys(array_fill(1, 31, '')));
+	$vl_y = $kl_y = implode("\n", array_keys(array_fill($s_year, ($e_year - $s_year + 1), '')));
 
-	$sql_disk_usage = get_sql_disk_usage();
-	
-	$forum_stats = array();
-	
-	$forum_stats['MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg");
-	$forum_stats['THREADS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread");
-	$forum_stats['PRIVATE_MESSAGES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."pmsg");
-	$forum_stats['FORUMS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum");
-	$forum_stats['CATEGORIES'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."cat");
-	$forum_stats['MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users");
-	$forum_stats['ADMINS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE is_mod='A'");
-	$forum_stats['MODERATORS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mod");
-	$forum_stats['GROUPS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."groups");
-	$forum_stats['GROUP_MEMBERS'] = q_singleval("SELECT count(*) FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."group_members");
-
-	include('admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
 ?>	
 <div align="center" style="font-size: xx-large; font-weight: bold;">Statistics</div>
 <?php 
-	if( !empty($submitted) ) {
-		$start_tm = mktime(1,1,1,$HTTP_POST_VARS['s_month'],$HTTP_POST_VARS['s_day'],$HTTP_POST_VARS['s_year']);
-		$end_tm = mktime(1,1,1,$HTTP_POST_VARS['e_month'],$HTTP_POST_VARS['e_day'],$HTTP_POST_VARS['e_year']);
+	if (isset($_POST['submitted'])) {
+		$start_tm = mktime(1, 1, 1, $_POST['s_month'], $_POST['s_day'], $_POST['s_year']);
+		$end_tm = mktime(1, 1, 1, $_POST['e_month'], $_POST['e_day'], $_POST['e_year']);
 		
 		$day_list = array();
 		
-		switch( $sep )
-		{
+		switch ($_POST['sep']) {
 			case 'week':
 				$g_type = 'weekly';
-				$fmt='YmW';
+				$fmt = 'YmW';
 				break;
 			case 'month':
 				$g_type = 'monthly';
-				$fmt='Ym';
+				$fmt = 'Ym';
 				break;
 			case 'year':
 				$g_type = 'yearly';
-				$fmt='Y';
+				$fmt = 'Y';
 				break;
 			case 'hour':
 				$g_type = 'hourly';
-				$fmt='YmdG';
+				$fmt = 'YmdG';
 				break;
 			default:
 				$g_type = 'daily';
-				$fmt='Ymd';
+				$fmt = 'Ymd';
 		}
 		
-		switch( $type ) 
-		{
+		switch ($_POST['type']) {
 			case 'msg':
-				$g_title = 'Messages posted from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."msg WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
+				$g_title = 'Messages posted';
+				$c = uq('SELECT post_stamp FROM '.$tbl.'msg WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
 				break;
 			case 'thr':
-				$g_title = 'Topics created from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT post_stamp FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thread INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."thread.root_msg_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE post_stamp>".$start_tm." AND post_stamp<".$end_tm);
+				$g_title = 'Topics created';
+				$c = uq('SELECT post_stamp FROM '.$tbl.'thread INNER JOIN '.$tbl.'msg ON '.$tbl.'thread.root_msg_id='.$tbl.'msg.id WHERE post_stamp>'.$start_tm.' AND post_stamp<'.$end_tm);
 				break;
 			case 'usr':
-				$g_title = 'Registered users from <b>'.date("F d, Y", $start_tm).'</b> to <b>'.date("F d, Y", $end_tm).'</b>';
-				$r = q("SELECT join_date FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."users WHERE join_date>".$start_tm." AND join_date<".$end_tm);
+				$g_title = 'Registered users';
+				$c = uq('SELECT join_date FROM '.$tbl.'users WHERE join_date>'.$start_tm.' AND join_date<'.$end_tm);
 				break;
-		}			
-	
-		while( list($mps) = db_rowarr($r) ) {
-			$ds = date($fmt, $mps);
-			if( !isset($day_list[$ds][0]) ) 
-				$day_list[$ds][0] = 1;
-			else
-				$day_list[$ds][0]++;
-
-			$day_list[$ds][1] = $mps;
 		}
-		qf($r);
-	
+		$g_title .= ' from <b>'.date('F d, Y', $start_tm).'</b> to <b>'.date('F d, Y', $end_tm).'</b>';
+		
+		while ($r = db_rowarr($c)) {
+			$ds = date($fmt, $r[0]);
+			if (!isset($day_list[$ds])) {
+				$day_list[$ds] = 1;
+				$details[$ds] = $r[0];
+			} else {
+				$day_list[$ds]++;
+			}
+		}
+		qf($c);
+
 		$tmp = $day_list;
 		rsort($tmp);
-		
-		foreach($tmp as $max_value) break;
-		$max_value = $max_value[0];
+		$max_value = current($tmp);
 		unset($tmp);
 		
-		echo '<br><div align="center" style="font-size: xx-small;">'.$g_title.' ('.$g_type.')</div>';
+		echo '<br><div align="center" style="font-size: small;">'.$g_title.' ('.$g_type.')</div>';
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
-		$ttl=0;
+		$ttl = 0;
 		$unit = ceil($max_value/100);
-		if ($sep == 'hour') {
-			$date_str = 'F d, Y H:i';
+		$date_str = 'F d, Y';
+		if ($_POST['sep'] == 'hour') {
+			$date_str .= ' H:i';
+		}
+
+		foreach($day_list as $k => $v) {
+			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $details[$k]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.(round($v / $unit) * 3).'></td><td style="font-size: xx-small;">('.$v.')</td></tr>';
+			$ttl += $v;
+		}
+		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan=2 align="right">'.$ttl.'</td></tr></table><br>';
+	} else {
+		$_POST['s_year'] = $s_year;
+		$_POST['s_month'] = $s_month;
+		$_POST['s_day'] = $s_day;
+		$_POST['e_year'] = $e_year;
+		$_POST['e_month'] = $e_month;
+		$_POST['e_day'] = $e_day;
+
+		$disk_usage_array = array();
+		$total_disk_usage = 0;
+
+		$total_disk_usage += $disk_usage_array['DATA_DIR'] = dir_space_usage($DATA_DIR);
+		if ($DATA_DIR != $WWW_ROOT_DISK) {
+			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
 		} else {
-			$date_str = 'F d, Y';
-		}
-		
-		foreach($day_list as $v) {
-			$len = round($v[0]/$unit)*3;
-			echo '<tr><td style="font-size: xx-small;">'.date($date_str, $v[1]).'</td><td width="100" bgcolor="#000000"><img style="background-color: #ff0000;" src="../blank.gif" height=5 width='.$len.'></td><td style="font-size: xx-small;">('.$v[0].')</td></tr>';
-			$ttl += $v[0];
-		}
-		echo '<tr style="font-size: xx-small;"><td><b>Total:</b></td><td colspan=2 align="right">'.$ttl.'</td></tr>';
-		
-		echo '</table><br>';
-	}
-	else {
-		$HTTP_POST_VARS['s_year'] = $s_year;
-		$HTTP_POST_VARS['s_month'] = $s_month;
-		$HTTP_POST_VARS['s_day'] = $s_day;
-		$HTTP_POST_VARS['e_year'] = $e_year;
-		$HTTP_POST_VARS['e_month'] = $e_month;
-		$HTTP_POST_VARS['e_day'] = $e_day;
+			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
+		}	
+
+		$sql_disk_usage = get_sql_disk_usage();
+	
+		$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'msg');
+		$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '.$tbl.'thread');
+		$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
+		$forum_stats['FORUMS'] = q_singleval('SELECT count(*) FROM '.$tbl.'forum');
+		$forum_stats['CATEGORIES'] = q_singleval('SELECT count(*) FROM '.$tbl.'cat');
+		$forum_stats['MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users');
+		$forum_stats['ADMINS'] = q_singleval('SELECT count(*) FROM '.$tbl.'users WHERE is_mod=\'A\'');
+		$forum_stats['MODERATORS'] = q_singleval('SELECT count(DISTINCT(user_id)) FROM '.$tbl.'mod');
+		$forum_stats['GROUPS'] = q_singleval('SELECT count(*) FROM '.$tbl.'groups');
+		$forum_stats['GROUP_MEMBERS'] = q_singleval('SELECT count(*) FROM '.$tbl.'group_members');
 	}
 ?>
 <table cellspacing=2 cellpadding=2 border=0 align="center">
 <form action="admstats.php" method="post">
 <tr>
 	<td valign="top"><b>From: </b></td>
-	<td align="center"><font size="-1">month</font><br><select name="s_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $HTTP_POST_VARS['s_month'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">day</font><br><select name="s_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $HTTP_POST_VARS['s_day'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">year</font><br><select name="s_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $HTTP_POST_VARS['s_year'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">month</font><br><select name="s_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['s_month'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">day</font><br><select name="s_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['s_day'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">year</font><br><select name="s_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['s_year'], '', ''); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>To: </b></td>
-	<td align="center"><font size="-1">month</font><br><select name="e_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $HTTP_POST_VARS['e_month'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">day</font><br><select name="e_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $HTTP_POST_VARS['e_day'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">year</font><br><select name="e_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $HTTP_POST_VARS['e_year'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">month</font><br><select name="e_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['e_month'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">day</font><br><select name="e_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['e_day'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">year</font><br><select name="e_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['e_year'], '', ''); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>Level of detail: </b></td>
@@ -225,9 +211,15 @@ function get_sql_disk_usage()
 <input type="hidden" name="submitted" value="1">
 </form>
 </table>
+<?php 
+	if (isset($total_disk_usage)) {
+?>
 <br>
 <h4>Disk Usage</h4>
 <table width="100%" border=0 cellspacing=1 cellpadding=3 style="border: 1px #000000 solid;">
+<?php
+	if ($GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR']) {
+?>
 <tr>
 	<td><b>Web Dir:</b><br><font size="-1"><b><?php echo $WWW_ROOT_DISK; ?></b><br>this is where all the forum's web browseable files are stored</font></td>
 	<td width=100>&nbsp;</td>
@@ -239,12 +231,20 @@ function get_sql_disk_usage()
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $disk_usage_array['DATA_DIR']/1024)); ?> Kb</td>
 </tr>
-
+<?php
+	} else { /* $GLOBALS['WWW_ROOT_DISK'] != $GLOBALS['DATA_DIR'] */
+?>
+	<td><b>Forum Directories:</b></td>
+	<td width=100>&nbsp;</td>
+	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
+<?php
+	}
+?>
 <tr bgcolor="#bff8ff">
 	<td colspan=2><b>Total Disk Usage:</b></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $total_disk_usage/1024)); ?> Kb</td>
 </tr>
-<?php if( $sql_disk_usage ) { ?>
+<?php if ($sql_disk_usage) { ?>
 <tr bgcolor="#bff8ff">
         <td colspan=2><b>MySQL Disk Usage:</b><br><font style="font-size: xx-small;">may not be 100% accurate, depends on MySQL version.</font></td>
 	<td align="right" valign="top"><?php echo number_format(sprintf("%.2f", $sql_disk_usage/1024)); ?> Kb</td>
@@ -338,4 +338,8 @@ function get_sql_disk_usage()
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['GROUP_MEMBERS']/$forum_stats['GROUPS']); ?></b> members per group</font></td>
 </tr>
 </table>
-<?php readfile("admclose.html"); ?>
+<?php 
+	} /* !isset($total_disk_usage) */
+
+	require($WWW_ROOT_DISK . 'adm/admclose.html'); 
+?>
