@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.16 2003/07/18 22:20:25 hackie Exp $
+*   $Id: admforum.php,v 1.17 2003/09/25 01:27:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -93,6 +93,15 @@ function get_max_upload_size()
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
 			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
+		}
+	}
+	if (isset($_GET['o'], $_GET['ot'])) {
+		if (in_array($_GET['ot'], array('name', 'descr', 'date_created'))) {
+			$i = 0;
+			$r = q("SELECT id FROM {$tbl}forum WHERE cat_id={$cat_id} ORDER BY {$_GET['ot']} ".((int)$_GET['o'] ? 'ASC' : 'DESC'));
+			while ($o = db_rowarr($r)) {
+				q("UPDATE {$tbl}forum SET view_order=".++$i." WHERE id={$o[0]}");
+			}
 		}
 	}
 
@@ -186,6 +195,15 @@ if (!isset($_GET['chpos'])) {
 	echo '<a href="admforum.php?cat_id='.$cat_id.'&'._rsidl.'">Cancel</a>';
 }
 ?>
+<br>
+<div align="center"><table border=0 cellspacing=0 cellpadding=5>
+<tr bgcolor="#e5ffe7"><td valign="top" nowrap>Reorder All Forums by:</td></tr>
+<tr><td bgcolor="#fffee5"><font size=-2>
+	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
+	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
+	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
+</font></td></tr>
+</table></div>
 <br>
 <table border=0 cellspacing=3 cellpadding=2>
 <tr bgcolor="#e5ffe7">
