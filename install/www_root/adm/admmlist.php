@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.5 2002/07/29 11:58:44 hackie Exp $
+*   $Id: admmlist.php,v 1.6 2002/07/29 12:43:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -111,9 +111,23 @@ function format_regex(&$regex, &$opts)
 		</td>
 		<td><select name="ml_forum_id">
 		<?php
-			$r = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id,".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
+			$r = q("SELECT 
+					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id,
+					".$GLOBALS['DBHOST_TBL_PREFIX']."forum.name 
+				FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."forum 
+				INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."cat 
+					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.cat_id=".$GLOBALS['DBHOST_TBL_PREFIX']."cat.id 
+				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."nntp
+					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.forum_id 
+				LEFT JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist
+					ON ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.id=".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.forum_id 	
+				WHERE
+					".$GLOBALS['DBHOST_TBL_PREFIX']."nntp.id IS NULL AND 
+					(".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.id IS NULL OR ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist.id=".intzero($edit).")
+				ORDER BY ".$GLOBALS['DBHOST_TBL_PREFIX']."cat.view_order, ".$GLOBALS['DBHOST_TBL_PREFIX']."forum.view_order");
+			
 			while( list($fid,$fname) = db_rowarr($r) )
-				echo '<option value="'.$fid.'"'.($fid!=$ml_mlist_post_apr?'':' selected').'>'.$fname.'</option>';
+				echo '<option value="'.$fid.'"'.($fid!=$ml_forum_id?'':' selected').'>'.$fname.'</option>';
 			qf($r);
 		?>
 		</select></td>
