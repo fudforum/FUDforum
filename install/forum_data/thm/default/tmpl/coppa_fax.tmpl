@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: coppa_fax.tmpl,v 1.8 2004/04/25 20:18:25 hackie Exp $
+* $Id: coppa_fax.tmpl,v 1.9 2004/11/03 14:52:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -20,7 +20,7 @@
 <b>{MSG: coppa_fax_instructions}</b><br /><br />
 {MSG: coppa_fax_instructions2}
 <pre>
-{VAR: coppa_address}
+{FUNC: @file_get_contents($FORUM_SETTINGS_PATH."coppa_maddress.msg")}
 </pre>
 <table border=1 cellspacing=1 cellpadding=3>
 <tr><td colspan=2>{MSG: coppa_fax_reg_form}</td></tr>

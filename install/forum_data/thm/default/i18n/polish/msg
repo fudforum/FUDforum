@@ -749,7 +749,7 @@ p_LOCK:				Zablokuj w±tki
 p_MOVE:				Przenie¶ w±tki
 p_SML:				U¿ywaj u¶mieszków
 p_IMG:				U¿ywaj znaczników obrazków
-group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Znajd¼ U¿ytkownika</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Znajd¼ U¿ytkownika</a>
 group_mgr_indicator:		Aktualnie edytujemy: <b>{VAR: grp->name}</b>
 rate_worst:			Najgorszy
 rate_best:			Najlepszy
@@ -891,7 +891,7 @@ register_affero:		Nazwa u¿ytkownika systemu Affero: <br /><font class="SmallText
 im_affero:			Nazwa u¿ytkownika systemu Affero
 register_err_avatardimtobig:	Wymiary avatara <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> przekraczaj± dopuszczalny limit <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Ilo¶æ pobrañ: {VAR: r->dlcount}
-member_search:			<br>Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
+member_search:			<br>Mo¿esz równie¿ u¿yæ <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Wyszukiwarki U¿ytkowników</a> aby znale¼æ dan± osobê.
 post_all_ext_allowed:		(nieograniczony)
 buddy_offline:			{VAR: r[2]} jest aktualnie roz³±czony(a)
 buddy_online:			{VAR: r[2]} jest aktualnie dostêpny(a)
