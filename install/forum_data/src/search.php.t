@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: search.php.t,v 1.38 2003/11/14 10:50:19 hackie Exp $
+* $Id: search.php.t,v 1.39 2003/11/16 15:22:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,26 +28,35 @@
 
 function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $forum_limiter, &$total)
 {
-	$cs = array('!\W!', '!\s+!');
-	$cd = array(' ', ' ');
-	$qry = trim(preg_replace($cs, $cd, $qry));
+	if (strncmp($GLOBALS['usr']->lang, 'chinese', 7)) {
+		$cs = array('!\W!', '!\s+!');
+		$cd = array(' ', ' ');
+		$qry = trim(preg_replace($cs, $cd, $qry));
 
-	$w = array_unique(explode(' ', strtolower($qry)));
-	$qr = ''; $i = 0;
-	foreach ($w as $v) {
-		$v = trim($v);
-		if (strlen($v) <= 2) {
-			continue;
-		} else if ($i++ == 10) { /* limit query length to 10 words */
-			break;
+		$w = array_unique(explode(' ', strtolower($qry)));
+		$qr = ''; $i = 0;
+		foreach ($w as $v) {
+			$v = trim($v);
+			if (strlen($v) <= 2) {
+				continue;
+			} else if ($i++ == 10) { /* limit query length to 10 words */
+				break;
+			}
+			$qr .= " '".addslashes($v)."',";
 		}
-		$qr .= " '".addslashes($v)."',";
-	}
 
-	if (!$qr) {
-		return;
-	} else {
-		$qr = substr($qr, 0, -1);
+		if (!$qr) {
+			return;
+		} else {
+			$qr = substr($qr, 0, -1);
+		}
+	} else { /* handling for multibyte languages */
+		fud_use('isearch.inc');
+		if (!($w = mb_word_split($qry))) {
+			return;
+		}
+		$qr = implode(',', $w);
+		$i = count($w);
 	}
 
 	if ($srch_type == 'all') {
