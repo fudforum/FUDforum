@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.tmpl,v 1.2 2002/07/17 00:10:05 hackie Exp $
+*   $Id: subscribed.tmpl,v 1.3 2002/07/18 03:01:51 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -44,7 +44,7 @@
 {PAGE: END}
 
 {SECTION: subscribed_forum_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}">{VAR: obj->name}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&frm_id={VAR: obj->id}&{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}" target=_new>{MSG: view_forum}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}">{VAR: obj->name}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&frm_id={VAR: obj->id}&{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: obj->frm_id}&{DEF: _rsid}" target="_blank">{MSG: view_forum}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_forums}
@@ -52,7 +52,7 @@
 {SECTION: END}
 
 {SECTION: subscribed_thread_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->th_id}&{DEF: _rsid}">{VAR: obj->subject}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&th={VAR: obj->th_id}&{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->th_id}&{DEF: _rsid}" target=_new>{MSG: view_thread}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->th_id}&{DEF: _rsid}">{VAR: obj->subject}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&th={VAR: obj->th_id}&{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&th={VAR: obj->th_id}&{DEF: _rsid}" target="_blank">{MSG: view_thread}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_threads}
