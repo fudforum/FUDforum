@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.30 2003/04/15 10:00:25 hackie Exp $
+*   $Id: msg.php.t,v 1.31 2003/04/15 11:51:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -69,6 +69,7 @@
 			mo.forum_id AS mod,
 			tr.thread_id AS cant_rate,
 			r.last_view,
+			r2.last_view AS last_forum_view,
 			r.msg_id,
 			tv.pos AS th_pos, tv.page AS th_page,
 			m2.thread_id AS last_thread,
@@ -83,6 +84,7 @@
 			LEFT  JOIN {SQL_TABLE_PREFIX}mod 		mo ON mo.user_id='._uid.' AND mo.forum_id=t.forum_id
 			LEFT  JOIN {SQL_TABLE_PREFIX}thread_rate_track 	tr ON tr.thread_id='.$_GET['th'].' AND tr.user_id='._uid.'
 			LEFT  JOIN {SQL_TABLE_PREFIX}read 		r ON r.thread_id=t.id AND r.user_id='._uid.'
+			LEFT  JOIN {SQL_TABLE_PREFIX}forum_read 	r2 ON r2.forum_id=t.forum_id AND r2.user_id='._uid.'
 			'.$join.'
 		WHERE t.id='.$_GET['th']);
 
@@ -165,13 +167,6 @@
 
 	$split_thread = ($frm->replies && $perms['p_split'] == 'Y') ? '{TEMPLATE: split_thread}' : '';
 
-	if (!isset($_GET['prevloaded'])) {
-		if (_uid) {
-			user_register_forum_view($frm->forum_id);
-		}
-		th_inc_view_count($frm->id);
-	}
-
 	$result = uq('SELECT 
 		m.*, 
 		t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
@@ -204,8 +199,16 @@
 	
 	un_register_fps();
 
-	if (_uid && $frm->last_view < $obj2->post_stamp) {
-		user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
+	if (!isset($_GET['prevloaded'])) {
+		th_inc_view_count($frm->id);
+		if (_uid) {
+			if ($frm->last_forum_view < $obj2->post_stamp) {
+				user_register_forum_view($frm->forum_id);
+			}
+			if ($frm->last_view < $obj2->post_stamp) {
+				user_register_thread_view($frm->id, $obj2->post_stamp, $obj2->id);
+			}
+		}
 	}
 
 	$page_pager = tmpl_create_pager($_GET['th'], $count, $total, '{ROOT}?t=msg&amp;th='.$_GET['th'].'&amp;prevloaded=1&amp;'._rsid.'&amp;rev='.$_GET['rev'].'&amp;reveal='.$_GET['reveal']);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.9 2003/03/05 13:46:36 hackie Exp $
+*   $Id: reported.php.t,v 1.10 2003/04/15 11:51:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,104 +15,71 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
-	if ( !empty($del) && is_numeric($del) ) {
-		$obj = get_report($del, $usr->id);
-		if ( !delete_msg_report($del, $usr->id) ) { std_error('access'); exit(); }
-		logaction($usr->id, 'DELREPORT', $obj->id);
-		header("Location: {ROOT}?t=reported&"._rsidl.'&rand='.get_random_value());
-		exit();
+	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
+		if ($usr->is_mod == 'A' || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='.$del);
+			if (db_affected()) {
+				logaction(_uid, 'DELREPORT');
+			}
+		} else {
+			std_error('access');
+		}
 	}
 	
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	
 	$mod_limiter = ( $usr->is_mod != 'A' ) ? 'INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id='._uid : '';
 	
-	$r=q("SELECT 
-			{SQL_TABLE_PREFIX}msg.*,
-			fud_msg_2.subject AS thread_subject,
-			{SQL_TABLE_PREFIX}thread.root_msg_id,
-			{SQL_TABLE_PREFIX}thread.locked,
-			{SQL_TABLE_PREFIX}thread.forum_id,
-			{SQL_TABLE_PREFIX}avatar.img AS avatar, 
-			{SQL_TABLE_PREFIX}users.id AS user_id, 
-			{SQL_TABLE_PREFIX}users.alias AS login, 
-			{SQL_TABLE_PREFIX}users.custom_status,
-			{SQL_TABLE_PREFIX}users.display_email, 
-			{SQL_TABLE_PREFIX}users.email, 
-			{SQL_TABLE_PREFIX}users.posted_msg_count, 
-			{SQL_TABLE_PREFIX}users.join_date, 
-			{SQL_TABLE_PREFIX}users.location,
-			{SQL_TABLE_PREFIX}users.sig,
-			{SQL_TABLE_PREFIX}users.icq,
-			{SQL_TABLE_PREFIX}users.aim,
-			{SQL_TABLE_PREFIX}users.jabber,
-			{SQL_TABLE_PREFIX}users.affero,
-			{SQL_TABLE_PREFIX}users.msnm,
-			{SQL_TABLE_PREFIX}users.yahoo,
-			{SQL_TABLE_PREFIX}users.is_mod,
-			{SQL_TABLE_PREFIX}users.avatar_loc,
-			{SQL_TABLE_PREFIX}users.avatar_approved,
-			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}users.email_messages,
-			{SQL_TABLE_PREFIX}msg_report.id AS report_id,
-			{SQL_TABLE_PREFIX}msg_report.stamp AS report_stamp,
-			{SQL_TABLE_PREFIX}msg_report.reason AS report_reason,
-			fud_users_r.id AS report_user_id,
-			fud_users_r.alias AS report_user_login,
-			{SQL_TABLE_PREFIX}ses.time_sec AS time_sec,
-			{SQL_TABLE_PREFIX}level.name AS level_name,
-			{SQL_TABLE_PREFIX}level.pri AS level_pri,
-			{SQL_TABLE_PREFIX}level.img AS level_img,
-			{SQL_TABLE_PREFIX}forum.name AS frm_name,
-			fud_ses_r.time_sec AS time_sec_r
-		FROM 
-			{SQL_TABLE_PREFIX}msg_report 
-			LEFT JOIN {SQL_TABLE_PREFIX}msg 
-				ON {SQL_TABLE_PREFIX}msg_report.msg_id={SQL_TABLE_PREFIX}msg.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}users
-				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id
-			LEFT JOIN {SQL_TABLE_PREFIX}avatar
-				ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id
-			LEFT JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}msg AS fud_msg_2
-				ON fud_msg_2.id={SQL_TABLE_PREFIX}thread.root_msg_id
-			LEFT JOIN {SQL_TABLE_PREFIX}forum 
-				ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-			".$mod_limiter."
-			LEFT JOIN {SQL_TABLE_PREFIX}users AS fud_users_r
-				ON {SQL_TABLE_PREFIX}msg_report.user_id=fud_users_r.id
-			LEFT JOIN {SQL_TABLE_PREFIX}ses
-				ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
-			LEFT JOIN {SQL_TABLE_PREFIX}ses AS fud_ses_r
-				ON {SQL_TABLE_PREFIX}msg_report.user_id=fud_ses_r.user_id
-			LEFT JOIN {SQL_TABLE_PREFIX}level
-				ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
-		ORDER BY 
-			{SQL_TABLE_PREFIX}msg_report.id");
+	$r = uq('SELECT 	
+			m.*, 
+			t.locked, t.root_msg_id, t.last_post_id, t.forum_id,
+			f.message_threshold, f.name AS frm_name,
+			u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
+			u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
+			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
+			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+			l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
+			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,
+			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
+			u2.id AS report_user_id, u2.alias AS report_user_login, u2.last_visit AS time_sec_r,
+			m2.subject AS thread_subject
+		FROM {SQL_TABLE_PREFIX}msg_report mr
+			INNER JOIN {SQL_TABLE_PREFIX}msg m ON mr.msg_id=m.id 
+			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
+			INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=t.root_msg_id
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
+			'.($usr->is_mod != 'A' ? ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid : '').'
+			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
+			LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON mr.user_id=u2.id
+			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
+		ORDER BY mr.id');
 	
+	$perms = perms_from_obj($r, 1);
 	$MOD = 1;
-	$reported_message='';
-	while ( $obj = db_rowobj($r) ) {
-		if( !empty($obj->report_user_id) )
-			$user_login = '{TEMPLATE: reported_reg_user_link}';
-		else
-			$user_login = '{TEMPLATE: reported_anon_user}';
-	
-		$GLOBALS["returnto"] = 'returnto='.urlencode($GLOBALS["HTTP_SERVER_VARS"]["REQUEST_URI"]);
-		if ( empty($prev_thread_id) || $prev_thread_id != $obj->thread_id ) {
+	$reported_message = '';
+	$n = 0;
+	$_GET['start'] = 0;
+
+	while ($obj = db_rowobj($r)) {
+		$user_login = $obj->report_user_id ? '{TEMPLATE: reported_reg_user_link}' : '{TEMPLATE: reported_anon_user}';
+		if (empty($prev_thread_id) || $prev_thread_id != $obj->thread_id) {
 			$prev_thread_id = $obj->thread_id;
 			
-		}	
-		$message = tmpl_drawmsg($obj);
+		}
+		$message = tmpl_drawmsg($obj, $usr, $perms, FALSE, $n, NULL);
 		
 		$reported_message .= '{TEMPLATE: reported_message}';
 	}
 	qf($r);
 	un_register_fps();
+
+	if (!$reported_message) {
+		$reported_message = '{TEMPLATE: reported_no_messages}';
+	}
 	
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: REPORTED_PAGE}
