@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.11 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admcat.php,v 1.12 2003/07/18 22:20:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,9 +151,8 @@
 				$bgcolor = ' bgcolor="#ffb5b5"';
 			} else if ($_GET['chpos'] != ($r->view_order - 1)) {
 				echo '<tr bgcolor="#efefef"><td align=center colspan=7><font size=-1><a href="admcat.php?chpos='.$_GET['chpos'].'&newpos='.($r->view_order - ($_GET['chpos'] < $r->view_order ? 1 : 0)).'&'._rsidl.'">Place Here</a></font></td></tr>';
-			} else {
-				$lp = $r->view_order;
 			}
+			$lp = $r->view_order;
 		}
 		if ($r->description && !strncmp($r->description, ' - ', 3)) {
 			$r->description = substr($r->description, 3);

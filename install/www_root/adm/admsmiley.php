@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.8 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admsmiley.php,v 1.9 2003/07/18 22:20:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -179,9 +179,8 @@
 				$bgcolor = ' bgcolor="#ffb5b5"';
 			} else if ($_GET['chpos'] != ($r->vieworder - 1)) {
 				echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($r->vieworder - ($_GET['chpos'] < $r->vieworder ? 1 : 0)).'&'._rsidl.'">Place Here</a></td></tr>';
-			} else {
-				$lp = $r->vieworder;
 			}
+			$lp = $r->vieworder;
 		}
 		echo '<tr '.$bgcolor.'><td><img src="'.$GLOBALS['WWW_ROOT'].'images/smiley_icons/'.$r->img.'" border=0></td><td>'.htmlspecialchars($r->code).'</td><td>'.$r->descr.'</td>
 			<td nowrap>[<a href="admsmiley.php?edit='.$r->id.'&'._rsidl.'#img">Edit</a>] [<a href="admsmiley.php?del='.$r->id.'&'._rsidl.'">Delete</a>] [<a href="admsmiley.php?chpos='.$r->vieworder.'&'._rsidl.'">Change Position</a>]</td>
