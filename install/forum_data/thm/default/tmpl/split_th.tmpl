@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.tmpl,v 1.17 2004/11/24 19:53:40 hackie Exp $
+* $Id: split_th.tmpl,v 1.18 2005/03/09 21:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -31,12 +31,12 @@
 <table cellspacing=1 cellpadding=2 class="ContentTable">
 <tr class="RowStyleB">
 	<td class="SmallText">
-	<b>{MSG: split_th_post_by}</b> {VAR: r->alias}<br />
+	<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
 	<b>{MSG: split_th_posted_on}</b> {TEMPLATE: search_post_date}<br />
 	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
 	</td>
 </tr>
-<tr class="RowStyleA"><td>{VAR: msg_body}</td></tr>
+<tr class="RowStyleA"><td>{FUNC: read_msg_body($r->foff, $r->length, $r->file_id)}</td></tr>
 </table>
 </td>
 </tr>

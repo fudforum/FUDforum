@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.21 2004/11/24 19:53:35 hackie Exp $
+* $Id: merge_th.php.t,v 1.22 2005/03/09 21:10:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -124,7 +124,7 @@
 		$kl .= $r[1] . "\n";
 	}
 
-	$forum_sel = tmpl_draw_select_opt(substr($vl,0,-1), substr($kl,0,-1), $frm, '', '');
+	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $frm, '', '');
 
 	$page = !empty($_POST['page']) ? (int) $_POST['page'] : 1;
 	if ($page > 1 && isset($_POST['prev'])) {

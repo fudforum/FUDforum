@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.40 2004/11/30 16:40:38 hackie Exp $
+* $Id: split_th.php.t,v 1.41 2005/03/09 21:13:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -203,7 +203,7 @@
 		$forum = q_singleval('SELECT forum_id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$th);
 	}
 
-	$forum_sel = tmpl_draw_select_opt(substr($vl,0,-1), substr($kl,0,-1), $forum, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$forum_sel = tmpl_draw_select_opt(rtrim($vl), rtrim($kl), $forum, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
 	$c = uq("SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id=".$th." AND m.apr=1 ORDER BY m.post_stamp ASC");
 
@@ -211,10 +211,6 @@
 
 	$msg_entry = '';
 	while ($r = db_rowobj($c)) {
-		if (!$r->alias) {
-			$r->alias = $anon_alias;
-		}
-		$msg_body = read_msg_body($r->foff, $r->length, $r->file_id);
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}
 
