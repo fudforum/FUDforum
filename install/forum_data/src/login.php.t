@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.42 2003/10/09 14:34:26 hackie Exp $
+* $Id: login.php.t,v 1.43 2003/11/09 23:54:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -13,7 +13,7 @@
 /*{PRE_HTML_PHP}*/
 
 	/* clear old sessions */
-	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$COOKIE_TIMEOUT).($FUD_OPT_1 & 128 ? ' OR (time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT).' AND sys_id!=0)' : ''));
+	q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<'.(__request_timestamp__-$SESSION_TIMEOUT));
 
 	/* Remove old unconfirmed users */
 	if ($FUD_OPT_2 & 1) {
@@ -21,7 +21,7 @@
 		q("DELETE FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=131072 AND (users_opt & 131072) > 0 AND join_date<".$account_expiry_date." AND posted_msg_count=0 AND last_visit<".$account_expiry_date." AND id!=1 AND (users_opt & 1048576)=0");
 	}
 
-	if (!empty($_GET['logout'])) {
+	if (!empty($_GET['logout']) && sq_check(0, $usr->last_visit)) {
 		if ($usr->returnto) {
 			parse_str($usr->returnto, $tmp);
 			$page = isset($tmp['t']) ? $tmp['t'] : '';
@@ -118,7 +118,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
+		if (!($usr_d = db_sab("SELECT id, passwd, login, email, users_opt, last_visit FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			if ($usr_d->users_opt & 1048576) {
@@ -157,6 +157,7 @@ function error_check()
 					} else {
 						$usr->returnto .= '&S=' . $ses_id;
 					}
+					$usr->returnto .= '&SQ='.$usr_d->last_visit;
 				}
 			}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.85 2003/11/08 00:37:37 hackie Exp $
+* $Id: users.inc.t,v 1.86 2003/11/09 23:54:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -31,15 +31,17 @@ function init_user()
 	header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0");
 	header("Pragma: no-cache");
 
+	$sq = 0;
 	/* fetch an object with the user's session, profile & theme info */
 	if (!($u = ses_get())) {
 		/* new anon user */
 		$u = ses_anon_make();
-	} else if ($u->id != 1) { /* store the last visit date for registered user */
+	} else if ($u->id != 1 && (!count($_POST) || sq_check(1, $u->last_visit, $u->id))) { /* store the last visit date for registered user */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.__request_timestamp__.' WHERE id='.$u->id);
 		if ($GLOBALS['FUD_OPT_3'] & 1) {
 			setcookie($GLOBALS['COOKIE_NAME'], $u->ses_id, 0, $GLOBALS['COOKIE_PATH'], $GLOBALS['COOKIE_DOMAIN']);
 		}
+		$sq = __request_timestamp__;
 	}
 	if ($u->data) {
 		$u->data = @unserialize($u->data);
@@ -69,32 +71,37 @@ function init_user()
 
 	/* define constants used to track URL sessions & referrals */
 	if ($o1 & 128) {
-		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'">');
+		define('s', $u->ses_id); define('_hs', '<input type="hidden" name="S" value="'.s.'"><input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . '/' . s . '/'); define('_rsidl', _rsid);
+				define('_rsid', __fud_real_user__ . '/' . s . '/?SQ='.$sq);
 			} else {
-				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s); define('_rsidl', 'rid='.__fud_real_user__.'&S='.s);
+				define('_rsid', 'rid='.__fud_real_user__.'&amp;S='.s.'&amp;SQ='.$sq);
 			}
 		} else {
 			if ($o2 & 32768) {
-				define('_rsid', s . '/'); define('_rsidl', _rsid);
+				define('_rsid', s . '/?SQ='.$sq);
 			} else {
-				define('_rsid',  'S='.s); define('_rsidl', _rsid);
+				define('_rsid',  'S='.s.'&amp;SQ='.$sq);
 			}
 		}
 	} else {
-		define('s', ''); define('_hs', '');
+		define('s', ''); define('_hs', '<input type="hidden" name="SQ" value="'.$sq.'">');
 		if ($o2 & 8192) {
 			if ($o2 & 32768) {
-				define('_rsid', __fud_real_user__ . '/'); define('_rsidl', _rsid);
+				define('_rsid', __fud_real_user__ . '/?SQ='.$sq);
 			} else {
-				define('_rsid',  'rid='.__fud_real_user__); define('_rsidl', _rsid);
+				define('_rsid',  'rid='.__fud_real_user__.'&amp;SQ='.$sq);
 			}
 		} else {
-			define('_rsid', ''); define('_rsidl', '');
+			if ($o2 & 32768) {
+				define('_rsid', '?SQ='.$sq);
+			} else {
+				define('_rsid', 'SQ='.$sq);
+			}
 		}
 	}
+	define('_rsidl', str_replace('&amp;', '&', _rsid));
 
 	/* continuation of path info parsing */
 	if (isset($p)) {
@@ -631,12 +638,8 @@ function user_register_forum_view($frm_id)
 	}
 }
 
-function user_register_thread_view($thread_id, $tm=0, $msg_id=0)
+function user_register_thread_view($thread_id, $tm=__request_timestamp__, $msg_id=0)
 {
-	if (!$tm) {
-		$tm = __request_timestamp__;
-	}
-
 	if (!db_li('INSERT INTO {SQL_TABLE_PREFIX}read (last_view, msg_id, thread_id, user_id) VALUES('.$tm.', '.$msg_id.', '.$thread_id.', '._uid.')', $ef)) {
 		q('UPDATE {SQL_TABLE_PREFIX}read SET last_view='.$tm.', msg_id='.$msg_id.' WHERE thread_id='.$thread_id.' AND user_id='._uid);
 	}
@@ -665,6 +668,34 @@ function user_mark_forum_read($id, $fid, $last_view)
 			q("UPDATE {SQL_TABLE_PREFIX}read SET user_id=".$id.", thread_id=id, msg_id=last_post_id, last_view=".__request_timestamp__." WHERE user_id=".$id." SELECT id, last_post_id FROM {SQL_TABLE_PREFIX}thread WHERE forum_id=".$fid);
 		}
 	}
+}
+
+function sq_check($post, $last_visit, $uid=__fud_real_user__)
+{
+	/* no sequence # check for anonymous users or when multi-host login is enabled */
+	if ((!$post && !__fud_real_user__) || $GLOBALS['FUD_OPT_2'] & 256) {
+		return 1;
+	}
+
+	if ($post && isset($_POST['SQ'])) {
+		$sq =& $_POST['SQ'];
+	} else if (!$post && isset($_GET['SQ'])) {
+		$sq =& $_GET['SQ'];
+	} else {
+		$sq = '';
+	}
+
+	if ($sq != $last_visit) {
+		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='.$last_visit.' WHERE id='.$uid);
+		if ($GLOBALS['FUD_OPT_2'] & 32768) {
+			header('Location: {ROOT}?SQ=' . $last_visit);
+		} else {
+			header('Location: {ROOT}?SQ=' . $last_visit);
+		}
+		exit;
+	}
+
+	return 1;
 }
 
 if (!defined('forum_debug')) {

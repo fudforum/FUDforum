@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.59 2003/10/30 21:38:45 hackie Exp $
+* $Id: msg.php.t,v 1.60 2003/11/09 23:54:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -128,7 +128,7 @@
 
 	if (_uid) {
 		/* Deal with thread subscriptions */
-		if (isset($_GET['notify'], $_GET['opt'])) {
+		if (isset($_GET['notify'], $_GET['opt']) && sq_check(0, $usr->last_visit)) {
 			if ($_GET['opt'] == 'on') {
 				thread_notify_add(_uid, $_GET['th']);
 				$frm->subscribed = 1;
