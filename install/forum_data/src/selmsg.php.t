@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.60 2005/01/28 18:17:35 hackie Exp $
+* $Id: selmsg.php.t,v 1.61 2005/02/25 15:57:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -29,7 +29,7 @@ function path_info_lnk($var, $val)
 		$url .= '/' . $var . '/' . $val;
 	}
 
-	return $url . '/' . _rsid;
+	return htmlspecialchars($url) . '/' . _rsid;
 }
 
 	ses_update_status($usr->sid, '{TEMPLATE: selmsg_update}');
@@ -82,13 +82,15 @@ function path_info_lnk($var, $val)
 		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
 	}
 
+	$_SERVER['QUERY_STRING'] = htmlspecialchars($_SERVER['QUERY_STRING']);
+
 	/* date limit */
 	if ($FUD_OPT_2 & 32768) {
 		$dt_opt = path_info_lnk('date', '1');
 		$rp_opt = path_info_lnk('reply_count', '0');
 	} else {
-		$dt_opt = isset($_GET['date']) ? str_replace('&date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
-		$rp_opt = isset($_GET['reply_count']) ? str_replace('&reply_count='.$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
+		$dt_opt = isset($_GET['date']) ? str_replace('&amp;date='.$_GET['date'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;date=1';
+		$rp_opt = isset($_GET['reply_count']) ? str_replace('&amp;reply_count='.(int)$_GET['reply_count'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;reply_count=0';
 	}
 
 	if (_uid) {
@@ -97,9 +99,9 @@ function path_info_lnk($var, $val)
 			$frm_opt = path_info_lnk('sub_forum_limit', '1');
 			$th_opt =path_info_lnk('sub_th_limit', '1');
 		} else {
-			$un_opt = isset($_GET['unread']) ? str_replace('&unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
-			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
-			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
+			$un_opt = isset($_GET['unread']) ? str_replace('&amp;unread='.$_GET['unread'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;unread=1';
+			$frm_opt = isset($_GET['sub_forum_limit']) ? str_replace('&amp;sub_forum_limit='.$_GET['sub_forum_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_forum_limit=1';
+			$th_opt = isset($_GET['sub_th_limit']) ? str_replace('&amp;sub_th_limit='.$_GET['sub_th_limit'], '', $_SERVER['QUERY_STRING']) : $_SERVER['QUERY_STRING'] . '&amp;sub_th_limit=1';
 		}
 	}
 
@@ -201,7 +203,7 @@ function path_info_lnk($var, $val)
 			}
 			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}' . $p . 'start/', '/' . _rsid);
 		} else {
-			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
+			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&amp;start='.$start, '', $_SERVER['QUERY_STRING']));
 		}
 	} else if ($unread_limit) {
 		if (!isset($_GET['mark_page_read'])) {
