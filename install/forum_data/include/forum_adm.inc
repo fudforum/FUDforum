@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum_adm.inc,v 1.11 2003/10/09 14:34:25 hackie Exp $
+* $Id: forum_adm.inc,v 1.12 2003/10/14 02:00:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -79,7 +79,6 @@ class fud_forum
 			name='".addslashes($this->name)."',
 			descr=".strnull(addslashes($this->descr)).",
 			post_passwd=".strnull(addslashes($this->post_passwd)).",
-			view_order=".(int)$this->view_order.",
 			forum_icon=".strnull(addslashes($this->forum_icon)).",
 			max_attach_size=".(int)$this->max_attach_size.",
 			max_file_attachments=".(int)$this->max_file_attachments.",
