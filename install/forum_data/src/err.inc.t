@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: err.inc.t,v 1.46 2005/02/24 21:25:26 hackie Exp $
+* $Id: err.inc.t,v 1.47 2005/03/18 00:13:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -83,9 +83,8 @@ function std_error($type)
 	if (isset($err_array['ERR_'.$type])) {
 		$err = $err_array['ERR_'.$type];
 		error_dialog($err[0], $err[1]);
-	} else {
-		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 	}
+	error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}');
 }
 
 function invl_inp_err()
