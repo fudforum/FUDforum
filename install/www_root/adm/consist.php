@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.68 2003/11/24 13:41:33 hackie Exp $
+* $Id: consist.php,v 1.69 2003/11/24 13:43:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -231,7 +231,7 @@ forum will be disabled.<br><br>
 	$c = q('SELECT id FROM '.$tbl.'forum');
 	while ($f = db_rowarr($c)) {
 		$r = db_saq('select SUM(replies), COUNT(*) FROM '.$tbl.'thread t INNER JOIN '.$tbl.'msg m ON t.root_msg_id=m.id AND m.apr=1 WHERE t.forum_id='.$f[0]);
-		if (!$r[2]) {
+		if (!$r[1]) {
 			q('UPDATE '.$tbl.'forum SET thread_count=0, post_count=0, last_post_id=0 WHERE id='.$f[0]);
 		} else {
 			$lpi = q_singleval('SELECT MAX(root_msg_id) FROM '.$tbl.'thread WHERE forum_id='.$f[0].' AND moved_to=0');
