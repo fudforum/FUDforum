@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.39 2003/04/15 14:43:05 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.40 2003/04/16 10:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,6 +35,17 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	return;
 }
 
+/* needed for message threshold & reveling messages */
+if (isset($_GET['rev'])) {
+	$tmp = explode(':', $_GET['rev']);
+	foreach ($tmp as $v) {
+		$GLOBALS['__FMDSP__'][$v] = 1;
+	}
+	define('reveal_lnk', '&amp;rev=' . $_GET['rev']);
+} else {
+	define('reveal_lnk', '');
+}
+
 /* initialize buddy & ignore list for registered users */
 if (_uid) {
 	if ($usr->buddy_list) {
@@ -44,32 +55,43 @@ if (_uid) {
 		$usr->ignore_list = @unserialize($usr->ignore_list);
 	}
 
-	/* make an associated array of ignored users to temporarily 'unhide' */
-	if (!empty($_GET['rev'])) {
-		$drawmsg_inc_tmp = explode(':', $_GET['rev']);
-		foreach($drawmsg_inc_tmp as $v) {
-			$GLOBALS['__REVEALED_POSTS__'][$v] = 1;
+	/* handle temporarily un-hidden users */
+	if (isset($_GET['reveal'])) {
+		$tmp = explode(':', $_GET['reveal']);
+		foreach($tmp as $v) {
+			if (isset($usr->ignore_list[$v])) {
+				$usr->ignore_list[$v] = 0;
+			}
 		}
+		define('unignore_tmp', '&amp;reveal='.$_GET['reveal']);
 	} else {
-		$_GET['rev'] = '';
-	}
-
-	/* make an associated array of ignored users to temporarily 'unhide' */
-	if (!empty($_GET['reveal'])) {
-		$drawmsg_inc_tmp = explode(':', $_GET['reveal']);
-		foreach($drawmsg_inc_tmp as $v) {	
-			unset($usr->ignore_list[$v]);
-		}
-	} else {
-		$_GET['reveal'] = '';
+		define('unignore_tmp', '');
 	}
 } else {
-	$_GET['rev'] = $_GET['reveal'] = '';
+	define('unignore_tmp', '');
 }
 
 if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
 	$GLOBALS['affero_domain'] = parse_url($WWW_ROOT);
 	$GLOBALS['affero_domain'] = $GLOBALS['affero_domain']['host'];
+}
+
+function make_tmp_unignore_lnk($id)
+{
+	if (!isset($_GET['reveal'])) {
+		return $_SERVER['QUERY_STRING'] . '&amp;reveal='.$id;
+	} else {
+		return str_replace('&reveal='.$_GET['reveal'], unignore_tmp . ':' . $id, $_SERVER['QUERY_STRING']);
+	}
+}
+
+function make_reveal_link($id)
+{
+	if (!isset($GLOBALS['__FMDSP__'])) {
+		return $_SERVER['QUERY_STRING'] . '&amp;rev='.$id;
+	} else {
+		return str_replace('&rev='.$_GET['rev'], reveal_lnk . ':' . $id, $_SERVER['QUERY_STRING']);
+	}
 }
 
 /* Draws a message, needs a message object, user object, permissions array, 
@@ -130,7 +152,9 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	}
 
 	/* check if the message should be ignored and it is not temporarily revelead */
-	if (isset($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__REVEALED_POSTS__'][$obj->id])) {
+	if (!empty($usr->ignore_list[$obj->poster_id]) && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
+		$rev_url = make_reveal_link($obj->id);
+		$un_ignore_url = make_tmp_unignore_lnk($obj->poster_id);
 		return !$hide_controls ? '{TEMPLATE: dmsg_ignored_user_message}' : '{TEMPLATE: dmsg_ignored_user_message_static}';
 	}
 	
@@ -142,7 +166,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				$avatar = '{TEMPLATE: dmsg_no_avatar}';
 			}
 
-			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $GLOBALS["usr"]->is_mod == 'A') {
+			if (($GLOBALS['ONLINE_OFFLINE_STATUS'] == 'Y' && $obj->invisible_mode == 'N') || $usr->is_mod == 'A') {
 				$online_indicator = (($obj->time_sec + $GLOBALS['LOGEDIN_TIMEOUT'] * 60) > __request_timestamp__) ? '{TEMPLATE: dmsg_online_indicator}' : '{TEMPLATE: dmsg_offline_indicator}';
 			} else {
 				$online_indicator = '';
@@ -204,11 +228,12 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	 * otherwise if the message body exists show an actual body
 	 * if there is no body show a 'no-body' message
 	 */
-	if (!$hide_controls && $obj->message_threshold && $obj->length_preview && empty($GLOBALS['__REVEALED_POSTS__'][$obj->id]) && $obj->length > $obj->message_threshold) {
+	if (!$hide_controls && $obj->message_threshold && $obj->length_preview && $obj->length > $obj->message_threshold && !isset($GLOBALS['__FMDSP__'][$obj->id])) {
+		$rev_url = make_reveal_link($obj->id);
 		$msg_body = read_msg_body($obj->offset_preview, $obj->length_preview, $obj->file_id_preview);
 		$msg_body = '{TEMPLATE: dmsg_short_message_body}';
 	} else if ($obj->length) {
-		$msg_body = read_msg_body($obj->foff,$obj->length, $obj->file_id);
+		$msg_body = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 		$msg_body = '{TEMPLATE: dmsg_normal_message_body}';
 	} else {
 		$msg_body = '{TEMPLATE: dmsg_no_msg_body}';
@@ -231,7 +256,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		$show_res = 1;
 
 		/* various conditions that may prevent poll voting */		
-		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
+		if (!$hide_controls && $perms['p_vote'] == 'Y' && ($obj->locked == 'N' || $perms['p_lock'] == 'Y') && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
 			/* check if the user had previously voted */
 			if (!q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}poll_opt_track WHERE poll_id='.$obj->poll_id.' AND user_id='._uid)) {
 				/* check if the poll has expired */

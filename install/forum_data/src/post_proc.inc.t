@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.15 2003/04/09 10:55:57 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.16 2003/04/16 10:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,6 +40,10 @@ function tags_to_html($str, $allow_img='Y')
 		$tag = substr($str, $pos+1, $epos-$pos-1);
 		if (($pparms = strpos($tag, '=')) !== false) {
 			$parms = substr($tag, $pparms+1);
+			if (!$pparms) { /*[= exception */
+				$pos = $epos+1;
+				continue;
+			}
 			$tag = substr($tag, 0, $pparms);
 		} else {
 			$parms = '';
