@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.tmpl,v 1.20 2004/11/24 19:53:39 hackie Exp $
+* $Id: remail.tmpl,v 1.21 2005/02/27 02:35:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -44,9 +44,9 @@
 {SECTION: registed_user}
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_your_name}</td><td width="100%">{VAR: usr->alias}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_your_email}</td><td width="100%">{VAR: usr->email}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{VAR-HTML: fname}"></td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></td><td valign="top"><input type="text" name="femail" value="{VAR-HTML: femail}">{FUNC: get_err('femail')}</td></tr>
-<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></td><td nowrap valign="top"><input type="text" name="subj" value="{VAR: subject}">{FUNC: get_err('subj')}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw">{MSG: remail_friends_name}</td><td width="100%"><input type="text" name="fname" value="{IF: isset($_POST['fname'])}{VAR-HTML: _POST['fname']}{ENDIFI}"></td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_friends_email}<br /><i>{MSG: remail_required}</i></td><td valign="top"><input type="text" name="femail" value="{IF: isset($_POST['femail'])}{VAR-HTML: _POST['femail']}{ENDIFI}">{FUNC: get_err('femail')}</td></tr>
+<tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt SmallText">{MSG: remail_subject}<br /><i>{MSG: remail_required}</i></td><td nowrap valign="top"><input type="text" name="subj" value="{IF: isset($_POST['subject'])}{VAR-HTML: _POST['subject']}{ELSE}{VAR: data->subject}{ENDI}">{FUNC: get_err('subj')}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText nw vt">{MSG: remail_message}<span class="SmallText"><br /><i>{MSG: remail_required}</i></span></td><td valign="top" nowrap><textarea name="body" rows="19" cols="78" wrap="PHYSICAL">{IF: isset($_POST['body'])}{VAR-HTML: _POST['body']}{ELSE}{TEMPLATE: email_message}{END}</textarea>{FUNC: get_err('body')}</td></tr>
 <tr class="{ALT-VAR: page_alt RowStyleA RowStyleB}"><td class="GenText ar" colspan=2><input type="submit" class="button" name="submit" value="{MSG: remail_send_now}"></td></tr>
 {SECTION: END}

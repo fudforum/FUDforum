@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: remail.php.t,v 1.27 2004/11/24 19:53:36 hackie Exp $
+* $Id: remail.php.t,v 1.28 2005/02/27 02:35:51 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,15 +53,7 @@
 		$def_thread_view = $FUD_OPT_2 & 4 ? 'msg' : 'tree';
 	}
 
-	if (_uid) {
-		$fname = isset($_POST['fname']) ? $_POST['fname'] : '';
-		$femail = isset($_POST['femail']) ? $_POST['femail'] : '';
-		$subject = isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : $data->subject;
-
-		$form_data = '{TEMPLATE: registed_user}';
-	} else {
-		$form_data = '{TEMPLATE: anon_user}';
-	}
+	$form_data = _uid ? '{TEMPLATE: registed_user}' : '{TEMPLATE: anon_user}';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
