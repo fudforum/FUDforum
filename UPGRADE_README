@@ -1,5 +1,5 @@
 /*
- * $Id: UPGRADE_README,v 1.6 2003/07/31 01:26:41 hackie Exp $
+ * $Id: UPGRADE_README,v 1.7 2003/07/31 03:00:20 hackie Exp $
  *
 */
 
@@ -10,8 +10,10 @@
 1) If you have safe_mode enabled you will need to upload the upgrade.php script using the forum's file manager in to the forum's
    WWW_SERVER_ROOT directory. Otherwise copy the upgrade.php file in to that directory manually.
 
-2) Make sure that the directory the upgrade script is in is either writable by the webserver or that a "fudforum_archive"
-	file exists and is writable by the webserver. The latter applies only to users on servers WITHOUT safe_mode.
+2) This step applies ONLY to users who's PHP has a memory limit.
+	Make sure that the directory the upgrade script is in is either writable by the webserver or 
+	that a "fudforum_archive" file exists and is writable by the webserver. The latter applies 
+	only to users on servers WITHOUT safe_mode.
 
 3) Using your web browser run the upgrade.php script.
 
