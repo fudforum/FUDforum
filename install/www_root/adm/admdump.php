@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.23 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admdump.php,v 1.24 2003/07/18 14:29:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	@set_time_limit(6000);
-
+	
 function make_insrt_qry($obj, $tbl, $field_data)
 {
 	$vl = $kv = '';
@@ -54,6 +54,8 @@ function make_insrt_qry($obj, $tbl, $field_data)
 
 function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
+	global $BUF_SIZE;
+	
 	if (!($d = opendir($dirp))) {
 		echo 'Could not open "'.$dirp.'" for reading<br>';
 		return;
@@ -73,12 +75,12 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 						break;
 					}
 					$ln = filesize($path . $f);
-					if ($ln < 2000000) {
+					if ($ln < $BUF_SIZE) {
 						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n" . file_get_contents($path . $f) . "\n");
 					} else {
 						$write_func($fp, '||' . $dpath . $f . '||' . $ln . "||\n");
 						$fp2 = fopen($path . $f, 'rb');
-						while (($buf = fread($fp2, 2000000))) {
+						while (($buf = fread($fp2, $BUF_SIZE))) {
 							$write_func($fp, $buf);
 						}
 						fclose($fp2);
@@ -123,6 +125,7 @@ function sql_is_null($r, $n, $tbl='')
 
 	require('./GLOBALS.php');
 	fud_use('db.inc');
+	fud_use('mem_limit.inc', true);
 	
 	/* 
 	 * Check for HTTP AUTH, before going for the usual cookie/session auth 
