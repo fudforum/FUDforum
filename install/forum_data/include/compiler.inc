@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.20 2003/04/24 01:31:34 hackie Exp $
+*   $Id: compiler.inc,v 1.21 2003/04/24 21:30:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -261,17 +261,6 @@ function compile_file($source)
 
 function generate_file($php_file)
 {
-	$dirs = array('', '/' . $GLOBALS['__COMPILER__']['tname'], '/' . $GLOBALS['__COMPILER__']['tname']);
-	foreach ($dirs as $v) {
-		if (!@is_dir($GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v)) {
-			$u = umask(0);
-			if (!@mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v, 0777)) {
-				exit('unable to make directory for this theme (<b>'.$GLOBALS['WWW_ROOT_DISK'] . 'theme' . $v.'</b>)<br>');
-			}
-			umask($u);
-		}
-	}
-
 	if (!isset($GLOBALS['file_cache'][$php_file]['compiled']) && !isset($GLOBALS['file_cache'][$php_file]['inline'])) {
 		$GLOBALS['file_cache'][$php_file]['compiled'] = compile_file($GLOBALS['file_cache'][$php_file]['src']);
 	}
@@ -288,7 +277,7 @@ function generate_file($php_file)
 	
 		$php_code_start = $php_code_end = $php_code_middle = '';
 	
-		if (is_array($fc['include'])) {
+		if (isset($fc['include'])) {
 			foreach($fc['include'] as $v2) {
 				if ($v2 == $php_file) {
 					continue;
@@ -400,10 +389,21 @@ function resolve_compile($file)
 	array_push($GLOBALS['file_cache'][$file], array('include' => resolve_inc_refs($file), 'resolved' => 1, 'compiled' => compile_file($GLOBALS['file_cache'][$file]['src'])));
 }
 
+function fud_mkdir($dir, $perms=0700)
+{
+	if (!@is_dir($dir) && !@mkdir($dir, $perms)) {
+		exit('unable to make directory (<b>'.$dir.'</b>)<br>');
+	}	
+}
+
 function compile_all($tset='default', $lang='english', $tname='default')
 {
 	$oldmask = umask(0133);
-	$olddir = getcwd();
+
+	/* make sure we can use the specified values to make 'nice' directory names */
+	$tname = preg_replace('![^A-Za-z0-9]!', '_', $tname);
+	$tset = preg_replace('![^A-Za-z0-9]!', '_', $tset);
+	$lang = preg_replace('![^A-Za-z0-9]!', '_', $lang);
 	
 	$GLOBALS['__COMPILER__'] 	= array();
 	$GLOBALS['MSG']                 = array();
@@ -412,44 +412,38 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$GLOBALS['file_cache']          = array();
 	
 	copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
-	$GLOBALS['__COMPILER__']['tset'] = $tset;
-	$GLOBALS['__COMPILER__']['lang'] = $lang;
-	$GLOBALS['__COMPILER__']['tname'] = $tname;
 	
-	$GLOBALS['__COMPILER__']['ROOT'] = $GLOBALS['WWW_ROOT'];
-	if ( substr($GLOBALS['__COMPILER__']['ROOT'], -1) != '/' ) $GLOBALS['__COMPILER__']['ROOT'] .= '/';
-	$GLOBALS['__COMPILER__']['ROOT'] .= 'index.php';
+	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
+	$cmpl =& $GLOBALS['__COMPILER__'];
 	
-	$GLOBALS['__COMPILER__']['THEME_ROOT'] = $GLOBALS['WWW_ROOT'];
-	if ( $GLOBALS['__COMPILER__']['THEME_ROOT'][strlen($GLOBALS['__COMPILER__']['THEME_ROOT'])-1] != '/' ) $GLOBALS['__COMPILER__']['THEME_ROOT'] .= '/';
-	$GLOBALS['__COMPILER__']['THEME_ROOT'] .= 'theme/'.$tname;
-	$GLOBALS['__COMPILER__']['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
-	$GLOBALS['__COMPILER__']['THEME_IMAGE_ROOT'] = $GLOBALS['__COMPILER__']['THEME_ROOT'].'/images';
+	if (substr($GLOBALS['WWW_ROOT'], -1) != '/') {
+		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . '/index.php';
+		$cmpl['THEME_ROOT'] = '/theme/' . $tname;
+	} else {
+		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . 'index.php';
+		$cmpl['THEME_ROOT'] = 'theme/' . $tname;
+	}
 	
-	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'i18n/'.$GLOBALS['__COMPILER__']['lang'].'/charset';
-	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/charset';
+	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
+	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
 	
+	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$tset.'i18n/'.$lang.'/charset';
+	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
+
 	$u = umask(0);
-	if ( !@is_dir($GLOBALS['WWW_ROOT_DISK'].'theme') ) {
-		if( !@mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', 0700) )
-			exit("unable to make directory (<b>".$GLOBALS['WWW_ROOT_DISK']."theme</b>)<br>\n");
-	}	
-	
-	if ( !@is_dir($GLOBALS['__COMPILER__']['THEME_ROOT_DISK']) ) {
-		if( !@mkdir($GLOBALS['__COMPILER__']['THEME_ROOT_DISK'], 0700) ) 
-			exit("unable to make directory (<b>".$GLOBALS['__COMPILER__']['THEME_ROOT_DISK']."</b>)<br>\n");
-	}	
-	
+	$perms = $GLOBALS['FILE_LOCK'] == 'Y' ? 0700 : 0777;
+	fud_mkdir($GLOBALS['WWW_ROOT_DISK'].'theme', $perms);
+	fud_mkdir($GLOBALS['WWW_ROOT_DISK'] . 'theme/' . $tname, $perms);
+	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme', $perms);
+	fud_mkdir($GLOBALS['DATA_DIR'] . 'include/theme/' . $tname, $perms);
 	umask($u);
-	
-	$charset = ( is_file($file1) ) ? $file1 : $file2;
-	
-	if ( defined('debug') )
-		echo "opening charset as $charset<br>\n";
+
+	$charset = @is_file($file1) ? $file1 : $file2;
+
 	$GLOBALS['char_set'] = trim(file_get_contents($charset));
 
-	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
-	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$GLOBALS['__COMPILER__']['lang'].'/msg';
+	$prim_msg_file = $GLOBALS['DATA_DIR'].'thm/'.$cmpl['tset'].'/i18n/'.$cmpl['lang'].'/msg';
+	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$cmpl['lang'].'/msg';
 
 	/*
 	 * build the message array 
@@ -488,7 +482,6 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	closedir($dir);
 	
 	@umask($oldmask);
-	@chdir($olddir);
 	$thm = new cmpl_local_theme;
 	$thm->name = $tname;
 	$thm->theme = $tset;
@@ -506,68 +499,80 @@ class cmpl_local_theme
 
 function fudcopy($src, $dest, $mask='!.*!i', $recur=FALSE)
 {
-	if ( $dest[strlen($dest)-1] != '/' ) $dest .= '/';
-	$oldpwd = getcwd();
-	if ( $dest[0] != '/' ) $dest = $oldcwd.$dest;
-	chdir($src);
-	$dp = opendir('.');
+	$src = preg_replace('!/*$!', '', $src);
+	$dest = preg_replace('!/*$!', '', $dest);
+
+	if (!($dp = opendir($src))) {
+		echo 'Cannot open directory "'.$src.'"<br>';
+		return;
+	}
 	readdir($dp); readdir($dp);
-	while ( $de = readdir($dp) ) {
-		if ( !preg_match($mask, $de, $regs) ) continue;
-		if ( is_dir($de) && $recur == TRUE ) {
-			$rdest = $dest.$de;
-			if ( !@is_dir($rdest) && !@mkdir($rdest, 0777) ) exit("can't mkdir ($rdest)<br>\n");
-			fudcopy($de, $rdest, $mask, $recur);
+	while ($de = readdir($dp)) {
+		if (!preg_match($mask, $de, $regs)) {
+			continue;
 		}
-		else {
-			if ( !copy($de, $dest.$de) && !@file_exists($dest.$de) )
-				echo "can't copy in (".getcwd().") a file named (".$de.") to (".$dest.$de.")<br>\n";
-			else 
+		$path = $src . '/' . $de;
+		$nd = $dest . '/' . $de;
+		
+		if (@is_dir($path) && $recur == TRUE) {
+			if (!@is_dir($nd) && !@mkdir($nd, 0777)) {
+				exit('can\'t mkdir ('.$nd.')<br>');
+			}
+			fudcopy($path, $nd, $mask, TRUE);
+		} else {
+			if (!@copy($path, $nd) && !@file_exists($nd)) {
+				echo 'cannot copy "'.$path.'" to "'.$nd.'"<br>';
+			} else {
 				@chmod($dest.$de, 0666);
+			}
 		}
 	}
-	chdir($oldpwd);
+	closedir($dp);
 }
 
 function copyimages($thm)
 {
-	if ( !@is_dir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images') ) {
-		if( !@mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', 0777) )
-			exit("Failed Creating: ".$GLOBALS['WWW_ROOT_DISK']."theme/".$thm->name."/images<br>\n");
+	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images';
+
+	$u = umask(0);
+	if (!@is_dir($path) && !@mkdir($path, 0777)) {
+		exit('Failed Creating: '.$path.'<br>');
 	}	
-		
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
-	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/images', '!\.(gif|jpeg|png|jpg)$!i');
+
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
+	fudcopy($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
+
+	umask($u);
 }
 
 function copyhelp($thm)
 {
-	$u = umask(0);
-	if ( !@is_dir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help') ) {
-		if( !@mkdir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help', 0777) ) 
-			exit("Failed Creating: ".$GLOBALS['WWW_ROOT_DISK']."theme/".$thm->name."/help<br>\n");
-	}	
-		
-	$oldpwd = getcwd();
+	$path = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help';
+	$src = $GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help';
+	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
 
-	chdir($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/i18n/'.$thm->lang.'/help');
-	$dp = opendir('.');
+	$u = umask(0);
+	if (!@is_dir($path) && !@mkdir($path, 0777)) {
+		exit('Failed Creating: '.$path.'<br>');
+	}
+		
+	$dp = opendir($src);
 	readdir($dp); readdir($dp);
-	while ( $de = readdir($dp) ) {
-		if ( !is_file($de) || substr($de, -4) != '.hlp' ) continue;
-		if ( defined('debug') )
-			echo "opening help as $de from ".getcwd()."<br>\n";
-		$str = file_get_contents($de);
-		$str = str_replace('{ROOT}', $GLOBALS['__COMPILER__']['ROOT'], $str);
-		$fp = fopen($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 'wb');
-		fwrite($fp, $str);
+	while ($de = readdir($dp)) {
+		if (!@is_file($de) || substr($de, -4) != '.hlp') {
+			continue;
+		}
+		if (!($fp = fopen($path . $de, 'wb'))) {
+			exit('Failed to write to: '.$path . $de.'<br>');
+		}
+		fwrite($fp, str_replace('{ROOT}', $rp, file_get_contents($src . $de)));
 		fclose($fp);
-		@chmod($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name.'/help/'.$de, 0666);
+		@chmod($src . $de, 0666);
 	}
 	closedir($dp);
+
 	umask($u);
-	chdir($oldpwd);
 }
 ?>
