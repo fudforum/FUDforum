@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.69 2004/10/25 16:32:20 hackie Exp $
+* $Id: index.php.t,v 1.70 2004/10/30 16:56:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -59,13 +59,6 @@ function url_tog_collapse($id, $c)
 	}
 
 	$cat_id = !empty($_GET['cat']) ? (int) $_GET['cat'] : 0;
-
-	if (!_uid) {
-		$mark_all_read = $welcome_message = '';
-	} else {
-		$welcome_message = '{TEMPLATE: welcome_message}';
-		$mark_all_read = '{TEMPLATE: mark_all_read}';
-	}
 
 	ses_update_status($usr->sid, '{TEMPLATE: index_update}');
 
@@ -157,14 +150,6 @@ function url_tog_collapse($id, $c)
 					if (!isset($collapse[$k])) {
 						$collapse[$k] = !($i[3] & 2);
 					}
-
-					if (!empty($collapse[$k])) {
-						$collapse_status = '{TEMPLATE: maximize_category}';
-						$collapse_indicator = '{TEMPLATE: collapse_indicator_MAX}';
-					} else {
-						$collapse_status = '{TEMPLATE: minimize_category}';
-						$collapse_indicator = '{TEMPLATE: collapse_indicator_MIN}';
-					}
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_Y}';
 				} else {
 					$forum_list_table_data .= '{TEMPLATE: index_category_allow_collapse_N}';
@@ -197,21 +182,12 @@ function url_tog_collapse($id, $c)
 			$last_msg_id = $r[8];
 		}
 
-		$forum_icon = $r[6] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
-
 		if (!_uid) { /* anon user */
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
 		} else if ($r[14] < $r[2] && $usr->last_read < $r[2]) {
 			$forum_read_indicator = '{TEMPLATE: forum_unread}';
 		} else {
 			$forum_read_indicator = '{TEMPLATE: forum_read}';
-		}
-
-		if ($r[8]) {
-			$last_poster_profile = $r[3] ? '{TEMPLATE: profile_link_user}' : '{TEMPLATE: profile_link_anon}';
-			$last_post = '{TEMPLATE: last_post}';
-		} else {
-			$last_post = '{TEMPLATE: na}';
 		}
 
 		if ($r[9] && ($mods = unserialize($r[9]))) {
