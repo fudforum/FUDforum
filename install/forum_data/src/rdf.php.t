@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.31 2004/01/04 16:38:27 hackie Exp $
+* $Id: rdf.php.t,v 1.32 2004/01/28 18:51:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -46,6 +46,16 @@ function sp($data)
 function email_format($data)
 {
 	return str_replace(array('.', '@'), array(' dot ', ' at '), $data);
+}
+
+function multi_id($data)
+{
+	$list = explode(',', $data);
+	$out = array();
+	foreach ($data as $v) {
+		$out[] = (int) $v;
+	}
+	return implode(',', $out);
 }
 
 /* build html encoding list */
@@ -99,16 +109,16 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 			 * basic	- output basic info parsable by all rdf parsers
 			 */
 			if (isset($_GET['cat'])) {
-			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
+			 	$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
 			}
 			if (isset($_GET['frm'])) {
-			 	$lmt .= ' AND t.forum_id='.(int)$_GET['frm'];
+			 	$lmt .= ' AND t.forum_id IN('.multi_id($_GET['frm']).')';
 			}
 			if (isset($_GET['th'])) {
-				$lmt .= ' AND m.thread_id='.(int)$_GET['th'];
+				$lmt .= ' AND m.thread_id IN('.multi_id($_GET['th']).')';
 			}
 			if (isset($_GET['id'])) {
-			 	$lmt .= ' AND m.id='.(int)$_GET['id'];
+			 	$lmt .= ' AND m.id IN('.multi_id($_GET['id']).')';
 			}
 			if (isset($_GET['ds'])) {
 				$lmt .= ' AND m.post_stamp >='.(int)$_GET['ds'];
@@ -267,13 +277,13 @@ $basic_rss_data .= '
 			 */
 			$lmt = " m.apr=1";
 			if (isset($_GET['cat'])) {
-			 	$lmt .= ' AND f.cat_id='.(int)$_GET['cat'];
+				$lmt .= ' AND f.cat_id IN('.multi_id($_GET['cat']).')';
 			}
 			if (isset($_GET['frm'])) {
-			 	$lmt .= ' AND t.forum_id='.(int)$_GET['frm'];
+				$lmt .= ' AND t.forum_id IN('.multi_id($_GET['frm']).')';
 			}
 			if (isset($_GET['id'])) {
-			 	$lmt .= ' AND t.id='.(int)$_GET['id'];
+			 	$lmt .= ' AND t.id IN ('.multi_id($_GET['id']).')';
 			}
 			if (isset($_GET['ds'])) {
 				$lmt .= ' AND t.last_post_date >='.(int)$_GET['ds'];
