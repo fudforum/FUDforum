@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.25 2003/10/09 14:34:26 hackie Exp $
+* $Id: rdf.php.t,v 1.26 2003/10/14 14:47:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -11,7 +11,6 @@
 ***************************************************************************/
 
 	require('./GLOBALS.php');
-	require($DATA_DIR . 'include/RDF.php');
 	fud_use('err.inc');
 
 	/* before we go on, we need to do some very basic activation checks */

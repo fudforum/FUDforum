@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.18 2003/10/09 14:34:26 hackie Exp $
+* $Id: pdf.php.t,v 1.19 2003/10/14 14:47:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -262,7 +262,6 @@ function post_to_smiley($text, $re)
 }
 
 	require('./GLOBALS.php');
-	require($DATA_DIR . 'include/PDF.php');
 	fud_use('err.inc');
 
 	/* this potentially can be a longer form to generate */
