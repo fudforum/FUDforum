@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: error.php.t,v 1.10 2003/10/01 21:51:52 hackie Exp $
+*   $Id: error.php.t,v 1.11 2003/10/02 17:58:34 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -24,6 +24,8 @@
 
 /*{POST_HTML_PHP}*/
 
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET returnto=NULL WHERE id='.$usr->sid);
+
 	if (isset($usr->data['er_msg'], $usr->data['err_t'])) {
 		$error_message	= $usr->data['er_msg'];
 		$error_title	= $usr->data['err_t'];
@@ -31,7 +33,6 @@
 	} else {
 		$error_message	= '{TEMPLATE: error_invalidurl}';
 		$error_title	= '{TEMPLATE: error_error}';
-		q('UPDATE {SQL_TABLE_PREFIX}ses SET returnto=NULL WHERE id='.$usr->sid);
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
