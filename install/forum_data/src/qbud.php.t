@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.9 2003/04/17 12:30:34 hackie Exp $
+*   $Id: qbud.php.t,v 1.10 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,7 +54,7 @@
 		$all_v = '1';
 		$all_d = '{TEMPLATE: pmsg_all}';
 	}
-	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid);
+	$c = uq('SELECT u.alias FROM {SQL_TABLE_PREFIX}buddy b INNER JOIN {SQL_TABLE_PREFIX}users u ON b.bud_id=u.id WHERE b.user_id='._uid.' AND b.user_id>1');
 	while ($r = db_rowarr($c)) {
 		$checked = $all ? ' checked' : '';
 		$buddies .= '{TEMPLATE: buddy_entry}';

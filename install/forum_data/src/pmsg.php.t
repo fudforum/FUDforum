@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg.php.t,v 1.19 2003/04/17 09:37:33 hackie Exp $
+*   $Id: pmsg.php.t,v 1.20 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,40 +25,36 @@
 		std_error('login');
 	}
 
-	if ( (!empty($btn_move) && !empty($moveto)) || !empty($btn_delete) ) {
-		$msg = new fud_pmsg;
-		
-		if( is_array($HTTP_POST_VARS['sel']) ) {
-			foreach($HTTP_POST_VARS['sel'] as $msg->id) {
-				if( !is_numeric($msg->id) ) continue;
-				
-				if ( !empty($btn_delete) ) 
-					$msg->del_pmsg();
-				else if ( !empty($moveto) ) 
-					$msg->move_folder($moveto);
+/*{POST_HTML_PHP}*/
+
+	/* moving or deleting a message */
+	if (isset($_POST['sel']) || isset($_GET['sel'])) {
+		$sel = isset($_POST['sel']) ? $_POST['sel'] : $_GET['sel'];
+		if (!is_array($sel)) {
+			$sel = array($sel);
+		}
+		$move_to = (!isset($_POST['btn_delete']) && isset($_POST['moveto'], $folders[$_POST['moveto']])) ? $_POST['moveto'] : NULL;
+		foreach ($sel as $m) {
+			if ($move_to) {
+				pmsg_move((int)$m, $move_to, FALSE);
+			} else {
+				pmsg_del((int)$m);
 			}
 		}
-		else if( is_numeric($HTTP_GET_VARS['sel']) ) {
-			$msg->id = $HTTP_GET_VARS['sel'];
-			if ( !empty($btn_delete) ) 
-				$msg->del_pmsg();
-			else if ( !empty($moveto) ) 
-				$msg->move_folder($moveto);
-		}
-		
-		if( !empty($moveto) && empty($btn_delete) ) $folder_id = $moveto;
-			
-		header("Location: {ROOT}?t=pmsg&"._rsidl."&folder_id=".$folder_id."&rand=".get_random_value());
-		exit();
 	}
 
-/*{POST_HTML_PHP}*/
-		
-	$folder_id = (isset($_GET['folder_id']) && isset($folders[$_GET['folder_id']])) ? "'".$_GET['folder_id']."'" : "'INBOX'";
+	if (isset($_GET['folder_id']) && isset($folders[$_GET['folder_id']])) {
+		$folder_id = $_GET['folder_id'];
+	} else if (isset($_POST['folder_id']) && isset($folders[$_POST['folder_id']])) {
+		$folder_id = $_POST['folder_id'];
+	} else {
+		$folder_id = 'INBOX';
+	}
+	$fid = "'".$folder_id."'";
 
 	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 
-	$cur_ppage = tmpl_cur_ppage(substr($folder_id, 1, -1), $folders);
+	$cur_ppage = tmpl_cur_ppage($folder_id, $folders);
 
 	$lnk = $folder_id == 'DRAFT' ? '{ROOT}?t=pmsg&amp;msg_id' : '';
 	$author_dest_col = $folder_id == 'SENT' ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
@@ -77,21 +73,21 @@
 		$full_indicator = '{TEMPLATE: full_full_indicator}';
 	}
 	
-	if (!($all_v = isset($_GET['all']))) {
+	if (($all_v = empty($_GET['all']))) {
 		$desc = '{TEMPLATE: pmsg_all}';
 	} else {
 		$desc = '{TEMPLATE: pmsg_none}';
 	}
 	
 	$c = uq('SELECT 
-			p.read_stamp, p.post_stamp, p.track, p.mailed, p.duser_id, p.ouser_id, p.subject, p.nrf_status, 
+			p.id, p.read_stamp, p.post_stamp, p.track, p.mailed, p.duser_id, p.ouser_id, p.subject, p.nrf_status, p.folder_id, p.pdest
+			,
 			u.invisible_mode, u.alias, u.last_visit AS time_sec, 
-			u2.invisible_mode AS invisible_mode2, u2.alias, u2.last_visit AS time_sec2
+			u2.invisible_mode AS invisible_mode2, u2.alias AS alias2, u2.last_visit AS time_sec2
 		FROM {SQL_TABLE_PREFIX}pmsg p
 		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.pdest=u2.id 
-		WHERE duser_id='._uid.' AND folder_id='.$folder_id.' 
-		ORDER BY post_stamp DESC');
+		LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON p.duser_id=u2.id 
+		WHERE duser_id='._uid.' AND folder_id='.$fid.' ORDER BY post_stamp DESC');
 	
 	$private_msg_entry = '';
 	while ($obj = db_rowobj($c)) {
@@ -102,9 +98,10 @@
 				break;
 			case 'SENT':
 				$obj->invisible_mode = $obj->invisible_mode2;
-				$obj->login = $obj->login2;
+				$obj->alias = $obj->alias2;
 				$obj->time_sec = $obj->time_sec2;
 				$obj->ouser_id = $obj->pdest;
+				$action = '';
 				break;
 			case 'TRASH':
 				$action = '{TEMPLATE: action_buttons_sent_trash}';
@@ -140,7 +137,7 @@
 			$msg_type = '{TEMPLATE: normal_msg}';
 		}
 		
-		$checked = $all_v ? ' checked' : '';
+		$checked = !$all_v ? ' checked' : '';
 		
 		$private_msg_entry .= '{TEMPLATE: private_msg_entry}';
 	}

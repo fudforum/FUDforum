@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.php.t,v 1.15 2003/04/14 13:14:48 hackie Exp $
+*   $Id: finduser.php.t,v 1.16 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -56,7 +56,7 @@
 	$lmt = ' LIMIT '.qry_limit($count, $start);
 
 	$find_user_data = '';
-	$c = uq('SELECT home_page, email_messages, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users ' . $qry . ' ORDER BY ' . $ord . ' ' . $lmt);
+	$c = uq('SELECT home_page, email_messages, alias, join_date, posted_msg_count, id FROM {SQL_TABLE_PREFIX}users ' . $qry . ' AND id>1 ORDER BY ' . $ord . ' ' . $lmt);
 	while ($r = db_rowobj($c)) {
 		$pm_link = ($PM_ENABLED == 'Y' && _uid) ? '{TEMPLATE: pm_link}' : '';
 		$homepage_link = strlen($r->home_page) ? '{TEMPLATE: homepage_link}' : '';

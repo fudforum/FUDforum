@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmsg_view.php.t,v 1.8 2003/03/05 13:46:36 hackie Exp $
+*   $Id: pmsg_view.php.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,89 +15,72 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
-	if( $GLOBALS['PM_ENABLED']=='N' ) {
-		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}', '{ROOT}?t=index', '');
-		exit;		
+	if ($PM_ENABLED == 'N') {
+		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
-	
-	if ( !isset($usr) ) std_error('login');
-
-	if( empty($id) || !is_numeric($id) ) {
-		header("Location: {ROOT}?t=pmsg&"._rsidl);
-		exit;
+	if (!_uid) {
+		std_error('login');
 	}
-	
-	$folders = array('INBOX'=>'{TEMPLATE: inbox}', 'SAVED'=>'{TEMPLATE: saved}', 'DRAFT'=>'{TEMPLATE: draft}', 'SENT'=>'{TEMPLATE: sent}', 'TRASH'=>'{TEMPLATE: trash}');
-	
-	$msg = new fud_pmsg;
-	$msg->get($id,1);
-	
-	if( empty($msg->id) ) invl_inp_err();
-	
-	if ( isset($ses) ) $ses->update('{TEMPLATE: pm_update}');
-	
-	{POST_HTML_PHP}
-	
-	$cur_ppage = tmpl_cur_ppage($msg->folder_id, $msg->subject);
 
-	$r = q("SELECT 
-		{SQL_TABLE_PREFIX}pmsg.*,
-		{SQL_TABLE_PREFIX}avatar.img AS avatar,
-		{SQL_TABLE_PREFIX}users.id AS user_id,
-		{SQL_TABLE_PREFIX}users.alias AS login,
-		{SQL_TABLE_PREFIX}users.display_email,
-		{SQL_TABLE_PREFIX}users.avatar_approved,
-		{SQL_TABLE_PREFIX}users.avatar_loc,
-		{SQL_TABLE_PREFIX}users.email,
-		{SQL_TABLE_PREFIX}users.posted_msg_count,
-		{SQL_TABLE_PREFIX}users.join_date,
-		{SQL_TABLE_PREFIX}users.location,
-		{SQL_TABLE_PREFIX}users.sig,
-		{SQL_TABLE_PREFIX}users.icq,
-		{SQL_TABLE_PREFIX}users.is_mod,
-		{SQL_TABLE_PREFIX}users.aim,
-		{SQL_TABLE_PREFIX}users.msnm,
-		{SQL_TABLE_PREFIX}users.yahoo,
-		{SQL_TABLE_PREFIX}users.jabber,
-		{SQL_TABLE_PREFIX}users.affero,
-		{SQL_TABLE_PREFIX}users.invisible_mode,
-		{SQL_TABLE_PREFIX}users.email_messages,
-		{SQL_TABLE_PREFIX}users.custom_status,
-		{SQL_TABLE_PREFIX}level.name AS level_name,
-		{SQL_TABLE_PREFIX}level.pri AS level_pri,
-		{SQL_TABLE_PREFIX}level.img AS level_img,
-		{SQL_TABLE_PREFIX}ses.time_sec
+/*{POST_HTML_PHP}*/
+	
+	if (!isset($_GET['id']) || !($id = (int)$_GET['id'])) {
+		invl_inp_err();
+	}
+
+	$m = db_sab('SELECT 
+		p.*,
+		u.id AS user_id, u.alias, u.display_email, u.avatar_approved, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, 
+		u.location, u.sig, u.icq, u.is_mod, u.aim, u.msnm, u.yahoo, u.jabber, u.affero, u.invisible_mode, u.email_messages,
+		u.custom_status, u.last_visit,
+		l.name AS level_name, l.pri AS level_pri, l.img AS level_img
 	FROM 
-		{SQL_TABLE_PREFIX}pmsg 
-		INNER JOIN {SQL_TABLE_PREFIX}users 
-			ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id 
-		LEFT JOIN {SQL_TABLE_PREFIX}avatar 
-			ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id 	
-		LEFT JOIN {SQL_TABLE_PREFIX}level
-			ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id	
-		LEFT JOIN {SQL_TABLE_PREFIX}ses
-			ON {SQL_TABLE_PREFIX}users.id={SQL_TABLE_PREFIX}ses.user_id	
-	WHERE 
-		duser_id=".$usr->id." AND 
-		{SQL_TABLE_PREFIX}pmsg.id='".$id."'
-	");	
-	$obj = db_singleobj($r);
-		
-	/* Next Msg */
-	if( ($nid =  q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id>".$id." ORDER BY id ASC LIMIT 1")) )
-		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';		
+		{SQL_TABLE_PREFIX}pmsg p
+		INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id 
+		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id	
+	WHERE p.duser_id='._uid.' AND p.id='.$id);	
 	
+	if (!$m) {
+		invl_inp_err();
+	}
+
+	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
+
+	$cur_ppage = tmpl_cur_ppage($m->folder_id, $folders, $m->subject);
+
+	/* Next Msg */
+	if (($nid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND folder_id=\''.$m->folder_id.'\' AND post_stamp>'.$m->post_stamp.' ORDER BY post_stamp ASC LIMIT 1'))) {
+		$dpmsg_next_message = '{TEMPLATE: dpmsg_next_message}';
+	} else {
+		$dpmsg_next_message = '';
+	}
 	/* Prev Msg */
-	if( ($pid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id." AND folder_id='".$obj->folder_id."' AND id<".$id." ORDER BY id DESC LIMIT 1")) )
+	if (($pid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND folder_id=\''.$m->folder_id.'\' AND post_stamp<'.$m->post_stamp.' ORDER BY post_stamp DESC LIMIT 1'))) {
 		$dpmsg_prev_message = '{TEMPLATE: dpmsg_prev_message}';
-		
-	$private_message_entry = tmpl_drawpmsg($obj);
+	} else {
+		$dpmsg_prev_message = '';
+	}
 
-	if( !$msg->read_stamp && $msg->mailed=='Y' ) $msg->mark_read();
-	if( $msg->ouser_id != $usr->id && $msg->mailed=='Y' && $msg->track=='Y' && empty($dr) ) $msg->send_notify_msg();
+	$private_message_entry = tmpl_drawpmsg($m, $usr, FALSE);
 
-	{POST_PAGE_PHP_CODE}
+	if (!$m->read_stamp && $m->mailed == 'Y') {
+		q('UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp='.__request_timestamp__.', track=\'SENT\' WHERE id='.$m->id);
+		if ($m->ouser_id != _uid && $m->track == 'Y' && !isset($_GET['dr'])) {
+			$track_msg = new fud_pmsg;
+			$track_msg->ouser_id = $track_msg->duser_id = $m->ouser_id;
+			$track_msg->ip_addr = $track_msg->host_name = NULL;
+			$track_msg->post_stamp = __request_timestamp__;
+			$track_msg->mailed = 'Y';
+			$track_msg->folder_id = 'INBOX';
+			$track_msg->track = 'N';
+			$track_msg->subject = '{TEMPLATE: private_msg_notify_subj}';
+			$track_msg->body = '{TEMPLATE: private_msg_notify_body}';
+			$track_msg->add(1);
+		}
+	}
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: PMSG_PAGE}	

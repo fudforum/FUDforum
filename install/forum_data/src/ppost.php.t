@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.20 2003/04/17 13:20:14 hackie Exp $
+*   $Id: ppost.php.t,v 1.21 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,18 +39,18 @@
 	}
 	
 	$attach_count = 0; $file_array = '';
-	
+
 	if (!isset($_POST['prev_loaded'])) {
 		/* setup some default values */
-		$msg_subject = $msg_body = $msg_icon = '';
+		$msg_subject = $msg_body = $msg_icon = $old_subject = $msg_ref_msg_id = '';
 		$msg_track = NULL;
 		$msg_show_sig = $usr->append_sig == 'Y' ? 1 : NULL;
 		$msg_smiley_disabled = $PRIVATE_MSG_SMILEY == 'Y' ? NULL : 1;
-		$reply = $forward = 0;
+		$reply = $forward = $msg_id = 0;
 		
 		/* deal with users passed via GET */
 		if (isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
-			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi);
+			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi.' AND id>1');
 		} else {
 			$msg_to_list = '';
 		}
@@ -101,10 +101,10 @@
 				$msg_subject = apply_reverse_replace($msg_subject);
 			
 				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
-					$msg_subject = 'Re: ' . $msg_subject;
+					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 					$msg_ref_msg_id = 'R'.$reply;
 				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
-					$msg_subject = 'Fwd: ' . $msg_subject;
+					$old_subject = $msg_subject = 'Fwd: ' . $msg_subject;
 					$msg_ref_msg_id = 'F'.$forward;
 				}
 
@@ -121,7 +121,7 @@
 				$msg_subject = apply_reverse_replace($msg_subject);
 			
 				if (!preg_match('!^Re:!', $msg_subject)) {
-					$msg_subject = 'Re: ' . $msg_subject;
+					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 				}
 				unset($msg_r);
 				$msg_ref_msg_id = 'R'.$reply;
@@ -155,6 +155,8 @@
 
 		$reply = isset($_POST['quote']) ? (int)$_POST['quote'] : 0;
 		$forward = isset($_POST['forward']) ? (int)$_POST['forward'] : 0;
+		$msg_id = isset($_POST['msg_id']) ? (int)$_POST['msg_id'] : 0;
+		$msg_ref_msg_id = isset($_POST['msg_ref_msg_id']) ? (int)$_POST['msg_ref_msg_id'] : '';
 
 		/* restore file attachments */
 		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
@@ -249,6 +251,7 @@
 
 			$msg_p->add();
 		} else {
+			$msg_p->id = (int) $_POST['msg_id'];
 			$msg_p->sync();
 		}
 				
@@ -407,7 +410,7 @@
 
 	if ($reply && ($mm = db_sab('SELECT p.*, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');	
-		$reference_msg = tmpl_drawpmsg($mm, TRUE);
+		$reference_msg = tmpl_drawpmsg($mm, $usr, TRUE);
 		$reference_msg = '{TEMPLATE: reference_msg}';
 	} else {
 		$reference_msg = '';

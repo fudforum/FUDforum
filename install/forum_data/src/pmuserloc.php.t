@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.8 2003/04/17 12:47:55 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@
 			$qry = "WHERE email LIKE '".addslashes(str_replace('\\', '\\\\', $usr_email))."%'";
 		}
 		$find_user_data = '';
-		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users '.$qry);
+		$c = uq('SELECT alias FROM {SQL_TABLE_PREFIX}users '.$qry.' AND id>1');
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {

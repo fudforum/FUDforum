@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: private.inc.t,v 1.8 2003/02/26 09:46:18 hackie Exp $
+*   $Id: private.inc.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,46 +18,27 @@
 	
 class fud_pmsg
 {
-	var $id='';
-	var $to_list='';
-	var $ouser_id='';
-	var $duser_id='';
-	var $pdest='';
-	var $ip_addr='';
-	var $host_name='';
-	var $post_stamp='';
-	
-	var $icon='';
-	var $mailed='';
-
-	var $folder_id='';
-
-	var $subject='';
-	var $attach_cnt='';
-	var $smiley_disabled='';
-	var $show_sig='';
-	var $track='';
-	var $length='';
-	var $foff='';
-	var $login='';
-	var $ref_msg_id='';	
-	var $body;
+	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $post_stamp, $icon, $mailed, $folder_id,
+		$subject, $attach_cnt, $smiley_disabled, $show_sig, $track, $length, $foff, $login, $ref_msg_id, $body;
 	
 	function add($track='')
 	{
-		if ( !db_locked() ) {
+		if (!db_locked()) {
 			$ll = 1;
-			db_lock("{SQL_TABLE_PREFIX}pmsg+");
+			db_lock('{SQL_TABLE_PREFIX}pmsg WRITE');
 		}
 	
 		$this->post_stamp = __request_timestamp__;
-		$this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
+		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
 	
-		if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ) $this->host_name = get_host($this->ip_addr);
-		
-		if( empty($this->mailed) ) $this->mailed = ( $this->folder_id=='SENT' ) ? 'Y' : 'N';
-		
-		$r = q("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
+		if (!$this->mailed) {
+			$this->mailed = $this->folder_id == 'SENT' ? 'Y' : 'N';
+		}
+
+		list($this->foff, $this->length) = write_pmsg_body($this->body);
+
+		$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}pmsg (
 			ouser_id,
 			duser_id,
 			pdest,
@@ -74,42 +55,44 @@ class fud_pmsg
 			show_sig,
 			track,
 			read_stamp,
-			ref_msg_id
+			ref_msg_id,
+			foff,
+			length
 			)
 			VALUES(
 				".$this->ouser_id.",
 				".$this->ouser_id.",
 				".intzero($GLOBALS['recv_user_id'][0]).",
-				".strnull($this->to_list).",
-				".ifnull($this->ip_addr, "'0.0.0.0'").",
+				".strnull(addslashes($this->to_list)).",
+				".$this->ip_addr.",
 				".strnull($this->host_name).",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
 				'".yn($this->mailed)."',
-				'DRAFT',
-				'".$this->subject."',
+				'".$this->folder_id."',
+				'".addslashes($this->subject)."',
 				".intzero($this->attach_cnt).",
 				'".yn($this->smiley_disabled)."',
 				'".yn($this->show_sig)."',
 				'".yn($this->track)."',
 				".$this->post_stamp.",
-				".strnull($this->ref_msg_id)."
+				".strnull($this->ref_msg_id).",
+				".intzero($this->foff).",
+				".intzero($this->length)."
 			)");
 			
-		$this->id = db_lastid("{SQL_TABLE_PREFIX}pmsg", $r);
-			
-		list($this->foff, $this->length) = write_pmsg_body($this->body);
-		
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET foff=".$this->foff.", length=".$this->length.", folder_id='".$this->folder_id."' WHERE id=".$this->id);
-		
-		if( $this->folder_id == 'SENT' && empty($track) ) $this->send_pmsg();
-		if ( $ll ) db_unlock();
+		if ($this->folder_id == 'SENT' && !$track) {
+			$this->send_pmsg();
+		}
+		if (isset($ll)) {
+			db_unlock();
+		}
 	}
 	
 	function send_pmsg()
 	{
 		foreach($GLOBALS['recv_user_id'] as $v) {
-			$r = q("INSERT INTO 
+			$id = db_qid("INSERT INTO 
 			{SQL_TABLE_PREFIX}pmsg 
 			(
 				to_list,
@@ -132,15 +115,15 @@ class fud_pmsg
 			)
 			VALUES
 			(
-				".strnull($this->to_list).",
+				".strnull(addslashes($this->to_list)).",
 				".$this->ouser_id.",
-				".ifnull($this->ip_addr, "'0.0.0.0'").",
-				".strnull($this->host_name).",
+				".$this->ip_addr.",
+				".$this->host_name.",
 				".$this->post_stamp.",
 				".strnull($this->icon).",
 				'Y',
 				'INBOX',
-				'".$this->subject."',
+				'".addslashes($this->subject)."',
 				".intzero($this->attach_cnt).",
 				'".yn($this->show_sig)."',
 				'".yn($this->smiley_disabled)."',
@@ -151,38 +134,30 @@ class fud_pmsg
 				".strnull($this->ref_msg_id)."
 			)
 			");
-			$GLOBALS["send_to_array"][] = array($v, db_lastid("{SQL_TABLE_PREFIX}pmsg", $r));
+			$GLOBALS['send_to_array'][] = array($v, $id);
 		}	
 	}
 	
-	function move_folder($folder_id)
-	{
-		if( empty($folder_id) ) return;
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET folder_id='".$folder_id."' WHERE duser_id="._uid." AND id=".$this->id);
-		$this->mark_read();
-	}
+	
 	
 	function sync()
 	{
 		list($this->foff, $this->length) = write_pmsg_body($this->body);
-		
 		$this->post_stamp = __request_timestamp__;
-		$this->ip_addr = $GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR'];
-		
-		if ( $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ) $this->host_name = get_host($this->ip_addr);
-		
-		$this->mailed = ( $this->folder_id=='SENT' ) ? 'Y' : 'N';
+		$this->ip_addr = isset($_SERVER['REMOTE_ADDR']) ? "'".addslashes($_SERVER['REMOTE_ADDR'])."'" : "'0.0.0.0'";
+		$this->host_name = $GLOBALS['PUBLIC_RESOLVE_HOST'] == 'Y' ? "'".addslashes(get_host($this->ip_addr))."'" : 'NULL';
+		$this->mailed = $this->folder_id=='SENT' ? 'Y' : 'N';
 		
 		q("UPDATE {SQL_TABLE_PREFIX}pmsg 
 			SET
-				to_list=".strnull($this->to_list).",
+				to_list=".strnull(addslashes($this->to_list)).",
 				icon=".strnull($this->icon).",
 				ouser_id=".$this->ouser_id.",
 				duser_id=".$this->ouser_id.",
 				post_stamp=".$this->post_stamp.",
-				subject='".$this->subject."',
-				ip_addr='".$this->ip_addr."',
-				host_name='".$this->host_name."',
+				subject='".addslashes($this->subject)."',
+				ip_addr=".$this->ip_addr.",
+				host_name=".$this->host_name.",
 				mailed='".yn($this->mailed)."',
 				attach_cnt=".intzero($this->attach_cnt).",
 				show_sig='".yn($this->show_sig)."',
@@ -194,67 +169,18 @@ class fud_pmsg
 			WHERE
 				id=".$this->id);
 				
-		if( $this->folder_id == 'SENT' ) $this->send_pmsg();		
+		if ($this->folder_id == 'SENT') {
+			$this->send_pmsg();
+		}
 	}
 	
-	function del_pmsg($fldr_id='')
-	{
-		if( empty($fldr_id) ) {
-			$fldr_id = q_singleval("SELECT folder_id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND id=".$this->id);
-			$this->mark_read();
-		}	
-		if( empty($fldr_id) ) return;
-			
-		if( $fldr_id != 'TRASH' ) 
-			$this->move_folder('TRASH');				
-		else {
-			$this->get($this->id, 1);
-			
-			q("DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id="._uid." AND id=".$this->id);
-			if ( $this->attach_cnt ) {
-				$res = q("SELECT location FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='Y'");
-				if( db_count($res) ) {
-					while ( list($loc) = db_rowarr($res) ) {
-						if( file_exists($loc) ) unlink($loc);				
-					}
-				}
-				qf($res);
-				q("DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$this->id." AND private='Y'");
-			}
-		}	
-	}
+	
 	
 	function get($id, $re='')
 	{
 		qobj("SELECT {SQL_TABLE_PREFIX}pmsg.*,{SQL_TABLE_PREFIX}users.alias AS login FROM {SQL_TABLE_PREFIX}pmsg LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}pmsg.duser_id="._uid." AND {SQL_TABLE_PREFIX}pmsg.id=".$id, $this);
 		if( !empty($this->id) && empty($re) ) 
 			$this->body = read_pmsg_body($this->foff, $this->length);
-	}
-	
-	function send_notify_msg()
-	{
-		$track_msg = new fud_pmsg;
-		$track_msg->ouser_id = $track_msg->duser_id = $this->ouser_id;
-		$track_msg->ip_addr = $track_msg->host_name = NULL;
-		$track_msg->post_stamp = __request_timestamp__;
-		$track_msg->mailed='Y';
-		$track_msg->folder_id='INBOX';
-		$track_msg->track='N';
-		$this->subject = addslashes($this->subject);
-		$track_msg->subject = '{TEMPLATE: private_msg_notify_subj}';
-		$track_msg->body = '{TEMPLATE: private_msg_notify_body}';
-		$track_msg->add(1);
-		$this->mark_notify();	
-	}
-
-	function mark_read()
-	{
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET read_stamp=".__request_timestamp__." WHERE id=".$this->id);
-	}
-	
-	function mark_notify()
-	{
-		q("UPDATE {SQL_TABLE_PREFIX}pmsg SET track='SENT' WHERE id=".$this->id);
 	}
 }
 
@@ -267,27 +193,58 @@ function write_pmsg_body($text)
 {
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'ab');
 	
-	if( !($s = ftell($fp)) ) $s = __ffilesize($fp);
+	if (!($s = ftell($fp))) {
+		$s = __ffilesize($fp);
+	}
 
 	$len = fwrite($fp, $text);
 	fclose($fp);
 	
-	if( !$s ) chmod($GLOBALS['MSG_STORE_DIR'].'private', 0600);
+	if (!$s) {
+		chmod($GLOBALS['MSG_STORE_DIR'].'private', ($GLOBALS['FILE_LOCK'] == 'Y' ? 0600 : 0666));
+	}
 	
-	return array($s,$len);
+	return array($s, $len);
 }
 
 function read_pmsg_body($offset, $length)
 {
-	if( empty($length) ) return;
+	if (!$length) {
+		return;
+	}
 	
 	$fp = fopen($GLOBALS['MSG_STORE_DIR'].'private', 'rb');
-	
 	fseek($fp, $offset, SEEK_SET);
 	$str = fread($fp, $length);
-	
 	fclose($fp);
 	
 	return $str;
+}
+
+function pmsg_move($mid, $fid, $validate)
+{
+	if (!$validate && !q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid)) {
+		return;		
+	}
+
+	q('UPDATE {SQL_TABLE_PREFIX}pmsg SET folder_id=\''.$fid.'\' WHERE duser_id='._uid.' AND id='.$mid);
+}
+
+function pmsg_del($mid, $fldr_id='')
+{
+	if (!$fldr_id && !($fldr_id = q_singleval('SELECT folder_id FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid.' AND id='.$mid))) {
+		return;
+	}
+	if ($fldr_id != 'TRASH') {
+		pmsg_move($mid, 'TRASH', FALSE);
+	} else {
+		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
+		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND private=\'Y\'');
+		while ($r = db_rowarr($c)) {
+			@unlink($GLOBALS[''] . $r[0] . '.atch');
+		}
+		qf($c);
+		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND private=\'Y\'');
+	}
 }
 ?>
