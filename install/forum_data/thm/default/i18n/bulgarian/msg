@@ -177,7 +177,7 @@ updated_on:			Обновления:
 user:				Потребител:
 user_counter:			Брой на регистрираните потребители: <b>{VAR: reg_users}</b>.
 user_info:			Информация за потребителя
-user_info_l:			Информация за потребителя (VAR: u->alias}
+user_info_l:			Информация за потребителя {VAR: u->alias}
 user_offline:			{VAR: obj->login} не присътства в момента
 user_online:			{VAR: obj->login} е онлайн
 usrinfo_last_post:		Последно съобщение:
