@@ -41,3 +41,4 @@ INSERT INTO {SQL_TABLE_PREFIX}mime VALUES(40,'','application/octet-stream','Unkn
 INSERT INTO {SQL_TABLE_PREFIX}mime VALUES(41,'pl','application/x-perl','Perl Script','source.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime VALUES(42,'pm','application/x-perl','Perl Module','source.gif');
 INSERT INTO {SQL_TABLE_PREFIX}mime VALUES(43,'php','application/x-httpd-php','PHP Script','source.gif');
+SELECT setval('{SQL_TABLE_PREFIX}mime_id_seq', 43);

@@ -29,3 +29,4 @@ INSERT INTO {SQL_TABLE_PREFIX}smiley VALUES (28,'icon_thumbsup.gif','Thumbs Up',
 INSERT INTO {SQL_TABLE_PREFIX}smiley VALUES (29,'icon_thumbdown.gif','Thumbs Down',':thumbdown:',29);
 INSERT INTO {SQL_TABLE_PREFIX}smiley VALUES (30,'icon_uhoh.gif','Uh Oh',':uhoh:',30);
 INSERT INTO {SQL_TABLE_PREFIX}smiley VALUES (31,'icon_yawn.gif','Bored',':yawn:',31);
+SELECT setval('{SQL_TABLE_PREFIX}smiley_id_seq', 31);
