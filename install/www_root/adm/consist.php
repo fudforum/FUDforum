@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.30 2003/05/06 18:17:54 hackie Exp $
+*   $Id: consist.php,v 1.31 2003/05/09 15:01:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -230,12 +230,12 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking file attachments against messages');
 	$arm = array();
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id AND private=\'N\' WHERE m.id IS NULL');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND private=\'N\'');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
 	qf($c);
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id AND private=\'Y\' WHERE pm.id IS NULL');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND private=\'Y\'');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
@@ -254,12 +254,12 @@ forum will be disabled.<br><br>
 	q('UPDATE '.$tbl.'msg SET attach_cnt=0 AND attach_cache=NULL');
 	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=\'N\'');
 	while ($r = db_rowarr($c)) {
-		if ($oldm != $r->message_id) {
+		if ($oldm != $r[5]) {
 			if ($oldm) {
 				q('UPDATE '.$tbl.'msg SET attach_cnt='.count($atr).', attach_cache='.strnull(addslashes(@serialize($atr))).' WHERE id='.$oldm);
 				$atr = array();
 			}
-			$oldm = $r->message_id;
+			$oldm = $r[5];
 		}
 		unset($r[5]);
 		$atr[] = $r;
