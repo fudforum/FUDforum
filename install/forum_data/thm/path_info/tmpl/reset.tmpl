@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.tmpl,v 1.5 2003/10/10 15:22:24 hackie Exp $
+* $Id: reset.tmpl,v 1.6 2003/10/10 15:33:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -17,23 +17,6 @@
 {REF: usercp.tmpl}
 {REF: iemail.tmpl}
 {REF: users_reg.tmpl}
-
-{PAGE: RESET_PAGE reset password for an account form}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-<div align="center">
-<form method="post" action="{TEMPLATE: RESET_PAGE_lnk3}">
-<table border="0" cellspacing="1" cellpadding="2" class="DialogTable">
-<tr><th colspan=2>{MSG: reset_remind_pass}</th></tr>
-<tr class="RowStyleA"><td colspan=2 class="RowStyleA"><font class="GenText">{MSG: reset_reset_conf}</font></td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: reset_email}</td><td>{TEMPLATE-DATA: no_such_email}<input type="text" name="email" value="{VAR: email}"></td></tr>
-<tr class="RowStyleA"><td colspan=2 nowrap align="right"><input type="submit" class="button" name="reset_passwd" value="{MSG: reset_reset_button}"></td></tr>
-</table>
-</form>
-</div>
-{TEMPLATE: curtime}
-{TEMPLATE: footer}
-{PAGE: END}
 
 {SECTION: RESET_PAGE_lnk3}
 {ROOT}/rst/{DEF: _rsid}

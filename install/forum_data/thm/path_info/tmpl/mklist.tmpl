@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mklist.tmpl,v 1.6 2003/10/10 15:22:24 hackie Exp $
+* $Id: mklist.tmpl,v 1.7 2003/10/10 15:33:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,33 +15,6 @@
 {REF: footer.tmpl}
 {REF: curtime.tmpl}
 {REF: draw_select_opt.tmpl}
-
-{PAGE: MKLIST_PAGE a popup assistant for creating lists using FUDcode}
-{TEMPLATE: header_plain}
-<form name="list" method="post" action="{TEMPLATE: MKLIST_PAGE_lnk3}">
-<table border=0 cellspacing=2 cellpadding=0 width="99%" class="dashed">
-<tr>
-	<td>{MSG: mklist_type}</td>
-	<td><select name="tp" onChange="document.list.submit();">{TEMPLATE-DATA: tp_select_data}</select></td>
-</tr>
-<tr>
-	<td>{MSG: mklist_option}</td>
-	<td nowrap>
-		<input type="text" name="opt" size=20>
-		<input type="submit" class="button" name="btn_submit" value="{MSG: mklist_additem}">
-	</td>
-</tr>
-{TEMPLATE-DATA: list_sample}
-<tr>
-<td colspan=2 align=right>
-<input type="submit" class="button" name="go" value="{MSG: mklist_apply}">
-<input type="button" class="button" name="close" value="{MSG: mklist_close}" onClick="javascript: window.close();">
-</td></tr>
-</table>
-<input type="hidden" name="opt_list" value="{VAR: _POST['opt_list']}"><input type="hidden" name="del" value="">
-</form>
-{TEMPLATE: footer_plain}
-{PAGE: END}
 
 {SECTION: MKLIST_PAGE_lnk3}
 {ROOT}/mk/0/{DEF: _rsid}
