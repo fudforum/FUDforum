@@ -5,7 +5,7 @@ admin_control_panel:		Panneau d&#39;administration
 administrator:			Administrateur
 announcement:			Annoncement
 attachment:			Attachement:
-avatar:				Avatar:
+avatar:				Avatar :
 average_post_count:		{VAR: u->posted_msg_count} message(s) (approximativement {VAR: avg} message(s) par jour)
 biography:			Biographie:
 birth_date:			Date De Naissance:
@@ -41,9 +41,9 @@ icq_control_panel:		Message en-ligne ICQ
 icq_message_form:		Message ICQ de:
 ignore_user:			Ignorer les messages provenant de cet utilisateur
 im_aim:				Identifiant AIM:
-im_msnm:				MSN Messenger:
-im_yahoo:			Yahoo Messenger:
-image:				Image:
+im_msnm:				MSN Messenger :
+im_yahoo:			Yahoo Messenger :
+image:				Image :
 index_forum:			Forum
 index_new_posts:			Nouveaux messages depuis votre dernière visite
 index_no_new_posts:		Pas de nouveaux messages depuis votre dernière visite
@@ -93,9 +93,9 @@ no_subscribed_threads:		Pas encore de fil enregistré
 no_unread_locked:		Ce fil a été verrouillé
 no_unread_msg:			Ce fil ne contient pas de message non-lu
 no_unread_msg_unreg:		La fonctionnalité permettant de suivre vos message lus &amp; non-lus n&#39;est activée que pour les utilisateur enregistrés
-num_pages:			Pages ({VAR: ttl_pg}):
+num_pages:			Pages ({VAR: ttl_pg}) :
 num_votes:			{VAR: obj->total_votes} vote(s)
-occupation:			Occupation:
+occupation:			Métier :
 off:				DÉSACTIVÉ
 on:				ACTIVÉ
 page_timings:			Temps total utilisé pour générer la page: {VAR: page_gen_time} seconde(s)
@@ -282,7 +282,7 @@ register_your_pass:		Votre mot de passe:
 register_update:			Mettre à jour
 register_avatar_type:		Type d&#39;Avatar:
 register_del_avatar:		Effacer l&#39;Avatar
-register_avatar:			Avatar:
+register_avatar:			Avatar :
 register_sel_avatar:		Sélectionner un Avatar
 register_custom_avatar_rules:	Les avatars personnels n&#39;apparaissent qu&#39;après leur approbation par l&#39;administrateur.<br><font class="SmallText">L&#39;avatar doit faire moins de <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> et doit être dans l&#39;un des formats suivants: <b>jpg</b>, <b>gif</b> ou <b>png</b>.</font>
 register_custom_avatar_url:	URL de l&#39;Avatar personnel:
@@ -299,8 +299,8 @@ register_interests:		Centres d&#39;intérêt:
 register_image:			Photo:
 register_icq:			ICQ
 register_aim:			Identifiant AIM:
-register_yahoo:			Yahoo Messenger:
-register_msnm:			MSN Messenger:
+register_yahoo:			Yahoo Messenger :
+register_msnm:			MSN Messenger :
 register_homepage:		Site web personnel:
 register_bday:			Date de naissance:
 register_bday_desc:		Si vous sélectionnez votre date de naissance, les autres membres du forum vont pouvoir la consulter via votre profil.
@@ -311,10 +311,10 @@ register_gender:			Sexe:
 register_bio:			Biographie:
 register_bio_desc:		Présentez-vous en quelques lignes ...
 register_prefs:			Préférences
-register_sig:			Signature:
+register_sig:			Signature :
 register_sig_desc:		une signature que vous pouvez appliquer a la fin de vos messages.
 register_reset:			Recommencer
-register_style:			Style:
+register_style:			Style :
 register_def_thread_view:	Par défaut, voir les Fils sous forme:
 register_msg_per_page:		Nombre de messages par page:
 register_show_sig:		Montrer les signatures:
@@ -380,10 +380,10 @@ include_sig_desc:		Inclure la signature par défaut de mon profil.
 disable_smilies:			Désactiver les smileys pour ce message
 spell_check_msg:			Message(s) du correcteur orthographique
 post_form:			Nouveau message
-post_forum:			Forum:
+post_forum:			Forum :
 post_title:			Titre:
 post_body:			Contenu:
-post_options:			Options:
+post_options:			Options :
 post_preview_btn:		Voir le message avant de l&#39;envoyer
 post_processing_msg:		Votre message est en cours d&#39;enregistrement, veuillez patienter
 ignore_users:			Ignorer les utilisateurs
@@ -410,7 +410,7 @@ coppa_fax_parent_name:		Parent/Tuteur Nom complet:
 coppa_fax_relation:		Lien de parenté par rapport à l&#39;enfant:
 coppa_fax_telephone:		Numéro de Téléphone (avec préfixe international):
 coppa_fax_email:			Adresse e-mail:
-coppa_fax_date:			Date:
+coppa_fax_date:			Date :
 coppa_fax_questions:		Veuillez contacter <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> si vous avez des questions
 coppa_fax_login:			Utilisateur
 coppa_fax_passwd:		Mot de passe
@@ -469,15 +469,15 @@ remail_friends_name:		Le nom de votre ami:
 remail_friends_email:		L&#39;adresse e-mail de votre ami:
 remail_required:			obligatoire
 remail_subject:			Sujet:
-remail_message:			Message:
+remail_message:			Message :
 remail_send_now:			Envoyer l&#39;e-mail maintenant
 remail_anon_opt:			Copier ce message dans un client e-mail de votre choix afin de l&#39;envoyer à votre/vos ami(s).
 remail_done:			C&#39;est fait
 remail_sent_conf:		Votre e-mail a propos de {{VAR: data->subject} a été envoyé avec succès à votre ami ({VAR-HTML: _POST['femail']}).
 remail_continue:			Continuer
 remail_error:			Vous avez une erreur
-mklist_type:			Type:
-mklist_option:			Option:
+mklist_type:			Type :
+mklist_option:			Option :
 mklist_additem:			Ajouter un élément
 mklist_apply:			Valider
 mklist_delete:			Effacer
@@ -823,7 +823,7 @@ split_th_post_by:		Message de:
 split_th_posted_on:		Posté le:
 split_th_subject:		Sujet:
 split_th_new_thread_title:	Titre du nouveau fil:
-split_th_forum:			Forum:
+split_th_forum:			Forum :
 split_th_split_sel:		Partage les messages sélectionnés
 split_th_split_unsel:		Partage les messages non-sélectionnés
 split_th_messages:		Messages
@@ -933,7 +933,7 @@ login_unapproved_account_msg:	L&#39;administrateur du forum a choisi de confirme
 remove_from_buddy_list:		enlevé de la liste d&#39;amis
 iemail_msg_author:		<b>Auteur:</b> {VAR: obj->alias}
 iemail_msg_subject:		<b>Sujet:</b> {VAR: obj->subject}
-iemail_msg_date:			<b>Date:</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+iemail_msg_date:			<b>Date :</b> {DATE: obj->post_stamp %a, %d %B %Y %H:%M}
 iemail_msg_reply:		Répondre
 iemail_msg_quote:		Citer
 iemail_msg_view:		Voir le Sujet/Message
@@ -958,7 +958,7 @@ post_mod_msg_notify_title:	Nouveau message dans le forum "{VAR: frm->name}" en a
 post_mod_msg_notify_msg:	Un nouveau message intitulé "{VAR: msg_post->subject}" vient juste d&#39;être posté dans un forum que vous modérez. Pour décider de ce message, allez à : {ROOT}?t=modque\n\nCeci est un processus automatique, ne répondez pas à ce message.\n
 thread_printable_pdf:		Générer du PDF imprimable
 thread_syndicate:		Publier ce forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
+reg_conf_title:			Confirmation d&#39;enregistrement
+reg_conf_email:			<b>E-mail de confirmation</b><br />Un e-mail vous a été envoyé, contenant une URL spéciale que vous devrez accéder avant que votre compte ne soit activé. Si vous ne recevez pas cet e-mail dans les prochaines minutes, connectez-vous avec votre compte et assurez-vous que l&#39;adresse e-mail que vous avez spécifiée est correcte. Une fois que vous aurez confirmé votre compte, vous pourrez accéder aux fonctionnalités du forum disponibles aux utilisateurs ayant confirmé leur enregistrement.
+reg_conf_account:		<b>Confirmation de votre compte</b><br />Avant que votre compte ne soit activé, il doit être approuvé par le (ou les) administrateur(s), une fois ceci fait, vous recevrez un e-mail indiquant que votre compte a été confirmé. Avant cela, vous pouvez vous connecter avec votre compte, mais vous ne pourrez pas accéder aux fonctionnalités restreintes aux utilisateurs approuvés.
+forum_banned_user:		Vos actions antérieures ont entrainé votre bannissement permanent de ce forum. Au revoir.
