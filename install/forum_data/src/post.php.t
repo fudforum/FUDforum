@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.49 2003/05/01 20:36:41 hackie Exp $
+*   $Id: post.php.t,v 1.50 2003/05/02 15:42:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -175,15 +175,13 @@ function flood_check()
 		} else if ($reply_to || $th_id) {
 			$subj = $reply_to ? $msg->subject : $thr->subject;
 			reverse_FMT($subj);
-			$subj = apply_reverse_replace($subj);
-		
+
 			$reply_prefix = preg_quote(strtolower('{TEMPLATE: reply_prefix}'));
 			$msg_subject = ( !preg_match('/^{TEMPLATE: reply_prefix}/i', $subj) ) ? '{TEMPLATE: reply_prefix}'.$subj : $subj;
 			$old_subject = $msg_subject;
 
 			if (isset($_GET['quote'])) {
-				$msg_body = apply_reverse_replace($msg->body);
-				$msg_body = post_to_smiley(str_replace("\r", '', $msg_body));
+				$msg_body = post_to_smiley(str_replace("\r", '', $msg->body));
 				
 				if (!strlen($msg->login)) {
 					$msg->login = $GLOBALS['ANON_NICK'];

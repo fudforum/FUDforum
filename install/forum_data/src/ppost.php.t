@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.27 2003/05/02 15:21:58 hackie Exp $
+*   $Id: ppost.php.t,v 1.28 2003/05/02 15:42:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley_disabled, &$msg_show_sig, &$msg_track, &$msg_to_list)
+function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley_disabled, &$msg_show_sig, &$msg_track, &$msg_to_list, $repl=0)
 {
 	$msg_subject = $m->subject;
 	$msg_body = read_pmsg_body($m->foff, $m->length);
@@ -28,7 +28,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$msg_to_list = $m->to_list;
 
 	reverse_FMT($msg_subject);
-	$msg_subject = apply_reverse_replace($msg_subject);
+	/* we do not revert replacment for forward/quote */
+	if ($repl) {
+		$msg_subject = apply_reverse_replace($msg_subject);
+		$msg_body = apply_reverse_replace($msg_body);
+	}
 	if (!$msg_smiley_disabled) {
 		$msg_body = post_to_smiley($msg_body);
 	}
@@ -42,7 +46,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			reverse_FMT($msg_body);
 			reverse_nl2br($msg_body);
 	}
-	$msg_body = apply_reverse_replace($msg_body);
 }
 	
 	if (!_uid) {
@@ -86,7 +89,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	
 		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
 			if (($msg_r = db_sab('SELECT id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND duser_id='._uid))) {
-				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
+				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list, 1);
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
 			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
@@ -122,8 +125,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				$msg_subject = $msg_r[0];
 				$msg_to_list = $msg_r[1];
 				reverse_FMT($msg_subject);
-				$msg_subject = apply_reverse_replace($msg_subject);
-			
+
 				if (!preg_match('!^Re:!', $msg_subject)) {
 					$old_subject = $msg_subject = 'Re: ' . $msg_subject;
 				}

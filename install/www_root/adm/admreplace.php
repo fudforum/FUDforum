@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.6 2003/04/28 20:23:21 hackie Exp $
+*   $Id: admreplace.php,v 1.7 2003/05/02 15:43:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -220,7 +220,12 @@ function clean_rgx()
 		} else {
 			$bgcolor = ($i++%2) ? ' bgcolor="#fffee5"' : '';
 		}
-		$rtype = ($r->type == 'REPLACE' ? 'Simple' : 'Regular Expression');
+		if ($r->type == 'REPLACE') {
+			$rtype = 'Simple';
+			$r->replace_str = substr($r->replace_str, 1, -1);
+		} else {
+			$rtype = 'Regular Expression';
+		}
 		
 		echo '<tr'.$bgcolor.'><td>'.$rtype.'</td><td>'.htmlspecialchars($r->replace_str).'</td><td>'.htmlspecialchars($r->with_str).'</td>';
 		if ($r->type == 'REPLACE') {
