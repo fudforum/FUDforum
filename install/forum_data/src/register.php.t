@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.137 2005/03/05 18:46:59 hackie Exp $
+* $Id: register.php.t,v 1.138 2005/03/08 15:20:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -575,7 +575,10 @@ function decode_uent(&$uent)
 	}
 
 	$avatar_type = '';
-	$chr_fix = array('reg_sig', 'reg_alias', 'reg_login', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests'); 
+	$chr_fix = array('reg_sig', 'reg_login', 'reg_name', 'reg_bio', 'reg_location', 'reg_occupation', 'reg_interests'); 
+	if ($GLOBALS['FUD_OPT_2'] & 128) {
+		$chr_fix[] = 'reg_alias';
+	}
 
 	/* populate form variables based on user's profile */
 	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
