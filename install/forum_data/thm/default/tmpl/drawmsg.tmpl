@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.tmpl,v 1.39 2003/10/23 19:00:50 hackie Exp $
+* $Id: drawmsg.tmpl,v 1.40 2003/10/29 09:41:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -385,9 +385,9 @@
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
 <tr><td colspan="2" class="MsgToolBar"><table border=0 cellspacing=0 cellpadding=0 width="100%"><tr>
-<td align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
+<td nowrap align="left">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
 <td width="100%" align="center" class="GenText">{TEMPLATE-DATA: next_page}</td>
-<td align="right">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
+<td nowrap align="right">{TEMPLATE-DATA: delete_link}{TEMPLATE-DATA: edit_link}{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}</td>
 </tr></table></td></tr>
 {SECTION: END}
 
