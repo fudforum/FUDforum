@@ -1,0 +1,16 @@
+Открывает редактор голосований,
+позволяющий вам добавлять голосования в ваши сообщения.
+
+Голосования позволяют вам выяснить мнение пользователей форума
+по определенному вопросу и выглядят следующим образом:
+<center>
+<table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<form method="post"><input type="hidden" name="rid" value="2">
+<tr class="TableHeading">
+	<td nowrap colspan=3>Да или нет?<img src="blank.gif" border=0 height=1 width=10><font class="SmallText">[ 0 голосов ]</font></td></tr>
+	<tr class="RowStyleB"><td>1.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Да</td></tr>
+	<tr class="RowStyleA"><td>2.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Нет</td></tr>
+	<tr class="RowStyleB"><td>3.</td><td colspan=2><input type="radio">&nbsp;&nbsp;Может быть</td></tr>
+	<tr class="RowStyleA"><td colspan=3 align="right"><input type="button" value="Голосовать"> </td></tr>
+</table>
+</center>

@@ -916,7 +916,7 @@ back_to_top:			Вернуться вверх
 iemail_participate:		Для участия в дискуссии следуйте по указанной ссылке:
 pm_err_disabled_title:		Система личных сообщений отключена
 pm_err_disabled_msg:		Вы не можете посылать личные сообщения, не включив параметр &#39;Разрешить личные сообщения&#39; в ваших персональных настройках.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
+err_mod_acc_ttl:		Непроверенный пользователь
+err_mod_acc_msg:		Администратор установил режим ручного просмотра всех учетных записей пользователей перед их активацией. Пока ваша учетная запись не будет проверена администратором, вы не сможете использовать все возможности форума.
+accounts_pending_approval:	Ожидающие утверждения пользователи
+saved:				Сохранено
