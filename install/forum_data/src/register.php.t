@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.126 2004/09/15 22:03:42 hackie Exp $
+* $Id: register.php.t,v 1.127 2004/09/23 19:13:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -866,6 +866,8 @@ function decode_uent(&$uent)
 
 	$reg_user_image_field = $FUD_OPT_2 & 65536 ? '{TEMPLATE: reg_user_image}' : '';
 	$sig_len_limit = $FORUM_SIG_ML ? '{TEMPLATE: register_sig_limit}' : '';
+
+	$auto_c = $GLOBALS['FUD_OPT_3'] & 256 ? ' autocomplete="off"' : '';
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>
