@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.13 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admprune.php,v 1.14 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 	@set_time_limit(6000);
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('imsg_edt.inc');

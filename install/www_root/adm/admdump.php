@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.22 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admdump.php,v 1.23 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -121,7 +121,7 @@ function sql_is_null($r, $n, $tbl='')
 	}
 }
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('db.inc');
 	
 	/* 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmlist.php,v 1.16 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admmlist.php,v 1.17 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,7 +29,7 @@ function format_regex(&$regex)
 
 	return $ret;	
 }
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('mlist.inc', true);

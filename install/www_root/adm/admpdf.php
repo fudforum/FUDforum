@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admpdf.php,v 1.3 2003/05/20 15:16:09 hackie Exp $
+*   $Id: admpdf.php,v 1.4 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);

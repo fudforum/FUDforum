@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.30 2003/05/12 17:57:46 hackie Exp $
+*   $Id: compact.php,v 1.31 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 
 	define('back_to_main', 1);
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 
 	fud_use('db.inc');
 	fud_use('fileio.inc');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.13 2003/05/26 10:44:30 hackie Exp $
+*   $Id: rdf.php.t,v 1.14 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	require ($DATA_DIR . 'include/RDF.php');
 	fud_use('err.inc');
 

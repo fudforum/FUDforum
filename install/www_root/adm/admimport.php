@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.15 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admimport.php,v 1.16 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,7 +17,7 @@
 
 	@set_time_limit(6000);
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
 function resolve_dest_path($path)

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.8 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admerr.php,v 1.9 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 	
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
 	if (!empty($_GET['clear_sql_log'])) {

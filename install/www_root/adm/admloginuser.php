@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admloginuser.php,v 1.7 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admloginuser.php,v 1.8 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	fud_use('err.inc');
 	fud_use('db.inc');
 	fud_use('logaction.inc');

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.13 2003/05/26 08:44:11 hackie Exp $
+*   $Id: admforum.php,v 1.14 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -27,7 +27,7 @@ function get_max_upload_size()
 	return $size;
 }
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 
 	/* this is here so we get the cat_id when cancel button is clicked */
 	$cat_id = isset($_GET['cat_id']) ? (int)$_GET['cat_id'] : (isset($_POST['cat_id']) ? (int)$_POST['cat_id'] : '');

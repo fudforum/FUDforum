@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pdf.php.t,v 1.6 2003/05/23 06:51:04 hackie Exp $
+*   $Id: pdf.php.t,v 1.7 2003/05/26 11:15:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -266,7 +266,7 @@ function post_to_smiley($text, $re)
 	return ($re ? strtr($text, $re) : $text);
 }
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 	require($DATA_DIR . 'include/PDF.php');
 
 	/* this potentially can be a longer form to generate */

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.39 2003/05/20 18:24:46 hackie Exp $
+*   $Id: consist.php,v 1.40 2003/05/26 11:15:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 	@set_time_limit(600);
 	define('back_to_main', 1);
 
-	require('GLOBALS.php');
+	require('./GLOBALS.php');
 
 	fud_use('db.inc');
 	fud_use('glob.inc', true);
