@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_globals.inc,v 1.5 2002/11/25 00:27:57 hackie Exp $
+*   $Id: reg_globals.inc,v 1.6 2002/11/25 00:48:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,8 +20,7 @@ function fud_request_add_gns(&$val, $key)
 	if( !is_array($val) ) {
 		if( isset($GLOBALS[$key]) ) return;
 		$GLOBALS[$key] = $val = addslashes($val);
-	}
-	else {	
+	} else {	
 		if( !isset($GLOBALS[$key]) ) {
 			foreach($val as $k => $v) {
 				$GLOBALS[$key][$k] = addslashes($v);
@@ -35,8 +34,7 @@ function fud_request_add_globals(&$val, $key)
 	if( !is_array($val) ) {
 		if (isset($GLOBALS[$key])) return;
 		$GLOBALS[$key] = $val;
-	}
-	else {	
+	} else {	
 		if (!isset($GLOBALS[$key])) {
 			foreach($val as $k => $v) {
 				$GLOBALS[$key][$k] = $v;
