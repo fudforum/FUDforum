@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.29 2003/12/20 13:14:24 hackie Exp $
+* $Id: index.tmpl,v 1.30 2003/12/20 13:23:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -35,7 +35,7 @@
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
-<tr><td class="CatDesc" colspan="6"><img src="blank.gif" width=16 height=16 /> <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
+<tr><td class="CatDesc" colspan="6"><img src="blank.gif" alt="" width=16 height=16 /> <font class="CatLockedName">{VAR: r[6]}</font>{VAR: r[5]}</td></tr>
 {SECTION: END}
 
 {SECTION: forum_icon}
@@ -104,11 +104,11 @@
 {SECTION: END}
 
 {SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
-<img src="{THEME_IMAGE_ROOT}/max.png" />
+<img src="{THEME_IMAGE_ROOT}/max.png" alt="" />
 {SECTION: END}
 
 {SECTION: collapse_indicator_MIN an indicator showing that this category can be collapsed}
-<img src="{THEME_IMAGE_ROOT}/min.png" />
+<img src="{THEME_IMAGE_ROOT}/min.png" alt="" />
 {SECTION: END}
 
 {SECTION: mark_all_read}
