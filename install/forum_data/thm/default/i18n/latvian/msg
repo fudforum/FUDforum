@@ -1,0 +1,919 @@
+action:				Darbîba
+add_to_buddy_list:		pievienot kontaktu sarakstam
+admin:				Admins
+admin_control_panel:		Administratîvais centrs
+administrator:			Administrators
+announcement:			Sludinâjums
+attachment:			Pielikums:
+avatar:				Bildîtes:
+average_post_count:		{VAR: u->posted_msg_count} (vidçji {VAR: avg} dienâ)
+biography:			Biogrâfija:
+birth_date:			Dzimðanas datums:
+by:				No:
+by_mod:				no moderâtora
+current_time:			Tekoðais laiks
+custom_avatar_queue:		Citas bildîtes
+date:				Datums
+date_posted:			Nosûtîðanas datums
+date_registered:		Reìistrâcijas datums:
+download_counter:		{VAR: a_obj->dlcount} reizes ielâdçts
+email:				E-pasts:
+email_to_friend:		Nosûtît E-pastu
+email_to_friend_desc:		Nosûtît URL-saiti par ðo ierakstu pa E-pastu
+email_user:			Nospied lai nosûtîtu E-pastu
+faq:				F.A.Q.
+first_unread_msg:		Pâriet uz nelasîtajiem paziòojumiem
+first_unread_msg_desc:		Pâriet uz pirmo nelasîto ðajâ tçmâ
+flat_view:			Pâriet uz noklusçto izplâto skatu
+forum:				Forums:
+forum_icon:			Foruma nozîmîte
+forum_new_messages:		Jaunie ieraksti
+forum_none_messages:		Tikai piereìistrçtie lietotâji var pârlûkot un lasît &amp; jaunos ierakstus
+forum_old_messages:		Jaunu ierakstu nav
+from:				No:
+gender:				Dzimums:
+go:				Pâriet
+goto_next_msg:			Pâriet uz nâkoðo ierakstu
+goto_prev_msg:			Pâriet uz iepriekðçjo ierakstu
+home:				Sâkums
+homepage:			Saite uz mâjas lapu:
+icq_control_panel:		ICQ Online-Message Panel
+icq_message_form:		Nosûtît ICQ paziòojumu
+ignore_user:			ignorçt visus paziòojumus<br> no ðî lietotâja
+im_aim:				AIM tîkls:
+im_msnm:			MSN tîkls:
+im_yahoo:			Yahoo tîkls:
+image:				Bildîte:
+index_forum:			Forums
+index_new_posts:		Saòemti jauni ieraksti
+index_no_new_posts:		Jaunu ierakstu nav
+interests:			Intereses:
+last_post:			Pçdçjie
+last_thread_msg:		Pâriet uz ðîs tçmas pçdçjo ierakstu
+legend:				Leìenda:
+location:			Dzîves vieta:
+lock_thread:			Slçgt tçmu
+locked:				Tçma slçgta
+locked_with_new_posts:		Ir nelasîti ieraksti slçgtajâ tçmâ
+logged_in_list:			Ðobrîd forumâ
+login:				Ieiet
+login_header:			Lietotâjs:
+logout:				Iziet
+mark_all_read:			Visus ierakstus iezîmçt kâ lasîtus
+mark_all_read_desc:		Visi ieraksti iezîmçti kâ lasîti
+members:			Lietotâji
+message:			Ieraksts
+message_counter:		Mûsu lietotâjiem nosûtîti <b>{VAR: post_count}</b> paziòojumi pa <b>{VAR: thread_count}</b> tçmâm.
+message_index:			Ierakstu saraksts
+message_index_desc:		Saraksta pârskats
+minimize_category:		Sakïaut kategoriju
+moderation_queue:		Moderation Queue
+moderator:			Moderâtors
+moderator_of:			Moderçjamie forumi:
+moderator_options:		Moderâtora funkcijas
+moderators:			Moderâtori
+more_unread_messages:		pârçjie nelasîtie ieraksti
+more_unread_messages_desc:	Parâdît pârçjos nelasîtos ierakstus un atzîmçt aktivizçto kâ lasîto
+move_thread:			Pârvietot
+moved:				Tçma pârvietota uz citu forumu
+moved_thread_message:		Ðî tçma ir pârvietota uz citu forumu
+na:				n/a
+new_posts:			Jaunie ieraksti
+new_private_messages:		Saòemti un nelasîti<span class="GenText" style="color: #ff0000">({VAR: c})</span> ieraksti
+new_thread:			Izveidot jaunu tçmu
+newest_user:			Pçdçjais reìistrçtais lietotâjs:
+next_page:			Nâkoðâ lapa
+next_thread:			Nâkoðâ tçma:
+no_messages:			Ðajâ forumâ nav jaunu ierakstu.
+no_msg_body:			Nav teksta ieraksta
+no_new_posts:			Nav jaunu ierakstu
+no_posts:			Nav ierakstu
+no_subscribed_forums:		Nav izvçlçtu forumu
+no_subscribed_threads:		Izvçlç nav tçmu
+no_unread_locked:		Ðî tçma ir slçgta
+no_unread_msg:			Ðajâ tçmâ nav nelasîtu ierakstu
+no_unread_msg_unreg:		Lasîtu vai nelasîtu ierakstu pârskats pieejams tikai reìistrçtiem lietotâjiem
+num_pages:			({VAR: ttl_pg})lapas:
+num_votes:			{VAR: total_votes} balsis:
+occupation:			Nodarboðanâs:
+off:				OFF
+on:				ON
+page_timings:			{VAR: page_gen_time} sekundes patçrçtas lapas ìenerçðanai
+fud_query_stats:		MySQL pieprasîjums ilga {VAR: ttl_time} sekundes
+pm:				Privâtâ sarakste
+poll:				Balsojumi:
+post_count:			{VAR: u->posted_msg_count}ieraksti
+post_count_l:			Ierakstu skaits:
+poster:				Autors
+posts:				Ieraksti
+posts_c:			Ieraksti:
+prev_thread:			Iepriekðçjâ tçma:
+usrinfo_private_message:	Privâtâ vçstule:
+profile:			Uzstâdîjumi
+profile_2:			Uzstâdîjumi:
+profile_desc:			Nospiest lai pârietu uz vadîbas paneli
+rate:				novçrtçt
+rate_thread:			Novçrtçt tçmu
+rating:				Reitings
+refresh_list:			Atjaunot sarakstu
+register:			Reìistrâcija
+registered:			Piereìistrçts:
+registered_on:			Reìistrâcijas datums: {DATE: u->join_date %a, %d %B %Y}
+replies:			Atbildes
+report_to_mod:			Paziòojums moderâtoram
+reported_messages:		Paziòojumi par ierakstiem
+reveal_all_posts:		Uzrâdît visus {VAR: user_login} ierakstus
+reveal_post:			Parâdît ierakstus
+search:				Meklçt
+sel_todays_posts:		Ðodienas ieraksti
+sel_todays_posts_desc:		Uzrâdît tikai ðodienas ierakstus
+sel_unanswered_posts:		Ieraksti bez atbildçm
+sel_unanswered_posts_desc:	Uzrâdît tikai ierakstus bez atbildçm
+sel_unread_messages:		Nelasîtie ieraksti
+sel_unread_messages_desc:	Uzrâdît tikai nelasîtos ierakstus
+send:				Nosûtît
+send_pm_desc:			Nosûtît privâto vçstuli
+sender_email:			Autora E-pasts:
+sender_name:			Autora vârds:
+show_all_posts:			Uzrâdît ierakstus kas nosûtîti {VAR: user_login}
+show_posts_by:			Uzrâdît ierakstus kurus iesûtîja: {VAR: u->alias}
+size:				Izmçrs:
+started_on:			Sâkums
+status:				Statuss:
+status_line:			Ðobrîd forumos <b>{VAR: reg_u}</b>lietotâji, <b>{VAR: inv_u}</b>neredzamie, <b>{VAR: annon}</b>viesi.
+sticky:				Sticky:
+stop_ignoring:			pârtraukt lietotâju ignorçðanu
+sub_to_thread:			Pierakstîties tçmâ
+sub_to_thread_desc:		Saòemt paziòojumus par jauniem ierakstiem ðajâ tçmâ
+subject:			Tçma
+subscribe:			Pierakstîties forumâ
+subscribe_desc:			Saòemt paziòojumus par izveidotajâm jaunajâm tçmâm ðajâ forumâ
+subscribed_forums:		Pierakstîtie forumi
+subscribed_forums_desc:		Uzrâdît ierakstus tikai no pierakstîtiem forumiem
+subscribed_threads:		Pierakstîtâs tçmas
+subscribed_threads_desc:	Uzrâdît ierakstus tikai no pierakstîtajâm tçmâm
+switch_to_thread_view:		Uzrâdît ierakstus un atbildes hierarhijas koka veidâ
+thread:				Tçma:
+thread_announcement:		Sludinâjums:
+thread_first_unread_msg:	Uz pirmo nelasîto ierakstu ðajâ tçmâ
+thread_thread:			Tçma
+threads:			Tçmas
+time:				Laiks
+todays_posts:			Ðodienas ieraksti
+todays_posts_desc:		Uzrâdît ðodien nosûtîtos ierakstus
+un_ignore_user:			pârtraukt ignorçt ierakstus no
+unanswered_posts:		Ieraksti bez atbildes
+unanswered_posts_desc:		Uzrâdît visus ierakstus bez atbildçm
+unlock_thread:			Atvçrt tçmu
+unread_msg:			Ðajâ tçmâ ir nelasîtie ieraksti
+unread_msg_locked:		Slçgtâ tçma ar nelasîtajiem ierakstiem
+unread_posts:			Nelasîtie ieraksti
+unread_posts_desc:		Râdît visus nelasîtos ierakstus
+unsub_from_thread:		Atteikties no tçmas
+unsub_from_thread_desc:		Pârtraukt paziòojumu nosûtîðanu par jaunumiem ðajâ tçmâ
+unsubscribe:			Atteikties no foruma
+unsubscribe_desc:		Pârtraukt paziòojumu nosûtîðanu par jaunumiem ðajâ forumâ
+updated_on:			Jauninâjumi:
+user:				Lietotâjs:
+user_counter:			<b>{VAR: reg_users}</b> reìistrçtie lietotâji.
+user_info:			Info par lietotâju
+user_info_l:			Info par {VAR: u->alias}
+user_offline:			{VAR: obj->login} ðobrîd nav On-Line reþîmâ
+user_online:			{VAR: obj->login} ðobrîd On-Line reþîmâ
+usrinfo_last_post:		Pçdçjais ieraksts:
+view_forum:			Foruma pârskats
+view_last_msg:			Pçdçjais foruma ieraksta pârskats
+view_results:			Rezultâtu pârskats
+view_thread:			Tçmas pârskats
+views:				Pârskati
+vote:				{VAR: thread->vote_count()}balsis
+vote_button:			Balsot
+vote_for_thread:		Novçrtçjums
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> moderâtors pârcçla uz forumu <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+welcome_message:		Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jûs atkal redzçt kopð {DATE: last_login %a, %d %B %Y %H:%M}
+what_ppl_doing:			parâdît ko kurð dara
+reported_del_report:		Dzçst atskaiti
+reported_reason:		Iemesls
+reported_on:			Paziòojuma datums:
+reported_reported_by:		Paziòojums no:
+reported_reported_msg:		Paziòojums par ierakstu
+modque_pending_approval:	Ieraksti uz apstiprinâjumu
+modque_approve:			Apstiprinât
+modque_delete:			Dzçst
+modque_no_message:		Nav ierakstu uz apstiprinâðanu
+pmsg_new_messages:		Nelasîta privâtâ vçstule
+pmsg_old_messages:		Lasîtâ privâtâ vçstule
+deny_recipt:			Aizliegt paziòojumus
+deny_recipt_desc:		Nesûtît paziòojumu autoram par to, ka esat lasîjis
+restore_to:			Atjaunot:
+move_to:			Pârvietot:
+list_referes_referrals:		Uzaicinâti
+list_referes_members:		Uzaicinâtie lietotâji
+list_referes_member:		Lietotâjs
+referals_none:			Neviens nav uzaicinâts.
+referals_refered_by:		Uzaicinâtie lietotâji <b><a href="{ROOT}?t=usrinfo&amp;id={VAR: r_id}&amp;{DEF: _rsid}" class="thLnk">{VAR: r_login}</a></b>
+referals_post_count:		Ieraksti
+referals_registered_on:		Reìistrâcijas datums
+referals_action:		Darbîba
+pmsg_all:			Viss
+pmsg_none:			Nç
+folder:				Mape:
+pmsg_replied:			atbildçts
+pmsg_forwarded:			labots
+pmsg_subject:			Tçma
+pmsg_author:			Autors
+pmsg_time:			Laiks
+pmsg_selected:			Izvçlçts
+pmsg_delete:			Dzçst
+cur_ppage_pm:			Privâtais pasts
+writing_pm:			Izveidot privâto vçstuli
+browsing_folder:		Pârskatît mapi <b>{VAR: folder}</b>
+inbox:				Ienâkoðâs
+draft:				Melnraksti
+sent:				Nosûtîtâs
+trash:				Papîrgrozs
+msg_author:			Autors
+msg_thread:			Tçma
+avatar_sel_form:		Nozîmîtes izvçle
+no_avatars:			Nav brîvu nozîmîðu
+month_1:			Janvâris
+month_2:			Februâris
+month_3:			Marts
+month_4:			Aprîlis
+month_5:			Maijs
+month_6:			Jûnijs
+month_7:			Jûlijs
+month_8:			Augusts
+month_9:			Septembris
+month_10:			Oktobris
+month_11:			Novembris
+month_12:			Decembris
+male:				Vîrietis
+female:				Sieviete
+unspecified:			Nekatrais
+register_tree_view:		Hierarhijas koka skats
+register_flat_view:		Izplâtais skats
+use_forum_default:		Izmantot foruma noklusçjumuzstâdîjumus
+finduser_user_info:		Info par lietotâju
+finduser_by_login:		Pçc vârda:
+finduser_by_email:		Pçc E-pasta:
+finduser_submit:		Meklçt
+finduser_no_such_user:		Neesoðs lietotâjs
+finduser_user:			Lietotâjs
+finduser_postcount:		Ieraksti
+finduser_joindate:		Pieslçgðanâs datums
+finduser_action:		Darbîbas
+yes:				Jâ
+no:				Nç
+register_email:			E-pasts:
+edit_time_limit:		<br><b>Izmaiòu veikðanas periods</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minûtes
+no_edit_time_limit:		<br><b> Izmaiòu veikðanas periods </b>: <b>Nelimitçts</b>
+pmuserloc_login:		Vârds:
+pmuserloc_email:		E-pasts:
+pmuserloc_submit:		Meklçt
+pmuserloc_user:			Lietotâjs
+pmuserloc_no_result:		Nekas nav atrasts
+register_builtin:		Iebûvçta
+register_specify_url:		Norâdît URL
+register_uploaded:		Ielâdçt nozîmîti
+register_login:			Lietotâja vârds:
+register_password:		Parole:
+register_conf_pass:		Atkârtot paroli:
+register_email_desc:		Ievadiet savu reâlo E-pasta adresi. To apslçp varçsiet uzstâdîjumos zemâk.
+register_name:			Vârds:
+register_your_pass:		Jûsu parole:
+register_update:		Atjaunot
+register_avatar_type:		Personîgâs nozîmîtes tips:
+register_del_avatar:		Dzçst nozîmîti
+register_avatar:		Privâtâ nozîmîte:
+register_sel_avatar:		Izvçlçties nozîmîti
+register_custom_avatar_rules:	Ârçjâ nozîmîte netiks attçlota kâmçr to neapstiprinâs foruma administrators.<br><font class="SmallText">Nozîmîtes lielums nedrîkst bût lielâks par <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pikseïiem</b> un tai jâbût <b>jpg</b>, <b>gif</b> vai <b>png</b> formâtâ.</font>
+register_custom_avatar_url:	Nozîmîtes URL:
+register_preview:		Priekðapskate
+register_custom_avatar_upload:	Nozîmîtes fails:
+register_register:		Reìistrâcija
+register_required:		Obligâtâ informâcija
+register_required_desc:		Visi lauki ir obligâti jâaizpilda. Atcerieties, ka paroles ir reìistra jûtîgas.
+register_optional:		Papildus informâcija
+register_optional_desc:		Nav vçlams pârlieki izplûst.
+register_location:		Dzîves vieta:
+register_occupation:		Nodarboðanâs:
+register_interests:		Intereses:
+register_image:			Nozîmîte:
+register_icq:			ICQ nummurs:
+register_aim:			AIM pseidonîms:
+register_yahoo:			Yahoo tîkls:
+register_msnm:			MSN tîkls:
+register_homepage:		Mâlas lapas URL:
+register_bday:			Dzimðanas datums:
+register_bday_desc:		Uzrâdot dzimðanas datumu tas bûs redzams foruma lietotâjiem.
+register_day:			Diena
+register_month:			Mçnesis
+register_year:			Gads
+register_gender:		Dzimums:
+register_bio:			Biogrâfija:
+register_bio_desc:		Daþas papildus detaïas par Jums
+register_prefs:			Privâtie uzstâdîjumi
+register_sig:			Paraksts:
+register_sig_desc:		Neobligâtais paraksts. Tiks pievienots Jûsu sûtîjumiem.
+register_reset:			Reset
+register_style:			Stils:
+register_def_thread_view:	Noklusçtais tçmu skats:
+register_msg_per_page:		Ieraksti lapâ:
+register_show_sig:		Uzrâdît pierakstus:
+register_show_sig_desc:		Atïauj Jums ieslçgt/atslçgt citu lietotâju reìistrâcijas-pierakstus
+register_use_sig_default:	Pielietot pierakstus pçc noklusçjuma:
+register_use_sig_default_desc:	Automâtiski pievienot pierakstu ikvienam nosûtîtajam ziòojumam
+register_timezone:		Laika josla:
+register_ignore_admin:		Ignorçt administrâcijas paziòojumus:
+register_invisible_mode:	Neredzamîbas reþîms:
+register_invisible_mode_desc:	Apslçpj Jûsu darbîbas citiem lietotâjiem.
+register_show_email:		Uzrâdît E-pasta adresi:
+register_show_email_desc:	Ieslçgt, lai citi lietotâji redzçtu Jûsu E-pasta adresi.
+register_notification:		Ieslçgt paziòojumus pçc noklusçjuma:
+register_notification_desc:	Ðo reþîmu var atslçgt pirms ziòojuma nosûtîðanas.
+register_notify_method:		Ziòojuma nosûtîðanas metode:
+register_notify_method_desc:	Ja vçlaties saòemt ziòojumus uz Jûsu ICQ,<br>pârliecinieties, ka ICQ uzstâdîjumos ieslçgts parametrs 'EmailExpress'
+register_notify_js_error:	Jûs izvçlçjâties ziòojumu nosûtîðanu uz ICQ, bet neesat norâdîjis ICQ nummuru. Ziòojums tiks nosûtîts uz Email&#46;
+register_allow_email_msg:	Atïaut ziòojumu nosûtîðanu uz E-pasta adresi:
+register_allow_email_msg_desc:	Atïauj citiem lietotâjiem nosûtît ziòojumus no foruma uz Jûsu E-pasta adresi.
+buddy_status:			Statuss
+my_buddies:			Kontaktu saraksts
+add_buddy:			Pievienot kontaktu sarakstam
+add:				Pievienot
+buddy_search:			Ievadiet lietotâja vârdu kuru vçlaties pievienot sarakstam,<br>vai izmantojiet <a href="javascript://" class="GenLink" onClick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 250,250);">lietotâju meklçtâju</a> tâ atraðanai.
+buddy_remove:			dzçst
+post_normal:			Normâls
+post_sticky:			Sticky
+post_annoncement:		Sludinâjums
+post_size:			Izmçrs
+post_color:			Krâsa
+post_font:			Fonts
+create_thread:			Izveidot tçmu
+submit_reply:			Nosûtît atbildi
+edit_message:			Rediìçt ierakstu
+apply_spell_changes:		Apstiprinât pareizrakstîbas pârbaudi
+post_preview:			Priekðapskate
+post_logedin_user:		Lietotâjs:
+post_logout:			Izeja
+post_passwd:			Foruma parole:
+post_poll:			Balsojums:
+post_create_poll:		IZVEIDOT
+post_poll_delete:		DZÇST
+post_poll_edit:			LABOT
+post_mod_opt:			Moderâtora darbîbas:
+post_thread_type:		Tçmas tips:
+post_thread_expiry:		Tçma noveco:
+post_locked:			Slçgta tçma
+post_icons:			Ieraksta nozîmîte:
+post_no_icon:			Bez nozîmîtes 
+post_smiley:			Smaidiòu ievietoðana:
+post_format_tools:		Formatçðana:
+post_upload_file:		Ielâdçt failu
+post_file_del:			Dzçst
+post_file_name:			Vârds
+post_file_size:			Izmçrs
+file_attachments:		Faila iekïauðana:
+allowed_files:			Pieïaujamie faila paplaðinâjumi:
+max_file_size:			Maksimâlais faila lielums:
+max_files_per_msg:		Maksimâlais failu skaits ierakstâ:
+post_notification:		Paziòojumi par ierakstiem
+include_sig:			Iekïaut parakstu ierakstâ
+include_sig_desc:		Iekïauj Jûsu paraksta tekstu, kas atrodas Jûsu privâtajos uztâdîjumos.
+disable_smilies:		Atslçgt smaidiòus
+spell_check_msg:		Pârbaudît ortogrâfiju
+post_form:			Ieraksta nosûtîðana
+post_forum:			Forums:
+post_title:			Virsraksts:
+post_body:			Teksts:
+post_options:			Parametri:
+post_preview_btn:		Priekðapskate
+post_processing_msg:		Jûsu raksts apstrâdes procesâ. Lûdzu uzgaidiet.
+ignore_users:			Ignorçjamie lietotâji
+add_ignore:			Pievienot ignorçjamo
+forum_terms:			Foruma noteikumi
+forum_rules:			Ikviens interesents var brîvi piereìistrçties un kïût par ðî foruma dalîbnieku-lietotâju. Ceram, ka pirms reìistrâcijas forumâ Jûs iepazîsieties ar daþiem forumu lietoðanas noteikumiem un ja ðie noteikumi nebûs pretrunâ ar Jûsu pârliecîbu, nospiedîsiet pogu <b>Piekrîtu</b>. <b><u>Atcerieties!</u></b> Nospieþot pogu <b>Piekrîtu</b> Jûs apstipriniet, ka Jûs esat vecâks par 13 gadiem, kâ arî uzòematies autora atbildîbu par visu to, ko publicçciet forumâ. Foruma îpaðnieki un tâ veidotâji nav atbildîgi par informâcijas saturu, kas publicçta forumos. Ikviena publikâcija atspoguïo autora viedokli un lîdz ar to arî atbildîbu uzòemas publikâciju autori. Nospieþot pogu <b>Piekrîtu</b> Jûs apstiprinât, ka savâs publikâcijâs izturçsieties korekti pret pârçjiem foruma dalîbnikiem un pârçjo sabiedrîbu kopumâ. Nepaudîsiet antisemîtiskus un rasistiskus uzskatus, nepublicçsiet seksuâli orientçtus, draudus izsakoðus un kâdus citus izteikumus un materiâlus kas ir pretrunâ ar spçkâ esoðajiem likumdoðanas un citiem normatîvajiem aktiem. Foruma îpaðnieki un veidotâji ir tiesîgi veikt izmaiòas Jûsu lietotâja kontâ un uzstâdîjumos, slçgt, dzçst vai pârvietot ikvienu foruma tçmu bez iepriekðçjas saskaòoðanas ar foruma lietotâjiem vai dalîbniekiem.
+forum_rules_13:			Visiem lietotâjiem, kas ir jaunâki par 13. gadiem, pirms reìistrâcijas forumâ jâsaòem vecâku atïauja vai ieteikums, kas jânosûta pa pastu vai faksu foruma administrâcijai, ðîs atïaujas vai ieteikuma izskatîðanai un akceptam. Kaut arî forumâ var piedalîties visi interesenti un bez vecuma ierobeþojuma, tomçr lai dotu tiesîbas forumâ piedalîties dalîbniekiem lîdz 13. gadiem, vçlamies saòemt vecâku atïauju vai ieteikumu.<p>Ja vçlaties turpinât reìistrâciju pirms mûsu akcepta, nospiediet pogu <b>Piekrîtu</b>, pretçjâ gadîjumâ nospieiet <b>Nepiekrîtu</b>.<p>Atïaujas-ieteikuma veidlapas kopiju Jûs varat saòemt <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}"> ðeit</a>. Papildinformâciju par reìistrâciju forumâ Jûs varat saòemt nosûtot vçstuli uz e-pasta adresi <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+coppa_conf:			Apstiprinât COPPA
+coppa_before:			Pirms {DATE: coppa %B %e, %Y}
+coppa_after:			Pçc {DATE: coppa %B %e, %Y}
+coppa_link:			Izvçlieties norâdi, kas pareizi norâda Jûsu dzimðanas datumu.
+coppa:				Lai pabeigtu lietotâju, kas jaunâki par 13. gadiem, reìistrâciju, nepiecieðams nosûtît pa pastu vai faksu ieteikuma vçstuli vai atïauju. <p>Papildus informâcija saòemama: <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+prereg_info:			Informâcija
+prereg_agree:			Piekrîtu
+prereg_disagree:		Nepiekrîtu
+coppa_fax_instructions:		Instrukcija vecâkiem vai aizbildòiem
+coppa_fax_instructions2:	Lûdzu izdrukâjiet un aizpildiet ðo formu, parakstiet to un nosûtiet uz adresi:
+coppa_fax_reg_form:		Reìistrâcijas forma
+coppa_fax_sign:			Lûdzu izdrukâjiet un aizpildiet ðo formu, parakstiet to un nosûtiet mums
+coppa_fax_conf:			I have reviewed the information my child has supplied and I have read the Privacy Policy for the web site. I understand that the profile information may be changed by a using a password. I understand that I may ask for this registration profile be removed entirely.
+coppa_fax_permission:		Sign here if you give permission
+coppa_fax_no_permission:	Sign here if you would like the account to be deleted
+coppa_fax_parent_name:		Parent/Guardian Full Name:
+coppa_fax_relation:		Relation to child:
+coppa_fax_telephone:		Telephone:
+coppa_fax_email:		Email address:
+coppa_fax_date:			Date:
+coppa_fax_questions:		Please contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> with any questions
+coppa_fax_login:		Login
+coppa_fax_passwd:		Password
+coppa_fax_remail:		Email
+coppa_fax_name:			Name
+login_not_logedin:		Jûs neiekïuvât forumâ. Par iemeslu tam var bût sekojoði apstâkïi:
+login_cookie_expired:		Jûsu Web pârlûka cookie darbîbas laiks ir beidzies, lai to atjaunotu vçlreiz ielogojieties.
+login_perm_denied:		Jums nav tiesîbu piekïût pieprasîtajiem resursiem kâ anonîmajam lietotâjam, tâdçï ienâciet ar reâlu foruma dalîbnieka Niku un Paroli.
+login_want_to_register:		Vçlaties piereìistrçties?
+login_forgot_passwd:		Esmu aizmirsis paroli.
+login_use_cookie:		Izmantot cookies<br><font class="SmallText">Gadîjumos ja strâdâjat no publiskajâm darbstacijâm, skolas, interneta kafejnîcas, vai citiem publiskajiem terminâliem, droðîbas apsvçrumu pçc ieteicams ðo opciju atslçgt.<br>Atstâjot cookies ieslçgtus, nâkoðais savienojums automâtiski atvçrs forumu bez nika un parojes ievadîðanas.
+login_login:			Niks
+login_login_btn:		Ieiet
+login_name_required:		Nav norâdîts Niks!
+login_passwd_required:		Nav norâdîta parole!
+login_invalid_radius:		Neprecîza Nika/Paroles kombinâcija!
+reset_confirmation:		Paldies par reìistrâciju,\n\nLai aktivizçtu Jûsu reìistrâciju sekojiet norâdîtajai saitei:\n\n{VAR: url}\n\nPçc aktivizâcijas Jûs bûsiet reìistrçti foruma dalîbnieku datu bâzç un\nnokïusiet foruma galvenajâ lapâ.\n
+reset_reset:			Sveiki,\n\nJûs pieprasîjât jaunas paroles pieðíirðanu. Sekojiet\nsaitei\n\n{VAR: url}\n\nPiezîme: Foruma paroles tiek uzglabâtas ðifrçtâ veidâ,\nkas nosaka to, ka parole nav pieejama atklâta teksta veidâ\npçc tâs ievadîðanas. Pçc paroles ievadîðanas tâ tiek ðifrçta un ðifrçðanas rezultâts tiek salîdzinâts ar \noriìinâlu. (Ja Jûs interesç detalizçtâka informâcija par MD5 HASH ðifrçðanas algoritmu,\nJûs varat izlasît attîcîgu literatûru)
+rpasswd_invalid_passwd:		Nepareiza parole
+rpasswd_passwd_nomatch:		Paroles nesakrît
+rpasswd_passwd_length:		Parolei jâsatur minimums 6 simboli
+reset_remind_pass:		Paroles atgâdinâjums
+reset_reset_conf:		Jûsu parole tiks no jauna izveidota un nosûtîta uz Jûsu E-pasta adresi.
+reset_error:			Datu bâzç E-pasta adreses nav
+rpasswd_change_pass:		Nomainît paroli
+rpasswd_login:			Lietotâjs:
+rpasswd_cur_pass:		Esoðâ parole:
+rpasswd_new_pass:		Jaunâ parole:
+rpasswd_conf_pass:		Jaunâ parole (pârbaudei):
+login_passwd:			Parole:
+reset_email:			E-pasts:
+reset_reset_button:		Izveidot jaunu paroli
+rate_this_thread:		Novçrtçt
+report_reporting_about:		Paziòojums par publikâciju:
+report_subject:			Tçma:
+report_by:			Autors:
+report_posted_on:		Nosûtîts:
+report_give_reason:		Norâdiet, kâdçï vçlaties informçt moderâtoru par ðo publikâciju:
+report_submit_report:		Informçt
+search_entire_msg:		Visu publikâciju
+search_subect_only:		Tikai tçma
+search_forum:			Forums
+search_subject:			Tçma
+search_posted_on:		Nosûtîðanas datums
+search_no_results:		Rezultâtu nav
+search_search:			Meklçt
+search_all_forums:		Visi forumi
+search_in_forum:		Meklçt forumâ:
+search_for:			Atslçgas vârdi:
+search_forum_search:		Meklçðana forumos
+move_thread_to:			Pârvietot tçmu <b>{VAR: thr->subject}</b> uz forumu:
+remail_email_topic:		Nosûtît ðo tçmu uz E-pasta adresi
+remail_your_name:		Jûsu vârds:
+remail_your_email:		Jûsu E-pasts:
+remail_friends_name:		Adresâta vârds:
+remail_friends_email:		Adresâta E-pasts:
+remail_required:		obligâti
+remail_subject:			Tçma:
+remail_message:			Publikâcija:
+remail_send_now:		Nosûtît E-pastu
+remail_anon_opt:		Pârkopçjiet publikâciju uz E-pasta klienta programmu (pie. Outlook Express), lai pârsûtîtu saviem draugiem.
+remail_done:			Gatavs
+remail_sent_conf:		Elektroniskâ vçstule uz adresi {VAR: femail} par tçmu {VAR: thread->subject} veiksmîgi nosûtîta.
+remail_continue:		Turpinât
+remail_error:			Kïûda
+mklist_type:			Tips:
+mklist_option:			Elements:
+mklist_additem:			Pievienot
+mklist_apply:			Izpildît
+mklist_delete:			Dzçst
+qbud_nick_name:			Pseidonîms
+qbud_add_selected:		Pievienot izvçlçto
+qbud_selected:			Izvçlçts
+qbud_no_buddies:		Saraksts izvçlei ir tukðs
+mklist_numerical:		Nummurçts - cipari
+mklist_aplha:			Nummurçts - burti
+mklist_square:			Aizzîme - kvadrâtiòi
+mklist_disc:			Aizzîme - diski
+mklist_circle:			Aizzîme - aplîði
+mklist_close:			Aizvçrt
+email_to:			Kam:
+email_name:			Vârds:
+email_email:			Email:
+email_pg_title:			Email
+email_subject:			Tçma:
+email_body:			Teksts:
+email_submit:			Email
+ppost_quote_msg:		{VAR: msg_r->login} uzrakstîja {DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+ppost_quote:			Citâts:
+ppost_to:			Kam:
+ppost_from_buddy_list:		Izvçlçties no kontaktu saraksta
+ppost_find_User:		Lietotâju meklçðana
+ppost_track_msg:		Paziòojums par publikâcijas apskati
+ppost_track_msg_desc:		Paziòot man par to, ka adresâts ir iepazinies ar publikâciju.
+ppost_send:			Nosûtît
+ppost_save_draft:		Saglabât
+poll_blank_option:		Tukðumu nevar pievienot.
+poll_del_conf:			Lai dzçstu, spiediet OK
+poll_name:			Balsojuma nosaukums:
+poll_timelimit:			Darbîbas laiks
+poll_maxiumvotes:		Maksimâlais balsu skaits
+poll_create:			Izveidot
+poll_update:			Izmainît
+poll_disablesmilies:		Aizliegt smaidiòus
+poll_create_poll:		Izveidot balsojumu
+poll_update_poll:		Rediìçt balsojumu
+poll_delete:			Dzçst
+poll_updateoption:		Rediìet variantu
+poll_addoption:			Pievienot variantu
+poll_unlimited:			Neierobeþots
+poll_day:			diena
+poll_days:			dienas
+poll_hour:			stunda
+poll_hours:			stundas
+poll_month:			mçnesis
+poll_year:			gads
+poll_week:			nedçïa
+tabs_register:			Uzstâdîjumi
+tabs_subscriptions:		Parakstîðanâs
+tabs_referrals:			Uzaicinâtie
+tabs_buddy_list:		Kontaktu saraksts
+tabs_ignore_list:		Ignorçto saraksts
+tabs_private_messaging:		Privâtâ sarakste
+single_msg_delete:		Jûs vçlaties <font color="#ff0000" size="4">DZÇST</font> publikâcijas tçmâ: <b>{VAR: msg->subject}</b><p>
+thread_delete:			Jûs vçlaties <font color="#ff0000" size="4">PILNÎBÂ DZÇST TÇMU</font>, forumâ: <b>{VAR: msg->subject}</b><p>
+delete_proceed:			<font size="3"><b>Vai tieðâm? Vai turpinât?</b></font>
+delete_yes:			Jâ
+delete_no:			Nç
+error_invalidurl:		Nepieïaujams URL
+error_error:			Kïûda
+usrinfo_profile:		Informâcija par lietotâju {VAR: u->alias}
+usrinfo_show_all_posts:		Uzrâdît visas {VAR: u->alias} publikâcijas
+actions_update:			Lietotâju meklçðana
+err_info:			Informâcija
+buddy_list_err_cantadd:		Pats sevi nevar pievienot kontaktu sarakstâ
+buddy_list_err_dup:		Dotais lietotâjs jau bija pievienots kontaktu sarakstâ agrâk
+buddy_list_err_nouser:		Ðâda lietotâja datu bâzç nav.
+buddy_list_err_nouser_title:	Lietotâju pievienot nav iespçjams
+buddy_list_update:		Kontaktu saraksta pârskats
+core_err_invinp_title:		Ievade nav atïauta
+core_err_invinp_err:		You&#39;ve followed an invalid link, please notify the <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>
+core_adm_login_msg:		<br>Administratoriem ieiet <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">ðeit</a>
+email_err_unabletoemail_title:	KÏÛDA!!! Nevar nosûtît E-pastu
+email_err_unabletoemail_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
+email_err_unabletoemailu_msg:	Administrators ir atslçdzis E-pasta nosûtîðanas sistçmu.
+email_error_unabletolocaddr:	Atvainojiet. Nosûtît paziòojumu {VAR: usr_dst->alias} nav iespçjams, jo nav zinâma adresâta E-pasta adrese
+email_error_body:		Publikâcijas teksts ir obligâts
+email_error_subject:		Tçma ir obligâta
+email_error_emailrequired:	E-pasta adrese ir obligâta
+email_error_invalidaddress:	Neatïauta E-pasta adrese
+email_error_namerequired:	Vârds ir obligâts
+email_error_invaliduser:	Neatïauts lietotâjs
+emailconf_err_invkey_title:	Kïûda
+emailconf_err_invkey_msg:	Neatïauta apstiprinâjuma atslçga. Lûdzu `vçlreiz pârbaudiet savu E-pastu un pârliecinieties vai pareizi ievadîjât apstiprinâjuma atslçgu.
+err_inc_criticaltitle:		KRITISKA KÏÛDA
+err_inc_criticalmsg:		Jûs konstatçjât problçmu. Diemþçl kïûdu paziòojumu sistçmas darbs patreiz nestrâdâ korekti.
+finduser_update:		Lietotâju meklçðana
+help_index_update:		Lasît <a href="{ROOT}?t=help_index" class="GenLink">F.A.Q. (Bieþâk uzdotie jautâjumi</a>
+iemail_thr_subject:		Jauna atbilde par {VAR: thr_subject} no {VAR: poster_login}
+iemail_thr_bodyemail:		Lai pârskatîtu nelasîtâs atbildes sekojiet\n{VAR: goto_url['email']}\n\nJa nevçlaties saòemt paziòojumus par ðo tçmu sekojiet:\n{VAR: unsub_url['email']}
+iemail_thr_bodyicq:		Lai pârskatîtu nelasîtâs atbildes sekojiet \n{VAR: goto_url['icq']}\n\nJa nevçlaties saòemt paziòojumus par ðo tçmu sekojiet:\n{VAR: unsub_url['icq']}
+iemail_frm_subject:		Jauna tçma forumâ {VAR: frm_name}, ar nosaukumu {VAR: thr_subject} no {VAR: poster_login}
+iemail_frm_bodyemail:		Lai apskatîtu:\n{VAR: goto_url['email']}\n\nJa nevçlaties saòemt paziòojumus tad ðeit:\n{VAR: unsub_url['email']}
+iemail_frm_bodyicq:		Lai apskatîtu tçmu, tad ðeit:\n{VAR: goto_url['icq']}\n\nJa nevçlaties saòemt paziòojumus, tad ðeit:\n{VAR: unsub_url['icq']}
+iemail_participate:		To participate in the discussion, go here:
+ignore_list_err_info_title:	Informâcija
+ignore_list_err_noign_msg:	Ðo lietotâju Jûs nevarat ignorçt
+ignore_list_err_dup_msg:	Ðis lietotâjs jau atrodas ignorçto sarakstâ
+ignore_list_err_nu_title:	Lietotâjs nav atrasts
+ignore_list_err_nu_msg:		Lietotâjs kuru vçlaties ignorçt nav atrasts
+ignore_list_cantign_msg:	Ðo lietotâju nevar ignorçt
+ignore_list_update:		Ignorçto saraksta pârskats
+index_update:			Forumu saraksta <a href="{ROOT}?t=index" class="GenLink">pârskats</a>
+list_referers_update:		Uzaicinâto saraksta pârskats
+login_update:			Ieiet forumâ
+msg_err_onlyreg_title:		ðis forums ir tikai reìistrçtiem lietotâjiem
+msg_err_onlyreg_msg:		Lai ieietu ðajâ forumâ Jums jâbût <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">reìistrçtam lietotâjam</a>, ja Jûs bijât reìistrçts agrâk, tad Jums <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">jâieiet forumâ</a>.
+msg_err_ininfo_title:		Nepietiekama informâcija
+msg_err_ininfo_msg:		Kïûda lapas izveidç
+msg_update:			Tçmas <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a> apskats
+pm_err_nopm_title:		KÏÛDA: Privâtie paziòojumi aizliegti
+pm_err_nopm_msg:		Privâto paziòojumu sistçmu nevar lietot, jo tâ ir atslçgta.
+pm_update:			Privâtâ sarakste
+post_err_notallowed_title:	Piekïuve liegta
+post_err_notallowed_msg:	Publikâciju nosûtîðana liegta
+post_err_lockedthread_title:	KÏÛDA: Tçma ir slçgta
+post_err_lockedthread_msg:	Ðî tçma ir slçgta. Publikâcijas uz ðo tçmu nosûtît nevar.
+err_coppa_title:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
+err_coppa_msg:			Nav saòemta Jûsu vecâku atïauja. Ja reìistrâcijas veidlapa ir nozaudçta <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">spiediet ðeit</a> lai to saòemtu vçlreiz.
+err_blockedaccnt_title:		KÏÛDA: Publikâciju nosûtîðana Jums liegta
+err_blockedaccnt_msg:		Publikâciju nosûtîðana Jûsu vârdâ ir liegta
+post_err_notowner_title:	KÏÛDA
+post_err_notowner_msg:		Jûs neesat ðîs publikâcijas autors
+post_err_edttimelimit_title:	KÏÛDA
+post_err_edttimelimit_msg:	Jûs vairs nedrîkstat rediìçt ðo publikâciju
+post_err_noannontopics_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
+post_err_noannontopics_msg:	Anonîmajiem lietotâjiem nav atïauts izveidot jaunas tçmas<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìitrçts lietotâjs, ieiet forumâ var arî <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">reìistrâcijas lapâ</a>
+post_err_noannonposts_title:	KÏÛDA: Nepietiekoðs piekïuves lîmenis
+post_err_noannonposts_msg:	Anonîmajiem lietotâjiem nav dotas tiesîbas iesûtît atbildes<br><br>Lai reìistrçtos aizpildiet <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas formu</a><br>Ja esat reìistrçtais lietotâjs ieiet forumâ var <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">reìistrâcijas lapâ</a>
+post_err_noreplying_title:	KÏÛDA: Atbilde nav atïauta
+post_err_noreplying_msg:	Uz ðo publikâciju atbildçt nav iespçjams, jo tas ir apzîmets kâ sludinâjums vai sticker un atbildes ir liedzis moderâtors.
+post_err_floodtrig_title:	KÏÛDA: Konstatçts masîvs nosûtîðanas mçìinâjums.
+post_err_floodtrig_msg:		Atkârtojiet mçìinâjumu pçc {VAR: tm} sekundçm
+post_err_attach_size:		<font class="ErrorText">Fails par lielu (pârsniedz atïauto lielumu {VAR: MAX_F_SIZE} byte)</font><br>
+post_err_attach_ext:		<font class="ErrorText">Ielâdçtais fails neatbilst nevienam atïautajam faila tipam.</font><br>
+post_err_attach_filelimit:	<font class="ErrorText">Mçìinâjums ielâdçt vairâk failu far pieïaujamo skaitu.</font><br>
+post_err_passwd:		Kïûdaina parole.
+post_reply_update:		Atbilde publikâcijai <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> forumâ {VAR-HTML: frm->name}
+post_edit_update:		Publikâcijas <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> rediìçðana {VAR-HTML: frm->name} forumâ
+post_topic_update:		Jaunas tçmas izveidoðana <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>forumâ
+post_error_generic:		Kïûda
+postcheck_max_images_err:	Samaziniet bilþu skaitu publikâcijâ lîdz {GVAR: MAX_IMAGE_COUNT}
+postcheck_subj_needed:		Norâde uz tçmu ir obligâta
+postcheck_not_allowed_file:	Ðis faila tips nav atïauts
+postcheck_no_such_user:		Ðajâ forumâ nav lietotâja ar niku "{VAR-HTML: v}"
+postcheck_ignored:		Ðim lietotâjam "{VAR-HTML: v}" nosûtît privâto vçstuli nevarat, jo viòð Jûs ir iekïavis ignorçjamo sarakstâ.
+postcheck_no_recepient:		Nevar nosûtît ziòojumu ja nav norâdîts adresâts
+postcheck_invalid_email:	Ievadiet pareizu E-pasta adresi.
+postcheck_email_subject:	Nevar nosûtît bez tçmas norâdîðanas.
+postcheck_email_body:		Nevar nosûtît bez publikâcijas teksta.
+private_msg_notify_subj:	Paziòojums par: {VAR: this->subject}izlasîðanu
+private_msg_notify_body:	Sveiki <br>{VAR: GLOBALS["usr"]->login}. Izlasîju Jûsu ziòu "{VAR: this->subject}" {DATE: track_msg->post_stamp %a, %d %B %Y %H:%M}<br>
+referals_update:		Uzaicinâto saraksts
+register_err_short_login:	Pârâk maz simbolu. Minimâlais simbolu skaits nikâ – 4 simboli
+register_err_login_notallowed:	Izvçlçtais niks nav pieejams vai atïauts
+register_err_loginunique:	Nikam jâbût unikâlam un Jûsu izvçlçtais niks jau ir reìistrçts sistçmâ citam lietotâjam
+register_err_emailexists:	Lietotâjs ar tâdu E-pasta adresi jau eksistç. Ja esat aizmirsis paroli izmantojiet funkciju paroles atjaunoðanai.
+register_err_shortpasswd:	Parolei jâsatur vismaz 6 simboli
+register_err_passwdnomatch:	Ievadîtâs paroles nesakrît.
+register_err_invalidemail:	Ievadîtâ E-pasta adrese nesakrît ar Jûsu E-pasta adresi.
+register_err_needname:		Lai pabeigtu reìistrâciju ievadiet savu vârdu.
+register_err_enterpasswd:	Ievadiet paroli lai izmaiòas tiktu reìistrçtas.
+register_err_adminpasswd:	Ievadiet Administratora paroli lai izmaiòas tiktu reìistrçtas
+register_err_notyouremail:	Sistçmâ jau ir reìistrçts lietotâjs ar tâdu E-pasta adresi un tâ pieder viòam nevis Jums
+register_err_avatartobig:	Jûsu ielâdçtais nozîmîtes fails ir pârâk liels, maksimâli pieïaujamais nozîmîðu faila izmçrs ir {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
+register_err_avatarnotallowed:	Ielâdçtais nozîmîtes fails neatbilst nevienam pieïaujamajam failu formâtam.
+register_conf_subject:		Reìistrâcijas apstiprinâjums
+register_conf_msg:		Jûs esat pereìistrçts,\nLai apstiprinâtu sava nika reìistrâciju sekojiet saitei:\n\n{ROOT}?t=emailconf&conf_key={VAR: usr->conf_key}\n\nTiklîdz reìistrâcija tiks aktivizçta, Jûs automâtiski ieiesiet foruma\ngalvenajâ lapâ.
+register_welcome_subject:	Foruma reìistrâcijas apliecinâjums
+register_welcome_msg:		Paldies par reìistrâciju,\n\nZemâk informâcija par Jûsu reìistrâciju:\n\nforuma URL: {ROOT}?t=index\nLogin: {VAR: usr->login}\nParole: {VAR: HTTP_POST_VARS['reg_plaintext_passwd']}\n\nAtcerieties, paroles ir reìistra jûtîgas!\nSavus privâtos uzstâdîjumus jûs variet rediìçt ðeit:\n{ROOT}?t=register\n
+register_err_cantreg_title:	KÏÛDA! Reìistrâcija nav iespçjama
+regsiter_err_cantreg_msg:	Nevar piereìistrçt ðo lietotâju. Lûdzu paziòojiet Administratoram <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:	Personîgo uzstâdîjumu un datu pârskats
+register_register_update:	Reìistrâcijas lapa
+report_err_nosuchmsg_title:	KÏÛDA
+report_err_nosuchmsg_msg:	Neesoða publikâcija
+report_err_cantreport_title:	KÏÛDA
+report_err_cantreport_msg:	Jûs nevarat nosûtît paziòojumu moderâtoram
+reset_err_invalidkey_title:	KÏÛDA
+reset_err_invalidkey_msg:	Nepareiza paroles nomaiòas atslçga
+reset_err_rstconf_title:	Informâcija
+reset_err_rstconf_msg:		Instrukcijas nosûtîtas uz Jûsu E-pastu un tâs Jûs saòemsiet pçc daþâm minûtçm
+reset_newpass_title:		Paroles nomaiòa
+reset_newpass_msg:		Sveiki,\n\nUz Jûsu pieprasîjumu tiek nosûtîta informâcija par Jûsu <b>Niku</b> un <b>Paroli</b>.\nJûsu reìistrâcijas dati:\n\nNiks: {VAR: parr['usr']->login}\nParole: {VAR: parr['passwd']}\n\nAtcerieties, ka Jûsu vecâ parole ir nomainîta ar ðeit uzrâdîto un tâ paðreiz nav derîga. Ja\nJûs vçlaties to nomainît, tad to varat izdarît vadîbas panelî:\n{ROOT}?t=register\n\n
+reset_login_notify:		Jûsu jaunâ parole ir nosûtîta uz Jûsu E-pastu un to Jûs saòemsiet pçc daþâm minûtçm. Lûdzu pârbaudiet savu E-pasta kastîti.
+search_update:			Publikâciju meklçðana
+selmsg_update:			Ðodienas <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">publikâciju pârskats</a>
+showposts_update:		Visu <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>publikâciju pârskats
+subscribed_update:		Personîgâs sarakstes pârskats
+th_err_invid_title:		Nepieejams ID – Tçmas identifikâtors
+th_err_invid_msg:		Jûs ðai saitç esat nokïuvis kïûdas pçc. Tçma kuru Jûs vçlaties apskatît neeksistç.
+thread_err_onlyregview_title:	Ðis forums ir pieejams tikai rìistrçtajiem lietotâjiem
+thread_err_onlyregview_msg:	Lai piekïûtu ðim forumam Jums nepiecieðams reìistrçties <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">Reìistrçties</a>, Ja esat reìistrçts lietotâjs Jums nepiecieðams <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">ielogoties forumâ</a>.
+thread_update:			Foruma <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>apskate
+tree_update:			Foruma <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&amp;{DEF: _rsid}">{VAR: thread->subject}</a>apskate hierarhija koka veidâ
+userinfo_update:		Peronîgâs informâcijas <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}</a>apskats
+ERR_login_ttl:			KÏÛDA: Ja netikât ielaists forumâ
+ERR_login_msg:			Jûs vçl neesat forumâ.<br><br>Lai ieietu forumâ ir jâreìistrçjas <a href="{ROOT}?t=register&amp;{DEF: _rsid}">reìistrâcijas lapâ</a>.<br>Ja vçlatie ieiet forumâ ejiet uz <a href="{ROOT}?t=login&amp;{DEF: _rsid}">ielogoðanâs lapu</a>.
+ERR_login_url:			{ROOT}?t=login&amp;{DEF: _rsid}
+ERR_disabled_ttl:		Darbîba nav iespçjama
+ERR_disabled_msg:		Ðî darbîba ir atslçgta un paðreiz nav pieejama
+ERR_disabled_url:		{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_access_ttl:			KÏÛDA: Nepietiekoðs piekïuves lîmenis
+ERR_access_msg:			Jums pieðíirtâs tiesîbas neatïauj pieprasîto darbîbu izpildi
+ERR_access_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_registration_disabled_ttl:	Reìistrâcija atslçgta
+ERR_registration_disabled_msg:	Dotajâ brîdî reìistrâcija ir liegta. Lûdzu mçìiniet vçlreiz, bet vçlâk.
+ERR_registration_disabled_url:	{ROOT}?t=index&amp;{DEF: _rsid}
+ERR_emailconf_ttl:		KÏÛDA: Jûsu reìistrâcija nav apstiprinâta
+ERR_emailconf_msg:		Jûs neesat akceptçjis reìistrâciju no E-pasta<br><table border=0><tr><td><ol><li>Ja neesat saòçmis reìistrâcijas apliecinâjuma E-pastu <a href="{ROOT}?t=reset&amp;email={VAR: GLOBALS['usr']->email}&amp;{DEF: _rsid}">spiediet ðeit</a><li>Ja {VAR: GLOBALS['usr']->email} nav Jûsu E-pasta adrese <a href="{ROOT}?t=register&amp;{DEF: _rsid}">spediet ðeit</a></ol></td></tr></table>
+ERR_emailconf_url:		
+ERR_user_ttl:			KÏÛDA: Neesoðs lietotâjs
+ERR_user_msg:			Tâda lietotâja datu bâzç nav
+ERR_user_url:			{VAR: HTTP_SERVER_VARS['HTTP_REFERER']}?{DEF: _rsid}
+ERR_systemerr_ttl:		KÏÛDA: Sistçmas kïûda
+ERR_systemerr_msg:		Sistçmas kïûda, paziòojiet par to <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a>&#39;?.
+ERR_systemerr_url:		{GVAR: returnto_d}
+email_title:			E-pasta paziòojums
+finduser_title:			Lietotâju meklçðana
+help_title:			F.A.Q.
+login_title:			Ieeja forumâ
+msg_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+poll_title:			Balsojumu redaktors
+register_title:			Reìistrâcija
+reset_title:			Paroles nomaiòa
+rpasswd_title:			Nomainît paroli
+error_title:			Kïûda
+index_title:			Laipni lûdzam mûsu forumâ
+search_title:			Meklçt {VAR-HTML: srch}
+thread_title:			{VAR-HTML: frm->name}
+tree_title:			{VAR-HTML: frm->name} =&gt; {VAR: thread->subject}
+remail_emailsent:		E-pasts nosûtîts
+remail_email:			Sveiki,\n\nForumâ "{GVAR: FORUM_TITLE}" publicçtas ziòas par tçmu "{VAR: thread->subject}", kas pçc manâm domâm varçtu Jûs interesçt. Ðîs ziòas Jûs varat izlasît ðeit:\n\n{ROOT}?t={GVAR: DEFAULT_THREAD_VIEW}&amp;th={VAR: thread->id}&amp;{DEF: _rsid}\n\n Ar cieòu,\n\n{VAR: u}\n
+poll_add_option:		Pievienot variantu:
+post_opt_html_on:		<b>HTML</b> - <b>ieslçgts</b>
+post_opt_fud_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#style" target="_blank"><b>FUDcode</b> - <b>ieslçgts</b></a>
+post_opt_images_on:		<b>Nozîmîtes</b> - <b>ieslçgtas</b>
+post_opt_smilies_on:		<a href="{ROOT}?section=readingposting&amp;t=help_index&amp;{DEF: _rsid}#sml" target="_blank"><b>Smaidiòi</b> - <b>ieslçgti</b></a>
+post_opt_html_off:		<b>HTML</b>  - <b>izslçgts</b>
+post_opt_fud_off:		<b>FUDcode</b> - <b>izslçgts</b>
+post_opt_images_off:		<b>Nozîmîtes</b> - <b>izslçgtas</b>
+post_opt_smilies_off:		<b>Smaidiòi</b> - <b>izslçgti</b>
+post_opt:			Foruma parametri
+register_change_passwd:		nomainît paroli
+install_script_present_error:	Droðîbas apsvçrumu dçï, pirms sâkt lietot forumu, Jums nepiecieðams dzçst instalâcijas skriptu. <b>{GVAR: WWW_ROOT_DISK}install.php</b>Vçlam veiksmi!!!.
+approved_avatar_title:		Jûsu nozîmîte apstiprinâta.
+approved_avatar_msg:		Jûsu nozîmîte ir apstiprinâta un tai jâbût redzamai. Iespçjams Jûsu Web pârlûks attçlo novecojuðu lapas saturu no keðatmiòas, tâdçï atjaunojiet to.
+unapproved_avatar_title:	Jûsu nozîmîte nav apstiprinâta.
+unapproved_avatar_msg:		Administrators neapstiprinâja Jûsu nozîmîti. Iespçjams ka tâ bija pârâk liela izmçra. Lai saòemtu papildiformâciju sakarâ ar ðâdu lçmumu sazinieties ar Foruma Administratoru.
+mvthread_request_move:		Pieprasît pârvietoðanu
+move_request_reason:		Kâdçï Jûs vçlaties pârvietot tçmu?
+mvthread_submit_req:		Nosûtît pieprasîjumu
+thread_exchange:		Tçmas pârvietoðana
+move_request_by:		Tçmas pârvietoðanu pieprasîja:
+move_reason:			Pârvietoðanas iemesls:
+thr_exch_accept:		apstiprinât
+thr_exch_decline:		noraidît
+thr_exch_orig_forum:		Izejoðais forums:
+thr_exch_dest_forum:		Forums pârvietoðanai:
+thr_exch_no_threads:		Nav tçmu uz apstiprinâðanu.
+thr_exch_decl_reason:		Tçmas <b>{VAR: thr_name}</b> pârvietoðanas uz <b>{VAR-HTML: frm->name}</b>forumu iemesls
+thr_exch_submit:		Turpinât
+exch_decline_ttl:		Tçmas {VAR: thr_name} pârvietoðana uz {VAR-HTML: frm->name} forumu noraidîta.
+ppost_original_msg:		publicçjums kuru pârsûtat vai uz kuru atbildat
+split_thread:			Sadalît tçmu
+groupmgr_no_user:		Lietotâjs "{VAR-HTML: gr_member}" neeksistç
+groupmgr_already_exists:	Lietotâjs "{VAR-HTML: gr_member}" jau ir piederîgs ðai grupai.
+groupmgr_yes:			Jâ
+groupmgr_no:			Nç
+groupmgr_inherit:		Pârmantot
+groupmgr_action:		Darbîba
+groupmgr_member:		Lietotâji
+groupmgr_cancel:		Atcelt
+groupmgr_add_member:		Pievienot lietotâju
+groupmgr_update_member:		Veikt izmaiòas lietotâja ID
+groupmgr_edit:			Labot
+groupmgr_delete:		Dzçst
+group_mgr_anon:			Anonîmie
+group_mgr_reged:		Reìistrçtie
+show_show:			Râdît:
+group_mgr:			Grupas menedþeris
+group_mgr_edit_btn:		Labot grupu
+group_mgr_heading:		Izvçlçties grupu laboðanai
+group_mgr_group:		Grupa:
+permission_denied_title:	Piekïuve noraidîta!
+permission_denied_msg:		Jums nav tiesîbu veikt pieprasîtâs operâcijas.
+p_READ:				Lasît
+p_POST:				Rakstît
+p_REPLY:			Atbilde
+p_EDIT:				Labot
+p_DEL:				Dzçst
+p_STICKY:			Stycky
+p_POLL:				Izveidot<br>balsojumu
+p_FILE:				Failu<br>ievietoðana
+p_VOTE:				Balsot
+p_RATE:				Tçmu<br>novçrtçjums
+p_SPLIT:			Tçmu<br>sadalîðana
+p_LOCK:				Tçmu<br>slçgðana
+p_MOVE:				Tçmu<br>pârvietoðana
+p_SML:				Smaidiòi
+p_IMG:				Nozîmîðu<br>tegi
+group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Lietotâja meklçðana</a>
+group_mgr_indicator:		Grupa laboðanai: <b>{VAR: grp->name}</b>
+rate_worst:			Tâ pat vien
+rate_best:			Labâkâ
+post_quote_msg:			{VAR: msg->login} rakstîja {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+post_quote:			Citâts:
+userinfo_referals:		Uzaicinâjums:
+userinfo_referals_count:	{VAR: referals} lietotâju
+pm_no_space_title:		Nepietiek brîvas vietas!
+pm_no_space_msg:		Jûsu privâtâs informâcijas mapju apjoms <b>{VAR: fldr_size} bytes pârsniedz pieïaujamo <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes apjomu.<br><br><font class="ErrorText">Izdzçsiet lieko informâciju!!!</font>.
+pm_space_indct_msg:		Jûsu privâtâs informâcijas mapes aizòem {VAR: percent_full}% no atïautâ apjoma.
+th_expr_never:			Nekad
+th_expr_one_hr:			1 stunda
+th_expr_two_hr:			2 stundas
+th_expr_three_hr:		3 stundas
+th_expr_four_hr:		4 stundas
+th_expr_eight_hr:		8 stundas
+th_expr_sixteen_hr:		16 stundas
+th_expr_one_day:		1 dienu
+th_expr_two_day:		2 dienas
+th_expr_four_day:		4 dienas
+th_expr_one_week:		1 nedçïu
+th_expr_two_week:		2 nedçïas
+th_expr_one_month:		1 mçnesi
+th_expr_two_month:		2 mçneðus
+th_expr_four_month:		4 mçneðus
+th_expr_one_year:		1 gadu
+thread_mod_delete:		Dzçst
+action_latest_post:		Pçdçjâ publikâcija
+online_today_last_visit:	Pçdçjais apmeklçjums
+online_today_update:		Ðodienas apmeklçtâju saraksts.
+logedin_todays_visitors:	Ðodienas apmeklçtâji
+logedin_latest_post:		Pçdçjâs publikâcijas forumâ: 
+register_show_avatar:		Râdît nozîmîtes:
+register_show_avatar_desc:	Râdît lietotâju nozîmîtes apskatot viòu publikâcijas
+drawmsg_view_rest_post:		Râdît pârçjo
+post_re:			Re: 
+forumsel_goto_forum:		Pâriet uz forumu:
+minimsg_thread_view:		Tçmas apskats
+split_th_post_by:		Sûtîtâjs
+split_th_posted_on:		Nosûtîts:
+split_th_subject:		Tçma:
+split_th_new_thread_title:	Jaunâs tçmas nosaukums:
+split_th_forum:			Forums:
+split_th_split_sel:		Sadalît iezîmçtâs publikâcijas
+split_th_split_unsel:		Sadalît neiezîmçtâs publikâcijas
+split_th_messages:		Publikâcijas
+split_th_select:		Izvçle
+report_report_post:		Paziòojumi
+quicklogin_login:		Vârds
+quicklogin_password:		Parole
+quicklogin_use_cookies:		Izmantot Cookies?
+quicklogin_login_btn:		Ieiet
+post_notification_desc:		Paziòot man par ienâkoðajâm atbildçm uz publikâciju.
+post_proc_all_ext_allowed:	(Bez ierobeþojuma)
+maximize_category:		Izplest kategoriju
+no_view_perm:			Jums nav piekïuves tiesîbu ðai tçmai.
+report_empty_report:		Tukðumu nav vçrts un arî nevar nosûtît.
+report_already_reported_title:	Paziòojums nosûtîts
+report_already_reported_msg:	Materiâls jau ir rindâ uz akceptçðanu publicçðanai.
+register_err_toomanyimages:	Pârâk daudz nozîmîmîsu. Samaziniet to skaitu: {GVAR: FORUM_IMG_CNT_SIG}.
+pmsg_next_msg:			Nâkoðâ publikâcija
+pmsg_prev_msg:			Iepriekðçjâ publikâcija
+post_proc_reveal_spoiler:	Norâdiet traucçkïus
+register_jabber:		Tîkla Jabber pseidonîms:
+im_jabber:			Jabber: 
+forum_contact:			Webmaster
+forum_home:			Sâkums
+post_cur_attached:		{VAR: attach_count} pievienotie faili
+ppost_cur_attached:		{VAR: attach_count} pievienotie faili
+ignored_anon_post:		{VAR: user_login} ignorçts
+ignored_user_post:		Ziòojums no <a href="{ROOT}?t=usrinfo&amp;{DEF: _rsid}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: user_login}</a> ignorçts
+smladd_close_window:		aizvçrt logu
+post_list_smilies:		râdît visus smaidiòus
+p_VISIBLE:			Redzams
+reported_in_thread:		No Tçmas
+help_back_to_top:		atgriezt uz augðu
+help_return_to_index:		Atgriezties uz galveno HELP lapu
+forumsel_unread:		*(NAV LASÎTS)
+groupmgr_no_groups:		Nav grupas ko labot
+msg_err_nosuchmsg_msg:		Norâdîtajâ tçmâ ðadas publikâcijas nav
+msg_err_nosuchmsg_title:	Kïûda
+imsg_err_message_title:		Nepieïaujama publikâcija
+imsg_err_message_msg:		Jûsu izvçlçtâs publikâcijas nav.
+poll_edit: 			Labot
+register_err_not_valid_img:	Norâdîtajâ URL nozîmîtes nav
+pmsg_recepient:			Saòçmçjs
+register_err_taken_alias:	Pseidonîms kuru vçlaties izmantot ir aizòemts, nomainiet to.
+register_alias:			Pseidonîms
+register_alias_desc:		Ja jûs, atrodoties sistçmâ, sava nika vietâ vçlaties izmantot pseidonîmu, tad ierakstiet to ðeit.
+register_allow_pm_msg:		Atïaut privâtos ziòojumus
+register_allow_pm_msg_desc:	Atïaut citiem lietotâjiem privâto ziòojumu nosûtîðanu Jums.
+postcheck_pm_disabled:		Jûs nevarat nosûtît privâto paziòojumu "{VAR-HTML: v}", jo ðis dalîbnieks to ir aizliedzis.
+polllist_vote:			Balsot
+polllist_view_results:		Rezultâti
+polllist_name:			Balsoðanas tçma
+polllist_date:			Izveidots
+polllist_owner:			Autors
+polllist_votes:			Balsis kopâ
+polllist_action:		Darbîbas
+polllist_update:		<a href="{ROOT}?t=polllist">Pieejamo balsojumu saraksts</a>
+userinfo_polls:			Balsojumi:
+show_pollist:			Parâdît balsojumus
+search_and:			AND
+search_or:			OR
+search_desc_order:		Dilstoði
+search_asc_order:		Augoði
+search_logic:			Loìiskie argumenti:
+search_sorting:			Pçc datuma:
+post_proceed:			Turpinât
+post_moderated_forum:		Publikâcija nosûtîta modçrçjamajai tçmai, lîdz ar to tâ tiks publicçta tikai pçc moderâtora akcepta.
+post_moderated_forum_ttl:	Moderçjamais forums
+buddy_list_bday:		Ðodien {VAR: obj->login} izpildç {VAR: age}
+email_warning_msg:		Jûsu E-pasta adreses izmaiòas gadîjumâ Jûsu konta reìistrâcija tiks uzrâdîta kâ neapstiprinâta. Apstiprinâðana notiks tikai pçc reìistrâcijas akcepta no Jûsu jaunâs E-pasta adreses.
+register_show_im:		Uzrâdît tîkla On-Line indikâtorus
+register_show_im_desc:		Uzrâdît publikâcijâs autora On_Line indikâtorus ICQ, AIM u.c. tîklos.
+unread_message:			Publikâcija lasîta
+read_message:			Publikâcija nav lasîta
+threadt_more:			&lt;tâlâk&gt;
+threadt_disabled_ttl:		Publikâciju hierarhijas koka pârlûks ieslçgts.
+threadt_disabled_desc:		Publikâciju hierarhijas koka pârlûks izslçgts. Izmantojiet izplâto pârlûku.
+threadt_update:			Koka pârlûks <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+register_msg_tree_view:		Izplâti forumi/Tçmas koka skatâ
+register_tree_msg_view:		Koka skata forumi/Izplâtas tçmas
+mmod_delete_cofirm_ttl:		Tçmas/Publikâcijas dzçðanas apstiprinâjums
+err_inc_query_err:		Kïûda izpildot SQL-pieprasîjumu, lûdzu paziòojiet <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">Administratoram</a> lai tiktu pârskatîts SQL-pieprasîjumu protokols
+spell_alts:			variantu nav
+back_to_top:			Back to Top
+insert_uploaded_image:		Insert image into message body
+finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
+pm_err_disabled_title:		Privâtâ sarakste atslçgta
+pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
