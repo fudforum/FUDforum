@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.35 2004/02/01 23:05:41 hackie Exp $
+* $Id: rdf.php.t,v 1.36 2004/02/18 18:55:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,6 +61,8 @@ function multi_id($data)
 if (function_exists('utf8_encode')) {
 	function fud_xml_encode($str)
 	{
+		// old quote tag hack
+		$str = str_replace('<br>', '<br />', $str);
 		return utf8_encode(str_replace('&nbsp;', ' ', $str));
 	}
 } else {
