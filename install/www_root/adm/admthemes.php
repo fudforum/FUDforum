@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.33 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admthemes.php,v 1.34 2003/09/30 04:02:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,7 +116,7 @@ function clean_code($path, $toks)
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
 
-	if (isset($_POST['newname']) && !q_singleval('SELECT id FROM '.$tbl.'themes WHERE name=\''.addslashes($_POST['newname']).'\'')) {
+	if (isset($_POST['newname']) && !q_singleval("SELECT id FROM ".$tbl."themes WHERE name='".addslashes($_POST['newname'])."'")) {
 		$root = $DATA_DIR . 'thm/';
 		$root_nn = $root . preg_replace('![^A-Za-z0-9_]!', '_', $_POST['newname']);
 		$u = umask(0);

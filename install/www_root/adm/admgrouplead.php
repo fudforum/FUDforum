@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgrouplead.php,v 1.15 2003/07/24 19:21:53 hackie Exp $
+*   $Id: admgrouplead.php,v 1.16 2003/09/30 04:02:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -37,7 +37,7 @@
 	} else if ($gr_leader) {
 		$srch = addslashes(str_replace('\\', '\\\\', htmlspecialchars($gr_leader)));
 
-		$c = q('SELECT id, alias FROM '.$tbl.'users WHERE alias=\''.$srch.'\'');
+		$c = q("SELECT id, alias FROM ".$tbl."users WHERE alias='".$srch."'");
 		if (!db_count($c)) {
 			qf($c);
 			$c = q('SELECT id, alias FROM '.$tbl.'users WHERE alias LIKE \''.$srch.'%\' LIMIT 50');

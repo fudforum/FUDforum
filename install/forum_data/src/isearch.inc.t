@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: isearch.inc.t,v 1.17 2003/05/26 06:49:51 hackie Exp $
+*   $Id: isearch.inc.t,v 1.18 2003/09/30 04:02:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,8 +63,8 @@ function index_text($subj, $body, $msg_id)
 	
 	/* subject + body index */
 	foreach ($w2 as $v) {
-		if (!($wid = q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word=\''.($v = addslashes($v)).'\''))) {
-			$wid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES(\''.$v.'\')');
+		if (!($wid = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}search WHERE word='".($v = addslashes($v))."'"))) {
+			$wid = db_qid("INSERT INTO {SQL_TABLE_PREFIX}search (word) VALUES('".$v."')");
 		}
 		$w2d[] = $wid;
 		if (isset($w1[$v])) {

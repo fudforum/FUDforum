@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.36 2003/09/30 03:57:50 hackie Exp $
+*   $Id: login.php.t,v 1.37 2003/09/30 04:02:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -123,7 +123,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		if (!($usr_d = db_sab('SELECT id, passwd, login, email FROM {SQL_TABLE_PREFIX}users WHERE login=\''.addslashes($_POST['login']).'\''))) {
+		if (!($usr_d = db_sab("SELECT id, passwd, login, email FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($_POST['login'])."'"))) {
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');
 		} else if ($usr_d->passwd != md5($_POST['password'])) {
 			if ($usr_d->is_mod == 'A') {
