@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.7 2002/08/28 20:30:25 hackie Exp $
+*   $Id: err.inc.t,v 1.8 2002/08/28 20:32:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -84,6 +84,8 @@ function invl_inp_err()
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
 	if( db_locked() ) db_unlock();
+
+	if( empty($HTTP_SERVER_VARS['PATH_TRANSLATED']) ) $HTTP_SERVER_VARS['PATH_TRANSLATED'] = $GLOBALS['HTTP_SERVER_VARS']['argv'][0];
 	
 	$error_msg = "(".basename($HTTP_SERVER_VARS['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
 	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
