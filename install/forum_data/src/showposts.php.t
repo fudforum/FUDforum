@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.13 2003/09/27 15:49:31 hackie Exp $
+*   $Id: showposts.php.t,v 1.14 2003/09/27 15:56:33 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@
 		$start = 0;
 	}
 	
-	if ($usr->is_mod != 'A') {
+	if (!($usr->users_opt & 1048576)) {
 		$fids = implode(',', get_all_read_perms(_uid, ($usr->users_opt & 524288)));
 	}
 
@@ -47,10 +47,10 @@
 		$SORT_ORDER = 'DESC';
 		$SORT_ORDER_R = 'ASC';
 	}
-	
+
 	$post_entry = '';
-	if ($usr->is_mod == 'A' || $fids) {
-		$qry_limit = $usr->is_mod != 'A' ? 'f.id IN ('.$fids.') AND ' : '';
+	if ($usr->users_opt & 1048576 || $fids) {
+		$qry_limit = $usr->users_opt & 1048576 ? '' : 'f.id IN ('.$fids.') AND ';
 	
 		/* we need the total for the pager & we don't trust the user to pass it via GET or POST */
 		$total = q_singleval("SELECT count(*) 
@@ -60,9 +60,7 @@
 					INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
 					WHERE ".$qry_limit." m.apr=1 AND m.poster_id=".$uid);
 		
-		$c = uq("SELECT 
-				f.name, f.id, 
-				m.subject, m.id, m.post_stamp 
+		$c = uq("SELECT f.name, f.id, m.subject, m.id, m.post_stamp 
 			FROM {SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
