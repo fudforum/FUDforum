@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.33 2003/12/08 15:27:43 hackie Exp $
+* $Id: admimport.php,v 1.34 2003/12/22 22:57:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -229,7 +229,7 @@ function resolve_dest_path($path)
 	}
 ?>
 <h2>Import forum data</h2>
-<div class="alert">Please note that import process will REMOVE ALL current forum data and replace it with the one from the file you enter.</div>
+<div class="alert">Please note that import process will REMOVE ALL current forum data (all tables with <?php echo $DBHOST_TBL_PREFIX; ?> prefix) and replace it with the one from the file you enter.</div>
 <form method="post" action="admimport.php">
 <table class="datatable solidtable">
 <?php echo _hs; ?>
