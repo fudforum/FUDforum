@@ -668,7 +668,7 @@ email_title:			Email
 finduser_title:			Trova utenti
 help_title:			F.A.Q.
 login_title:			Pagina di login
-msg_title:			{VAR: frm->name} => {VAR: frm->subject}
+msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
 poll_title:			Editor di sondaggi
 register_title:			Pagina di registrazione
 reset_title:			Resetta password
