@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.53 2003/06/02 18:43:24 hackie Exp $
+*   $Id: users.inc.t,v 1.54 2003/06/02 18:57:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -181,6 +181,9 @@ function init_user()
 					$_GET['id'] = $p[1];
 					if (isset($p[2])) {
 						$_GET['so'] = $p[2];
+						if (isset($p[3])) {
+							$_GET['start'] = $p[3];
+						}
 					}
 					break;
 
@@ -541,7 +544,7 @@ function init_user()
 					$c = (count($p) - 1) / 2;
 					$j = 0;
 					for ($i = 0; $i < $c; $i++) {
-						$_GET[$p[++$j]] = $p[++$j];
+						@$_GET[$p[++$j]] = @$p[++$j];
 					} 
 					break;
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: showposts.php.t,v 1.10 2003/04/30 19:51:05 hackie Exp $
+*   $Id: showposts.php.t,v 1.11 2003/06/02 18:57:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,11 @@
 		}
 		qf($c);
 	
-		$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='.$uid.'&amp;start='.$start.'&amp;'._rsid);
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}?t=showposts&amp;id='.$uid.'&amp;'._rsid);
+		} else {
+			$pager = tmpl_create_pager($start, $THREADS_PER_PAGE, $total, '{ROOT}/sp/'.$uid.'//', '/'._rsid);
+		}
 	}
 
 /*{POST_PAGE_PHP_CODE}*/

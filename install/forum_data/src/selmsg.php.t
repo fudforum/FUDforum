@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.30 2003/06/02 15:26:29 hackie Exp $
+*   $Id: selmsg.php.t,v 1.31 2003/06/02 18:57:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -231,12 +231,28 @@ function path_info_lnk($var, $val)
 
 	if (!$unread_limit && $total > $count) {
 		if (!isset($_GET['mr'])) {
-			$_SERVER['QUERY_STRING'] .= '&mr=1';
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				$_SERVER['QUERY_STRING'] .= '&mr=1';
+			} else {
+				$_SERVER['QUERY_STRING'] = str_replace(_rsid, '', $_SERVER['QUERY_STRING']) . 'mr/1/' . _rsid;
+			}
 		}
-		$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
+		if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}?' . str_replace('&start='.$start, '', $_SERVER['QUERY_STRING']));
+		} else {
+			$p = str_replace(_rsid, '', $_SERVER['QUERY_STRING']);
+			if (strpos('start/', $p) !== FALSE) {
+				$p = preg_replace('!start/[0-9]+/!', '', $p);
+			}
+			$pager = tmpl_create_pager($start, $count, $total, '{ROOT}' . $p . 'start/', '/' . _rsid);
+		}
 	} else if ($unread_limit) {
 		if (!isset($_GET['mark_page_read'])) {
-			$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
+			if ($GLOBALS['USE_PATH_INFO'] == 'N') {
+				$_SERVER['QUERY_STRING'] .= '&amp;mark_page_read=1&amp;mr=1';
+			} else {
+				$_SERVER['QUERY_STRING'] = str_replace(_rsid, '', $_SERVER['QUERY_STRING']) . 'make_page_read/1/mr/1/' . _rsid;
+			}
 		}
 		$pager = '{TEMPLATE: more_unread_messages}';
 	} else {
