@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlog.php,v 1.29 2005/02/23 02:02:58 hackie Exp $
+* $Id: admlog.php,v 1.30 2005/02/23 05:11:32 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -129,6 +129,9 @@ function return_forum_name($id)
 				break;
 			case "ADM_SET_PASSWD":
 				echo '<td>Admin Changed Password</td><td>for user: '.$obj->logaction.'</td>';
+				break;
+			case "CHANGE_PASSWD":
+				echo '<td>User Changed Own Password</td><td>ip address: '.$obj->logaction.'</td>';
 				break;
 			default:
 				echo '<td colspan=2>Unknown</td>';
