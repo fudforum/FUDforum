@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.69 2004/11/01 19:27:07 hackie Exp $
+* $Id: compiler.inc,v 1.70 2004/11/01 20:12:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -224,6 +224,10 @@ function resolve_sections($str)
 		
 			case 'END':
 				$ret .= "' ) .'";
+				break;
+
+			case 'ENDI':
+				$ret .= "' )  .'";
 				break;
 
 			case 'ENDIF':

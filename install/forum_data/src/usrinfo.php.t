@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: usrinfo.php.t,v 1.43 2004/10/16 19:10:14 hackie Exp $
+* $Id: usrinfo.php.t,v 1.44 2004/11/01 20:12:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -51,18 +51,12 @@ function convert_bdate($val, $month_fmt)
 		header("Last-Modified: " .  gmdate("D, d M Y H:i:s", $u->last_visit) . " GMT");
 	}
 
-	$avatar = ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && !($u->level_opt & 2)) ? '{TEMPLATE: avatar}' : '';
-
-	if ($avatar && $u->level_opt & 1) {
+	if ($FUD_OPT_1 & 28 && $u->users_opt & 8388608 && $u->level_opt & (2|1) == 1) {
 		$level_name = $level_image = '';
 	} else {
 		$level_name = $u->level_name ? '{TEMPLATE: level_name}' : '';
 		$level_image = $u->level_img ? '{TEMPLATE: level_image}' : '';
 	}
-
-	$custom_tags = $u->custom_status ? '{TEMPLATE: custom_tags}' : '{TEMPLATE: no_custom_tags}';
-
-	$last_visit = $u->last_visit && !($u->users_opt & 32768) ? '{TEMPLATE: last_visit}' : '';
 
 	if (!($usr->users_opt & 1048576)) {
 		$frm_perms = get_all_read_perms(_uid, ($usr->users_opt & 524288));
@@ -88,8 +82,6 @@ function convert_bdate($val, $month_fmt)
 
 	ses_update_status($usr->sid, '{TEMPLATE: userinfo_update}');
 
-	$status = ($level_name || $moderation || $level_image || $custom_tags) ? '{TEMPLATE: status}' : '';
-
 	$avg = round($u->posted_msg_count / ((__request_timestamp__ - $u->join_date) / 86400), 2);
 	if ($avg > $u->posted_msg_count) {
 		$avg = $u->posted_msg_count;
@@ -102,9 +94,6 @@ function convert_bdate($val, $month_fmt)
 			$last_post = '{TEMPLATE: last_post}';
 		}
 	}
-
-	$user_image = ($FUD_OPT_2 & 65536 && $u->user_image && strpos($u->user_image, '://')) ? '{TEMPLATE: user_image}' : '';
-
 
 	if ($u->users_opt & 1) {
 		$email_link = '{TEMPLATE: email_link}';
@@ -132,11 +121,6 @@ function convert_bdate($val, $month_fmt)
 		$polls = '';
 	}
 
-	/* we only display the user's real name unless they choose the invisible mode */
-	$real_name = $u->users_opt & 32768 ? '' : '{TEMPLATE: usr_real_name}';
-
-	$usrinfo_private_msg = ($FUD_OPT_1 & 1024 && _uid) ? '{TEMPLATE: usrinfo_private_msg}' : '';
-
 	if ($u->users_opt & 1024) {
 		$gender = '{TEMPLATE: male}';
 	} else if (!($u->users_opt & 512)) {
@@ -145,26 +129,12 @@ function convert_bdate($val, $month_fmt)
 		$gender = '';
 	}
 
-	$location	= $u->location ? '{TEMPLATE: location}' : '';
-	$occupation	= $u->occupation ? '{TEMPLATE: occupation}' : '';
-	$interests	= $u->interests ? '{TEMPLATE: interests}' : '';
-	$bio		= $u->bio ? '{TEMPLATE: bio}' : '';
-	$home_page	= $u->home_page ? '{TEMPLATE: home_page}' : '';
-	$im_icq		= $u->icq ? '{TEMPLATE: im_icq}' : '';
-	$im_jabber	= $u->jabber ? '{TEMPLATE: im_jabber}' : '';
-	$im_aim		= $u->aim ? '{TEMPLATE: im_aim}' : '';
-	$im_yahoo	= $u->yahoo ? '{TEMPLATE: im_yahoo}' : '';
-	$im_msnm	= $u->msnm ? '{TEMPLATE: im_msnm}' : '';
-
 	if ($u->bday) {
 		$bday = convert_bdate($u->bday, '%B');
 		$birth_date = '{TEMPLATE: birth_date}';
 	} else {
 		$birth_date = '';
 	}
-
-	$im_affero = ($FUD_OPT_2 & 2048 && $u->affero) ? '{TEMPLATE: usrinfo_affero}' : '';
-
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: USERINFO_PAGE}
