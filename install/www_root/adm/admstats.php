@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.28 2004/10/14 15:01:50 hackie Exp $
+* $Id: admstats.php,v 1.29 2004/10/15 01:24:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -120,7 +120,7 @@ function get_sql_disk_usage()
 		$g_title .= ' from <b>'.date('F d, Y', $start_tm).'</b> to <b>'.date('F d, Y', $end_tm).'</b>';
 
 		while ($r = db_rowarr($c)) {
-			$ds = date($fmt, $r[0]);
+			$ds = (int) date($fmt, $r[0]);
 			if (!isset($day_list[$ds])) {
 				$day_list[$ds] = 1;
 				if ($_POST['sep'] == 'hour') {
@@ -135,6 +135,8 @@ function get_sql_disk_usage()
 				$day_list[$ds]++;
 			}
 		}
+
+		ksort($day_list, SORT_NUMERIC);
 
 		$max_value = max($day_list);
 
