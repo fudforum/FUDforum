@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_forum.tbl,v 1.2 2002/06/26 22:54:43 hackie Exp $
+#   $Id: fud_forum.tbl,v 1.3 2002/06/26 23:35:05 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -16,11 +16,11 @@ CREATE TABLE {SQL_TABLE_PREFIX}forum
 	name			VARCHAR(100) NOT NULL,
 	descr			TEXT,
 	
-	passwd_posting		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	passwd_posting		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		passwd_posting_cnt CHECK (passwd_posting='Y' OR passwd_posting='N'),
 	post_passwd		VARCHAR(32),
 	
-	anon_forum		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	anon_forum		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		anon_forum_cnt CHECK (anon_forum='Y' OR anon_forum='N'),
 	forum_icon		VARCHAR(255),
 	tag_style		VARCHAR(4) NOT NULL DEFAULT 'ML',
@@ -33,7 +33,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}forum
 	last_post_id		INT NOT NULL DEFAULT 0,
 	
 	view_order		INT NOT NULL,
-	moderated		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	moderated		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		moderated_cnt CHECK (moderated='Y' OR moderated='N'),
 	max_attach_size		INT NOT NULL DEFAULT 0,
 	max_file_attachments 	INT NOT NULL DEFAULT 1,

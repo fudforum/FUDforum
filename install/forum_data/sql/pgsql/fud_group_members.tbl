@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_members.tbl,v 1.2 2002/06/26 22:54:43 hackie Exp $
+#   $Id: fud_group_members.tbl,v 1.3 2002/06/26 23:35:05 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -14,42 +14,42 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_members
 	id		SERIAL PRIMARY KEY,
 	user_id		INT NOT NULL,
 	group_id	INT NOT NULL,
-	group_leader	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	group_leader	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	group_leader_cnt CHECK (group_leader='Y' OR group_leader='N'),
 	approved	VARCHAR(1) NOT NULL DEFAULT 'Y',
 	CONSTRAINT	approved_cnt CHECK (approved='Y' OR approved='N'),
 	
-	up_VISIBLE	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_VISIBLE	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_VISIBLE_cnt CHECK (up_VISIBLE='Y' OR up_VISIBLE='N'),
-	up_READ		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_READ		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_READ_cnt CHECK (up_READ='Y' OR up_READ='N'),
-	up_POST		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_POST		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_POST_cnt CHECK (up_POST='Y' OR up_POST='N'),
-	up_REPLY	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_REPLY	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_REPLY_cnt CHECK (up_REPLY='Y' OR up_REPLY='N'),
-	up_EDIT		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_EDIT		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_EDIT_cnt CHECK (up_EDIT='Y' OR up_EDIT='N'),
-	up_DEL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_DEL		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_DEL_cnt CHECK (up_DEL='Y' OR up_DEL='N'),
-	up_STICKY	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_STICKY	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_STICKY_cnt CHECK (up_STICKY='Y' OR up_STICKY='N'),
-	up_POLL		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_POLL		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_POLL_cnt CHECK (up_POLL='Y' OR up_POLL='N'),
-	up_FILE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_FILE		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_FILE_cnt CHECK (up_FILE='Y' OR up_FILE='N'),
-	up_VOTE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_VOTE		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_VOTE_cnt CHECK (up_VOTE='Y' OR up_VOTE='N'),
-	up_RATE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_RATE		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_RATE_cnt CHECK (up_RATE='Y' OR up_RATE='N'),
-	up_SPLIT	VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_SPLIT	VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_SPLIT_cnt CHECK (up_SPLIT='Y' OR up_SPLIT='N'),
-	up_LOCK		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_LOCK		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_LOCK_cnt CHECK (up_LOCK='Y' OR up_LOCK='N'),
-	up_MOVE		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_MOVE		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_MOVE_cnt CHECK (up_MOVE='Y' OR up_MOVE='N'),
-	up_SML		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_SML		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_SML_cnt CHECK (up_SML='Y' OR up_SML='N'),
-	up_IMG		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	up_IMG		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT	up_IMG_cnt CHECK (up_IMG='Y' OR up_IMG='N')
 );
 

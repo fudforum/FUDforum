@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.2 2002/06/26 22:54:43 hackie Exp $
+#   $Id: fud_users.tbl,v 1.3 2002/06/26 23:35:05 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	CONSTRAINT		notify_cnt CHECK (notify='Y' OR notify='N'),
 	notify_method		VARCHAR(5) NOT NULL DEFAULT 'EMAIL',
 	CONSTRAINT		notify_method_cnt CHECK (notify_method='EMAIL' OR notify_method='ICQ'),
-	ignore_admin		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	ignore_admin		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		ignore_admin_cnt CHECK (ignore_admin='Y' OR ignore_admin='N'),
 	email_messages		VARCHAR(1) NOT NULL DEFAULT 'Y',
 	CONSTRAINT		email_messages_cnt CHECK (email_messages='Y' OR email_messages='N'),
@@ -56,11 +56,11 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	bday			INT NOT NULL DEFAULT 0,
 	join_date		INT8 NOT NULL DEFAULT 0,
 	
-	invisible_mode		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	invisible_mode		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		invisible_mode_cnt CHECK (invisible_mode='Y' OR invisible_mode='N'),
-	blocked			VARCHAR(1) NOT NULL DEFAULT 'Y',
+	blocked			VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		blocked_cnt CHECK (blocked='Y' OR blocked='N'),
-	email_conf		VARCHAR(1) NOT NULL DEFAULT 'Y',
+	email_conf		VARCHAR(1) NOT NULL DEFAULT 'N',
 	CONSTRAINT		email_conf_cnt CHECK (email_conf='Y' OR email_conf='N'),
 	conf_key		VARCHAR(32) NOT NULL DEFAULT '0',
 	user_image		VARCHAR(255),
