@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: postcheck.inc.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: postcheck.inc.t,v 1.7 2002/10/24 23:47:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -97,7 +97,7 @@ function check_ppost_form()
 					set_err('msg_to_list', '{TEMPLATE: postcheck_ignored}');
 					break;
 				}
-				else if( $obj->pm_messages == 'N' ) {
+				else if( $obj->pm_messages == 'N' && $GLOBALS['usr']->is_mod != 'A') {
 					set_err('msg_to_list', '{TEMPLATE: postcheck_pm_disabled}');
 					break;
 				}
