@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_adm.inc,v 1.13 2004/05/20 22:39:02 hackie Exp $
+* $Id: users_adm.inc,v 1.14 2004/05/30 17:30:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,7 +47,7 @@ function usr_delete($id)
 	while ($r = db_rowarr($c)) {
 		pmsg_del($r[0], 5);
 	}
-	q('UPDATE '.$tbl.'pmsg SET ouser_id=0, read_stamp=post_stamp WHERE ouser_id='.implode(',', $id));
+	q('UPDATE '.$tbl.'pmsg SET ouser_id=0, read_stamp=post_stamp WHERE ouser_id IN('.implode(',', $id).')');
 	q('DELETE FROM '.$tbl.'users WHERE id IN('.implode(',', $id).')');
 
 	if (isset($ll)) {
