@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.20 2003/10/03 18:18:46 hackie Exp $
+*   $Id: admforum.php,v 1.21 2003/10/04 00:34:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,6 +34,7 @@ function get_max_upload_size()
 
 	fud_use('adm.inc', true);
 	fud_use('forum_adm.inc', true);
+	fud_use('cat.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('logaction.inc');
 
@@ -60,6 +61,7 @@ function get_max_upload_size()
 			fud_use('groups.inc');
 			$frm->cat_id = $cat_id;
 			$frm->add($_POST['frm_pos']);
+			rebuild_forum_cat_order();
 			logaction(_uid, 'ADDFORUM', $frm->id);
 		} else {
 			$frm->sync($edit, $cat_id);
@@ -87,13 +89,16 @@ function get_max_upload_size()
 
 	if (isset($_GET['chpos'], $_GET['newpos'])) {
 		frm_change_pos((int)$_GET['chpos'], (int)$_GET['newpos'], $cat_id);
+		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
 	} else if (isset($_GET['del'])) {
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
+			rebuild_forum_cat_order();
 			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']));
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
+			rebuild_forum_cat_order();
 			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
 			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
 		}
@@ -105,6 +110,7 @@ function get_max_upload_size()
 			while ($o = db_rowarr($r)) {
 				q("UPDATE {$tbl}forum SET view_order=".++$i." WHERE id={$o[0]}");
 			}
+			rebuild_forum_cat_order();
 		}
 	}
 

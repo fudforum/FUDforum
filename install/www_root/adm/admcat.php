@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.14 2003/10/03 18:18:46 hackie Exp $
+*   $Id: admcat.php,v 1.15 2003/10/04 00:34:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -38,6 +38,7 @@
 			$edit = '';
 		} else {
 			$cat->add($_POST['cat_pos']);
+			rebuild_forum_cat_order();
 		}
 	}
 	if ($edit && ($c = db_arr_assoc('SELECT name, description, cat_opt FROM '.$tbl.'cat WHERE id='.$edit))) {
@@ -64,11 +65,13 @@
 		if (db_affected()) {
 			q('UPDATE '.$tbl.'forum SET cat_id=0 WHERE cat_id='.$del);
 			cat_rebuild_order();
+			rebuild_forum_cat_order();
 		}
 		db_unlock();
 	}
 	if (isset($_GET['chpos'], $_GET['newpos'])) {
 		cat_change_pos((int)$_GET['chpos'], (int)$_GET['newpos']);
+		rebuild_forum_cat_order();
 		unset($_GET['chpos'], $_GET['newpos']);
 	}
 
