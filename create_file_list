@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: create_file_list,v 1.6 2003/05/07 18:39:16 hackie Exp $
+*   $Id: create_file_list,v 1.7 2003/05/07 18:43:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,7 +36,7 @@ function create_file_archive($dir, $pdir)
 	if (!($d = opendir($dir))) {
 		w_err('cannot access "'.$dir.'"');
 	}
-	readdir($dp); readdir($dp);
+	readdir($d); readdir($d);
 	$path = $dir . '/';
 	$dd = str_replace($pdir, '', $dir);
 	while ($f = readdir($d)) {
@@ -47,6 +47,9 @@ function create_file_archive($dir, $pdir)
 				$data .= '//' . $f . '//' . fileperms($ff) . '//' . $dd . '//' . md5($fdata) . '//' . strlen($fdata) . "//\n" . $fdata . "\n";
 				break;
 			case 'dir':
+				if ($f == 'CVS') {
+					continue;
+				}
 				$data .= '//' . $f . '//' . fileperms($ff) . '//' . $dd . "//\n";
 				$data .= create_file_archive($ff, $pdir);
 				break;
@@ -68,7 +71,7 @@ function w_err($msg, $exit=true)
 	}
 
 	if (!isset($_SERVER['argv'][1]) ) {
-		w_err("No Arguments\n\tSyntax: ./create_file_list directory_name");
+		w_err("No Arguments\n\tSyntax: ./create_file_list directory_name [use compression]");
 	} else if (!@is_dir($_SERVER['argv'][1])) {
 		w_err("Supplied Argument [".$_SERVER['argv'][1]."] is not a valid directory");
 	}
