@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: private.inc.t,v 1.32 2004/01/04 16:38:27 hackie Exp $
+* $Id: private.inc.t,v 1.33 2004/05/20 22:47:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -226,7 +226,7 @@ function pmsg_del($mid, $fldr=null)
 		q('DELETE FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$mid);
 		$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
 		while ($r = db_rowarr($c)) {
-			@unlink($GLOBALS[''] . $r[0] . '.atch');
+			@unlink($GLOBALS['FILE_STORE'] . $r[0] . '.atch');
 		}
 		q('DELETE FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$mid.' AND attach_opt=1');
 	}
