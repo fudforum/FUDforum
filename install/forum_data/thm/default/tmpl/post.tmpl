@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.49 2005/02/25 16:44:37 hackie Exp $
+* $Id: post.tmpl,v 1.50 2005/02/27 00:37:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,6 @@
 {SECTION: sel_opt_selected}
 {SECTION: END}
 
-
 {SECTION: reg_user_options various options for logged in registered users}
 <tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked{ENDIFI}></td><td class="GenText fb">{MSG: post_notification}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: post_notification_desc}</td></tr>
@@ -157,7 +156,6 @@
 <td>
 <table border=0 cellspacing=0 cellpadding=1>
 {IF: _uid}{TEMPLATE: reg_user_options}{ENDIF}
-{TEMPLATE-DATA: reg_user_options}
 {IF: $perms & 16384}{TEMPLATE: disable_smileys}{ENDIF}
 </table>
 </td></tr>
