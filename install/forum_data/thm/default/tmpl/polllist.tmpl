@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: polllist.tmpl,v 1.14 2004/01/12 21:09:46 hackie Exp $
+* $Id: polllist.tmpl,v 1.15 2004/04/22 16:03:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -20,10 +20,6 @@
 {REF: draw_pager.tmpl}
 {REF: stats.tmpl}
 
-{SECTION: vote_lnk}
-&nbsp;<b>::</b>&nbsp;<a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a>&nbsp;<b>::</b>&nbsp;
-{SECTION: END}
-
 {SECTION: polllist_online_indicator}
 <img src="{THEME_IMAGE_ROOT}/online.png" title="{MSG: user_online}" alt="{MSG: user_online}" />&nbsp;
 {SECTION: END}
@@ -34,16 +30,16 @@
 
 {SECTION: poll_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td width="100%">{VAR: obj->name}</td>
-	<td nowrap>{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
-	<td nowrap>{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
-	<td align="center" nowrap>{VAR: obj->total_votes}</td>
-	<td align="center" nowrap>{TEMPLATE-DATA: vote_lnk}{TEMPLATE-DATA: view_res_lnk}</td>
+	<td class="wa">{VAR: obj->name}</td>
+	<td class="nw">{DATE: obj->creation_date %a, %d %B %Y %H:%M}</td>
+	<td class="nw">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
+	<td class="nw ac">{VAR: obj->total_votes}</td>
+	<td class="nw ac"> <b>::</b> <a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a> {TEMPLATE-DATA: view_res_lnk} <b>::</b></td>
 </tr>
 {SECTION: END}
 
 {SECTION: poll_view_res_lnk}
-<a href="{TEMPLATE: poll_view_res_lnk_lnk}">{MSG: polllist_view_results}</a>&nbsp;<b>::</b>&nbsp;
+<b>::</b> <a href="{TEMPLATE: poll_view_res_lnk_lnk}">{MSG: polllist_view_results}</a>
 {SECTION: END}
 
 {SECTION: polllist_update}
@@ -74,12 +70,13 @@
 {SECTION: poll_no_polls}
 <tr><td colspan="5" align="center">{MSG: poll_no_polls}</td></tr>
 {SECTION: END}
+
 {SECTION: vote_lnk_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}
+{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: poll_view_res_lnk_lnk}
-{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;pl_view={VAR: obj->poid}&amp;{DEF: _rsid}
+{ROOT}?t=polllist&amp;goto={VAR: obj->id}&amp;vote=1&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: poll_entry_lnk}

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.122 2004/04/21 22:37:04 hackie Exp $
+* $Id: users.inc.t,v 1.123 2004/04/22 16:03:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -273,8 +273,10 @@ function init_user()
 
 			case 'pv':
 				$_GET['t'] = 0;
-				$_GET['goto'] = $p[1];
-				$_POST['pl_view'] = $p[2];
+				if (isset($p[1])) {
+					$_GET['goto'] = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE poll_id=".(int)$p[1]);
+					$_GET['pl_view'] = empty($p[2]) ? 0 : (int)$p[2];
+				}
 				break;
 
 			case 'rm': /* report message */
