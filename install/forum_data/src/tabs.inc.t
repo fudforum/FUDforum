@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tabs.inc.t,v 1.8 2003/04/02 01:46:35 hackie Exp $
+*   $Id: tabs.inc.t,v 1.9 2003/04/02 12:19:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,6 +15,7 @@
 *
 ***************************************************************************/
 
+$tabs = '';
 if (_uid) {
 	$tablist = array(
 '{TEMPLATE: tabs_register}'=>'register', 
@@ -31,8 +32,8 @@ if (_uid) {
 		$mod_id_chk = NULL;	
 	}
 
-	if ($mod_id_chk) {
-		if ($GLOBALS['PM_ENABLED']=='Y') {
+	if (!$mod_id_chk) {
+		if ($GLOBALS['PM_ENABLED'] == 'Y') {
 			$tablist['{TEMPLATE: tabs_private_messaging}'] = 'pmsg';
 		}
 		$pg = ($_GET['t'] == 'pmsg_view' || $_GET['t'] == 'ppost') ? 'pmsg' : $_GET['t'];
@@ -46,10 +47,6 @@ if (_uid) {
 		}
 	
 		$tabs = '{TEMPLATE: tablist}';
-	} else {
-		$tabs = '';
 	}
-} else {
-	$tabs = '';
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.15 2003/04/02 01:46:35 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.16 2003/04/02 12:19:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -131,7 +131,7 @@ class fud_user_reg extends fud_user
 				".ssn($this->user_image).",
 				".__request_timestamp__.",
 				".ssn($this->location).",
-				".iz($this->avatar).",
+				0,
 				".iz($this->theme).",
 				'".YN($this->coppa)."',
 				".ssn($this->occupation).",
@@ -141,7 +141,7 @@ class fud_user_reg extends fud_user
 				'".YN($this->show_avatars)."',
 				'".YN($this->show_im)."',
 				".__request_timestamp__.",
-				".ssn($this->avatar_loc).",
+				'',
 				'NO',
 				".ssn($this->sig).",
 				'".$this->default_view."',
@@ -180,6 +180,7 @@ class fud_user_reg extends fud_user
 		if ($this->notify_method != 'ICQ') {
 			$this->notify_method == 'EMAIL';
 		}
+		$this->avatar_approved = empty($this->avatar_loc) ? 'NO' : YN($this->avatar_approved);
 		
 		q("UPDATE {SQL_TABLE_PREFIX}users SET 
 			$passwd name='".addslashes($this->name)."',
@@ -213,7 +214,7 @@ class fud_user_reg extends fud_user
 			avatar=".iz($this->avatar).",
 			theme=".iz($this->theme).",
 			avatar_loc=".ssn($this->avatar_loc).",
-			avatar_approved='".YN($this->avatar_approved)."',
+			avatar_approved='".$this->avatar_approved."',
 			sig=".ssn($this->sig).",
 			default_view='".$this->default_view."',
 			home_page=".ssn($this->home_page).",
