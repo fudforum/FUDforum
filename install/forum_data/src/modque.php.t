@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.8 2002/07/08 23:15:19 hackie Exp $
+*   $Id: modque.php.t,v 1.9 2002/07/22 18:06:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -96,9 +96,7 @@
 		ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
 	INNER JOIN {SQL_TABLE_PREFIX}forum 
 		ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id 
-	INNER JOIN {SQL_TABLE_PREFIX}mod 
-		ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id 
-		".($usr->is_mod != 'A' ? "AND {SQL_TABLE_PREFIX}mod.user_id="._uid : '')."
+	".($usr->is_mod != 'A' ? "INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id="._uid : '')."
 	INNER JOIN {SQL_TABLE_PREFIX}cat
 		ON {SQL_TABLE_PREFIX}forum.cat_id={SQL_TABLE_PREFIX}cat.id	
 	LEFT JOIN {SQL_TABLE_PREFIX}users
