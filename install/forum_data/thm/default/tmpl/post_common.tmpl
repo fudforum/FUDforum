@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_common.tmpl,v 1.10 2004/04/13 18:48:14 hackie Exp $
+* $Id: post_common.tmpl,v 1.11 2004/04/19 19:12:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -124,6 +124,7 @@
 
 {SECTION: upload_file}
 <input type="file" name="attach_control"> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}">
+<input type="hidden" name="tmp_f_val" value="1">
 {SECTION: END}
 
 {SECTION: attached_status count of already attached files}

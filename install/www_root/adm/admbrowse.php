@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admbrowse.php,v 1.15 2004/01/04 16:38:32 hackie Exp $
+* $Id: admbrowse.php,v 1.16 2004/04/19 19:12:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -267,7 +267,7 @@ if (!function_exists('posix_getpwuid')) {
 	</tr>
 	<tr style="font-size: x-small;">
 		<td>File To Upload:</td>
-		<td><input type="file" name="fname"></td>
+		<td><input type="file" name="fname"><input type="hidden" name="tmp_f_val" value="1"></td>
 	</tr>
 	<tr style="font-size: x-small;">
 		<td>File Name:<br>(leave blank if want the uploaded filename to remain unchanged)</td>

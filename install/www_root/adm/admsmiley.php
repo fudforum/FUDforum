@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admsmiley.php,v 1.16 2004/01/04 16:38:32 hackie Exp $
+* $Id: admsmiley.php,v 1.17 2004/04/19 19:12:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -91,6 +91,7 @@
 		<tr class="field">
 			<td>Smilies Upload:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
+			<input type="hidden" name="tmp_f_val" value="1">
 		</tr>
 	<?php } else { ?>
 		<tr class="field">

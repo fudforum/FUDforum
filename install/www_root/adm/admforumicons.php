@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforumicons.php,v 1.12 2004/01/04 16:38:32 hackie Exp $
+* $Id: admforumicons.php,v 1.13 2004/04/19 19:12:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -48,6 +48,7 @@
 	<tr class="field">
 		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 		<td><input type="file" name="iconfile"></td>
+		<input type="hidden" name="tmp_f_val" value="1">
 	</tr>
 
 	<tr class="fieldaction"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
