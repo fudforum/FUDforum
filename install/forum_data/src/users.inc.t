@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.40 2003/04/21 14:14:39 hackie Exp $
+*   $Id: users.inc.t,v 1.41 2003/04/24 18:35:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -121,7 +121,6 @@ function user_mark_forum_read($id, $fid, $last_view)
 
 if (defined('admin_form')) { 
 	fud_use('users_reg.inc'); 
-	fud_use('users_adm.inc');
 }
 if (!defined('forum_debug')) {
 	$GLOBALS['usr'] =& init_user();

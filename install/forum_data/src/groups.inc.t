@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.11 2003/04/24 16:49:06 hackie Exp $
+*   $Id: groups.inc.t,v 1.12 2003/04/24 18:35:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 $c = get_field_list('{SQL_TABLE_PREFIX}groups');
 while ($r = db_rowarr($c)) {
 	if (!strncmp($r[0], 'p_', 2)) {
-		$GLOBALS['__GROUPS_INC']['permlist'][$field] = $field;
+		$GLOBALS['__GROUPS_INC']['permlist'][$r[0]] = $r[0];
 	}
 }
 qf($c);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.8 2003/04/24 17:20:07 hackie Exp $
+*   $Id: admforum.php,v 1.9 2003/04/24 18:35:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@
 		$frm_max_attach_size = '1024';
 		$frm_message_threshold = '0';
 		$frm_max_file_attachments = '1';
-		$frm_passwd_posting = 'N';
+		$frm_moderated = $frm_passwd_posting = 'N';
 	}
 
 	if (isset($_GET['chpos'], $_GET['newpos'])) {
@@ -73,11 +73,11 @@
 		unset($_GET['chpos'], $_GET['newpos']);
 	} else if (isset($_GET['del'])) {
 		if (frm_move_forum((int)$_GET['del'], 0, $cat_id)) {
-			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']);
+			logaction(_uid, 'FRMMARKDEL', q_singleval('SELECT name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']));
 		}
 	} else if (isset($_POST['btn_chcat'], $_POST['frm_id'], $_POST['cat_id'], $_POST['dest_cat'])) {
 		if (frm_move_forum((int)$_POST['frm_id'], (int)$_POST['dest_cat'], $cat_id)) {
-			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE id='.(int)$_POST['frm_id']);
+			$r = db_saq('SELECT f.name, c1.name, c2.name FROM '.$tbl.'forum f INNER JOIN '.$tbl.'cat c1 ON c1.id='.$cat_id.' INNER JOIN '.$tbl.'cat c2 ON c2.id='.(int)$_POST['dest_cat'].' WHERE f.id='.(int)$_POST['frm_id']);
 			logaction(_uid, 'CHCATFORUM', 'Moved forum "'.addslashes($r[0]).'" from category: "'.addslashes($r[1]).'" to category: "'.addslashes($r[2]).'"');
 		}
 	}
@@ -169,7 +169,7 @@ if (!isset($_GET['chpos'])) {
 	}
 	echo '</form>';
 } else {
-	echo '<a href="admforum.php?cat_id='.$cat_id.'">Cancel</a>';
+	echo '<a href="admforum.php?cat_id='.$cat_id.'&'._rsidl.'">Cancel</a>';
 }
 ?>
 <br>
@@ -186,7 +186,7 @@ if (!isset($_GET['chpos'])) {
 	$move_ct = create_cat_select('dest_cat', '', $cat_id);
 
 	$i = 1;
-	$c = uq('SELECT id, name, descr, passwd_posting, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id);
+	$c = uq('SELECT id, name, descr, passwd_posting, view_order FROM '.$tbl.'forum WHERE cat_id='.$cat_id.' ORDER BY view_order');
 	while ($r = db_rowobj($c)) {
 		if ($edit == $r->id) {
 			$bgcolor = ' bgcolor="#ffb5b5"';
