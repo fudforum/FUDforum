@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.10 2002/07/09 18:58:25 hackie Exp $
+*   $Id: th.inc.t,v 1.11 2002/07/09 22:25:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -297,7 +297,7 @@ function rebuild_forum_view($forum_id, $page=0)
 	}
 	
 	/* De-announce expired announcments and sticky messages */
-	$r = q("SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}thread.forum_id=".$forum_id." is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<".$tm);
+	$r = q("SELECT {SQL_TABLE_PREFIX}thread.id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}thread.forum_id=".$forum_id." AND is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry)<".$tm);
 	while( list($tid) = db_rowarr($r) ) 
 		q("UPDATE {SQL_TABLE_PREFIX}thread SET ordertype='NONE', is_sticky='N' WHERE id=".$tid);
 	qf($r);
