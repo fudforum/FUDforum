@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.6 2002/08/25 04:03:00 hackie Exp $
+#   $Id: fud_users.tbl,v 1.7 2002/09/26 04:44:43 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -72,6 +72,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	u_last_post_id 		INT UNSIGNED NOT NULL DEFAULT 0,
 	home_page		CHAR(255), 
 	bio			TEXT,
+	cat_collapse_status	TEXT
 	
 	UNIQUE(login),
 	UNIQUE(email),
