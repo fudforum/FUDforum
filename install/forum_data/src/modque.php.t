@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.4 2002/06/18 20:59:36 hackie Exp $
+*   $Id: modque.php.t,v 1.5 2002/07/08 11:56:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,6 +29,8 @@
 	if ( !empty($appr) ) {
 		$msg = new fud_msg_edit;
 		$msg->get_by_id($appr);
+		$msg->subject = addslashes($msg->subject);
+		$msg->body = addslashes($msg->body);
 		$msg->approve();
 		header("Location: {ROOT}?t=modque&"._rsid.'&rand='.get_random_value());
 		exit();

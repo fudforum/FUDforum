@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.5 2002/06/27 19:57:45 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.6 2002/07/08 11:56:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -326,7 +326,11 @@ class fud_msg_edit extends fud_msg
 			$ll = 1;
 		}
 		
-		if( $id ) $this->get_by_id($id);
+		if( $id ) {
+			$this->get_by_id($id);
+			$this->subject = addslashes($this->subject);
+			$this->body = addslashes($this->body);
+		}	
 		if( empty($this->approved) ) $this->approved = q_singleval("SELECT approved FROM {SQL_TABLE_PREFIX}msg WHERE id=".$this->id);
 		
 		if ( $this->approved!='Y' ) {
