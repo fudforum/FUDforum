@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.38 2003/09/26 21:35:21 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.39 2003/09/26 22:46:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -262,9 +262,9 @@ function rebuildmodlist()
 			q('UPDATE '.$tbl.'forum SET moderators='.strnull(addslashes(@serialize($v))).' WHERE id='.$k); 
 		}
 	}
-	q('UPDATE '.$tbl.'users SET is_mod=is_mod &~ 524288 WHERE users_opt>=524288 AND users_opt & 524288');
+	q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ 524288 WHERE users_opt>=524288 AND users_opt & 524288');
 	if (isset($u)) {
-		q('UPDATE '.$tbl.'users SET is_mod=is_mod|524288 WHERE id IN('.implode(',', $u).') AND !(is_mod & 1048576)');
+		q('UPDATE '.$tbl.'users SET users_opt=users_opt|524288 WHERE id IN('.implode(',', $u).') AND !(users_opt & 1048576)');
 	}
 }
 ?>

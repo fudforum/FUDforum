@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.71 2003/09/26 21:43:12 hackie Exp $
+*   $Id: register.php.t,v 1.72 2003/09/26 22:46:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -339,6 +339,16 @@ function decode_uent(&$uent)
 				}
 			} 
 		}
+	}
+
+	if (count($_POST)) {
+		$new_users_opt = $uent->users_opt & (131072|65536|262144|524288|1048576|2097152);
+		foreach (array('display_email', 'notify', 'notify_method', 'ignore_admin', 'email_messages', 'pm_messages', 'pm_notify', 'default_view', 'gender', 'append_sig', 'show_sigs', 'show_avatars', 'show_im', 'invisible_mode') as $v) {
+			if (!empty($_POST['reg_'.$v])) {
+				$new_users_opt |= (int) $_POST['reg_'.$v];
+			}
+		}
+		$uent->users_opt = $new_users_opt;
 	}
 	
 	/* SUBMITTION CODE */
@@ -729,7 +739,7 @@ function decode_uent(&$uent)
 	$month_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", "\n{TEMPLATE: month_1}\n{TEMPLATE: month_2}\n{TEMPLATE: month_3}\n{TEMPLATE: month_4}\n{TEMPLATE: month_5}\n{TEMPLATE: month_6}\n{TEMPLATE: month_7}\n{TEMPLATE: month_8}\n{TEMPLATE: month_9}\n{TEMPLATE: month_10}\n{TEMPLATE: month_11}\n{TEMPLATE: month_12}", $b_month, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($uent->users_opt & 512 ? 512 : ($uent->users_opt & 1024)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}'); 
-	$view_select		= tmpl_draw_select_opt("128\n256".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n384\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), ($uent->users_opt & 384 ? 384 : ($uent->users_opt & 256 ? 256 : ($uent->users_opt & 128))), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$view_select		= tmpl_draw_select_opt("384\n128".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n256\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_tree_msg_view}\n{TEMPLATE: register_tree_view}":''), ($uent->users_opt & (128|256)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$notification_select	= tmpl_draw_select_opt("4\n0", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", ($uent->users_opt & 4), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
