@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admlock.php,v 1.27 2004/08/31 20:13:42 hackie Exp $
+* $Id: admlock.php,v 1.28 2004/08/31 23:26:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -33,6 +33,7 @@
 
 		$m1 = realpath($WWW_ROOT_DISK);
 		$m2 = realpath($DATA_DIR);
+		$u = umask(0);
 
 		$dirs = array($m1, $m2);
 		while (list(,$v) = each($dirs)) {
@@ -43,10 +44,10 @@
 			}
 			while ($f = readdir($d)) {
 				$path = $v . '/' . $f;
-				if (@is_file($path) && !@chmod($path, $filep)) {
+				if (@is_file($path) && !@chmod($path, $fileperms)) {
 					echo 'ERROR: couldn\'t chmod "'.$path.'"<br>';
 				} else if (@is_dir($path)) {
-					if ($d == '.' || $d == '..' || is_link($path)) {
+					if ($f == '.' || $f == '..' || is_link($path)) {
 						continue;
 					}
 					$dirs[] = $path;
@@ -54,6 +55,7 @@
 			}
 			closedir($d);
 		}
+		umask($u);
 
 		change_global_settings(array('FUD_OPT_2' => $FUD_OPT_2));
 	}
