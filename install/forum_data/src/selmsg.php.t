@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.php.t,v 1.43 2003/11/14 10:50:19 hackie Exp $
+* $Id: selmsg.php.t,v 1.44 2003/12/26 16:06:15 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -85,7 +85,11 @@ function path_info_lnk($var, $val)
 
 	/* no other limiters are present, assume 'today' limit */
 	if (!$unread_limit && !isset($_GET['date']) && !isset($_GET['reply_count'])) {
-		$_GET['date'] = 1;
+		$_GET['date'] = 'today';
+		list($day, $month, $year) = explode(' ', strftime('%d %m %Y', __request_timestamp__));
+		$tm_today_start = mktime(0, 0, 0, $month, $day, $year);
+		$tm_today_end = $tm_today_start + 86400;
+		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
 	}
 
 	/* date limit */
