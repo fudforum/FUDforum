@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.9 2003/04/28 12:58:08 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.10 2003/04/28 13:06:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,12 +20,13 @@
 
 	require('GLOBALS.php');
 	fud_use('adm.inc', true);
+	fud_use('users_adm.inc', true);
 	fud_use('ssu.inc');
 
 	if (isset($_GET['usr_id'])) {
-		usr_approve_avatar((int)$_GET['usr_id']);
+		usr_adm_avatar((int)$_GET['usr_id'], 0);
 	} else if (isset($_GET['del'])) {
-		usr_unapprove_avatar((int)$_GET['del']);
+		usr_adm_avatar((int)$_GET['del'], 1);
 	}
 
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 

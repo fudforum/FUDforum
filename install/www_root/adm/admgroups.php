@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.17 2003/04/25 19:17:12 hackie Exp $
+*   $Id: admgroups.php,v 1.18 2003/04/28 13:06:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -228,7 +228,7 @@
 		'p_LOCK' => 'Lock/Unlock topics'
 	);
 ?>
-<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Permissions</b></font></td></tr>
+<tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>
 <?php	
 	if ($edit && $gr_inherit_id) {
