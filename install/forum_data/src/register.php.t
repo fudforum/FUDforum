@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.107 2004/01/29 22:58:32 hackie Exp $
+* $Id: register.php.t,v 1.108 2004/01/30 01:44:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -533,9 +533,9 @@ function decode_uent(&$uent)
 				check_return($usr->returnto);
 			} else {
 				if ($FUD_OPT_2 & 32768) {
-					header('Location: '.$WWW_ROOT.'adm/admuser.php?usr_id='.$uent->id.'&'.str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl).'&act=nada');
+					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='.$uent->id.'&'.str_replace(array(s, '/?'), array('S='.s, '&'),_rsidl).'&act=nada');
 				} else {
-					header('Location: adm/admuser.php?usr_id='.$uent->id.'&'._rsidl.'&act=nada');
+					header('Location: {FULL_ROOT}adm/admuser.php?usr_id='.$uent->id.'&'._rsidl.'&act=nada');
 				}
 				exit;
 			}
