@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.22 2003/11/14 10:50:19 hackie Exp $
+* $Id: getfile.php.t,v 1.23 2003/12/19 16:44:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,7 +18,8 @@
 	}
 	if (!isset($_GET['private'])) { /* non-private upload */
 		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
-			('.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2) > 0
+			('.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2) > 0,
+			a.fsize
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
@@ -76,6 +77,7 @@
 
 	header('Content-type: '.$r[0]);
 	header('Content-Disposition: '.$append.'filename="'.$r[1].'"');
+	header('Content-Length: '.$r[6]);
 
 	if (!$r[2]) {
 		$r[2] = $GLOBALS['FILE_STORE'] . $id . '.atch';
