@@ -4,7 +4,7 @@
 
 *   email                : forum@prohost.org
 *
-*   $Id: is_perms.inc.t,v 1.6 2003/04/02 01:46:35 hackie Exp $
+*   $Id: is_perms.inc.t,v 1.7 2003/04/03 10:03:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -51,5 +51,26 @@ function init_single_user_perms($id, $is_mod, &$MOD)
 	} else { /* regular user */
 		return db_arr_assoc('SELECT p_VISIBLE as visible, p_READ as read p_post as POST, p_REPLY as reply, p_EDIT as edit, p_DEL as del, p_STICKY as sticky, p_POLL as poll, p_FILE as file, p_VOTE as vote, p_RATE as rate, p_SPLIT as split, p_LOCK as lock, p_MOVE as move, p_SML as sml, p_IMG as img FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id IN('._uid.',2147483647) AND resource_type=\'forum\' AND resource_id='.$id.' ORDER BY user_id ASC LIMIT 1');
 	}
+}
+
+function &get_all_read_perms($uid)
+{
+	$r = q("SELECT resource_id, p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id="._uid." AND resource_type='forum'");
+	while ($ent = db_rowarr($r)) {
+		$limit[$ent[0]] = $ent[1] == 'Y' ? 1 : 0;
+	}
+	qf($r);
+
+	if (_uid) {
+		$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND p_READ='Y'");
+		while ($ent = db_rowarr($r)) {
+			if (!isset($limit[$ent[0]])) {
+				$limit[$ent[0]] = 1;
+			}
+		}
+		qf($r);
+	}
+
+	return $limit;
 }
 ?>

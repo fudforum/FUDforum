@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.12 2003/03/29 11:40:18 hackie Exp $
+*   $Id: index.tmpl,v 1.13 2003/04/03 10:03:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -120,7 +120,7 @@
 {SECTION: END}
 
 {SECTION: mark_all_read}
-<div align=right><font class="SmallText">[<a href="{ROOT}?t=markread&amp;'._rsid.'&amp;returnto={VAR-URL: returnto}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
+<div align=right><font class="SmallText">[<a href="{ROOT}?t=markread&amp;{DEF: _rsid}" class="GenLink" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</font></div>
 {SECTION: END}
 
 {SECTION: forum_icon_legend}

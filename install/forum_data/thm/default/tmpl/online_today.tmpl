@@ -1,8 +1,8 @@
-/***************************************************************************
+***************************************************************************
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.tmpl,v 1.6 2003/01/12 13:21:27 hackie Exp $
+*   $Id: online_today.tmpl,v 1.7 2003/04/03 10:03:38 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -24,10 +24,11 @@
 {REF: stats.tmpl}
 {REF: alt_var.tmpl}
 {REF: ulink.tmpl}
+{REF: is_perms.tmpl}
 
 {SECTION: last_post last by a user}
-{DATE: obj->post_stamp %a, %d %B %Y %H:%M}<br />
-<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->mid}&amp;{DEF: _rsid}">{VAR: obj->subject}</a>
+{DATE: r[7] %a, %d %B %Y %H:%M}<br />
+<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[5]}&amp;{DEF: _rsid}">{VAR: r[6]}</a>
 {SECTION: END}
 
 {SECTION: last_post_na no last post}
@@ -37,13 +38,13 @@
 {SECTION: user_entry info about a user who was online today}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
 	<td class="GenText">{VAR: user_login}</td>
-	<td class="DateText">{DATE: obj->last_visit %H:%M:%S}</td>
+	<td class="DateText">{DATE: r[3] %H:%M:%S}</td>
 	<td class="SmallText">{TEMPLATE-DATA: last_post}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: reg_user_link registered user link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: user_login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[2]}&amp;{DEF: _rsid}">{VAR: user_login}</a>
 {SECTION: END}
 
 {PAGE: ONLINE_TODAY_PAGE List of users who were online today}

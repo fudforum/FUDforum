@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: online_today.php.t,v 1.10 2003/01/12 13:21:27 hackie Exp $
+*   $Id: online_today.php.t,v 1.11 2003/04/03 10:03:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,28 +15,19 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
-	if ( isset($ses) ) $ses->update('{TEMPLATE: online_today_update}');
+	$ses->update('{TEMPLATE: online_today_update}');
 
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	
-	$today = mktime(0,0,0,date("m"),date("d"),date("Y"));
-	
-	$limit = array();
-	if( $usr->is_mod != 'A' ) {
-		$r = q("SELECT resource_id,p_READ FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=".intval(_uid)." AND resource_type='forum'");
-		while( list($fid,$pr) = db_rowarr($r) ) $limit[$fid] = ( $pr == 'Y' ) ? 1 : 0;
-		qf($r);
+	$today = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 
-		if( _uid ) {
-			$r = q("SELECT resource_id FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id=2147483647 AND resource_type='forum' AND p_READ='Y'");
-			while( list($fid) = db_rowarr($r) ) if( !isset($limit[$fid]) ) $limit[$fid] = 1;
-			qf($r);
-		}
+	if ($usr->is_mod != 'A') {
+		$limit = &get_all_read_perms(_uid);
 	}
 
-	$r = q("SELECT 
+	$c = q("SELECT 
 			{SQL_TABLE_PREFIX}users.alias AS login,
 			{SQL_TABLE_PREFIX}users.is_mod,
 			{SQL_TABLE_PREFIX}users.id,
@@ -55,28 +46,30 @@
 			{SQL_TABLE_PREFIX}users.last_visit>".$today." AND 
 			".($usr->is_mod!='A'?"{SQL_TABLE_PREFIX}users.invisible_mode='N' AND":"")."
 			{SQL_TABLE_PREFIX}users.id!="._uid."
-			
 		ORDER BY
 			{SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}users.last_visit");
+	/*
+		array(9) { 
+			   [0]=> string(4) "root" [1]=> string(1) "A" [2]=> string(4) "9944" [3]=> string(10) "1049362510" 
+		           [4]=> string(5) "green" [5]=> string(6) "456557" [6]=> string(33) "Re: Deactivating TCP checksumming" 
+		           [7]=> string(10) "1049299437" [8]=> string(1) "6"
+		         }
+	*/
 		
 	$user_entries='';
-	while ( $obj = db_rowobj($r) ) {
-		$user_login = draw_user_link($obj->login, $obj->is_mod, $obj->custom_color);
+	while ($r = db_rowarr($c)) {
+		$user_login = draw_user_link($r[0], $r[1], $r[4]);
 		$user_login = '{TEMPLATE: reg_user_link}';
-			
-		if( empty($obj->post_stamp) )
-			$last_post = '{TEMPLATE: last_post_na}';
-		else {
-			if( $usr->is_mod != 'A' && empty($limit[$obj->forum_id]) )
-				$last_post = '{TEMPLATE: no_view_perm}';
-			else 
-				$last_post = '{TEMPLATE: last_post}';
-		}
-		
-		$user_entries .= '{TEMPLATE: user_entry}';
-	}
-	qf($r);	
 
-	{POST_PAGE_PHP_CODE}
+		if (!$r[7]) {
+			$last_post = '{TEMPLATE: last_post_na}';
+		} else {
+			$last_post = ($usr->is_mod != 'A' && !isset($limit[$r[8]])) ?  '{TEMPLATE: no_view_perm}' : '{TEMPLATE: last_post}';
+		}
+		$user_entries .= '{TEMPLATE: user_entry}';
+	}	
+	qf($c);	
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: ONLINE_TODAY_PAGE}

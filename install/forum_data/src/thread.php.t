@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.13 2003/04/02 01:46:35 hackie Exp $
+*   $Id: thread.php.t,v 1.14 2003/04/03 10:03:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,7 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
 	if (!isset($_REQUEST['frm_id']) || !(int)$_REQUEST['frm_id']) {
 		invl_inp_err();
@@ -32,7 +32,7 @@
 		if (!isset($_GET['logoff'])) {
 			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
 		} else {
-			header("Location: {ROOT}");
+			header('Location: {ROOT}');
 			exit;
 		}	
 	}	
@@ -45,8 +45,9 @@
 		$start = 0;
 	}	
 
+	$ses->update('{TEMPLATE: thread_update}', $frm->id);
+
 	if (_uid) {
-		$ses->update('{TEMPLATE: thread_update}', $frm->id);
 		if (is_moderator($frm->id, _uid) || $usr->is_mod == 'A') {
 			$MOD = 1;
 		}
@@ -72,7 +73,7 @@
 		$MOVE = $DEL = $lread_s = $lread_f = $subscribe = '';
 	}
 	
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: thread_title}';
 
 	$cat = new fud_cat;
@@ -202,7 +203,6 @@
 			$user_link = $r[8] ? '{TEMPLATE: reg_user_link}' : '{TEMPLATE: unreg_user_link}';
 			$first_post_login = $r[5] ? '{TEMPLATE: first_post_reg_user_link}' : '{TEMPLATE: first_post_unreg_user_link}';
 
-			$thread_read_status = '';
 			if (_uid) {
 				if ($usr->last_read < $r[10] && $r[10] > $r[22]) {
 					if ($r[17] == 'Y') {
@@ -216,7 +216,7 @@
 				$first_unread_msg_link = '';
 			}
 
-			if (!$thread_read_status) {
+			if (!isset($thread_read_status)) {
 				if ($r[17] == 'Y') {
 					$thread_read_status = '{TEMPLATE: thread_read_locked}';
 				} else if (!_uid) {
@@ -246,7 +246,7 @@
 
 	$page_pager = tmpl_create_pager($start, $ppg, $frm->thread_count, '{ROOT}?t=thread&amp;frm_id='.$_REQUEST['frm_id'].'&amp;'._rsid);
 
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>	
 {TEMPLATE: THREAD_PAGE}	
 <?php	

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.22 2003/03/31 13:21:21 hackie Exp $
+*   $Id: index.php.t,v 1.23 2003/04/03 10:03:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	$frm->id = '';
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 
 function set_collapse($id, $val)
 {
@@ -128,12 +128,12 @@ function index_view_perms()
 		if ($usr->is_mod != 'A') {
 			$frm_join .= ' WHERE {SQL_TABLE_PREFIX}forum.id IN ('.intzero(index_view_perms()).')';
 		}
-		$ses->update('{TEMPLATE: index_update}');
-		$returnto = '{ROOT}?t=index&amp;'._rsid.'&amp;c='.$c;
 		$mark_all_read = '{TEMPLATE: mark_all_read}';
 	}
 
-	{POST_HTML_PHP}
+	$ses->update('{TEMPLATE: index_update}');
+
+/*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
 	$forum_list_table_data = '';
@@ -159,7 +159,7 @@ function index_view_perms()
 	  17	forum.thread_count
 	  18	forum_read.last_view
 	*/
-	$frmres = uq('SELECT {SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}msg.id AS msg_id,{SQL_TABLE_PREFIX}msg.post_stamp AS msg_post_stamp,{SQL_TABLE_PREFIX}users.id AS user_id,{SQL_TABLE_PREFIX}users.alias,{SQL_TABLE_PREFIX}cat.description,{SQL_TABLE_PREFIX}cat.name AS cat_name,{SQL_TABLE_PREFIX}cat.default_view,{SQL_TABLE_PREFIX}cat.allow_collapse,{SQL_TABLE_PREFIX}forum.cat_id,{SQL_TABLE_PREFIX}forum.forum_icon,{SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.last_post_id,{SQL_TABLE_PREFIX}forum.moderators,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}forum.descr,{SQL_TABLE_PREFIX}forum.post_count,{SQL_TABLE_PREFIX}forum.thread_count '.$frm_sel.' FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id '.$frm_join.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
+	$frmres = uq('SELECT {SQL_TABLE_PREFIX}msg.subject, {SQL_TABLE_PREFIX}msg.id, {SQL_TABLE_PREFIX}msg.post_stamp, {SQL_TABLE_PREFIX}users.id, {SQL_TABLE_PREFIX}users.alias, {SQL_TABLE_PREFIX}cat.description, {SQL_TABLE_PREFIX}cat.name, {SQL_TABLE_PREFIX}cat.default_view,{SQL_TABLE_PREFIX}cat.allow_collapse,{SQL_TABLE_PREFIX}forum.cat_id,{SQL_TABLE_PREFIX}forum.forum_icon,{SQL_TABLE_PREFIX}forum.id,{SQL_TABLE_PREFIX}forum.last_post_id,{SQL_TABLE_PREFIX}forum.moderators,{SQL_TABLE_PREFIX}forum.name,{SQL_TABLE_PREFIX}forum.descr,{SQL_TABLE_PREFIX}forum.post_count,{SQL_TABLE_PREFIX}forum.thread_count '.$frm_sel.' FROM {SQL_TABLE_PREFIX}cat INNER JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}cat.id={SQL_TABLE_PREFIX}forum.cat_id LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}forum.last_post_id={SQL_TABLE_PREFIX}msg.id LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id '.$frm_join.' ORDER BY {SQL_TABLE_PREFIX}cat.view_order, {SQL_TABLE_PREFIX}forum.view_order');
 
 	$cat = 0;	
 	while ($r = db_rowarr($frmres)) {
@@ -233,6 +233,6 @@ function index_view_perms()
 	
 	qf($frmres);
 
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: INDEX_PAGE}
