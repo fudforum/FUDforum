@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.28 2003/05/14 07:33:29 hackie Exp $
+*   $Id: selmsg.php.t,v 1.29 2003/05/19 10:50:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,7 +35,12 @@ function valstat($a)
 
 	/* limited to today */
 	if (isset($_GET['date'])) {
-		list($day, $month, $year) = explode(' ', strftime('%d %m %Y', __request_timestamp__));
+		if ($_GET['date'] != 'today') {
+			$tm = __request_timestamp__ - ((int)$_GET['date'] - 1) * 86400;
+		} else {
+			$tm = __request_timestamp__;
+		}
+		list($day, $month, $year) = explode(' ', strftime('%d %m %Y', $tm));
 		$tm_today_start = mktime(0, 0, 0, $month, $day, $year);
 		$tm_today_end = $tm_today_start + 86400;
 		$date_limit = ' AND m.post_stamp>'.$tm_today_start.' AND m.post_stamp<'.$tm_today_end . ' ';
