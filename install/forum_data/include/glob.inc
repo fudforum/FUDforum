@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.2 2003/04/29 14:21:31 hackie Exp $
+*   $Id: glob.inc,v 1.3 2003/04/29 18:02:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,109 +15,56 @@
 *
 ***************************************************************************/
 
-function read_global_config()
-{
-	return file_get_contents($GLOBALS['__GLOBALS.INC__']);
-}
-
-function write_global_config($data)
-{
-	$fp = fopen($GLOBALS['__GLOBALS.INC__'], 'wb');
-		fwrite($fp, $data);
-	fclose($fp);
-}
-
-function change_global_val($name, $val, &$data)
-{
-	if( ($s=strpos($data, '$'.$name." ")) === false ) $s=strpos($data, '$'.$name."\t");
-
-	if( $s !== false ) {
-		$s = strpos($data, '"', $s)+1;
-		$e = strpos($data, '";', $s);
-		
-		$data = substr_replace($data, $val, $s, ($e-$s));
-	}
-	else { /* Adding new option */
-		$s = strpos($data, '$ALLOW_REGISTRATION')-1;
-		$data = substr_replace($data, "\t\$$name\t= \"$val\";\n", $s, 0);
-	}
-}
-
-function global_config_ar($data)
-{
-	$ar = array();
-
-	while( ($pos = strpos($data, '$')) ) {
-		$line = substr($data, $pos, (($le=strpos($data, "\n", $pos))-$pos));
-		
-		$tp = strpos($line, "\t");
-		$ts = strpos($line, " ");
-		
-		if( $tp === false )
-			$key_end = $ts;
-		else if( $ts === false )
-			$key_end = $tp;	
-		else if( $ts > $tp ) 
-			$key_end = $tp;	
-		else if( $tp > $ts )
-			$key_end = $ts;	
-		
-		$key = rtrim(substr($line, 1, $key_end-1));	
-		if( $key == strtoupper($key) && !strpos($key, ']') ) {
-			if( ($vs = strpos($line, '"', $key_end)) ) {
-				$vs++;
-				$ve = strpos($line, '";', $vs);
-				$val = substr($line, $vs, ($ve-$vs));
-				
-				$ar[$key]=$val;
-			}
-		}
-		
-		$data = substr($data, $le+1);
-	}
-	
-	return $ar;
-}
-
 function read_help()
 {
-	$fp = fopen($GLOBALS['INCLUDE'].'GLOBALS_HELP', 'rb');
-		$data = fread($fp, filesize($GLOBALS['INCLUDE'].'GLOBALS_HELP'));
-	fclose($fp);
-	
-	$pos = 0;
-	$len = filesize($GLOBALS['INCLUDE'].'GLOBALS_HELP');
-	
-	$help_ar = array();
-	
-	while( $pos<$len ) {
-		if( ord($data[$pos]) >= ord('A') && ord($data[$pos]) <= ord('Z') ) {
-			$end = strpos($data, "\n", $pos);
-			$dt = substr($data, $pos, ($end-$pos));
-			if( strtoupper($dt) == $dt ) {
-				$end2 = strpos($data, ".\n\n", $end);
-				$help_ar[$dt] = str_replace("\n\n", '<br>', htmlspecialchars(substr($data, $end+1, ($end2-$end))));
-			}
-			
-			$pos = $end+1;
+	$data = file_get_contents($GLOBALS['INCLUDE'].'GLOBALS_HELP');
+	$len = strlen($data);
+	$p = 0;
+
+	while (($p = strpos($data, "\n", $p)) !== FALSE) {
+		if (++$p >= $len) {
+			break;
+		}
+		if ($data[$p] < 'A' || $data[$p] > 'Z') {
 			continue;
 		}
-		else {
-			$pos = strpos($data, "\n", $pos);
-			$pos++;
-		}	
-			
-		if( !$pos ) break;	
+		$ke = strpos($data, "\n", $p);
+		$key = substr($data, $p, ($ke - $p));
+		++$ke;
+		$e = strpos($data, ".\n\n", $ke);
+		$help_ar[$key] = nl2br(htmlspecialchars(substr($data, $ke, ($e - $ke))));
+		$p = $e + 2;
+		if ($p >= $len) {
+			break;
+		}
 	}
-	
-	return $help_ar;
+	return (isset($help_ar) ? $help_ar : NULL);
+}
+
+function change_global_settings($list)
+{
+	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
+	foreach ($list as $k => $v) {
+		if (($p = strpos($settings, '$' . $k)) === FALSE) {
+			$p = strpos($data, '$ALLOW_REGISTRATION')-1;
+			$settings = substr_replace(settings, "\t\$$k\t= \"$v\";\n", $p, 0);
+		} else {
+			$p = strpos($settings, '"', $p) + 1;
+			if ($v == 'Y' || $v = 'N') {
+				$settings[$p] = $v;
+			} else {
+				$e = strpos($settings, '";', ++$p);
+				$settings = subatr_replace($settings, $v, $p, ($e - $p));
+			}
+		}
+	}
+	$fp = fopen($GLOBALS['INCLUDE'] . 'GLOBALS.php', 'w');
+	fwrite($fp, $settings);
+	fclose($fp);
 }
 
 function maintenance_status($reason, $status)
 {
-	$global_config = read_global_config();
-	change_global_val('FORUM_ENABLED', $status, $global_config);
-	change_global_val('DISABLED_REASON', $reason, $global_config);
-	write_global_config($global_config);
+	change_global_settings(array('FORUM_ENABLED' => $status, 'DISABLED_REASON' => $reason));
 }
 ?>
