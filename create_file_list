@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: create_file_list,v 1.8 2003/07/13 11:49:30 hackie Exp $
+*   $Id: create_file_list,v 1.9 2003/07/18 16:49:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,6 +65,7 @@ function w_err($msg, $exit=true)
 	fwrite(STDERR, $msg . "\n"); 
 	exit;
 }
+	ini_set('memory_limit', '64M');
 
 	if (!defined('STDERR')) {
 		define('STDERR', fopen('php://stderr', 'wb'));
