@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.72 2003/09/26 22:46:03 hackie Exp $
+*   $Id: register.php.t,v 1.73 2003/09/27 13:07:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -385,7 +385,10 @@ function decode_uent(&$uent)
 		if (!$uent->icq && !($uent->users_opt & 4)) {
 			$uent->users_opt |= 4;
 		}
-	
+
+		/* new users do not have avatars */
+		$uent->users_opt |= 16777216;
+
 		if (!__fud_real_user__) { /* new user */
 			$uent->add_user();
 
@@ -425,6 +428,7 @@ function decode_uent(&$uent)
 			/* Restore avatar values to their previous values */
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
+			$uent->users_opt |= 4194304|16777216|8388608;
 
 			/* prevent non-confirmed users from playing with avatars, yes we are that cruel */
 			if ($GLOBALS['CUSTOM_AVATARS'] != 'OFF' && _uid) {
@@ -437,13 +441,14 @@ function decode_uent(&$uent)
 					}
 					if ($_POST['reg_avatar'] == '0') {
 						$uent->avatar_loc = '';
-						$uent->users_opt = $uent->users_opt ^ (8388608|16777216) | 4194304;
 						$uent->avatar = 0;
 					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
 						/* verify that the avatar exists and it is different from the one in DB */
 						$uent->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$uent->avatar = $_POST['reg_avatar'];
-						$uent->users_opt = $uent->users_opt ^ (4194304|16777216) | 8388608;
+					}
+					if ($uent->avatar && $uent->avatar_loc) {
+						$uent->users_opt ^= 4194304|16777216;
 					}
 				} else {
 					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* New URL avatar */
@@ -471,13 +476,12 @@ function decode_uent(&$uent)
 						$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
 						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . basename($common_av_name));
-					 	if ($CUSTOM_AVATAR_APPOVAL == 'Y' && $uent->users_opt & 1048576) {
-					 		$uent->users_opt = $uent->users_opt ^ (8388608|4194304) | 16777216;
-					 	} else {
-					 		$uent->users_opt = $uent->users_opt ^ (16777216|4194304) | 8388608;
-				 		}
-					 	if (!($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
-					 		$uent->users_opt = $uent->users_opt ^ (8388608|4194304) | 16777216;
+						if (($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
+						 	if ($CUSTOM_AVATAR_APPOVAL == 'N' || $uent->users_opt & 1048576) {
+						 		$uent->users_opt ^= 16777216|4194304;
+						 	} else {
+						 		$uent->users_opt ^= 8388608|4194304;
+					 		}
 					 	}
 					} else if (empty($avatar_arr['leave']) || !empty($avatar_arr['del'])) {
 				 		$uent->avatar_loc = '';
@@ -485,8 +489,10 @@ function decode_uent(&$uent)
 				 	$uent->avatar = 0;
 				}
 				if (empty($uent->avatar_loc)) {
-					$uent->avatar_approved = 'NO';
+					$uent->users_opt ^= 8388608|16777216;
 				}
+			} else {
+				$uent->users_opt ^= 8388608|16777216;
 			}
 
 			$uent->sync_user();
@@ -571,7 +577,7 @@ function decode_uent(&$uent)
 
 		/* handle coppa passed to us by pre_reg form */
 		if (isset($_GET['reg_coppa']) && !$_GET['reg_coppa']) {
-			$uent->users_opt = $uent->users_opt ^ 262144;		
+			$uent->users_opt ^= 262144;
 		}
 
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
