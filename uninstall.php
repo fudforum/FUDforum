@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uninstall.php,v 1.12 2005/03/05 18:47:56 hackie Exp $
+* $Id: uninstall.php,v 1.13 2005/03/06 18:14:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -49,7 +49,7 @@ function fud_rmdir($dir)
 	$dirs = array(realpath($dir));
 
 	while (list(,$v) = each($dirs)) {
-		if (!($files = glob($v.'{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
+		if (!($files = glob($v.'/{.h*,.p*,.n*,.m*,*}', GLOB_BRACE|GLOB_NOSORT))) {
 			continue;
 		}
 		foreach ($files as $file) {
@@ -94,9 +94,9 @@ function fud_rmdir($dir)
 		}
 
 		/* remove files on disk */
-		fud_rmdir($SERVER_DATA_ROOT.'/');
+		fud_rmdir($SERVER_DATA_ROOT);
 		if ($SERVER_ROOT != $SERVER_DATA_ROOT && $SERVER_ROOT) {
-			fud_rmdir($SERVER_ROOT.'/');
+			fud_rmdir($SERVER_ROOT);
 		}
 
 		/* remove database stuff if needed */
