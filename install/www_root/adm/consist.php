@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.44 2003/07/14 15:37:21 hackie Exp $
+*   $Id: consist.php,v 1.45 2003/07/14 16:28:08 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@
 
 function draw_stat($text)
 {
-	echo '<b>'.htmlspecialchars($text).'</b><br>';
+	echo '<b>'.htmlspecialchars($text).'</b><br />' . "\n";
 	flush();
 }
 
@@ -63,6 +63,18 @@ function delete_zero($tbl, $q)
 	}
 	qf($c);
 	draw_info($cnt);	
+}
+
+function get_ulevel($level, $cl)
+{
+	$old = 0;
+	foreach ($level as $l) {
+        	if ($l > $cl) {
+			return $old;
+		}
+		$old = $l;
+	}
+	return array_pop($level);
 }
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
@@ -419,26 +431,34 @@ forum will be disabled.<br><br>
 	qf($fr);
 	draw_stat('Done: Rebuilding Topic Views');
 
-	draw_stat('Rebuilding user levels & message counts');
+	draw_stat('Rebuilding user levels, message counts & last post ids');
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
-	$c = q('SELECT poster_id, count(*) AS cnt FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id ORDER BY cnt');
+	$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
 	while ($r = db_rowarr($c)) {
-		if (!isset($lvl[$r[1]])) {
-			$lvl[$r[1]] = (int) q_singleval('SELECT id FROM '.$tbl.'level WHERE post_count<='.$r[1].' ORDER BY post_count DESC LIMIT 1');
-		}
-		q('UPDATE '.$tbl.'users SET posted_msg_count='.$r[1].',level_id='.$lvl[$r[1]].' WHERE id='.$r[0]);
+		$lvl[$r[1]] = $r[0];
+	}
+	qf($c);
+
+	$c = q('SELECT poster_id, MAX(id), count(*) AS cnt FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id');
+	while ($r = db_rowarr($c)) {
+		q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[1].', posted_msg_count='.$r[2].',level_id='.get_ulevel($lvl, $r[2]).' WHERE id='.$r[0]);
 	}
 	qf($r);
 	unset($lvl);
-	draw_stat('Done rebuilding user levels & message counts');
 
-	draw_stat('Rebuilding users last post ids');
-	$c = q('SELECT poster_id, id, MAX(post_stamp) FROM '.$tbl.'msg WHERE approved=\'Y\' GROUP BY poster_id, id');
+	/* verify that last post ids are correct, needed for rare cases where MAX(id) != MAX(last_post_id) */
+	$c = uq('SELECT m.id, u.id, u.u_last_post_id FROM '.$tbl.'users u INNER JOIN '.$tbl.'msg m ON u.id=m.poster_id AND m.approved=\'Y\' GROUP BY m.poster_id ORDER BY m.post_stamp DESC');
+	$todo = array();
 	while ($r = db_rowarr($c)) {
-		q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[1].' WHERE id='.$r[0]);	
+		if ($r[0] != $r[2]) {
+			$todo[$r[1]] = $r[0];
+		}
 	}
 	qf($r);
-	draw_stat('Done: Rebuilding users last post ids');
+	foreach ($todo as $k => $v) {
+		q('UPDATE '.$tbl.'users SET u_last_post_id='.$v.' WHERE id='.$k);
+	}
+	draw_stat('Done: Rebuilding user levels, message counts & last post ids');
 
 	draw_stat('Checking buddy list entries');
 	delete_zero($tbl.'buddy', 'SELECT b.id FROM '.$tbl.'buddy b LEFT JOIN '.$tbl.'users u1 ON u1.id=b.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=b.bud_id WHERE u1.id IS NULL OR u2.id IS NULL');
