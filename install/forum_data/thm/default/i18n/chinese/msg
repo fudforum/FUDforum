@@ -1024,3 +1024,4 @@ post_err_mod_forum_edit_ttl:	错误
 post_err_mod_forum_edit_msg:	在需要审查的论坛里不可编辑帖子。
 dmsg_num:			帖号 #{VAR: obj->id}
 post_opt_session_warn:		<font color=red><b>警告！</b><br />如果你同时正在其他窗口浏览论坛，<br />请务必：<br /><b>时常点击 &#39;预览&#39; 按钮</b><br />以保证发帖窗口不会超时。<br /></font>
+postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
