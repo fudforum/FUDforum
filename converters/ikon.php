@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ikon.php,v 1.2 2002/08/09 11:07:09 hackie Exp $
+*   $Id: ikon.php,v 1.3 2002/09/12 22:37:30 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -477,8 +477,7 @@ function fetch_img($url)
 	print_status('Importing Attachments');
 	$r = iq("SELECT ib_attachments.*, ib_forum_posts.POST_ID, ib_forum_posts.ATTACH_HITS FROM ib_forum_posts INNER JOIN ib_attachments ON ib_forum_posts.ATTACH_ID=ib_attachments.ID WHERE ib_forum_posts.ATTACH_ID!=''");
 	while( $obj = db_rowobj($r) ) {
-		$attach = new fud_attach;
-		$id = $attach->add($obj->owner, $obj->POST_ID, $obj->FILE_NAME, $GLOBALS['__IKON_CFG__']['IMAGES_URL'].'/upload/'.$obj->FILE_NAME);
+		$id = fud_attach::full_add($obj->owner, $obj->POST_ID, $obj->FILE_NAME, $GLOBALS['__IKON_CFG__']['IMAGES_URL'].'/upload/'.$obj->FILE_NAME, filesize($GLOBALS['__IKON_CFG__']['IMAGES_URL'].'/upload/'.$obj->FILE_NAME));
 		if( $obj->ATTACH_HITS ) q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET dlcount=".$obj->ATTACH_HITS." WHERE id=".$id);
 	}
 	print_status('Finished Importing ('.db_count($r).') Attachments');
