@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.16 2002/09/18 20:52:08 hackie Exp $
+*   $Id: consist.php,v 1.17 2002/11/22 02:15:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -222,6 +222,17 @@ forum will be disabled.<br><br>
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg SET attach_cnt=0 WHERE id=".$obj->id);
 		}
 	}
+	draw_stat('Done: Checking attachment counts in messages');
+	
+	draw_stat('Checking for dangling attachments');
+	$result = q("SELECT ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.id,".$GLOBALS['DBHOST_TBL_PREFIX']."attach.location FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach INNER JOIN ".$GLOBALS['DBHOST_TBL_PREFIX']."msg ON ".$GLOBALS['DBHOST_TBL_PREFIX']."attach.message_id=".$GLOBALS['DBHOST_TBL_PREFIX']."msg.id WHERE ".$GLOBALS['DBHOST_TBL_PREFIX']."msg.attach_cnt=0");
+	if( ($cnt = db_count($result)) ) {
+		while ( $obj = db_rowobj($result) ) {
+			if( file_exists($obj->location) ) unlink($obj->location);
+			q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."attach WHERE id=".$obj->id);	
+		}
+	}
+	if( $cnt ) draw_stat("$cnt Bad Attachments removed");
 	draw_stat('Done: Checking attachment counts in messages');
 	
 	draw_stat('Checking polls against messages');
