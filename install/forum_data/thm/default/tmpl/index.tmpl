@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.48 2004/10/22 21:14:49 hackie Exp $
+* $Id: index.tmpl,v 1.49 2004/10/25 14:59:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -204,4 +204,12 @@
 
 {SECTION: idx_cat_path_lnk}
 {ROOT}?t=i&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_compact_forum_entry}
+&nbsp;&nbsp;<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+{SECTION: END}
+
+{SECTION: idx_compact_forum_row}
+<tr class="RowStyleC"><td colspan="6">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
 {SECTION: END}

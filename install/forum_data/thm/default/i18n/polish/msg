@@ -1022,3 +1022,4 @@ register_turing:		Wpisz kod widoczny poni¿ej:
 register_err_turing:		Kod sprawdzaj±cy jest nieprawid³owy.
 modque_cat:			Kategoria
 modque_forum:			Forum
+idx_compact_forum_row:		Available Forums:

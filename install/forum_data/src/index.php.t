@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.66 2004/10/25 14:31:54 hackie Exp $
+* $Id: index.php.t,v 1.67 2004/10/25 14:59:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -74,7 +74,7 @@ function url_tog_collapse($id, $c)
 /*{POST_HTML_PHP}*/
 	$TITLE_EXTRA = ': {TEMPLATE: index_title}';
 
-	$forum_list_table_data = $cat_path = '';
+	$cbuf = $forum_list_table_data = $cat_path = '';
 
 	if ($cat_id) {
 		$cid = $cat_id;
@@ -102,6 +102,7 @@ function url_tog_collapse($id, $c)
 	  14	forum_read.last_view
 	  15	is_moderator
 	  16	read perm
+	  17	is the category using compact view
 	*/
 	$c = uq('SELECT
 				m.subject, m.id, m.post_stamp,
@@ -109,7 +110,8 @@ function url_tog_collapse($id, $c)
 				f.cat_id, f.forum_icon, f.id, f.last_post_id, f.moderators, f.name, f.descr, f.post_count, f.thread_count,
 				fr.last_view,
 				mo.id AS md,
-				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').'
+				'.(_uid ? 'CASE WHEN g2.group_cache_opt IS NULL THEN g1.group_cache_opt ELSE g2.group_cache_opt END AS group_cache_opt' : 'g1.group_cache_opt').',
+				(c.cat_opt & 4) > 0
 			FROM {SQL_TABLE_PREFIX}fc_view v
 			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=v.c
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=v.f
@@ -124,6 +126,7 @@ function url_tog_collapse($id, $c)
 			ORDER BY v.id');
 
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
+	$is_a = $usr->users_opt & 1048576;
 	while ($r = db_rowarr($c)) {
 		/* increase thread & post count */
 		$post_count += $r[12];
@@ -132,6 +135,11 @@ function url_tog_collapse($id, $c)
 		$cid = (int) $r[5];
 
 		if ($cat != $cid) {
+			if ($cbuf) { /* if previous category was using compact view, print forum row */
+				$forum_list_table_data .= '{TEMPLATE: idx_compact_forum_row}';
+				$cbuf = '';
+			}
+
 			while (list($k, $i) = each($cidxc)) {
 				if ($cat_id && !isset($cf[$k])) {
 					continue;
@@ -168,11 +176,17 @@ function url_tog_collapse($id, $c)
 			$cat = $cid;
 		}
 
+		/* compact view check */
+		if ($r[17]) {
+			$cbuf .= '{TEMPLATE: idx_compact_forum_entry}';
+			continue;
+		}
+
 		if (!empty($collapse[$cid])) {
 			continue;
 		}
 
-		if (!($r[16] & 2) && !($usr->users_opt & 1048576) && !$r[15]) { /* visible forum with no 'read' permission */
+		if (!($r[16] & 2) && !$is_a && !$r[15]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
@@ -184,12 +198,12 @@ function url_tog_collapse($id, $c)
 
 		$forum_icon = $r[6] ? '{TEMPLATE: forum_icon}' : '{TEMPLATE: no_forum_icon}';
 
-		if (_uid && $r[14] < $r[2] && $usr->last_read < $r[2]) {
-			$forum_read_indicator = '{TEMPLATE: forum_unread}';
-		} else if (_uid) {
-			$forum_read_indicator = '{TEMPLATE: forum_read}';
-		} else {
+		if (!_uid) { /* anon user */
 			$forum_read_indicator = '{TEMPLATE: forum_no_indicator}';
+		} else if ($r[14] < $r[2] && $usr->last_read < $r[2]) {
+			$forum_read_indicator = '{TEMPLATE: forum_unread}';
+		} else {
+			$forum_read_indicator = '{TEMPLATE: forum_read}';
 		}
 
 		if ($r[8]) {

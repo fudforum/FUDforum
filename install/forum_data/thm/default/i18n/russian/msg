@@ -1019,6 +1019,7 @@ register_none:			Не уведомлять
 findu_no_conf:			Неподтвержденный пользователь
 register_max_sig_len:		Максимальная длинна:
 register_turing:		Пожалуйста, введите код подтверждения, который вы видите ниже:
-register_err_turing:		Неверный код подтверждения.modque_cat:			Category
+register_err_turing:		Неверный код подтверждения.
 modque_forum:			Forum
 modque_cat:			Category
+idx_compact_forum_row:		Available Forums:
