@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: smiley.inc.t,v 1.5 2003/04/17 09:37:33 hackie Exp $
+*   $Id: smiley.inc.t,v 1.6 2003/04/17 11:53:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -34,7 +34,7 @@ function smiley_to_post($text)
 			$a = 0;
 			$len = strlen($v);
 			while (($a = strpos($text_l, $v, $a)) !== FALSE) {
-				if (!$a || (char_check($text_l[$a - 1]) && char_check($text_l[$a + 1])) {
+				if (!$a || (char_check($text_l[$a - 1]) && char_check($text_l[$a + 1]))) {
 					$rep = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 					$text = substr_replace($text_l, $rep, $a, $len);
 					$text_l = substr_replace($text_l, $rep, $a, $len);

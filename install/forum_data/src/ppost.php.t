@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.16 2003/04/07 14:23:14 hackie Exp $
+*   $Id: ppost.php.t,v 1.17 2003/04/17 11:53:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,54 +15,49 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
 	
-	if( !_uid ) {
-		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
-		exit;
+	if (!_uid) {
+		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
 	}
-			
-	if( $GLOBALS['PM_ENABLED']=='N' ) {
-		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}', $WWW_ROOT, '');
-		exit;		
+	if ($PM_ENABLED == 'N') {
+		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}');
 	}
+	if ($usr->pm_messages == 'N') {
+		error_dialog('{TEMPLATE: pm_err_disabled_title}', '{TEMPLATE: pm_err_disabled_msg}');
+	}
+	if (($fldr_size = q_singleval('SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id='._uid)) > $MAX_PMSG_FLDR_SIZE) {
+		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}');
+	}
+	is_allowed_user($usr);
 
-	if( $GLOBALS['usr']->pm_messages == 'N' ) {
-		error_dialog('{TEMPLATE: pm_err_disabled_title}', '{TEMPLATE: pm_err_disabled_msg}', $WWW_ROOT, '');
-		exit;
-	}
-
-	if( ($fldr_size = q_singleval("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id)) > $MAX_PMSG_FLDR_SIZE ) {
-		error_dialog('{TEMPLATE: pm_no_space_title}', '{TEMPLATE: pm_no_space_msg}', '{ROOT}?t=pmsg&'._rsid, '');
-		exit;
-	}
-
-	$smiley_www = 'images/smiley_icons/';
-	$icon_path = 'images/message_icons/';
-	$icon_path_www = 'images/message_icons/';
-	$returnto = urlencode("{ROOT}?t=ppost&"._rsid);
-	$returnto_d = $returnto;
 	$attach_control_error=NULL;
 
-	if ( !isset($usr) ) std_error('login');
-	is_allowed_user();
+	/* deal with users passed via GET */
+	if (!isset($_POST['prev_loaded']) && isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
+		$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi);
+	}
+	
+	$attach_count = 0; $file_array = '';
+	
+	if (!isset($_POST['prev_loaded'])) {
+		/* setup some default values */
+		$msg_subject = $msg_body = '';
 
-	/* remove any slashes from msg_to_list passed by get */
-	if( isset($HTTP_GET_VARS['msg_to_list']) ) $HTTP_GET_VARS['msg_to_list'] = $GLOBALS['msg_to_list'] = stripslashes($HTTP_GET_VARS['msg_to_list']);
-
-	if( empty($prev_loaded) ) {
-		$msg_r = new fud_pmsg;
-		if( !empty($msg_id) && is_numeric($msg_id) ) {
-			$msg_r->get($msg_id);
-			if( !empty($msg_r->id) ) {
+		/* deal with users passed via GET */
+		if (isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
+			$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi);
+		} else {
+			$msg_to_list = '';
+		}
+	
+		if (isset($_GET['msg_id']) && ($msg_id = (int)$_GET['msg_id'])) { /* editing a message */
+			if (($msg_r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.$msg_id.' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
 				export_vars('msg_', $msg_r);
-
 				reverse_FMT($msg_subject);
 				$msg_subject = apply_reverse_replace($msg_subject);
-			
 				$msg_body = post_to_smiley($msg_body);
-				switch ( $GLOBALS['PRIVATE_TAGS'] )
-				{
+				switch ($PRIVATE_TAGS) {
 					case 'ML':
 						$msg_body = html_to_tags($msg_body);
 				 		break;
@@ -73,21 +68,17 @@
 						reverse_nl2br($msg_body);
 				}
 				$msg_body = apply_reverse_replace($msg_body);
-			}	
-		}
-		else if( is_numeric($quote) || is_numeric($forward) ) {
-			$reply_to = $quote;
-		
-			$msg_r->get((empty($quote)?$forward:$quote));
-			if( !empty($msg_r->id) ) {
+			}
+		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
+			if (($msg_r = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
+				$reply_to = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
+				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
+			
 				export_vars('msg_', $msg_r);
-				$msg_id=$msg_to_list=$msg_duser_id='';
+				$msg_id = $msg_to_list = $msg_duser_id = '';
 				$msg_body = post_to_smiley($msg_body);
 				
-				reverse_FMT($msg_r->login);
-				
-				switch ( $GLOBALS['PRIVATE_TAGS'] )
-				{
+				switch ($PRIVATE_TAGS) {
 					case 'ML':
 						$msg_body = html_to_tags($msg_body);
 					 	$msg_body = '{TEMPLATE: fud_quote}';
@@ -105,129 +96,114 @@
 			 	reverse_FMT($msg_subject);
 				$msg_subject = apply_reverse_replace($msg_subject);
 			
-				if( !empty($quote) && !preg_match("!^Re: !", $msg_subject) ) 
-					$msg_subject = 'Re: '.$msg_subject;
-			
-				if( !empty($forward) && !preg_match("!^Fwd: !", $msg_subject) )
-					$msg_subject = 'Fwd: '.$msg_subject;	
-			
-				if( !empty($quote) ) $msg_to_list = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
-			}	
-		}
-		else if( !empty($reply) && is_numeric($reply) ) {
-			$reply_to = $reply;
-		
-			$msg_r->get($reply,1);
-			if( !empty($msg_r->id) ) {
-				$msg_subject = $msg_r->subject;
-			
-				$msg_to_list = q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id=".$msg_r->ouser_id);
-			
-				unset($msg_r);
-			
+				if ($quote && !preg_match('!^Re: !', $msg_subject)) {
+					$msg_subject = 'Re: ' . $msg_subject;
+					$msg_ref_msg_id = 'R'.$reply_to;
+				} else if ($forward && !preg_match('!^Fwd: !', $msg_subject)) {
+					$msg_subject = 'Fwd: ' . $msg_subject;
+					$msg_ref_msg_id = 'F'.$forward;
+				}
+
+				if ($quote) {
+					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
+					unset($msg_r);
+				}
+			}
+		} else if (isset($_GET['reply']) && ($reply = (int)$_GET['reply'])) {
+			if (($msg_r = db_saq('SELECT p.subject, u.alias FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND (ouser_id='._uid.' OR duser_id='._uid.')'))) {
+				$msg_subject = $msg_r[0];
+				$msg_to_list = $msg_r[1];
 				reverse_FMT($msg_subject);
 				$msg_subject = apply_reverse_replace($msg_subject);
 			
-				if( !empty($reply) && !preg_match("!^Re:!", $msg_subject) ) 
-					$msg_subject = 'Re: '.$msg_subject;
-			}	
-		}
-		
-		if ( !empty($msg_r->attach_cnt) && ( !empty($msg_id) || !empty($forward) ) ) {
-			$r = q("SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id=".$msg_r->id." AND private='Y'");
-	 		while ( list($fa_id) = db_rowarr($r) ) $attach_list[$fa_id] = $fa_id;
-	 		qf($r);
-	 		$attach_count = count($attach_list);
-		 }
-		 
-		 if( !empty($reply_to) ) 
-		 	$msg_ref_msg_id = 'R'.$reply_to;
-		 else if( !empty($forward) ) 
-		 	$msg_ref_msg_id = 'F'.$forward;
-	}
-	else {
-		if( empty($preview) && empty($spell) && !empty($btn_action) ) {
-			if( $btn_action == 'draft' )
-				$HTTP_POST_VARS['btn_draft'] = 1;
-			else
-				$HTTP_POST_VARS["btn_submit"] = 1;
-		}
-		/* remove slashes */
-		foreach($HTTP_POST_VARS as $k => $v) { 
-			if( !empty($HTTP_POST_VARS[$k]) ) $HTTP_POST_VARS[$k] = $GLOBALS[$k] = stripslashes($HTTP_POST_VARS[$k]);
-		}
-		
-		$msg_to_list = htmlspecialchars($msg_to_list);
-	}
-
-	$MAX_F_SIZE = round($PRIVATE_ATTACH_SIZE/1024);
-	
-	if( $PRIVATE_ATTACHMENTS > 0 ) {
-		$attach_count=0;
-	
-		/* restore the attachment array */
-		if( !empty($HTTP_POST_VARS['file_array']) ) {
-			$file_array = explode("\n", base64_decode(stripslashes($HTTP_POST_VARS['file_array'])));
-				
-			foreach( $file_array as $val ) {
-				list($fa_id,$fa_id2) = explode(":", $val);
-				$attach_list[$fa_id] = $fa_id2;
-				if( !empty($fa_id2) ) $attach_count++;
-			}
-		}
-		
-		if( !empty($HTTP_POST_VARS['file_del_opt']) ) {
-			$attach_list[$HTTP_POST_VARS['file_del_opt']] = 0;
-			/* Remove any reference to the image from the body to prevent broken images */
-			if ( strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]') ) 
-				$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$HTTP_POST_VARS['file_del_opt'].'&private=1[/img]', '', $msg_body);
-			
-			$attach_count--;
-		}	
-			
-		if ( !empty($attach_control_size) ) {
-			if( $attach_control_size>$PRIVATE_ATTACH_SIZE ) {
-				$attach_control_error = '{TEMPLATE: post_err_attach_size}';
-			}
-			else {
-				if( filter_ext($attach_control_name) ) {
-					$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
+				if (!preg_match('!^Re:!', $msg_subject)) {
+					$msg_subject = 'Re: ' . $msg_subject;
 				}
-				else {
-					if( ($attach_count+1) <= $PRIVATE_ATTACHMENTS ) { 
-						$at_obj = new fud_attach();
-							
-						$at_obj->original_name = $attach_control_name;
-						$at_obj->fsize = $attach_control_size;
-						$at_obj->owner = _uid;
-						$val = $at_obj->add($attach_control, 'Y');
-
-						$attach_list[$val] = $val;
-						$attach_count++;
-					}
-					else {
-						$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
-					}	
-				}	
-			}	
+				unset($msg_r);
+				$msg_ref_msg_id = 'R'.$reply_to;
+			}
 		}
-		$attach_cnt = $attach_count;
+		
+		/* restore file attachments */
+		if (!empty($msg_r->attach_cnt) && $PRIVATE_ATTACHMENTS > 0) {
+			$c = uq('SELECT id FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_r->id.' AND private=\'Y\'');
+	 		while ($r = db_rowarr($c)) {
+	 			$attach_list[$r[0]] = $r[0];
+	 		}
+	 		qf($c);
+	 		
+		}
+	} else {
+		if (!isset($_POST['preview']) && !isset($_POST['spell']) && isset($_POST['btn_action'])) {
+			if ($_POST['btn_action'] == 'draft') {
+				$_POST['btn_draft'] = 1;
+			} else {
+				$_POST['btn_submit'] = 1;
+			}
+		}
+		$msg_to_list = htmlspecialchars($msg_to_list);
+		
+		/* restore file attachments */
+		if (!empty($_POST['file_array']) && $PRIVATE_ATTACHMENTS > 0) {
+			$attach_list = base64_decode(@unserialize($_POST['file_array']));
+		}			
 	}
 
-	if( !empty($HTTP_POST_VARS["btn_submit"]) || !empty($HTTP_POST_VARS['btn_draft']) ) {
+	if (isset($attach_list)) {
+		$attach_count = count($attach_list);
+		$enc = base64_encode(@serialize($attach_list));
+		foreach ($attach_list as $v) {
+			if (!$v) {
+				$attach_count--;
+			}
+		}
+		/* remove file attachment */
+		if (isset($_POST['file_del_opt']) && isset($attach_list[$_POST['file_del_opt']])) {
+			if ($attach_list[$_POST['file_del_opt']]) {
+				$attach_list[$_POST['file_del_opt']] = 0;
+				$attach_count--;
+			}
+		}
+	} else {
+		$attach_count = 0;
+		$file_array = '';
+	}
+
+	/* deal with newly uploaded files */
+	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control'])) {
+		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
+			$attach_control_error = '{TEMPLATE: post_err_attach_size}';	
+		} else {
+			if (filter_ext($_FILES['attach_control']['name'])) {
+				$attach_control_error = '{TEMPLATE: post_err_attach_ext}';
+			} else {
+				if (($attach_count+1) <= $PRIVATE_ATTACHMENTS) {
+					$val = attach_add($_FILES['attach_control'], _uid, 'Y');
+					$attach_list[$val] = $val;
+					$attach_count++;
+				} else {
+					$attach_control_error = '{TEMPLATE: post_err_attach_filelimit}';
+				}	
+			}
+		}
+	}
+
+	if ((isset($_POST['btn_submit']) && !check_ppost_form()) || isset($_POST['btn_draft'])) {
 		$msg_p = new fud_pmsg;
-		fetch_vars('msg_', $msg_p, $HTTP_POST_VARS);
-		$msg_p->smiley_disabled = yn($msg_smiley_disabled);
-		$msg_p->attach_cnt = intval($attach_cnt);
-		$msg_p->body = $HTTP_POST_VARS['msg_body'];
-		$msg_p->folder_id = isset($HTTP_POST_VARS["btn_submit"])?'SENT':'DRAFT';
-		$msg_p->to_list = addslashes($msg_p->to_list);
+		$msg_p->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
+		$msg_p->show_sig = isset($_POST['msg_show_sig']) ? 'Y' : 'N';
+		$msg_p->track = isset($_POST['msg_track']) ? 'Y' : 'N';
+		$msg_p->attach_cnt = $attach_count;
+		$msg_p->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : NULL;
+		$msg_p->body = $_POST['msg_body'];
+		$msg_p->subject = $_POST['msg_subject'];
+		$msg_p->folder_id = isset($_POST['btn_submit']) ? 'SENT' : 'DRAFT';
+		$msg_p->to_list = $_POST['msg_to_list'];
 		
 		$msg_p->body = apply_custom_replace($msg_p->body);
-		switch ( $GLOBALS['PRIVATE_TAGS'] )
-		{
+		switch ($PRIVATE_TAGS) {
 			case 'ML':
-				$msg_p->body = tags_to_html($msg_p->body, strtoupper($GLOBALS['PRIVATE_IMAGES']));
+				$msg_p->body = tags_to_html($msg_p->body, $PRIVATE_IMAGES);
 				break;
 			case 'HTML':
 				break;
@@ -235,93 +211,89 @@
 				$msg_p->body = nl2br(htmlspecialchars($msg_p->body));	
 		}
 		
-		if( $msg_p->smiley_disabled!='Y' ) $msg_p->body = smiley_to_post($msg_p->body);
+		if ($msg_p->smiley_disabled != 'Y') {
+			$msg_p->body = smiley_to_post($msg_p->body);
+		}
 		fud_wordwrap($msg_p->body);
 		
-		$msg_p->attach_cnt = intval($attach_cnt);
-		$msg_p->ouser_id = $usr->id;
+		$msg_p->ouser_id = _uid;
 		
 		$msg_p->subject = apply_custom_replace($msg_p->subject);
 		$msg_p->subject = htmlspecialchars($msg_p->subject);
-		$msg_p->subject = addslashes($msg_p->subject);
 	
-		if( !empty($HTTP_POST_VARS['btn_draft']) || !check_ppost_form() ) {
-			if( empty($msg_id) ) {
-				if( $reply_to ) 
-					$msg_p->ref_msg_id = 'R'.$reply_to;
-				else if( $forward ) 
-					$msg_p->ref_msg_id = 'F'.$forward;
-				else
-					$msg_p->ref_msg_id = NULL;	
+		if (empty($_POST['msg_id'])) {
+			if ($_POST['reply']) {
+				$msg_p->ref_msg_id = 'R'.$_POST['reply'];
+			} else if ($_POST['forward']) {
+				$msg_p->ref_msg_id = 'F'.$_POST['forward'];
+			} else {
+				$msg_p->ref_msg_id = NULL;
+			}
 
-				$msg_p->add();
-			}	
-			else
-				$msg_p->sync();	
+			$msg_p->add();
+		} else {
+			$msg_p->sync();
+		}
 				
-			if( empty($HTTP_POST_VARS['btn_draft'])	&& !empty($msg_p->ref_msg_id) )
-				set_nrf(substr($msg_p->ref_msg_id, 0, 1), substr($msg_p->ref_msg_id, 1));
+		if (!isset($_POST['btn_draft'])	&& $msg_p->ref_msg_id) {
+			set_nrf(substr($msg_p->ref_msg_id, 0, 1), substr($msg_p->ref_msg_id, 1));
+		}
 				
-			if( $PRIVATE_ATTACHMENTS>0 && isset($attach_list) ) {
-				fud_attach::finalize($attach_list, $msg_p->id, 'Y');
+		if (isset($attach_list)) {
+			attach_finalize($attach_list, $msg_p->id, 'Y');
 				
-				/* handle attachments for message copies */
-				$attachments = array();
-				foreach( $attach_list as $val ) {
-					if( $val ) $attachments[] = db_singleobj(q("SELECT original_name,owner,private,mime_type,fsize,location FROM {SQL_TABLE_PREFIX}attach WHERE id=".$val));
+			/* we need to add attachments to all copies of the message */
+			if (!isset($_POST['btn_draft'])) {
+				$c = uq('SELECT id, original_name, mime_type, fsize FROM {SQL_TABLE_PREFIX}attach WHERE message_id='.$msg_p->id.' AND private=\'Y\'');
+				while ($r = db_rowarr($c)) {
+					$atl[$r[0]] = "'".addslashes($r[1])."', ".$r[2].", ".$r[3];
 				}
-				
-				if( count($attachments) ) {
-					$id_list = '';
-					foreach( $GLOBALS["send_to_array"] as $mid ) {
-						foreach( $attachments as $atch ) {
-							$r = q("INSERT INTO {SQL_TABLE_PREFIX}attach (original_name,owner,mime_type,fsize,private,message_id) VALUES('".addslashes($atch->original_name)."',".$mid[0].",".$atch->mime_type.",".$atch->fsize.",'Y',".$mid[1].")");
-						
-							$fa_id = db_lastid("{SQL_TABLE_PREFIX}attach", $r);		
-
-							copy($atch->location, $GLOBALS['FILE_STORE'].$fa_id.'.atch');
-							@chmod($GLOBALS['FILE_STORE'].$fa_id.'.atch', ($GLOBALS['FILE_LOCK']=='Y'?0600:0666));
-							$id_list .= $fa_id.',';
+				qf($c);
+				if (isset($atl)) {
+					foreach ($GLOBALS['send_to_array'] as $mid) {
+						foreach ($atl as $k => $v) {
+							$aid = db_qid('INSERT INTO {SQL_TABLE_PREFIX}attach (owner, private, message_id, original_name, mime_type, fsize) VALUES(' . $mid[0] . ', \'Y\',' . $mid[1] . $v .')');
+							$aidl[] = $aid;
+							copy($FILE_STORE . $k . '.atch', $FILE_STORE . $aid . '.atch');
+							@chmod($FILE_STORE . $aid . '.atch', ($FILE_LOCK == 'Y' ? 0600 : 0666));
 						}
 					}
-					q("UPDATE {SQL_TABLE_PREFIX}attach SET location=".sql_concat("'".$GLOBALS['FILE_STORE']."'",'id',"'.atch'")." WHERE id IN(".substr($id_list,0,-1).")");	
+					q('UPDATE {SQL_TABLE_PREFIX}attach SET location='.__FUD_SQL_CONCAT__.'(\''.$FILE_STORE.'\', id, \'.atch\') WHERE id IN('.implode(',', $aidl).')');
 				}
-			}	
-		}
-		
-		if( empty($GLOBALS['__error__']) ) {
-			header("Location: {ROOT}?t=pmsg&"._rsidl."&folder_id=INBOX");
-			exit;
+			}
 		}	
+		header('Location: {ROOT}?t=pmsg&'._rsidl.'&folder_id=INBOX');
+		exit;
 	}
+
+	$no_spell_subject = ($reply_to && $old_subject == $msg_subject) ? 1 : 0;
+
+	if (isset($_POST['btn_spell'])) {
+		$text = apply_custom_replace($_POST['msg_body']);
+		$text_s = apply_custom_replace($_POST['msg_subject']);
 		
-	if ( !empty($reply_to) && $old_subject == $msg_subject ) $no_spell_subject = 1;
-	
-	if( !empty($HTTP_POST_VARS["btn_spell"]) ) {
-		$text = apply_custom_replace($HTTP_POST_VARS["msg_body"]);
-		$text_s = apply_custom_replace($HTTP_POST_VARS["msg_subject"]);
-		
-		switch ( $GLOBALS['PRIVATE_TAGS'] )
-		{
+		switch ($PRIVATE_TAGS) {
 			case 'ML':
-				$text = tags_to_html($text, strtoupper($GLOBALS['PRIVATE_IMAGES']));
+				$text = tags_to_html($text, $PRIVATE_IMAGES);
 				break;
 			case 'HTML':
 				break;
 			default:
-				$text = htmlspecialchars($text);	
+				$text = htmlspecialchars($text);
 		}
-		
-		if( empty($msg_smiley_disabled) ) $text = smiley_to_post($text);
 
-	 	if( strlen($text) ) {	
-			$wa = tokenize_string($text);
-			$text = spell_replace($wa,'body');
+		if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+			$text = smiley_to_post($text);
+		}
+
+	 	if ($text) {	
+			$text = spell_replace(tokenize_string($text), 'body');
 			
-			if( empty($msg_smiley_disabled) ) $msg_body = post_to_smiley($text);
+			if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+				$msg_body = post_to_smiley($text);
+			}
 			
-			switch ( $GLOBALS['PRIVATE_TAGS'] ) 
-			{
+			switch ($PRIVATE_TAGS) {
 				case 'ML':
 					$msg_body = html_to_tags($msg_body);
 					break;
@@ -333,151 +305,96 @@
 			
 			$msg_body = apply_reverse_replace($msg_body);
 		}	
-		$wa='';
 			
-		if( strlen($HTTP_POST_VARS["msg_subject"]) && empty($no_spell_subject) ) {
+		if ($text_s && !$no_spell_subject) {
 			$text_s = htmlspecialchars($text_s);
-			$wa = tokenize_string($text_s);
-			$text_s = spell_replace($wa,'subject');
+			$text_s = spell_replace(tokenize_string($text_s), 'subject');
 			reverse_FMT($text_s);
 			$msg_subject = apply_reverse_replace($text_s);
 		}
 	}
 
-	/* form start */	 
-	$ses->update('{TEMPLATE: pm_update}');
+	ses_update_status($usr->sid, '{TEMPLATE: pm_update}');
 	
-	{POST_HTML_PHP}
+/*{POST_HTML_PHP}*/
 	
-	$cur_ppage = tmpl_cur_ppage('','');
+	$cur_ppage = tmpl_cur_ppage('', $folders);
 
-if ( !empty($preview) || !empty($spell) ) {
-	$text = apply_custom_replace($HTTP_POST_VARS['msg_body']);
-	$text_s = apply_custom_replace($HTTP_POST_VARS['msg_subject']);
+	if (isset($_POST['preview']) || isset($_POST['spell'])) {
+		$text = apply_custom_replace($_POST['msg_body']);
+		$text_s = apply_custom_replace($_POST['msg_subject']);
 
-	switch ( $GLOBALS['PRIVATE_TAGS'] ) 
-	{
-		case 'ML':
-			$text = tags_to_html($text, strtoupper($GLOBALS['PRIVATE_IMAGES']));
-			break;
-		case 'HTML':
-			break;
-		default:
-			$text = nl2br(htmlspecialchars($text));
+		switch ($PRIVATE_TAGS) {
+			case 'ML':
+				$text = tags_to_html($text, $PRIVATE_IMAGES);
+				break;
+			case 'HTML':
+				break;
+			default:
+				$text = nl2br(htmlspecialchars($text));
+		}
+		if ($PRIVATE_MSG_SMILEY == 'Y' && !isset($msg_smiley_disabled)) {
+			$text = smiley_to_post($text);
+		}
+		$text_s = htmlspecialchars($text_s);
+	
+		$spell = (isset($_POST['spell']) && unction_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
+	
+		if ($spell && strlen($text)) {
+			$text = check_data_spell($text, 'body');
+		}
+		fud_wordwrap($text);
+
+		$subj = ($spell && !$no_spell_subject && $text_s) ? check_data_spell($text_s, 'subject') : $text_s;
+
+		$signature = ($ALLOW_SIGS == 'Y' && $usr->sig && isset($msg_show_sig)) ? '{TEMPLATE: signature}' : '';
+		$apply_spell_changes = $spell ? '{TEMPLATE: apply_spell_changes}' : '';
+		$preview_message = '{TEMPLATE: preview_message}';
 	}
-	
-	if ( $PRIVATE_MSG_SMILEY == 'Y' && empty($HTTP_POST_VARS["msg_smiley_disabled"]) ) $text = smiley_to_post($text);
-	
-	$text_s = htmlspecialchars($text_s);
-	
-	if( !function_exists('pspell_config_create') || !$GLOBALS['FUD_THEME'][5] ) $spell=0;
-	
-	if ( !empty($spell) && strlen($text) ) $text = check_data_spell($text,'body');
-	
-	fud_wordwrap($text);
 
-	$sig=$subj='';
-	if ( $text_s ) {
-		if ( !empty($spell) && empty($no_spell_subject) && strlen($text_s) )
-			$subj .= check_data_spell($text_s,'subject');
-		else
-			$subj .= $text_s;
-	}
-	
-	if ( $GLOBALS['ALLOW_SIGS']=='Y' && !empty($msg_show_sig) && $msg_show_sig == 'Y' && $usr->sig ) $signature = '{TEMPLATE: signature}';
-	if ( !empty($spell) ) $apply_spell_changes = '{TEMPLATE: apply_spell_changes}';
-	
-	$preview_message = '{TEMPLATE: preview_message}';
-}
+	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
 
-if ( is_post_error() ) $post_error = '{TEMPLATE: post_error}';
-
-	/*
-	 * form begins here
-	 */
 	$to_err = get_err('msg_to_list');
 	$msg_subect_err = get_err('msg_subject');
+	$message_err = get_err('msg_body',1);
+	$msg_body = str_replace("\r", '', $msg_body);
 	 
-	/* 
-	 * draw the icon select here
-	 */
-	 
-	if ( $dp = opendir($icon_path) ) {
-		$none_checked = empty($msg_icon) ? ' checked' : '';	 	
-	 	$col_pos = 0;
-	 	$col_count = 9;
-	 	$post_icons = '';
-	 	$post_icon_entry = '';
-	 	while ( $de = readdir($dp) ) {
-	 		if ( $de == '.' || $de == '..' ) continue;
-			if ( strlen($de) < 4 ) continue;
-			$ext = strtolower(substr($de, -4));
-			
-			if ( $ext != '.gif' && $ext != '.jpg' && $ext != '.png' ) continue;
-			if ( ++$col_pos > $col_count ) { $post_icons_rows .= '{TEMPLATE: post_icon_row}'; $post_icon_entry = ''; $col_pos = 0; }
-			
-			$checked = ($de==$msg_icon)?' checked':'';
-			$post_icon_entry .= '{TEMPLATE: post_icon_entry}';
-	 	}
-	 	closedir($dp);
-	 	if ( $col_pos ) { $post_icons_rows .= '{TEMPLATE: post_icon_row}'; $post_icon_entry = ''; $col_pos = 0; }
-	 	
-	 	if ( !empty($post_icons_rows) ) $post_icons = '{TEMPLATE: post_icons}';
-	}
-	 
-	if ( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
-		$post_smilies = draw_post_smiley_cntrl();
-	}	
-
-	if( $GLOBALS['PRIVATE_TAGS'] == 'ML' ) $fud_code_icons = '{TEMPLATE: fud_code_icons}';
+	$post_smilies = $PRIVATE_MSG_SMILEY == 'Y' ? draw_post_smiley_cntrl() : '';
+	$post_icons = draw_post_icons($msg_icon);
+	$fud_code_icons = $PRIVATE_TAGS == 'ML' ? '{TEMPLATE: fud_code_icons}' : '';
 	
 	$post_options = tmpl_post_options('private');
-	$message_err = get_err('msg_body',1);
-	$msg_body = str_replace("\r", "", $msg_body);
 	
-	if ( $PRIVATE_ATTACHMENTS > 0 ) {	
+	if ($PRIVATE_ATTACHMENTS > 0) {	
 		$file_attachments = draw_post_attachments((isset($attach_list) ? $attach_list : ''));
+	} else {
+		$file_attachments = '';	
 	}
 
-	$msg_track_check = ( $msg_track == 'Y' ) ? ' checked' : '';
-	
-	if( !$HTTP_POST_VARS['prev_loaded'] ) $msg_show_sig = $usr->append_sig;
-	$msg_show_sig_check = ( $msg_show_sig == 'Y' ) ? ' checked' : '';
+	$msg_track_check = isset($msg_track) ? ' checked' : '';
+	$msg_show_sig_check = (isset($msg_show_sig) || $usr->append_sig == 'Y')  ? ' checked' : '';
 
-	if( $GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y' ) {
-		$msg_smiley_disabled_check = ($msg_smiley_disabled=='Y' ? ' checked' : '');
+	if ($PRIVATE_MSG_SMILEY == 'Y') {
+		$msg_smiley_disabled_check = isset($msg_smiley_disabled) ? ' checked' : '';
 		$disable_smileys = '{TEMPLATE: disable_smileys}';
+	} else {
+		$disable_smileys = '';
 	}
 	
-	if( $GLOBALS["SPELL_CHECK_ENABLED"]=='Y' && function_exists('pspell_config_create') && $GLOBALS['FUD_THEME'][5] ) $spell_check_button = '{TEMPLATE: spell_check_button}';
+	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
+		$spell_check_button = '{TEMPLATE: spell_check_button}';
+	} else {
+		$spell_check_button = '';
+	}
 	
-	if( !empty($msg_ref_msg_id) ) {
-		$ref_id = substr($msg_ref_msg_id,1);
-		$POST_FORM = 1;
-		$r = q("SELECT 
-			{SQL_TABLE_PREFIX}pmsg.*,
-			{SQL_TABLE_PREFIX}users.id AS user_id,
-			{SQL_TABLE_PREFIX}users.alias AS login,
-			{SQL_TABLE_PREFIX}users.invisible_mode,
-			{SQL_TABLE_PREFIX}users.posted_msg_count,
-			{SQL_TABLE_PREFIX}users.join_date,
-			{SQL_TABLE_PREFIX}ses.time_sec
-		FROM 
-			{SQL_TABLE_PREFIX}pmsg
-			INNER JOIN {SQL_TABLE_PREFIX}users 
-				ON {SQL_TABLE_PREFIX}pmsg.ouser_id={SQL_TABLE_PREFIX}users.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}ses
-				ON {SQL_TABLE_PREFIX}users.id={SQL_TABLE_PREFIX}ses.user_id	
-		WHERE 
-			duser_id=".$usr->id." AND 
-			{SQL_TABLE_PREFIX}pmsg.id='".$ref_id."'
-		");
+	if ($reply && ($mm = db_sab('SELECT p.*, u.alias, u.invisible_mode, u.posted_msg_count, u.join_date, u.last_visit FROM {SQL_TABLE_PREFIX}pmsg p INNER JOIN {SQL_TABLE_PREFIX}users u ON p.ouser_id=u.id WHERE p.duser_id='._uid.' AND p.id='.$reply))) {
 		fud_use('drawpmsg.inc');	
-		$reference_msg = tmpl_drawpmsg(db_singleobj($r));
+		$reference_msg = tmpl_drawpmsg($mm, TRUE);
 		$reference_msg = '{TEMPLATE: reference_msg}';
+	} else {
+		$reference_msg = '';
 	}
 	
-	$ret = create_return();
-	{POST_PAGE_PHP_CODE}
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: PPOST_PAGE}

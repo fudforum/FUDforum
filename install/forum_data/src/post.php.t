@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.42 2003/04/15 08:32:53 hackie Exp $
+*   $Id: post.php.t,v 1.43 2003/04/17 11:53:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -567,7 +567,7 @@
 		$post_smilies = $disable_smileys = '';
 	}
 	
-	if ($GLOBALS['SPELL_CHECK_ENABLED']=='Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
+	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
 		$spell_check_button = '{TEMPLATE: spell_check_button}';
 	} else {
 		$spell_check_button = '';
