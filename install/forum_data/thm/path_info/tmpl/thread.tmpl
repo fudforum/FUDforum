@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.23 2004/11/30 16:31:40 hackie Exp $
+* $Id: thread.tmpl,v 1.24 2005/02/23 02:31:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -61,6 +61,10 @@
 
 {SECTION: admin_control_row_del_lnk}
 {ROOT}/d/{VAR: r[15]}/{VAR: r[13]}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: admin_control_row_lock_lnk}
+{ROOT}/lk/{VAR: r[13]}/{IF: $r[18] & 1}unlock{ELSE}lock{ENDI}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: thread_row_lnk}

@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.49 2004/11/30 16:31:40 hackie Exp $
+* $Id: thread.tmpl,v 1.50 2005/02/23 02:31:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,8 +90,12 @@
 <a href="{TEMPLATE: first_post_reg_user_link_lnk}">{VAR: r[5]}</a>
 {SECTION: END}
 
+{SECTION: admin_control_row_lock_lnk}
+{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: r[13]}&amp;{IF: $r[18] & 1}unlock{ELSE}lock{ENDI}=1&amp;SQ={GVAR: sq}
+{SECTION: END}
+
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a></div>
+<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
