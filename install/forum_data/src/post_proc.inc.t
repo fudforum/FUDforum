@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.58 2004/03/31 16:55:18 hackie Exp $
+* $Id: post_proc.inc.t,v 1.59 2004/03/31 18:11:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -295,6 +295,10 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$end_tag[$cpos] = '</div></div>';
 					$ostr .= '<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis(\''.$rnd.'\', 1);">{TEMPLATE: post_proc_reveal_spoiler}</a><div align="left" id="'.$rnd.'" style="visibility: hidden;">';
 					break;
+				case 'acronym':
+					$end_tag[$cpos] = '</acronym>';
+					$ostr .= '<acronym title="'.($parms ? $parms : ' ').'">';
+					break;
 			}
 
 			$str[$pos] = '<';
@@ -521,6 +525,9 @@ function html_to_tags($fudml)
 	$fudml = str_replace('<font face=', '<font font=', $fudml);
 	while (preg_match('!<font (color|font|size)=".+?">.*?</font>!is', $fudml)) {
 		$fudml = preg_replace('!<font (color|font|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
+	}
+	while (preg_match('!<acronym title=".+?">.*?</acronym>!is', $fudml)) {
+		$fudml = preg_replace('!<acronym title="(.+?)">(.*?)</acronym>!is', '[acronym=\1]\2[/acronym]', $fudml);
 	}
 	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
 		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', '[list type=\2]\3[/list]', $fudml);
