@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.11 2002/07/03 17:45:44 hackie Exp $
+*   $Id: compiler.inc,v 1.12 2002/07/05 12:15:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -262,7 +262,7 @@ function generate_file($php_file)
 	$themes_base = $GLOBALS['WWW_ROOT_DISK'].'theme/';
 	if ( !is_dir($themes_base) ) {
 		$u = umask(0);
-		if( !@mkdir($themes_base, 0777) ) 
+		if( !@mkdir(substr($themes_base,0,-1), 0777) ) 
 			exit("unable to make directory for this theme (<b>$themes_base</b>)<br>\n");
 		umask($u);
 	}
@@ -270,7 +270,7 @@ function generate_file($php_file)
 	$themes_base = $GLOBALS['INCLUDE'].'theme/';
 	if ( !is_dir($themes_base) ) {
 		$u = umask(0);
-		if( !@mkdir($themes_base, 0777) ) 
+		if( !@mkdir(substr($themes_base,0,-1), 0777) ) 
 			exit("unable to make directory for this theme (<b>$themes_base</b>)<br>\n");
 		umask($u);
 	}

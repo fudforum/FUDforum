@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.5 2002/06/26 19:48:16 hackie Exp $
+*   $Id: admdump.php,v 1.6 2002/07/05 12:15:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,7 +65,7 @@ function backup_dir($dirp, $key, $keep_dir='')
 	
 	$opendir = empty($keep_dir) ? $dirp : realpath($keep_dir.'/'.$dirp);
 	if( !@chdir($opendir) ) {
-		echo "warning no perms to open $opendir\n";
+		echo "warning no perms to open '$opendir'<br>\n";
 		return;
 	}
 	
