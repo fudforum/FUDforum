@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.13 2002/08/05 15:05:33 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.14 2002/08/26 00:48:32 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -848,6 +848,44 @@
 					</para>
 				</sect4>
 				
+				<sect4 id="global.option.TREE_THREADS_ENABLE">
+					<title>Allow Tree View of Thread Listing</title>
+				
+					<para>
+						Whether or not to allow tree view of the thread listing. Since this form can be fairly
+						cpu intensive, if you have a high traffic forum and/or limited cpu capacity, it 
+						is adviseable to leave this feature disabled.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.TREE_THREADS_PER_PAGE">
+					<title>Topics Per Page (tree view)</title>
+				
+					<para>
+						This option defines how many topics to show per page, on the thread listing in a tree format.
+						This option is seperate from the <link linkend="global.option.THREADS_PER_PAGE">Topics Per Page</link>
+						option, since the tree view will generaly take up more screen space then flat view.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.TREE_THREADS_MAX_DEPTH">
+					<title>Maximum Depth of Thread Listing (tree view)</title>
+				
+					<para>
+						If a a tree reaches a level greater then this number, a 'more' link will be drawn 
+						and further levels will not be displayed beyond that point.
+					</para>
+				</sect4>
+				
+				<sect4 id="global.option.TREE_THREADS_MAX_SUBJ_LEN">
+					<title>Maximum Shown Subject Length (tree view)</title>
+				
+					<para>
+						Subjects longer then the specified length, will be trimmed to the length specified
+						in this option. This is done to prevent long subjects from ruining the layout of the form.
+					</para>
+				</sect4>
+				
 				<sect4 id="global.option.POLLS_PER_PAGE">
 					<title>Polls Per Page</title>
 				
@@ -861,11 +899,17 @@
 					<title>Default Topic View</title>
 				
 					<para>
-						Allows the administrator to specify the default message view.
+						Allows the administrator to specify the default message and topic view.
 						<itemizedlist>
-							<listitem><para><emphasis role="bold">Flat View</emphasis> Standard bulletin board view.</para></listitem>
-							<listitem><para><emphasis role="bold">Tree View</emphasis> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</para></listitem>
+							<listitem><para><emphasis role="bold">Flat View thread and message list</emphasis> Standard bulletin board view.</para></listitem>
+							<listitem><para><emphasis role="bold">Tree View thread and message list</emphasis> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</para></listitem>
+							<listitem><para><emphasis role="bold">Flat thread listing/Tree message listing</emphasis> The thread listing will be displayed in flat format, while the individual threads will be drawn as trees.</para></listitem>
+							<listitem><para><emphasis role="bold">Tree thread listing/Flat message listing</emphasis> The thread listing will be displayed in tree formar, while the individual threads will be drawn in flat format.</para></listitem>
 						</itemizedlist>
+						
+						<note><simpara>
+							The last two options will only be avaliable if the <link linkend="global.option.TREE_THREADS_ENABLE">Allow Tree View of Thread Listing</link> is enabled.
+						</simpara></note>
 					</para>
 				</sect4>
 				

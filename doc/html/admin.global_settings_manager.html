@@ -315,12 +315,30 @@
 						How many messages to display per page.				
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.THREADS_PER_PAGE"></a>Topics Per Page</h5></div></div><p>
 						Indicates how many topics to show per page.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.TREE_THREADS_ENABLE"></a>Allow Tree View of Thread Listing</h5></div></div><p>
+						Whether or not to allow tree view of the thread listing. Since this form can be fairly
+						cpu intensive, if you have a high traffic forum and/or limited cpu capacity, it 
+						is adviseable to leave this feature disabled.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.TREE_THREADS_PER_PAGE"></a>Topics Per Page (tree view)</h5></div></div><p>
+						This option defines how many topics to show per page, on the thread listing in a tree format.
+						This option is seperate from the <a href="admin.global_settings_manager.html#global.option.THREADS_PER_PAGE" title="Topics Per Page">Topics Per Page</a>
+						option, since the tree view will generaly take up more screen space then flat view.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.TREE_THREADS_MAX_DEPTH"></a>Maximum Depth of Thread Listing (tree view)</h5></div></div><p>
+						If a a tree reaches a level greater then this number, a 'more' link will be drawn 
+						and further levels will not be displayed beyond that point.
+					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.TREE_THREADS_MAX_SUBJ_LEN"></a>Maximum Shown Subject Length (tree view)</h5></div></div><p>
+						Subjects longer then the specified length, will be trimmed to the length specified
+						in this option. This is done to prevent long subjects from ruining the layout of the form.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.POLLS_PER_PAGE"></a>Polls Per Page</h5></div></div><p>
 						The number of polls that will be displayed per page on the 
 						poll list form.
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.DEFAULT_THREAD_VIEW"></a>Default Topic View</h5></div></div><p>
-						Allows the administrator to specify the default message view.
-						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>Flat View</b></span> Standard bulletin board view.</p></li><li><p><span class="bold"><b>Tree View</b></span> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</p></li></ul></div><p>
+						Allows the administrator to specify the default message and topic view.
+						</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><b>Flat View thread and message list</b></span> Standard bulletin board view.</p></li><li><p><span class="bold"><b>Tree View thread and message list</b></span> Draws a tree like view of the messages. Similar to how messages in the newsgroups are displayed.</p></li><li><p><span class="bold"><b>Flat thread listing/Tree message listing</b></span> The thread listing will be displayed in flat format, while the individual threads will be drawn as trees.</p></li><li><p><span class="bold"><b>Tree thread listing/Flat message listing</b></span> The thread listing will be displayed in tree formar, while the individual threads will be drawn in flat format.</p></li></ul></div><p>
+						
+						</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+							The last two options will only be avaliable if the <a href="admin.global_settings_manager.html#global.option.TREE_THREADS_ENABLE" title="Allow Tree View of Thread Listing">Allow Tree View of Thread Listing</a> is enabled.
+						</p></div><p>
 					</p></div><div class="sect4"><div class="titlepage"><div><h5 class="title"><a name="global.option.WORD_WRAP"></a>Word Wrap</h5></div></div><p>
 						This setting defines on how many characters to wrap message bodies on, any text string longer the the number
 						of characters specified in this option will be broken down into 1 or more strings using a space as a separator.
