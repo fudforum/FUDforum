@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.17 2003/07/18 17:59:42 hackie Exp $
+*   $Id: admimport.php,v 1.18 2003/07/18 19:00:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -180,7 +180,23 @@ function resolve_dest_path($path)
 			}
 			qf($c);
 
+			/* we now need to correct cached paths for file attachments and avatars */
+			echo "Correcting Avatar Paths<br>\n";
+			if (($old_path = q_singleval('SELECT location FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'attach LIMIT 1'))) {
+				preg_match('!(.*)/!', $old_path, $m);
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'attach SET location=REPLACE(location, \''.addslashes($m[1]).'/\', \''.addslashes($GLOBALS['FILE_STORE']).'\')');
+			}
+
+			echo "Correcting Attachment Paths<br>\n";
+			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE avatar_approved!=\'NO\' LIMIT 1'))) {
+				preg_match('!http://(.*)/images/!', $old_path, $m);
+				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
+				
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE avatar_approved!=\'NO\'');
+			}
+			
 			echo '<b>Import process is now complete</b><br>';
+			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.<font><br>';
 			exit;
 		}
 	}
