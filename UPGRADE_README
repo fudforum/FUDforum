@@ -1,5 +1,5 @@
 /*
- * $Id: UPGRADE_README,v 1.5 2003/06/19 22:38:35 hackie Exp $
+ * $Id: UPGRADE_README,v 1.6 2003/07/31 01:26:41 hackie Exp $
  *
 */
 
@@ -10,12 +10,15 @@
 1) If you have safe_mode enabled you will need to upload the upgrade.php script using the forum's file manager in to the forum's
    WWW_SERVER_ROOT directory. Otherwise copy the upgrade.php file in to that directory manually.
 
-2) Using your web browser run the upgrade.php script.
+2) Make sure that the directory the upgrade script is in is either writable by the webserver or that a "fudforum_archive"
+	file exists and is writable by the webserver. The latter applies only to users on servers WITHOUT safe_mode.
 
-3) Once it runs you will need to run the consistency checker, which normally will be automatically started in a new windows via
+3) Using your web browser run the upgrade.php script.
+
+4) Once it runs you will need to run the consistency checker, which normally will be automatically started in a new windows via
    JavaScript.
 
-4) After the consistency checker runs you should be running the new version of FUDforum.
+5) After the consistency checker runs you should be running the new version of FUDforum.
 
 **NOTE**
 	For the runtime of the upgrade script 10-20 seconds your forum will be disabled to prevent data corruption.

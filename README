@@ -1,5 +1,5 @@
 /*
- * $Id: README,v 1.5 2003/06/19 22:38:35 hackie Exp $
+ * $Id: README,v 1.6 2003/07/31 01:26:41 hackie Exp $
  *
  */ 
 
@@ -11,10 +11,15 @@
 	If you do not have safe_mode enabled it is a good idea to place the script in the same directory you intend to
 	install the forum to. Otherwise, if you safe_mode is enabled, place the upgrade script in a directory that IS NOT
 	the directory where you intend to install the forum.
-	
-2) Using your web browser run the install.php script.	
 
-3) The install wizard will then take you through 5 steps at the end of which you will have a working FUDforum installed on your server.
+2) This step applies ONLY to users who's PHP has a memory limit.
+	Make sure that the directory the install script is in is either writable by the webserver 
+	or that a "fudforum_archive" file exists and is writable by the webserver. The latter 
+	applies only to users on servers WITHOUT safe_mode.
+	
+3) Using your web browser run the install.php script.	
+
+4) The install wizard will then take you through 5 steps at the end of which you will have a working FUDforum installed on your server.
 
 *********************************
 *	CVS Instructions	*
