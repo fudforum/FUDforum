@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.39 2003/12/08 15:27:43 hackie Exp $
+* $Id: admgroups.php,v 1.40 2003/12/16 11:36:31 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -47,8 +47,7 @@
 			}
 
 			if (empty($_POST['gr_name']) && $edit > 2) {
-				$error = 1;
-				$error_reason = 'You must provide a name for your new group.';
+				$_POST['gr_name'] = q_singleval("SELECT name FROM ".$DBHOST_TBL_PREFIX."groups WHERE id=".$edit);
 			}
 
 			if ($val < 0) {
@@ -144,7 +143,7 @@
 
 		/* restore form values */
 		if ($error) {
-			$gr_name = $_POST['gr_name'];
+			$gr_name = !empty($_POST['gr_name']) ? $_POST['gr_name'] : '';
 			$gr_resource = array();
 			if (isset($_POST['gr_resource']) && is_array($_POST['gr_resource'])) {
 				foreach ($_POST['gr_resource'] as $v) {
