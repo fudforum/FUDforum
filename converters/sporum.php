@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sporum.php,v 1.3 2004/08/02 13:33:16 hackie Exp $
+* $Id: sporum.php,v 1.4 2004/08/09 11:09:03 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -217,7 +217,7 @@ Because Sporum uses incompatible one-way password encryption scheme the password
 
 		if ($obj->fileattach) {
 			$_POST['frm_max_file_attachments'] = 1;
-			$_POST['frm_max_attach_size'] = round((int) $config['filesize'] / 1024);
+			$_POST['frm_max_attach_size'] = round((int) $config['file_size'] / 1024);
 		} else {
 			$_POST['frm_max_attach_size'] = $_POST['frm_max_file_attachments'] = 0;
 		}
