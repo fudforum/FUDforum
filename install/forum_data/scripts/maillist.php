@@ -3,7 +3,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: maillist.php,v 1.45 2004/07/02 12:40:53 hackie Exp $
+* $Id: maillist.php,v 1.46 2004/09/17 01:23:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -392,6 +392,8 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$emsg->clean_up_data();
 
 	$msg_post = new fud_msg_edit;
+
+	$GLOBALS['usr']->lang = q_singleval("SELECT lang FROM ".sql_p."themes WHERE theme_opt=1|2");
 
 	// Handler for our own messages, which do not need to be imported.
 	if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
