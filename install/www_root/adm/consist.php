@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.55 2003/10/03 19:16:43 hackie Exp $
+*   $Id: consist.php,v 1.56 2003/10/03 19:33:53 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -271,12 +271,12 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking file attachments against messages');
 	$arm = array();
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND private=0');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'msg m ON a.message_id=m.id WHERE m.id IS NULL AND attach_opt=0');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
 	qf($c);
-	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND private=1');
+	$c = q('SELECT a.id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'pmsg pm ON a.message_id=pm.id WHERE pm.id IS NULL AND attach_opt=1');
 	while ($r = db_rowarr($c)) {
 		$arm[] = $r[0];
 	}
@@ -293,7 +293,7 @@ forum will be disabled.<br><br>
 	$oldm = '';
 	$atr = array();
 	q('UPDATE '.$tbl.'msg SET attach_cnt=0, attach_cache=NULL');
-	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE private=0');
+	$c = q('SELECT a.id, a.original_name, a.fsize, a.dlcount, CASE WHEN mi.icon IS NULL THEN \'unknown.gif\' ELSE mi.icon END, a.message_id FROM '.$tbl.'attach a LEFT JOIN '.$tbl.'mime mi ON a.mime_type=mi.id WHERE attach_opt=0');
 	while ($r = db_rowarr($c)) {
 		if ($oldm != $r[5]) {
 			if ($oldm) {
@@ -313,7 +313,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Rebuild attachment cache for private messages');
 	q('UPDATE '.$tbl.'pmsg SET attach_cnt=0');
-	$c = q('SELECT count(*), message_id FROM '.$tbl.'attach WHERE private=1 GROUP BY message_id');
+	$c = q('SELECT count(*), message_id FROM '.$tbl.'attach WHERE attach_opt=1 GROUP BY message_id');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'pmsg SET attach_cnt='.$r[0].' WHERE id='.$r[1]);
 	}
@@ -612,12 +612,7 @@ forum will be disabled.<br><br>
 	draw_stat('Done: Rebuilding group leader cache');
 
 	draw_stat('Rebuilding group cache');
-	q('DELETE FROM '.$tbl.'group_cache');
-	$c = q('SELECT id FROM '.$tbl.'groups');
-	while ($r = db_rowarr($c)) {
-		grp_rebuild_cache($r[0]);
-	}
-	qf($c);
+	grp_rebuild_cache();
 	draw_stat('Done: Rebuilding group cache');
 
 	draw_stat('Validating User/Theme Relations');
