@@ -189,7 +189,7 @@ views:				Luettu
 vote:				Arvioita: {VAR: frm->n_rating}
 vote_button:			Äänestä
 vote_for_thread:		Arvioi
-was_moved_msg:			Moderaattori on siirtänyt aiheen <a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> foorumiin <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{VAR: r[12]}</a>
+was_moved_msg:			Moderaattori on siirtänyt aiheen <a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> foorumiin <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>
 welcome_message:		Tervetuloa <b>{VAR: usr->alias}</b>, viimeksi kävit {DATE: usr->last_visit %a, %d. %Bta %Y %H:%M}
 what_ppl_doing:			näytä mitä ihmiset ovat tekemässä
 reported_del_report:		Poista ilmianto
@@ -344,7 +344,7 @@ my_buddies:			Kaverit
 add_buddy:			Lisää Kaveri
 add:				Lisää
 buddy_search:			Anna käyttäjätunnus jonka haluat lisätä.
-member_search:			<br>Tai käytä <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
+member_search:			<br>Tai käytä <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Hae Käyttäjä</a> toimintoa löytääksesi henkilön.
 buddy_remove:			poista
 post_normal:			Normaali
 post_sticky:			Kelluva
@@ -396,12 +396,12 @@ ignore_users:			Torjutut Käyttäjät
 add_ignore:			Lisää Torjuttu
 forum_terms:			Foorumin Ehdot
 forum_rules:			Rekisteröityminen on ilmaista! Edellytämme toki, että hyväksyt alla mainitut ehdot ja säännöt. Jos hyväksyt nämä ehdot, klikkaa Hyväksyn nappia sivun alareunassa. HUOM! Hyväksyntä tarkoittaa myös että olet yli 13 vuotias. Jos olet 13 tai alle, käytä tätä rekisteröitymiskaavaketta.<p>Vaikka tämän sivuston ylläpito ja moderaattorit pyrkivätkin poistamaan arveluttavan sisällön niin nopeasti kuin mahdollista, on kuitenkin mahdotonta tarkistaa jokaista viestiä. Kaikki viestit ilmaisevat kirjoittajiensa mielipiteitä joten ylläpito, moderaattorit tai foorumin kehittäjät eivät ole vastuussa näistä kirjoituksista, lukuunottamatta heidän omia viestejään. <p>Klikkaamalla Hyväksyn nappia, suostut olemaan esittämättä mitään loukkaavaa, vihamielistä, epämoraalista tai muutakaan materiaalia joka voisi loukata voimassa olevia lakeja. <p>Suostut myös siihen, että ylläpito ja moderaattorit ovat oikeutettuja poistamaan, muokkaamaan, siirtämään tai sulkemaan minkä tahansa aiheen milloin tahansa. <p>Käyttäjänä suostut siihen, että kaikki antamasi tiedot tallennetaan tietokantaan. Mitään tietoja ei anneta millekään kolmannelle osapuolelle ilman suostumustasi. Ylläpito ei myöskään ole vastuullinen jos tietoturva vaarantuu hakkeroinnin, tms. takia.<br>
-forum_rules_13:			Kaikkien alle 13 vuotiaiden lasten täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.<p>Klikkaa Hyväksyn nappia, jos haluat aloittaa rekisteröitymisprosessin ennenkuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, klikkaa Peruuta palataksesi foorumi listaan.<p>Suostumuskaaveke löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Kaikkien alle 13 vuotiaiden lasten täytyy hankkia lupa vanhemmaltaan tai huoltajaltaan voidakseen liittyä foorumien käyttäjäksi. Edellytämme, että vanhempi tai huoltaja faksaa tai postittaa allekirjoitetun suostumuskaavakkeen ennen käyttöoikeuden myöntämistä.<p>Klikkaa Hyväksyn nappia, jos haluat aloittaa rekisteröitymisprosessin ennenkuin olemme vastaanottaneet suostumuskaavakkeen. Jos haluat peruuttaa rekisteröitymisen, klikkaa Peruuta palataksesi foorumi listaan.<p>Suostumuskaaveke löytyy täältä. Lisätietoja rekisteröitymisprosessista saat lähettämällä ylläpidolle sähköpostia: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Varmistus
 coppa_before:			Ennen {DATE: coppa %B %e, %Y}
 coppa_after:			Jälkeen {DATE: coppa %B %e, %Y}
 coppa_link:			Klikkaa linkkiä joka vastaa syntymäaikaasi
-coppa:				Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennenkuin alle 13 vuotias käyttäjä voi jatkaa rekisteröitymistä. <p>Lisätietoja: <a class="GenLink"href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Vanhempasi tai huoltajasi täytyy postittaa tai faksata allekirjoitettu suostumuskaavake tämän foorumin ylläpitäjälle ennenkuin alle 13 vuotias käyttäjä voi jatkaa rekisteröitymistä. <p>Lisätietoja: <ahref="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Foorumin käyttöehdot
 prereg_agree:			Hyväksyn
 prereg_disagree:		En hyväksy
@@ -574,7 +574,7 @@ emailconf_err_invkey_msg:	Virheellinen vahvistusavain. Tarkista sähköpostistasi,
 err_inc_criticaltitle:		KRIITTINEN VIRHE
 err_inc_criticalmsg:		Virhe virheiden raportoinnnissa.
 finduser_update:		Etsii käyttäjiä
-help_index_update:		Lukee <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a> listaa
+help_index_update:		Lukee <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> listaa
 iemail_thr_subject:		Uusi viesti aiheessa {VAR: thr_subject} käyttäjältä: {VAR: poster_login}
 iemail_thr_bodyemail:		Lue uudet lukemattomat viestit täällä:\n{VAR: goto_url['email']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa\nkäy täällä: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Lue uudet lukemattomat viestit täällä: \n{VAR: goto_url['icq']}\n\nJos et halua vastaanottaa ilmoituksia uusista viesteistä tässä aiheessa\nkäy täällä:{VAR: unsub_url['icq']}
@@ -589,14 +589,14 @@ ignore_list_err_nu_title:	Käyttäjää ei löydy
 ignore_list_err_nu_msg:		Käyttäjää jonka yritit torjua ei löytynyt.
 ignore_list_cantign_msg:	Et voi torjua tätä käyttäjää
 ignore_list_update:		Selaa omaa torjuttujen listaa
-index_update:			Selaa <a href="{TEMPLATE: index_update_lnk}" class="GenLink">foorumi listaa</a>
+index_update:			Selaa <a href="{TEMPLATE: index_update_lnk}">foorumi listaa</a>
 list_referers_update:		Selaa suosittelujaan
 login_update:			Sisäänkirjautuminen
 msg_err_onlyreg_title:		Vain rekisteröityneet käyttäjät voivat lukea viestejä
-msg_err_onlyreg_msg:		Nähdäksesi tämän foorumin viestit sinun täytyy <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">kirjaudu sisään</a>.
+msg_err_onlyreg_msg:		Nähdäksesi tämän foorumin viestit sinun täytyy <a href="{TEMPLATE: msg_register_lnk}">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}">kirjaudu sisään</a>.
 msg_err_ininfo_title:		Riittämättömät Tiedot
 msg_err_ininfo_msg:		Ongelma sivun generoinnissa
-msg_update:			Lukee <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
+msg_update:			Lukee <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> viestiä
 pm_err_nopm_title:		VIRHE: Yksityisviestit poistettu käytöstä
 pm_err_nopm_msg:		Et voi käyttää yksityisviestejä koska ylläpitäjä on poistanut ne käytöstä.
 pm_update:			Käyttää yksityiviestintää
@@ -624,9 +624,9 @@ post_err_attach_size:		<font class="ErrorText">Liitetiedoston koko ylittää suuri
 post_err_attach_ext:		<font class="ErrorText">Lähetetyn tiedoston tyyppi ei vastaa sallittuja tiedostotyyppejä.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Yritit lähettää sallittua enemmän tiedostoja.</font><br>
 post_err_passwd:		Virheellinen salasana.
-post_reply_update:		Vastaa viestiin otsikolla <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> {VAR-HTML: frm->name} foorumissa
-post_edit_update:		Editoi viestiä otsikolla <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> {VAR-HTML: frm->name} foorumissa
-post_topic_update:		Kirjoittaa uutta aihetta <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
+post_reply_update:		Vastaa viestiin otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> {VAR-HTML: frm->name} foorumissa
+post_edit_update:		Editoi viestiä otsikolla <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> {VAR-HTML: frm->name} foorumissa
+post_topic_update:		Kirjoittaa uutta aihetta <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> foorumille
 post_error_generic:		Sinulla on virhe
 postcheck_max_images_err:	Maksimissaan {GVAR: MAX_IMAGE_COUNT} kuvaa sallittu per viesti. Ole hyvä ja vähennä kuvien määrää
 postcheck_subj_needed:		Otsikko on pakollinen
@@ -673,16 +673,16 @@ reset_newpass_title:		Salasana vaihdettu
 reset_newpass_msg:		Hei,\n\nSalasanasi on nyt vaihdettu uuteen:\n\nKäyttäjätunnus: {VAR: ui[1]}\nSalasana: {VAR: passwd}\n\nHalutessasi vaihtaa yllä olevan salasanan toiseksi,\nvoit tehdä sen "Profiili"-sivulla:\n\n{ROOT}?t=register
 reset_login_notify:		Uusi salasanasi on lähetetty sinulle sähköpostilla, jonka pitäisi saapua muutaman minuutin kuluessa. Ole hyvä ja tarkista onko sähköposti saapunut.
 search_update:			Etsii viestejä
-selmsg_update:			Selaa <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>
-showposts_update:		Selaa käyttäjän "<a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>" viestejä
+selmsg_update:			Selaa <a href="{TEMPLATE: selmsg_update_lnk}">Päivän Viestejä</a>
+showposts_update:		Selaa käyttäjän "<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>" viestejä
 subscribed_update:		Selaa omia tilauksiaan
 th_err_invid_title:		Virheellinen aihe ID
 th_err_invid_msg:		Aihetta ei ole olemassa. Tarkista linkki jota käytit.
 thread_err_onlyregview_title:	Vain rekisteröityneet käyttäjät voivat lukea viestejä
-thread_err_onlyregview_msg:	Voidaksesi lukea tämän foorumin viestejä, sinun täytyy ensin <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">kirjaudu sisään</a>.
-thread_update:			Selaa <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> foorumia
-tree_update:			Selaa aihetta (puu listaus) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Katselee käyttäjän <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
+thread_err_onlyregview_msg:	Voidaksesi lukea tämän foorumin viestejä, sinun täytyy ensin <a href="{TEMPLATE: msg_register_lnk}">rekisteröityä</a>. Jos olet jos rekisteröitynyt, <a href="{TEMPLATE: msg_login_lnk}">kirjaudu sisään</a>.
+thread_update:			Selaa <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> foorumia
+tree_update:			Selaa aihetta (puu listaus) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Katselee käyttäjän <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> profiilia.
 ERR_login_ttl:			VIRHE: Et ole kirjautunut sisään
 ERR_login_msg:			Et ole kirjautunut sisään.<br><br>Halutessasi rekisteröityä, siirry <ahref="{TEMPLATE: msg_register_lnk}">rekisteröintiin</a><br>Halutessasi kirjautua sisään, siirry <a href="{TEMPLATE: msg_login_lnk}">sisäänkirjautumiseen</a>
 ERR_login_url:			{TEMPLATE: msg_login_lnk}
@@ -788,7 +788,7 @@ p_MOVE:				Siirtää Aiheita
 p_SML:				Käyttää Hymiöitä
 p_IMG:				Käyttää Kuvia
 p_SEARCH:			Hakea Viestejä
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hae Käyttäjä</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hae Käyttäjä</a>
 group_mgr_indicator:		Muokkaa tällä hetkellä: <b>{VAR: grp->name}</b>
 rate_worst:			Huonoin
 rate_best:			Paras
@@ -859,7 +859,7 @@ forum_home:			Koti
 post_cur_attached:		liitetiedostoja tällä hetkellä: {VAR: i} tiedosto(a)
 ppost_cur_attached:		liitetiedostoja tällä hetkellä: {VAR: attach_count} tiedosto(a) 
 ignored_anon_post:		{GVAR: ANON_NICK} viestit on torjuttu
-ignored_user_post:		Käyttäjän <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> viesti on torjuttu
+ignored_user_post:		Käyttäjän <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> viesti on torjuttu
 smladd_close_window:		sulje ikkuna
 post_list_smilies:		näytä kaikki hymiöt
 p_VISIBLE:			Näkee Foorumin
@@ -909,7 +909,7 @@ read_message:			Luettu Viesti
 threadt_more:			&lt;lisää&gt;
 threadt_disabled_ttl:		Aiheiden puu-listaus ei ole käytössä
 threadt_disabled_desc:		Ylläpitäjä on poistanut aiheiden puu-listauksen käytöstä. Käytä taso-listausta sen sijaan.
-threadt_update:			Selaa foorumia (puu listaus) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Selaa foorumia (puu listaus) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Aiheen/Viestin poiston varmistus
 spell_alts:			ei vaihtoehtoja
 insert_uploaded_image:		Lisää kuva viestin tekstiin
@@ -981,7 +981,7 @@ mnav_day:			Päivä(ä)
 mnav_week:			Viikko(a)
 mnav_month:			Kuukautta
 mnav_title:			Viestiselain
-mnav_update:			Selaa viestejä käyttäen <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Viestiselainta</a>
+mnav_update:			Selaa viestejä käyttäen <a href="{TEMPLATE: mnav_update_lnk}">Viestiselainta</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Ilmoitus uudesta yksityisviestistä
 pm_notify_body_email:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\nNäet viestin klikkaamalla tätä: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.
 pm_notify_body_icq:		Sinulle on uusi yksityisviesti käyttäjältä "{VAR: from}" otsikolla "{VAR: subject}" foorumilla "{GVAR: FORUM_TITLE}".\n\nJos et halua ilmoituksia uusista viesteistä, voit poistaa ne käytöstä asetuksissasi.

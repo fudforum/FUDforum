@@ -40,7 +40,7 @@ homepage:			Strona domowa:
 icq_control_panel:		Panel wiadomo¶ci ICQ
 icq_message_form:		Formularz wiadomo¶ci ICQ:
 ignore_user:			Ignoruj tego u¿ytkownika
-ignored_user_post:		Wiadomo¶æ zamieszczona przez u¿ytkownika <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> zostaje zignorowana
+ignored_user_post:		Wiadomo¶æ zamieszczona przez u¿ytkownika <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> zostaje zignorowana
 im_aim:				Pseudonim AIM:
 im_msnm:			Komunikator MSN:
 im_yahoo:			Komunikator Yahoo:
@@ -189,7 +189,7 @@ views:				Ods³on
 vote:				{VAR: frm->n_rating} G³osów
 vote_button:			G³osuj
 vote_for_thread:		G³osuj
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> zosta³ przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> przez moderatora.
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> zosta³ przeniesiony do forum <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> przez moderatora.
 welcome_message:		Witaj <b>{VAR: usr->alias}</b>, Twoja ostatnia wizyta by³a dnia {DATE: usr->last_visit %a, %d %B %Y %H:%M}.
 what_ppl_doing:			poka¿, co robi± inni u¿ytkownicy
 reported_del_report:		Usuñ Zg³oszenie
@@ -390,12 +390,12 @@ ignore_users:			Ignorowani U¿ytkownicy
 add_ignore:			Dodawanie ignorowanych
 forum_terms:			Zasady Forum
 forum_rules:			Rejestracja na tym forum jest darmowa. Jednak wymagane jest zaakceptowanie poni¿szego warunku: U¿ytkownik forum obwi±zany jest do niezamieszczania wiadomo¶ci uznanych powszechnie za obra¼liwe, wulgarne, pe³nych nienawi¶ci, pogró¿ek oraz w jakikolwiek inny sposób ³ami±ce prawo.<p>Wszystkie wiadomo¶ci wyra¿aj± pogl±dy autora. W³a¶ciciel, ani twórcy forum nie bêd± odpowiedzialni za ich tre¶æ.<p>Ponadto w³a¶ciciele tego forum zastrzegaj± sobie prawo do usuwania, edytowania, przenoszenia lub zamykania w±tków bez podania przyczyny.
-forum_rules_13:			Wszyscy u¿ytkownicy poni¿ej 13 roku ¿ycia musz± uzyskaæ zgodê od swoich rodziców lub prawnych opiekunów, je¶li chc± zarejestrowaæ siê na tym forum. Chocia¿ nie mamy nic przeciwko udzielaniu siê na forum osób o wieku poni¿ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowa³ nam lub przes³a³ listem podpisan± zgodê zanim za³o¿ymy konto.<p>Je¶li chcesz rozpocz±æ proces rejestracji naci¶nij przycisk Akceptujê umieszczony poni¿ej. Je¶li chcesz zrezygnowaæ z rejestracji, naci¶nij przycisk Anuluj, a powrócisz na g³ówn± stronê forum. <p>Kopia formularza pozwolenia mo¿e byæ pobrana z tego miejsca. Wiêcej informacji o procesie rejestracji mo¿na uzyskaæ wysy³aj±c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Wszyscy u¿ytkownicy poni¿ej 13 roku ¿ycia musz± uzyskaæ zgodê od swoich rodziców lub prawnych opiekunów, je¶li chc± zarejestrowaæ siê na tym forum. Chocia¿ nie mamy nic przeciwko udzielaniu siê na forum osób o wieku poni¿ej 13 lat, wymagamy, aby rodzic lub opiekun przefaksowa³ nam lub przes³a³ listem podpisan± zgodê zanim za³o¿ymy konto.<p>Je¶li chcesz rozpocz±æ proces rejestracji naci¶nij przycisk Akceptujê umieszczony poni¿ej. Je¶li chcesz zrezygnowaæ z rejestracji, naci¶nij przycisk Anuluj, a powrócisz na g³ówn± stronê forum. <p>Kopia formularza pozwolenia mo¿e byæ pobrana z tego miejsca. Wiêcej informacji o procesie rejestracji mo¿na uzyskaæ wysy³aj±c list na adres <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Potwierdzenie systemu COPPA
 coppa_before:			Przed {DATE: coppa %B %e, %Y}
 coppa_after:			Po {DATE: coppa %B %e, %Y}
 coppa_link:			Wybierz odsy³acz, który odpowiada Twojej dacie urodzenia.
-coppa:				Rodzic lub prawny opiekun musi wys³ac list lub faks z podpisan± zgod± do administratora tego forum, zanim u¿ytkownik o wieku poni¿ej 13 lat mo¿e zakoñczyæ proces rejestracji.<p>Aby uzyskaæ wiêcej informacji na ten temat, skontaktuj siê z <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Rodzic lub prawny opiekun musi wys³ac list lub faks z podpisan± zgod± do administratora tego forum, zanim u¿ytkownik o wieku poni¿ej 13 lat mo¿e zakoñczyæ proces rejestracji.<p>Aby uzyskaæ wiêcej informacji na ten temat, skontaktuj siê z <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informacje
 prereg_agree:			Akceptujê
 prereg_disagree:		Nie akceptujê
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Nieprawid³owy klucz potwierdzaj±cy. Sprawd¼ swój list,
 err_inc_criticaltitle:		B£¡D KRYTYCZNY
 err_inc_criticalmsg:		Napotka³e¶ b³±d, ale niesstety pojawi³ siê problem z systemem zg³aszania b³êdów
 finduser_update:		Szukanie u¿ytkowników
-help_index_update:		Przegl±danie <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">pomocy</a>
+help_index_update:		Przegl±danie <a href="{TEMPLATE: help_index_update_lnk}">pomocy</a>
 iemail_thr_subject:		Nowa wiadomo¶æ w w±tku {VAR: thr_subject} utworzona przez u¿ytkownika {VAR: poster_login}
 iemail_thr_bodyemail:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do {VAR: goto_url['email']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do \n{VAR: goto_url['icq']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	U¿ytkownik nie zosta³ znaleziony
 ignore_list_err_nu_msg:		U¿ytkownik, ktorego próbowa³e¶ dodaæ do swojej listy ignorowanych, nie zosta³ znalezniony na forum.
 ignore_list_cantign_msg:	Nie mo¿esz ignorowaæ tego u¿ytkownika
 ignore_list_update:		Przegl±danie w³asnej listy ignorowanych
-index_update:			Przegl±danie <a href="{TEMPLATE: index_update_lnk}" class="GenLink">listy forum</a>
+index_update:			Przegl±danie <a href="{TEMPLATE: index_update_lnk}">listy forum</a>
 list_referers_update:		Przegl±danie osób poleconych
 login_update:			Formularz logowania
 msg_err_onlyreg_title:		Tylko zarejestrowani u¿ytkownicy mog± przegl±daæ to forum
-msg_err_onlyreg_msg:		Aby zobaczyæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zarejestrowaæ siê</a>, a je¶li ju¿ jeste¶ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">zalogowaæ siê</a>.
+msg_err_onlyreg_msg:		Aby zobaczyæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}">zarejestrowaæ siê</a>, a je¶li ju¿ jeste¶ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}">zalogowaæ siê</a>.
 msg_err_ininfo_title:		Niewystarczaj±ce informacje
 msg_err_ininfo_msg:		Pojawi³ siê problem z wygenerowaniem tej strony
-msg_update:			Przegl±danie w±tku <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Przegl±danie w±tku <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		B£¡D: Prywatne wiadomo¶ci zosta³y wy³±czone
 pm_err_nopm_msg:		Nie mo¿esz u¿yæ systemu prywatnych wiadomo¶ci, gdy¿ zosta³ wy³±czony przez administratora.
 pm_update:			Korzystanie z prywatnych wiadomo¶ci
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Za³±cznik jest zbyt du¿y (ponad d
 post_err_attach_ext:		<font class="ErrorText">Plik, który próbujesz do³±czyæ nie pokrywa siê z dozwolonymi typami plików.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Próbujesz do³±czyæ wiêcej plików ni¿ jest to dozwolone.</font><br>
 post_err_passwd:		Nieprawid³owe has³o.
-post_reply_update:		Odpowiadanie na w±tek <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
-post_edit_update:		Edycja wiadomo¶ci <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> na forum {VAR-HTML: frm->name}
-post_topic_update:		Tworzenie nowego w±tku na forum <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Odpowiadanie na w±tek <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> na forum {VAR-HTML: frm->name}
+post_edit_update:		Edycja wiadomo¶ci <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> na forum {VAR-HTML: frm->name}
+post_topic_update:		Tworzenie nowego w±tku na forum <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Pojawi³ siê pewien b³±d
 postcheck_max_images_err:	Maksimum dozwolonych obrazków w wiadomo¶ci to {GVAR: MAX_IMAGE_COUNT}, dlatego musisz zmniejszyæ ich liczbê.
 postcheck_subj_needed:		Temat jest wymagany
@@ -666,16 +666,16 @@ reset_newpass_title:		Resetowanie has³a
 reset_newpass_msg:		Witaj,\n\nW zwi±zku z Twoja pro¶b±, nazwa u¿ytkownika jest wysy³ana do Ciebie.\nPoni¿ej znajduj± siê Twoje informacje do logowania siê:\n\nNazwa u¿ytkownika: {VAR: ui[1]}\nHas³o: {VAR: passwd}\n\nZauwa¿, ¿e Twoje has³o zosta³o ustawione na to podane powy¿ej. ale jesli ¿yczysz sobie\nzmieniæ swoje has³o, mo¿esz to zrobiæ poprzez panel sterowania u¿ytkownika:\n{ROOT}?t=register\n\n
 reset_login_notify:		Twoje has³o zosta³o do Ciebie wys³ane poczt± elektroniczn±. Powiniene¶ je otrzymaæ w ci±gu kilku minut. Sprawd¼ pocztê i wykorzystaj zawarte tam informacje aby siê zalogowaæ..<br>.<br>.<br>
 search_update:			Szukanie wiadomo¶ci
-selmsg_update:			Przegl±danie <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
-showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			Przegl±danie <a href="{TEMPLATE: selmsg_update_lnk}">dzisiejszych wiadomo¶c</a>
+showposts_update:		Ogl±danie wiadomo¶ci zamieszczonych przez u¿ytkownika: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Przegl±danie w³asnych subskrypcji
 th_err_invid_title:		Nieprawid³owy identyfikator w±tku
 th_err_invid_msg:		Skorzysta³e¶ z nieprawid³owego odno¶nika, gdy¿ w±tek który próbujesz obejrzeæ nie istnieje.
 thread_err_onlyregview_title:	Tylko zarejestrowani u¿ytkownicy mog± ogl±daæ to forum
-thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">zalogowaæ siê</a>.
-thread_update:			Przegl±danie forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Przegl±danie w±tku (widok drzewiasty) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Przegl±danie profilu u¿ytkownika <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+thread_err_onlyregview_msg:	Aby obejrzeæ to forum, musisz <a href="{TEMPLATE: msg_register_lnk}">zarejestrowaæ siê</a>, a je¶li jeste¶ ju¿ zarejestrowany, musisz <a href="{TEMPLATE: msg_login_lnk}">zalogowaæ siê</a>.
+thread_update:			Przegl±danie forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Przegl±danie w±tku (widok drzewiasty) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Przegl±danie profilu u¿ytkownika <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			B£¡D: Nie jeste¶ zalogowany
 ERR_login_msg:			Nie jeste¶ zalogowany.<br><br>Je¶li chcesz siê zarejestrowaæ, przejd¼ do <a href="{TEMPLATE: msg_register_lnk}">formularza rejestracji</a><br>Je¶li chcesz siê zalogowaæ, przejd¼ do <a href="{TEMPLATE: msg_login_lnk}">formularza logowania siê</a>.
 ERR_login_url:			{TEMPLATE: msg_login_lnk}
@@ -780,7 +780,7 @@ p_LOCK:				Zablokuj w±tki
 p_MOVE:				Przenie¶ w±tki
 p_SML:				U¿ywaj u¶mieszków
 p_IMG:				U¿ywaj znaczników obrazków
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Znajd¼ U¿ytkownika</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Znajd¼ U¿ytkownika</a>
 group_mgr_indicator:		Aktualnie edytujemy: <b>{VAR: grp->name}</b>
 rate_worst:			Najgorszy
 rate_best:			Najlepszy
@@ -900,7 +900,7 @@ unread_message:			Nieprzeczytana wiadomo¶æ
 read_message:			Odczytaj wiadomo¶æ
 threadt_disabled_ttl:		Widok drzewiasty listy w±tków zosta³ wy³±czony.
 threadt_disabled_desc:		Administrator wy³±czy³ widok drzewiasty listy w±tków, dlatego u¿yj widoku p³askiego.
-threadt_update:			Przegl±danie forum (w widoku drzewiastym) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Przegl±danie forum (w widoku drzewiastym) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;wiêcej&gt;
 register_msg_tree_view:		P³aska lista w±tków/Drzewiasta lista wiadomo¶ci
 register_tree_msg_view:		Drzewiasta lista w±tków/P³aska lista wiadomo¶ci 
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

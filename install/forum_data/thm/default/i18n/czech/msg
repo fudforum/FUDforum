@@ -188,7 +188,7 @@ views:				Zobrazení
 vote:				{VAR: frm->n_rating} hlasù
 vote_button:			Hlasovat
 vote_for_thread:		Hlasovat
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> byla pøemístìna do <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> moderátorem
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> byla pøemístìna do <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> moderátorem
 welcome_message:		Vítejte <b>{VAR: usr->alias}</b>, tvoje poslední náv¹tìva byla v {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			uka¾, co dìlají ostatní
 reported_del_report:		Zpráva o smazání
@@ -393,12 +393,12 @@ ignore_users:			Ignorovaní u¾ivatelé
 add_ignore:			Pøidat ignorovaného
 forum_terms:			Podmínky fóra
 forum_rules:			Registrace k tomuto fóru není omezena! Av¹ak vy¾adujeme plnìní následujících pravidel a podmínek. Pokud souhlasíte, prosím, stisknìte tlaèítko "Souhlasím" na konci stránky. Poznámka: Stisknutím tohoto tlaèítka prohla¹ujete, ¾e je vám více ne¾ 13 let. Pokud je vám 13 a ménì, prosím, pou¾ijte tento registraèní formuláø.<p>Aèkoliv administrátor i moderátoøi tohoto fóra se sna¾í bránit v¹em ne¾ádoucím zprávám, není pro nás mo¾né je zcela vyluèit. V¹echny zprávy vyjadøují postoje autora. Majitel fóra nebo vývojáø nenese zodpovìdnost za obsah jakékoliv zprávy.<p>Kliknutím na talèítko "Souhlasím" potvrzujete, ¾e nebudete posílat neslu¹né, hrubé, sexuálnì orientované, nenávistivé, výhru¾né nebo zákon poru¹ující zprávy.<p>Majiteké tohoto fóra mají právo vymazat, zmìnit, pøesunout nebo zavøít jakékoliv téma z jakéhokoliv dùvodu.<p>
-forum_rules_13:			V¹ichni u¾ivatelé, kterým je 13 ménì musí po¾ádat o povolení své rodièe nebo opatrovníky k získání èlenství ve fóru. Jakkoli vítáme úèast èlenù, kterým je 13 a ménì, musíme vy¾adovat fax nebo email od rodièù nebo opatrovníkù back s podepsaným formuláøem povolení ne¾ poskytneme èlenství.<p>Pokud ji¾ jsme pøijali va¹e povolení, mù¾ete zaèít proces registrace stisknutím tlaèítka "Souhlasím". Pokud chcete zru¹it registraci, stisknìte tlaèítko "Zru¹it", vrátíte se do seznmu fór. <p>Kopie formuláøe povolení je ke sta¾ení zde. Pro více informací o procesu registrace, prosím, po¹lete email na <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			V¹ichni u¾ivatelé, kterým je 13 ménì musí po¾ádat o povolení své rodièe nebo opatrovníky k získání èlenství ve fóru. Jakkoli vítáme úèast èlenù, kterým je 13 a ménì, musíme vy¾adovat fax nebo email od rodièù nebo opatrovníkù back s podepsaným formuláøem povolení ne¾ poskytneme èlenství.<p>Pokud ji¾ jsme pøijali va¹e povolení, mù¾ete zaèít proces registrace stisknutím tlaèítka "Souhlasím". Pokud chcete zru¹it registraci, stisknìte tlaèítko "Zru¹it", vrátíte se do seznmu fór. <p>Kopie formuláøe povolení je ke sta¾ení zde. Pro více informací o procesu registrace, prosím, po¹lete email na <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Vìkové potvrzení
 coppa_before:			Pøed {DATE: coppa %B %e, %Y}
 coppa_after:			Po {DATE: coppa %B %e, %Y}
 coppa_link:			Kliknìte na odkaz podle va¹eho data narození
-coppa:				Rodiè nebo opatrovník musí nafaxovat nebo zaslat emailem administrátorovi tohoto fóra formuláø povolení o vstupu u¾ivatele, kterému je 13 a ménì, aby tento mohl dokonèit registraci.<p>Pro dal¹í informace kontaktujte <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Rodiè nebo opatrovník musí nafaxovat nebo zaslat emailem administrátorovi tohoto fóra formuláø povolení o vstupu u¾ivatele, kterému je 13 a ménì, aby tento mohl dokonèit registraci.<p>Pro dal¹í informace kontaktujte <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informace
 prereg_agree:			Souhlasím
 prereg_disagree:		Nesouhlasím
@@ -571,7 +571,7 @@ emailconf_err_invkey_msg:	©patný potvrzující klíè. Prosím, zkontrolujte vá¹ emai
 err_inc_criticaltitle:		KRITICKÁ CHYBA   ...nìco se krutì nepovedlo. Na sobotu svolávám hon na programátora.
 err_inc_criticalmsg:		Narazil(a) jste na chybu, ale nane¹tìstí je to chyba v systému na ohla¹ování chyb   ...tak to u¾ je na mì fakt moc. dneska si ten pøeklad vá¾nì u¾ívám :-))) star trek hadr
 finduser_update:		Vyhledávám u¾ivatele
-help_index_update:		Ètete si <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">nápovìdu.</a>
+help_index_update:		Ètete si <a href="{TEMPLATE: help_index_update_lnk}">nápovìdu.</a>
 iemail_thr_subject:		Nová odpovìd pro {VAR: thr_subject} od {VAR: poster_login}
 iemail_thr_bodyemail:		Pro zobrazení nepøeètených odpovìdí jdìte na {VAR: goto_url['email']}\n\nPokud nechcete nadále dostávat oznámení o reakcích ohlednì tomto tématu, prosím, jdìte sem: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Pro zobrazení nepøeètených odpovìdí jdìte na\n{VAR: goto_url['icq']}\n\nPokud nechcete nadále dostávat oznámení o rekacích ohlednì tohoto tématu, prosím, jdìte sem:\n{VAR: unsub_url['icq']}
@@ -586,14 +586,14 @@ ignore_list_err_nu_title:	U¾ivatel nenalezen
 ignore_list_err_nu_msg:		U¾ivatel, kterého se sna¾íte pøidat na vá¹ seznam ignorovaných u¾ivatelù nebyl v tomto fóru nalezen.
 ignore_list_cantign_msg:	Nemù¾ete ignorovat tohoto u¾ivatele
 ignore_list_update:		Prohlí¾íte si seznam ignorovaných u¾ivatelù
-index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}" class="GenLink">seznam fór</a>
+index_update:			Prohlí¾íte si <a href="{TEMPLATE: index_update_lnk}">seznam fór</a>
 list_referers_update:		Prohlí¾íte si pøivedené lidi
 login_update:			Pøihla¹ovací formuláø
 msg_err_onlyreg_title:		Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">pøihlásit</a>.
+msg_err_onlyreg_msg:		Pokud chcete nahlédnout do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}">pøihlásit</a>.
 msg_err_ininfo_title:		Nedostatek informací
 msg_err_ininfo_msg:		Pøi generování této stránky se vyskytl problém
-msg_update:			Prohlí¾íte si téma <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Prohlí¾íte si téma <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		CHYBA: Po¹ta je vypnutá
 pm_err_nopm_msg:		Nemù¾ete pou¾ít po¹tovní systém, byl vypnut administrátorem.
 pm_update:			Pou¾íváte po¹tu
@@ -621,9 +621,9 @@ post_err_attach_size:		<font class="ErrorText">Pøíloha je moc velká (limit je {V
 post_err_attach_ext:		<font class="ErrorText">Soubor, kerý se sna¾íte nahrát neodpovídá povoleným typùm.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Sna¾íte se nahrát více souborù ne¾ je povoleno.</font><br>
 post_err_passwd:		Nesprávné heslo.
-post_reply_update:		Odpovídáte na <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_edit_update:		Mìníte <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ve fóru {VAR-HTML: frm->name}
-post_topic_update:		Pí¹ete nové téma ve fóru <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Odpovídáte na <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> ve fóru {VAR-HTML: frm->name}
+post_edit_update:		Mìníte <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> ve fóru {VAR-HTML: frm->name}
+post_topic_update:		Pí¹ete nové téma ve fóru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Máte chybu
 postcheck_max_images_err:	Maximální poèet obrázkù na pøíspìvek je {GVAR: MAX_IMAGE_COUNT}, prosím, sni¾te poèet obrázkù
 postcheck_subj_needed:		Nadpis nutný
@@ -670,16 +670,16 @@ reset_newpass_title:		Vynulování hesla
 reset_newpass_msg:		Dobrý den,\n\nna základì va¹eho po¾adavku jsou vám zasílány pøihla¹ovací informace.\n\nU¾ivatelské jméno: {VAR: ui[1]}\nHeslo: {VAR: passwd}\n\nProsím, uva¾te, ¾e va¹e heslo by nastaveno na vý¹e uvedený údaj. Pokud chcete\nzmìnit své heslo, mù¾ete tak uèinit pøes nastavení va¹eho úètu na:\n{ROOT}?t=register\n\n
 reset_login_notify:		Va¹e heslo vám bylo zasláno emailem. Mìl(a) by jste ho dostat bìhem nìkolika minut. Prosím, zkontrolujte si svou emailovou schránku.<br>.<br>.<br>
 search_update:			Hledáte pøíspìvky
-selmsg_update:			Prohlí¾íte si <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
-showposts_update:		Prohlí¾íte si pøíspìvek od: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			Prohlí¾íte si <a href="{TEMPLATE: selmsg_update_lnk}">dne¹ní pøíspìvky</a>
+showposts_update:		Prohlí¾íte si pøíspìvek od: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Prohlí¾íte si odebíraná témata a fóra
 th_err_invid_title:		Chybné ID tématu
 th_err_invid_msg:		Následoval(a) jste chybný odkaz, toto téma neexistuje.
 thread_err_onlyregview_title:	Jen registrovaní u¾ivatelé mohou nahlí¾et do tohoto fóra
-thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">pøihlásit</a>.
-thread_update:			Prohlí¾íte si fórum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Prohlí¾íte si profil u¾ivatele <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+thread_err_onlyregview_msg:	Aby jste mohl(a) nahlí¾et do tohoto fóra, musíte se <a href="{TEMPLATE: msg_register_lnk}">zaregistrovat</a>. Pokud jste ji¾ zaregistrován(a), musíte se <a href="{TEMPLATE: msg_login_lnk}">pøihlásit</a>.
+thread_update:			Prohlí¾íte si fórum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Prohlí¾íte si téma (ve stromovém zobrazení) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Prohlí¾íte si profil u¾ivatele <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			CHYBA: Nejste pøihlá¹en(a)
 ERR_login_msg:			Nejste pøihlá¹ena(a), udìlejte tak<br><br>Pokud se chcete zaregistrovat jdìte na <a href="{TEMPLATE: msg_register_lnk}">registraèní formuláø</a><br>Pokud se chcete pøihlásit, jdìte na<a href="{TEMPLATE: msg_login_lnk}">pøihla¹ovací formuláø</a>
 ERR_login_url:			{TEMPLATE: msg_login_lnk}
@@ -784,7 +784,7 @@ p_LOCK:				Uzamknout témata
 p_MOVE:				Pøesunout témata
 p_SML:				Pou¾ívat smajlíky
 p_IMG:				Pou¾ívat obrázkové tagy
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hledat u¾ivatele</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Hledat u¾ivatele</a>
 group_mgr_indicator:		Nyní mìníte: <b>{VAR: grp->name}</b>
 rate_worst:			Nejhor¹í
 rate_best:			Nejlep¹í
@@ -854,7 +854,7 @@ forum_home:			Domù
 post_cur_attached:		máte {VAR: i} pøilo¾ených souborù
 ppost_cur_attached:		máte {VAR: attach_count} pøilo¾ených souborù
 ignored_anon_post:		{GVAR: ANON_NICK} je ignorován
-ignored_user_post:		Pøíspìvek od <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> je ignorován
+ignored_user_post:		Pøíspìvek od <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> je ignorován
 smladd_close_window:		zavøít okno
 post_list_smilies:		seznam v¹ech smajlíkù
 p_VISIBLE:			Viditelný
@@ -904,7 +904,7 @@ read_message:			Pøeètená zpráva
 threadt_more:			&lt;více&gt;
 threadt_disabled_ttl:		Stromové zobrazení vláken bylo vypnuto.
 threadt_disabled_desc:		Administrátor vypnul stromové zobrazení vláken, pou¾ijte místo toho ploché zobrazení.
-threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Prohlí¾íte si fórum (stromové zobrazení) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Potvrzení smazání tématu/zprávy
 spell_alts:			¾ádné alternativy
 insert_uploaded_image:		Vlo¾it obrázek do tìla zprávy
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

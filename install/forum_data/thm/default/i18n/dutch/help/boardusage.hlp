@@ -1,10 +1,10 @@
 TOPIC_TITLE: <a name="bsearch">Hoe kan ik zoeken?</a>
 TOPIC_HELP:
-Tenzij uitgezet door de beheerder, kun je <a href="{ROOT}?t=search&%_rsid%" class="GenLink">zoeken naar berichten</a> die op het forum geplaatst zijn.
+Tenzij uitgezet door de beheerder, kun je <a href="{ROOT}?t=search&%_rsid%">zoeken naar berichten</a> die op het forum geplaatst zijn.
 Je kunt naar een bericht zoeken door het opgeven van een of meerdere zoekwoorden waar je mee wilt zoeken en kiezen waar je deze zoekwoorden wilt vinden. Je kunt zoeken in alleen de onderwerpregels
 maar ook zoeken in volledige berichten inclusief de onderwerpregel. Tevens kun je je zoekopdracht beperken tot een forum van je keuze als je niet in alle forums
 wilt zoeken.<br>
-Je kunt ook zoeken naar andere forumleden, via hun loginnaam of e-mailadres via het <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">gebruikers zoekformulier</a>.
+Je kunt ook zoeken naar andere forumleden, via hun loginnaam of e-mailadres via het <a href="{ROOT}?t=finduser&%_rsid%">gebruikers zoekformulier</a>.
 
 
 TOPIC_TITLE: <a name="email">Kan ik andere forumleden e-mailen?</a>
@@ -24,7 +24,7 @@ linksbovenaan de pagina met berichten van het forum.
 TOPIC_TITLE: <a name="pmsg">Wat zijn privé berichten en hoe kan ik ze verzenden?</a> 
 TOPIC_HELP:
 Als de beheerder het systeem van priv&eacute; berichten niet heeft uitgezet, kun je priv&eacute; berichten sturen naar een of meer geregistreerde
-leden van het forum. Om toegang te krijgen tot het PB systeem, klik je gewoon op de link <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Priv&eacute; berichten</a>
+leden van het forum. Om toegang te krijgen tot het PB systeem, klik je gewoon op de link <a href="{ROOT}?t=pmsg&%_rsid%">Priv&eacute; berichten</a>
 in de rechter bovenhoek van de pagina. Als je ongelezen priv&eacute; berichten hebt, geeft deze link aan hoeveel ongelezen berichten je hebt.
 <p><b>Een priv&eacute; bericht verzenden</b><br>
 Priv&eacute; berichten lijken erg veel op e-mail, je geeft een persoon op aan wie je een bericht wilt sturen, voert een onderwerp en een bericht in

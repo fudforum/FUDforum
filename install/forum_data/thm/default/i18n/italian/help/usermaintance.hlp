@@ -28,7 +28,7 @@ Se preferisci non visualizzare le signature degli altri utenti, puoi utilizzare 
 
 TOPIC_TITLE: <a name="rstpasswd">Che cosa devo fare se mi dimentico la password?</a>
 TOPIC_HELP:
-Se non ti ricordi la tua password per accedere al forum,, vai alla pagina <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">reset password</a>, 
+Se non ti ricordi la tua password per accedere al forum,, vai alla pagina <a href="{ROOT}?t=reset&%_rsid%">reset password</a>, 
 inserisci il tuo indirizzo e-mail nella casella di testo e clicca sul tasto VAI: ti verrà spedita un' e-mail contenente un'URL, alla quale dovrai accedere: l'accesso all'URL comporta il reset della password, per cui ti verrà inviata una nuova e-mail con la tua password.<br>
 <br>
 <b>Nota bene:</b> Le password vengono registrate in un formato criptato "one-way" detto MD5 HASH; si tratta di una criptazione a 128 bit di tipo militare, per cui non è possibile ripristinare le password. Ogni volta che inserisci un dato, questo viene criptato e confrontato con una versione criptata, per cui se ti dimentichi la password, non è possibile ripristinarla e quindi ad ogni richiesta di ripristino della password, il forum ne genererà casualmente una nuova.

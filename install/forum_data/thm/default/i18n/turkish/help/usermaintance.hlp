@@ -57,7 +57,7 @@ Eğer diğer üyelerin imzalarını görmek istemiyorsanız, kişisel bilgilerin
 
 TOPIC_TITLE: <a name="rstpasswd">Parolanızı kaybettiyseniz ne yapmalısınız?</a>
 TOPIC_HELP:
-Eğer FUDforum parolanızı hatırlayamıyorsanız, <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">parola belirleme sayfasına</a> giderek
+Eğer FUDforum parolanızı hatırlayamıyorsanız, <a href="{ROOT}?t=reset&%_rsid%">parola belirleme sayfasına</a> giderek
 e-mektup adresinizi belirtip Gönder düğmesini tıklatmallısınız. Bu sayede size özel bir URL e-mektup ile gönderilecek, o URL'ye eriştiğinizde
 parolanız yeniden belirlenecek ve yeni parolanızı söyleyen bir e-mektup alacaksınız.<br>
 <br>

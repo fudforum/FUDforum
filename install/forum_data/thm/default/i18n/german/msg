@@ -50,7 +50,7 @@ buddy_search:			Trage den Login des Benutzers ein, den Du hinzuf&uuml;gen m&ouml
 buddy_status:			Status
 by:				Von:
 by_mod:				vom Moderator
-coppa:				Ein Elternteil oder Vormund mu&szlig; eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Ein Elternteil oder Vormund mu&szlig; eine unterschriebene Einwilligungserkl&auml;rung an den Administrator des Forums schicken oder faxen bevor ein Benutzer unter 13 die Registrierung abschlie&szlig;en kann.<p>F&uuml;r weitere Informationen kontaktiere <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_after:			Nach dem {DATE: coppa %e %B, %Y}
 coppa_before:			Vor dem {DATE: coppa %e %B, %Y}
 coppa_conf:			COPPA Best&auml;tigung
@@ -153,8 +153,8 @@ forum_icon:			Forums-Icon
 forum_new_messages:		Neue Beitr&auml;ge
 forum_none_messages:		Nur registrierte Forumsmitglieder k&ouml;nnen gelesene &amp; ungelesene Beitr&auml;ge verfolgen
 forum_old_messages:		Keine neuen Beitr&auml;ge
-forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, da&szlig; Du Dich an nachfolgende Vereinbarung h&auml;ltst. Wenn Du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;rst Du, da&szlig; Du &uuml;ber 13 Jahre bist. Falls Du 13 oder darunter bist, verwende bitte <a class="GenLink" href="{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen" Schaltfl&auml;che sicherst Du uns verbindlich zu, da&szlig; Deine Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
-forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, da&szlig; die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn Du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls Du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine Email an <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules:			Die Registrierung f&uuml;r dieses Forum ist kostenlos. Jedoch bestehen wir darauf, da&szlig; Du Dich an nachfolgende Vereinbarung h&auml;ltst. Wenn Du mit diesen Regeln einverstanden bist, klicke bitte auf die "Zustimmen" Schaltfl&auml;che. Achtung: Durch das Klicken der Schaltfl&auml;che erkl&auml;rst Du, da&szlig; Du &uuml;ber 13 Jahre bist. Falls Du 13 oder darunter bist, verwende bitte <a href="{ROOT}?t=pre_reg&amp;coppa=y&amp;{DEF: _rsid}">diese</a> Registrierungsseite.<p>Auch wenn die Administratoren und Moderatoren des Forums versuchen, dieses von anst&ouml;&szlig;igen Mitteilungen freizuhalten, so ist es dennoch f&uuml;r uns unm&ouml;glich, alle &uuml;bermittelten Beitr&auml;ge zu begutachten. Diese geben die Ansichten des jeweiligen Autors wieder, weswegen keiner der Forumsmitarbeiter f&uuml;r jene Inhalte verantwortlich gemacht werden kann.<p>Mit Anklicken der "Zustimmen" Schaltfl&auml;che sicherst Du uns verbindlich zu, da&szlig; Deine Beitr&auml;ge keinerlei obz&ouml;ne, vulg&auml;re, sexistische, hasserf&uuml;llte, n&ouml;tigende oder sonstwie gesetzeswidrige Inhalte haben werden. <p>Die Verantwortlichen dieses Forums haben das Recht, jederzeit aus jedem erdenklichen Grund Diskussionsthemen zu entfernen, editieren, verschieben oder zu schlie&szlig;en.<p>
+forum_rules_13:			Alle Benutzer unter 13 Jahre m&uuml;ssen ihre Eltern oder ihren Vormund um Erlaubnis bitten, um die Mitgliedschaft im Forum zu erlangen. Auch wenn wir die Teilnahme von Benutzern unter 13 bef&uuml;rworten, so verlangen wir dennoch, da&szlig; die Eltern oder der Vormund eine unterschriebene Einwilligungserkl&auml;rung zur&uuml;ckschicken oder faxen, bevor wir die Mitgliedschaft gew&auml;hren k&ouml;nnen.<p>Wenn Du die Registrierung einleiten m&ouml;chtest bevor wir die Einwilligungserkl&auml;rung erhalten haben, klicke auf die Zustimmen Schaltfl&auml;che unten. Falls Du die Registrierung abbrechen m&ouml;chtest, klicke auf Abbrechen um zum Forumsindex zur&uuml;ckzukehren. <p>Eine Kopie der zu unterschreibenden Einwilligungserkl&auml;rung kann hier heruntergeladen werden. F&uuml;r weitere Informationen bez&uuml;glich der Registrierung schicke bitte eine Email an <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 forum_terms:			Forumsregeln
 forumsel_goto_forum:		Gehe zum Forum:
 from:				Von:
@@ -169,7 +169,7 @@ group_mgr_group:		Gruppe:
 group_mgr_heading:		Auswahl des Gruppeneditors
 group_mgr_indicator:		Im Augenblick wird <b>{VAR: grp->name}</b> bearbeitet
 group_mgr_reged:		Alle registrierten Benutzer
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Benutzer suchen</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Benutzer suchen</a>
 groupmgr_action:		Vorgang
 groupmgr_add_member:		Mitglied hinzuf&uuml;gen
 groupmgr_already_exists:	Benutzer "{VAR-HTML: gr_member}" ist bereits in dieser Gruppe vorhanden.
@@ -183,7 +183,7 @@ groupmgr_no_user:		Es gibt keinen Benutzer mit einem "{VAR-HTML: gr_member}" Log
 groupmgr_update_member:		Mitglied aktualisieren
 groupmgr_yes:			Ja
 help_back_to_top:		Zur&uuml;ck zum Anfang
-help_index_update:		Liest das <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
+help_index_update:		Liest das <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 help_return_to_index:		Zur&uuml;ck zum Hilfeindex
 help_title:			F.A.Q.
 home:				Startseite
@@ -206,7 +206,7 @@ ignore_list_update:		Durchsucht die eigene Ignorierliste
 ignore_user:			Alle Beitr&auml;ge dieses Benutzers ignorieren
 ignore_users:			Ignorierte Benutzer
 ignored_anon_post:		{GVAR: ANON_NICK} wird ignoriert
-ignored_user_post:		Beitrag von <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> wird ignoriert
+ignored_user_post:		Beitrag von <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wird ignoriert
 im_aim:				AIM Benutzername:
 im_jabber:			Jabber: 
 im_msnm:			MSN Messenger:
@@ -219,7 +219,7 @@ index_forum:			Forum
 index_new_posts:		Neue Beitr&auml;ge seit dem letzten Besuch
 index_no_new_posts:		Keine neuen Beitr&auml;ge seit dem letzten Besuch
 index_title:			Willkommen im Forum
-index_update:			Durchsucht die <a href="{TEMPLATE: index_update_lnk}" class="GenLink">Forumsliste</a>
+index_update:			Durchsucht die <a href="{TEMPLATE: index_update_lnk}">Forumsliste</a>
 install_script_present_error:	Aus Sicherheitsgr&uuml;nden mu&szlig;t Du das Installationsskript in <b>{GVAR: WWW_ROOT_DISK}install.php</b> entfernen, bevor Du das Forum verwenden kannst.
 interests:			Interessen:
 last_post:			Letzter Beitrag
@@ -311,11 +311,11 @@ moved_thread_message:		Dieses Thema wurde in ein anderes Forum verschoben
 msg_author:			Verfasser
 msg_err_ininfo_msg:		Beim Erzeugen der Seite ist ein Problem aufgetreten
 msg_err_ininfo_title:		Information reicht nicht aus
-msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">anmelden</a>.
+msg_err_onlyreg_msg:		Um dieses Forum ansehen zu k&ouml;nnen mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}">registrieren</a>, Falls Du das schon gemacht hast, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_login_lnk}">anmelden</a>.
 msg_err_onlyreg_title:		Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 msg_thread:			Thema
 msg_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
-msg_update:			Durchsucht das Thema <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Durchsucht das Thema <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 mvthread_request_move:		Um das Verschieben eines Themas bitten
 mvthread_submit_req:		Anfrage abschicken
 my_buddies:			Meine Buddies
@@ -422,7 +422,7 @@ post_count:			Anzahl der Beitr&auml;ge {VAR: u_pcount}
 post_count_l:			Beitragsz&auml;hler:
 post_create_poll:		Abstimmung erstellen
 post_cur_attached:		Momentan {VAR: i} Dateianh&auml;nge 
-post_edit_update:		Bearbeitet <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Bearbeitet <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
 post_err_attach_ext:		<font class="ErrorText">Der Dateityp, den Du hochladen m&ouml;chtest, ist nicht erlaubt.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du versuchst, mehr Dateien hochzuladen als erlaubt sind.</font><br>
 post_err_attach_size:		<font class="ErrorText">Dateianhang ist zu gro&szlig; (&uuml;ber der erlaubten Grenze von {VAR: MAX_F_SIZE} bytes)</font><br>
@@ -482,14 +482,14 @@ post_processing_msg:		Dein Beitrag wird gerade verarbeitet, bitte warten
 post_quote:			Zitat:
 post_quote_msg:			{VAR: msg->login} schrieb am {DATE: msg->post_stamp %a, %d %B %Y %H:%M}
 post_re:			Re: 
-post_reply_update:		Antwortet auf <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_reply_update:		Antwortet auf <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
 post_size:			Gr&ouml;&szlig;e
 post_smiley:			Smiley K&uuml;rzel:
 post_sticky:			Angeheftet
 post_thread_expiry:		Ablaufdatum des Themas:
 post_thread_type:		Art des Themas:
 post_title:			Titel:
-post_topic_update:		Erstellt neues Thema in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_topic_update:		Erstellt neues Thema in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_upload_file:		Datei hochladen
 postcheck_email_body:		Du kannst keine Email ohne Inhalt verschicken.
 postcheck_email_subject:	Du kannst keine Email ohne Betreff versenden.
@@ -726,7 +726,7 @@ sel_unanswered_posts:		Unbeantwortete Beitr&auml;ge
 sel_unanswered_posts_desc:	Den Filter f&uuml;r unbeantwortete Beitr&auml;ge erzwingen (zeigt nur unbeantwortete Beitr&auml;ge an)
 sel_unread_messages:		Ungelesene Beitr&auml;ge
 sel_unread_messages_desc:	Den Filter f&uuml;r ungelesene Beitr&auml;ge erzwingen (zeigt nur ungelesene Beitr&auml;ge an)
-selmsg_update:			Durchsucht <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beitr&auml;ge</a>
+selmsg_update:			Durchsucht <a href="{TEMPLATE: selmsg_update_lnk}">die heutigen Beitr&auml;ge</a>
 send:				Verschicken
 send_pm_desc:			Eine private Message an diesen Benutzer verschicken
 sender_email:			Email des Absenders:
@@ -735,7 +735,7 @@ sent:				Verschickt
 show_all_posts:			Alle Beitr&auml;ge von {VAR: user_login} anzeigen
 show_posts_by:			Beitr&auml;ge von {VAR: u_alias} anzeigen
 show_show:			Anzeigen:
-showposts_update:		Betrachtet die Beitr&auml;ge von <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+showposts_update:		Betrachtet die Beitr&auml;ge von <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 single_msg_delete:		Du bist gerade dabei, den Beitrag: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
 size:				Gr&ouml;&szlig;e:
 smladd_close_window:		Fenster schlie&szlig;en
@@ -801,21 +801,21 @@ thr_exch_submit:		Abschicken
 thread:				Thema:
 thread_announcement:		Ank&uuml;ndigung:
 thread_delete:			Du bist gerade dabei, das <font color="#ff0000" size="4">KOMPLETTE THEMA</font>: <b>{VAR: data[3]}</b> zu <font color="#ff0000" size="4">L&Ouml;SCHEN</font><p>
-thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">anmelden</a>.
+thread_err_onlyregview_msg:	Um dieses Forum ansehen zu k&ouml;nnen, mu&szlig;t Du Dich <a href="{TEMPLATE: msg_register_lnk}">registrieren</a>, falls Du das bereits schon bist, mu&szlig;t Du Dich am System <a href="{TEMPLATE: msg_login_lnk}">anmelden</a>.
 thread_err_onlyregview_title:	Nur registrierte Benutzer k&ouml;nnen dieses Forum ansehen
 thread_exchange:		Themenwechsel 
 thread_first_unread_msg:	Hier klicken, um zum ersten ungelesenen Beitrag dieses Themas zu gelangen
 thread_mod_delete:		L&ouml;schen
 thread_thread:			Thema
 thread_title:			{VAR-HTML: frm->name}
-thread_update:			Durchsucht Forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+thread_update:			Durchsucht Forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
 threads:			Themen
 time:				Zeit
 todays_posts:			Heutige Beitr&auml;ge
 todays_posts_desc:		Alle Beitr&auml;ge anzeigen, die heute erstellt wurden
 trash:				M&uuml;ll
 tree_title:			{VAR-HTML: frm->frm_name} =&gt; {VAR: frm->subject}
-tree_update:			Durchsucht das Thema (Baumansicht) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+tree_update:			Durchsucht das Thema (Baumansicht) <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
 un_ignore_user:			Die Beitr&auml;ge von diesem Benutzer nicht mehr ignorieren
 unanswered_posts:		Unbeantwortete Beitr&auml;ge
 unanswered_posts_desc:		Alle Beitr&auml;ge anzeigen, die keine Antworten haben
@@ -840,7 +840,7 @@ user_offline:			{VAR: obj->login} ist gerade offline
 user_online:			{VAR: obj->login} ist gerade online
 userinfo_referals:		Angeworbene Benutzer:
 userinfo_referals_count:	{VAR: referals} Mitglieder
-userinfo_update:		Betrachtet das Profil von <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+userinfo_update:		Betrachtet das Profil von <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 usrinfo_last_post:		Letzter Beitrag:
 usrinfo_private_message:	Private Message:
 usrinfo_profile:		{VAR: u->alias}s Profil
@@ -852,7 +852,7 @@ views:				Aufrufe
 vote:				{VAR: frm->n_rating} Stimmen
 vote_button:			Abstimmen
 vote_for_thread:		Abstimmen
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> verschoben worden
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> ist vom Moderator nach <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> verschoben worden
 welcome_message:		Willkommen <b>{VAR: usr->alias}</b>, Dein letzter Besuch war am {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Anzeigen, was die Leute gerade machen
 writing_pm:			Eine private Message schreiben
@@ -901,7 +901,7 @@ read_message:			Gelesene Nachricht
 threadt_more:			&lt;mehr&gt;
 threadt_disabled_ttl:		Die Baumansicht der Themen ist deaktiviert worden.
 threadt_disabled_desc:		Der Administrator hat die Baumansicht f&uuml;r Themen deaktiviert, benutze daher bitte die flache Ansicht.
-threadt_update:			Durchsuche das Forum (Baumansicht) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Durchsuche das Forum (Baumansicht) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Flache Themenanzeige/Baumansicht der Themen
 register_tree_msg_view:		Baumansicht der Themen/Flache Themenanzeige 
 mmod_delete_cofirm_ttl:		Best&auml;tigung f&uuml;r Themen/Beitragsl&ouml;schung
@@ -923,7 +923,7 @@ register_affero:		Affero Benutzername:<br /><font class="SmallText">Falls Du ein
 im_affero:			Affero Benutzername
 register_err_avatardimtobig:	Die Ausma&szlig;e des Avatar von <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> &uuml;berschreiten die maximal erlaubte Gr&ouml;&szlig;e von <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		{VAR: r->dlcount} mal heruntergeladen
-member_search:			<br>Oder verwende die <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Benutzersuche</a> um einen Benutzer ausfindig zu machen.
+member_search:			<br>Oder verwende die <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Benutzersuche</a> um einen Benutzer ausfindig zu machen.
 post_all_ext_allowed:		(unbegrenzt)
 buddy_offline:			{VAR: r[2]} ist gerade offline
 buddy_online:			{VAR: r[2]} ist gerade online
@@ -980,7 +980,7 @@ mnav_day:			Tag(e)
 mnav_week:			Woche(n)
 mnav_month:			Monat(e)
 mnav_title:			Message Navigator
-mnav_update:			Durchsuche Beitr&auml;ge mittels des <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigators</a>
+mnav_update:			Durchsuche Beitr&auml;ge mittels des <a href="{TEMPLATE: mnav_update_lnk}">Message Navigators</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Neue Benachrichtigung über eine private Message
 pm_notify_body_email:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}"  im "{GVAR: FORUM_TITLE}" Forum.\nKlicke hier um diese zu betrachten: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.
 pm_notify_body_icq:		Du hast eine neue private Message mit der Überschrift "{VAR: subject}" von "{VAR: from}" im "{GVAR: FORUM_TITLE}" Forum.\n\nUm zukünftige Benachrichtigungen zu verhindern, deaktiviere "Benachrichtigung über private Message" in Deinem Profil.

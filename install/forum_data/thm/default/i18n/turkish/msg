@@ -188,7 +188,7 @@ views:				Görüntülenme<br>sayısı
 vote:				{VAR: frm->n_rating} Oy
 vote_button:			Oyla
 vote_for_thread:		Oyla
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> artık burda değil. Denetmen tarafından taşındığı yer: <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> artık burda değil. Denetmen tarafından taşındığı yer: <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:		Hoş geldiniz <b>{VAR: usr->alias}</b>, son ziyaret tarihiniz {DATE: usr->last_visit %d %B %Y %A saat %H:%M} idi.
 what_ppl_doing:			insanların ne yaptığını göster
 reported_del_report:		Bildirimi sil
@@ -390,12 +390,12 @@ ignore_users:			Gözardı edilen kullanıcılar
 add_ignore:			Ignoramus ekle
 forum_terms:			Forum kuralları
 forum_rules:			Bu foruma üyelik serbest ve ücretsizdir. Bununla birlikte aşağıda ayrıntıları belirtilen kurallara uymanız konusunda yaptırımlar mevcut. Eğer kuralları kabul ediyorsanız, sayfanın sonundaki Kabul Ediyorum düğmesine basın. Dikkat: Düğmeye basarak 13 yaşından büyük olduğunuzu belirtmiş oluyorsunuz. 13 yaşında veya daha küçükseniz, lütfen bu kayıt formunu kullanın. <p>Bu forumun yöneticileri istenmeyen tüm iletileri forumdan uzak tutmaya çalışacak, bununla birlikte, atılan tüm iletileri gözden geçirmemiz imkansızdır. Tüm iletiler yazarın görüşünü yansıtır, ve ne forumun sahibi ne de geliştiricileri herhangi bir iletinin içeriğinden sorumlu tutulamaz.<p>Kabul Ediyorum düğmesine tıklayarak, kaba, küfürlü, cinsel içerikli, nefret dolu, tehdit edici, veya bir şekilde kanuna aykırı ileti göndermeyeceğiniz konusunda garanti vermiş oluyorsunuz.<p>Forumun sahipleri, herhangi bir zinciri, herhangi bir sebeple, kaldırma, taşıma, düzeltme veya kapatma hakkına sahiptir.<p>
-forum_rules_13:			13 yaşın altındaki tüm kullanıcılar anne-babalarından veya sorumluluğu altında oldukları kişiden foruma üye olabilmek için izin almalıdırlar. 13 yaşın altındaki kullanıcıların üye olmasında bizce herhangi bir sakınca olmamakla birlikte, üyelik vermeden önce anne-babaların veya sorumluluğu altında oldukları kişinin yazılı olarak izin verdiğini faks veya e-mektup ile bize göndermelerini şart koşuyoruz. <p>Eğer izin formu bize ulaşmadan önce kayıt işlemlerine başlamak istiyorsanız, aşağıdaki Kabul Ediyorum düğmesine tıklayın. Kayıt işlemini iptal etmek ve forum indeksine dönmek için aşağıdaki İptal Et düğmesine basın. <p>İzin formunun bir kopyasını burdan indirebilirsiniz. Kayıt işlemleri hakkında daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a> adresine bir e-mektup atın.<p>
+forum_rules_13:			13 yaşın altındaki tüm kullanıcılar anne-babalarından veya sorumluluğu altında oldukları kişiden foruma üye olabilmek için izin almalıdırlar. 13 yaşın altındaki kullanıcıların üye olmasında bizce herhangi bir sakınca olmamakla birlikte, üyelik vermeden önce anne-babaların veya sorumluluğu altında oldukları kişinin yazılı olarak izin verdiğini faks veya e-mektup ile bize göndermelerini şart koşuyoruz. <p>Eğer izin formu bize ulaşmadan önce kayıt işlemlerine başlamak istiyorsanız, aşağıdaki Kabul Ediyorum düğmesine tıklayın. Kayıt işlemini iptal etmek ve forum indeksine dönmek için aşağıdaki İptal Et düğmesine basın. <p>İzin formunun bir kopyasını burdan indirebilirsiniz. Kayıt işlemleri hakkında daha fazla bilgi için  <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> adresine bir e-mektup atın.<p>
 coppa_conf:			COPPA Onayı
 coppa_before:			{DATE: coppa %B %e, %Y} tarihinden önce
 coppa_after:			{DATE: coppa %B %e, %Y} tarihinden sonra
 coppa_link:			Doğum tarihinize karşılık gelen linki tıklayın.
-coppa:				13 yaşın altında olan bir kullanıcının bu foruma kayıt olabilmesi için anne-babası veya sorumluluğu altında olduguğu kişinin yöneticiye imzalı izin formunu faks veya mektup atarak göndermesi gerekiyor.<p>Daha fazla bilgi için <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ile iletişime geçin.
+coppa:				13 yaşın altında olan bir kullanıcının bu foruma kayıt olabilmesi için anne-babası veya sorumluluğu altında olduguğu kişinin yöneticiye imzalı izin formunu faks veya mektup atarak göndermesi gerekiyor.<p>Daha fazla bilgi için <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> ile iletişime geçin.
 prereg_info:			Bilgi
 prereg_agree:			Kabul Ediyorum
 prereg_disagree:		Kabul Etmiyorum
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Geçersiz doğrulama anahtarı. Lütfen gönderilen e-
 err_inc_criticaltitle:		KRİTİK HATA
 err_inc_criticalmsg:		Bir hata oluştu, fakat ne yazık ki hata bildirim sisteminde de bir sorun var.
 finduser_update:		Kullanıcıları arıyor
-help_index_update:		<a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">S.S.S.</a>
+help_index_update:		<a href="{TEMPLATE: help_index_update_lnk}">S.S.S.</a>
 iemail_thr_subject:		{VAR: poster_login} tarafından {VAR: thr_subject} konulu iletiye yanıt geldi.
 iemail_thr_bodyemail:		Okunmamış yanıtları görüntülemek için {VAR: goto_url['email']} adresine gidin.\n\nBu zincirde gönderilen yanıtların haber verilmesini istemiyorsanız, buraya gidin: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Okunmamış yanıtları görüntülemek için \n{VAR: goto_url['icq']} adresine gidin.\n\nBu zincirde gönderilen yanıtların haber verilmesini istemiyorsanız, buraya gidin:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Kullanıcı bulunamadı
 ignore_list_err_nu_msg:		Gözardı listesine eklemeyi denediğiniz kullanıcı forumda bulunamadı.
 ignore_list_cantign_msg:	Bu kullanıcıyı gözardı edemezsiniz
 ignore_list_update:		Gözardı listesini dolaşıyor
-index_update:			<a href="{TEMPLATE: index_update_lnk}" class="GenLink">Forum listesini</a> dolaşıyor
+index_update:			<a href="{TEMPLATE: index_update_lnk}">Forum listesini</a> dolaşıyor
 list_referers_update:		Tanıtımları Dolaşıyor
 login_update:			Giriş Formu
 msg_err_onlyreg_title:		Sadece kayıtlı kullanıcılar bu forumu görüntüleyebilir
-msg_err_onlyreg_msg:		Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">kayıt olmanız</a>, eğer kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">giriş yapmanız</a> gerekiyor.
+msg_err_onlyreg_msg:		Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}">kayıt olmanız</a>, eğer kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}">giriş yapmanız</a> gerekiyor.
 msg_err_ininfo_title:		Yetersiz Bilgi
 msg_err_ininfo_msg:		Bu sayfanın oluşturulmasında bir sorun oluştu.
-msg_update:			<a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> zincirini dolaşıyor
+msg_update:			<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a> zincirini dolaşıyor
 pm_err_nopm_title:		HATA: Özel İletiler engellenmiş durumda
 pm_err_nopm_msg:		Özel ileti sistemini kullanamıyorsunuz, çünkü bu özellik yönetici tarafından engellenmiş durumda.
 pm_update:			Özel ileti sistemini kullanıyor.
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Dosya eki çok büyük (izin veri
 post_err_attach_ext:		<font class="ErrorText">Yüklemeye çalıştığınız dosya tipi izin verilen tipler arasında yok.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">İzin verilenden daha fazla dosya yüklemeye çalışıyorsunuz.</font><br>
 post_err_passwd:		Yanlış parola.
-post_reply_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanıt yazıyor. 
-post_edit_update:		{VAR-HTML: frm->name} forumundaki <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
-post_topic_update:		<a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartışma açıyor.
+post_reply_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> konulu iletiye yanıt yazıyor. 
+post_edit_update:		{VAR-HTML: frm->name} forumundaki <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> konulu iletiyi düzeltiyor.
+post_topic_update:		<a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a> forumunda yeni tartışma açıyor.
 post_error_generic:		Bir hata oluştu
 postcheck_max_images_err:	İleti başına en fazla {GVAR: MAX_IMAGE_COUNT} resim gönderilebilir, lütfen resim sayısını azaltın.
 postcheck_subj_needed:		Konu bölümü zorunlu
@@ -666,16 +666,16 @@ reset_newpass_title:		Parolayı Yeniden Belirle
 reset_newpass_msg:		Selam,\n\nİsteğiniz üzerine kayıt bilgileriniz gönderildi.\nGiriş bilgileriniz:\n\nKullanıcı ismi: {VAR: ui[1]}\nParola: {VAR: passwd}\n\nYukarıda belirtilen yeni parolanızı değiştirmek isterseniz, kullanıcı bilgileri denetim masasından yapabilirsiniz:\n{ROOT}?t=register\n\n
 reset_login_notify:		Parolanız e-mektup adresinize gönderildi. Bir kaç dakika içinde elinizde olmalı. Lütfen parolanızı gözden geçirin ve giriş yapın..<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
 search_update:			İletileri arıyor
-selmsg_update:			<a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Bugünkü İletilerde</a> dolaşıyor
-showposts_update:		<a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafından gönderilen iletileri görüntülüyor.
+selmsg_update:			<a href="{TEMPLATE: selmsg_update_lnk}">Bugünkü İletilerde</a> dolaşıyor
+showposts_update:		<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a> tarafından gönderilen iletileri görüntülüyor.
 subscribed_update:		Üyeliklerini dolaşıyor
 th_err_invid_title:		Geçersiz zincir ID&#39;si.
 th_err_invid_msg:		Geçersiz bir linki izlediniz, görüntülemeye çalıştığınız zincir yok.
 thread_err_onlyregview_title:	Sadece kayıtlı kullanıcılar bu forumu görüntüleyebilir.
-thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">kayıt olmanız</a>, kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">giriş yapmanız</a> gerekiyor.
-thread_update:			<a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaşıyor
-tree_update:			<a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaşıyor (ağaç görünümü)
-userinfo_update:		<a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
+thread_err_onlyregview_msg:	Bu forumu görebilmek için <a href="{TEMPLATE: msg_register_lnk}">kayıt olmanız</a>, kayıt olduysanız <a href="{TEMPLATE: msg_login_lnk}">giriş yapmanız</a> gerekiyor.
+thread_update:			<a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a> forumunda dolaşıyor
+tree_update:			<a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a> zincirinde dolaşıyor (ağaç görünümü)
+userinfo_update:		<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a> kullanıcısının kişisel bilgilerine bakıyor
 ERR_login_ttl:			HATA: Giriş yapmamış durumdasınız			
 ERR_login_msg:			Lütfen giriş yapın.<br><br>Kayıt olmak isterseniz <a href="{TEMPLATE: msg_register_lnk}">kayıt formunu</a> kullanabilirsiniz<br>Giriş yapmak istiyorsanız lütfen <a href="{TEMPLATE: msg_login_lnk}">giriş formunu</a> kullanın.
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -780,7 +780,7 @@ p_LOCK:				Zinciri Kilitle
 p_MOVE:				Zinciri Taşı
 p_SML:				Gülücük kullan
 p_IMG:				Resim tag&#39;lerini kullan
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Kullanıcı bul</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Kullanıcı bul</a>
 group_mgr_indicator:		Şu anda düzeltilen: <b>{VAR: grp->name}</b>
 rate_worst:			Çok Kötü
 rate_best:			Çok İyi
@@ -850,7 +850,7 @@ forum_home:			Ana Sayfa
 post_cur_attached:		şu anda {VAR: i} dosya ekli
 ppost_cur_attached:		şu anda {VAR: attach_count} dosya ekli
 ignored_anon_post:		{GVAR: ANON_NICK} gözardı edilmiş durumda
-ignored_user_post:		<a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> tarafından gönderilen ileti gözardı ediliyor.
+ignored_user_post:		<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> tarafından gönderilen ileti gözardı ediliyor.
 smladd_close_window:		penereyi kapat
 post_list_smilies:		gülücük listesi
 p_VISIBLE:			Görünür
@@ -900,7 +900,7 @@ unread_message:			Okunmamış İleti
 read_message:			İletiyi oku 
 threadt_disabled_ttl:		Zincirler için ağaç görünümü engellenmiş durumda.
 threadt_disabled_desc:		Yönetici zincirler için ağaç görünümü engellemiş durumda, lütfen düz görünümü kullanın.
-threadt_update:			<a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a> forumunu dolaşıyor (ağaç görünümü)
+threadt_update:			<a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a> forumunu dolaşıyor (ağaç görünümü)
 threadt_more:			&lt;devamı&gt;
 register_msg_tree_view:		Zincirler için düz/İletiler için ağaç görünümü
 register_tree_msg_view:		Zincirler için ağaç/İletiler için düz görünüm
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Kullanıcı İsmi
 register_err_avatardimtobig:	<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> boyutundaki avatar izin verilen boyutların <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> dışında.
 pmsg_download_counter:		{VAR: r->dlcount} kez indirildi.
-member_search:			<br><a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Kullanıcı bul</a> özelliğini kullanabilirsiniz.
+member_search:			<br><a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Kullanıcı bul</a> özelliğini kullanabilirsiniz.
 post_all_ext_allowed:		(kısıtsız)
 buddy_offline:			{VAR: r[2]} şu anda bağlı değil.
 buddy_online:			{VAR: r[2]} şu anda bağlı.
@@ -979,7 +979,7 @@ mnav_day:			Gün
 mnav_week:			Hafta
 mnav_month:			Ay
 mnav_title:			İleti Gezgini
-mnav_update:			<a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">İleti Gezginini</a> kullanarak iletileri dolaşıyor.
+mnav_update:			<a href="{TEMPLATE: mnav_update_lnk}">İleti Gezginini</a> kullanarak iletileri dolaşıyor.
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Yeni Özel İleti Uyarısı
 pm_notify_body_email:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafından gönderilmiş "{VAR: subject}" konu başlıklı yeni bir özel iletiniz var.\nİletiyi görüntülemek için buraya tıklayın: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nBu tür uyarıları almak istemiyorsanız kişisel bilgiler bölümündeki "Özel İleti Uyarısı" seçeneğini kapatın.
 pm_notify_body_icq:		"{GVAR: FORUM_TITLE}" forumunda "{VAR: from}" tarafından gönderilmiş "{VAR: subject}" konu başlıklı yeni bir özel iletiniz var.\n\nBu tür uyarıları almak istemiyorsanız kişisel bilgiler bölümündeki "Özel İleti Uyarısı" seçeneğini kapatın.

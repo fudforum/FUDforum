@@ -1,7 +1,7 @@
 TOPIC_TITLE: <a name="bsearch">Jak mo¿na przeszukiwaæ forum?</a>
 TOPIC_HELP:
-Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz <a href="{ROOT}?t=search&%_rsid%" class="GenLink">przeszukiwaæ wiadomo¶ci</a>, które zosta³y wys³ane na forum. Jako kryterium poszukiwania mo¿na podaæ s³owa kluczowe, które chcesz odnale¼æ w temacie lub tre¶ci i temacie. Mo¿esz ograniczyæ operacjê do jednego forum, je¶li nie chcesz przeszukiwaæ ca³o¶ci.<br>
-Mo¿esz tak¿e szukaæ u¿ytkowników forum, u¿ywaj±c ich nazwy lub adresu e-mail za pomoc± <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">formularza</a>.
+Je¶li nie zosta³o to zablokowane przez administratora, mo¿esz <a href="{ROOT}?t=search&%_rsid%">przeszukiwaæ wiadomo¶ci</a>, które zosta³y wys³ane na forum. Jako kryterium poszukiwania mo¿na podaæ s³owa kluczowe, które chcesz odnale¼æ w temacie lub tre¶ci i temacie. Mo¿esz ograniczyæ operacjê do jednego forum, je¶li nie chcesz przeszukiwaæ ca³o¶ci.<br>
+Mo¿esz tak¿e szukaæ u¿ytkowników forum, u¿ywaj±c ich nazwy lub adresu e-mail za pomoc± <a href="{ROOT}?t=finduser&%_rsid%">formularza</a>.
 
 TOPIC_TITLE: <a name="email">Czy mogê wysy³aæ listy elektroniczne do innych u¿ytkowników?</a>
 TOPIC_HELP:
@@ -12,7 +12,7 @@ Oprócz listów elektronicznych do u¿ytkowników forum, mo¿na u¿yæ funkcji <b>Wy¶li
 
 TOPIC_TITLE: <a name="pmsg">Co to s± prywatne wiadomo¶ci i jak je wysy³aæ?</a> 
 TOPIC_HELP:
-Je¶li administrator nie zablokowa³ systemu Prywatnych Wiadomo¶ci, mo¿esz wysy³aæ wiadomo¶ci tekstowe do innych u¿ytkowników forum. Aby uzyskaæ dostêp do tych funkcji wybierz opcjê <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Prywatne wiadomo¶ci</a>, która znajduje siê u góry ka¿dej strony. Je¶li masz jakie¶ nieprzeczytane wiadomo¶ci, zostanie to uwidocznione w tym odno¶niku.
+Je¶li administrator nie zablokowa³ systemu Prywatnych Wiadomo¶ci, mo¿esz wysy³aæ wiadomo¶ci tekstowe do innych u¿ytkowników forum. Aby uzyskaæ dostêp do tych funkcji wybierz opcjê <a href="{ROOT}?t=pmsg&%_rsid%">Prywatne wiadomo¶ci</a>, która znajduje siê u góry ka¿dej strony. Je¶li masz jakie¶ nieprzeczytane wiadomo¶ci, zostanie to uwidocznione w tym odno¶niku.
 <p>
 <b>Wysy³anie prywatnych wiadomo¶ci</b><br>
 Prywatne wiadomo¶ci s± bardzo podobne do listów elektronicznych. Tutaj tak¿e podajesz do kogo chcesz wys³aæ wiadomo¶æ, jej temat oraz tre¶æ. Po uzupe³nieniu wszystkich pól wystarczy klikn±æ przycisk Wy¶lij. Obok pola z nazw± odbiorcy znajduj± siê dwa odno¶niki, które maj± u³atwiæ wybranie osób, do których trafi wiadomo¶æ. <b>wybierz z listy znajomych</b>, które otwiera listê osób, które oznaczy³e¶ jako swoich znajomych oraz <b>znajd¼ u¿ytkownika</b>, który pozwala wybraæ z listy wszystkich zarejestrowanych u¿ytkowników.

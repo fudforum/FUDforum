@@ -188,7 +188,7 @@ views:				Vistas
 vote:				{VAR: frm->n_rating} Voto(s)
 vote_button:			Votar
 vote_for_thread:		Votar
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _RSID}" class="GenLink">{VAR: r[2]}</a> ha sido movido a <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _RSID}" class="GenLink">{{VAR: r[12]}</a> por el moderador
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _RSID}">{VAR: r[2]}</a> ha sido movido a <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _RSID}">{{VAR: r[12]}</a> por el moderador
 welcome_message:		Bienvenido <b>{VAR: usr->alias}</b>, su última visita fue el {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			Mostrar lo que la gente está haciendo
 reported_del_report:		Borrar Reporte
@@ -390,12 +390,12 @@ ignore_users:			Usuarios ignorados
 add_ignore:			Agregar ignorado
 forum_terms:			Términos del foro
 forum_rules:			Registrarse para este foro es gratis! Si insistimos en que respete las reglas y políticas detalladas a continuación. Si Ud esta de acuerdo con los términos, por favor presione el botón De Acuerdo al final de la página. Nota: Presionando el botón Ud declara tener más de 13 años de edad. Si Ud tiene 13 años o menos, por favor use este formulario de registro.<p>Aunque los administradores y moderadores de este foro tratarán de impedir la presencia de mensajes objetables en este foro, es imposible para nosotros revisar todos los mensajes. Todos los mensajes expresan la opinión de su autor, y ni los dueños del foro ni los desarrolladores se hacen responsables por el contenido de ningún mensaje.<p>Al hacer clic en el botón De Acuerdo, Ud se compromete a no publicar ningún mensaje obsceno, vulgar, con contenidos sexuales, contenidos de odio, amenazante, o que constituya una violación a las leyes. <p>Los dueños de este foro se reservan el derecho a eliminar, editar, mover, o cerrar cualquier hilo de discusión por cualquier motivo que consideren razonable.<p>
-forum_rules_13:			Todos los usuarios de menos de 13 años deben obtener permiso de su padre o tutor para poder ser miembros de los foros. Para esto requerimos que un padre o tutor envíe por fax o correo un formulario de autorización firmado para autorizar una membresía.<p>Si desea comenzar el proceso de registro antes de que recibamos un formulario de autorización, persione el botón De Acuerdo a continuación. Si desea cancelar el proceso de registro, persione Cancelar para volver al índice de foros. <p>Una copia del formulario de autorización puede ser descargada aquí. Para obtener más información acerca del proceso de registro, por favor envíe un e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Todos los usuarios de menos de 13 años deben obtener permiso de su padre o tutor para poder ser miembros de los foros. Para esto requerimos que un padre o tutor envíe por fax o correo un formulario de autorización firmado para autorizar una membresía.<p>Si desea comenzar el proceso de registro antes de que recibamos un formulario de autorización, persione el botón De Acuerdo a continuación. Si desea cancelar el proceso de registro, persione Cancelar para volver al índice de foros. <p>Una copia del formulario de autorización puede ser descargada aquí. Para obtener más información acerca del proceso de registro, por favor envíe un e-mail a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			Confirmación COPPA
 coppa_before:			Antes de {DATE: coppa %B %e, %Y}
 coppa_after:			Después de {DATE: coppa %B %e, %Y}
 coppa_link:			Haga clic en el enlace que corresponde a su fecha de nacimiento
-coppa:				Un padre o tutor debe enviar por correo o fax un formulario de autorización firmado al administrador de este foro para que un usuario de menos de 13 años pueda completar el proceso de registro.<p>Para mayor información contacte a <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Un padre o tutor debe enviar por correo o fax un formulario de autorización firmado al administrador de este foro para que un usuario de menos de 13 años pueda completar el proceso de registro.<p>Para mayor información contacte a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Información
 prereg_agree:			De Acuerdo
 prereg_disagree:		En desacuerdo
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Llave de confirmación inválida. Por favor revise su e-
 err_inc_criticaltitle:		ERROR CRITICO
 err_inc_criticalmsg:		Ud ha encontrado un error, pero desafortunadamente hay un problema con el sistema de reporte de errores
 finduser_update:		Buscando usuarios
-help_index_update:		Leyendo el <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
+help_index_update:		Leyendo el <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nueva respuesta a {VAR: thr_subject} publicado por {VAR: poster_login}
 iemail_thr_bodyemail:		Para ver respuestas no leídas vaya a {VAR: goto_url['email']}\n\nSi
 iemail_thr_bodyicq:		Para ver respuestas no leídas vaya a\n{VAR: goto_url['icq']}\n\nSi Ud no desea recibir más notificaciones acerca de respuestas en este hilo de discusión, por favor vaya aquí:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Usuario no encontrado
 ignore_list_err_nu_msg:		El usuario que Ud ha tratado de agregar a su lista de ignorados no fue encontrado en el foro.
 ignore_list_cantign_msg:	Ud no puede ignorar a este usuario
 ignore_list_update:		Recorriendo lista de ignorados
-index_update:			Recorriendo la <a href="{TEMPLATE: index_update_lnk}" class="GenLink">lista de foros</a>
+index_update:			Recorriendo la <a href="{TEMPLATE: index_update_lnk}">lista de foros</a>
 list_referers_update:		Recorriendo referencias
 login_update:			Formulario de Ingreso
 msg_err_onlyreg_title:		Sólo usuarios registrados pueden ver este foro
-msg_err_onlyreg_msg:		Para ver este foro Ud debe <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya se ha registrado Ud sólo necesita <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
+msg_err_onlyreg_msg:		Para ver este foro Ud debe <a href="{ROOT}?t=register&amp;{DEF: _RSID}">registrarse</a>, si Ud ya se ha registrado Ud sólo necesita <a href="{ROOT}?t=login&amp;{DEF: _RSID}">ingresar</a>.
 msg_err_ininfo_title:		Información Insuficiente
 msg_err_ininfo_msg:		Se presentó un problema al generar esta página
-msg_update:			Recorriendo hilo de discusión <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Recorriendo hilo de discusión <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Mensajería Privada Deshabilitada
 pm_err_nopm_msg:		Ud no puede usar el sistema de mensajería privada, este ha sido deshabilitado por el administrador.
 pm_update:			Usando mensajería privada
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Archivo adjunto es demasiado gran
 post_err_attach_ext:		<font class="ErrorText">El archivo que Ud está tratando de subir no corresponde a los tipo de archivo permitidos.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Ud esta tratando de subir más archivos de los permitidos.</font><br>
 post_err_passwd:		Clave incorrecta.
-post_reply_update:		Respondiendo a <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
-post_edit_update:		Editando <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
-post_topic_update:		Escribiendo un nuevo tema en <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Respondiendo a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> en {VAR-HTML: frm->name}
+post_edit_update:		Editando <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> en {VAR-HTML: frm->name}
+post_topic_update:		Escribiendo un nuevo tema en <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ud tiene un error
 postcheck_max_images_err:	Se permite un máximo de {GVAR: MAX_IMAGE_COUNT} imágenes por mensaje, por favor reduzca el número de imágenes
 postcheck_subj_needed:		Se requiere asunto
@@ -666,16 +666,16 @@ reset_newpass_title:		Actualizar Clave
 reset_newpass_msg:		Hola,\n\nComo Ud los solicitó su nombre de usurio y clave le están siendo enviadas.\nAquí está su información de ingreso:\n\nLogin: {VAR: ui[1]}\nClave: {VAR: passwd}\n\nRecuerde que su clave ha sido actualizada al valor anterior, si desea cambiar su clave puede hacerlo mediante el panel de control de información en:\n{ROOT}?t=register\n\n
 reset_login_notify:		Su clave le ha sido enviada vía e-mail. Debería recibirla en unos minutos. Recuerde revisar su correo para obtener su clave y nombre de usuario.<br>.<br>.<br>
 search_update:			Buscando mensajes
-selmsg_update:			Recorriendo <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Mensajes de Hoy</a>
-showposts_update:		Viendo mensajes de: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			Recorriendo <a href="{TEMPLATE: selmsg_update_lnk}">Mensajes de Hoy</a>
+showposts_update:		Viendo mensajes de: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Recorriendo subscripciones propias
 th_err_invid_title:		ID de hilo de discusión es inválida
 th_err_invid_msg:		Ud ha seguido un enlace inválido, el hilo de discusión que esta tratando de ver no existe.
 thread_err_onlyregview_title:	Este foro sólo puede ser visto por usuarios registrados
-thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&amp;{DEF: _RSID}" class="GenLink">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&amp;{DEF: _RSID}" class="GenLink">ingresar</a>.
-thread_update:			Recorriendo foro <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Recorriendo hilo de discusión (vista de árbol) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _RSID}">{VAR: frm->subject}</a>
-userinfo_update:		Viendo el perfil de <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+thread_err_onlyregview_msg:	Para ver este foro Ud necesita <a href="{ROOT}?t=register&amp;{DEF: _RSID}">registrarse</a>, si Ud ya esta registrado, Ud debe <a href="{ROOT}?t=login&amp;{DEF: _RSID}">ingresar</a>.
+thread_update:			Recorriendo foro <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Recorriendo hilo de discusión (vista de árbol) <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _RSID}">{VAR: frm->subject}</a>
+userinfo_update:		Viendo el perfil de <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
 ERR_login_ttl:			ERROR: Ud no ha ingresado
 ERR_login_msg:			Ud no ha ingresado, por favor ingrese<br><br>Si desea registrarse vaya al <a href="{ROOT}?t=register&amp;{DEF: _RSID}">formulario de registro</a><br>Si desea ingresar por favor vaya al <a href="{ROOT}?t=login&amp;{DEF: _RSID}">formulario de ingreso</a>
 ERR_login_url:			login.php?{DEF: _RSID}
@@ -780,7 +780,7 @@ p_LOCK:				Bloquear hilos de discusión
 p_MOVE:				Mover hilos de discusión
 p_SML:				Usar smilies
 p_IMG:				Usar etiquetas de imágenes
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _RSID}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Buscar Usuario</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _RSID}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">Buscar Usuario</a>
 group_mgr_indicator:		Actualmente Editando: <b>{VAR: grp->name}</b>
 rate_worst:			Peor
 rate_best:			Mejor
@@ -850,7 +850,7 @@ forum_home:			Principal
 post_cur_attached:		{VAR: i} archivo(s) actualmente adjunto(s)
 ppost_cur_attached:		{VAR: attach_count} archivo(s) actualmente adjunto(s)
 ignored_anon_post:		{GVAR: ANON_NICK} es ignorado
-ignored_user_post:		Mensaje de <a href="{ROOT}?t=usrinfo&amp;{DEF: _RSID}&amp;id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> es ignorado
+ignored_user_post:		Mensaje de <a href="{ROOT}?t=usrinfo&amp;{DEF: _RSID}&amp;id={VAR: obj->user_id}">{VAR: obj->login}</a> es ignorado
 smladd_close_window:		cerrar ventana
 post_list_smilies:		listar todos los smilies
 p_VISIBLE:			Visible
@@ -900,7 +900,7 @@ unread_message:			Unread Message
 read_message:			Read Messagethreadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 threadt_more:			&lt;more&gt;
 register_msg_tree_view:		Flat thread listing/Tree message listing
 register_tree_msg_view:		Tree thread listing/Flat message listing 
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

@@ -187,7 +187,7 @@ views:				View
 vote:				{VAR: frm->n_rating} Voti
 vote_button:			Vota
 vote_for_thread:		Vota il topic
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> è stato spostato in <a href="{ROOT}?t=thread&frm_id={VAR: r[11]}&{DEF: _rsid}" class="GenLink">{{VAR: r[12]}</a> dal moderatore
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> è stato spostato in <a href="{ROOT}?t=thread&frm_id={VAR: r[11]}&{DEF: _rsid}">{{VAR: r[12]}</a> dal moderatore
 welcome_message:		Benvenuto <b>{VAR: usr->alias}</b>, l&#39;ultima volta sei stato con noi {DATE: usr->last_visit %A, %d %B %Y alle %H:%M}
 what_ppl_doing:			mostra quello che fa la gente
 reported_del_report:		Cancella report
@@ -390,12 +390,12 @@ ignore_users:			Utenti ignorati
 add_ignore:			Aggiungi Ignoramus
 forum_terms:			Regole del forum
 forum_rules:			<B>1.1 Generale</B><br>I forum di TGMOnline.it sono aree di discussione nelle quali ognuno, previa registrazione, può esprimere le proprie opinioni relativamente ad un argomento attinente la sezione alla quale intende partecipare. Xenia Edizioni S.r.l. non si assume alcuna responsabilità circa il contenuto dei messaggi che vengono inseriti nei propri forum.<br>Esistono delle regole di buona educazione che invitiamo tutti a rispettare (sezione 1.2); i forum vengono inoltre seguiti da un moderatore (sezione 1.3) che si occupa di controllare che tali regole vengano rispettate, e di eliminare il prima possibile messaggi ritenuti non idonei.<p><B>1.2 Regole di buona educazione - Netiquette</B><br>TGM e TGMONline.it sono riviste che della scanzonatura e della goliardia hanno fatto un loro punto fisso. Il tono allegro e &#39;sopra le righe&#39; ci sta bene, e ci mancherebbe altro. Questo però non vuol dire che ci si possa iscrivere ad un forum e cominciare a sciorinare le migliori imprecazioni che la fantasia suggerisce, nè di infarcire di volgarità i propri messaggi. Messaggi di questo tipo verranno implacabilmente cancellati dal moderatore (vedi sezione 1.3), e a sua discrezione potranno essere cancellati dal forum anche gli utenti che li hanno scritti. Allo stesso modo sono severamente banditi i link a siti pirata, warez, a mp3 protetti da copyright e a mille altre cosine decisamente illegali.<br>Sui forum di TGMOnline.it si attua una politica di post-moderazione: questo vuol dire che il moderatore verificherà il contenuto dei messaggi solo dopo che questi sono stati effettivamente postati sul forum e resi disponibili a tutti. Eventuali messaggi ritenuti non adatti potranno quindi essere letti prima che vengano rimossi dal forum. In questo caso ci scusiamo con tutti coloro che dovessero incappare in tali messaggi e dovessero ritenersi in qualche modo offesi.<p><B>1.3 Moderatore</B><br>Il moderatore del forum è un collaboratore di Xenia Edizioni S.r.l., il cui ruolo è per l&#39;appunto quello di &#39;moderare&#39; le discussioni che avvengono nei forum di TGMOnline.it. Il suo compito è quindi quello di verificare che le più elementari regole di educazione e buona creanza non vengano violate, di placare i toni di una polemica troppo accesa, e in generale di controllare che le cose funzionino regolarmente.<br>Il moderatore ha la facoltà di rimuovere un messaggio o un topic ritenuto non adatto, di spostare messaggi o topic OT (off-topic, fuori argomento) da un forum ad un altro, nonchè di cancellare gli account di utenti che hanno postato messaggi ritenuti non idonei.<p><B>1.4 Informativa sulla privacy (LEGGE 675/96)</B><BR>Per poter postare i propri messaggi sul forum è necessario compilare una breve form di registrazione nella quale si devono inserire alcuni dati personali come nome, cognome ed indirizzo di posta elettronica. Xenia Edizioni S.r.l. si impegna a non divulgare tali dati ad alcuna società esterna o affiliata, e ad utilizzarli esclusivamente per scopi interni (statistiche, computo degli accessi, ecc.).<p>
-forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Confirmation
 coppa_before:			Before {DATE: coppa %B %e, %Y}
 coppa_after:			After {DATE: coppa %B %e, %Y}
 coppa_link:			Click the link that corresponds to your birth date
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informazioni generali
 prereg_agree:			Accetto
 prereg_disagree:		Non accetto
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Chiave di conferma non valida. Per favore, controlla l
 err_inc_criticaltitle:		ERRORE CRITICO
 err_inc_criticalmsg:		Ti sei imbattuto in un errore, ma sfortunatamente c&#39;è un problema con il sistema di segnalazione di errori
 finduser_update:		Cerca utenti
-help_index_update:		Legge le <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
+help_index_update:		Legge le <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		Nuova risposta a {VAR: thr_subject} da parte di {VAR: poster_login}
 iemail_thr_bodyemail:		Per visualizzare le reply non lette vai a {VAR: goto_url['email']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Per visualizzare le reply non lette vai a\n{VAR: goto_url['icq']}\n\nSe non vuoi ricevere ulteriori notifiche circa le risposte inviate in questo topic, clicca qui:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Utente non trovato
 ignore_list_err_nu_msg:		L&#39;utente che hai cercato di inserire nella ignore list non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
 ignore_list_cantign_msg:	Non puoi ignorare questo utente
 ignore_list_update:		Sfoglia la propria ignore list
-index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}" class="GenLink">elenco dei forum</a>
+index_update:			Sfoglia l&#39;<a href="{TEMPLATE: index_update_lnk}">elenco dei forum</a>
 list_referers_update:		Sfoglia i referral
 login_update:			Pagina di login
 msg_err_onlyreg_title:		Solo gli utenti registrati possono accedere a questo forum
-msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
+msg_err_onlyreg_msg:		Per accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato, allora devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}">login</a>.
 msg_err_ininfo_title:		Informazioni non sufficienti
 msg_err_ininfo_msg:		C&#39;è stato un problema nella generazione di questa pagina
-msg_update:			Sfoglia il topic <a class="GenLink" href="{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
+msg_update:			Sfoglia il topic <a href="{ROOT}?t=msg&th={VAR: frm->id}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERRORE: Messaggi personali disabilitati
 pm_err_nopm_msg:		Non puoi usare i messaggi personali, sono stati disabilitati dall&#39;amministratore.
 pm_update:			Legge/Scrive i messagi personali
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Il file allegato è troppo grande 
 post_err_attach_ext:		<font class="ErrorText">Il file che stai cercando di spedire non appartiene ai tipi di file consentiti.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Stai cercando di spedire più file di quanti sia consentito spedire.</font><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Risponde a <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
-post_edit_update:		Modifica <a class="GenLink" href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
-post_topic_update:		Scrive un nuovo topic in <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+post_reply_update:		Risponde a <a href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> in {VAR: frm->name}
+post_edit_update:		Modifica <a href="{ROOT}?t=msg&goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> in {VAR: frm->name}
+post_topic_update:		Scrive un nuovo topic in <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
 post_error_generic:		Si è verificato un errore
 postcheck_max_images_err:	Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} immagini per messaggio; per cortesia, riduci il numero di immagini
 postcheck_subj_needed:		Oggetto necessario
@@ -666,16 +666,16 @@ reset_newpass_title:		Resetta la password
 reset_newpass_msg:		Ciao,\n\nCome da te richiesto, ti sta per essere inviato il tuo .\nQui di seguito trovi le informazioni per il login:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nNota che la password è stata resettata con il valore che leggi qui sopra. Se desideri\nmodificarla puoi farlo utilizzando il pannello di controllo:\n{ROOT}?t=register\n\n
 reset_login_notify:		La tua password ti è stata inviata per posta elettronica. Dovresti riceverla entro pochi minuti. Controlla la tua casella di posta elettronica per i dati di login e password.<br>.<br>.<br>
 search_update:			Cerca nei topic
-selmsg_update:			Sfoglia <a class="GenLink" href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
-showposts_update:		Visualizza messaggi per: <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
+selmsg_update:			Sfoglia <a href="{ROOT}?t=selmsg&date=today&rid={VAR: usr->id}">Messaggi odierni</a>
+showposts_update:		Visualizza messaggi per: <a href="{ROOT}?t=usrinfo&id={VAR: uid}">{VAR-HTML: u->login}</a>
 subscribed_update:		Sfoglia le proprie sottoscrizioni
 th_err_invid_title:		Topic non valido
 th_err_invid_msg:		Hai seguito un link non valido; il topic che stai cercando di aprire non esiste
 thread_err_onlyregview_title:	Solo gli utenti registrati possono vedere il contenuto di questo forum
-thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}" class="GenLink">registrare</a>; se sei già registrato devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}" class="GenLink">login</a>.
-thread_update:			Legge il forum <a class="GenLink" href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
-tree_update:			Legge il topic (vista ad albero) <a class="GenLink" href="{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Guarda il profilo di <a class="GenLink" href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
+thread_err_onlyregview_msg:	Per poter accedere a questo forum ti devi <a href="{ROOT}?t=register&{DEF: _rsid}">registrare</a>; se sei già registrato devi effettuare il <a href="{ROOT}?t=login&{DEF: _rsid}">login</a>.
+thread_update:			Legge il forum <a href="{ROOT}?t=thread&frm_id={VAR: frm->id}">{VAR: frm->name}</a>
+tree_update:			Legge il topic (vista ad albero) <a href="{ROOT}?t=tree&th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+userinfo_update:		Guarda il profilo di <a href="{ROOT}?t=usrinfo&id={VAR: u->id}">{VAR: user_info}</a>
 ERR_login_ttl:			ERRORE: non ti sei autenticato
 ERR_login_msg:			Non sei autenticato.<br><br>Se desideri registrarti vai alla <a href="{ROOT}?t=register&{DEF: _rsid}">pagina di registrazione</a><br>Se desideri autenticarti vai alla <a href="{ROOT}?t=login&{DEF: _rsid}">pagina di login</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -780,7 +780,7 @@ p_LOCK:				Chiudi topic
 p_MOVE:				Sposta topic
 p_SML:				Usa smiley
 p_IMG:				Usa tag delle immagini
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Trova utente</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=groupmgr.gr_member&overwrite=1\', \'user_list\', 250,250);">Trova utente</a>
 group_mgr_indicator:		Modifica: <b>{VAR: grp->name}</b>
 rate_worst:			Peggiore
 rate_best:			Migliore
@@ -850,7 +850,7 @@ forum_home:			Home
 post_cur_attached:		allegati {VAR: i} file 
 ppost_cur_attached:		allegati {VAR: attach_count} file
 ignored_anon_post:		{GVAR: ANON_NICK} è ignorato
-ignored_user_post:		Il messaggio di <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}" class="GenLink">{VAR: obj->login}</a> viene ignorato
+ignored_user_post:		Il messaggio di <a href="{ROOT}?t=usrinfo&{DEF: _rsid}&id={VAR: obj->user_id}">{VAR: obj->login}</a> viene ignorato
 smladd_close_window:		chiudi finestra
 post_list_smilies:		mostra tutti gli smiley
 p_VISIBLE:			Visibile
@@ -903,7 +903,7 @@ read_message:			Read Message
 threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Username
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

@@ -1,10 +1,10 @@
 TOPIC_TITLE: <a name="bsearch">Come posso effettuare delle ricerche?</a>
 TOPIC_HELP:
-A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi effettuare <a href="{ROOT}?t=search&%_rsid%" class="GenLink">ricerche di messaggi</a> che sono stati inseriti all'interno del forum. Puoi effettuare una ricerca specificando una o più 
+A meno che questa funzione non venga disabilitata dall'amministratore del forum, puoi effettuare <a href="{ROOT}?t=search&%_rsid%">ricerche di messaggi</a> che sono stati inseriti all'interno del forum. Puoi effettuare una ricerca specificando una o più 
 parole chiave che vuoi che siano trovate, e selezionare dove effettuare la ricerca, solo nel titolo del topic 
 o effettuando una ricerca completa all'interno del testo del messaggio. Puoi anche limitarti ad effettuare una ricerca all'interno di un singolo forum a tua scelta, se non vuoi passarli al setaccio
 tutti quanti.<br>
-Puoi anche ricercare altri utenti del forum, sia inserendo il loro nickname che il loro indirizzo di posta elettronica utilizzando la <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">pagina di ricerca utenti</a>.
+Puoi anche ricercare altri utenti del forum, sia inserendo il loro nickname che il loro indirizzo di posta elettronica utilizzando la <a href="{ROOT}?t=finduser&%_rsid%">pagina di ricerca utenti</a>.
 
 
 TOPIC_TITLE: <a name="email">Posso inviare email agli altro utenti del forum?</a>
@@ -21,7 +21,7 @@ spedendogli l'indirizzo della pagina con una breve descrizione. Questo link si t
 TOPIC_TITLE: <a name="pmsg">Cosa sono i messaggi privati, e come posso spedirli?</a> 
 TOPIC_HELP:
 Se l'amministratore non ha disabilitato la messaggistica privata, puoi spedire messaggi personali a uno o più utenti registrati
-del forum. Per accedere alla MP, tutto quello che devi fare è cliccare sul link <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Messaggistica Privata</a> 
+del forum. Per accedere alla MP, tutto quello che devi fare è cliccare sul link <a href="{ROOT}?t=pmsg&%_rsid%">Messaggistica Privata</a> 
 che si trova nell'angolo in alto a destra di ogni pagina. Se hai dei messaggi privati non letti, il link ti indicherà quanti sono con un numero tra parentesi.
 <p>
 <b>Invio di un messaggio privato</b><br>

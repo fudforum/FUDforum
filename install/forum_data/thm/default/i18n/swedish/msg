@@ -40,7 +40,7 @@ homepage:			Hemsida:
 icq_control_panel:		ICQ Online-meddelandepanel
 icq_message_form:		ICQ meddelandeformul&auml;r:
 ignore_user:			ignorera alla inl&auml;gg av den h&auml;r medlemmen
-ignored_user_post:		Inl&auml;gg av <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> ignoreras
+ignored_user_post:		Inl&auml;gg av <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ignoreras
 im_aim:				AIM anv&auml;ndarnamn:
 im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
@@ -189,7 +189,7 @@ views:				Visningar
 vote:				{VAR: frm->n_rating} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
-was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a>
+was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[15]}&{DEF: _rsid}">{VAR: r[2]}</a> till forumet <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
@@ -390,12 +390,12 @@ ignore_users:			Ignorerade medlemmar
 add_ignore:			Ignorera medlem
 forum_terms:			Villkor f&ouml;r forumet
 forum_rules:			Det kostar inget att registrera sig som medlem i det h&auml;r forumet! Vi f&ouml;rv&auml;ntar oss att du som blir medlem f&ouml;ljer dessa regler. Om du g&aring;r med villkoren, tryck p&aring; "Jag godk&auml;nner"-knappen i slutet av sidan. Notera att du genom att trycka p&aring; knappen intygar att du &auml;r minst 13 &aring;r gammal. Om du &auml;r 13 &aring;r eller yngre b&ouml;r du anv&auml;nda det h&auml;r registeringsformul&auml;ret.<p>Trots att administrat&ouml;rerna och moderat&ouml;rerna g&ouml;r sitt b&auml;sta f&ouml;r att h&aring;lla f&ouml;rargelsev&auml;ckande inl&auml;gg borta kan vi inte l&auml;sa alla meddelanden. Alla inl&auml;gg utrycker skribentens &aring;sikter, och varken forumets &auml;gare eller dess programmerare kan ses ansvariga f&ouml;r inneh&aring;llet i n&aring;got inl&auml;gg.<p>Genom att trycka p&aring; "Jag godk&auml;nner"-knappen g&aring;r du med p&aring; att inte posta n&aring;gra obscena, vulg&auml;ra, hatiska, hotfulla eller p&aring; n&aring;got s&auml;tt olagliga inl&auml;gg. <p>Forumets administrator f&ouml;rbeh&aring;ller sig r&auml;tten att radera, editera, flytta eller st&auml;nga en diskussion av vilken anledning som helst.<p>
-forum_rules_13:			Alla medlemmar under 13 &aring;rs &aring;lder m&aring;ste ha f&ouml;r&auml;lders eller f&ouml;rmyndares tillst&aring;nd f&ouml;r att f&aring; r&auml;tt att anv&auml;nda forumet. Vi v&auml;lkomnar medlemmar som &auml;r under 13 &aring;r, men f&ouml;ruts&auml;tter att en f&ouml;r&auml;lder eller f&ouml;rmyndare faxar eller s&auml;nder ett undertecknat godk&auml;nnande innan vi beviljar medlemskap.<p>Om du vill p&aring;b&ouml;rja registreringsprocessen innan vi har f&aring;tt godk&auml;nnandet kan du trycka p&aring; "Jag godk&auml;nner"-knappen nedan. Tryck p&aring; Avbryt om du vill avbryta registreringen och komma tillbaka till forumets f&ouml;rsta sida. <p>En kopia av formul&auml;ret f&ouml;r godk&auml;nnande kan laddas ner h&auml;r. Skicka e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information om registreringsprocessen.<p>
+forum_rules_13:			Alla medlemmar under 13 &aring;rs &aring;lder m&aring;ste ha f&ouml;r&auml;lders eller f&ouml;rmyndares tillst&aring;nd f&ouml;r att f&aring; r&auml;tt att anv&auml;nda forumet. Vi v&auml;lkomnar medlemmar som &auml;r under 13 &aring;r, men f&ouml;ruts&auml;tter att en f&ouml;r&auml;lder eller f&ouml;rmyndare faxar eller s&auml;nder ett undertecknat godk&auml;nnande innan vi beviljar medlemskap.<p>Om du vill p&aring;b&ouml;rja registreringsprocessen innan vi har f&aring;tt godk&auml;nnandet kan du trycka p&aring; "Jag godk&auml;nner"-knappen nedan. Tryck p&aring; Avbryt om du vill avbryta registreringen och komma tillbaka till forumets f&ouml;rsta sida. <p>En kopia av formul&auml;ret f&ouml;r godk&auml;nnande kan laddas ner h&auml;r. Skicka e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information om registreringsprocessen.<p>
 coppa_conf:			COPPA-bekr&auml;ftelse
 coppa_before:			F&ouml;re {DATE: coppa %B %e, %Y}
 coppa_after:			Efter {DATE: coppa %B %e, %Y}
 coppa_link:			Tryck p&aring; l&auml;nken som motsvarar ditt f&ouml;delsedatum
-coppa:				Om den blivande medlemmen &auml;r under 13 &aring;r m&aring;ste en f&ouml;r&auml;lder eller f&ouml;rmyndare posta eller faxa ett undertecknat godk&auml;nnande till forumets administrator.<p>Kontakta <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information.
+coppa:				Om den blivande medlemmen &auml;r under 13 &aring;r m&aring;ste en f&ouml;r&auml;lder eller f&ouml;rmyndare posta eller faxa ett undertecknat godk&auml;nnande till forumets administrator.<p>Kontakta <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information.
 prereg_info:			Information
 prereg_agree:			Jag godk&auml;nner
 prereg_disagree:		Avbryt registreringen
@@ -568,7 +568,7 @@ emailconf_err_invkey_msg:	Ogiltig bekr&auml;ftelsekod. V&auml;nligen kontrollera
 err_inc_criticaltitle:		KRITISKT FEL
 err_inc_criticalmsg:		Du har st&ouml;tt p&aring; ett fel, men tyv&auml;rr har vi problem med felrapporteringssystemet
 finduser_update:		S&ouml;ker efter medlemmar
-help_index_update:		L&auml;ser <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">hjälpen.</a>
+help_index_update:		L&auml;ser <a href="{TEMPLATE: help_index_update_lnk}">hjälpen.</a>
 iemail_thr_subject:		Nytt svar p&aring; {VAR: thr_subject} av {VAR: poster_login}
 iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		G&aring; till {VAR: goto_url['icq']}\n f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit:\n{VAR: unsub_url['icq']}
@@ -582,14 +582,14 @@ ignore_list_err_nu_title:	Kan inte hitta medlemmen
 ignore_list_err_nu_msg:		Kan inte hitta medlemmen du f&ouml;rs&ouml;kte l&auml;gga till din lista i det h&auml;r forumet.
 ignore_list_cantign_msg:	Du kan inte ignorera den h&auml;r medlemmen
 ignore_list_update:		Visar egen lista &ouml;ver ignorerade medlemmar
-index_update:			Visar <a href="{TEMPLATE: index_update_lnk}" class="GenLink">listan &ouml;ver forum</a>
+index_update:			Visar <a href="{TEMPLATE: index_update_lnk}">listan &ouml;ver forum</a>
 list_referers_update:		Visar refererade medlemmar
 login_update:			Logga in
 msg_err_onlyreg_title:		Endast registrerade medlemmar kan l&auml;sa detta forum
-msg_err_onlyreg_msg:		F&ouml;r att kunna l&auml;sa detta forum m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">logga in</a>.
+msg_err_onlyreg_msg:		F&ouml;r att kunna l&auml;sa detta forum m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}">logga in</a>.
 msg_err_ininfo_title:		Otillr&auml;cklig information
 msg_err_ininfo_msg:		Ett problem uppkom n&auml;r sidan skulle g&ouml;ras
-msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			L&auml;ser diskussionen med rubriken <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
@@ -617,9 +617,9 @@ post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&o
 post_err_attach_ext:		<font class="ErrorText">Filen du f&ouml;rs&ouml;ker skicka &auml;r inte av till&aring;ten typ.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka fler filer &auml;n vad som &auml;r till&aring;tet.</font><br>
 post_err_passwd:		Fel l&ouml;senord
-post_reply_update:		Svarar p&aring; <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
-post_edit_update:		Editerar <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
-post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Svarar p&aring; <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
+post_edit_update:		Editerar <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
+post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
 postcheck_subj_needed:		Rubrik obligatorisk
@@ -666,16 +666,16 @@ reset_newpass_title:		Nollst&auml;ll l&ouml;senord
 reset_newpass_msg:		Hej!\n\nEnligt &ouml;nskem&aring;l har ditt anv&auml;ndarnamn och ditt l&ouml;senord skickats till dig.\nH&auml;r &auml;r dina inloggningsuppgifter:\n\nAnv&auml;ndarnamn: {VAR: ui[1]}\nL&ouml;senord: {VAR: passwd}\n\nNotera att ditt l&ouml;senord har &auml;ndrats till ovanst&aring;ende. Om du vill\n&auml;ndra ditt l&ouml;senord kan du g&ouml;ra det i medlemmens kontrollpanel:\n{ROOT}?t=register\n\n
 reset_login_notify:		Ditt l&ouml;senord har skickats &aring;t dig per e-post och borde komma fram inom ett par minuter. V&auml;nligen kontrollera din e-post f&ouml;r ditt anv&auml;ndarnamn och l&ouml;senord.<br>.<br>.<br>
 search_update:			S&ouml;ker bland inl&auml;ggen
-selmsg_update:			L&auml;ser <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Dagens inl&auml;gg</a>
-showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			L&auml;ser <a href="{TEMPLATE: selmsg_update_lnk}">Dagens inl&auml;gg</a>
+showposts_update:		Visar inl&auml;gg av: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Visar egna best&auml;llningar
 th_err_invid_title:		Felaktigt diskussions-ID
 th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, diskussionen du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
 thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
-thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">logga in</a>.
-thread_update:			L&auml;ser forumet <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
-userinfo_update:		Ser p&aring; <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
+thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{TEMPLATE: msg_register_lnk}">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{TEMPLATE: msg_login_lnk}">logga in</a>.
+thread_update:			L&auml;ser forumet <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a href="{ROOT}?t=tree&amp;th={VAR: frm->id}&{DEF: _rsid}">{VAR: frm->subject}</a>
+userinfo_update:		Ser p&aring; <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
 ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{TEMPLATE: msg_register_lnk}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{TEMPLATE: msg_login_lnk}">inloggningsformul&auml;ret</a>
 ERR_login_url:			{ROOT}?t=login&{DEF: _rsid}
@@ -780,7 +780,7 @@ p_LOCK:				L&aring;s diskussioner
 p_MOVE:				Flytta diskussioner
 p_SML:				Till&aring;t smilisar
 p_IMG:				Till&aring;t bild-URL
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">S&ouml;k medlem</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">S&ouml;k medlem</a>
 group_mgr_indicator:		Editeras just nu: <b>{VAR: grp->name}</b>
 rate_worst:			S&auml;mst
 rate_best:			B&auml;st
@@ -901,7 +901,7 @@ read_message:			L&auml;s inl&auml;gg
 threadt_more:			&lt;mer&gt;
 threadt_disabled_ttl:		Tr&aring;dad vy av diskussionerna &auml;r inte tillg&auml;nglig.
 threadt_disabled_desc:		Administratorn har st&auml;ngt av den tr&aring;dade vyn av diskussionerna, anv&auml;nd den platta vyn ist&auml;llet.
-threadt_update:			L&auml;ser forumet (tr&aring;dad vy) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			L&auml;ser forumet (tr&aring;dad vy) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 register_msg_tree_view:		Platt diskussionsvy/Tr&aring;dad inl&auml;ggsvy
 register_tree_msg_view:		Tr&aring;dad diskussionsvy/Platt inl&auml;ggsvy
 mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av diskussion/inl&auml;gg
@@ -923,7 +923,7 @@ register_affero:		Affero Username:<br /><font class="SmallText">If you have an <
 im_affero:			Affero Användarnamn
 register_err_avatardimtobig:	Visningsbildens dimensiontioner på <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> överskrider den maximala storleken på <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Nedhämtad {VAR: r->dlcount} gång(er)
-member_search:			<br>Eller använd <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Användarsöknings</a> funtionen för att hitta personen.
+member_search:			<br>Eller använd <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Användarsöknings</a> funtionen för att hitta personen.
 post_all_ext_allowed:		(oinskränkt)
 buddy_offline:			{VAR: r[2]} är för tillfället nedkopplad
 buddy_online:			{VAR: r[2]} är för tillfället uppkopplad
@@ -980,7 +980,7 @@ mnav_day:			Dag(ar)
 mnav_week:			Vecka/or
 mnav_month:			Månad(er)
 mnav_title:			Meddelandenavigatorn
-mnav_update:			Bläddra Meddelanden användandes <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
+mnav_update:			Bläddra Meddelanden användandes <a href="{TEMPLATE: mnav_update_lnk}">Meddelandenavigatorn</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] Du har ett Nytt Privat Meddelande
 pm_notify_body_email:		Du har ett nytt privat meddelande titulerat "{VAR: subject}" från "{VAR: from}" på "{GVAR: FORUM_TITLE}" forumet.\nFör att läsa detta meddelande klicka här: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nFör att sluta mottaga meddelanden som detta, stäng av "Meddela mig när jag får Privata Meddelanden" i din profil.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

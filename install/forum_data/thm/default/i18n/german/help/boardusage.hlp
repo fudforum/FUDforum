@@ -1,8 +1,8 @@
 TOPIC_TITLE: <a name="bsearch">Wie kann ich suchen?</a>
 TOPIC_HELP:
-Sofern nicht vom Administrator deaktiviert, kannst Du <a href="{ROOT}?t=search&%_rsid%" class="GenLink">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
+Sofern nicht vom Administrator deaktiviert, kannst Du <a href="{ROOT}?t=search&%_rsid%">nach Beitr&auml;gen suchen</a>, die im Forum erstellt wurden. Beitr&auml;ge lassen sich durch
 Angabe von ein oder mehreren Schl&uuml;sselbegriffen suchen, wobei sich ausw&auml;hlen l&auml;&szlig;t, wo diese gesucht werden sollen. Du kannst entweder nur die &Uuml;berschrift oder den gesamten Beitrag durchsuchen. Au&szlig;erdem l&auml;&szlig;t sich die Suche auf ein bestimmtes Forum einschr&auml;nken, falls nicht alle durchsucht werden sollen.<br>
-Du kannst auch andere Forumsmitglieder &uuml;ber ihrem Namen oder Email Adresse mit der <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">Benutzersuche</a> ausfindig machen.
+Du kannst auch andere Forumsmitglieder &uuml;ber ihrem Namen oder Email Adresse mit der <a href="{ROOT}?t=finduser&%_rsid%">Benutzersuche</a> ausfindig machen.
 
 
 TOPIC_TITLE: <a name="email">Kann ich anderen Benutzern eine Email schreiben?</a>
@@ -19,7 +19,7 @@ weiterempfehlen, in dem Du Ihnen die URL mit einer Beschreibung zukommen l&auml;
 TOPIC_TITLE: <a name="pmsg">Was sind private Messages und wie verschicke ich sie?</a> 
 TOPIC_HELP:
 Sofern nicht vom Administrator deaktiviert, kannst Du private Messages an ein oder mehrere registrierte Mitglieder des Forums versenden. Um auf das 
-PM System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Private Messages</a> Link, 
+PM System zugreifen zu k&ouml;nnen, klicke einfach auf den <a href="{ROOT}?t=pmsg&%_rsid%">Private Messages</a> Link, 
 der auf der Seite oben rechts gefunden werden kann. Falls Du noch ungelesene private Messages hast, teilt Dir dieser Link deren Anzahl mit.
 <p>
 <b>Eine private Message verschicken</b><br>

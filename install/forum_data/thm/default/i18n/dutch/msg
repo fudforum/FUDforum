@@ -188,7 +188,7 @@ views:				keer bekeken
 vote:				{VAR: frm->n_rating} stemmen
 vote_button:			stem
 vote_for_thread:		stem
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> door de moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> door de moderator
 welcome_message:		Welkom <b>{VAR: usr->alias}</b>, je laatste bezoek was op {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			laat zien wat de mensen aan het doen zijn
 reported_del_report:		Verwijder Raport
@@ -392,12 +392,12 @@ ignore_users:			Genegeerde Leden
 add_ignore:			Voeg Ignorant toe
 forum_terms:			Forum richtlijnen
 forum_rules:			De registratie tot dit forum is gratis!  We dringen er op aan dat u de onderstaande regels en beleid volgt. Indien u akkoord gaat het de richtlijnen klik dan aub op de "akkoord" knop onderaan de pagina. Nota: Door op de knop te drukken verklaart u dat u <b>ouder dan 13 jaar</b> bent.  indien u 13 of jonger bent gebruik dan dit registratie formulier.<p>Alhoewel de administrators en moderators van dit forum zullen proberen om al de boodschappen van dit forum objectief te houden is het onmogelijk voor ons om al de berichten te reviewen. Alle berichten drukken de visie van de schrijver uit, noch de eigenaars van dit forum of de developers zullen verantwoordelijk geacht worden voor de inhoud van GEEN ENKEL bericht<p> door te klikken op de "akkoord" knop, gaat u akkoord dat u nooit obscene,vulgaire,sexueel gerichte, haatdragende, bedreigende berichten of berichten die eenderwelke wet overtreden. <p> De eigenaars van dit forum hebben het recht om ieder topic te editeren,verplaatsen,verwijderen of tee sluiten voor eenderwelke reden<p>
-forum_rules_13:			Alle leden <b>jonger dan 13</b> moeten de toestemming van hun voogd hebben indien ze een lidmaatschap willen bekomen voor het forum. Hoewel de aanmelden van leden onder de 13 welkom is, vereist een registratie dat de voogd een fax of mail stuurt met getekende toestemming voordat we een lidmaatschap toekennen.<p>Indien u het registratie proces wilt starten, klik dan op de "akkoord" knop beneden. Indien u de registratie wil annuleren klik dan op "Niet Akkoord" om terug te keren naar de forum index. <p> Een copie van het toestemmingsformulier kan hier gedownload worden. Voor meer info over het registratie proces stuur aub een email naar <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			Alle leden <b>jonger dan 13</b> moeten de toestemming van hun voogd hebben indien ze een lidmaatschap willen bekomen voor het forum. Hoewel de aanmelden van leden onder de 13 welkom is, vereist een registratie dat de voogd een fax of mail stuurt met getekende toestemming voordat we een lidmaatschap toekennen.<p>Indien u het registratie proces wilt starten, klik dan op de "akkoord" knop beneden. Indien u de registratie wil annuleren klik dan op "Niet Akkoord" om terug te keren naar de forum index. <p> Een copie van het toestemmingsformulier kan hier gedownload worden. Voor meer info over het registratie proces stuur aub een email naar <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Bevestiging
 coppa_before:			Voor {DATE: coppa %B %e, %Y}
 coppa_after:			Na {DATE: coppa %B %e, %Y}
 coppa_link:			Klik op de link die overeenstemt met uw geboortedatum
-coppa:				Uw voogd moet via fax of mail een getekend toestemmings formulier versturen naar de administrator van die forum voordat een gebruiker <b>jonger dan 13</b> de registratie kan uitvoeren<p> voor meer informatie contacteer <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				Uw voogd moet via fax of mail een getekend toestemmings formulier versturen naar de administrator van die forum voordat een gebruiker <b>jonger dan 13</b> de registratie kan uitvoeren<p> voor meer informatie contacteer <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Informatie
 prereg_agree:			Akoord
 prereg_disagree:		Niet akkoord
@@ -570,7 +570,7 @@ emailconf_err_invkey_msg:	ongeldige bevestigings sleutel.  Controleer uw email e
 err_inc_criticaltitle:		CRITICAL ERROR
 err_inc_criticalmsg:		u heeft een fout opgelopen maar jammer genoeg is er een probleem met het fouten rapporteer systeem
 finduser_update:		Zoeken naar leden
-help_index_update:		De <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a> lezen
+help_index_update:		De <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> lezen
 iemail_thr_subject:		Nieuw Antwoord op {VAR: thr_subject} door {VAR: poster_login}
 iemail_thr_bodyemail:		Om ongelezen replies te lezen ga naar {VAR: goto_url['email']}\n\nIndien u de verdere berichtgeving over reacties op dit topic wenst te schrappen ga dan naar hier: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Om ongeleze reacties te lezen ga naar\n{VAR: goto_url['icq']}\n\nIndien u de verdere berichtgeving over reacties op dit topic wenst te schrappen ga dan naar hier:\n{VAR: unsub_url['icq']}
@@ -585,14 +585,14 @@ ignore_list_err_nu_title:	lid niet gevonden
 ignore_list_err_nu_msg:		Het lid die u trachte toe te voegen aan uw negeer lijst kon niet op het forum gevonden worden.
 ignore_list_cantign_msg:	U kan dit lid niet negeren
 ignore_list_update:		Browsing in eigen negeer lijst
-index_update:			Browsing door de <a href="{TEMPLATE: index_update_lnk}" class="GenLink">forum lijst</a>
+index_update:			Browsing door de <a href="{TEMPLATE: index_update_lnk}">forum lijst</a>
 list_referers_update:		Browsing door verwijzingen
 login_update:			inlog Formulier
 msg_err_onlyreg_title:		Enkel geregistreerde gebruikers mogen dit forum zien
-msg_err_onlyreg_msg:		indien u wenst dit forum te zien moet u zich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registreren</a>, indien u reeds geregistreerd bent moet u zich<a href="{TEMPLATE: msg_login_lnk}" class="GenLink">inloggen</a>.
+msg_err_onlyreg_msg:		indien u wenst dit forum te zien moet u zich <a href="{TEMPLATE: msg_register_lnk}">registreren</a>, indien u reeds geregistreerd bent moet u zich<a href="{TEMPLATE: msg_login_lnk}">inloggen</a>.
 msg_err_ininfo_title:		Onvoldoende Informatie
 msg_err_ininfo_msg:		Er was een probleem bij het laden van deze pagina
-msg_update:			Browsing door topic <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Browsing door topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		FOUT: Privé Berichtgeving Uitgeschakeld
 pm_err_nopm_msg:		U kan het privé berichtgeving systeem niet gebruiken, het is uitgeschakeld door de administrator.
 pm_update:			Gebruik van privé berichtgeving
@@ -618,9 +618,9 @@ post_err_attach_size:		<font class="ErrorText">Bestand bijvoegsel is te groot (o
 post_err_attach_ext:		<font class="ErrorText">het bestand dat u tracht up te loaden stemt niet overeen met de toegelaten bestands types.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">U probeert meer bestanden up te loaden dan is toegelaten.</font><br>
 post_err_passwd:		ongeldig paswoord.
-post_reply_update:		Antwoorden op <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editeren van <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		nieuw topic schrijven in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Antwoorden op <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editeren van <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		nieuw topic schrijven in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		u heeft een fout
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} fotos zijn toegelaten per post, verminder het aantal foto&quot;s
 postcheck_subj_needed:		Onderwerp vereist
@@ -667,16 +667,16 @@ reset_newpass_title:		Reset paswoord
 reset_newpass_msg:		Hallo,\n\n uw inlog naam word naar u verzonden.\nHier is uw inlog informatie:\n\nLogin: {VAR: ui[1]}\npaswoord: {VAR: passwd}\n\nOpgelet, uw paswoord is gereset naar de bovenstaande waarde, indien u wenst\n uw paswoord te veranderen mag u dit doen via het lid info controle paneel op:\n{ROOT}?t=register\n\n
 reset_login_notify:		Uw paswoord is door gemaild naar u. U zou het moeten ontvangen binnen enkele minuten. Controleer uw mailbox voor uw paswoord en login.<br>
 search_update:			Zoeken van posts
-selmsg_update:			Browsing <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
-showposts_update:		Bekijk posts van: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Posts van vandaag</a>
+showposts_update:		Bekijk posts van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing in eigen inschrijvingen
 th_err_invid_title:		ongeldig topic ID
 th_err_invid_msg:		u volgde een ongeldig link, het topic dat u tracht te bekijken bestaat niet.
 thread_err_onlyregview_title:	Enkel geregistreerde gebruikers mogen dit forum bekijken
-thread_err_onlyregview_msg:	Indien u dit forum wenst te bekijken moet u zich <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">registreren</a>, indien u al geregistreerd bent moet u <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">inloggen</a>.
-thread_update:			Browsing door forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Browsing door topic (tree view) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		kijken naar <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
+thread_err_onlyregview_msg:	Indien u dit forum wenst te bekijken moet u zich <a href="{TEMPLATE: msg_register_lnk}">registreren</a>, indien u al geregistreerd bent moet u <a href="{TEMPLATE: msg_login_lnk}">inloggen</a>.
+thread_update:			Browsing door forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Browsing door topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		kijken naar <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profiel
 ERR_login_ttl:			FOUT: u bent niet ingelogd
 ERR_login_msg:			u bent niet ingelogd, logged u aub in<br><br>indien u zich wenst te registreren ga dan naar het <a href="{TEMPLATE: msg_register_lnk}">registratie formulier</a><br>indien u wenst in te loggen ga dan naar het <a href="{TEMPLATE: msg_login_lnk}">login formulier</a>
 ERR_login_url:			{TEMPLATE: msg_login_lnk}
@@ -781,7 +781,7 @@ p_LOCK:				sluit topics
 p_MOVE:				verplaats topics
 p_SML:				Gebruik smilies
 p_IMG:				Gebruik foto tags
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Vind lid</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Vind lid</a>
 group_mgr_indicator:		huidige editering: <b>{VAR: grp->name}</b>
 rate_worst:			Ergste
 rate_best:			Beste
@@ -851,7 +851,7 @@ forum_home:			Home
 post_cur_attached:		momenteel bijgevoegde {VAR: i} bestanden
 ppost_cur_attached:		momenteel bijgevoegde {VAR: attach_count} bestanden
 ignored_anon_post:		{GVAR: ANON_NICK} wordt genegeerd
-ignored_user_post:		Post door <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> wordt genegeerd
+ignored_user_post:		Post door <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> wordt genegeerd
 smladd_close_window:		Sluit venster
 post_list_smilies:		lijst alle smilies
 p_VISIBLE:			Zichtbaar
@@ -901,7 +901,7 @@ read_message:			lees berichten
 threadt_more:			&lt;meer&gt;
 threadt_disabled_ttl:		Tree view van de thread is uitgeschakeld.
 threadt_disabled_desc:		De administrator heeft de tree view van de threads uitgeschakeld, gebruik aub de flat view in de plaats.
-threadt_update:			Browsing het forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing het forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Bericht verwijdering bevestiging
 spell_alts:			geen alternatieven
 insert_uploaded_image:		Voeg tekening in in het bericht
@@ -920,7 +920,7 @@ register_affero:		Affero Gebruikersnam:<br /><font class="SmallText">als u een  
 im_affero:			Affero Gebruikersnaam
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 register_password:		Password:
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 submit_reply:			Submit Reply
 post_err_noreplying_title:	ERROR: Replying Not Allowed
 post_err_noreplying_msg:	You cannot post replies to this topic, because it is either an announcement or sticky message, to which the moderator disallowed replying.
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.

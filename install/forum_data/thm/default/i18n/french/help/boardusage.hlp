@@ -1,7 +1,7 @@
 TOPIC_TITLE: <a name="bsearch">Comme faire une recherche&nbsp;?</a>
 TOPIC_HELP:
-Sauf si cela a été désactivé par l'administrateur, vous pouvez faire une <a href="{ROOT}?t=search&%_rsid%" class="GenLink">recherche des messages</a> qui ont été envoyés dans le forum. Vous pouvez chercher un message en spécifiant un ou plusieurs mots-clé que vous désirez trouver et choisir où trouver ces mots-clé, vous pouvez soit chercher dans le sujet seulement ou effectuer une recherche complète du texte dans le sujet et le corps du message. Vosu pouvez également limiter votre recherche à un forum de votre choix si vous ne désirez pas chercher dans tous les forums.<br>
-Vous pouvez également chercher d'autres membres du forum par leur nom de connexion ou leur adresse de courrier par le <a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">formulaire de recherche d'utilisateur</a>.
+Sauf si cela a été désactivé par l'administrateur, vous pouvez faire une <a href="{ROOT}?t=search&%_rsid%">recherche des messages</a> qui ont été envoyés dans le forum. Vous pouvez chercher un message en spécifiant un ou plusieurs mots-clé que vous désirez trouver et choisir où trouver ces mots-clé, vous pouvez soit chercher dans le sujet seulement ou effectuer une recherche complète du texte dans le sujet et le corps du message. Vosu pouvez également limiter votre recherche à un forum de votre choix si vous ne désirez pas chercher dans tous les forums.<br>
+Vous pouvez également chercher d'autres membres du forum par leur nom de connexion ou leur adresse de courrier par le <a href="{ROOT}?t=finduser&%_rsid%">formulaire de recherche d'utilisateur</a>.
 
 
 TOPIC_TITLE: <a name="email">Comment envoyer un courrier à d'autres membres de forum&nbsp;?</a>
@@ -14,7 +14,7 @@ En plus d'envoyer des courriers aux membres du forum, vous pouvez également util
 
 TOPIC_TITLE: <a name="pmsg">Que sont les messages privés et comment en envoyer un&nbsp;?</a> 
 TOPIC_HELP:
-Si l'administrateur n'a pas désactivé le système de Messagerie Privée, vous pouvez envoyer des messages privés à un ou plusieurs membres enregistrés du forum. Pour accéder au système de MP, cliquez simplement sur le lien <a href="{ROOT}?t=pmsg&%_rsid%" class="GenLink">Messagerie Privée</a> qui peut être trouvé dans le coin supérieur droit de la page. Si vous avec des messages privés non lus, ce lien vous indiquera combien de messages non lus vous avez.
+Si l'administrateur n'a pas désactivé le système de Messagerie Privée, vous pouvez envoyer des messages privés à un ou plusieurs membres enregistrés du forum. Pour accéder au système de MP, cliquez simplement sur le lien <a href="{ROOT}?t=pmsg&%_rsid%">Messagerie Privée</a> qui peut être trouvé dans le coin supérieur droit de la page. Si vous avec des messages privés non lus, ce lien vous indiquera combien de messages non lus vous avez.
 <p>
 <b>Envoyer un message privé</b><br>
 Les messages privés sont très semblables au courrier électronique, vous spécifiez la (ou les) personne(s) à qui vous désirez envoyer le message ainsi que le sujet et le message et vous cliquez sur Envoyer. Il existe 2 liens de disponibles qui vous permettent de trouver facilement les membres auxquels vous voulez envoyer votre message,

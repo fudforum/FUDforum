@@ -43,7 +43,7 @@ Als je de handtekeningen van andere mensen niet wilt zien, dan kun je ze uitzett
 
 TOPIC_TITLE: <a name="rstpasswd">Wat moet ik doen als ik mijn wachtwoord vergeten ben?</a>
 TOPIC_HELP:
-Als je je wachtwoord voor FUDforum niet meer herinneren kunt, moet je naar de <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">pagina wachtwoord resetten</a> gaan, 
+Als je je wachtwoord voor FUDforum niet meer herinneren kunt, moet je naar de <a href="{ROOT}?t=reset&%_rsid%">pagina wachtwoord resetten</a> gaan, 
 op die pagina voer je je e-mailadres in en druk je op de knop reset wachtwoord. Er zal dan een e-mail naar je toe worden gestuurd met een speciale URL, wanneer je naar deze URL gaat
 zal je wachtwoord worden gereset en zul je een nieuwe e-mail ontvangen met je nieuwe wachtwoord.<p>
 <b>Let op:</b> Je wachtwoord wordt opgeslagen in een eenrichting encryptieformaat dat MD5 HASH genoemd wordt.

@@ -29,7 +29,7 @@ Une signature est une chaîne de texte que vous pouvez automatiquement ajouter à 
 
 TOPIC_TITLE: <a name="rstpasswd">Que faire si vous avez perdu votre mot de passe&nbsp?</a>
 TOPIC_HELP:
-Si vous ne vous rappelez pas votre mot de passe pour FUDforum, vous devriez aller à la <a href="{ROOT}?t=reset&%_rsid%" class="GenLink">page de réinitialisation des mots de passe</a>, sur cette page, entrez votre adresse e-mail dans le champ text et appuyez sur le bouton GO. Ceci vous enverra un message avec une URL spéciale, quand vous irez à cette URL, votre mot de passe sera réinitalisé et vous recevrez un nouveau courrier avec votre mot de passe.<br>
+Si vous ne vous rappelez pas votre mot de passe pour FUDforum, vous devriez aller à la <a href="{ROOT}?t=reset&%_rsid%">page de réinitialisation des mots de passe</a>, sur cette page, entrez votre adresse e-mail dans le champ text et appuyez sur le bouton GO. Ceci vous enverra un message avec une URL spéciale, quand vous irez à cette URL, votre mot de passe sera réinitalisé et vous recevrez un nouveau courrier avec votre mot de passe.<br>
 <br>
 <b>Note&nbsp;:</b> Vos mots de passe sont stockés dans un format de chiffrage unidirectionnel appelé HASH MD5. C'est un chiffrage 128 octets de niveau militaire, il n'existe aucun moyen de restaurer votre mot de passe. Cela fonctionne par chiffrage de la donnée à chaque fois que vous l'entrez et par comparaison avec la version chiffrée. Donc, si vous oubliez votre mot de passe, il ne peut pas être régénéré, c'est pourquoi, après une demande de régénération, le forum va générer aléatoirement votre nouveau mot de passe.
 

@@ -187,7 +187,7 @@ views:				Views
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}" class="GenLink">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}" class="GenLink">{{VAR: r[12]}</a> by the moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a> by the moderator
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: usr->last_visit %a, %d %B %Y %H:%M}
 what_ppl_doing:			show what people are doing
 reported_del_report:		Delete Report
@@ -392,12 +392,12 @@ ignore_users:			Ignored Users
 add_ignore:			Add Ignoramus
 forum_terms:			Forum Terms
 forum_rules:			Registration to this forum is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please press the Agree button at the end of the page. Note: By pressing the button you declare that you are over the age of 13. If you are 13 or under, please use this registration form.<p>Although the administrators and moderators of this forum will attempt to keep all objectionable messages off this forum, it is impossible for us to review all messages. All messages express the views of the author, and neither the owners of forum or the developers will be held responsible for the content of any message.<p>By clicking the Agree button, you warrant that you will not post any messages that are obscene, vulgar, sexually-oriented, hateful, threatening, or otherwise violate any laws. <p>The owners of this forum  have the right to remove, edit, move or close any topic for any reason.<p>
-forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a>.<p>
+forum_rules_13:			All users under the age of 13 must seek permission from their parent or guardian in order to gain membership of the forums. While we welcome participation from members under 13, we require that a parent or guardian fax or mail back a signed permission form before we grant membership.<p>If you would like to start the registration process prior to us receiving a permission form, press the Agree button below. If you would like to cancel the registration, press Cancel to return to the forums index. <p>A copy of the permission form can be downloaded here. For more information about the registration process, please send email to <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.<p>
 coppa_conf:			COPPA Confirmation
 coppa_before:			Before {DATE: coppa %B %e, %Y}
 coppa_after:			After {DATE: coppa %B %e, %Y}
 coppa_link:			Click the link that corresponds to your birth date
-coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a class="GenLink" href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
+coppa:				A parent or guardian must mail or fax a signed permission form to the administrator of this forum before a user under the age of 13 can complete the registration.<p>For further information contact <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 prereg_info:			Information
 prereg_agree:			Agree
 prereg_disagree:		Disagree
@@ -570,7 +570,7 @@ emailconf_err_invkey_msg:	Invalid confirmation key.  Please check your email to 
 err_inc_criticaltitle:		CRITICAL ERROR
 err_inc_criticalmsg:		You have encountered an error, but unfortunately there is a problem with the error reporting system
 finduser_update:		Searching for users
-help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}" class="GenLink">F.A.Q.</a>
+help_index_update:		Reading the <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a>
 iemail_thr_subject:		New reply to {VAR: thr_subject} by {VAR: poster_login}
 iemail_thr_bodyemail:		To view unread replies goto {VAR: goto_url['email']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		To view unread replies goto\n{VAR: goto_url['icq']}\n\nIf you do not wish to receive further notifications about replies in this topic, please go here:\n{VAR: unsub_url['icq']}
@@ -585,14 +585,14 @@ ignore_list_err_nu_title:	User not found
 ignore_list_err_nu_msg:		The user you&#39;ve tried to add to your ignore list was not found on the forum.
 ignore_list_cantign_msg:	You can&#39;t ignore this user
 ignore_list_update:		Browsing own ignore list
-index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}" class="GenLink">forum list</a>
+index_update:			Browsing the <a href="{TEMPLATE: index_update_lnk}">forum list</a>
 list_referers_update:		Browsing referrals
 login_update:			Login Form
 msg_err_onlyreg_title:		Only registered users may view this forum
-msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">login</a>.
+msg_err_onlyreg_msg:		In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}">login</a>.
 msg_err_ininfo_title:		Insufficient Information
 msg_err_ininfo_msg:		There was a problem generating this page
-msg_update:			Browsing topic <a class="GenLink" href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+msg_update:			Browsing topic <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:		ERROR: Private Messaging Disabled
 pm_err_nopm_msg:		You cannot use the private messaging system, it has been disabled by the administrator.
 pm_update:			Using private messaging
@@ -620,9 +620,9 @@ post_err_attach_size:		<font class="ErrorText">File Attachment is too big (over 
 post_err_attach_ext:		<font class="ErrorText">The file you are trying to upload doesn&#39;t match the allowed file types.</font><br>
 post_err_attach_filelimit:	<font class="ErrorText">You are trying to upload more files then it is allowed.</font><br>
 post_err_passwd:		Incorrect password.
-post_reply_update:		Replying to <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
-post_edit_update:		Editing <a class="GenLink" href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
-post_topic_update:		Writing new topic in <a class="GenLink" href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
+post_reply_update:		Replying to <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> in {VAR-HTML: frm->name}
+post_edit_update:		Editing <a href="{TEMPLATE: msg_post_lnk}">{VAR: msg->subject}</a> in {VAR-HTML: frm->name}
+post_topic_update:		Writing new topic in <a href="{TEMPLATE: post_topic_update_lnk}">{VAR-HTML: frm->name}</a>
 post_error_generic:		You have an error
 postcheck_max_images_err:	Maximum {GVAR: MAX_IMAGE_COUNT} images are allowed per post, please decrease the number of images
 postcheck_subj_needed:		Subject required
@@ -669,16 +669,16 @@ reset_newpass_title:		Reset Password
 reset_newpass_msg:		Hello,\n\nAs per your request your login name are being sent to you.\nHere is your login information:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nPlease not that your password has been reset the the value above, if you wish\nto change your password you may do so via the user info control panel at:\n{ROOT}?t=register\n\n
 reset_login_notify:		Your password has been emailed to you. You should receive it within few minutes. Please check your email for your password and login.<br>.<br>.<br>
 search_update:			Searching posts
-selmsg_update:			Browsing <a class="GenLink" href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
-showposts_update:		Viewing posts by: <a class="GenLink" href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+selmsg_update:			Browsing <a href="{TEMPLATE: selmsg_update_lnk}">Today&#39;s Posts</a>
+showposts_update:		Viewing posts by: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
 subscribed_update:		Browsing own subscriptions
 th_err_invid_title:		Invalid topic ID
 th_err_invid_msg:		You&#39;ve followed an invalid link, the topic you are trying to view does not exist.
 thread_err_onlyregview_title:	Only registered users may view this forum
-thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}" class="GenLink">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}" class="GenLink">login</a>.
-thread_update:			Browsing forum <a class="GenLink" href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
-tree_update:			Browsing topic (tree view) <a class="GenLink" href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:		Looking at <a class="GenLink" href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
+thread_err_onlyregview_msg:	In order to see this forum you need to <a href="{TEMPLATE: msg_register_lnk}">register</a>, if you are already registered you&#39;ll need to <a href="{TEMPLATE: msg_login_lnk}">login</a>.
+thread_update:			Browsing forum <a href="{TEMPLATE: thread_update_lnk}">{VAR-HTML: frm->name}</a>
+tree_update:			Browsing topic (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:		Looking at <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}&#39;s</a> profile
 ERR_login_ttl:			ERROR: You are not logged in			
 ERR_login_msg:			You are not logged in, please do so<br><br>If you would like to register go to the <a href="{TEMPLATE: msg_register_lnk}">registration form</a><br>If you would like to login please go to the <a href="{TEMPLATE: msg_login_lnk}">login form</a>
 ERR_login_url:			{TEMPLATE: msg_login_lnk}
@@ -783,7 +783,7 @@ p_LOCK:				Lock topics
 p_MOVE:				Move topics
 p_SML:				Use smilies
 p_IMG:				Use image tags
-group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Find User</a>
+group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 250,250);">Find User</a>
 group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
 rate_worst:			Worst
 rate_best:			Best
@@ -853,7 +853,7 @@ forum_home:			Home
 post_cur_attached:		currently attached {VAR: i} file(s) 
 ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
-ignored_user_post:		Post by <a href="{TEMPLATE: ignored_user_post_lnk}" class="GenLink">{VAR: obj->login}</a> is ignored
+ignored_user_post:		Post by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
 post_list_smilies:		list all smilies
 p_VISIBLE:			Visible
@@ -903,7 +903,7 @@ read_message:			Read Message
 threadt_more:			&lt;more&gt;
 threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
 threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
-threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
+threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_lnk}">{VAR-HTML: frm->name}</a>
 mmod_delete_cofirm_ttl:		Topic/Message Deletion Confirmation
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
@@ -923,7 +923,7 @@ im_affero:			Affero Username
 action:				Action
 register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
-member_search:			<br>Or use the <a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
+member_search:			<br>Or use the <a href="javascript://" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 250,250);">Find User</a> feature to find a person.
 post_all_ext_allowed:		(unrestricted)
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
@@ -980,7 +980,7 @@ mnav_day:			Day(s)
 mnav_week:			Week(s)
 mnav_month:			Month(s)
 mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
+mnav_update:			Browsing Messages using <a href="{TEMPLATE: mnav_update_lnk}">Message Navigator</a>
 pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
 pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
 pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
