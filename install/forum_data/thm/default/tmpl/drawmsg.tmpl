@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.8 2002/07/30 00:25:51 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.9 2002/07/30 14:21:44 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -29,12 +29,20 @@
 <a href="{ROOT}?t={GVAR: t}&{DEF: _rsid}&prevloaded=1&th={VAR: obj->thread_id}&start={VAR: msg_start}&rev={VAR: rev}&reveal={VAR: reveal}&count={VAR: count}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}"></a>
 {SECTION: END}
 
+{SECTION: dmsg_tree_prev_message_prev_page previous page (tree view) arrrow drawn on the message}
+<a href="{ROOT}?t={GVAR: t}&{DEF: _rsid}&th={VAR: obj->thread_id}&mid={VAR: pager[0]}" class="GenLink"><img border=0 src="{THEME_IMAGE_ROOT}/up.gif" border=0 title="{MSG: goto_prev_msg}" alt="{MSG: goto_prev_msg}"></a>
+{SECTION: END}
+
 {SECTION: dmsg_next_message next message arrow drawn on the message}
 <a href="#msg_num_{VAR: msg_num}" class="GenLink"><img alt="{MSG: goto_next_msg}" title="{MSG: goto_next_msg}" src="{THEME_IMAGE_ROOT}/down.gif" border=0></a>
 {SECTION: END}
 
 {SECTION: dmsg_next_message_next_page next page arrow drawn on the message}
 <a href="{ROOT}?t={GVAR: t}&{DEF: _rsid}&prevloaded=1&th={VAR: obj->thread_id}&start={VAR: msg_start}&rev={VAR: rev}&reveal={VAR: reveal}&count={VAR: count}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" border=0></a>
+{SECTION: END}
+
+{SECTION: dmsg_tree_next_message_next_page next page (tree view) arrow drawn on the message}
+<a href="{ROOT}?t={GVAR: t}&{DEF: _rsid}&th={VAR: obj->thread_id}&mid={VAR: pager[1]}" class="GenLink"><img alt="{MSG: goto_prev_msg}" title="{MSG: goto_prev_msg}" border=0 src="{THEME_IMAGE_ROOT}/down.gif" border=0></a>
 {SECTION: END}
 
 {SECTION: dmsg_ignored_user_message_regged}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.5 2002/07/16 16:33:07 hackie Exp $
+*   $Id: tree.php.t,v 1.6 2002/07/30 14:21:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,8 +75,7 @@
 	if( !is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'READ') )
 		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}', '');
 
-	if( empty($mid) || !is_numeric($mid) ) 
-		$mid = $thread->root_msg_id;	
+	if( empty($mid) || !is_numeric($mid) ) $mid = $thread->root_msg_id;	
 	
 	$result = q("SELECT 
 		{SQL_TABLE_PREFIX}msg.*, 
@@ -150,14 +149,11 @@
 				ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
 		WHERE 
 			thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id");
-		
+	
 	while ( $obj = db_rowobj($r) ) {
 		$arr[$obj->id] = $obj;
 		$arr[$obj->reply_to]->kiddies[] = &$arr[$obj->id];
-		
-		if ( $obj->reply_to == 0 ) {
-			$tree->kiddies[] = &$arr[$obj->id];
-		}
+		if ( $obj->reply_to == 0 ) $tree->kiddies[] = &$arr[$obj->id];
 	}
 	qf($r);
 
@@ -190,10 +186,7 @@
 	if ( isset($usr) ) $subscribe_status = ( q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}thread_notify WHERE thread_id=".$th." AND user_id=".$usr->id) ) ? '{TEMPLATE: unsub_to_thread}' : '{TEMPLATE: sub_from_thread}';
 	if ( $thread->locked == 'N' ) $post_reply = '{TEMPLATE: post_reply}';
 	
-	$message_data = tmpl_drawmsg($msg_obj);
-	un_register_fps();
-
-	if( !is_numeric($mid) || $mid<1 ) $mid = $msg_obj->id;
+	$prev_msg = $next_msg = 0;
 
 if( @is_array($tree->kiddies) ) {
 
@@ -231,6 +224,11 @@ if( @is_array($tree->kiddies) ) {
 					$tree_data .= '{TEMPLATE: tree_entry}';
 			}
 			
+			if( $cur->id == $mid ) $prev_msg = $prev_id;
+			if( $prev_id == $mid ) $next_msg = $cur->id;
+			
+			$prev_id = $cur->id;
+			
 			$cur->sub_shown = 1;
 		}
 		
@@ -258,6 +256,9 @@ if( @is_array($tree->kiddies) ) {
 		}
 	}
 }
+	$message_data = tmpl_drawmsg($msg_obj,false,array($prev_msg,$next_msg));
+	un_register_fps();
+
 	if ( isset($usr) ) $usr->register_thread_view($thread->id, $mid);
 	
 	list($pg, $ps)= db_singlearr(q("SELECT page, pos FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$thread->forum_id." AND thread_id=".$thread->id));

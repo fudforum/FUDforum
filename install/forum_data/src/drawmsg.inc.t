@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.8 2002/07/22 14:53:37 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.9 2002/07/30 14:21:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -88,6 +88,13 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 			$next_message = '{TEMPLATE: dmsg_next_message_next_page}';
 		}			
 	}	
+	
+	if( $GLOBALS['t'] == 'tree' && empty($hide_controls) ) {
+		if( $pager[0] ) 
+			$prev_message = '{TEMPLATE: dmsg_tree_prev_message_prev_page}';
+		if( $pager[1] )	
+			$next_message = '{TEMPLATE: dmsg_tree_next_message_next_page}';
+	}
 	
 	$msg_bg_color_alt = '{TEMPLATE: msg_bg_color_alt}';
 	
