@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.28 2003/05/11 18:55:59 hackie Exp $
+*   $Id: login.php.t,v 1.29 2003/05/12 15:19:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,7 +53,11 @@
 				$returnto = '';
 				break;
 			default:
-				$returnto = str_replace('S='.$tmp['S'], '', $usr->returnto);
+				if (isset($tmp['S'])) {
+					$returnto = str_replace('S='.$tmp['S'], '', $usr->returnto);
+				} else {
+					$returnto = $usr->returnto;
+				}
 				break;
 		}
 		

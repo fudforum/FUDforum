@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.11 2003/04/29 13:53:46 hackie Exp $
+*   $Id: admprune.php,v 1.12 2003/05/12 15:24:49 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,6 +87,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 				rebuild_forum_view($v);
 			}
 			db_unlock();
+			echo '<h2 color="red">It is highly recommended that you run a consitency checker after prunning.</h2>';
 		}
 	}
 
