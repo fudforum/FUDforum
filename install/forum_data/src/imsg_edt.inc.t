@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.43 2003/04/22 16:37:20 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.44 2003/04/30 23:58:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -443,7 +443,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		// Handle Mailing List and/or Newsgroup syncronization.
-		if (!$mtf->mlist_msg_id) {
+		if ($mtf->mlist_msg_id) {
 			if ((list($mlist_id,$addr) = db_saq("SELECT id FROM {SQL_TABLE_PREFIX}mlist WHERE forum_id=".$mtf->forum_id." AND allow_frm_post='Y'"))) {
 				fud_use('email_msg_format.inc', true);
 				fud_use('mlist_post.inc', true);
