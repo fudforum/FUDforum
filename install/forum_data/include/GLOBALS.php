@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: GLOBALS.php,v 1.35 2003/10/09 15:49:08 hackie Exp $
+* $Id: GLOBALS.php,v 1.36 2003/11/27 13:04:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -91,7 +91,7 @@
 	$MNAV_MAX_LEN		= 256;		/* characters */
 
 	$AUTH_ID		= 0;		/* 0 - treat as anon user, >0 treat like specific forum user */
-	$MAX_N_RESULTS		= 100;		/* int */
+	$RDF_MAX_N_RESULTS	= 100;		/* int */
 
 	$PDF_PAGE		= "letter";	/* string */
 	$PDF_WMARGIN		= 15;		/* int */

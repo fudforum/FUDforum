@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: rdf.php.t,v 1.29 2003/11/14 10:50:19 hackie Exp $
+* $Id: rdf.php.t,v 1.30 2003/11/27 13:04:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -80,8 +80,9 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 	define('__ROOT__', $WWW_ROOT . 'index.php');
 
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
-	$limit  = (isset($_GET['n']) && $_GET['n'] <= $MAX_N_RESULTS) ? (int)$_GET['n'] : $MAX_N_RESULTS;
+	$limit  = (isset($_GET['n']) && $_GET['n'] <= $RDF_MAX_N_RESULTS) ? (int)$_GET['n'] : $RDF_MAX_N_RESULTS;
 
+	$basic_rss_data = $basic_rss_header = $join = '';
 	switch ($mode) {
 		case 'm':
 			$lmt = " m.apr=1";
@@ -168,7 +169,6 @@ unset($e['_'], $e[':'], $e[47], $e['&'], $e['-'], $e['='], $e['#']);
 	<items>
 		<rdf:Seq>
 ';
-						$basic_rss_data = $basic_rss_header = '';
 					} else {
 						echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/">';
 						echo '
