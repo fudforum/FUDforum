@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: glob.inc,v 1.2 2003/04/29 14:21:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,11 +14,10 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
- if ( defined('_glob_inc_') ) return; else define('_glob_inc_', 1);
 
 function read_global_config()
 {
-	return filetomem($GLOBALS['__GLOBALS.INC__']);
+	return file_get_contents($GLOBALS['__GLOBALS.INC__']);
 }
 
 function write_global_config($data)

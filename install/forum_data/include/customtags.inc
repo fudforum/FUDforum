@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: util_adm.inc,v 1.1 2002/06/26 19:44:35 hackie Exp $
+*   $Id: customtags.inc,v 1.1 2003/04/29 14:21:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,14 +14,16 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
-function find_path_binary($name)
+
+function ctag_rebuild_cache($id)
 {
-	if ( exec('which '.$name, $line, $ret) ) {
-		if ( !$ret ) 
-			return $line[0];
+	$ct = '';
+	$c = uq('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'custom_tags WHERE user_id='.$id);
+	while ($r = db_rowarr($c)) {
+		$ct .= addslashes($r[0]) . '<br>';
 	}
-	
-	return '';
+	qf($c);
+	$ct = $ct ? "'<font class=\"LevelText\">" . $ct  . "'" : 'NULL';
+	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET custom_status='.$ct.' WHERE id='.$id);
 }
 ?>

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thrx_adm.inc,v 1.2 2002/06/26 19:47:18 hackie Exp $
+*   $Id: thrx_adm.inc,v 1.3 2003/04/29 14:21:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,36 +15,29 @@
 *
 ***************************************************************************/
 
-class fud_thr_exchange
+function thx_add($reason_msg, $th, $frm, $req_by)
 {
-	var $id=NULL;
-	var $reason_msg=NULL;
-	var $th=NULL;
-	var $frm=NULL;
-	var $req_by=NULL;
-	
-	function add()
-	{
-		if ( !db_locked() ) {
-			$ll = 1;
-			db_lock($GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange+");
-		}
-		$r = q("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".$this->reason_msg."',".$this->th.",".$this->frm.",".$this->req_by.")");
-		$this->id = db_lastid($GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange", $r);
-		if ( $ll ) db_unlock();
-		
-		return $this->id;
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WRITE');
 	}
-	
-	function get($id)
-	{
-		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange WHERE id=".$id, $this);
-		if( empty($this->id) ) exit("Invalid thread x-change id<br>\n");
+
+	$id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange (reason_msg,th,frm,req_by) VALUES('".addslashes(nl2br(htmlspecialchars($reason_msg)))."',".$th.",".$frm.",".$req_by.")");
+
+	if (isset($ll)) {
+		db_unlock();
 	}
+
+	return $id;
+}
 	
-	function delete()
-	{
-		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."thr_exchange WHERE id=".$this->id);
-	}
+function thx_get($id)
+{
+	return db_sab('SELECT id, reason_msg, th, frm, req_by FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WHERE id='.$id);
+}
+	
+function thx_delete($id)
+{
+	q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'thr_exchange WHERE id='.$id);
 }
 ?>
