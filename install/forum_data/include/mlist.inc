@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mlist.inc,v 1.12 2003/10/09 14:34:25 hackie Exp $
+* $Id: mlist.inc,v 1.13 2003/10/20 18:16:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -60,8 +60,8 @@ class fud_mlist
 			)
 			VALUES(
 			".$this->forum_id.",
-			".$this->mlist_opt.",
 			'".addslashes($this->name)."',
+			".$this->mlist_opt.",
 			'".addslashes($this->subject_regex_haystack)."',
 			'".addslashes($this->subject_regex_needle)."',
 			'".addslashes($this->body_regex_haystack)."',
