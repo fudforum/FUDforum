@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.15 2002/08/07 11:47:03 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.16 2002/08/14 11:59:39 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -236,9 +236,10 @@ function tmpl_drawmsg(&$obj, $msg_count=NULL, $pager=NULL, $_rsid=_rsid)
 		if ( !$show_res && empty($hide_controls) ) {
 			if( $total_votes ) $view_poll_results_button = '{TEMPLATE: dmsg_view_poll_results_button}';
 			$poll_buttons = '{TEMPLATE: dmsg_poll_buttons}';
+			$poll = '{TEMPLATE: mini_dmsg_poll}';
 		}
 		
-		$poll = '{TEMPLATE: dmsg_poll}'; 
+		$poll = empty($hide_controls) ? '{TEMPLATE: dmsg_poll}' : '{TEMPLATE: mini_dmsg_poll}';
 	}
 
 	if ( $obj->attach_cnt ) {

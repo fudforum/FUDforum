@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.tmpl,v 1.12 2002/08/05 00:47:55 hackie Exp $
+*   $Id: drawmsg.tmpl,v 1.13 2002/08/14 11:59:40 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -206,6 +206,13 @@ IP: <a href="http://www.nic.com/cgi-bin/whois.cgi?query={VAR: obj->ip_addr}" tar
 
 {SECTION: dmsg_view_poll_results_button}
 <input type="submit" class="button" name="pl_res" value="{MSG: view_results}">
+{SECTION: END}
+
+{SECTION: mini_dmsg_poll}
+<p><table border=0 cellspacing=1 cellpadding=2 class="PollTable">
+<tr><th nowrap colspan=3>{VAR: poll_obj->name}<img src="blank.gif" alt="" border=0 height=1 width=10 /><font size="-1">[ {MSG: num_votes} ]</font></th></tr>
+{TEMPLATE-DATA: poll_data}
+</table><p>
 {SECTION: END}
 
 {SECTION: dmsg_poll}
