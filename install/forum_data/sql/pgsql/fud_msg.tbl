@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.3 2002/07/25 13:19:30 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.4 2002/08/19 03:42:58 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	length_preview	INT8 NOT NULL DEFAULT 0,
 	file_id_preview	INT8 NOT NULL DEFAULT 0,
 	
-	mlist_msg_id 	VARCHAR(100),
+	mlist_msg_id 	VARCHAR(100)
 );
 
 CREATE INDEX {SQL_TABLE_PREFIX}msg_index_thread_id_approve ON {SQL_TABLE_PREFIX}msg (thread_id, approved);
