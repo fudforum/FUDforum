@@ -1,0 +1,105 @@
+TOPIC_TITLE: <a name="bsearch">如何搜索？</a>
+TOPIC_HELP:
+如果系统管理员没有禁止使用该项功能，那么<a href="{ROOT}?t=search&%_rsid%" class="GenLink">你就能搜索</a>论坛里的所有帖子。你既可以指定一个或多个关键词进行搜索，也可以按主题或者全文搜索。
+此外，你还可以选择单个论坛进行搜索。<br>
+你可以通过论坛成员的账号或者电子邮箱查找论坛成员。进行此操作，请点击：<a href="{ROOT}?t=finduser&%_rsid%" class="GenLink">用户搜索</a>.
+
+
+TOPIC_TITLE:<a name="email">我可以向别的论坛成员发送邮件么？</a>
+<tr><td class="ForumBackground"><table cellspacing=2 cellpadding=2 width="100%" class="dashed"><tr><td class="GenText">
+如果系统管理员没有禁止使用该项功能，那么你可以通过邮件和别的论坛成员联系。<br>
+需要给别的成员发送邮件，你可以到成员列表页面，点击<b>联系</b>按钮或者在他们发布的帖子上点击<b>电子邮箱</b> 按钮。然后你将进入一个页面，填写电子邮件主题和内容，完成以后，再点击<b>发送</b>按钮即可。
+<br><br>
+此外，你还可以在论坛的主题或者帖子查看页面，使用<b>发送邮件给朋友</b>这个连接，向他们推荐某个页面，告诉他们URL，同时附上简单的介绍。
+</td></tr></table></td></tr>
+
+
+TOPIC_TITLE:<a name="pmsg">什么是“悄悄话”，我该如何发送？</a> 
+TOPIC_HELP:
+如果系统管理员没有禁止使用该项功能，你将可以给一个或者多个已注册的论坛用户发送悄悄话。要进入悄悄话发送系统，只需要点击页面右上角的<a href="pmsg.php？%_RSID%" class="GenLink悄悄话</a>链接即可。如果你有未读悄悄话，那么这个连接上将显示未读信息的数量。
+<p>
+<b>发送悄悄话</b><br>
+悄悄话系统的功能和电子邮件相似。你只要选定了用户，输入悄悄话主题和内容，然后点击发送即可。这里有两个链接能够帮助你很轻松地给好友发送悄悄话，一个是：
+<b>从好友列表中选择</b>,点击这个链接，你将打开你的好友列表，并从中选择用户发送悄悄话；另一个是<b>查找用户</b>,点击这个链接，你将从论坛的所有用户中选择用户发送悄悄话。
+你发送的每一个信息都将保存在<b>发件箱</b>里，当然你也可以随时删除这些内容。
+<p>
+此外还有三个文件夹：
+<p>
+<b>收件箱</b> 保存了你收到的所有信息，并且根据你是否阅读了该信息标为“已读”或者“未读”。每天信息显示了发送人和发送时间，你可以查看发送人是否在线。
+<p>
+<b>草稿箱</b>保存了你写好了的但是没有发出的信息。点击这条信息，你就能进行编辑然后发送。一旦该信息被发送，就会被从草稿箱移至发件箱。
+<p>
+<b>垃圾箱</b>保存了所有你从别的文件夹删除的信息。当你对垃圾箱里的文件执行“删除”操作以后，它们将被永久删除。
+<p>
+<b>信息跟踪</b><p>
+当发送信息以后，你可以要求接收阅读反馈，即当接收方读取该条信息的时候，系统通告你该信息已被读取。<br>
+但是，信息接收方有权拒绝系统向你发布信息已被阅读的通告。因此，当你没有收到信息已被读取的通告时，并不意味着你发送的信息没有被阅读。
+
+
+TOPIC_TITLE:<a name="mlist">什么是用户列表？</a>
+TOPIC_HELP:
+用户列表包括了论坛所有的用户。你可以3种方式查看：将账号按字母排序；按发帖数排序、按注册日期排序。
+<br><br>
+用户列表还有搜索功能，可以按照用户账号和邮箱进行搜索。
+
+TOPIC_TITLE:<a name="ann">什么是通告和临时通告？</a>
+TOPIC_HELP:
+这是系统管理员和版主发布的一些特殊信息，出现在论坛的顶部，一般包括给通知论坛用户的一些通知或者规定等。
+
+
+TOPIC_TITLE:<a name="rate">我是否能给帖子评分？</a>
+TOPIC_HELP:
+你可能已经注意到有些帖子后面有星级评价。如果你得到了系统管理员的允许，你将可以对帖子进行评价。此外，你还可以到每个帖子的最后找到“主题评价”选择框，选择1-5中的一个数字（5表示最好）。
+
+TOPIC_TITLE:<a name="ref">什么是被推荐者？</a>
+TOPIC_HELP:
+被推荐者是指被论坛成员推荐来到论坛的访问者。
+被推荐者按照你的推荐访问论坛时，其操作将被自动记录下来。即当访问者按照你推荐的论坛网址访问论坛并且注册时，他就自动地成为你的被推荐人。点击你的个人信息中的<b>被推荐者</b> 链接你就能看到你的被推荐者名单。
+
+TOPIC_TITLE: <a name="syndicate">Syndicating this forum</a>
+TOPIC_HELP:
+If permitted by the administrator, FUDforum allows you to syndicate a variety of forum data via XML (rdf). The RDF feed works primarily
+in 3 modes, message retrieval, topic retrieval and user retrieval. Each mode of operation supports a number of modifier parameters that
+will allow you to specify what sort of data do you wish to fetch. Below is the explanation of the supported parameters for each mode
+of operation.<br />
+<br /><br />
+<h4><u><b>'m' mode (messages)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve messages from category with this id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve messages from forum with this id.</td></tr>
+		<tr><td class="GenText"><i>th<i></td><td class="GenText">Only retrieve messages from topic with this id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single message with the specified id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve messages posted after the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve messages posted before the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> messages (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching messages.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order messages from newest to oldest.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'t' mode (topics)</b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>cat<i></td><td class="GenText">Only retrieve topics from category with this id.</td></tr>
+		<tr><td class="GenText"><i>frm<i></td><td class="GenText">Only retrieve topics from forum with this id.</td></tr>
+		<tr><td class="GenText"><i>id<i></td><td class="GenText">Retrieve a single topic with the specified id.</td></tr>
+		<tr><td class="GenText"><i>ds<i></td><td class="GenText">Only retrieve topics where the last message was posted after the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>de<i></td><td class="GenText">Only retrieve topics where the last message was posted before the specified date (unix timestamp).</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> topics (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching topics.</td></tr>
+		<tr><td class="GenText"><i>l</i></td><td class="GenText">Order topics from newest to oldest.</td></tr>
+	</table>
+</blockquote>
+<h4><u><b>'u' mode (users) <i>**could be disabled**</i></b></u></h4>
+<blockquote>
+	<table border=0 cellspacing=1 cellpadding=3>
+		<tr><td class="GenText"><i>pc</i></td><td class="GenText">Order users by number of messages posted, from largest to smallest.</td></tr>
+		<tr><td class="GenText"><i>rd</i></td><td class="GenText">Order users by registration, from most recent to oldest.</td></tr>
+		<tr><td class="GenText"><i>cl</i></td><td class="GenText">Only show users who are currently online.</td></tr>
+		<tr><td class="GenText"><i>n</i></td><td class="GenText">Fetch no more then <i>n</i> users (cannot be higher then overall maximum).</td></tr>
+		<tr><td class="GenText"><i>o</i></td><td class="GenText">Starting offset from which to begin fetching users.</td></tr>
+	</table>
+</blockquote>
+<b>Example:</b><br />
+The following link will fetch 10 most recent messages from this forum:<br />
+<a href="rdf.php?mode=m&l=1&n=10" target="_blank">rdf.php?mode=m&l=1&n=10</a>
