@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groupmgr.php.t,v 1.20 2003/05/09 15:22:39 hackie Exp $
+*   $Id: groupmgr.php.t,v 1.21 2003/06/23 20:46:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@ function make_perms_uob(&$obj)
 	}
 
 	if ($usr->is_mod != 'A') { 
-		$r = uq('SELECT g.group_id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND gm.group_leader=\'Y\' ORDER BY ltrim(g.name)');
+		$r = uq('SELECT g.id, g.name, g.forum_id FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}groups g ON gm.group_id=g.id WHERE gm.user_id='._uid.' AND gm.group_leader=\'Y\' ORDER BY ltrim(g.name)');
 	} else {
 		$r = uq('SELECT id, name, forum_id FROM {SQL_TABLE_PREFIX}groups WHERE id>2 ORDER BY name');
 	}	
