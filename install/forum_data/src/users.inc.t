@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.111 2004/01/29 22:58:33 hackie Exp $
+* $Id: users.inc.t,v 1.112 2004/01/30 03:43:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -114,532 +114,530 @@ function init_user()
 
 	/* continuation of path info parsing */
 	if (isset($p, $p[0])) {
-		define('pinfo_page', $p[0]);
+		switch ($p[0]) {
+			case 'm': /* goto specific message */
+				$_GET['t'] = d_thread_view;
+				$_GET['goto'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['th'] = $p[2];
+					if (isset($p[3])) {
+						$_GET['start'] = $p[3];
+						if ($p[3]) {
+							$_GET['t'] = 'msg';
+							unset($_GET['goto']);
+						}
 
-			switch ($p[0]) {
-				case 'm': /* goto specific message */
-					$_GET['t'] = d_thread_view;
-					$_GET['goto'] = $p[1];
+						if (isset($p[4])) {
+							if ($p[4] === 'prevloaded') {
+								$_GET['prevloaded'] = 1;
+								$i = 5;
+							} else {
+								$i = 4;
+							}
+
+							if (isset($p[$i])) {
+								$_GET['rev'] = $p[$i];
+								if (isset($p[$i+1])) {
+									$_GET['reveal'] = $p[$i+1];
+								}
+							}
+						}
+					}
+				}
+				break;
+
+			case 't': /* view thread */
+				$_GET['t'] = d_thread_view;
+				$_GET['th'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['start'] = $p[2];
+					if (!empty($p[3])) {
+						$_GET[$p[3]] = 1;
+					}
+				}
+				break;
+
+			case 'f': /* view forum */
+				$_GET['t'] = t_thread_view;
+				$_GET['frm_id'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['start'] = $p[2];
+					if (isset($p[3])) {
+						if ($p[3] === '0') {
+							$_GET['sub'] = 1;
+						} else {
+							$_GET['unsub'] = 1;
+						}
+					}
+				}
+				break;
+
+			case 'r':
+				$_GET['t'] = 'post';
+				$_GET[$p[1]] = $p[2];
+				if (isset($p[3])) {
+					$_GET['reply_to'] = $p[3];
+					if (isset($p[4])) {
+						if ($p[4]) {
+							$_GET['quote'] = 'true';
+						}
+						if (isset($p[5])) {
+							$_GET['start'] = $p[5];
+						}
+					}
+				}
+				break;
+
+			case 'u': /* view user's info */
+				$_GET['t'] = 'usrinfo';
+				$_GET['id'] = $p[1];
+				break;
+
+			case 'i':
+				$_GET['t'] = 'index';
+				if (isset($p[1])) {
+					$_GET['c'] = $p[1];
+				}
+				break;
+
+			case 'fa':
+				$_GET['t'] = 'getfile';
+				$_GET['id'] = $p[1];
+				if (!empty($p[2])) {
+					$_GET['private'] = 1;
+				}
+				break;
+
+			case 'sp': /* show posts */
+				$_GET['t'] = 'showposts';
+				$_GET['id'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['so'] = $p[2];
+					if (isset($p[3])) {
+						$_GET['start'] = $p[3];
+					}
+				}
+				break;
+
+			case 'l': /* login/logout */
+				$_GET['t'] = 'login';
+				if (isset($p[1])) {
+					$_GET['logout'] = 1;
+				}
+				break;
+
+			case 'e':
+				$_GET['t'] = 'error';
+				break;
+
+			case 'st':
+				$_GET['t'] = $p[1];
+				$_GET['th'] = $p[2];
+				$_GET['notify'] = $p[3];
+				$_GET['opt'] = $p[4] ? 'on' : 'off';
+				$_GET['start'] = $p[5];
+				break;
+
+			case 'sf':
+				$_GET['t'] = $p[1];
+				$_GET['frm_id'] = $p[2];
+				$_GET[$p[3]] = 1;
+				$_GET['start'] = $p[4];
+				break;
+
+			case 'sl':
+				$_GET['t'] = 'subscribed';
+				if ($p[1] == 'start') {
+					$_GET['start'] = $p[2];
+				} else {
 					if (isset($p[2])) {
 						$_GET['th'] = $p[2];
-						if (isset($p[3])) {
-							$_GET['start'] = $p[3];
-							if ($p[3]) {
-								$_GET['t'] = 'msg';
-								unset($_GET['goto']);
-							}
-
-							if (isset($p[4])) {
-								if ($p[4] === 'prevloaded') {
-									$_GET['prevloaded'] = 1;
-									$i = 5;
-								} else {
-									$i = 4;
-								}
-
-								if (isset($p[$i])) {
-									$_GET['rev'] = $p[$i];
-									if (isset($p[$i+1])) {
-										$_GET['reveal'] = $p[$i+1];
-									}
-								}
-							}
-						}
+					} else if (isset($p[1])) {
+						$_GET['frm_id'] = $p[1];
 					}
-					break;
+				}
+				break;
 
-				case 't': /* view thread */
-					$_GET['t'] = d_thread_view;
-					$_GET['th'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['start'] = $p[2];
-						if (!empty($p[3])) {
-							$_GET[$p[3]] = 1;
-						}
-					}
-					break;
-
-				case 'f': /* view forum */
-					$_GET['t'] = t_thread_view;
-					$_GET['frm_id'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['start'] = $p[2];
-						if (isset($p[3])) {
-							if ($p[3] === '0') {
-								$_GET['sub'] = 1;
-							} else {
-								$_GET['unsub'] = 1;
-							}
-						}
-					}
-					break;
-
-				case 'r':
-					$_GET['t'] = 'post';
+			case 'pmm':
+				$_GET['t'] = 'ppost';
+				if (isset($p[1])) {
 					$_GET[$p[1]] = $p[2];
-					if (isset($p[3])) {
-						$_GET['reply_to'] = $p[3];
-						if (isset($p[4])) {
-							if ($p[4]) {
-								$_GET['quote'] = 'true';
-							}
-							if (isset($p[5])) {
-								$_GET['start'] = $p[5];
-							}
+				}
+				break;
+
+			case 'pmv':
+				$_GET['t'] = 'pmsg_view';
+				$_GET['id'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['dr'] = 1;
+				}
+				break;
+
+			case 'pdm':
+				$_GET['t'] = 'pmsg';
+				if (isset($p[1])) {
+					if ($p[1] !== 'btn_delete') {
+						$_GET['folder_id'] = $p[1];
+						if (isset($p[2]) && (int) $p[2]) {
+							$_GET['all'] = 1;
 						}
-					}
-					break;
-
-				case 'u': /* view user's info */
-					$_GET['t'] = 'usrinfo';
-					$_GET['id'] = $p[1];
-					break;
-
-				case 'i':
-					$_GET['t'] = 'index';
-					if (isset($p[1])) {
-						$_GET['c'] = $p[1];
-					}
-					break;
-
-				case 'fa':
-					$_GET['t'] = 'getfile';
-					$_GET['id'] = $p[1];
-					if (!empty($p[2])) {
-						$_GET['private'] = 1;
-					}
-					break;
-
-				case 'sp': /* show posts */
-					$_GET['t'] = 'showposts';
-					$_GET['id'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['so'] = $p[2];
-						if (isset($p[3])) {
-							$_GET['start'] = $p[3];
-						}
-					}
-					break;
-
-				case 'l': /* login/logout */
-					$_GET['t'] = 'login';
-					if (isset($p[1])) {
-						$_GET['logout'] = 1;
-					}
-					break;
-
-				case 'e':
-					$_GET['t'] = 'error';
-					break;
-
-				case 'st':
-					$_GET['t'] = $p[1];
-					$_GET['th'] = $p[2];
-					$_GET['notify'] = $p[3];
-					$_GET['opt'] = $p[4] ? 'on' : 'off';
-					$_GET['start'] = $p[5];
-					break;
-
-				case 'sf':
-					$_GET['t'] = $p[1];
-					$_GET['frm_id'] = $p[2];
-					$_GET[$p[3]] = 1;
-					$_GET['start'] = $p[4];
-					break;
-
-				case 'sl':
-					$_GET['t'] = 'subscribed';
-					if ($p[1] == 'start') {
-						$_GET['start'] = $p[2];
 					} else {
-						if (isset($p[2])) {
-							$_GET['th'] = $p[2];
-						} else if (isset($p[1])) {
-							$_GET['frm_id'] = $p[1];
-						}
+						$_GET['btn_delete'] = 1;
+						$_GET['sel'] = $p[2];
 					}
-					break;
-
-				case 'pmm':
-					$_GET['t'] = 'ppost';
-					if (isset($p[1])) {
-						$_GET[$p[1]] = $p[2];
-					}
-					break;
-
-				case 'pmv':
-					$_GET['t'] = 'pmsg_view';
-					$_GET['id'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['dr'] = 1;
-					}
-					break;
-
-				case 'pdm':
-					$_GET['t'] = 'pmsg';
-					if (isset($p[1])) {
-						if ($p[1] !== 'btn_delete') {
-							$_GET['folder_id'] = $p[1];
-							if (isset($p[2]) && (int) $p[2]) {
-								$_GET['all'] = 1;
-							}
-						} else {
-							$_GET['btn_delete'] = 1;
-							$_GET['sel'] = $p[2];
-						}
-						if (isset($p[3])) {
-							$_GET['start'] = $p[3];
-						}
-					}
-					break;
-
-				case 'pl': /* poll list */
-					$_GET['t'] = 'polllist';
-					if (isset($p[1])) {
-						$_GET['uid'] = $p[1];
-						if (isset($p[2])) {
-							$_GET['start'] = $p[2];
-							if (isset($p[3])) {
-								$_GET['oby'] = $p[3];
-							}
-						}
-					}
-					break;
-
-				case 'ml': /* member list */
-					$_GET['t'] = 'finduser';
-					if (isset($p[1])) {
-						if ($p[1] == '1') { /* order by reg date */
-							$_GET['pc'] = 1;
-						} else if ($p[1] == '2') { /* order by login */
-							$_GET['us'] = 1;
-						} /* else order by date */
-						if (isset($p[2])) {
-							$_GET['start'] = $p[2];
-							if (isset($p[3])) {
-								$_GET['usr_login'] = urldecode($p[3]);
-								if (isset($p[4])) {
-									$_GET['usr_email'] = urldecode($p[4]);
-									if (isset($p[5])) {
-										$_GET['js_redr'] = $p[5];
-									}
-								}
-							}
-						}
-					}
-					break;
-
-				case 'h': /* help */
-					$_GET['t'] = 'help_index';
-					if (isset($p[1])) {
-						$_GET['section'] = $p[1];
-					}
-					break;
-
-				case 'cv': /* change thread view mode */
-					$_GET['t'] = $p[1];
-					$_GET['frm_id'] = $p[2];
-					break;
-
-				case 'mv': /* change message view mode */
-					$_GET['t'] = $p[1];
-					$_GET['th'] = $p[2];
 					if (isset($p[3])) {
-						if ($p[3] !== '0') {
-							$_GET['goto'] = $p[3];
-						} else {
-							$_GET['prevloaded'] = 1;
-							$_GET['start'] = $p[4];
-							if (isset($p[5])) {
-								$_GET['rev'] = $p[5];
-								if (isset($p[6])) {
-									$_GET['reveal'] = $p[6];
+						$_GET['start'] = $p[3];
+					}
+				}
+				break;
+
+			case 'pl': /* poll list */
+				$_GET['t'] = 'polllist';
+				if (isset($p[1])) {
+					$_GET['uid'] = $p[1];
+					if (isset($p[2])) {
+						$_GET['start'] = $p[2];
+						if (isset($p[3])) {
+							$_GET['oby'] = $p[3];
+						}
+					}
+				}
+				break;
+
+			case 'ml': /* member list */
+				$_GET['t'] = 'finduser';
+				if (isset($p[1])) {
+					if ($p[1] == '1') { /* order by reg date */
+						$_GET['pc'] = 1;
+					} else if ($p[1] == '2') { /* order by login */
+						$_GET['us'] = 1;
+					} /* else order by date */
+					if (isset($p[2])) {
+						$_GET['start'] = $p[2];
+						if (isset($p[3])) {
+							$_GET['usr_login'] = urldecode($p[3]);
+							if (isset($p[4])) {
+								$_GET['usr_email'] = urldecode($p[4]);
+								if (isset($p[5])) {
+									$_GET['js_redr'] = $p[5];
 								}
 							}
 						}
 					}
-					break;
+				}
+				break;
 
-				case 'pv':
-					$_GET['t'] = d_thread_view;
-					$_GET['goto'] = $p[1];
-					$_POST['pl_view'] = $p[2];
-					break;
+			case 'h': /* help */
+				$_GET['t'] = 'help_index';
+				if (isset($p[1])) {
+					$_GET['section'] = $p[1];
+				}
+				break;
 
-				case 'rm': /* report message */
-					$_GET['t'] = 'report';
-					$_GET['msg_id'] = $p[1];
-					break;
+			case 'cv': /* change thread view mode */
+				$_GET['t'] = $p[1];
+				$_GET['frm_id'] = $p[2];
+				break;
 
-				case 'rl': /* list of reported messages */
-					$_GET['t'] = 'reported';
-					if (isset($p[1])) {
+			case 'mv': /* change message view mode */
+				$_GET['t'] = $p[1];
+				$_GET['th'] = $p[2];
+				if (isset($p[3])) {
+					if ($p[3] !== '0') {
+						$_GET['goto'] = $p[3];
+					} else {
+						$_GET['prevloaded'] = 1;
+						$_GET['start'] = $p[4];
+						if (isset($p[5])) {
+							$_GET['rev'] = $p[5];
+							if (isset($p[6])) {
+								$_GET['reveal'] = $p[6];
+							}
+						}
+					}
+				}
+				break;
+
+			case 'pv':
+				$_GET['t'] = d_thread_view;
+				$_GET['goto'] = $p[1];
+				$_POST['pl_view'] = $p[2];
+				break;
+
+			case 'rm': /* report message */
+				$_GET['t'] = 'report';
+				$_GET['msg_id'] = $p[1];
+				break;
+
+			case 'rl': /* list of reported messages */
+				$_GET['t'] = 'reported';
+				if (isset($p[1])) {
+					$_GET['del'] = $p[1];
+				}
+				break;
+
+			case 'd': /* delete thread/message */
+				$_GET['t'] = 'mmod';
+				$_GET['del'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['th'] = $p[2];
+				}
+				break;
+
+			case 'em': /* email forum member */
+				$_GET['t'] = 'email';
+				$_GET['toi'] = $p[1];
+				break;
+
+			case 'mar': /* mark all/forum read */
+				$_GET['t'] = 'markread';
+				if (isset($p[1])) {
+					$_GET['id'] = $p[1];
+				}
+				break;
+
+			case 'bl': /* buddy list */
+				$_GET['t'] = 'buddy_list';
+				if (isset($p[1])) {
+					if (!empty($p[2])) {
+						$_GET['add'] = $p[1];
+					} else {
 						$_GET['del'] = $p[1];
 					}
-					break;
-
-				case 'd': /* delete thread/message */
-					$_GET['t'] = 'mmod';
-					$_GET['del'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['th'] = $p[2];
+					if (isset($p[3])) {
+						$_GET['redr'] = 1;
 					}
-					break;
+				}
+				break;
 
-				case 'em': /* email forum member */
-					$_GET['t'] = 'email';
-					$_GET['toi'] = $p[1];
-					break;
-
-				case 'mar': /* mark all/forum read */
-					$_GET['t'] = 'markread';
-					if (isset($p[1])) {
-						$_GET['id'] = $p[1];
-					}
-					break;
-
-				case 'bl': /* buddy list */
-					$_GET['t'] = 'buddy_list';
-					if (isset($p[1])) {
-						if (!empty($p[2])) {
-							$_GET['add'] = $p[1];
-						} else {
-							$_GET['del'] = $p[1];
-						}
-						if (isset($p[3])) {
-							$_GET['redr'] = 1;
-						}
-					}
-					break;
-
-				case 'il': /* ignore list */
-					$_GET['t'] = 'ignore_list';
-					if (isset($p[1])) {
-						if (!empty($p[2])) {
-							$_GET['add'] = $p[1];
-						} else {
-							$_GET['del'] = $p[1];
-						}
-						if (isset($p[3])) {
-							$_GET['redr'] = 1;
-						}
-					}
-					break;
-
-				case 'lk': /* lock/unlock thread */
-					$_GET['t'] = 'mmod';
-					$_GET['th'] = $p[1];
-					$_GET[$p[2]] = 1;
-					break;
-
-				case 'stt': /* split thread */
-					$_GET['t'] = 'split_th';
-					$_GET['th'] = $p[1];
-					break;
-
-				case 'ef': /* email to friend */
-					$_GET['t'] = 'remail';
-					$_GET['th'] = $p[1];
-					break;
-
-				case 'lr': /* list referers */
-					$_GET['t'] = 'list_referers';
-					if (isset($p[1])) {
-						$_GET['start'] = $p[1];
-					}
-					break;
-
-				case 'a':
-					$_GET['t'] = 'actions';
-					break;
-
-				case 's':
-					$_GET['t'] = 'search';
-					if (isset($p[1])) {
-						$_GET['srch'] = urldecode($p[1]);
-						$_GET['field'] = $p[2];
-						$_GET['search_logic'] = $p[3];
-						$_GET['sort_order'] = $p[4];
-						$_GET['forum_limiter'] = $p[5];
-						$_GET['start'] = $p[6];
-					}
-					break;
-
-				case 'p':
-					if (!is_numeric($p[1])) {
-						$_GET[$p[1]] = $p[2];
+			case 'il': /* ignore list */
+				$_GET['t'] = 'ignore_list';
+				if (isset($p[1])) {
+					if (!empty($p[2])) {
+						$_GET['add'] = $p[1];
 					} else {
-						$_GET['frm'] = $p[1];
-						$_GET['page'] = $p[2];
+						$_GET['del'] = $p[1];
 					}
-					break;
-
-				case 'ot':
-					$_GET['t'] = 'online_today';
-					break;
-
-				case 're':
-					$_GET['t'] = 'register';
-					if (isset($p[1])) {
-						$_GET['reg_coppa'] = $p[1];
+					if (isset($p[3])) {
+						$_GET['redr'] = 1;
 					}
-					break;
+				}
+				break;
 
-				case 'tt':
-					$_GET['t'] = $p[1];
-					$_GET['frm_id'] = $p[2];
-					break;
+			case 'lk': /* lock/unlock thread */
+				$_GET['t'] = 'mmod';
+				$_GET['th'] = $p[1];
+				$_GET[$p[2]] = 1;
+				break;
 
-				case 'mh':
-					$_GET['t'] = 'mvthread';
-					$_GET['th'] = $p[1];
-					if (isset($p[2], $p[3])) {
-						$_GET[$p[2]] = $p[3];
+			case 'stt': /* split thread */
+				$_GET['t'] = 'split_th';
+				$_GET['th'] = $p[1];
+				break;
+
+			case 'ef': /* email to friend */
+				$_GET['t'] = 'remail';
+				$_GET['th'] = $p[1];
+				break;
+
+			case 'lr': /* list referers */
+				$_GET['t'] = 'list_referers';
+				if (isset($p[1])) {
+					$_GET['start'] = $p[1];
+				}
+				break;
+
+			case 'a':
+				$_GET['t'] = 'actions';
+				break;
+
+			case 's':
+				$_GET['t'] = 'search';
+				if (isset($p[1])) {
+					$_GET['srch'] = urldecode($p[1]);
+					$_GET['field'] = $p[2];
+					$_GET['search_logic'] = $p[3];
+					$_GET['sort_order'] = $p[4];
+					$_GET['forum_limiter'] = $p[5];
+					$_GET['start'] = $p[6];
+				}
+				break;
+
+			case 'p':
+				if (!is_numeric($p[1])) {
+					$_GET[$p[1]] = $p[2];
+				} else {
+					$_GET['frm'] = $p[1];
+					$_GET['page'] = $p[2];
+				}
+				break;
+
+			case 'ot':
+				$_GET['t'] = 'online_today';
+				break;
+
+			case 're':
+				$_GET['t'] = 'register';
+				if (isset($p[1])) {
+					$_GET['reg_coppa'] = $p[1];
+				}
+				break;
+
+			case 'tt':
+				$_GET['t'] = $p[1];
+				$_GET['frm_id'] = $p[2];
+				break;
+
+			case 'mh':
+				$_GET['t'] = 'mvthread';
+				$_GET['th'] = $p[1];
+				if (isset($p[2], $p[3])) {
+					$_GET[$p[2]] = $p[3];
+				}
+				break;
+
+			case 'mn':
+				$_GET['t'] = $p[1];
+				$_GET['th'] = $p[2];
+				$_GET['notify'] = $p[3];
+				$_GET['opt'] = $p[4];
+				if ($p[1] == 'msg') {
+					$_GET['start'] = $p[5];
+				} else {
+					$_GET['mid'] = $p[5];
+				}
+				break;
+
+			case 'tr':
+				$_GET['t'] = 'ratethread';
+				break;
+
+			case 'gm':
+				$_GET['t'] = 'groupmgr';
+				if (isset($p[1], $p[2], $p[3])) {
+					$_GET[$p[1]] = $p[2];
+					$_GET['group_id'] = $p[3];
+				}
+				break;
+
+			case 'te':
+				$_GET['t'] = 'thr_exch';
+				if (isset($p[1], $p[2])) {
+					$_GET[$p[1]] = $p[2];
+				}
+				break;
+
+			case 'mq':
+				$_GET['t'] = 'modque';
+				if (isset($p[1], $p[2])) {
+					$_GET[$p[1]] = $p[2];
+				}
+				break;
+
+			case 'pr':
+				$_GET['t'] = 'pre_reg';
+				$_GET['coppa'] = $p[1];
+				break;
+
+			case 'qb':
+				$_GET['t'] = 'qbud';
+				if (isset($p[1])) {
+					$_GET['all'] = 1;
+				}
+				break;
+
+			case 'po':
+				$_GET['t'] = 'poll';
+				$_GET['frm_id'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['pl_id'] = $p[2];
+					if (isset($p[3], $p[4])) {
+						$_GET[$p[3]] = $p[4];
 					}
-					break;
+				}
+				break;
 
-				case 'mn':
-					$_GET['t'] = $p[1];
-					$_GET['th'] = $p[2];
-					$_GET['notify'] = $p[3];
-					$_GET['opt'] = $p[4];
-					if ($p[1] == 'msg') {
-						$_GET['start'] = $p[5];
-					} else {
-						$_GET['mid'] = $p[5];
-					}
-					break;
+			case 'sm':
+				$_GET['t'] = 'smladd';
+				break;
 
-				case 'tr':
-					$_GET['t'] = 'ratethread';
-					break;
+			case 'mk':
+				$_GET['t'] = 'mklist';
+				$_GET['tp'] = $p[1];
+				break;
 
-				case 'gm':
-					$_GET['t'] = 'groupmgr';
-					if (isset($p[1], $p[2], $p[3])) {
-						$_GET[$p[1]] = $p[2];
-						$_GET['group_id'] = $p[3];
-					}
-					break;
+			case 'rp':
+				$_GET['t'] = 'rpasswd';
+				break;
 
-				case 'te':
-					$_GET['t'] = 'thr_exch';
-					if (isset($p[1], $p[2])) {
-						$_GET[$p[1]] = $p[2];
-					}
-					break;
+			case 'as':
+				$_GET['t'] = 'avatarsel';
+				break;
 
-				case 'mq':
-					$_GET['t'] = 'modque';
-					if (isset($p[1], $p[2])) {
-						$_GET[$p[1]] = $p[2];
-					}
-					break;
+			case 'sel':
+				$_GET['t'] = 'selmsg';
+				$c = (count($p) - 1) / 2;
+				$j = 0;
+				for ($i = 0; $i < $c; $i++) {
+					@$_GET[$p[++$j]] = @$p[++$j];
+				}
+				break;
 
-				case 'pr':
-					$_GET['t'] = 'pre_reg';
-					$_GET['coppa'] = $p[1];
-					break;
+			case 'pml':
+				$_GET['t'] = 'pmuserloc';
+				$_GET['js_redr'] = $p[1];
+				if (isset($p[2])) {
+					$_GET['overwrite'] = 1;
+				}
+				break;
 
-				case 'qb':
-					$_GET['t'] = 'qbud';
-					if (isset($p[1])) {
-						$_GET['all'] = 1;
-					}
-					break;
+			case 'rst':
+				$_GET['t'] = 'reset';
+				if (isset($p[1])) {
+					$_GET['email'] = urldecode($p[1]);
+				}
+				break;
 
-				case 'po':
-					$_GET['t'] = 'poll';
-					$_GET['frm_id'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['pl_id'] = $p[2];
-						if (isset($p[3], $p[4])) {
-							$_GET[$p[3]] = $p[4];
-						}
-					}
-					break;
+			case 'cpf':
+				$_GET['t'] = 'coppa_fax';
+				break;
 
-				case 'sm':
-					$_GET['t'] = 'smladd';
-					break;
+			case 'cp':
+				$_GET['t'] = 'coppa';
+				break;
 
-				case 'mk':
-					$_GET['t'] = 'mklist';
-					$_GET['tp'] = $p[1];
-					break;
+			case 'rc':
+				$_GET['t'] = 'reg_conf';
+				break;
 
-				case 'rp':
-					$_GET['t'] = 'rpasswd';
-					break;
+			case 'ma':
+				$_GET['t'] = 'mnav';
+				if (isset($p[1])) {
+					$_GET['rng'] = isset($p[1]) ? $p[1] : 0;
+					$_GET['rng2'] = isset($p[2]) ? $p[2] : 0;
+					$_GET['u'] = isset($p[3]) ? $p[3] : 0;
+					$_GET['start'] = isset($p[4]) ? $p[4] : 0;
+				}
+				break;
 
-				case 'as':
-					$_GET['t'] = 'avatarsel';
-					break;
+			case 'ip':
+				$_GET['t'] = 'ip';
+				if (isset($p[1])) {
+					$_GET[($p[1][0] == 'i' ? 'ip' : 'user')] = isset($p[2]) ? $p[2] : '';
+				}
+				break;
 
-				case 'sel':
-					$_GET['t'] = 'selmsg';
-					$c = (count($p) - 1) / 2;
-					$j = 0;
-					for ($i = 0; $i < $c; $i++) {
-						@$_GET[$p[++$j]] = @$p[++$j];
-					}
-					break;
+			case 'met':
+				$_GET['t'] = 'merge_th';
+				if (isset($p[1])) {
+					$_GET['frm'] = $p[1];
+				}
+				break;
 
-				case 'pml':
-					$_GET['t'] = 'pmuserloc';
-					$_GET['js_redr'] = $p[1];
-					if (isset($p[2])) {
-						$_GET['overwrite'] = 1;
-					}
-					break;
-
-				case 'rst':
-					$_GET['t'] = 'reset';
-					if (isset($p[1])) {
-						$_GET['email'] = urldecode($p[1]);
-					}
-					break;
-
-				case 'cpf':
-					$_GET['t'] = 'coppa_fax';
-					break;
-
-				case 'cp':
-					$_GET['t'] = 'coppa';
-					break;
-
-				case 'rc':
-					$_GET['t'] = 'reg_conf';
-					break;
-
-				case 'ma':
-					$_GET['t'] = 'mnav';
-					if (isset($p[1])) {
-						$_GET['rng'] = isset($p[1]) ? $p[1] : 0;
-						$_GET['rng2'] = isset($p[2]) ? $p[2] : 0;
-						$_GET['u'] = isset($p[3]) ? $p[3] : 0;
-						$_GET['start'] = isset($p[4]) ? $p[4] : 0;
-					}
-					break;
-
-				case 'ip':
-					$_GET['t'] = 'ip';
-					if (isset($p[1])) {
-						$_GET[($p[1][0] == 'i' ? 'ip' : 'user')] = isset($p[2]) ? $p[2] : '';
-					}
-					break;
-
-				case 'met':
-					$_GET['t'] = 'merge_th';
-					if (isset($p[1])) {
-						$_GET['frm'] = $p[1];
-					}
-					break;
-
-				default:
-					$_GET['t'] = 'index';
-					break;
-			}
+			default:
+				$_GET['t'] = 'index';
+				break;
+		}
 	}
 	return $u;
 }
