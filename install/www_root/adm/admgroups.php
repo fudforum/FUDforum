@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admgroups.php,v 1.37 2003/10/16 21:59:05 hackie Exp $
+* $Id: admgroups.php,v 1.38 2003/11/13 17:18:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -315,7 +315,7 @@
 		foreach ($hdr as $v2) {
 			echo '<td nowrap align="center" title="'.$v2[1].'">';
 			if ($v['inherit_id'] && $v['groups_opti'] & $v2[0]) {
-				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
+				echo '<a href="#g'.$v['inherit_id'].'" title="Inheriting permissions from '.$gl[$v['inherit_id']]['gn'].'">(I: '.($gl[$v['inherit_id']]['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>').')</a>';
 			} else {
 				echo ($v['groups_opt'] & $v2[0] ? '<font color="green">Y</font>' : '<font color="red">N</font>');
 			}
