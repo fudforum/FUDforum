@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.5 2002/07/09 13:05:07 hackie Exp $
+*   $Id: admuser.php,v 1.6 2002/07/11 22:29:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -219,7 +219,7 @@ if( !empty($act) ) {
 	</tr>
 	
 	<tr bgcolor="#bff8ff">
-		<td>By Login:</td>
+		<td>By <?php echo ($GLOBALS['USE_ALIASES']!='Y'?'Login':'Alias'); ?>:</td>
 		<td><input type="text" name="usr_login"></td>
 	</tr>
 	
@@ -241,6 +241,7 @@ if( !empty($act) ) {
 	<tr bgcolor="#f1f1f1"><td>Password:</td><td><?php echo $passwd_error; ?><input type="text" value="<?php echo $login_passwd; ?>" name="login_passwd"> <input type="submit" name="submit" value="Change Password"></td></tr>
 <input type="hidden" name="user_id" value="<?php echo $usr->id; ?>">	
 </form>	
+	<?php if( $GLOBALS['USE_ALIASES']=='Y' ) echo '<tr bgcolor="#f1f1f1"><td>Alias:</td><td>'.$usr->alias.'</td></tr>'; ?>
 	<tr bgcolor="#f1f1f1"><td>Email:</td><td><?php echo $usr->email; ?></td></tr>
 	<tr bgcolor="#f1f1f1"><td>Name:</td><td><?php echo $usr->name; ?></td></tr>
 	<?php
