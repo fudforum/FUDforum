@@ -404,3 +404,6 @@ If disabled users will not need to complete a turing test intended to prevent au
 {{{DISABLE_AUTOCOMPLETE	FUD_OPT_3	256
 If disabled the browser will not attempt to 'remember' the values for the login form.}}}
 
+{{{APACHE_PUTENV	FUD_OPT_3	512
+If enabled the forum will never try to set a timezone by exporting TZ environment variable via putenv(). In Apache 2 where PHP is used in conjunction with mod_perl using PHP's putenv() may result in frequent crashes.}}}
+
