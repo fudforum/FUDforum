@@ -263,7 +263,6 @@ finduser_joindate:		×¢²áÈÕÆÚ
 finduser_action:		²Ù×÷
 yes:				ÊÇ
 no:				·ñ
-register_email			µç×ÓĞÅÏä£º
 edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆÎª</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> ·ÖÖÓ
 no_edit_time_limit:		<br><b>±à¼­Ê±¼äÏŞÖÆ</b>: <b>²»ÏŞ</b>
 pmuserloc_login:		µÇÂ¼:
@@ -626,7 +625,7 @@ postcheck_max_images_err:	Ò»´ÎÌá½»Í¼Æ¬ÔÊĞíµÄ×î´óÊıÊÇ{GVAR: MAX_IMAGE_COUNT} £¬Çë
 postcheck_subj_needed:		ÊäÈëÖ÷Ìâ
 postcheck_not_allowed_file:	ÕâÖÖÎÄ¼şÀàĞÍ±»½ûÖ¹
 postcheck_no_such_user:		±¾ÂÛÌ³Ã»ÓĞ "{VAR-HTML: v}" ÓÃ»§
-postcheck_ignored:		 "{VAR-HTML: v}"ÓÃ»§¾Ü¾ø½ÓÊÜÄãµÄÇÄÇÄ»°¡£
+postcheck_ignored:		"{VAR-HTML: v}"ÓÃ»§¾Ü¾ø½ÓÊÜÄãµÄÇÄÇÄ»°¡£
 postcheck_no_recepient:		ÒòÎªÃ»ÓĞ½ÓÊÜ·½£¬ËùÒÔÎŞ·¨·¢ËÍĞÅÏ¢
 postcheck_invalid_email:	ÇëÊäÈëÄãµÄÅóÓÑµÄÕıÈ·µç×ÓÓÊÏäµØÖ·¡£
 postcheck_email_subject:	Èç¹û²»ÊäÈëÖ÷Ìâ£¬Äã½«ÎŞ·¨·¢ËÍÓÊ¼ş¡£
@@ -691,7 +690,6 @@ ERR_registration_disabled_msg:	×¢²á¹¦ÄÜ±»ÏµÍ³¹ÜÀíÔ±½ûÖ¹,ÇëÖØÊÔ£¡
 ERR_registration_disabled_url:	{GVAR: WWW_ROOT}?{DEF: _rsid}
 ERR_emailconf_ttl:		´íÎó: ´ËÕËºÅÎŞĞ§
 ERR_emailconf_msg:		Äú×¢²áµÄÕËºÅÉĞÎ´½øĞĞÓÊ¼şÈ·ÈÏ<br><table border=0><tr><td><ol><li>Èç¹ûÄãÃ»ÓĞÊÕµ½È·ÈÏÓÊ¼ş <a href="{ROOT}?t=reset&amp;email={VAR: usr_d->email}&{DEF: _rsid}">Çëµã»÷</a><li>Èç¹û {VAR: usr_d->email} ÓÊ¼şµØÖ·ÓĞÎó<a href="{ROOT}?t=register&amp;{DEF: _rsid}">Çëµã»÷</a></ol></td></tr></table>
-ERR_emailconf_url:		
 ERR_user_ttl:			´íÎó£ºÃ»ÓĞÕâ¸öÓÃ»§
 ERR_user_msg:			Ã»ÓĞÕâ¸öÓÃ»§
 ERR_user_url:			{GVAR: HTTP_REFERER}&{DEF: _rsid}
@@ -747,7 +745,7 @@ exch_decline_ttl:		°ÑÖ÷Ìâ {VAR: data->subject} ×ªÒÆÖÁ{VAR-HTML: data->f2_name} Â
 ppost_original_msg:		ÄãÕıÔÚ·¢ËÍ»òÕß»Ø¸´µÄĞÅÏ¢
 split_thread:			·Ö¿ªÖ÷Ìâ
 groupmgr_no_user:		´ËÕËºÅ²»´æÔÚ "{VAR-HTML: gr_member}"
-groupmgr_already_exists:	 "{VAR-HTML: gr_member}" ±¾ÂÛÌ³ÒÑ¾­´æÔÚÕâ¸öÓÃ»§
+groupmgr_already_exists:	"{VAR-HTML: gr_member}" ±¾ÂÛÌ³ÒÑ¾­´æÔÚÕâ¸öÓÃ»§
 groupmgr_yes:			ÊÇ
 groupmgr_no:			·ñ
 groupmgr_inherit:		¼Ì³Ğ
@@ -836,13 +834,12 @@ quicklogin_password:		ÃÜÂë
 quicklogin_use_cookies:		ÊÇ·ñÊ¹ÓÃCookies¹¦ÄÜ£¿
 quicklogin_login_btn:		µÇÂ¼
 post_notification_desc:		µ±ÓĞÈË»Ø¸´±¾Ö÷ÌâÊ±ÇëÍ¨ÖªÎÒ¡£
-post_proc_all_ext_allowed:	£¨Ã»ÓĞÏŞÖÆ£©
 maximize_category:		Ôö¼ÓÄ¿Â¼²ã´Î
 no_view_perm:			ºÜ±§Ç¸£¬ÄúÃ»ÓĞ²ì¿´Õâ¸öÒ³ÃæµÄÈ¨ÏŞ
 report_empty_report:		Äã²»ÄÜÌá½»¿ÕµÄ±¨¸æ£¬ÇëËµÃ÷ÍÆ¼öÀíÓÉ¡£
 report_already_reported_title:	±¨¸æÒÑ¾­Ìá½»
 report_already_reported_msg:	ÕâÌõĞÅÏ¢ÒÑ±»ÍÆ¼ö£¬Ïà¹ØÍÆ¼ö±¨¸æÔÚÂÛÌ³¹ÜÀíĞÅÏ¢ÁĞ±íÖĞ¡£
-register_err_toomanyimages:	ÄãµÄ¸öÈËÇ©ÃûÖĞÊ¹ÓÃÁË½ûÖ¹Ê¹ÓÃµÄÍ¼Æ¬{GVAR: FORUM_IMG_CNT_SIG}¡£
+register_err_toomanyimages	:ÄãµÄ¸öÈËÇ©ÃûÖĞÊ¹ÓÃÁË½ûÖ¹Ê¹ÓÃµÄÍ¼Æ¬{GVAR: FORUM_IMG_CNT_SIG}¡£
 pmsg_next_msg:			ÏÂÒ»ÌõĞÅÏ¢
 pmsg_prev_msg:			Ç°Ò»ÌõĞÅÏ¢
 post_proc_reveal_spoiler:	ÏÔÊ¾Òş²ØÄÚÈİ
@@ -866,9 +863,8 @@ msg_err_nosuchmsg_msg:		Õâ¸öÖ÷ÌâÖĞÃ»ÓĞÕâĞ©ÄÚÈİ
 msg_err_nosuchmsg_title:	³ö´í
 imsg_err_message_title:		Ìù×Ó³ö´í
 imsg_err_message_msg:		ÄúÒª²é¿´µÄÌù×Ó²»´æÔÚ.
-poll_edit: 			±à¼­
+poll_edit:			±à¼­
 unspecified:			±£ÃÜ
-
 register_err_not_valid_img:	Ö¸¶¨µÄÍ¼Æ¬Á¬½Ó²»ÕıÈ·
 pmsg_recepient:			ÊÕĞÅÈË
 register_err_taken_alias:	Õâ¸öêÇ³ÆÒÑ¾­´æÔÚ£¬Çë¸ü»»
