@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: email_msg_format.inc,v 1.1 2002/07/29 11:58:50 hackie Exp $
+*   $Id: email_msg_format.inc,v 1.2 2003/02/26 10:16:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,8 @@ function handle_quote_tag($matches)
 
 function plain_text(&$data)
 {
+	$msg_body = post_to_smiley($msg_body);
+	
 	while ( preg_match('!<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!mis', $data) )
 		$data = preg_replace_callback('!(.*)<table border="0" align="center" width="90%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>(.*?)</b></td></tr><tr><td class="quote"><br>(.*?)<br></td></tr></table>!mis', 'handle_quote_tag', $data, 1);
 	
