@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.10 2002/07/09 13:35:36 hackie Exp $
+*   $Id: admthemes.php,v 1.11 2002/07/09 14:19:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -124,8 +124,6 @@ function cleandir($dir)
 		$thm->delete();
 		
 		cleandir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name);
-		cleandir($GLOBALS['INCLUDE'].'theme/'.$thm->name);
-		cleandir($GLOBALS['DATA_DIR'].'thm/'.$thm->name);
 
 		$obj = default_theme();
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
