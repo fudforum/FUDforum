@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.9 2003/04/30 19:51:05 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.10 2003/05/08 00:20:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,6 +19,12 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 {
 	$prev_cat_id = 0;
 	$selection_options = '';
+
+	if (!isset($_GET['t']) || ($_GET['t'] != 'thread' && $_GET['t'] != 'threadt')) {
+		$dest = t_thread_view;
+	} else {
+		$dest = $_GET['t'];
+	}
 
 	if (!_uid) { /* anon user, we can optimize things quite a bit here */
 		$c = q('SELECT f.id, f.name, c.name, c.id FROM {SQL_TABLE_PREFIX}group_cache g INNER JOIN {SQL_TABLE_PREFIX}forum f ON f.id=g.resource_id AND g.user_id=0 INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id WHERE p_READ=\'Y\' ORDER BY c.view_order, f.view_order');

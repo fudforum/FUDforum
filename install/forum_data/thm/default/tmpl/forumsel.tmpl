@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.tmpl,v 1.6 2003/04/20 22:27:34 hackie Exp $
+*   $Id: forumsel.tmpl,v 1.7 2003/05/08 00:20:43 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -23,7 +23,7 @@
 <select class="SmallText" name="frm_id" onChange="javascript: if ( this.value==0 ) return false; document.frmquicksel.submit();">
 {TEMPLATE-DATA: selection_options}
 </select>
-<input type="hidden" name="t" value="{VAR: _REQUEST['t']}">{DEF: _hs}<input type="hidden" name="forum_redr" value="1">
+<input type="hidden" name="t" value="{VAR: dest}">{DEF: _hs}<input type="hidden" name="forum_redr" value="1">
 </td><td valign="bottom"><input type="submit" class="button" name="frm_goto" value="{MSG: go}"></td></tr></table></form>
 {MAIN_SECTION: END}
 
