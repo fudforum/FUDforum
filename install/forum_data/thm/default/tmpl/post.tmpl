@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.tmpl,v 1.1 2002/06/18 16:41:05 hackie Exp $
+*   $Id: post.tmpl,v 1.2 2002/07/18 02:59:18 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -274,7 +274,7 @@
 {TEMPLATE-DATA: loged_in_user}
 {TEMPLATE-DATA: post_password}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" name="msg_subject" value="{VAR-HTML: msg_subject}" size=50> {VAR: msg_subect_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
 {TEMPLATE-DATA: post_icons}
