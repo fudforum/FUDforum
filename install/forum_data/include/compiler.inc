@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.68 2004/10/31 19:38:35 hackie Exp $
+* $Id: compiler.inc,v 1.69 2004/11/01 19:27:07 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -292,7 +292,16 @@ function compile_file($source)
 
 		if ($sec == 'PAGE') {
 			$new = '';
-			$ref = str_replace(array(".''.", "'.(", " ) .'"), array('.', '<?php echo (', '); ?>'),  $ref);
+			$ref = str_replace(
+				array(".''.", "'.(", 
+				"' ) .'' ) .'",
+				"' ) .'' : '' ) .'",
+				" ) .'"), 
+				array('.', '<?php echo (', 
+				"')).'",
+				"'):'').'",
+				'); ?>'),  
+				$ref);
 			/* block of code below is needed to handled nested ifs inside the final page output where we convert
 			 * regular PHP code to one where <?php ?> are being used 
 			 */
@@ -309,7 +318,7 @@ function compile_file($source)
 				// the str_replace() is a hack for handling ifs() inside ifs()
 				$new .= substr($ref, $pos, $l);
 				$pos += $l;
-				$new .= str_replace('<?php echo (',  "'.(", substr($ref, $pos, ($end - $pos))); // append if() code
+				$new .= str_replace('<?php echo (', "'.(", substr($ref, $pos, ($end - $pos))); // append if() code
 				$pos = $end;
 			}
 			if (!$end) {
