@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.37 2003/04/11 11:29:12 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.38 2003/04/11 13:10:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -282,9 +282,11 @@ class fud_msg_edit extends fud_msg
 			q('DELETE FROM {SQL_TABLE_PREFIX}thread_rate_track WHERE thread_id='.$del->thread_id);
 			q('DELETE FROM {SQL_TABLE_PREFIX}thr_exchange WHERE th='.$del->thread_id);
 			
-			/* we need to determine the last post id for the forum, it can be null */
-			$lpi = (int) q_singleval('SELECT {SQL_TABLE_PREFIX}thread.last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.approved=\'Y\' WHERE forum_id='.$del->forum_id.' AND moved_to=0 ORDER BY {SQL_TABLE_PREFIX}msg.post_stamp DESC LIMIT 1');
-			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$lpi.', thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
+			if ($del->approved == 'Y') {
+				/* we need to determine the last post id for the forum, it can be null */
+				$lpi = (int) q_singleval('SELECT {SQL_TABLE_PREFIX}thread.last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id AND {SQL_TABLE_PREFIX}msg.approved=\'Y\' WHERE forum_id='.$del->forum_id.' AND moved_to=0 ORDER BY {SQL_TABLE_PREFIX}msg.post_stamp DESC LIMIT 1');
+				q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$lpi.', thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
+			}
 		} else if (!$th_rm  && $del->approved == 'Y') {
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET reply_to='.$del->reply_to.' WHERE thread_id='.$del->thread_id.' AND reply_to='.$mid);
 			
@@ -351,15 +353,16 @@ class fud_msg_edit extends fud_msg
 				LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 				WHERE m.id='.$id.' AND m.approved=\'N\'');
 
+		/* nothing to do or bad message id */
+		if (!$mtf) {
+			return;
+		}
+
 		if (!db_locked()) {
 			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
 
-		/* nothing to do or bad message id */
-		if (!$mtf) {
-			return;
-		}
 		if ($mtf->alias) {
 			reverse_FMT($mtf->alias);
 		} else {

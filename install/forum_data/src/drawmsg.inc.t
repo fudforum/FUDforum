@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.36 2003/04/10 11:00:43 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.37 2003/04/11 13:10:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@ if ($GLOBALS['ENABLE_AFFERO'] == 'Y') {
 function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 {
 	/* draw next/prev message controls */
-	if (!$hide_controls) {
+	if (!$hide_controls && $misc) {
 		/* tree view is a special condition, we only show 1 message per page */
 		if ($_GET['t'] == 'tree') {
 			$prev_message = $misc[0] ? '{TEMPLATE: dmsg_tree_prev_message_prev_page}' : '';
