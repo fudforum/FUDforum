@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admnntp.php,v 1.1 2002/07/29 11:58:44 hackie Exp $
+*   $Id: admnntp.php,v 1.2 2002/08/02 12:41:54 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -190,8 +190,8 @@
 	
 	<tr bgcolor="#bff8ff">
 		<td>
-			Allow Mailing List Attachments:<br>
-			<font size="-1">If enabled, ANY file attachment attached to a message on the mailing list will be
+			Allow Newsgroup Attachments:<br>
+			<font size="-1">If enabled, ANY file attachment attached to a message in the newsgroup will be
 			imported into the forum regardless of any limitations imposed on file attachments within the forum.</font>
 		</td>
 		<td><?php draw_select('nntp_allow_nntp_attch', "No\nYes", "N\nY", yn($nntp_allow_nntp_attch)); ?></td>
