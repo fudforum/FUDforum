@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.26 2003/04/16 10:35:52 hackie Exp $
+*   $Id: tree.php.t,v 1.27 2003/05/13 11:21:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -87,7 +87,7 @@
 	$MOD = $frm->mod;
 	if ($perms['p_read'] == 'N') {
 		if (!isset($_GET['logoff'])) {
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+			std_error('perms');
 		} else {
 			header('Location: {ROOT}');
 			exit;

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.tmpl,v 1.8 2003/05/02 16:25:30 hackie Exp $
+*   $Id: threadt.tmpl,v 1.9 2003/05/13 11:21:59 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -71,64 +71,12 @@
 </table>	
 {SECTION: END}
 
-{SECTION: forum_path}
-<a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: frm->cat_name}</a><font class="GenText"> &raquo; <b>{VAR-HTML: frm->name}</b></font>
-{SECTION: END}
-
-{SECTION: unsubscribe_link}
-<a class="GenLink" href="{ROOT}?t=threadt&amp;unsub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: unsubscribe_desc}">{MSG: unsubscribe}</a>
-{SECTION: END}
-
-{SECTION: subscribe_link}
-<a class="GenLink" href="{ROOT}?t=threadt&amp;sub=1&amp;frm_id={VAR: frm->id}&amp;start={VAR: start}&amp;count={VAR: count}&amp;{DEF: _rsid}" title="{MSG: subscribe_desc}">{MSG: subscribe}</a>
-{SECTION: END}
-
-{SECTION: new_thread_link}
-<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" border=0 /></a>
-{SECTION: END}
-
 {SECTION: flat_view switch to flat view link}
 <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
 {SECTION: END}
 
-{SECTION: no_messages}
-<font class="GenText">{MSG: no_messages}</font>
-{SECTION: END}
-
-{SECTION: thread_poll_indicator}
-{MSG: poll}&nbsp;
-{SECTION: END}
-
-{SECTION: thread_attach_indicator}
-<img src="{THEME_IMAGE_ROOT}/attachment.gif" border=0 alt="" />
-{SECTION: END}
-
-{SECTION: thread_read}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_read_unreg}
-<img src="{THEME_IMAGE_ROOT}/read.gif" border=0 title="{MSG: no_unread_msg_unreg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_read_locked}
-<img src="{THEME_IMAGE_ROOT}/readlocked.gif" border=0 title="{MSG: no_unread_locked}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_unread}
-<img src="{THEME_IMAGE_ROOT}/unread.gif" border=0 title="{MSG: unread_msg}" alt="" />
-{SECTION: END}
-
-{SECTION: thread_unread_locked}
-<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" border=0 title="{MSG: unread_msg_locked}" alt="" />
-{SECTION: END}
-
 {SECTION: thread_icon}
 <img src="images/message_icons/{VAR: cur->icon}" border=0 alt="{VAR: cur->icon}" />
-{SECTION: END}
-
-{SECTION: thread_icon_none}
-&nbsp;
 {SECTION: END}
 
 {SECTION: unreg_user_link}
@@ -216,20 +164,8 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: permission_denied_title}
-{MSG: permission_denied_title}
-{SECTION: END}
-
-{SECTION: permission_denied_msg}
-{MSG: permission_denied_msg}
-{SECTION: END}
-
 {SECTION: threadt_update}
 {MSG: threadt_update}
-{SECTION: END}
-
-{SECTION: thread_title}
-{MSG: thread_title}
 {SECTION: END}
 
 {SECTION: threadt_disabled_ttl}

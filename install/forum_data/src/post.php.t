@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.53 2003/05/12 16:49:55 hackie Exp $
+*   $Id: post.php.t,v 1.54 2003/05/13 11:21:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,11 +104,11 @@ function flood_check()
 		/* if not moderator, validate user permissions */
 		if (!$MOD) {
 			if (!$reply_to && !$msg_id && $perms['p_post'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+				std_error('perms');
 			} else if (($th_id || $reply_to) && $perms['p_reply'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+				std_error('perms');
 			} else if ($msg_id && $msg->poster_id != $usr->id && $perms['p_edit'] != 'Y') {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+				std_error('perms');
 			} else if ($msg_id && $EDIT_TIME_LIMIT && ($msg->post_stamp + $EDIT_TIME_LIMIT * 60 <__request_timestamp__)) {
 				error_dialog('{TEMPLATE: post_err_edttimelimit_title}', '{TEMPLATE: post_err_edttimelimit_msg}'); 
 			}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: modque.php.t,v 1.18 2003/05/12 16:49:55 hackie Exp $
+*   $Id: modque.php.t,v 1.19 2003/05/13 11:21:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,7 +19,7 @@
 	
 	/* only admins & moderators have access to this control panel */
 	if (!_uid || ($usr->is_mod != 'A' && $usr->is_mod != 'Y')) { 
-		error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+		std_error('perms');
 	}
 
 	$appr = isset($_GET['appr']) ? (int) $_GET['appr'] : 0;
@@ -29,7 +29,7 @@
 	if ($appr || $del) {
 		if (!q_singleval('SELECT CASE WHEN \''.$usr->is_mod.'\'!=\'A\' THEN mm.id ELSE 1 END FROM {SQL_TABLE_PREFIX}msg m INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON t.forum_id=mm.forum_id AND mm.user_id='._uid.' WHERE m.id='.($appr ? $appr : $del))) {
 			if (db_affected()) {
-				error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+				std_error('perms');
 			} else {
 				$del = $appr = 0;
 			}

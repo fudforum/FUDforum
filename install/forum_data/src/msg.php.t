@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.38 2003/05/09 14:29:37 hackie Exp $
+*   $Id: msg.php.t,v 1.39 2003/05/13 11:21:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -104,7 +104,7 @@
 
 	if ($perms['p_read'] == 'N') {
 		if (!isset($_GET['logoff'])) {
-			error_dialog('{TEMPLATE: permission_denied_title}', '{TEMPLATE: permission_denied_msg}');
+			std_error('perms');
 		} else {
 			header('Location: {ROOT}');
 			exit;
