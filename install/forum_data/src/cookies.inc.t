@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.63 2004/04/28 13:14:31 hackie Exp $
+* $Id: cookies.inc.t,v 1.64 2004/04/28 14:47:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,6 +38,8 @@ function &ses_get($id=0)
 		} else if ((isset($_GET['S']) || isset($_POST['S'])) && $GLOBALS['FUD_OPT_1'] & 128) {
 			$url_s = 1;
 			$q_opt = "s.ses_id='".addslashes((isset($_GET['S']) ? $_GET['S'] : $_POST['S']))."'";
+			/* do not validate against expired URL sessions */
+			$q_opt .= " AND s.time_sec > ".__request_timestamp__ - $GLOBALS['SESSION_TIMEOUT'];
 		} else {
 			return;
 		}
@@ -54,7 +56,7 @@ function &ses_get($id=0)
 	}
 
 	$u = db_sab('SELECT
-		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id,
+		s.id AS sid, s.ses_id, s.data, s.returnto, s.sys_id
 		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang, t.theme_opt,
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt,
 		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login, u.sq
@@ -63,22 +65,23 @@ function &ses_get($id=0)
 		INNER JOIN {SQL_TABLE_PREFIX}themes t ON t.id=u.theme
 	WHERE '.$q_opt);
 
-	if (!$u || $u->id == 1 || $id || $u->sys_id == ($sys_id = ses_make_sysid())) {
+	/* anon user, no session or login */
+	if (!$u || $u->id == 1 || $id) {
 		return $u;
 	}
 
-	if (($sys_id != $u->sys_id && isset($url_s)) || $GLOBALS['FUD_OPT_3'] & 16) {
+	if ($u->sys_id == ses_make_sysid()) {
+		return $u;
+	} else if ($GLOBALS['FUD_OPT_3'] & 16 || isset($url_s)) {
+		/* URL sessions must validate sys_id check and SESSION_IP_CHECK must be disabled */
 		return;
 	}
 
 	/* try doing a strict SQ match in last-ditch effort to make things 'work' */
-	if ($GLOBALS['is_post']) {
-		if (isset($_POST['SQ']) && $_POST['SQ'] == $u->sq) {
-			return $u;
-		}
-	} else if (isset($_GET['SQ']) && $_GET['SQ'] == $u->sq) {
+	if (isset($_POST['SQ']) && $_POST['SQ'] == $u->sq) {
 		return $u;
 	}
+
 	return;
 }
 
