@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.tmpl,v 1.1 2003/05/28 20:05:26 hackie Exp $
+*   $Id: threadt.tmpl,v 1.2 2003/05/29 18:03:48 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -72,7 +72,7 @@
 {SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
-<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
+<a href="{ROOT}/tt/thread/{VAR: frm->id}/{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: thread_icon}
@@ -84,14 +84,14 @@
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a href="{ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}">{VAR: cur->alias}</a>
+<a href="{ROOT}/u/{VAR: cur->poster_id}/{DEF: _rsid}">{VAR: cur->alias}</a>
 {SECTION: END}
 
 {SECTION: thread_row}
 <tr>		
 <td width=1 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 style="border-bottom: 1px solid white;">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{VAR: cur->subject}</a></td>
+<td class="RowStyleA" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{VAR: cur->subject}</a></td>
 <td class="RowStyleB" nowrap style="border-bottom: 1px solid white;">{TEMPLATE-DATA: user_link}</td>
 <td class="RowStyleB" nowrap style="border-right: 1px solid black; border-bottom: 1px solid white;"><font class="DateText">{DATE: cur->post_stamp %a, %d %B %Y %H:%M}</font></td>
 </tr>
@@ -112,7 +112,7 @@
 {SECTION: max_depth_reached maximum allowed depth of thread reached}
 <tr>
 <td class="RowStyleB" colspan=2 class="RowStyleB" style="border-left: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
-<td class="RowStyleA" class="GenText" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}<a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: cur->id}&amp;{DEF: _rsid}">{MSG: threadt_more}</a></td>
+<td class="RowStyleA" class="GenText" style="border-bottom: 1px solid white;">{TEMPLATE: tree_tab}<a class="GenLink" href="{ROOT}/m/{VAR: cur->id}/{DEF: _rsid}">{MSG: threadt_more}</a></td>
 <td class="RowStyleB" colspan=2 style="border-right: 1px solid black; border-bottom: 1px solid white;">&nbsp;</td>
 </tr>
 {SECTION: END}
