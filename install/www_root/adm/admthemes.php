@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.9 2002/07/09 13:34:35 hackie Exp $
+*   $Id: admthemes.php,v 1.10 2002/07/09 13:35:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,6 +35,11 @@
 
 function cleandir($dir)
 {
+	if( !@is_dir($dir) ) {
+		echo "Couldn't delete $dir, directory does not exist<br>\n";
+		return;
+	}
+
 	$od = getcwd();
 	chdir($dir);
 	
