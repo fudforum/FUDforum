@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: pmuserloc.php.t,v 1.9 2003/04/18 12:22:06 hackie Exp $
+*   $Id: pmuserloc.php.t,v 1.10 2003/05/02 15:21:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -45,9 +45,15 @@
 		$i = 0;
 		while ($r = db_rowarr($c)) {
 			if ($overwrite) {
-				$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addcslashes($r[0], "'").'\'; window.close();';
+				$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=\''.addcslashes($r[0], "'\\").'\'; window.close();';
 			} else {
-				$retlink = 'javascript: window.opener.document.'.$js_redr.'.value=window.opener.document.'.$js_redr.'.value+\''.addcslashes($r[0], "'").'; \'; window.close();';
+				$retlink = 'javascript: 
+						if (!window.opener.document.'.$js_redr.'.value) {
+							window.opener.document.'.$js_redr.'.value = \''.addcslashes($r[0], "'\\").'\';
+						} else {
+							window.opener.document.'.$js_redr.'.value = window.opener.document.'.$js_redr.'.value + \'; \' + \''.addcslashes($r[0], "'\\").'; \';
+						}
+					window.close();';
 			}
 			$find_user_data .= '{TEMPLATE: user_result_entry}';
 			$i++;

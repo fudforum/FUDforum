@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: list_referers.tmpl,v 1.5 2003/04/21 17:42:47 hackie Exp $
+*   $Id: list_referers.tmpl,v 1.6 2003/05/02 15:26:02 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -30,7 +30,7 @@
 {SECTION: END}
 
 {SECTION: referer_entry refered users row}
-<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[0]}&amp;{DEF: _rsid}">{VAR: r[1]}</a></td><td align="center" class="GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
+<tr class="{ALT-VAR: list_referers_alt RowStyleA RowStyleB}"><td nowrap class="GenText" valign="top"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}">{VAR: r[0]}</a></td><td align="center" class="GenText">{VAR: r[2]}</td><td class="GenText">{TEMPLATE-DATA: refered_entry_data}</td></tr>
 {SECTION: END}
 
 {PAGE: REFERALS_PAGE A list of all the users who referred people to the forum and who they referred}

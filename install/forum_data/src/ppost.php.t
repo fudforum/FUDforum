@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.26 2003/04/19 13:46:49 hackie Exp $
+*   $Id: ppost.php.t,v 1.27 2003/05/02 15:21:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -59,7 +59,8 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	}
 	is_allowed_user($usr);
 
-	$attach_control_error=NULL;
+	$attach_control_error = NULL;
+	$pm_find_user = $MEMBER_SEARCH_ENABLED == 'Y' ? '{TEMPLATE: pm_find_user}' : '';
 
 	/* deal with users passed via GET */
 	if (!isset($_POST['prev_loaded']) && isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
@@ -151,6 +152,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 		$msg_to_list = htmlspecialchars($_POST['msg_to_list']);
 		$msg_subject = $_POST['msg_subject'];
+		$old_subject = $_POST['old_subject'];
 		$msg_body = $_POST['msg_body'];
 		$msg_icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : '';
 		$msg_track = isset($_POST['msg_track']) ? 1 : NULL;
@@ -181,7 +183,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 			if ($attach_list[$_POST['file_del_opt']]) {
 				$attach_list[$_POST['file_del_opt']] = 0;
 				/* Remove any reference to the image from the body to prevent broken images */
-				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]')) {
+				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== FALSE) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
 				$attach_count--;
@@ -195,6 +197,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	/* deal with newly uploaded files */
 	if ($PRIVATE_ATTACHMENTS > 0 && isset($_FILES['attach_control']) && $_FILES['attach_control']['size'] > 0) {
 		if ($_FILES['attach_control']['size'] > $PRIVATE_ATTACH_SIZE) {
+			$MAX_F_SIZE = $PRIVATE_ATTACH_SIZE;
 			$attach_control_error = '{TEMPLATE: post_err_attach_size}';	
 		} else {
 			if (filter_ext($_FILES['attach_control']['name'])) {
@@ -213,13 +216,13 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 
 	if ((isset($_POST['btn_submit']) && !check_ppost_form()) || isset($_POST['btn_draft'])) {
 		$msg_p = new fud_pmsg;
-		$msg_p->smiley_disabled = isset($_POST['msg_smiley_disabled']) ? 'Y' : 'N';
-		$msg_p->show_sig = isset($_POST['msg_show_sig']) ? 'Y' : 'N';
-		$msg_p->track = isset($_POST['msg_track']) ? 'Y' : 'N';
+		$msg_p->smiley_disabled = $msg_smiley_disabled ? 'Y' : 'N';
+		$msg_p->show_sig = $msg_show_sig ? 'Y' : 'N';
+		$msg_p->track = $msg_track ? 'Y' : 'N';
 		$msg_p->attach_cnt = $attach_count;
-		$msg_p->icon = isset($_POST['msg_icon']) ? $_POST['msg_icon'] : NULL;
-		$msg_p->body = $_POST['msg_body'];
-		$msg_p->subject = $_POST['msg_subject'];
+		$msg_p->icon = $msg_icon;
+		$msg_p->body = $msg_body;
+		$msg_p->subject = $msg_subject;
 		$msg_p->folder_id = isset($_POST['btn_submit']) ? 'SENT' : 'DRAFT';
 		$msg_p->to_list = $_POST['msg_to_list'];
 		

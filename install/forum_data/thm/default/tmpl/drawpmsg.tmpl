@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.tmpl,v 1.13 2003/04/19 14:01:11 hackie Exp $
+*   $Id: drawpmsg.tmpl,v 1.14 2003/05/02 15:22:06 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -25,7 +25,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_avatar}
-<img src="{VAR: avatar_img}" border=0 />
+{VAR: obj->avatar_loc}
 {SECTION: END}
 
 {SECTION: dpmsg_no_avatar}

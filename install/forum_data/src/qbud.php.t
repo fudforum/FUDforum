@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: qbud.php.t,v 1.10 2003/04/18 12:22:06 hackie Exp $
+*   $Id: qbud.php.t,v 1.11 2003/05/02 15:21:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,12 +26,10 @@
 	$all = !empty($_GET['all']) ? 1 : 0;
 	
 	if (!$all && isset($_POST['names']) && is_array($_POST['names'])) {
-		$names = '';
-		foreach($_POST['names'] as $v) {	
-			$names .= $v.';';
-		}
+		$names = addcslashes(implode(';', $_POST['names']), '"\\');
+
 		echo '<html><body><script language="Javascript"><!--
-		
+
 		if (window.opener.document.post_form.msg_to_list.value.length > 0) {
 			window.opener.document.post_form.msg_to_list.value = window.opener.document.post_form.msg_to_list.value+\';\'+"'.$names.'";
 		} else {
