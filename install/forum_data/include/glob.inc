@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: glob.inc,v 1.21 2004/01/04 16:38:25 hackie Exp $
+* $Id: glob.inc,v 1.22 2004/01/08 01:53:44 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -80,12 +80,12 @@ function change_global_settings($list)
 	$settings = file_get_contents($GLOBALS['INCLUDE'] . 'GLOBALS.php');
 	foreach ($list as $k => $v) {
 		if (($p = strpos($settings, '$' . $k)) === false) {
-			$pos = strpos($settings, '$ADMIN_EMAIL');
+			$p = strpos($settings, '$ADMIN_EMAIL');
 			if (is_int($v)) {
-				$settings = substr_replace($settings, "\t{$k}\t= {$v};\n", $p, 0);
+				$settings = substr_replace($settings, "\${$k}\t= {$v};\n\t", $p, 0);
 			} else {
 				$v = addcslashes($v, '\\"$');
-				$settings = substr_replace($settings, "\t{$k}\t= \"{$v}\";\n", $p, 0);
+				$settings = substr_replace($settings, "\${$k}\t= \"{$v}\";\n\t", $p, 0);
 			}
 		} else {
 			$p = strpos($settings, '=', $p) + 1;
