@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.59 2004/03/31 18:11:46 hackie Exp $
+* $Id: post_proc.inc.t,v 1.60 2004/04/21 16:13:45 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -90,6 +90,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 		$otag = '['.$tag;
 		$otag_l = strlen($otag);
 		$rf = 1;
+		$nt_tag = 0;
 		while (($cpos = strpos($str, '[', $cpos)) !== false) {
 			if (isset($end_tag[$cpos]) || isset($GLOBALS['seps'][$str[$cpos + 1]])) {
 				++$cpos;
@@ -97,7 +98,11 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			}
 
 			if (($cepos = strpos($str, ']', $cpos)) === false) {
-				break 2;
+				if (!$nt_tag) {
+					break 2;
+				} else {
+					break;
+				}
 			}
 
 			if (strcasecmp(substr($str, $cpos, $ctag_l), $ctag) == 0) {
@@ -105,6 +110,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 			} else if (strcasecmp(substr($str, $cpos, $otag_l), $otag) == 0) {
 				++$rf;
 			} else {
+				$nt_tag++;
 				++$cpos;
 				continue;
 			}
