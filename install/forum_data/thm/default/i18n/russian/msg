@@ -77,7 +77,7 @@ more_unread_messages_desc:	Показать другие непрочитанные сообщения и пометить те
 move_thread:			Перенести
 moved:				Тема перенесена в другой форум
 moved_thread_message:		Эта тема была перенесена в другой форум
-na:				n/a
+na:				н/д
 new_posts:			Новые сообщения
 new_private_messages:		У вас есть непрочитанные сообщения (<span class="GenText" style="color: #ff0000">({VAR: c})</span>)
 new_thread:			Создать новую тему
@@ -817,7 +817,7 @@ logedin_latest_post:		Последнее сообщение в форуме:
 register_show_avatar:		Показывать картинки:
 register_show_avatar_desc:	Показывать картинки других пользователей при просмотре их сообщений
 drawmsg_view_rest_post:		Показать остальное
-post_re:			Re: 
+post_re:			Re:
 forumsel_goto_forum:		Переход к форуму:
 minimsg_thread_view:		Просмотр темы
 split_th_post_by:		Отправитель:
@@ -845,7 +845,7 @@ pmsg_next_msg:			Следующее сообщение
 pmsg_prev_msg:			Предыдущее сообщение
 post_proc_reveal_spoiler:	Укажите помеху
 register_jabber:		Псевдоним сети Jabber:
-im_jabber:			Jabber: 
+im_jabber:			Jabber:
 forum_contact:			Обратная связь
 forum_home:			Начало
 post_cur_attached:		количество вложенных файлов: {VAR: i}
@@ -958,36 +958,36 @@ post_mod_msg_notify_title:	Новое сообщение в форуме "{VAR: frm->name}" ожидает у
 post_mod_msg_notify_msg:	В модерируемый вами форум было отправлено новое сообщение, озаглавленное "{VAR: msg_post->subject}". Для просмотра сообщение следуйте ссылке: {ROOT}?t=modque\n\nЭто автоматически сгенерированное сообщение, не пытайтесь на него отвечать.\n
 thread_printable_pdf:		Сформировать PDF для печати
 thread_syndicate:		Сформировать XML
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will recieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
-mnav_description:		Message Navigator
-mnav_date_limit:		Date range:
-mnav_time_unit:			Date time unit:
-mnav_forum_limit:		Only search In:
-mnav_all_forums:		Search all forums
-mnav_submit:			Begin Search
-mnav_no_range:			You must enter a valid date range. This value can be a float (0.12) but it must be greater then zero.
-mnav_invalid_unit:		You must specify a valid time unit.
-mnav_invalid_date:		The date range you&#39;ve specified is larger then the one allowed by the administrator, narrow down date range of your search.
-mnav_no_results:		There are no messages matching query.
-mnav_posted_by:			Posted By:
-mnav_more:			More &raquo;&raquo;
-mnav_minute:			Minute(s)
-mnav_hour:			Hour(s)
-mnav_day:			Day(s)
-mnav_week:			Week(s)
-mnav_month:			Month(s)
-mnav_title:			Message Navigator
-mnav_update:			Browsing Messages using <a class="GenLink" href="{ROOT}?t=mnav">Message Navigator</a>
-pm_notify_subject:		[{GVAR: FORUM_TITLE}] New Private Message Notification
-pm_notify_body_email:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\nTo view the message click here: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-pm_notify_body_icq:		You have a new private message titled "{VAR: subject}" from "{VAR: from}" on the "{GVAR: FORUM_TITLE}" forum.\n\nTo stop future notifications, disable "Private Message Notification" in your profile.
-register_pm_notification:	Private Message Notification
-register_pm_notification_desc:	If enabled you will be notified the via your notification method of choice whenever a private message is sent to you.
-findu_admin_opts_header:	Admin Opts.
-findu_unban:			UnBan
-findu_ban:			Ban
-findu_edit:			Edit
-findu_delete:			Delete
+reg_conf_title:			Подтверждение регистрации
+reg_conf_email:			<b>Подтверждение адреса электронной почты</b><br />На адрес электронной почты, который вы указали при регистрации, было отправлено письмо, содержащее специальную ссылку, по которой вам нужно будет перейти, прежде чем ваш аккаунт будет активирован. Если вы не получите письмо в течение ближайших нескольких минут, то вам следует войти в свой аккаунт и убедиться, что вы указали правильный адрес электронной почты. Как только вы подтвердите регистрацию, вы сможете воспользоваться всеми возможностями этого форума, доступными для зарегистрированных пользователей.
+reg_conf_account:		<b>Подтверждение аккаунта</b><br />Прежде чем ваш аккаунт станет активным, он должен быть подтвержден администратором. Как только это произойдет, вы получите письмо по e-mail с сообщением о том, что ваш аккаунт подтвержден. До этого времени вы можете входить в свой аккаунт, но не имеете доступа к функциям форума, доступным только для подтвержденных пользователей.
+forum_banned_user:		Ваши действия привели к тому, что вы исключены из этого форума. До свидания.
+mnav_description:		Навигатор по сообщениям
+mnav_date_limit:		Период времени:
+mnav_time_unit:			Единица времени:
+mnav_forum_limit:		Искать в:
+mnav_all_forums:		Искать во всех форумах
+mnav_submit:			Начать поиск
+mnav_no_range:			Вы должны задать правильный период времени. Число может быть не целым (0,12), но оно должно быть больше нуля.
+mnav_invalid_unit:		Вы должны указать правильную единицу времени.
+mnav_invalid_date:		Период времени, который вы указали больше, чем разрешено администратором. Пожалуйста, уменьшите период времени для поиска.
+mnav_no_results:		Нет сообщений, удовлетворяющих запросу.
+mnav_posted_by:			Отправлено:
+mnav_more:			Подробнее &raquo;&raquo;
+mnav_minute:			Минуты
+mnav_hour:			Часы
+mnav_day:			Дни
+mnav_week:			Недели
+mnav_month:			Месяцы
+mnav_title:			Навигатор по сообщениям
+mnav_update:			Просмотр сообщений, используя <a class="GenLink" href="{ROOT}?t=mnav">Навигатор по сообщениям</a>
+pm_notify_subject:		[{GVAR: FORUM_TITLE}] Уведомление о новом личном сообщении
+pm_notify_body_email:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\nЧтобы посмотреть сообщение, кликните по ссылке: {ROOT}?t=pmsg_view&id={VAR: pid}\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
+pm_notify_body_icq:		Вы получили новое личное сообщение с заголовком "{VAR: subject}" от "{VAR: from}" с форума "{GVAR: FORUM_TITLE}" forum.\n\nЧтобы не получать более эти уведомления, отключите "Уведомления о личных сообщениях" в своих настройках.
+register_pm_notification:	Уведомления о личных сообщениях
+register_pm_notification_desc:	Если отмечено, вы будете получать уведомления о новых личных сообщениях способом, указанным в качестве метода отправки извещений.
+findu_admin_opts_header:	Опции админа.
+findu_unban:			Разрешить
+findu_ban:			Запретить
+findu_edit:			Править
+findu_delete:			Удалить
