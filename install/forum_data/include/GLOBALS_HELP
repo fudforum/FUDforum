@@ -395,3 +395,11 @@ MNAV_MAX_LEN
 The maximum length of the message body to show during message preview in
 the message navigator.
 
+SHOW_XML_LINK
+Whether or not to show a link allowing users to generate a printable PDF
+of the page they are viewing.
+
+SHOW_PDF_LINK
+Whether or not to show a syndication link, linking to help on how get XML/RDF
+feeds of forum's data.
+

@@ -140,6 +140,8 @@
 	$BUST_A_PUNK		= "N";		/* boolean */
 	$MNAV_MAX_DATE		= "31";		/* days */
 	$MNAV_MAX_LEN		= "256";	/* characters */
+	$SHOW_XML_LINK		= "Y";		/* boolean */
+	$SHOW_PDF_LINK		= "Y";		/* boolean */
 
 /* 
  * DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING

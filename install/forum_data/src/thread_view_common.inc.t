@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.inc.t,v 1.19 2003/07/23 02:44:37 hackie Exp $
+*   $Id: thread_view_common.inc.t,v 1.20 2003/07/24 03:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,6 +74,9 @@ if ($_GET['t'] == 'threadt') {
 	$moved_cols = $ann_cols - 1;
 	$cur_frm_page = floor($start / $THREADS_PER_PAGE) + 1;
 }
+
+$thread_printable_pdf = $GLOBALS['SHOW_PDF_LINK'] == 'Y' ? '{TEMPLATE: thread_printable_pdf}' : '';
+$thread_syndicate = $GLOBALS['SHOW_XML_LINK'] == 'Y' ? '{TEMPLATE: thread_syndicate}' : '';
 
 /* do various things for registered users */
 if (_uid) {

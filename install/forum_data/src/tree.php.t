@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.32 2003/07/09 14:41:01 hackie Exp $
+*   $Id: tree.php.t,v 1.33 2003/07/24 03:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -268,7 +268,10 @@
 	un_register_fps();
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-	
+
+	$pdf_link = $GLOBALS['SHOW_PDF_LINK'] == 'Y' ? '{TEMPLATE: tree_pdf_link}' : '';
+	$xml_link = $GLOBALS['SHOW_XML_LINK'] == 'Y' ? '{TEMPLATE: tree_xml_link}' : '';
+
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: TREE_PAGE}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.4 2003/07/19 03:17:02 hackie Exp $
+*   $Id: msg.tmpl,v 1.5 2003/07/24 03:16:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -141,13 +141,21 @@
 </table>
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
-<div align="right"><font class="SmallText">[ <a href="{GVAR: WWW_ROOT}pdf.php/p/th/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ] [ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]</font></div>
+<div align="right"><font class="SmallText">{TEMPLATE-DATA: pdf_link} {TEMPLATE-DATA: xml_link}</font></div>
 <div align="center">-=] <a href="#page_top">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE-DATA: msg_page_focus}
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
 {PAGE: END}
+
+{SECTION: msg_pdf_link}
+[ <a href="{GVAR: WWW_ROOT}pdf.php/p/th/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]
+{SECTION: END}
+
+{SECTION: msg_xml_link}
+[ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]
+{SECTION: END}
 
 {SECTION: msg_err_ininfo_title}
 {MSG: msg_err_ininfo_title}

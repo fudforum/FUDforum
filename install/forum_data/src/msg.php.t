@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.45 2003/07/09 07:55:46 hackie Exp $
+*   $Id: msg.php.t,v 1.46 2003/07/24 03:16:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -231,7 +231,10 @@
 	}
 
 	get_prev_next_th_id($frm, $prev_thread_link, $next_thread_link);
-		
+
+	$pdf_link = $GLOBALS['SHOW_PDF_LINK'] == 'Y' ? '{TEMPLATE: msg_pdf_link}' : '';
+	$xml_link = $GLOBALS['SHOW_XML_LINK'] == 'Y' ? '{TEMPLATE: msg_xml_link}' : '';
+	
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: MSG_PAGE}
