@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.9 2003/09/30 12:57:31 hackie Exp $
+*   $Id: admadduser.php,v 1.10 2003/09/30 13:36:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -55,7 +55,7 @@ function validate_input()
 		}
 		$alias = addslashes(htmlspecialchars($alias));
 
-		$users_opt = (4488117 ^ 2097152) | 131072;
+		$users_opt = (4488117 ^ 2097152) | 131072 | 262144;
 		if (!($FUD_OPT_2 & 4)) {
 			$users_opt ^= 128;
 		}

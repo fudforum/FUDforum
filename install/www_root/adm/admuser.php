@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.31 2003/09/30 03:49:19 hackie Exp $
+*   $Id: admuser.php,v 1.32 2003/09/30 13:36:34 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,6 +24,11 @@
 	fud_use('iemail.inc');
 	fud_use('private.inc');
 
+function errorify($err)
+{
+	return '<font color="red">'.$err.'</font><br>';
+}
+
 	$tbl =& $DBHOST_TBL_PREFIX;
 
 	if (isset($_GET['act'], $_GET['usr_id'])) {
@@ -39,22 +44,24 @@
 		$usr_id = $act = '';
 	}
 
+	$keys = array('block'=>65536, 'coppa'=>262144, 'econf'=>131072);
+
 	switch ($act) {
 		case 'block':
-			$u->blocked = $u->blocked == 'Y' ? 'N' : 'Y';
-			q('UPDATE '.$tbl.'users SET blocked=\''.$u->blocked.'\' WHERE id='.$usr_id);
+		case 'coppa':
+		case 'econf':
+			if ($u->users_opt & $keys[$act]) {
+				q('UPDATE '.$tbl.'users SET users_opt=users_opt &~ '.$keys[$act].' WHERE id='.$usr_id);
+				$u->users_opt ^= $keys[$act];
+			} else {
+				q('UPDATE '.$tbl.'users SET users_opt=users_opt|'.$keys[$act].' WHERE id='.$usr_id);
+				$u->users_opt |= $keys[$act];
+			}
+
 			if (isset($_GET['f'])) {
 				header('Location: '.$WWW_ROOT.__fud_index_name__.$usr->returnto);
 				exit;
 			}
-			break;
-		case 'coppa':
-			$u->coppa = $u->coppa == 'Y' ? 'N' : 'Y';
-			q('UPDATE '.$tbl.'users SET coppa=\''.$u->coppa.'\' WHERE id='.$usr_id);
-			break;
-		case 'econf':
-			$u->email_conf = $u->email_conf == 'Y' ? 'N' : 'Y';
-			q('UPDATE '.$tbl.'users SET email_conf=\''.$u->email_conf.'\' WHERE id='.$usr_id);
 			break;
 		case 'color':
 			$u->custom_color = trim($_POST['custom_color']);
@@ -62,18 +69,13 @@
 			break;
 		case 'reset':
 			$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? "t_default='Y'" : 'id='.$u->theme));
-			if ($FUD_OPT_2 & 1 && $u->email_conf == 'N') {
+			if ($FUD_OPT_2 & 1 && !($u->users_opt & 131072)) {
 				$conf_key = usr_email_unconfirm($u->id);
 				$url = $WWW_ROOT . __fud_index_name__ . '?t=emailconf&conf_key='.$conf_key;
-				
 				send_email($NOTIFY_FROM, $u->email, $register_conf_subject, $reset_confirmation, "");
 			} else {
-				db_lock($tbl . 'users WRITE');
-				do {
-					$reset_key = md5(get_random_value(128));
-				} while (q_singleval("SELECT id FROM ".$tbl."users WHERE reset_key='".$reset_key."'"));
-				q("UPDATE ".$tbl."users SET reset_key='".$reset_key."' WHERE id=".$u->id);
-				db_unlock();
+				$user_theme_name = q_singleval('SELECT name FROM '.$tbl.'themes WHERE '.(!$u->theme ? 'theme_opt=3' : 'id='.$u->theme));
+				q("UPDATE ".$tbl."users SET reset_key='".($reset_key = md5(get_random_value(128)))."' WHERE id=".$u->id);
 
 				$url = '{ROOT}?t=reset&reset_key='.$reset_key;
 				include_once($INCLUDE . 'theme/' . $user_theme_name . '/rst.inc');
@@ -115,7 +117,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 			}
 			break;
 		case 'admin':
-			if ($u->is_mod == 'A') {
+			if ($u->users_opt & 1048576) {
 				if (!isset($_POST['adm_confirm'])) {
 ?>
 <html>
@@ -134,8 +136,14 @@ Are you sure you want to do this?<br>
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					$u->is_mod = q_singleval('SELECT count(*) FROM '.$tbl.'mod WHERE user_id='.$u->id) ? 'Y' : 'N';
-					q('UPDATE '.$tbl.'users SET is_mod=\''.$u->is_mod.'\' WHERE id='.$usr_id);
+					$u->users_opt |=  524288|1048576;
+					if (q_singleval('SELECT count(*) FROM '.$tbl.'mod WHERE user_id='.$u->id)) {
+						q('UPDATE '.$tbl.'users SET users_opt=(users_opt|1048576) &~ 1048576 | 524288 WHERE id='.$usr_id);
+						$u->users_opt ^= 1048576;
+					} else {
+						q('UPDATE '.$tbl.'users SET users_opt=(users_opt|524288|1048576) &~ (524288|1048576) WHERE id='.$usr_id);
+						$u->users_opt ^= 1048576|524288;
+					}
 				}
 			} else {
 				if (!isset($_POST['adm_confirm'])) {
@@ -157,8 +165,7 @@ administration permissions to the forum. This individual will be able to do anyt
 <?php
 					exit;
 				} else if (isset($_POST['btn_yes'])) {
-					$u->is_mod = 'A';
-					q('UPDATE '.$tbl.'users SET is_mod=\''.$u->is_mod.'\' WHERE id='.$usr_id);
+					q('UPDATE '.$tbl.'users SET users_opt=(users_opt|524288) &~ 524288 | 1048576 WHERE id='.$usr_id);
 				}
 			}
 			break;								
@@ -180,28 +187,32 @@ administration permissions to the forum. This individual will be able to do anyt
 
 		/* changing password */
 		if (!empty($_POST['login_passwd'])) {
-			q('UPDATE '.$tbl.'users SET passwd=\''.md5($_POST['login_passwd']).'\' WHERE id='.$usr_id);
+			q("UPDATE ".$tbl."users SET passwd='".md5($_POST['login_passwd'])."' WHERE id=".$usr_id);
 		} else if (!empty($_POST['login_name']) && $u->login != $_POST['login_name']) { /* chanding login name */
 			$login = addslashes($_POST['login_name']);
 			$alias = "'" . substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW) . "'";
 			$login = "'" . $login . "'";
-			db_lock($tbl.'users WRITE');
-			$rb = 0;
-			if (!q_singleval('SELECT id FROM '.$tbl.'users WHERE alias='.$alias) && !q_singleval('SELECT id FROM '.$tbl.'users WHERE login='.$login)) {
-				$u->login = $_POST['login_name'];
-				if ($FUD_OPT_2 & 128) {
-					q('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id);
-				} else {
-					$u->alias = substr(htmlspecialchars($u->login), 0, $GLOBALS['MAX_LOGIN_SHOW']);
-					q('UPDATE '.$tbl.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id);
-					$rb = 1;
+
+			if ($FUD_OPT_2 & 128) {
+				if (db_li('UPDATE '.$tbl.'users SET login='.$login.' WHERE id='.$usr_id, $ef) === null) {
+					$login_error = errorify('Someone is already using that login name.');
 				}
 			} else {
-				$login_error = '<font color="#FF0000">Someone is already using that login name.</font><br>';
+				if (db_li('UPDATE '.$tbl.'users SET login='.$login.', alias='.$alias.' WHERE id='.$usr_id, $ef) === null) {
+					if ($ef == 2) {
+						$login_error = errorify('Someone is already using that login name.');
+					} else {
+						$login_error = errorify('Someone is already using that alias.');
+					}
+				}
 			}
-			db_unlock();
-			if ($rb) {
+
+			if (!$login_error) {
 				rebuildmodlist();
+				$u->login = $_POST['login_name'];
+				if (!($FUD_OPT_2 & 128)) {
+					$u->alias = substr(htmlspecialchars($login), 0, $MAX_LOGIN_SHOW);
+				}
 			}
 		}
 	} else if (!empty($_POST['usr_email']) || !empty($_POST['usr_login'])) {
@@ -224,7 +235,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		$c = q('SELECT id, alias, email FROM '.$tbl.'users WHERE ' . $field . ($like ? ' LIKE ' : '=') . $item_s .' LIMIT 50');
 		switch (($cnt = db_count($c))) {
 			case 0:
-				$search_error = '<font color="red">There are no users matching the specified '.$field.' mask.</font><br>';
+				$search_error = errorify('There are no users matching the specified '.$field.' mask.');
 				qf($c);
 				break;
 			case 1:
@@ -291,12 +302,12 @@ administration permissions to the forum. This individual will be able to do anyt
 	}
 
 	echo '<tr bgcolor="#f1f1f1"><td align=middle colspan=2><font size="+1">&gt;&gt; <a href="../'.__fud_index_name__.'?t=register&mod_id='.$usr_id.'&'._rsidl.'">Change User\'s Profile</a> &lt;&lt;</font></td></tr>';
-	echo '<tr bgcolor="#f1f1f1"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->is_mod != 'A' ? 'N' : '<b><font size="+2" color="red">Y</font>').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
-	echo '<tr bgcolor="#f1f1f1"><td>Blocked:</td><td>'.$u->blocked.' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
-	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.$u->email_conf.' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+	echo '<tr bgcolor="#f1f1f1"><td nowrap><font size="+1"><b>Forum Administrator:</b></td><td>'.($u->users_opt & 1048576 ? '<b><font size="+2" color="red">Y</font>' : 'N').' [<a href="admuser.php?act=admin&usr_id='.$usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr bgcolor="#f1f1f1"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
+	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 
 	if ($FUD_OPT_1 & 1048576) { 
-		echo '<tr bgcolor="#f1f1f1"><td>COPPA:</td><td>'.$u->coppa.' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
+		echo '<tr bgcolor="#f1f1f1"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 	}
 
 	echo '<tr bgcolor="#f1f1f1"><td nowrap valign="top">Moderating Forums:</td><td valign="top">';
