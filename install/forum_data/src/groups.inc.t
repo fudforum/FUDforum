@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.15 2003/04/25 19:33:46 hackie Exp $
+*   $Id: groups.inc.t,v 1.16 2003/04/25 20:30:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -147,6 +147,7 @@ function grp_rebuild_cache($id, $user_id=0)
 		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.user_id='.$user_id.' AND gm.approved=\'Y\'');
 	}
 	while ($obj = db_rowobj($r)) {
+		grp_resolve_perms($obj);
 		if (!isset($ent[$obj->resource_id][$obj->user_id])) {
 			$ent[$obj->resource_id][$obj->user_id] = array('ldr' => 0);
 		}
@@ -175,7 +176,7 @@ function grp_rebuild_cache($id, $user_id=0)
 			foreach ($v as $k2 => $v2) {
 				unset($v2['ldr']);
 				$vals = '\'' . implode('\', \'', $v2) . '\'';
-				q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id) VALUES('.$vals.', '.$k2.', '.$k.')');
+				q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id, group_id) VALUES('.$vals.', '.$k2.', '.$k.', '.$id.')');
 			}
 		}
 	}
