@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.8 2002/07/02 18:13:10 hackie Exp $
+*   $Id: admthemes.php,v 1.9 2002/07/09 13:34:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,12 +46,13 @@ function cleandir($dir)
 	
 		if( @is_dir($file) ) 
 			cleandir($file);
-		else
-			unlink($file);		
+		else 
+			if( !unlink($file) ) echo "Couldn't remove (<b>".realpath($file)." -> ".$file."</b>)<br>\n";
 	}
 	
 	closedir($dp);
 	chdir($od);
+	rmdir($dir);
 }
 
 
@@ -116,10 +117,11 @@ function cleandir($dir)
 	if ( $del && $del != 1 ) {
 		$thm->get($del);
 		$thm->delete();
-		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name.'/images');
-		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name.'/images');
-		cleandir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
-		rmdir($GLOBALS['WWW_ROOT_DISK'].'thm/'.$thm->name);
+		
+		cleandir($GLOBALS['WWW_ROOT_DISK'].'theme/'.$thm->name);
+		cleandir($GLOBALS['INCLUDE'].'theme/'.$thm->name);
+		cleandir($GLOBALS['DATA_DIR'].'thm/'.$thm->name);
+
 		$obj = default_theme();
 		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."users SET theme=$obj->id WHERE theme=$thm->id");
 		header("Location: admthemes.php?"._rsid.'&rand='.get_random_value());
