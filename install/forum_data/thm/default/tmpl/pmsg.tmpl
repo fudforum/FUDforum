@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.tmpl,v 1.25 2004/02/13 15:34:18 hackie Exp $
+* $Id: pmsg.tmpl,v 1.26 2004/04/03 00:03:34 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -80,11 +80,13 @@
 {SECTION: END}
 
 {SECTION: private_msg_entry}
-<tr class="RowStyleB"><td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
+<tr class="RowStyleB">
+<td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td>
+<td>{TEMPLATE-DATA: pmsg_status}</td><td width="100%" class="GenText">{TEMPLATE-DATA: msg_type}<a href="{VAR: goto}">{VAR: obj->subject}</a>{TEMPLATE-DATA: deny_recipt}</td>
 <td nowrap class="GenText">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: normal_msg_lnk}">{VAR: obj->alias}</a></td>
 <td nowrap class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</td>
 <td nowrap align="center" class="GenText">{TEMPLATE-DATA: action}</td>
-<td align="center" class="GenText"><input type="checkbox" name="sel[]" value="{VAR: obj->id}"{VAR: checked}></td></tr>
+</tr>
 {SECTION: END}
 
 {PAGE: PMSG_PAGE private messages control panel}
@@ -102,12 +104,12 @@
 </select> <input type="submit" class="button" name="sel_folder" value="{MSG: go}">
 </td></tr>
 <tr>
+	<th nowrap>{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{VAR: desc}</a>]</th>
 	<th>&nbsp;</th>
 	<th width="100%">{MSG: pmsg_subject}</th>
 	<th align="center">{TEMPLATE-DATA: author_dest_col}</th>
 	<th align="center">{MSG: pmsg_time}</th>
 	<th align="center">{MSG: action}</th>
-	<th nowrap>{MSG: pmsg_selected} [<a href="{TEMPLATE: PMSG_PAGE_lnk1}" class="thLnk">{VAR: desc}</a>]</th>
 </tr>
 {TEMPLATE-DATA: private_msg_entry}
 {TEMPLATE-DATA: private_tools}
