@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.11 2002/08/25 20:38:22 hackie Exp $
+*   $Id: users.inc.t,v 1.12 2002/08/25 22:02:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -103,16 +103,17 @@ class fud_user
 		if( $local_lock ) db_unlock();
 	}
 	
-	function register_thread_view($thread_id, $tm=__request_timestamp__, $msg_id='')
+	function register_thread_view($thread_id, $tm='', $msg_id='')
 	{
+		if( !$tm ) $tm = __request_timestamp__;
+	
 		if( ($old_msg_id = q_singleval("SELECT * FROM {SQL_TABLE_PREFIX}read WHERE thread_id=".$thread_id." AND user_id=".$this->id)) ) {
 			if( $old_msg_id > $msg_id ) $msg_id = $old_msg_id;
 			
 			q("UPDATE {SQL_TABLE_PREFIX}read SET last_view=".$tm.", msg_id=".intzero($msg_id)." WHERE thread_id=".$thread_id." AND user_id=".$this->id);
 		}
 		else {
-			q("INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES(".$thread_id.", ".$this->id.", ".intzero($msg_id).", ".$tm.")");
-		}
+			q("INSERT INTO {SQL_TABLE_PREFIX}read(thread_id, user_id, msg_id, last_view) VALUES(".$thread_id.", ".$this->id.", ".intzero($msg_id).", ".$tm.")");		}
 	}
 	
 	function register_forum_view($frm_id)

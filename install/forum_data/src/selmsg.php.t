@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.11 2002/08/25 20:38:22 hackie Exp $
+*   $Id: selmsg.php.t,v 1.12 2002/08/25 22:02:03 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -221,18 +221,16 @@ function ifstr($opt1, $opt2, $str)
 	
 	if ( !empty($mark_page_read) && isset($usr) ) {
 		while ( $obj = db_rowobj($r) ) {
-			if ( $dth_id != $obj->th_id ) { 
-				if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $obj->post_stamp, $obj->id);
-				if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
+			if ( isset($obj2) && $obj2->th_id != $obj->th_id ) { 
+				$usr->register_thread_view($obj2->th_id, $obj2->post_stamp, $obj2->id);
+				$usr->register_forum_view($obj->frm_id);
 			}
-			$dth_id = $obj->th_id;
-			$msg_id = $obj->id;
-			$p_frm_id = $obj->frm_id;
+			$obj2 = $obj;
 		}
 		
-		if ( $dth_id != $obj->th_id ) { 
-			if ( $dth_id && $msg_id ) $usr->register_thread_view($dth_id, $obj->post_stamp, $obj->id);
-			if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
+		if ( isset($obj2) ) { 
+			$usr->register_thread_view($obj2->th_id, $obj2->post_stamp, $obj2->id);
+			$usr->register_forum_view($obj2->frm_id);
 		}
 		
 		header('Location: {ROOT}?t=selmsg&'.str_replace('&amp;', '&', $url_param).'rand='.get_random_value());
