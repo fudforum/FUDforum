@@ -136,15 +136,15 @@ putting <font color="#ff0000"><b>[quote][/quote]</b></font> tags around it.
 
 <table border="0" align="center" width="20%" cellpadding="3" cellspacing="1"><tr><td class="SmallText"><b>Quote:</b></td></tr><tr><td class="quote">Hello World<br></td></tr></table>
 <p>
-<b>Program Code and Pre-formatted Text</b><br>
- The <font color="#ff0000"><b>[code][/code]</b></font> tags allows to post 
+<b>Pre-formatted Text</b><br>
+ The <font color="#ff0000"><b>[pre][/pre]</b></font> tags allows to post 
 text exactly as it is, maintaining relational formatting such as tabs and multiple 
 spaces. <br>
 <br>
  it used like this: <br>
-<font color="#ff0000"><b>[code]</b></font>
+<font color="#ff0000"><b>[pre]</b></font>
 <pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre>
-<font color="#ff0000"><b>[/code]</b></font><br>
+<font color="#ff0000"><b>[/pre]</b></font><br>
 <br>
  which produces the text exactly as it was typed maintaining the formatting. 
 <br>
@@ -168,11 +168,23 @@ hello();
 <br>which produces:<br><br>
 <code><font color="#000000">
 <font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
-
 </font>
 </code>
 <p>
+<b>Non-PHP Program Code</b><br>
+ The <font color="#ff0000"><b>[code][/code]</b></font> tags work the same was as the <font color="#ff0000"><b>[pre]</b></font>
+tags with a noteable exception of putting the text is a visually identifiable box.<br>
+<br>
+ it used like this: <br>
+<font color="#ff0000"><b>[code]</b></font>
+<div class="pre"><pre>$fp = fopen('somefile', 'w');<br>if ( !$fp ) {<br>	exit('no such file!');<br>}<br>else { <br>	fwrite($fp, 'hello world');<br>	fclose($fp);<br>}<br></pre></div>
+<font color="#ff0000"><b>[/code]</b></font><br>
+<br>
+ which produces the text exactly as it was typed maintaining the formatting. 
+<br>
+<br>
 
+<p>
 <b>No Tag</b><br>
 The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
 the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of FUDcode 
