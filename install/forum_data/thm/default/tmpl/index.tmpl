@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.24 2003/10/23 19:00:50 hackie Exp $
+* $Id: index.tmpl,v 1.25 2003/10/27 11:01:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -120,25 +120,11 @@
 
 {SECTION: forum_icon_legend}
 <br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
-<tr><td align=left class="RowStyleB">
-<table border=0 cellspacing=0 cellpadding=0 align=left>
-<tr>
-<td>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: index_new_posts}" /></td><td class="SmallText">{MSG: index_new_posts}</td></tr>
-</table>
-</td>
-<td>
-<table border=0 cellspacing=0 cellpadding=2>
-<tr><td><img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" /></td><td class="SmallText">{MSG: index_no_new_posts}</td></tr>
-</table>
-</td>
-</tr>
-</table>
-</td></tr>
-</table>
+<div class="RowStyleB"><font class="SmallText">
+<div class="LegendH"><b>{MSG: legend}</b></div>
+<img src="{THEME_IMAGE_ROOT}/new_content.gif" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content.gif" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+</font></div>
 {SECTION: END}
 
 {SECTION: welcome_message}
