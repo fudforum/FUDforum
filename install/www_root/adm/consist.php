@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.98 2004/12/13 18:07:29 hackie Exp $
+* $Id: consist.php,v 1.99 2004/12/20 14:44:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -56,17 +56,25 @@ function draw_info($cnt)
 
 function delete_zero($tbl, $q)
 {
-	$cnt = 0;
-	$c = q($q);
-	while ($r = db_rowarr($c)) {
-		$a[] = $r[0];
-		++$cnt;
+	if (__dbtype__ == 'pgsql') {
+		q("DELETE FROM ".$tbl." WHERE id IN (".$q.")");
+		draw_info(db_affected());
+	} else if ($GLOBALS['FUD_OPT_3'] & 1024) { /* mysql 4.1 optimization */
+		q("DELETE ".$tbl." ".substr($q, 7, strpos($q, '.') - 7)." ".strstr($q, "FROM"));
+		draw_info(db_affected());
+	} else { /* mysql 3.23-4.0 */
+		$cnt = 0;
+		$c = q($q);
+		while ($r = db_rowarr($c)) {
+			$a[] = $r[0];
+			++$cnt;
+		}
+		if ($cnt) {
+			q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
+		}
+		unset($c);
+		draw_info($cnt);
 	}
-	if ($cnt) {
-		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
-	}
-	unset($c);
-	draw_info($cnt);
 }
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
