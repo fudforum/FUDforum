@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.php.t,v 1.27 2003/11/14 10:50:20 hackie Exp $
+* $Id: threadt.php.t,v 1.28 2003/12/01 21:33:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -38,7 +38,7 @@
 	} else {
 		$thread_list_table_data = '';
 		$p = $cur_th_id = 0;
-
+		error_reporting(0);
 		while ($obj = db_rowobj($r)) {
 			unset($stack, $tree, $arr, $cur);
 			db_seek($r, $p);
@@ -79,7 +79,7 @@
 							$thread_icon			= $cur->icon		? '{TEMPLATE: thread_icon}'		: '{TEMPLATE: thread_icon_none}';
 							$user_link			= $cur->poster_id	? '{TEMPLATE: reg_user_link}'		: '{TEMPLATE: unreg_user_link}';
 
-							if (strlen($cur->subject) > $TREE_THREADS_MAX_SUBJ_LEN) {
+							if (isset($cur->subject[$TREE_THREADS_MAX_SUBJ_LEN])) {
 								$cur->subject = substr($cur->subject, 0, $TREE_THREADS_MAX_SUBJ_LEN).'...';
 							}
 							if ($lev == 1 && $cur->thread_opt > 1) {
