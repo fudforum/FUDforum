@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: wordwrap.inc.t,v 1.2 2002/07/22 14:53:37 hackie Exp $
+*   $Id: wordwrap.inc.t,v 1.3 2002/08/05 00:40:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,7 @@ function fud_wrap_tok($data)
 	if( !($len=strlen($data)) ) return array();
 	$wa = array();
 	
-	$i=$p=0;
+	$i=$j=$p=0;
 	$str = '';
 	while( $i<$len ) {
 		switch( $data[$i] ) 
@@ -28,8 +28,9 @@ function fud_wrap_tok($data)
 			case ' ':
 			case "\n":
 			case "\t":
-				if( strlen($str) ) {
-					$wa[] = array('word'=>$str, 'check'=>1);
+				if( $j ) {
+					$wa[] = array('word'=>$str, 'len'=>($j+1));
+					$j=0;
 					$str ='';
 				}
 				
@@ -37,29 +38,31 @@ function fud_wrap_tok($data)
 				
 				break;
 			case '<':
-				if( ($p=strpos($data, '>', $i)) ) {
-					if( strlen($str) ) {
-						$wa[] = array('word'=>$str, 'check'=>1);
+				if( ($p=strpos($data, '>', $i)) !== false ) {
+					if( $j ) {
+						$wa[] = array('word'=>$str, 'len'=>($j+1));
+						$j=0;
 						$str ='';
 					}
 
-					$wa[] = array('word'=>substr($data,$i,($p-$i)+1), 'check'=>0);
+					$wa[] = array('word'=>substr($data,$i,($p-$i)+1));
 					
 					$i=$p;
 				}
-				else 
+				else {
 					$str .= $data[$i];
+					$j++;
+				}	
 				break;
 			default:
 				$str .= $data[$i];	
+				$j++;
 		}
 		$i++;
 	}
 	
-	if( strlen($str) ) 
-		$wa[] = array('word'=>$str, 'check'=>1);
+	if( $j ) $wa[] = array('word'=>$str, 'len'=>($j+1));
 	
-	reset($wa);
 	return $wa;
 }
 
@@ -72,7 +75,7 @@ function fud_wordwrap(&$data)
 	$data = NULL;
 	
 	foreach($wa as $v) {
-		if( $v['check'] == 1 && strlen($v['word'])>$GLOBALS["WORD_WRAP"] ) 
+		if( isset($v['len']) && $v['len']>$GLOBALS["WORD_WRAP"] ) 
 			$data .= wordwrap($v['word'],$GLOBALS["WORD_WRAP"],' ',1);
 		else
 			$data .= $v['word'];	
