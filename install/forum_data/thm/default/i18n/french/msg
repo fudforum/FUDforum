@@ -695,8 +695,7 @@ ERR_user_msg:			Cet utilisateur n&#39;existe pas
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERREUR: Erreur système
 ERR_systemerr_msg:		Une erreur système s&#39;est produite. Veuillez rapporter cet incident à l&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>.
-ERR_systemerr_url:
-email_title:			E-mail
+ERR_systemerr_url:	email_title:			E-mail
 finduser_title:			Chercher un utilisateur
 help_title:			F.A.Q. (Foire Aux Questions, questions fréquemment posées)
 login_title:			Nom d&#39;utilisateur
