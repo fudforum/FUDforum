@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.84 2004/12/21 16:58:26 hackie Exp $
+* $Id: msg.php.t,v 1.85 2004/12/21 17:02:00 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,14 +156,14 @@
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
 		l.name AS level_name, l.level_opt, l.img AS level_img,
 		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
-		pot.id AS cant_vote
+		'.(_uid ? ' pot.id AS cant_vote ' : ' 1 AS cant_vote ').'
 	FROM '.($frm->replies > 250 ? '{SQL_TABLE_PREFIX}_mtmp_'.__request_timestamp__.' mt INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mt.id' : ' {SQL_TABLE_PREFIX}msg m').'
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 		INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
-		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-		LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid.
+		LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id'.
+		(_uid ? ' LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='._uid : ' ').
 		($frm->replies > 250 ? ' ORDER BY m.id ASC' : " WHERE m.thread_id=".$_GET['th']." AND m.apr=1 ORDER BY m.id ASC LIMIT " . qry_limit($count, $_GET['start'])));
 
 	$obj2 = $message_data = '';
