@@ -868,28 +868,28 @@ msg_err_nosuchmsg_title:	Fehler
 imsg_err_message_title:		Ung&uuml;tiger Beitrag
 imsg_err_message_msg:		Der Beitrag, den Du versuchst anzusehen, existiert nicht.
 poll_edit: 			Bearbeiten
-unspecified:			UNSPECIFIED
-register_err_not_valid_img:	The specified url does not contain a valid image
-pmsg_recepient:			Recepient
-register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
+unspecified:			NICHT ANGEGEBEN
+register_err_not_valid_img:	Die angegebene Url enth&aauml;t kein g&uuml;ltiges Bild
+pmsg_recepient:			Empf&aauml;nger
+register_err_taken_alias:	Der Alias, welchen Du verwenden m&oouml;chtest, wird bereits von einem Forumsmitglied genutzt. Bitte nimm einen anderen.
 register_alias:			Alias
-register_alias_desc:		If you want a nick name other then your login to be displayed on the forum, enter the nick name you want to be displayed here.
-register_allow_pm_msg:		Allow Private Messages	
-register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
-postcheck_pm_disabled:		You cannot send a private message to "{VAR-HTML: v}", because this person is not accepting private messages.
-polllist_vote:			Vote
-polllist_view_results:		View Results
-polllist_name:			Poll Name
-polllist_date:			Created On
-polllist_owner:			Created By
-polllist_votes:			Total Votes
-polllist_action:		Action
-polllist_update:		<a href="{ROOT}?t=polllist">Reviewing Avaliable Polls</a>
-userinfo_polls:			Polls:
-show_pollist:			Show Polls
-search_and:			AND
-search_or:			OR
-search_desc_order:		Descending Order		
-search_asc_order:		Ascending Order
-search_logic:			Search Logic:
-search_sorting:			Sort Results By Date In:
+register_alias_desc:		Wenn Du m&ouml;chtest, da&szlig; Dein Nickname, der im Forum angezeigt wird, sich vom Loginnamen unterscheidet, dann trage hier jenen ein, der angezeigt werden soll.
+register_allow_pm_msg:		Private Messages erlauben	
+register_allow_pm_msg_desc:	Anderen Benutzern erlauben, Dir &uuml;ber das FUDForum private Messages zu schicken.
+postcheck_pm_disabled:		Du kannst an "{VAR-HTML: v}" keine privaten Messages verschicken, weil besagte Person diese nicht gestattet.
+polllist_vote:			Abstimmen
+polllist_view_results:		Ergebnisse ansehen
+polllist_name:			Titel der Abstimmung
+polllist_date:			Erstellt Am
+polllist_owner:			Erstellt Von
+polllist_votes:			Stimmen Insgesamt
+polllist_action:		Aktion
+polllist_update:		<a href="{ROOT}?t=polllist">Verf&uuml;gbare Abstimmungen betrachten</a>
+userinfo_polls:			Abstimmungen:
+show_pollist:			Abstimmungen Anzeigen
+search_and:			UND
+search_or:			ODER
+search_desc_order:		Absteigende Sortierung		
+search_asc_order:		Aufsteigende Sortierung
+search_logic:			Suchlogik:
+search_sorting:			Ergebnisse Nach Datum Sortieren In:
