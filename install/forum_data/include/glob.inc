@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.7 2003/05/20 12:13:00 hackie Exp $
+*   $Id: glob.inc,v 1.8 2003/06/19 22:51:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -31,7 +31,9 @@ function read_help()
 		$ke = strpos($data, "\n", $p);
 		$key = substr($data, $p, ($ke - $p));
 		++$ke;
-		$e = strpos($data, ".\n\n", $ke);
+		if (($e = strpos($data, ".\n\n", $ke)) === FALSE) {
+			break;
+		}
 		$help_ar[$key] = nl2br(htmlspecialchars(substr($data, $ke, ($e - $ke))));
 		$p = $e + 2;
 		if ($p >= $len) {
