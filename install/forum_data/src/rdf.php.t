@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.11 2003/05/24 13:45:06 hackie Exp $
+*   $Id: rdf.php.t,v 1.12 2003/05/26 10:42:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -230,7 +230,7 @@ $basic_rss_data .= '
 								foreach ($pc as $o) {
 									echo '<rdf:li>
 										<content:item rdf:about="poll_opt">
-											<opt_title><'.sp($o[0]).'></opt_title>
+											<opt_title>'.sp($o[0]).'></opt_title>
 											<opt_votes>'.$o[1].'</opt_votes>
 										</content:item></rdf:li>';
 								}
