@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.2 2002/07/24 16:38:53 hackie Exp $
+*   $Id: mlist.inc,v 1.3 2002/07/24 16:39:44 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@ class fud_mlist
 			subject_regex_haystack='".$this->subject_regex_haystack."',
 			subject_regex_needle='".$this->subject_regex_needle."',
 			body_regex_haystack='".$this->body_regex_haystack."',
-			body_regex_needle'".$this->body_regex_needle."'
+			body_regex_needle='".$this->body_regex_needle."'
 		WHERE id=".$this->id);
 		
 		$this->Update_forum_settings();
