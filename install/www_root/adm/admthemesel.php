@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.4 2002/07/20 14:19:16 hackie Exp $
+*   $Id: admthemesel.php,v 1.5 2002/07/21 22:11:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,9 +22,8 @@
 	fud_use('adm.inc', TRUE);
 	list($ses, $usr) = initadm();
  
-	
 	if ( $HTTP_POST_VARS['tname'] ) {
-		header("Location: ".$ret.".php?tname=$tname&tlang=$tlang&rand=".get_random_value());
+		header("Location: ".$ret.".php?tname=$tname&tlang=$tlang&rand=".get_random_value()."&"._rsid);
 		exit();
 	}
 	
@@ -32,7 +31,6 @@
 ?>
 <h3>Template Set Selection</h3>
 <form method="post" action="admthemesel.php">
-<?php echo _hs; ?>
 <input type="hidden" name="ret" value="<?php echo $ret; ?>">
 <table border=0 cellspacing=1 cellpadding=3>
 <tr bgcolor="#bff8ff">
