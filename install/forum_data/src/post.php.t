@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.89 2003/10/03 18:18:29 hackie Exp $
+*   $Id: post.php.t,v 1.90 2003/10/04 00:51:05 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -370,7 +370,7 @@ function flood_check()
 				attach_finalize($attach_list, $msg_post->id);
 			}
 
-			if (!$msg_id && !($frm->forum_opt & 2)) {
+			if (!$msg_id && (!($frm->forum_opt & 2) || $MOD)) {
 				$msg_post->approve($msg_post->id, true);
 			}
 

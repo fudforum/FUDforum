@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.11 2003/10/03 17:20:58 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.12 2003/10/04 00:51:11 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -90,7 +90,7 @@ class fud_nntp_adm
 		if ($old_frm_id != $this->forum_id && $nntp_opt & 1) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt &~ 2 WHERE id='.$old_frm_id);
 		}
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($nntp_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($this->nntp_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
 	}
 }	
 
