@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ubb.php,v 1.1 2004/02/18 14:46:14 hackie Exp $
+* $Id: ubb.php,v 1.2 2004/02/18 15:03:23 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -42,26 +42,6 @@ function bbq($q, $err=0)
 	}
 }
 
-function bbcode2fudcode($str)
-{
-	$str = preg_replace('!\[(.+?)\:([a-z0-9]+)?\]!s', '[\1]', $str);
-	$str = preg_replace('!\[quote\:([a-z0-9]+?)="(.*?)"\]!is', '[quote=\2]', $str);
-	$str = preg_replace("#(^|[\n ])((www|ftp)\.[\w\-]+\.[\w\-.\~]+(?:/[^ \"\t\n\r<]*)?)#is", "\\1http://\\2", $str);
-	$str = smiley_to_post(tags_to_html($str, 1, 1));
-
-	return $str;
-}
-
-function phpbb_decode_ip($int_ip)
-{
-	if ($int_ip == '00000000') {
-		return '0.0.0.0';
-	} else {
-		return long2ip("0x{$int_ip}");
-	}
-}
-
-	define('IN_PHPBB', 1);
 	define('__WEB__', (isset($_SERVER["REMOTE_ADDR"]) === FALSE ? 0 : 1));
 
 	/* prevent session initialization */
@@ -425,21 +405,49 @@ function phpbb_decode_ip($int_ip)
 	umask($old_umask);
 	print_msg('Finished Importing Messages');
 
-/* Import phpBB Thread Subscriptions */
+/* Import ubb forum Subscriptions */
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."forum_notify");
+	$r = bbq("SELECT u.U_Number, f.Bo_Number 
+		FROM {$ubb}Subscribe s
+		INNER JOIN {$ubb}Users u ON u.U_Username=s.S_Username
+		INNER JOIN {$ubb}Boards f ON f.Bo_Keyword=s.S_Board");
+	print_msg('Importing Forum Subscriptions '.db_count($r));
+	while ($obj = db_rowobj($r)) {
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."forum_notify (user_id, forum_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->Bo_Number.")");
+	}
+	unset($r);
+	print_msg('Finished Importing Forum Subscriptions');
+
+/* Import ubb topic Subscriptions */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."thread_notify");
-	$r = bbq("SELECT * FROM {$ubb}topics_watch WHERE notify_status=" . TOPIC_WATCH_NOTIFIED);
+	$r = bbq("SELECT u.U_Number, s.F_Thread 
+			FROM {$ubb}Favorites s
+			INNER JOIN {$ubb}Users u ON u.U_Username=s.F_Owner");
 	print_msg('Importing Thread Subscriptions '.db_count($r));
 	while ($obj = db_rowobj($r)) {
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_notify (user_id, thread_id) VALUES(".(int)$obj->user_id.", ".(int)$obj->topic_id.")");
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."thread_notify (user_id, thread_id) VALUES(".(int)$obj->U_Number.", ".(int)$obj->F_Thread.")");
 	}
 	unset($r);
 	print_msg('Finished Importing Thread Subscriptions');
+
+/* Import ubb buddy list */
+	q("DELETE FROM ".$DBHOST_TBL_PREFIX."buddy");
+	$r = bbq("SELECT u1.U_Number AS s, u2.U_Number AS d
+			FROM {$ubb}AddressBook a
+			INNER JOIN {$ubb}Users u1 ON u1.U_Username=a.Add_Owner
+			INNER JOIN {$ubb}Users u2 ON u2.U_Username=a.Add_Member");
+	print_msg('Importing Buddy List '.db_count($r));
+	while ($obj = db_rowobj($r)) {
+		q("INSERT INTO ".$DBHOST_TBL_PREFIX."buddy (user_id, bud_id) VALUES(".(int)$obj->d.", ".(int)$obj->s.")");
+	}
+	unset($r);
+	print_msg('Finished Importing Buddy List');
 
 /* Import ubb banns */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."blocked_logins");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."ip_block");
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."email_block");
-	
+
 	$r = bbq("SELECT B_Username, B_Hostname FROM {$ubb}Banned");
 	print_msg('Importing Bans '.db_count($r));
 	while ($obj = db_rowobj($r)) {
@@ -457,32 +465,32 @@ function phpbb_decode_ip($int_ip)
 /* Import phpBB private messages */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."pmsg");
 
-	$r = bbq("SELECT p.*, pt.privmsgs_text, u.username FROM {$ubb}privmsgs p INNER JOIN {$ubb}privmsgs_text pt ON p.privmsgs_id=pt.privmsgs_text_id INNER JOIN {$ubb}users u ON u.user_id=p.privmsgs_to_userid");
+	$r = bbq("SELECT u1.U_Number AS sen, u2.U_Number AS rec, m.*
+			FROM {$ubb}Messages m
+			INNER JOIN {$ubb}Users u1 ON u1.U_Username=m.M_Sender
+			INNER JOIN {$ubb}Users u2 ON u2.U_Username=m.M_Username
+			ORDER BY m.M_Number");
 	print_msg('Importing Private Messages '.db_count($r));
 	while ($obj = db_rowobj($r)) {
 		if ($obj->privmsgs_type != PRIVMSGS_READ_MAIL && $obj->privmsgs_type != PRIVMSGS_NEW_MAIL && $obj->privmsgs_type != PRIVMSGS_SENT_MAIL) {
 			continue;
 		}
 
-		list($off, $len) = write_pmsg_body(bbcode2fudcode($obj->privmsgs_text));
-		$pmsg_opt = ($obj->privmsgs_attach_sig ? 1 : 0) | ($obj->privmsgs_enable_smilies ? 0 : 2);
-		$read_stamp = $obj->privmsgs_type != PRIVMSGS_NEW_MAIL ? $obj->privmsgs_date : 0;
-		$folder = $obj->privmsgs_type != PRIVMSGS_SENT_MAIL ? 1 : 3;
+		list($off, $len) = write_pmsg_body($obj->M_Message);
 
 		q("INSERT INTO ".$DBHOST_TBL_PREFIX."pmsg 
-			(ouser_id, duser_id, ip_addr, post_stamp, read_stamp, fldr, subject, pmsg_opt, foff, length, to_list)
+			(ouser_id, duser_id, post_stamp, read_stamp, fldr, subject, pmsg_opt, foff, length, to_list)
 			VALUES(
-				".(int)$obj->privmsgs_from_userid.",
-				".(int)$obj->privmsgs_to_userid.",
-				'".phpbb_decode_ip($obj->privmsgs_ip)."',
-				".(int)$obj->privmsgs_date.",
-				".$read_stamp.",
-				".$folder.",
-				'".addslashes($obj->privmsgs_subject)."',
-				".$pmsg_opt.",
+				".(int)$obj->sen.",
+				".(int)$obj->rec.",
+				".(int)$obj->M_Sent.",
+				".(int)$obj->M_Sent.",
+				1,
+				'".addslashes($obj->M_Subject)."',
+				1,
 				".$off.",
 				".$len.",
-				'".addslashes($obj->username)."')"
+				'".addslashes($obj->M_Username)."')"
 		);
 	}
 	unset($r);
@@ -551,7 +559,7 @@ function phpbb_decode_ip($int_ip)
 		$time_taken = $m." minutes ".$s." seconds";
 	}	
 
-	print_msg("\n\nConversion of phpBB2 to FUDforum2 has been completed\n Time Taken: ".$time_taken."\n");
+	print_msg("\n\nConversion of UBB.Threads to FUDforum2 has been completed\n Time Taken: ".$time_taken."\n");
 	print_msg("To complete the process run the consistency checker at:");
 	print_msg($WWW_ROOT."adm/consist.php");
 ?>
