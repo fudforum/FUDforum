@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.31 2004/10/25 14:44:31 hackie Exp $
+* $Id: admcat.php,v 1.32 2004/10/25 15:56:21 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -102,8 +102,8 @@
 		if ($i < 1) {
 			break;
 		}
-		$l = array_pop($lvl);
-		$i--;
+		$l = $lvl[$i];
+		unset($lvl[$i--]);
 	}
 	unset($ol);
 
