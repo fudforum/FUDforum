@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: logedin.inc.t,v 1.26 2003/11/14 10:50:19 hackie Exp $
+* $Id: logedin.inc.t,v 1.27 2003/11/19 09:57:04 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ if ($FUD_OPT_1 & 1073741824 || $FUD_OPT_2 & 16) {
 	if ($FUD_OPT_1 & 1073741824) {
 		if (@count($st_obj->online_users_text)) {
 			foreach($st_obj->online_users_text as $k => $v) {
-				$logedin .= '{TEMPLATE: online_user_link}' . '{TEMPLATE: online_user_separator}';
+				$logedin .= '{TEMPLATE: online_user_link}' . ' ';
 			}
 		} else {
 			$logedin = '';
