@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: spell.inc.t,v 1.21 2004/12/08 15:21:34 hackie Exp $
+* $Id: spell.inc.t,v 1.22 2004/12/08 15:23:27 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -172,10 +172,6 @@ function check_data_spell($data, $type, $dict)
 		return $data;
 	}
 
-	$wa = tokenize_string($data);
-	$wa = spell_check_ar($wa, $type);
-	$data = reasemble_string($wa);
-
-	return $data;
+	return reasemble_string(spell_check_ar(tokenize_string($data), $type));
 }
 ?>
