@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.3 2003/04/24 18:34:31 hackie Exp $
+*   $Id: forum_adm.inc,v 1.4 2003/04/25 20:20:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -200,15 +200,14 @@ function frm_delete($id)
 	q('DELETE FROM '.$tbl.'thread WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'mlist WHERE forum_id='.$id);
 	q('DELETE FROM '.$tbl.'nntp WHERE forum_id='.$id);
-
-	$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id='.$tbl.'forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name='.$tbl.'forum.name'); 	
-
-	q('DELETE FROM '.$tbl.'groups WHERE id='.$gid);
-	q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
-	q('DELETE FROM '.$tbl.'group_members WHERE group_id='.$gid);
-
+	$gid = q_singleval('SELECT '.$tbl.'groups.id FROM '.$tbl.'forum INNER JOIN '.$tbl.'group_resources ON '.$tbl.'group_resources.resource_id='.$tbl.'forum.id INNER JOIN '.$tbl.'groups ON '.$tbl.'groups.id='.$tbl.'group_resources.group_id AND '.$tbl.'groups.name='.$tbl.'forum.name');
 	q('DELETE FROM '.$tbl.'forum WHERE id='.$id);
 
 	db_unlock();
+
+	if ($gid) {
+		fud_use('groups_adm.inc', true);
+		group_delete($gid);
+	}	
 }
 ?>
