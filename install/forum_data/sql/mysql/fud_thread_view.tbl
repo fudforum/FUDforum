@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_thread_view.tbl,v 1.1 2002/06/26 19:49:29 hackie Exp $
+#   $Id: fud_thread_view.tbl,v 1.2 2002/07/04 18:54:50 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -15,7 +15,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}thread_view
 	forum_id	INT UNSIGNED NOT NULL,
 	page		INT UNSIGNED NOT NULL,
 	thread_id	INT UNSIGNED NOT NULL,
-	pos		INT UNSIGNED NOT NULL,
+	pos		INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	tmp 		INT UNSIGNED,
 
 	UNIQUE(forum_id, page, pos),
 	INDEX(forum_id, thread_id)

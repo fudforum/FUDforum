@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.5 2002/06/29 17:38:24 hackie Exp $
+*   $Id: th.inc.t,v 1.6 2002/07/04 18:54:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -282,8 +282,6 @@ class fud_thread
 
 function rebuild_forum_view($forum_id, $page=0)
 {
-	
-	
 	if( !db_locked() ) {
 	        db_lock('{SQL_TABLE_PREFIX}thread_view+, {SQL_TABLE_PREFIX}thread+, {SQL_TABLE_PREFIX}msg+, {SQL_TABLE_PREFIX}forum+');
 		$local_lock=1;
@@ -302,114 +300,18 @@ function rebuild_forum_view($forum_id, $page=0)
 		qf(q("SELECT rebuild_thread_view($forum_id, $page, $tm)"));
 		return;
 	}
-
-	if( $page ) {
-		$r=q("SELECT 
-			{SQL_TABLE_PREFIX}thread_view.forum_id,
-			{SQL_TABLE_PREFIX}thread_view.thread_id AS id, 
-			CASE WHEN
-				is_sticky='Y'
-				AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>1012859045 OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
-			THEN
-				4294967294
-			ELSE
-				{SQL_TABLE_PREFIX}thread.last_post_date
-			END as sort_order_fld
-				
-		FROM 
-			{SQL_TABLE_PREFIX}thread_view 
-			INNER JOIN {SQL_TABLE_PREFIX}thread 
-				ON {SQL_TABLE_PREFIX}thread_view.thread_id={SQL_TABLE_PREFIX}thread.id 
-			INNER JOIN {SQL_TABLE_PREFIX}msg 
-				ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id 
-			WHERE 
-				{SQL_TABLE_PREFIX}thread_view.forum_id=".$forum_id."
-				AND page<".($page+1)." AND
-				{SQL_TABLE_PREFIX}msg.approved='Y'
-		ORDER BY 
-			sort_order_fld DESC, 
-			{SQL_TABLE_PREFIX}thread.last_post_id DESC");
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id." AND page<".($page+1));
+	else if ( __dbtype__ == 'mysql' ) {
+		if( $page ) {
+			q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id." AND page<".($page+1));
+			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,tmp) SELECT {SQL_TABLE_PREFIX}thread.id, {SQL_TABLE_PREFIX}thread.forum_id, 4294967294, CASE WHEN is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." OR {SQL_TABLE_PREFIX}thread.orderexpiry=0) THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END AS sort_order_fld  FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$forum_id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY sort_order_fld DESC, {SQL_TABLE_PREFIX}thread.last_post_id DESC LIMIT 0, ".($GLOBALS['THREADS_PER_PAGE']*$page));
+			q("UPDATE {SQL_TABLE_PREFIX}thread_view SET page=CEILING(pos/".$GLOBALS['THREADS_PER_PAGE']."), pos=pos-(CEILING(pos/".$GLOBALS['THREADS_PER_PAGE'].")-1)*".$GLOBALS['THREADS_PER_PAGE']." WHERE forum_id=".$forum_id." AND page=4294967294");			
+		}
+		else {
+			q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id);
+			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (thread_id,forum_id,page,tmp) SELECT {SQL_TABLE_PREFIX}thread.id, {SQL_TABLE_PREFIX}thread.forum_id, 4294967294, CASE WHEN is_sticky='Y' AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." OR {SQL_TABLE_PREFIX}thread.orderexpiry=0) THEN 4294967294 ELSE {SQL_TABLE_PREFIX}thread.last_post_date END AS sort_order_fld  FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$forum_id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY sort_order_fld DESC, {SQL_TABLE_PREFIX}thread.last_post_id DESC");
+			q("UPDATE {SQL_TABLE_PREFIX}thread_view SET page=CEILING(pos/".$GLOBALS['THREADS_PER_PAGE']."), pos=pos-(CEILING(pos/".$GLOBALS['THREADS_PER_PAGE'].")-1)*".$GLOBALS['THREADS_PER_PAGE']." WHERE forum_id=".$forum_id);			
+		}
 	}
-	else {
-		q("DELETE FROM {SQL_TABLE_PREFIX}thread_view WHERE forum_id=".$forum_id);
-		$r = q("SELECT 
-				{SQL_TABLE_PREFIX}thread.id, 
-				{SQL_TABLE_PREFIX}thread.forum_id,
-				CASE WHEN
-					is_sticky='Y' 
-					AND ({SQL_TABLE_PREFIX}msg.post_stamp+{SQL_TABLE_PREFIX}thread.orderexpiry>".$tm." 
-					OR {SQL_TABLE_PREFIX}thread.orderexpiry=0)
-				THEN
-					4294967294
-				ELSE
-					{SQL_TABLE_PREFIX}thread.last_post_date
-				END AS sort_order_fld
-					
-			FROM 
-				{SQL_TABLE_PREFIX}thread
-				INNER JOIN {SQL_TABLE_PREFIX}msg
-					ON {SQL_TABLE_PREFIX}thread.root_msg_id={SQL_TABLE_PREFIX}msg.id
-			WHERE 
-				forum_id=".$forum_id." AND
-				{SQL_TABLE_PREFIX}msg.approved='Y'
-				
-			ORDER BY 
-				sort_order_fld DESC, 
-				{SQL_TABLE_PREFIX}thread.last_post_id DESC");		
-	}
-	
-	/* has to be db specific for speed */
-	$GLOBALS['_TH_INC_']['view_rebuild_func']($r);
-	
 	if( $local_lock ) db_unlock();
 }
-
-$GLOBALS['_TH_INC_']['view_rebuild_func'] = __dbtype__.'_thread_view_insert';
-
-function pgsql_thread_view_insert($r)
-{
-	$i=0;
-	$cnt = 0;
-	$page = 1;
-	
-	while ( $obj = db_rowobj($r) ) {
-		if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
-			$page++;
-			$cnt = 0;
-		}
-		
-		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES ($page, $obj->forum_id, $obj->id, ".++$cnt.")");
-		$i++;
-	}	
-}
-
-function mysql_thread_view_insert($r)
-{
-	$i=0;
-	$cnt = 0;
-	$page = 1;
-	$vlist = '';
-	
-	while ( $obj = db_rowobj($r) ) {
-		if ( $i && !($i%$GLOBALS['THREADS_PER_PAGE']) ) {
-			$vlist = substr($vlist, 0, -1);
-			q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES $vlist");
-			$vlist = '';
-			$page++;
-			$cnt = 0;
-		}	
-
-		$vlist .= '('.$page.', '.$obj->forum_id.', '.$obj->id.', '.++$cnt.'),';
-		
-		$i++;
-	}
-	
-	if ( strlen($vlist) ) {
-		$vlist = substr($vlist, 0, -1);
-		q("INSERT INTO {SQL_TABLE_PREFIX}thread_view (page, forum_id, thread_id, pos) VALUES $vlist");
-	}
-	qf($r);	
-}
-
 ?>
