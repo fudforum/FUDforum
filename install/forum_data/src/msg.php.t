@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.php.t,v 1.35 2003/04/16 10:48:34 hackie Exp $
+*   $Id: msg.php.t,v 1.36 2003/04/16 10:56:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -48,10 +48,13 @@
 		} else {
 			invl_inp_err();
 		}
+		$msg_page_focus = '{TEMPLATE: msg_page_focus}';
 		
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
 	} else if (!isset($_GET['th'])) {
 		invl_inp_err();
+	} else {
+		$msg_page_focus = '';
 	}
 
 	/* we create a BIG object frm, which contains data about forum, 
