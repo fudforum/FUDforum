@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: modque.tmpl,v 1.9 2004/01/04 16:38:30 hackie Exp $
+* $Id: modque.tmpl,v 1.10 2004/04/22 14:35:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -26,9 +26,9 @@
 {REF: smiley.tmpl}
 
 {SECTION: modque_msg_header_lnk}
-{ROOT}/mq/appr/{VAR: obj->id}/{DEF: _rsid}
+{ROOT}/mq/appr/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
 
 {SECTION: modque_msg_header_lnk1}
-{ROOT}/del/{VAR: obj->id}/{DEF: _rsid}
+{ROOT}/del/{VAR: obj->id}/{DEF: _rsid}?SQ={GVAR: sq}
 {SECTION: END}
