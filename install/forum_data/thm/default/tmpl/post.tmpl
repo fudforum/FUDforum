@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.tmpl,v 1.47 2005/02/25 16:18:49 hackie Exp $
+* $Id: post.tmpl,v 1.48 2005/02/25 16:42:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -61,7 +61,7 @@
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
-<tr class="RowStyleB"><td class="GenText">{MSG: post_passwd}</td><td><input type="password" name="frm_passwd" value="" tabindex="1">{VAR: pass_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_passwd}</td><td><input type="password" name="frm_passwd" value="" tabindex="1">{FUNC: get_err('password')}</td></tr>
 {SECTION: END}
 
 {SECTION: create_poll}
@@ -89,9 +89,9 @@
 
 
 {SECTION: reg_user_options various options for logged in registered users}
-<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{VAR: msg_poster_notif_check}></td><td class="GenText fb">{MSG: post_notification}</td></tr>
+<tr><td><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked{ENDIFI}></td><td class="GenText fb">{MSG: post_notification}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: post_notification_desc}</td></tr>
-<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{VAR: msg_show_sig_check}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
+<tr><td><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked{ENDIFI}></td><td class="GenText fb">{MSG: include_sig}</td></tr>
 <tr><td>&nbsp;</td><td class="SmallText">{MSG: include_sig_desc}</td></tr>
 {TEMPLATE-DATA: mod_post_opts}
 {SECTION: END}
@@ -101,7 +101,7 @@
 {SECTION: END}
 
 {SECTION: disable_smileys}
-<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{VAR: msg_smiley_disabled_check}></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
+<tr><td><input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked{ENDIFI}></td><td class="GenText fb">{MSG: disable_smilies}</td></tr>
 {SECTION: END}
 
 {SECTION: spell_check_button}
@@ -139,25 +139,26 @@
 {TEMPLATE-DATA: preview_message}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr><th colspan=2><a name="ptop"> </a>{MSG: post_form}</th></tr>
-{TEMPLATE-DATA: loged_in_user}
-{TEMPLATE-DATA: post_password}
+{IF: _uid}{TEMPLATE: loged_in_user}{ENDIF}
+{IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
 <tr class="RowStyleB"><td class="GenText">{MSG: post_forum}</td><td class="GenText">{VAR: frm->name}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {FUNC: get_err('msg_subject')}</td></tr>
 {TEMPLATE-DATA: poll}
 {TEMPLATE-DATA: admin_options}
-{TEMPLATE-DATA: post_icons}
-{TEMPLATE-DATA: post_smilies}
-{TEMPLATE-DATA: fud_code_icons}
+{FUNC: draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''))}
+{IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
+{IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
 
-<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" id="txtb" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt nw GenText">{MSG: post_body}<br /><br />{FUNC: tmpl_post_options($frm->forum_opt, $perms)}</td><td>{FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="3" wrap="virtual" id="txtb" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB vt">
 <td class="GenText">{MSG: post_options}</td>
 <td>
 <table border=0 cellspacing=0 cellpadding=1>
+{IF: _uid}{TEMPLATE: reg_user_options}{ENDIF}
 {TEMPLATE-DATA: reg_user_options}
-{TEMPLATE-DATA: disable_smileys}
+{IF: $perms & 16384}{TEMPLATE: disable_smileys}{ENDIF}
 </table>
 </td></tr>
 <tr class="RowStyleA"><td class="GenText ar" colspan=2>

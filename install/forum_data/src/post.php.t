@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.126 2005/02/06 20:56:38 hackie Exp $
+* $Id: post.php.t,v 1.127 2005/02/25 16:42:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -515,22 +515,11 @@ function flood_check()
 	}
 
 	$post_error = is_post_error() ? '{TEMPLATE: post_error}' : '';
-	$loged_in_user = _uid ? '{TEMPLATE: loged_in_user}' : '';
 
 	$session_error = get_err('msg_session');
 	if ($session_error) {
 		$post_error = $session_error;
 	}
-
-	/* handle password protected forums */
-	if ($frm->forum_opt & 4 && !$is_a) {
-		$pass_err = get_err('password');
-		$post_password = '{TEMPLATE: post_password}';
-	} else {
-		$post_password = '';
-	}
-
-	$msg_subect_err = get_err('msg_subject');
 
 	/* handle polls */
 	$poll = '';
@@ -578,14 +567,6 @@ function flood_check()
 		$mod_post_opts = '';
 	}
 
-	/* message icon selection */
-	$post_icons = draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''));
-
-	/* tool bar icons */
-	$fud_code_icons = $frm->forum_opt & 16 ? '{TEMPLATE: fud_code_icons}' : '';
-
-	$post_options = tmpl_post_options($frm->forum_opt, $perms);
-	$message_err = get_err('msg_body', 1);
 	$msg_body = $msg_body ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
 	if ($msg_subject) {
 		$msg_subject = htmlspecialchars($msg_subject);
@@ -609,22 +590,6 @@ function flood_check()
 		$file_attachments = '';
 	}
 
-	if (_uid) {
-		$msg_poster_notif_check = $msg_poster_notif ? ' checked' : '';
-		$msg_show_sig_check = $msg_show_sig ? ' checked' : '';
-		$reg_user_options = '{TEMPLATE: reg_user_options}';
-	} else {
-		$reg_user_options = '';
-	}
-
-	/* handle smilies */
-	if ($perms & 16384) {
-		$msg_smiley_disabled_check = $msg_smiley_disabled ? ' checked' : '';
-		$disable_smileys = '{TEMPLATE: disable_smileys}';
-		$post_smilies = draw_post_smiley_cntrl();
-	} else {
-		$post_smilies = $disable_smileys = '';
-	}
 /*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: POST_PAGE}
