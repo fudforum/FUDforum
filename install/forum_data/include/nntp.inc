@@ -1,8 +1,9 @@
+
 <?php
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.50 2004/10/05 15:18:06 hackie Exp $
+* $Id: nntp.inc,v 1.51 2004/10/11 18:51:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -391,6 +392,11 @@ class fud_nntp
 				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > __request_timestamp__) {
 					$msg_post->post_stamp = __request_timestamp__;
 				}
+			}
+
+			/* strip =20 some NNTP clients add */
+			if (strpos($this->body, '=20') !== false) {
+				$this->body = preg_replace('!=20([\r\n]+)!', '\1', $this->body);
 			}
 
 			$msg_post->subject = apply_custom_replace($this->subject);
