@@ -921,3 +921,4 @@ err_mod_acc_msg:		Administrátor se rozhodl, ¾e bude prohlí¾et v¹echny úèty manuá
 accounts_pending_approval:	Úèty ke schválení
 saved:				Ulo¾ené
 
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.

@@ -920,3 +920,4 @@ err_mod_acc_ttl:		Unbest&auml;tigtes Benutzerkonto
 err_mod_acc_msg:		Der Administrator hat beschlossen, alle Konten vor der Aktivierung pers&ouml;nlich durchzugehen. Daher wirst Du nicht im vollen Umfang vom Konto Gebrauch machen können, solange dieses nicht vom Administrator best&auml;tigt worden ist.
 accounts_pending_approval:	Billigung des sich in der Schwebe befindlichen Kontos
 saved:				Abgespeichert
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.

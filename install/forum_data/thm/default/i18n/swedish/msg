@@ -920,3 +920,4 @@ err_mod_acc_ttl:		Obekr&auml;ftad anv&auml;ndare
 err_mod_acc_msg:		Administratorn har valt att sj&auml;lv granska alla anv&auml;ndare innan aktivering. Du kommer inte att ha fulla r&auml;ttigheter i forumet innan administratorn har godk&auml;nt ditt anv&uml;ndarnamn.
 accounts_pending_approval:	Ej granskade anv&auml;ndare
 saved:				Sparade
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.

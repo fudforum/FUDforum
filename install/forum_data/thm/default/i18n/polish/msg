@@ -921,3 +921,4 @@ err_mod_acc_ttl:		Niezatwierdzone konto
 err_mod_acc_msg:		Administrator zdecydowa³ zatwierdzaæ rêcznie wszystko konta przed ich aktywacj±. Zanim administrator nie zatwierdzi twojego konta, nie bêdziesz móg³ skorzystaæ ze wszystkich mo¿liwo¶ci konta.
 accounts_pending_approval:	Konta oczekuj±ce na zatwierdzenie
 saved:				Zachowane
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.

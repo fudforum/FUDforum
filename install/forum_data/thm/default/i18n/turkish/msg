@@ -920,3 +920,4 @@ err_mod_acc_ttl:		Onaylanmamýþ Hesap
 err_mod_acc_msg:		Tüm hesaplarýn etkinleþmeden önce yönetici tarafýndan onaylanmasý gerekiyor. Hesabýnýz yönetici tarafýndan etkinleþtirilinceye dek hesabýnýzýn tüm özelliklerini kullanamayabilirsiniz. 
 accounts_pending_approval:	Onay bekleyen hesaplar
 saved:				Kaydedildi
+register_err_time_limit:	The registration limit of 1 registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} seconds and then try to register once again.
