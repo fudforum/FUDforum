@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: report.php.t,v 1.9 2003/09/26 18:49:03 hackie Exp $
+*   $Id: report.php.t,v 1.10 2003/09/29 14:50:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -23,7 +23,7 @@
 	/* permission check */
 	is_allowed_user($usr);
 	
-	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS md, (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END) AS p_read, mr.id AS reported
+	$msg = db_sab('SELECT t.forum_id, m.subject, m.post_stamp, u.alias, mm.id AS md, (CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END) & 2 AS gco, mr.id AS reported
 			FROM {SQL_TABLE_PREFIX}msg m 
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=t.forum_id 
@@ -36,7 +36,7 @@
 		invl_inp_err();
 	}
 
-	if ($usr->is_mod != 'A' && !$msg->md && $msg->p_read != 'Y') {
+	if (!($usr->users_opt & 1048576) && !$msg->md && !$msg->gco) {
 		std_error('access');		
 	}
 
@@ -45,9 +45,7 @@
 	}
 
 	if (!empty($_POST['reason']) && ($reason = trim($_POST['reason']))) {
-		db_lock('{SQL_TABLE_PREFIX}msg_report WRITE');
 		q("INSERT INTO {SQL_TABLE_PREFIX}msg_report (user_id, msg_id, reason, stamp) VALUES("._uid.", ".$msg_id.", '".addslashes(htmlspecialchars($reason))."', ".__request_timestamp__.")");
-		db_unlock();
 		check_return($usr->returnto);
 	} else if (count($_POST)) {
 		$reason_error = '{TEMPLATE: report_empty_report}';	

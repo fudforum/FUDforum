@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.16 2003/09/27 15:49:31 hackie Exp $
+*   $Id: reported.php.t,v 1.17 2003/09/29 14:50:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,7 +18,7 @@
 /*{PRE_HTML_PHP}*/
 	
 	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
-		if ($usr->is_mod == 'A' || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
+		if ($usr->users_opt & 1048576 || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='.$del);
 			if (db_affected()) {
 				logaction(_uid, 'DELREPORT');
@@ -27,19 +27,15 @@
 			std_error('access');
 		}
 	}
-	
+
 /*{POST_HTML_PHP}*/
-	
-	$mod_limiter = ( $usr->is_mod != 'A' ) ? 'INNER JOIN {SQL_TABLE_PREFIX}mod ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}mod.forum_id AND {SQL_TABLE_PREFIX}mod.user_id='._uid : '';
-	
+
 	$r = $query_type('SELECT 	
 			m.*, 
 			t.thread_opt, t.root_msg_id, t.last_post_id, t.forum_id,
 			f.message_threshold, f.name AS frm_name,
-			u.id AS user_id, u.alias AS login, u.display_email, u.avatar_approved,
-			u.avatar_loc, u.email, u.posted_msg_count, u.join_date,  u.location, 
-			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
-			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
+			u.id AS user_id, u.alias AS login, u.avatar_loc, u.email, u.posted_msg_count, u.join_date, u.location, 
+			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, u.yahoo, u.users_opt, u.last_visit AS time_sec,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
@@ -51,7 +47,7 @@
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id 
 			INNER JOIN {SQL_TABLE_PREFIX}msg m2 ON m2.id=t.root_msg_id
 			INNER JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id=f.id
-			'.($usr->is_mod != 'A' ? ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid : '').'
+			'.($usr->users_opt & 1048576 ? '' : ' INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid).'
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id 
 			LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON mr.user_id=u2.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
