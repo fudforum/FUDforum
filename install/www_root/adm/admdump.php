@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admdump.php,v 1.48 2004/10/06 18:23:12 hackie Exp $
+* $Id: admdump.php,v 1.49 2004/10/06 19:15:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -52,7 +52,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 	global $BUF_SIZE;
 
 	$dirs = array(realpath($dirp));
-	$repl = realpath($keep_dir) . '/';
+	$repl = realpath($GLOBALS[$keep_dir]);
 	
 	while (list(,$v) = each($dirs)) {
 		if (!is_readable($v)) {
@@ -64,9 +64,11 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 		if (!($files = glob($v . '/{.[a-z]*,*}', GLOB_BRACE))) {
 			continue;
 		}
-		
-		$dpath = str_replace($repl, '', $v) . '/';
-		
+
+		if ($dpath = trim(str_replace($repl, '', $v), '/')) {
+			$dpath .= '/';
+		}
+
 		foreach ($files as $f) {
 			if (is_link($f)) {
 				continue;
@@ -82,9 +84,9 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 			if ($name == 'GLOBALS.php') {
 				continue;
 			}
-			if (!@is_readable($f)) {
+			if (!is_readable($f)) {
 				echo "WARNING: unable to open '".$f."' for reading<br>\n";
-				break;
+				continue;
 			}
 			$ln = filesize($f);
 			if ($ln < $BUF_SIZE) {
