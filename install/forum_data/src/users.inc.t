@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users.inc.t,v 1.146 2005/02/26 04:58:39 hackie Exp $
+* $Id: users.inc.t,v 1.147 2005/04/03 19:15:49 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -378,12 +378,12 @@ function init_user()
 				$_GET['t'] = 'search';
 				if (isset($p[1])) {
 					$_GET['srch'] = urldecode($p[1]);
-					$_GET['field'] = $p[2];
-					$_GET['search_logic'] = $p[3];
-					$_GET['sort_order'] = $p[4];
-					$_GET['forum_limiter'] = $p[5];
-					$_GET['start'] = $p[6];
-					$_GET['author'] = $p[7];
+					$_GET['field'] = isset($p[2]) ? $p[2] : '';
+					$_GET['search_logic'] = isset($p[3]) ? $p[3] : '';
+					$_GET['sort_order'] = isset($p[4]) ? $p[4] : '';
+					$_GET['forum_limiter'] = isset($p[5]) ? $p[5] : '';
+					$_GET['start'] = isset($p[6]) ? $p[6] : '';
+					$_GET['author'] = isset($p[7]) ? $p[7] : '';
 				}
 				break;
 
