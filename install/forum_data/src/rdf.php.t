@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: rdf.php.t,v 1.9 2003/05/20 15:16:08 hackie Exp $
+*   $Id: rdf.php.t,v 1.10 2003/05/23 06:45:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,9 +30,11 @@
 	        exit(__fud_e_install_script_present_error);
 	}
 
+	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';
+
 /*{PRE_HTML_PHP}*/
 
-	if ($RDF_ENABLED == 'N' || ($RDF_ALLOW_USER_DATA != 'Y' && $mode = 'u')) {
+	if ($RDF_ENABLED == 'N' || ($RDF_ALLOW_USER_DATA != 'Y' && $mode == 'u')) {
 		fud_use('cookies.inc');
 		fud_use('users.inc');
 		std_error('disabled');
@@ -62,7 +64,7 @@ function email_format($data)
 	 * t 		- threads
 	 * u		- users
 	 */
-	$mode = (isset($_GET['mode']) && in_array($_GET['mode'], array('m', 't', 'u'))) ? $_GET['mode'] : 'm';
+	
 	if (@count($_GET) < 2) {
 		$_GET['ds'] = time() - 86400;
 		$_GET['l'] = 1;
@@ -71,7 +73,6 @@ function email_format($data)
 
 	define('__ROOT__', $WWW_ROOT . 'index.php');
 
-	
 	$offset = isset($_GET['o']) ? (int)$_GET['o'] : 0;
 	$limit  = (isset($_GET['n']) && $_GET['n'] <= $MAX_N_RESULTS) ? (int)$_GET['n'] : $MAX_N_RESULTS; 
 
