@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.22 2003/04/27 17:27:50 hackie Exp $
+*   $Id: compiler.inc,v 1.23 2003/04/30 16:07:36 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -360,30 +360,28 @@ function build_msg($file)
 
 function resolve_inc_refs($file)
 {
-	if (!empty($GLOBALS['file_cache'][$file]['resolved'])) {
-		return $GLOBALS['file_cache'][$file]['include'];
+	$curf =& $GLOBALS['file_cache'][$file];
+	if (isset($curf['resolved'])) { 
+		return;
+	}
+	if (!isset($curf['include'])) {
+		$curf['resolved'] = 1;
+		$curf['include'] = array();
+		return;
 	}
 
-	if (isset($GLOBALS['file_cache'][$file]['include']) && is_array($GLOBALS['file_cache'][$file]['include'])) {
-		$ar = array();
-		foreach($GLOBALS['file_cache'][$file]['include'] as $k => $v) {
-			if (!isset($GLOBALS['file_cache'][$k]['include'])) {
-				$ar[$k] = $k;
-			} else {
-				if (!isset($GLOBALS['file_cache'][$k]['resolved'])) {
-					$ar = array_merge($ar, resolve_inc_refs($k));
-				} else {
-					$ar = array_merge($ar, $GLOBALS['file_cache'][$k]['include']);
-				}
-			}	
+	$ar =& $curf['include'];
+	$vs = array_keys($ar);
+
+	foreach($vs as $v) {
+		if ($v == $file) {
+			continue;
 		}
-		$ar[$file] = $file;
-		return $ar;
-	} else {
-		return array($file => $file);
+		resolve_inc_refs($v);
+		$ar = array_merge($ar, $GLOBALS['file_cache'][$v]['include']);
 	}
-		
-	return;	
+	$ar[$file] = $file;
+	$curf['resolved'] = 1;
 }
 
 function resolve_compile($file)
@@ -392,7 +390,8 @@ function resolve_compile($file)
 		return;
 	}
 	resolve_refs($file, $file);
-	array_push($GLOBALS['file_cache'][$file], array('include' => resolve_inc_refs($file), 'resolved' => 1, 'compiled' => compile_file($GLOBALS['file_cache'][$file]['src'])));
+	resolve_inc_refs($file);
+	$GLOBALS['file_cache'][$file]['compiled'] = compile_file($GLOBALS['file_cache'][$file]['src']);
 }
 
 function fud_mkdir($dir, $perms=0700)
