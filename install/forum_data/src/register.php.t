@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.16 2002/08/15 05:27:35 hackie Exp $
+*   $Id: register.php.t,v 1.17 2002/08/19 09:07:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -510,6 +510,7 @@ function fmt_post_vars(&$arr, $who, $leave_arr=NULL)
 		$reg_append_sig = 'Y';
 		$reg_show_sigs = 'Y';
 		$reg_show_avatars = 'Y';
+		$reg_show_im = 'Y';
 		$reg_invisible_mode = 'N';
 		$reg_notify = 'Y';
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
@@ -666,6 +667,7 @@ else {
 	$accept_pm = tmpl_draw_radio_opt('reg_pm_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_sig_radio = tmpl_draw_radio_opt('reg_show_sigs', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_sigs, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$show_avatar_radio = tmpl_draw_radio_opt('reg_show_avatars', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_avatars, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_im_radio = tmpl_draw_radio_opt('reg_show_im', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_im, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$append_sig_radio = tmpl_draw_radio_opt('reg_append_sig', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_append_sig, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 	$return = create_return();
 
