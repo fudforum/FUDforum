@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.16 2002/08/09 10:19:03 hackie Exp $
+*   $Id: compiler.inc,v 1.17 2002/08/22 02:29:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -182,7 +182,7 @@ function resolve_sections($str)
 				else if ( isset($GLOBALS['TC']['MAIN_SECTION'][$name]) ) $sec = 'MAIN_SECTION';
 				else if ( isset($GLOBALS['TC']['PAGE'][$name]) ) $sec = 'PAGE';
 				else {
-					echo "Undefined sec: $name\n";
+					echo "Undefined template: '$tag' inside '$name'\n";
 					exit;
 				}
 				$ret .= $GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
@@ -244,7 +244,7 @@ function compile_file($source)
 		else if ( isset($GLOBALS['TC']['MAIN_SECTION'][$name]) ) $sec = 'MAIN_SECTION';
 		else if ( isset($GLOBALS['TC']['PAGE'][$name]) ) $sec = 'PAGE';
 		else {
-			echo "Undefined sec: $name\n";
+			echo "Undefined template: '$name' inside '$source'\n";
 			exit;
 		}
 		$GLOBALS['TC'][$sec][$name]['data'] = resolve_sections($GLOBALS['TC'][$sec][$name]['data']);
