@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: replace.inc.t,v 1.5 2003/04/20 22:27:42 hackie Exp $
+*   $Id: replace.inc.t,v 1.6 2003/05/02 15:32:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -47,7 +47,7 @@ function make_reverse_replace_array()
 		if ($r[0] == 'PERL') {
 			$GLOBALS['__FUD_REPLR__']['pattern'][] = $r[3];
 			$GLOBALS['__FUD_REPLR__']['replace'][] = $r[4];
-		} else if ($type == 'REPLACE' && strlen($obj->with_str) && strlen($obj->replace_str)) {
+		} else if ($r[0] == 'REPLACE' && strlen($r[1]) && strlen($r[2])) {
 			$GLOBALS['__FUD_REPLR__']['pattern'][] = '/'.str_replace('/', '\\/', preg_quote(stripslashes($r[1]))).'/';
 			preg_match('/\/(.+)\/(.*)/', $r[2], $regs);
 			$GLOBALS['__FUD_REPLR__']['replace'][] = str_replace('\\/', '/', $regs[1]);
