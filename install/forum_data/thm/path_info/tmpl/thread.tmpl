@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.9 2003/10/09 14:34:31 hackie Exp $
+* $Id: thread.tmpl,v 1.10 2003/10/09 15:46:11 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -66,10 +66,6 @@
 </table>	
 {SECTION: END}
 
-{SECTION: admin_heading_row}
-<th nowrap>{MSG: moderator_options}</th>
-{SECTION: END}
-
 {SECTION: mini_thread_pager}
 <font class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" border=0 alt="" />{TEMPLATE-DATA: mini_pager_data})</font>
 {SECTION: END}
@@ -91,11 +87,10 @@
 {SECTION: END}
 
 {SECTION: rating}
-<td class="RowStyleA" align="center"><img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" border=0 alt="{VAR: r[17]}" /></td>
+<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" border=0 alt="{VAR: r[17]}" />
 {SECTION: END}
 
 {SECTION: rating_none}
-<td class="RowStyleA" align="center"> </td>
 {SECTION: END}
 
 {SECTION: sticky}
@@ -139,40 +134,34 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}/mh/{VAR: r[13]}/{DEF: _rsid}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}/d/{VAR: r[15]}/{VAR: r[13]}/{DEF: _rsid}">{MSG: thread_mod_delete}</a></td>
+<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{ROOT}/mh/{VAR: r[13]}/{DEF: _rsid}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{ROOT}/d/{VAR: r[15]}/{VAR: r[13]}/{DEF: _rsid}">{MSG: thread_mod_delete}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<td align=center class="RowStyleA"><a href="javascript://" onClick="javascript: window_open(\'{ROOT}/mh/{VAR: r[13]}/{DEF: _rsid}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></td>
+<br /><b>{MSG: moderator_options}:</b> <a href="javascript://" onClick="javascript: window_open(\'{ROOT}/mh/{VAR: r[13]}/{DEF: _rsid}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
-<td align=center class="RowStyleA"><a href="{ROOT}/d/{VAR: r[15]}/{VAR: r[13]}/{DEF: _rsid}">{MSG: thread_mod_delete}</a></td>
+<br /><b>{MSG: moderator_options}:</b> <a href="{ROOT}/d/{VAR: r[15]}/{VAR: r[13]}/{DEF: _rsid}">{MSG: thread_mod_delete}</a>
 {SECTION: END}
 
 {SECTION: thread_row}
 <tr>		
 <td width=1 class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
 <td class="RowStyleB" width=1 align="center">{TEMPLATE-DATA: thread_icon}</td>
-<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/t/{VAR: r[13]}/{DEF: _rsid}">{VAR: r[2]}</a>&nbsp;{TEMPLATE-DATA: mini_thread_pager}</td>
+<td class="RowStyleA">{TEMPLATE-DATA: stick_status}{TEMPLATE-DATA: first_unread_msg_link}{TEMPLATE-DATA: thread_poll_indicator}{TEMPLATE-DATA: thread_attach_indicator}<a class="GenLink" href="{ROOT}/t/{VAR: r[13]}/{DEF: _rsid}">{VAR: r[2]}</a> {TEMPLATE-DATA: rating} {TEMPLATE-DATA: mini_thread_pager}
+<font class="SmallText"><br />{MSG: by} {TEMPLATE-DATA: first_post_login} {MSG: thread_on} {TEMPLATE: thread_first_post}{TEMPLATE-DATA: admin_control_row}</font></td>
 <td class="RowStyleB" align="center">{VAR: r[16]}</td>
 <td class="RowStyleB" align="center">{VAR: r[19]}</td>
-{TEMPLATE-DATA: rating}
-<td class="RowStyleB" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
-<td class="RowStyleB" nowrap>{TEMPLATE: thread_first_post}<br />{MSG: by} {TEMPLATE-DATA: first_post_login}</td>
-{TEMPLATE-DATA: admin_control_row}
+<td class="RowStyleC" nowrap>{TEMPLATE: thread_last_post}<br />{MSG: by} {TEMPLATE-DATA: user_link} {TEMPLATE: last_msg_in_thread}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
 <td width=1 class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved.gif" border=0 title="{MSG: moved_thread_message}" /></td>
-<td class="RowStyleB" colspan="{VAR: moved_cols}" align="center" class="GenText">{MSG: was_moved_msg}</td>
+<td class="RowStyleB" colspan="5" align="center" class="GenText">{MSG: was_moved_msg}</td>
 </tr>
-{SECTION: END}
-
-{SECTION: rating_heading}
-<th align="center">{MSG: rating}</th>
 {SECTION: END}
 
 {SECTION: thread_list}
@@ -183,10 +172,7 @@
 	<th width="100%">{MSG: thread_thread}</th>
 	<th width=1>{MSG: replies}</th>
 	<th width=1>{MSG: views}</th>
-	{TEMPLATE-DATA: rating_heading}
 	<th nowrap>{MSG: last_post}</th>
-	<th nowrap>{MSG: started_on}</th>
-	{TEMPLATE-DATA: admin_heading_row}
 </tr>
 {TEMPLATE-DATA: announcements}
 {TEMPLATE-DATA: thread_list_table_data}
