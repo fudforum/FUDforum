@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.8 2002/08/05 05:58:21 hackie Exp $
+*   $Id: selmsg.php.t,v 1.9 2002/08/07 22:18:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-/*#? Message Display Page */
 	{PRE_HTML_PHP}
 	
 function ifstr($opt1, $opt2, $str)
@@ -236,7 +235,7 @@ function ifstr($opt1, $opt2, $str)
 			if ( $p_frm_id ) $usr->register_forum_view($p_frm_id);
 		}
 		
-		header('Location: {ROOT}?t=selmsg&'.$url_param.'rand='.get_random_value());
+		header('Location: {ROOT}?t=selmsg&'.str_replace('&amp;', '&', $url_param).'rand='.get_random_value());
 		exit();
 	}
 	$dth_id='';
