@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp_adm.inc,v 1.20 2004/11/24 19:53:34 hackie Exp $
+* $Id: nntp_adm.inc,v 1.21 2004/12/08 16:22:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,8 +21,7 @@ class fud_nntp_adm
 	function fud_nntp_adm()
 	{
 		if (isset($_POST) && count($_POST)) {
-			$el = array_keys(get_object_vars($this));
-			foreach ($el as $v) {
+			foreach (array_keys(get_object_vars($this)) as $v) {
 				if (isset($_POST['nntp_' . $v])) {
 					$this->{$v} = $_POST['nntp_' . $v];
 				}

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.54 2004/11/24 19:53:34 hackie Exp $
+* $Id: nntp.inc,v 1.55 2004/12/08 16:22:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -244,10 +244,9 @@ class fud_nntp
 			return;
 		}
 		$data = trim(substr($data, $e, ($e2-$e)));
-		$tmp = explode("\n", $data);
 
 		$out = '';
-		foreach($tmp as $line) {
+		foreach(explode("\n", $data) as $line) {
 			$p = 0;
 			$n = ((ord($line[$p]) -32) & 077);
 			if ($n <= 0) {

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: theme.inc,v 1.21 2004/11/24 19:53:34 hackie Exp $
+* $Id: theme.inc,v 1.22 2004/12/08 16:19:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -164,10 +164,8 @@ function cleandir($dir)
 			}
 		}
 	}
-	
-	$dirs = array_reverse($dirs);
-	
-	foreach ($dirs as $dir) {
+
+	foreach (array_reverse($dirs) as $dir) {
 		if (!rmdir($dir)) {
 			echo '<b>Could not delete directory "'.$dir.'"<br>';
 		}
