@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forumsel.inc.t,v 1.11 2003/05/08 13:22:23 hackie Exp $
+*   $Id: forumsel.inc.t,v 1.12 2003/05/15 19:05:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -63,5 +63,5 @@ function tmpl_create_forum_select($frm_id, $is_mod)
 	}
 }
 
-	$forum_select = tmpl_create_forum_select($frm->id, $usr->is_mod);
+	$forum_select = tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->is_mod);
 ?>
