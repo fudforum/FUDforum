@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admthemes.php,v 1.41 2004/01/04 16:38:32 hackie Exp $
+* $Id: admthemes.php,v 1.42 2004/01/06 01:12:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -70,6 +70,7 @@ function clean_code($path, $toks)
 				case T_WHITESPACE:
 					break;
 				case T_FUNCTION:
+				case T_CASE:
 				case T_CLASS:
 				case T_NEW:
 				case T_ECHO:
