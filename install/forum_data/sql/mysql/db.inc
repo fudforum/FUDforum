@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.10 2002/08/28 17:39:17 hackie Exp $
+*   $Id: db.inc,v 1.11 2002/08/29 14:38:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -272,14 +272,9 @@ function qry_limit($limit, $off)
 function get_fud_table_list()
 {
 	$ret = array();
-	$p_len = strlen($GLOBALS['DBHOST_TBL_PREFIX']);
-	
-	$r = mysql_list_tables($GLOBALS['DBHOST_DBNAME'],$GLOBALS['__DB_INC__']['SQL_LINK']);
-	while( list($name) = db_rowarr($r) ) {
-		if( substr($name, 0, $p_len) != $GLOBALS['DBHOST_TBL_PREFIX'] ) continue;
-		$ret[] = $name;
-	}	
-	QF($r);
+	$r = q("show tables LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	while( list($name) = db_rowarr($r) ) $ret[] = $name;
+	qf($r);
 	
 	return $ret;	
 }
