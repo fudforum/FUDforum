@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.7 2002/07/16 23:57:19 hackie Exp $
+*   $Id: admglobal.php,v 1.8 2002/07/21 21:52:13 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -35,12 +35,10 @@
 	
 	if ( !empty($form_posted) ) {
 		$change = 0;
-		while( list($k,$v) = each($global_config_ar) ) {
-			if( !isset($HTTP_POST_VARS['CF_'.$k]) ) continue;
-			$HTTP_POST_VARS['CF_'.$k] = addcslashes(stripslashes($HTTP_POST_VARS['CF_'.$k]), '"$');
-			if( $HTTP_POST_VARS['CF_'.$k] == $v ) continue;
+		foreach($HTTP_POST_VARS as $k => $v) {
+			if( substr($k, 0, 3) != 'CF_' || $v == ${substr($k, 3)} ) continue;
 			
-			change_global_val($k, $HTTP_POST_VARS['CF_'.$k], $global_config);
+			change_global_val(substr($k, 3), $v, $global_config);
 			$change = 1;
 		}
 		
@@ -169,6 +167,7 @@ else
 <tr bgcolor="#bff8ff"><td>COPPA:<?php draw_help('COPPA'); ?></td><td><?php draw_select('CF_COPPA', "Off\nOn", "N\nY", $CF_COPPA); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Posts Per Page:<?php draw_help('POSTS_PER_PAGE'); ?></td><td><input type="text" name="CF_POSTS_PER_PAGE" value="<?php echo $CF_POSTS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Threads Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Polls Per Page:<?php draw_help('POLLS_PER_PAGE'); ?></td><td><input type="text" name="CF_POLLS_PER_PAGE" value="<?php echo $CF_POLLS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Default Thread View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View\nTree View", "msg\ntree", $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Word Wrap:<?php draw_help('WORD_WRAP'); ?></td><td><input type="text" name="CF_WORD_WRAP" value="<?php echo $CF_WORD_WRAP; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Unconfirmed User Expiry:<?php draw_help('UNCONF_USER_EXPIRY'); ?></td><td><input type="text" name="CF_UNCONF_USER_EXPIRY" value="<?php echo $CF_UNCONF_USER_EXPIRY; ?>"></td></tr>
