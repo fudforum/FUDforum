@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.57 2003/06/02 19:51:40 hackie Exp $
+*   $Id: users.inc.t,v 1.58 2003/06/05 20:16:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -569,6 +569,10 @@ function init_user()
 
 				case 'cp':
 					$_GET['t'] = 'coppa';
+					break;
+
+				case 'rc':
+					$_GET['t'] = 'reg_conf';
 					break;
 
 				default:

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.59 2003/06/03 17:30:18 hackie Exp $
+*   $Id: register.php.t,v 1.60 2003/06/05 20:16:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -373,7 +373,7 @@ function decode_uent(&$uent)
 			}
 
 			/* login the new user into the forum */
-			user_login($uent->id, s, 1);
+			user_login($uent->id, $usr->ses_id, 1);
 
 			if ($GLOBALS['COPPA'] == 'Y' && $uent->coppa == 'Y') {
 				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
@@ -382,6 +382,9 @@ function decode_uent(&$uent)
 					header('Location: {ROOT}/cpf/'._rsidl);
 				}
 				exit();
+			} else if ($uent->email_conf != 'Y' || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
+				header('Location: {ROOT}' . (($GLOBALS['USE_PATH_INFO'] == 'N') ? '?t=reg_conf&' : '/rc/') . _rsidl);
+				exit;		
 			}
 
 			check_return($usr->returnto);

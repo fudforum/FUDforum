@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.30 2003/05/26 08:14:28 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.31 2003/06/05 20:16:02 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -283,7 +283,7 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		return $ses_id;
 	} else {
 		/* if we can only have 1 login per account, 'remove' all other logins */
-		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id);
+		q('DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id='.$id.' AND ses_id!=\''.$cur_ses_id.'\'');
 		q('UPDATE {SQL_TABLE_PREFIX}ses SET user_id='.$id.($use_cookies ? ', sys_id=0' : '').' WHERE ses_id=\''.$cur_ses_id.'\'');
 
 		return $cur_ses_id;
