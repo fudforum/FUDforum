@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.2 2002/07/01 21:22:35 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
@@ -371,7 +371,7 @@
 	        <para>
 	        	Although not a feature per say, it should be noted that despite the many features &FUDforum; is still extremely fast, probably
 	        	faster then all the other forums that offer similar and even lesser feature sets. This is accomplished by a very highly tuned
-	        	MySQL interface as well as a very optimized PHP code.
+	        	MySQL or PostgreSQL interface as well as a very optimized PHP code.
 	        </para>
 	        
 	        <para>

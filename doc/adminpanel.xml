@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: adminpanel.xml,v 1.1.1.1 2002/06/17 23:00:10 hackie Exp $ -->
+<!-- $Id: adminpanel.xml,v 1.2 2002/07/01 21:22:35 hackie Exp $ -->
 <chapter id="administrating_fud">
 <title>Administrating FUD Forum 2</title>
 	<para>
@@ -239,14 +239,14 @@
 				</sect4>
 			</sect3>
 			
-			<sect3 id="global.mysql.options">
-				<title>MySQL Settings</title>
+			<sect3 id="global.db.options">
+				<title>Database Settings</title>
 				
-				<sect4 id="global.option.MYSQL_SERVER">
-					<title>MySQL Server</title>
+				<sect4 id="global.option.DBHOST">
+					<title>Database Server</title>
 				
 					<para>
-						The IP or UNIX Domain Socket of your MySQL server. We recommend using the UNIX Domain Socket 
+						The IP or UNIX Domain Socket of your database server. We recommend using the UNIX Domain Socket 
 						since it is much faster then TCP/IP.
 						
 						<note>
@@ -258,46 +258,47 @@
 					</para>
 				</sect4>
 				
-				<sect4 id="global.option.MYSQL_LOGIN">
-					<title>MySQL Login</title>
+				<sect4 id="global.option.DBHOST_USER">
+					<title>Database Login</title>
 				
 					<para>
-						The login name for the MySQL database you intend to store forum data in.
+						The login name for the database you intend to store forum data in.
 					</para>
 				
 				</sect4>
 				
-				<sect4 id="global.option.MYSQL_PASSWORD">
-					<title>MySQL Password</title>
+				<sect4 id="global.option.DBHOST_PASSWORD">
+					<title>Database Password</title>
 				
 					<para>
-						The password for the MySQL database you intend to store forum data in.
+						The password for the database you intend to store forum data in.
 					</para>
 				</sect4>
 				
-				<sect4 id="global.option.MYSQL_DB">
-					<title>MySQL Database</title>
+				<sect4 id="global.option.DBHOST_DBNAME">
+					<title>Database Name</title>
 				
 					<para>
-						The name of the MySQL database you intend to use to store your data in.
+						The name of the database you intend to use to store your data in.
 					</para>
 				</sect4>
 				
-				<sect4 id="global.option.MYSQL_PERSIST">
+				<sect4 id="global.option.DBHOST_PERSIST">
 					<title>Use Persistent Connections</title>
 				
 					<para>
-						Use persistent connections for MySQL (mysql_pconnect). This is a performance enchanting feature 
-						which if enabled will make your forum somewhat faster. The reason for the improvement is because 
-						the forum will not need to establish a new MySQL connection every time a page is requested but rather
-						use an existing MySQL connection.
+						Use persistent connections when connecting to a database. This is a performance enchanting feature 
+						which if enabled will make your forum somewhat faster. Improvment is the result of PHP not needing
+						to open a new database connection each time a script is executed, but rather use an existing
+						connection instead.
 					</para>
 					
 					<para>
 						This option does have it's drawbacks, on forked webservers such as Apache, every Apache child 
-						will create a persistent socket for itself. This can potentially exhaust number of allowed MySQL 
-						connections if the number of Apache children with open connections to MySQL exceed the allowed number
-						of MySQL connections.
+						will create a persistent socket for itself. This can potentially exhaust number of allowed database 
+						connections if the number of Apache children with open connections to database exceed the allowed number
+						of database connections, thus preventing threads without an open connection to connect to the database
+						server.
 					</para>
 				</sect4>
 			</sect3>	
