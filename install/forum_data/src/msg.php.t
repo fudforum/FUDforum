@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.66 2004/04/08 13:34:13 hackie Exp $
+* $Id: msg.php.t,v 1.67 2004/04/18 18:08:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -106,7 +106,7 @@
 
 	if (!($perms & 2)) {
 		if (!isset($_GET['logoff'])) {
-			std_error('perms');
+			std_error('login');
 		} else {
 			if ($FUD_OPT_2 & 32768) {
 				header('Location: {FULL_ROOT}{ROOT}/i/' . _rsidl);
