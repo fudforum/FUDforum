@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.32 2004/11/29 16:39:21 hackie Exp $
+* $Id: pdf.php.t,v 1.33 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -284,7 +284,6 @@ class fud_pdf extends FPDF
 
 		$fpdf->end_message();
 	} while (($o = db_rowobj($c)));
-	un_register_fps();
 
 	$fpdf->Output('FUDforum'.date('Ymd').'.pdf', 'I');
 ?>

@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: mnav.php.t,v 1.24 2004/11/24 19:53:35 hackie Exp $
+* $Id: mnav.php.t,v 1.25 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -87,7 +87,6 @@
 			}
 			$mnav_data .= '{TEMPLATE: mnav_msg}';
 		}
-		un_register_fps();
 
 		if (($total = (int) q_singleval("SELECT /*!40000 FOUND_ROWS(), */ -1")) < 0) {
 			$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m

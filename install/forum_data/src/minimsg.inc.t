@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: minimsg.inc.t,v 1.26 2004/11/24 19:53:35 hackie Exp $
+* $Id: minimsg.inc.t,v 1.27 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -42,8 +42,6 @@ if ($th_id && !$GLOBALS['MINIMSG_OPT_DISABLED']) {
 	while ($obj = db_rowobj($c)) {
 		$message_data .= tmpl_drawmsg($obj, $usr, $perms, true, $m_count, '');
 	}
-
-	un_register_fps();
 
 	$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
 	$minimsg = '{TEMPLATE: minimsg_form}';

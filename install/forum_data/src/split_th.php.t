@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: split_th.php.t,v 1.39 2004/11/24 19:53:36 hackie Exp $
+* $Id: split_th.php.t,v 1.40 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -217,7 +217,6 @@
 		$msg_body = read_msg_body($r->foff, $r->length, $r->file_id);
 		$msg_entry .= '{TEMPLATE: msg_entry}';
 	}
-	un_register_fps();
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

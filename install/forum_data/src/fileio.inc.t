@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: fileio.inc.t,v 1.12 2004/11/24 19:53:34 hackie Exp $
+* $Id: fileio.inc.t,v 1.13 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,14 +17,6 @@ function register_fp($id)
 	}
 
 	return $GLOBALS['__MSG_FP__'][$id];
-}
-
-function un_register_fps()
-{
-	if (!isset($GLOBALS['__MSG_FP__'])) {
-		return;
-	}
-	unset($GLOBALS['__MSG_FP__']);
 }
 
 function read_msg_body($off, $len, $file_id)

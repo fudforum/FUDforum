@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: msg.php.t,v 1.82 2004/11/24 19:53:35 hackie Exp $
+* $Id: msg.php.t,v 1.83 2004/11/30 16:40:38 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -181,8 +181,6 @@
 		$obj2 = $obj;
 	}
 	unset($result);
-
-	un_register_fps();
 
 	if (!isset($_GET['prevloaded'])) {
 		th_inc_view_count($frm->id);
