@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.65 2004/10/26 21:08:01 hackie Exp $
+* $Id: compiler.inc,v 1.66 2004/10/29 19:34:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -213,6 +213,18 @@ function resolve_sections($str)
 			case 'FUNC':
 				$ret .= "'." . substr($str, $te, ($e - $te)) . ".'";
 				break;
+
+			case 'IF':
+				$ret .= "'.(" . substr($str, $te, ($e - $te)) . " ? '";
+				break;
+				
+			case 'ELSE':
+				$ret .= "' : '";
+				break;
+		
+			case 'END':
+				$ret .= "').'";
+				break;	
 
 			case 'ROOT':
 			case 'FULL_ROOT':
