@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.77 2003/09/27 14:03:52 hackie Exp $
+*   $Id: register.php.t,v 1.78 2003/09/27 14:11:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -403,8 +403,8 @@ function decode_uent(&$uent)
 
 		if (!__fud_real_user__) { /* new user */
 			/* handle coppa passed to us by pre_reg form */
-			if ((int)$_POST['reg_coppa']) {
-				$uent->users_opt |= 262144;
+			if (!(int)$_POST['reg_coppa']) {
+				$uent->users_opt ^= 262144;
 			}
 
 			$uent->add_user();

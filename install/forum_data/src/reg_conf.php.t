@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reg_conf.php.t,v 1.1 2003/06/05 20:16:02 hackie Exp $
+*   $Id: reg_conf.php.t,v 1.2 2003/09/27 14:11:09 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,10 +29,10 @@ if (!__fud_real_user__ || _uid) {
 
 $msg = '';
 
-if ($usr->email_conf != 'Y') {
+if (!($usr->users_opt & 131072)) {
 	$msg = '{TEMPLATE: reg_conf_email}';
 }
-if ($usr->acc_status == 'P') {
+if ($usr->users_opt & 2097152) {
 	if ($msg) {
 		$msg .= ' {TEMPLATE: reg_conf_sep}';
 	}
