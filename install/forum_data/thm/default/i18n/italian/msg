@@ -169,9 +169,9 @@ updated_on:			Aggiornato il :
 user:				Utente
 user_counter:			Abbiamo <b>{VAR: st_obj->user_count}</b> utenti registrati.
 user_info:			Informazioni utente
-user_info_l:			Informazioni utente {VAR: user_info}
-user_offline:			{VAR: user_login}  è attualmente offline
-user_online:			{VAR: user_login} è attualmente online
+user_info_l:			Informazioni utente {VAR: u->alias}
+user_offline:			{VAR: obj->login}  è attualmente offline
+user_online:			{VAR: obj->login} è attualmente online
 usrinfo_last_post:		Ultimo messaggio:
 view_results:			Visualizza risultati
 views:				View
@@ -523,8 +523,8 @@ delete_yes:			Sì
 delete_no:			No
 error_invalidurl:		URL non corretto
 error_error:			Errore
-usrinfo_profile:		Profilo {VAR: user_info}
-usrinfo_show_all_posts:		Mostra tutti i post di {VAR: user_info}
+usrinfo_profile:		Profilo {VAR: u->alias}
+usrinfo_show_all_posts:		Mostra tutti i post di {VAR: u->alias}
 actions_update:			Quelli che si fanno gli affari degli altri, proprio come te
 err_info:			Informazioni
 buddy_list_err_cantadd:		Non puoi aggiungere te stesso alla buddy list
