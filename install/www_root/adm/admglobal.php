@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.31 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admglobal.php,v 1.32 2003/06/02 19:46:24 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -269,7 +269,6 @@ function get_max_upload_size()
 	print_string_field('Anonymous Username', 'ANON_NICK');
 	print_string_field('Quick Pager Link Count', 'THREAD_MSG_PAGER', 1);
 	print_string_field('General Pager Link Count', 'GENERAL_PAGER_COUNT', 1);
-	print_string_field('Message icons per row', 'POST_ICONS_PER_ROW', 1);
 	print_yn_field('Show Edited By', 'SHOW_EDITED_BY');
 	print_yn_field('Show Edited By Moderator', 'EDITED_BY_MOD');
 	print_string_field('Edit Time Limit (minutes)', 'EDIT_TIME_LIMIT', 1);
