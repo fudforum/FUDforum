@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admimport.php,v 1.36 2004/03/10 16:40:18 hackie Exp $
+* $Id: admimport.php,v 1.37 2004/05/24 15:49:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -88,6 +88,9 @@ function resolve_dest_path($path)
 						fseek($fp, $size, SEEK_CUR);
 					}
 				} else {
+					if ($size < 1) { /* empty file */
+						continue;
+					}
 					if ($size < 2000000) {
 						fwrite($fd, $readf($fp, $size));
 					} else {
