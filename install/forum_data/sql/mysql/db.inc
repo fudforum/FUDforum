@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.20 2003/06/05 16:24:53 hackie Exp $
+*   $Id: db.inc,v 1.21 2003/07/18 16:45:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -261,7 +261,7 @@ function qry_limit($limit, $off)
 
 function get_fud_table_list()
 {
-	$r = uq("SHOW TABLES LIKE '".$GLOBALS['DBHOST_TBL_PREFIX']."%'");
+	$r = uq("SHOW TABLES LIKE '".str_replace("_", "\\_", $GLOBALS['DBHOST_TBL_PREFIX'])."%'");
 	while (list($ret[]) = db_rowarr($r));
 	qf($r);
 	array_pop($ret);
