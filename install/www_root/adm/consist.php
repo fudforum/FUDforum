@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.10 2002/07/22 17:01:26 hackie Exp $
+*   $Id: consist.php,v 1.11 2002/07/24 13:34:00 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -427,7 +427,7 @@ forum will be disabled.<br><br>
 			
 		draw_stat('thread count:'.$th_count);
 		draw_stat('post count:'.$p_count);
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET topic_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."forum SET thread_count=".$th_count.", post_count=".$p_count." WHERE id=".$obj->id);
 	}
 	qf($result);
 	draw_stat('Updating post counts');
