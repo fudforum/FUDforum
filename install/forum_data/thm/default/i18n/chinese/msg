@@ -1018,3 +1018,5 @@ search_user_filter:		仅限作者：
 register_none:			不要通知
 findu_no_conf:			未验证Email
 register_max_sig_len:		Maximum Length:
+register_turing:		Please enter the code shown below:
+register_err_turing:		Invalid validation code.

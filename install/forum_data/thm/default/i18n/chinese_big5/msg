@@ -1018,3 +1018,5 @@ search_user_filter:		Filter by user:
 register_none:			Don&#39;t Notify
 findu_no_conf:			unconfirmed user
 register_max_sig_len:		Maximum Length:
+register_turing:		Please enter the code shown below:
+register_err_turing:		Invalid validation code.

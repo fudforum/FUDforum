@@ -30,7 +30,7 @@ This is the maximum size (in bytes) of the custom avatar image (uploaded to serv
 {{{CUSTOM_AVATAR_MAX_DIM
 This is the maximum dimension that a custom avatar can be.}}}
 
-{{{CUSTOM_AVATAR_APPOVAL	FUD_OPT_1	32
+{{{CUSTOM_AVATAR_APPROVAL	FUD_OPT_1	32
 If set to yes the administrator will have to approve every custom avatar the user uploads or provides a url to.}}}
 
 {{{CUSTOM_AVATAR_ALLOW_SWF	FUD_OPT_1	64
@@ -134,7 +134,7 @@ Enable/disable images in signatures.}}}
 The maximum number of images to allow inside a signature. Set to 0 to allow unlimited images.}}}
 
 {{{FORUM_SIG_ML
-Maximum length of the signature a user may have (0 for ulimited).}}}
+Maximum length of the signature a user may have (0 for unlimited).}}}
 
 #OTHER FORUM OPTIONS 
 
@@ -312,7 +312,7 @@ Whether or not use PATH_INFO based URLs, this will make forum's URLs look like h
 Whether or not to allow users to enter a URL to an image in their profile that will be displayed on the user info page for that user. The danger of this feature is that the user could potentially link to a page other then an image and some browsers like Internet Explorer will parse that page executing any potentially hostile Javascript that may be present.}}}
 
 {{{NEW_ACCOUNT_NOTIFY	FUD_OPT_2	131072
-This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then everytime a new user is registred all forum administrators will recieve a notification via e-mail.}}}
+This setting will only be used if you have chosen to manually approve all new registrations. If enabled, then everytime a new user is registered all forum administrators will receive a notification via e-mail.}}}
 
 {{{MODERATED_POST_NOTIFY	FUD_OPT_2	262144
 Notify forum moderators via e-mail when a new message is posted in a forum where a message must first be approved by the moderator before shown to the rest of the visitors.}}}
@@ -396,4 +396,7 @@ Whether or not to validate session's against user IP While this may increase sec
 If enabled, anonymous and unconfirmed forum members will not be able to view profiles of registered users.}}}
 
 {{{SMART_EMAIL_NOTIFICATION	FUD_OPT_3	64
-Enable 'smart' e-mail notification mechanism that would only notify users if they read previous notification. This prevents filling up of the user's mailbox with notifications if they are not readin them.}}}
+Enable 'smart' e-mail notification mechanism that would only notify users if they read previous notification. This prevents filling up of the user's mailbox with notifications if they are not reading them.}}}
+
+{{{DISABLE_TURING_TEST	FUD_OPT_3	128
+If disabled users will not need to complete a turing test intended to prevent automated account creation bots. Turing test involves identifying a series of random letters that are displayed in ASCII form.}}}
