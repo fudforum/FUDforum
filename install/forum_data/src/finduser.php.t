@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.php.t,v 1.28 2003/10/16 21:59:04 hackie Exp $
+* $Id: finduser.php.t,v 1.29 2003/10/22 19:24:20 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -72,6 +72,7 @@
 		$find_user_data .= '{TEMPLATE: find_user_entry}';
 	}
 	if (!$find_user_data) {
+		$colspan = $adm ? 5 : 4;
 		$find_user_data = '{TEMPLATE: find_user_no_results}';
 	}
 
