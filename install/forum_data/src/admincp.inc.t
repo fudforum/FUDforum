@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admincp.inc.t,v 1.18 2003/10/09 14:34:25 hackie Exp $
+* $Id: admincp.inc.t,v 1.19 2003/10/16 16:37:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -15,7 +15,7 @@ if (_uid) {
 
 	if ($usr->users_opt & 524288 || $usr->users_opt & 1048576) {
 		if ($usr->users_opt & 1048576) {
-			if ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0")) {
+			if ($FUD_OPT_1 & 32 && ($avatar_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0"))) {
 				$custom_avatar_queue = '{TEMPLATE: custom_avatar_queue}';
 			}
 			if ($report_count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg_report')) {
