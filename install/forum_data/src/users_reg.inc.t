@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.61 2003/11/26 19:20:37 hackie Exp $
+* $Id: users_reg.inc.t,v 1.62 2003/11/27 22:21:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -221,7 +221,8 @@ function user_login($id, $cur_ses_id, $use_cookies)
 		/* if we can only have 1 login per account, 'remove' all other logins */
 		q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE user_id=".$id." AND ses_id!='".$cur_ses_id."'");
 		q("UPDATE {SQL_TABLE_PREFIX}ses SET user_id=".$id.", sys_id='".ses_make_sysid()."' WHERE ses_id='".$cur_ses_id."'");
-		q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".regen_sq()."' WHERE id=".$id);
+		$GLOBALS['new_sq'] = regen_sq();
+		q("UPDATE {SQL_TABLE_PREFIX}users SET sq='".$GLOBALS['new_sq']."' WHERE id=".$id);
 
 		return $cur_ses_id;
 	}

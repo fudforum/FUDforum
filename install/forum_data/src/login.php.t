@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.49 2003/11/26 19:20:36 hackie Exp $
+* $Id: login.php.t,v 1.50 2003/11/27 22:21:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -170,7 +170,7 @@ function error_check()
 			}
 
 			if (!empty($_POST['adm']) && $usr_d->users_opt & 1048576) {
-				header('Location: adm/admglobal.php?S='.$ses_id.'&SQ='.$usr_d->sq);
+				header('Location: adm/admglobal.php?S='.$ses_id.'&SQ='.$new_sq);
 				exit;
 			}
 
@@ -187,9 +187,9 @@ function error_check()
 			}
 
 			if (strpos($usr->returnto, '?') !== false || !($FUD_OPT_2 & 32768)) {
-				$usr->returnto .= '&SQ='.$usr_d->sq;
+				$usr->returnto .= '&SQ='.$new_sq;
 			} else {
-				$usr->returnto .= '?SQ='.$usr_d->sq;
+				$usr->returnto .= '?SQ='.$new_sq;
 			}
 			check_return($usr->returnto);
 		}
