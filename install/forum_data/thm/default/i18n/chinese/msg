@@ -1009,3 +1009,4 @@ adm_account_rejected:		ÄãµÄÕÊºÅ \'{VAR: GLOBALS['r']->login}\' Ã»ÓĞÍ¨¹ı¹ÜÀíÔ±µÄÉ
 adm_account_rejected_s:		ÄãÔÚÂÛÌ³ \'{GVAR: FORUM_TITLE}\' ×¢²áµÄÕÊºÅÎ´Í¨¹ıÉóºË£¬Çë¼ì²éÊÇ·ñ·ûºÏÂÛÌ³Ïà¹Ø¹æ¶¨¡£
 thread_on:			ÓÚ
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:

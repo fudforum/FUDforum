@@ -1009,3 +1009,4 @@ adm_account_rejected:		Dein Konto \'{VAR: GLOBALS['r']->login}\' wurde vom Admin
 adm_account_rejected_s:		Deine Bitte um ein Konto f&uuml;r \'{GVAR: FORUM_TITLE}\' wurde abgewiesen.
 thread_on:			an
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:

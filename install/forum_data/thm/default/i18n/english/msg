@@ -876,7 +876,7 @@ poll_edit:			Edit
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recipient
 register_err_taken_alias:	The alias you are trying to use is already in use by another forum member, please choose another.
-register_alias:			Alias
+register_alias:			Alias:
 register_alias_desc:		If you want a nickname other than your login to be displayed on the forum, enter the nick name you want to be displayed here.
 register_allow_pm_msg:		Allow Private Messages
 register_allow_pm_msg_desc:	Allow other users to send you private messages via FUDforum.
@@ -1009,3 +1009,4 @@ adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined 
 adm_account_rejected_s:		Your account request for \'{GVAR: FORUM_TITLE}\' was declined.
 thread_on:			on
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:

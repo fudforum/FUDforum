@@ -1009,3 +1009,4 @@ adm_account_rejected:		Ylläpitäjä on hylännyt tunnuksen \'{VAR: GLOBALS['r']->lo
 adm_account_rejected_s:		Tunnusanomuksesi \'{GVAR: FORUM_TITLE}\' foorumille on hylätty.
 thread_on:			on
 userinfo_buddy:			Kaveri:
+register_email_addr:		E-mail Address:

@@ -1009,3 +1009,4 @@ adm_account_rejected:		Your account \'{VAR: GLOBALS['r']->login}\' was declined 
 adm_account_rejected_s:		Your accout request for \'{GVAR: FORUM_TITLE}\' was declined.
 thread_on:			on
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:

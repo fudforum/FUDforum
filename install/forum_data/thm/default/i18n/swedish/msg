@@ -1009,3 +1009,4 @@ adm_account_rejected:		Ditt konto \'{VAR: GLOBALS['r']->login}\' nekades av admi
 adm_account_rejected_s:		Din kontoförfrågan på \'{GVAR: FORUM_TITLE}\' nekades.
 thread_on:			på
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:

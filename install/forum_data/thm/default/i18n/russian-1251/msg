@@ -1009,3 +1009,4 @@ adm_account_rejected:		Ваш запрос на регистрацию в форуме \'{VAR: GLOBALS['r']->
 adm_account_rejected_s:		Ваш запрос на регистрацию в форуме \'{GVAR: FORUM_TITLE}\' отклонен.
 thread_on:			вкл
 userinfo_buddy:			Buddy:
+register_email_addr:		E-mail Address:
