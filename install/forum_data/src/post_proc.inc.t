@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.46 2003/12/05 13:08:43 hackie Exp $
+* $Id: post_proc.inc.t,v 1.47 2003/12/05 14:31:37 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -532,13 +532,13 @@ function html_to_tags($fudml)
 	), 
 	$fudml);
 
-	while (preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml, $m)) {
+	while (preg_match('!<img src="(.*?)" border=0 alt="\\1">!is', $fudml)) {
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="\\1">!is', '[img]\1[/img]', $fudml);
 	}
-	while (preg_match('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', $fudml, $m)) {
+	while (preg_match('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', $fudml)) {
 		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">\\1</a>!is', '[email]\1[/email]', $fudml);
 	}
-	while (preg_match('!<a href="(.+?)" target="_blank">\\1</a>!is', $fudml, $m)) {
+	while (preg_match('!<a href="(.+?)" target="_blank">\\1</a>!is', $fudml)) {
 		$fudml = preg_replace('!<a href="(.+?)" target="_blank">\\1</a>!is', '[url]\1[/url]', $fudml);
 	}
 
@@ -546,10 +546,10 @@ function html_to_tags($fudml)
 		$fudml = preg_replace('!<img src="(.*?)" border=0 alt="(.*?)">!is', '[img=\1]\2[/img]', $fudml);
 	}
 	if (strpos($fudml, '<a href="mailto:') !== false) {
-		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\3[/email]', $fudml);
+		$fudml = preg_replace('!<a href="mailto:(.+?)" target="_blank">(.+?)</a>!is', '[email=\1]\2[/email]', $fudml);
 	}
 	if (strpos($fudml, '<a href="') !== false) { 
-		$fudml = preg_replace('!<a href="(.+?)" target="_blank">(.+?)</a>!is', '[url=\1]\3[/url]', $fudml);
+		$fudml = preg_replace('!<a href="(.+?)" target="_blank">(.+?)</a>!is', '[url=\1]\2[/url]', $fudml);
 	}
 
 	if (isset($php)) {
