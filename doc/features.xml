@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- $Id: features.xml,v 1.4 2002/07/22 17:04:17 hackie Exp $ -->
+<!-- $Id: features.xml,v 1.5 2002/08/02 11:53:28 hackie Exp $ -->
 <chapter id="features">
 	<title>&FUDforum; Features</title>
 	
@@ -41,7 +41,7 @@
 		
 		<para>
 			&FUDforum; has full i18n support, that allows an easy translation of the forum into a language of your choice.
-			Currently &FUDforum; is distributed with 7 languages: English, German, Swedish, Polish, Turkish, Spanish and Chinese.
+			Currently &FUDforum; is distributed with 8 languages: English, French, German, Swedish, Polish, Turkish, Spanish and Chinese.
 		</para>
 		
 		<para>	
@@ -342,6 +342,18 @@
 			If for whatever reason cookies are not enabled on the user's computer &FUDforum; will use URL sessions to 
 			keep track of the user. Thus allowing the user use the forum even if they do not have a cookie set on their
 			computer.
+		</para>
+	</sect1>
+	
+	<sect1 id="features.mlist_nntp">
+		<title>Mailing List &amp; NNTP Integration</title>
+		
+		<para>
+			FUDforum includes automatic tools that allow the forum to be used to archive newsgroups (NNTP) and 
+			mailing lists. In addition to archival abilities FUDforum also allows the administrator to permit
+			forum members to post messages back to the mailing list or newsgroup, thus making FUDforum an ideal
+			access point to those resources for people who for whatever reason cannot access newsgroups or
+			mailing lists.
 		</para>
 	</sect1>
 	
