@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: selmsg.php.t,v 1.17 2002/09/10 00:24:41 hackie Exp $
+*   $Id: selmsg.php.t,v 1.18 2002/10/25 00:45:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,8 +39,8 @@ function ifstr($opt1, $opt2, $str)
 	if( isset($reply_count) && !strlen($reply_count) ) $reply_count='';
 	if( isset($date) && !strlen($date) ) $date = '';
 	if( isset($unread_join) && !strlen($unread_join) ) $unread_join = '';
-	if( isset($frm_id) && !strlen($frm_id) ) $frm_id='';
-	if( isset($th) && !strlen($th) ) $th='';
+	if( !$frm_id || !is_numeric($frm_id) ) $frm_id='';
+	if( !$th || !is_numeric($th) ) $th='';
 	
 	/* figure out the query */
 
