@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.10 2003/01/29 13:44:32 hackie Exp $
+*   $Id: threadt.php.t,v 1.11 2003/01/29 13:47:48 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -151,7 +151,7 @@
 							} 
 							
 							if( _uid ) {
-								if( $usr->last_read < $cur->post_stamp && $cur->post_stamp>$obj->last_view )
+								if( $usr->last_read < $cur->post_stamp && $cur->post_stamp>$cur->last_view )
 									$thread_read_status = ( $cur->locked == 'Y' ) ? '{TEMPLATE: thread_unread_locked}' : '{TEMPLATE: thread_unread}';
 								else
 									$thread_read_status = ( $cur->locked == 'Y' ) ? '{TEMPLATE: thread_read_locked}' : '{TEMPLATE: thread_read}';
