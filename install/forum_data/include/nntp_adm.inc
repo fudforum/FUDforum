@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp_adm.inc,v 1.12 2003/10/04 00:51:11 hackie Exp $
+*   $Id: nntp_adm.inc,v 1.13 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -39,7 +39,7 @@ class fud_nntp_adm
 					$this->nntp_opt |= (int) $_POST['nntp_'.$v];
 				}
 			}
-		}	
+		}
 	}
 
 	function add()
@@ -71,7 +71,7 @@ class fud_nntp_adm
 
 		return $this->id;
 	}
-	
+
 	function sync($id)
 	{
 		list($old_frm_id, $nntp_opt) = db_saq('SELECT forum_id, nntp_opt FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'nntp WHERE id='.$id);
@@ -92,7 +92,7 @@ class fud_nntp_adm
 		}
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET forum_opt=forum_opt | '.($this->nntp_opt & 1 ? 2 : 0).' WHERE id='.$this->forum_id);
 	}
-}	
+}
 
 function nntp_del($id)
 {

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mlist.inc,v 1.10 2003/09/30 04:13:16 hackie Exp $
+*   $Id: mlist.inc,v 1.11 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -81,7 +81,7 @@ class fud_mlist
 		}
 		return $this->id;
 	}
-	
+
 	function sync($id)
 	{
 		if (!db_locked()) {
@@ -113,7 +113,7 @@ class fud_mlist
 
 	function del($id)
 	{
-		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist WHERE id=".$id);	
+		q("DELETE FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."mlist WHERE id=".$id);
 	}
 }
 ?>

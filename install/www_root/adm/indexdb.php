@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.11 2003/09/30 02:31:39 hackie Exp $
+*   $Id: indexdb.php,v 1.12 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	@set_time_limit(2400);
-	
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('glob.inc', true);
@@ -27,10 +27,10 @@
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf'])) {
-?>		
+?>
 <form method="post" action="indexdb.php">
 <div align="center">
-This script will attempt to rebuild the search indices for the entire forum. This is a VERY CPU-intensive process 
+This script will attempt to rebuild the search indices for the entire forum. This is a VERY CPU-intensive process
 and can take a VERY LONG time, especially on large forums. You should ONLY run this if you absolutely must.<br><br>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="btn_cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
@@ -39,19 +39,19 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 </form>
 <?php
 		require($WWW_ROOT_DISK . 'adm/admclose.html');
-		exit;	
+		exit;
 	}
-	
+
 	if ($FUD_OPT_1 & 1) {
 		echo '<br>Disabling the forum for the duration of maintenance run<br>';
 		maintenance_status('Undergoing maintenance, please come back later.', 1);
 	}
-	
+
 	echo '<br>Please wait while index is being rebuilt.<br>This may take a while depending on the size of your forum.';
 	flush();
-	
+
 	$tbl =& $DBHOST_TBL_PREFIX;
-	
+
 	db_lock($tbl.'search_cache WRITE, '.$tbl.'search WRITE, '.$tbl.'index WRITE, '.$tbl.'title_index WRITE, '.$tbl.'msg WRITE');
 	if (!($sid = q_singleval("SELECT MIN(query_type) FROM ".$tbl."search_cache WHERE srch_query='' AND query_type<0"))) {
 		q('DELETE FROM '.$tbl.'search');
@@ -75,15 +75,15 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 	un_register_fps();
 	q('DELETE FROM '.$tbl.'search_cache');
 	db_unlock();
-	
+
 	echo 'Done<br>';
-	
+
 	if ($FUD_OPT_1 & 1) {
 		echo '<br>Re-enabling the forum.<br>';
 		maintenance_status($GLOBALS['DISABLED_REASON'], 0);
 	} else {
 		echo '<br><font size=+1 color="red">Your forum is currently disabled, to re-enable it go to the <a href="admglobal.php?'._rsidl.'">Global Settings Manager</a> and re-enable it.</font>';
 	}
-	
+
 	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

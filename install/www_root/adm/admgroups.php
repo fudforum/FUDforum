@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.34 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admgroups.php,v 1.35 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 	require ('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
-	fud_use('groups_adm.inc', true);	
+	fud_use('groups_adm.inc', true);
 	fud_use('groups.inc');
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : 0);
@@ -55,7 +55,7 @@
 				$error = 1;
 				$error_reason = 'You must provide a name for your new group.';
 			}
-			
+
 			if ($val < 0) {
 				$val = $hdr[$k][0];
 				$permi |= $val;
@@ -243,7 +243,7 @@
 ?>
 <tr><td valign="top" colspan=2 align="center"><font size="+2"><b>Maximum Permissions</b></font><br><font size="-1">(group leaders won't be able to assign permissions higher then these)</font></td></tr>
 <tr><td><table cellspacing=2 cellpadding=2 border=0>
-<?php	
+<?php
 	if (($edit || $error) && $gr_inherit_id && $permi) {
 		echo '<tr><th nowrap><font size="+1">Permission</font></th><th><font size="+1">Value</font></th><th><font size="+1">Via Inheritance</font></th></tr>';
 		$v1 = 1;
@@ -274,7 +274,7 @@
 ?>
 </table></td></tr>
 <tr><td colspan=2 align=left>
-<?php 
+<?php
 	if ($edit) {
 		echo '<input type="submit" name="btn_cancel" value="Cancel"> ';
 	}

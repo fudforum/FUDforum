@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_adm.inc,v 1.4 2003/09/29 22:24:27 hackie Exp $
+*   $Id: users_adm.inc,v 1.5 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -59,7 +59,7 @@ function usr_delete($id)
 function usr_adm_avatar($id, $del=0)
 {
 	if (!($ud = db_sab('SELECT u.login, u.email, t.name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users u INNER JOIN '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes t ON t.id=u.theme WHERE u.id='.$id))) {
-		return;	
+		return;
 	}
 	$ud->name = preg_replace('![^A-Za-z0-9]!', '_', $ud->name);
 

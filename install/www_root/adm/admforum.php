@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforum.php,v 1.21 2003/10/04 00:34:36 hackie Exp $
+*   $Id: admforum.php,v 1.22 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,7 +40,7 @@ function get_max_upload_size()
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 	$max_upload_size = get_max_upload_size();
-	
+
 	if (!$cat_id || ($cat_name = q_singleval('SELECT name FROM '.$tbl.'cat WHERE id='.$cat_id)) === NULL) {
 		exit('no such category');
 	}
@@ -119,7 +119,7 @@ function get_max_upload_size()
 <h2>Editing forums for <?php echo $cat_name; ?></h2>
 <?php
 if (!isset($_GET['chpos'])) {
-?> 
+?>
 <a href="admcat.php?<?php echo _rsidl; ?>">Back to categories</a><br>
 
 <form method="post" name="frm_forum" action="admforum.php">
@@ -129,59 +129,59 @@ if (!isset($_GET['chpos'])) {
 		<td>Forum Name:</td>
 		<td><input type="text" name="frm_name" value="<?php echo htmlspecialchars($frm_name); ?>" maxlength=100></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Description</td>
 		<td><textarea nowrap name="frm_descr" cols=25 rows=5><?php echo htmlspecialchars($frm_descr); ?></textarea>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Tag Style</td>
 		<td><?php draw_select('frm_tag_style', "FUD ML\nHTML\nNone", "16\n0\n8", ($frm_forum_opt & 8 ? 8 : ($frm_forum_opt & 16 ? 16 : 0))); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Password Posting<br><font size=-2>Posting is only allowed with a knowledge of a password</font></td>
 		<td><?php draw_select('frm_passwd_posting', "No\nYes", "0\n4", $frm_forum_opt & 4); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Posting Password</td>
 		<td><input type="passwd" maxLength=32 name="frm_post_passwd" value="<?php echo htmlspecialchars($frm_post_passwd); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Moderated Forum</td>
 		<td><?php draw_select('frm_moderated', "No\nYes", "0\n2", $frm_forum_opt & 2); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Max Attachment Size:<br><font size="-1">Your php's maximum file upload size is <b><?php echo floor($max_upload_size / 1024); ?></b> KB.<br />You cannot set the forum's attachment size limit higher than that.</font></td>
 		<td><input type="text" name="frm_max_attach_size" value="<?php echo $frm_max_attach_size; ?>" maxlength=100 size=5>kb</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Max Number of file Attachments:</td>
 		<td><input type="text" name="frm_max_file_attachments" value="<?php echo $frm_max_file_attachments; ?>" maxlength=100 size=5></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Message Threshold<br><font size=-1>Maximum size of the message DISPLAYED<br>without the reveal link (0 == unlimited) </font></td>
 		<td><input type="text" name="frm_message_threshold" value="<?php echo $frm_message_threshold; ?>" size=5> bytes</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td><a name="frm_icon_pos">Forum Icon</a></td>
 		<td><input type="text" name="frm_forum_icon" value="<?php echo $frm_forum_icon; ?>"> <a href="javascript://" onClick="javascript:window.open('admiconsel.php', 'admiconsel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100')">[SELECT ICON]</a></td>
 	</tr>
-	
+
 <?php if (!$edit) { ?>
 	<tr bgcolor="#bff8ff">
 		<td>Insert Position</td>
 		<td><?php draw_select('frm_pos', "Last\nFirst", "LAST\nFIRST", ''); ?></td>
 	</tr>
 <?php } ?>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 <?php
@@ -192,7 +192,7 @@ if (!isset($_GET['chpos'])) {
 			<input type="submit" value="<?php echo ($edit ? 'Update Forum' : 'Add Forum'); ?>" name="frm_submit">
 		</td>
 	</tr>
-		
+
 </table>
 <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
 <?php

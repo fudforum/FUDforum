@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admavatarsel.php,v 1.4 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admavatarsel.php,v 1.5 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 	fud_use('adm.inc', true);
 
 	echo '<html><body bgcolor="#ffffff">';
-	
+
 	/* here we draw the avatar control */
 	if ($dp = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars')) {
 		readdir($dp); readdir($dp);
@@ -42,7 +42,7 @@
 		echo '</tr></table>';
 	}
 	if (!$i) {
-		echo 'There are no built-in avatars';	
+		echo 'There are no built-in avatars';
 	}
 
 	echo '</body></html>';

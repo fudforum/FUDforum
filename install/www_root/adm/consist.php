@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.58 2003/10/05 22:18:42 hackie Exp $
+*   $Id: consist.php,v 1.59 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -36,7 +36,7 @@
 	fud_use('private.inc');
 	fud_use('th.inc');
 	fud_use('ipoll.inc');
-	fud_use('attach.inc');	
+	fud_use('attach.inc');
 	fud_use('groups.inc');
 	fud_use('th_adm.inc');
 	fud_use('users_reg.inc');
@@ -64,25 +64,25 @@ function delete_zero($tbl, $q)
 		q('DELETE FROM '.$tbl.' WHERE id IN ('.implode(',', $a).')');
 	}
 	qf($c);
-	draw_info($cnt);	
+	draw_info($cnt);
 }
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf']) && !isset($_GET['enable_forum']) && !isset($_GET['opt'])) {
-?>		
+?>
 <form method="post" action="consist.php">
 <div align="center">
-Consistency check is a complex process which may take several minutes to run, while it is running your 
+Consistency check is a complex process which may take several minutes to run, while it is running your
 forum will be disabled.<br><br>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
 </div>
 <?php echo _hs; ?>
-</form>	
-<?php	
+</form>
+<?php
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
-		exit;	
+		exit;
 	}
 
 	if ($FUD_OPT_1 & 1) {
@@ -104,7 +104,7 @@ forum will be disabled.<br><br>
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
 		exit;
 	}
-?>	
+?>
 <script language="Javascript1.2">
 	var intervalID;
 	function scrolldown()
@@ -113,17 +113,17 @@ forum will be disabled.<br><br>
 	}
 	intervalID = setInterval('scrolldown()', 100);
 </script>
-<?php	
+<?php
 	$tbl = $DBHOST_TBL_PREFIX;
 
 	draw_stat('Locking the database for checking');
 	if (__dbtype__ == 'mysql') {
 		q('DROP TABLE IF EXISTS '.$tbl.'tmp_consist');
-		q('CREATE TABLE '.$tbl.'tmp_consist (p INT, ps INT UNSIGNED, c INT)');	
+		q('CREATE TABLE '.$tbl.'tmp_consist (p INT, ps INT UNSIGNED, c INT)');
 	}
 	$tbls = get_fud_table_list();
-	// add the various table aliases 
-	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot', 
+	// add the various table aliases
+	array_push($tbls, 	$tbl.'users u', $tbl.'forum f', $tbl.'thread t', $tbl.'poll p', $tbl.'poll_opt po', $tbl.'poll_opt_track pot',
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr', '.$tbl.'fc_view,
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
@@ -150,16 +150,16 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuilding moderators');
 	rebuildmodlist();
 	draw_stat('Done: Rebuilding moderators');
-		
+
 	draw_stat('Checking if all private messages have users');
 	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE (pm.pmsg_opt & 16)=0 AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
-		$dpm[] = $r[0];	
+		$dpm[] = $r[0];
 	}
 	qf($c);
 	$c = q('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.duser_id WHERE ((pm.pmsg_opt & 16) > 0 AND pm.pmsg_opt>=16) AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
-		$dpm[] = $r[0];	
+		$dpm[] = $r[0];
 	}
 	qf($c);
 	if (isset($dpm)) {
@@ -245,7 +245,7 @@ forum will be disabled.<br><br>
 			q('UPDATE '.$tbl.'forum SET thread_count='.$r[2].', post_count='.($r[1] + $r[2]).', last_post_id='.(int)$r[0].' WHERE id='.$f[0]);
 		}
 	}
-	qf($c);		
+	qf($c);
 	draw_stat('Done: Checking forum & topic relations');
 
 	draw_stat('Validating Forum Order');
@@ -387,7 +387,7 @@ forum will be disabled.<br><br>
 
 	draw_stat('Checking smilies against disk files');
 	$cnt = $i = 0;
-	$c = q('SELECT img, id FROM '.$tbl.'smiley ORDER BY vieworder'); 
+	$c = q('SELECT img, id FROM '.$tbl.'smiley ORDER BY vieworder');
 	while ($r = db_rowarr($c)) {
 		if (!@file_exists($WWW_ROOT_DISK . 'images/smiley_icons/' . $r[0])) {
 			++$cnt;
@@ -462,13 +462,13 @@ forum will be disabled.<br><br>
 		}
 		qf($c);
 	}
-	
+
 	$c = q('SELECT id, post_count FROM '.$tbl.'level ORDER BY post_count DESC');
 	while ($r = db_rowarr($c)) {
 		q('UPDATE '.$tbl.'users SET level_id='.$r[0].' WHERE level_id=0 AND posted_msg_count>='.$r[1]);
 	}
 	qf($c);
-	
+
 	draw_stat('Done: Rebuilding user levels, message counts & last post ids');
 
 	draw_stat('Checking buddy list entries');
@@ -521,19 +521,19 @@ forum will be disabled.<br><br>
 		unset($ir);
 	}
 	draw_stat('Done: Rebuilding ignore list cache');
-	
+
 	draw_stat('Rebuilding ip filter cache');
 	ip_cache_rebuild();
 	draw_stat('Done: Rebuilding ip filter cache');
-	
+
 	draw_stat('Rebuilding login filter cache');
 	login_cache_rebuild();
 	draw_stat('Done: Rebuilding login filter cache');
-	
+
 	draw_stat('Rebuilding email filter cache');
 	email_cache_rebuild();
 	draw_stat('Done: Rebuilding email filter cache');
-	
+
 	draw_stat('Rebuilding extension filter cache');
 	ext_cache_rebuild();
 	draw_stat('Done: Rebuilding extension filter cache');
@@ -541,7 +541,7 @@ forum will be disabled.<br><br>
 	draw_stat('Rebuilding custom tags for users');
 	$c = q('SELECT distinct(user_id) FROM '.$tbl.'custom_tags');
 	while ($r = db_rowarr($c)) {
-		ctag_rebuild_cache($r[0]);	
+		ctag_rebuild_cache($r[0]);
 	}
 	qf($c);
 	draw_stat('Done Rebuilding custom tags for users');
@@ -555,7 +555,7 @@ forum will be disabled.<br><br>
 	# so when we encounter such as group, we do our patriotic duty and remove it.
 	delete_zero($tbl.'groups', 'SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id WHERE g.id > 2 AND gr.id IS NULL');
 	draw_stat('Done: Validating group validity');
-	
+
 	draw_stat('Validating group members');
 	delete_zero($tbl.'group_members', 'SELECT gm.id FROM '.$tbl.'group_members gm LEFT JOIN '.$tbl.'users u ON u.id=gm.user_id LEFT JOIN '.$tbl.'groups g ON g.id=gm.group_id WHERE (u.id IS NULL AND gm.user_id NOT IN(0, 2147483647)) OR g.id IS NULL');
 	draw_stat('Done: Validating group members');
@@ -679,7 +679,7 @@ forum will be disabled.<br><br>
 		fclose($fp);
 	}
 	draw_stat('Done: Validate GLOBALS.php');
-	
+
 	if ($FUD_OPT_1 & 1 || isset($_GET['enable_forum'])) {
 		draw_stat('Re-enabling the forum.');
 		maintenance_status($DISABLED_REASON, 0);
@@ -688,7 +688,7 @@ forum will be disabled.<br><br>
 	}
 
 	draw_stat('DONE');
-	
+
 	echo 'It is recommended that you run SQL table optimizer after completing the consistency check. To do so <a href="consist.php?opt=1">click here</a>, keep in mind that this process make take several minutes to perform.';
 	echo '<script language="Javascript1.2">clearInterval(intervalID);</script>';
 	readfile($WWW_ROOT_DISK . 'adm/admclose.html');

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.13 2003/09/18 16:49:24 hackie Exp $
+*   $Id: admmodfrm.php,v 1.14 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -35,11 +35,11 @@
 		q('DELETE FROM '.$tbl.'mod WHERE user_id='.$usr_id);
 		if (isset($_POST['mod_allow'])) {
 			foreach ($_POST['mod_allow'] as $m) {
-				q('INSERT INTO '.$tbl.'mod (forum_id, user_id) VALUES('.(int)$m.', '.$usr_id.')');	
+				q('INSERT INTO '.$tbl.'mod (forum_id, user_id) VALUES('.(int)$m.', '.$usr_id.')');
 			}
 		}
 
-		/* mod rebuild */	
+		/* mod rebuild */
 		fud_use('users_reg.inc');
 		rebuildmodlist();
 ?>

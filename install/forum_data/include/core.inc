@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.78 2003/10/01 02:46:43 hackie Exp $
+*   $Id: core.inc,v 1.79 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@ register_shutdown_function('rls_db_lck');
 $GLOBALS['TITLE_EXTRA'] = '';
 
 if (get_magic_quotes_gpc()) {
-	function strip_quotes(&$var) 
+	function strip_quotes(&$var)
 	{
         	if (is_array($var)) {
 			array_walk($var, 'strip_quotes');
@@ -55,7 +55,7 @@ if (get_magic_quotes_gpc()) {
 		array_walk($_FILES, 'strip_quotes');
 	}
 }
-                                                                                                                                                                                        
+
 $GLOBALS['PAGE_TIME'] = gettimeofday();
 define('__request_timestamp__', $GLOBALS['PAGE_TIME']['sec']);
 mt_srand($GLOBALS['PAGE_TIME']['usec']);
@@ -87,14 +87,14 @@ function get_ip()
 			if (($lip = ip2long($ip)) === -1) {
 				continue;
 			}
-			/* some disallowed ip ranges, that are normally used for private networks 
+			/* some disallowed ip ranges, that are normally used for private networks
 			 * 10.0.0.0 - 10.255.255.255
 			 * 172.16.0.0 - 172.31.255.255
 			 * 192.168.0.0 - 192.168.255.255
 			 * 127.0.0.1, 255.255.255.255, 0.0.0.0
 			*/
-			if (!$lip || (($lip >= 167772160) && ($lip <= 184549375)) || (($lip >= -1408237568) && ($lip <= -1407188993)) || (($lip >= -1062731776) && ($lip <= -1062666241)) || ($lip == 2130706433)) { 
-				continue; 
+			if (!$lip || (($lip >= 167772160) && ($lip <= 184549375)) || (($lip >= -1408237568) && ($lip <= -1407188993)) || (($lip >= -1062731776) && ($lip <= -1062666241)) || ($lip == 2130706433)) {
+				continue;
 			}
 			return $ip;
 		} while (($ip = strtok(',')));

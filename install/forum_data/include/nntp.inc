@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.inc,v 1.36 2003/10/03 23:59:53 hackie Exp $
+*   $Id: nntp.inc,v 1.37 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -27,13 +27,13 @@ class fud_nntp
 	var $msg_id, $reply_to, $reply_to_msg_id, $from_email, $from_name, $ip, $thread_id;
 	var $user_id;
 	var $attachments;
-	
+
 	function get_return_code()
 	{
 		$this->lrc = fgets($this->fs, 1024);
 		return trim(substr($this->lrc, 0, strpos($this->lrc,' ')));
 	}
-	
+
 	function compare_return_codes($code, $str='')
 	{
 		if (empty($str)) {
@@ -42,7 +42,7 @@ class fud_nntp
 
 		return ($str == $code);
 	}
-	
+
 	function auth_cmd()
 	{
 		if ($this-> nntp_opt & 128) {
@@ -54,13 +54,13 @@ class fud_nntp
 					if ($this->cmd('AUTHINFO pass '.$this->pass, false) != 281) {
 						$this->error = "Authentication failed\n";
 						return false;
-					} else { 
+					} else {
 						return true;
 					}
 					break;
 				default:
 					return false;
-					break;		
+					break;
 			}
 		} else if (!($this->nntp_opt & 64)) {
 			if ($this->cmd('AUTHINFO SIMPLE', false) != 350) {
@@ -69,7 +69,7 @@ class fud_nntp
 			} else {
 				if ($this->cmd($this->user." ".$this->pass, false) == 250) {
 					return true;
-				} else { 
+				} else {
 					return false;
 				}
 			}
@@ -80,7 +80,7 @@ class fud_nntp
 
 		return false;
 	}
-	
+
 	function cmd($cmd, $auth=true)
 	{
 		fputs($this->fs, $cmd."\r\n");
@@ -89,11 +89,11 @@ class fud_nntp
 			if (!$this->auth_cmd()) {
 				return false;
 			}
-			$code = $this->cmd($cmd, false);	
+			$code = $this->cmd($cmd, false);
 		}
 		return $code;
 	}
-	
+
 	function connect()
 	{
 		$this->fs = @fsockopen($this->server, $this->port, $errno, $errstr, $this->timeout);
@@ -105,21 +105,21 @@ class fud_nntp
 			$this->error = "Unable to make socket to blocking mode\n";
 			return false;
 		}
-		
+
 		$ret = $this->get_return_code();
-		
+
 		if (!$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret)) {
 			$this->error = "Failed to recieve proper response from NNTP Server, got ".$this->lrc."\n";
 			return false;
 		}
-		
+
 		$ret = $this->cmd("MODE reader");
 
 		if (!$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret)) {
 			$this->error = "Failed to recieve proper response from NNTP Server when setting 'MODE reader', got ".$this->lrc."\n";
 			return false;
 		}
-		
+
 		if (($this->cmd("GROUP ".$this->newsgroup) != 211)) {
 			$this->error = "Unable to use ".$this->newsgroup." newsgroup NTTP Msg: ".$this->lrc."\n";
 			return false;
@@ -128,8 +128,8 @@ class fud_nntp
 			$this->group_na = $tmp[1];
 			$this->group_first = $tmp[2];
 			$this->group_last = $tmp[3];
-		}	
-		
+		}
+
 		return true;
 	}
 
@@ -137,7 +137,7 @@ class fud_nntp
 	{
 		// Zero the vars
 		$this->attachments=$this->user_id=$this->headers=$this->body=$this->raw_msg=$this->msg_id=$this->reply_to_msg_id=$this->from_email=$this->from_name=$this->ip=null;
-	
+
 		if ($this->cmd("ARTICLE $id") != 220) {
 			$this->error = "Unable to Fetch Article #".$id.", NTTP Msg: ".$this->lrc."\n";
 			return false;
@@ -148,7 +148,7 @@ class fud_nntp
 				break;
 			}
 			$this->raw_msg .= $line;
-		}	
+		}
 
 		if (!preg_match("!^(.*?)\r?\n\r?\n(.*)!s", $this->raw_msg, $m)) {
 			return false;
@@ -158,14 +158,14 @@ class fud_nntp
 
 		return true;
 	}
-	
+
 	function close_connection()
 	{
 		if (@is_resource($this->fs)) {
 			unset($this->fs);
 		}
 	}
-	
+
 	function format_headers()
 	{
 		$this->headers = str_replace("\r\n", "\n", $this->headers);
@@ -173,26 +173,26 @@ class fud_nntp
 		$this->headers = array();
 		foreach($hdr as $v) {
 			$hk = substr($v, 0, ($p = strpos($v, ':')));
-			// Skip non-valid header lines 
+			// Skip non-valid header lines
 			if (empty($hk) || ($v[++$p] != ' ' && $v[$p] != "\t")) {
 				continue;
 			}
-			
+
 			$hk = strtolower(trim($hk));
-			
+
 			$this->headers[$hk] = trim(substr($v, $p));
 		}
-		
+
 		// Fetch Message ID
 		if (isset($this->headers['message-id'])) {
 			$this->msg_id = substr(trim($this->headers['message-id']), 1, -1);
 		} else {
 			nntp_error_log("No message id", $this->raw_msg);
 		}
-		
+
 		// This fetches the id of the message if this is a reply to an existing message
 		if (!empty($this->headers['references']) && preg_match_all('!<?([^\s<>]+)>?!', trim($this->headers['references']), $match)) {
-			$this->reply_to_msg_id = array_reverse($match[1]);							
+			$this->reply_to_msg_id = array_reverse($match[1]);
 		} else if (!empty($this->headers['reply-to']) && preg_match('!.*<?([^>]+)>?$!', trim($this->headers['reply-to']), $match)) {
 			$this->reply_to_msg_id = array($match[1]);
 		}
@@ -200,7 +200,7 @@ class fud_nntp
 		// Fetch From email and Possible name
 		if (preg_match('!(.*?)<(.*?)>!', $this->headers['from'], $matches)) {
 			$this->from_email = trim($matches[2]);
-			
+
 			if (!empty($matches[1])) {
 				$matches[1] = trim($matches[1]);
 				if ($matches[1][0] == '"' && substr($matches[1], -1) == '"') {
@@ -210,7 +210,7 @@ class fud_nntp
 				}
 			} else {
 				$this->from_name = $this->from_email;
-			}	
+			}
 			if (preg_match('![^A-Za-z0-9\-_\s]!', $this->from_name)) {
 				$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 			}
@@ -218,9 +218,9 @@ class fud_nntp
 			$this->from_email = trim($this->headers['from']);
 			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 		}
-		
-		$this->subject = htmlspecialchars(trim(decode_header_value($this->headers['subject'])));	
-		
+
+		$this->subject = htmlspecialchars(trim(decode_header_value($this->headers['subject'])));
+
 		// Attempt to Get Poster's IP from fields commonly used to store it
 		if (isset($this->headers['nntp-posting-host'])) {
 			$this->ip = parse_ip($this->headers['nntp-posting-host']);
@@ -232,7 +232,7 @@ class fud_nntp
 			$this->ip = parse_ip($this->headers['path']);
 		}
 	}
-	
+
 	function fud_uudecode($data)
 	{
 		$data = trim($data);
@@ -248,7 +248,7 @@ class fud_nntp
 		}
 		$data = trim(substr($data, $e, ($e2-$e)));
 		$tmp = explode("\n", $data);
-		
+
 		$out = '';
 		foreach($tmp as $line) {
 			$p = 0;
@@ -256,7 +256,7 @@ class fud_nntp
 			if ($n <= 0) {
 				break;
 			}
-		
+
 			for (++$p; $n > 0; $n -= 3) {
 				if ($n >= 3) {
 					$out .= chr(((ord($line[$p++]) - 32) & 077) << 2 | ((ord($line[$p]) - 32) & 077) >> 4);
@@ -270,7 +270,7 @@ class fud_nntp
 						$out .= chr(((ord($line[$p+1]) - 32) & 077) << 4 | ((ord($line[$p+2]) - 32) & 077) >> 2);
 					}
 
-					$p += 4;	
+					$p += 4;
 				}
 			}
 		}
@@ -289,13 +289,13 @@ class fud_nntp
 		if (($e2 = strpos($data, "====", $e)) === false) {
 			return;
 		}
-	
+
 		$data = trim(substr($data, $e, ($e2-$e)));
 		$data = str_replace("\r", "", $data);
-		
+
 		$this->attachments[$filename] = base64_decode($data);
 	}
-	
+
 	function parse_attachments()
 	{
 		// uu encoded
@@ -313,12 +313,12 @@ class fud_nntp
 					$this->fud_uudecode(str_replace("\r", "", substr($this->body, $s, ($e + 5 - $s))));
 				}
 				$this->body = substr($this->body, 0, $s) . substr($this->body, ($e + 7));
-				
+
 				$s = 0;
 			}
 			$s += 6;
 		}
-		
+
 		// base64 encoded
 		$s = 0;
 		while (($s = strpos($this->body, "begin-base64 ", $s)) !== false) {
@@ -339,7 +339,7 @@ class fud_nntp
 			$s += 13;
 		}
 	}
-	
+
 	function exit_handler()
 	{
 		if (!empty($this->error)) {
@@ -347,11 +347,11 @@ class fud_nntp
 			$fp = fopen($GLOBALS['ERROR_PATH'].".nntp/error_log", "ab");
 				fwrite($fp, $this->error);
 			fclose($fp);
-			umask($u);	
-		}	
+			umask($u);
+		}
 		exit($this->close_connection());
 	}
-	
+
 	function parse_msgs($frm, $nntp_adm, $start_id=0)
 	{
 		if (!$this->connect()) {
@@ -359,11 +359,11 @@ class fud_nntp
 		}
 
 		$this->group_last++;
-		
+
 		if ($start_id && $start_id > $this->group_first && $start_id <= $this->group_last) {
 			$this->group_first = $start_id;
 		}
-		
+
 		for ($i = $this->group_first; $i < $this->group_last; $i++) {
 			if (!$this->get_message($i)) {
 				$this->error = null;
@@ -374,7 +374,7 @@ class fud_nntp
 			$this->parse_attachments();
 
 			$msg_post = new fud_msg_edit;
-			
+
 			// Handler for our own messages, which do not need to be imported.
 			if (isset($this->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $this->headers['x-fudforum'], $m)) {
 				if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
@@ -390,16 +390,16 @@ class fud_nntp
 			} else {
 				$msg_post->body = nl2br($msg_post->body);
 			}
-			
-			fud_wordwrap($msg_post->body);		
-			
+
+			fud_wordwrap($msg_post->body);
+
 			if (isset($this->headers['date'])) {
 				$msg_post->post_stamp = strtotime($this->headers['date']);
 				if ($msg_post->post_stamp <= 0 || $msg_post->post_stamp > time()) {
 					$msg_post->post_stamp = time();
 				}
 			}
-			
+
 			$msg_post->subject = htmlspecialchars(apply_custom_replace($this->subject));
 			$msg_post->poster_id = match_user_to_post($this->from_email, $this->from_name, $this->nntp_opt & 32, $this->user_id);
 			$msg_post->ip_addr = $this->ip;
@@ -424,7 +424,7 @@ class fud_nntp
 					$fp = fopen($tmpfname, 'wb');
 					fwrite($fp, $val);
 					fclose($fp);
-					
+
 					$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 					$attach_list[$id] = $id;
 				}
@@ -433,29 +433,29 @@ class fud_nntp
 				}
 			}
 			if (!($nntp_adm->nntp_opt & 1)) {
-				fud_msg_edit::approve($msg_post->id, true);	
+				fud_msg_edit::approve($msg_post->id, true);
 			}
 			unset($msg_post);
-		}	
+		}
 		$this->set_end($this->group_last);
 		$this->exit_handler();
 	}
-	
+
 	function get_lock()
-	{	
+	{
 		$u = umask(0111);
 		$fp = fopen($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup.'.lock' , "wb");
 		flock($fp, LOCK_EX);
 		umask($u);
-		
+
 		return $fp;
 	}
-	
+
 	function release_lock($fp)
 	{
 		fclose($fp);
 	}
-	
+
 	function read_start()
 	{
 		if (!@file_exists($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup)) {
@@ -464,7 +464,7 @@ class fud_nntp
 
 		return (int) trim(file_get_contents($GLOBALS['ERROR_PATH'].'.nntp/'.$this->server.'-'.$this->newsgroup));
 	}
-	
+
 	function set_end($val)
 	{
 		$u = umask(0111);
@@ -480,16 +480,16 @@ class fud_nntp
 		if (!$this->connect()) {
 			$this->exit_handler();
 		}
-		
+
 		if ($this->cmd("POST") != 340) {
 	        	$this->error = "Failed to recieve proper response to POST command, NNTP server replied: ".$this->lrc."\n";
 			$this->exit_handler();
 		}
-		
+
 		fputs($this->fs, "From: $from\r\n");
 	        fputs($this->fs, "Newsgroups: $this->newsgroup\r\n");
 	        fputs($this->fs, "Subject: $subject\r\n");
-	        
+
 	        if ($GLOBALS['FORUM_TITLE']) {
 	        	fputs($this->fs, "Organization: ".$GLOBALS['FORUM_TITLE']."\r\n");
 	        }
@@ -497,17 +497,17 @@ class fud_nntp
 	        fputs($this->fs, "Date: ".date("r")."\r\n");
 	        fputs($this->fs, "Reply-To: $from\r\n");
 	        fputs($this->fs, "Lines: ".substr_count($body,"\n")."\r\n");
-	        
+
 	        // will be used to identify forum's messages
 	        fputs($this->fs, "X-FUDforum: ".md5($GLOBALS['WWW_ROOT'])." <$forum_msg_id>\r\n");
-	        
+
 	        if ($reply_to) {
 	        	fputs($this->fs, "References: <".$reply_to.">\r\n");
 	        }
 
 	        fputs($this->fs, "User-Agent: FUDforum ".$GLOBALS['FORUM_VERSION']."\r\n");
 	        fputs($this->fs, "\r\n$body\r\n");
-	        
+
 	        // handle file attachments, if there are any
 	        if (is_array($attch)) {
 	        	fputs($this->fs, "\r\n");
@@ -515,14 +515,14 @@ class fud_nntp
 	                        fputs($this->fs, uuencode($file_data, $fname));
 			}
 		}
-		
+
 		fputs($this->fs, ".\r\n");
-		
+
 		if (!$this->compare_return_codes(240)) {
 			$this->error = "Posting Failed, NNTP Server Said: ".$this->lrc."\n";
 			$this->exit_handler();
 		}
-		
+
 		$this->close_connection();
 		return true;
 	}
@@ -530,7 +530,7 @@ class fud_nntp
 
 function uuencode($in, $file_name)
 {
-	$out = 'begin 644 ' . $file_name . "\r\n"; 
+	$out = 'begin 644 ' . $file_name . "\r\n";
 	$n = strlen($in);
 
 	for ($i = 0; $i < $n; $i += 3) {

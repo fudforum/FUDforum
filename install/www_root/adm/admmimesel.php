@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmimesel.php,v 1.4 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admmimesel.php,v 1.5 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -41,7 +41,7 @@
 		echo '</tr></table>';
 	}
 	if (!$i) {
-		echo 'There are no mime icons';	
+		echo 'There are no mime icons';
 	}
 
 	echo '</body></html>';

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cat.inc,v 1.5 2003/10/03 23:59:53 hackie Exp $
+*   $Id: cat.inc,v 1.6 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@ class fud_cat
 		if (!db_locked()) {
 			$ll = 1;
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'cat WRITE');
-		}	
+		}
 
 		if ($pos == 'LAST') {
 			$this->view_order = (int) q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat') + 1;
@@ -79,7 +79,7 @@ function cat_change_pos($oldp, $newp)
 	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'cat WRITE');
 	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=2147483647 WHERE view_order='.$oldp);
 	if ($oldp < $newp) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order-1 WHERE view_order<='.$newp.' AND view_order>'.$oldp);	
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat SET view_order=view_order-1 WHERE view_order<='.$newp.' AND view_order>'.$oldp);
 		$maxp = q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'cat WHERE view_order!=2147483647');
 		if ($newp > $maxp) {
 			$newp = $maxp + 1;
@@ -94,7 +94,7 @@ function cat_change_pos($oldp, $newp)
 function rebuild_forum_cat_order()
 {
 	$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
-	
+
 	if (!db_locked()) {
 		$ll = 1;
 		db_lock($tbl.'cat c WRITE,'.$tbl.'fc_view WRITE,'.$tbl.'forum f WRITE');

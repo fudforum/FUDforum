@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.18 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admstats.php,v 1.19 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@ function dir_space_usage($dirp)
 		return;
 	}
 	readdir($dir); readdir($dir);
-	
+
 	while ($f = readdir($dir)) {
 		$file = $dirp . '/' . $f;
 		if (@is_link($file)) {
@@ -51,7 +51,7 @@ function get_sql_disk_usage()
 	if ($ver[0] != 4 && strncmp($ver, '3.23', 4)) {
 		return;
 	}
-	
+
 	$sql_size = 0;
 	$c = uq('SHOW TABLE STATUS FROM '.$GLOBALS['DBHOST_DBNAME'].' LIKE \''.$GLOBALS['DBHOST_TBL_PREFIX'].'%\'');
 	while ($r = db_rowobj($c)) {
@@ -61,7 +61,7 @@ function get_sql_disk_usage()
 
 	return $sql_size;
 }
-	
+
 	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '.$tbl.'msg');
 	$days_ago = round((__request_timestamp__ - $forum_start) / 86400);
 
@@ -77,16 +77,16 @@ function get_sql_disk_usage()
 	$vl_d = $kl_d = implode("\n", array_keys(array_fill(1, 31, '')));
 	$vl_y = $kl_y = implode("\n", array_keys(array_fill($s_year, ($e_year - $s_year + 1), '')));
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
-?>	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+?>
 <div align="center" style="font-size: xx-large; font-weight: bold;">Statistics</div>
-<?php 
+<?php
 	if (isset($_POST['submitted'])) {
 		$start_tm = mktime(1, 1, 1, $_POST['s_month'], $_POST['s_day'], $_POST['s_year']);
 		$end_tm = mktime(1, 1, 1, $_POST['e_month'], $_POST['e_day'], $_POST['e_year']);
-		
+
 		$day_list = array();
-		
+
 		switch ($_POST['sep']) {
 			case 'week':
 				$g_type = 'weekly';
@@ -108,7 +108,7 @@ function get_sql_disk_usage()
 				$g_type = 'daily';
 				$fmt = 'Ymd';
 		}
-		
+
 		switch ($_POST['type']) {
 			case 'msg':
 				$g_title = 'Messages posted';
@@ -124,7 +124,7 @@ function get_sql_disk_usage()
 				break;
 		}
 		$g_title .= ' from <b>'.date('F d, Y', $start_tm).'</b> to <b>'.date('F d, Y', $end_tm).'</b>';
-		
+
 		while ($r = db_rowarr($c)) {
 			$ds = date($fmt, $r[0]);
 			if (!isset($day_list[$ds])) {
@@ -140,7 +140,7 @@ function get_sql_disk_usage()
 		rsort($tmp);
 		$max_value = current($tmp);
 		unset($tmp);
-		
+
 		echo '<br><div align="center" style="font-size: small;">'.$g_title.' ('.$g_type.')</div>';
 		echo '<table cellspacing=1 cellpadding=0 border=0 align="center">';
 		$ttl = 0;
@@ -171,10 +171,10 @@ function get_sql_disk_usage()
 			$total_disk_usage += $disk_usage_array['WWW_ROOT_DISK'] = dir_space_usage($WWW_ROOT_DISK);
 		} else {
 			$disk_usage_array['WWW_ROOT_DISK'] = $disk_usage_array['DATA_DIR'];
-		}	
+		}
 
 		$sql_disk_usage = get_sql_disk_usage();
-	
+
 		$forum_stats['MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'msg');
 		$forum_stats['THREADS'] = q_singleval('SELECT count(*) FROM '.$tbl.'thread');
 		$forum_stats['PRIVATE_MESSAGES'] = q_singleval('SELECT count(*) FROM '.$tbl.'pmsg');
@@ -214,7 +214,7 @@ function get_sql_disk_usage()
 <input type="hidden" name="submitted" value="1">
 </form>
 </table>
-<?php 
+<?php
 	if (isset($total_disk_usage)) {
 ?>
 <br>
@@ -264,7 +264,7 @@ function get_sql_disk_usage()
 	<td colspan=2 width=100>&nbsp;</td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Topics:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['THREADS']; ?></td>
@@ -272,7 +272,7 @@ function get_sql_disk_usage()
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['MESSAGES']/$forum_stats['THREADS']); ?></b> messages per topic</font></td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Forums:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['FORUMS']; ?></td>
@@ -283,7 +283,7 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Categories:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['CATEGORIES']; ?></td>
@@ -302,7 +302,7 @@ function get_sql_disk_usage()
 	<td colspan=2 width=100>&nbsp;</td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Users:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['MEMBERS']; ?></td>
@@ -314,7 +314,7 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Moderators:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['MODERATORS']; ?></td>
@@ -325,7 +325,7 @@ function get_sql_disk_usage()
 	</font></td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>Administrators:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['ADMINS']; ?></td>
@@ -333,7 +333,7 @@ function get_sql_disk_usage()
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['ADMINS']/$forum_stats['MEMBERS']); ?>%</b> of all users</font></td>
 </tr>
 
-<tr>	
+<tr>
 	<td valign="top"><b>User Groups:</b></td>
 	<td width=100>&nbsp;</td>
 	<td align="right" valign="top"><?php echo $forum_stats['GROUPS']; ?></td>
@@ -341,8 +341,8 @@ function get_sql_disk_usage()
 	<td><font size="-1"><b><?php echo @sprintf("%.2f", $forum_stats['GROUP_MEMBERS']/$forum_stats['GROUPS']); ?></b> members per group</font></td>
 </tr>
 </table>
-<?php 
+<?php
 	} /* !isset($total_disk_usage) */
 
-	require($WWW_ROOT_DISK . 'adm/admclose.html'); 
+	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admbrowse.php,v 1.10 2003/09/30 03:27:52 hackie Exp $
+*   $Id: admbrowse.php,v 1.11 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@ function mode_string($mode, $de)
 	/* determine string mode
 	01234567890 */
 	$mode_str = 'drwxrwxrwxt';
-		
+
 	if (!is_dir($de)) {/* directory */
 		$mode_str[0] = '-';
 	}
@@ -51,7 +51,7 @@ function mode_string($mode, $de)
 	}
 	if (!bit_test($mode, 00040)) {/* group read */
 		$mode_str[4] = '-';
-	}	
+	}
 	if (!bit_test($mode, 00020)) {/* group write */
 		$mode_str[5] = '-';
 	}
@@ -60,7 +60,7 @@ function mode_string($mode, $de)
 	}
 	if (bit_test($mode, 0002000)) {/* setgid */
 		$mode_str[6] = 's';
-	}		
+	}
 	if (!bit_test($mode, 00004)) {/* world read */
 		$mode_str[7] = '-';
 	}
@@ -73,7 +73,7 @@ function mode_string($mode, $de)
 	if (!bit_test($mode, 0001000)) {/* sticky (warning: NOT POSIX) */
 		$mode_str[10] = '-';
 	}
-			
+
 	return $mode_str;
 }
 
@@ -113,7 +113,7 @@ if (!function_exists('posix_getpwuid')) {
 	/* Figure out the ROOT paths based on the location of web browseable dir & data dir */
 	$ROOT_PATH[0] = realpath($GLOBALS['WWW_ROOT_DISK']);
 	$ROOT_PATH[1] = realpath($GLOBALS['DATA_DIR']);
-	
+
 	$cur_dir = realpath(isset($_POST['cur']) ? $_POST['cur'] : (isset($_GET['cur']) ? $_GET['cur'] : $ROOT_PATH[0]));
 	$dest = isset($_POST['dest']) ? basename($_POST['dest']) : (isset($_GET['dest']) ? basename($_GET['dest']) : '');
 
@@ -122,7 +122,7 @@ if (!function_exists('posix_getpwuid')) {
 		$cur = $cur_dir = $ROOT_PATH[0];
 		$dest = '';
 	}
-	
+
 	/* Directory creation code */
 	if (isset($_GET['btn_mkdir']) && !empty($_GET['mkdir'])) {
 		$u = umask(0);
@@ -147,7 +147,7 @@ if (!function_exists('posix_getpwuid')) {
 		fpassthru(fopen($cur_dir . '/' . $dest, 'rb'));
 		exit;
 	}
-	
+
 	/* Delete file/directory code */
 	if (isset($_GET['del']) && $dest && @file_exists($cur_dir . '/' . $dest)) {
 		if (isset($_GET['del_conf'])) {
@@ -158,7 +158,7 @@ if (!function_exists('posix_getpwuid')) {
 			} else {
 				exit('<html><script> window.opener.location = \'admbrowse.php?'._rsidl.'&cur='.urlencode($cur_dir).'\'; window.close();</script></html>');
 			}
-		} else { 
+		} else {
 			$file = $cur_dir.'/'.$dest;
 			$type = @is_dir($file) ? 'directory' : 'file';
 		?>
@@ -172,7 +172,7 @@ if (!function_exists('posix_getpwuid')) {
 			<div align="center"><input type="submit" name="btn_mini_cancel" value="No"> <input type="submit" name="del_conf" value="Yes"></div>
 			</form>
 			</html>
-		<?php 
+		<?php
 			exit;
 		}
 	}
@@ -235,7 +235,7 @@ if (!function_exists('posix_getpwuid')) {
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>File Adminstration System</h2>
 <?php
@@ -245,8 +245,8 @@ if (!function_exists('posix_getpwuid')) {
 
 	echo 'WWW_SERVER_ROOT: <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[0]).'">'.$ROOT_PATH[0].'</a><br>
 		DATA_ROOT:  <a href="admbrowse.php?'._rsid.'&cur='.urlencode($ROOT_PATH[1]).'">'.$ROOT_PATH[1].'</a><br>';
-	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";		
-	
+	echo 'Currently Browsing: <b>'.htmlspecialchars($cur_dir)."</b><br>\n";
+
 	clearstatcache();
 	if (!($dp = opendir($cur_dir))) {
 		echo '<b>PERMISSION DENINED ACCSESING '.$cur_dir.'</b><br>';
@@ -285,7 +285,7 @@ if (!function_exists('posix_getpwuid')) {
 <br>
 <table border=0 cellspacing=1 cellpadding=3>
 <tr class="admin_fixed" bgcolor="#bff8ff"><td>Mode</td><td>Owner</td><td>Group</td><td>Size</td><td>Date</td><td>Time</td><td>Name</td><td align="center" colspan=3>Action</td></tr>
-<?php	
+<?php
 	$file_list = array();
 	$dir_list = array();
 
@@ -301,13 +301,13 @@ if (!function_exists('posix_getpwuid')) {
 	sort($dir_list);
 	sort($file_list);
 
-	$dir_data = array_merge($dir_list, $file_list);	
+	$dir_data = array_merge($dir_list, $file_list);
 
 	$cur_enc = urlencode($cur_dir);
-		
+
 	foreach($dir_data as $de) {
 		$fpath = $cur_dir . '/' . $de;
-	
+
 		if (@is_file($fpath)) {
 			$name = htmlspecialchars($de);
 			$st = stat($fpath);
@@ -315,40 +315,40 @@ if (!function_exists('posix_getpwuid')) {
 			$name = '<a href="admbrowse.php?cur='.urlencode($fpath).'&'._rsidl.'">'.htmlspecialchars($de).'</a>';
 			$st = stat($fpath);
 		}
-	
+
 		$mode = isset($st[2]) ? $st[2] : $st['mode'];
 		$mode_str = mode_string($mode, $de);
 		$de_enc = urlencode($de);
-		
+
 		$passwdent = posix_getpwuid((isset($st[4])?$st[4]:$st['uid']));
 		$owner = $passwdent['name'];
 		$groupsent = posix_getgrgid((isset($st[5])?$st[5]:$st['gid']));
 		$group = $groupsent['name'];
-		
+
 		$date_str = strftime("%b %d", (isset($st[9])?$st[9]:$st['mtime']));
 		$time_str = strftime("%T", (isset($st[9])?$st[9]:$st['mtime']));
 		$mode_o = sprintf('%o', 0x0FFF&$mode);
-		
+
 		$size = round((isset($st[7])?$st[7]:$st['size'])/1024);
-		
+
 		echo '<tr class="admin_fixed"><td nowrap>'.$mode_str.' ('.$mode_o.')</td><td>'.$owner.'</td><td>'.$group.'</td><td nowrap>'.$size.' KB</td><td nowrap>'.$date_str.'</td><td>'.$time_str.'</td><td>'.$name.'</td>';
 		if (@is_readable($fpath)) {
 			if (@is_writeable($fpath)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?chmod=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">chmod</a></td>';
 			} else {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';	
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 
 			if (@is_file($fpath)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="admbrowse.php?down=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'">download</a></td>';
 			} else {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';					
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 
 			if (@is_writeable($fpath)) {
 				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;"><a href="javascript: return false;" onClick="javascript: window.open(\'admbrowse.php?del=1&cur='.$cur_enc.'&dest='.$de_enc.'&'._rsidl.'\', \'chmod_window\', \'width=500,height=350,menubar=no\');">delete</a></td>';
 			} else {
-				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';	
+				echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" align="center">n/a</td>';
 			}
 		} else {
 			echo '<td style="border: #AEBDC4; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" colspan=3 align="center">n/a</td>';

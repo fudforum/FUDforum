@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.32 2003/09/30 02:31:39 hackie Exp $
+*   $Id: compact.php,v 1.33 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -31,20 +31,20 @@
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf'])) {
-?>		
+?>
 <form method="post" action="compact.php">
 <div align="center">
-The compactor will rebuild the storage files were the message bodies are kept. While the compactor is running 
-your forum will be temporarily inaccessible. This process may take a while to run, depending on your harddrive speed 
+The compactor will rebuild the storage files were the message bodies are kept. While the compactor is running
+your forum will be temporarily inaccessible. This process may take a while to run, depending on your harddrive speed
 and the amount of messages your forum has.<br><br>
 <h2>Do you wish to proceed?</h2>
 <input type="submit" name="cancel" value="No">&nbsp;&nbsp;&nbsp;<input type="submit" name="conf" value="Yes">
 </div>
 <?php echo _hs; ?>
-</form>	
-<?php	
+</form>
+<?php
 		readfile($WWW_ROOT_DISK . 'adm/admclose.html');
-		exit;	
+		exit;
 	}
 ?>
 <script language="Javascript1.2">
@@ -159,10 +159,10 @@ function eta_calc($start, $pos, $pc)
 	echo "Compacting private messages...<br>\n";
 	flush();
 
-	if (__dbtype__ == 'mysql') { 
+	if (__dbtype__ == 'mysql') {
 		q('ALTER TABLE '.$tbl.'pmsg ADD INDEX(foff)');
 	} else {
-		q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)'); 
+		q('CREATE INDEX '.$tbl.'pmsg_foff_idx ON '.$tbl.'pmsg (foff)');
 	}
 
 	db_lock($tbl.'pmsg WRITE');
@@ -181,16 +181,16 @@ function eta_calc($start, $pos, $pc)
 
 		if ($i && !($i % $pc)) {
 			eta_calc($stm2, $i, $pc);
-		}	
+		}
 		$i++;
 	}
 	qf($c);
 	fclose($fp);
 
-	if (__dbtype__ == 'mysql') { 
+	if (__dbtype__ == 'mysql') {
 		q('ALTER TABLE '.$tbl.'pmsg DROP index foff');
 	} else {
-		q('DROP INDEX '.$tbl.'pmsg_foff_idx'); 
+		q('DROP INDEX '.$tbl.'pmsg_foff_idx');
 	}
 
 	echo "100% Done<br>\n";

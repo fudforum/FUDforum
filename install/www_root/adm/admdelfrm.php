@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdelfrm.php,v 1.12 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admdelfrm.php,v 1.13 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -27,13 +27,13 @@
 		q('UPDATE '.$tbl.'forum SET cat_id='.(int)$_POST['dst_cat'].', view_order='.$pos.' WHERE id='.(int)$_POST['frm_id']);
 	} else if (isset($_GET['del']) && ($f = db_saq('SELECT id, thread_count, post_count, name FROM '.$tbl.'forum WHERE id='.(int)$_GET['del']))) {
 		/* user considers deleting a forum, give them final confirmation check */
-?>		
+?>
 <html>
 <body bgcolor="#ffffff">
 <div align="center">
 <h3>You have selected to delete this forum</h3><br>
 "<?php echo $f[3]; ?>" which contains <?php echo $f[1]; ?> topics with <?php echo $f[2]; ?> posts<br><br>
-<h3>Are you sure this is what you want to do?</h3> 
+<h3>Are you sure this is what you want to do?</h3>
 <form method="post" action="admdelfrm.php">
 <?php echo _hs; ?>
 <input type="hidden" name="del" value="<?php echo $f[0]; ?>">

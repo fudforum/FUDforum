@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admforumicons.php,v 1.7 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admforumicons.php,v 1.8 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,13 +14,13 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
 
 	/*
-	 * The presense of the which_dir variable tells us whether we are editing 
+	 * The presense of the which_dir variable tells us whether we are editing
 	 * forum icons or message icons.
 	 */
 	if (!empty($_GET['which_dir']) || !empty($_POST['which_dir'])) {
@@ -32,7 +32,7 @@
 		$ICONS_DIR = 'images/forum_icons';
 		$form_descr = 'Forum Icons';
 	}
-	
+
 	if (isset($_FILES['iconfile']) && $_FILES['iconfile']['size'] && preg_match('!\.(gif|png|jpg|jpeg)$!i', $_FILES['iconfile']['name'])) {
 		echo "HERE<br>\n";
 		move_uploaded_file($_FILES['iconfile']['tmp_name'], $GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . $_FILES['iconfile']['name']);
@@ -41,10 +41,10 @@
 		@unlink($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR . '/' . basename($_GET['del']));
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2><?php echo $form_descr; ?> Administration System</h2>
-<?php 
+<?php
 	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . $ICONS_DIR)) {
 ?>
 <form method="post" enctype="multipart/form-data" action="admforumicons.php">
@@ -55,7 +55,7 @@
 		<td>Upload Icon:<br><font size="-1">Only (*.gif, *.jpg, *.png) files are supported</font></td>
 		<td><input type="file" name="iconfile"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff"><td align=right colspan=2><input type="submit" name="btn_upload" value="Add"></td></tr>
 </table>
 </form>

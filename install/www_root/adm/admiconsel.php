@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admiconsel.php,v 1.4 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admiconsel.php,v 1.5 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,7 +40,7 @@
 			echo '</tr><tr>';
 		}
 		$bgcolor = !($i++%2) ? ' bgcolor="#f4f4f4"' : '';
-		
+
 		echo '<td align="center"'.$bgcolor.'><a href="javascript:window.opener.document.frm_forum.frm_forum_icon.value=\'images/forum_icons/'.$f.'\'; window.close();"><img src="'.$imp.$f.'" border=0><br><font size=-2>'.$f.'</font></a></td>';
 	}
 	closedir($dp);

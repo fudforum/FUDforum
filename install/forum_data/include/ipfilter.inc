@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ipfilter.inc,v 1.1 2003/04/23 00:53:15 hackie Exp $
+*   $Id: ipfilter.inc,v 1.2 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -30,5 +30,5 @@ function ip_cache_rebuild()
 	$fp = fopen($GLOBALS['FORUM_SETTINGS_PATH'] . 'ip_filter_cache', 'w');
 	fwrite($fp, '<?php ' . $data . ' ?>');
 	fclose($fp);
-}	
+}
 ?>

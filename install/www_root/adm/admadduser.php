@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admadduser.php,v 1.12 2003/10/03 16:46:18 hackie Exp $
+*   $Id: admadduser.php,v 1.13 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -32,11 +32,11 @@ function validate_input()
 		$GLOBALS['err_passwd'] = errorify('Password cannot be blank');
 		return 1;
 	}
-	
+
 	if (empty($_POST['email'])) {
 		$GLOBALS['err_email'] = errorify('E-mail cannot be blank');
 		return 1;
-	}	
+	}
 
 	return 0;
 }
@@ -62,11 +62,11 @@ function validate_input()
 
 		$i = 0;
 		$al = $alias;
-		while (($user_added = db_li("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
+		while (($user_added = db_li("INSERT INTO ".$DBHOST_TBL_PREFIX."users
 			(login, alias, passwd, name, email, time_zone, join_date, theme, users_opt, last_read) VALUES (
-			'".addslashes($_POST['login'])."', '".$al."', '".md5($_POST['passwd'])."', 
-			'".addslashes($_POST['name'])."', '".addslashes($_POST['email'])."', '".$SERVER_TZ."', 
-			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")", 
+			'".addslashes($_POST['login'])."', '".$al."', '".md5($_POST['passwd'])."',
+			'".addslashes($_POST['name'])."', '".addslashes($_POST['email'])."', '".$SERVER_TZ."',
+			".__request_timestamp__.", ".$default_theme.", ".$users_opt.", ".__request_timestamp__.")",
 			$ef, 1)) === null) {
 				if (__dbtype__ == 'pgsql') {
 					if ($ef == 'test_users_i_l') {
@@ -107,7 +107,7 @@ function validate_input()
 		$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Add User</h2>
 <?php
@@ -123,7 +123,7 @@ function validate_input()
 	<tr bgcolor="#bff8ff">
 		<td colspan=2>Register a new forum user.</td>
 	</tr>
-	
+
 	<tr bgcolor="#f1f1f1">
 		<td>Login:</td>
 		<td><?php if (isset($err_login)) { echo $err_login; } ?><input type="text" name="login" value="<?php echo $login; ?>" size="30"></td>

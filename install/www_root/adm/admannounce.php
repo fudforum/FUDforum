@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.10 2003/07/28 16:53:32 hackie Exp $
+*   $Id: admannounce.php,v 1.11 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 	fud_use('widgets.inc', true);
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
-	
+
 function raw_date($dt)
 {
 	return array(substr($dt, 0, 4), substr($dt, 4, 2), substr($dt, -2));
@@ -64,7 +64,7 @@ function mk_date($y, $m, $d)
 		list($d_year, $d_month, $d_day) = explode(' ', gmdate('Y m d', __request_timestamp__));
 		list($d2_year, $d2_month, $d2_day) =  explode(' ', gmdate('Y m d', (__request_timestamp__ + 86400)));
 	}
-	
+
 	if (isset($_POST['btn_submit'])) {
 		$id = db_qid('INSERT INTO '.$tbl.'announce (date_started, date_ended, subject, text) VALUES ('.mk_date($_POST['d_year'], $_POST['d_month'], $_POST['d_day']).', '.mk_date($_POST['d2_year'], $_POST['d2_month'], $_POST['d2_day']).', \''.addslashes($_POST['a_subject']).'\', \''.addslashes($_POST['a_text']).'\')');
 	} else if (isset($_POST['btn_update'], $_POST['edit'])) {
@@ -85,8 +85,8 @@ function mk_date($y, $m, $d)
 		}
 		unset($frm_list);
 	}
-	
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Announcement System</h2>
 <form method="post" name="a_frm" action="admannounce.php">
@@ -125,9 +125,9 @@ function mk_date($y, $m, $d)
 	</tr>
 
 	<tr bgcolor="#fffee5">
-		<td colspan="2">All dates are in GMT, current GMT date/time is: <?php echo gmdate('r', __request_timestamp__); ?></td>	
+		<td colspan="2">All dates are in GMT, current GMT date/time is: <?php echo gmdate('r', __request_timestamp__); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Starting Date:</td>
 		<td>
@@ -137,7 +137,7 @@ function mk_date($y, $m, $d)
 			</table>
 		</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Ending Date:</td>
 		<td>
@@ -147,17 +147,17 @@ function mk_date($y, $m, $d)
 			</table>
 		</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Subject:</td>
 		<td><input type="text" name="a_subject" value="<?php echo htmlspecialchars($a_subject); ?>">
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Message:</td>
 		<td><textarea cols=40 rows=10 name="a_text"><?php echo htmlspecialchars($a_text); ?></textarea></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 <?php
@@ -169,7 +169,7 @@ function mk_date($y, $m, $d)
 ?>
 		</td>
 	</tr>
-	
+
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>

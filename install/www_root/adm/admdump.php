@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admdump.php,v 1.31 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admdump.php,v 1.32 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,16 +16,16 @@
 ***************************************************************************/
 
 	@set_time_limit(6000);
-	
+
 function make_insrt_qry($obj, $tbl, $field_data)
 {
 	$vl = $kv = '';
-	
+
 	foreach($obj as $k => $v) {
 		if (!isset($field_data[$k])) {
 			continue;
 		}
-	
+
 		switch (strtolower($field_data[$k]['type'])) {
 			case 'string':
 			case 'blob':
@@ -45,9 +45,9 @@ function make_insrt_qry($obj, $tbl, $field_data)
 					$vl .= $v.',';
 				}
 		}
-		
+
 		$kv .= $field_data[$k]['name'].',';
-	}	
+	}
 
 	return 'INSERT INTO '.$tbl.' ('.substr($kv, 0, -1).') VALUES('.substr($vl, 0, -1).')';
 }
@@ -55,7 +55,7 @@ function make_insrt_qry($obj, $tbl, $field_data)
 function backup_dir($dirp, $fp, $write_func, $keep_dir)
 {
 	global $BUF_SIZE;
-	
+
 	if (!($d = opendir($dirp))) {
 		echo 'Could not open "'.$dirp.'" for reading<br>';
 		return;
@@ -95,7 +95,7 @@ function backup_dir($dirp, $fp, $write_func, $keep_dir)
 				break;
 		}
 	}
-	closedir($d);	
+	closedir($d);
 }
 
 function sql_num_fields($r)
@@ -126,10 +126,10 @@ function sql_is_null($r, $n, $tbl='')
 	require('./GLOBALS.php');
 	fud_use('db.inc');
 	fud_use('mem_limit.inc', true);
-	
-	/* 
-	 * Check for HTTP AUTH, before going for the usual cookie/session auth 
-	 * this is done to allow for easier running of this process via an 
+
+	/*
+	 * Check for HTTP AUTH, before going for the usual cookie/session auth
+	 * this is done to allow for easier running of this process via an
 	 * automated cronjob.
 	 */
 
@@ -146,9 +146,9 @@ function sql_is_null($r, $n, $tbl='')
 		}
 	} else {
 		fud_use('adm.inc', true);
-	}	
+	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (isset($_POST['submitted']) && !@fopen($_POST['path'], 'w')) {
 		$path_error = '<font color="#ff0000">Couldn\'t open backup destination file, '.$_POST['path'].' for write.</font><br>';
@@ -161,7 +161,7 @@ function sql_is_null($r, $n, $tbl='')
 				exit('cannot create file');
 			}
 			$write_func = 'gzwrite';
-		} else { 
+		} else {
 			if (!$fp = fopen($_POST['path'], 'wb')) {
 				exit('cannot create file');
 			}
@@ -176,9 +176,9 @@ function sql_is_null($r, $n, $tbl='')
 			backup_dir(realpath($WWW_ROOT_DISK.'images/'), $fp, $write_func, 'WWW_ROOT_DISK');
 		}
 		$write_func($fp, "\n----FILES_END----\n");
-	
+
 		$write_func($fp, "\n----SQL_START----\n");
-	
+
 		/* read sql table defenitions */
 		$path = $DATA_DIR . 'sql/' . __dbtype__;
 		if (!($d = opendir($path))) {
@@ -197,7 +197,7 @@ function sql_is_null($r, $n, $tbl='')
 			$write_func($fp, $sql_data . "\n");
 		}
 		closedir($d);
-		
+
 		$sql_table_list = get_fud_table_list();
 		db_lock(implode(' WRITE, ', $sql_table_list) . ' WRITE');
 
@@ -207,7 +207,7 @@ function sql_is_null($r, $n, $tbl='')
 				continue;
 			}
 			$num_entries = q_singleval('SELECT count(*) FROM '.$tbl_name);
-		
+
 			echo 'Processing table: '.$tbl_name.' ('.$num_entries.') .... ';
 			flush();
 			if ($num_entries) {
@@ -271,12 +271,12 @@ function sql_is_null($r, $n, $tbl='')
 	<td><input type="checkbox" name="compress" value="1" <?php echo $compress; ?>> Yes</td>
 </tr>
 <?php } ?>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>	
+<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Make Backup"></td></tr>
 <input type="hidden" name="submitted" value="1">
 </form>
 </table>
-<?php	
+<?php
 	} /* isset($_POST['submitted']) */
 
-	require($WWW_ROOT_DISK . 'adm/admclose.html');		
+	require($WWW_ROOT_DISK . 'adm/admclose.html');
 ?>

@@ -5,7 +5,7 @@
 	/* parsing mode, what are we parsing, 'message', 'topic' or 'user' data */
 	$mode = 'message';
 
-/* This is a sample class that will be used to handle the data parsed from the 
+/* This is a sample class that will be used to handle the data parsed from the
  * RDF file that contains message information. The data is stored in the following
  * class properties:
  *
@@ -17,7 +17,7 @@
  *	author		- the name of the author
  *	author_id	- id of the poster, 0 for anonymous users
  *	date		- the date message was posted on
- *	attachments	- an array containing information about file attachments 
+ *	attachments	- an array containing information about file attachments
  *				'title' - name of the file
  *				'id' 	- attachment id
  *				'nd' 	- number of times the file was downloaded
@@ -79,7 +79,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
 	}
 } /* {{{ fud_forum_rdf_msg_print }}} */
 
-/* This is a sample class that will be used to handle the data parsed from the 
+/* This is a sample class that will be used to handle the data parsed from the
  * RDF file that contains user information. The data is stored in the following
  * class properties:
  *
@@ -97,7 +97,7 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
  *	im_msnm		- MSN Messenger (optional)
  *	im_jabber	- Jabber (optional)
  *	im_affero	- Affero (optional)
- *	-- 	The following are going to be filled only if a user had posted 
+ *	-- 	The following are going to be filled only if a user had posted
  *		a message and the permissions allow it to be displayed
  *	--
  *	m_subject	- subject of the message
@@ -105,8 +105,8 @@ class fud_forum_rdf_msg_print extends fud_forum_rdf_msg
  *	m_thread_id	- thread id
  *	m_forum_id	- forum id
  *	m_forum_title	- forum title
- *	m_cat_title	- category title	
- *	
+ *	m_cat_title	- category title
+ *
  */
 
 class fud_forum_rdf_user_print extends fud_forum_rdf_user
@@ -159,7 +159,7 @@ class fud_forum_rdf_user_print extends fud_forum_rdf_user
 	}
 } /* {{{ fud_forum_rdf_user_print }}} */
 
-/* This is a sample class that will be used to handle the data parsed from the 
+/* This is a sample class that will be used to handle the data parsed from the
  * RDF file that contains topic information. The data is stored in the following
  * class properties:
  *
@@ -212,7 +212,7 @@ class fud_forum_rdf_msg
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n"); 
+		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
 		xml_parser_free($this->parser);
 	}
 
@@ -304,7 +304,7 @@ class fud_forum_rdf_user
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n"); 
+		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
 		xml_parser_free($this->parser);
 	}
 
@@ -350,7 +350,7 @@ class fud_forum_rdf_topic
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
 		xml_set_character_data_handler($this->parser, 'pdata');
-		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n"); 
+		xml_parse($this->parser, file_get_contents($url)) or die ("XML error: ".xml_error_string(xml_get_error_code($this->parser))." at line ".xml_get_current_line_number($this->parser)."<br />\n");
 		xml_parser_free($this->parser);
 	}
 

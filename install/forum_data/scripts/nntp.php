@@ -4,9 +4,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.16 2003/09/30 03:27:52 hackie Exp $
+*   $Id: nntp.php,v 1.17 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -20,15 +20,15 @@
 	define('forum_debug', 1);
 
 	if (!ini_get("register_argc_argv")) {
-		exit("Enable the 'register_argc_argv' php.ini directive\n");	
+		exit("Enable the 'register_argc_argv' php.ini directive\n");
 	}
 	if ($_SERVER['argc'] < 2) {
-		exit("Missing Forum ID Paramater\n");	
+		exit("Missing Forum ID Paramater\n");
 	}
 	if (!($fid = (int)$_SERVER['argv'][1])) {
 		exit("Missing Forum ID Paramater\n");
-	}	
-	
+	}
+
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
 		require (dirname($_SERVER['argv'][0]) . '/GLOBALS.php');
 	} else {
@@ -82,10 +82,10 @@
 	$nntp->pass 		= $nntp_adm->pass;
 
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$nntp_adm->forum_id);
-	
+
 	$lock = $nntp->get_lock();
 	$nntp->parse_msgs($frm, $nntp_adm, $nntp->read_start());
 	$nntp->release_lock($lock);
-	
-	$nntp->close_connection();		
+
+	$nntp->close_connection();
 ?>

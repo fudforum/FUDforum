@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admipfilter.php,v 1.11 2003/09/30 03:57:50 hackie Exp $
+*   $Id: admipfilter.php,v 1.12 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -57,15 +57,15 @@
 		$ipaddr = $edit = '';
 	}
 
-	include($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>IP Filter System</h2>
-<form method="post" action="admipfilter.php">  
+<form method="post" action="admipfilter.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>IP Address</td>
-		<td><input type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td> 
+		<td><input type="text" name="ipaddr" value="<?php echo $ipaddr; ?>" size="15" maxLength="15"></td>
 	</tr>
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
@@ -78,7 +78,7 @@
 		?>
 		</td>
 	</tr>
-	
+
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmiley.php,v 1.11 2003/09/30 03:57:50 hackie Exp $
+*   $Id: admsmiley.php,v 1.12 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -22,7 +22,7 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	$smiley_dir = '../images/smiley_icons/';
-	
+
 	if (isset($_GET['del'])) {
 		db_lock($tbl.'smiley WRITE');
 		if (($im = q_singleval('SELECT img FROM '.$tbl.'smiley WHERE id='.(int)$_GET['del']))) {
@@ -64,7 +64,7 @@
 			db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'smiley WRITE');
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=2147483647 WHERE vieworder='.$oldp);
 			if ($oldp < $newp) {
-				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=vieworder-1 WHERE vieworder<='.$newp.' AND vieworder>'.$oldp);	
+				q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley SET vieworder=vieworder-1 WHERE vieworder<='.$newp.' AND vieworder>'.$oldp);
 				$maxp = q_singleval('SELECT MAX(vieworder) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'smiley WHERE  vieworder!=2147483647');
 				if ($newp > $maxp) {
 					$newp = $maxp + 1;
@@ -78,7 +78,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_GET['chpos'])) {
 ?>
@@ -87,9 +87,9 @@
 
 <form name="frm_sml" method="post" enctype="multipart/form-data" action="admsmiley.php">
 <table border=0 cellspacing=1 cellpadding=3>
-<?php 
-	echo _hs; 
-	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) { ?>	
+<?php
+	echo _hs;
+	if (@is_writeable($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) { ?>
 		<tr bgcolor="#bff8ff">
 			<td colspan=2><b>Smilies Upload (upload smiley into the system)</td>
 		</tr>
@@ -98,11 +98,11 @@
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 		</tr>
 	<?php } else { ?>
-		<tr bgcolor="#bff8ff"> 
+		<tr bgcolor="#bff8ff">
 			<td colspan=2><font color="#ff0000">Web server doesn't have write permissions to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons'; ?>'</b>, smiley upload disabled</font></td>
 		</tr>
 	<?php } ?>
-	
+
 	<tr><td colspan=2>&nbsp;</td></tr>
 
 	<tr bgcolor="#bff8ff">
@@ -113,26 +113,26 @@
 		<td>Smiley Description:</td>
 		<td><input type="text" name="sml_descr" value="<?php echo htmlspecialchars($sml_descr); ?>"></td>
 	</tr>
-	
-	<tr bgcolor="#bff8ff"> 
+
+	<tr bgcolor="#bff8ff">
 		<td>Smiley Text:<br><font size=-1>Will be replaced with smiley,<br>use <b>~</b> to seperate multiple allowed codes</font></td>
 		<td><input type="text" name="sml_code" value="<?php echo htmlspecialchars($sml_code); ?>"></td>
 	</tr>
-		
+
 	<tr bgcolor="#bff8ff">
 		<td valign=top><a name="sml_sel">Smiley Image:</a></td>
 		<td>
-			<input type="text" name="sml_img" value="<?php echo htmlspecialchars($sml_img); ?>" 
-				onChange="javascript: 
+			<input type="text" name="sml_img" value="<?php echo htmlspecialchars($sml_img); ?>"
+				onChange="javascript:
 						if (document.frm_sml.sml_img.value.length) {
-							document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/smiley_icons/' + document.frm_sml.sml_img.value; 
+							document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT']; ?>images/smiley_icons/' + document.frm_sml.sml_img.value;
 						} else {
 							document.prev_icon.src='../blank.gif';
 						}">
 			[<a href="javascript://" onClick="javascript:window.open('admsmileysel.php?<?php echo _rsidl; ?>', 'admsmileysel', 'menubar=false,scrollbars=yes,resizable=yes,height=300,width=500,screenX=100,screenY=100');">SELECT ICON</a>]
 		</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Preview Image:</td>
 		<td>
@@ -143,7 +143,7 @@
 			</table>
 		</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<?php
 			if (!$edit) {
@@ -153,7 +153,7 @@
 			}
 		?>
 	</tr>
-	
+
 </table>
 <input type="hidden" name="edit" value="<?php echo $edit; ?>">
 </form>
@@ -191,7 +191,7 @@
 
 	if (isset($lp)) {
 		echo '<tr bgcolor="#efefef"><td align=center colspan=9><a href="admsmiley.php?chpos='.$_GET['chpos'].'&chdest='.($lp + 1).'&'._rsidl.'">Place Here</a></td></tr>';
-	}	
+	}
 ?>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

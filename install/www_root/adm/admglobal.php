@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.42 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admglobal.php,v 1.43 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -41,7 +41,7 @@ function get_max_upload_size()
 			$_POST['CF_PRIVATE_ATTACH_SIZE'] = $max_attach_size;
 		}
 	} else if ($GLOBALS['PRIVATE_ATTACH_SIZE'] > $max_attach_size) {
-		$GLOBALS['PRIVATE_ATTACH_SIZE'] = $max_attach_size;	
+		$GLOBALS['PRIVATE_ATTACH_SIZE'] = $max_attach_size;
 	}
 
 	$help_ar = read_help();
@@ -254,7 +254,7 @@ function get_max_upload_size()
 	print_reg_field('Maximum Depth of Thread Listing (tree view)', 'TREE_THREADS_MAX_DEPTH', 1);
 	print_reg_field('Maximum Shown Subject Length (tree view)', 'TREE_THREADS_MAX_SUBJ_LEN', 1);
 	print_reg_field('Polls Per Page', 'POLLS_PER_PAGE', 1);
-	
+
 	print_reg_field('Word Wrap', 'WORD_WRAP', 1);
 	print_reg_field('Unconfirmed User Expiry', 'UNCONF_USER_EXPIRY', 1);
 	print_reg_field('Flood Trigger (seconds)', 'FLOOD_CHECK_TIME', 1);
@@ -298,7 +298,7 @@ function get_max_upload_size()
 	if (function_exists('ob_gzhandler')) {
 		print_bit_field('Use PHP compression', 'PHP_COMPRESSION_ENABLE');
 		print_reg_field('PHP compression level', 'PHP_COMPRESSION_LEVEL', 1);
-	}		
+	}
 	print_bit_field('Use PATH_INFO style URLs<br><a href="'.$WWW_ROOT.'index.php/a/b/c" target="_blank">Test Link</a>', 'USE_PATH_INFO');
 ?>
 <tr bgcolor="#bff8ff"><td colspan=2 align=left><input type="submit" name="btn_submit" value="Set"></td></tr>

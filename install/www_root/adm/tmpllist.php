@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.23 2003/09/30 04:02:22 hackie Exp $
+*   $Id: tmpllist.php,v 1.24 2003/10/05 22:19:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	@set_time_limit(6000);
-	
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
@@ -67,12 +67,12 @@ function fetch_section($data, $file, $section, $type)
 		$ret['comment']	= $ti[2];
 	}
 	return $ret;
-}	
+}
 
 function goto_tmpl($tmpl)
 {
 	global $max_list;
-	
+
 	if( !preg_match('!(^|:)'.$tmpl.'!', $max_list) ) $max_list .= ':'.$tmpl;
 
 	return $max_list.'#'.$tmpl;
@@ -96,8 +96,8 @@ function goto_tmpl($tmpl)
 	} else {
 		$max_list = '';
 	}
-	
-	
+
+
 	if (isset($_GET['fl'])) {
 		$fl = $_GET['fl'];
 		$sec = isset($_GET['sec']) ? $_GET['sec'] : '';
@@ -195,7 +195,7 @@ function goto_tmpl($tmpl)
 <table width="100%" border=1 cellspacing=2 cellpadding=2>
 <tr>
 <td nowrap>
-<?php	
+<?php
 	$path = $DATA_DIR . 'thm/' . $tname . '/tmpl';
 	$pathl = $path . '/';
 
@@ -226,7 +226,7 @@ function goto_tmpl($tmpl)
 			}
 			$file .= '.tmpl';
 		}
-		
+
 		/* build dependency list */
 		$p = 0;
 		while (($p = strpos($data, '{REF: ', $p)) !== false) {
@@ -294,8 +294,8 @@ function goto_tmpl($tmpl)
 	$php_deps =& $deps;
 
 	$deps_on = array();
-	foreach($php_deps as $k => $v) { 
-		foreach($v as $k2 => $v2) $deps_on[$k2][] = $k; 
+	foreach($php_deps as $k => $v) {
+		foreach($v as $k2 => $v2) $deps_on[$k2][] = $k;
 	}
 	reset($deps_on);
 
@@ -317,16 +317,16 @@ function goto_tmpl($tmpl)
 				foreach($php_deps[$k] as $k2 => $v2) {
 					if( $file_info_array[$k2] ) $deps .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="deps">'.$k2.'</a><br>';
 				}
-			
+
 				if( !empty($deps) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#00AA00"><b>Dependencies</b></font><br>'.$deps;
-			}	
-			
+			}
+
 			if( is_array($deps_on[$k]) ) {
 				$dp = '';
 				foreach($deps_on[$k] as $k2) {
 					if( $file_info_array[$k2] ) $dp .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <a href="tmpllist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'&max_list='.goto_tmpl($k2).'" class="depson">'.$k2.'</a><br>';
-				}	
-				
+				}
+
 				if( !empty($dp) ) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="-1">&raquo;</font> <font size="-1" color="#CC6600"><b>Used By</b></font><br>'.$dp;
 			}
 		}
@@ -339,9 +339,9 @@ function goto_tmpl($tmpl)
 <?php
 	if (isset($update_ok)) {
 		echo '<font color="black"><b>***Theme was successfully updated.***</b></font><br><br>';
-	}	
+	}
 ?>
-<font color="#008800"><b>Explanation:</b> 
+<font color="#008800"><b>Explanation:</b>
 <?php
 	if (isset($file_info_help[$msec.$sec])) {
 		echo $file_info_help[$msec.$sec];

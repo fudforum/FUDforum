@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admext.php,v 1.9 2003/09/30 03:49:19 hackie Exp $
+*   $Id: admext.php,v 1.10 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -25,7 +25,7 @@
 		if (($p = strrpos($_POST['c_ext'], '.')) !== false) {
 			$c_ext = rtrim(substr($_POST['c_ext'], ($p + 1)));
 		} else {
-			$c_ext = trim($_POST['c_ext']);	
+			$c_ext = trim($_POST['c_ext']);
 		}
 	}
 
@@ -47,12 +47,12 @@
 		list($edit, $c_ext) = db_saq('SELECT id, ext FROM '.$tbl.'ext_block WHERE id='.(int)$_GET['edit']);
 	} else {
 		$edit = $c_ext = '';
-	}                                                
+	}
 
 	include($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Allowed Extensions</h2>
-<form method="post" action="admext.php">  
+<form method="post" action="admext.php">
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr>
 		<td colspan=2 bgcolor="#FFFFFF"><b>note:</b> if no file extension is entered, all files will be allowed</td>

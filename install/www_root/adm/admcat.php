@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.16 2003/10/05 20:35:06 hackie Exp $
+*   $Id: admcat.php,v 1.17 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 	require ('./GLOBALS.php');
-	
+
 	fud_use('adm.inc', true);
 	fud_use('cat.inc', true);
 	fud_use('widgets.inc', true);
@@ -88,36 +88,36 @@
 		<td>Category Name:</td>
 		<td><input type="text" name="cat_name" value="<?php echo htmlspecialchars($cat_name); ?>" maxLength=50></td>
 	</tr>
-		
+
 	<tr bgcolor="#bff8ff">
 		<td>Description:</td>
 		<td><input type="text" name="cat_description" value="<?php echo htmlspecialchars($cat_description); ?>" maxLength=255></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Collapsible</td>
 		<td><?php draw_select('cat_allow_collapse', "Yes\nNo", "Y\nN", $cat_opt & 1); ?></td>
 	</tr>
-		
+
 	<tr bgcolor="#bff8ff">
 		<td>Default view: </td>
 		<td><?php draw_select('cat_default_view', "Open\nCollapsed", "OPEN\nCOLLAPSED", !($cat_opt & 2)); ?></td>
 	</tr>
-	
+
 	<?php if (!$edit) { ?>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Insert position:</td>
 		<td><?php draw_select('cat_pos', "Last\nFirst", "LAST\nFIRST", $cat_pos); ?></td>
 	</tr>
-	
+
 	<?php } ?>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 <?php
 	if ($edit) {
-		echo '<input type="submit" name="btn_cancel" value="Cancel">&nbsp;'; 
+		echo '<input type="submit" name="btn_cancel" value="Cancel">&nbsp;';
 	}
 ?>
 			<input type="submit" value="<?php echo ($edit ? 'Update Category' : 'Add Category'); ?>" name="cat_submit">
@@ -173,7 +173,7 @@
 			<td>[<a href="admcat.php?chpos='.$r->view_order.'&'._rsidl.'">Change</a>]</td></tr>';
 
 		if (isset($_GET['chpos']) && $_GET['chpos'] == ($r->view_order -1)) {
-			
+
 		}
 	}
 	qf($c);

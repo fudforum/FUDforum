@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlog.php,v 1.19 2003/10/03 18:26:08 hackie Exp $
+*   $Id: admlog.php,v 1.20 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -47,8 +47,8 @@ function return_forum_name($id)
 {
 	return check_data_avl(q_singleval('SELECT name FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE id='.$id));
 }
-	
-	include('admpanel.php'); 
+
+	include('admpanel.php');
 ?>
 <h2>Admin Log</h2>
 <a href="admlog.php?clear=1&<?php echo _rsidl; ?>">Clear Log</a>
@@ -59,13 +59,13 @@ function return_forum_name($id)
 
 	while ($obj = db_rowobj($c)) {
 		$logtime = '<td>'.gmdate('D, d M Y H:i:s', $obj->logtime).'</td>';
-		
+
 		if ($obj->users_opt == null) {
 			$user_info = 'User is no longer in the system.';
 		} else if ($obj->users_opt & 1048576) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';		
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Administrator]</font>';
 		} else if ($obj->users_opt & 524288) {
-			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';		
+			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Moderator]</font>';
 		} else {
 			$user_info = '<a href="../'.__fud_index_name__.'?t=usrinfo&id='.$obj->user_id.'&'._rsidl.'">'.$obj->alias.'</a> <font size="-2">[Priveleged User]</font>';
 		}
@@ -104,7 +104,7 @@ function return_forum_name($id)
 				break;
 			case "DELTHR":
 				echo '<td>Deleted Topic</td><td>'.$obj->logaction.'</td>';
-				break;	
+				break;
 			case "ADDFORUM":
 				echo '<td>Created Forum</td><td>forum: '.return_forum_name($obj->a_res_id).'</td>';
 				break;

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlogin.php,v 1.7 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admlogin.php,v 1.8 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,17 +40,17 @@
 		$edit = $login = '';
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Login Blocker</h2>
-<form method="post" action="admlogin.php">  
+<form method="post" action="admlogin.php">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 	<tr bgcolor="#bff8ff">
 		<td>Regex:</td>
 		<td><input type="text" name="login" value="<?php echo htmlspecialchars($login); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td colspan=2 align=right>
 		<?php

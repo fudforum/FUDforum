@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admrdf.php,v 1.7 2003/10/03 19:01:31 hackie Exp $
+*   $Id: admrdf.php,v 1.8 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 	fud_use('glob.inc', true);
 	fud_use('widgets.inc', true);
 	fud_use('draw_select_opt.inc');
-	
+
 	$help_ar = read_help();
 
 	if (isset($_POST['form_posted'])) {
@@ -65,7 +65,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	$rdf_url = $WWW_ROOT . 'rdf.php';
 ?>
@@ -89,9 +89,9 @@
 <tr><td bgcolor="#fffee5">
 If enabled, the RDF stream for your forum can be found at: <a href="<?php echo $rdf_url; ?>" target="_blank"><?php echo $rdf_url; ?></a><br />
 The streams has three modes of operation, which are tailored for a specific data that you wish to fetch. You
-can specify the mode by passing the 'mode' parameter via GET to the rdf script. The support modes are 'u', for 
+can specify the mode by passing the 'mode' parameter via GET to the rdf script. The support modes are 'u', for
 user information retrieval, 't' for topic retrieval and 'm' for message retrieval. Each mode has a number of
-options that allow you to specify the exact nature of the data you wish to fetch. Below is the explanation of 
+options that allow you to specify the exact nature of the data you wish to fetch. Below is the explanation of
 those flags, it should be noted that flags are not exclusive and you can use as many as you like in a single
 request.<br />
 A fully functional parser of the FUDforum RDF can be found at: <b><?php echo $GLOBALS['DATA_DIR']; ?>scripts/rdf_parser.php</b>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.14 2003/09/26 18:49:03 hackie Exp $
+*   $Id: admthemesel.php,v 1.15 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 
 	$ret = isset($_GET['ret']) ? $_GET['ret'] : 'tmpllist';
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	list($def_thm, $def_tmpl) = db_saq('SELECT name, lang FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE theme_opt=3');
 ?>
@@ -39,7 +39,7 @@
 <?php
 	echo _hs;
 	$path = $GLOBALS['DATA_DIR'].'/thm';
-	
+
 	$dp = opendir($path);
 	readdir($dp); readdir($dp);
 	echo '<td>Template Set:</td><td><select name="tname">';
@@ -53,9 +53,9 @@
 ?>
 </tr>
 <tr bgcolor="#bff8ff">
-<?php	
+<?php
 	$path .= '/default/i18n';
-	
+
 	$dp = opendir($path);
 	readdir($dp); readdir($dp);
 	echo '<td>Language:</td><td><select name="tlang">';

@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.11 2003/09/30 02:31:45 hackie Exp $
+*   $Id: glob.inc,v 1.12 2003/10/05 22:19:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ function read_help()
 
 function print_bit_field($descr, $field)
 {
-	$h =& $GLOBALS['help_ar'][$field]; 
+	$h =& $GLOBALS['help_ar'][$field];
 	$o =& $h[1];
 
 	echo '<tr bgcolor="#bff8ff"><td>'.$descr.': <br><font size="-1">'.$h[0].'</font></td><td valign="top">';
@@ -64,7 +64,7 @@ function print_bit_field($descr, $field)
 
 	echo '</td></tr>';
 }
-	
+
 function print_reg_field($descr, $field, $is_int=0)
 {
 	if (!isset($GLOBALS[$field])) {

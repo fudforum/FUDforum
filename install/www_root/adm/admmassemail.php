@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmassemail.php,v 1.19 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admmassemail.php,v 1.20 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('widgets.inc', true);
@@ -45,7 +45,7 @@
 		$total = $email_block_stat = 0;
 		$send_to = $ADMIN_EMAIL;
 		$to = array();
-		
+
 		if (!($FUD_OPT_1 & 512)) {
 			if (version_compare("4.3.3RC2", PHP_VERSION, ">")) {
 				$_POST['body'] = str_replace("\n.", "\n..", $_POST['body']);
@@ -73,7 +73,7 @@
 			$smtp->subject = $_POST['subject'];
 			$smtp->from = $ADMIN_EMAIL;
 			$smtp->headers = "Reply-To: ".$ADMIN_EMAIL."\r\nErrors-To: ".$ADMIN_EMAIL."\r\n";
-			
+
 			while ($r = db_rowobj($c)) {
 				$to[] = $r[0];
 				if (!(++$email_block_stat % $email_block)) {
@@ -85,21 +85,21 @@
 					$to = array();
 				}
 				++$total;
-			}	
+			}
 			if (count($to)) {
 				$smtp->to = $to;
 				$smtp->send_smtp_email();
 			}
-		}	
-		
+		}
+
 		qf($r);
-		
+
 		if (!$err) {
 			echo '<font size="+1" color="green">'.$total.' E-mails were sent</font><br />';
 		}
 	}
-	
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Mass Mail System</h2>
 <form method="post" name="a_frm">

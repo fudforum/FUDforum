@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admapprove_avatar.php,v 1.15 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admapprove_avatar.php,v 1.16 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -28,13 +28,13 @@
 		usr_adm_avatar((int)$_GET['del'], 1);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
-<h2>Avatar Approval System</h2>	
+<h2>Avatar Approval System</h2>
 <table border=0 cellspacing=0 cellpadding=3>
 <?php
 	$a = 0;
-	
+
 	$c = uq('SELECT id, avatar_loc, alias FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'users WHERE users_opt>=16777216 AND (users_opt & 16777216) > 0 ORDER BY id');
 	while ($r = db_rowarr($c)) {
 		$a = 1;

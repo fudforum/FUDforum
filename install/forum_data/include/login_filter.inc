@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login_filter.inc,v 1.1 2003/04/23 00:53:15 hackie Exp $
+*   $Id: login_filter.inc,v 1.2 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 function login_cache_rebuild()
 {
 	$c = uq('SELECT login FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'blocked_logins');

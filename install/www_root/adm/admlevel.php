@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.13 2003/09/30 13:54:22 hackie Exp $
+*   $Id: admlevel.php,v 1.14 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -46,7 +46,7 @@
 		qf($r);
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Rank Manager</h2>
 <div align="center"><font size="+1" color="#ff0000">If you've made any modification to the user ranks<br>YOU MUST RUN CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&<?php echo _rsid; ?>">clicking here</a> &lt;&lt;</font></div>
@@ -62,17 +62,17 @@
 		<td>Rank Image<br><font size="-1">URL to the image<font></td>
 		<td><input type="text" name="lev_img" value="<?php echo htmlspecialchars($lev_img); ?>"><br>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Which Image to Show:</td>
 		<td><?php draw_select("lev_level_opt", "Avatar & Rank Image\nAvatar Only\nRank Image Only", "0\n1\n2", $lev_level_opt); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Post Count</td>
 		<td><input type="text" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size=11 maxLength=10></td>
 	</tr>
-	
+
 	<tr>
 		<td colspan=2 bgcolor="#bff8ff" align=right>
 <?php

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compiler.inc,v 1.40 2003/09/30 03:49:26 hackie Exp $
+*   $Id: compiler.inc,v 1.41 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,12 +14,12 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 	@set_time_limit(6000);
 
 $GLOBALS['CMP_FILE'] = array(
 				".'." => ".<?php echo ",
-				".''." => '.', 
+				".''." => '.',
 				".'" => '; ?>',
 				"'." => '<?php echo '
 			);
@@ -35,7 +35,7 @@ function resolve_refs($file_name)
 		return;
 	}
 	$fc =& $GLOBALS['file_cache'][$file_name];
-	
+
 	/* Fetch file definition */
 	$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'].'thm/'.$GLOBALS['__COMPILER__']['tset'].'/tmpl/'.$file_name;
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
@@ -67,7 +67,7 @@ function resolve_refs($file_name)
 			$fc['include'][$nr] = $nr;
 		}
 		resolve_refs($nr);
-		
+
 		$p = $e + 1;
 	}
 }
@@ -84,7 +84,7 @@ function parse_sections($str, $file)
 
 	foreach ($GLOBALS['__FUD_SECTIONS__'] as $k => $v) {
 		$p = 0;
-		$tr =& $GLOBALS['TC'][$k]; 
+		$tr =& $GLOBALS['TC'][$k];
 		while (($p = strpos($str, $v, $p)) !== false) {
 			$p += strlen($v);
 			$e = strpos($str, '}', $p);
@@ -93,7 +93,7 @@ function parse_sections($str, $file)
 				$name = substr($name, 0, $p);
 			}
 			++$e;
-			
+
 			if (isset($tr[$name])) {
 				exit('DUPE: '.$k.' -> '.$name.' found in '.$tr[$name]['file'].' (now parsing '.$GLOBALS['CURFILE'].')');
 			}
@@ -166,15 +166,15 @@ function resolve_sections($str)
 				$ret .= '\'.$'.$name.'.\'';
 				break;
 			case 'GVAR':
-				$ret .= '\'.$GLOBALS[\''.$name.'\'].\'';	
+				$ret .= '\'.$GLOBALS[\''.$name.'\'].\'';
 				break;
 			case 'DEF':
 				$ret .= '\'.'.$name.'.\'';
-				break;	
+				break;
 			case 'VAR-URL':
 				$ret .= '\'.urlencode($'.$name.').\'';
 				break;
-			case 'VAR-HTML':		
+			case 'VAR-HTML':
 				$ret .= '\'.htmlspecialchars($'.$name.').\'';
 				break;
 			case 'VAR-UH':
@@ -186,14 +186,14 @@ function resolve_sections($str)
 			case 'ALT-VAR':
 				$t = strtok(substr($str, ++$ds, ($e - $ds)), ' ');
 				$ret .= '\'.alt_var(\''.$name.'\',\''.$t.'\',\''.strtok(' ').'\').\'';
-				break;	
+				break;
 			case 'DATE':
 				if ($name[0] != '!') {
 					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", $'.$name.').\'';
 				} else {
 					$ret .= '\'.strftime("'.ltrim(substr($str, ++$ds, ($e - $ds))).'", '.substr($name,1).').\'';
 				}
-				break;	
+				break;
 			case 'TEMPLATE':
 				if (isset($GLOBALS['TC']['SECTION'][$name])) {
 					$sec = 'SECTION';
@@ -279,7 +279,7 @@ function compile_file($source)
 			$ref = strtr($ref, $GLOBALS['CMP_FILE']);
 		}
 		$ret .= $ref;
-		
+
 		if (($e = strpos($file_data, '}', $p)) === false) {
 			exit('Unterminated tag "'.$name.'" inside "'.$source.'"');
 		}
@@ -336,7 +336,7 @@ function generate_file($php_file)
 
 			$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], str_replace('/*{POST_HTML_PHP}*/', $ins['@'], str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data)));
 		}
-		
+
 		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
 		$dst = $fc['dst'];
 	} else {
@@ -359,7 +359,7 @@ function generate_file($php_file)
 		$dst = substr($dst, 1);
 		$dir = $GLOBALS['WWW_ROOT_DISK'];
 	}
-	
+
 	if (!($fp = fopen($dir.$dst, 'wb'))) {
 		exit('Couldn\'t write to '. $dir . $dst);
 	}
@@ -389,9 +389,9 @@ function build_msg($file)
 	}
 	$GLOBALS['MSG_FILES'][$file] = 1;
 
-	/* 
+	/*
 	 * we 1st read in the default msg file for the equivalent translation and read it in
-	 * then we replace simular values from the actual msg file. This allows partial msg 
+	 * then we replace simular values from the actual msg file. This allows partial msg
 	 * files to be used inside themes
 	 */
 	$ts = substr(strstr(dirname($file), '/'), 1);
@@ -406,7 +406,7 @@ function build_msg($file)
 function resolve_inc_refs($file)
 {
 	$curf =& $GLOBALS['file_cache'][$file];
-	if (isset($curf['resolved'])) { 
+	if (isset($curf['resolved'])) {
 		return;
 	}
 	if (!isset($curf['include'])) {
@@ -447,7 +447,7 @@ function fud_mkdir($dir, $perms=0700)
 {
 	if (!@is_dir($dir) && !@mkdir($dir, $perms)) {
 		exit('unable to make directory (<b>'.$dir.'</b>)<br>');
-	}	
+	}
 }
 
 function compile_all($tset='default', $lang='english', $tname='default')
@@ -458,18 +458,18 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$tname = preg_replace('![^A-Za-z0-9-]!', '_', $tname);
 	$tset = preg_replace('![^A-Za-z0-9-]!', '_', $tset);
 	$lang = preg_replace('![^A-Za-z0-9-]!', '_', $lang);
-	
+
 	$GLOBALS['__COMPILER__'] 	= array();
 	$GLOBALS['MSG']                 = array();
 	$GLOBALS['MSG_FILES']           = array();
 	$GLOBALS['TC']                  = array();
 	$GLOBALS['file_cache']          = array();
-	
+
 	copy($GLOBALS['DATA_DIR'].'sql/'.__dbtype__.'/db.inc', $GLOBALS['DATA_DIR'].'src/db.inc.t');
-	
+
 	$GLOBALS['__COMPILER__'] = array('tset' => $tset, 'lang' => $lang, 'tname' => $tname);
 	$cmpl =& $GLOBALS['__COMPILER__'];
-	
+
 	if (substr($GLOBALS['WWW_ROOT'], -1) != '/') {
 		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . '/index.php';
 		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . '/theme/' . $tname;
@@ -477,10 +477,10 @@ function compile_all($tset='default', $lang='english', $tname='default')
 		$cmpl['ROOT'] = $GLOBALS['WWW_ROOT'] . 'index.php';
 		$cmpl['THEME_ROOT'] = $GLOBALS['WWW_ROOT'] . 'theme/' . $tname;
 	}
-	
+
 	$cmpl['THEME_ROOT_DISK'] = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$tname;
 	$cmpl['THEME_IMAGE_ROOT'] = $cmpl['THEME_ROOT'].'/images';
-	
+
 	$file1 = $GLOBALS['DATA_DIR'].'thm/'.$tset.'i18n/'.$lang.'/charset';
 	$file2 = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$lang.'/charset';
 
@@ -508,7 +508,7 @@ function compile_all($tset='default', $lang='english', $tname='default')
 	$back_msg_file = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$cmpl['lang'].'/msg';
 
 	/*
-	 * build the message array 
+	 * build the message array
 	 */
 	if (@file_exists($prim_msg_file)) {
 		build_msg($prim_msg_file);
@@ -531,18 +531,18 @@ function compile_all($tset='default', $lang='english', $tname='default')
 
 		generate_file($file);
 
-		if (isset($GLOBALS['PHP_FILE_SEC'])) { 
+		if (isset($GLOBALS['PHP_FILE_SEC'])) {
 			foreach($GLOBALS['PHP_FILE_SEC'] as $k => $v) {
 				foreach($v as $k2 => $v2) {
 					unset($GLOBALS['TC'][$k][$k2]);
 				}
-			}	
+			}
 			unset($GLOBALS['PHP_FILE_SEC']);
-		}	
+		}
 		unset($GLOBALS['INCLUDE_LIST']);
 	}
 	closedir($dir);
-	
+
 	@umask($oldmask);
 	$thm = new cmpl_local_theme;
 	$thm->name = $tname;
@@ -575,7 +575,7 @@ function fudcopy($src, $dest, $mask='!.*!i', $recur=false)
 		}
 		$path = $src . '/' . $de;
 		$nd = $dest . '/' . $de;
-		
+
 		if (@is_dir($path) && $recur == true) {
 			if (!@is_dir($nd) && !@mkdir($nd, 0777)) {
 				exit('can\'t mkdir ('.$nd.')<br>');
@@ -599,7 +599,7 @@ function copyimages($thm)
 	$u = umask(0);
 	if (!@is_dir($path) && !@mkdir($path, 0777)) {
 		exit('Failed Creating: '.$path.'<br>');
-	}	
+	}
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/images', $path, '!\.(gif|jpeg|png|jpg)$!i');
 	fudcopy($GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/img', $path, '!\.(gif|jpeg|png|jpg)$!i');
 	if (@file_exists($GLOBALS['DATA_DIR'].'thm/'.$thm->theme.'/images')) {
@@ -619,7 +619,7 @@ function copyhelp($thm)
 	if ($thm->theme != 'default' && !@file_exists($src)) {
 		$src = $GLOBALS['DATA_DIR'].'thm/default/i18n/'.$thm->lang.'/help';
 	}
-	
+
 	$rp =& $GLOBALS['__COMPILER__']['ROOT'];
 
 	$u = umask(0);

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: theme.inc,v 1.9 2003/10/05 22:18:47 hackie Exp $
+*   $Id: theme.inc,v 1.10 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 class fud_theme
 {
 	var $id, $name, $theme, $lang, $locale, $pspell_lang, $theme_opt;
@@ -44,7 +44,7 @@ class fud_theme
 		if ($this->theme == 'path_info') {
 			$this->theme_opt |= 4;
 		}
-		
+
 		$this->id = db_qid("INSERT INTO ".$GLOBALS['DBHOST_TBL_PREFIX']."themes
 				(name, theme, lang, locale, theme_opt, pspell_lang)
 			VALUES
@@ -59,7 +59,7 @@ class fud_theme
 		}
 		return $this->id;
 	}
-	
+
 	function sync($id)
 	{
 		if (!db_locked()) {
@@ -77,11 +77,11 @@ class fud_theme
 			$this->theme_opt |= 4;
 		}
 
-		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET 
-			name='".addslashes($this->name)."', 
-			theme='".addslashes($this->theme)."', 
-			lang='".addslashes($this->lang)."', 
-			locale='".addslashes($this->locale)."', 
+		q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET
+			name='".addslashes($this->name)."',
+			theme='".addslashes($this->theme)."',
+			lang='".addslashes($this->lang)."',
+			locale='".addslashes($this->locale)."',
 			theme_opt=".$this->theme_opt.",
 			pspell_lang=".strnull(addslashes($this->pspell_lang))."
 		WHERE id=".$id);
@@ -94,7 +94,7 @@ class fud_theme
 			q("UPDATE ".$GLOBALS['DBHOST_TBL_PREFIX']."themes SET theme_opt=theme_opt|3 WHERE id=1");
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme=1 WHERE theme=1');
 		}
-		
+
 		if (!($this->theme_opt & 1)) {
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET theme='.q_singleval("SELECT id FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE theme_opt>=2 AND (theme_opt & 2) > 0").' WHERE theme='.$id);
 		}
@@ -103,12 +103,12 @@ class fud_theme
 			db_unlock();
 		}
 	}
-	
+
 	function get($id)
 	{
 		qobj("SELECT * FROM ".$GLOBALS['DBHOST_TBL_PREFIX']."themes WHERE id=".$id, $this);
 	}
-	
+
 	function delete($id)
 	{
 		if (!db_locked()) {
@@ -119,7 +119,7 @@ class fud_theme
 			db_unlock();
 			return;
 		}
-		
+
 		q('DELETE FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE id='.$id);
 		if ($data[0] & 2) {
 			if (!($new_default = q_singleval('SELECT id FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'themes WHERE (theme_opt & 1) > 0'))) {

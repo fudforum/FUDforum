@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc,v 1.9 2003/10/03 17:20:58 hackie Exp $
+*   $Id: forum_adm.inc,v 1.10 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -15,9 +15,9 @@
 *
 ***************************************************************************/
 
-class fud_forum 
+class fud_forum
 {
-	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $forum_opt, $date_created, 
+	var	$id, $cat_id, $name, $descr, $post_passwd, $forum_icon, $forum_opt, $date_created,
 		$view_order, $message_threshold, $max_attach_size, $max_file_attachments;
 
 	function fud_forum()
@@ -28,7 +28,7 @@ class fud_forum
 			}
 		}
 	}
-	
+
 	function add($pos)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
@@ -39,15 +39,15 @@ class fud_forum
 			$this->view_order = 1;
 			q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order+1 WHERE cat_id='.$this->cat_id);
 		}
-		
+
 		$this->id = db_qid("INSERT INTO ".$tbl."forum (
-			cat_id, 
-			name, 
-			descr, 
-			post_passwd, 
-			date_created, 
-			view_order, 
-			forum_icon, 
+			cat_id,
+			name,
+			descr,
+			post_passwd,
+			date_created,
+			view_order,
+			forum_icon,
 			max_attach_size,
 			max_file_attachments,
 			message_threshold,
@@ -72,21 +72,21 @@ class fud_forum
 
 		return $this->id;
 	}
-	
+
 	function sync($id, $cat_id)
 	{
 		$tbl =& $GLOBALS['DBHOST_TBL_PREFIX'];
 
 		$gid = q_singleval('SELECT id FROM '.$tbl.'groups WHERE forum_id='.$id);
 
-		q("UPDATE ".$tbl."forum SET 
+		q("UPDATE ".$tbl."forum SET
 			cat_id=".$cat_id.",
 			name='".addslashes($this->name)."',
 			descr=".strnull(addslashes($this->descr)).",
 			post_passwd=".strnull(addslashes($this->post_passwd)).",
 			view_order=".(int)$this->view_order.",
 			forum_icon=".strnull(addslashes($this->forum_icon)).",
-			max_attach_size=".(int)$this->max_attach_size.", 
+			max_attach_size=".(int)$this->max_attach_size.",
 			max_file_attachments=".(int)$this->max_file_attachments.",
 			message_threshold=".(int)$this->message_threshold.",
 			forum_opt=".(int)$this->forum_opt."
@@ -122,7 +122,7 @@ function frm_change_pos($oldp, $newp, $cat_id)
 	db_lock($GLOBALS['DBHOST_TBL_PREFIX'].'forum WRITE');
 	q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=2147483647 WHERE cat_id='.$cat_id.' AND view_order='.$oldp);
 	if ($oldp < $newp) {
-		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order-1 WHERE cat_id='.$cat_id.' AND view_order<='.$newp.' AND view_order>'.$oldp);	
+		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum SET view_order=view_order-1 WHERE cat_id='.$cat_id.' AND view_order<='.$newp.' AND view_order>'.$oldp);
 		$maxp = q_singleval('SELECT MAX(view_order) FROM '.$GLOBALS['DBHOST_TBL_PREFIX'].'forum WHERE cat_id='.$cat_id.' AND view_order!=2147483647');
 		if ($newp > $maxp) {
 			$newp = $maxp + 1;
@@ -184,6 +184,6 @@ function frm_delete($id)
 	if ($gid) {
 		fud_use('groups_adm.inc', true);
 		group_delete($gid);
-	}	
+	}
 }
 ?>

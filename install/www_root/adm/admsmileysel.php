@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsmileysel.php,v 1.4 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admsmileysel.php,v 1.5 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	
+
 	echo '<html><body bgcolor="#ffffff">';
 
 	if ($dp = opendir($GLOBALS['WWW_ROOT_DISK'] . 'images/smiley_icons')) {
@@ -41,7 +41,7 @@
 		echo '</tr></table>';
 	}
 	if (!$i) {
-		echo 'There are no smilies';	
+		echo 'There are no smilies';
 	}
-	echo '</body></html>'; 
+	echo '</body></html>';
 ?>

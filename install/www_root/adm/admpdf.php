@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admpdf.php,v 1.6 2003/10/03 19:01:31 hackie Exp $
+*   $Id: admpdf.php,v 1.7 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -61,7 +61,7 @@
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	/* bail out if pdf extension is not avaliable */
 	if (!extension_loaded('pdf')) {

@@ -4,9 +4,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.32 2003/10/03 23:59:46 hackie Exp $
+*   $Id: maillist.php,v 1.33 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -26,12 +26,12 @@ class fud_emsg
 	var $raw_msg;
 	var $body_s, $body_sc;
 	var $attachments;
-	
+
 	function read_data($data='')
 	{
 		$this->raw_msg = !$data ? file_get_contents("php://stdin") : $data;
 	}
-	
+
 	function split_hdr_body()
 	{
 		if (!preg_match("!^(.*?)\r?\n\r?\n(.*)!s", $this->raw_msg, $m)) {
@@ -41,7 +41,7 @@ class fud_emsg
 		$this->body = $m[2];
 		$this->headers = $m[1];
 	}
-	
+
 	function format_header()
 	{
 		$this->headers = str_replace("\r\n", "\n", $this->headers);
@@ -51,14 +51,14 @@ class fud_emsg
 		$this->headers = array();
 		foreach ($hdr as $v) {
 			$hk = substr($v, 0, ($p = strpos($v, ':')));
-			// Skip non-valid header lines 
+			// Skip non-valid header lines
 			if (empty($hk) || ($v[++$p] != ' ' && $v[$p] != "\t")) {
 				continue;
 			}
 
 			$hv = substr($v, $p);
 			$hk = strtolower(trim($hk));
-			
+
 			if (!isset($this->headers[$hk])) {
 				$this->headers[$hk] = decode_header_value($hv);
 			} else {
@@ -66,7 +66,7 @@ class fud_emsg
 			}
 		}
 	}
-	
+
 	function parse_multival_headers($val, $key)
 	{
 		if (($p = strpos($val, ';')) !== false) {
@@ -82,22 +82,22 @@ class fud_emsg
 			$this->headers[$key] = strtolower(trim($val));
 		}
 	}
-	
+
 	function handle_content_headers()
 	{
 		// This functions performs special handling needed for parsing message data
-		
+
 		if (isset($this->headers['content-type'])) {
 			$this->parse_multival_headers($this->headers['content-type'], 'content-type');
 		} else {
 			$this->headers['content-type'] = 'text/plain';
 			$this->headers['__other_hdr__']['content-type']['charset'] = 'us-ascii';
-		}		
-		
+		}
+
 		if (isset($this->headers['content-disposition'])) {
 			$this->parse_multival_headers($this->headers['content-disposition'], 'content-disposition');
 		} else {
-			$this->headers['content-disposition'] = 'inline';	
+			$this->headers['content-disposition'] = 'inline';
 		}
 		if (isset($this->headers['content-transfer-encoding'])) {
 			$this->parse_multival_headers($this->headers['content-transfer-encoding'], 'content-transfer-encoding');
@@ -105,25 +105,25 @@ class fud_emsg
 			$this->headers['content-transfer-encoding'] = '7bit';
 		}
 	}
-	
+
 	function boudry_split($boundry, $html)
 	{
 		$boundry = '--'.$boundry;
 		$b_len = strlen($boundry);
-	
+
 		// Remove 1st & last boundry since they are not needed for our perpouses
 		$this->body = substr($this->body, strpos($this->body, $boundry)+$b_len);
 		$this->body = substr($this->body, 0, strrpos($this->body, $boundry)-$b_len-1);
 
 		// Isolate boundry sections
 		$tmp = explode($boundry, $this->body);
-		
-		$this->body_sc = 0; 
-		foreach ($tmp as $p) { 
+
+		$this->body_sc = 0;
+		foreach ($tmp as $p) {
 			// Parse inidividual body sections
 			$this->body_s[$this->body_sc] = new fud_emsg;
 			$this->body_s[$this->body_sc]->parse_input($html, $p, true);
-			$this->body_sc++; 
+			$this->body_sc++;
 		}
 	}
 
@@ -142,27 +142,27 @@ class fud_emsg
         	        case 'multipart/signed': // PGP or OpenPGP (appear same) ( 1st part is human readable )
 			case 'multipart/alternative': // various alternate formats of message most common html or text
 			case 'multipart/related': // ignore those, contains urls/links to 'stuff' on the net
- 			case 'multipart/mixed':	
+ 			case 'multipart/mixed':
  			case 'message/rfc822': // *scary*
 				if (!isset($this->headers['__other_hdr__']['content-type']['boundary'])) {
 					$this->body = '';
 					return;
 				}
-				
+
 				$this->boudry_split($this->headers['__other_hdr__']['content-type']['boundary'], $html);
-				
+
 				// In some cases in multi-part messages there will only be 1 body,
 				// in those situations we assing that body and info to the primary message
 				// and hide the fact this was multi-part message
 				if ($this->body_sc == 1) {
 					$this->body = $this->body_s[0]->body;
 					$this->headers['__other_hdr__'] = $this->body_s[0]->headers['__other_hdr__'];
-				} else if ($this->body_sc > 1) { 
+				} else if ($this->body_sc > 1) {
 					// We got many bodies to pick from, Yey!. Lets find something we can use,
 					// preference given to 'text/plain' or if not found go for 'text/html'
-					
+
 					$final_id = $html_id = null;
-					
+
 					for ($i = 0; $i < $this->body_sc; $i++) {
 						switch ($this->body_s[$i]->headers['content-type']) {
 							case 'text/html':
@@ -178,19 +178,19 @@ class fud_emsg
 						}
 						// look if message has any attached files
 						if ($this->body_s[$i]->headers['content-disposition'] == 'attachment') {
-							// Determine the file name 
+							// Determine the file name
 							if (isset($this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'])) {
 								$file_name = $this->body_s[$i]->headers['__other_hdr__']['content-disposition']['filename'];
 							} else if (isset($this->body_s[$i]->headers['__other_hdr__']['content-type']['name'])) {
 								$file_name = $this->body_s[$i]->headers['__other_hdr__']['content-type']['name'];
-							} else { // No name for file, skipping 
+							} else { // No name for file, skipping
 								continue;
 							}
 
 							$this->attachments[$file_name] = $this->body_s[$i]->body;
 						}
 					}
-					
+
 					if (!isset($final_id) && isset($html_id)) {
 						$final_id = $html_id;
 					}
@@ -210,11 +210,11 @@ class fud_emsg
 			default:
 				$this->decode_message_body();
 				break;
-			
-			// case 'multipart/digest':  will/can contain many messages, ignore for our perpouse	
+
+			// case 'multipart/digest':  will/can contain many messages, ignore for our perpouse
 		}
 	}
-	
+
 	function decode_message_body()
 	{
 		$this->body = decode_string($this->body, $this->headers['content-transfer-encoding']);
@@ -237,11 +237,11 @@ class fud_emsg
 		if (isset($this->headers['x-posted-by'])) {
 			$this->ip = parse_ip($this->headers['x-posted-by']);
 		} else if (isset($this->headers['x-originating-ip'])) {
-			$this->ip = parse_ip($this->headers['x-originating-ip']);	
+			$this->ip = parse_ip($this->headers['x-originating-ip']);
 		} else if (isset($this->headers['x-senderip'])) {
 			$this->ip = parse_ip($this->headers['x-senderip']);
 		} else if (isset($this->headers['x-mdremoteip'])) {
-			$this->ip = parse_ip($this->headers['x-mdremoteip']);		
+			$this->ip = parse_ip($this->headers['x-mdremoteip']);
 		} else if (isset($this->headers['received'])) {
 			$this->ip = parse_ip($this->headers['received']);
 		}
@@ -249,13 +249,13 @@ class fud_emsg
 		// Fetch From email and Possible name
 		if (preg_match('!(.*?)<(.*?)>!', $this->headers['from'], $matches)) {
 			$this->from_email = trim($matches[2]);
-			
+
 			if (!empty($matches[1])) {
 				$matches[1] = trim($matches[1]);
 				if ($matches[1][0] == '"' && substr($matches[1], -1) == '"') {
 					$this->from_name = substr($matches[1], 1, -1);
 				} else {
-					$this->from_name = $matches[1];	
+					$this->from_name = $matches[1];
 				}
 			} else {
 				$this->from_name = $this->from_email;
@@ -268,17 +268,17 @@ class fud_emsg
 			$this->from_email = trim($this->headers['from']);
 			$this->from_name = substr($this->from_email, 0, strpos($this->from_email, '@'));
 		}
-		
+
 		if (empty($this->from_email) || empty($this->from_name)) {
 			mlist_error_log("no name or email for ".$this->headers['from'], $this->raw_msg, 'ERROR');
 		}
-		
+
 		if (isset($this->headers['message-id'])) {
 			$this->msg_id = substr(trim($this->headers['message-id']), 1, -1);
 		} else {
 			mlist_error_log("No message id", $this->raw_msg);
 		}
-		
+
 		// This fetches the id of the message if this is a reply to an existing message
 		if (!empty($this->headers['in-reply-to']) && preg_match('!.*<([^>]+)>$!', trim($this->headers['in-reply-to']), $match)) {
 			$this->reply_to_msg_id = $match[1];
@@ -286,7 +286,7 @@ class fud_emsg
 			$this->reply_to_msg_id = $match[1];
 		}
 	}
-	
+
 	function clean_up_data()
 	{
 		if ($this->subject_cleanup_rgx) {
@@ -326,10 +326,10 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	define('forum_debug', 1);
 
 	if (!ini_get("register_argc_argv")) {
-		exit("Enable the 'register_argc_argv' php.ini directive\n");	
+		exit("Enable the 'register_argc_argv' php.ini directive\n");
 	}
 	if ($_SERVER['argc'] < 2) {
-		exit("Missing Forum ID Paramater\n");	
+		exit("Missing Forum ID Paramater\n");
 	}
 
 	if (strncmp($_SERVER['argv'][0], '.', 1)) {
@@ -383,19 +383,19 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	$frm = db_sab('SELECT id, forum_opt, message_threshold, (max_attach_size * 1024) AS max_attach_size, max_file_attachments FROM '.sql_p.'forum WHERE id='.$mlist->forum_id);
 
 	$emsg = new fud_emsg();
-	
+
 	$emsg->subject_cleanup_rgx = $mlist->subject_regex_haystack;
 	$emsg->subject_cleanup_rep = $mlist->subject_regex_needle;
 	$emsg->body_cleanup_rgx = $mlist->body_regex_haystack;
 	$emsg->body_cleanup_rep = $mlist->body_regex_needle;
-	
+
 	$emsg->parse_input($mlist->mlist_opt & 16);
-	
+
 	$emsg->fetch_useful_headers();
 	$emsg->clean_up_data();
-	
+
 	$msg_post = new fud_msg_edit;
-	
+
 	// Handler for our own messages, which do not need to be imported.
 	if (isset($emsg->headers['x-fudforum']) && preg_match('!([A-Za-z0-9]{32}) <([0-9]+)>!', $emsg->headers['x-fudforum'], $m)) {
 		if ($m[1] == md5($GLOBALS['WWW_ROOT'])) {
@@ -405,22 +405,22 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 			}
 		}
 	}
-	
+
 	$msg_post->body = apply_custom_replace($emsg->body);
 	if (!($mlist->mlist_opt & 16)) {
-		if ($frm->forum_opt & 16) { 
+		if ($frm->forum_opt & 16) {
 			$msg_post->body = tags_to_html($msg_post->body, 0);
 		} else {
 			$msg_post->body = nl2br($msg_post->body);
 		}
-	}	
-		
+	}
+
 	fud_wordwrap($msg_post->body);
 	$msg_post->subject = htmlspecialchars(apply_custom_replace($emsg->subject));
 	if (!strlen($msg_post->subject)) {
 		mlist_error_log("Blank Subject", $emsg->raw_msg, 'ERROR');
 	}
-	
+
 	$msg_post->poster_id = match_user_to_post($emsg->from_email, $emsg->from_name, $mlist->mlist_opt & 64, $emsg->user_id);
 	$msg_post->ip_addr = $emsg->ip;
 	$msg_post->mlist_msg_id = addslashes($emsg->msg_id);
@@ -435,7 +435,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 	list($msg_post->reply_to, $msg_post->thread_id) = get_fud_reply_id($mlist->mlist_opt & 32, $frm->id, $msg_post->subject, $emsg->reply_to_msg_id);
 
 	$msg_post->add($frm->id, $frm->message_threshold, 0, 0, false);
-	
+
 	// Handle File Attachments
 	if ($mlist->mlist_opt & 8 && isset($emsg->attachments) && is_array($emsg->attachments)) {
 		foreach($emsg->attachments as $key => $val) {
@@ -443,7 +443,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 			$fp = fopen($tmpfname, 'wb');
 			fwrite($fp, $val);
 			fclose($fp);
-		
+
 			$id = attach_add(array('name' => $key, 'size' => strlen($val), 'tmp_name' => $tmpfname), $msg_post->poster_id, 0, 1);
 			$attach_list[$id] = $id;
 		}
@@ -451,7 +451,7 @@ function mlist_error_log($error, $msg_data, $level='WARNING')
 		if (isset($attach_list)) {
 			attach_finalize($attach_list, $msg_post->id);
 		}
-	}	
+	}
 
 	if (!($mlist->mlist_opt & 1)) {
 		$msg_post->approve($msg_post->id, true);

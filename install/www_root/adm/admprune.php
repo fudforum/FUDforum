@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admprune.php,v 1.16 2003/10/03 18:18:46 hackie Exp $
+*   $Id: admprune.php,v 1.17 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -46,7 +46,7 @@
 			$msg = '<font color="red">from forum "'.q_singleval('SELECT name FROM '.$DBHOST_TBL_PREFIX.'forum WHERE id='.(int)$_POST['forumsel']).'"</font>';
 		}
 		$back = __request_timestamp__ - $_POST['units'] * $_POST['thread_age'];
-	
+
 		if (!isset($_POST['btn_conf'])) {
 			/* count the number of messages & topics that will be affected */
 			$topic_cnt = q_singleval('SELECT count(*) FROM '.$DBHOST_TBL_PREFIX.'thread WHERE last_post_date<'.$back.$lmt);
@@ -54,7 +54,7 @@
 ?>
 <html>
 <body bgcolor="white">
-<div align=center>You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages, 
+<div align=center>You are about to delete <font color="red"><?php echo $topic_cnt; ?></font> topics containing <font color="red"><?php echo $msg_cnt; ?></font> messages,
 which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $back); ?></font> <?php echo $msg; ?><br><br>
 			Are you sure you want to do this?<br>
 			<form method="post">
@@ -69,7 +69,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 </div>
 </body>
 </html>
-<?php			
+<?php
 			exit;
 		} else {
 			db_lock($DBHOST_TBL_PREFIX.'thr_exchange WRITE, '.$DBHOST_TBL_PREFIX.'thread_view WRITE, '.$DBHOST_TBL_PREFIX.'level WRITE, '.$DBHOST_TBL_PREFIX.'forum WRITE, '.$DBHOST_TBL_PREFIX.'forum_read WRITE, '.$DBHOST_TBL_PREFIX.'thread WRITE, '.$DBHOST_TBL_PREFIX.'msg WRITE, '.$DBHOST_TBL_PREFIX.'attach WRITE, '.$DBHOST_TBL_PREFIX.'poll WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt WRITE, '.$DBHOST_TBL_PREFIX.'poll_opt_track WRITE, '.$DBHOST_TBL_PREFIX.'users WRITE, '.$DBHOST_TBL_PREFIX.'thread_notify WRITE, '.$DBHOST_TBL_PREFIX.'msg_report WRITE, '.$DBHOST_TBL_PREFIX.'thread_rate_track WRITE');
@@ -88,8 +88,8 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
-?>	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
+?>
 <h2>Topic Prunning</h2>
 <form method="post" action="admprune.php">
 <table border=0 cellspacing=1 callpadding=3>
@@ -102,7 +102,7 @@ which were posted before <font color="red"><?php echo strftime('%Y-%m-%d %T', $b
 <tr>
 	<td bgcolor="#bff8ff">Limit to forum:</td>
 	<td colspan=2 bgcolor="#bff8ff" nowrap>
-	<?php 
+	<?php
 		$oldc = '';
 		$c = uq('SELECT f.id, f.name, c.name, c.id FROM '.$DBHOST_TBL_PREFIX.'forum f INNER JOIN '.$DBHOST_TBL_PREFIX.'cat c ON f.cat_id=c.id ORDER BY c.view_order, f.view_order');
 		echo '<select name="forumsel"><option value="0">- All Forums -</option>';

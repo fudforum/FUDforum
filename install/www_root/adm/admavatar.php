@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admavatar.php,v 1.8 2003/10/03 19:16:43 hackie Exp $
+*   $Id: admavatar.php,v 1.9 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -43,12 +43,12 @@
 			$_POST['avt_img'] = $_FILES['icoul']['name'];
 		}
 	}
-	
+
 	if (isset($_POST['btn_update'], $_POST['edit']) && !empty($_POST['avt_img'])) {
 		$old_img = q_singleval('SELECT img FROM '.$tbl.'avatar WHERE id='.(int)$_POST['edit']);
 		q('UPDATE '.$tbl.'avatar SET img='.strnull(addslashes($_POST['avt_img'])).', descr='.strnull(addslashes($_POST['avt_descr'])).' WHERE id='.(int)$_POST['edit']);
 		if (db_affected() && $old_img != $_POST['avt_img']) {
-			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']); 
+			$size = getimagesize($GLOBALS['WWW_ROOT_DISK'] . 'images/avatars/' . $_POST['avt_img']);
 			$new_loc = '<img src="'.$GLOBALS['WWW_ROOT'].'images/avatars/'.$_POST['avt_img'].'" '.$size[3].' />';
 			q('UPDATE '.$tbl.'users SET avatar_loc=\''.$new_loc.'\' WHERE avatar='.(int)$_POST['edit']);
 		}
@@ -56,7 +56,7 @@
 		q('INSERT INTO '.$tbl.'avatar (img, descr) VALUES ('.strnull(addslashes($_POST['avt_img'])).', '.strnull(addslashes($_POST['avt_descr'])).')');
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Avatar Management System</h2>
 
@@ -72,11 +72,11 @@
 			<td><input type="file" name="icoul"> <input type="submit" name="btn_upload" value="Upload"></td>
 		</tr>
 	<?php } else { ?>
-		<tr bgcolor="#bff8ff"> 
+		<tr bgcolor="#bff8ff">
 			<td colspan=2><font color="#ff0000">Web server doesn't have write permission to write to <b>'<?php echo $GLOBALS['WWW_ROOT_DISK'] . 'images/avatars'; ?>'</b>, avatar upload disabled</font></td>
 		</tr>
 	<?php } ?>
-	
+
 	<tr><td colspan=2>&nbsp;</td></tr>
 
 	<tr bgcolor="#bff8ff">
@@ -87,14 +87,14 @@
 		<td>Avatar Description:</td>
 		<td><input type="text" name="avt_descr" value="<?php echo htmlspecialchars($avt_descr); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td valign=top><a name="avt_sel">Avatar Image:</a></td>
 		<td>
-			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>" 
-				onChange="javascript: 
+			<input type="text" name="avt_img" value="<?php echo htmlspecialchars($avt_img); ?>"
+				onChange="javascript:
 					if (document.frm_avt.avt_img.value.length) {
-						document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/avatars/' + document.frm_avt.avt_img.value; 
+						document.prev_icon.src='<?php echo $GLOBALS['WWW_ROOT_DISK']; ?>images/avatars/' + document.frm_avt.avt_img.value;
 					} else {
 						document.prev_icon.src='../blank.gif';
 					}">
@@ -112,7 +112,7 @@
 			</table>
 		</td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<?php
 			if (!$edit) {

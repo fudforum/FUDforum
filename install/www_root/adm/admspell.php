@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admspell.php,v 1.2 2003/09/30 02:31:39 hackie Exp $
+*   $Id: admspell.php,v 1.3 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,13 +40,13 @@
 			}
 		}
 	}
-	
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Custom Dictionary Spell Checker</h2>
 <form method="post" name="spell" action="admspell.php">
-<?php 
-	echo _hs; 
+<?php
+	echo _hs;
 	if ($status) {
 		echo '<div style="text-align: center; color: green; font-size: 125%">'.$status.' word(s) were added successfully.</div>';
 	}

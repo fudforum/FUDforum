@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admimport.php,v 1.23 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admimport.php,v 1.24 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -40,7 +40,7 @@ function resolve_dest_path($path)
 	return $path;
 }
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (isset($_POST['path'])) {
 		if (!@is_readable($_POST['path'])) {
@@ -127,7 +127,7 @@ function resolve_dest_path($path)
 				if (!($d = opendir($DATA_DIR.'sql/'.__dbtype__))) {
 					exit("Couldn't open ".$DATA_DIR.'sql/'.$tmp[1]." directory<br>\n");
 				}
-				readdir($d); readdir($d); 
+				readdir($d); readdir($d);
 				while ($f = readdir($d)) {
 					if (substr($f, -4) != '.tbl') {
 						continue;
@@ -139,7 +139,7 @@ function resolve_dest_path($path)
 					foreach($tmp as $qry) {
 						if( trim($qry) ) {
 							q(trim($qry));
-						}	
+						}
 					}
 				}
 				closedir($d);
@@ -209,10 +209,10 @@ function resolve_dest_path($path)
 			if (($old_path = q_singleval('SELECT avatar_loc FROM '.$DBHOST_TBL_PREFIX.'users WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0 LIMIT 1'))) {
 				preg_match('!http://(.*)/images/!', $old_path, $m);
 				preg_match('!//(.*)/!', $GLOBALS['WWW_ROOT'], $m2);
-				
+
 				q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET avatar_loc=REPLACE(avatar_loc, \''.addslashes($m[1]).'\', \''.addslashes($m2[1]).'\') WHERE users_opt>=8388608 AND (users_opt & (8388608|16777216)) > 0');
 			}
-			
+
 			echo '<b>Import process is now complete</b><br>';
 			echo '<font color="red" size="+1">To finalize the import process you should now run the <a href="consist.php">consistency checker</a>.<font><br>';
 			exit;
@@ -227,7 +227,7 @@ function resolve_dest_path($path)
 	<td>Import Data Path<br><font size="-1">location on the drive, where the file your wish to import FUDforum data from is located.</font></td>
 	<td><?php if (isset($path_error)) { echo $path_error; $path = $_POST['path']; } else { $path = ''; } ?><input type="text" value="<?php echo $path; ?>" name="path" size=40></td>
 </tr>
-<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Import Data"></td></tr>	
+<tr bgcolor="#bff8ff"><td colspan=2 align=right><input type="submit" name="btn_submit" value="Import Data"></td></tr>
 </form>
 </table>
 <?php require($WWW_ROOT_DISK . 'adm/admclose.html'); ?>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admreplace.php,v 1.12 2003/10/03 19:10:04 hackie Exp $
+*   $Id: admreplace.php,v 1.13 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -41,12 +41,12 @@ function clean_rgx()
 		if ($_POST['rpl_replace_opt']) {
 			$_POST['rpl_from_post'] = $_POST['rpl_to_msg'] = '';
 		}
-		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET 
+		q('UPDATE '.$DBHOST_TBL_PREFIX.'replace SET
 			rpl_replace_opt='.(int)$_POST['rpl_replace_opt'].',
 			replace_str=\''.addslashes($_POST['rpl_replace_str']).'\',
 			with_str=\''.addslashes($_POST['rpl_with_str']).'\',
 			from_post=\''.addslashes($_POST['rpl_from_post']).'\',
-			to_msg=\''.addslashes($_POST['rpl_to_msg']).'\' 
+			to_msg=\''.addslashes($_POST['rpl_to_msg']).'\'
 		WHERE id='.(int)$_POST['edit']);
 	}
 
@@ -62,7 +62,7 @@ function clean_rgx()
 			$p = strrpos($rpl_replace_str, '/');
 			$rpl_preg_opt = substr($rpl_replace_str, ($p + 1));
 			$rpl_replace_str = substr($rpl_replace_str, 1, ($p - 1));
-			
+
 			$p = strrpos($rpl_from_post, '/');
 			$rpl_from_post_opt = substr($rpl_from_post, ($p + 1));
 			$rpl_from_post = substr($rpl_from_post, 1, ($p - 1));
@@ -72,7 +72,7 @@ function clean_rgx()
 		$rpl_replace_opt = isset($_POST['rpl_replace_opt']) ? (int) $_POST['rpl_replace_opt'] : 1;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Replacement Management System</h2>
 <form name="frm_rpl" method="post" action="admreplace.php">
@@ -82,7 +82,7 @@ function clean_rgx()
 		<td>Replacement Type:</td>
 		<td><?php echo create_select('rpl_replace_opt', "Simple Replace\nPerl Regex (preg_replace)", "1\n0", ($rpl_replace_opt & 1), 'onChange="document.frm_rpl.submit();"'); ?></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
 		<?php if (!$rpl_replace_opt) { ?>
@@ -91,33 +91,33 @@ function clean_rgx()
 			<td> <input type="text" name="rpl_replace_str" value="<?php echo htmlspecialchars($rpl_replace_str); ?>"></td>
 		<?php } ?>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:</td>
 		<td><input type="text" name="rpl_with_str" value="<?php echo htmlspecialchars($rpl_with_str); ?>"></td>
 	</tr>
-	
-<?php 
+
+<?php
 	if (!$rpl_replace_opt) {
 ?>
 	<tr>
 		<td colspan=2><br></td>
 	</tr>
-	
-	<tr bgcolor="#bff8ff">	
+
+	<tr bgcolor="#bff8ff">
 		<td colspan=2><b><font size=-2>Optional with the Perl Regex</font></b><br><font size=-1>(Reverse replacement logic, e.g upon editing a post)</font></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
 		<td>/<input type="text" name="rpl_from_post" value="<?php echo htmlspecialchars($rpl_from_post); ?>">/<input type="text" name="rpl_from_post_opt" size=3 value="<?php echo htmlspecialchars($rpl_from_post_opt); ?>"></td></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:<br></td>
 		<td><input type="text" name="rpl_to_msg" value="<?php echo htmlspecialchars($rpl_to_msg); ?>"></td>
 	</tr>
-	
+
 <?php
 	} /* !$rpl_replace_opt */
 ?>
@@ -132,7 +132,7 @@ function clean_rgx()
 ?>
 		</td>
 	</tr>
-	
+
 <?php
 	if (!$rpl_replace_opt) {
 		if (!isset($_POST['btn_regex'])) {
@@ -147,21 +147,21 @@ function clean_rgx()
 	<tr>
 		<td colspan=2><br></td>
 	</tr>
-	
-	<tr bgcolor="#bff8ff">	
+
+	<tr bgcolor="#bff8ff">
 		<td colspan=2><b><font size=-2>Test Area, tryout your regex here</font></b></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace mask:</td>
 		<td>/<input type="text" name="regex_str" value="<?php echo htmlspecialchars($regex_str); ?>">/<input type="text" name="regex_str_opt" size=3 value="<?php echo htmlspecialchars($regex_str_opt); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td>Replace with:</td>
 		<td><input type="text" name="regex_with" value="<?php echo htmlspecialchars($regex_with); ?>"></td>
 	</tr>
-	
+
 	<tr bgcolor="#bff8ff">
 		<td valign=top>Test text:</td>
 		<td><textarea name="regex_src"><?php echo htmlspecialchars($regex_src); ?></textarea></td>
@@ -189,7 +189,7 @@ function clean_rgx()
 <?php
 	} /* isset($_POST['btn_regex']) */
 ?>
-	
+
 	<tr bgcolor="#bff8ff" align=right>
 		<td colspan=2><input type="submit" name="btn_regex" value="Run"></td>
 	</tr>
@@ -222,7 +222,7 @@ function clean_rgx()
 		} else {
 			$rtype = 'Regular Expression';
 		}
-		
+
 		echo '<tr'.$bgcolor.'><td>'.$rtype.'</td><td>'.htmlspecialchars($r->replace_str).'</td><td>'.htmlspecialchars($r->with_str).'</td>';
 		if ($r->replace_opt) {
 			echo '<td colspan="2" align="center">n/a</td>';

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.35 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admuser.php,v 1.36 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -97,7 +97,7 @@ Are you sure you want to do this, once deleted the account cannot be recovered?<
 </form>
 </body></html>
 <?php
-					exit;			
+					exit;
 			} else if (isset($_POST['btn_yes'])) {
 				logaction(_uid, 'DELETE_USER', 0, addslashes(htmlspecialchars($usr->login)));
 				usr_delete($usr_id);
@@ -161,7 +161,7 @@ administration permissions to the forum. This individual will be able to do anyt
 					q('UPDATE '.$DBHOST_TBL_PREFIX.'users SET users_opt=(users_opt|524288) &~ 524288 | 1048576 WHERE id='.$usr_id);
 				}
 			}
-			break;								
+			break;
 	}
 
 	$search_error = $login_error = '';
@@ -247,7 +247,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		}
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>User Adminstration System</h2>
 <form name="frm_usr" method="post" action="admuser.php">
@@ -281,7 +281,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	<input type="hidden" name="usr_id" value="<?php echo $usr_id; ?>">
 	<input type="hidden" name="act" value="nada">
 
-</form>	
+</form>
 <?php
 	if($FUD_OPT_2 & 128) {
 		echo '<tr bgcolor="#f1f1f1"><td>Alias:</td><td>'.$u->alias.'</td></tr>';
@@ -299,7 +299,7 @@ administration permissions to the forum. This individual will be able to do anyt
 	echo '<tr bgcolor="#f1f1f1"><td>Blocked (banned):</td><td>'.($u->users_opt & 65536 ? 'Yes' : 'No').' [<a href="admuser.php?act=block&usr_id=' . $usr_id . '&' . _rsidl.'">Toggle</a>]</td></tr>';
 	echo '<tr bgcolor="#f1f1f1"><td>Email Confirmation:</td><td>'.($u->users_opt & 131072 ? 'Yes' : 'No').' [<a href="admuser.php?act=econf&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 
-	if ($FUD_OPT_1 & 1048576) { 
+	if ($FUD_OPT_1 & 1048576) {
 		echo '<tr bgcolor="#f1f1f1"><td>COPPA:</td><td>'.($u->users_opt & 262144 ? 'Yes' : 'No').' [<a href="admuser.php?act=coppa&usr_id=' . $usr_id . '&' . _rsidl .'">Toggle</a>]</td></tr>';
 	}
 
@@ -315,7 +315,7 @@ administration permissions to the forum. This individual will be able to do anyt
 		echo 'None<br>';
 	}
 	qf($c);
-?>	
+?>
 	<a name="mod_here"> </a>
 	<a href="#mod_here" onClick="javascript: window.open('admmodfrm.php?usr_id=<?php echo $usr_id . '&' . _rsidl; ?>', 'frm_mod', 'menubar=false,width=200,height=400,screenX=100,screenY=100,scrollbars=yes');">Modify Moderation Permissions</a>
 	<tr bgcolor="#f1f1f1"><td valign=top>Custom Tags:</td><td valign="top">

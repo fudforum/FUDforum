@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: scripts_common.inc,v 1.7 2003/10/03 23:59:53 hackie Exp $
+*   $Id: scripts_common.inc,v 1.8 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -23,18 +23,18 @@ function match_user_to_post($from_email, $from_name, $create_users, &$user_id)
 	/* If user was not found via email, try to look the user up by login */
 	if (empty($user_id) && !empty($from_name)) {
 		$user_id = q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($from_name)."'");
-	}	
+	}
 
 	if (empty($user_id)) {
 		$user_id = $create_users ? create_new_user($from_name, $from_email) : 0;
-	} 
+	}
 
-	return $user_id;	
+	return $user_id;
 }
 
 function create_new_user($from_name, $from_email)
 {
-	/* Since we assume every user created from a mailing list is already 'confirmed' 
+	/* Since we assume every user created from a mailing list is already 'confirmed'
 	 * this disables sending of the email confirmation
 	 */
 
@@ -44,10 +44,10 @@ function create_new_user($from_name, $from_email)
 	$user = new fud_user_reg;
 	$user->login = $login;
 
-	/* 
-	 * This code ensures that creation of user does not fail in the event another user on the forum 
+	/*
+	 * This code ensures that creation of user does not fail in the event another user on the forum
 	 * is already signed up under the same login name and/or alias
-	 */	
+	 */
 	while (q_singleval("SELECT id FROM ".sql_p."users WHERE login='".addslashes($user->login)."'")) {
 		$user->login = $login.'['.$i++.']';
 	}
@@ -74,7 +74,7 @@ function get_fud_reply_id($complex, $forum_id, $subject, $data)
 {
 	if (!empty($data)) {
 		if (is_string($data)) {
-			$data = array($data);	
+			$data = array($data);
 		}
 
 		foreach ($data as $reply_id) {
@@ -98,7 +98,7 @@ function parse_ip($str)
 	if (preg_match('!([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})!', $str, $m)) {
 		return $m[1];
 	} else {
-		return;	
+		return;
 	}
 }
 
@@ -113,7 +113,7 @@ function decode_string($str, $encoding)
 			return base64_decode($str);
 			break;
 		default:
-			return $str;	
+			return $str;
 			break;
 	}
 }
@@ -122,19 +122,19 @@ function decode_header_value($val)
 {
 	// check if string needs to be decoded
 	if (strpos($val, '?') === false) {
-		return trim($val);	
+		return trim($val);
 	}
 
 	// Decode String
 	if (preg_match_all('!(.*?)(=\?([^?]+)\?(Q|B)\?([^?]*)\?=)[[:space:]]*(.*)!i', $val, $m)) {
 		$newval = '';
-			
+
 		$c = count($m[4]);
 		for ($i = 0; $i < $c; $i++) {
 			$ec_type = strtolower($m[4][$i]);
-			
+
 			if ($ec_type == 'q') {
-				$newval .= decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable');	
+				$newval .= decode_string(str_replace('_', ' ', $m[5][$i]), 'quoted-printable');
 			} else if ($ec_type == 'b') {
 				$newval .= decode_string($m[5][$i], 'base64');
 			}

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlock.php,v 1.20 2003/10/05 22:18:42 hackie Exp $
+*   $Id: admlock.php,v 1.21 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -58,7 +58,7 @@ function chmoddir($dirn, $dirp, $filep, $rec=false)
 
 	$status = ($FUD_OPT_2 & 8388608 ? 'LOCKED' : 'UNLOCKED');
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 	
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <div align="center" style="font-size: xx-large; color: #ff0000;">
 	The forum's files appear to be: <b><?php echo $status; ?></b>.<br>

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msglist.php,v 1.17 2003/09/30 04:02:22 hackie Exp $
+*   $Id: msglist.php,v 1.18 2003/10/05 22:19:51 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
-	
+
 	$tname = isset($_POST['tname']) ? $_POST['tname'] : (isset($_GET['tname']) ? $_GET['tname'] : '');
 	$tlang = isset($_POST['tlang']) ? $_POST['tlang'] : (isset($_GET['tlang']) ? $_GET['tlang'] : '');
 
@@ -58,13 +58,13 @@ function makedeps()
 				}
 				$s = $e;
 			}
-			
+
 			while (($s = strpos($data, '{MSG: ', $s)) !== false) {
 				$s += 6;
 				if (($e=strpos($data, '}', $s)) === false) {
 					break;
 				}
-				
+
 				$msg = substr($data, $s, ($e - $s));
 				if (!isset($tmplmsglist[$file][$msg])) {
 					$tmplmsglist[$file][$msg] = $msg;
@@ -73,7 +73,7 @@ function makedeps()
 			}
 		}
 	}
-	
+
 	// build reverse deps
 	foreach($deps as $file => $reflist) {
 		foreach($reflist as $depfile) {
@@ -87,7 +87,7 @@ function makedeps()
 	if (isset($_POST['btn_submit'], $_POST['msglist'])) {
 		$msglist_arr[] = strtok($_POST['msglist'], ':');
 		while (($v = strtok(':'))) {
-			$msglist_arr[] = $v;			
+			$msglist_arr[] = $v;
 		}
 
 		$data = file_get_contents($msgfile);
@@ -122,7 +122,7 @@ function makedeps()
 		}
 		exit('<br><a href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsid.'">Back to control panel</a>');
 	}
-	
+
 if (!isset($_GET['NO_TREE_LIST'])) {
 	list($tmplmsglist, $filedeps) = makedeps();
 	ksort($tmplmsglist);
@@ -157,9 +157,9 @@ if (isset($warn)) {
 }
 	$tab = str_repeat('&nbsp;', 5);
 
-	foreach($tmplmsglist as $file => $msg) { 
+	foreach($tmplmsglist as $file => $msg) {
 		$list = $msgnamelist = '';
-		foreach($msg as $k => $msgname) { 
+		foreach($msg as $k => $msgname) {
 			$msgnamelist .= urlencode($msgname).':';
 			$list .='<tr><td><img src="blank.gif" height=1 width=20><a class="deps" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.urlencode($msgname).'&fl='.$file.'">'.$msgname.'</a></td></tr>';
 		}
@@ -167,14 +167,14 @@ if (isset($warn)) {
 		echo '<tr><td><a class="file_name" href="msglist.php?tname='.$tname.'&tlang='.$tlang.'&'._rsidl.'&msglist='.$msgnamelist.'&fl='.$file.'">'.$file.'</a><a name="'.$file.'"></a></td></tr>' . $list;
 		if (isset($filedeps[$file])) {
 			echo '<tr><td class="depson">'.$tab.'<b>&raquo; Used By:</b></td></tr>'."\n";
-			foreach($filedeps[$file] as $v) { 
+			foreach($filedeps[$file] as $v) {
 				echo '<tr><td>'.$tab.$tab.'<a href="#'.$v.'" class="depson">'.$v.'</a></td></tr>';
 			}
 		}
-		
+
 	}
 	echo '</table></td>';
-} /* NO_TREE_LIST */ 
+} /* NO_TREE_LIST */
 
 	$msglist = isset($_GET['msglist']) ? $_GET['msglist'] : (isset($_POST['msglist']) ? $_POST['msglist'] : '');
 
@@ -182,7 +182,7 @@ if (isset($warn)) {
 		echo '<td valign=top><form method="post" action="msglist.php?tname='.$tname.'&tlang='.$tlang.'"><table border=0>'._hs;
 		$msglist_arr[] = strtok(trim($msglist), ':');
 		while (($v = strtok(':'))) {
-			$msglist_arr[] = trim($v);			
+			$msglist_arr[] = trim($v);
 		}
 
 		$data = file_get_contents($msgfile);

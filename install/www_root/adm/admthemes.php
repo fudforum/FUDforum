@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemes.php,v 1.35 2003/10/03 02:28:25 hackie Exp $
+*   $Id: admthemes.php,v 1.36 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -22,7 +22,7 @@ function get_func_usage(&$toks)
 			$fc = is_array($toks[$k+2]) ? $toks[$k+2][1] : $toks[$k+3][1];
 			$func[$fc] = -1;
 			$func_pos[$fc] = $k;
-		}	
+		}
 	}
 
 	if (!isset($func)) {
@@ -122,11 +122,11 @@ function clean_code($path, $toks)
 			exit('can\'t create ('.$root_nn.')<br>');
 		}
 		$ts = $_POST['base_template_set'] == 'path_info' ? 'path_info/' : 'default/';
-		
+
 		fudcopy($root . $ts, $root_nn, '!.*!', true);
 		umask($u);
 	}
-	
+
 	if (isset($_POST['thm_theme']) && !$edit) {
 		$thm = new fud_theme;
 		$thm->add();
@@ -186,7 +186,7 @@ function clean_code($path, $toks)
 		$thm_t_default = $thm_enabled = 0;
 	}
 
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Theme Management</h2>
 
@@ -231,7 +231,7 @@ function clean_code($path, $toks)
 		$dp = opendir($DATA_DIR . '/thm/default/i18n');
 		readdir($dp); readdir($dp);
 		$selopt = '';
-		if (!$thm_lang) {	
+		if (!$thm_lang) {
 			$thm_lang = 'english';
 		}
 		while ($de = readdir($dp)) {
@@ -245,7 +245,7 @@ function clean_code($path, $toks)
 			$locales[$de]['pspell_lang'] = @file_exists($pspell_file) ? trim(file_get_contents($pspell_file)) : 'en';
 		}
 		closedir($dp);
-		
+
 		$cases = '';
 		foreach($locales as $k => $v) {
 			$cases .= "case '$k': document.admthm.thm_locale.value = '".$v['locale']."'; ";
@@ -352,7 +352,7 @@ function update_locale()
 			<td>'.(!$r->pspell_lang ? '<font color="green">disabled</font> ' : htmlspecialchars($r->pspell_lang)).'</td>
 			<td>'.($r->theme_opt & 1 ? 'Yes' : '<font color="green">No</font>').'</td>
 			<td>'.($r->theme_opt & 2 ? 'Yes' : '<font color="green">No</font>').'</td>
-			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>] 
+			<td nowrap>[<a href="admthemes.php?'._rsidl.'&edit='.$r->id.'">Edit</a>] [<a href="admthemes.php?'._rsidl.'&rebuild='.$r->id.'">Rebuild Theme</a>]
 			'.($is_tok ? '[<a href="admthemes.php?'._rsidl.'&optimize='.$r->id.'">Optimize Theme</a>]' : '').'
 			'.($r->id != 1 ? '[<a href="admthemes.php?'._rsid.'&del='.$r->id.'">Delete</a>]' : '').'
 			</td>

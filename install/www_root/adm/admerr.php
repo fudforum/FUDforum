@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admerr.php,v 1.9 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admerr.php,v 1.10 2003/10/05 22:19:50 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
+
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 
@@ -23,8 +23,8 @@
 	} else if (!empty($_GET['clear_fud_log'])) {
 		@unlink($GLOBALS['ERROR_PATH'].'fud_errors');
 	}
-	
-	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
+
+	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 ?>
 <h2>Error Log Browser</h2>
 
@@ -34,7 +34,7 @@
 	if (@file_exists($GLOBALS['ERROR_PATH'].'fud_errors') && filesize($GLOBALS['ERROR_PATH'].'fud_errors')) {
 		echo '<h4>FUDforum Error Log [<a href="admerr.php?clear_fud_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
-		
+
 		$errors = file($GLOBALS['ERROR_PATH'].'fud_errors');
 		foreach ($errors as $error) {
 			list($time, $msg) = explode('] ', substr($error, 1));
@@ -47,7 +47,7 @@
 	if (@file_exists($GLOBALS['ERROR_PATH'].'sql_errors') && filesize($GLOBALS['ERROR_PATH'].'sql_errors')) {
 		echo '<h4>SQL Error Log [<a href="admerr.php?clear_sql_log=1&'._rsid.'">clear log</a>]</h4>';
 		echo '<table border=1 cellspacing=1 cellpadding=3><tr bgcolor="#bff8ff"><td>Time</td><td>Error Description</td></tr>';
-		
+
 		$errors = file($GLOBALS['ERROR_PATH'].'sql_errors');
 		foreach ($errors as $error) {
 			list($time, $msg) = explode('] ', substr($error, 1));

@@ -3,9 +3,9 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mem_limit.inc,v 1.2 2003/09/30 03:49:26 hackie Exp $
+*   $Id: mem_limit.inc,v 1.3 2003/10/05 22:19:56 hackie Exp $
 ****************************************************************************
-          
+
 ****************************************************************************
 *
 *	This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 $GLOBALS['BUF_SIZE'] = 2000000;
-	
+
 /* if memory limit is present try to set it higher */
 if (($lmt = ini_get('memory_limit'))) {
 	/* failed to set memory limit higher, safe_mode */
