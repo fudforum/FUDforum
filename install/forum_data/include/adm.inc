@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: adm.inc,v 1.13 2003/06/02 19:38:27 hackie Exp $
+*   $Id: adm.inc,v 1.14 2003/06/02 19:50:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,10 +16,12 @@
 ***************************************************************************/
 
 if (!defined('shell_script')) {
+	$r = $GLOBALS['USE_PATH_INFO'];
 	$GLOBALS['USE_PATH_INFO'] = 'N';
 	fud_use('db.inc');
 	fud_use('cookies.inc');
 	fud_use('users.inc');
+	$GLOBALS['USE_PATH_INFO'] = $r;
 }
 
 if ($GLOBALS['usr']->is_mod != 'A') {

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.tmpl,v 1.14 2003/04/20 22:27:34 hackie Exp $
+*   $Id: index.tmpl,v 1.15 2003/06/02 19:50:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -38,8 +38,7 @@
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr class="CatDesc"><td colspan="7">
-&nbsp;<a href="{VAR: collapse_url}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator}</a> 
-<a href="{VAR: collapse_url}" class="CatLink" title="{VAR: collapse_status}">{VAR: r[6]}</a>
+&nbsp;<a href="{ROOT}?t=index&amp;c={FUNC: url_tog_collapse($r[9], $cs)}&amp;{DEF: _rsid}" class="CatLink" title="{VAR: collapse_status}">{VAR: collapse_indicator} {VAR: r[6]}</a>
 {VAR: r[5]}
 </td></tr>
 {SECTION: END}
@@ -62,7 +61,7 @@
 <tr>
 	<td class="RowStyleA" width=1>{TEMPLATE-DATA: forum_icon}</td>
 	<td class="RowStyleB" width=1>{VAR: forum_read_indicator}</td>
-	<td class="RowStyleA" width="100%"><a href="{VAR: forum_link}" class="GenLink">{VAR-HTML: r[14]}</a><br />{VAR: r[15]}</td>
+	<td class="RowStyleA" width="100%"><a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[11]}&amp;{DEF: _rsid}" class="GenLink">{VAR-HTML: r[14]}</a><br />{VAR: r[15]}</td>
 	<td class="RowStyleB" align="center">{VAR: r[16]}</td>
 	<td class="RowStyleB" align="center">{VAR: r[17]}</td>
 	<td class="RowStyleA" nowrap align="center">{VAR: last_post}</td>
