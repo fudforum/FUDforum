@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.34 2003/04/08 17:27:50 hackie Exp $
+*   $Id: post.php.t,v 1.35 2003/04/08 17:36:55 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -330,8 +330,6 @@
 		 	if (!$th_id) {
 		 		$create_thread = 1;
 		 		$msg_post->add($frm->id, $frm->message_threshold, $frm->moderated, $perms['p_sticky'], $perms['p_lock'], FALSE);
-		 		$thr = new fud_thread;
-		 		$thr->get_by_id($msg_post->thread_id);
 		 	} else if ($th_id && !$msg_id) {
 				$msg_post->thread_id = $th_id;
 		 		$msg_post->add_reply($reply_to, $th_id, $perms['p_sticky'], $perms['p_lock'], FALSE);
