@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.5 2002/07/08 23:15:19 hackie Exp $
+*   $Id: logedin.inc.t,v 1.6 2002/07/09 15:50:47 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,7 +60,12 @@
 		$ulink = '{ROOT}?t=usrinfo&id='.$uid.'&'._rsid;
 		$reg_users = q_singleval("select count(*) FROM {SQL_TABLE_PREFIX}users");
 		
-		if( ($lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum")) ) {
+		if( !_uid )
+			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum INNER JOIN {SQL_TABLE_PREFIX}group_cache ON {SQL_TABLE_PREFIX}forum.id={SQL_TABLE_PREFIX}group_cache.resource_id AND {SQL_TABLE_PREFIX}group_cache.resource_type='forum' WHERE p_READ='Y' AND user_id=0");
+		else
+			$lmid=q_singleval("SELECT MAX(last_post_id) FROM {SQL_TABLE_PREFIX}forum ".($GLOBALS['usr']->is_mod != 'A' ? " WHERE id IN(".get_all_perms(_uid).")" : ''));
+		
+		if( $lmid ) {
 			$lsubj = q_singleval("SELECT subject FROM {SQL_TABLE_PREFIX}msg WHERE id=".$lmid);
 			$url = ( _uid ) ? $usr->default_view : 'msg';
 			$last_msg = '{TEMPLATE: last_msg}';
