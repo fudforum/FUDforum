@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.31 2003/05/08 00:27:03 hackie Exp $
+*   $Id: index.php.t,v 1.32 2003/05/10 20:03:45 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -174,7 +174,7 @@ function iscollapsed($id)
 		$post_count += $r[16];
 		$thread_count += $r[17];
 
-		if ($r[20] == 'N') { /* visible forum with no 'read' permission */
+		if ($r[20] == 'N' && $usr->is_mod != 'A' && !$r[19]) { /* visible forum with no 'read' permission */
 			$forum_list_table_data .= '{TEMPLATE: forum_with_no_view_perms}';
 			continue;
 		}
