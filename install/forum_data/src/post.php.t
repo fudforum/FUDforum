@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.111 2004/04/02 22:06:13 hackie Exp $
+* $Id: post.php.t,v 1.112 2004/04/20 18:12:01 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -122,7 +122,7 @@ function flood_check()
 		if (_uid) {
 			$msg_show_sig = !$msg_id ? ($usr->users_opt & 2048) : ($msg->msg_opt & 1);
 
-			if ($msg_id || $reply_to || $th_id) {
+			if ($msg_id || $reply_to) {
 				$msg_poster_notif = (($usr->users_opt & 2) && !q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$msg->thread_id." AND poster_id="._uid)) || is_notified(_uid, $msg->thread_id);
 			} else {
 				$msg_poster_notif = ($usr->users_opt & 2);
@@ -549,7 +549,7 @@ function flood_check()
 	}
 
 	/* sticky/announcment controls */
-	if ($perms & 64 && (!isset($thr) || ($thr->root_msg_id == $msg->id && !$reply_to))) {
+	if ($perms & 64 && (!isset($thr) || $msg_id == $thr->root_msg_id)) {
 		if (!isset($_POST['prev_loaded'])) {
 			if (!isset($thr)) {
 				$thr_ordertype = $thr_orderexpiry = '';
