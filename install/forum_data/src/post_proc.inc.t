@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.54 2004/01/10 18:24:04 hackie Exp $
+* $Id: post_proc.inc.t,v 1.55 2004/01/20 16:31:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -516,8 +516,9 @@ function html_to_tags($fudml)
 		$fudml = str_replace('</div></div>', '[/spoiler]', $fudml);
 	}
 
-	while (preg_match('!<font (color|face|size)=".+?">.*?</font>!is', $fudml)) {
-		$fudml = preg_replace('!<font (color|face|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
+	$fudml = str_replace('<font face=', '<font font=', $fudml);
+	while (preg_match('!<font (color|font|size)=".+?">.*?</font>!is', $fudml)) {
+		$fudml = preg_replace('!<font (color|font|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
 	}
 	while (preg_match('!<(o|u)l type=".+?">.*?</\\1l>!is', $fudml)) {
 		$fudml = preg_replace('!<(o|u)l type="(.+?)">(.*?)</\\1l>!is', '[list type=\2]\3[/list]', $fudml);
