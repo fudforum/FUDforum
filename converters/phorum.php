@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: phorum.php,v 1.10 2002/07/27 15:41:22 hackie Exp $
+*   $Id: phorum.php,v 1.11 2002/07/28 18:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,8 @@
 */
 
 	$PH_SETTINGS_PATH="/home/forum/F/TR/";
+	// Make accounts for users who posted on Phorum without actually registering
+	$MAKE_ANON_ACCOUNTS = FALSE;
 
 /* DO NOT MODIFY BEYOND THIS POINT */
 	
@@ -288,6 +290,24 @@ function INT_yn($s)
 		
 			$fileid = write_body(tags_to_html($obj->body), $len, $off);
 			
+			// Handle anon users if need be
+			if( $MAKE_ANON_ACCOUNTS && !$obj->userid ) {
+				if( !($obj->userid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE email='".addslashes($obj->email)."'")) ) {
+					if( !($obj->userid = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."users WHERE login='".addslashes($obj->author)."'")) ) {
+						if( !empty($obj->email) ) {
+							if( empty($obj->author) ) $obj->author = $obj->email;
+					
+							$r2 = q("INSERT INTO ".$DBHOST_TBL_PREFIX."users 
+								(login,alias,passwd,email,append_sig,email_conf,coppa,join_date)
+							VALUES 
+								('".addslashes($obj->author)."','".addslashes($obj->author)."','".substr(md5(get_random_value()), 0, 8)."','".addslashes($obj->email)."','Y','Y','N',".$obj->post_stamp.")");
+							
+							$obj->userid = db_lastid();
+						}	
+					}
+				}
+			}
+			
 			q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
 			(
 				thread_id,
@@ -305,9 +325,9 @@ function INT_yn($s)
 			VALUES
 			(
 				".$thread_arr[$obj->thread].",
-				$obj->userid,
+				".intval($obj->userid).",
 				$obj->post_stamp,
-				$obj->parent,
+				".intval($msgid_arr[$obj->parent]).",
 				'".addslashes($obj->subject)."',
 				'Y',
 				'N',
