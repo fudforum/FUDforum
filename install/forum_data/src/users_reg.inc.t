@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.66 2004/03/09 17:16:40 hackie Exp $
+* $Id: users_reg.inc.t,v 1.67 2004/04/08 13:50:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -67,6 +67,7 @@ class fud_user_reg extends fud_user
 			$this->conf_key = '';
 			$this->users_opt |= 131072;
 		}
+		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
 
 		$this->id = db_qid("INSERT INTO
 			{SQL_TABLE_PREFIX}users (
@@ -105,24 +106,24 @@ class fud_user_reg extends fud_user
 				'".$md5pass."',
 				'".addslashes(htmlspecialchars($this->name))."',
 				'".addslashes($this->email)."',
-				".in($this->icq).",
+				".$this->icq.",
 				".ssn(urlencode($this->aim)).",
 				".ssn(urlencode($this->yahoo)).",
 				".ssn(urlencode($this->msnm)).",
 				".ssn(htmlspecialchars($this->jabber)).",
 				".ssn(urlencode($this->affero)).",
-				".iz($this->posts_ppg).",
+				".(int)$this->posts_ppg.",
 				'".addslashes($this->time_zone)."',
-				".iz($this->bday).",
+				".(int)$this->bday.",
 				".__request_timestamp__.",
 				'".$this->conf_key."',
 				".ssn(htmlspecialchars($this->user_image)).",
 				".__request_timestamp__.",
 				".ssn(htmlspecialchars($this->location)).",
-				".iz($this->theme).",
+				".(int)$this->theme.",
 				".ssn(htmlspecialchars($this->occupation)).",
 				".ssn(htmlspecialchars($this->interests)).",
-				".iz($ref_id).",
+				".(int)$ref_id.",
 				".__request_timestamp__.",
 				".ssn($this->sig).",
 				".ssn(htmlspecialchars($this->home_page)).",
@@ -140,6 +141,7 @@ class fud_user_reg extends fud_user
 		$passwd = !empty($this->plaintext_passwd) ? "passwd='".md5($this->plaintext_passwd)."'," : '';
 
 		$this->alias = make_alias((!($GLOBALS['FUD_OPT_2'] & 128) || !$this->alias) ? $this->login : $this->alias);
+		$this->icq = (int)$this->icq ? (int)$this->icq : 'NULL';
 
 		$rb_mod_list = (!($this->users_opt & 524288) && ($is_mod = q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id={$this->id}")) && (q_singleval("SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id={$this->id}") == $this->alias));
 
@@ -147,21 +149,21 @@ class fud_user_reg extends fud_user
 			name='".addslashes(htmlspecialchars($this->name))."',
 			alias='".addslashes($this->alias)."',
 			email='".addslashes($this->email)."',
-			icq=".in($this->icq).",
+			icq=".$this->icq.",
 			aim=".ssn(urlencode($this->aim)).",
 			yahoo=".ssn(urlencode($this->yahoo)).",
 			msnm=".ssn(urlencode($this->msnm)).",
 			jabber=".ssn(htmlspecialchars($this->jabber)).",
 			affero=".ssn(urlencode($this->affero)).",
-			posts_ppg='".iz($this->posts_ppg)."',
+			posts_ppg='".(int)$this->posts_ppg."',
 			time_zone='".addslashes($this->time_zone)."',
-			bday=".iz($this->bday).",
+			bday=".(int)$this->bday.",
 			user_image=".ssn(htmlspecialchars($this->user_image)).",
 			location=".ssn(htmlspecialchars($this->location)).",
 			occupation=".ssn(htmlspecialchars($this->occupation)).",
 			interests=".ssn(htmlspecialchars($this->interests)).",
-			avatar=".iz($this->avatar).",
-			theme=".iz($this->theme).",
+			avatar=".(int)$this->avatar.",
+			theme=".(int)$this->theme.",
 			avatar_loc=".ssn($this->avatar_loc).",
 			sig=".ssn($this->sig).",
 			home_page=".ssn(htmlspecialchars($this->home_page)).",

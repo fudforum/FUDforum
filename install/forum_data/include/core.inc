@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: core.inc,v 1.104 2004/04/05 20:23:04 hackie Exp $
+* $Id: core.inc,v 1.105 2004/04/08 13:50:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -111,16 +111,6 @@ function ssn($str)
 }
 
 /* Common DB functions */
-function in($str)
-{
-	return (!(int)$str) ? 'NULL' : (int)$str;
-}
-
-function iz($str)
-{
-	return (int)$str;
-}
-
 function intzero($val)
 {
 	return (!empty($val) ? $val : '0');

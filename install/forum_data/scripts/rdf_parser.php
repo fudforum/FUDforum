@@ -33,6 +33,12 @@
  *	topic_id	- link to topic
  */
 
+function __ffilesize($fp)
+{
+	$st = fstat($fp);
+	return (isset($st['size']) ? $st['size'] : $st[7]);
+}
+
 if (!function_exists('file_get_contents')) {
 	function file_get_contents($fname)
 	{
