@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: finduser.tmpl,v 1.35 2004/04/27 16:28:12 hackie Exp $
+* $Id: finduser.tmpl,v 1.36 2004/04/28 15:01:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -28,9 +28,8 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <form method="get" name="fufrm" action="{TEMPLATE: FINDUSER_PAGE_lnk3}">{DEF: _hs}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan=2>{MSG: finduser_user_info}</th></tr>
-<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{VAR-HTML: usr_login}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"><br />
-<font class="SmallText">{MSG: finduser_help}</font></td></tr>
+<tr><th colspan="3">{MSG: finduser_user_info}</th></tr>
+<tr class="RowStyleA"><td class="GenText">{MSG: finduser_by_login}</td><td class="GenText"><input type="text" name="usr_login" tabindex="1" value="{VAR-HTML: usr_login}"> <input type="submit" class="button" tabindex="2" name="btn_submit" value="{MSG: finduser_submit}"></td><td class="RowStyleC SmallText vt">{MSG: finduser_help}</td></tr>
 </table><input type="hidden" name="t" value="finduser"></form>
 <script>
 <!--
