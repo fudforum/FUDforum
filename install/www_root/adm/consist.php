@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.43 2003/07/09 08:32:07 hackie Exp $
+*   $Id: consist.php,v 1.44 2003/07/14 15:37:21 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -536,6 +536,16 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done: Validating group/forum relations');
+
+	draw_stat('Validating group/forum names');
+	$c = q('SELECT g.id, f.name FROM '.$tbl.'groups g INNER JOIN '.$tbl.'forum f ON f.id=g.forum_id WHERE g.id>2 AND f.name!=g.name');
+	$i = 0;
+	while ($r = db_rowarr($c)) {
+		q("UPDATE ".$tbl."groups SET name='".addslashes($r[1])."' WHERE id=".$r[0]);
+		++$i;
+	}
+	qf($r);
+	draw_stat('Done: Validating group/forum names (fixed: '.$i.' relations)');
 
 	draw_stat('Validating group/primary user relations');
 	$c = q('SELECT g.id, gm1.id, gm2.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_members gm1 ON gm1.group_id=g.id AND gm1.user_id=0 LEFT JOIN '.$tbl.'group_members gm2 ON gm2.group_id=g.id AND gm2.user_id=2147483647 WHERE g.id>2 AND g.forum_id>0 AND (gm1.id IS NULL OR gm2.id IS NULL)');
