@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.18 2003/04/28 13:06:30 hackie Exp $
+*   $Id: admgroups.php,v 1.19 2003/05/01 23:36:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,6 +65,12 @@
 				/* check to ensure circular inheritence does not occur */
 				if (!group_check_inheritence((int)$_POST['gr_inherit_id'])) {
 					group_sync($gid, $_POST['gr_name'], (int)$_POST['gr_inherit_id'], $perms);
+					/* handle resources */
+					q('DELETE FROM '.$tbl.'group_resources WHERE group_id='.$gid);
+					foreach ($_POST['gr_resource'] as $v) {
+						q('INSERT INTO '.$tbl.'group_resources (resource_id, group_id) VALUES('.(int)$v.', '.$gid.')');
+					}
+
 					$edit = '';
 					$_POST = $_GET = NULL;
 

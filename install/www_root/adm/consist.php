@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.27 2003/04/30 12:20:50 hackie Exp $
+*   $Id: consist.php,v 1.28 2003/05/01 23:36:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -30,6 +30,7 @@
 	fud_use('login_filter.inc', true);
 	fud_use('email_filter.inc', true);
 	fud_use('customtags.inc', true);
+	fud_use('groups_adm.inc', true);
 	fud_use('imsg.inc');
 	fud_use('imsg_edt.inc');
 	fud_use('err.inc');
@@ -108,10 +109,10 @@ forum will be disabled.<br><br>
 				$tbl.'msg m', $tbl.'pmsg pm', $tbl.'mod mm', $tbl.'thread_rate_track trt', $tbl.'msg_report mr',
 				$tbl.'forum_notify fn', $tbl.'thread_notify tn', $tbl.'buddy b', $tbl.'user_ignore i', $tbl.'msg m1', $tbl.'msg m2',
 				$tbl.'users u1', $tbl.'users u2', $tbl.'attach a', $tbl.'thr_exchange te', $tbl.'read r', $tbl.'mime mi',
-				$tbl.'group_members gm', $tbl.'group_resources gr');
+				$tbl.'group_members gm', $tbl.'group_resources gr', $tbl.'groups g', $tbl.'group_members gm1', $tbl.'group_members gm2');
 	db_lock(implode(' WRITE, ', $tbls).' WRITE');
 	draw_stat('Locked!');
-
+/*
 	draw_stat('Validating category order');
 	$i = 1;
 	$c = q('SELECT id, view_order FROM '.$tbl.'cat ORDER BY view_order, id');
@@ -302,7 +303,7 @@ forum will be disabled.<br><br>
 	delete_zero($tbl.'poll_opt_track', 'SELECT pot.id FROM '.$tbl.'poll_opt_track pot LEFT JOIN '.$tbl.'poll p ON p.id=pot.poll_id LEFT JOIN '.$tbl.'poll_opt po ON po.id=pot.poll_opt LEFT JOIN '.$tbl.'users u ON u.id=pot.user_id WHERE u.id IS NULL OR po.id IS NULL OR p.id IS NULL');
 
 	draw_stat('Rebuilding poll cache');
-	/* first we validate to vote counts for each option */
+	// first we validate to vote counts for each option
 	q('UPDATE '.$tbl.'poll_opt SET count=0');
 	$c = q('SELECT poll_opt, count(*) FROM '.$tbl.'poll_opt_track GROUP BY poll_opt');
 	while ($r = db_rowarr($c)) {
@@ -310,7 +311,7 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 
-	/* now we rebuild the individual message poll cache */
+	// now we rebuild the individual message poll cache
 	$oldp = '';
 	$opts = array();
 	$vt = 0;
@@ -429,7 +430,7 @@ forum will be disabled.<br><br>
 	draw_stat('Checking ignore list entries');
 	delete_zero($tbl.'user_ignore', 'SELECT i.id FROM '.$tbl.'user_ignore i LEFT JOIN '.$tbl.'users u1 ON u1.id=i.user_id LEFT JOIN '.$tbl.'users u2 ON u2.id=i.ignore_id WHERE u1.id IS NULL OR u2.id IS NULL');
 
-	/* we do this together to avoid dupe query */
+	// we do this together to avoid dupe query
 	q('UPDATE '.$tbl.'users SET buddy_list=NULL, ignore_list=NULL');
 
 	draw_stat('Rebuilding buddy list cache');
@@ -497,8 +498,61 @@ forum will be disabled.<br><br>
 	}
 	qf($c);
 	draw_stat('Done Rebuilding custom tags for users');
+*/
+	draw_stat('Validating group resources');
+	delete_zero($tbl.'group_resources', 'SELECT gr.id FROM '.$tbl.'group_resources gr LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id LEFT JOIN '.$tbl.'groups g ON g.id=gr.group_id WHERE f.id IS NULL OR g.id IS NULL');
+	draw_stat('Done: Validating group resources');
+
+	draw_stat('Validating group validity');
+	/* technically a group cannot exist without being assigned to at least 1 resource
+	 * so when we encounter such as group, we do our patriotic duty and remove it.
+	 */
+	$c = q('SELECT g.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id WHERE g.id > 2 AND gr.id IS NULL');
+	while ($r = db_rowarr($c)) {
+		group_delete($r[0]);
+	}
+	qf($c);
+	draw_stat('Done: Validating group validity');
+	
+	draw_stat('Validating group members');
+	delete_zero($tbl.'group_members', 'SELECT gm.id FROM '.$tbl.'group_members gm LEFT JOIN '.$tbl.'users u ON u.id=gm.user_id LEFT JOIN '.$tbl.'groups g ON g.id=gm.group_id WHERE u.id IS NULL OR g.id IS NULL');
+	draw_stat('Done: Validating group members');
+
+	draw_stat('Validating group/forum relations');
+	$c = q('SELECT f.id, f.name FROM '.$tbl.'forum f LEFT JOIN '.$tbl.'groups g ON f.id=g.forum_id WHERE g.id IS NULL');
+	while ($r = db_rowarr($c)) {
+		group_add($r[0], $r[1], 2);
+	}
+	qf($c);
+	draw_stat('Done: Validating group/forum relations');
+
+	draw_stat('Validating group/primary user relations');
+	$c = q('SELECT g.id, gm1.id, gm2.id FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_members gm1 ON gm1.group_id=g.id AND gm1.user_id=0 LEFT JOIN '.$tbl.'group_members gm2 ON gm2.group_id=g.id AND gm1.user_id=2147483647 WHERE g.id>2 AND g.forum_id>0 AND (gm1.id IS NULL OR gm2.id IS NULL)');
+	while ($r = db_rowarr($c)) {
+		if (!$r[1]) {
+			$glm[$r[0]][] = 0;
+		}
+		if (!$r[2]) {
+			$glm[$r[0]][] = 2147483647;
+		}
+	}
+	qf($c);
+	if (isset($glm)) {
+		/* make group based on 'primary' 1st group */
+		$fld_lst = implode(',', $GLOBALS['__GROUPS_INC']['permlist']);
+		$anon = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=1')) . "'";
+		$regu = "'" . implode("', '", db_arr_assoc('SELECT '.$fld_lst.' FROM '.$tbl.'groups WHERE id=2')) . "'";
+		$fld_lst = str_replace('p_', 'up_', $fld_lst);
+		foreach ($glm as $k => $v) {
+			foreach ($v as $uid) {
+				q('INSERT INTO '.$tbl.'group_members (group_id, user_id, '.$fld_lst.') VALUES ('.$k.', '.$uid.', '.(!$uid ? $anon : $regu).')');
+			}
+		}
+	}
+	draw_stat('Done: Validating group/primary user relations');
 
 	draw_stat('Rebuilding group cache');
+	q('DELETE FROM '.$tbl.'group_cache');
 	$c = q('SELECT id FROM '.$tbl.'groups');
 	while ($r = db_rowarr($c)) {
 		grp_rebuild_cache($r[0]);

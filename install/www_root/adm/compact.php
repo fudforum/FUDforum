@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: compact.php,v 1.26 2003/04/30 13:25:00 hackie Exp $
+*   $Id: compact.php,v 1.27 2003/05/01 23:36:14 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -146,6 +146,7 @@ function eta_calc($start, $pos, $pc)
 	$magic_file_id++;
 	/* rename our temporary files & update the database */
 	q('UPDATE '.$tbl.'msg SET file_id=file_id-'.$base.' WHERE file_id>'.$base);
+	q('UPDATE '.$tbl.'msg SET file_id_preview=file_id_preview-'.$base.' WHERE file_id_preview>'.$base);
 	$j = $base + 1;
 	for ($j; $j < $magic_file_id; $j++) {
 		rename($MSG_STORE_DIR . 'tmp_msg_'.$j, $MSG_STORE_DIR . 'msg_'.($j - $base));
