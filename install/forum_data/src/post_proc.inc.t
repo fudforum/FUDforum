@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.64 2004/07/02 12:36:09 hackie Exp $
+* $Id: post_proc.inc.t,v 1.65 2004/07/09 12:50:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -530,9 +530,12 @@ function html_to_tags($fudml)
 	}
 
 	$fudml = str_replace('<font face=', '<font font=', $fudml);
-	while (preg_match('!<font (color|font|size)=".+?">.*?</font>!is', $fudml)) {
-		$fudml = preg_replace('!<font (color|font|size)="(.+?)">(.*?)</font>!is', '[\1=\2]\3[/\1]', $fudml);
+	foreach (array('color', 'font', 'size') as $v) {
+		while (preg_match('!<font '.$v.'=".+?">.*?</font>!is', $fudml, $m)) {
+			$fudml = preg_replace('!<font '.$v.'="(.+?)">(.*?)</font>!is', '['.$v.'=\1]\2[/'.$v.']', $fudml);
+		}
 	}
+
 	while (preg_match('!<acronym title=".+?">.*?</acronym>!is', $fudml)) {
 		$fudml = preg_replace('!<acronym title="(.+?)">(.*?)</acronym>!is', '[acronym=\1]\2[/acronym]', $fudml);
 	}
