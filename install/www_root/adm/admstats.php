@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admstats.php,v 1.13 2003/04/29 01:07:15 hackie Exp $
+*   $Id: admstats.php,v 1.14 2003/05/12 14:16:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -67,8 +67,13 @@ function get_sql_disk_usage()
 	$forum_start = (int) q_singleval('SELECT MIN(post_stamp) FROM '.$tbl.'msg');
 	$days_ago = round((__request_timestamp__ - $forum_start) / 86400);
 
-	list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
-	list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '.$tbl.'msg')));
+	if ($forum_start) {
+		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j', $forum_start));
+		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j', q_singleval('SELECT MAX(post_stamp) FROM '.$tbl.'msg')));
+	} else {
+		list($s_year,$s_month,$s_day) = explode(' ', date('Y n j'));
+		list($e_year,$e_month,$e_day) = explode(' ', date('Y n j'));
+	}
 
 	$vl_m = $kl_m = implode("\n", array_keys(array_fill(1, 12, '')));
 	$vl_d = $kl_d = implode("\n", array_keys(array_fill(1, 31, '')));

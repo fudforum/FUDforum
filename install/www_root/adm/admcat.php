@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admcat.php,v 1.8 2003/04/24 13:58:50 hackie Exp $
+*   $Id: admcat.php,v 1.9 2003/05/12 14:16:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -53,6 +53,7 @@
 			${'cat_'.$k} = '';
 		}
 		$cat_pos = 'LAST';
+		$cat_allow_collapse = 'Y';
 	}
 
 	if (isset($_GET['del'])) {

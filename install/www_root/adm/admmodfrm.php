@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmodfrm.php,v 1.9 2003/04/23 16:35:49 hackie Exp $
+*   $Id: admmodfrm.php,v 1.10 2003/05/12 14:16:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,7 +46,7 @@
 ?>
 <html>
 <script language="JavaScript">
-	window.opener.location='admuser.php?usr_id=<?php echo $usr_id; ?>&act=nada&<?php echo _rsidl; ?>';
+	window.opener.location.reload();
 	window.close();
 </script>
 </html>

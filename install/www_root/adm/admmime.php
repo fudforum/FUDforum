@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admmime.php,v 1.7 2003/04/28 16:12:04 hackie Exp $
+*   $Id: admmime.php,v 1.8 2003/05/12 14:16:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -103,7 +103,7 @@
 	<td valign="top">Preview Image:</td>
 	<td>
 		<table border=1 cellspacing=1 cellpadding=2 bgcolor="#ffffff">
-		<tr><td align=center valign=center><img src="<?php echo $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon; ?>" name="prev_icon" border=0></td></tr>
+		<tr><td align=center valign=center><img src="<?php echo ($mime_icon ? $GLOBALS['WWW_ROOT'] . 'images/mime/' . $mime_icon : '../blank.gif'); ?>" name="prev_icon" border=0></td></tr>
 		</table>
 	</td>
 </tr>
