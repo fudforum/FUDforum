@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: db.inc,v 1.46 2004/12/08 18:56:48 hackie Exp $
+* $Id: db.inc,v 1.47 2005/01/28 17:03:10 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -164,7 +164,7 @@ if (!defined('fud_query_stats')) {
 
 function db_count($result)
 {
-	return (int) @mysql_num_rows($result);
+	return (int) mysql_num_rows($result);
 }
 function db_seek($result, $pos)
 {
@@ -181,7 +181,7 @@ function &db_rowarr($result)
 
 function q_singleval($query)
 {
-	if (($res = @mysql_fetch_row(q($query))) !== false) {
+	if (($res = mysql_fetch_row(q($query))) !== false) {
 		return $res[0];
 	}
 }
@@ -211,11 +211,11 @@ function optimize_tables($tbl_list=null)
 
 function &db_saq($q)
 {
-	return @mysql_fetch_row(q($q));
+	return mysql_fetch_row(q($q));
 }
 function &db_sab($q)
 {
-	return @mysql_fetch_object(q($q));
+	return mysql_fetch_object(q($q));
 }
 function db_qid($q)
 {
