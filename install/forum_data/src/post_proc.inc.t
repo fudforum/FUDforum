@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_proc.inc.t,v 1.6 2002/07/29 20:48:04 hackie Exp $
+*   $Id: post_proc.inc.t,v 1.7 2002/08/21 12:30:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,14 +26,13 @@ function tags_to_html($str, $allow_img='Y')
 {
 	if( !defined('no_char') ) $str = htmlspecialchars($str);
 	
-	$str = str_replace('[*]', '<li>', $str);
 	$str = nl2br($str);
 	
 	$ostr = '';
 	$pos = $old_pos = 0;
 	
-	while ( ($pos = strpos($str, '[', $pos)) !== FALSE ) {
-		if( ($epos = strpos($str, ']', $pos)) === FALSE ) break;
+	while ( ($pos = strpos($str, '[', $pos)) !== false ) {
+		if( ($epos = strpos($str, ']', $pos)) === false ) break;
 		$tag = substr($str, $pos+1, $epos-$pos-1);
 		if ( $pparms = strpos($tag, '=') ) {
 			$parms = substr($tag, $pparms+1);
@@ -185,6 +184,22 @@ function tags_to_html($str, $allow_img='Y')
 					$ostr .= '<div align="'.$parms.'">';
 					break;
 				case 'list':
+					$tmp = substr($str, $epos, ($cpos-$epos));
+					$tmp_l = strlen($tmp);
+					$tmp2 = str_replace('[*]', '<li>', $tmp);
+					$tmp2_l = strlen($tmp2);
+					$str = str_replace($tmp, $tmp2, $str);
+					
+					$diff = $tmp2_l - $tmp_l;
+					$cpos += $diff;
+					
+					foreach($end_tag as $key => $val) {
+						if( $key < $epos ) continue;
+						
+						$end_tag[$key+$diff] = $val;
+						unset($end_tag[$key]);
+					}
+					
 					switch( strtolower($parms) )
 					{
 						case '1':
