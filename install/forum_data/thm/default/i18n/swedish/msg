@@ -23,7 +23,7 @@ email_to_friend_desc:		Skicka den h&auml;r sidans URL till en v&auml;n per e-pos
 email_user:			Tryck h&auml;r f&ouml;r att skicka e-post till medlemmen
 faq:				Hj&auml;lp
 first_unread_msg:		Till ol&auml;sta inl&auml;gg
-first_unread_msg_desc:		G&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r tr&aring;den
+first_unread_msg_desc:		G&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r diskussionen
 flat_view:			Tillbaka till platt vy
 forum:				Forum:
 forum_icon:			Forumikon
@@ -46,25 +46,25 @@ im_msnm:			MSN Messenger:
 im_yahoo:			Yahoo Messenger:
 image:				Bild-URL:
 index_forum:			Forum
-index_new_posts:		Nya inl&auml;gg sedan senaste l&auml;sning
-index_no_new_posts:		Inga nya inl&auml;gg sedan senaste l&auml;sning
+index_new_posts:		Nya inl&auml;gg sedan senaste bes&ouml;k
+index_no_new_posts:		Inga nya inl&auml;gg sedan senaste bes&ouml;k
 interests:			Intressen:
 last_post:			Senaste inl&auml;gg
-last_thread_msg:		G&aring; till det sista inl&auml;gget i den h&auml;r tr&aring;den
+last_thread_msg:		G&aring; till det sista inl&auml;gget i den h&auml;r diskussionen
 legend:				Teckenf&ouml;rklaring:
 location:			Ort:
-lock_thread:			L&aring;s tr&aring;d
+lock_thread:			L&aring;s diskussionen
 locked:				L&aring;st
 locked_with_new_posts:		L&aring;st (med ol&auml;sta inl&auml;gg)
 logged_in_list:			Lista &ouml;ver inloggade medlemmar
-login:				Logga in
+login:				Anv&auml;ndarnamn
 login_header:			Logga in:
 logout:				Logga ut
 mark_all_read:			markera alla inl&auml;gg som l&auml;sta
 mark_all_read_desc:		Alla ol&auml;sta inl&auml;gg kommer att markeras som l&auml;sta
 members:			Medlemmar
 message:			Inl&auml;gg
-message_counter:		V&aring;ra medlemmar har postat totalt <b>{VAR: post_count}</b> inl&auml;gg i <b>{VAR: thread_count}</b> tr&aring;dar.
+message_counter:		V&aring;ra medlemmar har postat totalt <b>{VAR: post_count}</b> inl&auml;gg i <b>{VAR: thread_count}</b> diskussioner.
 message_index:			Inl&auml;ggsindex
 message_index_desc:		Visa en lista &ouml;ver inl&auml;gg
 minimize_category:		Minimera kategori
@@ -77,22 +77,22 @@ more_unread_messages:		flera ol&auml;sta inl&auml;gg
 more_unread_messages_desc:	Visa fler ol&auml;sta inl&auml;gg och markera de nu visade inl&auml;ggen som l&auml;sta
 move_thread:			Flytta
 moved:				Flyttad till ett annat forum
-moved_thread_message:		Den h&auml;r tr&aring;den har blivit flyttad till ett annat forum
+moved_thread_message:		Den h&auml;r diskussionen har blivit flyttad till ett annat forum
 na:				n/a
 new_posts:			Nya inl&auml;gg
 new_private_messages:		Du har <span class="GenText" style="color: #ff0000">({VAR: c})</span> ol&auml;sta privata meddelanden
-new_thread:			B&ouml;rja en ny tr&aring;d
+new_thread:			B&ouml;rja en ny diskussion
 newest_user:			Den senast registrerade medlemmen &auml;r
 next_page:			N&auml;sta sida
-next_thread:			N&auml;sta tr&aring;d:
+next_thread:			N&auml;sta diskussion:
 no_messages:			Det finns inga inl&auml;gg i det h&auml;r forumet.
 no_msg_body:			Ingen text i inl&auml;gget
 no_new_posts:			Inga nya inl&auml;gg
 no_posts:			Inga inl&auml;gg
 no_subscribed_forums:		Inga best&auml;llda forum
-no_subscribed_threads:		Inga best&auml;llda tr&aring;dar
-no_unread_locked:		Den h&auml;r tr&aring;den har l&aring;sts
-no_unread_msg:			Den h&auml;r tr&aring;den inneh&aring;ller inga ol&auml;sta meddelanden
+no_subscribed_threads:		Inga best&auml;llda diskussioner
+no_unread_locked:		Den h&auml;r diskussionen har l&aring;sts
+no_unread_msg:			Den h&auml;r diskussionen inneh&aring;ller inga ol&auml;sta meddelanden
 no_unread_msg_unreg:		L&auml;sta och ol&auml;sta meddelanden f&ouml;ljs upp endast f&ouml;r registrerade medlemmar
 num_pages:			Sidor ({VAR: ttl_pg}):
 num_votes:			{VAR: total_votes} r&ouml;ster
@@ -108,13 +108,13 @@ post_count_l:			Antal inl&auml;gg:
 poster:				Av
 posts:				Inl&auml;gg
 posts_c:			Inl&auml;gg:
-prev_thread:			F&ouml;reg&aring;ende tr&aring;d:
+prev_thread:			F&ouml;reg&aring;ende diskussion:
 usrinfo_private_message:	Privat meddelande:
 profile:			Profil
 profile_2:			Profil:
 profile_desc:			Tryck h&auml;r f&ouml;r att komma till medlemmens kontrollpanel
 rate:				bed&ouml;m
-rate_thread:			Bed&ouml;m tr&aring;den
+rate_thread:			Bed&ouml;m diskussionen
 rating:				Bed&ouml;mning
 refresh_list:			Uppdatera listan
 register:			Registrera
@@ -144,36 +144,36 @@ status:				Status:
 status_line:			Vi har <b>{VAR: reg_u}</b> medlemmar, <b>{VAR: inv_u}</b> osynliga medlemmar och <b>{VAR: annon}</b> g&auml;ster p&aring; bes&ouml;k just nu.
 sticky:				klibbig:
 stop_ignoring:			sluta ignorera den h&auml;r medlemmen
-sub_to_thread:			Best&auml;ll den h&auml;r tr&aring;den
-sub_to_thread_desc:		Du f&aring;r meddelande om nya inl&auml;gg i den h&auml;r tr&aring;den
+sub_to_thread:			Best&auml;ll den h&auml;r diskussionen
+sub_to_thread_desc:		Du f&aring;r meddelande om nya inl&auml;gg i den h&auml;r diskussionen
 subject:			Rubrik
 subscribe:			Best&auml;ll det h&auml;r forumet
-subscribe_desc:			Du f&aring;r meddelande om nya tr&aring;dar i det h&auml;r forumet
+subscribe_desc:			Du f&aring;r meddelande om nya diskussioner i det h&auml;r forumet
 subscribed_forums:		Best&auml;llda forum
 subscribed_forums_desc:		Koppla om filtret f&ouml;r best&auml;llda forum (visar inl&auml;gg endast fr&aring;n best&auml;llda forum)
-subscribed_threads:		Best&auml;llda tr&aring;dar
-subscribed_threads_desc:	Koppla om filtret f&ouml;r best&auml;llda tr&aring;dar (visar inl&auml;gg endast fr&aring;n best&auml;llda tr&aring;dar)
+subscribed_threads:		Best&auml;llda diskussioner
+subscribed_threads_desc:	Koppla om filtret f&ouml;r best&auml;llda diskussioner (visar inl&auml;gg endast fr&aring;n best&auml;llda diskussioner)
 switch_to_thread_view:		Visa inl&auml;ggen tr&aring;dade
-thread:				Tr&aring;d:
+thread:				Diskussion:
 thread_announcement:		meddelande:
-thread_first_unread_msg:	Tryck h&auml;r f&ouml;r att g&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r tr&aring;den
-thread_thread:			Tr&aring;d
-threads:			Tr&aring;dar
+thread_first_unread_msg:	Tryck h&auml;r f&ouml;r att g&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r diskussionen
+thread_thread:			Diskussion
+threads:			Diskussioner
 time:				Tid
 todays_posts:			Dagens inl&auml;gg
 todays_posts_desc:		Visa alla inl&auml;gg som postats idag
 un_ignore_user:			sluta ignorera den h&auml;r medlemmens inl&auml;gg
 unanswered_posts:		Obesvarade inl&auml;gg
 unanswered_posts_desc:		Visa alla inl&auml;gg som saknar svar
-unlock_thread:			L&aring;s upp tr&aring;d
-unread_msg:			Den h&auml;r tr&aring;den inneh&aring;ller inl&auml;gg som du &auml;nnu inte har l&auml;st
-unread_msg_locked:		L&aring;st tr&aring;d med ol&auml;sta inl&auml;gg
+unlock_thread:			L&aring;s upp diskussionen
+unread_msg:			Den h&auml;r diskussionen inneh&aring;ller inl&auml;gg som du &auml;nnu inte har l&auml;st
+unread_msg_locked:		L&aring;st diskussion med ol&auml;sta inl&auml;gg
 unread_posts:			Ol&auml;sta inl&auml;gg
 unread_posts_desc:		Visa alla ol&auml;sta inl&auml;gg
-unsub_from_thread:		Avbest&auml;ll tr&aring;den
-unsub_from_thread_desc:		Avbest&auml;ll meddelanden om nya inl&auml;gg i den h&auml;r tr&aring;den
+unsub_from_thread:		Avbest&auml;ll diskussionen
+unsub_from_thread_desc:		Avbest&auml;ll meddelanden om nya inl&auml;gg i den h&auml;r diskussionen
 unsubscribe:			Avbest&auml;ll
-unsubscribe_desc:		Avbest&auml;ll meddelanden om nya tr&aring;dar i det h&auml;r forumet
+unsubscribe_desc:		Avbest&auml;ll meddelanden om nya diskussioner i det h&auml;r forumet
 updated_on:			Uppdaterad:
 user:				Medlem
 user_counter:			Vi har <b>{VAR: reg_users}</b> registrerade medlemmar.
@@ -184,12 +184,12 @@ user_online:			{VAR: obj->login} &auml;r f&ouml;r tillf&auml;llet online
 usrinfo_last_post:		Senaste inl&auml;gg:
 view_forum:			Visa forum
 view_results:			Visa resultat
-view_thread:			Visa tr&aring;d
-views:				Vyer
+view_thread:			Visa diskussion
+views:				Visningar
 vote:				{VAR: thread->vote_count()} r&ouml;ster
 vote_button:			R&ouml;sta
 vote_for_thread:		R&ouml;sta
-was_moved_msg:			Moderatorn har flyttat tr&aring;den <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
+was_moved_msg:			Moderatorn har flyttat diskussionen <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> till forumet <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a>
 welcome_message:		V&auml;lkommen <b>{VAR: usr->alias}</b>! Ditt senaste bes&ouml;k var {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			visa vad folk h&aring;ller p&aring; med
 reported_del_report:		Radera rapport
@@ -218,8 +218,8 @@ referals_action:		Handling
 pmsg_all:			alla
 pmsg_none:			inga
 folder:				Mapp:
-pmsg_replied:			besvarade
-pmsg_forwarded:			vidareskickade
+pmsg_replied:			besvarat
+pmsg_forwarded:			vidareskickat
 pmsg_subject:			Rubrik
 pmsg_author:			Avs&auml;ndare
 pmsg_time:			Tid
@@ -233,7 +233,7 @@ draft:				UTKAST
 sent:				S&Auml;NDA
 trash:				SKR&Auml;PKORG
 msg_author:			F&ouml;rfattare
-msg_thread:			Tr&aring;d
+msg_thread:			Diskussion
 avatar_sel_form:		Val av avatar
 no_avatars:			Inga tillg&auml;ngliga avatarer
 month_1:			januari
@@ -317,7 +317,7 @@ register_sig:			Signatur:
 register_sig_desc:		Valbar signatur som kan bifogas l&auml;ngst ner i dina inl&auml;gg.
 register_reset:			&Aring;terst&auml;ll
 register_style:			Stil:
-register_def_thread_view:	F&ouml;rvald vy av tr&aring;d:
+register_def_thread_view:	F&ouml;rvald vy av diskussion:
 register_msg_per_page:		Antal inl&auml;gg per sida:
 register_show_sig:		Visa signaturer:
 register_show_sig_desc:		Du kan v&auml;lja om du vill se de andra medlemmarnas signaturer eller inte
@@ -330,7 +330,7 @@ register_invisible_mode_desc:	Visar inte om du &auml;r online.
 register_show_email:		Visa e-postadress:
 register_show_email_desc:	V&auml;lj det h&auml;r alternativet om du vill att din e-postadress skall vara offentlig.
 register_notification:		F&ouml;rv&auml;lj meddelande om nya inl&auml;gg:
-register_notification_desc:	Om meddelande om nya inl&auml;gg &auml;r f&ouml;rvalt (kan v&auml;ljas bort n&auml;r man skriver inl&auml;gg) f&aring;r du automatiskt meddelande om nya inl&auml;gg i de tr&aring;dar du deltar i.
+register_notification_desc:	Om meddelande om nya inl&auml;gg &auml;r f&ouml;rvalt (kan v&auml;ljas bort n&auml;r man skriver inl&auml;gg) f&aring;r du automatiskt meddelande om nya inl&auml;gg i de diskussioner du deltar i.
 register_notify_method:		V&auml;lj metod f&ouml;r meddelande om nya inl&auml;gg:
 register_notify_method_desc:	Om du vill ha meddelanden om nya inl&auml;gg via ICQ m&aring;ste du ha aktiverat 'EmailExpress' i dina ICQ-inst&auml;llningar
 register_notify_js_error:	Du valde att f&aring; meddelande om nya inl&auml;gg via ICQ, men har inte angett n&aring;gon ICQ-nummer. Meddelande per e-post f&ouml;rvalt&#46;
@@ -348,7 +348,7 @@ post_annoncement:		Meddelande
 post_size:			Storlek
 post_color:			F&auml;rg
 post_font:			Typsnitt
-create_thread:			B&ouml;rja tr&aring;d
+create_thread:			B&ouml;rja diskussion
 submit_reply:			Skicka svar
 edit_message:			Editera inl&auml;gg
 apply_spell_changes:		Godta stavningskontrollens &auml;ndringar
@@ -361,8 +361,8 @@ post_create_poll:		G&Ouml;R EN GALLUP
 post_poll_delete:		RADERA
 post_poll_edit:			EDITERA
 post_mod_opt:			Moderatoralternativ:
-post_thread_type:		Tr&aring;dtyp:
-post_thread_expiry:		Tr&aring;den f&ouml;rfaller:
+post_thread_type:		Diskussionstyp:
+post_thread_expiry:		Diskussionen f&ouml;rfaller:
 post_icons:			Inl&auml;ggsikon:
 post_no_icon:			Ingen ikon
 post_smiley:			Smilisgenv&auml;gar:
@@ -390,7 +390,7 @@ post_processing_msg:		Ditt inl&auml;gg behandlas, var god v&auml;nta
 ignore_users:			Ignorerade medlemmar
 add_ignore:			Ignorera medlem
 forum_terms:			Villkor f&ouml;r forumet
-forum_rules:			Det kostar inget att registrera sig som medlem i det h&auml;r forumet! Vi f&ouml;rv&auml;ntar oss att du som blir medlem f&ouml;ljer dessa regler. Om du g&aring;r med villkoren, tryck p&aring; "Jag godk&auml;nner"-knappen i slutet av sidan. Notera att du genom att trycka p&aring; knappen intygar att du &auml;r minst 13 &aring;r gammal. Om du &auml;r 13 &aring;r eller yngre b&ouml;r du anv&auml;nda det h&auml;r registeringsformul&auml;ret.<p>Trots att administrat&ouml;rerna och moderat&ouml;rerna g&ouml;r sitt b&auml;sta f&ouml;r att h&aring;lla f&ouml;rargelsev&auml;ckande inl&auml;gg borta kan vi inte l&auml;sa alla meddelanden. Alla inl&auml;gg utrycker skribentens &aring;sikter, och varken forumets &auml;gare eller dess programmerare kan ses ansvariga f&ouml;r inneh&aring;llet i n&aring;got inl&auml;gg.<p>Genom att trycka p&aring; "Jag godk&auml;nner"-knappen g&aring;r du med p&aring; att inte posta n&aring;gra obscena, vulg&auml;ra, hatiska, hotfulla eller p&aring; n&aring;got s&auml;tt olagliga inl&auml;gg. <p>Forumets administrator f&ouml;rbeh&aring;ller sig r&auml;tten att radera, editera, flytta eller st&auml;nga en tr&aring;d av vilken anledning som helst.<p>
+forum_rules:			Det kostar inget att registrera sig som medlem i det h&auml;r forumet! Vi f&ouml;rv&auml;ntar oss att du som blir medlem f&ouml;ljer dessa regler. Om du g&aring;r med villkoren, tryck p&aring; "Jag godk&auml;nner"-knappen i slutet av sidan. Notera att du genom att trycka p&aring; knappen intygar att du &auml;r minst 13 &aring;r gammal. Om du &auml;r 13 &aring;r eller yngre b&ouml;r du anv&auml;nda det h&auml;r registeringsformul&auml;ret.<p>Trots att administrat&ouml;rerna och moderat&ouml;rerna g&ouml;r sitt b&auml;sta f&ouml;r att h&aring;lla f&ouml;rargelsev&auml;ckande inl&auml;gg borta kan vi inte l&auml;sa alla meddelanden. Alla inl&auml;gg utrycker skribentens &aring;sikter, och varken forumets &auml;gare eller dess programmerare kan ses ansvariga f&ouml;r inneh&aring;llet i n&aring;got inl&auml;gg.<p>Genom att trycka p&aring; "Jag godk&auml;nner"-knappen g&aring;r du med p&aring; att inte posta n&aring;gra obscena, vulg&auml;ra, hatiska, hotfulla eller p&aring; n&aring;got s&auml;tt olagliga inl&auml;gg. <p>Forumets administrator f&ouml;rbeh&aring;ller sig r&auml;tten att radera, editera, flytta eller st&auml;nga en diskussion av vilken anledning som helst.<p>
 forum_rules_13:			Alla medlemmar under 13 &aring;rs &aring;lder m&aring;ste ha f&ouml;r&auml;lders eller f&ouml;rmyndares tillst&aring;nd f&ouml;r att f&aring; r&auml;tt att anv&auml;nda forumet. Vi v&auml;lkomnar medlemmar som &auml;r under 13 &aring;r, men f&ouml;ruts&auml;tter att en f&ouml;r&auml;lder eller f&ouml;rmyndare faxar eller s&auml;nder ett undertecknat godk&auml;nnande innan vi beviljar medlemskap.<p>Om du vill p&aring;b&ouml;rja registreringsprocessen innan vi har f&aring;tt godk&auml;nnandet kan du trycka p&aring; "Jag godk&auml;nner"-knappen nedan. Tryck p&aring; Avbryt om du vill avbryta registreringen och komma tillbaka till forumets f&ouml;rsta sida. <p>En kopia av formul&auml;ret f&ouml;r godk&auml;nnande kan laddas ner h&auml;r. Skicka e-post till <a href="mailto:{GVAR: ADMIN_EMAIL}" class="GenLink">{GVAR: ADMIN_EMAIL}</a> f&ouml;r mer information om registreringsprocessen.<p>
 coppa_conf:			COPPA-bekr&auml;ftelse
 coppa_before:			F&ouml;re {DATE: coppa %B %e, %Y}
@@ -462,7 +462,7 @@ search_all_forums:		S&ouml;k i alla forum
 search_in_forum:		S&ouml;k i forum:
 search_for:			S&ouml;kterm:
 search_forum_search:		S&ouml;k
-move_thread_to:			Flytta tr&aring;d <b>{VAR: thr->subject}</b> till:
+move_thread_to:			Flytta diskussionen <b>{VAR: thr->subject}</b> till:
 remail_email_topic:		Skicka den h&auml;r diskussionen till en v&auml;n per e-post
 remail_your_name:		Ditt namn:
 remail_your_email:		Din e-postadress:
@@ -536,7 +536,7 @@ tabs_buddy_list:		Kompislista
 tabs_ignore_list:		Ignorerade medlemmar
 tabs_private_messaging:		Privata meddelanden
 single_msg_delete:		Du h&aring;ller p&aring; att <font color="#ff0000" size="4">RADERA</font> ett meddelande med rubriken: <b>{VAR: msg->subject}</b><p>
-thread_delete:			Du h&aring;ller p&aring; att <font color="#ff0000" size="4">RADERA HELA TR&Aring;DEN</font> med rubriken: <b>{VAR: msg->subject}</b><p>
+thread_delete:			Du h&aring;ller p&aring; att <font color="#ff0000" size="4">RADERA HELA DISKUSSIONEN</font> med rubriken: <b>{VAR: msg->subject}</b><p>
 delete_proceed:			<font size="3"><b>Vill du forts&auml;tta?</b></font>
 delete_yes:			Ja
 delete_no:			Nej
@@ -571,11 +571,11 @@ err_inc_criticalmsg:		Du har st&ouml;tt p&aring; ett fel, men tyv&auml;rr har vi
 finduser_update:		S&ouml;ker efter medlemmar
 help_index_update:		L&auml;ser <a href="{ROOT}?t=help_index" class="GenLink">hjälpen.</a>
 iemail_thr_subject:		Nytt svar p&aring; {VAR: thr_subject} av {VAR: poster_login}
-iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r tr&aring;den kan du g&aring; hit: {VAR: unsub_url['email']}
-iemail_thr_bodyicq:		G&aring; till {VAR: goto_url['icq']}\n f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r tr&aring;den kan du g&aring; hit:\n{VAR: unsub_url['icq']}
-iemail_frm_subject:		Ny tr&aring;d av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
-iemail_frm_bodyemail:		F&ouml;r att visa tr&aring;den g&aring; till:\n{VAR: goto_url['email']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya tr&aring;dar i detta forum kan du g&aring; hit: {VAR: unsub_url['email']}
-iemail_frm_bodyicq:		F&ouml;r att visa tr&aring;den g&aring; till:\n{VAR: goto_url['icq']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya tr&aring;dar i detta forum kan du g&aring; hit:\n{VAR: unsub_url['icq']}
+iemail_thr_bodyemail:		G&aring; till {VAR: goto_url['email']} f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit: {VAR: unsub_url['email']}
+iemail_thr_bodyicq:		G&aring; till {VAR: goto_url['icq']}\n f&ouml;r att visa ol&auml;sta svar\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om svar den h&auml;r diskussionen kan du g&aring; hit:\n{VAR: unsub_url['icq']}
+iemail_frm_subject:		Ny diskussion av {VAR: poster_login} med rubriken {VAR: thr_subject} i forumet {VAR: frm_name}
+iemail_frm_bodyemail:		F&ouml;r att visa diskussionen g&aring; till:\n{VAR: goto_url['email']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya diskussioner i detta forum kan du g&aring; hit: {VAR: unsub_url['email']}
+iemail_frm_bodyicq:		F&ouml;r att visa diskussionen g&aring; till:\n{VAR: goto_url['icq']}\n\nIfall du i forts&auml;ttningen inte vill f&aring; meddelande om nya diskussioner i detta forum kan du g&aring; hit:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Info
 ignore_list_err_noign_msg:	Du kan inte ignorera den h&auml;r medlemmen
 ignore_list_err_dup_msg:	Du har redan den h&auml;r medlemmen p&aring; din lista
@@ -590,14 +590,14 @@ msg_err_onlyreg_title:		Endast registrerade medlemmar kan l&auml;sa detta forum
 msg_err_onlyreg_msg:		F&ouml;r att kunna l&auml;sa detta forum m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 msg_err_ininfo_title:		Otillr&auml;cklig information
 msg_err_ininfo_msg:		Ett problem uppkom n&auml;r sidan skulle g&ouml;ras
-msg_update:			L&auml;ser tr&aring;den med rubriken <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
+msg_update:			L&auml;ser diskussionen med rubriken <a class="GenLink" href="{ROOT}?t=msg&amp;th={VAR: thread->id}">{VAR: thread->subject}</a>
 pm_err_nopm_title:		FEL: Privata meddelanden &auml;r inte till&aring;tna
 pm_err_nopm_msg:		Du kan inte anv&auml;nda systemet f&ouml;r privata meddelanden, eftersom administratorn har st&auml;ngt av det.
 pm_update:			Anv&auml;nder privatmeddelanden
 post_err_notallowed_title: 	Inte till&aring;tet
 post_err_notallowed_msg:	Du har inte r&auml;tt att skriva inl&auml;gg
-post_err_lockedthread_title:	FEL: L&aring;st tr&aring;d
-post_err_lockedthread_msg:	Den h&auml;r tr&aring;den &auml;r l&aring;st och inga fler inl&auml;gg tas emot
+post_err_lockedthread_title:	FEL: L&aring;st diskussion
+post_err_lockedthread_msg:	Den h&auml;r diskussionen &auml;r l&aring;st och inga fler inl&auml;gg tas emot
 err_coppa_title:		FEL: Ditt konto &auml;r inte bekr&auml;ftat &auml;nnu
 err_coppa_msg:			Vi har inte f&aring;tt en bekr&auml;ftelse av din f&ouml;r&auml;lder eller f&ouml;rmyndare. D&auml;rf&ouml;r kan vi inte l&aring;ta dig skriva inl&auml;gg. Ifall du tappade ditt coppaformul&auml;r kan du <a href="{ROOT}?t=coppa_fax&amp;{DEF: _rsid}">trycka h&auml;r</a> f&ouml;r att f&aring; ett nytt
 err_blockedaccnt_title:		FEL: du har inte r&auml;tt att skriva inl&auml;gg
@@ -607,11 +607,11 @@ post_err_notowner_msg:		Du &auml;r inte detta meddelandets skribent
 post_err_edttimelimit_title:	FEL
 post_err_edttimelimit_msg:	Du kan inte editera det h&auml;r meddelandet l&auml;ngre
 post_err_noannontopics_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
-post_err_noannontopics_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att p&aring;b&ouml;rja tr&aring;dar<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">inloggningssidan</a> om du vill logga in
+post_err_noannontopics_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att p&aring;b&ouml;rja diskussioner<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">inloggningssidan</a> om du vill logga in
 post_err_noannonposts_title:	FEL: Otillr&auml;ckliga r&auml;ttigheter
 post_err_noannonposts_msg:	Anonyma anv&auml;ndare har inte r&auml;tt att besvara inl&auml;gg<br><br>Om du vill registrera dig skall du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>V&auml;nligen g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}&amp;returnto={VAR-URL: returnto_d}">inloggningssidan</a> om du vill logga in
 post_err_noreplying_title:	FEL: Det &auml;r inte till&aring;tet att svara
-post_err_noreplying_msg:	Du har inte r&auml;tt att svara i den h&auml;r tr&aring;den eftersom den &auml;r antingen ett meddelande eller ett klibbigt inl&auml;gg, som moderatorn har f&ouml;rbjudit svar till.
+post_err_noreplying_msg:	Du har inte r&auml;tt att svara i den h&auml;r diskussionen eftersom den &auml;r antingen ett meddelande eller ett klibbigt inl&auml;gg, som moderatorn har f&ouml;rbjudit svar till.
 post_err_floodtrig_title:	FEL: Fl&ouml;desstopp p&aring;slaget
 post_err_floodtrig_msg:		Var v&auml;nlig f&ouml;rs&ouml;k p&aring; nytt om {VAR: tm} sekunder
 post_err_attach_size:		<font class="ErrorText">Bilagan &auml;r f&ouml;r stor (&ouml;ver gr&auml;nsen p&aring; {VAR: MAX_F_SIZE} byte)</font><br>
@@ -620,7 +620,7 @@ post_err_attach_filelimit:	<font class="ErrorText">Du f&ouml;rs&ouml;ker skicka 
 post_err_passwd:		Fel l&ouml;senord
 post_reply_update:		Svarar p&aring; <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: thr->subject}</a> i {VAR-HTML: frm->name}
 post_edit_update:		Editerar <a class="GenLink" href="{ROOT}?t=msg&amp;goto={VAR: thr->root_msg_id}">{VAR: msg->subject}</a> i {VAR-HTML: frm->name}
-post_topic_update:		Skriver ny tr&aring;d i <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
+post_topic_update:		P&aring;b&ouml;rjar ny diskussion i <a class="GenLink" href="{ROOT}?t=rview&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
 post_error_generic:		Ett fel har uppst&aring;tt
 postcheck_max_images_err:	Maximalt {GVAR: MAX_IMAGE_COUNT} bilder &auml;r till&aring;tna per inl&auml;gg, v&auml;nligen minska antalet bilder
 postcheck_subj_needed:		Rubrik obligatorisk
@@ -670,12 +670,12 @@ search_update:			S&ouml;ker bland inl&auml;ggen
 selmsg_update:			L&auml;ser <a class="GenLink" href="{ROOT}?t=selmsg&amp;date=today&amp;rid={VAR: usr->id}">Dagens inl&auml;gg</a>
 showposts_update:		Visar inl&auml;gg av: <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->login}</a>
 subscribed_update:		Visar egna best&auml;llningar
-th_err_invid_title:		Felaktigt tr&aring;d-ID
-th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, tr&aring;den du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
+th_err_invid_title:		Felaktigt diskussions-ID
+th_err_invid_msg:		Du har f&ouml;ljt en felaktig l&auml;nk, diskussionen du f&ouml;rs&ouml;ker l&auml;sa existerar inte.
 thread_err_onlyregview_title:	Endast registrerade medlemmar kan l&auml;sa det h&auml;r forumet
 thread_err_onlyregview_msg:	F&ouml;r att kunna l&auml;sa det h&auml;r forumet m&aring;ste du <a href="{ROOT}?t=register&amp;{DEF: _rsid}" class="GenLink">registrera</a> dig. Om du redan &auml;r registrerad m&aring;ste du <a href="{ROOT}?t=login&amp;{DEF: _rsid}" class="GenLink">logga in</a>.
 thread_update:			L&auml;ser forumet <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-tree_update:			L&auml;ser tr&aring;den (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
+tree_update:			L&auml;ser diskussionen (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=tree&amp;th={VAR: thread->id}&{DEF: _rsid}">{VAR: thread->subject}</a>
 userinfo_update:		Ser p&aring; <a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: u->id}">{VAR: u->alias}s</a> profil
 ERR_login_ttl:			FEL: Du &auml;r inte inloggad
 ERR_login_msg:			Du &auml;r inte inloggad, v&auml;nligen logga in<br><br>Om du vill registrera dig kan du g&aring; till <a href="{ROOT}?t=register&amp;{DEF: _rsid}">registreringsformul&auml;ret</a><br>Om du vill logga in kan du g&aring; till <a href="{ROOT}?t=login&amp;{DEF: _rsid}">inloggningsformul&auml;ret</a>
@@ -731,21 +731,21 @@ approved_avatar_msg:		Din avatar godk&auml;ndes av administratorn. Den borde nu 
 unapproved_avatar_title:	Din egen avatar blev inte godk&auml;nd.
 unapproved_avatar_msg:		Administratorn godk&auml;nde inte din avatar. De vanligast sk&auml;len &auml;r att avataren &auml;r f&ouml;r stor (filstorlek och/eller bildstorlek) eller tvivelaktigt inneh&aring;ll. Om du vill ha mer information om varf&ouml;r din avatar inte godk&auml;ndes kan du kontakta administratorn.
 mvthread_request_move:		anh&aring;ll om flyttning
-move_request_reason:		Varf&ouml;r vill ha flytta tr&aring;den?
+move_request_reason:		Varf&ouml;r vill ha flytta diskussionen?
 mvthread_submit_req:		Sänd anhållan
-thread_exchange:		Tr&aring;dbyte 
-move_request_by:		Tr&aring;dbytet &ouml;nskat av:
+thread_exchange:		Diskussionsbyte
+move_request_by:		Diskussionsbytet &ouml;nskat av:
 move_reason:			Orsak till flyttningen:
-thr_exch_accept:		godk&auml;nn tr&aring;d
-thr_exch_decline:		godk&auml;nn inte tr&aring;d
+thr_exch_accept:		godk&auml;nn diskussion
+thr_exch_decline:		godk&auml;nn inte diskussion
 thr_exch_orig_forum:		Ursprungligt forum:
 thr_exch_dest_forum:		Nytt forum:
-thr_exch_no_threads:		Inga tr&aring;dar att granska.
-thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av tr&aring;den <b>{VAR: thr_name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
+thr_exch_no_threads:		Inga diskussioner att granska.
+thr_exch_decl_reason:		Orsakt till att inte godk&auml;nna flyttning av diskussionen <b>{VAR: thr_name}</b> till forumet <b>{VAR-HTML: frm->name}</b>
 thr_exch_submit:		Sänd
-exch_decline_ttl:		Flyttningen av tr&aring;den {VAR: thr_name} till forumet {VAR-HTML: frm->name} godk&auml;ndes inte.
+exch_decline_ttl:		Flyttningen av diskussionen {VAR: thr_name} till forumet {VAR-HTML: frm->name} godk&auml;ndes inte.
 ppost_original_msg:		meddelande som du skickar vidare eller svarar p&aring;
-split_thread:			Splittra tr&aring;d
+split_thread:			Splittra diskussion
 groupmgr_no_user:		Det finns ingen medlem med anv&auml;ndarnamnet "{VAR-HTML: gr_member}"
 groupmgr_already_exists:	Medlemmen "{VAR-HTML: gr_member}" finns redan i den h&auml;r gruppen.
 groupmgr_yes:			Ja
@@ -776,10 +776,10 @@ p_STICKY:			Klibbiga inl&auml;gg
 p_POLL:				G&ouml;r en gallup
 p_FILE:				Bifoga filer
 p_VOTE:				R&ouml;sta
-p_RATE:				Bed&ouml;m tr&aring;dar
-p_SPLIT:			Splittra tr&aring;dar
-p_LOCK:				L&aring;s tr&aring;dar
-p_MOVE:				Flytta tr&aring;dar
+p_RATE:				Bed&ouml;m diskussioner
+p_SPLIT:			Splittra diskussioner
+p_LOCK:				L&aring;s diskussioner
+p_MOVE:				Flytta diskussioner
 p_SML:				Till&aring;t smilisar
 p_IMG:				Till&aring;t bild-URL
 group_mgr_search:		<a href="javascript://" class="GenLink" onClick="javascript: window_open(\'{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=groupmgr.gr_member&amp;overwrite=1\', \'user_list\', 250,250);">S&ouml;k medlem</a>
@@ -811,21 +811,21 @@ th_expr_four_month:		4 m&aring;nader
 th_expr_one_year:		1 &aring;r
 thread_mod_delete:		Radera
 action_latest_post:		Senaste inl&auml;gg
-post_locked:                    L&aring;s tr&aring;den
+post_locked:                    L&aring;s diskussionen
 online_today_last_visit:	Senaste bes&ouml;k
 online_today_update:		Viewing the list of people who were on the forum today.
 logedin_todays_visitors:	dagens bes&ouml;kare
-logedin_latest_post:		Senaste inl&auml;gg: 
+logedin_latest_post:		Senaste inl&auml;gg:
 register_show_avatar:		Visa avatarer:
 register_show_avatar_desc:	Du kan l&aring;ta bli att visa andra medlemmars avatarer n&auml;r du l&auml;ser deras in&auml;gg
 drawmsg_view_rest_post:		Visa resten av inl&auml;gget
-post_re:			Re: 
+post_re:			Re:
 forumsel_goto_forum:		G&aring; till forum:
-minimsg_thread_view:		Tidigare inl&auml;gg i tr&aring;den
+minimsg_thread_view:		Tidigare inl&auml;gg i diskussionen
 split_th_post_by:		Skrivet av:
 split_th_posted_on:		Postningsdatum:
 split_th_subject:		Rubrik:
-split_th_new_thread_title:	Ny rubrik f&ouml;r tr&aring;den:
+split_th_new_thread_title:	Ny rubrik f&ouml;r diskussionen:
 split_th_forum:			Forum:
 split_th_split_sel:		Flytta valda inl&auml;gg
 split_th_split_unsel:		Flytta icke-valda inl&auml;gg
@@ -839,7 +839,7 @@ quicklogin_login_btn:		Logga in
 post_notification_desc:		Meddela mig n&auml;r n&aring;gon svarar p&aring; detta inl&auml;gg.
 post_proc_all_ext_allowed:	(inga begr&auml;nsningar)
 maximize_category:		Maximera kategori
-no_view_perm:			Du har inte tillr&auml;ckliga r&auml;ttigheter f&ouml;r att se den h&auml;r tr&aring;den.
+no_view_perm:			Du har inte tillr&auml;ckliga r&auml;ttigheter f&ouml;r att l&auml;sa den h&auml;r diskussionen.
 report_empty_report:		Du kan inte s&auml;nda en tom rapport. Var v&auml;nlig ange orsak till rapporten.
 report_already_reported_title:	Inl&auml;gget redan rapporterat
 report_already_reported_msg:	Det har inl&auml;gget har redan rapporterats och v&auml;ntar p&aring; att granskas av moderatorerna.
@@ -849,7 +849,7 @@ pmsg_prev_msg:			F&ouml;reg&aring;ende meddelande
 post_proc_reveal_spoiler:	Visa g&ouml;md text
 register_jabber:		Jabber-anv&auml;ndarnamn:
 im_jabber:			Jabber:
-forum_contact:			Kontakt
+forum_contact:			Ta kontakt
 forum_home:			Hem
 post_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
 ppost_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
@@ -857,12 +857,12 @@ post_list_smilies:		visa alla smilisar
 ignored_anon_post:		{VAR: user_login} ignoreras
 smladd_close_window:		st&auml;ng f&ouml;nstret
 p_VISIBLE:                    	Synlig
-reported_in_thread:		I tr&aring;den
+reported_in_thread:		I diskussionen
 help_back_to_top:		tillbaka till b&ouml;rjan
 help_return_to_index:		tillbaka till hj&auml;lpindex
 forumsel_unread:		*(OL&Auml;ST)
 groupmgr_no_groups:		Inga grupper att editera
-msg_err_nosuchmsg_msg:		Ett s&aring;dant inl&auml;gg finns inte i denna tr&aring;d
+msg_err_nosuchmsg_msg:		Ett s&aring;dant inl&auml;gg finns inte i denna diskussion
 msg_err_nosuchmsg_title:	Fel
 imsg_err_message_title:		Ogiltigt inl&auml;gg
 imsg_err_message_msg:		Inl&auml;gget du f&ouml;rs&ouml;ker visa finns inte.
@@ -902,21 +902,21 @@ register_show_im_desc:		Avg&ouml;r om författarens IM-indikatorer syns bredvid i
 unread_message:			Ol&auml;st inl&auml;gg
 read_message:			L&auml;s inl&auml;gg
 threadt_more:			&lt;mer&gt;
-threadt_disabled_ttl:		Tr&aring;dad vy av tr&aring;darna &auml;r inte tillg&auml;nglig.
-threadt_disabled_desc:		Administratorn har st&auml;ngt av den tr&aring;dade vyn av tr&aring;darna, anv&auml;nd den platta vyn ist&auml;llet.
+threadt_disabled_ttl:		Tr&aring;dad vy av diskussionerna &auml;r inte tillg&auml;nglig.
+threadt_disabled_desc:		Administratorn har st&auml;ngt av den tr&aring;dade vyn av diskussionerna, anv&auml;nd den platta vyn ist&auml;llet.
 threadt_update:			L&auml;ser forumet (tr&aring;dad vy) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>
-register_msg_tree_view:		Platt tr&aring;dvy/Tr&aring;dad inl&auml;ggsvy
-register_tree_msg_view:		Tr&aring;dad tr&aring;dvy/Platt inl&auml;ggsvy
-mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av tr&aring;d/inl&auml;gg
+register_msg_tree_view:		Platt diskussionsvy/Tr&aring;dad inl&auml;ggsvy
+register_tree_msg_view:		Tr&aring;dad diskussionsvy/Platt inl&auml;ggsvy
+mmod_delete_cofirm_ttl:		Bekr&auml;fta radering av diskussion/inl&auml;gg
 err_inc_query_err:		Ett SQL-fel har uppst&aring;tt, v&auml;nligen kontakta forumets <a href="mailto:{GVAR: ADMIN_EMAIL}?subject=SQL%20Error">administrator</a> och be dem kontrollera forumets SQL-loggfil.
 spell_alts:			inga alternativ
-insert_uploaded_image:		Insert image into message body
+insert_uploaded_image:		S&auml;tt in bild i texten
 finduser_help:			The search engine will automatically add * mask to your query. ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
-back_to_top:			Back to Top
-iemail_participate:		To participate in the discussion, go here:
-pm_err_disabled_title:		Private Messaging Disabled
-pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
-err_mod_acc_ttl:		Unverified Account
-err_mod_acc_msg:		The administrator had chosen to review all accounts manually prior to activation. Until your account is validated by the administrator you will not be able to utilize the full capabilities of your account.
-accounts_pending_approval:	Accounts Pending Approval
-saved:				Saved
+back_to_top:			Tillbaka till b&ouml;rjan
+iemail_participate:		F&ouml;r att delta i diskussionen, g&aring; hit:
+pm_err_disabled_title:		Privata meddelanden &auml;r inte till&aring;tna
+pm_err_disabled_msg:		Du kan inte skicka privata meddelanden om du inte till&aring;ter privata meddelanden i din profil.
+err_mod_acc_ttl:		Obekr&auml;ftad anv&auml;ndare
+err_mod_acc_msg:		Administratorn har valt att sj&auml;lv granska alla anv&auml;ndare innan aktivering. Du kommer inte att ha fulla r&auml;ttigheter i forumet innan administratorn har godk&auml;nt ditt anv&uml;ndarnamn.
+accounts_pending_approval:	Ej granskade anv&auml;ndare
+saved:				Sparade
