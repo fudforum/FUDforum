@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: VB2.php,v 1.6 2002/07/11 21:23:21 hackie Exp $
+*   $Id: VB2.php,v 1.7 2002/11/24 00:19:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -608,7 +608,7 @@ $group_map = array(
 
 /* Import Private Messages */
 	q("DELETE FROM ".$DBHOST_TBL_PREFIX."pmsg");
-	$r = q("select * from privatemessage");
+	$r = Q2("select * from privatemessage");
 	print_status('Importing '.db_count($r).' Private Messages');
 	while( $obj = db_rowobj($r) ) {
 		list($off, $len) = write_pmsg_body(vb2tofudcode($obj->message));
