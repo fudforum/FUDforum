@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.44 2003/09/30 01:42:28 hackie Exp $
+*   $Id: ppost.php.t,v 1.45 2003/09/30 01:53:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -36,15 +36,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	if (!$msg_smiley_disabled) {
 		$msg_body = post_to_smiley($msg_body);
 	}
-	switch ($GLOBALS['PRIVATE_TAGS']) {
-		case 'ML':
-			$msg_body = html_to_tags($msg_body);
-			break;
-		case 'HTML':
-			break;
-		default:
-			reverse_fmt($msg_body);
-			reverse_nl2br($msg_body);
+	if ($GLOBALS['FUD_OPT_1'] & 4096) {
+		$msg_body = html_to_tags($msg_body);
+	} else if ($GLOBALS['FUD_OPT_1'] & 2048) {
+		reverse_fmt($msg_body);
+		reverse_nl2br($msg_body);
 	}
 }
 	
@@ -225,7 +221,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 		
 		$msg_p->body = apply_custom_replace($msg_p->body);
 		if ($FUD_OPT_1 & 4096) {
-			$msg_p->body = tags_to_html($msg_p->body, $PRIVATE_IMAGES);
+			$msg_p->body = tags_to_html($msg_p->body, $FUD_OPT_1 & 16384);
 		} else if ($FUD_OPT_1 & 2048) {
 			$msg_p->body = nl2br(htmlspecialchars($msg_p->body));
 		}

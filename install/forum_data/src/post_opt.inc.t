@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post_opt.inc.t,v 1.4 2003/09/26 18:49:03 hackie Exp $
+*   $Id: post_opt.inc.t,v 1.5 2003/09/30 01:53:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -14,56 +14,57 @@
 *	(at your option) any later version.
 *
 ***************************************************************************/
-	
-function tmpl_post_options($arg)
+
+function tmpl_post_options($arg, $perms=0)
 {
 	$post_opt_html		= '{TEMPLATE: post_opt_html_off}';
 	$post_opt_fud		= '{TEMPLATE: post_opt_fud_off}';
 	$post_opt_images 	= '{TEMPLATE: post_opt_images_off}';
 	$post_opt_smilies	= '{TEMPLATE: post_opt_smilies_off}';
 	$edit_time_limit	= '';
-	
-	if (is_object($arg)) {
+
+	if (is_int($arg)) {
 		if ($arg->forum_opt & 16) {
 			$post_opt_fud = '{TEMPLATE: post_opt_fud_on}';
 		} else if (!($arg->forum_opt & 8)) {
 			$post_opt_html = '{TEMPLATE: post_opt_html_on}';
 		}
-		if ($GLOBALS['perms']['p_sml'] == 'Y') {
+		if ($perms & 16384) {
 			$post_opt_smilies = '{TEMPLATE: post_opt_smilies_on}';
 		}
-		if ($GLOBALS['perms']['p_img'] == 'Y') {
+		if ($perms & 32768) {
 			$post_opt_images = '{TEMPLATE: post_opt_images_on}';
 		}
-		
 		$edit_time_limit = $GLOBALS['EDIT_TIME_LIMIT'] ? '{TEMPLATE: edit_time_limit}' : '{TEMPLATE: no_edit_time_limit}';
 	} else if ($arg == 'private') {
-		if ($GLOBALS['PRIVATE_TAGS'] == 'ML') {
+		$o =& $GLOBALS['FUD_OPT_1'];
+
+		if ($o & 4096) {
 			$post_opt_fud = '{TEMPLATE: post_opt_fud_on}';
-		} else if ($GLOBALS['PRIVATE_TAGS'] == 'HTML') {
+		} else if (!($o & 2048)) {
 			$post_opt_html = '{TEMPLATE: post_opt_html_on}';
 		}
-		
-		if ($GLOBALS['PRIVATE_IMAGES'] == 'Y') {
+		if ($o & 16384) {
 			$post_opt_images = '{TEMPLATE: post_opt_images_on}';
 		}
-		if ($GLOBALS['PRIVATE_MSG_SMILEY'] == 'Y') {
+		if ($o & 8192) {
 			$post_opt_smilies = '{TEMPLATE: post_opt_smilies_on}';
 		}
 	} else if ($arg == 'sig') {
-		if ($GLOBALS['FORUM_CODE_SIG'] == 'ML') {
+		$o =& $GLOBALS['FUD_OPT_1'];
+
+		if ($o & 131072) {
 			$post_opt_fud = '{TEMPLATE: post_opt_fud_on}';
-		} else if ($GLOBALS['FORUM_CODE_SIG'] == 'HTML') {
+		} else if (!($o & 65536)) {
 			$post_opt_html = '{TEMPLATE: post_opt_html_on}';
 		}
-		
-		if ($GLOBALS['FORUM_IMG_SIG'] == 'Y') {
+		if ($o & 524288) {
 			$post_opt_images = '{TEMPLATE: post_opt_images_on}';
 		}
-		if ($GLOBALS['FORUM_SML_SIG'] == 'Y') {
+		if ($o & 262144) {
 			$post_opt_smilies = '{TEMPLATE: post_opt_smilies_on}';
 		}
-	}	
+	}
 
 	return '{TEMPLATE: posting_options}';
 }

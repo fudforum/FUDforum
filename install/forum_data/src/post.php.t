@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.76 2003/09/28 19:19:44 hackie Exp $
+*   $Id: post.php.t,v 1.77 2003/09/30 01:53:25 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -465,11 +465,7 @@ function flood_check()
 		$label = '{TEMPLATE: submit_reply}';
 	}	
 
-	if ($SPELL_CHECK_ENABLED == 'Y' && function_exists('pspell_config_create') && $usr->pspell_lang) {
-		$spell_check_button = '{TEMPLATE: spell_check_button}';
-	} else {
-		$spell_check_button = '';
-	}
+	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('pspell') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
 
 	if (isset($_POST['preview']) || isset($_POST['spell'])) {
 		$text = apply_custom_replace($msg_body);
@@ -494,8 +490,8 @@ function flood_check()
 			$text_s = preg_replace('!\|\|([0-9]{2,5})\|!', '&#\\1;', $text_s);
 		}
 
-		$spell = (isset($_POST['spell']) && function_exists('pspell_config_create') && $usr->pspell_lang) ? 1 : 0;
-		
+		$spell = empty($spell_check_button);
+
 		if ($spell && $text) {
 			$text = check_data_spell($text, 'body', $usr->pspell_lang);
 		}
@@ -507,7 +503,7 @@ function flood_check()
 			$subj = $text_s;
 		}
 
-		if ($ALLOW_SIGS == 'Y' && $msg_show_sig) {
+		if ($FUD_OPT_1 & 32768 && $msg_show_sig) {
 			if ($msg_id && $msg->poster_id && $msg->poster_id != _uid && !$reply_to) {
 				$sig = q_singleval('SELECT sig FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg->poster_id);
 			} else {
@@ -594,7 +590,7 @@ function flood_check()
 	/* tool bar icons */
 	$fud_code_icons = $frm->forum_opt & 16 ? '{TEMPLATE: fud_code_icons}' : '';
 	
-	$post_options = tmpl_post_options($frm);
+	$post_options = tmpl_post_options($frm->forum_opt, $perms);
 	$message_err = get_err('msg_body', 1);
 	$msg_body = isset($msg_body) ? htmlspecialchars(str_replace("\r", '', $msg_body)) : '';
 	if (!empty($msg_subject)) {
