@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: core.inc,v 1.39 2002/11/22 13:27:21 hackie Exp $
+*   $Id: core.inc,v 1.40 2002/11/24 23:25:06 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -40,7 +40,7 @@ if( empty($GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']) )
 		$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI'] = $GLOBALS['REQUEST_URI'];
 
 if( !empty($GLOBALS['returnto']) ) $GLOBALS['returnto'] = stripslashes($GLOBALS['returnto']);
-if( !ini_get('register_globals') || !ini_get('magic_quotes_gpc') ) fud_use('reg_globals.inc', TRUE);
+if( !ini_get('register_globals') || !get_magic_quotes_gpc() ) fud_use('reg_globals.inc', TRUE);
 define('__request_timestamp__', time());
 
 function fud_use($file, $static=FALSE)
