@@ -71,6 +71,7 @@
 	$MOVED_THR_PTR_EXPIRY	= "3";		/* days */
 
 	$USE_ALIASES		= "N";		/* boolean */
+	$MULTI_HOST_LOGIN	= "N";		/* boolean */
 	$MAX_SMILIES_SHOWN	= "15"; 	/* int */
 	$ALLOW_REGISTRATION	= "Y";		/* boolean */
 	$EMAIL_CONFIRMATION	= "Y";		/* boolean */

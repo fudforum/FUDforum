@@ -295,3 +295,7 @@ USE_ALIASES
 Allow users to specify a nick name, that will be used instead of a login name to identify
 those users on the forum.
 
+MULTI_HOST_LOGIN
+This option allows users to login into the forum from different computers/browsers and not
+terminate their existing sessions on other computers/browsers.
+

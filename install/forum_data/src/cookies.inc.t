@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.4 2002/07/05 21:23:38 hackie Exp $
+*   $Id: cookies.inc.t,v 1.5 2002/07/09 21:16:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -58,6 +58,19 @@ class fud_session
 				$db_str .= "'".addcslashes($key,"'")."'=>'".addcslashes($val,"'")."',";;
 			}
 			$db_str = substr($db_str, 0, -1).');';
+		}
+		
+		if( $GLOBALS['MULTI_HOST_LOGIN'] == 'Y' && $this->user_id ) {
+			if( db_count(($r=q("SELECT ses_id,id FROM {SQL_TABLE_PREFIX}ses WHERE user_id='".$this->user_id."'"))) ) {
+				$obj = db_singleobj($r);
+				
+				if( $obj->id != $this->id ) q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE id=".$this->id);
+				
+				$this->id = $obj->id;
+				$this->ses_id = $obj->ses_id;
+			}
+			else
+				qf($r);
 		}
 		
 		$this->tm = __request_timestamp__;
