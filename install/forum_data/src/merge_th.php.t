@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: merge_th.php.t,v 1.23 2005/03/18 01:58:51 hackie Exp $
+* $Id: merge_th.php.t,v 1.24 2005/03/24 16:35:06 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -86,6 +86,8 @@
 				}
 			}
 			q("UPDATE {SQL_TABLE_PREFIX}msg SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+			q("UPDATE {SQL_TABLE_PREFIX}thread_notify SET thread_id={$new_th} WHERE thread_id IN({$tl})");
+			q("UPDATE {SQL_TABLE_PREFIX}read SET thread_id={$new_th} WHERE thread_id IN({$tl})");
 			q("DELETE FROM {SQL_TABLE_PREFIX}thread WHERE id IN({$tl})");
 
 			rebuild_forum_view($forum);
