@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawmsg.inc.t,v 1.81 2004/04/26 23:42:42 hackie Exp $
+* $Id: drawmsg.inc.t,v 1.82 2004/04/27 13:59:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -398,7 +398,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		}
 
 		/* little trick, this variable will only be available if we have a next link leading to another page */
-		if (isset($next_page)) {
+		if (empty($next_page)) {
 			$next_page = '{TEMPLATE: dmsg_no_next_msg_page}';
 		}
 
