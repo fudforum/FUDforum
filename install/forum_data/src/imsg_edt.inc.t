@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.60 2003/05/26 07:07:35 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.61 2003/06/02 16:13:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -635,6 +635,10 @@ function make_email_message(&$body, &$obj, $iemail_unsub)
 			}
 			$iemail_attach = '{TEMPLATE: iemail_attach}';
 		}
+	}
+
+	if ($GLOBALS['USE_PATH_INFO'] == 'Y') {
+		$pfx = str_repeat('/', substr_count(_rsid, '/'));
 	}
 
 	return '{TEMPLATE: iemail_body}';

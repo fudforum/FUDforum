@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.49 2003/06/02 15:26:29 hackie Exp $
+*   $Id: users.inc.t,v 1.50 2003/06/02 16:13:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,6 +189,10 @@ function init_user()
 					if (isset($p[1])) {
 						$_GET['logout'] = 1;
 					}
+					break;
+
+				case 'e':
+					$_GET['t'] = 'error';
 					break;
 
 				case 'st':
@@ -519,12 +523,22 @@ function init_user()
 				case 'pml':
 					$_GET['t'] = 'pmuserloc';
 					$_GET['js_redr'] = $p[1];
+					if (isset($p[2])) {
+						$_GET['overwrite'] = 1;
+					}
 					break;
 
 				case 'rst':
 					$_GET['t'] = 'reset';
+					if (isset($p[1])) {
+						$_GET['email'] = urldecode($p[1]);
+					}
 					break;
-			
+
+				case 'cpf':
+					$_GET['t'] = 'coppa_fax';
+					break;
+
 				default:
 					$_GET['t'] = 'index';
 					break;
