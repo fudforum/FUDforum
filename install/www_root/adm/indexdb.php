@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: indexdb.php,v 1.5 2003/04/29 15:26:39 hackie Exp $
+*   $Id: indexdb.php,v 1.6 2003/04/29 21:11:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -24,7 +24,8 @@
 	fud_use('glob.inc', true);
 	fud_use('isearch.inc');
 	fud_use('fileio.inc');
-	
+	fud_use('rev_fmt.inc');
+
 	require($WWW_ROOT_DISK . 'adm/admpanel.php');
 
 	if (!isset($_POST['conf'])) {
@@ -61,7 +62,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		q('DELETE FROM '.$tbl.'search_cache');
 	}
 
-	$c = uq('SELECT id, subject, length, foff, file_id FROM '.$tbl.'msg WHERE '.($sid ? ' id>'.$sid.' AND ' : '').' approved=\'Y\' ORDER BY subject');
+	$c = q('SELECT id, subject, length, foff, file_id FROM '.$tbl.'msg WHERE '.($sid ? ' id>'.$sid.' AND ' : '').' approved=\'Y\' ORDER BY subject');
 	$old_subject = '';
 	while ($r = db_rowarr($c)) {
 		if ($old_subject != $r[1]) {
@@ -69,7 +70,7 @@ and can take a VERY LONG time, especially on large forums. You should ONLY run t
 		} else {
 			$subj = '';
 		}
-		q('INSERT INTO search_cache (srch_query, query_type) (\'\', -'.$r[0].')');
+		q('INSERT INTO '.$tbl.'search_cache (srch_query, query_type) VALUES(\'\', -'.$r[0].')');
 		index_text($subj, read_msg_body($r[3], $r[2], $r[4]), $r[0]);
 	}
 	qf($c);
