@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.18 2003/05/12 16:49:55 hackie Exp $
+*   $Id: tmpllist.php,v 1.19 2003/05/16 08:17:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -221,11 +221,10 @@ function goto_tmpl($tmpl)
 				++$p;
 			}
 			$file = substr($data, $p, (strpos($data, ';', $p) - $p));
-			if (strpos($file, '.inc')) {
-				$file = str_replace('.inc', '.tmpl', $file);
-			} else {
-				$file = str_replace('.php', '.tmpl', $file);
+			if ($file != 'forum.css') {
+				$file = substr($file, 0, strrpos($file, '.'));
 			}
+			$file .= '.tmpl';
 		}
 		
 		/* build dependency list */
