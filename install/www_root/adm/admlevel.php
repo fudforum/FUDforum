@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admlevel.php,v 1.7 2003/04/29 14:19:37 hackie Exp $
+*   $Id: admlevel.php,v 1.8 2003/04/29 14:49:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,9 +32,11 @@
 			pri=\''.addslashes($_POST['lev_pri']).'\',
 			post_count='.(int)$_POST['lev_post_count'].'
 		WHERE id='.(int)$_POST['edit']);	
-	} else if (isset($_GET['edit'])) {
+	}
+
+	if (isset($_GET['edit'])) {
 		$edit = (int)$_GET['edit'];
-		list($lev_name, $lev_img, $lev_pri,$lev_post_count) = db_saq('SELECT name, img, pri, post_count FROM '.$tbl.'level WHERE id='.(int)$_GET['id']);
+		list($lev_name, $lev_img, $lev_pri,$lev_post_count) = db_saq('SELECT name, img, pri, post_count FROM '.$tbl.'level WHERE id='.(int)$_GET['edit']);
 	} else {
 		$edit = $lev_name = $lev_img = $lev_pri = $lev_post_count = '';
 	}
@@ -60,6 +62,7 @@
 <h2>Rank Manager</h2>
 <div align="center"><font size="+1" color="#ff0000">If you've made any modification to the user ranks<br>YOU MUST RUN CACHE REBUILDER by &gt;&gt; <a href="admlevel.php?rebuild_levels=1&<?php echo _rsid; ?>">clicking here</a> &lt;&lt;</font></div>
 <form method="post" name="lev_form" action="admlevel.php">
+<input type="hidden" name="edit" value="<?php echo $edit; ?>">
 <?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=2>
 	<tr bgcolor="#bff8ff">
@@ -87,7 +90,7 @@
 			if (!$edit) {
 				echo '<input type="submit" name="lev_submit" value="Add Level">';
 			} else {
-				echo '<input type="submit" name="lev_cancel" value="Cancel"> <input type="submit" name="lev_update" value="Update">';
+				echo '<input type="submit" name="btn_cancel" value="Cancel"> <input type="submit" name="lev_update" value="Update">';
 			}
 ?>
 		</td>
