@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admsysinfo.php,v 1.6 2003/05/12 16:49:55 hackie Exp $
+*   $Id: admsysinfo.php,v 1.7 2003/05/26 10:00:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -20,7 +20,10 @@
 
 function get_php_setting($val)
 {
-	return (ini_get($val) ? 'ON' : 'OFF');
+	$r = ini_get($opt);
+	$r = ($val == "1" || !strcasecmp($val, "on")) ? 1 : 0;
+
+	return $r ? 'ON' : 'OFF';
 }
 
 function get_server_software()

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: unprotect.php,v 1.1 2003/05/23 09:32:55 hackie Exp $
+*   $Id: unprotect.php,v 1.2 2003/05/26 10:00:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,13 @@
 *
 ***************************************************************************/
 
-	if (ini_get('safe_mode') && basename(__FILE__) != 'safe_unprotect.php') {
+function fud_ini_get($opt)
+{
+	$val = ini_get($opt);
+	return ($val == "1" || !strcasecmp($val, "on")) ? 1 : 0;
+}
+
+	if (fud_ini_get('safe_mode') && basename(__FILE__) != 'safe_unprotect.php') {
 		$c = getcwd();
 		copy($c . '/unprotect.php', $c . '/safe_unprotect.php');
 		header('Location: safe_unprotect.php');

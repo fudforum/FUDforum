@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: uninstall.php,v 1.2 2003/05/23 08:54:35 hackie Exp $
+*   $Id: uninstall.php,v 1.3 2003/05/26 10:00:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,13 @@
 *
 ***************************************************************************/
 
-	define('SAFE_MODE', ini_get('safe_mode'));
+function fud_ini_get($opt)
+{
+	$val = ini_get($opt);
+	return ($val == "1" || !strcasecmp($val, "on")) ? 1 : 0;
+}
+
+	define('SAFE_MODE', fud_ini_get('safe_mode'));
 
 	if (count($_POST) && $_POST['SERVER_DATA_ROOT']) {
 		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
