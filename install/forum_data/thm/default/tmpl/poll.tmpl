@@ -1,11 +1,11 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.tmpl,v 1.12 2004/04/23 20:36:20 hackie Exp $
+* $Id: poll.tmpl,v 1.13 2004/04/25 20:18:26 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
@@ -32,7 +32,7 @@
 function check_submission()
 {
 	var a;
-	
+
 	a = document.poll_submit.pl_option.value.replace('/[ \n\r]/g', '');
 
 	if (!a.length) {
@@ -43,7 +43,7 @@ function check_submission()
 			return confirm("{MSG: poll_del_conf}");
 		}
 	}
-	return true;	
+	return true;
 }
 </script>
 <form action="{TEMPLATE: POLL_PAGE_lnk3}" method="post" name="poll_submit">
@@ -61,7 +61,7 @@ function check_submission()
 		<td class="GenText">{MSG: poll_maxiumvotes}</td>
 		<td><select tabindex="3" name="pl_max_votes">{TEMPLATE-DATA: pl_max_votes_data}</select></td>
 	</tr>
-	
+
 	<tr><td colspan=2 class="ar">{TEMPLATE-DATA: pl_submit}</td></tr>
 </table>
 <p>

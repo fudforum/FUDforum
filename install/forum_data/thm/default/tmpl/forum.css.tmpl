@@ -1,26 +1,26 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: forum.css.tmpl,v 1.57 2004/04/23 19:20:32 hackie Exp $
+* $Id: forum.css.tmpl,v 1.58 2004/04/25 20:18:25 hackie Exp $
 *
-* This program is free software; you can redistribute it and/or modify it 
-* under the terms of the GNU General Public License as published by the 
-* Free Software Foundation; either version 2 of the License, or 
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 2 of the License, or
 * (at your option) any later version.
 ***************************************************************************/
 
 {PHP_FILE: input: forum.css.t; output: forum.css;}
 
 {PAGE: FORUM_CSS forum's css styles}
-body { 
+body {
 	background: #E5E5E5;
 	margin: 2px;
 	font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
 	font-size: 12px;
 }
 
-text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText, 
-	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited, 
+text,	.ForumBackground, a:link, a:visited, a:active, a.CatLink, .CatDesc, a.UserControlPanel, .CatLockedName, .GenText,
+	.GenTextRed, .ErrorText, .SmallText, .DateText, .TopBy, th, a.thLnk:link, a.thLnk:active, a.thLnk:visited,
 	a.thLnk:active, .RowStyleA, .RowStyleB, .RowStyleC, .MsgToolBar, .PollTable, .MsgIg, td.miniMH,
 	.ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable, .AnnText, td.NoAvatar, td.Av1, td.Av2, td.tabA,
 	.AnnSubjText, a.PagerLink, .LevelText, .MsgSubText, .MsgBodyText, th.SelTS, th.SelFS, legend, td.tabH, div.tabT,
@@ -107,13 +107,13 @@ th {
 	background: url("{FULL_ROOT}{THEME_IMAGE_ROOT}/tableHeaderbg.png");
 }
 
-a.thLnk:link, a.thLnk:active, a.thLnk:visited { 
+a.thLnk:link, a.thLnk:active, a.thLnk:visited {
 	font-size: 12px;
-	text-decoration: underline; 
+	text-decoration: underline;
 	color: #EEEEEE;
 }
 
-a.thLnk:visited { 
+a.thLnk:visited {
 	color: #C2CDD6;
 }
 
@@ -140,7 +140,7 @@ a.thLnk:visited {
 	padding-top: 2px;
 }
 
-.PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable { 
+.PollTable, .ContentTable, .MsgTable, .DialogTable, .PreviewTable, .AnnonTable {
 	background : #FFFFFF;
 	border : 0px;
 	padding : 0px;
@@ -162,7 +162,7 @@ font.ptp { /* space between poll title & number of votes */
 	border: 1px solid black;
 }
 
-.DialogTable { 
+.DialogTable {
 	width : 50%;
 }
 
@@ -256,13 +256,13 @@ input.button {
 	border-width: 1px;
 	border-style: solid;
 	border-color: #B4B2B4 #444444 #444444 #B4B2B4;
-	         
+
 }
 
 form {
-	padding: 0px; 
+	padding: 0px;
 	margin: 0px;
-}	
+}
 
 img {
 	border: 0px;
@@ -394,7 +394,7 @@ th.SelFS {
 }
 
 td.NoAvatar {
-	background: #f4f4f4;	
+	background: #f4f4f4;
 	text-align: center;
 }
 
@@ -402,7 +402,7 @@ td.Av1, td.Av2 {
 	text-align: center;
 	background: #f4f4f4;
 	vertical-align: middle;
-	white-space: nowrap;	
+	white-space: nowrap;
 }
 
 td.Av2 {
@@ -428,7 +428,7 @@ a.tabON:link, a.tabON:active, a.tabON:visited, a.tabON:hover {
 	font-weight: bold;
 	text-decoration: none;
 }
-                                                
+
 div.tabT {
 	padding: 1px;
         padding-left: 10px;
@@ -545,8 +545,8 @@ div.pre {
         background: #FAFAFA;
 }
 
-a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover, 
-a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active, 
+a.big:active, a.big:hover, a:active, a:hover, a.CatLink:active, a.CatLink:hover,
+a.UserControlPanel:active, a.UserControlPanel:hover, a.thLnk:active,
 a.thLnk:hover, a.small:active, a.small:hover, a.PagerLink:active, a.PagerLink:hover {
 	color: #DC143C;
 }
@@ -597,8 +597,8 @@ img.at { float: left; clear: left; }
 
 div.sr { float: left; padding: 5px; }
 
-div.ctb {text-align: center;} 
-div.ctb table {margin: 0 auto; text-align: left;} 
+div.ctb {text-align: center;}
+div.ctb table {margin: 0 auto; text-align: left;}
 div.foot { padding: 3px; margin: 3px;}
 div.ip { overflow: auto; margin: 0px; padding: 2px; width: 600px; height: 400px; }
 {PAGE: END}
