@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.56 2004/12/13 23:46:14 hackie Exp $
+* $Id: nntp.inc,v 1.57 2005/01/26 20:54:12 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -109,11 +109,6 @@ class fud_nntp
 		}
 
 		$ret = $this->cmd("MODE reader");
-
-		if (!$this->compare_return_codes(200, $ret) && !$this->compare_return_codes(201, $ret)) {
-			$this->error = "Failed to recieve proper response from NNTP Server when setting 'MODE reader', got ".$this->lrc."\n";
-			return false;
-		}
 
 		if (($this->cmd("GROUP ".$this->newsgroup) != 211)) {
 			$this->error = "Unable to use ".$this->newsgroup." newsgroup NTTP Msg: ".$this->lrc."\n";
