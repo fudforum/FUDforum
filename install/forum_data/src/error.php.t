@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: error.php.t,v 1.14 2004/01/04 16:38:26 hackie Exp $
+* $Id: error.php.t,v 1.15 2004/03/29 15:05:59 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -18,8 +18,6 @@
 	$TITLE_EXTRA = ': {TEMPLATE: error_title}';
 
 /*{POST_HTML_PHP}*/
-
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET returnto=NULL WHERE id='.$usr->sid);
 
 	if (isset($usr->data['er_msg'], $usr->data['err_t'])) {
 		$error_message	= $usr->data['er_msg'];
