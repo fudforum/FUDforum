@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: threadt.php.t,v 1.1 2002/08/23 01:05:04 hackie Exp $
+*   $Id: threadt.php.t,v 1.2 2002/08/25 08:07:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -93,7 +93,7 @@
 				continue;
 			}
 			
-			unset($stack); unset($tree); unset($arr); unset($cur);	
+			unset($stack, $tree, $arr, $cur);	
 			
 			$r = q("SELECT 
 					{SQL_TABLE_PREFIX}msg.*,
@@ -126,6 +126,9 @@
 			$j = $lev = 0;
 	
 			$tree_data = '';
+			
+			if( $thread_list_table_data ) $thread_list_table_data .= '{TEMPLATE: thread_sep}';
+			
 			while (1) {
 				if ( $stack_cnt < 1 ) break;
 				if ( !isset($cur) ) $cur = &$stack[$stack_cnt-1];
@@ -179,6 +182,7 @@
 			}
 		}
 	}
+	$thread_list_table_data = '{TEMPLATE: thread_list_wmsg}';
 	qf($result); 	
 }
 
