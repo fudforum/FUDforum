@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admstats.php,v 1.32 2004/11/24 19:53:43 hackie Exp $
+* $Id: admstats.php,v 1.33 2005/03/18 02:03:22 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -193,23 +193,23 @@ function get_sql_disk_usage()
 <form action="admstats.php" method="post">
 <tr>
 	<td valign="top"><b>From: </b></td>
-	<td align="center"><font size="-1">month</font><br><select name="s_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['s_month'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">day</font><br><select name="s_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['s_day'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">year</font><br><select name="s_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['s_year'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">month</font><br><select name="s_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['s_month']); ?></select></td>
+	<td align="center"><font size="-1">day</font><br><select name="s_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['s_day']); ?></select></td>
+	<td align="center"><font size="-1">year</font><br><select name="s_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['s_year']); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>To: </b></td>
-	<td align="center"><font size="-1">month</font><br><select name="e_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['e_month'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">day</font><br><select name="e_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['e_day'], '', ''); ?></select></td>
-	<td align="center"><font size="-1">year</font><br><select name="e_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['e_year'], '', ''); ?></select></td>
+	<td align="center"><font size="-1">month</font><br><select name="e_month"><?php echo tmpl_draw_select_opt($vl_m, $kl_m, $_POST['e_month']); ?></select></td>
+	<td align="center"><font size="-1">day</font><br><select name="e_day"><?php echo tmpl_draw_select_opt($vl_d, $kl_d, $_POST['e_day']); ?></select></td>
+	<td align="center"><font size="-1">year</font><br><select name="e_year"><?php echo tmpl_draw_select_opt($vl_y, $kl_y, $_POST['e_year']); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>Level of detail: </b></td>
-	<td colspan=3><select name="sep"><?php echo tmpl_draw_select_opt("hour\nday\nweek\nmonth\nyear", "Hour\nDay\nWeek\nMonth\nYear", $_POST['sep'], '', ''); ?></select></td>
+	<td colspan=3><select name="sep"><?php echo tmpl_draw_select_opt("hour\nday\nweek\nmonth\nyear", "Hour\nDay\nWeek\nMonth\nYear", $_POST['sep']); ?></select></td>
 </tr>
 <tr>
 	<td valign="top"><b>Graph Data: </b></td>
-	<td colspan=3><select name="type"><?php echo tmpl_draw_select_opt("msg\nthr\nusr", "Posted Messages\nCreated Topics\nRegistered users", $_POST['type'], '', ''); ?></select></td>
+	<td colspan=3><select name="type"><?php echo tmpl_draw_select_opt("msg\nthr\nusr", "Posted Messages\nCreated Topics\nRegistered users", $_POST['type']); ?></select></td>
 </tr>
 <tr><td colspan=4 align="right"><input type="submit" name="submit" value="Submit"></td></tr>
 <?php echo _hs; ?>
