@@ -958,7 +958,7 @@ post_mod_msg_notify_title:	Nova mensagem no forum "{VAR: frm->name}" aguardando 
 post_mod_msg_notify_msg:	Uma nova mensagem entitulada "{VAR: msg_post->subject}" foi colocada agora num forum que voce modera. Para reve-la veja em: {ROOT}?t=modque\n\nEste e' um processo automatico, nao responda a esta mensagem.\n
 thread_printable_pdf:		Exportar para PDF
 thread_syndicate:		Adicione este forum (XML)
-reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you&#39;ve specified is correct. Once you confirm your account you will be able to access the forum features available to the confirmed registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s), once that happens you will relieve an e-mail indicating that your account has been confirmed. Until that point you will be able to login to your account, however will not be able to access features limited to approved users.
-forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Good bye.
+reg_conf_title:			Confirmação do Registo
+reg_conf_email:			<b>Confirmação via E-mail</b><br />Um email foi-lhe enviado contendo uma URL especial que terá de aceder antes da sua conta ser activada. Se não receber essa notificação nos próximos minutos, conecte-se na sua conta e garanta que o endereço de e-mail que introduziu está correcto. Após confirmar a sua conta terá acesso às opções do forum disponíveis aos utilizadores confirmados.
+reg_conf_account:		<b>Confirmação de Conta</b><br />Antes da sua conta se tornar activa é necessário que seja aprovada pelo(s) administrador(es), assim que tal acontecer você receberá um e-mail indicando que a mesmo foi activada. Até essa altura você poderá aceder à sua conta, no entanto não poderá aceder às opções do forum somente disponíveis aos utilizadores confirmados.
+forum_banned_user:		As suas acções anteriores obtiveram como resultado a sua expulsão permanente deste forum. Adeus.
