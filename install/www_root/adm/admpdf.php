@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admpdf.php,v 1.8 2003/10/09 14:34:32 hackie Exp $
+* $Id: admpdf.php,v 1.9 2003/11/25 08:35:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -68,7 +68,7 @@
 	$rdf_url = $WWW_ROOT . 'pdf.php';
 ?>
 <h2>PDF Output Configuration</h2>
-<form method="post" action="admpdf.php">
+<form method="post" action="admpdf.php"><?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 <?php
 	print_bit_field('PDF Output Enabled', 'PDF_ENABLED');

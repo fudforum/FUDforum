@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admrdf.php,v 1.9 2003/10/09 14:34:32 hackie Exp $
+* $Id: admrdf.php,v 1.10 2003/11/25 08:35:41 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -65,7 +65,7 @@
 	$rdf_url = $WWW_ROOT . 'rdf.php';
 ?>
 <h2>RDF Feed Configuration</h2>
-<form method="post" action="admrdf.php">
+<form method="post" action="admrdf.php"><?php echo _hs; ?>
 <table border=0 cellspacing=1 cellpadding=3>
 <?php
 	print_bit_field('RDF Feed Enabled', 'RDF_ENABLED');
