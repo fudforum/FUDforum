@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: getfile.php.t,v 1.27 2004/01/25 18:50:33 hackie Exp $
+* $Id: getfile.php.t,v 1.28 2004/04/15 03:37:50 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -17,14 +17,14 @@
 		invl_inp_err();
 	}
 	if (!isset($_GET['private'])) { /* non-private upload */
-		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mod.id,
+		$r = db_saq('SELECT mm.mime_hdr, a.original_name, a.location, m.id, mo.id,
 			('.(_uid ? '(CASE WHEN g2.id IS NOT NULL THEN g2.group_cache_opt ELSE g1.group_cache_opt END)' : 'g1.group_cache_opt').' & 2) > 0,
 			a.fsize
 			FROM {SQL_TABLE_PREFIX}attach a
 			INNER JOIN {SQL_TABLE_PREFIX}msg m ON a.message_id=m.id AND a.attach_opt=0
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
 			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? 2147483647 : 0).' AND g1.resource_id=t.forum_id
-			LEFT JOIN {SQL_TABLE_PREFIX}mod mod ON mod.forum_id=t.forum_id AND mod.user_id='._uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mo ON mo.forum_id=t.forum_id AND mo.user_id='._uid.'
 			LEFT JOIN {SQL_TABLE_PREFIX}mime mm ON mm.id=a.mime_type
 			'.(_uid ? 'LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=t.forum_id' : '').'
 			WHERE a.id='.$id);
