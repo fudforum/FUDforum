@@ -25,7 +25,7 @@
 	<a href="admreplace.php?<?php echo __adm_rsidl; ?>">Replacement & Censorship System</a><br>
 	<a href="admmime.php?<?php echo __adm_rsidl; ?>">MIME Managment System</a><br>
 	<a href="admrdf.php?<?php echo __adm_rsidl; ?>">RDF Feed Managment</a><br>
-	<a href="admpdf.php?'.__adm_rsidl.'">PDF Generation Managment</a><br>
+	<a href="admpdf.php?<?php echo __adm_rsidl; ?>">PDF Generation Managment</a><br>
 <?php
 	if (extension_loaded('pspell')) {
 		echo '<a href="admspell.php?'.__adm_rsidl.'">Custom Dictionary Spell Checker</a><br>';
