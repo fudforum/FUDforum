@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.47 2003/05/01 17:49:42 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.48 2003/05/01 18:03:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -622,7 +622,7 @@ function trim_html($str, $maxlen)
 	return $data;
 }
 
-function make_email_message(&$body, &$obj)
+function make_email_message(&$body, &$obj, $iemail_unsub)
 {
 	$TITLE_EXTRA = $iemail_poll = $iemail_attach = '';
 	if ($obj->poll_cache) {
@@ -670,7 +670,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
 		
 			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" . 
-			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
+			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 		}
 	}
 	if (isset($to['ICQ']) && (is_string($to['ICQ']) || (is_array($to['ICQ']) && count($to['ICQ'])))) {
@@ -690,13 +690,13 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 		
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=-1&opt=off';
+			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}	
 		
 		if (isset($do_icq)) {
 			$body_icq = '{TEMPLATE: iemail_thr_bodyicq}';
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=-1&opt=off';";
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&th=".$id."&notify=1&opt=off';";
 		}
 	} else if ($id_type == 'frm') {
 		reverse_FMT($frm_name);
@@ -704,11 +704,11 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_frm_subject}';
 
 		if (isset($do_icq)) {
-			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=-1&frm_id=".$id."';";
+			$unsub_url['icq'] = "javascript:window.location='".$icq."{ROOT}?t=rview&unsub=1&frm_id=".$id."';";
 			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		}
 		if (!isset($body_email)) {
-			$unsub_url['email'] = '{ROOT}?t=rview&unsub=-1&frm_id='.$id;
+			$unsub_url['email'] = '{ROOT}?t=rview&unsub=1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}	
 	}	
