@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.8 2002/10/09 02:05:59 hackie Exp $
+*   $Id: groups.inc.t,v 1.9 2003/04/21 22:24:43 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -218,12 +218,7 @@ class fud_group
 		}
 	}
 	
-	function delete_member($user_id)
-	{
-		if ( !$user_id || $user_id == '2147483647' ) return;
-		q("DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id=".$this->id." AND user_id=".$user_id);
-		q("DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id=".$this->id." AND user_id=".$user_id);
-	}
+	
 	
 	function update_member($usr_id, $perms_arr)
 	{
@@ -604,5 +599,113 @@ function perm_obj_to_arr($obj, $prefix='p_', $arr_prefix='')
 	}
 	
 	return $arr;
+}
+
+function grp_resolve_perms(&$grp)
+{
+	if (!$grp->inherit_id) {
+		return;	
+	}
+	$permlist = $GLOBALS['__GROUPS_INC']['permlist'];
+	foreach ($permlist as $v){
+		$permlist[$v] = 'p_'.$v;
+		$ret['origperms'][$v] = $ret['perms'][$v] = $grp->{$v};
+	}
+	$inherit_id = $grp->inherit_id;
+	$inh_list[$grp->id] = $grp->id;
+	$todo = 0;
+	do {
+		$obj = db_sab('SELECT * FROM {SQL_TABLE_PREFIX}groups WHERE id='.$inherit_id);
+		foreach ($permlist as $v) {
+			if ($perms['perms'][$v] == 'I') {
+				if ($obj->{$v} != 'I') {
+					$perms['perms'][$v] = $obj->{$v};
+				} else {
+					$todo = 1;
+				}
+			}
+		}
+		if (isset($inh_list[$obj->inherit_id])) {
+			break; /* circular inheritence */
+		}
+		$inherit_id = $obj->inherit_id;
+		$inh_list[$obj->id] = $obj->id;
+	} while ($inherit_id && $todo);
+
+	return $ret;
+}
+
+function grp_delete_member($id, $user_id)
+{
+	if (!$user_id || $user_id == '2147483647') {
+		return;
+	}
+	q('DELETE FROM {SQL_TABLE_PREFIX}group_members WHERE group_id='.$id.' AND user_id='.$user_id);
+	q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id='.$id.' AND user_id='.$user_id);
+}
+
+function grp_update_member($id, $usr_id, &$perms_arr)
+{
+	$str = mk_perm_update_qry($perms_arr, 'up_');
+	q('UPDATE {SQL_TABLE_PREFIX}group_members SET '.$str.' WHERE group_id='.$id.' AND user_id='.$usr_id);
+}
+
+function grp_rebuild_cache($id, $user_id=0)
+{
+	$t = get_field_list('{SQL_TABLE_PREFIX}group_members');
+	while ($e = db_rowarr($t)) {
+		if (strncmp($e[0], 'up_', 3)) {
+			continue;
+		}
+		$perms[] = $e[0];
+	}
+	qf($t);
+
+	if (!db_locked()) {
+		$ll = 1;
+		db_lock('{SQL_TABLE_PREFIX}group_resources gr WRITE, {SQL_TABLE_PREFIX}group_members gm WRITE, {SQL_TABLE_PREFIX}group_cache WRITE');
+	}
+	if (!$user_id) {
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id='.$id);
+		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.approved=\'Y\'');
+	} else {
+		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='.$user_id.' AND group_id='.$id);
+		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.user_id='.$user_id.' AND gm.approved=\'Y\'');
+	}
+	while ($obj = db_rowobj($r)) {
+		if (!isset($ent[$obj->resource_id][$obj->user_id])) {
+			$ent[$obj->resource_id][$obj->user_id] = array('ldr' => 0);
+		}
+		$pr =& $ent[$obj->resource_id][$obj->user_id];
+		if ($obj->group_leader == 'Y') {
+			$pr['ldr'] = 1;
+		}
+
+		foreach($perms as $v) {
+			if (!isset($pr[$v])) {
+				$pr[$v] = $obj->{$v};
+			} else if ($pr['ldr'] && $obj->{$v} == 'Y') {
+				$pr[$v] = 'Y';
+			} else if ($obj->{$v} == 'N') {
+				$pr[$v] = 'N';
+			}
+		} 
+	}
+	qf($r);
+
+	$fields = str_replace('up_', 'p_', implode(',', $perms));
+
+	/* do the inserts into cache */
+	foreach ($ent as $k => $v) {
+		foreach ($v as $k2 => $v2) {
+			unset($v2['ldr']);
+			$vals = '\'' . implode('\', \'', $v2) . '\'';
+			q('INSERT INTO {SQL_TABLE_PREFIX}group_cache ('.$fields.', user_id, resource_id) VALUES('.$vals.', '.$k2.', '.$k.')');
+		}
+	}
+
+	if (isset($ll)) {
+		db_unlock();
+	}
 }
 ?>
