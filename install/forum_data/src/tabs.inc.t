@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: tabs.inc.t,v 1.14 2003/11/14 10:50:20 hackie Exp $
+* $Id: tabs.inc.t,v 1.15 2003/11/17 12:46:52 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -36,6 +36,9 @@ if (_uid) {
 		foreach($tablist as $tab_name => $tab) {
 			$tab_url = '{ROOT}?t='.$tab.'&amp;'._rsid;
 			if ($tab == 'referals') {
+				if (!($FUD_OPT_2 & 8192)) {
+					continue;
+				}
 				$tab_url .= '&amp;id='._uid;
 			}
 			$tabs .= $pg == $tab ? '{TEMPLATE: active_tab}' : '{TEMPLATE: inactive_tab}';
