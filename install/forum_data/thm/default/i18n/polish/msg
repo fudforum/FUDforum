@@ -536,7 +536,7 @@ tabs_referrals:			Osoby polecone
 tabs_buddy_list:		Lista znajomych
 tabs_ignore_list:		Lista ignorowanych
 tabs_private_messaging:		Prywatne wiadomo¶ci
-single_msg_delete:		Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> wiadomo¶æ o temacie temacie: <b>{VAR: msg->subject}</b><p>
+single_msg_delete:		Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> wiadomo¶æ o temacie: <b>{VAR: msg->subject}</b><p>
 thread_delete:			Masz zamiar <font color="#ff0000" size="4">USUN¡Æ</font> <font color="#ff0000" size="4">CA£Y W¡TEK</font> o temacie: <b>{VAR: msg->subject}</b><p>
 delete_proceed:			Czy chcesz kontynuowaæ?
 delete_yes:			Tak
@@ -571,10 +571,10 @@ err_inc_criticaltitle:		B£¡D KRYTYCZNY
 err_inc_criticalmsg:		Napotka³e¶ b³±d, ale niesstety pojawi³ siê problem z systemem zg³aszania b³êdów
 finduser_update:		Szukanie u¿ytkowników
 help_index_update:		Przegl±danie <a href="{ROOT}?t=help_index" class="GenLink">pomocy</a>
-iemail_thr_subject:		Nowe wiadomo¶ci w w±tku {VAR: thr_subject} utworzonym przez u¿ytkownika {VAR: poster_login}
+iemail_thr_subject:		Nowa wiadomo¶æ w w±tku {VAR: thr_subject} utworzona przez u¿ytkownika {VAR: poster_login}
 iemail_thr_bodyemail:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do {VAR: goto_url['email']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj: {VAR: unsub_url['email']}
 iemail_thr_bodyicq:		Aby zobaczyæ nieprzeczytane wiadomo¶ci, przejd¼ do \n{VAR: goto_url['icq']}\n\nJe¶li nie ¿yczysz sobie otrzymywaæ wiêcej powiadomieñ o wiadomo¶ciach w tym w±tku, przejd¼ tutaj:\n{VAR: unsub_url['icq']}
-iemail_frm_subject:		Nowy w±tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} i utworzony przez u¿ytkownika {VAR: poster_login}
+iemail_frm_subject:		Nowy w±tek na forum {VAR: frm_name} o temacie {VAR: thr_subject} utworzony przez u¿ytkownika {VAR: poster_login}
 iemail_frm_bodyemail:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['email']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj: {VAR: unsub_url['email']}
 iemail_frm_bodyicq:		Aby zobaczyæ ten w±tek, przejd¼ do:\n{VAR: goto_url['icq']}\n\nAby przestaæ otrzymywaæ powiadamiania o nowych w±tkach na tym forum, przejd¼ tutaj:\n{VAR: unsub_url['icq']}
 ignore_list_err_info_title:	Informacje
@@ -795,21 +795,21 @@ pm_no_space_title:		Brak miejsca!
 pm_no_space_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami przekroczy³y dozwolony rozmiar zajêto¶ci miejsca o wielko¶ci <b>{GVAR: MAX_PMSG_FLDR_SIZE} bajtów</b>, gdy¿ aktualnie zajmuj± <b>{VAR: fldr_size} bajtów</b>.<br><br><font class="ErrorText">Usuñ niektóre stare wiadomo¶ci, aby odzyskaæ miejsce</font>.
 pm_space_indct_msg:		Twoje katalogi z prywatnymi wiadomo¶ciami zajmuj± {VAR: percent_full}% dozwolonego miejsca.
 th_expr_never:			Nigdy
-th_expr_one_hr:			1 Godzina
-th_expr_two_hr:			2 Godziny
-th_expr_three_hr:		3 Godziny
-th_expr_four_hr:		4 Godziny
-th_expr_eight_hr:		8 Godzin
-th_expr_sixteen_hr:		16 Godzin
-th_expr_one_day:		1 Dzieñ
-th_expr_two_day:		2 Dni
-th_expr_four_day:		4 Ddni
-th_expr_one_week:		1 Tydzieñ
-th_expr_two_week:		2 Tygodnie
-th_expr_one_month:		1 Miesi±c
-th_expr_two_month:		2 Miesi±ce
-th_expr_four_month:		4 Miesi±ce
-th_expr_one_year:		1 Rok
+th_expr_one_hr:			1 godzina
+th_expr_two_hr:			2 godziny
+th_expr_three_hr:		3 godziny
+th_expr_four_hr:		4 godziny
+th_expr_eight_hr:		8 godzin
+th_expr_sixteen_hr:		16 godzin
+th_expr_one_day:		1 dzieñ
+th_expr_two_day:		2 dni
+th_expr_four_day:		4 dni
+th_expr_one_week:		1 tydzieñ
+th_expr_two_week:		2 tygodnie
+th_expr_one_month:		1 miesi±c
+th_expr_two_month:		2 miesi±ce
+th_expr_four_month:		4 miesi±ce
+th_expr_one_year:		1 rok
 thread_mod_delete:		Usuñ
 action_latest_post:             Ostatnia wiadomo¶æ
 online_today_last_visit:        Dzisiejsza ostatnia wizyta
@@ -863,11 +863,11 @@ help_return_to_index:		Wróæ do g³ównej strony pomocy
 reported_in_thread:		W w±tku
 forumsel_unread:		*(NOWE)
 groupmgr_no_groups:		Brak grup do edycji
-msg_err_nosuchmsg_msg:		There is no such message in this thread
-msg_err_nosuchmsg_title:	Error
-imsg_err_message_title:		Invalid Message
-imsg_err_message_msg:		The message you are trying to view does not exist.
-poll_edit: 			Edit
+msg_err_nosuchmsg_msg:		Nie ma takiej wiadomo¶ci w tym w±tku
+msg_err_nosuchmsg_title:	B³±d
+imsg_err_message_title:		Niepoprawna wiadomo¶æ
+imsg_err_message_msg:		Wiadomo¶æ, któr± chcesz obejrzeæ, nie istnieje.
+poll_edit: 			Edytuj
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
