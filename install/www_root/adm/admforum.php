@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admforum.php,v 1.27 2003/10/16 21:59:05 hackie Exp $
+* $Id: admforum.php,v 1.28 2003/10/17 15:52:26 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -208,9 +208,9 @@ if (!isset($_GET['chpos'])) {
 <div align="center"><table border=0 cellspacing=0 cellpadding=5>
 <tr bgcolor="#e5ffe7"><td valign="top" nowrap>Reorder All Forums by:</td></tr>
 <tr><td bgcolor="#fffee5"><font size=-2>
-	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
-	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
-	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>">Descending</a> ]<br />
+	<b>Forum Name</b> [ <a href="admforum.php?o=1&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=name&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
+	<b>Forum Description</b> [ <a href="admforum.php?o=1&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=descr&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
+	<b>Forum Creation Date</b> [ <a href="admforum.php?o=1&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Ascending</a> - <a href="admforum.php?o=0&ot=date_created&cat_id=<?php echo $cat_id; ?>&<?php echo _rsidl; ?>">Descending</a> ]<br />
 </font></td></tr>
 </table></div>
 <br>
