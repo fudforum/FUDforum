@@ -1008,3 +1008,8 @@ ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
 ip_whois_title:			<b>ISP Information</b><br />
 register_theme:			Theme:
 pmsg_trash:			Empty Trash
+uc_new_pm:			New Private Messages
+uc_new_topic:			New Topic
+uc_new_cat_forum:		Subscribed Forums With New Messages
+uc_cat_forum:			Category &raquo; Forum
+uc_sub_topics:			Subscribed Topics With New Messages

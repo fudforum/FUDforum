@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: uc.tmpl,v 1.1 2004/04/20 18:12:29 hackie Exp $
+* $Id: uc.tmpl,v 1.2 2004/04/20 18:18:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -75,11 +75,11 @@
 
 {SECTION: uc_new_pm}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th colspan="3">New Private Messages</th></tr>
+<tr><th colspan="3">{MSG: uc_new_pm}</th></tr>
 <tr>
-	<th class="wa">Subject</th>
-	<th class="nw">Author</th>
-	<th class="nw">Date</th>
+	<th class="wa">{MSG: subject}</th>
+	<th class="nw">{MSG: pmsg_author}</th>
+	<th class="nw">{MSG: pmsg_time}</th>
 </tr>
 {TEMPLATE-DATA: uc_new_pms}
 </table>
@@ -121,7 +121,7 @@
 
 {SECTION: uc_sub_forum}
 <tr>
-	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR-HTML: r->name}</a>{TEMPLATE-DATA: uc_forum_descr}<br /><a href="{TEMPLATE: uc_new_topic}">New Topic</a> || <a href="{TEMPLATE: uc_forum_unsub}">Unsubscribe</a></td>
+	<td class="RowStyleA SmallText wa"><a href="{TEMPLATE: uc_forum_entry_lnk}" class="big">{VAR-HTML: r->cat_name} &raquo; {VAR-HTML: r->name}</a>{TEMPLATE-DATA: uc_forum_descr}<br /><a href="{TEMPLATE: uc_new_topic}">{MSG: uc_new_topic}</a> || <a href="{TEMPLATE: uc_forum_unsub}">{MSG: unsubscribe}</a></td>
 	<td class="RowStyleB ac">{VAR: r->post_count}</td>
 	<td class="RowStyleB ac">{VAR: r->thread_count}</td>
 	<td class="RowStyleA SmallText ar nw">{TEMPLATE-DATA: uc_last_post}</td>
@@ -131,10 +131,10 @@
 {SECTION: uc_sub_forums}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-	<th colspan="4">Subscribed Forums With New Messages</th>
+	<th colspan="4">{MSG: uc_new_cat_forum}</th>
 </tr>
 <tr>
-        <th class="wa">Category &raquo; Forum</th>
+        <th class="wa">{MSG: uc_cat_forum}</th>
 	<th nowrap>{MSG: posts}</th>
         <th nowrap>{MSG: threads}</th>
         <th nowrap>{MSG: last_post}</th>
@@ -186,7 +186,7 @@
 
 {SECTION: uc_sub_topic}
 <tr>
-	<td class="RowStyleA">{TEMPLATE: uc_first_unread_msg_link}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r->subject}</a> {TEMPLATE-DATA: mini_thread_pager}</a><br /><div class="ar"><a href="{TEMPLATE: uc_thread_reply}">Reply</a> || <a href="{TEMPLATE: uc_thread_unsub}">Unsubscribe</a></div></td>
+	<td class="RowStyleA">{TEMPLATE: uc_first_unread_msg_link}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r->subject}</a> {TEMPLATE-DATA: mini_thread_pager}</a><br /><div class="ar"><a href="{TEMPLATE: uc_thread_reply}">{MSG: iemail_msg_reply}</a> || <a href="{TEMPLATE: uc_thread_unsub}">{MSG: unsubscribe}</a></div></td>
 	<td class="RowStyleB ac">{VAR: r->replies}</td>
 	<td class="RowStyleB ac">{VAR: r->views}</td>
 	<td class="RowStyleC ar nw"><font class="DateText">{DATE: r->post_stamp %a, %d %B %Y}</font><br />{MSG: by} {TEMPLATE-DATA: profile} <a href="{TEMPLATE: uc_last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
@@ -196,7 +196,7 @@
 {SECTION: uc_sub_topics}
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
 <tr>
-	<th colspan="4">Subscribed Topics With New Messages</th>
+	<th colspan="4">{MSG: uc_sub_topics}</th>
 </tr>
 <tr>
         <th class="wa">{MSG: thread_thread}</th>
@@ -215,7 +215,7 @@
 <table cellspacing="3" cellpadding="3" border="0" class="wa">
 <tr>
 	<td class="vt"><table border="0" cellspacing="1" cellpadding="2" style="width: 175px;">
-<tr><th colspan="3">Buddy List</th></tr>
+<tr><th colspan="3">{MSG: tabs_buddy_list}</th></tr>
 {TEMPLATE-DATA: uc_buddy_ents}
 </table></td>
 
