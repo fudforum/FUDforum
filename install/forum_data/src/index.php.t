@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.49 2003/10/16 21:14:59 hackie Exp $
+* $Id: index.php.t,v 1.50 2003/11/11 12:22:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -116,9 +116,11 @@ function url_tog_collapse($id, $c)
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[8]) {
-			if ($r[7] & 2) {
+			$r[7] = (int) $r[7];
+
+			if ($r[7] & 1) {
 				if (!isset($GLOBALS['collapse'][$r[8]])) {
-					$GLOBALS['collapse'][$r[8]] = ($r[7] & 1 ? 0 : 1);
+					$GLOBALS['collapse'][$r[8]] = ($r[7] & 2 ? 0 : 1);
 				}
 
 				if (!empty($GLOBALS['collapse'][$r[8]])) {

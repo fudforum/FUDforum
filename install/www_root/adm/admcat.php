@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: admcat.php,v 1.21 2003/11/10 00:40:32 hackie Exp $
+* $Id: admcat.php,v 1.22 2003/11/11 12:22:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -24,7 +24,7 @@
 		if (!empty($_POST['cat_description'])) {
 			$_POST['cat_description'] = ' - ' . $_POST['cat_description'];
 		}
-		$_POST['cat_cat_opt'] = ($_POST['cat_allow_collapse'] == 'Y' ? 1 : 0) | ($_POST['cat_default_view'] == 'COLLAPSED' ? 2 : 0);
+		$_POST['cat_cat_opt'] = ($_POST['cat_allow_collapse'] == 'Y' ? 1 : 0) | ($_POST['cat_default_view'] == 'COLLAPSED' ? 0 : 2);
 		unset($_POST['cat_allow_collapse'], $_POST['cat_allow_collapse']);
 
 		$cat = new fud_cat;
