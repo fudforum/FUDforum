@@ -189,7 +189,7 @@ views:				Views
 vote:				{VAR: thread->vote_count()} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> has been moved to <a href="{ROOT}?t=thread&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> by the moderator
+was_moved_msg:			<a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->root_msg_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: obj->subject}</a> has been moved to <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: d_frm_id}&amp;{DEF: _rsid}" class="GenLink">{VAR: name}</a> by the moderator
 welcome_message:		Welcome <b>{VAR: usr->alias}</b>, your last visit was on {DATE: last_login %a, %d %B %Y %H:%M}
 what_ppl_doing:			show what people are doing
 reported_del_report:		Delete Report
@@ -902,3 +902,7 @@ register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
 unread_message:			Unread Message
 read_message:			Read Message
+threadt_more:			&lt;more&gt;
+threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
+threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>

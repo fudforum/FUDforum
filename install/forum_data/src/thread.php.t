@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.php.t,v 1.8 2002/08/09 12:35:21 hackie Exp $
+*   $Id: thread.php.t,v 1.9 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -70,7 +70,7 @@
 			$subscribe = '{TEMPLATE: subscribe_link}';
 	}
 
-	if ( empty($start) ) $start = 0;
+	if ( empty($start) || !is_numeric($start) ) $start = 0;
 	if ( empty($ppg) ) $ppg = $THREADS_PER_PAGE;
 
 	if( isset($usr) ) {
@@ -88,6 +88,8 @@
 		if ( $MOD || ($MOVE=is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'MOVE')) || ($DEL=is_perms(_uid, $GLOBALS['__RESOURCE_ID'], 'DEL')) ) $admin_heading_row = '{TEMPLATE: admin_heading_row}';
 	
 	$POSTS_PER_PAGE = ($usr->posts_ppg)?$usr->posts_ppg:$GLOBALS['POSTS_PER_PAGE'];
+	
+	$threaded_view = ( $TREE_THREADS_ENABLE == 'N' ) ? '' : '{TEMPLATE: threaded_view}';
 	
 	$thread_list_table_data='';
 	while ( $obj = db_rowobj($result) ) {

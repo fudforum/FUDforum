@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.tmpl,v 1.7 2002/08/05 15:16:45 hackie Exp $
+*   $Id: search.tmpl,v 1.8 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: search_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: obj->forum_id}&amp;{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td class="GenText" width="100%">{VAR: i}. <a class="GenLink" href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->subject}</a><br />{VAR: body}</td><td class="GenText" nowrap><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: obj->forum_id}&amp;{DEF: _rsid}">{VAR: obj->forum_name}</a></td><td class="GenText" nowrap><font class="DateText">{DATE: obj->post_stamp %a, %d %B %Y %H:%M}</font> {MSG: by} {TEMPLATE-DATA: poster_info}</td></tr>
 {SECTION: END}
 
 {SECTION: registered_poster}

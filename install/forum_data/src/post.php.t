@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.11 2002/08/18 10:26:49 hackie Exp $
+*   $Id: post.php.t,v 1.12 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -421,7 +421,7 @@
 				}	
 			else {
 				if( !strstr($returnto_d, 't=selmsg') )
-					$returnto = ( $th_id ) ? '{ROOT}?t='.$msg_url.'&'._rsid.'&th='.$th_id : '{ROOT}?t=thread&'._rsid.'&frm_id='.$frm_id;
+					$returnto = ( $th_id ) ? '{ROOT}?t='.$msg_url.'&'._rsid.'&th='.$th_id : '{ROOT}?t='.t_thread_view.'&'._rsid.'&frm_id='.$frm_id;
 				else 
 					$returnto = $returnto_d;
 		 	}

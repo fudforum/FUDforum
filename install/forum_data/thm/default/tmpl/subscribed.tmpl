@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: subscribed.tmpl,v 1.4 2002/08/05 05:58:21 hackie Exp $
+*   $Id: subscribed.tmpl,v 1.5 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -44,7 +44,7 @@
 {PAGE: END}
 
 {SECTION: subscribed_forum_entry}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: obj->frm_id}&amp;{DEF: _rsid}">{VAR: obj->name}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&amp;frm_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t=thread&amp;frm_id={VAR: obj->frm_id}&amp;{DEF: _rsid}" target="_blank">{MSG: view_forum}</a></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td width="100%"><a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: obj->frm_id}&amp;{DEF: _rsid}">{VAR: obj->name}</a></td><td nowrap><a class="GenLink" href="{ROOT}?t=subscribed&amp;frm_id={VAR: obj->id}&amp;{DEF: _rsid}">{MSG: unsubscribe}</a> | <a class="GenLink" href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: obj->frm_id}&amp;{DEF: _rsid}" target="_blank">{MSG: view_forum}</a></td></tr>
 {SECTION: END}
 
 {SECTION: no_subscribed_forums}

@@ -902,4 +902,7 @@ email_warning_msg:		Èç¹ûÄúĞŞ¸ÄÁËEmail, Ôò´ËÕËºÅ»á±»ÔİÊ±Òş²Ø£¬ÇëÄú²éÊÕÓÊ¼ş£¬µã»÷Ó
 register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
 unread_message:			Unread Message
-read_message:			Read Message
+read_message:			Read Messagethreadt_more:			&lt;more&gt;
+threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
+threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>

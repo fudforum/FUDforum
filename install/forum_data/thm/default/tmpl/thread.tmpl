@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread.tmpl,v 1.9 2002/08/10 02:19:08 hackie Exp $
+*   $Id: thread.tmpl,v 1.10 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -178,6 +178,10 @@
 <a href="{ROOT}?t=usrinfo&amp;id={VAR: obj->last_poster_id}&amp;{DEF: _rsid}">{VAR: obj->last_poster_login}</a>
 {SECTION: END}
 
+{SECTION: threaded_view tree view link}
+<a href="{ROOT}?t=threadt&amp;frm_id={VAR: frm_id}&amp;{DEF: _rsid}" class="GenLink"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" border=0 /></a>&nbsp;
+{SECTION: END}
+
 {SECTION: last_msg_in_thread}
 <a href="{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: obj->last_post_id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/goto.gif" border=0 title="{MSG: last_thread_msg}" alt="" /></a>
 {SECTION: END}
@@ -249,7 +253,7 @@
 {TEMPLATE: usercp}
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
 <td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: admin_cp}</td>
-<td valign="bottom" align="right" class="GenText">{TEMPLATE: new_thread_link}</td>
+<td valign="bottom" align="right" class="GenText">{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
 </tr></table><img src="blank.gif" alt="" height=2 border=0 />
 {TEMPLATE-DATA: announcements}
 {TEMPLATE: thread_list}
@@ -257,7 +261,7 @@
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
 <tr>
 <td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE: new_thread_link}</td>
+<td align="right" class="GenText" valign="bottom" nowrap>{TEMPLATE-DATA: threaded_view}{TEMPLATE: new_thread_link}</td>
 </tr>
 </table>
 {TEMPLATE-DATA: forum_select}

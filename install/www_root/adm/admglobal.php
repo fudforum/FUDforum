@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.11 2002/08/07 12:18:43 hackie Exp $
+*   $Id: admglobal.php,v 1.12 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -167,6 +167,12 @@ else
 <tr bgcolor="#bff8ff"><td>COPPA:<?php draw_help('COPPA'); ?></td><td><?php draw_select('CF_COPPA', "Off\nOn", "N\nY", $CF_COPPA); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Posts Per Page:<?php draw_help('POSTS_PER_PAGE'); ?></td><td><input type="text" name="CF_POSTS_PER_PAGE" value="<?php echo $CF_POSTS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Topics Per Page:<?php draw_help('THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_THREADS_PER_PAGE" value="<?php echo $CF_THREADS_PER_PAGE; ?>"></td></tr>
+
+<tr bgcolor="#bff8ff"><td>Allow Tree View of Thread Listing:<?php draw_help('TREE_THREADS_ENABLE'); ?></td><td><?php draw_select('CF_TREE_THREADS_ENABLE', "No\nYes", "N\nY", $CF_TREE_THREADS_ENABLE); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Topics Per Page (tree view):<?php draw_help('TREE_THREADS_PER_PAGE'); ?></td><td><input type="text" name="CF_TREE_THREADS_PER_PAGE" value="<?php echo $CF_TREE_THREADS_PER_PAGE; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Maximum Depth of Thread Listing (tree view):<?php draw_help('TREE_THREADS_MAX_DEPTH'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_DEPTH" value="<?php echo $CF_TREE_THREADS_MAX_DEPTH; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>Maximum Shown Subject Length (tree view):<?php draw_help('TREE_THREADS_MAX_SUBJ_LEN'); ?></td><td><input type="text" name="CF_TREE_THREADS_MAX_SUBJ_LEN" value="<?php echo $CF_TREE_THREADS_MAX_SUBJ_LEN; ?>"></td></tr>
+
 <tr bgcolor="#bff8ff"><td>Polls Per Page:<?php draw_help('POLLS_PER_PAGE'); ?></td><td><input type="text" name="CF_POLLS_PER_PAGE" value="<?php echo $CF_POLLS_PER_PAGE; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Default Topic View:<?php draw_help('DEFAULT_THREAD_VIEW'); ?></td><td><?php draw_select('CF_DEFAULT_THREAD_VIEW', "Flat View\nTree View", "msg\ntree", $CF_DEFAULT_THREAD_VIEW); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Word Wrap:<?php draw_help('WORD_WRAP'); ?></td><td><input type="text" name="CF_WORD_WRAP" value="<?php echo $CF_WORD_WRAP; ?>"></td></tr>

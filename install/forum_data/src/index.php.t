@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: index.php.t,v 1.14 2002/08/09 12:35:21 hackie Exp $
+*   $Id: index.php.t,v 1.15 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -172,7 +172,7 @@ function index_view_perms($usr_id)
 		else
 			$forum_icon = '{TEMPLATE: no_forum_icon}';
 		
-		$forum_link = '{ROOT}?t=thread&amp;frm_id='.$data->id.'&amp;'._rsid;
+		$forum_link = '{ROOT}?t='.t_thread_view.'&amp;frm_id='.$data->id.'&amp;'._rsid;
 
 		if( isset($GLOBALS['NO_VIEW_PERMS'][$data->id]) ) {
 			

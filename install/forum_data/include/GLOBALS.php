@@ -116,6 +116,11 @@
 	$DEFAULT_THREAD_VIEW 	= "msg";    	/* toggle msg:tree */
 	$SHOW_N_MODS		= "2";
 	
+	$TREE_THREADS_ENABLE	= "N";		/* boolean */
+	$TREE_THREADS_PER_PAGE	= "15";
+	$TREE_THREADS_MAX_DEPTH	= "15";
+	$TREE_THREADS_MAX_SUBJ_LEN = "75";
+	
 	$FORUM_INFO		= "Y";		/* boolean */
 	$ONLINE_OFFLINE_STATUS	= "Y";		/* boolean */
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mvthread.php.t,v 1.4 2002/07/30 14:34:37 hackie Exp $
+*   $Id: mvthread.php.t,v 1.5 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -78,7 +78,7 @@
 		
 		logaction($usr->id, 'THRMOVE', $thr->id);
 		
-		exit("<html><script>window.opener.location='{ROOT}?t=thread&"._rsid."&frm_id=".$frm_src->id."'; window.close();</script></html>");
+		exit("<html><script>window.opener.location='{ROOT}?t=".t_thread_view."&"._rsid."&frm_id=".$frm_src->id."'; window.close();</script></html>");
 	}
 
  	{POST_HTML_PHP}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.7 2002/08/05 00:47:55 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.8 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -152,7 +152,7 @@
 {SECTION: END}
 
 {SECTION: moderation_entry link to forum moderated by user}
-<a href="{ROOT}?t=thread&amp;frm_id={VAR: ar->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: ar->name}</a>&nbsp;
+<a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: ar->id}&amp;{DEF: _rsid}" class="GenLink">{VAR: ar->name}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: status various forum related tags assigned to user}

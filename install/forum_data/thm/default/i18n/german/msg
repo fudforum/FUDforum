@@ -902,3 +902,7 @@ register_show_im:		Den IM Status anzeigen
 register_show_im_desc:		Ob der IM Status des Verfassers neben seinem Beitrag angezeigt werden soll oder nicht.
 unread_message:			Ungelesene Nachricht
 read_message:			Gelesene Nachricht
+threadt_more:			&lt;more&gt;
+threadt_disabled_ttl:		Tree view of the thread listing has been disabled.
+threadt_disabled_desc:		The administrator has disabled the tree view of the thread listing, please use the flat view instead.
+threadt_update:			Browsing forum (tree view) <a class="GenLink" href="{ROOT}?t=threadt&amp;frm_id={VAR: frm->id}">{VAR-HTML: frm->name}</a>

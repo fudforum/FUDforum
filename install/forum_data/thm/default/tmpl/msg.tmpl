@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.8 2002/08/10 02:19:08 hackie Exp $
+*   $Id: msg.tmpl,v 1.9 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -36,7 +36,7 @@
 {REF: is_perms.tmpl}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+<font class="GenText"><a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}

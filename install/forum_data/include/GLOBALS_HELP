@@ -300,7 +300,7 @@ This option allows users to login into the forum from different computers/browse
 terminate their existing sessions on other computers/browsers.
 
 USE_SMTP
-Whether or not to use FUDforum smtp gateway to send email instead of standard PHP mail()
+Whether or not to use FUDforum SMTP gateway to send email instead of standard PHP mail()
 function. Not recommended, unless you need SMTP AUTH or wish to use alternate SMTP 
 server on UNIX systems.
 
@@ -318,4 +318,21 @@ If your SMTP server requires SMTP Authentication, enter the password here.
 
 POLLS_PER_PAGE
 How many polls to display per page on the poll listing.
+
+TREE_THREADS_ENABLE
+Whether or not to allow the tree view of the thread listing. This is a fairly
+CPU intensive page compared to all other forum pages, so use this option with 
+caution.
+
+TREE_THREADS_PER_PAGE
+How many threads to show per page on the thread listing in tree mode.
+
+TREE_THREADS_MAX_DEPTH
+Maximum depth of the tree to allow, this option will prevent long trees from
+scrolling far of the users screen making the page unreadable.
+
+TREE_THREADS_MAX_SUBJ_LEN
+At which point to cutoff subjects of messages on thread listing in tree mode. 
+This options allows you to save on screen space if you want to show large thread
+trees.
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.5 2002/08/07 12:11:23 hackie Exp $
+*   $Id: mmod.php.t,v 1.6 2002/08/23 00:11:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -74,7 +74,7 @@
 		
 		if ( $det_page == 'tree' || $det_page == 'msg' ) {
 			if( $msg->id == $thread->root_msg_id && empty($NO) ) {
-				header('Location: {ROOT}?t=thread&'._rsidl.'&frm_id='.$frm->id);
+				header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$frm->id);
 				exit;
 			}
 			
