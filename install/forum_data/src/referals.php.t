@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.php.t,v 1.6 2002/07/31 21:56:50 hackie Exp $
+*   $Id: referals.php.t,v 1.7 2003/04/02 17:10:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,52 +15,34 @@
 *
 ***************************************************************************/
 
-	{PRE_HTML_PHP}
+/*{PRE_HTML_PHP}*/
+/*{POST_HTML_PHP}*/
 
-	if ( isset($ses) ) $ses->update('{TEMPLATE: referals_update}');
-	
-	{POST_HTML_PHP}	
-	if( empty($id) || !is_numeric($id) ) $id = NULL;
-	$returnto = urlencode($GLOBALS["REQUEST_URI"]);
+	if (!isset($_GET['id']) || !(int)$_GET['id']) {
+		$_GET['id'] = $usr->id;
+	}
 
-	if( $id ) {
-		$r = q("SELECT id,alias, home_page FROM {SQL_TABLE_PREFIX}users WHERE id=".$id);
-		if( ($ttl=db_count($r)) ) {
-			list($r_id,$r_login) = db_singlearr($r);
-			$res = q("SELECT alias AS login,id,join_date,posted_msg_count FROM {SQL_TABLE_PREFIX}users WHERE referer_id=".$id);
-			$i=0;
+	if (!$_GET['id'] || ($p_user = db_saq('SELECT id, alias FROM {SQL_TABLE_PREFIX}users WHERE id='.(int)$_GET['id']))) {
+		$ses->update('{TEMPLATE: referals_update}');
+
+		$c = uq('SELECT alias, id, join_date, posted_msg_count, home_page FROM {SQL_TABLE_PREFIX}users WHERE referer_id='.(int)$_GET['id']);
+		if (($r = @db_rowarr($c))) {
 			$refered_entry_data = '';
-			while ( $obj = db_rowobj($res) ) {
-				if( $GLOBALS['PM_ENABLED'] == 'Y' && isset($usr) ) 
-					$pm_link = '{TEMPLATE: pm_link}';
-				else  
-					$pm_link = '';
-				
-				if ( strlen($obj->home_page) ) {
-					$homepage = $obj->home_page;
-					$homepage_link = '{TEMPLATE: homepage_link}';
-				}
-				else $homepage_link = '';
-				
-				if ( $GLOBALS["ALLOW_EMAIL"]=='Y' ) {
-					$email_link = '{TEMPLATE: email_link}';
-				}
-				else $email_link = '';
-				
-				$style = 'RowStyle'.(($i%2)?'A':'B');
+			do {
+				$pm_link = (_uid && $PM_ENABLED == 'Y') ? '{TEMPLATE: pm_link}' : '';
+				$homepage_link = !empty($r[4]) ? '{TEMPLATE: homepage_link}' : '';
+				$email_link = $ALLOW_EMAIL == 'Y' ? '{TEMPLATE: email_link}' : '';
 
 				$refered_entry_data .= '{TEMPLATE: refered_entry}';
-				$i++;		
-			}
-			qf($res);
+			} while (($r = db_rowarr($c)));
+		} else {
+			$refered_entry_data = '{TEMPLATE: no_refered}';
 		}
-	}	
-
-	if( empty($ttl) ) {
-		$refered_entry_data = '{TEMPLATE: no_refered}';
+		qf($r);
+	} else {
+		invl_inp_err();
 	}
-	
-	{POST_PAGE_PHP_CODE}
-	
+
+/*{POST_PAGE_PHP_CODE}*/
 ?>
 {TEMPLATE: REFERALS_PAGE}

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.11 2003/04/02 15:39:11 hackie Exp $
+*   $Id: err.inc.t,v 1.12 2003/04/02 17:10:58 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -76,7 +76,6 @@ function std_out($text, $level='INFO')
 function invl_inp_err()
 {
 	error_dialog('{TEMPLATE: core_err_invinp_title}', '{TEMPLATE: core_err_invinp_err}', NULL, 'FATAL');
-	exit;
 }
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)

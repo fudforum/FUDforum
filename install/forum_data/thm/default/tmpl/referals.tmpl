@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.tmpl,v 1.5 2002/08/05 05:58:21 hackie Exp $
+*   $Id: referals.tmpl,v 1.6 2003/04/02 17:11:07 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -26,25 +26,23 @@
 {REF: forum.tmpl}
 
 {SECTION: pm_link}
-&nbsp;<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR-URL: obj->login}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}?t=ppost&amp;{DEF: _rsid}&amp;msg_to_list={VAR-URL: r[0]}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_pm.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: homepage_link}
-&nbsp;<a class="GenLink" href="{VAR: homepage}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
+&nbsp;<a class="GenLink" href="{VAR: r[4]}" target="_blank"><img src="{THEME_IMAGE_ROOT}/homepage.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: obj->login}&amp;returnto={VAR: returnto}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: r[0]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}
-<tr class="{VAR: style}">
-	<td width="100%" nowrap class="GenText">
-		<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: obj->id}&amp;{DEF: _rsid}">{VAR: obj->login}</a>
-	</td>
-	<td nowrap align="center" nowrap class="Gentext">{VAR: obj->posted_msg_count}</td>
-	<td nowrap class="DateText" nowrap>{DATE: obj->join_date %a, %d %B %Y}</td>
-	<td nowrap class="GenText"><a href="{ROOT}?t=showposts&amp;id={VAR: obj->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" border=0 /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
+<tr class="{ALT-VAR: ref_alt RowStyleA RowStyleB}">
+	<td width="100%" nowrap class="GenText"><a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: r[1]}&amp;{DEF: _rsid}">{VAR: r[0]}</a></td>
+	<td nowrap align="center" nowrap class="Gentext">{VAR: r[3]}</td>
+	<td nowrap class="DateText" nowrap>{DATE: r[2] %a, %d %B %Y}</td>
+	<td nowrap class="GenText"><a href="{ROOT}?t=showposts&amp;id={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/show_posts.gif" alt="Show Posts" border=0 /></a>{TEMPLATE-DATA: pm_link}{TEMPLATE-DATA: email_link}{TEMPLATE-DATA: homepage_link}</td>
 </tr>
 {SECTION: END}
 
