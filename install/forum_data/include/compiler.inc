@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.76 2005/03/16 21:12:42 hackie Exp $
+* $Id: compiler.inc,v 1.77 2005/03/18 16:38:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -426,8 +426,8 @@ function generate_file($php_file)
 				$file_data = str_replace('/*{PRE_HTML_PHP}*/', $ins[0], $file_data);
 				$file_data = str_replace('/*{POST_HTML_PHP}*/', $ins['@'], $file_data);
 				$file_data = str_replace('/*{POST_PAGE_PHP_CODE}*/', $ins['!'], $file_data);
-				$file_data = str_replace(array(" .'' ", " ''."), array(" ", " "), $file_data);
 			}
+			$file_data = str_replace(array(" .'' ", " ''."), array(" ", " "), $file_data);
 		}
 
 		$dir = $GLOBALS['WWW_ROOT_DISK'].'theme/'.$GLOBALS['__COMPILER__']['tname'].'/';
