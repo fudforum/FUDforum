@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: consist.php,v 1.5 2002/06/29 17:35:53 hackie Exp $
+*   $Id: consist.php,v 1.6 2002/07/04 20:03:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -640,6 +640,10 @@ forum will be disabled.<br><br>
 	}
 	qf($r);
 	draw_stat('Done: Rebuilding smilies vieworder');
+	
+	draw_stat('Optimizing forum's SQL tables');
+	optimize_tables();
+	draw_stat('Done: Optimizing forum's SQL tables');
 	
 	draw_stat('Unlocking database');
 	db_unlock();	
