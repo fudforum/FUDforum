@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mnav.php.t,v 1.9 2003/10/01 21:51:52 hackie Exp $
+*   $Id: mnav.php.t,v 1.10 2003/10/03 01:30:10 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -108,7 +108,7 @@
 			/* handle pager if needed */
 			if ($total > $ppg) {
 				if ($FUD_OPT_2 & 32768) {
-					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$u.'/', '/'._rsid);
+					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/ma/'.$rng.'/'.$unit.'/', '/'._rsid);
 				} else {
 					$mnav_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}?t=mnav&amp;rng='.$rng.'&amp;u='.$unit.'&amp;'._rsid.'&amp;forum_limiter='.$forum_limiter);
 				}
