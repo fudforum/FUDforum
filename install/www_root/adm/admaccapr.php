@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admaccapr.php,v 1.4 2003/05/26 11:15:04 hackie Exp $
+*   $Id: admaccapr.php,v 1.5 2003/07/09 08:26:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -18,6 +18,7 @@
 	require('./GLOBALS.php');
 	fud_use('adm.inc', true);
 	fud_use('users_adm.inc', true);
+	fud_use('private.inc');
 
 	if (isset($_GET['apr'])) {
 		q('UPDATE '.$GLOBALS['DBHOST_TBL_PREFIX'].'users SET acc_status=\'A\' WHERE id='.(int)$_GET['apr']);

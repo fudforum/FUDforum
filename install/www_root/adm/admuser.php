@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admuser.php,v 1.25 2003/05/26 11:15:05 hackie Exp $
+*   $Id: admuser.php,v 1.26 2003/07/09 08:26:50 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -22,6 +22,7 @@
 	fud_use('users_adm.inc', true);
 	fud_use('logaction.inc');
 	fud_use('iemail.inc');
+	fud_use('private.inc');
 
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
