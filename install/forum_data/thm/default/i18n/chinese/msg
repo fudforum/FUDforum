@@ -901,3 +901,5 @@ buddy_list_bday:		今天是 {VAR: obj->login} 的 {VAR: age} 岁生日
 email_warning_msg:		如果您修改了Email, 则此账号会被暂时隐藏，请您查收邮件，点击邮件中的连接以重新激活账号！
 register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
+unread_message:			Unread Message
+read_message:			Read Message

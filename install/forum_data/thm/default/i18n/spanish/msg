@@ -901,3 +901,5 @@ buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
 email_warning_msg:		If you change your current email address, your account will be marked uncofirmed until you confirm it via e-mail.
 register_show_im:		Show IM indicators
 register_show_im_desc:		Whether or not to show IM indicators of the author beside their messages.
+unread_message:			Unread Message
+read_message:			Read Message

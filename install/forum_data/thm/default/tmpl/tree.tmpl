@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.9 2002/08/10 02:19:08 hackie Exp $
+*   $Id: tree.tmpl,v 1.10 2002/08/20 02:52:56 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -32,6 +32,14 @@
 {REF: alt_var.tmpl}
 {REF: is_perms.tmpl}
 {REF: show.tmpl}
+
+{SECTION: tree_unread_message new message}
+<img src="{THEME_IMAGE_ROOT}/pmsg_unread.gif" border=0 alt="{MSG: unread_message}" title="{MSG: unread_message}" />
+{SECTION: END}
+
+{SECTION: tree_read_message read message}
+<img src="{THEME_IMAGE_ROOT}/pmsg_read.gif" border=0 alt="{MSG: read_message}" title="{MSG: read_message}" />
+{SECTION: END}
 
 {SECTION: msg_forum_path forum location forum>thread>}
 <font class="GenText"><a class="GenLink" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
@@ -118,6 +126,7 @@
 
 {SECTION: tree_branch message with replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
+<td>{TEMPLATE-DATA: read_indicator}</td>
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
@@ -128,6 +137,7 @@
 
 {SECTION: tree_entry message without replies}
 <tr class="{ALT-VAR: tree_alt RowStyleA RowStyleB}">
+<td>{TEMPLATE-DATA: read_indicator}</td>
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
@@ -138,6 +148,7 @@
 
 {SECTION: tree_branch_selected message with replies that is currently being viewed}
 <tr class="RowStyleC">
+<td>{TEMPLATE-DATA: read_indicator}</td>
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_folder.gif" border=0 />&nbsp;
@@ -148,6 +159,7 @@
 
 {SECTION: tree_entry_selected message without replies that is currently being viewed}
 <tr class="RowStyleC">
+<td>{TEMPLATE-DATA: read_indicator}</td>
 <td valign="top" width="100%" class="Gentext" nowrap>
 {TEMPLATE: tree_tab}
 <img alt="" src="{THEME_IMAGE_ROOT}/msg_arrow.gif" border=0 />&nbsp;
@@ -180,7 +192,7 @@
 <tr><td colspan=2><img src="blank.gif" alt="" height=1 width=1 border=0 /></td></tr>
 </table>
 <table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-<tr><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
+<tr><th width=1> </th><th width=1>{MSG: msg_author}</th><th>{MSG: msg_thread}</th></tr>
 {TEMPLATE-DATA: message_data}
 </table>
 <div align=center class="GenText">[<a href="#tree_view" class="GenLink" title="{MSG: message_index_desc}">{MSG: message_index}</a>]</div>

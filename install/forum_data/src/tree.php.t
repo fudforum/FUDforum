@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.10 2002/08/07 12:18:43 hackie Exp $
+*   $Id: tree.php.t,v 1.11 2002/08/20 02:52:56 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -113,8 +113,6 @@
 			ON {SQL_TABLE_PREFIX}users.avatar={SQL_TABLE_PREFIX}avatar.id 
 		INNER JOIN {SQL_TABLE_PREFIX}thread
 			ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id	
-		LEFT JOIN {SQL_TABLE_PREFIX}ses
-			ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
 		LEFT JOIN {SQL_TABLE_PREFIX}level
 			ON {SQL_TABLE_PREFIX}users.level_id={SQL_TABLE_PREFIX}level.id
 	WHERE 
@@ -124,6 +122,10 @@
 	$mid = $msg_obj->id;
 
 	if ( isset($usr) && ($frm->is_moderator($usr->id) || $usr->is_mod == 'A') ) $MOD = 1;
+	
+	if ( _uid ) {
+		$last_thread_read = q_singleval("SELECT last_view FROM {{SQL_TABLE_PREFIX}read WHERE thread_id=".$thread->id." AND user_id="._uid);
+	}
 	
 	if ( isset($thread) && empty($prevloaded) ) {
 		if ( isset($usr) ) $usr->register_forum_view($frm->id);
@@ -137,16 +139,14 @@
 	$r = q("SELECT 
 			{SQL_TABLE_PREFIX}msg.*,
 			{SQL_TABLE_PREFIX}users.alias AS login,
-			{SQL_TABLE_PREFIX}thread.root_msg_id,
-			{SQL_TABLE_PREFIX}ses.time_sec
+			{SQL_TABLE_PREFIX}users.last_visit AS time_sec,
+			{SQL_TABLE_PREFIX}thread.root_msg_id
 		FROM 
 			{SQL_TABLE_PREFIX}msg 
 			INNER JOIN {SQL_TABLE_PREFIX}thread 
 				ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id 
 			LEFT JOIN {SQL_TABLE_PREFIX}users 
 				ON {SQL_TABLE_PREFIX}msg.poster_id={SQL_TABLE_PREFIX}users.id 
-			LEFT JOIN {SQL_TABLE_PREFIX}ses
-				ON {SQL_TABLE_PREFIX}ses.user_id={SQL_TABLE_PREFIX}msg.poster_id
 		WHERE 
 			thread_id=".$th." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY id");
 	
@@ -213,6 +213,11 @@ if( @is_array($tree->kiddies) ) {
 				$user_login = '{TEMPLATE: anon_user}';
 			
 			$width = 6*($lev-1);
+				
+			if( _uid && $usr->last_read < $cur->post_stamp && $cur->post_stamp > $last_thread_read )
+				$read_indicator = '{TEMPLATE: tree_unread_message}';
+			else 
+				$read_indicator = '{TEMPLATE: tree_read_message}';
 				
 			if( isset($cur->kiddies) && $cur->kiddie_count ) {
 				if( $cur->id == $mid )
