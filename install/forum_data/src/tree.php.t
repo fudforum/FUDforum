@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.php.t,v 1.24 2003/04/15 10:00:25 hackie Exp $
+*   $Id: tree.php.t,v 1.25 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -122,7 +122,7 @@
 		u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 		u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
 		l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
-		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
+		p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes
 	FROM 
 		{SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id

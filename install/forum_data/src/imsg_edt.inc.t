@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.40 2003/04/15 08:32:53 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.41 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -395,6 +395,10 @@ class fud_msg_edit extends fud_msg
 
 		if ($unlock_safe || isset($ll)) {
 			db_unlock();
+		}
+
+		if ($mtf->poll_id) {
+			poll_activate($mtf->poll_id, $mtf->forum_id);
 		}
 
 		$mtf->body = read_msg_body($mtf->foff, $mtf->length, $mtf->file_id);

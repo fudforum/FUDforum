@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: reported.php.t,v 1.10 2003/04/15 11:51:59 hackie Exp $
+*   $Id: reported.php.t,v 1.11 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@
 			u.sig, u.custom_status, u.icq, u.jabber, u.affero, u.aim, u.msnm, 
 			u.yahoo, u.invisible_mode, u.email_messages, u.is_mod, u.last_visit AS time_sec,
 			l.name AS level_name, l.pri AS level_pri, l.img AS level_img,
-			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,
+			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
 			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
 			u2.id AS report_user_id, u2.alias AS report_user_login, u2.last_visit AS time_sec_r,
 			m2.subject AS thread_subject

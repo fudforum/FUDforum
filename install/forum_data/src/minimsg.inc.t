@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.13 2003/04/09 13:08:49 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,7 +32,7 @@ if ($th_id && empty($GLOBALS['MINIMSG_OPT']['DISABLED'])) {
 		
 	$c = uq('SELECT m.*, t.locked, t.root_msg_id, t.last_post_id, t.forum_id, 
 			u.id AS user_id, u.alias AS login, u.invisible_mode, u.last_visit AS time_sec,
-			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name
+			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name,  p.total_votes
 		FROM 
 			{SQL_TABLE_PREFIX}msg m
 			INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id

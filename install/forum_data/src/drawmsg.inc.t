@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.38 2003/04/15 10:00:25 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.39 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -28,6 +28,7 @@ function register_vote(&$options, $poll_id, $opt_id, $mid)
 	db_unlock();
 	
 	q('UPDATE {SQL_TABLE_PREFIX}poll_opt SET count=count+1 WHERE id='.$opt_id);
+	q('UPDATE {SQL_TABLE_PREFIX}poll SET total_votes=total_votes+1 WHERE id='.$opt_id);
 	poll_cache_rebuild($opt_id, $options);
 	q('UPDATE {SQL_TABLE_PREFIX}msg SET poll_cache='.strnull(addslashes(@serialize($options))).' WHERE id='.$mid);
 
@@ -228,9 +229,6 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 	if ($obj->poll_id) {
 		/* we need to determine if we allow the user to vote or see poll results */
 		$show_res = 1;
-		
-		$n_votes = 0;
-		foreach ($obj->poll_cache as $v) { $n_votes += $v[1]; }
 
 		/* various conditions that may prevent poll voting */		
 		if (!$hide_controls && $perms['p_vote'] == 'Y' && $obj->locked == 'N' && (!isset($_POST['pl_view']) || $_POST['pl_view'] != $obj->poll_id)) {
@@ -239,7 +237,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 				/* check if the poll has expired */
 				if (!$obj->expiry_date || ($obj->creation_date + $obj->expiry_date) > __request_timestamp__) {
 					/* check if the max # of poll votes was reached */
-					if (!$obj->max_votes || $n_votes < $obj->max_votes) {
+					if (!$obj->max_votes || $obj->total_votes < $obj->max_votes) {
 						$show_res = 0;
 					}
 				}
@@ -252,7 +250,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		foreach ($obj->poll_cache as $k => $v) {
 			$i++;
 			if ($show_res) {
-				$length = ($v[1] && $n_votes) ? round($v[1] / $n_votes * 100) : 0;
+				$length = ($v[1] && $obj->total_votes) ? round($v[1] / $obj->total_votes * 100) : 0;
 				$poll_data .= '{TEMPLATE: dmsg_poll_result}';	
 			} else {
 				$poll_data .= '{TEMPLATE: dmsg_poll_option}';
@@ -260,7 +258,7 @@ function tmpl_drawmsg(&$obj, &$usr, &$perms, $hide_controls, &$m_num, $misc)
 		}
 		
 		if (!$show_res) {
-			$view_poll_results_button = $n_votes ? '{TEMPLATE: dmsg_view_poll_results_button}' : '';
+			$view_poll_results_button = $obj->total_votes ? '{TEMPLATE: dmsg_view_poll_results_button}' : '';
 			$poll_buttons = '{TEMPLATE: dmsg_poll_buttons}';
 			$poll = '{TEMPLATE: dmsg_poll}';
 		} else {

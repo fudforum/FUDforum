@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: split_th.php.t,v 1.13 2003/04/14 11:35:23 hackie Exp $
+*   $Id: split_th.php.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -116,6 +116,15 @@
 			q('UPDATE {SQL_TABLE_PREFIX}thread SET root_msg_id='.$old_root_msg_id.', replies=replies-'.$mc.', last_post_date='.$lpd.', last_post_id='.$lpi.' WHERE id='.$data->id);
 		
 			if ($forum != $data->forum_id) {
+				$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$new_th.' AND approved=\'Y\' AND poll_id>0');
+				while ($r = db_rowarr($c)) {
+					$p[] = $r[0];
+				}
+				qf($c);
+				if (isset($p)) {
+					q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$to_forum.' WHERE id IN('.implode(',', $p).')');
+				}
+
 				/* deal with the source forum */
 				if ($data->src_lpi != $data->last_post_id || $data->last_post_date <= $lpd) {
 					q('UPDATE {SQL_TABLE_PREFIX}forum SET post_count=post_count-'.$mc.' WHERE id='.$data->forum_id);

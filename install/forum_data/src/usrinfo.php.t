@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.13 2003/04/14 12:15:20 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.14 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -106,7 +106,14 @@ function convert_bdate($val, $month_fmt)
 		$referals = '';	
 	}
 	
-	if (($polls = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}poll WHERE owner='.$u->id))) {
+	if (($polls = q_singleval('SELECT count(*) 
+			FROM {SQL_TABLE_PREFIX}poll p 
+			INNER JOIN {SQL_TABLE_PREFIX}forum f ON p.forum_id=f.id
+			INNER JOIN {SQL_TABLE_PREFIX}cat c ON c.id=f.cat_id
+			LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=p.forum_id AND mm.user_id='._uid.'
+			INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id='.(_uid ? '2147483647' : '0').' AND g1.resource_id=p.forum_id
+			LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='._uid.' AND g2.resource_id=p.forum_id
+			WHERE p.owner='.$u->id.' '.($usr->is_mod != 'A' ? ' AND (mm.id IS NOT NULL OR (CASE WHEN g2.id IS NOT NULL THEN g2.p_READ ELSE g1.p_READ END)=\'Y\')' : '')))) {
 		$polls = '{TEMPLATE: polls}';
 	} else {
 		$polls = '';

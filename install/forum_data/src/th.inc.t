@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: th.inc.t,v 1.36 2003/04/14 11:35:23 hackie Exp $
+*   $Id: th.inc.t,v 1.37 2003/04/15 14:43:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -80,7 +80,7 @@ class fud_thread
 	function move($id, $to_forum, $root_msg_id, $forum_id, $last_post_date, $last_post_id)
 	{
 		if (!db_locked()) {
-			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
+			db_lock('{SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
 		$msg_count = q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}msg.thread_id={SQL_TABLE_PREFIX}thread.id WHERE {SQL_TABLE_PREFIX}msg.approved='Y' AND {SQL_TABLE_PREFIX}thread.id=".$id);
@@ -100,6 +100,15 @@ class fud_thread
 		
 		rebuild_forum_view($forum_id);
 		rebuild_forum_view($to_forum);
+		
+		$c = q('SELECT poll_id FROM {SQL_TABLE_PREFIX}msg WHERE thread_id='.$id.' AND approved=\'Y\' AND poll_id>0');
+		while ($r = db_rowarr($c)) {
+			$p[] = $r[0];
+		}
+		qf($c);
+		if (isset($p)) {
+			q('UPDATE {SQL_TABLE_PREFIX}poll SET forum_id='.$to_forum.' WHERE id IN('.implode(',', $p).')');
+		}
 		
 		if (isset($ll)) {
 			db_unlock();
