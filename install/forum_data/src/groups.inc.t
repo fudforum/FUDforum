@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.16 2003/04/25 20:30:55 hackie Exp $
+*   $Id: groups.inc.t,v 1.17 2003/04/30 13:58:38 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -79,7 +79,7 @@ function draw_permissions($name, $perms_arr=NULL, $maxperms_arr=NULL)
 
 function grp_resolve_perms(&$grp)
 {
-	if (!$grp->inherit_id) {
+	if (empty($grp->inherit_id)) {
 		return;	
 	}
 	$permlist =& $GLOBALS['__GROUPS_INC']['permlist'];
@@ -139,15 +139,25 @@ function grp_rebuild_cache($id, $user_id=0)
 		$ll = 1;
 		db_lock('{SQL_TABLE_PREFIX}group_resources gr WRITE, {SQL_TABLE_PREFIX}group_members gm WRITE, {SQL_TABLE_PREFIX}group_cache WRITE');
 	}
+
 	if (!$user_id) {
-		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE group_id='.$id);
-		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.approved=\'Y\'');
+		/* make list of affected resources */
+		$c = uq('SELECT resource_id FROM {SQL_TABLE_PREFIX}group_resources gr WHERE group_id='.$id);
+		while ($r = db_rowarr($c)) {
+			$list[] = $r[0];
+		}
+		qf($c);
+		if (isset($list)) {
+			q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE resource_id IN('.implode(',', $list).')');
+			$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_resources gr INNER JOIN {SQL_TABLE_PREFIX}group_members gm ON gr.group_id=gm.group_id WHERE gr.resource_id IN('.implode(',', $list).')');
+		} else {
+			$r = uq('SELECT id FROM {SQL_TABLE_PREFIX}group_cache WHERE id=0');
+		}
 	} else {
 		q('DELETE FROM {SQL_TABLE_PREFIX}group_cache WHERE user_id='.$user_id.' AND group_id='.$id);
 		$r = uq('SELECT gr.resource_id, gm.* FROM {SQL_TABLE_PREFIX}group_members gm INNER JOIN {SQL_TABLE_PREFIX}group_resources gr ON gr.group_id=gm.group_id WHERE gm.group_id='.$id.' AND gm.user_id='.$user_id.' AND gm.approved=\'Y\'');
 	}
 	while ($obj = db_rowobj($r)) {
-		grp_resolve_perms($obj);
 		if (!isset($ent[$obj->resource_id][$obj->user_id])) {
 			$ent[$obj->resource_id][$obj->user_id] = array('ldr' => 0);
 		}
