@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.35 2003/05/26 07:07:35 hackie Exp $
+*   $Id: ppost.php.t,v 1.36 2003/05/26 10:38:22 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -65,11 +65,6 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 	$attach_control_error = NULL;
 	$pm_find_user = $MEMBER_SEARCH_ENABLED == 'Y' ? '{TEMPLATE: pm_find_user}' : '';
 
-	/* deal with users passed via GET */
-	if (!isset($_POST['prev_loaded']) && isset($_GET['toi']) && ($toi = (int)$_GET['toi'])) {
-		$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$toi);
-	}
-	
 	$attach_count = 0; $file_array = '';
 
 	if (!isset($_POST['prev_loaded'])) {
@@ -92,7 +87,7 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list, 1);
 			}
 		} else if (isset($_GET['quote']) || isset($_GET['forward'])) { /* quote or forward message */
-			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
+			if (($msg_r = db_sab('SELECT id, post_stamp, ouser_id, subject, length, foff, to_list, icon, attach_cnt, show_sig, smiley_disabled, track, ref_msg_id '.(isset($_GET['quote']) ? ', to_list' : '').' FROM {SQL_TABLE_PREFIX}pmsg WHERE id='.(int)(isset($_GET['quote']) ? $_GET['quote'] : $_GET['forward']).' AND duser_id='._uid))) {
 				$reply = $quote = isset($_GET['quote']) ? (int)$_GET['quote'] : 0;
 				$forward = isset($_GET['forward']) ? (int)$_GET['forward'] : 0;
 
