@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.102 2003/11/25 20:05:09 hackie Exp $
+* $Id: register.php.t,v 1.103 2003/11/27 12:31:56 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@ function check_passwd($id, $passwd)
 function sanitize_url($url)
 {
 	if (!$url) {
-		return;
+		return '';
 	}
 
 	if (strncasecmp($url, 'http://', strlen('http://')) && strncasecmp($url, 'https://', strlen('https://')) && strncasecmp($url, 'ftp://', strlen('ftp://'))) {
@@ -138,7 +138,7 @@ function register_form_check($user_id)
 
 	$_POST['reg_name'] = trim($_POST['reg_name']);
 	$_POST['reg_home_page'] = sanitize_url(trim($_POST['reg_home_page']));
-	$_POST['reg_user_image'] = isset($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : '';
+	$_POST['reg_user_image'] = !empty($_POST['reg_user_image']) ? sanitize_url(trim($_POST['reg_user_image'])) : '';
 
 	if (!empty($_POST['reg_icq']) && !(int)$_POST['reg_icq']) { /* ICQ # can only be an integer */
 		$_POST['reg_icq'] = '';
