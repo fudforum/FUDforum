@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.64 2003/08/08 00:32:01 hackie Exp $
+*   $Id: register.php.t,v 1.65 2003/09/24 19:25:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -118,10 +118,7 @@ function register_form_check($user_id)
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
 		}
 	} else {
-		if (empty($_POST['mod_id']) && !check_passwd($user_id, $_POST['reg_confirm_passwd'])) {
-			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_enterpasswd}');
-		}
-		if (!empty($_POST['mod_id']) && !check_passwd(_uid, $_POST['reg_confirm_passwd'])) {
+		if (empty($_POST['reg_confirm_passwd']) || (empty($_POST['mod_id']) && !check_passwd($user_id, $_POST['reg_confirm_passwd'])) || (!empty($_POST['mod_id']) && !check_passwd(_uid, $_POST['reg_confirm_passwd']))) {
 			set_err('reg_confirm_passwd', '{TEMPLATE: register_err_adminpasswd}');
 		}
 		
