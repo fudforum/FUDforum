@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.38 2003/10/02 17:50:57 hackie Exp $
+*   $Id: cookies.inc.t,v 1.39 2003/10/03 02:03:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -39,7 +39,7 @@ function ses_get($id=0)
 
 	return db_sab('SELECT
 		s.id AS sid, s.ses_id, s.data, s.returnto,
-		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang,
+		t.id AS theme_id, t.lang, t.name AS theme_name, t.locale, t.theme, t.pspell_lang, t.theme_opt,
 		u.alias, u.posts_ppg, u.time_zone, u.sig, u.last_visit, u.last_read, u.cat_collapse_status, u.users_opt,
 		u.ignore_list, u.ignore_list, u.buddy_list, u.id, u.group_leader_list, u.email, u.login
 	FROM {SQL_TABLE_PREFIX}ses s

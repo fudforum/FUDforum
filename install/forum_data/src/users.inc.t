@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.77 2003/10/03 01:36:08 hackie Exp $
+*   $Id: users.inc.t,v 1.78 2003/10/03 02:03:12 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -43,6 +43,11 @@ function init_user()
 		$u->data = @unserialize($u->data);
 	}
 	$u->users_opt = (int) $u->users_opt;
+
+	/* this should allow path_info & normal themes to work properly within 1 forum */
+	if ($o2 & 32768 && !($u->theme_opt & 4)) {
+		$o2 ^= 32768;
+	}
 
 	/* set timezone */
 	@putenv('TZ=' . $u->time_zone);
