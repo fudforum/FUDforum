@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_msg.tbl,v 1.3 2003/05/03 18:16:18 hackie Exp $
+#   $Id: fud_msg.tbl,v 1.4 2003/05/07 21:02:15 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}msg
 	length_preview	INT UNSIGNED NOT NULL DEFAULT 0,
 	file_id_preview	INT UNSIGNED NOT NULL DEFAULT 0,
 	attach_cache	TEXT,
-	poll_cache	TEXT
+	poll_cache	TEXT,
 
 	mlist_msg_id 	VARCHAR(100),
 
