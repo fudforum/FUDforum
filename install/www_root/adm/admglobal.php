@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admglobal.php,v 1.16 2002/11/21 21:42:45 hackie Exp $
+*   $Id: admglobal.php,v 1.17 2002/12/13 14:58:10 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -144,10 +144,10 @@ else
 
 <tr bgcolor="#bff8ff"><td colspan=2><br><b>Email Settings</b> </td></tr>
 <tr bgcolor="#bff8ff"><td>Allow Email:<?php draw_help('ALLOW_EMAIL'); ?></td><td><?php draw_select('CF_ALLOW_EMAIL', "Yes\nNo", "Y\nN", $CF_ALLOW_EMAIL); ?></td></tr>
-<tr bgcolor="#bff8ff"><td>Use STMP To Send Email:<?php draw_help('USE_SMTP'); ?></td><td><?php draw_select('CF_USE_SMTP', "Yes\nNo", "Y\nN", $CF_USE_SMTP); ?></td></tr>
+<tr bgcolor="#bff8ff"><td>Use SMTP To Send Email:<?php draw_help('USE_SMTP'); ?></td><td><?php draw_select('CF_USE_SMTP', "Yes\nNo", "Y\nN", $CF_USE_SMTP); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>SMTP Server:<?php draw_help('FUD_SMTP_SERVER'); ?></td><td><input type="text" name="CF_FUD_SMTP_SERVER" value="<?php echo $FUD_SMTP_SERVER; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>SMTP Server Timeout:<?php draw_help('FUD_SMTP_TIMEOUT'); ?></td><td><input type="text" name="CF_FUD_SMTP_TIMEOUT" value="<?php echo $FUD_SMTP_TIMEOUT; ?>"></td></tr>
-<tr bgcolor="#bff8ff"><td>STMP Server Login:<?php draw_help('FUD_SMTP_LOGIN'); ?></td><td><input type="text" name="CF_FUD_SMTP_LOGIN" value="<?php echo $FUD_SMTP_LOGIN; ?>"></td></tr>
+<tr bgcolor="#bff8ff"><td>SMTP Server Login:<?php draw_help('FUD_SMTP_LOGIN'); ?></td><td><input type="text" name="CF_FUD_SMTP_LOGIN" value="<?php echo $FUD_SMTP_LOGIN; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>SMTP Server Password:<?php draw_help('FUD_SMTP_PASS'); ?></td><td><input type="text" name="CF_FUD_SMTP_PASS" value="<?php echo $FUD_SMTP_PASS; ?>"></td></tr>
 <tr bgcolor="#bff8ff"><td>Email Confirmation:<?php draw_help('EMAIL_CONFIRMATION'); ?></td><td><?php draw_select('CF_EMAIL_CONFIRMATION', "Yes\nNo", "Y\nN", $CF_EMAIL_CONFIRMATION); ?></td></tr>
 <tr bgcolor="#bff8ff"><td>Administrator Email:<?php draw_help('ADMIN_EMAIL'); ?></td><td><input type="text" name="CF_ADMIN_EMAIL" value="<?php echo htmlspecialchars($CF_ADMIN_EMAIL); ?>"></td></tr>
