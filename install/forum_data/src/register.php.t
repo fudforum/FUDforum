@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: register.php.t,v 1.66 2003/09/26 18:49:03 hackie Exp $
+*   $Id: register.php.t,v 1.67 2003/09/26 20:38:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -278,7 +278,7 @@ function decode_uent(&$uent)
 	}
 
 	/* allow the root to modify settings other lusers */
-	if (_uid && $usr->is_mod == 'A' && $mod_id) {
+	if (_uid && $usr->users_opt & 1048576 && $mod_id) {
 		if (!($uent =& usr_reg_get_full($mod_id))) {
 			exit('Invalid User Id');
 		}
@@ -290,6 +290,7 @@ function decode_uent(&$uent)
 		} else {
 			$uent = new fud_user_reg;
 			$uent->id = 0;
+			$uent->users_opt = 6585269;
 		}
 	}
 	
@@ -343,18 +344,17 @@ function decode_uent(&$uent)
 	/* SUBMITTION CODE */
 	if (isset($_POST['fud_submit']) && !isset($_POST['btn_detach']) && !isset($_POST['btn_upload']) && !register_form_check($uent->id)) {
 		$old_email = $uent->email;
-		$old_avatar_approved = $uent->avatar_approved;
 		$old_avatar_loc = $uent->avatar_loc;
 		$old_avatar = $uent->avatar;
 		
 		/* import data from _POST into $uent object */
-		foreach($_POST as $k => $v) {
-			if (strncmp($k, 'reg_', 4)) { /* all fields must have req_ prefix */
-				continue;
+		$vars = get_class_vars("fud_user");
+		foreach ($vars as $v) {
+			if (isset($_POST['reg_'.$v])) {
+				$uent->{$v} = $_POST['reg_'.$v];
 			}
-			$uent->{substr($k,4)} = $v;
 		}
-		
+
 		$uent->bday = fmt_year($_POST['b_year']) . str_pad((int)$_POST['b_month'], 2, '0', STR_PAD_LEFT) . str_pad((int)$_POST['b_day'], 2, '0', STR_PAD_LEFT);
 		$uent->sig = apply_custom_replace($uent->sig);
 		switch (strtolower($GLOBALS['FORUM_CODE_SIG'])) {
@@ -372,12 +372,13 @@ function decode_uent(&$uent)
 		}
 		fud_wordwrap($uent->sig);
 
-		if (!$uent->icq && $uent->notify_method == 'ICQ') {
-			$uent->notify_method = 'EMAIL';
+		if (!$uent->icq && !($uent->users_opt & 4)) {
+			$uent->users_opt =| 4;
 		}
 	
 		if (!__fud_real_user__) { /* new user */
 			$uent->add_user();
+
 			if ($GLOBALS['EMAIL_CONFIRMATION'] == 'Y') {
 				send_email($GLOBALS['NOTIFY_FROM'], $uent->email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}', '');
 			} else {
@@ -386,7 +387,7 @@ function decode_uent(&$uent)
 
 			/* we notify all admins about the new user, so that they can approve him */
 			if ($GLOBALS['MODERATE_USER_REGS'] == 'Y' && $GLOBALS['NEW_ACCOUNT_NOTIFY'] == 'Y') {
-				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE is_mod='A'");
+				$c = uq("SELECT email FROM {SQL_TABLE_PREFIX}users WHERE users_opt>=1048576 AND users_opt & 1048576");
 				while ($r = db_rowarr($c)) {
 					$admins[] = $r[0];
 				}
@@ -397,14 +398,14 @@ function decode_uent(&$uent)
 			/* login the new user into the forum */
 			user_login($uent->id, $usr->ses_id, 1);
 
-			if ($GLOBALS['COPPA'] == 'Y' && $uent->coppa == 'Y') {
+			if ($GLOBALS['COPPA'] == 'Y' && $uent->users_opt & 262144) {
 				if ($GLOBALS['USE_PATH_INFO'] == 'N') {
 					header('Location: {ROOT}?t=coppa_fax&'._rsidl);
 				} else {
 					header('Location: {ROOT}/cpf/'._rsidl);
 				}
 				exit();
-			} else if ($uent->email_conf != 'Y' || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
+			} else if (!($uent->users_opt email_conf) || $GLOBALS['MODERATE_USER_REGS'] == 'Y') {
 				header('Location: {ROOT}' . (($GLOBALS['USE_PATH_INFO'] == 'N') ? '?t=reg_conf&' : '/rc/') . _rsidl);
 				exit;		
 			}
@@ -412,7 +413,6 @@ function decode_uent(&$uent)
 			check_return($usr->returnto);
 		} else if ($uent->id) { /* updating a user */
 			/* Restore avatar values to their previous values */
-			$uent->avatar_approved = $old_avatar_approved;
 			$uent->avatar = $old_avatar;
 			$uent->avatar_loc = $old_avatar_loc;
 
@@ -427,13 +427,13 @@ function decode_uent(&$uent)
 					}
 					if ($_POST['reg_avatar'] == '0') {
 						$uent->avatar_loc = '';
-						$uent->avatar_approved = 'NO';
+						$uent->users_opt = $uent->users_opt ^ (8388608|16777216) | 4194304;
 						$uent->avatar = 0;
 					} else if ($uent->avatar != $_POST['reg_avatar'] && ($img = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
 						/* verify that the avatar exists and it is different from the one in DB */
-						$uent->avatar_approved = 'Y';
 						$uent->avatar_loc = make_avatar_loc('images/avatars/' . $img, $WWW_ROOT_DISK, $WWW_ROOT);
 						$uent->avatar = $_POST['reg_avatar'];
+						$uent->users_opt = $uent->users_opt ^ (4194304|16777216) | 8388608;
 					}
 				} else {
 					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* New URL avatar */
@@ -462,12 +462,12 @@ function decode_uent(&$uent)
 						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
 						@unlink($TMP . basename($common_av_name));
 					 	if ($CUSTOM_AVATAR_APPOVAL == 'Y' && $uent->is_mod != 'A') {
-					 		$uent->avatar_approved = 'N';
+					 		$uent->users_opt = $uent->users_opt ^ (8388608|4194304) | 16777216;
 					 	} else {
-					 		$uent->avatar_approved = 'Y';
+					 		$uent->users_opt = $uent->users_opt ^ (16777216|4194304) | 8388608;
 				 		}
 					 	if (!($uent->avatar_loc = make_avatar_loc($av_path, $WWW_ROOT_DISK, $WWW_ROOT))) {
-					 		$uent->avatar_approved = 'N';
+					 		$uent->users_opt = $uent->users_opt ^ (8388608|4194304) | 16777216;
 					 	}
 					} else if (empty($avatar_arr['leave']) || !empty($avatar_arr['del'])) {
 				 		$uent->avatar_loc = '';
@@ -557,12 +557,14 @@ function decode_uent(&$uent)
 			 ${'reg_'.$v} = '';
 		}
 
+		$users_opt = 6585269;
+
 		/* handle coppa passed to us by pre_reg form */
-		$reg_coppa = isset($_GET['reg_coppa']) ? $_GET['reg_coppa'] : 'Y';
+		if (isset($_GET['reg_coppa']) && !$_GET['reg_coppa']) {
+			$users_opt = $users_opt ^ 262144;		
+		}
 
 		$default_view = $GLOBALS['DEFAULT_THREAD_VIEW'];
-		$reg_display_email = $reg_email_messages = $reg_pm_messages = $reg_append_sig = $reg_show_sigs = $reg_show_avatars = $reg_show_im = $reg_notify = $reg_pm_notify = 'Y';
-		$reg_ignore_admin = $reg_invisible_mode = 'N';
 
 		$b_year = $b_month = $b_day = '';
 	}
@@ -725,23 +727,23 @@ function decode_uent(&$uent)
 
 	$day_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31", $b_day, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$month_select		= tmpl_draw_select_opt("\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12", "\n{TEMPLATE: month_1}\n{TEMPLATE: month_2}\n{TEMPLATE: month_3}\n{TEMPLATE: month_4}\n{TEMPLATE: month_5}\n{TEMPLATE: month_6}\n{TEMPLATE: month_7}\n{TEMPLATE: month_8}\n{TEMPLATE: month_9}\n{TEMPLATE: month_10}\n{TEMPLATE: month_11}\n{TEMPLATE: month_12}", $b_month, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$gender_select		= tmpl_draw_select_opt("UNSPECIFIED\nMALE\nFEMALE","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", $reg_gender, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$view_select		= tmpl_draw_select_opt("msg\ntree".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\nmsg_tree\ntree_msg":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_msg_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), $reg_default_view, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$gender_select		= tmpl_draw_select_opt("512\n1024\n0","{TEMPLATE: unspecified}\n{TEMPLATE: male}\n{TEMPLATE: female}", ($users_opt & 512 ? 512 : ($users_opt & 1024 ? 1024 : 0)), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$mppg_select		= tmpl_draw_select_opt("0\n5\n10\n20\n30\n40", "{TEMPLATE: use_forum_default}\n5\n10\n20\n30\n40", $reg_posts_ppg, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}'); 
+	$view_select		= tmpl_draw_select_opt("128\n256".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n384\n0":''), "{TEMPLATE: register_flat_view}\n{TEMPLATE: register_msg_tree_view}".(($GLOBALS['TREE_THREADS_ENABLE']=='Y')?"\n{TEMPLATE: register_tree_view}\n{TEMPLATE: register_tree_msg_view}":''), ($users_opt & 384 ? 384 : ($users_opt & 256 ? 256 : ($users_opt & 128 ? 128 : 128))), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 	$timezone_select	= tmpl_draw_select_opt($tz_values, $tz_names, $reg_time_zone, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
-	$notification_select	= tmpl_draw_select_opt("EMAIL\nICQ", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", $reg_notify_method, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
+	$notification_select	= tmpl_draw_select_opt("4\n0", "{TEMPLATE: register_email}\n{TEMPLATE: register_icq}", ($users_opt & 4 ? 4 : 0), '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
 
-	$ignore_admin_radio	= tmpl_draw_radio_opt('reg_ignore_admin', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_ignore_admin, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_invisible_mode, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_email_radio	= tmpl_draw_radio_opt('reg_display_email', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_display_email, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$notify_default_radio	= tmpl_draw_radio_opt('reg_notify', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_notify, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$pm_notify_default_radio= tmpl_draw_radio_opt('reg_pm_notify', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_notify, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$accept_user_email	= tmpl_draw_radio_opt('reg_email_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_email_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$accept_pm		= tmpl_draw_radio_opt('reg_pm_messages', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_pm_messages, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_sig_radio		= tmpl_draw_radio_opt('reg_show_sigs', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_sigs, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_avatars, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_show_im, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
-	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "Y\nN", "{TEMPLATE: yes}\n{TEMPLATE: no}", $reg_append_sig, '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$ignore_admin_radio	= tmpl_draw_radio_opt('reg_ignore_admin', "8\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 8 ? 8 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$invisible_mode_radio	= tmpl_draw_radio_opt('reg_invisible_mode', "32768\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 32768 ? 32768 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_email_radio	= tmpl_draw_radio_opt('reg_display_email', "1\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 1 ? 1 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$notify_default_radio	= tmpl_draw_radio_opt('reg_notify', "2\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 2 ? 2 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$pm_notify_default_radio= tmpl_draw_radio_opt('reg_pm_notify', "64\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 64 ? 64 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$accept_user_email	= tmpl_draw_radio_opt('reg_email_messages', "16\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 16 ? 16 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$accept_pm		= tmpl_draw_radio_opt('reg_pm_messages', "32\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 32 ? 32 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_sig_radio		= tmpl_draw_radio_opt('reg_show_sigs', "4096\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 4096 ? 4096 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_avatar_radio	= tmpl_draw_radio_opt('reg_show_avatars', "8192\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 8192 ? 8192 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$show_im_radio		= tmpl_draw_radio_opt('reg_show_im', "16384\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 16384 ? 16384 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
+	$append_sig_radio	= tmpl_draw_radio_opt('reg_append_sig', "2048\n0", "{TEMPLATE: yes}\n{TEMPLATE: no}", ($users_opt & 2048 ? 2048 : 0), '{TEMPLATE: radio_button}', '{TEMPLATE: radio_button_selected}', '{TEMPLATE: radio_button_separator}');
 
 	$reg_user_image_field = $GLOBALS['ALLOW_PROFILE_IMAGE'] == 'Y' ? '{TEMPLATE: reg_user_image}' : '';
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.68 2003/09/26 18:49:03 hackie Exp $
+*   $Id: users.inc.t,v 1.69 2003/09/26 20:38:29 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -43,17 +43,17 @@ function init_user()
 	/* set timezone */
 	@putenv('TZ=' . $u->time_zone);
 	/* set locale */
-	setlocale(LC_ALL, $u->locale);
+	setlocale(lc_all, $u->locale);
 
 	/* view format for threads & messages */
-	define('d_thread_view', (($u->default_view=='msg'||$u->default_view=='tree_msg')?'msg':'tree'));
-	define('t_thread_view', (($GLOBALS['TREE_THREADS_ENABLE']=='N'||$u->default_view=='msg'||$u->default_view=='msg_tree')?'thread':'threadt'));
+	define('d_thread_view', $u->users_opt & 256 ? 'msg' : 'tree');
+	define('t_thread_view', $u->users_opt & 128 ? 'thread' : 'threadt');
 
 	/* theme path */
 	@define('fud_theme', 'theme/' . str_replace(' ', '_', $u->theme_name) . '/');
 		
 	/* define _uid, which, will tell us if this is a 'real' user or not */
-	define('_uid', (($u->email_conf == 'Y' && $u->acc_status == 'A') ? $u->id : 0));
+	define('_uid', $u->users_opt & (131072 | 2097152) ? $u->id : 0);
 	define('__fud_real_user__', ($u->id != 1 ? $u->id : 0));
 
 	/* define constants used to track URL sessions & referrals */
