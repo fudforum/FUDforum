@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admgroups.php,v 1.15 2003/04/25 17:32:36 hackie Exp $
+*   $Id: admgroups.php,v 1.16 2003/04/25 18:27:15 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -26,6 +26,10 @@
 	$tbl = $GLOBALS['DBHOST_TBL_PREFIX'];
 
 	$edit = isset($_GET['edit']) ? (int)$_GET['edit'] : (isset($_POST['edit']) ? (int)$_POST['edit'] : '');
+
+	if (isset($_GET['del'])) {
+		group_delete((int)$_GET['del']);
+	}
 
 	/* check for errors */
 	if (isset($_POST['btn_submit'])) {
@@ -71,25 +75,38 @@
 				grp_rebuild_cache($gid);
 			}
 		}
-	}
-	
-	if (isset($_GET['del'])) {
-		group_delete((int)$_GET['del']);
-	}
-
-	if ((isset($_GET['edit']) || isset($error)) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
-		$gr_name = $data->name;
-		$gr_inherit_id = $data->inherit_id;
-		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
-			$perms[$k] = $data->{$k};
+		/* restore form values */
+		if (isset($error)) {
+			$gr_name = $_POST['gr_name'];
+			$gr_inherit_id = $_POST['gr_inherit_id'];
+			if (isset($_POST['gr_ramasks'])) {
+				$gr_ramasks = $_POST['gr_ramasks'];
+			}
+			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+				$perms[$k] = $_POST[$k];
+			}
+			if (isset($_POST['gr_resource'])) {
+				foreach ($_POST['gr_resource'] as $v) {
+					$gr_resource[$v] = $v;
+				}
+			}
 		}
-	} else {
-		/* default form values */
-		$gr_ramasks = 'N';
-		$gr_inherit_id = 2;
-		$gr_name = '';
-		foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
-			$perms[$k] = 'I';
+	}
+	if (!isset($error)) {
+		if (isset($_GET['edit']) && ($data = db_sab('SELECT g.*, f.id AS no_del, f.name AS fname FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name WHERE g.id='.$edit))) {
+			$gr_name = $data->name;
+			$gr_inherit_id = $data->inherit_id;
+			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+				$perms[$k] = $data->{$k};
+			}
+		} else {
+			/* default form values */
+			$gr_ramasks = 'N';
+			$gr_inherit_id = 2;
+			$gr_name = '';
+			foreach($GLOBALS['__GROUPS_INC']['permlist'] as $k) {
+				$perms[$k] = 'I';
+			}
 		}
 	}
 
@@ -235,22 +252,34 @@
 <td align="center">Actions</td>
 </tr>
 <?php
-	$c = uq('SELECT g.*, f.id AS no_del FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'group_resources gr ON g.id=gr.group_id LEFT JOIN '.$tbl.'forum f ON f.id=gr.resource_id AND f.name=g.name ORDER BY g.id');
-	while ($obj = db_rowobj($c)) {
-		$grl = '';
-		$grlc = 0;
-		$c2 = uq('SELECT u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON gm.user_id=u.id WHERE gm.group_id='.$obj->id.' AND gm.group_leader=\'Y\'');
-		while ($r2 = db_rowarr($c2)) {
-			$grl .= '<option>'.$r2[0].'</option>';
-			++$grlc;
-		}
-		qf($c2);
-		$grl = $grlc ? '<font size="-1">(total: '.$grlc.')</font><br><select name="gr_leaders">'.$grl.'</select>' : 'No Leaders';
+	/* fetch all group leaders */
+	$c = uq('SELECT gm.group_id, u.alias FROM '.$tbl.'group_members gm INNER JOIN '.$tbl.'users u ON gm.user_id=u.id WHERE gm.group_leader=\'Y\'');
+	while ($r = db_rowarr($c)) {
+		$gl[$r[0]][] = $r[1];
+	}
+	qf($c);
+	
+	/* fetch all 'core' groups */
+	$c = uq('SELECT f.id FROM '.$tbl.'forum f INNER JOIN '.$tbl.'group_resources gr ON f.id=gr.resource_id INNER JOIN '.$tbl.'groups g ON g.id=gr.group_id AND f.name=g.name');
+	while ($r = db_rowarr($c)) {
+		$cg[$r[0]] = 1;
+	}
+	qf($c);
 
-		$del_link = !$obj->no_del ? '[<a href="admgroups.php?del='.$obj->id.'&'._rsidl.'">Delete</a>]<br>' : '';
+	$c = uq('SELECT g.*, g2.name AS ih_name FROM '.$tbl.'groups g LEFT JOIN '.$tbl.'groups g2 ON g.inherit_id=g2.id ORDER BY g.id');
+	while ($obj = db_rowobj($c)) {
+		if (isset($gl[$obj->id])) {
+			$grl = '<font size="-1">(total: '.count($gl[$obj->id]).')</font><br><select name="gr_leaders"><option>'.implode('</option>', $gl[$obj->id]).'</option></select>';
+		} else {
+			$grl = 'No Leaders';
+		}
+
+		$del_link = !isset($cg[$obj->id]) ? '[<a href="admgroups.php?del='.$obj->id.'&'._rsidl.'">Delete</a>]<br>' : '';
+		$ih_name = $obj->ih_name ? '<br><font color="green" size="-1">Inherits from: '.$obj->ih_name.'<font>' : '';
+		
 		$user_grp_mgr = ($obj->id > 2) ? ' '.$del_link.'[<a href="admgrouplead.php?group_id='.$obj->id.'&'._rsidl.'">Manage Leaders</a>] [<a href="../'.__fud_index_name__.'?t=groupmgr&group_id='.$obj->id.'&'._rsidl.'" target=_new>Manage Users</a>]' : '';
 
-		echo '<tr style="font-size: x-small;"><td>'.$obj->name.'</td> '.draw_perm_table($obj).' <td valign=middle align=middle>'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$obj->id.'&'._rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
+		echo '<tr style="font-size: x-small;"><td>'.$obj->name.$ih_name.'</td> '.draw_perm_table($obj).' <td valign=middle align=middle>'.$grl.'</td> <td nowrap>[<a href="admgroups.php?edit='.$obj->id.'&'._rsidl.'">Edit</a>] '.$user_grp_mgr.'</td></tr>';
 	}
 	qf($c);
 ?>
