@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: post.php.t,v 1.19 2002/11/18 16:04:19 hackie Exp $
+*   $Id: post.php.t,v 1.20 2002/12/05 20:57:41 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -425,10 +425,13 @@
 	if ( !empty($spell) ) $GLOBALS['MINIMSG_OPT']['DISABLED'] = TRUE;
 	{POST_HTML_PHP}
 
-	if ( empty($th_id) ) 
+	if (!empty($create_thread)) {
 		$label = '{TEMPLATE: create_thread}';
-	else
+	} else if ($msg_id) {
+		$label = '{TEMPLATE: edit_message}';
+	} else {
 		$label = '{TEMPLATE: submit_reply}';
+	}	
 	
 if ( !empty($preview) || !empty($spell) ) {
 	$text = apply_custom_replace($HTTP_POST_VARS['msg_body']);
