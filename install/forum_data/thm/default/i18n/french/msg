@@ -666,7 +666,7 @@ ERR_user_msg:			Cet utilisateur n&#39;existe pas
 ERR_user_url:			{VAR: _SERVER['HTTP_REFERER']}?{DEF: _rsid}
 ERR_systemerr_ttl:		ERREUR : Erreur système
 ERR_systemerr_msg:		Une erreur système s&#39;est produite. Veuillez rapporter cet incident à l&#39;<a href="mailto:{GVAR: ADMIN_EMAIL}">administrateur</a>.
-ERR_systemerr_url:		
+ERR_systemerr_url:
 email_title:			E-mail
 finduser_title:			Chercher un utilisateur
 help_title:			F.A.Q. (Foire Aux Questions, questions fréquemment posées)
@@ -990,31 +990,31 @@ ip_analyze_usage_descr:		Veuillez spécifier le nom d&#39;utilisateur exact.
 ip_users_using:			Cet(ces) utilisateur(s) utilise(nt) l&#39;adresse IP &#39;{VAR: ip}&#39;
 ip_all_ips:			Toutes les IP utilisées par &#39;{VAR: user}&#39;
 ip_title:			Navigateur IP
-post_err_noannontopics_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to create topics.</fieldset><br />
-post_err_noannonposts_msg2:	<fieldset><legend>ERROR: Insufficient Privileges</legend>Anonymous users aren&#39;t allowed to reply.</fieldset><br />
-ERR_login_msg2:			<fieldset><legend>ERROR: You are not logged-in</legend>To access this page you must be a member of this forum.</fieldset><br />
-userinfo_real_name:		Real Name:
-register_err_alias_notallowed:	This alias is not allowed
-post_err_mod_forum_edit_ttl:	ERROR
-post_err_mod_forum_edit_msg:	You cannot edit messages inside a moderated forum.
+post_err_noannontopics_msg2:	<fieldset><legend>ERREUR: Privilèges insuffisants</legend>Les utilisateurs anonymes ne sont pas autorisés à créer des fils.</fieldset><br />
+post_err_noannonposts_msg2:	<fieldset><legend>ERREUR: Privilèges insuffisants</legend>Les utilisateurs anonymes ne sont pas autorisés à répondre.</fieldset><br />
+ERR_login_msg2:			<fieldset><legend>ERREUR: Vous n&#39;êtes pas connecté.</legend>Pour accéder à cette page vous devez être un membre de ce forum.</fieldset><br />
+userinfo_real_name:		Vrai nom :
+register_err_alias_notallowed:	Cet alias n&#39;est pas autorisé.
+post_err_mod_forum_edit_ttl:	ERREUR
+post_err_mod_forum_edit_msg:	Vous ne pouvez pas éditer les messages d&#39;un forum modéré.
 dmsg_num:			message #{VAR: obj->id}
-postcheck_session_invalid:	Your session had expired, please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
-delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
-delete_msg_removed_ttl:		Your message was removed by administration staff.
-delete_msg_pm_body:		Original message
-delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
-register_theme:			Theme:
-pmsg_trash:			Empty Trash
-uc_new_pm:			New Private Messages
-uc_new_topic:			New Topic
-uc_new_cat_forum:		Subscribed Forums With New Messages
-uc_cat_forum:			Category &raquo; Forum
-uc_sub_topics:			Subscribed Topics With New Messages
-uc_page_title:			Viewing personal control panel.
-search_options:			Search Options
-search_user_filter:		Filter by user:
-register_none:			Don&#39;t Notify
-findu_no_conf:			unconfirmed user
+postcheck_session_invalid:	Votre session a expiré, veuillez re-soumettre le formulaire. Désolé pour le dérangement.
+delete_message_extra_desc:	<b>Optionnel</b><br />Indiquez une raison justifiant l&#39;effacement du message. Ceci sera envoyé par message privé à l&#39;auteur.
+delete_message_extra_body:	Inclure le corps du message et l&#39;envoyer à l&#39;auteur.
+delete_msg_removed_ttl:		Votre message a été effacé par l&#39;équipe d'administration.
+delete_msg_pm_body:		Message original
+delete_msg_pm_subject:		Sujet : {VAR: data[15]}
+ip_no_whois:			Information Whois pour <b>{VAR: ip}</b> non disponible.
+ip_whois_title:			<b>Information ISP</b><br />
+register_theme:			Thème :
+pmsg_trash:			Vider la corbeille
+uc_new_pm:			Nouveaux messages privés
+uc_new_topic:			Nouveau fil
+uc_new_cat_forum:		Forums surveillés avec des nouveaux messages
+uc_cat_forum:			Catégorie &raquo; Forum
+uc_sub_topics:			Sujets surveillés avec des nouveaux messages
+uc_page_title:			Affichage du panneau de contrôle personnel.
+search_options:			Options de recherche
+search_user_filter:		Filtrer par utilisateur :
+register_none:			Ne pas notifier
+findu_no_conf:			utilisateur non confirmé
