@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipb.php,v 1.6 2004/10/13 19:52:54 hackie Exp $
+* $Id: ipb.php,v 1.7 2005/03/11 16:13:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -10,7 +10,7 @@
 * (at your option) any later version.
 ***************************************************************************/
 
-	/* Invision Power Board (1.1.X) - FUDforum Conversion script - Brief Instructions */
+	/* Invision Power Board (1.3.X / 1.1.X) - FUDforum Conversion script - Brief Instructions */
 
 	/* If you intend to run this script via the console, make sure to UNLOCK the 
 	 * FUDforum 1st. I recommend running this script via the web unless the forum
@@ -19,7 +19,7 @@
 
 	/* Specify the FULL path to the Invision Power Board conf_global.php file */
 	$IPB_CFG = "/path/to/conf_global.php";
-
+	$REMOTE_AVATAR = 1; // if set to 0, no remote avatars will be imported
 
 /**** DO NOT EDIT BEYOND THIS POINT ****/
 
@@ -43,11 +43,6 @@ function make_avatar_loc($path, $disk, $web)
 	} else {
 		return '';
 	}
-}
-
-function html_clean($str)
-{
-	return preg_replace('!&#([0-9]+);!me', "chr('\\1')", html_entity_decode($str));
 }
 
 	set_time_limit(500000);
@@ -122,17 +117,17 @@ function html_clean($str)
 		if (!$s) {
 			$s = '######';
 		}
-		if ($m) {
+		if (!$m) {
 			$f2 = '/(^|\s)' . addcslashes($t, '/') . '($|\s)/i';
 			$s2 = "\\1{$s}\\2";
-			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (type, replace_str, with_str, from_post, to_msg) VALUES('PERL', '".addslashes($f2)."', '".addslashes($s2)."', '/".addslashes(addcslashes($s, '/'))."/', '".addslashes($t)."')");
+			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (replace_opt, replace_str, with_str, from_post, to_msg) VALUES(0, '".addslashes($f2)."', '".addslashes($s2)."', '/".addslashes(addcslashes($s, '/'))."/', '".addslashes($t)."')");
 		} else {
 			$f = '/' . addcslashes($t, '/') . '/i';
-			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (type, replace_str, with_str) VALUES('REPLACE', '".addslashes($f)."', '".addslashes($s)."')");
+			q("INSERT INTO {$DBHOST_TBL_PREFIX}replace (replace_str, with_str) VALUES('".addslashes($f)."', '".addslashes($s)."')");
 		}
 		++$i;
 	}
-	mysql_free_result($r);
+	unset($r);
 	print_msg("Done: Importing {$i} blocked words");
 	
 	/* Add IPB members */
@@ -209,11 +204,11 @@ function html_clean($str)
 		$u->home_page = $obj->website;
 
 		if ($obj->signature) {
-			$tmp = html_clean($pp->unconvert($obj->signature, $INFO['sig_allow_ibc'], $INFO['sig_allow_html']));
+			$tmp = html_entity_decode($pp->unconvert($obj->signature, $INFO['sig_allow_ibc'], $INFO['sig_allow_html']));
 			if ($INFO['sig_allow_ibc']) {
-				$tmp = tags_to_html($tmp, 1);
+				$tmp = char_fix(tags_to_html($tmp, 1));
 			} else if (!$INFO['sig_allow_html']) {
-				$tmp = nl2br(htmlspecialchars($tmp));
+				$tmp = nl2br(char_fix(htmlspecialchars($tmp)));
 			}
 
 			$tmp = smiley_to_post($tmp);
@@ -233,24 +228,39 @@ function html_clean($str)
 		if ($obj->avatar && $obj->avatar != 'noavatar') {
 			if (!strncmp($obj->avatar, 'upload:', strlen('upload:'))) {
 				$obj->avatar = $INFO['upload_dir']  . '/' . substr($obj->avatar, strlen('upload:'));
+				$local = 1;
 			} else if (strpos($obj->avatar, '://') === FALSE) {
 				$obj->avatar = $INFO['html_url'] . '/avatars/' . $obj->avatar;
+				$local = 0;
+			} else {
+				$local = 0;
 			}
-			if (($tmpd = file_get_contents($obj->avatar))) {
+			while (1) {
+				if ($local && !file_exists($obj->avatar)) {
+					print_msg("AVATAR FILE: {$obj->avatar} does not exist");
+					break;
+				} else if (!$local && !$REMOTE_AVATAR) {
+					print_msg("SKIPPING REMOTE AVATAR: {$obj->avatar}");
+					break;
+				}
+
 				$tmp = tempnam($GLOBALS['TMP'], getmyuid());
-				$fp = fopen($tmp, "wb");
-				fwrite($fp, $tmpd);
-				fclose($fp);
+				if (!@copy($obj->avatar, $tmp)) {
+					print_msg("COULD NOT GET AVATAR FILE: {$obj->avatar}");
+					break;
+				}
 
 				if (($im = getimagesize($tmp)) && isset($ext[$im[2]])) {
 					$ex = $ext[$im[2]];
 					$path = "images/custom_avatars/{$uid}.{$ex}";
-					copy($tmp, $WWW_ROOT_DISK . $path);
+					rename($tmp, $WWW_ROOT_DISK . $path);
 					chmod($path, 0666);
 					$users_opt = 8388608;
 					$avatar_loc = make_avatar_loc($path, $WWW_ROOT_DISK, $WWW_ROOT);
+				} else {
+					unlink($tmp);
 				}
-				unlink($tmp);
+				break;
 			}
 		}
 
@@ -264,12 +274,13 @@ function html_clean($str)
 			last_read={$obj->last_activity},
 			users_opt=users_opt|{$users_opt},
 			avatar_loc='{$avatar_loc}',
-			passwd='{$obj->password}'
+			passwd='{$obj->password}',
+			reg_ip=".sprintf("%u", ip2long($obj->ip_address))."
 		WHERE id=".$uid);
 
 		++$i;
 	}
-	mysql_free_result($r);
+	unset($r);
 	print_msg("Done: Importing {$i} IPB members");
 
 	print_msg("Importing buddies/ignored users");
@@ -280,7 +291,7 @@ function html_clean($str)
 	$r = mysql_query("SELECT contact_id, member_id, allow_msg FROM {$ipb}contacts", $ib) or die(mysql_error($ib));
 	while (list($c, $m, $a) = mysql_fetch_row($r)) {
 		/* skip if users cannot be matched */
-		if (isset($ib_u[$c], $ib_u[$m])) {
+		if (!isset($ib_u[$c], $ib_u[$m])) {
 			continue;
 		}
 
@@ -292,7 +303,7 @@ function html_clean($str)
 			++$i2;
 		}
 	}
-	mysql_free_result($r);
+	unset($r);
 	print_msg("Done: Importing {$i} buddies and {$i2} ignored users");
 
 	print_msg("Importing member ranks");
@@ -300,10 +311,10 @@ function html_clean($str)
 	$i = 0;
 	$r = mysql_query("SELECT posts, title FROM {$ipb}titles WHERE posts>0", $ib) or die(mysql_error($ib));
 	while (list($p, $t) = mysql_fetch_row($r)) {
-		q("INSERT INTO {$DBHOST_TBL_PREFIX}level (name, post_count) VALUES ('".addslashes($t)."','{$a}')");
+		q("INSERT INTO {$DBHOST_TBL_PREFIX}level (name, post_count) VALUES ('".addslashes($t)."','{$p}')");
 		++$i;
 	}
-	mysql_free_result($r);
+	unset($r);
 	print_msg("Done: Importing {$i} member ranks");	
 
 	print_msg("Importing categories");
@@ -319,7 +330,7 @@ function html_clean($str)
 		$ib_c[$obj->id] = $cat->add('LAST');
 		++$i;	
 	}
-	mysql_free_result($r); unset($cat);
+	unset($r); unset($cat);
 	print_msg("Done: Importing {$i} categories");
 
 	print_msg("Importing forums");
@@ -341,9 +352,10 @@ function html_clean($str)
 	$frm->message_threshold = 0;
 	$frm->forum_opt = 0;
 	$frm->icon= '';
+	$ib_g = array();
 
-	$plist = array('upload_perms' => 256, 'start_perms' => 4, 'reply_perms' => 8, 
-			'read_perms' => 1|2|512|128|1024|16384|32768|262144);
+	$plist = array('upload_perms' => 256, 'start_perms' => 4, 'reply_perms' => 8,
+			'read_perms' => 1|2|1024|16384|32768|262144|512|128);
 
 	$r = mysql_query("SELECT * FROM {$ipb}forums ORDER BY category, parent_id, position", $ib) or die(mysql_error($ib));
 	while ($obj = mysql_fetch_object($r)) {
@@ -355,7 +367,7 @@ function html_clean($str)
 			$frm->forum_opt |= 8;
 		}
 
-		$frm->name = html_clean($obj->name);
+		$frm->name = html_entity_decode($obj->name);
 		$frm->descr = $obj->description;
 		$frm->cat_id = $ib_c[$obj->category];
 		$frm->forum_opt |= $obj->preview_posts ? 2 : 0;
@@ -396,33 +408,25 @@ function html_clean($str)
 		}
 		++$i;
 	}
-	mysql_free_result($r); unset($ib_c);
+	unset($r); unset($ib_c);
 	print_msg("Done: Importing {$i} forums");
 
 	print_msg("Importing permissions");
-	$r = mysql_query("SELECT count(*), mgroup FROM {$ipb}members WHERE mgroup NOT IN({$INFO['admin_group']}, {$INFO['auth_group']}, {$INFO['member_group']}, {$INFO['guest_group']}) GROUP BY mgroup", $ib) or die(mysql_error($ib));
-	while (list(, $g) = mysql_fetch_row($r)) {
+	$r = mysql_query("SELECT DISTINCT(mgroup) FROM {$ipb}members WHERE mgroup NOT IN({$INFO['admin_group']}, {$INFO['auth_group']}, {$INFO['member_group']}, {$INFO['guest_group']})", $ib) or die(mysql_error($ib));
+	while ($g = mysql_fetch_row($r)) {
+		$g = array_pop($g);
+
 		if (!isset($ib_g[$g])) {
 			continue;
 		}
-		/* list of members for a particular group */
-		$users = array();
-		$r2 = mysql_query("SELECT id FROM {$ipb}members WHERE mgroup=".$g);
-		while (list($id) = mysql_fetch_row($r2)) {
-			$users[] = $id;		
-		}
-		mysql_free_result($r2);
 
-		foreach ($ib_g[$g] as $fl) {
-			foreach ($fl as $k => $v) {
-				$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$k);
-				foreach ($users as $u) {
-					q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members (user_id, group_id, group_members_opt) VALUES({$u}, {$gid}, {$v})");
-				}
-			}
+		foreach ($ib_g[$g] as $k => $v) {
+			$gid = q_singleval("SELECT id FROM {$DBHOST_TBL_PREFIX}groups WHERE forum_id=".$k);
+			q("INSERT INTO {$DBHOST_TBL_PREFIX}group_members (user_id, group_id, group_members_opt) 
+				SELECT id, {$gid}, {$v} FROM {$ipb}members WHERE mgroup=".$g);
 		}
 	}
-	mysql_free_result($r); unset($ib_g, $users, $fl, $data, $u, $pt, $p, $v, $perms, $gid);
+	unset($r); unset($ib_g, $users, $fl, $data, $u, $pt, $p, $v, $perms, $gid);
 	print_msg("Done: Importing permissions");
 
 	print_msg("Importing administrators");
@@ -433,16 +437,16 @@ function html_clean($str)
 		$u[] = $ib_u[$id];
 		++$i;
 	}
-	if (count($u)) {
+	if ($u) {
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|1048576 WHERE id IN(".implode(',', $u).")");
 	}
-	mysql_free_result($r); unset($u);
+	unset($r); unset($u);
 	print_msg("Done: Importing {$i} administrators");
 	
 	print_msg("Importing moderators");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}mod");
 	$i = 0;
-	$r = mysql_query("SELECT forum_id, member_id FROM {$ipb}moderators", $ib) or die(mysql_error($ib));
+	$r = mysql_query("SELECT forum_id, member_id FROM {$ipb}moderators WHERE member_id > 0", $ib) or die(mysql_error($ib));
 	while (list($f, $u) = mysql_fetch_row($r)) {
 		if (!isset($ib_f[$f], $ib_u[$u])) {
 			continue;
@@ -450,7 +454,7 @@ function html_clean($str)
 		q("INSERT INTO {$DBHOST_TBL_PREFIX}mod (forum_id, user_id) VALUES({$ib_f[$f]}, {$ib_u[$u]})");
 		++$i;
 	}
-	mysql_free_result($r); unset($u);
+	unset($r); unset($u);
 	print_msg("Done: Importing {$i} moderators");
 
 	print_msg("Importing messages and topics");
@@ -470,24 +474,38 @@ function html_clean($str)
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}index");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}attach");
 	
-	$r = mysql_query("SELECT * FROM {$ipb}topics t INNER JOIN {$ipb}posts p ON t.tid=p.topic_id ORDER BY t.start_date", $ib) or die(mysql_error($ib));
+	$r = mysql_query("SELECT * FROM {$ipb}topics t INNER JOIN {$ipb}posts p ON t.tid=p.topic_id ORDER BY p.post_date", $ib) or die(mysql_error($ib));
 	$m = new fud_msg_edit;
 	$ib_t = array();
 	while ($obj = mysql_fetch_object($r)) {
 		if ($obj->state == 'link') {
 			continue;
+		} else if (!isset($ib_f[$obj->forum_id])) {
+			print_msg("Invalid forum id {$obj->forum_id} in message id {$obj->pid}");
+			continue;
 		}
-		$m->subject = htmlspecialchars(html_clean($obj->title));
+		
+		$m->subject = char_fix(htmlspecialchars(html_entity_decode($obj->title)));
 		$m->ip_addr = $obj->ip_address ? $obj->ip_address : '0.0.0.0';
-		$m->poster_id = $obj->author_id ? $ib_u[$obj->author_id] : 0;
+		if ($obj->author_id) {
+			if (isset($ib_u[$obj->author_id])) {
+				$m->poster_id = $ib_u[$obj->author_id];
+			} else {
+				print_msg("Missing Author id {$obj->author_id} for message id {$obj->pid}");
+				$m->poster_id = 0;
+			}
+		} else {
+			$m->poster_id = 0;
+		}
+		
 		$m->post_stamp = $obj->post_date;
 		$m->msg_opt = $obj->use_sig ? 1 : 0;
 		$m->msg_opt |= $obj->use_emo ? 0 : 2;
-		$m->body = html_clean($pp->unconvert($obj->post, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
+		$m->body = html_entity_decode($pp->unconvert($obj->post, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		if ($INFO['msg_allow_code']) {
-			$m->body = tags_to_html($m->body, 1);
+			$m->body = char_fix(tags_to_html($m->body, 1));
 		} else if (!$INFO['msg_allow_html']) {
-			$m->body = nl2br(htmlspecialchars($m->body));
+			$m->body = nl2br(char_fix(htmlspecialchars($m->body)));
 		}
 		if (!($m->msg_opt & 2)) {
 			$m->body = smiley_to_post($m->body);
@@ -506,7 +524,10 @@ function html_clean($str)
 			$m->thread_id = $m->reply_to = 0;
 		}
 
-		$mid = $m->add($ib_f[$obj->forum_id], 0, 16, 64|4096, $obj->approved);
+		$mid = $m->add($ib_f[$obj->forum_id], 0, 16, 64|4096, 0);
+		if ($obj->approved) {
+			q("UPDATE {$DBHOST_TBL_PREFIX}msg SET apr=1 WHERE id=".$mid);
+		}
 
 		/* handle file attachments if there any */
 		if ($obj->attach_id && $obj->attach_file) {
@@ -543,7 +564,7 @@ function html_clean($str)
 		}
 		++$i;
 	}
-	mysql_free_result($r); unset($tmp, $m, $aid, $tmpf);
+	unset($r); unset($tmp, $m, $aid, $tmpf);
 	print_msg("Done: Importing {$i} messages and {$i2} topics");
 
 	print_msg("Importing polls");
@@ -552,24 +573,28 @@ function html_clean($str)
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}poll_opt");
 	q("DELETE FROM {$DBHOST_TBL_PREFIX}poll_opt_track");
 	define('_uid', 0); /* we need this for polls :( */
-	$r = mysql_query("SELECT tid, member_id FROM {$ipb}voters", $ib) or die(mysql_error($ib));
+
+	$r = mysql_query("SELECT tid, member_id FROM {$ipb}voters GROUP BY tid,member_id", $ib) or die(mysql_error($ib));
 	while (list($t, $m) = mysql_fetch_row($r)) {
-		$vt[$t][] = $ib_u[$m];
+		if (isset($ib_u[$m])) {
+			$vt[$t][] = $ib_u[$m];
+		}
 	}
-	/* prevent duplicates */
-	foreach ($vt as $k => $v) {
-		$vt[$k] = array_unique($v);
-	}
-	mysql_free_result($r);
+	unset($r);
 
 	$r = mysql_query("SELECT * FROM {$ipb}polls", $ib) or die(mysql_error($ib));
 	while ($obj = mysql_fetch_object($r)) {
+		if (!isset($ib_f[$obj->forum_id])) {
+			print_msg("Invalid forum id {$obj->forum_id} in poll id {$obj->pid}");
+			continue;
+		}
+	
 		$mid = $ib_t[$obj->tid][1];
 
 		list($poll_name, $poll_status) = mysql_fetch_row(mysql_query("SELECT title, poll_state FROM {$ipb}topics WHERE tid=".$obj->tid, $ib));
 
 		/* create poll */
-		$pid = poll_add(html_clean($poll_name), 0, 0);
+		$pid = poll_add(html_entity_decode($poll_name), 0, 0);
 		q("UPDATE {$DBHOST_TBL_PREFIX}poll SET owner={$ib_u[$obj->starter_id]}, creation_date={$obj->start_date} WHERE id=".$pid);
 		++$i;
 
@@ -577,22 +602,26 @@ function html_clean($str)
 		$choices = unserialize($obj->choices);
 		$ttl = 0;
 		foreach ($choices as $c) {
-			$o = html_clean($pp->unconvert($c[1], $INFO['msg_allow_code'], $INFO['msg_allow_html']));
+			$o = html_entity_decode($pp->unconvert($c[1], $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 			if ($INFO['msg_allow_code']) {
-				$o = tags_to_html($o, 1);
+				$o = char_fix(tags_to_html($o, 1));
 			} else if (!$INFO['msg_allow_html']) {
-				$o = nl2br(htmlspecialchars($o));
+				$o = nl2br(char_fix(htmlspecialchars($o)));
 			}
-			$o = smiley_to_post($o);
-			$oid = poll_opt_add($o, $pid);
+
+			$oid = poll_opt_add(smiley_to_post($o), $pid);
+
 			if ($c[2]) {
 				$ttl += $c[2];
 				q("UPDATE {$DBHOST_TBL_PREFIX}poll_opt SET count={$c[2]} WHERE id=".$oid);
 
 				/* handle poll vote tracking */
 				for ($j = 0; $j < $c[2]; $j++) {
+					if (empty($vt[$obj->tid])) {
+						break;
+					}
 					$u = array_pop($vt[$obj->tid]);
-					q("INSERT INTO {$DBHOST_TBL_PREFIX}poll_opt_track (poll_id, user_id, poll_opt) VALUES({$pid}, {$u}, {$oid})");
+					db_li("INSERT INTO {$DBHOST_TBL_PREFIX}poll_opt_track (poll_id, user_id, poll_opt) VALUES({$pid}, {$u}, {$oid})", $dummy);
 				}
 			}
 		}
@@ -608,7 +637,7 @@ function html_clean($str)
 		q("UPDATE {$DBHOST_TBL_PREFIX}poll SET expiry_date={$expiry_date}, total_votes={$ttl} WHERE id=".$pid);
 		q("UPDATE {$DBHOST_TBL_PREFIX}msg SET poll_id={$pid} WHERE id=".$mid);
 	}
-	mysql_free_result($r);
+	unset($r);
 	print_msg("Done: Importing {$i} polls");
 
 	print_msg("Importing private messages");
@@ -634,14 +663,14 @@ function html_clean($str)
 	$GLOBALS['usr']->alias = NULL;
 
 	while ($obj = mysql_fetch_object($r)) {
-		$p->subject = html_clean($pp->unconvert($obj->title, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
+		$p->subject = html_entity_decode($pp->unconvert($obj->title, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		$p->subject = str_replace('Sent:  ', '', str_replace('Re:', 'Re: ', $p->subject));
 		$p->pmsg_opt = $obj->tracking ? 4 : 0;
-		$p->body = html_clean($pp->unconvert($obj->message, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
+		$p->body = html_entity_decode($pp->unconvert($obj->message, $INFO['msg_allow_code'], $INFO['msg_allow_html']));
 		if ($INFO['msg_allow_code']) {
-			$p->body = tags_to_html($p->body, 1);
+			$p->body = char_fix(tags_to_html($p->body, 1));
 		} else if (!$INFO['msg_allow_html']) {
-			$p->body = nl2br(htmlspecialchars($p->body));
+			$p->body = nl2br(char_fix(htmlspecialchars($p->body)));
 		}
 		$p->body = smiley_to_post($p->body);
 		fud_wordwrap($p->body);
@@ -676,7 +705,7 @@ function html_clean($str)
 	if ($ul) {
 		q("UPDATE {$DBHOST_TBL_PREFIX}users SET users_opt=users_opt|64 WHERE id IN(".implode(',', $ul).")");
 	}
-	mysql_free_result($r); unset($ul);
+	unset($r); unset($ul);
 	print_msg("Done: Importing {$i} private messages");
 
 	print_msg("Importing miscellaneous settings");
