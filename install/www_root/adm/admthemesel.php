@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admthemesel.php,v 1.2 2002/06/26 19:41:21 hackie Exp $
+*   $Id: admthemesel.php,v 1.3 2002/06/26 22:22:37 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -39,7 +39,7 @@
 	echo _hs;
 	
 	$oldpwd = getcwd();
-	chdir($GLOBALS['DATA_DIR'].'/themes');
+	chdir($GLOBALS['DATA_DIR'].'/thm');
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	echo '<td>Template Set:</td><td><select name="tname">';
@@ -55,7 +55,7 @@
 <tr bgcolor="#bff8ff">
 <?	
 	
-	chdir($GLOBALS['DATA_DIR'].'/themes/default/i18n');
+	chdir($GLOBALS['DATA_DIR'].'/thm/default/i18n');
 	$dp = opendir('.');
 	readdir($dp); readdir($dp);
 	echo '<td>Language:</td><td><select name="tlang">';
