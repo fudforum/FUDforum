@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: users_reg.inc.t,v 1.78 2005/03/09 00:24:14 hackie Exp $
+* $Id: users_reg.inc.t,v 1.79 2005/04/05 02:52:25 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,8 +39,8 @@ class fud_user_reg extends fud_user
 
 	function add_user()
 	{
-		if (isset($_COOKIES['frm_referer_id']) && (int)$_COOKIES['frm_referer_id']) {
-			$ref_id = (int)$_COOKIES['frm_referer_id'];
+		if (isset($_COOKIE['frm_referer_id']) && (int)$_COOKIE['frm_referer_id']) {
+			$ref_id = (int)$_COOKIE['frm_referer_id'];
 		} else {
 			$ref_id = 0;
 		}
