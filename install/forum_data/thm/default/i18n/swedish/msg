@@ -24,7 +24,7 @@ email_user:			Tryck h&auml;r f&ouml;r att skicka e-post till medlemmen
 faq:				Hj&auml;lp
 first_unread_msg:		Till ol&auml;sta inl&auml;gg
 first_unread_msg_desc:		G&aring; till det f&ouml;rsta ol&auml;sta inl&auml;gget i den h&auml;r tr&aring;den
-flat_view:			Tillbaka till platt visning
+flat_view:			Tillbaka till platt vy
 forum:				Forum:
 forum_icon:			Forumikon
 forum_new_messages:		Nya inl&auml;gg
@@ -847,27 +847,27 @@ report_already_reported_msg:	Det har inl&auml;gget har redan rapporterats och v&
 register_err_toomanyimages:	Du f&ouml;rs&ouml;ker anv&auml;nda fler bilder &auml;n det till&aring;tna antalet {GVAR: FORUM_IMG_CNT_SIG} bilder i din signatur.
 pmsg_next_msg:			N&auml;sta meddelande
 pmsg_prev_msg:			F&ouml;reg&aring;ende meddelande
-post_proc_reveal_spoiler:	Reveal Spoiler
-register_jabber:		Jabber Handle:
-im_jabber:			Jabber: 
-forum_contact:			Contact
-forum_home:			Home
-post_cur_attached:		currently attached {VAR: attach_count} file(s) 
-ppost_cur_attached:		currently attached {VAR: attach_count} file(s) 
-post_list_smilies:		list all smilies
-ignored_anon_post:		{VAR: user_login} is ignored
-smladd_close_window:		close window
-p_VISIBLE:                    	Visible
-reported_in_thread:		In thread
-help_back_to_top:		back to top
-help_return_to_index:		Return to Help Index
-forumsel_unread:		*(UNREAD)
-groupmgr_no_groups:		No groups to edit
-msg_err_nosuchmsg_msg:		There is no such message in this thread
-msg_err_nosuchmsg_title:	Error
-imsg_err_message_title:		Invalid Message
-imsg_err_message_msg:		The message you are trying to view does not exist.
-poll_edit: 			Edit
+post_proc_reveal_spoiler:	Visa g&ouml;md text
+register_jabber:		Jabber-anv&auml;ndarnamn:
+im_jabber:			Jabber:
+forum_contact:			Kontakt
+forum_home:			Hem
+post_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
+ppost_cur_attached:		{VAR: attach_count} filer bifogade f&ouml;r tillf&auml;llet
+post_list_smilies:		visa alla smilisar
+ignored_anon_post:		{VAR: user_login} ignoreras
+smladd_close_window:		st&auml;ng f&ouml;nstret
+p_VISIBLE:                    	Synlig
+reported_in_thread:		I tr&aring;den
+help_back_to_top:		tillbaka till b&ouml;rjan
+help_return_to_index:		tillbaka till hj&auml;lpindex
+forumsel_unread:		*(OL&Auml;ST)
+groupmgr_no_groups:		Inga grupper att editera
+msg_err_nosuchmsg_msg:		Ett s&aring;dant inl&auml;gg finns inte i denna tr&aring;d
+msg_err_nosuchmsg_title:	Fel
+imsg_err_message_title:		Ogiltigt inl&auml;gg
+imsg_err_message_msg:		Inl&auml;gget du f&ouml;rs&ouml;ker visa finns inte.
+poll_edit: 			Editera
 unspecified:			UNSPECIFIED
 register_err_not_valid_img:	The specified url does not contain a valid image
 pmsg_recepient:			Recepient
@@ -897,4 +897,3 @@ post_moderated_forum:		You have made a post in a moderated forum, which means yo
 post_moderated_forum_ttl:	Moderated Forum Notice
 post_proceed:			Proceed
 buddy_list_bday:		Today {VAR: obj->login} turns {VAR: age}
-email_warning_msg:		If you change your current email address, your account will be marked uncofirmed until you confirm it via e-mail.
