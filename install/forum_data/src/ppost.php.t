@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.38 2003/06/05 23:57:39 hackie Exp $
+*   $Id: ppost.php.t,v 1.39 2003/06/09 17:39:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -94,8 +94,11 @@ function export_msg_data($m, &$msg_subject, &$msg_body, &$msg_icon, &$msg_smiley
 				export_msg_data($msg_r, $msg_subject, $msg_body, $msg_icon, $msg_smiley_disabled, $msg_show_sig, $msg_track, $msg_to_list);
 				$msg_id = $msg_to_list = '';
 
-				if ($quote && strncmp($msg_subject, 'Re: ', 4)) {
+				if ($quote) {
 					$msg_to_list = q_singleval('SELECT alias FROM {SQL_TABLE_PREFIX}users WHERE id='.$msg_r->ouser_id);
+				}
+
+				if ($quote && strncmp($msg_subject, 'Re: ', 4)) {
 					switch ($PRIVATE_TAGS) {
 						case 'ML':
 							$msg_body = '{TEMPLATE: fud_quote}';
