@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: imsg_edt.inc.t,v 1.22 2003/03/30 18:32:04 hackie Exp $
+*   $Id: imsg_edt.inc.t,v 1.23 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -128,9 +128,9 @@ class fud_msg_edit extends fud_msg
 			q('UPDATE {SQL_TABLE_PREFIX}msg SET thread_id='.$this->thread_id.' WHERE id='.$this->id);
 		} else {
 			if (thr_locked == 'Y') {
-				fud_thread::lock($this->thread_id);
+				th_lock($this->thread_id);
 			} else {
-				fud_thread::unlock($this->thread_id);
+				th_unlock($this->thread_id);
 			}
 		}
 		
@@ -144,7 +144,7 @@ class fud_msg_edit extends fud_msg
 	function sync($id, $frm_id, $message_threshold)
 	{
 		if (!db_locked()) {
-			db_lock('WRITE {SQL_TABLE_PREFIX}cat, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}msg, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}thread_view');
+			db_lock('{SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}thread_view WRITE');
 			$ll=1;
 		}
 		$file_id = write_body($this->body, $length, $offset);
@@ -239,7 +239,7 @@ class fud_msg_edit extends fud_msg
 	function delete($rebuild_view=TRUE, $mid=0, $th_rm=0)
 	{
 		if (!db_locked()) {
-			db_lock('WRITE {SQL_TABLE_PREFIX}thr_exchange, WRITE {SQL_TABLE_PREFIX}thread_view, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}forum_read, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}msg, WRITE {SQL_TABLE_PREFIX}attach, WRITE {SQL_TABLE_PREFIX}poll, WRITE {SQL_TABLE_PREFIX}poll_opt, WRITE {SQL_TABLE_PREFIX}poll_opt_track, WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}thread_notify, WRITE {SQL_TABLE_PREFIX}msg_report, WRITE {SQL_TABLE_PREFIX}thread_rate_track');
+			db_lock('{SQL_TABLE_PREFIX}thr_exchange WRITE, {SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}forum_read WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE, {SQL_TABLE_PREFIX}attach WRITE, {SQL_TABLE_PREFIX}poll WRITE, {SQL_TABLE_PREFIX}poll_opt WRITE, {SQL_TABLE_PREFIX}poll_opt_track WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}thread_notify WRITE, {SQL_TABLE_PREFIX}msg_report WRITE, {SQL_TABLE_PREFIX}thread_rate_track WRITE');
 			$ll = 1;
 		}
 		if (!$mid) {
@@ -287,8 +287,8 @@ class fud_msg_edit extends fud_msg
 
 		q('DELETE FROM {SQL_TABLE_PREFIX}msg WHERE id='.$mid);
 
-		if ($this->poster_id && $del->approved == 'Y') {
-			fud_user::set_post_count($this->poster_id, -1);
+		if ($del->poster_id && $del->approved == 'Y') {
+			fud_user::set_post_count($del->poster_id, -1);
 		}
 
 		if (!$th_rm && $del->root_msg_id != $mid && $del->thread_lip == $mid) {
@@ -297,7 +297,7 @@ class fud_msg_edit extends fud_msg
 		}
 
 		if ($del->root_msg_id == $del->id && $del->approved == 'Y') {
-			$mid = (int) q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$v['forum_id']." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
+			$mid = (int) q_singleval("SELECT last_post_id FROM {SQL_TABLE_PREFIX}thread INNER JOIN {SQL_TABLE_PREFIX}msg ON {SQL_TABLE_PREFIX}thread.last_post_id={SQL_TABLE_PREFIX}msg.id WHERE forum_id=".$del->forum_id." AND {SQL_TABLE_PREFIX}msg.approved='Y' ORDER BY last_post_id DESC LIMIT 1");
 			q('UPDATE {SQL_TABLE_PREFIX}forum SET last_post_id='.$mid.',thread_count=thread_count-1, post_count=post_count-'.$del->replies.'-1 WHERE id='.$del->forum_id);
 
 			if ($rebuild_view) {
@@ -321,7 +321,7 @@ class fud_msg_edit extends fud_msg
 	function approve($id=NULL, $unlock_safe=FALSE)
 	{	
 		if( !db_locked() ) {
-			db_lock('WRITE {SQL_TABLE_PREFIX}thread_view, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}cat, WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}forum, WRITE {SQL_TABLE_PREFIX}thread, WRITE {SQL_TABLE_PREFIX}msg');
+			db_lock('{SQL_TABLE_PREFIX}thread_view WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}cat WRITE, {SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}forum WRITE, {SQL_TABLE_PREFIX}thread WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users.inc.t,v 1.20 2003/03/30 18:03:11 hackie Exp $
+*   $Id: users.inc.t,v 1.21 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -33,7 +33,7 @@ class fud_user
 	function set_post_count($uid, $val, $mid=0)
 	{
 		if (!db_locked()) {
-			db_lock('WRITE {SQL_TABLE_PREFIX}users, WRITE {SQL_TABLE_PREFIX}level, WRITE {SQL_TABLE_PREFIX}msg');
+			db_lock('{SQL_TABLE_PREFIX}users WRITE, {SQL_TABLE_PREFIX}level WRITE, {SQL_TABLE_PREFIX}msg WRITE');
 			$ll = 1;
 		}
 	

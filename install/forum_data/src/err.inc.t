@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: err.inc.t,v 1.9 2002/09/09 21:08:52 hackie Exp $
+*   $Id: err.inc.t,v 1.10 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,19 +15,20 @@
 *
 ***************************************************************************/
 
-function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
+function error_dialog($title, $msg, $returnto, $level='WARN', $ses=NULL)
 {
-	if ( empty($ses) ) $ses = $GLOBALS['ses'];
+	if (!$ses) {
+		$ses = $GLOBALS['ses'];
+	}
 	
-	$level = ( empty($level) ) ? 'WARN' : strtoupper($level);
-	$ref = !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ? $GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"] : '';
-		
-	if ( $level == 'FATAL' ) {
+	if (!strcasecmp($level, 'FATAL')) {
 		$error_msg = "[Error Level: $level] $title<br />\n";
 		$error_msg .= "[Message Sent to User] ".trim($msg)."<br />\n";
-		$error_msg .= "[User's IP] ".$GLOBALS['HTTP_SERVER_VARS']['REMOTE_ADDR']."<br />\n";
-		$error_msg .= "[Requested URL] http://".$GLOBALS['HTTP_SERVER_VARS']['HTTP_HOST'].$GLOBALS['HTTP_SERVER_VARS']['REQUEST_URI']."<br />\n";
-		if( !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ) $error_msg .= "[Referring Page] ".$GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]."<br />\n";
+		$error_msg .= "[User's IP] ".$_SERVER['REMOTE_ADDR']."<br />\n";
+		$error_msg .= "[Requested URL] http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."<br />\n";
+		if (!isset($_SERVER['HTTP_REFERER'])) {
+			$error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
+		}
 		
 		error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'fud_errors');
 	}
@@ -36,7 +37,6 @@ function error_dialog($title, $msg, $returnto, $level='', $ses=NULL)
 	$ses->putvar('err_id', $err_id);
 	$ses->putvar('er_msg', $msg);
 	$ses->putvar('err_t', $title);
-	$ses->putvar('ret_to', base64_encode($returnto));
 	$ses->save_session();
 	header('Location: {ROOT}?t=error&'.str_replace("&amp;", "&", _rsid).'&err_id='.$err_id);
 	exit;
@@ -55,10 +55,9 @@ function std_error($type)
 );
 
 	$err = $err_array["ERR_".$type];
-	if ( is_array($err) ) {
-		error_dialog($err[0], $err[1], $err[2], $err[3]);
-	}
-	else {
+	if (is_array($err)) {
+		error_dialog($err[0], $err[1], $err[2]);
+	} else {
 		error_dialog('{TEMPLATE: err_inc_criticaltitle}', '{TEMPLATE: err_inc_criticalmsg}', '{ROOT}?t=index&'._rsid, 'FATAL');
 		exit();
 	}
@@ -83,23 +82,28 @@ function invl_inp_err()
 
 function fud_sql_error_handler($query, $error_string, $error_number, $server_version)
 {
-	if( db_locked() ) db_unlock();
+	if (db_locked()) {
+		db_unlock();
+	}
 
-	if( empty($HTTP_SERVER_VARS['PATH_TRANSLATED']) ) $HTTP_SERVER_VARS['PATH_TRANSLATED'] = $GLOBALS['HTTP_SERVER_VARS']['argv'][0];
+	if (!isset($_SERVER['PATH_TRANSLATED'])) {
+		$_SERVER['PATH_TRANSLATED'] = __FILE__;
+	}
 	
-	$error_msg = "(".basename($HTTP_SERVER_VARS['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
+	$error_msg = "(".basename($_SERVER['PATH_TRANSLATED']).") ".$error_number.": ".$error_string."<br />\n";
 	$error_msg .= "Query: ".htmlspecialchars($query)."<br />\n";
 	$error_msg .= "Server Version: ".$server_version."<br />\n";
-	if( !empty($GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]) ) $error_msg .= "[Referring Page] ".$GLOBALS["HTTP_SERVER_VARS"]["HTTP_REFERER"]."<br />\n";
+	if( !empty($_SERVER['HTTP_REFERER']) ) $error_msg .= "[Referring Page] ".$_SERVER['HTTP_REFERER']."<br />\n";
 	
 	if( !error_log('['.gmdate("D M j G:i:s T Y", __request_timestamp__).'] '.base64_encode($error_msg)."\n", 3, $GLOBALS['ERROR_PATH'].'sql_errors') ) {
 		echo "<b>UNABLE TO WRITE TO SQL LOG FILE</b><br>\n";
 		echo $error_msg;
 	} else {
-		if( isset($GLOBALS['usr']) && $GLOBALS['usr']->is_mod == 'A' ) 
+		if (_uid && $GLOBALS['usr']->is_mod == 'A') {
 			echo $error_msg;
-		else	
+		} else {
 			trigger_error('{TEMPLATE: err_inc_query_err}', E_USER_ERROR);
+		}
 	}
 	exit;
 }

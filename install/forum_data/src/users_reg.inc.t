@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: users_reg.inc.t,v 1.13 2003/03/13 11:04:47 hackie Exp $
+*   $Id: users_reg.inc.t,v 1.14 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -255,7 +255,7 @@ function get_id_by_email($email)
 
 function get_id_by_login($login)
 {
-	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".$login."'");
+	return q_singleval("SELECT id FROM {SQL_TABLE_PREFIX}users WHERE login='".addslashes($login)."'");
 }
 
 function get_id_by_alias($alias)

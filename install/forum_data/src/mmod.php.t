@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: mmod.php.t,v 1.8 2003/03/30 18:03:11 hackie Exp $
+*   $Id: mmod.php.t,v 1.9 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -19,27 +19,24 @@
 	{POST_HTML_PHP}
 	
 	if (isset($_REQUEST['del']) && (int)$_REQUEST['del']) {
-		$_REQUEST['del'] = (int)$_REQUEST['del'];
-		$msg = new fud_msg_edit;
-		$msg->get_by_id($_REQUEST['del']);
-		$th = $msg->thread_id;
+		if (!($data = db_saq('SELECT {SQL_TABLE_PREFIX}thread.forum_id,{SQL_TABLE_PREFIX}msg.thread_id,{SQL_TABLE_PREFIX}msg.id,{SQL_TABLE_PREFIX}msg.subject,{SQL_TABLE_PREFIX}thread.root_msg_id,{SQL_TABLE_PREFIX}msg.reply_to,{SQL_TABLE_PREFIX}thread.replies FROM {SQL_TABLE_PREFIX}msg INNER JOIN {SQL_TABLE_PREFIX}thread ON {SQL_TABLE_PREFIX}thread.id={SQL_TABLE_PREFIX}msg.thread_id WHERE {SQL_TABLE_PREFIX}msg.id='.$_REQUEST['del']))) {
+			check_return($ses->returnto);		
+		}
 	} else if (isset($_REQUEST['th']) && (int)$_REQUEST['th']) {
-		$th = (int) $_REQUEST['th'];	
+		/* confirm that the thread is indeed a valid thread */
+		if (!($data = db_saq('SELECT forum_id,id FROM {SQL_TABLE_PREFIX}thread WHERE id='.$_REQUEST['th']))) {
+			check_return($ses->returnto);
+		}
 	} else {
 		check_return($ses->returnto);
 	}
 
-	$thread = new fud_thread;
-	$frm = new fud_forum;
-	$thread->get_by_id($th);
-	$frm->get($thread->forum_id);
-	
-	if (($usr->is_mod == 'A' || $frm->is_moderator(_uid))) {
+	if (($usr->is_mod == 'A' || is_moderator($data[0], _uid))) {
 		$MOD = 1;
 	} else {
-		if (isset($_REQUEST['del']) && !is_perms(_uid, $frm->id, 'DEL')) {
+		if (isset($_REQUEST['del']) && !is_perms(_uid, $data[0], 'DEL')) {
 			check_return($ses->returnto);
-		} else if (isset($_REQUEST['lock']) && !is_perms(_uid, $frm->id, 'LOCK')) {
+		} else if (isset($_REQUEST['lock']) && !is_perms(_uid, $data[0], 'LOCK')) {
 			check_return($ses->returnto);
 		} else {
 			check_return($ses->returnto);
@@ -48,7 +45,7 @@
 	
 	if (!empty($_REQUEST['del'])) {
 		if (empty($_POST['confirm'])) {
-			if ($msg->id != $thread->root_msg_id) {
+			if ($data[2] != $data[4]) {
 				$delete_msg = '{TEMPLATE: single_msg_delete}';
 			} else {
 				$delete_msg = '{TEMPLATE: thread_delete}';
@@ -59,38 +56,39 @@
 		}
 		
 		if (isset($_POST['YES'])) {
-			if ($thread->root_msg_id == $msg->id) {
-				logaction(_uid, 'DELTHR', 0, '"'.addslashes($thread->subject).'" w/'.$thread->replies.' replies');
-			} else {
-				logaction(_uid, 'DELMSG', 0, addslashes($msg->subject));
-			}
-			$msg->delete();
-			if ($msg->id == $thread->root_msg_id) {
-				header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$frm->id);
+			if ($data[2] == $data[4]) {
+				logaction(_uid, 'DELTHR', 0, '"'.addslashes($data[3]).'" w/'.$data[6].' replies');
+
+				fud_msg_edit::delete(TRUE, $data[2], 1);
+
+				header('Location: {ROOT}?t='.t_thread_view.'&'._rsidl.'&frm_id='.$data[0]);
 				exit;
+			} else {
+				logaction(_uid, 'DELMSG', 0, addslashes($data[3]));
+				fud_msg_edit::delete(TRUE. $data[2], 0);
 			}
 		}
 		
 		if (d_thread_view == 'tree') {
-			if (!$msg->reply_to) {
-				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$thread->id);
+			if (!$data[5]) {
+				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1]);
 			} else {
-				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$thread->id.'&mid='.$msg->reply_to);
+				header('Location: {ROOT}?t=tree&'._rsidl.'&th='.$data[1].'&mid='.$msg->reply_to);
 			}
 		} else {
 			$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-			$pos = q_singelval('SELECT replies + 1 FROM {SQL_TABLE_PREFIX}thread WHERE id='.$thread->id);
+			$pos = q_singelval('SELECT replies + 1 FROM {SQL_TABLE_PREFIX}thread WHERE id='.$data[1]);
 			$start = (ceil((pos/$count))-1)*$count;
-			header('Location: {ROOT}?t=msg&th='.$thread->id.'&'._rsidl.'&start='.$start);
+			header('Location: {ROOT}?t=msg&th='.$data[1].'&'._rsidl.'&start='.$start);
 		}
 		exit;
 	} else {
 		if (isset($_REQUEST['lock'])) {
-			logaction(_uid, 'THRLOCK', $thread->id);
-			$thread->lock($thread->id);
+			logaction(_uid, 'THRLOCK', $data[1]);
+			$th_lock($data[1]);
 		} else {
-			logaction(_uid, 'THRUNLOCK', $thread->id);
-			$thread->unlock($thread->id);	
+			logaction(_uid, 'THRUNLOCK', $data[1]);
+			$th_unlock($data[1]);	
 		}
 	}
 	check_return($ses->returnto);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum.inc.t,v 1.3 2002/10/24 23:33:45 hackie Exp $
+*   $Id: forum.inc.t,v 1.4 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -114,6 +114,11 @@ class fud_forum
 		return $to;
 	}
 	
+}
+
+function is_moderator($frm_id, $user_id)
+{
+	return q_singleval('SELECT id FROM {SQL_TABLE_PREFIX}mod WHERE user_id='.$user_id.' AND forum_id='.$this->id);
 }
 
 if ( defined('admin_form') && !defined("_forum_adm_inc_") ) fud_use('forum_adm.inc');

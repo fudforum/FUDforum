@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.13 2003/03/30 18:03:11 hackie Exp $
+*   $Id: cookies.inc.t,v 1.14 2003/03/31 11:29:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,7 +75,7 @@ class fud_session
 			}
 
 			if (!db_locked()) {
-				db_lock('WRITE {SQL_TABLE_PREFIX}ses');
+				db_lock('{SQL_TABLE_PREFIX}ses WRITE');
 				$ll = 1;
 			}
 
@@ -83,7 +83,10 @@ class fud_session
 			if(!$this->user_id) {
 				$this->user_id = q_singleval("SELECT CASE WHEN MAX(user_id)>2000000000 THEN MAX(user_id)+1 ELSE 2000000001 END FROM {SQL_TABLE_PREFIX}ses");
 			}
-
+			if (!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				$_SERVER['HTTP_X_FORWARDED_FOR'] = '';
+			}
+			
 			$this->id = db_qid("INSERT INTO {SQL_TABLE_PREFIX}ses (ses_id,time_sec,data,sys_id,user_id) VALUES('".$ses_id."',".__request_timestamp__.", ".$db_str.", '".md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR'])."',".$this->user_id.")");
 
 			if (isset($ll)) {
@@ -98,6 +101,9 @@ class fud_session
 			}	
 			
 			if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']]) || $not_use_cookie) {
+				if (!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+					$_SERVER['HTTP_X_FORWARDED_FOR'] = '';
+				}
 				q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id='".md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR'])."', ".$usr_id_fld." time_sec=".__request_timestamp__.", data=".$db_str." WHERE id=".$this->id);
 			} else {
 				q("UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=NULL, ".(isset($usr_id_fld)?$usr_id_fld:'')." time_sec=".__request_timestamp__.", data=".$db_str." WHERE id=".$this->id);
@@ -147,6 +153,9 @@ class fud_session
 		if (isset($_COOKIE[$GLOBALS['COOKIE_NAME']])) {
 			return $this->restore_session($_COOKIE[$GLOBALS['COOKIE_NAME']]);
 		} else if (isset($_REQUEST['S'])) {
+			if (!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				$_SERVER['HTTP_X_FORWARDED_FOR'] = '';
+			}
 			$this->sys_id = md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR']);
 			return $this->restore_session($_REQUEST['S']);
 		}
