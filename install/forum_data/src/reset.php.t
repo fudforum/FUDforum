@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reset.php.t,v 1.19 2004/01/29 22:58:32 hackie Exp $
+* $Id: reset.php.t,v 1.20 2004/01/29 23:14:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -64,7 +64,7 @@ function usr_reset_passwd($id)
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: register_conf_subject}', '{TEMPLATE: register_conf_msg}');
 			} else {
 				$key = usr_reset_key($uobj->id);
-				$url = '{ROOT}?t=reset&reset_key='.$key;
+				$url = '{FULL_ROOT}{ROOT}?t=reset&reset_key='.$key;
 				send_email($NOTIFY_FROM, $email, '{TEMPLATE: reset_newpass_title}', '{TEMPLATE: reset_reset}');
 			}
 			error_dialog('{TEMPLATE: reset_err_rstconf_title}', '{TEMPLATE: reset_err_rstconf_msg}');

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.105 2004/01/29 22:58:32 hackie Exp $
+* $Id: post.php.t,v 1.106 2004/01/29 23:14:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -213,7 +213,9 @@ function flood_check()
 				if (strpos($msg_body, '[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
 					$msg_body = str_replace('[img]{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
 				}
-
+				if (strpos($msg_body, '[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]') !== false) {
+					$msg_body = str_replace('[img]{FULL_ROOT}{ROOT}?t=getfile&id='.$_POST['file_del_opt'].'[/img]', '', $msg_body);
+				}
 				$attach_count--;
 			}
 

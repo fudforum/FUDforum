@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: imsg_edt.inc.t,v 1.90 2004/01/04 16:38:26 hackie Exp $
+* $Id: imsg_edt.inc.t,v 1.91 2004/01/29 23:14:54 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -641,7 +641,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 {
 	if (isset($to['EMAIL']) && (is_string($to['EMAIL']) || (is_array($to['EMAIL']) && count($to['EMAIL'])))) {
 		$do_email = 1;
-		$goto_url['email'] = '{ROOT}?t=rview&goto='.$msg_id;
+		$goto_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&goto='.$msg_id;
 		if ($GLOBALS['FUD_OPT_2'] & 64) {
 
 			$obj = db_sab("SELECT p.total_votes, p.name AS poll_name, m.reply_to, m.subject, m.id, m.post_stamp, m.poster_id, m.foff, m.length, m.file_id, u.alias, m.attach_cnt, m.attach_cache, m.poll_cache FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id WHERE m.id=".$msg_id." AND m.apr=1");
@@ -670,7 +670,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$plain_text = read_msg_body($obj->foff, $obj->length, $obj->file_id);
 			$iemail_unsub = $id_type == 'thr' ? '{TEMPLATE: iemail_thread_unsub}' : '{TEMPLATE: iemail_forum_unsub}';
 
-			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" .
+			$body_email = $boundry . "Content-Type: text/plain; charset=" . $CHARSET . "; format=flowed\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . strip_tags($plain_text) . "\r\n\r\n" . '{TEMPLATE: iemail_participate}' . ' ' . '{FULL_ROOT}{ROOT}?t=rview&th=' . $id . "&notify=1&opt=off\r\n" .
 			$boundry . "Content-Type: text/html; charset=" . $CHARSET . "\r\nContent-Transfer-Encoding: 7bit\r\n\r\n" . make_email_message($plain_text, $obj, $iemail_unsub) . "\r\n" . substr($boundry, 0, -2) . "--\r\n";
 		}
 	}
@@ -691,7 +691,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 		$subj = '{TEMPLATE: iemail_thr_subject}';
 
 		if (!isset($body_email) && isset($do_email)) {
-			$unsub_url['email'] = '{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
+			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&th='.$id.'&notify=1&opt=off';
 			$body_email = '{TEMPLATE: iemail_thr_bodyemail}';
 		}
 
@@ -709,7 +709,7 @@ function send_notifications($to, $msg_id, $thr_subject, $poster_login, $id_type,
 			$body_icq = '{TEMPLATE: iemail_frm_bodyicq}';
 		}
 		if (!isset($body_email) && isset($do_email)) {
-			$unsub_url['email'] = '{ROOT}?t=rview&unsub=1&frm_id='.$id;
+			$unsub_url['email'] = '{FULL_ROOT}{ROOT}?t=rview&unsub=1&frm_id='.$id;
 			$body_email = '{TEMPLATE: iemail_frm_bodyemail}';
 		}
 	}

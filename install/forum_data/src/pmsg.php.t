@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pmsg.php.t,v 1.34 2004/01/04 16:38:27 hackie Exp $
+* $Id: pmsg.php.t,v 1.35 2004/01/29 23:14:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -50,7 +50,6 @@
 
 	$cur_ppage = tmpl_cur_ppage($folder_id, $folders);
 
-	$lnk = $folder_id == 4 ? '{ROOT}?t=pmsg&amp;msg_id' : '';
 	$author_dest_col = $folder_id == 3 ? '{TEMPLATE: pmsg_recepient}' : '{TEMPLATE: pmsg_author}';
 
 	$select_options_cur_folder = tmpl_draw_select_opt(implode("\n", array_keys($folders)), implode("\n", $folders), $folder_id, '{TEMPLATE: cur_folder_opt}', '{TEMPLATE: cur_folder_opt_selected}');
