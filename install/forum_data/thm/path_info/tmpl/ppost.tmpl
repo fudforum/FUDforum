@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.3 2003/06/02 15:45:27 hackie Exp $
+*   $Id: ppost.tmpl,v 1.4 2003/07/19 18:13:06 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -101,11 +101,11 @@
 <tr><th colspan=2>{MSG: post_form}<a name="ptop"> </a></th></tr>
 <tr class="RowStyleB"><td nowrap class="GenText">{MSG: post_logedin_user}</td><td class="GenText" width="100%">{VAR: usr->login} [<a href="{ROOT}/l/1/{DEF: _rsid}" class="GenLink">{MSG: post_logout}</a>]</td></tr>
 <tr class="RowStyleB"><td class="GenText">{MSG: ppost_to}</td><td class="GenText"><input type="text" name="msg_to_list" value="{VAR: msg_to_list}" tabindex="1"> {TEMPLATE-DATA: pm_find_user} [<a href="javascript://" onClick="javascript: window_open('{ROOT}/qb/{DEF: _rsid}', 'buddy_list',275,300);" class="GenLink">{MSG: ppost_from_buddy_list}</a>]{VAR: to_err}</td></tr>
-<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR-HTML: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
+<tr class="RowStyleB"><td class="GenText">{MSG: post_title}</td><td class="GenText"><input type="text" maxLength=100 name="msg_subject" value="{VAR: msg_subject}" size=50 tabindex="2"> {VAR: msg_subect_err}</td></tr>
 {TEMPLATE-DATA: post_icons}
 {TEMPLATE-DATA: post_smilies}
 {TEMPLATE-DATA: fud_code_icons}
-<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR-HTML: msg_body}</textarea></td></tr>
+<tr class="RowStyleA"><td nowrap valign=top class="GenText">{MSG: post_body}<br /><br />{TEMPLATE-DATA: post_options}</td><td>{VAR: message_err}<textarea rows="20" cols="65" wrap="virtual" tabindex="3" name="msg_body" onKeyUp="storeCaret(this);" onClick="storeCaret(this);" onSelect="storeCaret(this);">{VAR: msg_body}</textarea></td></tr>
 {TEMPLATE-DATA: file_attachments}
 <tr class="RowStyleB" valign="top">
 <td class="GenText">{MSG: post_options}</td>
