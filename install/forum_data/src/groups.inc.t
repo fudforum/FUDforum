@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: groups.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: groups.inc.t,v 1.3 2002/06/19 00:19:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -458,6 +458,11 @@ class fud_group
 	function get_member_by_ent_id($id)
 	{
 		return db_singleobj(q("SELECT * FROM {SQL_TABLE_PREFIX}group_members LEFT JOIN {SQL_TABLE_PREFIX}users ON {SQL_TABLE_PREFIX}group_members.user_id={SQL_TABLE_PREFIX}users.id WHERE {SQL_TABLE_PREFIX}group_members.id=".$id." AND {SQL_TABLE_PREFIX}group_members.group_id=".$this->id));
+	}
+	
+	function rename($name)
+	{
+		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='$name' WHERE id=$this->id");
 	}
 }
 

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: forum_adm.inc.t,v 1.2 2002/06/18 18:26:09 hackie Exp $
+*   $Id: forum_adm.inc.t,v 1.3 2002/06/19 00:19:46 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -92,6 +92,14 @@ class fud_forum_adm extends fud_forum
 	
 	function sync()
 	{
+		if ( !DB_LOCKED ) { 
+			$ll=1; 
+			DB_LOCK('
+				{SQL_TABLE_PREFIX}forum+, 
+				{SQL_TABLE_PREFIX}groups+
+			'); 
+		}
+		
 		q("UPDATE {SQL_TABLE_PREFIX}forum SET 
 			cat_id=".$this->cat_id.",
 			name='".$this->name."',
@@ -107,15 +115,10 @@ class fud_forum_adm extends fud_forum
 			max_file_attachments=".intzero($this->max_file_attachments).",
 			message_threshold=".intzero($this->message_threshold)."
 		WHERE id=".$this->id);
-
-		if ( $this->allow_user_vote == 'Y' ) {
-			$r = q("SELECT {SQL_TABLE_PREFIX}thread.id, ROUND(AVG({SQL_TABLE_PREFIX}thread_rate_track.rating)) as avg_rating FROM {SQL_TABLE_PREFIX}thread LEFT JOIN {SQL_TABLE_PREFIX}forum ON {SQL_TABLE_PREFIX}thread.forum_id={SQL_TABLE_PREFIX}forum.id AND {SQL_TABLE_PREFIX}forum.allow_user_vote='Y' LEFT JOIN {SQL_TABLE_PREFIX}thread_rate_track ON {SQL_TABLE_PREFIX}thread_rate_track.thread_id={SQL_TABLE_PREFIX}thread.id AND {SQL_TABLE_PREFIX}forum.id=".$this->id." GROUP BY {SQL_TABLE_PREFIX}thread_rate_track.thread_id");
-			while ( $obj = db_rowobj($r) ) {
-				if ( !strlen($obj->avg_rating) ) $obj->avg_rating = 0;
-				q("UPDATE {SQL_TABLE_PREFIX}thread SET rating=".$obj->avg_rating." WHERE id=".$obj->id);
-			}
-			qf($r);
-		}
+		
+		q("UPDATE {SQL_TABLE_PREFIX}groups SET name='$this->name' WHERE res='forum' AND res_id=$this->id");
+		
+		if ( $ll ) DB_UNLOCK();
 	}
 	
 	function change_pos($old, $new, $cat_id)
