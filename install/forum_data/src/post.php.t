@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post.php.t,v 1.115 2004/06/07 16:03:51 hackie Exp $
+* $Id: post.php.t,v 1.116 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -396,9 +396,7 @@ function flood_check()
 	 			}
 
 				/* register a view, so the forum marked as read */
-				if (isset($frm)) {
-					user_register_forum_view($frm->id);
-				}
+				user_register_forum_view($frm->id);
 			}
 
 			/* where to redirect, to the treeview or the flat view and consider what to do for a moderated forum */

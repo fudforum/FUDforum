@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: ipoll.inc.t,v 1.20 2004/03/16 16:26:19 hackie Exp $
+* $Id: ipoll.inc.t,v 1.21 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -24,12 +24,13 @@ function poll_delete($id)
 
 function poll_fetch_opts($id)
 {
+	$a = array();
 	$c = uq('SELECT id,name FROM {SQL_TABLE_PREFIX}poll_opt WHERE poll_id='.$id);
 	while ($r = db_rowarr($c)) {
 		$a[$r[0]] = $r[1];
 	}
 
-	return (isset($a) ? $a : null);
+	return $a;
 }
 
 function poll_del_opt($id, $poll_id)

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: register.php.t,v 1.119 2004/05/21 21:28:02 hackie Exp $
+* $Id: register.php.t,v 1.120 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -141,6 +141,8 @@ function register_form_check($user_id)
 	/* Url Avatar check */
 	if (!empty($_POST['reg_avatar_loc']) && !($GLOBALS['reg_avatar_loc_file'] = fetch_img($_POST['reg_avatar_loc'], $user_id))) {
 		set_err('avatar', '{TEMPLATE: register_err_not_valid_img}');
+	} else {
+		$GLOBALS['reg_avatar_loc_file'] = '';
 	}
 
 	/* Alias Check */
@@ -467,7 +469,7 @@ function decode_uent(&$uent)
 						$uent->users_opt ^= 4194304|16777216;
 					}
 				} else {
-					if ($_POST['avatar_type'] == 'c' && isset($reg_avatar_loc_file)) { /* New URL avatar */
+					if ($_POST['avatar_type'] == 'c' && $reg_avatar_loc_file) { /* New URL avatar */
 						$common_av_name = $reg_avatar_loc_file;
 
 						if (!empty($avatar_arr['file'])) {
@@ -475,6 +477,8 @@ function decode_uent(&$uent)
 						}
 					} else if ($_POST['avatar_type'] == 'u' && empty($avatar_arr['del']) && empty($avatar_arr['leave'])) { /* uploaded file */
 						$common_av_name = $avatar_arr['file'];
+					} else {
+						$common_av_name = '';
 					}
 
 					/* remove old avatar if need be */
@@ -487,7 +491,7 @@ function decode_uent(&$uent)
 					}
 
 					/* add new avatar if needed */
-					if (isset($common_av_name)) {
+					if ($common_av_name) {
 						$common_av_name = basename($common_av_name);
 						$av_path = 'images/custom_avatars/' . substr($common_av_name, 0, strpos($common_av_name, '_'));
 						copy($TMP . basename($common_av_name), $WWW_ROOT_DISK . $av_path);
@@ -516,7 +520,7 @@ function decode_uent(&$uent)
 			$uent->sync_user();
 
 			/* if the user had changed their e-mail, force them re-confirm their account (unless admin) */
-			if ($FUD_OPT_2 & 1 && isset($old_email) && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
+			if ($FUD_OPT_2 & 1 && $old_email && $old_email != $uent->email && !($uent->users_opt & 1048576)) {
 				$conf_key = usr_email_unconfirm($uent->id);
 				send_email($NOTIFY_FROM, $uent->email, '{TEMPLATE: register_email_change_subject}', '{TEMPLATE: register_email_change_msg}', '');
 			}
@@ -534,6 +538,8 @@ function decode_uent(&$uent)
 			error_dialog('{TEMPLATE: register_err_cantreg_title}', '{TEMPLATE: regsiter_err_cantreg_msg}');
 		}
 	}
+
+	$avatar_type = '';
 
 	/* populate form variables based on user's profile */
 	if (__fud_real_user__ && !isset($_POST['prev_loaded'])) {
@@ -679,7 +685,7 @@ function decode_uent(&$uent)
 					$sel_val = "c\nu";
 				}
 			} else {
-				$sel_opt = $sel_val = '';
+				$a_type = $sel_opt = $sel_val = '';
 
 				if (q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}avatar') && $FUD_OPT_1 & 16) {
 					$sel_opt .= "{TEMPLATE: register_builtin}\n";
@@ -688,23 +694,25 @@ function decode_uent(&$uent)
 				}
 				if ($FUD_OPT_1 & 8) {
 					$sel_opt .= "{TEMPLATE: register_uploaded}\n";
-					if (!isset($a_type)) {
+					if (!$a_type) {
 						$a_type = 'u';
 					}
 					$sel_val .= "u\n";
 				}
 				if ($FUD_OPT_1 & 4) {
 					$sel_opt .= "{TEMPLATE: register_specify_url}\n";
-					if (!isset($a_type)) {
+					if (!$a_type) {
 						$a_type = 'c';
 					}
 					$sel_val .= "c\n";
 				}
 				$sel_opt = trim($sel_opt);
 				$sel_val = trim($sel_val);
+			} else {
+				$a_type = '';
 			}
-			if (isset($a_type)) { /* rare condition, no built-in avatars & no other avatars are allowed */
-				if (!isset($avatar_type)) {
+			if ($a_type) { /* rare condition, no built-in avatars & no other avatars are allowed */
+				if (!$avatar_type) {
 					$avatar_type = $a_type;
 				}
 				$avatar_type_sel_options = tmpl_draw_select_opt($sel_val, $sel_opt, $avatar_type, '{TEMPLATE: sel_opt}', '{TEMPLATE: sel_opt_selected}');
@@ -717,20 +725,22 @@ function decode_uent(&$uent)
 					} else if (!empty($_POST['reg_avatar']) && ($im = q_singleval('SELECT img FROM {SQL_TABLE_PREFIX}avatar WHERE id='.(int)$_POST['reg_avatar']))) {
 						$custom_avatar_preview = make_avatar_loc('images/avatars/' . $im, $WWW_ROOT_DISK, $WWW_ROOT);
 					} else {
-						if (isset($reg_avatar_loc_file)) {
+						if ($reg_avatar_loc_file) {
 							$common_name = $reg_avatar_loc_file;
 						} else if (!empty($avatar_arr['file']) && empty($avatar_arr['del'])) {
 							$common_name = $avatar_arr['file'];
+						} else {
+							$common_name = '';
 						}
-						if (isset($common_name)) {
-							$custom_avatar_preview = make_avatar_loc(basename($common_name), $TMP, '{ROOT}?t=tmp_view&img=');
-						}
+						$custom_avatar_preview = $common_name ? make_avatar_loc(basename($common_name), $TMP, '{ROOT}?t=tmp_view&img=') : '';
 					}
 				} else if ($uent->avatar_loc) {
 					$custom_avatar_preview = $uent->avatar_loc;
+				} else {
+					$custom_avatar_preview = '';
 				}
 
-				if (!isset($custom_avatar_preview)) {
+				if (!$custom_avatar_preview) {
 					$custom_avatar_preview = '<img src="blank.gif" />';
 				}
 

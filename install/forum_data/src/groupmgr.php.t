@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: groupmgr.php.t,v 1.37 2004/03/08 15:28:59 hackie Exp $
+* $Id: groupmgr.php.t,v 1.38 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -156,15 +156,17 @@ function draw_tmpl_perm_table($perm, $perms, $names)
 			invl_inp_err();
 		}
 		$perm = $mbr->group_members_opt;
+	} else {
+		$mbr = 0;
 	}
 
 	/* anon users cannot vote or rate */
-	if (isset($mbr) && !$mbr->user_id) {
+	if ($mbr && !$mbr->user_id) {
 		$maxperms = $maxperms &~ (512|1024);
 	}
 
 	/* no members inside the group */
-	if (!$perm && !isset($mbr)) {
+	if (!$perm && !$mbr) {
 		$perm = $maxperms;
 	}
 

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: pdf.php.t,v 1.24 2004/05/12 15:26:08 hackie Exp $
+* $Id: pdf.php.t,v 1.25 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -336,13 +336,11 @@ function post_to_smiley($text, $re)
 		invl_inp_err();
 	}
 
+	$re = array();
 	$c = uq('SELECT code, '.__FUD_SQL_CONCAT__.'(\'images/smiley_icons/\', img), descr FROM {SQL_TABLE_PREFIX}smiley');
 	while ($r = db_rowarr($c)) {
 		$im = '<img src="'.$r[1].'" border=0 alt="'.$r[2].'">';
 		$re[$im] = (($p = strpos($r[0], '~')) !== false) ? substr($r[0], 0, $p) : $r[0];
-	}
-	if (!isset($re)) {
-		$re = null;
 	}
 
 	if (_uid) {

@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: poll.php.t,v 1.19 2004/01/04 16:38:27 hackie Exp $
+* $Id: poll.php.t,v 1.20 2004/06/07 17:10:35 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -98,17 +98,15 @@
 		} else {
 			poll_opt_add($pl_option, $pl_id);
 		}
-		$pl_option = '';
 	}
+	$pl_option = '';
 
 	/* if we have a poll, fetch poll options */
-	if ($pl_id) {
-		$poll_opts = poll_fetch_opts($pl_id);
-	}
+	$poll_opts = $pl_id ? poll_fetch_opts($pl_id) : array();
 
 	/* edit a poll option */
-	if (isset($_GET['pl_optedit'])) {
-		$pl_option = @$poll_opts[$_GET['pl_optedit']];
+	if (isset($_GET['pl_optedit'], $poll_opts[$_GET['pl_optedit']])) {
+		$pl_option = $poll_opts[$_GET['pl_optedit']];
 		$pl_option_id = $_GET['pl_optedit'];
 	}
 
@@ -130,7 +128,7 @@
 
 	/* this is only available on a created poll */
 	if ($pl_id) {
-		if (isset($pl_option)) {
+		if ($pl_option) {
 			$pl_option = post_to_smiley($pl_option);
 
 			if ($frm->forum_opt & 16) {
@@ -147,10 +145,8 @@
 		$pl_action = !isset($_GET['pl_optedit']) ? '{TEMPLATE: pl_add}' : '{TEMPLATE: pl_upd}';
 
 		$poll_option_entry_data = '';
-		if (!empty($poll_opts)) {
-			foreach ($poll_opts as $k => $v) {
-				$poll_option_entry_data .= '{TEMPLATE: poll_option_entry}';
-			}
+		foreach ($poll_opts as $k => $v) {
+			$poll_option_entry_data .= '{TEMPLATE: poll_option_entry}';
 		}
 
 		$poll_editor = '{TEMPLATE: poll_editor}';
