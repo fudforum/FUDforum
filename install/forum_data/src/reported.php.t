@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: reported.php.t,v 1.23 2003/10/16 21:59:05 hackie Exp $
+* $Id: reported.php.t,v 1.24 2003/11/10 00:15:13 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -12,7 +12,7 @@
 
 /*{PRE_HTML_PHP}*/
 
-	if (isset($_GET['del']) && ($del = (int)$_GET['del'])) {
+	if (isset($_GET['del']) && ($del = (int)$_GET['del']) && sq_check(0, $usr->last_visit)) {
 		if ($usr->users_opt & 1048576 || q_singleval('SELECT mr.id FROM {SQL_TABLE_PREFIX}msg_report mr INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=mr.msg_id INNER JOIN {SQL_TABLE_PREFIX}thread t ON t.id=m.thread_id INNER JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=t.forum_id AND mm.user_id='._uid.' WHERE mr.id='.$del)) {
 			q('DELETE FROM {SQL_TABLE_PREFIX}msg_report WHERE id='.$del);
 			if (db_affected()) {
