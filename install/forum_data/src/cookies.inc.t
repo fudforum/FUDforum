@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: cookies.inc.t,v 1.43 2003/11/04 23:29:58 hackie Exp $
+* $Id: cookies.inc.t,v 1.44 2003/11/05 01:22:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -28,7 +28,12 @@ function ses_get($id=0)
 			return;
 		}
 		if (isset($_SERVER['HTTP_REFERER']) && strncmp($_SERVER['HTTP_REFERER'], $GLOBALS['WWW_ROOT'], strlen($GLOBALS['WWW_ROOT']))) {
-			$q_opt .= " AND s.user_id > 2000000000 ";
+			/* more checks, we need those because some proxies mangle referer field */
+			$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
+			/* $p > 8 https:// or http:// */
+			if (($p = strpos($_SERVER['HTTP_REFERER'], $host)) === false || $p > 8) {
+				$q_opt .= " AND s.user_id > 2000000000 ";
+			}
 		}
 	} else {
 		$q_opt = "s.id='".$id."'";
