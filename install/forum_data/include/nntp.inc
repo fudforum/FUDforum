@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: nntp.inc,v 1.47 2004/06/07 15:24:53 hackie Exp $
+* $Id: nntp.inc,v 1.48 2004/07/08 18:22:28 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -163,7 +163,9 @@ class fud_nntp
 
 	function format_headers()
 	{
-		$this->headers = str_replace("\r\n", "\n", $this->headers);
+		/* convert to unix line endings and handle multi-line headers */
+		$this->headers = str_replace(array("\r\n", "\n "), array("\n",""), $this->headers);
+		
 		$hdr = explode("\n", trim($this->headers));
 		$this->headers = array();
 		foreach($hdr as $v) {
