@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: admannounce.php,v 1.9 2003/06/06 12:59:27 hackie Exp $
+*   $Id: admannounce.php,v 1.10 2003/07/28 16:53:32 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -75,13 +75,15 @@ function mk_date($y, $m, $d)
 			subject=\''.addslashes($_POST['a_subject']).'\',
 			text=\''.addslashes($_POST['a_text']).'\'
 			WHERE id='.$id);
-		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.$id);
 	}
 
 	if (isset($_POST['frm_list'], $id)) {
+		$_POST['frm_list'] = array_unique($_POST['frm_list']);
+		q('DELETE FROM '.$tbl.'ann_forums WHERE ann_id='.$id);
 		foreach ($_POST['frm_list'] as $v) {
 			q('INSERT INTO '.$tbl.'ann_forums (forum_id, ann_id) VALUES('.(int)$v.','.$id.')');
 		}
+		unset($frm_list);
 	}
 	
 	require($WWW_ROOT_DISK . 'adm/admpanel.php'); 
