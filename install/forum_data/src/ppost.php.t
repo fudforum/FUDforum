@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.php.t,v 1.11 2002/09/20 00:07:17 hackie Exp $
+*   $Id: ppost.php.t,v 1.12 2002/10/25 00:02:20 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -25,6 +25,11 @@
 	if( $GLOBALS['PM_ENABLED']=='N' ) {
 		error_dialog('{TEMPLATE: pm_err_nopm_title}', '{TEMPLATE: pm_err_nopm_msg}', $WWW_ROOT, '');
 		exit;		
+	}
+
+	if( $GLOBALS['usr']->pm_messages == 'N' ) {
+		error_dialog('{TEMPLATE: pm_err_disabled_title}', '{TEMPLATE: pm_err_disabled_msg}', $WWW_ROOT, '');
+		exit;
 	}
 
 	if( ($fldr_size = q_singleval("SELECT SUM(length) FROM {SQL_TABLE_PREFIX}pmsg WHERE duser_id=".$usr->id)) > $MAX_PMSG_FLDR_SIZE ) {

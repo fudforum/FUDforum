@@ -916,3 +916,5 @@ insert_uploaded_image:		Wstaw obraz w tekst wiadomo¶ci
 finduser_help:			Silnik wyszukiwania automagicznie wstawi maskê * do twojego ¿±dania. Np. by wyszukaæ wszystkich u¿ytkowników, których nazwa zaczyna siê na &#39;a&#39;, wpisz &#39;a&#39; w polu wyszukiwania.
 back_to_top:			powrót na górê
 iemail_participate:		By wzi±æ udzia³ w dyskusji, przejd¼ tu:
+pm_err_disabled_title:		Private Messaging Disabled
+pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.

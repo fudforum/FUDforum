@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: ppost.tmpl,v 1.12 2002/10/23 12:16:37 hackie Exp $
+*   $Id: ppost.tmpl,v 1.13 2002/10/25 00:02:21 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -333,4 +333,12 @@
 
 {SECTION: insert_uploaded_image}
 &nbsp;|&nbsp;<a href="javascript: insertTag(document.post_form.msg_body, \'[img]{ROOT}?t=getfile&id={VAR: obj->id}&private=1\', \'[/img]\');">{MSG: insert_uploaded_image}</a>
+{SECTION: END}
+
+{SECTION: pm_err_disabled_title}
+{MSG: pm_err_disabled_title}
+{SECTION: END}
+
+{SECTION: pm_err_disabled_msg}
+{MSG: pm_err_disabled_msg}
 {SECTION: END}

@@ -916,3 +916,5 @@ insert_uploaded_image:		将此图片显示在文章中
 finduser_help:			小提示：输入单个字母就可以搜索到以这个字母开头的用户.
 back_to_top:			返回顶部
 iemail_participate:		参与讨论, 点此:
+pm_err_disabled_title:		Private Messaging Disabled
+pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
