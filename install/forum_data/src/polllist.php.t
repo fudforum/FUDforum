@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: polllist.php.t,v 1.7 2003/04/16 10:35:52 hackie Exp $
+*   $Id: polllist.php.t,v 1.8 2003/05/02 13:17:16 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -54,7 +54,7 @@
 	if ($ttl) {
 		$c = uq('SELECT 
 				p.owner, p.name, (CASE WHEN expiry_date = 0 THEN 0 ELSE (p.creation_date + p.expiry_date) END) AS poll_expiry_date, p.creation_date, p.id AS poid, p.max_votes, p.total_votes,
-				u.alias, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.invisible_mode,
+				u.alias, u.alias AS login, (u.last_visit + '.($LOGEDIN_TIMEOUT * 60).') AS last_visit, u.invisible_mode,
 				m.id,
 				t.locked,
 				'.($usr->is_mod != 'A' ? 'mm.id' : '1').' AS mod,

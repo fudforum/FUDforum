@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.tmpl,v 1.16 2003/04/21 17:57:13 hackie Exp $
+*   $Id: usrinfo.tmpl,v 1.17 2003/05/02 13:17:08 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,7 +34,7 @@
 {SECTION: END}
 
 {SECTION: avatar}
-<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: avatar}</td><td class="GenText"><img src="{VAR: avatar_img}" border=0 /></td></tr>
+<tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}"><td nowrap valign="top" class="GenText">{MSG: avatar}</td><td class="GenText">{VAR: u->avatar_loc}</td></tr>
 {SECTION: END}
 
 {SECTION: email_link}
