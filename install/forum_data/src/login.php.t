@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: login.php.t,v 1.46 2003/11/14 10:50:19 hackie Exp $
+* $Id: login.php.t,v 1.47 2003/11/19 17:59:17 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -183,8 +183,13 @@ function error_check()
 					} else {
 						$usr->returnto .= '&S=' . $ses_id;
 					}
-					$usr->returnto .= '&SQ='.$usr_d->last_visit;
 				}
+			}
+
+			if (strpos($usr->returnto, '?') !== false) {
+				$usr->returnto .= '&SQ='.$usr_d->last_visit;
+			} else {
+				$usr->returnto .= '?SQ='.$usr_d->last_visit;
 			}
 
 			check_return($usr->returnto);
