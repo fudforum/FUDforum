@@ -5,7 +5,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: maillist.php,v 1.14 2002/09/12 22:29:48 hackie Exp $
+*   $Id: maillist.php,v 1.15 2002/10/02 20:35:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -29,6 +29,10 @@
 ***************************************************************************/
 	
 	set_time_limit(100);
+
+	if( !ini_get("register_argc_argv") ) {
+		ini_set("register_argc_argv", 1);
+	}
 
 class fud_emsg
 {

@@ -4,7 +4,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: nntp.php,v 1.3 2002/08/23 02:50:12 hackie Exp $
+*   $Id: nntp.php,v 1.4 2002/10/02 20:35:35 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -17,6 +17,9 @@
 ***************************************************************************/
 
 	set_time_limit(600);
+	if( !ini_get("register_argc_argv") ) {
+		ini_set("register_argc_argv", 1);
+	}
 	define('forum_debug', 1);
 
 	if( $HTTP_SERVER_VARS['argc'] < 2 ) exit("Missing Forum ID Paramater\n");	
