@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: selmsg.tmpl,v 1.30 2004/11/24 19:53:39 hackie Exp $
+* $Id: selmsg.tmpl,v 1.31 2005/01/28 17:15:46 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -32,23 +32,23 @@
 {SECTION: END}
 
 {SECTION: todays_posts todays posts link}
-<a href="{TEMPLATE: todays_posts_lnk}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {VAR: s_today}</a>
+<a href="{TEMPLATE: todays_posts_lnk}" title="{MSG: sel_todays_posts_desc}">{MSG: sel_todays_posts} {IF: isset($_GET['date'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 {SECTION: END}
 
 {SECTION: unread_messages unread messages link}
-&nbsp;| <a href="{TEMPLATE: unread_messages_lnk}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {VAR: s_unread}</a>
+&nbsp;| <a href="{TEMPLATE: unread_messages_lnk}" title="{MSG: sel_unread_messages_desc}">{MSG: sel_unread_messages} {IF: isset($_GET['unread'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 {SECTION: END}
 
 {SECTION: unanswered unreplied posts link}
-&nbsp;| <a href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {VAR: s_unu}</a>
+&nbsp;| <a href="{TEMPLATE: unanswered_lnk}" title="{MSG: sel_unanswered_posts_desc}">{MSG: sel_unanswered_posts} {IF: isset($_GET['reply_count'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 {SECTION: END}
 
 {SECTION: subscribed_frm subscribed forum link}
-&nbsp;| <a href="{TEMPLATE: subscribed_frm_lnk}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {VAR: s_subf}</a>
+&nbsp;| <a href="{TEMPLATE: subscribed_frm_lnk}" title="{MSG: subscribed_forums_desc}">{MSG: subscribed_forums} {IF: isset($_GET['sub_forum_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 {SECTION: END}
 
 {SECTION: subscribed_thr subscribed thread link}
-&nbsp;| <a href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {VAR: s_subt}</a>
+&nbsp;| <a href="{TEMPLATE: subscribed_thr_lnk}" title="{MSG: subscribed_threads_desc}">{MSG: subscribed_threads} {IF: isset($_GET['sub_th_limit'])}{TEMPLATE: status_indicator_on}{ELSE}{TEMPLATE: status_indicator_off}{END}</a>
 {SECTION: END}
 
 {SECTION: more_unread_messages more unread messages link}
