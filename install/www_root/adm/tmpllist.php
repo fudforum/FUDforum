@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tmpllist.php,v 1.20 2003/05/26 11:15:05 hackie Exp $
+*   $Id: tmpllist.php,v 1.21 2003/08/01 17:56:52 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -148,7 +148,7 @@ function goto_tmpl($tmpl)
 		}
 		$p = 0;
 		while (($p = strpos($tmpl_data, '{MSG: ', $p)) !== FALSE) {
-			$p += 5;
+			$p += 6;
 			$e = strpos($tmpl_data, '}', $p);
 			$msg_list[] = substr($tmpl_data, $p, ($e - $p));
 			$p = $e;
