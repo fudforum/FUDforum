@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: logedin.inc.t,v 1.3 2002/06/26 19:35:55 hackie Exp $
+*   $Id: logedin.inc.t,v 1.4 2002/06/28 17:54:26 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -46,8 +46,10 @@
 			else
 				$loged_in_list .= '{TEMPLATE: online_user_link}';
 		}
-		
+		$logedin = '{TEMPLATE: logedin}';
 	}
+	else
+		$logedin ='';
 	
 	if ( $GLOBALS['FORUM_INFO'] != 'N' ) {
 		$r = q("select sum(post_count) AS post_count, sum(thread_count) AS thread_count FROM {SQL_TABLE_PREFIX}forum");
@@ -63,6 +65,10 @@
 			$url = ( _uid ) ? $usr->default_view : 'msg';
 			$last_msg = '{TEMPLATE: last_msg}';
 		}
-		$forum_status = '{TEMPLATE: forum_info}';
+		$forum_info = '{TEMPLATE: forum_info}';
 	}
+	else
+		$forum_info = '';
+		
+	$loged_in_list = ( $logedin || $forum_info ) ? '{TEMPLATE: loged_in_list}' : '';
 ?>
