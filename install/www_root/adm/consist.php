@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.82 2004/04/28 15:18:28 hackie Exp $
+* $Id: consist.php,v 1.83 2004/05/20 22:15:08 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -152,6 +152,7 @@ forum will be disabled.
 	draw_stat('Done: Rebuilding moderators');
 
 	draw_stat('Checking if all private messages have users');
+	$dpm = array();
 	$c = uq('SELECT pm.id FROM '.$tbl.'pmsg pm LEFT JOIN '.$tbl.'users u ON u.id=pm.ouser_id WHERE (pm.pmsg_opt & 16)=0 AND u.id IS NULL');
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];
@@ -160,13 +161,10 @@ forum will be disabled.
 	while ($r = db_rowarr($c)) {
 		$dpm[] = $r[0];
 	}
-	if (isset($dpm)) {
-		$cnt = count($dpm);
+	if (($cnt = count($dpm))) {
 		foreach ($dpm as $v) {
 			pmsg_del($v, 5);
 		}
-	} else {
-		$cnt = 0;
 	}
 	draw_info($cnt);
 
