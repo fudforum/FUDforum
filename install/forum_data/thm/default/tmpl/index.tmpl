@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.tmpl,v 1.58 2005/02/27 02:21:36 hackie Exp $
+* $Id: index.tmpl,v 1.59 2005/03/16 21:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -21,29 +21,12 @@
 {REF: show.tmpl}
 {REF: quicklogin.tmpl}
 
-{SECTION: index_table_heading}
-<tr>
-	<th colspan=3 class="wa">{MSG: index_forum}</th>
-	<th nowrap>{MSG: posts}</th>
-	<th nowrap>{MSG: threads}</th>
-	<th nowrap>{MSG: last_post}</th>
-</tr>
-{SECTION: END}
-
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
-<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{TEMPLATE: maximize_category}{ELSE}{TEMPLATE: minimize_category}{END}">{IF: !empty($collapse[$k])}{TEMPLATE: collapse_indicator_MAX}{ELSE}{TEMPLATE: collapse_indicator_MIN}{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
+<tr><td colspan="6" class="CatDesc" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><a href="{TEMPLATE: index_category_allow_collapse_Y_lnk}" class="CatLink" title="{IF: !empty($collapse[$k])}{MSG: maximize_category}{ELSE}{MSG: minimize_category}{END}">{IF: !empty($collapse[$k])}<img src="{THEME_IMAGE_ROOT}/max.png" alt="" />{ELSE}<img src="{THEME_IMAGE_ROOT}/min.png" alt="" />{END}</a> <a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a> {VAR: i[2]}</td></tr>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
 <tr><td class="CatDesc CatLockPad" colspan="6" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px"><span class="CatLockedName"><a href="{TEMPLATE: index_to_cat_lnk}" class="CatLink">{VAR: i[1]}</a></span> {VAR: i[2]}</td></tr>
-{SECTION: END}
-
-{SECTION: forum_icon}
-<img src="{VAR: r[6]}" alt="{MSG: forum_icon}" />
-{SECTION: END}
-
-{SECTION: no_forum_icon}
-&nbsp;
 {SECTION: END}
 
 {SECTION: moderators moderator list}
@@ -52,12 +35,12 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr>
-	<td class="RowStyleA wo">{IF: $r[6]}{TEMPLATE: forum_icon}{ELSE}{TEMPLATE: no_forum_icon}{END}</td>
+	<td class="RowStyleA wo">{IF: $r[6]}<img src="{VAR: r[6]}" alt="{MSG: forum_icon}" />{ELSE}&nbsp;{END}</td>
 	<td class="RowStyleB wo">{VAR: forum_read_indicator}</td>
 	<td class="RowStyleA wa"><a href="{TEMPLATE: index_forum_entry_lnk}" class="big">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td class="RowStyleB ac">{VAR: r[12]}</td>
 	<td class="RowStyleB ac">{VAR: r[13]}</td>
-	<td class="RowStyleA ac nw">{IF: $r[8]}{TEMPLATE: last_post}{ELSE}{TEMPLATE: na}{END}</td>
+	<td class="RowStyleA ac nw">{IF: $r[8]}<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>{ELSE}{MSG: na}{END}</td>
 </tr>
 {SECTION: END}
 
@@ -79,10 +62,6 @@
 <img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: forum_none_messages}" />
 {SECTION: END}
 
-{SECTION: last_post}
-<span class="DateText">{TEMPLATE: index_last_post_date}</span><br />{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END} <a href="{TEMPLATE: last_post_lnk}"><img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" /></a>
-{SECTION: END}
-
 {SECTION: profile_link_user}
 <a href="{TEMPLATE: profile_link_user_lnk}">{VAR: r[4]}</a>
 {SECTION: END}
@@ -99,44 +78,29 @@
 {GVAR: ANON_NICK}
 {SECTION: END}
 
-{SECTION: collapse_indicator_MAX an indicator showing that this category can be expanded}
-<img src="{THEME_IMAGE_ROOT}/max.png" alt="" />
-{SECTION: END}
-
-{SECTION: collapse_indicator_MIN an indicator showing that this category can be collapsed}
-<img src="{THEME_IMAGE_ROOT}/min.png" alt="" />
-{SECTION: END}
-
-{SECTION: mark_all_read}
-<div class="SmallText ar">[<a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</div>
-{SECTION: END}
-
-{SECTION: forum_icon_legend}
-<br /><fieldset>
-        <legend>{MSG: legend}</legend>
-<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
-<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
-</fieldset>
-{SECTION: END}
-
-{SECTION: welcome_message}
-<span class="GenText">{MSG: welcome_message}</span><br />
-{SECTION: END}
-
 {PAGE: INDEX_PAGE}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
-{IF: _uid}{TEMPLATE: welcome_message}{ELSE}{END}
+{IF: _uid}<span class="GenText">{MSG: welcome_message}</span><br />{ENDIF}
 {TEMPLATE: show_links}{TEMPLATE-DATA: admin_cp}
 {TEMPLATE-DATA: cat_path}
 <table cellspacing="1" cellpadding="2" class="ContentTable">
-{TEMPLATE: index_table_heading}
+<tr>
+	<th colspan=3 class="wa">{MSG: index_forum}</th>
+	<th nowrap>{MSG: posts}</th>
+	<th nowrap>{MSG: threads}</th>
+	<th nowrap>{MSG: last_post}</th>
+</tr>
 {TEMPLATE-DATA: forum_list_table_data}
 </table>
-{IF: _uid}{TEMPLATE: mark_all_read}{ELSE}{END}
+{IF: _uid}<div class="SmallText ar">[<a href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>]</div>{ENDIF}
 {IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
 {IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
-{TEMPLATE: forum_icon_legend}
+<br /><fieldset>
+<legend>{MSG: legend}</legend>
+<img src="{THEME_IMAGE_ROOT}/new_content.png" alt="{MSG: index_new_posts}" /> {MSG: index_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/existing_content.png" alt="{MSG: index_no_new_posts}" /> {MSG: index_no_new_posts}
+</fieldset>
 {TEMPLATE: curtime}
 {TEMPLATE-DATA: page_stats}
 {TEMPLATE: footer}
@@ -148,18 +112,6 @@
 
 {SECTION: index_title}
 {MSG: index_title}
-{SECTION: END}
-
-{SECTION: maximize_category}
-{MSG: maximize_category}
-{SECTION: END}
-
-{SECTION: minimize_category}
-{MSG: minimize_category}
-{SECTION: END}
-
-{SECTION: na}
-{MSG: na}
 {SECTION: END}
 
 {SECTION: last_post_lnk}

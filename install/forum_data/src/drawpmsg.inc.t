@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: drawpmsg.inc.t,v 1.41 2004/11/24 19:53:34 hackie Exp $
+* $Id: drawpmsg.inc.t,v 1.42 2005/03/16 21:12:42 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -96,10 +96,9 @@ function tmpl_drawpmsg($obj, $usr, $mini)
 			$reply_link = $quote_link = '';
 		}
 		$profile_link = '{TEMPLATE: dpmsg_profile_link}';
-		$dmsg_user_info = '{TEMPLATE: dmsg_user_info}';
 		$msg_toolbar = '{TEMPLATE: dpmsg_msg_toolbar}';
 	} else {
-		$dmsg_user_info = $dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
+		$dmsg_tags = $dmsg_im_row = $user_profile = $msg_toolbar = $buddy_link = $avatar = $online_indicator = $host_name = $location = $msg_icon = '';
 		$profile_link = '{TEMPLATE: dpmsg_profile_no_link}';
 	}
 	$msg_body = $obj->length ? read_pmsg_body($obj->foff, $obj->length) : '{TEMPLATE: dpmsg_no_msg_body}';

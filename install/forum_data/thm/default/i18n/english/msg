@@ -999,3 +999,4 @@ pmsg_pdf_btn:			Make PDF Archive
 search_results_hdr:		{VAR: total} Search Results Found
 thread_del_all:			Delete All Selected
 thread_mov_all:			Move All Selected
+dmsg_ip:			IP:

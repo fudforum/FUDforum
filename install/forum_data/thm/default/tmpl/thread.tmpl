@@ -1,7 +1,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: thread.tmpl,v 1.54 2005/03/15 21:30:15 hackie Exp $
+* $Id: thread.tmpl,v 1.55 2005/03/16 21:12:43 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -39,47 +39,8 @@
 <a href="{TEMPLATE: first_unread_msg_link_lnk}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
 {SECTION: END}
 
-{SECTION: thread_icon}
-<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />
-{SECTION: END}
-
-{SECTION: rating}
-<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />
-{SECTION: END}
-
-{SECTION: rating_none}
-{SECTION: END}
-
-{SECTION: sticky}
-<span class="StClr">{MSG: sticky}&nbsp;</span>
-{SECTION: END}
-
-{SECTION: announcement}
-<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>
-{SECTION: END}
-
-{SECTION: thread_last_post}
-<span class="DateText">{TEMPLATE: thread_last_post_date}</span>
-{SECTION: END}
-
-{SECTION: unreg_user_link}
-{GVAR: ANON_NICK}
-{SECTION: END}
-
-{SECTION: reg_user_link}
-<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>
-{SECTION: END}
-
 {SECTION: threaded_view tree view link}
 <a href="{TEMPLATE: threaded_view_lnk}"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
-{SECTION: END}
-
-{SECTION: last_msg_in_thread}
-<a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a>
-{SECTION: END}
-
-{SECTION: thread_first_post}
-<span class="DateText">{TEMPLATE: thread_first_post_date}</span>
 {SECTION: END}
 
 {SECTION: first_post_unreg_user_link if the thread stater was an anon user link}
@@ -109,11 +70,11 @@
 {SECTION: thread_row}
 <tr>
 <td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB wo ac">{IF: $r[3]}{TEMPLATE: thread_icon}{ELSE}{TEMPLATE: thread_icon_none}{END}</td>
-<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}{TEMPLATE: sticky}{ELSE}{TEMPLATE: announcement}{END}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {IF: ($FUD_OPT_2 & 4096)}{IF: $r[17]}{TEMPLATE: rating}{ELSE}{TEMPLATE: rating_none}{END}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: thread_first_post}</div>{TEMPLATE-DATA: admin_control_row}</td>
+<td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
+<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{END}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a> {IF: ($FUD_OPT_2 & 4096)}{IF: $r[17]}<img src="{THEME_IMAGE_ROOT}/{VAR: r[17]}stars.gif" alt="{VAR: r[17]}" />{ELSE}{ENDIFI}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
 <td class="RowStyleB ac">{VAR: r[16]}</td>
 <td class="RowStyleB ac">{VAR: r[19]}</td>
-<td class="RowStyleC nw">{TEMPLATE: thread_last_post}<br />{MSG: by} {IF: $r[8]}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: unreg_user_link}{END} {TEMPLATE: last_msg_in_thread}</td>
+<td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
