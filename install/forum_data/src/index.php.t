@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: index.php.t,v 1.56 2004/10/19 00:40:39 hackie Exp $
+* $Id: index.php.t,v 1.57 2004/10/19 00:44:55 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -117,6 +117,7 @@ function url_tog_collapse($id, $c)
 	$post_count = $thread_count = $last_msg_id = $cat = 0;
 	while ($r = db_rowarr($frmres)) {
 		if ($cat != $r[8]) {
+			/* if parent category is collapsed, hide child category */
 			if ($r[21] && !empty($GLOBALS['collapse'][$r[21]])) {
 				$GLOBALS['collapse'][$r[8]] = 1;
 				continue;
@@ -124,7 +125,7 @@ function url_tog_collapse($id, $c)
 
 			$r[7] = (int) $r[7];
 
-			$tabw = $r[20] ?  $r[20] * '{TEMPLATE: cat_tab}' : '0';
+			$tabw = $r[20] ? $r[20] * '{TEMPLATE: cat_tab}' : '0';
 
 			if ($r[7] & 1) {
 				if (!isset($GLOBALS['collapse'][$r[8]])) {
