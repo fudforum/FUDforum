@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: login.php.t,v 1.6 2002/09/17 01:29:06 hackie Exp $
+*   $Id: login.php.t,v 1.7 2002/09/17 01:33:31 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -141,6 +141,8 @@ function error_check()
 	
 	$login_error = login_php_get_err('login');
 	$passwd_error = login_php_get_err('password');
+	
+	$returnto = create_return();
 	
 	{POST_PAGE_PHP_CODE}
 ?>
