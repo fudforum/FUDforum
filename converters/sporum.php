@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: sporum.php,v 1.2 2004/06/08 12:53:48 hackie Exp $
+* $Id: sporum.php,v 1.3 2004/08/02 13:33:16 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -257,13 +257,17 @@ Because Sporum uses incompatible one-way password encryption scheme the password
 	$tt = array();
 	$r = bbq("SELECT p.*,a.fname FROM {$spf}Posts p LEFT JOIN {$spf}FileAttach a ON a.cid=p.cid ORDER BY p.cid");
 	while ($obj = db_rowobj($r)) {
-		if (!$obj->pid) { // new topic
-			$thread_id = $tt[$obj->cid] = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (forum_id, thread_opt) VALUES(".$ft[$obj->sid].", ".($obj->closed ? 1 : 0).")");
+		$dupe = isset($tt[$obj->cid]);
+		if (!$dupe) {
+			if (!$obj->pid) { // new topic
+				$thread_id = $tt[$obj->cid] = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."thread (forum_id, thread_opt) VALUES(".$ft[$obj->sid].", ".($obj->closed ? 1 : 0).")");
+			} else {
+				$thread_id = $tt[$obj->cid] = $tt[$obj->pid];
+			}
+			$fileid = write_body(smiley_to_post(tags_to_html($obj->bodytext, 1, 1)), $len, $off);
 		} else {
-			$thread_id = $tt[$obj->cid] = $tt[$obj->pid];
+			$thread_id = $tt[$obj->cid];
 		}
-		
-		$fileid = write_body(smiley_to_post(tags_to_html($obj->bodytext, 1, 1)), $len, $off);
 
 		if (!$obj->uid || empty($ut[$obj->uid])) {
 			$poster = 0;
@@ -271,37 +275,42 @@ Because Sporum uses incompatible one-way password encryption scheme the password
 			$poster = $ut[$obj->uid];
 		}
 
-		q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
-			(id, thread_id, poster_id, post_stamp, subject,
-			 ip_addr, foff, length, file_id, apr, reply_to
-		) VALUES (
-			".(int)$obj->cid.",
-			".$thread_id.",
-			".$poster.",
-			".strtotime($obj->date).",
-			'".addslashes($obj->subject)."',
-			'".addslashes($obj->ip)."',
-			".$off.",
-			".$len.",
-			".$fileid.",
-			".(int)$obj->approved.",
-			".(int)$obj->pid.")"
-		);
-
-		// handle subscription
-		if ($poster && $obj->emailreply) {
-			thread_notify_add($poster, $thread_id);
+		if (!$dupe) {
+			q("INSERT INTO ".$DBHOST_TBL_PREFIX."msg
+				(id, thread_id, poster_id, post_stamp, subject,
+				 ip_addr, foff, length, file_id, apr, reply_to
+			) VALUES (
+				".(int)$obj->cid.",
+				".$thread_id.",
+				".$poster.",
+				".strtotime($obj->date).",
+				'".addslashes($obj->subject)."',
+				'".addslashes($obj->ip)."',
+				".$off.",
+				".$len.",
+				".$fileid.",
+				".(int)$obj->approved.",
+				".(int)$obj->pid.")"
+			);
+			// handle subscription
+			if ($poster && $obj->emailreply) {
+				thread_notify_add($poster, $thread_id);
+			}
 		}
 
 		// handle any file attachments
 		if ($obj->fname) {
-			if (!@file_exists($config['file_path']."/".$obj->fname)) {
-				print_msg("\tWARNING: file attachment ".$config['file_path']."/".$obj->fname." doesn't exist");
+			$file_name = $config['file_path']."/".$obj->fname;
+			if (!@file_exists($file_name)) {
+				$file_name = $obj->fname;
+			}
+		
+			if (!@file_exists($file_name)) {
+				print_msg("\tWARNING: file attachment ".$file_name." doesn't exist");
 				continue;
 			}
 
 			$mime = q_singleval("SELECT id FROM ".$DBHOST_TBL_PREFIX."mime WHERE fl_ext='".substr(strrchr($obj->fname, '.'), 1)."'");
-
 			$attach_id = db_qid("INSERT INTO ".$DBHOST_TBL_PREFIX."attach 
 				(original_name, owner, message_id, dlcount, mime_type, fsize)
 				VALUES (
@@ -310,11 +319,11 @@ Because Sporum uses incompatible one-way password encryption scheme the password
 					".(int)$obj->cid.",
 					0,
 					".(int)$mime.",
-					".(int)filesize($config['file_path']."/".$obj->fname).")"
+					".(int)filesize($file_name).")"
 				);
 
-			if (!copy($config['file_path']."/".$obj->fname, $FILE_STORE.$attach_id.'.atch')) {
-				print_msg("Couldn't copy file attachment (".$config['file_path']."/".$obj->fname.") to (".$FILE_STORE.$attach_id.'.atch'.")");
+			if (!copy($file_name, $FILE_STORE.$attach_id.'.atch')) {
+				print_msg("Couldn't copy file attachment (".$file_name.") to (".$FILE_STORE.$attach_id.'.atch'.")");
 				exit;
 			}
 			q("UPDATE ".$DBHOST_TBL_PREFIX."attach SET location='".$FILE_STORE.$attach_id.'.atch'."' WHERE id=".$attach_id);		
