@@ -3,7 +3,7 @@
 *   copyright            : (c) 2001-2003 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: glob.inc,v 1.15 2003/10/07 13:19:04 hackie Exp $
+*   $Id: glob.inc,v 1.16 2003/10/07 13:46:24 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -109,12 +109,12 @@ function change_global_settings($list)
 function maintenance_status($reason, $status)
 {
 	if ($status) {
-		if ($GLOBALS['FUD_OPT_1'] & 1) {
+		if (!($GLOBALS['FUD_OPT_1'] & 1)) {
 			change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1'] ^ 1, 'DISABLED_REASON' => $reason));
 		} else {
 			change_global_settings(array('DISABLED_REASON' => $reason));
 		}
-	} else if (!($GLOBALS['FUD_OPT_1'] & 1)) {
+	} else if ($GLOBALS['FUD_OPT_1'] & 1) {
 		change_global_settings(array('FUD_OPT_1' => $GLOBALS['FUD_OPT_1']|1, 'DISABLED_REASON' => $reason));
 	}
 }
