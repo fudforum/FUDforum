@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: getfile.php.t,v 1.10 2003/06/17 14:59:04 hackie Exp $
+*   $Id: getfile.php.t,v 1.11 2003/08/05 23:36:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -60,6 +60,16 @@
 		$append = 'inline; ';
 	} else {
 		$append = 'attachment; ';
+	}
+
+	/* if we encounter a compressed file and PHP's output compression is enabled do not
+	 * try to compress that file again */
+	if ($PHP_COMPRESSION_ENABLE == 'Y') {
+		$comp_ext = array('zip', 'gz', 'rar', 'tgz', 'bz2', 'tar');
+		$ext = strtolower(substr(strrchr($r[1], '.'), 1));
+		if (!in_array($ext, $comp_ext)) {
+			ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
+		}
 	}
 
 	header('Content-type: '.$r[0]);

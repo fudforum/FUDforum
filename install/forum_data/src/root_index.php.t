@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: root_index.php.t,v 1.27 2003/06/11 13:03:21 hackie Exp $
+*   $Id: root_index.php.t,v 1.28 2003/08/05 23:36:59 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -16,10 +16,6 @@
 ***************************************************************************/
 
 	require('./GLOBALS.php');
-
-	if ($PHP_COMPRESSION_ENABLE == 'Y') {
-		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
-	}
 	
 /*{PRE_HTML_PHP}*/
 /*{POST_HTML_PHP}*/
@@ -43,6 +39,10 @@
 		$t = $_POST['t'];
 	} else {
 		$t = 'index';
+	}
+
+	if ($PHP_COMPRESSION_ENABLE == 'Y' && $t != 'getfile') {
+		ob_start(array('ob_gzhandler', (int)$PHP_COMPRESSION_LEVEL));
 	}
 
 	if ($t == 'rview') {
