@@ -2,7 +2,7 @@
 /**
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: compiler.inc,v 1.74 2004/12/08 15:49:02 hackie Exp $
+* $Id: compiler.inc,v 1.75 2005/02/27 01:45:33 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -332,6 +332,35 @@ function compile_file($source)
 				$ref = str_replace(array(".'.$", ".'", "'."), array('.<?php echo $', '; ?>', '<?php echo '), $ref);
 			} else {
 				$ref = $new . str_replace(array(".'.$", ".'", "'."), array('.<?php echo $', '; ?>', '<?php echo '), substr($ref, $end));
+			}
+
+			$end = $pos = 0;
+			// special handling for php init tags that end up being embeded
+			while (($pos = strpos($ref, '<?php ', $pos)) !== false) {
+				$new_loc = $pos + 5;
+				$cnt = 0;
+			
+				/* find next PHP tag */
+				if (($new_loc = strpos($ref, '<?php ', $new_loc)) === false) {
+					break;
+				}
+
+				/* find end tag */
+				if (($loc2 = strpos($ref, ' ?>', $pos)) === false) {
+					break;
+				}
+
+				if ($loc2 > $new_loc) {
+					$ref = substr_replace($ref,
+						str_replace(
+							array('<?php echo', '<?php ', '; ?>'), 
+							array("'.","'.",".'"),
+							substr($ref, $new_loc, $loc2 + 3 - $new_loc + 1)
+						), 
+						$new_loc, $loc2 + 3 - $new_loc + 1);
+				} else {
+					$pos = $new_loc;
+				}
 			}
 		}
 		$ret .= $ref;
