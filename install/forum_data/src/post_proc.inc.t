@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2004 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: post_proc.inc.t,v 1.57 2004/03/20 21:03:42 hackie Exp $
+* $Id: post_proc.inc.t,v 1.58 2004/03/31 16:55:18 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
 * under the terms of the GNU General Public License as published by the
@@ -420,7 +420,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				break;
 			}
 		}
-		if ($ostr[$i]=='<') {
+		if ($i < 0 || $ostr[$i]=='<') {
 			++$pos;
 			continue;
 		}
