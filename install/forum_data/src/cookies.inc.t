@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: cookies.inc.t,v 1.10 2002/09/25 02:20:14 hackie Exp $
+*   $Id: cookies.inc.t,v 1.11 2002/12/13 16:31:04 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -170,6 +170,6 @@ function set_referer_cookie($id)
 
 function clear_old_sessions()
 {
-	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<".($tm_sample-$GLOBALS['COOKIE_TIMEOUT'])." OR (time_sec<".(__request_timestamp__-$GLOBALS['SESSION_TIMEOUT'])." AND sys_id!=0)");
+	q("DELETE FROM {SQL_TABLE_PREFIX}ses WHERE time_sec<".(__request_timestamp__-$GLOBALS['COOKIE_TIMEOUT'])." OR (time_sec<".(__request_timestamp__-$GLOBALS['SESSION_TIMEOUT'])." AND sys_id!=0)");
 }
 ?>
