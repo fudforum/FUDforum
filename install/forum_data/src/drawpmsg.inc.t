@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawpmsg.inc.t,v 1.17 2003/04/21 14:14:39 hackie Exp $
+*   $Id: drawpmsg.inc.t,v 1.18 2003/05/15 18:53:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -50,7 +50,7 @@ function tmpl_drawpmsg(&$obj, &$usr, $mini)
 			$location = '{TEMPLATE: dpmsg_no_location}';
 		}
 		$msg_icon = !$obj->icon ? '{TEMPLATE: dpmsg_no_msg_icon}' : '{TEMPLATE: dpmsg_msg_icon}';
-		$custom_tag = !$obj->custom_status ? '{TEMPLATE: dpmsg_no_custom_tags}' : '{TEMPLATE: dpmsg_custom_tags}';
+		$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
 		$usr->buddy_list = @unserialize($usr->buddy_list);
 		if ($obj->user_id != _uid && $obj->user_id > 0) {
 			$buddy_link = !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dpmsg_buddy_link}' : '{TEMPLATE: dpmsg_buddy_link_remove}';

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: usrinfo.php.t,v 1.15 2003/05/14 06:46:00 hackie Exp $
+*   $Id: usrinfo.php.t,v 1.16 2003/05/15 18:53:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -41,7 +41,7 @@ function convert_bdate($val, $month_fmt)
 		$level_name = $level_image = '';
 	}
 
-	$custom_tags = $u->custom_status ? '{TEMPLATE: no_custom_tags}' : '{TEMPLATE: custom_tags}';
+	$custom_tags = $u->custom_status ? '{TEMPLATE: custom_tags}' : '{TEMPLATE: no_custom_tags}';
 
 	if ($usr->is_mod != 'A') {
 		$frm_perms = get_all_read_perms(_uid);

@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: drawmsg.inc.t,v 1.46 2003/05/13 14:33:27 hackie Exp $
+*   $Id: drawmsg.inc.t,v 1.47 2003/05/15 18:53:42 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -189,7 +189,7 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 			} else {
 				$location = '{TEMPLATE: dmsg_no_location}';
 			}
-			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_no_custom_tags}' : '{TEMPLATE: dmsg_custom_tags}';
+			$custom_tag = $obj->custom_status ? '{TEMPLATE: dmsg_custom_tags}' : '{TEMPLATE: dmsg_no_custom_tags}';
 
 			if (_uid && _uid != $obj->user_id) {
 				$buddy_link	= !isset($usr->buddy_list[$obj->user_id]) ? '{TEMPLATE: dmsg_buddy_link_add}' : '{TEMPLATE: dmsg_buddy_link_remove}';
