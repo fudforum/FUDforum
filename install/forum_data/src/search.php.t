@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: search.php.t,v 1.10 2002/08/05 00:47:55 hackie Exp $
+*   $Id: search.php.t,v 1.11 2002/08/23 03:25:05 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -15,7 +15,6 @@
 *
 ***************************************************************************/
 
-	include_once "GLOBALS.php";
 	{PRE_HTML_PHP}
 
 	if( $GLOBALS['FORUM_SEARCH'] != 'Y' ) std_error('disabled');
