@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: msg.tmpl,v 1.2 2003/05/29 21:43:28 hackie Exp $
+*   $Id: msg.tmpl,v 1.3 2003/05/30 12:34:33 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -141,7 +141,7 @@
 </table>
 {TEMPLATE-DATA: rate_thread}
 {TEMPLATE-DATA: forum_select}
-<div align="right"><font class="SmallText">[ <a href="{GVAR: WWW_ROOT}pdf.php/p/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ] [ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]</font></div>
+<div align="right"><font class="SmallText">[ <a href="{GVAR: WWW_ROOT}pdf.php/p/th/{VAR: _GET['th']}/{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ] [ <a href="{ROOT}/h/boardusage/{DEF: _rsid}#syndicate">{MSG: thread_syndicate}</a> ]</font></div>
 <div align="center">-=] <a href="#page_top">{MSG: back_to_top}</a> [=-</div>
 {TEMPLATE-DATA: msg_page_focus}
 {TEMPLATE: curtime}
