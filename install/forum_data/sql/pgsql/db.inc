@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: db.inc,v 1.13 2003/01/09 15:05:04 hackie Exp $
+*   $Id: db.inc,v 1.14 2003/05/03 20:24:40 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -32,6 +32,7 @@ if ( !defined('_db_connection_ok_') ) {
 		or die (fud_sql_error_handler("Initiating $connect_func", pg_last_error($GLOBALS['__DB_INC__']['SQL_LINK']), '', "Unknown"));
 	define('_db_connection_ok_', 1); 
 	define('__dbtype__', 'pgsql');
+	define('__FUD_SQL_CONCAT__', 'textcat');
 }
 
 function yn($val) 

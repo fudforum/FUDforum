@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_group_cache.tbl,v 1.3 2002/06/26 23:35:05 hackie Exp $
+#   $Id: fud_group_cache.tbl,v 1.4 2003/05/03 20:24:40 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,7 +13,6 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_cache
 (
 	id		SERIAL PRIMARY KEY,
 	user_id		INT NOT NULL,
-	resource_type	VARCHAR(32) NOT NULL,
 	resource_id	INT NOT NULL,
 	group_id	INT NOT NULL,
 	
@@ -51,8 +50,5 @@ CREATE TABLE {SQL_TABLE_PREFIX}group_cache
 	CONSTRAINT	p_IMG_cnt CHECK (p_IMG='Y' OR p_IMG='N')
 );
 
-CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}gci_user_id_resource_type_resource_id ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, resource_id);
-CREATE INDEX {SQL_TABLE_PREFIX}gci_uid_group_id ON {SQL_TABLE_PREFIX}group_cache (user_id, group_id);
-CREATE INDEX {SQL_TABLE_PREFIX}gci_uid_rt_p_READ_p_VISIBLE ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, p_READ, p_VISIBLE);
-CREATE INDEX {SQL_TABLE_PREFIX}gci_uid_rt_p_VISIBLE ON {SQL_TABLE_PREFIX}group_cache (user_id, resource_type, p_VISIBLE);
+CREATE INDEX {SQL_TABLE_PREFIX}resource_id_user_id ON {SQL_TABLE_PREFIX}group_cache (resource_id, user_id);
 CREATE INDEX {SQL_TABLE_PREFIX}gci_group_id ON {SQL_TABLE_PREFIX}group_cache (group_id);

@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_users.tbl,v 1.15 2003/03/05 13:46:36 hackie Exp $
+#   $Id: fud_users.tbl,v 1.16 2003/05/03 20:24:40 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	pm_messages		VARCHAR(1) NOT NULL DEFAULT 'Y',
 	CONSTRAINT		pm_messages_cnt CHECK (pm_messages='Y' OR pm_messages='N'),
 	avatar			INT NOT NULL DEFAULT 0,
-	avatar_loc		VARCHAR(255),
+	avatar_loc		TEXT,
 	avatar_approved		VARCHAR(2) NOT NULL DEFAULT 'NO',
 	CONSTRAINT		avatar_approved_cnt CHECK (avatar_approved='Y' OR avatar_approved='N' OR avatar_approved='NO'),
 	
@@ -93,7 +93,10 @@ CREATE TABLE {SQL_TABLE_PREFIX}users
 	cat_collapse_status	TEXT,
 	acc_status		VARCHAR(1) NOT NULL DEFAULT 'A',
 	CONSTRAINT		acc_status_cnt CHECK (acc_status='A' OR acc_status='P'),
-	custom_color		VARCHAR(255) DEFAULT NULL
+	custom_color		VARCHAR(255) DEFAULT NULL,
+	buddy_list		TEXT,
+	ignore_list		TEXT,
+	group_leader_list	TEXT
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}users_index_login ON {SQL_TABLE_PREFIX}users (login);

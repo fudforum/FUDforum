@@ -1,7 +1,7 @@
 #   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 #   email                : forum@prohost.org
 #
-#   $Id: fud_poll_opt_track.tbl,v 1.2 2002/06/26 22:54:43 hackie Exp $
+#   $Id: fud_poll_opt_track.tbl,v 1.3 2003/05/03 20:24:40 hackie Exp $
 #
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License as published by
@@ -13,7 +13,8 @@ CREATE TABLE {SQL_TABLE_PREFIX}poll_opt_track
 (
 	id		SERIAL PRIMARY KEY,
 	poll_id		INT NOT NULL,
-	user_id		INT NOT NULL
+	user_id		INT NOT NULL,
+	poll_opt        INT NOT NULL
 );
 
 CREATE UNIQUE INDEX {SQL_TABLE_PREFIX}poll_opt_track_index_poll_id_user_id ON {SQL_TABLE_PREFIX}poll_opt_track (poll_id, user_id);
