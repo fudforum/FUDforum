@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: thread_view_common.tmpl,v 1.9 2003/10/09 21:08:03 hackie Exp $
+*   $Id: thread_view_common.tmpl,v 1.10 2003/10/09 22:16:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -92,4 +92,16 @@
 
 {SECTION: thread_merge_t}
 &nbsp;<a href="{ROOT}?t=merge_th&amp;frm={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink">{MSG: merge_topics}</a>
+{SECTION: END}
+
+{SECTION: thread_legend}
+<br />
+<div class="RowStyleB"><font class="SmallText">
+<b>{MSG: legend}</b><br />
+<img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" /> {MSG: new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/read.gif" alt="{MSG: no_new_posts}" /> {MSG: no_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" alt="{MSG: locked_with_new_posts}" /> {MSG: locked_with_new_posts}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/readlocked.gif" alt="{MSG: locked}" /> {MSG: locked}&nbsp;&nbsp;
+<img src="{THEME_IMAGE_ROOT}/moved.gif" alt="{MSG: moved}" /> {MSG: moved}
+</font></div>
 {SECTION: END}

@@ -1,7 +1,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: threadt.tmpl,v 1.15 2003/10/09 21:08:03 hackie Exp $
+* $Id: threadt.tmpl,v 1.16 2003/10/09 22:16:58 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -23,48 +23,6 @@
 {REF: show.tmpl}
 {REF: forum_notify.tmpl}
 {REF: thread_view_common.tmpl}
-
-{SECTION: thread_legend}
-<br />
-<table border="0" cellspacing="1" cellpadding="2" class="ContentTable">
-	<tr><td class="RowStyleB"><font class="SmallText"><b>{MSG: legend}</b></font><br /></td></tr>
-	<tr><td align=left class="RowStyleB">
-		<table border=0 cellspacing=0 cellpadding=0 align=left>
-			<tr>
-				<td>
-				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unread.gif" alt="{MSG: new_posts}" /></td><td class="SmallText">{MSG: new_posts}</td></tr>
-				</table>
-				</td>
-				
-				<td>
-				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/read.gif" alt="{MSG: no_new_posts}" /></td><td class="SmallText">{MSG: no_new_posts}</td></tr>
-				</table>
-				</td>
-				
-				<td>
-				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/unreadlocked.gif" alt="{MSG: locked_with_new_posts}" /></td><td class="SmallText">{MSG: locked_with_new_posts}</td></tr>
-				</table>
-				</td>
-				
-				<td>
-				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/readlocked.gif" alt="{MSG: locked}" /></td><td class="SmallText">{MSG: locked}</td></tr>
-				</table>
-				</td>
-				
-				<td>
-				<table border=0 cellspacing=0 cellpadding=2>
-					<tr><td><img src="{THEME_IMAGE_ROOT}/moved.gif" alt="{MSG: moved}" /></td><td class="SmallText">{MSG: moved}</td></tr>
-				</table>
-				</td>
-			</tr>
-		</table>
-	</td></tr>
-</table>	
-{SECTION: END}
 
 {SECTION: flat_view switch to flat view link}
 <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}" class="GenLink"><img alt="{MSG: flat_view}" title="{MSG: flat_view}" src="{THEME_IMAGE_ROOT}/flat_view.gif" /></a>
@@ -113,7 +71,7 @@
 {SECTION: END}
 
 {SECTION: thread_list}
-<table width="100%" border="0" cellspacing="0" cellpadding="2" style="border-width: 0px 0px 1px 0px; border-color: white; border-style: solid;">
+<table width="100%" border="0" cellspacing="0" cellpadding="2" style="border-width: 0px 0px 1px 0px; border-color: white; border-style: solid; margin-top: 2px; margin-bottom: 2px;">
 <tr>
 	<th>&nbsp;</th>
 	<th>&nbsp;</th>
@@ -139,12 +97,12 @@
 {PAGE: THREAD_PAGE shows the threads in a particular forum}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
+{TEMPLATE-DATA: admin_cp}
 <table width="100%" border=0 cellspacing=0 cellpadding=0><tr>
-<td valign="bottom" align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}{TEMPLATE-DATA: admin_cp}</td>
+<td align="left" width="100%">{TEMPLATE: forum_path}<br />{TEMPLATE: show_links}<br />{TEMPLATE-DATA: subscribe}{TEMPLATE-DATA: merget}</td>
 <td valign="bottom" align="right" class="GenText">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
-</tr></table><img src="blank.gif" alt="" height=2 />
+</tr></table>
 {TEMPLATE: thread_list}
-<img src="blank.gif" alt="" width=1 height=2 /><br />
 <table border=0 cellspacing=0 cellpadding=0 width="100%">
 <tr>
 <td valign="top">{TEMPLATE-DATA: page_pager}&nbsp;</td>
