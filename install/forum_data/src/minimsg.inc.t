@@ -3,7 +3,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: minimsg.inc.t,v 1.8 2002/08/08 15:09:17 hackie Exp $
+*   $Id: minimsg.inc.t,v 1.9 2002/08/08 16:06:18 hackie Exp $
 ****************************************************************************
           
 ****************************************************************************
@@ -21,13 +21,13 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	$count = !empty($usr->posts_ppg) ? $usr->posts_ppg : $GLOBALS['POSTS_PER_PAGE'];
 
 	if ( empty($start) || !is_numeric($start) ) $start = 0;
-	if ( $minimsg_pager_switch ) $start = $minimsg_pager_switch;
+	if ( is_numeric($minimsg_pager_switch) ) $start = $minimsg_pager_switch;
 	
 	/* get total */
-	if ( !isset($total) ) $total = q_singleval("SELECT replies FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th);
+	if ( !isset($total) ) $total = q_singleval("SELECT replies FROM {SQL_TABLE_PREFIX}thread WHERE id=".$th) + 1;
 
-	if( $reply_to && !$minimsg_pager_switch ) {
-		$start = ($total + 1 - intzero(q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND approved='Y' AND id>=".$reply_to)));
+	if( $reply_to && !isset($minimsg_pager_switch) ) {
+		$start = ($total - intzero(q_singleval("SELECT count(*) FROM {SQL_TABLE_PREFIX}msg WHERE thread_id=".$th." AND approved='Y' AND id>=".$reply_to)));
 		$msg_order_by = 'ASC';
 	}
 	else	
@@ -74,7 +74,7 @@ if ( !empty($th) && empty($GLOBALS['MINIMSG_OPT']['DISABLED']) ) {
 	
 		un_register_fps();
 	
-		$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, true);
+		$minimsg_pager = tmpl_create_pager($start, $count, $total, "javascript: document.post_form.minimsg_pager_switch.value='%s'; document.post_form.submit();", null, false, false);
 		$minimsg = '{TEMPLATE: minimsg_form}';
 		
 		unset($GLOBALS['DRAWMSG_OPTS']['NO_MSG_CONTROLS']);
