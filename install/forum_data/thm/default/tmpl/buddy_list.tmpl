@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: buddy_list.tmpl,v 1.10 2003/04/02 16:17:19 hackie Exp $
+*   $Id: buddy_list.tmpl,v 1.11 2003/04/15 18:41:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -48,7 +48,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: r[2]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a>
+<a href="{ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink">{VAR: r[2]}</a>
 {SECTION: END}
 
 {SECTION: buddy buddy row entry}

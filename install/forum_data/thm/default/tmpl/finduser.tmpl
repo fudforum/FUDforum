@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: finduser.tmpl,v 1.12 2003/04/14 19:37:46 hackie Exp $
+*   $Id: finduser.tmpl,v 1.13 2003/04/15 18:41:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -77,8 +77,9 @@
 {SECTION: END}
 
 {SECTION: email_link}
-<a href="{ROOT}?t=email&amp;tx_name={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
+<a href="{ROOT}?t=email&amp;toi={VAR: r->id}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" alt="" border=0 /></a>
 {SECTION: END}
+
 {SECTION: finduser_title}
 {MSG: finduser_title}
 {SECTION: END}

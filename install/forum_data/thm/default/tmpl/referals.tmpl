@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: referals.tmpl,v 1.6 2003/04/02 17:11:07 hackie Exp $
+*   $Id: referals.tmpl,v 1.7 2003/04/15 18:41:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -34,7 +34,7 @@
 {SECTION: END}
 
 {SECTION: email_link}
-&nbsp;<a href="{ROOT}?t=email&amp;tx_name={VAR-URL: r[0]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
+&nbsp;<a href="{ROOT}?t=email&amp;toi={VAR: r[1]}&amp;{DEF: _rsid}" class="GenLink"><img src="{THEME_IMAGE_ROOT}/msg_email.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: refered_entry info about a single referred user}

@@ -2,7 +2,7 @@
 *   copyright            : (C) 2001,2002 Advanced Internet Designs Inc.
 *   email                : forum@prohost.org
 *
-*   $Id: tree.tmpl,v 1.18 2003/04/09 09:03:25 hackie Exp $
+*   $Id: tree.tmpl,v 1.19 2003/04/15 18:41:58 hackie Exp $
 ****************************************************************************
 
 ****************************************************************************
@@ -43,11 +43,11 @@
 {SECTION: END}
 
 {SECTION: msg_forum_path forum location forum>thread>}
-<font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: cat->name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR-HTML: frm->name}</a> &raquo; <b>{VAR: thread->subject}</b></font>
+<font class="GenText"><a class="GenLink" name="page_top" href="{ROOT}?t=index&amp;{DEF: _rsid}">{VAR: frm->cat_name}</a> &raquo; <a href="{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}">{VAR-HTML: frm->frm_name}</a> &raquo; <b>{VAR: frm->subject}</b></font>
 {SECTION: END}
 
 {SECTION: thread_rating}
-&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: thread->rating}stars.gif" alt="{VAR: thread->rating}" border=0 />) {MSG: vote}
+&nbsp;(<img src="{THEME_IMAGE_ROOT}/{VAR: frm->rating}stars.gif" alt="{VAR: frm->rating}" border=0 />) {MSG: vote}
 {SECTION: END}
 
 {SECTION: no_thread_rating}
@@ -58,15 +58,15 @@
 {SECTION: END}
 
 {SECTION: mod_lock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1&amp;{VAR: returnto}">{MSG: lock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;lock=1">{MSG: lock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: mod_unlock_thread}
-<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;unlock=1&amp;{VAR: returnto}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
+<a class="GenLink" href="{ROOT}?t=mmod&amp;{DEF: _rsid}&amp;th={VAR: th}&amp;unlock=1">{MSG: unlock_thread}</a>&nbsp;|&nbsp;
 {SECTION: END}
 
 {SECTION: email_page_to_friend}
-<a class="GenLink" href="{ROOT}?t=remail&amp;th={VAR: th}&amp;{DEF: _rsid}&amp;{VAR: returnto}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
+<a class="GenLink" href="{ROOT}?t=remail&amp;th={VAR: th}&amp;{DEF: _rsid}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
@@ -82,11 +82,11 @@
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a class="GenLink" href="{ROOT}?t=post&amp;{VAR: returnto}&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
+<a class="GenLink" href="{ROOT}?t=post&amp;frm_id={VAR: frm->forum_id}&amp;{DEF: _rsid}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: th}&amp;reply_to={VAR: thread->root_msg_id}&amp;{DEF: _rsid}&amp;start={VAR: start}&amp;{VAR: returnto}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0 /></a>
+&nbsp;<a class="GenLink" href="{ROOT}?t=post&amp;th_id={VAR: th}&amp;reply_to={VAR: mid}&amp;{DEF: _rsid}"><img alt="{MSG: submit_reply}" src="{THEME_IMAGE_ROOT}/post_reply.gif" border=0 /></a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
@@ -100,8 +100,7 @@
 <option value="5">5 {MSG: rate_best}</option>
 </select>
 </td><td>&nbsp;<input type="submit" class="button" name="btn_vote" value="{MSG: vote_for_thread}">
-<input type="hidden" name="returnto" value="{VAR: returnto_dec}">{DEF: _hs}
-<input type="hidden" name="rate_thread_id" value="{VAR: thread->id}">
+<input type="hidden" name="rate_thread_id" value="{VAR: frm->id}">
 </td></form></tr></table>
 {SECTION: END}
 
@@ -110,7 +109,7 @@
 {SECTION: END}
 
 {SECTION: reg_user_link}
-<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}">{VAR: cur->login}</a>
+<a class="GenLink" href="{ROOT}?t=usrinfo&amp;id={VAR: cur->poster_id}&amp;{DEF: _rsid}">{VAR: cur->alias}</a>
 {SECTION: END}
 
 {SECTION: anon_user}
