@@ -2,7 +2,7 @@
 /***************************************************************************
 * copyright            : (C) 2001-2003 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
-* $Id: consist.php,v 1.70 2003/11/26 13:26:45 hackie Exp $
+* $Id: consist.php,v 1.71 2003/11/26 16:22:36 hackie Exp $
 *
 * This program is free software; you can redistribute it and/or modify it 
 * under the terms of the GNU General Public License as published by the 
@@ -439,12 +439,16 @@ forum will be disabled.<br><br>
 	q('UPDATE '.$tbl.'users SET level_id=0, posted_msg_count=0, u_last_post_id=0, custom_status=NULL');
 	if (__dbtype__ == 'mysql') {
 		q('INSERT INTO '.$tbl.'tmp_consist (ps, p, c) SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
-		$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.apr=1 AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
-		while ($r = db_rowarr($c)) {
-			if (!$r[1]) { continue; }
-			q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].' WHERE id='.$r[0]);
+		if (version_compare("4.0.4", q_singleval("SELECT VERSION()")) > 0) {
+			q("UPDATE ".$tbl."users u, ".$tbl."tmp_consist, ".$tbl."msg m SET u.u_last_post_id=m.id, u.posted_msg_count=".$tbl."tmp_consist.c WHERE u.id=m.poster_id AND m.poster_id=".$tbl."tmp_consist.p AND m.post_stamp=".$tbl."tmp_consist.ps AND m.apr=1");
+		} else {
+			$c = q('SELECT '.$tbl.'tmp_consist.p, '.$tbl.'tmp_consist.c, m.id FROM '.$tbl.'tmp_consist INNER JOIN '.$tbl.'msg m ON m.apr=1 AND m.poster_id='.$tbl.'tmp_consist.p AND m.post_stamp='.$tbl.'tmp_consist.ps');
+			while ($r = db_rowarr($c)) {
+				if (!$r[1]) { continue; }
+				q('UPDATE '.$tbl.'users SET u_last_post_id='.$r[2].', posted_msg_count='.$r[1].' WHERE id='.$r[0]);
+			}
+			unset($c);
 		}
-		unset($c);
 	} else {
 		$c = q('SELECT MAX(post_stamp), poster_id, count(*) FROM '.$tbl.'msg WHERE apr=1 GROUP BY poster_id ORDER BY poster_id');
 		while (list($ps, $uid, $cnt) = db_rowarr($c)) {
